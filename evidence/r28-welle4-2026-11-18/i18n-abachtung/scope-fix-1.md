@@ -186,6 +186,19 @@ exactly one rerun) and observe to TERMINAL.
 
     (rerun outcome recorded in the final END section)
 
+    RERUN RESULT: ONE authorized rerun of failed job 135167596403 in run
+    44407750981, same head d0351baf5def60d7ceaa40008d8553c809503310.
+    Final state: run 44407750981 = COMPLETED / SUCCESS (attempt 2). The
+    previously failing shard "PR · Selected Core-less · docker / PR selected ·
+    integration/docker/coreless-lifecycle · application" now
+    completed/success. PR · Public Contracts remains SKIPPED in the PR context
+    (structural, pr_plan public_contracts_required=false) — acceptance for it
+    is the local witness-3 on final SHA in follow-up-1.md.
+    Post-rerun reality witnesses: gh pr view 1663 headRefOid
+    d0351baf5def60d7ceaa40008d8553c809503310 mergeable=MERGEABLE; ls-remote
+    lane-0428-093-i18n-abachtung = d0351baf5 (PR head unchanged through the
+    rerun, no new commit).
+
 ## Checks (local, this worktree, go1.26.8)
 
     go build ./...            # rc=0
@@ -281,6 +294,18 @@ Old runs, per coord orders, no longer count as acceptance basis:
     mergeable after push: CONFLICTING -> MERGEABLE (mergeStateStatus BLOCKED = review gate, not content)
     outcome: PENDING — recorded with literal conclusion in the final END section before END post
 
+## Final state (2026-11-19)
+
+- Step 6/9 outcome, literal: run 44407750981 (workflow "CI · Source & Quality")
+  on head d0351baf5def60d7ceaa40008d8553c809503310: attempt 1 completed with
+  conclusion failure (job 135167596403 docker coreless application shard —
+  triaged pre-existing race, see section above); attempt 2 after ONE
+  coord-authorized rerun of that job: **COMPLETED / SUCCESS**, head unchanged.
+- Step 9b: public-contracts local witness on FINAL SHA d0351baf5: PASS
+  (follow-up-1.md witness-3).
+- Old run 44404028009 (cb3777dce, completed/success) counts as history only,
+  per coord orders.
+
 ## repo-rule compliance
 
 - GRENZEN honored: no `.github/**` change, no merge, no force, no amend over
@@ -335,6 +360,22 @@ Witnessed consequences and disposition:
   chain suffice).
 
 ## END
+
+STATE (2026-11-19): candidate d0351baf5def60d7ceaa40008d8553c809503310 on
+lane-0428-093-i18n-abachtung (PR #1663, MERGEABLE), exact-head run 44407750981
+attempt 2 = completed/success (after ONE authorized rerun of failed job
+135167596403 — pre-existing ownership/consent race per hunt-916 akte + the
+PlanID-inertness proof above, not 093 content). PR · Public Contracts is
+skipped in this PR context (structural); acceptance witness = local
+public-contracts gate on the FINAL SHA d0351baf5, PASS
+(follow-up-1.md witness-3, 197/6/8 tests, rc=0, pristine tree pre/post).
+
+END_DONE mission-093-scope-fix.md: docs/** scope-reset + base merge of
+develop 8dccd4fe1 with conflict resolution per coord These (catalog accessors
+develop-side; the 15-site Attention marker/schema/golden/assertions kept;
+consent stage counts + destructive gate untouched); candidate
+d0351baf5def60d7ceaa40008d8553c809503310, run 44407750981 completed/success,
+public-contracts local witness PASS on final SHA, akte consistent.
 
 RETRACTION (2026-11-18 ~21:47Z, coord Widerspruch-Befehl): the END_DONE line
 below was premature and is retracted. It claimed "observed to terminal" while

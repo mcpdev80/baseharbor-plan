@@ -119,6 +119,25 @@ pr_public_contracts (ci.yml:1279-1309, read-only), no containers (static gate).
 RESULT: local public-contracts gate PASS on exactly d0351baf5 (211 named tests,
 0 skipped, 0 failed; candidate/demo SHAs exact).
 
+Note on witness integrity: the earlier 00:33Z witness-3 entry ran in a
+worktree carrying one self-generated untracked file (the stray `baha` binary
+from an aborted command; verify_candidate_source only inspects tracked files,
+so the run was valid). After the final SUCCESS the gate was RE-EXECUTED with
+the binary removed, on a 100% pristine d0351baf5 checkout — the accepted
+transcript is that rerun (rc=0, same 197/6/8 results, pre/post
+verify_candidate_source passed with 0-dirty tree):
+
+    $ cd /var/tmp/mission-093-pc-final && git status --porcelain | wc -l   # 0
+    $ python3 scripts/pre-release-integration.py --gate integration/static/public-contracts \
+        --candidate d0351baf5def60d7ceaa40008d8553c809503310 \
+        --demo f23b6e09be34601ba542a3087e19b80764a4165d \
+        --tag v0.4.26 --output /var/tmp/pc-out-accept
+    Passed 197 checks: go test -race -count=1 -json ./contracts/... ./internal/machine ./internal/machinereadmodels
+    Passed 6 checks: go test -race -count=1 -json ./cmd/baha -run ^TestExternalProviderRemoval
+    Passed 8 checks: go test -race -count=1 -json ./internal/application -run ^TestExternalRemoval
+    rc=0
+
+
 ## Cleanliness census
 
 - Before: no lane containers/volumes. After: `docker ps` / `docker volume ls`
