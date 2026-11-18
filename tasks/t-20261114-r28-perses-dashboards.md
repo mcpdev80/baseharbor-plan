@@ -75,3 +75,6 @@ Record exact candidate SHA and focused tests by name. Route every changed test t
 Prerequisites are encoded in `depends_on`. One worker per card/branch/PR, no concurrent writes to shared files. Codex/Owner-delegated Maintainer reviews and merges only after real checks; no independent-review claim. Archive Console/Node Connector repos are excluded. No implementation or release has occurred.
 
 Supersedes [t-20261113-r28-grafana-dashboards](t-20261113-r28-grafana-dashboards.md) under the [Owner decision](../decisions/2026-11-14-perses-replaces-grafana-v0428.md).
+
+## Owner decision — 2026-11-18 (takeover)
+Proceed directly after the 083-ready decision: once 083+080 are in develop, rebase #1665 onto active develop, prove Security/Authorization and exact-head checks, independent review; continue only on green + acceptance evidence. No release-gate shortening.
