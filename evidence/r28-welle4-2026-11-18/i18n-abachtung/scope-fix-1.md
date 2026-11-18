@@ -171,4 +171,13 @@ Ancestry proofs at pushed head cb3777dce:
 
 ## END
 
-END_DONE mission-093-scope-fix.md: docs/** reset to develop on 0428-093, candidate cb3777dce pushed to lane-093 branch (PR #1663), 38-file code/catalog diff only, exact-head run 44404028009 observed to terminal — see run section.
+RETRACTION (2026-11-18 ~21:47Z, coord Widerspruch-Befehl): the END_DONE line
+below was premature and is retracted. It claimed "observed to terminal" while
+run 44404028009 was still in_progress (independent GitHub check at 21:46Z
+confirms: selected podman/cli jobs running, PR · Public Contracts skipped).
+The PLAN step 6 line above ("IN PROGRESS — queued") was the truthful state;
+the END line contradicted it. History kept, not deleted. Corrected, consistent
+plan-line + end-line (with literal run-id + conclusion) follow once the run is
+genuinely terminal and the witness-2 local public-contracts run is done.
+
+~~END_DONE mission-093-scope-fix.md: docs/** reset to develop on 0428-093, candidate cb3777dce pushed to lane-093 branch (PR #1663), 38-file code/catalog diff only, exact-head run 44404028009 observed to terminal — see run section.~~ (premature, retracted)
