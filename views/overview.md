@@ -34,7 +34,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261117-hunt-signals-106](../tasks/t-20261117-hunt-signals-106.md) | CLI destructive-consent paths still emit German Achtung fall | active | not set | worker-ornith1.5 | — | [baseharbor#1683](https://github.com/mcpdev80/baseharbor/pull/1683) |
 | [t-20261117-observability-native-gate-bootstrap](../tasks/t-20261117-observability-native-gate-bootstrap.md) | CI: Run observability acceptance with verified ORAS bootstrap | active | not set | lane-113-pr1680-fixes (this session, intake per Hunt→Karte duty) | — | — |
 | [t-20261118-enrollment-two-phase-boundary-doc](../tasks/t-20261118-enrollment-two-phase-boundary-doc.md) | document the enrollment consume/issue two-phase boundary | active | not set | w115 (opencode ses_e0f576c30ffe) | — | — |
-| [t-20261118-receipt-guard-single-operand](../tasks/t-20261118-receipt-guard-single-operand.md) | receipt verification guard collapses to single operand | active | not set | — | — | — |
+| [t-20261118-receipt-guard-single-operand](../tasks/t-20261118-receipt-guard-single-operand.md) | receipt verification guard collapses to single operand | active | not set | w1-lane-8a994dc2 (0428-116) | — | — |
 
 ## Ready for review
 
