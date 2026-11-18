@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: "lane-113-pr1680-fixes (this session, intake per Hunt→Karte duty)"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Make the existing observability runtime acceptance runnable and selectable for application observability changes, so the Loki…"
 kanban_title: 0428-114 · Run observability Accept with
 priority: ""
@@ -23,18 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261117-observability-native-gate-bootstrap · CI: Run observability acceptance with verified ORAS bootstrap #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261117-observability-native-gate-bootstrap · CI: Run observability acceptance with verified ORAS bootstrap #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** lane-113-pr1680-fixes (this session, intake per Hunt→Karte duty)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261117-docker-loki-ingestion-timeout](t-20261117-docker-loki-ingestion-timeout.md)  
-**Owner:** unassigned  
+**Owner:** lane-113-pr1680-fixes (this session, intake per Hunt→Karte duty)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

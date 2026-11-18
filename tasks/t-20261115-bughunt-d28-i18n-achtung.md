@@ -71,3 +71,10 @@ BF-04 (ux/i18n): German "Achtung" hint appears in English output and inside the 
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+
+## Acceptance criteria (coord, 2026-11-18 nach独立-check)
+- exact-head required run on final head SUCCESS (no old-head citation)
+- patch scope: label-abachtung corrections only (~15 sites), NO consent-logic change
+- evidence akte records run-ID, patch digest, and repo-rule compliance
+## Handoff
+- owner: coord until review; CODEX-REVIEW (Luna session) gives the verdict; GitHub self-approval not possible (same author account) — verdict lives in the akte.
