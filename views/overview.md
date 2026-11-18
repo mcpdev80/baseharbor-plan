@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 11 |
-| review | 25 |
+| active | 10 |
+| review | 26 |
 | wait | 13 |
 | blocked | 1 |
 | ready | 4 |
@@ -28,7 +28,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-coordination](../tasks/t-20261114-r28-cli2-coordination.md) | CLI redesign: coordinate five workers | active | high | coord | — | — |
 | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) | CLI redesign: Replace name-based environment policy | active | high | coord | [t-20261114-r28-cli2-uid-environment](../tasks/t-20261114-r28-cli2-uid-environment.md) (open) | — |
 | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | CLI redesign: Organization environment reconciliation | active | high | welle2-056-cli2-org-env | [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) (open) | — |
-| [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) | Launch optional Perses | active | normal | worker m088-pluginextract (coordinator handover 2026-11-18/19, r2 plugin-extract correction round) | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md) | [baseharbor#1592](https://github.com/mcpdev80/baseharbor/pull/1592) |
 | [t-20261115-bughunt-d28-i18n-achtung](../tasks/t-20261115-bughunt-d28-i18n-achtung.md) | BF-04 German 'Achtung' hint in English output and JSON contract (15 sites) | active | not set | coord | — | [baseharbor#1663](https://github.com/mcpdev80/baseharbor/pull/1663) |
 | [t-20261115-r28-podman-runtime-performance](../tasks/t-20261115-r28-podman-runtime-performance.md) | Speed up Podman lifecycle | active | high | ChatGPT | — | [baseharbor#1600](https://github.com/mcpdev80/baseharbor/pull/1600) |
 | [t-20261116-r28-guided-rootless-bootstrap](../tasks/t-20261116-r28-guided-rootless-bootstrap.md) | Guided rootless runtime prerequisite repair | active | high | ChatGPT | — | [baseharbor#1664](https://github.com/mcpdev80/baseharbor/pull/1664) |
@@ -57,6 +56,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-perses-lifecycle](../tasks/t-20261114-r28-perses-lifecycle.md) | Perses lifecycle commands | review | normal | 8c2da3ba | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) (open) | [baseharbor#1598](https://github.com/mcpdev80/baseharbor/pull/1598) |
 | [t-20261114-r28-perses-log-trace-dash](../tasks/t-20261114-r28-perses-log-trace-dash.md) | Perses log and trace views | review | normal | coord | [t-20261114-r28-perses-loki-source](../tasks/t-20261114-r28-perses-loki-source.md) (open), [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) (open) | [baseharbor#1619](https://github.com/mcpdev80/baseharbor/pull/1619) |
 | [t-20261114-r28-perses-loki-source](../tasks/t-20261114-r28-perses-loki-source.md) | Connect Perses Loki | review | normal | coord | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) (open), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1616](https://github.com/mcpdev80/baseharbor/pull/1616) |
+| [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) | Launch optional Perses | review | normal | worker m088-pluginextract (coordinator handover 2026-11-18/19, r2 plugin-extract correction round) | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md) | [baseharbor#1592](https://github.com/mcpdev80/baseharbor/pull/1592) |
 | [t-20261114-r28-perses-secure-access](../tasks/t-20261114-r28-perses-secure-access.md) | Protect Perses operator access | review | normal | coord | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) (open) | [baseharbor#1599](https://github.com/mcpdev80/baseharbor/pull/1599) |
 | [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | Connect Perses Tempo | review | normal | coord | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) (open), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610) |
 | [t-20261116-i18n-demo-consumer-rename](../tasks/t-20261116-i18n-demo-consumer-rename.md) | Demo: match renamed Warning marker after core 0428-093 lands | review | not set | coord | [t-20261115-bughunt-d28-i18n-achtung](../tasks/t-20261115-bughunt-d28-i18n-achtung.md) (open) | [baseharbor-demo#164](https://github.com/mcpdev80/baseharbor-demo/pull/164) |

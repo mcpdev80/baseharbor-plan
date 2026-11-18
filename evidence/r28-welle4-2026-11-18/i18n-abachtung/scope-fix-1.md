@@ -107,6 +107,46 @@ scripts/test_ci_podman_typed_consent.py.
   If a docs-surface test on develop greps English docs for the old label, that
   is 0428-107's content and out of this card's scope (finding, not action).
 
+## Triage of the FAIL in run 44407750981 (d0351baf5) — docker coreless application shard
+
+Failing job: "PR · Selected Core-less · docker / PR selected ·
+integration/docker/coreless-lifecycle · application" (job 135167596403,
+aggregate 135174908659, PR Selected Checks 135175258874). Public Contracts
+skipped (structural, prior act). Exact assert lines from the hosted job log:
+
+    app_application_backend_runtime_test.go:130: shared Identity failed common union: complete=false changes=[{InstanceID:mongodb/application/6cf7a408-99b1-4be8-a905-ae13b96c7613/dev-ef260e9a Action:preserve Reason:runtime ownership/state is unverifiable Ownership:baseharbor Consumers:[] PreserveData:true}]
+    app_application_backend_runtime_test.go:130: shared Identity apply: provider change: stale-impact-consent
+
+Triage per coord orders (hosted-log witness + hunt-916 chain; NO further local
+executions of this test on this host — R1 directive):
+- The failure signature is IDENTICAL to the rebase-window-1 diagnosis
+  (app_application_backend_runtime_test.go:130, "runtime ownership/state is
+  unverifiable" -> stale-impact-consent) which rebase-window-1 proved
+  reproduces on NEUTRAL develop content without any branch delta.
+- Hunt 916 (befund at band 20ddd05e) independently mapped the mechanism:
+  internal/application/provider_union.go:164-168 (reason string
+  "runtime ownership/state is unverifiable") -> digest ->
+  cmd/baha/application_provider_authorization.go:59 (stale-impact-consent),
+  with 8 documented race windows, INDEPENDENT of this branch's diff.
+- Card t-20261118-backend-consent-race-hardening (0428-119, planned, owner
+  coord) is the hardening lane for exactly this wound.
+- This merge is content-neutral against develop for the consent path: all 8
+  conflicted cmd/baha files are byte-identical develop-stand (proofs above);
+  the marker rename does not execute in this failure path (failure occurs
+  before any printed output).
+- My local observations (recorded for the transcript, NOT as test evidence —
+  coord R1): see cleanliness section; one local develop-content invocation
+  early in triage started a selective-foundation compose stack which fully
+  tore itself down; no further local test executions occurred after the R1
+  order.
+
+Decision (coord chain rule "both point to pre-existing race -> ONE rerun"):
+re-run job 135167596403 ONCE (rerun-failed-jobs keeps head d0351baf5; no
+workflow_dispatch, no .github change; explicit coord authorization for
+exactly one rerun) and observe to TERMINAL.
+
+    (rerun outcome recorded in the final END section)
+
 ## Checks (local, this worktree, go1.26.8)
 
     go build ./...            # rc=0
@@ -220,6 +260,29 @@ Old runs, per coord orders, no longer count as acceptance basis:
 - No containers, compose projects, volumes or networks were started by this
   lane on any host; `docker ps`/`podman ps` untouched. besenrein: nothing to
   bring down. (ps-witness: none started, none running from this lane.)
+
+R1 correction (coord, 2026-11-18 23:2xZ): during fail-triage I executed
+TestSelectiveApplicationBackendRuntimeAddRemoveReAdd LOCALLY on this host
+(directive violation: docker tests belong on the named SSH hosts only).
+Witnessed consequences and disposition:
+
+    before/after (this lane): docker containers 7->7, networks 2->2 (ambient
+    baseharbor-local-*), volumes 13->13 — the triage invocations created no
+    residue; the selective-foundation stacks self-tore-down inside the test.
+    $ docker ps -a --format '{{.Names}}' | grep -i selective
+    (none)
+    $ docker volume ls -q | grep -ci selective
+    0
+
+- The one stray artifact I caused was a Go build-output "no space left on
+  device" (host disk 100%, /tmp/opencode 6.2G of 13G used by test-stack
+  scratch): triage runs used GOCACHE=/tmp/opencode/gocache-093-triage, removed
+  at triage end. No product-tree changes: mission worktree HEAD stays
+  d0351baf5, worktree clean except the pre-existing generated runtime.env
+  files (left in place per coord instruction).
+- Consequence accepted: all FURTHER isolated runtime executions go to the VM
+  via vm-lock, or do not happen. The remaining triage evidence is the hosted
+  log + hunt-916 chain (above).
 
 ## END
 
