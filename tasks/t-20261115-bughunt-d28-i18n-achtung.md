@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coord
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: "BF-04 (ux/i18n): German \"Achtung\" hint appears in English output and inside the JSON contract (15 sites). Found on develop…"
 kanban_title: "0428-093 · bf04 english-only hints"
 priority: ""
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
 ---
 
-- [ ] t-20261115-bughunt-d28-i18n-achtung · BF-04 German 'Achtung' hint in English output and JSON contract (15 sites) #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261115-bughunt-d28-i18n-achtung · BF-04 German 'Achtung' hint in English output and JSON contract (15 sites) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** coord  
     **PR:** [baseharbor#1663](https://github.com/mcpdev80/baseharbor/pull/1663)  
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261116-i18n-demo-consumer-rename](t-20261116-i18n-demo-consumer-rename.md)  
@@ -85,3 +85,5 @@ kandidat 4ef41a31f (15-stelle Achtung->Warning, base-frisch auf 907f16713), exac
 - test -> gate -> trigger -> run: public-contracts integration suite -> 'PR · Public Contracts' job -> pr_plan gate -> run 44396406150.
 - DEBT (blocking for merge), reconciled 21:22 with independent check: pr-gate-plan.py at the exact head DOES select integration/static/public-contracts for the changed JSON schemas, but the ci.yml job flag public_contracts_required is fed from a step that hardcodes false (ci.yml:840) instead of from the gate-plan selection — plan and job condition are NOT wired together. Owner-scoped .github fix; lanes must not touch. (Supersedes the earlier 'structurally dead' wording.)
 - Equivalent evidence path (accepted interim): a follow-up lane executes the public-contracts integration LOCALLY on exact head 4ef41a31f250b7824b57b874895790cc4435712a and appends the transcript to this card's evidence (akte follow-up-1.md); CODEX must not merge before that akte exists or the workflow fix is on develop.
+
+CODEX-REVIEW REQUEST CHANGES 21:20Z: scope-verletzung — 51 files, docs/**-anteile gehoeren nicht zu 093 (liegen bei 107/109); korrektur-lane stellt nur die docs-dateien auf develop-stand zurueck, code/i18n-catalog-15-stelle bleibt, consent-logik unangetastet
