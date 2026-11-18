@@ -1,6 +1,7 @@
 # mission-093-scope-fix — scope-fix-1 (0428-093, PR #1663: drop out-of-scope docs/** changes)
 
-Candidate: product commit `cb3777dceb70e3b2d2957044468e2ddee5f2ebe1` on branch
+Candidate: product commit `d0351baf5def60d7ceaa40008d8553c809503310` (merge of
+develop `8dccd4fe1` into the scope-fix head `cb3777dce`) on branch
 `lane-0428-093-i18n-abachtung` (PR #1663). Evidence commit: see push witness at
 bottom.
 
@@ -42,9 +43,14 @@ coord dispatch — no claim churn.
 2. On the PR head branch: `git checkout origin/develop -- docs/` (13 files reverted), before/after diff-stat verified — DONE
 3. Verify the 15-site code/catalog correction unchanged, consent logic untouched — DONE
 4. build / vet / gofmt + i18n tests; diff-stat shows only code-/catalog-/contract-files vs develop — DONE
-5. Normal commit on merge-head, refspec push, ls-remote witness, ancestry + own-commits log — DONE
-6. Watch exact-head run to TERMINAL — IN PROGRESS (run 44404028009 queued on cb3777dce)
-7. Evidence committed + pushed to origin/main, END post — last actions
+5. Normal commit on merge-head (cb3777dce), refspec push, ls-remote witness, ancestry + own-commits log — DONE
+6. Premature END retracted per coord Widerspruch (21:4xZ); first local public-contracts witness on cb3777dce recorded (superseded by 9b) — DONE
+7. Base refresh: git merge origin/develop (8dccd4fe1) — DONE (merge-commit d0351baf5, conflict resolution per coord These 23:1xZ: develop side in the 8 cmd/baha accessor files, 093 marker/schema/testdata/assertion side kept, consent stage counts + destructive gate untouched)
+8. Push d0351baf5 + ls-remote witness + show-HEAD completeness — DONE (PR #1663 CONFLICTING -> MERGEABLE)
+9. NEW exact-head run 44407750981 on d0351baf5 to TERMINAL — IN PROGRESS
+9b. Local public-contracts witness on FINAL post-merge sha d0351baf5 — PENDING (after 9 turns terminal; cb3777dce witness superseded)
+10. Evidence committed + pushed to origin/main with ls-remote witness — PENDING
+11. END post — last action
 
 ## The scope fix
 
@@ -145,10 +151,56 @@ Ancestry proofs at pushed head cb3777dce:
     # all commits are this card's lane commits / develop base merges; no foreign candidate.
     git show --stat cb3777dce   # touches ONLY the 13 docs/** files (completeness witness)
 
+## Conflict resolution (coord bindende These 2026-11-18 23:1xZ) — executed
+
+Merge redone clean on `cb3777dce` with origin/develop (`8dccd4fe1`, #1683/106):
+8 conflicted cmd/baha paths resolved via `git checkout --theirs` = develop
+side (ProviderImpactConsentCatalog accessors). No hardcoded literals
+reintroduced — the only "Warning" string literals in cmd/baha non-test code
+are pre-existing develop content in provider_change_presentation.go.
+My 093 side retained exclusively (Attention JSON marker/schema + assertions):
+setters provider_change_plan.go:93,98 + provider_change_scope.go:59 stay
+"Warning"; schema consts scope.schema.json:30 / impact.schema.json:33,1051 =
+"Warning"; golden testdata v0425-provider-impact-consent.json = "Warning";
+regression assertions kept incl. the two no-German checks at
+provider_change_confirmation_test.go:61,78; marker-test files (my side,
+auto-merged). One-line comment correction in provider_change_consent.go:9
+(marker is now "Warning", language-neutral note) — presentation catalog
+untouched. Consent stage counts + separate destructive-data gate untouched
+(develop side verbatim in the 8 files).
+
+Proofs at merged head (measured pre-push, this worktree):
+
+    $ git grep -n 'Achtung' HEAD -- cmd/baha/ ':!*_test.go'   # => none
+    $ for f in $(cat /var/tmp/conflicts-093.txt); do git diff --quiet 8dccd4fe1 HEAD -- "$f" && echo "$f: develop-stand OK"; done
+      # all 8 accessor files byte-identical to develop 8dccd4fe1
+    $ git diff origin/develop HEAD --name-only -- docs/ | wc -l   # 0 (scope-reset held through the merge)
+
+Merge commit `d0351baf5def60d7ceaa40008d8553c809503310`
+(merge --no-edit, parents `cb3777dce` + `8dccd4fe1`; normal commit, no force,
+no amend). Ancestry: cb3777dce YES, develop 8dccd4fe1 YES.
+`git log --no-merges origin/develop..HEAD` = 55550400c + cb3777dce (both this
+card's own commits; no foreign candidate).
+
+Post-merge local checks (go1.26.8):
+
+    go build ./...          # rc=0
+    go vet ./...            # rc=0
+    gofmt -l cmd internal   # empty
+    go test ./cmd/baha -run 'TestProviderImpactConsequenceHintIsEnglishOutputAndContractMarker|TestConsentLabelsAreEnglishCatalog|TestRuntimeDestroyImpactPrintsEnglishCatalog|TestProviderImpactAcknowledgementLabelsUseCatalog|TestProviderChangeConfirmation' -count=1   # ok
+    go test ./contracts/... ./internal/application -count=1    # ok
+    go test ./internal/machine ./internal/machinereadmodels -count=1  # ok
+    python3 -m unittest scripts.test_ci_podman_typed_consent   # Ran 8 tests OK
+
 ## Hosted run (self-watch, Eigenes-Run-Pflicht)
 
-    run 44404028009, workflow "CI · Source & Quality", headSha cb3777dce, created 2026-11-18T21:41:16Z
-    outcome: PENDING — recorded in the committed follow-up section before END
+Old runs, per coord orders, no longer count as acceptance basis:
+44404028009 (cb3777dce) COMPLETED/SUCCESS — superseded by the base move to
+8dccd4fe1 (PR was CONFLICTING); acceptance now follows the merge chain below.
+
+    run 44407750981, workflow "CI · Source & Quality", headSha d0351baf5def60d7ceaa40008d8553c809503310, created 2026-11-18T22:0xZ-ish after push
+    mergeable after push: CONFLICTING -> MERGEABLE (mergeStateStatus BLOCKED = review gate, not content)
+    outcome: PENDING — recorded with literal conclusion in the final END section before END post
 
 ## repo-rule compliance
 
