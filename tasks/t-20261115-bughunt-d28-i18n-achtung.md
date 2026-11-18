@@ -78,3 +78,5 @@ BF-04 (ux/i18n): German "Achtung" hint appears in English output and inside the 
 - evidence akte records run-ID, patch digest, and repo-rule compliance
 ## Handoff
 - owner: coord until review; CODEX-REVIEW (Luna session) gives the verdict; GitHub self-approval not possible (same author account) — verdict lives in the akte.
+
+kandidat 4ef41a31f (15-stelle Achtung->Warning, base-frisch auf 907f16713), exact-head run 44396406150 SUCCESS; acceptance-/handoff-felder der karte gefuellt; verdict liegt in der akte (self-approval-restriktion)
