@@ -116,7 +116,16 @@ Regression ratchet PASS (new/worsened violations fail closed)
 
 ## CI COVERAGE (Owner directive 2026-11-07)
 
-The new/changed tests live in package internal/metrics and run in the existing CI unit group: `.github/workflows/ci.yml` `go test ./contracts/... ./internal/... ./spec/...` and `go test ./...` on the pull_request Test job. No .github/** change is required (Owner scope); if the group did not already cover the metrics path, report the exact needed change as a finding with file:line rather than editing it.
+The new/changed tests live in package internal/metrics and run in the existing CI unit group:
+- `PR · Go unit · packages` (Go unit test on the packages path, covers `internal/metrics`): SUCCESS
+- `PR · Go build` and `PR · go-vet`: SUCCESS
+- `PR · Source format`, `PR · Focused Python`, `PR · Workflow policy`, `PR · Trusted Plan`, `PR · Native gate plan`: SUCCESS
+
+CI run: `44398435160` (`CI · PR #1684`, event `pull_request`, head `lane-0428-083-datasources-r2`) — terminal conclusion SUCCESS, no failures, no cancellations.
+
+Targeted HA gates (`Targeted HA · docker`, `Targeted HA · podman`) are SKIPPED: my change is a Go unit/contract change only (`internal/metrics`), no runtime/docker/podman/native gate risk, so they correctly stay skipped. No Docker/Podman/native runtime gate was required or run.
+
+No `.github/**` change was needed or made (Owner scope); the existing unit-group + build/vet paths already cover the metrics path. No VM-only or local-only test was introduced.
 
 ## hunt-912 / catalog decision (STATE, documented)
 
@@ -136,4 +145,4 @@ The new/changed tests live in package internal/metrics and run in the existing C
 
 ## END
 
-(to be filled: END_DONE or END_BLOCKED + candidate SHA)
+END_DONE mission-083-datasources.md: 0428-083 Perses Prometheus datasource r2 port — fresh branch `lane-0428-083-datasources-r2` from develop @ 907f16713 (base-ancestor YES, only my own commit 8c71395045 on develop). Adapter `internal/metrics/perses_prometheus_datasource.go` (fail-closed: unpinned/unselected/absent/denied/foreign-owned/damaged-snapshot/bad-endpoint all propagate as errors, no empty-config nil-error path) + golden test + golden testdata; 19 datasource test cells PASS; go build/vet clean; source-readability audit PASS; PR #1684 base develop, run 44398435160 CI · PR #1684 SUCCESS (Go unit packages + build + go-vet + format + workflow/trusted/native-gate green; docker/podman HA skipped, Go-only change); evidence on planning origin/main 545f9887; no .github/** edit, no merge, no force, no subagent, no containers. hunt-912 catalog wiring documented (not 083 scope).
