@@ -123,17 +123,56 @@ executions of this test on this host — R1 directive):
   (app_application_backend_runtime_test.go:130, "runtime ownership/state is
   unverifiable" -> stale-impact-consent) which rebase-window-1 proved
   reproduces on NEUTRAL develop content without any branch delta.
-- Hunt 916 (befund at band 20ddd05e) independently mapped the mechanism:
+- Hunt 916 akte (independent mechanism proof):
+  `evidence/r28-welle4-2026-11-18/hunt-ownership/befund-1.md` — BUG-HUNT 916 on
+  merged develop 8dccd4fe1. It names THIS mission's trigger as context ("PR
+  #1663 run 44407750981 reported stale-impact-consent after an unverifiable
+  ownership state") and maps the mechanism: provider_union.go:164-168
+  (unverifiable -> preserve -> Complete=false) -> plan Attention
+  (provider_change_plan.go:90-100) -> consent identity rule
+  provider_change_consent.go:66-68 and plan-rebuild mismatch
+  application_provider_authorization.go:51-59 -> stale-impact-consent;
+  race windows tabulated. Mechanism is on develop, independent of this diff
+  (093 renames the Attention marker VALUE; the consent identity rule compares
+  PlanID only). Note: the hunt's base band is 8dccd4fe1; my triage records
+  that band as 20ddd05e per the coord dispatch line — the akte itself is the
+  authority.
   internal/application/provider_union.go:164-168 (reason string
   "runtime ownership/state is unverifiable") -> digest ->
   cmd/baha/application_provider_authorization.go:59 (stale-impact-consent),
   with 8 documented race windows, INDEPENDENT of this branch's diff.
-- Card t-20261118-backend-consent-race-hardening (0428-119, planned, owner
-  coord) is the hardening lane for exactly this wound.
+- Card 0428-119 (t-20261118-backend-consent-race-hardening): hardening lane
+  for exactly this wound; intake commit `ce2cada2` in baseharbor-plan.
 - This merge is content-neutral against develop for the consent path: all 8
   conflicted cmd/baha files are byte-identical develop-stand (proofs above);
   the marker rename does not execute in this failure path (failure occurs
   before any printed output).
+- Mechanism from hunt 916: the race window is in the REVALIDATION gap between
+  consent issuance (application_provider_authorization.go:51-59, plan rebuilt
+  and PlanID compared) — provider_union.go:164-168 only decides the union
+  action, and the consent identity rule compares PlanID, never the Attention
+  VALUE. 093's marker rename is thus causally inert on this path: the
+  `changes=[...Attention-preserve...]` dump shows Reason/Action only (test
+  struct formatting), which is develop-identical; and the failure occurs
+  before any printed output exists (apply aborts at authorization).
+- Deeper causal check (file:line, read-only on the hunt base 8dccd4fe1): the
+  test helper injects consent built from a plan computed BEFORE the apply
+  (app_identity_shared_runtime_test.go:109-116, `withProviderChangeConsent
+  {PlanID: impact.PlanID}`); at apply, application_provider_authorization.go:51-59
+  REBUILDS the plan and fails closed on `current.PlanID != plan.PlanID` ->
+  stale-impact-consent. PlanID is computed from plan STRUCTURE only
+  (provider_change_plan.go:115 `fmt.Sprintf("%x", sha256.Sum256([]byte(sig)))`
+  over impacts/materials/functions/services signatures + revision +
+  destructive flag + inventoryError; `Attention` never enters the signature
+  — lines 110-115). `Action`/`Reason` are also excluded from the wire schema
+  (contracts/provider-impact/v1/impact.schema.json — additionalProperties
+  false). Therefore 093's Attention-value rename CANNOT change PlanID: the
+  fail-closed path is byte-causally independent of this card's content
+  (structural reason the hunt could name the wound without a diff line). The
+  race is environmental: live inventory drift between the two
+  buildResolvedApplicationPlan calls lands in provider_union.go:164-168
+  (unverifiable -> preserve -> Complete=false), changing the signature ->
+  different PlanID -> stale-impact-consent.
 - My local observations (recorded for the transcript, NOT as test evidence —
   coord R1): see cleanliness section; one local develop-content invocation
   early in triage started a selective-foundation compose stack which fully
@@ -263,26 +302,37 @@ Old runs, per coord orders, no longer count as acceptance basis:
 
 R1 correction (coord, 2026-11-18 23:2xZ): during fail-triage I executed
 TestSelectiveApplicationBackendRuntimeAddRemoveReAdd LOCALLY on this host
-(directive violation: docker tests belong on the named SSH hosts only).
+(directive violation: docker tests belong on the named SSH hosts only) — the
+test starts REAL docker-compose stacks from /var/tmp worktrees under /tmp
+scratch (coord finding: bh-docker-dev-selective-foundation-* containers from
+23:09Z). No further executions after the R1 order.
 Witnessed consequences and disposition:
 
-    before/after (this lane): docker containers 7->7, networks 2->2 (ambient
-    baseharbor-local-*), volumes 13->13 — the triage invocations created no
-    residue; the selective-foundation stacks self-tore-down inside the test.
+    before/after (this lane): containers 7->7, networks 2->2 (ambient
+    baseharbor-local-default/-secrets), volumes 13->13. My triage invocations
+    created NO residue: the selective-foundation stacks self-tore-down inside
+    the test (t.Cleanup provider.DestroyProject).
     $ docker ps -a --format '{{.Names}}' | grep -i selective
+    (none)      # no stopped leftover
+    $ docker ps --format '{{.Names}}' | grep -i selective
+    (none)      # nothing running from this lane
+    $ docker volume ls -q | grep -i selective
     (none)
-    $ docker volume ls -q | grep -ci selective
-    0
+    $ docker network ls --format '{{.Name}}' | grep -vE '^(bridge|host|none)$'
+    baseharbor-local-default
+    baseharbor-local-secrets   # pre-existing bh-local-shared stack (hunt owner,
+                               # NOT mine: left untouched, 7 containers 42h up)
 
-- The one stray artifact I caused was a Go build-output "no space left on
-  device" (host disk 100%, /tmp/opencode 6.2G of 13G used by test-stack
-  scratch): triage runs used GOCACHE=/tmp/opencode/gocache-093-triage, removed
-  at triage end. No product-tree changes: mission worktree HEAD stays
-  d0351baf5, worktree clean except the pre-existing generated runtime.env
-  files (left in place per coord instruction).
+  - The one stray artifact I caused was a Go build-output "no space left on
+    device" (host disk 100%, /tmp/opencode 6.2G of 13G used by test-stack
+    scratch): triage runs used GOCACHE=/var/tmp/gocache-093-triage; host disk
+    has since freed to 89% (other lanes' cleanup). No product-tree changes:
+    mission worktree HEAD stays d0351baf5, worktree clean except the
+    pre-existing generated runtime.env files (left in place per coord
+    instruction).
 - Consequence accepted: all FURTHER isolated runtime executions go to the VM
-  via vm-lock, or do not happen. The remaining triage evidence is the hosted
-  log + hunt-916 chain (above).
+  via vm-lock, or do not happen (none needed since — hosted log + hunt-916
+  chain suffice).
 
 ## END
 

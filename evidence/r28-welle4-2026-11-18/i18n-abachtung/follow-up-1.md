@@ -92,6 +92,33 @@ worktree above; stdout non-JSON lines are the script's final summaries):
 RESULT: local public-contracts gate PASS on exactly cb3777dce (candidate and
 demo SHAs exact, tag v0.4.26, same command/args as ci.yml pr_public_contracts).
 
+## Witness-3 (mission-093-scope-fix): local public-contracts run at FINAL post-merge head d0351baf5
+
+2026-11-19 00:33Z (post date-rollover), scope-fix lane session. This is the
+acceptance witness (witness-2 on cb3777dce is superseded once develop moved
+and the merge-chain was ordered). Same command/args as ci.yml job
+pr_public_contracts (ci.yml:1279-1309, read-only), no containers (static gate).
+
+    $ cd /home/marcel/dev/baseharbor-ecosystem/baseharbor && git worktree add --detach /var/tmp/mission-093-pc-final d0351baf5def60d7ceaa40008d8553c809503310
+    HEAD is now at d0351baf5 Merge origin/develop (8dccd4fe1) into lane-0428-093-i18n-abachtung (base freshness, 0428-093 conflict resolution per coord directive)
+    $ cd /var/tmp/mission-093-pc-final && git rev-parse HEAD && git status --porcelain | wc -l
+    d0351baf5def60d7ceaa40008d8553c809503310
+    0        # pristine; verify_candidate_source passes pre- and post-run
+    $ python3 scripts/pre-release-integration.py \
+        --gate integration/static/public-contracts \
+        --candidate d0351baf5def60d7ceaa40008d8553c809503310 \
+        --demo f23b6e09be34601ba542a3087e19b80764a4165d \
+        --tag v0.4.26 --output /var/tmp/pc-out-final
+    rc=0
+    Passed 197 checks: go test -race -count=1 -json ./contracts/... ./internal/machine ./internal/machinereadmodels
+    Passed 6 checks: go test -race -count=1 -json ./cmd/baha -run ^TestExternalProviderRemoval
+    Passed 8 checks: go test -race -count=1 -json ./internal/application -run ^TestExternalRemoval
+    # full go-test-json transcript retained at /var/tmp/pc-out-final/transcript.txt
+    # + check-0.jsonl check-1.jsonl check-2.jsonl
+
+RESULT: local public-contracts gate PASS on exactly d0351baf5 (211 named tests,
+0 skipped, 0 failed; candidate/demo SHAs exact).
+
 ## Cleanliness census
 
 - Before: no lane containers/volumes. After: `docker ps` / `docker volume ls`
