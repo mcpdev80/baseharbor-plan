@@ -112,8 +112,10 @@
 ## cleanliness
 
 - No docker/podman containers, networks, volumes, compose projects or daemons started on any host by
-  this lane. `ps` witness for this host: no lane-owned compose project exists (`docker ps` was never
-  needed for a docs-only change; nothing was created to bring down).
+  this lane. `ps` witness for this host: `docker ps --format '{{.Names}}'` lists only ambient
+  `bh-local-shared-*` postgres/openbao stacks owned by other sessions (never touched per the
+  owner-hygiene rule: ambient stacks of other lanes stay untouched). This lane started nothing, so
+  there was nothing to bring down.
 - Scratch confined to `/tmp/opencode/w115-twophase-wt`, `/tmp/opencode/w115-site*`,
   `/tmp/opencode/w115-gocache`, `/tmp/opencode/w115-gopath`, `/tmp/opencode/w115-pr-body.md`.
 - "cleanliness: PASS"
