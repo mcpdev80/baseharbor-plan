@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: worker m088-pluginextract (coordinator handover 2026-11-18/19, r2 plugin-extract correction round)
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 prs: [mcpdev80/baseharbor#1592]
 kanban_summary: "Implement explicitly enabled optional Perses runtime, pinned reviewed image/plugin versions, lifecycle and safe storage using…"
 kanban_title: 0428-088 · Launch optional Perses
@@ -77,3 +77,5 @@ Prerequisites are encoded in `depends_on`. One worker per card/branch/PR, no con
 Supersedes [t-20261113-r28-grafana-runtime](t-20261113-r28-grafana-runtime.md) under the [Owner decision](../decisions/2026-11-14-perses-replaces-grafana-v0428.md).
 
 kandidat e264ca4b7, exact-head run 44403933672 SUCCESS, TLS material generiert+projiziert via command override, regression TestPersesTLSFilesProjectedAndConsumed; BEHIND gegen 8dccd4fe1 => hopf in der merge-welle
+
+r2 plugin-extract: kandidat 54fbe4771, exact-head run 44420115459 SUCCESS, /etc/perses/plugins writable tmpfs unter read_only:true, TestPersesRuntimeSmokeDockerIsolated verschaerft -> GET /api/v1/plugins meldet shipped UI plugin
