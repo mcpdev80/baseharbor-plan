@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: lane-113-pr1680-fixes (this session)
-kanban_status: active
-kanban_lane: active
+owner: coord
+kanban_status: review
+kanban_lane: review
 kanban_summary: Remove the invalid Prometheus-attributed application workload log source that caused the Docker Loki ingestion gate to query a…
 kanban_title: 0428-113 · Docker Loki Prov ingestion
 priority: ""
@@ -23,20 +23,20 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1680", "https://github.com/mcpdev80/baseharbor/commit/504a8678c2391cb379622fa02c2c8d9769fa192b", "https://github.com/mcpdev80/baseharbor/actions/runs/44057402207", "https://github.com/mcpdev80/baseharbor/actions/runs/44057603711", "https://github.com/mcpdev80/baseharbor/actions/runs/44057705927", "https://github.com/mcpdev80/baseharbor/actions/runs/44049176474"]
 ---
 
-- [ ] t-20261117-docker-loki-ingestion-timeout · Observability: Docker Loki provider ingestion gate times out #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261117-docker-loki-ingestion-timeout · Observability: Docker Loki provider ingestion gate times out #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** lane-113-pr1680-fixes (this session)  
+    **Owner:** coord  
     **PR:** [baseharbor#1680](https://github.com/mcpdev80/baseharbor/pull/1680)  
     **Needs:** [t-20261117-observability-native-gate-bootstrap](t-20261117-observability-native-gate-bootstrap.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1680), [proof 2](https://github.com/mcpdev80/baseharbor/commit/504a8678c2391cb379622fa02c2c8d9769fa192b), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44057402207), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44057603711), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44057705927), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44049176474)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261117-observability-native-gate-bootstrap](t-20261117-observability-native-gate-bootstrap.md)  
 **Required by:** [t-20261117-hunt-signals-102](t-20261117-hunt-signals-102.md)  
-**Owner:** lane-113-pr1680-fixes (this session)  
+**Owner:** coord  
 **Priority:** not set  
 **PRs:** [baseharbor#1680](https://github.com/mcpdev80/baseharbor/pull/1680)  
 **Source:** 
@@ -79,3 +79,5 @@ Remove the invalid Prometheus-attributed application workload log source that ca
 ## Handoff
 
 **ZWEIFEL - returned to the queue; no merge.** Product fix is in PR [#1680](https://github.com/mcpdev80/baseharbor/pull/1680), exact SHA 504a8678c2391cb379622fa02c2c8d9769fa192b. Local targeted/full application, observability, metrics, vet and build checks passed; PR #1680 workflow checks passed. Required runtime evidence is absent: Docker [run 44057603711](https://github.com/mcpdev80/baseharbor/actions/runs/44057603711) and Podman [run 44057705927](https://github.com/mcpdev80/baseharbor/actions/runs/44057705927) failed before test execution because ORAS was not installed (app_observability_acceptance_test.go:34); the ordinary PR native gate matrix was skipped for these internal/application paths. No Loki runtime assertion executed, so the fix is not accepted and PR #1680 remains open. Handoff to 0428-114 for existing CI owner to restore ORAS setup and route this source to both existing observability gates; next free implementation card is 0428-109.
+
+kandidat 46de903f1, exact-head run 44396957393 SUCCESS; runtime-Loki-akzeptanz blockiert durch nie-verdrahteten ORAS-schritt in observability-acceptance.yml (.github-befund mit file:line in fix-1.md, owner-stueck)
