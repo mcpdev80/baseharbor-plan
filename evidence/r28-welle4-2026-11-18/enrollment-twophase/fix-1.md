@@ -192,6 +192,16 @@ behaviour, then committed and pushed my own card, its transition and the generat
 as the board publish for this card. The foreign 0428-117 error remains unfixed by me (another
 lane's card, outside my write-set) and still fails `plan.py check` repo-wide.
 
+## Foreign churn observed in the shared checkout (not touched by this lane)
+
+While this akte was finalized, lanes 0428-116 and 0428-117 were actively editing the same shared
+baseharbor-plan working tree: `evidence/.../receipt-guard/fix-1.md` changed under me, a new
+untracked `evidence/.../app-env-recovery-flags/` directory appeared, and remote `origin/main`
+advanced (`cc51a1ee` -> `a44bd6db`). This lane staged ONLY its own two paths (its akte, its card,
+the generated views) with explicit `git add <path>` and never used `git add -A`, so none of that
+foreign content is carried in my commits.
+
+
 ## END
 
 - END_DONE: mission-115-twophase-doc.md — DONE. Card t-20261118-enrollment-two-phase-boundary-doc
