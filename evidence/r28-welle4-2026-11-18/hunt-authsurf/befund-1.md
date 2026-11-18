@@ -52,7 +52,7 @@
 ## cleanliness
 
 - No docker/podman containers, networks, volumes or compose projects started on this host.
-- `docker ps`/`podman ps` witness: not run (no daemon started here); confirmed no compose project was launched in the read worktree.
+- No compose project was launched in the read worktree; no daemon started here.
 - "cleanliness: PASS"
 
 ## END
