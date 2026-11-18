@@ -80,3 +80,8 @@ BF-04 (ux/i18n): German "Achtung" hint appears in English output and inside the 
 - owner: coord until review; CODEX-REVIEW (Luna session) gives the verdict; GitHub self-approval not possible (same author account) — verdict lives in the akte.
 
 kandidat 4ef41a31f (15-stelle Achtung->Warning, base-frisch auf 907f16713), exact-head run 44396406150 SUCCESS; acceptance-/handoff-felder der karte gefuellt; verdict liegt in der akte (self-approval-restriktion)
+
+## Required checks binding + CI coverage debt (coord, 2026-11-18)
+- test -> gate -> trigger -> run: public-contracts integration suite -> 'PR · Public Contracts' job -> pr_plan gate -> run 44396406150.
+- DEBT (blocking for merge): ci.yml:840 hardcodes public_contracts_required=false for PR context while ci.yml:1282 requires 'true' — the gate can never run on PRs (file:line reported to Owner for the .github fix; lane must not touch it).
+- Equivalent evidence path (accepted interim): a follow-up lane executes the public-contracts integration LOCALLY on exact head 4ef41a31f250b7824b57b874895790cc4435712a and appends the transcript to this card's evidence (akte follow-up-1.md); CODEX must not merge before that akte exists or the workflow fix is on develop.
