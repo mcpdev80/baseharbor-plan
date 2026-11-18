@@ -4,7 +4,7 @@ release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
 owner: coord
-kanban_status: review
+kanban_status: active
 card_number: 0428-117
 card_short_title: align app env recovery-flag
 kanban_title: 0428-117 · align app env recovery-flag
@@ -15,14 +15,14 @@ blocker: ""
 ---
 # t-20261118-app-env-recovery-flags-claim · app-env recovery-flag claim vs actual command contract
 
-- [ ] t-20261118-app-env-recovery-flags-claim · align app env recovery-flag docs with the real command contract #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261118-app-env-recovery-flags-claim · align app env recovery-flag docs with the real command contract #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** coord  
     **PR:** [baseharbor#1687](https://github.com/mcpdev80/baseharbor/pull/1687)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** coord  
@@ -44,3 +44,5 @@ Hunt 915 B1 (mittel, CLI-vertrag): the generic recovery text promises `--uuid`/`
 - Source: hunt 915 Befund B1, evidence/r28-welle4-2026-11-18/hunt-cli2merged/befund-1.md (origin/main 49323cde).
 
 docs-only, exact-head CI SUCCESS auf 7aa8b01e9, DE-mirror mitgezogen
+
+CODEX-REVIEW comment #6994874926 im thread (formale change-request durch self-author-block nicht moeglich — Konvention): REQUEST CHANGES — 'NAME vor --uuid' falsch (uuid-strip vorher; regression status nur --uuid+ID). r2 ueber neue lane, PR bleibt 7aa8b01e9, kein merge
