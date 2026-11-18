@@ -3,21 +3,20 @@ id: t-20261118-mcp-partial-change-success
 release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
-kanban_status: planned
+kanban_status: active
 card_number: 0428-120
 card_short_title: MCP/HTTP edit path must fail
 kanban_title: 0428-120 · MCP/HTTP edit path must fail
 ---
 # t-20261118-mcp-partial-change-success · MCP/HTTP edit path reports partial provider-change as success
 
-- [ ] t-20261118-mcp-partial-change-success · MCP/HTTP edit path must fail loud on partial provider-change result #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261118-mcp-partial-change-success · MCP/HTTP edit path must fail loud on partial provider-change result #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** unassigned  
