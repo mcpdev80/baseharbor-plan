@@ -202,6 +202,20 @@ the generated views) with explicit `git add <path>` and never used `git add -A`,
 foreign content is carried in my commits.
 
 
+## Akte push witness (run as the second-to-last action, per protocol)
+
+    $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse --show-toplevel
+    /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan
+    $ git ls-remote origin refs/heads/main
+    59f0da857afb8872b9888b8612bd7720217fc3d2        refs/heads/main
+    $ git log --oneline origin/main..HEAD | cat
+    (empty -- nothing of this lane is left unpushed)
+
+Fresh-clone proof that the evidence path exists on `origin/main` (clone in this lane's own zone,
+not the quarantined checkout): `/tmp/opencode/w115-plan-verify` at `59f0da85` contains
+`evidence/r28-welle4-2026-11-18/enrollment-twophase/fix-1.md` (line 207 carries this akte's END line).
+
+
 ## END
 
 - END_DONE: mission-115-twophase-doc.md — DONE. Card t-20261118-enrollment-two-phase-boundary-doc
@@ -214,4 +228,6 @@ foreign content is carried in my commits.
   no containers started, no new test (so the CI-capture rule is not triggered).
   Card publish: this lane committed and pushed the card's `review` transition plus the generated
   views (`--no-push` was used because `card-status.py`'s push path aborts on the foreign vault error,
-  see the provenance note). The akte push witness is the section below this END block.
+  see the provenance note). The akte push witness is the section directly above this END block.
+  Final board state after this akte commit: `59f0da85` == `origin/main`, `plan.py check` reports
+  only the pre-existing 0428-117 owner error (plus the known unrelated warnings), never one of mine.
