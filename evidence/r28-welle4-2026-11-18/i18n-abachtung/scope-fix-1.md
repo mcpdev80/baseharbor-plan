@@ -1,5 +1,9 @@
 # mission-093-scope-fix — scope-fix-1 (0428-093, PR #1663: drop out-of-scope docs/** changes)
 
+Candidate: product commit `cb3777dceb70e3b2d2957044468e2ddee5f2ebe1` on branch
+`lane-0428-093-i18n-abachtung` (PR #1663). Evidence commit: see push witness at
+bottom.
+
 Card: t-20261115-bughunt-d28-i18n-achtung (0428-093), PR #1663, branch
 `lane-0428-093-i18n-abachtung` (gh pr view 1663 --json headRefName). Continues
 `rebase-window-1.md` / the 1663-fixes act (same folder).

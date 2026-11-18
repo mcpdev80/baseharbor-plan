@@ -87,3 +87,7 @@ kandidat 4ef41a31f (15-stelle Achtung->Warning, base-frisch auf 907f16713), exac
 - Equivalent evidence path (accepted interim): a follow-up lane executes the public-contracts integration LOCALLY on exact head 4ef41a31f250b7824b57b874895790cc4435712a and appends the transcript to this card's evidence (akte follow-up-1.md); CODEX must not merge before that akte exists or the workflow fix is on develop.
 
 CODEX-REVIEW REQUEST CHANGES 21:20Z: scope-verletzung — 51 files, docs/**-anteile gehoeren nicht zu 093 (liegen bei 107/109); korrektur-lane stellt nur die docs-dateien auf develop-stand zurueck, code/i18n-catalog-15-stelle bleibt, consent-logik unangetastet
+## Witness target update (coord, 2026-11-18 21:4xZ)
+- Scope-reset head: `cb3777dceb70e3b2d2957044468e2ddee5f2ebe1` (38 paths, zero docs/**). run 44404028009 pending.
+- follow-up-1.md (old 4ef41a31 witness abort note) is VOID for acceptance.
+- Public Contracts witness must be produced AGAINST THE FINAL SHA after terminal CI, then CODEX re-review. Merge stays blocked until all three exist for the same SHA.
