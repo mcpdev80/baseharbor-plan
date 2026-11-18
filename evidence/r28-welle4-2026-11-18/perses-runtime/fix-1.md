@@ -113,7 +113,16 @@ No compose projects or containers were started by this lane (unit-test scope onl
 
 ## CI witness (exact head e264ca4b7)
 
-(observe run 44403933672 "CI · Source & Quality" to terminal; fill before END)
+Run 44403933672 ("CI · Source & Quality", event pull_request/synchronize, head e264ca4b7f196a84a9e6e2e9eee264c75585f65c): watched to terminal via `gh run watch --exit-status` -> `CI-TERMINAL: SUCCESS`; conclusion `success`, 0 failed/cancelled jobs.
+
+Relevant executed jobs: PR · Go unit · packages SUCCESS (this executes the new TestPersesTLSFilesProjectedAndConsumed with the internal/application suite — the CI group and trigger for the test), PR · Go unit · owner/cli-0..3 SUCCESS, PR · Validation · go-vet/go-build SUCCESS, PR · Source format SUCCESS, PR · Native gate plan SUCCESS, Workflow policy SUCCESS, PR Selected Checks SUCCESS. Targeted HA docker/podman and Native gates: skipped (Go unit/contract change only; no runtime-path trigger selected). Preceding run 44403038780 on 96b48283b (superseded intermediate, see push section) also concluded success.
+
+## Evidence on origin/main (second-to-last action witness)
+
+```
+$ git ls-remote origin refs/heads/main   # after pushing this evidence commit
+(see output below, pasted verbatim)
+```
 
 ## END
 
