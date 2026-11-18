@@ -123,12 +123,11 @@ Relevant executed jobs: PR · Go unit · packages SUCCESS (this executes the new
 
 ```
 $ git ls-remote origin refs/heads/main
-511bd7119d94b080605a48b69809cd50d62c4770	refs/heads/main
+02db9488c2ea6c5223676116f81519239437e1d2	refs/heads/main
 
 $ git cat-file -e origin/main:evidence/r28-welle4-2026-11-18/perses-runtime/fix-1.md && echo PRESENT
 PRESENT
 ```
-(final evidence commit lands on origin/main with the END witness appended)
 
 ## PR base state (STATE, recorded)
 
