@@ -3,21 +3,20 @@ id: t-20261118-receipt-guard-single-operand
 release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
-kanban_status: planned
+kanban_status: active
 card_number: 0428-116
 card_short_title: receipt verification guard
 kanban_title: 0428-116 · receipt verification guard
 ---
 # t-20261118-receipt-guard-single-operand · receipt verification guard collapses to single operand
 
-- [ ] t-20261118-receipt-guard-single-operand · receipt verification guard collapses to single operand #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261118-receipt-guard-single-operand · receipt verification guard collapses to single operand #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** unassigned  
