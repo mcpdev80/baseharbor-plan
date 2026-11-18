@@ -3,6 +3,7 @@ id: t-20261118-app-env-recovery-flags-claim
 release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
+owner: w1-lane-494cd839 (0428-117)
 kanban_status: active
 card_number: 0428-117
 card_short_title: align app env recovery-flag
@@ -12,14 +13,14 @@ kanban_title: 0428-117 · align app env recovery-flag
 
 - [ ] t-20261118-app-env-recovery-flags-claim · align app env recovery-flag docs with the real command contract #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
+    **Owner:** w1-lane-494cd839 (0428-117)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w1-lane-494cd839 (0428-117)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
