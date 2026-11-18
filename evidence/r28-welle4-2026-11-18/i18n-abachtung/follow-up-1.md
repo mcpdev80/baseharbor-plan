@@ -50,6 +50,14 @@ product branch, no containers or volumes were created.
 - No `.github/**` change; no product-repo commit; no subagent (§4.8); abort
   honored immediately with no new work started.
 
+## Evidence on origin/main (second-to-last action witness)
+
+    $ cd /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan && git push origin main
+       44ec6fca..34bf857c  main -> main
+    $ git ls-remote origin refs/heads/main
+    34bf857cd3e53df705b7529014f8609d6d2b9a16  refs/heads/main
+    PATH_ON_ORIGIN_MAIN=yes (evidence/r28-welle4-2026-11-18/i18n-abachtung/follow-up-1.md @ 34bf857c)
+
 ## END
 
 END_DONE mission-093-contract-evidence.md: evidence abgebrochen, head stale
