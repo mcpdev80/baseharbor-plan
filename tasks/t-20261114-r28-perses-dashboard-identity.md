@@ -9,7 +9,7 @@ version: ""
 parent: v0.4.28
 owner: coord
 kanban_status: blocked
-kanban_lane: review
+kanban_lane: blocked
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
 kanban_title: 0428-078 · Perses identity dashboard
 priority: normal
@@ -20,13 +20,15 @@ sources: []
 blocker: Owner-scope CI-structure tests (.github/**, Owner-owned) fail identically on develop independent of candidate 022c454c: ci-executor-tests + Focused Python (test_pr_selected_runtime_matrix.py 14x max-parallel, test_targeted_gate_ref.py 2x inputs.gate/inputs.runtime assertions). The #1650 retarget merge 022c454c is structurally correct (parents 4f07c807+907f16713, first-parent chain = card commits only, 325ab0d4f ancestor) and all Go gates pass at exact head 022c454c; only these pre-existing Owner-scope Python jobs block the merge gate. Candidate deliverable is complete and accepted; merge decision + STATE-obliegen dem Owner.
 wait_reason: ""
 resolution: ""
-evidence: ["evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/blocked #view/blocked #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** coord · **Priority:** normal  
     **PR:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
+    **Blocker:** Owner-scope CI-structure tests (.github/\*\*, Owner-owned) fail identically on develop independent of candidate 022c454c: ci-executor-tests + Focused Python (test\_pr\_selected\_runtime\_matrix.py 14x max-parallel, test\_targeted\_gate\_ref.py 2x i…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
