@@ -127,4 +127,15 @@ Gaps (combinatorial, checked against test names/flows in cmd/baha and internal):
 - No product-repo commits; baseharbor develop untouched (`git ls-remote` witnesses at top and END).
 - cleanliness: no lane-owned compose projects, no stray files in /home/marcel/dev/baseharbor-ecosystem; only evidence in baseharbor-plan.
 
-END: pending push
+## Evidence publishing witnesses
+
+- `git ls-tree -r --name-only origin/main | grep hunt-ownership` → `evidence/r28-welle4-2026-11-18/hunt-ownership/befund-1.md` (present on origin/main).
+- `git merge-base --is-ancestor 528f3cc5753f9b2c20e802e37faef2226b68c16d HEAD` → true; my evidence commit `caf52415` sits directly on top of the fetched origin/main tip `528f3cc5` with only other lanes' published evidence commits between them (`git log 528f3cc5..HEAD` lists no foreign candidate branches).
+- Product-repo truth witness at END: `git ls-remote origin develop` → `8dccd4fe1a52bbcc61c67f7809079f33b8040d64` (unchanged), and the fresh clone's working tree carries 9 untracked scratch artifacts from the `go test` runs only (no tracked modification; nothing was committed or pushed to baseharbor).
+
+END: pending (see END line after this section)
+
+## END
+
+END_DONE mission-hunt-ownership.md: BUG-HUNT 916 befund-1 published (evidence commit caf52415 on baseharbor-plan origin/main); findings: unverifiable-ownership chain (provider_union.go:164-168 → digest → stale-impact-consent at application_provider_authorization.go:59), 8 race windows (B3/B4 = persistent `retiring` state), 6 coverage gaps, plus defect I1 (`if true` DIAG_EXEC stdout leak at app_edit_apply.go:372-376). No product change.
+
