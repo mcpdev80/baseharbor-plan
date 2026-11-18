@@ -1,0 +1,122 @@
+# mission-093-1663-fixes — rebase-window-2 (base freshness + failing-check fixes, PR #1663)
+
+Card: t-20261115-bughunt-d28-i18n-achtung (0428-093), PR #1663, branch
+`lane-0428-093-i18n-abachtung`. Continues `rebase-window-1.md` (same folder).
+Candidate under repair: `b6055fd47` with 5 failing checks in run 44025048848.
+
+## Planning-repo verification (wrong-zone check)
+
+    $ pwd && git rev-parse --show-toplevel
+    /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan   (real planning repo, NOT workers/baseharbor-plan)
+
+Remote truth witnesses (ls-remote only; workers/baseharbor never cited):
+
+    907f16713cbf38693d30c9dadaad7fe299759219  refs/heads/develop
+    b6055fd47a160b47f55c9f2c50317a014d313091  refs/heads/lane-0428-093-i18n-abachtung  (at mission start)
+
+Claim: card state `review`, owner `coord` (existing claim untouched; this lane
+acts on coord's dispatch, no claim churn).
+
+## PLAN
+
+1. Reality sync + claim check (ls-remote, PR state, prior act) — DONE
+2. Diagnose the 5 failed checks of run 44025048848 against rebase-window-1 — DONE
+3. `git merge origin/develop` (normal, no force, no rebase) — DONE (candidate 4ef41a31)
+4. Targeted fixes only inside the write-set; develop-side bugs → STOP + finding — DONE (no fixable delta; see below)
+5. Push, observe exact-head run to TERMINAL — IN PROGRESS (run 44396406150)
+6. This act committed and pushed to origin/main — pending last
+7. Cleanliness + END post — last action
+
+## Diagnosis of the 5 failing checks (run 44025048848 on b6055fd47)
+
+Failed jobs: docker app-gate, docker coreless-lifecycle aggregate, podman
+app-gate, podman coreless-lifecycle aggregate, `PR Selected Checks` (aggregate).
+All five trace to ONE root cause documented in rebase-window-1: at
+`cmd/baha/application_otlp_handoff_runtime_test.go:120` the shared-identity
+union reports `Action:add` for `opentelemetry-collector/shared` during apply,
+and verify then fails on `native OTLP trace source prometheus:... has no
+runtime probe adapter` (`cmd/baha/app_traces.go` `nativeTraceSourceProbe`,
+default branch). Rebase-window-1 proved this reproduces IDENTICALLY on neutral
+develop@bcae1e8c without any branch content — a develop-side bug inherited by
+the branch, NOT the i18n candidate. The podman-side `stale-impact-consent`
+line was triaged as a possible Flake, not in scope.
+
+## Base refresh and develop-side fix already merged
+
+- Merged in: `origin/develop` @ `907f16713cbf38693d30c9dadaad7fe299759219`
+  (current remote develop). One merge commit `4ef41a31f250b7824b57b874895790cc4435712a`,
+  ort strategy, zero conflicts (merge-tree conflict count: 0). No rebase, no force.
+- This develop head contains PR #1679 (`0ec4706b`, card 0428-108 "traceprobe"):
+  the exact fix for the line-120 wound — `internal/observability/registry.go`
+  keys mutations on provider, and `nativeTraceSourceProbe` (app_traces.go:171)
+  now routes `ProviderOTelCollector` / `ProviderExternalOTLP` to the receiver
+  export probe instead of the "no runtime probe adapter" default. The failure
+  rebase-window-1 diagnosed was develop-side, and develop-side has since
+  REPAIRED it; this lane carries that repair via the base merge.
+- Write-set check: `git diff b6055fd4..HEAD` touches 49 files — ALL are the
+  develop fold-in (0428-081 Perses/Valkey, 0428-100, 0428-108, 0428-109 docs).
+  The only branch-content file in the diff region is
+  `application_otlp_handoff_runtime_test.go`, which develop itself changed
+  (#1657 empty-target, #1679) and which this lane did NOT edit.
+  No targeted fix was possible or needed inside the write-set: per mission
+  rule (3) a develop-side bug not curable here means STOP + finding — but the
+  finding ("develop-side, owned by 0428-108") resolved by merge into develop
+  before this window, so the base refresh alone is the complete remedy.
+
+## Ancestries and own-commits proof
+
+- `git merge-base --is-ancestor 907f1671 HEAD` → true (base attestation).
+- `git merge-base --is-ancestor b6055fd4 HEAD` → true (candidate continuity).
+- `git log --oneline origin/develop..HEAD` → exactly 4 commits, all lane-owned:
+  `55550400` (the approved i18n content), `acb69658`, `b6055fd4`, `4ef41a31`
+  (the three base merges). No foreign commit is carried on top.
+
+## Local verification (on candidate 4ef41a31)
+
+- `go build ./...` → PASS. `go vet ./cmd/baha ./internal/observability` → PASS.
+  `gofmt -l cmd internal` → clean.
+- `go test ./internal/observability/` → ok.
+- `go test ./cmd/baha/ -run 'Achtung|Warning|Contract|Marker'` → ok
+  (0428-093 regression `TestProviderImpactConsequenceHintIsEnglishOutputAndContractMarker` passes).
+- The decisive proof is the hosted native docker+podman gate on the exact head
+  (Eigenes-run-pflicht below); no local container was started on the
+  coordinator host (AGENTS: tests only on the named SSH hosts).
+
+## Push witness
+
+    $ git push origin lane-0428-093-i18n-abachtung
+       b6055fd4..4ef41a31  (fast-forward, no force)
+
+    $ git ls-remote origin refs/heads/develop refs/heads/lane-0428-093-i18n-abachtung
+    907f16713cbf38693d30c9dadaad7fe299759219  refs/heads/develop
+    4ef41a31f250b7824b57b874895790cc4435712a  refs/heads/lane-0428-093-i18n-abachtung
+
+## CI run (Eigenes-run-pflicht)
+
+Run `44396406150` (`CI · Source & Quality`, event=pull_request) started on exact
+head 4ef41a31f at 2026-11-18T20:57:21Z. Observed to terminal state:
+
+    (pending — appended at END)
+
+## Test binding / CI mapping
+
+No new test was added by this lane; the existing 0428-093 regression test runs
+in `release_source_preflight` (`go test ./cmd/baha`) and the Go-unit cli shards.
+The inherited native OTLP handoff gate is executed by the
+`PR · Selected Core-less · {docker,podman} / PR selected · integration/* coreless-lifecycle · application`
+jobs, triggered by the pull_request path selection. That selection logic lives
+in `.github/**` (Owner scope) — untouched here.
+
+## VM smoke state
+
+Before dispatching anything: `ssh baha-docker` → `docker ps -a -q | wc -l` = 0;
+`ssh baha-podman` → no `bh-*`/baseharbor containers. Both hosts clean; no
+compose project was started or left by this lane. Hosted CI runs on
+GitHub-managed runners.
+
+## repo-rule compliance
+
+- No `.github/**` change; no PR merge; no rebase; no force-push; no subagent
+  (§4.8); scratch under /var/tmp only; no container on the coordinator host;
+  one candidate branch (`lane-0428-093-i18n-abachtung`), no second branch.
+- Remote truth measured only via `git ls-remote` / `gh` against GitHub.
