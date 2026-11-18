@@ -114,6 +114,53 @@ Before dispatching anything: `ssh baha-docker` → `docker ps -a -q | wc -l` = 0
 compose project was started or left by this lane. Hosted CI runs on
 GitHub-managed runners.
 
+## Acceptance criteria (card fields empty — enumerated by this act)
+
+- AC1: The Germanism `Achtung` no longer appears in English CLI output or the
+  JSON contract: all 15 non-test sites changed — 9 user-facing prompt strings
+  `Achtung:` → `Warning:` and the contract marker VALUE `Attention` field
+  literal `Achtung` → `Warning` across the 3 composition setters, the
+  normative JSON schema const (scope + impact) and goldens/testdata.
+  Verified by `git diff origin/develop...HEAD`: only the literal string value
+  changes; marker KEY names (`Attention`, `attention`) and every
+  presence-based check (`!= ""`) are untouched — diff lines confirm the
+  consent LOGIC is unchanged (label text and marker value only).
+- AC2: German docs (`docs/de/**`) remain German; English docs/contracts align
+  to the renamed marker value.
+- AC3: Regression test `TestProviderImpactConsequenceHintIsEnglishOutputAndContractMarker`
+  (cmd/baha) covers one user-output case and one JSON-contract case.
+- AC4: exact-head CI run 44396406150 TERMINAL SUCCESS on all required checks
+  (result appended below; the previously red docker+podman
+  `coreless-lifecycle · application` gates plus their aggregates and
+  `PR Selected Checks` are the gate list that must be green).
+
+## Required-check binding (card field empty — this act fixes the mapping)
+
+- No new test was introduced by this card; the AC3 regression is
+  auto-discovered normal Go test in package `cmd/baha`, executed by the
+  existing CI jobs `PR · Go unit · cli-*` shards and `release_source_preflight`
+  (`go test ./cmd/baha`), both on the `pull_request` trigger. No
+  `REQUIRED_CLIENT_TESTS`/`pr-gate-plan.py` change is needed (test binding:
+  normal/auto-discovered).
+- The inherited native gates for the merge-base correctness are
+  `PR · Selected Core-less · {docker,podman} / PR selected ·
+  integration/{docker,podman}/coreless-lifecycle · application` (GitHub-hosted
+  runners), same pull_request trigger. Their selection logic is in
+  `.github/**` (Owner scope) — untouched by this lane.
+
+## Handoff (card field empty — current state)
+
+- Branch: `lane-0428-093-i18n-abachtung` @ `4ef41a31f250b7824b57b874895790cc4435712a`
+  (base-fresh: develop@`907f1671` is an ancestor; own commits: i18n content
+  `55550400` + three base-merge commits only). PR #1663 OPEN, mergeable=MERGEABLE.
+- Content APPROVED earlier (batch20); this window only refreshed the base and
+  re-qualified. The 5 prior FAIL checks (run 44025048848) had a develop-side
+  cause (line-120 OTLP probe) which develop itself repaired via PR #1679
+  (0428-108); the base merge carries that repair. No write-set fix was due.
+- Gate to watch to acceptance: exact-head run 44396406150 terminal SUCCESS,
+  then CODEX-REVIEW/acceptance per AGENTS §5.2. This lane performs NO merge
+  (abnahme-session merges after green terminal).
+
 ## repo-rule compliance
 
 - No `.github/**` change; no PR merge; no rebase; no force-push; no subagent
