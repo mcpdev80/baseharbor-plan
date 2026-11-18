@@ -3,24 +3,24 @@ id: t-20261118-diag-exec-iftrue-leak
 release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
-kanban_status: planned
+kanban_status: active
+owner: "Flash (codeman d5ecb550 / 0428-118)"
 card_number: 0428-118
 card_short_title: fix DIAG_EXEC if-true leak in
 kanban_title: 0428-118 · fix DIAG_EXEC if-true leak in
 ---
 # t-20261118-diag-exec-iftrue-leak · DIAG_EXEC if-true leak in app edit apply
 
-- [ ] t-20261118-diag-exec-iftrue-leak · fix DIAG_EXEC if-true leak in app_edit_apply.go #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261118-diag-exec-iftrue-leak · fix DIAG_EXEC if-true leak in app_edit_apply.go #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** Flash (codeman d5ecb550 / 0428-118)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** Flash (codeman d5ecb550 / 0428-118)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

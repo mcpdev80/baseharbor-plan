@@ -8,5 +8,4 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261117-hunt-signals-101](../tasks/t-20261117-hunt-signals-101.md) | ID-Raum-Heterogenitaet und Keycloak-Kollision in Signal-IDs | ready | not set | — | — | — |
-| [t-20261118-diag-exec-iftrue-leak](../tasks/t-20261118-diag-exec-iftrue-leak.md) | fix DIAG_EXEC if-true leak in app_edit_apply.go | ready | not set | — | — | — |
 | [t-20261118-ownership-stale-consent-hardening](../tasks/t-20261118-ownership-stale-consent-hardening.md) | harden provider ownership chain vs stale-impact-consent | ready | not set | — | — | — |
