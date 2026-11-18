@@ -52,3 +52,5 @@ fix-1 akte red->green, CI 44409288750 SUCCESS
 red->green guard-fix, exact-head run 44409288750 SUCCESS auf f1df8d7f6, matrix-regression beide operanten
 
 red->green guard-fix, exact-head run 44409288750 SUCCESS auf f1df8d7f6, matrix-regression beide operanten
+## Invariant ruling (coord, 2026-11-19 after reviewer finding)
+For NON-continuation operations an unexpected extra disposition edge must FAIL CLOSED (status partial/error, reason 'unexpected edge'), not be accepted as applied. Regression matrix covers both continuation true/false; misleading comment in TestProviderChangeResult... replaced by explicit assertion. Implemented in correction round r2 (lane 91d9173b).
