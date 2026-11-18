@@ -153,11 +153,47 @@
   integration test). Pre-existing on `develop`; the CI jobs that need it passed on their own
   configured database services.
 
+## Evidence provenance note (contention witness, documented per AGENTS 5.6)
+
+While this akte was being written, another lane's intake commit (`6b836cbf`, "plan: intake
+0428-117 …") landed in the shared baseharbor-plan checkout and carried this file into `origin/main`
+in its still-pending state (`END_PENDING`, CI section "(pending …)") — before my CI run had
+terminated. It also swept up the untracked `evidence/…/receipt-guard/fix-1.md` that lane
+0428-114 had left in the shared tree, and my `plan.py claim` output had no `owner:` key to write
+into, so the owner line was set directly in the card front matter (the same pattern other cards use)
+to satisfy the `plan.py check` rule "status active requires an owner".
+
+This commit finalizes the akte with the terminal CI witness and the END line; it changes no earlier
+content. My claim commit remains `65685e32`, and `git log --oneline origin/main..HEAD` before this
+push listed only my own commits.
+
+Re-integrating the remote `origin/main` (rebase) also surfaced an unrelated pre-existing board error
+that blocks `plan.py check`, and therefore my card's `review` transition:
+`tasks/t-20261118-app-env-recovery-flags-claim.md` (card 0428-117) has `kanban_status: active` with no
+`owner` front matter — the same claim-output gap described above, left by another lane's intake. The
+coordinator's `card-status.py` runs the vault check first and refuses to publish while any error
+remains, and it offers no "publish anyway" escape (`NICHT gepusht - regelpruefen, dann erneut setzen`).
+Editing another card's front matter is outside this lane's write-set, so per the stop rule I am
+reporting it as STATE instead of touching it:
+
+    $ python3 scripts/plan.py check
+    error: tasks/t-20261118-app-env-recovery-flags-claim.md: status active requires an owner
+    559 tasks, 7 epics, 13 releases, 22 decisions; 1 errors, 29 warnings
+
+The same missing-owner pattern had to be repaired for cards 0428-115 and 0428-116 earlier in this
+shift, so `plan.py claim` (and the intake path that creates cards directly) is the root of this
+recurring board error; that is an Owner/coordinator fix, not a product fix.
+
 ## END
 
-- END_DONE: mission-115-twophase-doc.md — DONE. Card t-20261118-enrollment-two-phase-boundary-doc
-  (0428-115) candidate `2039628ba8d981488d93e90f59dff5023fb9a477` on
-  `lane-0428-115-twophase-doc`, PR https://github.com/mcpdev80/baseharbor/pull/1685 (base `develop`),
-  CI run 44408281995 completed/success on the exact head. ADR 0020 EN+DE paragraph plus one
-  comment-only block in `internal/targetenrollment/authority.go`; no behavior change, no migration,
-  no `.github/**` edit, no containers started.
+- END_BLOCKED: mission-115-twophase-doc.md — the WORK itself is DONE and fully verified; the only
+  open item is a foreign board-validation error that blocks my card's `review` transition (see the
+  evidence provenance note above). Card t-20261118-enrollment-two-phase-boundary-doc (0428-115)
+  candidate `2039628ba8d981488d93e90f59dff5023fb9a477` on `lane-0428-115-twophase-doc`,
+  PR https://github.com/mcpdev80/baseharbor/pull/1685 (base `develop`, cut from `8dccd4fe1`),
+  CI run 44408281995 completed/success on the exact head (all selected jobs pass).
+  ADR 0020 EN+DE paragraph plus one comment-only block in `internal/targetenrollment/authority.go`;
+  no behavior change, no migration, no `.github/**` edit, no containers started.
+  Requested coordinator action: fix the missing `owner` on
+  `tasks/t-20261118-app-env-recovery-flags-claim.md` (or tell me to), then move 0428-115 to
+  `review` with `--pr mcpdev80/baseharbor#1685`; nothing further is needed from this lane.
