@@ -161,7 +161,23 @@ This lane starts no rerun and no workflow_dispatch (mission GRENZEN: KEIN .githu
 - No containers/compose started on this coordinator host (docker not even present here; runtime tests belong to hosted gates/SSH test hosts).
 - Remote truth measured only via `git ls-remote` / GitHub API; the quarantined `workers/baseharbor` checkout was never cited.
 
-## CLEANLINESS
+## CLEANLINESS + ps-witness (host note)
+
+- This lane started NO docker/podman compose project. `docker ps` on this coordinator host shows
+  only the long-running ambient `bh-local-shared-*` stack (up before this window; not this lane's,
+  left untouched per owner hygiene). The `internal/application/{prune-*,trace-*}` untracked dirs in
+  the worktree are pre-existing test scratch from earlier windows of this same card's worktree, not
+  created in this session. Probe clones under /tmp were deleted.
+- Host note: this session runs ON the machine hosting the rootless docker daemon (the mission's
+  "never test on your own host" rule); this lane honored it by starting nothing there.
+
+## ORIGIN-MAIN WITNESS (second-to-last action)
+
+```
+$ git fetch origin && git log --oneline -1 origin/main   # (in /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan)
+$ GIT_PAGER=cat git ls-tree -r origin/main --name-only evidence/r28-welle4-2026-11-18/docker-loki-ingestion/
+evidence/r28-welle4-2026-11-18/docker-loki-ingestion/fix-1.md
+```
 
 - No docker/podman compose projects started by this lane (witness: work happened in existing worktree `/home/marcel/dev/baseharbor-ecosystem/work/0428-113-wt`; probes were `git clone`/`git apply` only under /tmp).
 - Probe worktrees (`/tmp/probe1677`, `/tmp/oras-probe`) removed before END; ps-witness below.
