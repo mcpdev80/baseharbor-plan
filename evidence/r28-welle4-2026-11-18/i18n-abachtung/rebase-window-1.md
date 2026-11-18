@@ -22,10 +22,10 @@ acts on coord's dispatch, no claim churn).
 1. Reality sync + claim check (ls-remote, PR state, prior act) — DONE
 2. Diagnose the 5 failed checks of run 44025048848 against rebase-window-1 — DONE
 3. `git merge origin/develop` (normal, no force, no rebase) — DONE (candidate 4ef41a31)
-4. Targeted fixes only inside the write-set; develop-side bugs → STOP + finding — DONE (no fixable delta; see below)
-5. Push, observe exact-head run to TERMINAL — IN PROGRESS (run 44396406150)
-6. This act committed and pushed to origin/main — pending last
-7. Cleanliness + END post — last action
+4. Targeted fixes only inside the write-set; develop-side bugs → STOP + finding — DONE (no fixable delta; develop-side cause repaired by merged #1679, carried via base merge; docs-surface scoping finding recorded in AC1a)
+5. Push, observe exact-head run to TERMINAL — DONE (run 44396406150 completed/success, own poll loop to terminal)
+6. This act committed and pushed to origin/main — DONE (see push witness below)
+7. Cleanliness sweep + END post — last action
 
 ## Diagnosis of the 5 failing checks (run 44025048848 on b6055fd47)
 
@@ -94,9 +94,25 @@ line was triaged as a possible Flake, not in scope.
 ## CI run (Eigenes-run-pflicht)
 
 Run `44396406150` (`CI · Source & Quality`, event=pull_request) started on exact
-head 4ef41a31f at 2026-11-18T20:57:21Z. Observed to terminal state:
+head 4ef41a31f at 2026-11-18T20:57:21Z. Terminal outcome, observed by this
+session's own poll loop (watcher) until terminal:
 
-    (pending — appended at END)
+    run_id=44396406150 status=completed conclusion=success sha=4ef41a31f250b7824b57b874895790cc4435712a
+    https://github.com/mcpdev80/baseharbor/actions/runs/44396406150
+
+All five previously failing checks are now green on the exact head:
+
+    PR · Selected Core-less · docker / ... · coreless-lifecycle            success
+    PR · Selected Core-less · docker / ... · coreless-lifecycle · application  success
+    PR · Selected Core-less · podman / ... · coreless-lifecycle            success
+    PR · Selected Core-less · podman / ... · coreless-lifecycle · application  success
+    PR Selected Checks                                                      success
+
+No failure or cancelled jobs in the run (jobs[] failure filter → empty). The
+55550400-era go-build/vet/gofmt/unit/documentation checks were SUCCESS as well.
+This confirms the rebase-window-1 diagnosis end-to-end: the branch inherited
+develop-side red, develop-side #1679 (0428-108) repaired the cause, and the
+base merge to 907f1671 made the candidate green without any content change.
 
 ## Test binding / CI mapping
 
@@ -125,13 +141,30 @@ GitHub-managed runners.
   changes; marker KEY names (`Attention`, `attention`) and every
   presence-based check (`!= ""`) are untouched — diff lines confirm the
   consent LOGIC is unchanged (label text and marker value only).
-- AC1a (surface demarcation, corrector note 2026-11-18): the patch is the
-  intended 15-site `Achtung` → `Warning` fix on the CODE / i18n-catalog
-  surface ONLY. The DOCS surface is explicitly OUT of scope here: docs keep
-  the unified **Achtung** label (card 0428-107, already-compliant) and card
-  0428-106 concerns only the consent paths. The `docs/spec/runtime-explorer-v1.md`
-  touch in the content commit is the machine-contract schema const (the JSON
-  contract marker), not a prose-doc localization change.
+- AC1a (surface demarcation, corrector note 2026-11-18): the intended fix is
+  the CODE / i18n-catalog surface (Go prompt strings, contract marker value,
+  normative schema const, goldens); docs prose keeps the unified **Achtung**
+  label (card 0428-107, already-compliant) and card 0428-106 concerns only
+  the consent paths.
+  FINDING (reality check on this candidate, not assumed): content commit
+  55550400 ALSO renamed **Achtung** → **Warning** at 13 English doc-prose
+  sites — `docs/cli/applications.md`, `docs/cli/targets.md`,
+  `docs/how-to/external-providers.md`, `docs/how-to/machine-operations.md`,
+  `docs/reference/backup-and-restore.md`, `docs/releases/v0.4.25.md`,
+  `docs/releases/v0.4.25.preparation.md`, `docs/spec/capability-first-v0425.md`,
+  `docs/spec/runtime-explorer-v1.md`, `docs/internal/v0.4.25-provider-mutation-coverage.md`
+  and 3 `docs/internal/*.json` checkpoint files (per-file +Warning counts
+  above, measured via `git diff origin/develop...HEAD -- docs/`). Under the
+  demarcation these are OUT of the 093 surface (the EN docs carry a localized
+  label choice, while DE docs intentionally keep **Achtung**).
+  This window did NOT revert them unilaterally, because a doc revert is a
+  content change to an already batch20-APPROVED candidate and must go through
+  the review/abnahme decision; it is reported here as the scoping finding.
+  Side evidence: `scripts/documentation-audit.sh` has no untranslated-germanism
+  rule for `docs/**` (grep: no `Achtung`/`germanism` hits), so a revert would
+  not redden any CI gate. Awaiting coordinator/abnahme ruling: either keep
+  the docs sites (current green candidate 4ef41a31) or a follow-up revert
+  commit on this same branch before merge.
 - AC2: German docs (`docs/de/**`) remain German; English docs/contracts align
   to the renamed marker value.
 - AC3: Regression test `TestProviderImpactConsequenceHintIsEnglishOutputAndContractMarker`
@@ -164,9 +197,17 @@ GitHub-managed runners.
   re-qualified. The 5 prior FAIL checks (run 44025048848) had a develop-side
   cause (line-120 OTLP probe) which develop itself repaired via PR #1679
   (0428-108); the base merge carries that repair. No write-set fix was due.
-- Gate to watch to acceptance: exact-head run 44396406150 terminal SUCCESS,
-  then CODEX-REVIEW/acceptance per AGENTS §5.2. This lane performs NO merge
+- Gate to watch to acceptance: exact-head run 44396406150 terminal
+  completed/success (observed, see CI-run block above). Open scoping ruling
+  for the abnahme session: AC1a docs-prose finding (13 sites — keep vs
+  revert-forward on this branch). This lane performs NO merge
   (abnahme-session merges after green terminal).
+
+## END
+
+END_DONE mission-093-1663-fixes.md: candidate 4ef41a31f (develop@907f1671
+folded in, zero conflicts), run 44396406150 completed/success on exact head,
+all 5 prior FAIL checks green; docs-prose scoping finding in AC1a for abnahme.
 
 ## repo-rule compliance
 
