@@ -74,3 +74,6 @@ Record exact candidate SHA and focused tests by name. Route every changed test t
 Prerequisites are encoded in `depends_on`. One worker per card/branch/PR, no concurrent writes to shared files. Codex/Owner-delegated Maintainer reviews and merges only after real checks; no independent-review claim. Archive Console/Node Connector repos are excluded. No implementation or release has occurred.
 
 Supersedes [t-20261113-r28-grafana-dashboard-identity](t-20261113-r28-grafana-dashboard-identity.md) under the [Owner decision](../decisions/2026-11-14-perses-replaces-grafana-v0428.md).
+
+## Owner decision — 2026-11-18 (takeover)
+No Trusted-Plan allowlist bypass for #1650. Prerequisite 0428-080/#1590 is merged (develop since 409444854) — therefore: retarget #1650 onto develop, re-verify the FULL diff and a fresh exact-head CI; merge only after all gates.
