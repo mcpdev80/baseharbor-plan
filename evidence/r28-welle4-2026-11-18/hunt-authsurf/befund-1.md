@@ -58,3 +58,11 @@
 ## END
 
 - mission-hunt-authsurf.md: DONE — befund-1.md written with all three slices and repro.
+
+## commit + evidence provenance
+
+- Evidence commit: `d29cb801` (baseharbor-plan main). `git log origin/main..HEAD` shows ONLY this commit.
+- Base attestation (baseharbor-plan): origin/main == `9371b80a2c6238879b6ca0c38022ada63422c298` is an ancestor of the commit.
+- ls-remote witness (pasted before END):
+  `9371b80a2c6238879b6ca0c38022ada63422c298	refs/heads/main`
+- Product base (baseharbor develop): `907f16713cbf38693d30c9dadaad7fe299759219`, ancestor of read worktree HEAD.
