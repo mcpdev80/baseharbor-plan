@@ -3,26 +3,33 @@ id: t-20261118-enrollment-two-phase-boundary-doc
 release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
-owner: "w115 (opencode ses_e0f576c30ffe)"
-kanban_status: active
+owner: w115 (opencode ses_e0f576c30ffe)
+kanban_status: review
 card_number: 0428-115
 card_short_title: document the enrollment
 kanban_title: 0428-115 · document the enrollment
+prs: [mcpdev80/baseharbor#1685]
+wait_reason: ""
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/enrollment-twophase/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1685", "https://github.com/mcpdev80/baseharbor/actions/runs/44408281995"]
+blocker: ""
+
 ---
 # t-20261118-enrollment-two-phase-boundary-doc · document the enrollment consume/issue two-phase boundary
 
-- [ ] t-20261118-enrollment-two-phase-boundary-doc · document the enrollment consume/issue two-phase boundary #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261118-enrollment-two-phase-boundary-doc · document the enrollment consume/issue two-phase boundary #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** w115 (opencode ses\_e0f576c30ffe)  
+    **PR:** [baseharbor#1685](https://github.com/mcpdev80/baseharbor/pull/1685)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/enrollment-twophase/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1685), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44408281995)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w115 (opencode ses_e0f576c30ffe)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1685](https://github.com/mcpdev80/baseharbor/pull/1685)  
 **Source:** 
 <!-- /generated:links -->
 

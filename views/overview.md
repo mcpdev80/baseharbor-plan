@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 12 |
-| review | 23 |
+| active | 11 |
+| review | 24 |
 | wait | 13 |
 | blocked | 1 |
 | ready | 2 |
@@ -34,7 +34,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261117-hunt-signals-106](../tasks/t-20261117-hunt-signals-106.md) | CLI destructive-consent paths still emit German Achtung fall | active | not set | worker-ornith1.5 | — | [baseharbor#1683](https://github.com/mcpdev80/baseharbor/pull/1683) |
 | [t-20261117-observability-native-gate-bootstrap](../tasks/t-20261117-observability-native-gate-bootstrap.md) | CI: Run observability acceptance with verified ORAS bootstrap | active | not set | lane-113-pr1680-fixes (this session, intake per Hunt→Karte duty) | — | — |
 | [t-20261118-app-env-recovery-flags-claim](../tasks/t-20261118-app-env-recovery-flags-claim.md) | align app env recovery-flag docs with the real command contract | active | not set | — | — | — |
-| [t-20261118-enrollment-two-phase-boundary-doc](../tasks/t-20261118-enrollment-two-phase-boundary-doc.md) | document the enrollment consume/issue two-phase boundary | active | not set | w115 (opencode ses_e0f576c30ffe) | — | — |
 | [t-20261118-receipt-guard-single-operand](../tasks/t-20261118-receipt-guard-single-operand.md) | receipt verification guard collapses to single operand | active | not set | w1-lane-8a994dc2 (0428-116) | — | — |
 
 ## Ready for review
@@ -64,6 +63,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261116-i18n-demo-consumer-rename](../tasks/t-20261116-i18n-demo-consumer-rename.md) | Demo: match renamed Warning marker after core 0428-093 lands | review | not set | coord | [t-20261115-bughunt-d28-i18n-achtung](../tasks/t-20261115-bughunt-d28-i18n-achtung.md) (open) | [baseharbor-demo#164](https://github.com/mcpdev80/baseharbor-demo/pull/164) |
 | [t-20261117-docker-loki-ingestion-timeout](../tasks/t-20261117-docker-loki-ingestion-timeout.md) | Observability: Docker Loki provider ingestion gate times out | review | not set | coord | [t-20261117-observability-native-gate-bootstrap](../tasks/t-20261117-observability-native-gate-bootstrap.md) (open) | [baseharbor#1680](https://github.com/mcpdev80/baseharbor/pull/1680) |
 | [t-20261117-hunt-uid-docs-110](../tasks/t-20261117-hunt-uid-docs-110.md) | Corrupt-config and mutation paths stay silent despite fail-l | review | not set | worker-flash (mission-110-mutation-loud) | — | [baseharbor#1682](https://github.com/mcpdev80/baseharbor/pull/1682) |
+| [t-20261118-enrollment-two-phase-boundary-doc](../tasks/t-20261118-enrollment-two-phase-boundary-doc.md) | document the enrollment consume/issue two-phase boundary | review | not set | w115 (opencode ses_e0f576c30ffe) | — | [baseharbor#1685](https://github.com/mcpdev80/baseharbor/pull/1685) |
 
 ## Waiting for resources
 

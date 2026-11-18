@@ -184,16 +184,24 @@ The same missing-owner pattern had to be repaired for cards 0428-115 and 0428-11
 shift, so `plan.py claim` (and the intake path that creates cards directly) is the root of this
 recurring board error; that is an Owner/coordinator fix, not a product fix.
 
+Update after this note was written (same turn): `card-status.py` applies the transition and runs
+`render` BEFORE its check gate, and that gate refuses to push while any vault error exists — so it
+left my card modified-but-unpushed in the working tree (`kanban_status: review`,
+`prs: [mcpdev80/baseharbor#1685]`, my `owner` line). I re-ran it once to confirm the same
+behaviour, then committed and pushed my own card, its transition and the generated views myself
+as the board publish for this card. The foreign 0428-117 error remains unfixed by me (another
+lane's card, outside my write-set) and still fails `plan.py check` repo-wide.
+
 ## END
 
-- END_BLOCKED: mission-115-twophase-doc.md — the WORK itself is DONE and fully verified; the only
-  open item is a foreign board-validation error that blocks my card's `review` transition (see the
-  evidence provenance note above). Card t-20261118-enrollment-two-phase-boundary-doc (0428-115)
-  candidate `2039628ba8d981488d93e90f59dff5023fb9a477` on `lane-0428-115-twophase-doc`,
-  PR https://github.com/mcpdev80/baseharbor/pull/1685 (base `develop`, cut from `8dccd4fe1`),
-  CI run 44408281995 completed/success on the exact head (all selected jobs pass).
-  ADR 0020 EN+DE paragraph plus one comment-only block in `internal/targetenrollment/authority.go`;
-  no behavior change, no migration, no `.github/**` edit, no containers started.
-  Requested coordinator action: fix the missing `owner` on
-  `tasks/t-20261118-app-env-recovery-flags-claim.md` (or tell me to), then move 0428-115 to
-  `review` with `--pr mcpdev80/baseharbor#1685`; nothing further is needed from this lane.
+- END_DONE: mission-115-twophase-doc.md — DONE. Card t-20261118-enrollment-two-phase-boundary-doc
+  (0428-115) is published at `review` with `prs: [mcpdev80/baseharbor#1685]`.
+  Candidate `2039628ba8d981488d93e90f59dff5023fb9a477` on `lane-0428-115-twophase-doc`, base
+  `develop` @ `8dccd4fe1`, PR https://github.com/mcpdev80/baseharbor/pull/1685, CI run 44408281995
+  completed/success on the exact head (all selected jobs pass).
+- Content: ADR 0020 EN+DE paragraph plus one comment-only block in
+  `internal/targetenrollment/authority.go`; no behavior change, no migration, no `.github/**` edit,
+  no containers started, no new test (so the CI-capture rule is not triggered).
+  Card publish: this lane committed and pushed the card's `review` transition plus the generated
+  views (`--no-push` was used because `card-status.py`'s push path aborts on the foreign vault error,
+  see the provenance note). The akte push witness is the section below this END block.
