@@ -184,4 +184,9 @@ evidence/r28-welle4-2026-11-18/docker-loki-ingestion/fix-1.md
 
 ## END
 
-END_BLOCKED mission-113-1680-fixes.md: candidate 46de903f1 on PR #1680 (develop merged, PR CI green on exact head, registry.go/#1677 overlap documented); required Docker+Podman Loki runtime acceptance blocked by missing ORAS step in observability-acceptance.yml (.github Owner scope, finding filed; card 0428-114) — runtime evidence cannot be produced by this lane.
+END_BLOCKED mission-113-1680-fixes.md: candidate 46de903f1 on PR #1680 (develop merged, PR CI run 44396957393 green on exact head, registry.go/#1677 overlap documented); required Docker+Podman Loki runtime acceptance blocked by the never-wired ORAS bootstrap in observability-acceptance.yml (.github Owner scope — finding with file:line filed, card 0428-114) — runtime evidence cannot be produced by this lane without editing .github/** or dispatching, both forbidden.
+
+Correction trail: the first END post (this session -> coordinator 9142ab1f) said "same failure is
+current develop behavior" — that was wrong; the develop-anchored dispatch executed develop content
+(62eaea2c8) and develop's own Docker Core gates (which DO install ORAS, ci witness above) pass.
+The corrected END (this block) states the true scope: the gap is only in observability-acceptance.yml.
