@@ -1,7 +1,7 @@
 ---
 id: t-20261118-enrollment-two-phase-boundary-doc
 release: v0.4.28
-repos: [baseharbor]
+repos: [mcpdev80/baseharbor]
 depends_on: []
 kanban_status: planned
 card_number: 0428-115
