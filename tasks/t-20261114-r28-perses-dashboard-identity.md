@@ -17,7 +17,7 @@ depends_on: [t-20261114-r28-perses-dashboard-selection]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1606, mcpdev80/baseharbor#1650]
 sources: []
-blocker: Owner-scope CI-structure tests (.github/**, Owner-owned) fail identically on develop independent of candidate 022c454c: ci-executor-tests + Focused Python (test_pr_selected_runtime_matrix.py 14x max-parallel, test_targeted_gate_ref.py 2x inputs.gate/inputs.runtime assertions). The #1650 retarget merge 022c454c is structurally correct (parents 4f07c807+907f16713, first-parent chain = card commits only, 325ab0d4f ancestor) and all Go gates pass at exact head 022c454c; only these pre-existing Owner-scope Python jobs block the merge gate. Candidate deliverable is complete and accepted; merge decision + STATE-obliegen dem Owner.
+blocker: "Owner-scope .github CI-structure: ci-executor-tests + Focused Python fail identically on develop itself (proven, evidence 8c99af8f); candidate 022c454c green on all Go gates. Trigger: Owner lands the .github fix, then re-run exact-head CI and hand to CODEX review/merge"
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md"]
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
     <!-- generated:card -->
     **Owner:** coord · **Priority:** normal  
     **PR:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
-    **Blocker:** Owner-scope CI-structure tests (.github/\*\*, Owner-owned) fail identically on develop independent of candidate 022c454c: ci-executor-tests + Focused Python (test\_pr\_selected\_runtime\_matrix.py 14x max-parallel, test\_targeted\_gate\_ref.py 2x i…  
+    **Blocker:** Owner-scope .github CI-structure: ci-executor-tests + Focused Python fail identically on develop itself (proven, evidence 8c99af8f); candidate 022c454c green on all Go gates. Trigger: Owner lands the .github fix, then re-run exact-head CI…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md)  
     <!-- /generated:card -->
 
@@ -82,3 +82,5 @@ No Trusted-Plan allowlist bypass for #1650. Prerequisite 0428-080/#1590 is merge
 
 ## Retarget status — 2026-11-18 (mission-078)
 #1650 retargeted to base `develop` (was lane-0428-080). Head branch `lane-0428-078-perses-identity-on-resolver` advanced non-force `325ab0d4f -> 4f07c807 -> 022c454c` by a regular merge of `origin/develop` (first parent chain lists only the card's commits; `325ab0d4f` is an ancestor of the merge). Base attestation: base `907f16713cbf38693d30c9dadaad7fe299759219`, head `325ab0d4fc0aa80afd7f8e0ba41c86027c8b324d`. Full diff re-verified locally: `go build ./...`, `go vet`, gofmt on all touched files, and identity/perses tests pass (capability, metrics, application, cmd/baha Status/Perses/Identity/Dashboard). CI run 44400488202 @ 022c454c is terminal; all Go gates pass. Two Python CI-structure jobs (`ci-executor-tests`, `Focused Python`) fail identically on develop — pre-existing Owner-scope `.github/**` failures (14 `max-parallel:`, 2 `inputs.gate`/`inputs.runtime` assertions). No `.github/**` edit, no `workflow_dispatch`, no bypass. Evidence: evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md.
+
+END_BLOCKED akzeptiert, retarget+merge-zeug am band
