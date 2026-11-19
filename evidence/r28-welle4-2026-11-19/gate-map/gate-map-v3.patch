@@ -1,0 +1,27 @@
+--- gate-map-patch-v3 for karte 0428-114 (carrier), evidence-only in baseharbor-plan ---
+--- Builds on gate-map-v2.patch (unchanged). Target repo: baseharbor, base head da76c5cf9c963207038d5599bd130b89ecb1e8a4 (origin/develop, fetched 2026-11-19). ---
+--- CHANGE (e): .github/workflows/docker-runtime-acceptance.yml line 17: workflow_dispatch ref default 'release/v0.4.21' -> 'develop' (branch dead on origin: gh api 404, ls-remote empty; run 44466684726 aborted at checkout, always()-verify FileNotFoundError on tests/main.jsonl) ---
+--- CHANGE (g): .github/workflows/docker-runtime-acceptance.yml, job docker-runtime: add ORAS install step after rootless-Docker prep (line 219), before build; verbatim like single_default_native lines 127-128 (run 44464060182 aborts at internal/application/app_repository_integration_test.go:27 'ORAS is required') ---
+diff --git a/.github/workflows/docker-runtime-acceptance.yml b/.github/workflows/docker-runtime-acceptance.yml
+index 6692ddbe..1a5a0db6 100644
+--- a/.github/workflows/docker-runtime-acceptance.yml
++++ b/.github/workflows/docker-runtime-acceptance.yml
+@@ -14,7 +14,7 @@ on:
+       ref:
+         description: Git ref to test
+         required: false
+-        default: release/v0.4.21
++        default: develop
+         type: string
+ 
+   push:
+@@ -218,6 +218,9 @@ jobs:
+         timeout-minutes: 10
+         run: bash scripts/ci-core-rootless-runtime.sh
+ 
++      - name: Install verified ORAS for native Core bootstrap
++        run: bash scripts/ci-install-oras.sh
++
+       - name: Build BaseHarbor
+         id: build
+         run: |
