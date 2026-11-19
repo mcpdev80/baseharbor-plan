@@ -12,4 +12,4 @@ Compared with current develop, the old PR branch removes the full snapshot compa
 
 The PR's last hosted run `43942855437` failed both Docker and Podman coreless-lifecycle jobs; available run artifacts did not expose a specific assertion. On current develop, the focused Go lifecycle/helper test command passed; those runtime lifecycle tests self-skipped because their acceptance environment variables were not set. `python3 -m unittest scripts.test_pr_gate_coverage scripts.test_pre_release_runtime_reuse` passed all 58 tests. Native Docker and Podman acceptance was not run as part of this local check.
 
-**Disposition:** close #1649 as superseded by stronger current develop content, without merging its stale head. This does not disposition #1606 or any other PR.
+**Disposition:** #1649 was closed on 2026-11-19 21:40 UTC as superseded by stronger current develop content, without merging its stale head: https://github.com/mcpdev80/baseharbor/pull/1649. This does not disposition #1606 or any other PR.
