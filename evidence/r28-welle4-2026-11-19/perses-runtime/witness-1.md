@@ -259,11 +259,17 @@ precedent with the missing hosted wire as Owner finding 0428-114.
 ## Evidence on origin/main before END (second-to-last action)
 
 ```
-$ git rev-parse origin/main
-177345848f9f21642dec4f9c636afecc23f82122
+$ git ls-remote origin refs/heads/main
+d7b92e5dd80effcc246367dc5695ec34ce126f4d	refs/heads/main
 $ git cat-file -e origin/main:evidence/r28-welle4-2026-11-19/perses-runtime/witness-1.md && echo PRESENT
 PRESENT
+$ git merge-base --is-ancestor 073e13e9 origin/main; echo $?
+0
 ```
+
+This lane's commits on `origin/main`: `073e13e9` (initial witness), `1b7ed35f` (run 4 +
+provenance), `d7b92e5d` (final, contains the full file as pushed). The two coordinator
+commits between them (`779dd3c6`, `984055db`) are not this lane's and were preserved.
 
 The initial evidence commit is `073e13e9` (single evidence-file commit, parent
 `4ca4ab28`); the amended lineage ends at the pushed head below. `git log --oneline
