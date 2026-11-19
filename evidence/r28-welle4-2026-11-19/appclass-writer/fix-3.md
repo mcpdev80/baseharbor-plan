@@ -321,8 +321,133 @@ END mission-122-service-dimension.md DONE — candidate `35069547245b0ba460e7fd5
 monotone on the reviewed `876329f`, fix `102fcd907`): the render-time reconcile
 carries the actually selected Compose service set into the reconcile boundary
 instead of the synthetic `workload`, reclaims stale entries, and the
-implicit two-service + shrink regressions pass on the real path; targeted
-`go test`/`gofmt`/`go build`/`go vet` green; single `registry.go` conflict
-resolved keeping both #1691 and #1692 (merge-tree → 0 conflict); no `.github/**`
-edit, no merge, no CODEX verdict, no subagent. Exact-head CI still to run before
-this is accepted (§4.6).
+## EVIDENCE LOCK (acceptance, owner-confirmed 2026-11-19)
+
+Owner confirms qualification: PR #1692 head `14f279867` (parents `97eb3625a` +
+`695ad5494`), `mergeStateStatus = CLEAN`, `isDraft = false`; run `44536505959`
+completed SUCCESS on exactly this head, 0 failed jobs. Acceptance additionally
+confirms `PR · Native gate plan` (success) read the trusted planner from
+BASE_SHA `695ad5494` and selected **no** native gate for these paths —
+`Targeted HA · docker`/`podman` skipped by current trusted policy, no bypass;
+runtime acceptance is "not applicable" for THIS PR (develop/release acceptance
+stays separate). The evidence is now fixed in this order.
+
+### (1) `PR Selected Checks = success` as the combined required aggregate, and
+test-id → package → native-gate → run-url mapping
+
+Aggregate: `PR Selected Checks` (job `44536505959`, run URL
+`https://github.com/mcpdev80/baseharbor/actions/runs/44536505959`) =>
+**success** — the only owner-accepted evidence, gated on
+`NATIVE_REQUIRED=false` (skipped) + Go unit-shard coverage.
+
+Every automated test this card added or changed, mapped to its package and the
+gate that runs it (unit shards, no native docker/podman gate — the diff is
+classified `{"include":[]}` by the trusted planner):
+
+| test id | package | gate that runs it | native docker/podman gate | run 44536505959 |
+| --- | --- | --- | --- | --- |
+| `TestApplicationClassLogSourcesStayDistinguishablePerService` | `internal/logs` | `PR · Go unit · cli-*` / `packages` | skipped (no gate for `internal/logs/*`) | success |
+| `TestApplicationClassLogSourceReconcileRegistersActiveServiceSet` | `internal/logs` | `PR · Go unit · cli-*` / `packages` | skipped | success |
+| `TestApplicationClassLogSourceBindKeepsSiblings` | `internal/logs` | `PR · Go unit · cli-*` / `packages` | skipped | success |
+| `TestApplicationClassLogSourceDisabledPolicyReclaimsEveryService` | `internal/logs` | `PR · Go unit · cli-*` / `packages` | skipped | success |
+| `TestImplicitComposeWorkloadRecordsSelectedServiceSet` (new) | `internal/logs` | `PR · Go unit · cli-*` / `packages` | skipped | success |
+| `TestImplicitComposeWorkloadShrinkReclaimsStaleService` (new) | `internal/logs` | `PR · Go unit · cli-*` / `packages` | skipped | success |
+| `TestApplicationClassLogSourceSurvivesManagedReconcile` | `internal/logs` | `PR · Go unit · cli-*` / `packages` | skipped | success |
+| `TestReconcileMatchingFailsClosedOnForeignProviderSource` | `internal/logs` | `PR · Go unit · cli-*` / `packages` | skipped | success |
+| `TestManagedRuntimeObservabilityUsesCanonicalServiceIdentities` | `internal/application` | `PR · Go unit · cli-*` / `packages` | skipped | success |
+| `TestManagedRuntimeObservabilityExcludesSharedBackendServices` | `internal/application` | `PR · Go unit · cli-*` / `packages` | skipped | success |
+
+All executed under run `44536505959`; the go-unit shards (`owner`, `packages`,
+`cli-0`..`cli-3`) and `PR · Source format` are the only jobs the diff touches;
+`Targeted HA · docker`/`podman` are skipped by the trusted policy, not by me.
+
+### (2) Native-gate-plans decision, verbatim
+
+Read the trusted planner from BASE_SHA `695ad5494` (`git show
+origin/develop:scripts/pr-native-gate-plan.py`), run against this card's exact
+changed paths:
+
+```
+$ git diff --name-only --diff-filter=ACDMRT 695ad5494 HEAD   (12 internal/* paths)
+internal/application/runtime_observability.go
+internal/application/runtime_observability_test.go
+internal/application/runtime_postgres.go
+internal/application/runtime_observability_trace_source_test.go
+internal/logs/appclass_log_writer_identity_test.go
+internal/logs/appclass_log_writer_test.go
+internal/logs/appclass_writer_implicit_selection_test.go
+internal/logs/application_source.go
+internal/logs/realization.go
+internal/observability/environment.go
+internal/observability/registry.go
+internal/observability/registry_log.go
+$ python3 pr-native-gate-plan.py --changed-paths <above> --coverage pr-gate-coverage.json --requirements release-requirements.json
+{"include":[]}
+```
+
+`{"include":[]}` is the authoritative classification: the coverage catalog
+(`pr-native-gate-plan.py:31-32`) only ever selects rows with
+`runtime ∈ {docker, podman}`, and none of these 12 `internal/*` paths maps to a
+docker/podman gate. `ci.yml:426-475` (`pr_native_impact`) therefore sets
+`required=false`, and `PR Selected Checks` (`ci.yml:1459`) accepts
+`NATIVE_RESULT = skipped`. This is the base-owned trusted policy, not a bypass;
+the run `44536505959` job `PR · Native gate plan` = success confirms it read
+BASE_SHA `695ad5494` and reached the same classification.
+
+### (3) Head chain, every head, every run, why the first four are not final
+
+| head | integrated develop base | run | conclusion | not final because |
+| --- | --- | --- | --- | --- |
+| `c21dc623532f30dd0caeb9695eeb1594d6057461` | `3b634232f` (#1592/0428-088) | `44532116583` | SUCCESS | base `3b634232f` is not the in-window develop; chain moved on |
+| `3f8024e81c1625c0ba83d5f34c12117560549765` | `3b634232f` (same) | `44530261060` | **FAILURE** | `PR · Source format`: registry.go 833 lines > 800 → fixed by the `registry_log.go` extraction (765) → `c21dc6235` |
+| `aac6b2f8ee8b5705c30c5d67571beb5ec4b5f3ed` | `5a68196a1` (#1602/0428-077) | `44534195307` | SUCCESS | run start 13:30:53Z < develop change `859654861` "base-owned required checks" at 13:32:13Z → required checks come from a newer base than the run integrated |
+| `97eb3625af9203f269ec6f516dc0ae586a47d00c` | `859654861` | `44535325043` | SUCCESS | run start 13:37:35Z < develop change `695ad5494` "Pin lane-compatible CI migration controller" at 13:39:54Z → the controller-pin that governs acceptance landed 2m after this run |
+| `14f279867e76ddedaa5fe82488b7f5a827d410e7` | `695ad5494` | **`44536505959`** | **SUCCESS** | **final: run start 13:44:47Z > last develop change 13:39:54Z; on the newest in-window develop** |
+
+### (4) Base-abstand witness (on the newest stand)
+
+```
+$ git -C baseharbor diff --name-only 695ad54944734e9976fe9cc1dbae117482677dc6 origin/develop
+(empty — no difference between my integrated base and the current develop)
+```
+
+### (5) registry.go line count
+
+```
+$ git -C baseharbor show HEAD:internal/observability/registry.go | wc -l
+765   (≤ 800; extraction c21dc6235 → registry_log.go)
+$ bash scripts/source-readability-audit.sh
+Go file size       PASS
+Function span      PASS
+Regression ratchet PASS
+```
+
+### (6) Appclass acceptance points — checked against acceptance
+
+- **Service dimension** — class-application log identity names the concrete
+  workload service (`application:logs:<app>:<env>:<service>`); the render-time
+  reconcile registers the actually active service set and reclaims stale keys
+  (`TestApplicationClassLogSourceReconcileRegistersActiveServiceSet`,
+  `TestApplicationClassLogSourcesStayDistinguishablePerService`,
+  `TestApplicationClassLogSourceBindKeepsSiblings`,
+  `TestApplicationClassLogSourceDisabledPolicyReclaimsEveryService`).
+- **Implicit Compose fallback** — an implicit workload (manifest declares no
+  `Workload.Components`) now records the selected Compose service set, not the
+  synthetic `workload`, and a disappeared service is reclaimed on the next
+  reconcile (`TestImplicitComposeWorkloadRecordsSelectedServiceSet`,
+  `TestImplicitComposeWorkloadShrinkReclaimsStaleService`) — the CODEX hole.
+- **Environment integration** — `ListWorkloadLogSources` threads
+  `m.Environment`; `SourceEnvironment` completes the #1691 env-filter for the
+  `application:logs:` grammar (`applicationLogSourceEnvironment`);
+  `TestManagedRuntimeObservabilityUsesCanonicalServiceIdentities`,
+  `TestManagedRuntimeObservabilityExcludesSharedBackendServices`.
+
+### (7) Evidence integrity
+
+Evidence akte lives ONLY in the planning repo (baseharbor-plan), in an OWN clone
+(this round): `/var/tmp/m122-plan-wt/evidence/r28-welle4-2026-11-19/appclass-writer/fix-3.md`.
+The shared working copy
+`/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan` was NOT touched (Owner
+directive 2026-11-19, `receive.denyCurrentBranch`). Pushed from the own clone
+after `git fetch origin main` + `git rebase origin/main` (no force, no reset
+over foreign commits).
