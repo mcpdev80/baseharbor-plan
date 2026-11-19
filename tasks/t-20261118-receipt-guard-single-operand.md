@@ -7,7 +7,7 @@ kanban_status: review
 card_number: 0428-116
 card_short_title: receipt verification guard
 kanban_title: 0428-116 · receipt verification guard
-owner: coord
+owner: w01-0428-116r3 (codeman 2d4e69dd)
 wait_reason: ""
 blocker: ""
 prs: [mcpdev80/baseharbor#1686]
@@ -17,7 +17,7 @@ prs: [mcpdev80/baseharbor#1686]
 
 - [ ] t-20261118-receipt-guard-single-operand · receipt verification guard collapses to single operand #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** coord  
+    **Owner:** w01-0428-116r3 (codeman 2d4e69dd)  
     **PR:** [baseharbor#1686](https://github.com/mcpdev80/baseharbor/pull/1686)  
     <!-- /generated:card -->
 
@@ -25,7 +25,7 @@ prs: [mcpdev80/baseharbor#1686]
 **State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** coord  
+**Owner:** w01-0428-116r3 (codeman 2d4e69dd)  
 **Priority:** not set  
 **PRs:** [baseharbor#1686](https://github.com/mcpdev80/baseharbor/pull/1686)  
 **Source:** 
@@ -61,3 +61,5 @@ Confirmed on PR #1686 head ca149b3: non-continuation applied receipt with a stra
 r2 END: head 7459d615d (guard unveraendert), exact-run 44423543955 SUCCESS vom reviewer bestaetigt; evidence-widerspruch getilgt (retraction + revision-labels); coord-flag als geloest gekennzeichnet + CI-capture nachgetragen; Re-review geroutet
 ## Runtime debt (uebernommen aus 0428-113/#1680, Owner-Ausnahme 2026-11-18)
 #1680 wurde ohne ORAS gemergt: die Runtime-Docker-/Podman-Evidence fuer den Loki-/Prometheus-Pfad ist offen (see evidence/1680.md). Diese karte (0428-114) ist ausdrueckliche Eigentuemerin dieser Debt; Abschluss erfordert ORAS-verfuegbare Runner-Cellen oder eine dokumentierte Alternative, bevor die Observability-Kette als voll qualifiziert gilt. Kein Block fuer den r3-guard-kandidaten selbst.
+
+r3 END akzeptiert: merge-head 304673c28 (eltern 7459d615d+9a37b4bc, monoton, kein force), guard/test byte-identisch zu r2, exact-run 44429419752 SUCCESS, akte ddb1174d mit revision-labels; stale r3-1.md getilgt. 'behind' nur durch #1677-merge — merge-fenster-rebase steht wie bei den anderen. Routing an CODEX-REVIEW

@@ -63,7 +63,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261118-diag-exec-iftrue-leak](../tasks/t-20261118-diag-exec-iftrue-leak.md) | fix DIAG_EXEC if-true leak in app_edit_apply.go | review | not set | w01-0428-118 (codeman d5ecb550) | — | [baseharbor#1689](https://github.com/mcpdev80/baseharbor/pull/1689) |
 | [t-20261118-enrollment-two-phase-boundary-doc](../tasks/t-20261118-enrollment-two-phase-boundary-doc.md) | document the enrollment consume/issue two-phase boundary | review | not set | w115 (opencode ses_e0f576c30ffe) | — | [baseharbor#1685](https://github.com/mcpdev80/baseharbor/pull/1685) |
 | [t-20261118-mcp-partial-change-success](../tasks/t-20261118-mcp-partial-change-success.md) | MCP/HTTP edit path must fail loud on partial provider-change result | review | not set | w1-lane-5584d84a (0428-120) | — | [baseharbor#1688](https://github.com/mcpdev80/baseharbor/pull/1688) |
-| [t-20261118-receipt-guard-single-operand](../tasks/t-20261118-receipt-guard-single-operand.md) | receipt verification guard collapses to single operand | review | not set | coord | — | [baseharbor#1686](https://github.com/mcpdev80/baseharbor/pull/1686) |
+| [t-20261118-receipt-guard-single-operand](../tasks/t-20261118-receipt-guard-single-operand.md) | receipt verification guard collapses to single operand | review | not set | w01-0428-116r3 (codeman 2d4e69dd) | — | [baseharbor#1686](https://github.com/mcpdev80/baseharbor/pull/1686) |
 
 ## Waiting for resources
 
