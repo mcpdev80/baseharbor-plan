@@ -3,8 +3,8 @@ id: t-20261118-ownership-stale-consent-hardening
 release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
-owner: w119-pr1690-consentauth-r2
-kanban_status: active
+owner: w119-0428-119-pr1690-consentauth-r2
+kanban_status: review
 card_number: 0428-119
 card_short_title: harden Prov ownership chain vs
 kanban_title: 0428-119 · harden Prov ownership chain vs
@@ -16,18 +16,18 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44464033443", "h
 ---
 # t-20261118-ownership-stale-consent-hardening · close ownership-race windows behind stale-impact-consent
 
-- [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** w119-pr1690-consentauth-r2  
+    **Owner:** w119-0428-119-pr1690-consentauth-r2  
     **PR:** [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44464033443), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44464060182)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w119-pr1690-consentauth-r2  
+**Owner:** w119-0428-119-pr1690-consentauth-r2  
 **Priority:** not set  
 **PRs:** [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690)  
 **Source:** 
@@ -72,3 +72,5 @@ Independent read-only review (2026-11-19) of PR #1690 head `184eefde9b84ff7d6bfb
 CODEX-r2 befunde VON MIR AM KOPF 5b9a9545a NACHGEMESSEN: provider_consent_authority.go:500-511 ohne Reference/OwnerEnvironment (beide felder registry.go:44/:45, reference loest auf :133); equalProviderCapabilities :552-565 duplikats-loch a=[x,x] vs b=[x,y] -> TRUE. Neue lane w119-pr1690-consent-auth auf ornith:2
 
 sitz frei geworden (073-kandidat im review) -> sofort besetzt. Auftrag ist auf die AKTUELLE spitze gebracht und enthaelt jetzt den hopf-zwang: der basis-abstand von #1690 (223cb97a9) beruehrt scripts/pr-gate-plan.py und scripts/test_pr_gate_plan.py, also ist der alte lauf 44597195363 unabhaengig von seinem gruen-ergebnis ENTWERTET (meine eigene basis-distanz-regel)
+
+beide befehle VON MIR AM KOPF 5be347068 NACHGEMESSEN, erfuellt: provider_consent_authority.go:512-513 vergleicht jetzt Reference UND OwnerEnvironment; equalProviderCapabilities zaehlt (map[Kind]int, counts[c]++ fuers b, counts[c]-- fuers a, <0 -> false, plus laengen-gleichheit) = echte multiset-gleichheit, das [x,x]/[x,y]-loch ist zu. HOPF-FORM korrekt, aber anders als gemeldet: der KOPF hat einen eltern, sein VATTER 6ca7516c2 hat zwei und bringt develop 4b3a35590 (ancestry 0, merge-tree konfliktfrei). ECHTER PR-BELEG = 44629547169 (pull_request, success, 22:36:50Z); die gemeldete '#6664' liefert 404 — im urteil als akten-befund weitergegeben. Am kopf SKIPPED: PR · Exact Candidate, Selected Runtime, Public Contracts, Main release checks — das urteil muss aus dem gate-plan sagen, ob das fuer diesen diff korrekt ist (§5.4). Akte: consent-authority-r2/1690-0428-119-r2.md (12607 bytes, anderer dateiname als mein befehl, inhalt mit ls-remote + PLAN + repo-rule)
