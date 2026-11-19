@@ -95,6 +95,24 @@ witness here therefore models only what manifest truth decides:
 NEVER emit "healthy"/"verified" from a manifest flag. The real-probe path is
 cited, not implemented.
 
+## Implementation design (decided)
+
+Both faces share ONE manifest-only witness computed in cmd/baha (my write-set):
+
+func persesBackendSignalWitness(m application.Manifest) capability.ObservabilitySupportStatus-derived per-signal map.
+- Prometheus backend "configured" iff HasMetricsSources(m) && observabilityManagementUI && persesSelected.
+- Loki backend "configured" iff HasLogsCollection(m) && observabilityManagementUI && persesSelected.
+- Tempo backend "configured" iff HasOTLPTelemetry(m) && observabilityManagementUI && persesSelected.
+- "not configured" when the signal is absent (manifest flag false / nil).
+- "unreachable" when configured in the manifest but the backend's own answer is not present. Manifest truth can only decide "configured vs not"; "unreachable" models the fail-closed default that the backend's own query has not returned a stream (Loki/Tempo Verification=none => cannot be verified, so never "configured" as a true positive — the three states are named so "configured" means "signal declared", never "signal proven").
+
+NEVER emit "healthy"/"verified" from a manifest flag. Loki/Tempo logs/traces Verification=none (reference.go:133-134, :147-148) => the real-probe path is 0428-143, cited with file:line, not implemented.
+
+The metrics package's witnessed catalog variant (persesHostDashboardAvailabilityWitnessed,
+internal/metrics/perses_dashboards_hosts.go:618) is UNEXPORTED, so cmd/baha cannot pass a
+witness through it. The witness is therefore computed directly in cmd/baha and rendered with the
+card's three-state vocabulary, NOT routed through the metrics catalog.
+
 ## Finding
 
 The real per-backend witness lives in `internal/logs/loki_datasource.go` (`matchedAny`, `Reachability`).
