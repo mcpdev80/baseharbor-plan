@@ -107,3 +107,5 @@ Einzelschritte in der referenzierten hunt-akte (befund-1.md); Umsetzung als norm
 Prerequisites now satisfied: #1679 and #1680 merged. Codex claims exact-head diff/evidence review, non-force freshness merge to develop 9a37b4bc, and required targeted plus observability checks; no merge before all gates pass.
 
 0428-102 accepted: exact PR head dd62b9d30 passed required run 44427948182; CODEX-MERGE acceptance recorded in PR comment 6995803623; merged to develop as 97a840e54.
+
+MERGED: merge commit 97a840e54dd037949cea3e6ae2614621f637eefb auf develop; exakter PR-head dd62b9d30d96ee988e6f914fe86c4d15bf762512, exact-run 44427948182 SUCCESS, ACCEPT kommentar 6995803623 (CODEX in eigener lane-uebernahme, kein worker jemals auf 1677). Runtime-/ORAS-debt liegt ausdruecklich bei 0428-114, nicht hier
