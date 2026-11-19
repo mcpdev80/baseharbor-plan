@@ -11,9 +11,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 12 |
-| review | 4 |
+| review | 3 |
 | wait | 15 |
-| blocked | 8 |
+| blocked | 9 |
 | ready | 4 |
 | queued | 25 |
 | waiting | 180 |
@@ -43,7 +43,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261114-r28-perses-dashboard-databases](../tasks/t-20261114-r28-perses-dashboard-databases.md) | Perses database dashboards | review | normal | coord | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597) |
 | [t-20261114-r28-perses-dashboards](../tasks/t-20261114-r28-perses-dashboards.md) | Perses infrastructure dashboards | review | normal | coord | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md), [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) (open) | [baseharbor#1665](https://github.com/mcpdev80/baseharbor/pull/1665) |
-| [t-20261119-hunt-metrics-verification-none-blind](../tasks/t-20261119-hunt-metrics-verification-none-blind.md) | verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe | review | not set | 0428-124 r2 (codeman 7110b25d, entlassen) — r3 wartet auf freien sitz | — | [baseharbor#1695](https://github.com/mcpdev80/baseharbor/pull/1695) |
 | [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | review | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) (open) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
 
 ## Waiting for resources
@@ -76,6 +75,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) | CLI redesign: Separate human/runtime secret authority | blocked | high | 0428-057 (codeman 01b370c0, END_BLOCKED, sitz wird entlassen) | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) (open), [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) (open) | [baseharbor#1615](https://github.com/mcpdev80/baseharbor/pull/1615) |
 | [t-20261114-r28-cli2-wizard-platform](../tasks/t-20261114-r28-cli2-wizard-platform.md) | CLI redesign: Platform and access wizards | blocked | high | coord | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) (open) | [baseharbor#1620](https://github.com/mcpdev80/baseharbor/pull/1620) |
 | [t-20261117-hunt-signals-101](../tasks/t-20261117-hunt-signals-101.md) | ID-Raum-Heterogenitaet und Keycloak-Kollision in Signal-IDs | blocked | not set | — | — | — |
+| [t-20261119-hunt-metrics-verification-none-blind](../tasks/t-20261119-hunt-metrics-verification-none-blind.md) | verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe | blocked | not set | 0428-124 r2 (codeman 7110b25d, entlassen) — r3 wartet auf freien sitz | — | [baseharbor#1695](https://github.com/mcpdev80/baseharbor/pull/1695) |
 | [t-20261119-r28-app-source-verification-none-ignored](../tasks/t-20261119-r28-app-source-verification-none-ignored.md) | Verifier: Verification=none is ignored for application-class metrics sources | blocked | not set | — | — | — |
 | [t-20261119-r28-en-docs-warning-term](../tasks/t-20261119-r28-en-docs-warning-term.md) | EN-Dokumentation nennt das Marker-Wort 'Achtung' statt 'Warning' (i18n-drift nach 0428-126) | blocked | not set | w131-0428-131-endocshowpf (codeman 93521518, ornith:1) — uebernommen von bbd9132d | [t-20261119-r28-prgate-docs-internal-json-mapping](../tasks/t-20261119-r28-prgate-docs-internal-json-mapping.md) (open) | [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697) |
 
