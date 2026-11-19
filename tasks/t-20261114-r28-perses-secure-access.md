@@ -20,7 +20,7 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5027ca029761ebf485b06a/evidence/r28-welle1-2026-11-15/perses-secure-access/round-1.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5027ca029761ebf485b06a/evidence/r28-welle1-2026-11-15/perses-secure-access/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1599-0428-089.md"]
 ---
 
 - [ ] t-20261114-r28-perses-secure-access · Protect Perses operator access #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
@@ -28,7 +28,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5
     **Owner:** coord · **Priority:** normal  
     **PR:** [baseharbor#1599](https://github.com/mcpdev80/baseharbor/pull/1599)  
     **Needs:** [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5027ca029761ebf485b06a/evidence/r28-welle1-2026-11-15/perses-secure-access/round-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5027ca029761ebf485b06a/evidence/r28-welle1-2026-11-15/perses-secure-access/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1599-0428-089.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -83,3 +83,5 @@ candidate 872c6c70 on lane-welle2-089-perses-secure-access, draft PR #1599 again
 delivered: 872c6c70 draft; base-defekt (seam r3) haengt an 075-korrektur
 
 kandidat 2c44db837 (documentation-audit-fix, DE-rows ergaenzt), exact-head run 44058489510 SUCCESS (coord-uebernahme nach lane-idle), state behind => hopf in merge-welle
+
+CODEX-REVIEW welle 4 = REQUEST CHANGES auf dem gepueften kopf (urteil 1599-0428-089.md). korrekture-runde ist vorgemerkt und wartet auf einen freien sitz: die vier perses-karten und 083 teilen sich dateien mit den laufenden lanen, darum kein paralleler start ohne write-set-nachweis. 083: 'runtime provisioning absent' (datasource wird gebaut, aber nicht in Perses bereitgestellt); 073: 'alert rule nicht ausgefuehrt/nicht persistiert' (persesAlertRealEvaluation); 077: 'catalog-availability aus host provider-metrics allein'; 089: 'PersesComposeServices rendert keine config (--config=/etc/perses/config.yaml) + loopback upstream'
