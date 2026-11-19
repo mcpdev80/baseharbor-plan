@@ -14,8 +14,8 @@ Revision labels: r1 (single pass, this dossier).
 5. (done) Control grep empty; docs-audit CI coverage confirmed (no .github change needed)
 6. (done) This dossier, committed and pushed to baseharbor-plan origin/main
 7. (done) Candidate commit + push, PR #1697 against develop
-8. (running) Exact-head CI watched to terminal state (Eigenes-Run-Pflicht)
-9. (pending) Host cleanliness, END post
+8. (done) Exact-head CI watched to terminal state — run 44478483899 completed SUCCESS
+9. (done) Host cleanliness, END post
 
 ## W1 reality witnesses
 
@@ -85,14 +85,16 @@ Existing docs-audit runs in the affected CI group already; none of these files r
 - Branch: lane-0428-131-en-docs-warning-term (single candidate per chain, no second branch; ls-remote showed no pre-existing remote lane for this card).
 - Head SHA: 3448f73e697cd7fdb1a338ef8422b5d484bbe814
 - PR: https://github.com/mcpdev80/baseharbor/pull/1697 (base develop, one PR per card)
-- CI run: 44478483899 ("CI · Source & Quality", headSha 3448f73e6...) — watched by this session to terminal state.
-  - terminal result: (filled below at END time)
+- CI run: 44478483899 ("CI · Source & Quality", headSha 3448f73e6...) — watched by this session via `gh run watch --exit-status`, exit 0.
+  - terminal result: status=completed, conclusion=success. 14 jobs success (incl. Workflow policy, PR · Source format, PR · Native gate plan, PR · Trusted Plan, PR · Validation · go-build/go-vet, PR · Focused Python, PR · Go unit · cli-0..3/packages/owner, PR Selected Checks); all remaining jobs SKIPPED by their documented `if:` conditions (base_ref==main gates, native runtime gates not selected for a docs-only diff, validate = non-PR path).
+  - observation: no `PR · Validation · documentation-audit` job materialized in this run — scripts/pr-gate-plan.py offers it but the plan did not select it for the docs/internal-only diff. My candidate was nonetheless format/readability-green and my local `bash scripts/documentation-audit.sh` is PASS. The card's acceptance sentence "ein docs-check laeuft in der betroffenen CI-gruppe mit (bestehender docs-audit genuegt)" is met by the existing registration (pr-gate-plan.py:24, ci.yml:1186/:322/:599); if the coordinator wants documentation-audit force-selected for docs/** paths, that selection lives in pr-gate-plan.py / the plan output — flagged here, not a .github defect.
 
 ## Cleanliness
 
 - BEFORE (this host; no containers were started by this lane): `docker ps -aq` = 7 (all ambient `bh-local-shared-*` projects of other lanes/core images, untouched), `podman ps -aq` = 0.
 - No containers, networks, volumes or state directories were created by this lane; AFTER must equal BEFORE.
-- cleanliness: (AFTER line appended at END)
+- AFTER: `docker ps -aq` = 7 (same seven `bh-local-shared-*` ambient containers, byte-identical names), `podman ps -aq` = 0. Host unchanged by this lane.
+- cleanliness: host besenrein — this lane started no containers, compose projects, networks, volumes or state directories; before/after counts equal (7/0 docker ambient-only, 0 podman).
 
 ## repo-rule compliance
 
@@ -100,4 +102,4 @@ Existing docs-audit runs in the affected CI group already; none of these files r
 - German files unchanged (owner requirement); exact-word replacement only.
 - Worktree isolated under /var/tmp/en-docs-warning-term-wt; evidence lives only in baseharbor-plan.
 
-END <pending: appended after terminal CI observation>
+END_DONE mission-en-docs-warning-term.md: candidate 3448f73e697cd7fdb1a338ef8422b5d484bbe814, PR #1697 (base develop), CI run 44478483899 terminal SUCCESS (observed by this session); docs/internal EN 'Achtung' -> 'Warning' at 3 spots, docs/de untouched, grep control empty; host clean (docker 7 ambient / podman 0, before==after).
