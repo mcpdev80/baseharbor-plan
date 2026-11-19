@@ -57,35 +57,80 @@ Realization in this correction round (per the Perses v0.55 provisioning contract
 - Fail-closed materialization: an unselected surface or any builder error removes the provisioning artifacts (a stale datasource can never be served by a deselected surface), and an unwritable path is an error, never a silent skip.
 - `internal/application/perses_runtime.go` (owned by the still-open 0428-088 lane, head `76331c7d8`, NOT on develop) and `internal/application/management_ui.go` (owned by the still-open 0428-084 lane, PR #1598, head `3852472aa`, NOT on develop) are NOT modified — editing them here would be a write-set collision and would carry a second card's content onto this chain. The mount gap is reported as a finding with file:line below.
 
+## Runtime witness — which file Perses gets at startup
+
+- `internal/application/perses_runtime.go:75` (branch `lane-0428-088-perses-runtime` @ `76331c7d8`): `command: ["--config=/etc/perses/config.yaml", ...]` — that in-container path is what the compose service starts Perses with. This candidate produces exactly that file (`<dataDir>/applications/baseharbor-<name>-<env>/providers/management-ui/perses/config.yaml`, test witness: `TestPersesPrometheusDatasourceRuntimeProvisioning` logs/assert the path and content) plus the provisioning folder it names. The two container bind mounts are the 088 render's job (finding below: perses_runtime.go:77-84 currently mounts only the cert pair).
+- Provisioning call site (this card): `MaterializePersesPrometheusDatasourceAt` in `internal/metrics/perses_prometheus_datasource_runtime.go` (exported entry, the deployment path invokes it at the apply boundary once 088's Perses service renders; the builder core it consumes is the existing `buildPersesPrometheusDatasourceAtWithRelease` — the Target-bound builder this file already carried).
+- Persistence folder: `/persistence/database` (file database on the `<service>-data` volume mounted at `/persistence`, `internal/application/perses_runtime.go:82` on the 088 branch — witness that the config's database folder exists).
+
+## Tests
+
+- `TestPersesPrometheusDatasourceRuntimeProvisioning` (internal/metrics, runtime-level): materializes at a real state root, then reads the JOINED configuration: parses `config.yaml`, follows `provisioning.folders` to the folder the server loads, and decodes the `GlobalDatasource` resource from that folder — pins kind/plugin-kind/proxy kind, `spec.default`, the exact materialized endpoint URL, the 6-entry pinned Prometheus API allowlist, the absence of `directUrl` and of any secret-bearing key, and the provider-root path layout the compose mounts consume.
+- `TestPersesPrometheusDatasourceRuntimeProvisioningFailClosed`: authorization revoked (policy collects only `application-provider` while the snapshot carries the platform source) and surface deselected -> materialize errors AND the previously written artifacts are removed (no stale datasource survives).
+- `TestPersesPrometheusDatasourceRuntimeProxyQueryTLS` (isolated runtime query/proxy/TLS check): live HTTPS Prometheus-shaped endpoint (httptest TLS, private leaf), the materialized proxy URL equals the endpoint, the health query over a client pinned to that CA verifies up=1 and the server sees the exact authorized `max(up{...})` query, and an empty-pool client fails closed at the TLS layer.
+- Goldens: `TestPersesPrometheusDatasourceGlobalDatasourceGoldenFile` (testdata/perses-prometheus-datasource/globaldatasource.json) and `TestPersesPrometheusDatasourceConfigGoldenFile` (config golden), plus `TestPersesPrometheusDatasourceProxyURLFailClosed` (endpoint contract negatives).
+- Retained: the full pre-existing datasource suite (fail-closed/unselected/denied/golden cells) is untouched and green.
+- CI pickup duty: every new test lives in `internal/metrics` package tests, executed by the existing `PR · Go unit · packages` shard on every PR push (targeted checks select `internal/metrics`); no `.github/**` change is needed for the unit coverage. The host-gated compose-level join (actual container mount) runs where 088's runtime gate executes (`targeted-integration.yml`; `internal/application/perses_runtime_test.go` composes the mounts). The mount lines themselves are the file:line finding below, not a silent CI gap of this card.
+
+## Checks
+
+- `go build ./...` -> exit 0. `go vet ./internal/metrics ./internal/application ./internal/observability` -> exit 0. `gofmt -l .` -> empty.
+- `go test ./internal/metrics -count=1` -> ok; `go test ./internal/application -count=1` -> ok; `go test ./internal/observability -count=1` -> ok (post-hopf tree, merged with e1dc2cf61).
+- Doc-test gate: `go test ./cmd/baha -run "TestMachineDocumentation|TestHumanDocumentation" -count=1` -> ok (no new CLI command/parameter introduced; nothing to classify).
+- `bash scripts/source-readability-audit.sh` -> PASS (file size / function span / regression ratchet; baseline podman/lifecycle.go 843 lines untouched).
+
 ## Findings (file:line)
 
-- `internal/application/perses_runtime.go:75-84` (branch `lane-0428-088-perses-runtime` @ `76331c7d8`, not yet on develop): the Perses compose service starts `--config=/etc/perses/config.yaml` but mounts only `server.cert`/`server.key`; without two additional bind mounts the provisioned config and datasource never reach the container. Required change at the 088 integration point (this lane must not edit #1592's file):
-  - `      - ./providers/management-ui/perses/config.yaml:/etc/perses/config.yaml:ro`
-  - `      - ./providers/management-ui/perses/provisioning:/etc/perses/provisioning:ro`
-  - and the deployment boundary (088's `EnsurePersesManagementUI`, `internal/application/perses_runtime.go:100`) calls `metrics.MaterializePersesPrometheusDatasourceAt` — cross-package import (application -> metrics) needs an integration owner decision, matching the existing seam where `internal/metrics/management_ui.go:13` calls into `internal/application` the other way.
-- `internal/application/management_ui.go:139` (develop `da76c5cf9`): the `EnsureApplicationManagementUIs` early-return gate omits `m.Services.Perses`, so a Perses-only selection never reaches the 088 Perses projection either. Finding for the integration window (088's own head already adds the condition at its line ~139).
+- `internal/application/perses_runtime.go:75-84` (branch `lane-0428-088-perses-runtime` @ `76331c7d8`, NOT on develop): the Perses compose service starts `--config=/etc/perses/config.yaml` but mounts only `./providers/management-ui/perses/server.cert` and `server.key` (volumes, lines 80-82); the config file and provisioning folder never reach the container. Required change at the 088 integration (this lane must not edit #1592's file):
+  - volume line `- ./providers/management-ui/perses/config.yaml:/etc/perses/config.yaml:ro`
+  - volume line `- ./providers/management-ui/perses/provisioning:/etc/perses/provisioning:ro`
+  - call `metrics.MaterializePersesPrometheusDatasourceAt` at the deploy boundary before the Perses service starts.
+- `internal/application/management_ui.go:139` (develop `e1dc2cf61`): the `EnsureApplicationManagementUIs` early-return gate omits `m.Services.Perses`/`ObservabilityManagementUI`, so the Perses projection path is only reached through the 088/084 branches' own call sites. For the integration window.
 
 ## Realization witness (provisioning files are exactly what Perses loads)
 
-- Perses v0.55 provisioning loader (`internal/api/provisioning/service.go` -> `internal/cli/file/file.go`, verified at tag v0.55.1): walks configured folders recursively, accepts only `.json`/`.yaml`/`.yml`, reads `kind` per object, resolves it via `modelV1.GetStruct(kind)`, then unmarshals into the API resource struct; unsupported/unmanaged files are ignored (doc: "Perses will ignore any files not managed").
-- The shipped example `dev/data/4-globaldatasource.json` at v0.55.1 carries exactly the shape this adapter emits (`kind: GlobalDatasource`, `metadata.name`, `spec.default`, `spec.plugin.kind: PrometheusDatasource`, `spec.plugin.spec.proxy.{kind: HTTPProxy, spec.url, allowedEndpoints}`).
-- The config schema is `pkg/model/api/config/{config,database,provisioning}.go` at v0.55.1; `ProvisioningConfig` = `folders` + `interval` + `enable_watch` (quoted by the docs page above).
+Verified directly against the pinned release `v0.55.1` (GitHub contents API at tag `v0.55.1`):
+
+- Config schema `pkg/model/api/config/database.go`: `File{folder, extension}` accepts exactly "json"/"yaml" ("wrong file extension defined when using the filesystem as a database..." otherwise); `Database.Verify()` requires at least one of file/sql — the config keys this projection writes exist as documented and the json extension matches the loader.
+- Provisioning schema `pkg/model/api/config/provisioning.go`: `ProvisioningConfig{folders []string, interval Duration, enable_watch bool}` — `provisioning.folders` is exactly the key the loader consumes.
+- Loader `internal/api/provisioning/service.go` -> `internal/cli/file/file.go`: walks configured folders recursively, accepts only `.json`/`.yaml`/`.yml` by extension, reads `kind` from each object, `modelV1.GetStruct(kind)` must resolve, then unmarshals into the API resource struct (a list-shaped JSON document decodes as multiple entities). The `GlobalDatasource` kind resolves through GetStruct, so the shipped resource loads.
+- Provisioned resource shape matches the pinned image's own shipped example `dev/data/4-globaldatasource.json`: `kind`, `metadata.name`, `spec.default`, `spec.plugin.kind`, `spec.plugin.spec.proxy.{kind: HTTPProxy, spec: {url, allowedEndpoints}}`.
+- Docs (perses.dev v0.55 "Provisioning"): resources in the configured folders are injected into the database at startup and re-injected at the configured interval; provisioning data overrides the database; unmanaged files are ignored.
 
 ## Deviation note — file split within the recipe's file set
 
-The recipe names `internal/metrics/perses_prometheus_datasource.go` and the Perses startup/config-rendering path under `internal/application/` as the change surface. The datasource file is at 412 lines at the reviewed head and the repository rule caps non-test Go files at 800 lines (DEVELOPMENT_GUIDELINES §12); the provisioning realization (~230 lines with contracts) is therefore a sibling file `internal/metrics/perses_prometheus_datasource_runtime.go` inside the SAME package, so the exported entry point named in the recipe lives in the metrics package and the builder's fail-closed core stays untouched. Documented here deliberately, not silent.
+The recipe names `internal/metrics/perses_prometheus_datasource.go` and the Perses startup/config-rendering path under `internal/application/` as the change surface. The datasource file is at 412 lines at the reviewed head; the provisioning realization (~350 lines with contracts) is a sibling file `internal/metrics/perses_prometheus_datasource_runtime.go` inside the SAME package, keeping files well under the 800-line limit (DEVELOPMENT_GUIDELINES §12) and leaving the builder's fail-closed core untouched. Documented deliberately, not silent.
+
+## Checks (at final head f0adef107, post-hopf tree)
+
+- `go build ./...` -> exit 0.
+- `go vet ./internal/metrics ./internal/application ./internal/observability` -> exit 0.
+- `gofmt -l .` -> empty.
+- `go test ./internal/metrics -count=1` -> ok; `go test ./internal/application -count=1` -> ok; `go test ./internal/observability -count=1` -> ok. (No full `go test ./...` per mission — the CI covers breadth.)
+- Doc-test gate: `go test ./cmd/baha -run "TestMachineDocumentation|TestHumanDocumentation" -count=1` -> ok (no new CLI command/parameter; nothing to classify in machine_coverage.go).
+- `bash scripts/source-readability-audit.sh` -> PASS x3 (file size / function span / regression ratchet; baseline `internal/providers/runtime/podman/lifecycle.go` 843 lines untouched).
 
 ## repo-rule compliance
 
-(fill)
+- Fail-closed everywhere (§2): selection, pin, authorization, endpoint and snapshot errors propagate and remove stale provisioning; no empty artifact with nil error path exists.
+- Secrets (§6): the provisioning artifacts carry endpoint URL and owner references only; the test scans both files for secret-bearing keys and fails on any.
+- Lifecycle (§8): materialize belongs to the apply boundary; the compose render that mounts the artifacts is the 088 content (finding), so nothing in plan/preflight mutates.
+- Scoped change (§11): no refactors; `internal/application/` startup/config path deliberately NOT edited — those files carry unmerged 088/084/089 lane content and editing them here would put a second card's work on this chain (write-set rule); the integration mount is a recorded finding with file:line.
+- One candidate per chain (§3.8): all commits land on the named branch `lane-0428-083-datasources-r2`; no second branch.
+- No `.github/**`, no `scripts/**` edits; no reruns/dispatch; no merge; no PR comments on foreign PRs; no subagent (§4.8); targeted `git add <file>` only; worktree under /tmp/opencode (workspace layout rule); quarantined checkout never cited (all remote witnesses via `git ls-remote`/`gh api`/fetch in my own worktree).
+- VM smoke: this mission names no VM test; the runtime-level proof is the unit/host-runnable `internal/metrics` tests, which the existing `PR · Go unit · packages` CI job executes on every PR push (no .github change needed).
 
 ## CI
 
 (fill)
 
-## Cleanliness
+## CI
 
-(fill)
+(observe run 44520439061 to terminal here; §4.6)
+
+## Cleanliness witnesses (before)
+
+`docker ps -a --format '{{.Names}} {{.Status}}'` on this coordinator server host (read-only witness, 2026-11-19): ambient containers only, belonging to other cards/infrastructure:
 
 ## END
 
