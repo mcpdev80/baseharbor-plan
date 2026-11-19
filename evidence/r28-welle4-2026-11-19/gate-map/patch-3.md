@@ -51,8 +51,8 @@ SCHRITT 0 (mission quote): mission-tag `gate-map-patch-v3`; first three lines of
    before build — done
 8. Per hunk: git apply --check against current develop head with rc witness + yaml-parse of patched workflow — done
 9. source-readability-audit.sh in isolated clone — done (rc=0)
-10. Write this dossier + gate-map-v3.patch, commit + push to origin/main, paste witnesses — in progress
-11. Host cleanliness before/after, END post — in progress
+10. Write this dossier + gate-map-v3.patch, commit + push to origin/main, paste witnesses — done
+11. Host cleanliness before/after, END post — done
 
 ## Base attestation (planning repo)
 
@@ -258,9 +258,11 @@ $ git cat-file -e origin/main:evidence/r28-welle4-2026-11-19/gate-map/gate-map-v
 PRESENT
 ```
 
-Candidate (evidence) SHA: the tip shown above on baseharbor-plan origin/main (chain: 8c6e3e2b lane-start base
--> bd13c742 remote tip at first push -> 1318c24b gate-map v3 dossier+patch -> 1febe04e witness paste -> 0c644243
-quote wording -> final witness commit on top). Product repo untouched; no product candidate SHA.
+Candidate (evidence) chain on baseharbor-plan main: lane-start base 8c6e3e2b -> 1318c24b (gate-map v3 dossier +
+gate-map-v3.patch) -> 1febe04e (witness paste) -> 0c644243 (quote wording) -> e959afb0 (this file's final
+witness commit — candidate SHA). Other lanes' commits (bd13c742, af33577a, 42e4b3ab, e611d271) interleaved on
+main between my pushes; all pushes were fast-forwards and touched only my two evidence files. Product repo
+untouched; no product candidate SHA.
 
 ## Revision labels
 
@@ -271,6 +273,7 @@ quote wording -> final witness commit on top). Product repo untouched; no produc
 
 ## END
 
-END gate-map-patch-v3 DONE — gate-map-v3.patch (hunks e+g) + patch-3.md delivered in baseharbor-plan evidence;
+END gate-map-patch-v3 DONE — gate-map-v3.patch (hunks e+g) + patch-3.md delivered in baseharbor-plan evidence
+(candidate chain 1318c24b … e959afb0 on origin/main, final candidate SHA in the witness section above);
 v2 untouched; per-hunk `git apply --check` rc=0 against current develop head da76c5cf + yaml-parse witnesses;
 qualification: plan-artifact only, anwendung ist owner-aktion; no product commit, no PR/merge/rerun, host besenrein.
