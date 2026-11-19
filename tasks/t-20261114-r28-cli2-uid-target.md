@@ -72,7 +72,13 @@ Existing target migration is idempotent; rename preserves UID; collisions fail c
 
 ## Handoff
 
-Planned and unassigned. No product implementation or acceptance yet.
+### 2026-11-20 00:48 CET — PR sweep
+
+- PR #1580 branch `lane-0428-uid-target`, exact head `522af6f4aa5ca1ec2119750be06f84d795612b85` (Draft, base `develop`). The UID migration writer now uses `Config.SaveExpected(expected)`, preserving protected-owner validation, state-file locking, and expected-byte comparison instead of a standalone rename path.
+- Added `TestLegacyTargetUIDMigrationRespectsConfigurationLock`: migration fails without changing config bytes while the lock is held, then persists the UID after unlock. `go test ./internal/deployment -count=1` and `git diff --check` pass locally.
+- Exact-head Draft CI run [44640366511](https://github.com/mcpdev80/baseharbor/actions/runs/44640366511) triggered by the push and completed SUCCESS: Source/Routing plus all five Draft Go shards passed. Selected, native, runtime, release and full validation gates were skipped under Draft policy. Independent review of this fix is pending; after that, mark ready to trigger full exact-head validation and review.
+
+Historical intake note above; see the dated handoff for current implementation and verification state.
 
 test
 
