@@ -101,7 +101,7 @@ Befund: **bestätigt** auf develop ec592fd385.
 - `docker ps -a --format '{{.Names}} {{.Status}}'` auf diesem host: nur ambient-core/ Bilder/fremde Container, keine dieser Lane; keine compose projects, no volumes/networks created (pure `go test` runs).
 
 END verify-chain1 DONE
-Candidate: keine Produktänderung (read-only + unit tests); planning head this lane: 2456350b (origin/main)
+Candidate: read-only verify mission (keine Produktänderung); planning commits dieser Lane enden mit 85fa82af auf origin/main
 
 ### Publication witness (second-to-last action)
 
