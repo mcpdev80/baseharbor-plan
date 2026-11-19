@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: mission-efilter
+owner: w99-0428-121 (codeman 0a79da12)
 kanban_status: review
 kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 - [ ] t-20261119-hunt-metrics-env-filter-list-pfade · Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** mission-efilter  
+    **Owner:** w99-0428-121 (codeman 0a79da12)  
     **PR:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1691)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** mission-efilter  
+**Owner:** w99-0428-121 (codeman 0a79da12)  
 **Priority:** not set  
 **PRs:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
 **Source:** 
@@ -80,3 +80,5 @@ One or two sentences: the observable outcome.
 ## Befund (intake aus hunt-918)
 Befund 2 (HIGH): Der Environment-Filter ist kein echter Filter: er wird caller-seitig als Prefix-Workaround implementiert und wirkt daher NICHT auf alle list-Pfade. Akzeptanz: ein zentraler filterpfad fuer ALLE list-EOFs (datei:zeile je EOF in der akte), regression je EO-Pfad mit zwei environments. Bezug: residual of closed 0428-102.
 Erlaubtes write-set (vorschlag, lane prueft): internal/observability (list-pfade). Evidence-Quelle: https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/hunt-metrics/befund-1.md (17 probes, base 97a840e54).
+
+END akzeptiert: zentraler env-filter auf allen list-Pfaden, head d9d70a98 base-exakt ec592fd38 MERGEABLE, exact-run 44450253933 SUCCESS, red->green regression envfilter_regression_test.go, akte am band (head+run refs). Overlap mit #1692 (122, beide review): functionsdisjunkt, erst-gruenes-review-zuerst-Regel gilt — Integrationsreihenfolge wird beim ersten merge veraendert
