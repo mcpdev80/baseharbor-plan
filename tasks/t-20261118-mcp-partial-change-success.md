@@ -49,3 +49,5 @@ Hunt 917 Befund 1 (MEDIUM): through `appMachineChangeDesired` an incomplete prov
 END akzeptiert: head 23837dcc5 (rebase auf 9a37b4bc, base clean), exact-run 44426400958 SUCCESS, regression core921PendingPartialMCPReportsFailure red-without/green-with-fix, akte 7f622590 am band. Routing an CODEX-REVIEW
 
 CODEX-REVIEW ACCEPT ohne Befund auf 75f67a526; Exact-head CI 44436020492 SUCCESS (PR Selected Checks von integration 15368), 21.20 runner-min; normaler Squash-Merge 7d343836447f976ec613fa4ae1cb09afcabbbbe0. Evidence: evidence/r28-welle4-2026-11-19/codex-welle3-review/1688.md.
+
+MERGED: merge commit 7d3438364traegt #1688 (head 23837dcca5, review accepted mit merge-window-hopf wie verabredet). develop damit 7d3438364
