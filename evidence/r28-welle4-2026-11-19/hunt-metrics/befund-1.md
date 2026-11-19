@@ -10,6 +10,7 @@
 - Read worktree: `/tmp/opencode/w918-hunt-metrics-wt` (detached at develop head). Binary: `/var/tmp/w918-baha` (built from that SHA). Caches: `/var/tmp/w918-cache`, `/var/tmp/w918-gotmp`.
 - Wrong-zone check: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse --show-toplevel` → `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan` (the real planning repo, not `workers/baseharbor-plan`).
 - Scope: static read + unit-only probes in an isolated worktree. No product change. No `.github/**`. No merge, no force, no PR. No containers/compose started anywhere.
+- Concurrent-publication note: an earlier cut of this akte (befunde 1-6, 16 probe files) reached `origin/main` in commit `85bc3700` (author `coord <coord@local>`, 2026-11-19T02:14:02+01:00) — a planning-only commit published from outside this lane while I worked in it, not a second lane for this card. This session holds the mission and the worktree and owns the content; the commit above it adds only Befund 7 and the Full-witness-run section, so `git log` for this file stays attributable to this hunt. Recorded here so the SHA sequence in this akte is not mistaken for two authors.
 
 ## PLAN
 
@@ -99,6 +100,19 @@
 - Cross-check against card `0428-103` ("postgres-/valkey-Adapter ohne Plan", planned): the adapter-required signal status is what routes a provider into this shape (`capability/integration_contract_test.go:198-206` proves `requires_adapter` is not collectable), so the moment an adapter is registered without flipping verification to a real mode, the metrics capability reports success over nothing.
 - Severity rationale: medium. The individual skips are each correct; the composition has no counter-assertion that "at least one source produced at least one scrape target", and `docs/DEVELOPMENT_GUIDELINES.md` §2 ("fail closed") and §8 ("do not report success before required verification succeeds") both argue for one.
 - Recommend a card: add an explicit "metrics enabled but zero scrape targets realized" outcome (fail or degrade) rather than a nil return.
+
+## Befund 7 (medium): the runtime-metrics target file key omits the environment while the stored group labels it — two environments of one application collide on one file
+
+- Files: `internal/metrics/runtime_source.go:202-207` (`runtimeTargetFileName` = `sha256(application, callerService, resourceName)`, no environment), `internal/metrics/runtime_source.go:134-146` (the group it writes DOES carry `baseharbor_environment: e.environment`), `internal/metrics/runtime_source.go:185-192` (the read-time ownership check DOES compare `baseharbor_environment`).
+- Consequence: for one `(application, callerService, resourceName)` tuple in two environments, the shared runtime-metrics directory (the broker volume mounted at `/var/lib/baseharbor/runtime-metrics`, `internal/runtimebroker/compose_render.go:202,243,312`) holds exactly one file. The last writer wins on the label; the loser's `readTarget` then fails with `runtime metrics target ownership mismatch` and, per `Execute`, that is a hard error (`internal/metrics/runtime_source.go:60`), not a re-register. `runtime.create` is likewise an unconditional overwrite, so an existing source is silently retargeted to the other environment's label.
+- The scrape side amplifies it: the file is consumed under `job_name: baseharbor-applications` (`prometheus_render.go:195-205`, globbing `/etc/prometheus/runtime-targets/%d/*.json`), and each registration's `RuntimeVolume` is per-application+environment (`application.MetricsRuntimeTargetVolumeNameForNamespace`). One volume per environment means one file per volume, so the collision is only reachable where two environments share a volume — i.e. through the broker's single global targets dir, not the per-deployment volumes. The reachable shape is therefore the broker path, and the failure mode is a mismatch error, not a wrong scrape.
+- Witness: `scripts/zz_hunt918_o_test.go` (PASS) — one tuple, `dev` then `prod`: identical file name (`runtime-63f7f115…json`, 1 entry for both writes), both `readTarget` calls succeed immediately after their own write, and a `dev` executor reading after the `prod` write fails with `runtime metrics target ownership mismatch`.
+- Severity rationale: medium. Fail-closed at the read boundary (no wrong-environment scrape), but `runtime.get`/`runtime.create` for one deployment can be broken by an unrelated deployment's later write, and nothing in the file key or the error names the other environment.
+- Recommend a card: bind the environment into `runtimeTargetFileName` (matching what `readTarget` already asserts).
+
+## Full witness run
+
+`go test ./internal/... -run 'TestHunt918|TestHunt919' -v` at `97a840e54` in the read worktree: 16 PASS, 2 FAIL. The two FAILs are the intentional reproduction assertions of Befund 2 (`TestHunt918ListHasNoEnvironmentDimension`, `TestHunt918ApplicationMetricsEnvironmentFilter`); every other probe passes and documents its cell. Probe sources are in `scripts/` next to this file (17 files) — they compile against `97a840e54` only and are NOT product commits.
 
 ## repo-rule compliance
 
