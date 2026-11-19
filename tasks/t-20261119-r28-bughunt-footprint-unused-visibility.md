@@ -3,7 +3,7 @@ id: t-20261119-r28-bughunt-footprint-unused-visibility
 kanban_title: 0428-157 · hunt footprint unused sight
 card_number: "0428-157"
 card_short_title: "hunt footprint unused sight"
-type: bughunt
+type: task
 areas: [capability, lifecycle, cli]
 release: v0.4.28
 version: ""
@@ -23,7 +23,7 @@ resolution: ""
 created: 2026-11-19
 ---
 
-- [ ] t-20261119-r28-bughunt-footprint-unused-visibility · destroy-pfade und unused-sicht pruefen #task #release/v0-4-28 #status/planned #view/ready #area/capability #area/cli #area/lifecycle #kind/bughunt
+- [ ] t-20261119-r28-bughunt-footprint-unused-visibility · destroy-pfade und unused-sicht pruefen #task #release/v0-4-28 #status/planned #view/ready #area/capability #area/cli #area/lifecycle #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
     **Ready to assign** · prerequisites accepted  
