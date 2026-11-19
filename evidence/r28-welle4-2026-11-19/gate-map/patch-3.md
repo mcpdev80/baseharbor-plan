@@ -249,19 +249,18 @@ foreign cards untouched; /var/tmp scratch removed after the dossier push.
 
 ```
 $ git ls-remote origin main
-1318c24ba17a1594e42a7652292e211f74f2ed44	refs/heads/main
-$ git fetch origin main && git cat-file -e origin/main:evidence/r28-welle4-2026-11-19/gate-map/patch-3.md && echo PRESENT
+e611d271ba89e08a279b69561685190e04a11406	refs/heads/main
+$ git log --oneline -1 origin/main
+e611d271 evidence: mission-1613 required-CI evidence for card 0428-073 / PR #1613 head d8838f622
+$ git cat-file -e origin/main:evidence/r28-welle4-2026-11-19/gate-map/patch-3.md && echo PRESENT
 PRESENT
 $ git cat-file -e origin/main:evidence/r28-welle4-2026-11-19/gate-map/gate-map-v3.patch && echo PRESENT
 PRESENT
-$ git log --oneline -2 origin/main
-1318c24b evidence(0428-114 gate-map patch v3): hunks (e) dispatch default release/v0.4.21->develop and (g) ORAS install step in docker-runtime job; git apply --check rc=0 vs develop da76c5cf + yaml-parse witnesses; v2 unchanged; plan-artifact only, application is owner action
-bd13c742 evidence: track lane 1459c172 (PR #1713)
 ```
 
-Candidate (evidence) SHA: `1318c24ba17a1594e42a7652292e211f74f2ed44` on baseharbor-plan origin/main, pushed
-directly on top of the fetched tip (bd13c742, which itself was ahead of the 8c6e3e2b tip seen at lane start; the
-push was a fast-forward, no other lane's content touched). Product repo untouched; no product candidate SHA.
+Candidate (evidence) SHA: the tip shown above on baseharbor-plan origin/main (chain: 8c6e3e2b lane-start base
+-> bd13c742 remote tip at first push -> 1318c24b gate-map v3 dossier+patch -> 1febe04e witness paste -> 0c644243
+quote wording -> final witness commit on top). Product repo untouched; no product candidate SHA.
 
 ## Revision labels
 
