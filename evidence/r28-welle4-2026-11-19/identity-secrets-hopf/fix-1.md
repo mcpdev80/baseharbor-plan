@@ -102,6 +102,8 @@ All from `/var/tmp/057-stack-hopf-wt/wt` (isolated worktree under /var/tmp; host
   - `.github/workflows/ci.yml` `on.pull_request.branches` (candidate revision, lines 12-18) lists only `develop`, `main`, `'lane-*'` (line 18 `- 'lane-*'`); the stacked base `cli2-env-policy-head` matches none — despite the in-file comment "Stacked development PRs target a lane-* branch and receive the same PR CI".
   - **Needed Owner change (file:line):** add `- 'cli2-*'` to `on.pull_request.branches` (ci.yml ~line 18) and mirror the job-level `startsWith(github.base_ref, 'lane-')` clauses (lines 514, 1137, 1160) to accept `cli2-` prefixes.
 - Executed cells: 0; skipped: entire PR matrix (never materialized). NOT claimed green. Self-run duty fulfilled as far as observable: run never existed to watch; terminal result cannot be produced by this lane without Owner input.
+- Final confirmation at 2026-11-19T11:21:44Z (>15 min after the queued state): `actions/runs?head_sha=f93564a0…` → total_count 0; check-suite still `queued`; `gh pr checks 1615` → "no checks reported". No second push and no self-set trigger was used. FINDING for the Owner: the #1615 CI entry does not materialize despite the ready flip (see root cause above).
+
 
 
 
@@ -128,7 +130,7 @@ All from `/var/tmp/057-stack-hopf-wt/wt` (isolated worktree under /var/tmp; host
 
 ## END
 
-END mission-057-stack-hopf.md BLOCKED: candidate head `f93564a0d707983bfe6a8b59375c1c1c914d7827` verified (hopf done, conflicts resolved, local checks green, PR ready), but the exact-head PR CI never materialized (check-suite stuck 'queued', runs total_count 0) — Owner CI-entry decision needed per finding above.
+END mission-057-stack-hopf.md BLOCKED: candidate head `f93564a0d707983bfe6a8b59375c1c1c914d7827` verified (hopf done, both conflicts resolved content-preserving, local checks green, PR #1615 ready, base untouched), but the exact-head PR CI never materialized (check-suite stuck 'queued' >15 min, runs total_count 0) — Owner CI-entry decision needed per the finding above.
 
 ## origin/main witness
 
