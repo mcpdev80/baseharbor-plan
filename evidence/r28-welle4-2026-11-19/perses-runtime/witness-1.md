@@ -295,18 +295,15 @@ precedent with the missing hosted wire as Owner finding 0428-114.
 
 ```
 $ git ls-remote origin refs/heads/main
-d7b92e5dd80effcc246367dc5695ec34ce126f4d	refs/heads/main
+71572bbb78c670fdaf8953c52b16b90d32756cc4	refs/heads/main
 $ git cat-file -e origin/main:evidence/r28-welle4-2026-11-19/perses-runtime/witness-1.md && echo PRESENT
 PRESENT
 $ git merge-base --is-ancestor 073e13e9 origin/main; echo $?
 0
 ```
 
-This lane's commits on `origin/main`: `073e13e9` (initial witness), `1b7ed35f` (run 4 +
-provenance), `d7b92e5d` (final, contains the full file as pushed). The two coordinator
-commits between them (`779dd3c6`, `984055db`) are not this lane's and were preserved.
-
-The initial evidence commit is `073e13e9` (single evidence-file commit, parent
-`4ca4ab28`); the lineage on origin/main continues with `d7b92e5d` (run-5 table line),
-`fda3403f` (final content: PLAN list, runs 4/5, reconciled verdict) and `597b4299`
-(prose fix). `git log --oneline origin/main..HEAD` lists only this lane's commits.
+This lane's evidence commits on origin/main: `073e13e9` (initial witness, parent
+`4ca4ab28`) through `71572bbb` (final content: PLAN list, runs 4/5, origin/main witness,
+run 5 recomputed live at 14.50s). Coordinator commits interleaved on the path
+(`779dd3c6`, `984055db`, gate-map intake) are not this lane's and were preserved.
+`git log --oneline origin/main..HEAD` lists only this lane's commits.
