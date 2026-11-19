@@ -3,32 +3,31 @@ id: t-20261118-ownership-stale-consent-hardening
 release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
-owner: w99-0428-119 r3 (codeman f5dabf03)
-kanban_status: blocked
+owner: w119-0428-119-consenthop (codeman 80aa0bf4, ornith:2) — uebernommen von w99-0428-119 r3 (session f5dabf03 ist weg)
+kanban_status: active
 card_number: 0428-119
 card_short_title: harden Prov ownership chain vs
 kanban_title: 0428-119 · harden Prov ownership chain vs
 prs: [mcpdev80/baseharbor#1690]
 wait_reason: ""
-blocker: "dauerhafter ZWEIFEL + handoff (owner-wort): kein abnahme-freiraum fuer 'unit gruen + runtime-versuch rot'. ursache jetzt scharf und NICHT kandidaten-seitig: der docker-runtime-job in docker-runtime-acceptance.yml hat keinen ORAS-install-schritt (zeilen 174-330), die install-zeilen 127-128 liegen nur im push-job — karte 0428-128 traegt den korrektur-beleg (akte probe-1.md, 57ffc7c6). naechster trigger: owner-merge der .github-korrektur, danach ein exact-head-dispatch auf #1690 (run-id + job-ids in die akte). bis dahin PR #1690 offen, kein merge, kein security.go-eingriff"
+blocker: 
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44464033443", "https://github.com/mcpdev80/baseharbor/actions/runs/44464060182"]
 
 ---
 # t-20261118-ownership-stale-consent-hardening · close ownership-race windows behind stale-impact-consent
 
-- [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w99-0428-119 r3 (codeman f5dabf03)  
+    **Owner:** w119-0428-119-consenthop (codeman 80aa0bf4, ornith:2) — uebernommen von w99-0428-119 r3 (session f5dabf03 ist weg)  
     **PR:** [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690)  
-    **Blocker:** dauerhafter ZWEIFEL + handoff (owner-wort): kein abnahme-freiraum fuer 'unit gruen + runtime-versuch rot'. ursache jetzt scharf und NICHT kandidaten-seitig: der docker-runtime-job in docker-runtime-acceptance.yml hat keinen ORAS-install-sc…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44464033443), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44464060182)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w99-0428-119 r3 (codeman f5dabf03)  
+**Owner:** w119-0428-119-consenthop (codeman 80aa0bf4, ornith:2) — uebernommen von w99-0428-119 r3 (session f5dabf03 ist weg)  
 **Priority:** not set  
 **PRs:** [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690)  
 **Source:** 
@@ -63,3 +62,5 @@ Delegated reviewer ruling (2026-11-19): do not qualify run 44464033443 unit succ
 Handoff decision: 0428-128 already owns the read-only Docker/ORAS route probe; do not duplicate it. After 0428-119 evidence/END is captured, release its lane to the next independent ready card. Re-open 0428-119 only when a supported exact-head Docker lifecycle witness can run; no waiver for unit success plus runtime abort.
 
 119-lane ist bereits entlassen (f5dabf03 deleted) — sitz traegt jetzt 121-r2/128-probe; keine nicht-ueberlappende quellarbeit an 119 bis 128 die route klaert
+
+STATT EINES HOLDS: der sitz bekommt echte, konfliktfreie arbeit, und der owner-ZWEIFEL bleibt unangetastet. gemessen gegen develop 1019190d8dc0ecac7693f3461153e76be0e2cb8a: EIGENE aenderungen = 5 dateien (cmd/baha/application_provider_authorization.go, internal/application/provider_change_plan.go, provider_change_types.go, provider_consent_authority.go, provider_consent_oscillation_test.go), disjunkt zu allen vier aktiven lanen, 'git merge-tree --write-tree origin/develop <kopf>' = 0 konflikte, PR 'behind' (base deeeb6477). AUFTRAG NUR: monotoner hopf + terminale exact-head-CI + akte, damit nach deinem ORAS-draht sofort abgenommen werden kann, ohne nochmal zu hopfen. ICH AKZEPTIERE DAMIT NICHT: die karte behaelt deinen wortlaut 'kein abnahme-freiraum fuer unit gruen + runtime-versuch rot', und der grund bleibt aussen — '.github/workflows/docker-runtime-acceptance.yml' hat im PR-zweig_keinen ORAS-install-schritt (zeilen 174-330) waehrend die install-zeilen 127-128 nur im push-job stehen (114, punkt (a)); eine lane aendert daran nichts, sie meldet nur. wenn der required-aggregate gruen ist und der runtime-rest offen bleibt, geht die karte zurueck auf blocked mit genau diesem wortlaut
