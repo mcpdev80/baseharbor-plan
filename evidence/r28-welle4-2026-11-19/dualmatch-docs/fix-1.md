@@ -103,7 +103,7 @@ Final candidate is `864fdcd3a…` (monotonic hopf: rebased onto develop `21161b1
 
 - Planning repo: cut from `origin/main` at claim time (`a82cdc06` includes the claim); evidence commits listed via ls-remote below.
 - `git ls-remote origin refs/heads/main` in baseharbor-plan, pasted as second-to-last action: (see END section)
-- Product candidate: `8fe570fe76521d84a661a25f800e1c390a0e95ab` on `lane-0428-126-dualmatch-docs`, pushed to `origin` (mcpdev80/baseharbor); PR link recorded in the card.
+- Product candidate: `864fdcd3a71c83d1fd2a5ae9a3304b23a5cefd6c` on `lane-0428-126-dualmatch-docs`, pushed to `origin` (mcpdev80/baseharbor); PR https://github.com/mcpdev80/baseharbor/pull/1696 against develop. Card state at review; merge is the Codex acceptance step, not this lane's.
 
 ## Hosted CI terminal result (exact head 864fdcd3a71c83d1fd2a5ae9a3304b23a5cefd6c)
 
@@ -117,4 +117,6 @@ PR #1696, workflow run 44471319498 (`CI · Source & Quality`), observed to termi
 
 ## END
 
-(pending — will read `END_DONE mission-dualmatch.md …` with candidate SHA)
+END_DONE mission-dualmatch.md: Warning/Achtung dual-match complete — every acknowledging CLI stage prints the `Warning:` lead (semantics unchanged) and EN normdocs follow the i18n rename; candidate `864fdcd3a71c83d1fd2a5ae9a3304b23a5cefd6c`, branch `lane-0428-126-dualmatch-docs`, PR https://github.com/mcpdev80/baseharbor/pull/1696 (run 44471319498: all selected checks pass at the exact head, docs-audit + mkdocs-en/de-strict + Go unit cli shards included); card t-20261119-hunt-metrics-dualmatch-marker-docs at review.
+
+Follow-up finding (not in this write-set, baseharbor-demo repo): `tests/guided/drive.py:507`/`new_edit.py:203` match the old marker-less prompt text `Confirm the displayed provider changes`; after this change the stage prints `Warning: Confirm the displayed provider changes`. Rules are optional=True, but the demo matcher should add the new pattern in a demo-repo card.
