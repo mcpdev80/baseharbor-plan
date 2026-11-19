@@ -272,10 +272,6 @@ provenance), `d7b92e5d` (final, contains the full file as pushed). The two coord
 commits between them (`779dd3c6`, `984055db`) are not this lane's and were preserved.
 
 The initial evidence commit is `073e13e9` (single evidence-file commit, parent
-<<<<<<< HEAD
-`4ca4ab28`); this commit replaces the `<fill>` placeholders with the measured values.
-`git log --oneline origin/main..HEAD` lists only this lane's commits.
-=======
-`4ca4ab28`); the amended lineage ends at the pushed head below. `git log --oneline
-origin/main..HEAD` lists only this lane's commits.
->>>>>>> parent of a208b0a5 (evidence(0428-088 host witness): PLAN list, run-5 section, reconciled run accounting)
+`4ca4ab28`); the lineage on origin/main is `073e13e9` -> `d7b92e5d` -> `fda3403f` (final
+content, this section witnesses the measured values). `git log --oneline origin/main..HEAD`
+lists only this lane's commits.
