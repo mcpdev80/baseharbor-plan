@@ -101,3 +101,9 @@ Befund: **bestätigt** auf develop ec592fd385.
 - `docker ps -a --format '{{.Names}} {{.Status}}'` auf diesem host: nur ambient-core/ Bilder/fremde Container, keine dieser Lane; keine compose projects, no volumes/networks created (pure `go test` runs).
 
 END verify-chain1 DONE
+
+### Publication witness (second-to-last action)
+
+- `git ls-remote origin main` (baseharbor-plan) → `1194076bee12423128e50d5477020e1a4787cbc3 refs/heads/main`
+- This akte's evidence commit = `1194076b` = origin/main head; path verified on the remote via `git fetch` + `git merge-base --is-ancestor origin/main HEAD` → yes.
+- Race note: the planning repo was hot while this lane worked (main moved dc45bbc2 → 08c5b593 → 9b9514e9 → 1194076b); the first push attempt hit a ref-lock race and the fetched remote head already equalled this lane's commit 1194076b, so publication is confirmed without any force.
