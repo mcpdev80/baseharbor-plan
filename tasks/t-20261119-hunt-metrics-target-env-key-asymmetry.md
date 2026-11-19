@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: "worker (mission-targetenvkey, opencode-flash)"
-kanban_status: active
-kanban_lane: active
+owner: w99-0428-125 (codeman e409b9b1)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-125 · Runtime-metrics
 priority: ""
@@ -23,18 +23,18 @@ resolution: ""
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/target-env-key/fix-1.md]
 ---
 
-- [ ] t-20261119-hunt-metrics-target-env-key-asymmetry · Runtime-metrics target-file-key fuehrt environment nicht, group-label schon — asymmetrische Zuordnung #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261119-hunt-metrics-target-env-key-asymmetry · Runtime-metrics target-file-key fuehrt environment nicht, group-label schon — asymmetrische Zuordnung #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** worker (mission-targetenvkey, opencode-flash)  
+    **Owner:** w99-0428-125 (codeman e409b9b1)  
     **PR:** [baseharbor#1694](https://github.com/mcpdev80/baseharbor/pull/1694)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/target-env-key/fix-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** worker (mission-targetenvkey, opencode-flash)  
+**Owner:** w99-0428-125 (codeman e409b9b1)  
 **Priority:** not set  
 **PRs:** [baseharbor#1694](https://github.com/mcpdev80/baseharbor/pull/1694)  
 **Source:** 
@@ -81,3 +81,5 @@ One or two sentences: the observable outcome.
 ## Befund (intake aus hunt-918)
 Befund 7 (MEDIUM): Der runtime-metrics target-file-key spaart den environment, das gespeicherte group-label fuehrt ihn — asymmetrisch, in multi-env collision. Akzeptanz: schluessel-formel ein documentarischer ort, test mit zwei envs.
 Erlaubtes write-set (vorschlag, lane prueft): file-key builder. Evidence-Quelle: https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/hunt-metrics/befund-1.md (17 probes, base 97a840e54).
+
+END akzeptiert: schluessel-formel an einer stelle mit environment, regression red/green (TestRuntimeSourceSeparatesTargetFilesPerEnvironment), head 4fcb2b35d base-exakt ec592fd38, run 44457185039 SUCCESS terminal, akte am band dd89401b. Routing an CODEX. registry.go-ueberschneidungsregel (erst-gruen-zuerst) gilt weiter
