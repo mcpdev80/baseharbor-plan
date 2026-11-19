@@ -272,8 +272,18 @@ lines change; witness in `git diff b6c9702ba c81d1eda8 -- internal/metrics/testd
 
 ## Evidence-on-origin/main witness (second-to-last action)
 
-- `git -C /var/tmp/plan-077/clone pull --rebase origin main` then commit + push; output appended below.
-- `git -C /var/tmp/plan-077/clone rev-parse HEAD origin/main` — pasted below.
-- `git ls-tree -r --name-only origin/main | grep dashboard-hosts-hopf/fix-2.md` — pasted below.
+- Planning zone: my own clone /var/tmp/plan-077/clone (no git action in the shared planning
+  worktree).
+- `git pull --rebase origin main` => `1121b53096bbc8a5077e78695f04e6d1261d40fd main -> origin/main`,
+  `Successfully rebased and updated refs/heads/main`; push => `12163463..810daec4 HEAD -> main`.
+- `git rev-parse HEAD origin/main` (after fetch) =>
+  810daec459ab4596dae4fd8eb2484cbd3d40369b 810daec459ab4596dae4fd8eb2484cbd3d40369b
+- `git ls-tree -r --name-only origin/main | grep dashboard-hosts-hopf/fix-2.md` =>
+  evidence/r28-welle4-2026-11-19/dashboard-hosts-hopf/fix-2.md  (present on origin/main BEFORE this END post)
 
 ## END
+
+END_DONE mission-077-catalog-availability.md — candidate 9f5470f97a112a6dae226712d63731676775b405 on
+lane-0428-077-r28-perses-dashboard-hosts (PR #1602, OPEN, draft=false, not behind develop
+3b634232f); exact-head run 44530337283 watched to terminal completed/success, 15 cells executed
+(PR Selected Checks = success), 19 skipped; evidence on baseharbor-plan origin/main 810daec4.
