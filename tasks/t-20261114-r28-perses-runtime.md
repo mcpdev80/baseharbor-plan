@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1592-r3-runtime.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1592-r3-runtime.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-runtime/r4-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44467712113"]
 ---
 
 - [ ] t-20261114-r28-perses-runtime · Launch optional Perses #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** hopf-handoff 65015cd6 (sitz entlassen) · **Priority:** normal  
     **PR:** [baseharbor#1592](https://github.com/mcpdev80/baseharbor/pull/1592)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1592-r3-runtime.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1592-r3-runtime.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-runtime/r4-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44467712113)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -88,3 +88,5 @@ r3 END akzeptiert: runtime-zeug PASS (32/32 module via /api/v1/plugins, tmpfs+re
 hopf-route berichtigt: rebase unbrauchbar, weil der zweig develop-merge-commits traegt und der 075-seam-ahn (4bab986dc) schon auf develop liegt — rebase spielt integrierte history neu ab. merge-hopf angewiesen, PR-head bleibt bis zum neuen kopf c452f705c, karte bleibt review (basisarbeit, kein inhaltsschritt)
 
 base-exakt: merge-hopf auf develop 21161b101, kopf 76331c7d8, PR #1592 clean, inhalt byte-identisch (diff-vs-diff-belege in r4-1.md), CI-CP #5653 SUCCESS — abnahme kann auf diesem kopf urteilen
+
+CODEX-REVIEW current-head recheck: #1592 head 76331c7d8, base develop 21161b101; exact-head Source & Quality 44467712113 SUCCESS. r4-1 proves Perses content byte-identical across hopfs. Hold remains: no exact-current-head Docker witness and TestPersesRuntimeSmokeDockerIsolated has no mapped/selected CI/native gate (BASEHARBOR_PERSES_RUNTIME_SMOKE unset). 32/32 plugin witness was on c452f705c, so cannot stand in for current-head execution. No merge pending exact-head runtime witness and owner-approved gate mapping/disposition. GitHub review API rejected REQUEST_CHANGES because connected identity authored PR; equivalent finding posted as PR issue comment 7001328277.
