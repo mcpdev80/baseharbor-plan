@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-121 r5 (Codeman 43911492)
-kanban_status: active
-kanban_lane: active
+owner: 0428-121 r5 (codeman 43911492, lokal 5b8cccc15, NICHT gepusht)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-121 · Env-Filter wirkt nicht auf
 priority: ""
@@ -23,18 +23,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-route2-review.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-anchor-recheck.md", "https://github.com/mcpdev80/baseharbor/pull/1691", "https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7005246254", "https://github.com/mcpdev80/baseharbor/actions/runs/44495408370", "https://github.com/mcpdev80/baseharbor/actions/runs/44495408370/job/135465056267", "https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7006167759", "https://github.com/mcpdev80/baseharbor/actions/runs/44503654267"]
 ---
 
-- [ ] t-20261119-hunt-metrics-env-filter-list-pfade · Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261119-hunt-metrics-env-filter-list-pfade · Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-121 r5 (Codeman 43911492)  
+    **Owner:** 0428-121 r5 (codeman 43911492, lokal 5b8cccc15, NICHT gepusht)  
     **PR:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-route2-review.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-4.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-anchor-recheck.md), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1691), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7005246254), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44495408370), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/44495408370/job/135465056267), [proof 9](https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7006167759), [proof 10](https://github.com/mcpdev80/baseharbor/actions/runs/44503654267)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0428-121 r5 (Codeman 43911492)  
+**Owner:** 0428-121 r5 (codeman 43911492, lokal 5b8cccc15, NICHT gepusht)  
 **Priority:** not set  
 **PRs:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
 **Source:** 
@@ -116,3 +116,5 @@ DRITTER punkt derselben klasse, von mir bestaetigt: case (a) registriert Kind=Si
 zwei weitere assert-defekte, von mir in der datei bestaetigt (zeilennummern aus /tmp/opencode/mission-121-round5-listseam-wt/.../envfilter_route5_listseam_test.go, stand 10:56, datei untracked): (1) zeilen 61-66: nach dem korrekten 'len(got) != 0'-check folgt 'len(got) == 0 || got[0].ID != id' und indexiert got[0] auf leerer menge — der test faellt GENAU dann, wenn die exclusion stimmt; befehl: zweiter check raus, stattdessen abwesenheit ueber die id-liste behaupten. (2) zeilen 137 vs 167/175: Kind=SignalLogs registriert, aber ListTraces(...) erwartet dieselbe id — ListTraces siebt auf SignalTraces, die aufnahme ist unmöglich; befehl: die beiden trace-aussagen (166-181) entfernen (abnahme verlangt List/ListLogs) ODER eine eigene Kind=SignalTraces-quelle mit eigenem target/ID registrieren, never mischen. (3) der wortliche output von 'go test ./internal/observability -run ^TestRoute5 -count=1 -v' kommt in die akte, und ein fehler darin wird VOR jedem push untersucht. nichts geriickgaengig zu machen: branch noch f28b97a53
 
 2026-11-19 10:20Z reviewer update: r5 test commit 5b8cccc15831ce4e591e154b2f5f9c5aee07d541 is pushed; focused TestRoute5 suite passes. Exact-head run 44503654267 is still in_progress (older 44495408370 is stale). Remaining review hold: case (c) documents and uses canonical ID bh-prod-my-app-dev but Target and proof still say baseharbor-my-app-dev; align Target to canonical project and assert derived env dev. Keep PR open; require corrected exact-head aggregator PASS before serial downstream PRs proceed.
+
+vierte korrektur an dieselbe lane, alle drei punkte von mir im code belegt: (1) colon-regel falsch herum — develop baut provider-log-IDs als 'loki:'+project (internal/logs/realization.go:233, auch lifecycle.go:172), das erste colon-segment ist der PROVIDER; die lane nimmt bisher value[:idx] und erntet bei 'loki:<project>' nur 'loki' (kein anker). (2) fall (c) mischt zwei projekt-formen in einer quelle (ID 'loki:bh-prod-my-app-dev' vs. Target 'baseharbor-my-app-dev') — befehl: EINE kanonische variable project := bhruntime.ApplicationProjectName('prod','my-app','dev') (generator internal/runtime/project_names.go:31, muster-praezedenz internal/logs/loki_test.go:377 RuntimeTarget('bh-local-demo-dev','postgres')), in ID UND Target. (3) metrik-grenze ist echt: ListMetrics haertet includeApplicationSources=false (koerper in internal/observability/registry.go) — application-source-metriken sind dort strukturell unsichtbar; loesung entweder List(SignalMetrics,...,true,true,false,env) am caller-seam oder provider-foermige metrik-fixtures, und der befund kommt als eigener abschnitt in fix-5.md, weil die abnahme die API-grenze kennen muss. LISTTRACES sind raus (0 treffer, von mir gezählt)
