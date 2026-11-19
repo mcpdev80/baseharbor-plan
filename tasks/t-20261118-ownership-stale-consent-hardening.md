@@ -4,25 +4,26 @@ release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
 owner: w99-0428-119 r3 (codeman f5dabf03)
-kanban_status: active
+kanban_status: blocked
 card_number: 0428-119
 card_short_title: harden Prov ownership chain vs
 kanban_title: 0428-119 · harden Prov ownership chain vs
 prs: [mcpdev80/baseharbor#1690]
 wait_reason: ""
-blocker: ""
+blocker: "exact-head docker lifecycle beleg nicht fahrbar: ORAS-praesenz auf dem pruef-system fehlt. hosted 'Runtime · Docker Core' run 44464060182 (job docker-runtime 135357465520) hat ECHT ausgefuehrt und bricht in app_repository_integration_test.go:27 'prepare BaseHarbor integration trust plane: ORAS is required' — derselbe bruch reproduziert auf sauberem develop c000c5db25 und host-lokal (baha-docker, ORAS 1.3.6 vorhanden, native plugin fehlt). targeted-integration ist integriert-only (checkt ref: develop + HEAD==CANDIDATE_SHA). naechster trigger: owner-entscheid ueber runner/host-ORAS-trust-plane ODER reviewer-qualifikation, dass unit-matrix-run 44456088960 SUCCESS auf head 84ee9a93e + dokumentierter ausgefuehrter-abort genuegen"
 
 ---
 # t-20261118-ownership-stale-consent-hardening · close ownership-race windows behind stale-impact-consent
 
-- [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
     **Owner:** w99-0428-119 r3 (codeman f5dabf03)  
     **PR:** [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690)  
+    **Blocker:** exact-head docker lifecycle beleg nicht fahrbar: ORAS-praesenz auf dem pruef-system fehlt. hosted 'Runtime · Docker Core' run 44464060182 (job docker-runtime 135357465520) hat ECHT ausgefuehrt und bricht in app\_repository\_integration\_test.…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w99-0428-119 r3 (codeman f5dabf03)  
@@ -52,3 +53,5 @@ REQUEST_CHANGES vom reviewer (kommentar 6997135020 auf d94cc67d): consent-equiva
 docker-lage berichtigt: run 44454644057 workflow-seitig success, aber job 'Targeted HA · docker' skipped (0 steps) — lane hat das korrekt festgehalten (mein queue-394-ansatz war auf run-ebene, nicht job-ebene). die drei targeted-integration-fehler (#557-#559) scheitern im schritt 'Verify exact SHA input' (push-pfad ohne inputs) — wiring-befund, keine produktschuld. kartenpflicht 'selected docker lifecycle tests on exact head' wird jetzt per dokumentiertem workflow_dispatch (gate coreless-runtime, ref=4e032c858) erfuellt; lane beobachtet bis terminal
 
 kein abnahme-zeug, kein merge (owner-wort). docker-route-erklaerung: targeted-integration ist integriert-only (ref: develop + HEAD==CANDIDATE_SHA), daher #557-#561 alle im schritt 'Verify exact SHA input' gebrochen. dreistufen-route an lane: docker-runtime-acceptance inputs.ref pruefen, sonst host-lokaler baha-docker-zeuge nach praezedenz 088-r3, fehlender hosted-draht als owner-befund
+
+PR #1690 head ist nach berichtigtem hopf wieder auf dem lane-exklusiven zweig: 84ee9a93e (ec592fd385/deeeb6477 ancestry, seitenzweig getilgt), r3-code unveraendert, akte r4-routentabelle published
