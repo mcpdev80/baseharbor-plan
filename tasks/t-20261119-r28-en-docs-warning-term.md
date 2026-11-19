@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w131-0428-131-endocshowpf (codeman 93521518, ornith:1) — uebernommen von bbd9132d
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-131 · EN-Dokumentation nennt das
 priority: ""
@@ -17,23 +17,23 @@ depends_on: [t-20261119-r28-prgate-docs-internal-json-mapping]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1697]
 sources: []
-blocker: "owner-draht karte 0428-144: der documentation-audit laeuft fuer diesen kandidat NIEMALS, weil scripts/pr-gate-plan.py die Doku-auswahl nur auf '.md'/'.rst' (plus README/CONTRIBUTING/CHANGELOG/mkdocs*.yml/site/) stellt; die stelle ist datei scripts/pr-gate-plan.py zeile 1195 (die 1189 der lane-akte zaehlt die elif-kette von oben, ist also dieselbe stelle). DEINE 3 GEAENDERTEN DATEIEN SIND docs/internal/*.json — genau die fallen durchs raster, daher beweist der grüne PR Selected Checks ueberhaupt NICHTS fuer deinen inhalt"
-wait_reason: ""
+blocker: ""
+wait_reason: "BLOCKER WEG, GEMESSEN: karte 0428-144 ist GEMERGt — PR #1705 merged=true state=closed merge_commit 28fb427f0574 (= develop-spitze jetzt), ihr exact-head 0b5dd3471 mit run 44619193702 (PR Selected Checks, pr-planner-tests, ci-policy, focused Python, source format, native gate plan, trusted plan = success). Damit bildet scripts/pr-gate-plan.py docs/internal/**/*.json ab, und der documentation-audit kann diesen kandidat treffen. WARTET JETZT NUR NOCH AUF EINEN FREIEN SITZ (pool 5/5 belegt): auszufuehren ist ein monotoner merge-hopf auf die aktuelle develop-spitze (basis 1019190d8 ist 190 koepfe alt) + draft=false halten + EIN terminaler pull_request-lauf am neuen kopf, in dem der documentation-audit fuer die drei docs/internal JSON-dateien SICHTBAR laeuft (nicht skipped). Stand gemessen: #1697 head 708f5c5c8 base 1019190d8, 3 dateien, PR-lauf aus altem stand zaehlt nicht."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/en-docs-warning-term/fix-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44478483899", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1697.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44559589447"]
 ---
 
-- [ ] t-20261119-r28-en-docs-warning-term · EN-Dokumentation nennt das Marker-Wort 'Achtung' statt 'Warning' (i18n-drift nach 0428-126) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261119-r28-en-docs-warning-term · EN-Dokumentation nennt das Marker-Wort 'Achtung' statt 'Warning' (i18n-drift nach 0428-126) #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** w131-0428-131-endocshowpf (codeman 93521518, ornith:1) — uebernommen von bbd9132d  
     **PR:** [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697)  
-    **Blocker:** owner-draht karte 0428-144: der documentation-audit laeuft fuer diesen kandidat NIEMALS, weil scripts/pr-gate-plan.py die Doku-auswahl nur auf '.md'/'.rst' (plus README/CONTRIBUTING/CHANGELOG/mkdocs\*.yml/site/) stellt; die stelle ist datei…  
+    **Waiting:** BLOCKER WEG, GEMESSEN: karte 0428-144 ist GEMERGt — PR \#1705 merged=true state=closed merge\_commit 28fb427f0574 (= develop-spitze jetzt), ihr exact-head 0b5dd3471 mit run 44619193702 (PR Selected Checks, pr-planner-tests, ci-policy, focuse…  
     **Needs:** [t-20261119-r28-prgate-docs-internal-json-mapping](t-20261119-r28-prgate-docs-internal-json-mapping.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/en-docs-warning-term/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44478483899), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1697.md), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44559589447)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261119-r28-prgate-docs-internal-json-mapping](t-20261119-r28-prgate-docs-internal-json-mapping.md)  
 **Owner:** w131-0428-131-endocshowpf (codeman 93521518, ornith:1) — uebernommen von bbd9132d  
