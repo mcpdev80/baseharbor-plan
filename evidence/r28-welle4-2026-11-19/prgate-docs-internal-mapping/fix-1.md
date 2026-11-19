@@ -23,4 +23,6 @@ No full release, Docker/Podman native runtime, or unrelated service matrix is cl
 
 ## Remaining acceptance witness
 
+A local trusted-base simulation after merge used develop `28fb427f057499efca705c1b7459e7653bd532a8`, target head `708f5c5c8acee5133e480d151544cb139bb3ded`, and the three `docs/internal/*.json` changes. `scripts/pr-diff-base.py` plus the trusted planner returned `coverage_status=resolved` and selected `documentation-audit`, `mkdocs-de-strict`, `mkdocs-en-strict`, and `pages-candidate-build`. This confirms the mapping now routes the paths; it is not hosted execution evidence.
+
 This fix enables the existing docs audit selection. Dependent PR [#1697](https://github.com/mcpdev80/baseharbor/pull/1697) was still based on `1019190d8dc0ecac7693f3461153e76be0e2cb8a` at this evidence snapshot. Its old run `44559589447` did not execute `documentation-audit`, so it cannot witness the mapping. After #1705 merged, #1697 must hop to the new `develop` and a fresh exact-head run must show `documentation-audit` executed successfully for its `docs/internal/*.json` changes. Until that proof is recorded, 0428-144 remains active and is not accepted.
