@@ -6,16 +6,16 @@ DATE: 2026-11-20 (shift started 2026-11-19 23:xxZ).
 
 ## PLAN
 
-- [ ] Read mission, confirm scope = coordinator/ only.
-- [ ] Reality check: planning repo = baseharbor-plan (origin/main 6968e55b), baseharbor develop HEAD 4b3a3559, branch lane-0428-155 cut from origin/develop (develop is ancestor).
-- [ ] DEFECT 1 card-status.py owner-field clear.
-- [ ] DEFECT 2 release-lane.py spawn-reference mapping + pool-leak guard.
-- [ ] DEFECT 3 dispatch-lane.sh board-name from lane not payload.
-- [ ] DEFECT 4 vm-audit.sh holder/dauer exclusion.
-- [ ] DEFECT 5 workspace-hygiene.sh cron run + report.
-- [ ] Regression unit tests (python3, no product).
-- [ ] Local checks: py_compile, bash -n, tests.
-- [ ] Commit test file in coordinator repo, write akte, post END_DONE.
+1. Read mission, confirm scope = coordinator/ only.
+2. Reality check: planning repo = baseharbor-plan (origin/main 6968e55b), baseharbor develop HEAD 4b3a3559, branch lane-0428-155 cut from origin/develop (develop is ancestor).
+3. DEFECT 1 card-status.py owner-field clear.
+4. DEFECT 2 release-lane.py spawn-reference mapping + pool-leak guard.
+5. DEFECT 3 dispatch-lane.sh board-name from lane not payload.
+6. DEFECT 4 vm-audit.sh holder/dauer exclusion.
+7. DEFECT 5 workspace-hygiene.sh cron run + report.
+8. Regression unit tests (python3, no product).
+9. Local checks: py_compile, bash -n, tests.
+10. Commit test file in coordinator repo, write akte, post END_DONE.
 
 ## repo-rule compliance
 
