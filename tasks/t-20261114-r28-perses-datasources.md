@@ -20,7 +20,7 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md"]
 ---
 
 ## Owner decision — 2026-11-17
@@ -32,6 +32,7 @@ Owner decision (2026-11-17): Unblock. Reopen PR #1608 if it remains suitable, ot
     **Owner:** 0428-083 (codeman dff6359e) · **Priority:** normal  
     **PR:** [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684)  
     **Needs:** [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -91,3 +92,5 @@ hopf-runde angesetzt (PR #1684 war 'behind', draft=false). schreibset ist DISJUN
 hopf delivered und verifiziert: branch lane-0428-083-datasources-r2 = ab6932296, MONOTON auf develop da76c5cf9, merge-tree 0 konflikte, PR #1684 open/draft=false/clean, exact-head lauf 445… completed SUCCESS (von mir per gh api auf den exakten kopf gelesen). schreibset war disjunkt zu 0428-084 (comm -12 der dateimengen = leer), parallel war damit erlaubt
 
 END akzeptiert, sitz entlassen: head ab6932296f1f24c2024810f10b155633d931f7d4, monoton auf develop da76c5cf9, merge-tree 0 konflikte, exact-head run 44505333646 completed SUCCESS mit NULL fehljobs (von mir per gh api auf jobs geprueft, nicht nur der lauf-status), PR #1684 open/draft=false/clean. akte perses-datasources-hopf/fix-1.md von mir aus der gemeinsamen kopie gesichert und gepusht (board 79cc02a1)
+
+CODEX-REVIEW welle 4 = REQUEST CHANGES auf dem gepueften kopf (urteil 1684-0428-083.md). korrekture-runde ist vorgemerkt und wartet auf einen freien sitz: die vier perses-karten und 083 teilen sich dateien mit den laufenden lanen, darum kein paralleler start ohne write-set-nachweis. 083: 'runtime provisioning absent' (datasource wird gebaut, aber nicht in Perses bereitgestellt); 073: 'alert rule nicht ausgefuehrt/nicht persistiert' (persesAlertRealEvaluation); 077: 'catalog-availability aus host provider-metrics allein'; 089: 'PersesComposeServices rendert keine config (--config=/etc/perses/config.yaml) + loopback upstream'
