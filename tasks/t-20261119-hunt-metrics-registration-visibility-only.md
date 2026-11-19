@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w123-0428-123-regvisibility (codeman c5d271cb, laptop) — UEBERNOMMEN von w01-0428-123 (session 1e209bb7 ist weg, 0 treffer in agent list), dokumentierte uebergabe
+owner: w123-0428-123-regvisibility (codeman c5d271cb, laptop)
 kanban_status: active
 kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1693]
 sources: []
-blocker: 
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261119-hunt-metrics-registration-visibility-only · Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w123-0428-123-regvisibility (codeman c5d271cb, laptop) — UEBERNOMMEN von w01-0428-123 (session 1e209bb7 ist weg, 0 treffer in agent list), dokumentierte uebergabe  
+    **Owner:** w123-0428-123-regvisibility (codeman c5d271cb, laptop)  
     **PR:** [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w123-0428-123-regvisibility (codeman c5d271cb, laptop) — UEBERNOMMEN von w01-0428-123 (session 1e209bb7 ist weg, 0 treffer in agent list), dokumentierte uebergabe  
+**Owner:** w123-0428-123-regvisibility (codeman c5d271cb, laptop)  
 **Priority:** not set  
 **PRs:** [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693)  
 **Source:** 
@@ -85,3 +85,5 @@ END akzeptiert: registered==exportiert Invariante load-bearing gemacht (befund 1
 REQUEST_CHANGES 'integration readiness' auf b7fd05bee (base-exakt jetzt d751c83bb, run 44465014249 SUCCESS): SourceApplication-export haengt am korrigierten environment-filter aus #1691
 
 r3-fortsetzung auf Laptop 1 (owner-freigabe: resume derselben karte, keine doppel-lane). inhaltlicher kern, von mir fern_belegt: develop hat ueber #1691/#1692 die signaturen von observability.ListMetrics und List auf FUENF argumente gestellt (neu requestedEnvironment), der PR-zweig ruft an vier stellen viert-argtig: internal/metrics/prometheus_files.go:240, :451, internal/metrics/prometheus_verify.go:141, internal/application/runtime_observability_trace_source_test.go:162. das ist eine VERALTETE BASE/API-anderung, kein produktfehler. die lane stellt die aufrufe auf die 5-arg-form, erhaelt die requested-environment-filterung (fail-closed, kein ''-fuellwert) und prueft die abnahme-semantik: app-class-metriken werden auch bei includeApplicationSources=false angehaengt — ScopeApplication als einzige filter-stufe, keine doppelten scrape-targets, keine cross-environment-exposure. qualifizierung: ein lauf auf dem aktuellen base fac01c772, terminales 'PR Selected Checks'-aggregat; SKIPPED ist kein pass
+
+BEHIND bestaetigt (head f3c1bf43bf1a682c29145bf0dade48b319d8e481 gegen develop 1019190d8dc0ecac7693f3461153e76be0e2cb8a); alter lauf 44546638806 ist auf aelterem base gefahren und zaehlt nicht als abnahme (owner-feststellung 15:08Z, von mir gegen gelesen). hopf + frischer exaktkopf-lauf befohlen; inhaltliche forderungen bleiben: exporter-routing (job baseharbor-applications + application/environment/source labels), end-to-end-assertion, duplicate-freiheit, dev/stage-sibling-queLLE; die none-asymmetrie im verifier ist NICHT gegenstand dieser karte (0428-143, angelegt und blocked)
