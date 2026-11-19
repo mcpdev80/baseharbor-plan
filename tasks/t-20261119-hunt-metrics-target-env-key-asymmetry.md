@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w99-0428-125 (codeman e409b9b1)
+owner: w99-0428-125 (hopf-handoff 045d7e8a-bundel)
 kanban_status: review
 kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 - [ ] t-20261119-hunt-metrics-target-env-key-asymmetry · Runtime-metrics target-file-key fuehrt environment nicht, group-label schon — asymmetrische Zuordnung #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** w99-0428-125 (codeman e409b9b1)  
+    **Owner:** w99-0428-125 (hopf-handoff 045d7e8a-bundel)  
     **PR:** [baseharbor#1694](https://github.com/mcpdev80/baseharbor/pull/1694)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/target-env-key/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1694.md)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w99-0428-125 (codeman e409b9b1)  
+**Owner:** w99-0428-125 (hopf-handoff 045d7e8a-bundel)  
 **Priority:** not set  
 **PRs:** [baseharbor#1694](https://github.com/mcpdev80/baseharbor/pull/1694)  
 **Source:** 
@@ -83,3 +83,5 @@ Befund 7 (MEDIUM): Der runtime-metrics target-file-key spaart den environment, d
 Erlaubtes write-set (vorschlag, lane prueft): file-key builder. Evidence-Quelle: https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/hunt-metrics/befund-1.md (17 probes, base 97a840e54).
 
 END akzeptiert: schluessel-formel an einer stelle mit environment, regression red/green (TestRuntimeSourceSeparatesTargetFilesPerEnvironment), head 4fcb2b35d base-exakt ec592fd38, run 44457185039 SUCCESS terminal, akte am band dd89401b. Routing an CODEX. registry.go-ueberschneidungsregel (erst-gruen-zuerst) gilt weiter
+
+CODEX-REVIEW ACCEPT(content) steht auf 4fcb2b35d; der bundel-hopf hat den zweig auf e1742275e gehoben (diff-vs-diff identisch, run 44465054273 SUCCESS). abnahme-instanz gebeten, das urteil auf den base-exakten kopf zu heben — danach merge nach §8
