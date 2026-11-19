@@ -68,4 +68,7 @@ This is NOT `review`: the runtime side is not yet belegbar. No acceptance by me;
 ## Evidence provenance
 
 - baseharbor-plan evidence ONLY: evidence/r28-welle4-2026-11-19/consent-hardening-hopf/fix-3.md.
-- origin/main provenance for evidence commit: `git remote -l` + exact output pasted in the handoff END line.
+- origin/main provenance for evidence commit: `git remote -v` ->
+  `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)`,
+  `origin https://github.com/mcpdev80/baseharbor-plan.git (push)`.
+- evidence commit 3d0d4870bf31557ea8412c8a32c60a8ce759a963 ON origin/main (`git merge-base --is-ancestor HEAD origin/main` = 0); `git ls-remote origin main` = 3d0d4870.
