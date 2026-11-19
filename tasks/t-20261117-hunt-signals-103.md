@@ -25,7 +25,7 @@ card_short_title: postgres-/valkey-Adapter ohne
     <!-- generated:card -->
     **Owner:** unassigned  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261117-hunt-signals-101](t-20261117-hunt-signals-101.md), [t-20261117-hunt-signals-102](t-20261117-hunt-signals-102.md)  
+    **Needs:** [t-20261117-hunt-signals-101](t-20261117-hunt-signals-101.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md)  
     <!-- /generated:card -->
 
