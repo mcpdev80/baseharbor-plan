@@ -59,3 +59,5 @@ Downgrade: no confirmed runtime defect at A=false (guard correctly skips continu
 Confirmed on PR #1686 head ca149b3: non-continuation applied receipt with a stray ghost edge -> `status=applied code=` (correct fix-1 guard); the un-parenthesised broken guard mislabels it `continuation-dependency-unverified` (red). Pin `TestProviderResultNonContinuationBehaviourPin` asserts both operands. Guard source unchanged.
 
 r2 END: head 7459d615d (guard unveraendert), exact-run 44423543955 SUCCESS vom reviewer bestaetigt; evidence-widerspruch getilgt (retraction + revision-labels); coord-flag als geloest gekennzeichnet + CI-capture nachgetragen; Re-review geroutet
+## Runtime debt (uebernommen aus 0428-113/#1680, Owner-Ausnahme 2026-11-18)
+#1680 wurde ohne ORAS gemergt: die Runtime-Docker-/Podman-Evidence fuer den Loki-/Prometheus-Pfad ist offen (see evidence/1680.md). Diese karte (0428-114) ist ausdrueckliche Eigentuemerin dieser Debt; Abschluss erfordert ORAS-verfuegbare Runner-Cellen oder eine dokumentierte Alternative, bevor die Observability-Kette als voll qualifiziert gilt. Kein Block fuer den r3-guard-kandidaten selbst.
