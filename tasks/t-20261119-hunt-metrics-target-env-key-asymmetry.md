@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: accepted
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/target-env-key/fix-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1694.md", "https://github.com/mcpdev80/baseharbor/pull/1694", "https://github.com/mcpdev80/baseharbor/actions/runs/44465054273"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/target-env-key/fix-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1694.md", "https://github.com/mcpdev80/baseharbor/pull/1694", "https://github.com/mcpdev80/baseharbor/actions/runs/44465054273", "https://github.com/mcpdev80/baseharbor/commit/21161b101"]
 ---
 
 - [x] t-20261119-hunt-metrics-target-env-key-asymmetry · Runtime-metrics target-file-key fuehrt environment nicht, group-label schon — asymmetrische Zuordnung #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** w99-0428-125 (hopf-handoff 045d7e8a-bundel)  
     **PR:** [baseharbor#1694](https://github.com/mcpdev80/baseharbor/pull/1694)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/target-env-key/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1694.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1694), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44465054273)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/target-env-key/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1694.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1694), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44465054273), [proof 5](https://github.com/mcpdev80/baseharbor/commit/21161b101)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -87,3 +87,5 @@ END akzeptiert: schluessel-formel an einer stelle mit environment, regression re
 CODEX-REVIEW ACCEPT(content) steht auf 4fcb2b35d; der bundel-hopf hat den zweig auf e1742275e gehoben (diff-vs-diff identisch, run 44465054273 SUCCESS). abnahme-instanz gebeten, das urteil auf den base-exakten kopf zu heben — danach merge nach §8
 
 CODEX-MERGE: ACCEPT on hopped exact head e1742275e984aebd4e0cef027a999aed6a6b7f97. Content diff SHA-256 d69d5aae5f0be64f58081723eed50da3b72185f653bb192e3a58a2ddca3766a1 matches accepted 4fcb2b35d1182e7b639a8dc18f5cccf33ea8564f; develop deeeb6477 is an ancestor. Exact-head run 44465054273 SUCCESS (21.17 runner-minutes). Squash merge 21161b101f66a47fb1a253ae17e87fe82567ba4d verified on develop.
+
+125 gemergt: #1694 head e1742275e (ACCEPT-inhalt auf 4fcb2b35d, abnahme auf den base-exakten gehopften kopf gehoben) -> develop 21161b101, runs 44465054273 SUCCESS + PR-checks gruen
