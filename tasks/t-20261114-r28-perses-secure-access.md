@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: 0428-089 korrektur (codeman b60c11a1, flash) — EIN hopf nach policy, kandidat qualifiziert
-kanban_status: review
-kanban_lane: review
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "Integrate Perses with existing management access, verified transport and authorization; inspect selected upstream version…"
 kanban_title: 0428-089 · Protect Perses operator access
 priority: normal
@@ -17,21 +17,22 @@ depends_on: [t-20261114-r28-perses-contract-seam, t-20261114-r28-perses-runtime]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1599]
 sources: []
-blocker: ""
+blocker: "MEINE FREIGABE ZURUECKGENOMMEN, grund ist GEMESSEN, nicht vermutet: der Kandidat 69982520688e18a5c9bad89f093165c16d5be5d4 ist auf dem aktuellen develop fac01c772 monoton und sein exact-head-lauf 44544947599 ist completed SUCCESS ('PR Selected Checks' = success, candidate_advisory_required=false) — ABER er ist NICHT disjoint vom noch offenen #1598 (0428-084, head 4ce0ca0): 'comm -12' der drei-punkt-dateilisten = 12 gemeinsame dateien (cmd/baha/commands.go, completion.go, machine_coverage.go, perses_lifecycle.go, perses_lifecycle_test.go, docs/cli/command-index.md EN+DE, docs/reference/cli-machine-coverage.md EN+DE, internal/application/perses_lifecycle.go + _test.go, internal/capability/perses.go). davon sind 7 inhaltlich identisch, 5 ABWEICHEND (machine_coverage.go, cmd/baha/perses_lifecycle.go, beide cli-machine-coverage.md, internal/capability/perses.go), und 'git merge-tree --write-tree 4ce0ca0 699825206' zwischen den beiden koepfen zeigt 3 KONFLIKT-REGIONEN. DARUM: Reihenfolge/Zustaendigkeit erst klaeren — #1598 zu ende mergen, dann #1599 auf den neuen develop hopfen und die 5 abweichenden dateien ausdruecklich loesen. ZWEITER mangel: der PR-body von #1599 sagt noch 'Base: lane-0428-075-perses-seam per the stacking rule; no merge into develop' — das ist falsch gegen GitHub base=develop und muss korrigiert werden, bevor die karte wieder in review geht. NAechster trigger: merge von #1598"
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5027ca029761ebf485b06a/evidence/r28-welle1-2026-11-15/perses-secure-access/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1599-0428-089.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44544947599"]
 ---
 
-- [ ] t-20261114-r28-perses-secure-access · Protect Perses operator access #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [ ] t-20261114-r28-perses-secure-access · Protect Perses operator access #task #release/v0-4-28 #status/blocked #view/blocked #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** 0428-089 korrektur (codeman b60c11a1, flash) — EIN hopf nach policy, kandidat qualifiziert · **Priority:** normal  
     **PR:** [baseharbor#1599](https://github.com/mcpdev80/baseharbor/pull/1599)  
+    **Blocker:** MEINE FREIGABE ZURUECKGENOMMEN, grund ist GEMESSEN, nicht vermutet: der Kandidat 69982520688e18a5c9bad89f093165c16d5be5d4 ist auf dem aktuellen develop fac01c772 monoton und sein exact-head-lauf 44544947599 ist completed SUCCESS ('PR Selec…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5027ca029761ebf485b06a/evidence/r28-welle1-2026-11-15/perses-secure-access/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1599-0428-089.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44544947599)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
 **Required by:** [t-20261114-r28-perses-contact-routing](t-20261114-r28-perses-contact-routing.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
@@ -90,3 +91,5 @@ REQUEST-CHANGES-runde auf dem frei gewordenen 084-sitz. startfaehig JETZT, weil 
 END_DONE inspiziert und ANGENOMMEN, mit einer offenEN mechanischen stelle: kopf 233be0af2bba691fed7bd99655fb78a7515e2a0f auf #1599 (draft=false), exaktkopf-lauf 44535875227 = completed SUCCESS, 23 ausgefuehrte zellen, 'PR Selected Checks' = success, candidate_advisory_required=false, akte auf plan-main 6c992aa6, host besenrein (7 ambient container unberuehrt). URSAHE des rest-hopfs = VERALTETE BASE/API-anderung, KEIN produktfehler: ihr hopf haelt 859654861, develop ist fac01c772 (kette 695ad5494 + 86858f129 + bcd0e29ca + fac01c772); der unterschied beruehrt .github/workflows/ci.yml (MIGRATION_CONTROLLER a6756c5… → 859654861…) und scripts/test_ci_check_routes.py, also verlangt meine base-abstands-regel (queue563, von der owner-policy 15:3xZ bestaetigt) genau EINEN neuen lauf auf dem aktuellen base. KEIN weiteres hopfen danach, wenn develop sich nur ausserhalb dieser dateien bewegt. Schreibe: mission-089-final-hopf.md
 
 END ANGENOMMEN, alle zeugen von mir fern_gelesen im selben schritt: develop = fac01c77276ca2bf1e20cd0b7334bda5dd43e353, PR #1599 head = 69982520688e18a5c9bad89f093165c16d5be5d4, base = develop (aktuell), state open, draft=false, mergeable_state clean; 'merge-base --is-ancestor origin/develop <kopf>' = 0 (monoton) und 233be0af2 ist ancestor (ein hopf, kein history-rewrite); exaktkopf-lauf 44544947599 = completed SUCCESS, 'PR Selected Checks' = success, candidate_advisory_required=false, advisory-zelle skipped, KEINE HA-/runtime-zelle ausgeloest (genau die neue policy: keine breite matrix, wenn der base-plan sie nicht waehlt und die acceptance sie nicht verlangt); ci-fast-check vor dem push; akte fix-4.md auf plan-main 0d7d2a6a; host besenrein (7 ambient container unberuehrt). DAMIT: flash-sitz wird freigegeben (soll 1), karte geht in die abnahme
+
+selbstkorrektur: ich hatte 'acht gemeinsame dateien' gemeldet (ueber 'gh pr view --json files'), korrekt sind ZWOELF gemessen an den drei-punkt-diffs gegen develop — die meldung der abnahme war richtiger als mein zahl. flash-sitz bleibt bis zum body-fix + der ausdruecklichen sequenzierung besetzt, danach freigabe (sauberer END liegt vor)

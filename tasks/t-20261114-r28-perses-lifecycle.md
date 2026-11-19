@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0428-084 korrektur (codeman 3ae5c022, ornith) — rest-hopf auf fac01c772 laeuft
-kanban_status: active
-kanban_lane: active
+owner: 0428-084 korrektur (codeman 3ae5c022, ornith) — rest-hopf auf fac01c772, content angenommen, CI PR Selected Checks success
+kanban_status: review
+kanban_lane: review
 kanban_summary: Guide enable/status/disable and ownership-safe removal of optional Perses using the accepted CLI contract; preserve monitoring…
 kanban_title: 0428-084 · Perses lifecycle commands
 priority: normal
@@ -20,22 +20,22 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md", "https://github.com/mcpdev80/baseharbor-plan/blob/c7376f916380d9d95d70e05204a10da2ef42d9b6/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6f05b59ccf3f13065093f7848de098063548d84f/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-3.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md", "https://github.com/mcpdev80/baseharbor-plan/blob/c7376f916380d9d95d70e05204a10da2ef42d9b6/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6f05b59ccf3f13065093f7848de098063548d84f/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-3.md", "https://github.com/mcpdev80/baseharbor-plan/blob/c23cf7586911b623cde384d8769001626a686dd8/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-4.md"]
 ---
 
-- [ ] t-20261114-r28-perses-lifecycle · Perses lifecycle commands #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-lifecycle · Perses lifecycle commands #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-084 korrektur (codeman 3ae5c022, ornith) — rest-hopf auf fac01c772 laeuft · **Priority:** normal  
+    **Owner:** 0428-084 korrektur (codeman 3ae5c022, ornith) — rest-hopf auf fac01c772, content angenommen, CI PR Selected Checks success · **Priority:** normal  
     **PR:** [baseharbor#1598](https://github.com/mcpdev80/baseharbor/pull/1598)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/c7376f916380d9d95d70e05204a10da2ef42d9b6/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/6f05b59ccf3f13065093f7848de098063548d84f/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-3.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/c7376f916380d9d95d70e05204a10da2ef42d9b6/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/6f05b59ccf3f13065093f7848de098063548d84f/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-3.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/c23cf7586911b623cde384d8769001626a686dd8/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-4.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** 0428-084 korrektur (codeman 3ae5c022, ornith) — rest-hopf auf fac01c772 laeuft  
+**Owner:** 0428-084 korrektur (codeman 3ae5c022, ornith) — rest-hopf auf fac01c772, content angenommen, CI PR Selected Checks success  
 **Priority:** normal  
 **PRs:** [baseharbor#1598](https://github.com/mcpdev80/baseharbor/pull/1598)  
 **Source:** 
