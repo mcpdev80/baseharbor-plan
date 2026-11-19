@@ -8,7 +8,7 @@ areas: [coordination, ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: "w150-prverify-window (codeman, laptop:2)"
+owner: ""
 kanban_status: planned
 kanban_lane: ready
 blocker: ""
@@ -26,7 +26,7 @@ created: 2026-11-19
 
 - [ ] t-20261119-r28-window-integrity-verify · fensterstand gegen abnahmebelege pruefen #task #release/v0-4-28 #status/planned #view/ready #area/ci #area/coordination #kind/task
     <!-- generated:card -->
-    **Owner:** w150-prverify-window (codeman, laptop:2)  
+    **Owner:** unassigned  
     **Ready to assign** · prerequisites accepted  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/window-integrity/verify-1.md)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ created: 2026-11-19
 **State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w150-prverify-window (codeman, laptop:2)  
+**Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
