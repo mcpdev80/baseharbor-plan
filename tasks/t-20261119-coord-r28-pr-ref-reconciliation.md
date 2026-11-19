@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: pr-ref-reconciliation (codeman 3b553796, ornith)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-140 · PR-verweise korrigieren und
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-coord-r28-pr-ref-reconciliation · Review-karten gegen fernzeuge nachziehen: PR-verweise korrigieren (nachfolger zu #1603/#1610/#1619, basis-ast von #1665) und grund je karte dokumentieren #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261119-coord-r28-pr-ref-reconciliation · Review-karten gegen fernzeuge nachziehen: PR-verweise korrigieren (nachfolger zu #1603/#1610/#1619, basis-ast von #1665) und grund je karte dokumentieren #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** pr-ref-reconciliation (codeman 3b553796, ornith)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** pr-ref-reconciliation (codeman 3b553796, ornith)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
