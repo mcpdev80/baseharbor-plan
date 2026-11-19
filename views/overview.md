@@ -13,10 +13,10 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | active | 10 |
 | review | 2 |
 | wait | 17 |
-| blocked | 8 |
+| blocked | 9 |
 | ready | 4 |
 | queued | 25 |
-| waiting | 181 |
+| waiting | 180 |
 | backlog | 7 |
 | closed | 341 |
 
@@ -76,6 +76,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261117-hunt-signals-101](../tasks/t-20261117-hunt-signals-101.md) | ID-Raum-Heterogenitaet und Keycloak-Kollision in Signal-IDs | blocked | not set | — | — | — |
 | [t-20261119-hunt-metrics-verification-none-blind](../tasks/t-20261119-hunt-metrics-verification-none-blind.md) | verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe | blocked | not set | 0428-124 r2 (codeman 7110b25d, entlassen) — r3 wartet auf freien sitz | — | [baseharbor#1695](https://github.com/mcpdev80/baseharbor/pull/1695) |
 | [t-20261119-r28-app-source-verification-none-ignored](../tasks/t-20261119-r28-app-source-verification-none-ignored.md) | Verifier: Verification=none is ignored for application-class metrics sources | blocked | not set | — | — | — |
+| [t-20261119-r28-perses-alert-verifier-caller-wiring](../tasks/t-20261119-r28-perses-alert-verifier-caller-wiring.md) | alert-verifier haengt in der luft | blocked | not set | — | [t-20261119-r28-perses-status-backend-witness](../tasks/t-20261119-r28-perses-status-backend-witness.md) (open) | — |
 
 ## Ready to assign
 

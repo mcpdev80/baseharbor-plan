@@ -9,9 +9,9 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: ""
-kanban_status: planned
-kanban_lane: planned
-blocker: ""
+kanban_status: blocked
+kanban_lane: blocked
+blocker: "write-set-kollision mit 0428-142: muss cmd/baha/app_status_collect.go aendern (gemessen ~:401 AddObservation 'management-ui/perses...'), und genau diese datei liegt im offenen PR #1702 (r4-review REQUEST CHANGES, korrektur laeuft). NAECHSTER TRIGGER: #1702 gemergt + develop neu. CODEX bestaetigt die reihenfolge in 1704-0428-073-r3.md rezept-punkt 3 woertlich: '0428-152 is separately owned and blocked on 0428-142 cmd/baha/app_status_collect.go write-set'."
 wait_reason: ""
 depends_on: [t-20261119-r28-perses-status-backend-witness]
 repos: [mcpdev80/baseharbor]
@@ -24,16 +24,16 @@ resolution: ""
 created: 2026-11-19
 ---
 
-- [ ] t-20261119-r28-perses-alert-verifier-caller-wiring · alert-verifier haengt in der luft #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/cli #area/metrics #area/observability #kind/task
+- [ ] t-20261119-r28-perses-alert-verifier-caller-wiring · alert-verifier haengt in der luft #task #release/v0-4-28 #status/blocked #view/blocked #area/cli #area/metrics #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Waiting for prerequisites**  
+    **Blocker:** write-set-kollision mit 0428-142: muss cmd/baha/app\_status\_collect.go aendern (gemessen ~:401 AddObservation 'management-ui/perses...'), und genau diese datei liegt im offenen PR \#1702 (r4-review REQUEST CHANGES, korrektur laeuft). NAECHST…  
     **Needs:** [t-20261119-r28-perses-status-backend-witness](t-20261119-r28-perses-status-backend-witness.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-review-wave/1704-0428-073.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261119-r28-perses-status-backend-witness](t-20261119-r28-perses-status-backend-witness.md)  
 **Owner:** unassigned  
