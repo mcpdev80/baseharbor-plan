@@ -49,6 +49,33 @@ before editing. Allowed edits: `cmd/baha/app_status_result.go` + `cmd/baha/app_s
 `internal/capability/perses.go`, `cmd/baha/machine_coverage.go`, `internal/serviceaccess/perses_config_render.go`,
 `internal/metrics/prometheus_*.go` (0428-089 #1599, 0428-123 #1693).
 
+## Scope decision (Owner clarification 2026-11-19, measured not guessed)
+
+Both faces, manifest-only witness. Write-set extended by Owner beyond the
+mission's original app_status_result.go-only grant:
+- cmd/baha/perses_lifecycle.go (+ perses_lifecycle_test.go, + perses_lifecycle_transport_test.go if needed)
+- cmd/baha/app_status_result.go (+ app_status_result_test.go)
+Verified unbesetzt: the #1599 (0428-089) PR and #1616 diffs touch NEITHER
+cmd/baha/perses_lifecycle.go NOR cmd/baha/app_status_result.go; both files exist
+on develop (origin/develop = 7ee6f817dbff5a238bbc651315d6d76b3819fc91) and are
+extended here.
+Hard forbidden (0428-089 held): internal/capability/perses.go, cmd/baha/machine_coverage.go,
+internal/serviceaccess/**. Also never touched: .github/**, scripts/**.
+
+Semantics (card not over-claiming): the witness is MANIFEST truth, never a
+health probe. Three states named so they assert nothing unproven:
+- "configured" — the observability signal exists in the manifest (logs/traces +
+  observability management UI + perses selected),
+- "not configured" — no signal in the manifest,
+- "unreachable" — configured in the manifest but the backend's own answer is not
+  present.
+NEVER emit "healthy"/"verified" from a manifest flag. A source that needs a real
+probe is card 0428-143 (Verification=none contract question for the Owner), NOT
+decided here: cited with file:line, not implemented.
+
+Drift rule: human `perses status` output and the `app status` machine
+(host-containers JSON) MUST show the SAME per-signal state.
+
 ## Finding
 
 The real per-backend witness lives in `internal/logs/loki_datasource.go` (`matchedAny`, `Reachability`).
