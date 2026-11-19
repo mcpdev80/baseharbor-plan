@@ -4,28 +4,27 @@ release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
 owner: w119-0428-119-consenthop (codeman 80aa0bf4, ornith:2) — uebernommen von w99-0428-119 r3 (session f5dabf03 ist weg)
-kanban_status: wait
+kanban_status: active
 card_number: 0428-119
 card_short_title: harden Prov ownership chain vs
 kanban_title: 0428-119 · harden Prov ownership chain vs
 prs: [mcpdev80/baseharbor#1690]
-wait_reason: "korrektur fertig gemessen, aber KEIN freier sitz (pool 5/5; der sitz kommt frei, sobald die hunt-lane 99dda85e ihre meldefrist erfuellt hat). INHALTLICH offen (CODEX-r2 REQUEST CHANGES auf 5b9a9545aa9adb74870695133daa0561cac5c5ca, VON MIR IM CODE BESTAETIGT): (1) internal/application/provider_consent_authority.go:502-511 sameProviderInstanceAuthority vergleicht ID/ProviderID/ProviderVersion/ProviderProtocol/Kind/Capabilities/Scope/SharingBoundary/Ownership/OwnerApplicationID, laesst aber 'Reference' UND 'OwnerEnvironment' weg — beide felder existieren (internal/capability/registry.go:44/:45) und 'reference' loest externe provider aktiv auf (registry.go:133). (2) equalProviderCapabilities :552-565 hat ein DUPLIKATS-LOCH: a=[x,x] vs b=[x,y] -> laengen gleich, mitgliedschaft erfuellt, TRUE, obwohl die mengen verschieden sind. ZUSATZ: die regression (provider_consent_oscillation_test.go:566+) endet bei DescribeProviderChanges/revalidation, der antrag-pfad in cmd/baha ist nicht belegt. LAUFZEIT-GATES weiter owner-draht 114(a) (ORAS-install im PR-job fehlt)."
+wait_reason: ""
 blocker: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44464033443", "https://github.com/mcpdev80/baseharbor/actions/runs/44464060182"]
 
 ---
 # t-20261118-ownership-stale-consent-hardening · close ownership-race windows behind stale-impact-consent
 
-- [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/wait #view/wait #kind/task
+- [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** w119-0428-119-consenthop (codeman 80aa0bf4, ornith:2) — uebernommen von w99-0428-119 r3 (session f5dabf03 ist weg)  
     **PR:** [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690)  
-    **Waiting:** korrektur fertig gemessen, aber KEIN freier sitz (pool 5/5; der sitz kommt frei, sobald die hunt-lane 99dda85e ihre meldefrist erfuellt hat). INHALTLICH offen (CODEX-r2 REQUEST CHANGES auf 5b9a9545aa9adb74870695133daa0561cac5c5ca, VON MIR…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44464033443), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44464060182)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w119-0428-119-consenthop (codeman 80aa0bf4, ornith:2) — uebernommen von w99-0428-119 r3 (session f5dabf03 ist weg)  
@@ -69,3 +68,5 @@ STATT EINES HOLDS: der sitz bekommt echte, konfliktfreie arbeit, und der owner-Z
 END (session 80aa0bf4, fresh takeover of vanished f5dabf03): branch lane-0428-119-consent-hard neu auf develop 1019190d8 gecutt, 5 files aus dem squash 84ee9a93 aufgebracht, commit 184eefde (nur meine commits, 84ee9a93 nicht Ancestor), PR #1690 head auf 184eefde upgedatet. Exact-head run 44563139929 SUCCESS; Go unit owner (internal/application) shard PASS inkl. TestConsentSurvivesUnverifiableStateOscillation + TestConsentDoesNotFoldUnwitnessedRuntimeState; docker/podman/core-less SKIPPED (ORAS wire 114(a)). required-aggregate gruen, runtime-rest offen -> karte auf blocked mit lautlaut 'owner wire 114(a)'. Evidence fix-2.md (a1cdc884 auf origin/main). Kein merge. Lane fuer next ready card freigegeben.
 
 Independent read-only review (2026-11-19) of PR #1690 head `184eefde9b84ff7d6bfb3dc0017989a2143ddede` found an additional code blocker: `equalRegistry` compares only map lengths, allowing same-cardinality registry mutation to pass consent equivalence. Exact-head run 44563139929 passed unit checks but skipped Docker lifecycle; PR base 1019190d is behind current develop 558dc42d. See [review evidence](../evidence/r28-welle4-2026-11-19/codex-review-wave/1690-0428-119-independent-review.md). No merge recommendation.
+
+CODEX-r2 befunde VON MIR AM KOPF 5b9a9545a NACHGEMESSEN: provider_consent_authority.go:500-511 ohne Reference/OwnerEnvironment (beide felder registry.go:44/:45, reference loest auf :133); equalProviderCapabilities :552-565 duplikats-loch a=[x,x] vs b=[x,y] -> TRUE. Neue lane w119-pr1690-consent-auth auf ornith:2
