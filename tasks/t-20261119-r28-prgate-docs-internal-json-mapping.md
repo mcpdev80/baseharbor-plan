@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: "Codex team (Owner-delegated Maintainer)"
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 blocker: ""
 wait_reason: ""
 depends_on: []
@@ -18,22 +18,24 @@ evidence:
   - "https://github.com/mcpdev80/baseharbor/pull/1705"
   - "https://github.com/mcpdev80/baseharbor/commit/28fb427f057499efca705c1b7459e7653bd532a8"
   - "https://github.com/mcpdev80/baseharbor/actions/runs/44619193702"
-resolution: ""
+  - "https://github.com/mcpdev80/baseharbor/actions/runs/44622989624"
+  - "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/prgate-docs-internal-json/witness-1.md"
+resolution: accepted
 created: 2026-11-19
 card_short_title: "docs/internal/**/*.json faellt"
 prs: [mcpdev80/baseharbor#1705]
 
 ---
 
-- [ ] t-20261119-r28-prgate-docs-internal-json-mapping · docs/internal/**/*.json faellt durch die DOC_CHECKS-verzweigung von pr-gate-plan.py und wird nie validiert #task #release/v0-4-28 #status/active #view/active #area/ci #area/docs #kind/task
+- [x] t-20261119-r28-prgate-docs-internal-json-mapping · docs/internal/**/*.json faellt durch die DOC_CHECKS-verzweigung von pr-gate-plan.py und wird nie validiert #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/docs #kind/task
     <!-- generated:card -->
     **Owner:** Codex team (Owner-delegated Maintainer)  
     **PR:** [baseharbor#1705](https://github.com/mcpdev80/baseharbor/pull/1705)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1705), [proof 2](https://github.com/mcpdev80/baseharbor/commit/28fb427f057499efca705c1b7459e7653bd532a8), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44619193702)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1705), [proof 2](https://github.com/mcpdev80/baseharbor/commit/28fb427f057499efca705c1b7459e7653bd532a8), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44619193702), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44622989624), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/prgate-docs-internal-json/witness-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261119-r28-en-docs-warning-term](t-20261119-r28-en-docs-warning-term.md)  
@@ -52,6 +54,10 @@ Markdown/RST and root docs map to `DOC_CHECKS`, while `docs/internal/**/*.json` 
 falls through unresolved. The current conservative broad fallback does not include `documentation-audit`
 either, so a `documentation-audit` cell shows as skipped/absent. Skipped is not a pass, so #1697 can
 never be accepted on its own hopf - the gap is in the path mapping, not in the docs content.
+
+## Maintainer acceptance
+
+PR #1705 merged as `28fb427f057499efca705c1b7459e7653bd532a8`; exact-head run `44619193702` passed its selector regression coverage. The dependent docs candidate #1697 then selected and passed `documentation-audit` on exact head `d1f97a63a38271a1326b5b49faf114028e67a26a` in run `44622989624` and merged as `4b3a3559070e9b81b1886a357f6a46bc6dfce790`. Full exact-head witness: [witness-1](../evidence/r28-welle4-2026-11-19/prgate-docs-internal-json/witness-1.md).
 
 ## Scope of this card
 

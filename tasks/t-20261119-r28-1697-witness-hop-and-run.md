@@ -9,8 +9,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w153-pr1697-witness1697
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 blocker: ""
 wait_reason: ""
 depends_on: []
@@ -21,11 +21,11 @@ source_note: "0428-144 implementation PR #1705 is already merged at 28fb427f0574
 evidence:
   - "https://github.com/mcpdev80/baseharbor/pull/1705"
   - "https://github.com/mcpdev80/baseharbor/pull/1697"
-resolution: ""
+resolution: accepted
 created: 2026-11-19
 ---
 
-- [ ] t-20261119-r28-1697-witness-hop-and-run · nur zeuge produzieren, nichts annehmen #task #release/v0-4-28 #status/active #view/active #area/ci #area/docs #area/governance #kind/task
+- [x] t-20261119-r28-1697-witness-hop-and-run · nur zeuge produzieren, nichts annehmen #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/docs #area/governance #kind/task
     <!-- generated:card -->
     **Owner:** w153-pr1697-witness1697  
     **PR:** [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697)  
@@ -33,7 +33,7 @@ created: 2026-11-19
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w153-pr1697-witness1697  
@@ -44,7 +44,9 @@ created: 2026-11-19
 
 ## Goal
 
-Fuer karte 0428-144 (PR #1705, merged = 28fb427f) einen gehosteten ZEUGEN produzieren, dass der documentation-audit den neuen docs/internal JSON-pfad tatsaechlich trifft. Der zeuge entsteht auf dem vorhandenen PR #1697 (karte 0428-131), weil dort genau die drei docs/internal/**/*.json-dateien geaendert werden. Diese karte nimmt dafuer NUR einen inhaltlichen stand auf den aktuellen develop und fuehrt einen terminalen exact-head-lauf. Sie UEBERNDERT nichts und MERGT nichts: weder #1697 noch #1705, kein accept, kein statuswechsel an einer anderen karte als dieser.
+Maintainer-directed completion: the Maintainer extended this witness-only task on 2026-11-19 to finish eligible PR work by fixing, checking, and merging. The exact-head documentation-audit witness passed on run 44622989624; PR #1697 then merged as 4b3a3559070e9b81b1886a357f6a46bc6dfce790. See [witness-1](../evidence/r28-welle4-2026-11-19/prgate-docs-internal-json/witness-1.md).
+
+At assignment, this card was witness-only for the documentation-audit selector mapping merged in PR #1705. The Maintainer extended the scope on 2026-11-19: after the exact-head witness succeeded, merge eligible PR #1697 and accept its task.
 
 ## Scope
 

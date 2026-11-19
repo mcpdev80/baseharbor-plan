@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w131-0428-131-endocshowpf (codeman 93521518, ornith:1) — uebernommen von bbd9132d
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-131 · EN-Dokumentation nennt das
 priority: ""
@@ -18,22 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1697]
 sources: []
 blocker: ""
-wait_reason: "eigene korrektur meines blockers von vorhin: der wait war ein ZIRKEL — 0428-144 braucht einen zeugen aus #1697, mein wait hat genau den verhindert. AUFGELÖST DURCH KINDER-KARTE 0428-153 (witness-only: nur hopf + terminaler lauf auf #1697, KEIN accept, KEIN merge). Fuer 0428-131 selbst (den EN-Marker-text in den docs) bleibt der inhaltliche grund: basis 1019190d8 = 190 koepfe alt, merge-tree konfliktfrei gegen develop, PR-lauf am kopf 708f5c5c8 aus altem stand; naechster schritt = hopf + eigene korrekturrunde auf einem freien sitz"
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/en-docs-warning-term/fix-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44478483899", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1697.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44559589447"]
+wait_reason: ""
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/en-docs-warning-term/fix-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44622989624", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/prgate-docs-internal-json/witness-1.md", "https://github.com/mcpdev80/baseharbor/pull/1697"]
 ---
 
-- [ ] t-20261119-r28-en-docs-warning-term · EN-Dokumentation nennt das Marker-Wort 'Achtung' statt 'Warning' (i18n-drift nach 0428-126) #task #release/v0-4-28 #status/wait #view/wait #kind/task
+- [x] t-20261119-r28-en-docs-warning-term · EN-Dokumentation nennt das Marker-Wort 'Achtung' statt 'Warning' (i18n-drift nach 0428-126) #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** w131-0428-131-endocshowpf (codeman 93521518, ornith:1) — uebernommen von bbd9132d  
     **PR:** [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697)  
-    **Waiting:** eigene korrektur meines blockers von vorhin: der wait war ein ZIRKEL — 0428-144 braucht einen zeugen aus \#1697, mein wait hat genau den verhindert. AUFGELÖST DURCH KINDER-KARTE 0428-153 (witness-only: nur hopf + terminaler lauf auf \#1697,…  
-    **Needs:** [t-20261119-r28-prgate-docs-internal-json-mapping](t-20261119-r28-prgate-docs-internal-json-mapping.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/en-docs-warning-term/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44478483899), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1697.md), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44559589447)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/en-docs-warning-term/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44622989624), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/prgate-docs-internal-json/witness-1.md), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1697)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261119-r28-prgate-docs-internal-json-mapping](t-20261119-r28-prgate-docs-internal-json-mapping.md)  
 **Owner:** w131-0428-131-endocshowpf (codeman 93521518, ornith:1) — uebernommen von bbd9132d  

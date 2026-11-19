@@ -10,15 +10,15 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 12 |
+| active | 10 |
 | review | 2 |
-| wait | 18 |
+| wait | 17 |
 | blocked | 8 |
 | ready | 4 |
 | queued | 25 |
 | waiting | 181 |
 | backlog | 7 |
-| closed | 338 |
+| closed | 341 |
 
 ## Active
 
@@ -31,10 +31,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | Connect Perses Prometheus | active | normal | 0428-083 lane (codeman 5447f0df, flash) — korrekturrunde: gate-zuordnung | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684) |
 | [t-20261118-ownership-stale-consent-hardening](../tasks/t-20261118-ownership-stale-consent-hardening.md) | harden provider ownership chain vs stale-impact-consent | active | not set | w119-pr1690-consentauth-r2 | — | [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690) |
 | [t-20261119-hunt-metrics-registration-visibility-only](../tasks/t-20261119-hunt-metrics-registration-visibility-only.md) | Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export | active | not set | w123-0428-123-regvisibility (codeman c5d271cb, laptop) — korrekturrunde | — | [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693) |
-| [t-20261119-r28-1697-witness-hop-and-run](../tasks/t-20261119-r28-1697-witness-hop-and-run.md) | nur zeuge produzieren, nichts annehmen | active | not set | w153-pr1697-witness1697 | — | [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697) |
 | [t-20261119-r28-bughunt-lifecycle-consent-desk](../tasks/t-20261119-r28-bughunt-lifecycle-consent-desk.md) | hunt lifecycle/consent desk | active | not set | Coordinator 9142ab1f (bahn: hunt-lane auf ornith:2, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/) | — | — |
 | [t-20261119-r28-bughunt-observability-desk](../tasks/t-20261119-r28-bughunt-observability-desk.md) | hunt observability desk | active | not set | Coordinator 9142ab1f (bahn: hunt-lane auf ornith:1, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/) | — | — |
-| [t-20261119-r28-prgate-docs-internal-json-mapping](../tasks/t-20261119-r28-prgate-docs-internal-json-mapping.md) | docs/internal/**/*.json faellt durch die DOC_CHECKS-verzweigung von pr-gate-plan.py und wird nie validiert | active | not set | Codex team (Owner-delegated Maintainer) | — | [baseharbor#1705](https://github.com/mcpdev80/baseharbor/pull/1705) |
 | [t-20261119-r28-registry-orphan-shared-instance](../tasks/t-20261119-r28-registry-orphan-shared-instance.md) | orphan shared instanz nach remove | active | not set | w151-pr0428-151-sharedinst | — | — |
 
 ## Ready for review
@@ -65,7 +63,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261115-bughunt-d28-tmp-selection](../tasks/t-20261115-bughunt-d28-tmp-selection.md) | BF-03 persisted target selection in world-writable /tmp path | wait | not set | lane-0427-187-fix-bf03 (ornith) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1582](https://github.com/mcpdev80/baseharbor/pull/1582) |
 | [t-20261117-observability-native-gate-bootstrap](../tasks/t-20261117-observability-native-gate-bootstrap.md) | CI: Run observability acceptance with verified ORAS bootstrap | wait | not set | Owner-Ausfuehrung (.github/scripts); umfang vom Coordinator erweitert 2026-11-19 (beleg: 0428-128 probe-1.md 57ffc7c6) | — | — |
 | [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | wait | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) (open) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
-| [t-20261119-r28-en-docs-warning-term](../tasks/t-20261119-r28-en-docs-warning-term.md) | EN-Dokumentation nennt das Marker-Wort 'Achtung' statt 'Warning' (i18n-drift nach 0428-126) | wait | not set | w131-0428-131-endocshowpf (codeman 93521518, ornith:1) — uebernommen von bbd9132d | [t-20261119-r28-prgate-docs-internal-json-mapping](../tasks/t-20261119-r28-prgate-docs-internal-json-mapping.md) (open) | [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697) |
 
 ## Blocked
 
@@ -93,7 +90,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 7 open, 162 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 62 open, 108 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 59 open, 111 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
