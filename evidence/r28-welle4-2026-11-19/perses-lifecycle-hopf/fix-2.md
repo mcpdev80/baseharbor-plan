@@ -76,7 +76,9 @@ New tests live in ./cmd/baha (package main) → picked up by the existing 'PR ·
 
 ## Hosted run (Eigenes-Run-Pflicht)
 
-- exact-head run on ea6cddd204fbc408b8e1b3b587f1f054ea1f43ce: https://github.com/mcpdev80/baseharbor/actions/runs/44523123388 ("CI · Source & Quality") — watched to terminal: PENDING (result appended when terminal; executed cells + skipped cells recorded below).
+- exact-head run on ea6cddd204fbc408b8e1b3b587f1f054ea1f43ce: https://github.com/mcpdev80/baseharbor/actions/runs/44523123388 ("CI · Source & Quality") — watched to terminal: **completed / SUCCESS** (`gh run view 44523123388 --json status,conclusion` => "completed success ea6cddd204fbc408b8e1b3b587f1f054ea1f43ce").
+- Executed cells (all pass): Workflow policy; PR · Trusted Plan; PR · Native gate plan; PR · Source format; PR Selected Checks; PR · Go unit · packages; PR · Go unit · cli-0/cli-1/cli-2/cli-3 (the new transport/action matrix runs in the cli shards via the existing go-test selection); PR · Validation · go-build / go-vet / cli-gofmt / documentation-audit / pages-candidate-build / wizard-registration-tests / mkdocs-en-strict / mkdocs-de-strict; PR · Focused Python.
+- Skipped cells (by the impact plan, expected for this change's routed impact — same face as the reviewed candidate's run 44510690944): PR · Draft*, PR · Exact*, PR · Main release*, PR · Public Contracts, PR · Runner Interface, PR · Consumer Pins, PR · Demo Pin, PR · Native*, PR · Selected Runtime, PR · Selected Core-less, Targeted HA · docker/podman, Release Source Preflight, validate.
 
 ## repo-rule compliance
 
@@ -92,6 +94,12 @@ New tests live in ./cmd/baha (package main) → picked up by the existing 'PR ·
 - `docker ps -a` AFTER (2026-11-19 ~13:40, before END): same face — zero m084-owned containers, zero m084-owned networks/volumes.
 - cleanliness: host left besenrein; this lane started NO compose project; ambient bh-*/baseharbor-* resources of other lanes remain untouched.
 
+## Evidence-on-origin/main witness (second-to-last action)
+
+- `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse HEAD origin/main` => f866143313261b3db99d334484f77dd8f7c558e4 f866143313261b3db99d334484f77dd8f7c558e4 (pushed 096216fb..f8661433 to refs/heads/main).
+- `git ls-tree -r --name-only origin/main | grep perses-lifecycle-hopf/fix-2.md` => evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-2.md (present on origin/main BEFORE this END post).
+- After-witness (cleanliness): `docker ps -a`/`network ls`/`volume ls` greps for m084/perses/matrix => empty; ambient baseharbor-local-* networks untouched.
+
 ## END
 
-END_DONE mission-084-convergence-gate.md — candidate ea6cddd204fbc408b8e1b3b587f1f054ea1f43ce on lane-0428-084-perses-lifecycle (PR #1598, draft=false), exact-head run 44523123388 recorded to terminal in this file.
+END_DONE mission-084-convergence-gate.md — candidate ea6cddd204fbc408b8e1b3b587f1f054ea1f43ce on lane-0428-084-perses-lifecycle (PR #1598, draft=false), exact-head run 44523123388 watched to terminal (result in this file), evidence on baseharbor-plan origin/main f86614331.
