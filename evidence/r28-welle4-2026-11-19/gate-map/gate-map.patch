@@ -1,0 +1,41 @@
+diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml
+index 5f38a9600..5f65c55cd 100644
+--- a/.github/workflows/ci.yml
++++ b/.github/workflows/ci.yml
+@@ -255,6 +255,10 @@ jobs:
+         timeout-minutes: 3
+         run: bash scripts/ci-runtime-reset.sh podman
+ 
++  # CHANGE 1 (0428-134): also run the full Go unit suite on PR.
++  # The original if excluded pull_request, so `go test ./...`
++  # (unit_tests) never ran on a Pull Request. Keep the
++  # runtime-validation source-prefix guards here unchanged.
+   validate:
+     if: github.event_name != 'pull_request' && !startsWith(github.ref_name, 'runtime-validation/source-preflight/') && !startsWith(github.ref_name, 'runtime-validation/ha/')
+     runs-on: ubuntu-latest
+diff --git a/scripts/pr-gate-plan.py b/scripts/pr-gate-plan.py
+index 80e154051..74939f6d8 100644
+--- a/scripts/pr-gate-plan.py
++++ b/scripts/pr-gate-plan.py
+@@ -1189,6 +1189,7 @@ def targeted_plan(diff, requirements, mapping, repository='.',
+         elif (path.startswith('docs/') and path.endswith(('.md', '.rst')) or
+                 path in ('README.md', 'CONTRIBUTING.md', 'CHANGELOG.md',
+                          'mkdocs.yml', 'mkdocs.de.yml') or
++                 path.startswith('docs/internal/')) or
+                 path.startswith('site/')):
+             area = 'documentation'
+             require(DOC_CHECKS)
+
+diff --git a/.github/workflows/pr-guided-consent.yml b/.github/workflows/pr-guided-consent.yml
+index cc361bd..5218a20 100644
+--- a/.github/workflows/pr-guided-consent.yml
++++ b/.github/workflows/pr-guided-consent.yml
+@@ -2,7 +2,7 @@ name: Demo · PR guided consent regressions
+ 
+ on:
+   pull_request:
+-    branches: [main]
++    branches: [main, develop]
+   workflow_dispatch:
+ 
+ permissions:
