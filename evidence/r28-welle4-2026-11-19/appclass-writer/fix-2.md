@@ -308,10 +308,10 @@ the first evidence commit of this round):
 $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse --show-toplevel
 /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan
 $ git ls-remote origin refs/heads/main   # in baseharbor-plan
-d1ab29ff4fab6f86d740cc8029431f6447090b5a	refs/heads/main
+fcb916686c84984272fa016de75be3db3daa673d	refs/heads/main
 ```
 (witness refreshed after this akte's own push: this file's content is what
-origin/main carries at `d1ab29ff`; the second-to-last action of this round
+origin/main carries at `fcb91668`; the second-to-last action of this round
 re-ran exactly this command and its output is the line above.)
 
 Product repo remote truth (`git ls-remote origin`, before any push of this round):
