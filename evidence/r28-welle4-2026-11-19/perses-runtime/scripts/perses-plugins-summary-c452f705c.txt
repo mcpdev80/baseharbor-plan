@@ -1,0 +1,34 @@
+GET /api/v1/plugins -> HTTP 200, 32 PluginModule entries, 32 with status.isLoaded=true
+
+- GaugeChart 0.14.1 loaded=True plugins=Panel
+- FlameChart 0.7.1 loaded=True plugins=Panel
+- Markdown 0.13.1 loaded=True plugins=Panel
+- TimeSeriesTable 0.13.1 loaded=True plugins=Panel
+- Prometheus 0.59.1 loaded=True plugins=Datasource,TimeSeriesQuery,Variable,Variable,Variable,Explore,Annotation
+- ClickHouse 0.7.1 loaded=True plugins=Datasource,TimeSeriesQuery,LogQuery
+- HeatMapChart 0.6.1 loaded=True plugins=Panel
+- TraceTable 0.12.1 loaded=True plugins=Panel
+- LogsTable 0.4.1 loaded=True plugins=Panel
+- Loki 0.7.1 loaded=True plugins=Datasource,TimeSeriesQuery,LogQuery,Variable,Variable,Variable
+- VictoriaLogs 0.5.1 loaded=True plugins=Datasource,TimeSeriesQuery,LogQuery,Variable,Variable
+- Tempo 0.60.1 loaded=True plugins=Datasource,TraceQuery,Explore
+- HistogramChart 0.13.1 loaded=True plugins=Panel
+- GreptimeDB 0.2.1 loaded=True plugins=Datasource,TimeSeriesQuery,LogQuery,TraceQuery
+- LogExplorer 0.2.1 loaded=True plugins=Explore
+- Splunk 0.2.1 loaded=True plugins=Datasource,TimeSeriesQuery,LogQuery
+- PieChart 0.15.1 loaded=True plugins=Panel
+- TimeSeriesChart 0.14.1 loaded=True plugins=Panel
+- StatusHistoryChart 0.14.1 loaded=True plugins=Panel
+- OpenSearch 0.2.1 loaded=True plugins=Datasource,LogQuery
+- ScatterChart 0.12.1 loaded=True plugins=Panel
+- Pyroscope 0.7.1 loaded=True plugins=Datasource,ProfileQuery,Explore
+- Table 0.14.1 loaded=True plugins=Panel
+- AlertManager 0.2.1 loaded=True plugins=Datasource,AlertsQuery,SilencesQuery,Panel,Panel,Explore,Explore
+- BarChart 0.14.1 loaded=True plugins=Panel
+- Canvas 0.1.1 loaded=True plugins=Panel
+- StatChart 0.15.1 loaded=True plugins=Panel
+- DatasourceVariable 0.7.1 loaded=True plugins=Variable
+- StaticListVariable 0.10.1 loaded=True plugins=Variable
+- Jaeger 0.2.1 loaded=True plugins=Datasource,TraceQuery
+- Json 0.1.1 loaded=True plugins=Datasource,JsonQuery
+- TracingGanttChart 0.14.1 loaded=True plugins=Panel
