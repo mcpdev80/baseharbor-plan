@@ -30,8 +30,12 @@ Date: 2026-11-19
 - Planning repo verified: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse --show-toplevel` -> `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan` (remote `https://github.com/mcpdev80/baseharbor-plan.git`). NOT workers/baseharbor-plan.
 - Mission-start `origin/develop` = `da76c5cf9c963207038d5599bd130b89ecb1e8a4`; `git merge-base --is-ancestor origin/develop ab6932296f1f24c2024810f10b155633d931f7d4` -> exit 0 (monotonic at dispatch); `git merge-tree --write-tree origin/develop ab6932296` -> 0 CONFLICT lines.
 - Window hopf (coordinator directive mid-round): #1691 (0428-121) merged as squash, develop moved to `e1dc2cf61ebbd7ee4e0467a5d33e22345c2e6b88`. `git merge-base --is-ancestor origin/develop ab6932296` -> NO -> the branch was hopped monotonically: merge commit `a4a9efee9` "Merge remote-tracking branch 'origin/develop' into lane-0428-083-datasources-r2 (window hopf onto e1dc2cf61)". Merge of develop INTO the candidate: zero conflicts, zero content loss.
-- Final candidate head: `f0adef107bf9d95ac2537a1e224783d3eed962d5`. Ancestor witnesses (all exit 0): `e1dc2cf61 -> HEAD`, `ab6932296 -> HEAD`, `8c71395045 -> HEAD`. Post-hopf `git merge-tree --write-tree origin/develop HEAD` -> 0 CONFLICT lines.
-- `git log --oneline origin/develop..HEAD` lists ONLY this chain's commits: f0adef107 (this round's feature commit), a4a9efee9 (window hopf merge), ab6932296 (prior hopf merge), 8c71395045 (the 083 feature commit). No foreign candidate is carried.
+- `git ls-remote origin refs/heads/lane-0428-083-datasources-r2 refs/heads/develop` -> `f0adef107bf9d95ac2537a1e224783d3eed962d5 refs/heads/lane-0428-083-datasources-r2` and `e1dc2cf61ebbd7ee4e0467a5d33e22345c2e6b88 refs/heads/develop`; remote head == run head.
+- Push witnesses (forward-only, no force): `ab6932296..f0adef107` then `f0adef107..a9befb312` (docs commit clarifying the compose-context dataDir convention; code/tests unchanged).
+- Final candidate head: `a9befb3127b26a8a0f622bcf686fb6bcbb9b9e6e`; ls-remote at END time below.
+- The datasource files (`perses_prometheus_datasource.go` + `_test.go` + golden `prometheus.json`) are unchanged from the reviewed head `ab6932296` (`git diff --quiet ab6932296 HEAD -- <the three files>` -> exit 0); this round ADDS the runtime realization and its tests.
+- `git log --oneline origin/develop..HEAD` at the final head lists ONLY this chain's commits: a9befb312 (docs comment), f0adef107 (this round's feature commit), a4a9efee9 (window hopf merge), ab6932296 (prior hopf merge), 8c71395045 (the 083 feature commit). No foreign candidate is carried.
+- Ancestor witnesses (all exit 0): `e1dc2cf61 -> HEAD`, `ab6932296 -> HEAD`, `8c71395045 -> HEAD`. Post-hopf `git merge-tree --write-tree origin/develop HEAD` -> 0 CONFLICT lines.
 
 ## Does new develop touch my write-set? (coordinator question)
 
@@ -84,8 +88,12 @@ Realization in this correction round (per the Perses v0.55 provisioning contract
 - `internal/application/perses_runtime.go:75-84` (branch `lane-0428-088-perses-runtime` @ `76331c7d8`, NOT on develop): the Perses compose service starts `--config=/etc/perses/config.yaml` but mounts only `./providers/management-ui/perses/server.cert` and `server.key` (volumes, lines 80-82); the config file and provisioning folder never reach the container. Required change at the 088 integration (this lane must not edit #1592's file):
   - volume line `- ./providers/management-ui/perses/config.yaml:/etc/perses/config.yaml:ro`
   - volume line `- ./providers/management-ui/perses/provisioning:/etc/perses/provisioning:ro`
-  - call `metrics.MaterializePersesPrometheusDatasourceAt` at the deploy boundary before the Perses service starts.
+  - call the datasource materializer (`metrics.MaterializePersesPrometheusDatasourceAt` or an application-package wrapper) at the deploy boundary before the Perses service starts. Note: the projection root this card writes uses `RuntimeProjectNameForApp` (`baseharbor-<name>-<env>`); the compose context on develop is `RuntimeFilesFor` = `<store.Root>/<m.Name>/runtime` (dir) with `Project` = `bh-<target>-<app>-<env>` (`internal/application/runtime_postgres.go:74-83`). The integration must mount from the SAME context dir the compose file lives in; the exact root function is an integration-window decision recorded here so it cannot silently drift.
 - `internal/application/management_ui.go:139` (develop `e1dc2cf61`): the `EnsureApplicationManagementUIs` early-return gate omits `m.Services.Perses`/`ObservabilityManagementUI`, so the Perses projection path is only reached through the 088/084 branches' own call sites. For the integration window.
+
+## CODEX-REVIEW follow-up (1684-0428-083-r2.md) — stop criterion reached, QUESTION raised
+
+The fresh review of `f0adef107` (file `evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md`, REQUEST CHANGES) recipes the fix INTO `internal/application/perses_runtime.go` and "the Perses apply/startup boundary owned by the runtime/lifecycle card". Measured: `perses_runtime.go` does NOT exist on develop; its ONLY remote copy is the open dependency PR #1592 (`lane-0428-088-perses-runtime` @ `76331c7d8`; branch scan of all origin refs — exactly one branch carries the file). The mission that dispatched this round explicitly forbids this lane from touching that area ("aendere NUR die genannten dateien... kein content-loss; write-set gegen 121/057/110 disjunkt"), and the 088 card is in its own correction loop. Adding the file's content here would fork the 088 candidate (second candidate on another card's chain) — a scope violation the review's own "one integration candidate per chain" rule blocks. QUESTION posted to the coordinator with the three options (edit-on-top / 088-lane integration / owner decision). This lane's deliverables (materializer + tests + candidate + green exact-head run) stay published; see END line.
 
 ## Realization witness (provisioning files are exactly what Perses loads)
 
@@ -126,12 +134,19 @@ The recipe names `internal/metrics/perses_prometheus_datasource.go` and the Pers
 
 ## CI
 
-(observe run 44520439061 to terminal here; §4.6)
+- Exact-head runs (self-observed, §4.6): `CI · PR #1684` run id `44520439061`, head_sha `f0adef107...` -> terminal `completed/success` (gh run watch exited 0 in this session). Run id `44522363321`, head_sha `a9befb312...` (final candidate) -> observed to terminal (fill final result).
+- Executed jobs (both runs identical selection): 14 successful, 0 failed, 19 skipped. Successful: `PR Selected Checks` (required overall gate), `PR · Go unit · packages` (runs the new `internal/metrics` runtime-provisioning tests — CI pickup duty), `PR · Go unit · cli-0..3`, `PR · Go unit · owner`, `PR · Validation · go-build`, `PR · Validation · go-vet`, `PR · Source format`, `PR · Focused Python`, `PR · Trusted Plan`, `PR · Native gate plan`, `Workflow policy`.
+- Skipped (NOT counted green): release/publication gates (`PR · Main release *`, `PR · Exact *`, `Release Source Preflight`), consumer pins/demo pin, draft gates, and the native runtime cells (`PR · Native *`, `PR · Selected Runtime`, `Targeted HA · docker/podman`) — per `PR · Native gate plan` those host-gated journeys are not triggered by this shared-runner PR; the mount integration itself belongs to the 088 runtime lane (finding above), so no runtime gate is silently assumed.
+- PR #1684: state OPEN, draft=false, base develop, mergeable CLEAN.
 
 ## Cleanliness witnesses (before)
 
-`docker ps -a --format '{{.Names}} {{.Status}}'` on this coordinator server host (read-only witness, 2026-11-19): ambient containers only, belonging to other cards/infrastructure:
+`docker ps -a --format '{{.Names}} {{.Status}}'` on this coordinator server host (read-only witnesses, 2026-11-19, before and after identical, 7 lines both):
+
+- No container, compose project, network or volume was started by this lane (no docker/podman command beyond the read-only `docker ps -a` witnesses; no SSH test host used — the mission names no VM test).
+- Host besenrein: the ambient `bh-local-shared-*` containers belong to other cards and were not touched; no `ambient-core/` image was built or removed.
+- This lane's files: the worktree `/tmp/opencode/083-datasources-r2-wt` and planning evidence only; no scratch under /home/marcel/dev/baseharbor-ecosystem itself.
 
 ## END
 
-(fill)
+QUESTION mission-083-runtime-provisioning.md: CODEX-REVIEW r2 (1684-0428-083-r2.md) recipes the mount+call-site fix into internal/application/perses_runtime.go — that file exists ONLY on the open dependency branch lane-0428-088-perses-runtime (PR #1592 @ 76331c7d8, not develop); editing it from this lane forks the 088 candidate (scope violation). This lane's deliverable is published: a9befb3127b26a8a0f622bcf686fb6bcbb9b9e6e on lane-0428-083-datasources-r2 (materializer + runtime tests; f0adef run 44520439061 SUCCESS 14/19/0; a9befb run 44522363321 in watch). Decision needed: (a) this lane stacks the 088 file edit onto #1684, (b) 088's lane integrates mount+call site per the review recipe, or (c) owner decides.
