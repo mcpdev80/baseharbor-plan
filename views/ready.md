@@ -7,4 +7,3 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261119-coord-r28-review-compliance](../tasks/t-20261119-coord-r28-review-compliance.md) | Review-zulassungs-pruefung: jeder karte im zustand review ihr PR + exakten head + terminalen run + nicht-draft zuordnen, ausnahmen liste | ready | not set | — | — | — |

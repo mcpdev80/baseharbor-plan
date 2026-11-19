@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: review-compliance (codeman 5435da37-bf38-4790-9543-f33232f568ae)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-139 · jeder karte im zustand review
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-coord-r28-review-compliance · Review-zulassungs-pruefung: jeder karte im zustand review ihr PR + exakten head + terminalen run + nicht-draft zuordnen, ausnahmen liste #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261119-coord-r28-review-compliance · Review-zulassungs-pruefung: jeder karte im zustand review ihr PR + exakten head + terminalen run + nicht-draft zuordnen, ausnahmen liste #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** review-compliance (codeman 5435da37-bf38-4790-9543-f33232f568ae)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** review-compliance (codeman 5435da37-bf38-4790-9543-f33232f568ae)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -82,3 +81,5 @@ Im fenster sind karten in review, deren PRs drafts sind, deren letzter lauf ein 
 
 ## Acceptance
 akte evidence/r28-welle4-2026-11-19/review-compliance/befund-1.md: tabelle je review-karte (task-id | PR | gepushter head aus ls-remote/gh | PR draft-flag | letzter terminaler PR-lauf id + schluss + zahl der ausgefuehrten zellen | ZULASSUNG ja/nein + grund mit datei:zeile oder lauf-zeug). ausnahmen-oben, dann die erfuellten. KEIN draft-wechsel, KEIN comment, KEIN merge, KEIN rerun, keine karten-statuswechsel, isolierte clones unter /var/tmp, read-only, kein subagent (§4.8), host besenrein.
+
+prueft den gesamten review-bestand gegen fernzeuge (draft-flag, gepushter head, terminaler lauf, 'PR Selected Checks' ausgefuehrt) und liefert die ausnahmen-liste (akte review-compliance/befund-1.md). read-only
