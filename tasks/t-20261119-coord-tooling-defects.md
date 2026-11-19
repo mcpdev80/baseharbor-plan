@@ -59,3 +59,24 @@ Der coordinator prueft bahnen mit eigenen skripten. Wenn ein skript sich irrt, v
 
 - **Modified features:** python3 -m py_compile coordinator/scripts/*.py; bash -n coordinator/scripts/*.sh; die neuen regressionen (orchestrator-seitig, OHNE produkt-code). Wenn es KEINEN coordinator-ci-gibt, ist das ein befund an den coordinator (owner-scope fuer .github), keine eigenmacht.
 - **CI integration:** die karte hat KEINEN produkt-pr-lauf, wenn kein .github-anteil geaendert wird — dann ist der beweis der lokale regression-lauf, und die akte nennt ihn ausdruecklich als 'kein gehosteter lauf noetig, grund: nur coordinator/**'.
+
+## Nachtrag des Coordinators, 2026-11-20 00:4x UTC — siebter Defekt, gleiche Klasse
+
+`coordinator/scripts/card-status.py:129`:
+
+```python
+if a.status == "active" and not re.search(r"(?m)^owner:\s*$", head):
+    problems.append("active braucht owner")
+```
+
+Das Muster `^owner:\s*$` trifft eine **leere** owner-Zeile. Die Verneinung bedeutet also:
+„Wenn ein Inhaber **gesetzt** ist, brich mit active braucht owner." Die Prämisse ist invertiert —
+gefragt war „Feld **fehlt**" (`^owner:` irgendeine Zeile). Praktisch: **jeder** `active`-Wechsel einer
+Karte mit echtem Inhaber bricht, und ich musste heute **vier** Zustandswechsel durch direkte
+Feld-Schnitte umgehen (157, 123, 154, 119). Dasselbe Muster in Zeile 131 für `wait`
+(`not re.search(r"(?m)^owner:\s*$", head) or not field(...)`), nur dort durch den
+`wait_reason`-Zweit_test verdeckt.
+
+Rezepte:presence-test statt leer-test, und **eine regression pro zeile** — karte mit echtem
+inhaber -> `active` muss durchgehen; karte ohne inhaber-zeile -> muss brechen; karte mit
+`owner: ""` -> muss brechen.

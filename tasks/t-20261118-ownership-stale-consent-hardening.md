@@ -4,7 +4,7 @@ release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
 owner: w119-0428-119-pr1690-consentauth-r2
-kanban_status: review
+kanban_status: active
 card_number: 0428-119
 card_short_title: harden Prov ownership chain vs
 kanban_title: 0428-119 · harden Prov ownership chain vs
@@ -16,7 +16,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44464033443", "h
 ---
 # t-20261118-ownership-stale-consent-hardening · close ownership-race windows behind stale-impact-consent
 
-- [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** w119-0428-119-pr1690-consentauth-r2  
     **PR:** [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690)  
@@ -24,7 +24,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44464033443", "h
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w119-0428-119-pr1690-consentauth-r2  
