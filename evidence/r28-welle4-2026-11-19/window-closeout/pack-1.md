@@ -238,9 +238,9 @@ baseharbor-plan main (commit-SHA und ls-remote-zeug im folgenden block).
 
 Zeuge (zweitletzte aktion, exakte ausgabe):
 `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-remote origin refs/heads/main`
-→ `ac15968bf6ff2292f82b2def3cd225f854b40786 refs/heads/main`
-`git -C ... log --oneline -1` → `ac15968b evidence(window-closeout-pack): pack-1 r2 — 121
-head-drift (4f4b3d7a60, run 44485086467), END-zeugblock`.
+→ `9ffd88b1560b4933def06c2c9ca324b21ac433d1 refs/heads/main`
+`git -C ... log --oneline -1` → `9ffd88b1 evidence(window-closeout-pack): pack-1 r3 —
+END-zeugblock (ls-remote + tree-pfad + cleanliness)`.
 Das pfad-zeugnis gegen origin/main: `git ls-tree -r --name-only origin/main | grep window-closeout`
 → `evidence/r28-welle4-2026-11-19/window-closeout/pack-1.md` (vor dem END-post auf origin/main).
 Host-cleanliness: keine container/netzwerke/volumes/state angelegt (diese lane ist read-only,
