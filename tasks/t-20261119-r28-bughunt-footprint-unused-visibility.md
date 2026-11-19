@@ -9,8 +9,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: "w157-pr0428-157-footsight (codeman 3858080e, ornith:2)"
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 blocker: ""
 wait_reason: ""
 depends_on: []
@@ -18,18 +18,19 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 source_note: "fuell-hunt nach AGENTS 3.3 punkt 5 (kein abhaengigkeitsfreie karte fuer den freien sitz ornith:2); anlass ist der 0428-151-befund, der als vertragsstreu endete: cmd/baha/app_core_requirement_test.go:192 verlangt eine shared instanz mit null bindungen, internal/application/footprint.go:345-347 rechnet Unused aus '!selected && keine bindings'. Reine befundung, keine produkt-aenderung."
-evidence: []
-resolution: ""
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-footprint-destroy/round-1.md"]
+resolution: accepted
 created: 2026-11-19
 ---
 
-- [ ] t-20261119-r28-bughunt-footprint-unused-visibility · destroy-pfade und unused-sicht pruefen #task #release/v0-4-28 #status/active #view/active #area/capability #area/cli #area/lifecycle #kind/task
+- [x] t-20261119-r28-bughunt-footprint-unused-visibility · destroy-pfade und unused-sicht pruefen #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/capability #area/cli #area/lifecycle #kind/task
     <!-- generated:card -->
     **Owner:** w157-pr0428-157-footsight (codeman 3858080e, ornith:2)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-footprint-destroy/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w157-pr0428-157-footsight (codeman 3858080e, ornith:2)  
@@ -57,3 +58,5 @@ Hunt (nur befundung): die destroy-/retirement-pfade des provider-bestands gegen 
 
 - **Modified features:** keine — therefore 'go test' dient nur als beweis-mittel der befundung, nicht alsnderung: 'go test ./internal/application -count=1 -run "^(TestFootprint|TestCapabilityRemoval|TestProviderRegistry|TestRelease)"' und 'go test ./internal/capability -count=1 -run "^(TestRegistry|TestRemoveUnbound|TestProvider|TestExternal|TestShared)"', exit-codes und abgedeckte testnamen in der akte.
 - **CI integration:** kein gehosteter lauf erforderlich und keiner erwartet (grund in der akte: nur befundung, kein diff). Ein etwaiger skipped-hinweis ist damit kein mangelpunkt dieser karte.
+
+JAGD BEFUNDBLOS, ergebnis akzeptiert: funf szenarien 'VERHALTEN KORREKT' mit benannten witness-tests (u.a. TestFootprintUnusedRespectsTargetWideConsumers, internal/application/v0425_contract_test.go), base 4b3a3559070e, go-test-gruppen exit 0, vet 0, akte 14535 bytes auf main 8b33f554, besenrein (null container/netzwerke/volumes, beide /var/tmp-baeume entfernt). Fund→Karte-pflicht erfuellt: kein fund, keine neue karte. Der schnitt beantwortet genau die frage, an der 0428-151 gescheitert war — kann Unused luegen? gemessen: nein.
