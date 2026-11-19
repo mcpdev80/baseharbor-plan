@@ -7,4 +7,3 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261119-coord-gatemap-patch-draft](../tasks/t-20261119-coord-gatemap-patch-draft.md) | Gate-map-patchvorschlag: die vier audit-loecher als EINer owner- patch datei (kein .github-eingriff durch die lane) | ready | not set | — | — | — |

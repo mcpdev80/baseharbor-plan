@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: gate-map-patch (codeman 1a8f8b70)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-134 · die vier audit-loecher als
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-coord-gatemap-patch-draft · Gate-map-patchvorschlag: die vier audit-loecher als EINer owner- patch datei (kein .github-eingriff durch die lane) #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261119-coord-gatemap-patch-draft · Gate-map-patchvorschlag: die vier audit-loecher als EINer owner- patch datei (kein .github-eingriff durch die lane) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** gate-map-patch (codeman 1a8f8b70)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** gate-map-patch (codeman 1a8f8b70)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -82,3 +81,5 @@ Der audit 0428-133 hat vier loecher derselben klasse mit datei:zeile geliefert. 
 
 ## Acceptance
 evidence/r28-welle4-2026-11-19/gate-map/patch-1.md + gate-map.patch: je fund eine aenderung (go-unit-routine auf PR-pfade des fensters; perses-smoke-zelle mit BASEHARBOR_PERSES_RUNTIME_SMOKE auf den bestehenden runtime-docker-pfad; demo pr-guided-consent.yml branches: [main, develop]; documentation-audit-pfad fuer docs/internal/*.json in scripts/pr-gate-plan.py), jeweils mit datei:zeile des audits als begruendung, KEIN neuer gate, keine produkt-aenderung. dry-run-zeug: 'git apply --check' gegen den jeweiligen kopf (patch-entwurf-AST unter /var/tmp, nicht die gemeinsame kopie) + 'git apply --check' fehlgeschlagen = befund statt behauptung. revision-labels, END.
+
+lane arbeitet den gebuendelten patchvorschlag (akte gate-map/patch-1.md + gate-map.patch) — die vier funde aus 133 als EINER owner-aenderung, dry-run-zeug je aenderung, KEIN .github-eingriff in der lane
