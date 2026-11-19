@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: laptop-142-statuswitness (codeman 3839712e, laptop)
-kanban_status: active
-kanban_lane: active
+owner: w142-0428-142-pr1702-statuswit-r2
+kanban_status: review
+kanban_lane: review
 kanban_summary: "'baha perses status' nennt pro observability-signal eine ECHTE backend-witness (erreicht / gematcht / nicht erreichbar) statt…"
 kanban_title: 0428-142 · echte backend-witness fuer
 priority: ""
@@ -23,18 +23,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** laptop-142-statuswitness (codeman 3839712e, laptop)  
+    **Owner:** w142-0428-142-pr1702-statuswit-r2  
     **PR:** [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261119-r28-perses-alert-verifier-caller-wiring](t-20261119-r28-perses-alert-verifier-caller-wiring.md)  
-**Owner:** laptop-142-statuswitness (codeman 3839712e, laptop)  
+**Owner:** w142-0428-142-pr1702-statuswit-r2  
 **Priority:** not set  
 **PRs:** [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702)  
 **Source:** 
@@ -90,3 +90,5 @@ ein test, der den CLI-pfad gegen eine backend-witness prueft ( Loki mit eigenem 
 kopf e22f6795c (ls-remote), base develop 223cb97a9, draft=false, lauf 44600570152 completed/success, 15 checks ausgefuehrt, 6 SKIPPED (nicht erbracht; runtime/HA = owner-draht 114(a)). GESCHICHTS-BEFUND von mir gemessen: der zweite 'hopf' war KEIN merge-hopf — vorgaenger 317b730a9 ist kein ancestor, head hat einen eltern; drei blobs byte-identisch (a79ed5d365/be8d5fd7e7/2b9a088474), kein inhalt verloren. lane geruegt, akten-klarstellung verlangt.
 
 CODEX-r1 REQUEST CHANGES auf e22f6795c (akte 1702-0428-142.md): (1) 'configured' ist manifest-erklaerung statt backend-witness, 'unreachable' deklariert aber ohne emission-pfad (app_status_result.go:64-65/:92-98/:108-114/:124-130); (2) oeffentliche ausgabe behaelt verbotene wortliste configured_unverified/verified (:38-45/:234-250/:351-353 + perses_lifecycle.go:75-79/:217-233); dazu ein test, der unreachable nur behauptet. rotation auf frische bahn.
+
+ALLES VON MIR GEMESSEN, zum ersten mal in dieser karte ohne abweicherung: head 6740299f9, base 28fb427f = AKTUELLE develop-spitze, ZWEI eltern (56d85ddb63aff + develop, an der platte gezaehlt), merge-base --is-ancestor = 0, merge-tree konfliktfrei, draft=false, PR-lauf 44621032956 event=pull_request completed success am exakten kopf (21:44:55Z), akte fix-2.md auf main. Finding 1 ('unreachable' produzierbar) ist mit stop-kriterium ESCALIERT auf 0428-143 — review muss sagen, ob das eine akzeptanz-luecke ist oder eine follow-up-karte
