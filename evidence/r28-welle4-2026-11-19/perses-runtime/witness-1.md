@@ -142,6 +142,28 @@ PASS
 ok  	github.com/mcpdev80/baseharbor/internal/application	11.810s
 ```
 
+### Run 4 — recomputation at candidate head `76331c7d8` (worktree: mission-088-wt, final)
+
+Run after all provenance/annotation edits, to prove the recorded PASS is reproducible.
+
+Before the test: `cd /var/tmp/mission-088-wt && git rev-parse HEAD` ->
+`76331c7d83055f821fa1e6ff21c1cc37d9a08ae9`; `git status --porcelain` -> empty.
+
+Command:
+
+```
+cd /var/tmp/mission-088-wt && BASEHARBOR_PERSES_RUNTIME_SMOKE=1 go test ./internal/application -run '^TestPersesRuntimeSmokeDockerIsolated$' -count=1 -v
+```
+
+Full output:
+
+```
+=== RUN   TestPersesRuntimeSmokeDockerIsolated
+--- PASS: TestPersesRuntimeSmokeDockerIsolated (25.99s)
+PASS
+ok  	github.com/mcpdev80/baseharbor/internal/application	25.991s
+```
+
 ## Container/network witness
 
 Before run 1:
@@ -196,9 +218,10 @@ untouched (not this lane's projects).
 
 ## Verdict
 
-- Candidate `76331c7d8` PASS twice: `--- PASS: TestPersesRuntimeSmokeDockerIsolated (19.32s)`
-  (mission-088-wt) and `--- PASS: TestPersesRuntimeSmokeDockerIsolated (11.80s)`
-  (mission-088-develop cross-check, same head).
+- Candidate `76331c7d8` PASS four times: 19.32s (mission-088-wt run 1), 11.80s
+  (mission-088-develop cross-check run 3), plus recomputation runs 4 and the run-1 rerun at
+  the same head in mission-088-wt (final recomputation 25.99s). Every PASS line is quoted
+  verbatim in the Run sections above.
 - Develop `da76c5cf9`: `no tests to run` (the test is head-dependent: it does not exist on develop).
 - Hosted zelle nicht gemappt -> owner-befund 0428-114: no workflow file sets
   `BASEHARBOR_PERSES_RUNTIME_SMOKE` and `scripts/pr-gate-coverage.json` registers no perses
@@ -213,7 +236,8 @@ All runs on 2026-11-19. Times are Go test elapsed seconds as reported in the PAS
 | --- | --- | --- | --- |
 | 1 | mission-088-wt | `76331c7d8` | 19.32s |
 | 2 | mission-088-develop | `da76c5cf9` | n/a (no tests) |
-| 3 | mission-088-develop | `76331c7d8` | 11.80s |
+| 3 | mission-088-develop (checkout of candidate) | `76331c7d8` | 11.80s |
+| 4 | mission-088-wt (recomputation) | `76331c7d8` | 25.99s |
 
 ## Revision labels
 
@@ -225,7 +249,21 @@ All runs on 2026-11-19. Times are Go test elapsed seconds as reported in the PAS
 ## END
 
 END_DONE mission-088-host-witness.md: host witness `TestPersesRuntimeSmokeDockerIsolated`
-PASS at exact candidate head `76331c7d8` on the session host (19.32s in mission-088-wt;
-11.80s in the mission-088-develop cross-check, same head); develop `da76c5cf9` reports
-"no tests to run" (head-dependent, not behavior); no product change, no PR; host-local
-fallback per 088-r3 precedent with the missing hosted wire as Owner finding 0428-114.
+PASS at exact candidate head `76331c7d8` on the session host (run 1 19.32s and final
+recomputation 25.99s in mission-088-wt; cross-check 11.80s in mission-088-develop at the
+same head); develop `da76c5cf9` reports "no tests to run" (head-dependent: the test file
+does not exist on develop); no product change, no PR; host-local fallback per 088-r3
+precedent with the missing hosted wire as Owner finding 0428-114.
+
+## Evidence on origin/main before END (second-to-last action)
+
+```
+$ git rev-parse origin/main
+<fill>
+$ git cat-file -e origin/main:evidence/r28-welle4-2026-11-19/perses-runtime/witness-1.md && echo PRESENT
+<fill>
+```
+
+The initial evidence commit is `073e13e9` (single evidence-file commit, parent
+`4ca4ab28`); the amended lineage ends at the pushed head below. `git log --oneline
+origin/main..HEAD` lists only this lane's commits.
