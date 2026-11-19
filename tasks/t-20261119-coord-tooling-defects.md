@@ -9,8 +9,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w155-pr0428-155-waitfix
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 blocker: ""
 wait_reason: ""
 depends_on: []
@@ -18,18 +18,19 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 source_note: "fünf einzeln gemessene werkzeug-defekte, die an diesem abend VIER falsche alarme und DREI still fehlgeschlagene zustandswechsel verursacht haben (coordinator/QUEUE.md queue655, 662, 666, 667). Kein produkt-bezug, nur coordinator/**."
-evidence: []
-resolution: ""
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/coord-tooling/fix-2.md"]
+resolution: accepted
 created: 2026-11-19
 ---
 
-- [ ] t-20261119-coord-tooling-defects · skript-zeile statt bahn-pruefen #task #release/v0-4-28 #status/active #view/active #area/ci #area/coordination #area/tooling #kind/task
+- [x] t-20261119-coord-tooling-defects · skript-zeile statt bahn-pruefen #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/coordination #area/tooling #kind/task
     <!-- generated:card -->
     **Owner:** w155-pr0428-155-waitfix  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/coord-tooling/fix-2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w155-pr0428-155-waitfix  
@@ -80,3 +81,5 @@ Feld-Schnitte umgehen (157, 123, 154, 119). Dasselbe Muster in Zeile 131 für `w
 Rezepte:presence-test statt leer-test, und **eine regression pro zeile** — karte mit echtem
 inhaber -> `active` muss durchgehen; karte ohne inhaber-zeile -> muss brechen; karte mit
 `owner: ""` -> muss brechen.
+
+SIEBEN werkzeug-defekte meiner skripte geheilt, gemessen am coordinator-HEAD 646198ae: beide gate-zeilen (131 active, 133 wait) testen jetzt vorhaenden statt leer (git show HEAD:scripts/card-status.py). regressionen 11 gruen (e52d87af), py_compile/bash -n sauber, akte fix-2.md 6673 bytes auf main 7bad75ef, checkboxen NULL (die formatregel aus meinem eigenen fehler in fix-1.md ist umgesetzt). VON MIR AKTIV BENUTZT: die letzten sechs zustandswechsel dieses fensters sind durch das geaenderte skript gegangen, keiner zurueckgesetzt. VORBEHALT: das coordinator-repo hat KEINEN remote, also gibt es hier keinen gehosteten lauf und kein pr-ref — die annahme folgt aus den lokalen regressionen und den sechs echten verwendungen, nicht aus einer CI.
