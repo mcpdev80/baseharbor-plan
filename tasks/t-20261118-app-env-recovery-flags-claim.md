@@ -3,8 +3,8 @@ id: t-20261118-app-env-recovery-flags-claim
 release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
-owner: w01-0428-117r3 (codeman eccec15f)
-kanban_status: review
+owner: w01-0428-117r4 (codeman 28318f22-0671-4ad9-a5be-438dd4d42669)
+kanban_status: active
 card_number: 0428-117
 card_short_title: align app env recovery-flag
 kanban_title: 0428-117 · align app env recovery-flag
@@ -15,17 +15,17 @@ blocker: ""
 ---
 # t-20261118-app-env-recovery-flags-claim · app-env recovery-flag claim vs actual command contract
 
-- [ ] t-20261118-app-env-recovery-flags-claim · align app env recovery-flag docs with the real command contract #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261118-app-env-recovery-flags-claim · align app env recovery-flag docs with the real command contract #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w01-0428-117r3 (codeman eccec15f)  
+    **Owner:** w01-0428-117r4 (codeman 28318f22-0671-4ad9-a5be-438dd4d42669)  
     **PR:** [baseharbor#1687](https://github.com/mcpdev80/baseharbor/pull/1687)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w01-0428-117r3 (codeman eccec15f)  
+**Owner:** w01-0428-117r4 (codeman 28318f22-0671-4ad9-a5be-438dd4d42669)  
 **Priority:** not set  
 **PRs:** [baseharbor#1687](https://github.com/mcpdev80/baseharbor/pull/1687)  
 **Source:** 
@@ -52,3 +52,5 @@ r2b END akzeptiert: head da7a2ace9 (force-with-lease linear rebase auf 9a37b4bc,
 reviewer hält #1687 zurück: '-e als Alternative zu --uuid' widerspricht code; 'Registry-Siegel'-verdeutschung im diff. r3-lane dispatched (selektor-getrennte semantik je aussage mit datei:zeile, fachwoerter englisch, hopf auf de53246585, new exact-head run). kein merge bis korrektur+checks
 
 r3 END akzeptiert: head d957de2c8 (hopf monoton), run 44439013578 SUCCESS, alle drei DE-wortfehler geheilt (setzt/ueberschreibt, kollidierendes Deployment, ausser Dienst gestelltes Twin-Deployment) + selektor-getrennte EN/DE-semantik, akte cfff4bb0 am band. Basis-pruefung: traegt develop-Stand gem. ls-remote — falls develop vor merge erneut zog, fenster-hopf wie in der kette verabredet. Routing an CODEX final
+
+reopen fuer basis-freshness (reviewer-pflicht): develop 40b9901398, 116er-kette zeigt das muster — d957de2c bleibt inhaltlich die r3-fassung, NUR basis-hopf + run-refresh + akten-zeile. keine wort-aenderung an der doku vorgesehen
