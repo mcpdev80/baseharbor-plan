@@ -5,7 +5,7 @@ Review performed 2026-11-19 against the live pull request.
 - Head: `97d88ffefa0c89281d0c1b776f47b46f4449123f`
 - Base: `558dc42d0c8c9d798fcdf5938be2ea14e432b754` (`develop` at review time)
 - PR state: open, merge state blocked.
-- Exact-head run observed: `44582754552`, still in progress at last poll; unit shards had not all completed. Runtime/native gates were skipped. No acceptance verdict or merge is given here.
+- Exact-head run observed: `44582754552`, completed successfully after the initial review. Go shards, build/vet, docs checks and the required aggregate passed; runtime/native gates were skipped. No acceptance verdict or merge is given here.
 
 ## Findings
 
