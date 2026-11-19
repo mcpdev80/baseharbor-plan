@@ -79,6 +79,21 @@ cleanliness: docker ps before == after on the coordinator host (only the 7 ambie
 
 - Candidate: 69982520688e18a5c9bad89f093165c16d5be5d4 on `lane-welle2-089-perses-secure-access`, PR #1599 (state OPEN, draft=false, headRefOid 699825206).
 - Runs: 44535875227 SUCCESS on 233be0af2 (interim per base-distance), 44544947599 SUCCESS on 699825206 (end-proof, base = develop fac01c772).
-- Reviewer: Codex Luna re-review against the 1599-0428-089 REQUEST-CHANGES recipe; fix-2.md carries the implementation detail, this file the hop/run mechanics.
+- Reviewer: Codex Luna re-review against the 1599-0428-089 REQUEST-CHANGES recipe; fix-2.md carries the implementation detail, this file the hop/run mechanics and the #1598 ordering measurement (see "Mess-befund" section, the authoritative END is at the file end).
 
-END_DONE mission-089-compose-config-render.md: base-distance re-hop landed, candidate 69982520688e18a5c9bad89f093165c16d5be5d4, exact-head run 44544947599 SUCCESS with PR Selected Checks=SUCCESS and candidate_advisory_required=false; PR #1599 open draft=false; evidence on origin/main.
+## Mess-befund: shared write-set with #1598 (0428-084), merge order #1598 first (coordinator directive, correction-filing only — no hop, no branch push, no merge by this lane)
+
+- Shared files (three-dot diffs vs merge-base with develop fac01c772, `comm -12`): exactly 12 —
+  cmd/baha/commands.go, cmd/baha/completion.go, cmd/baha/machine_coverage.go, cmd/baha/perses_lifecycle.go, cmd/baha/perses_lifecycle_test.go, docs/cli/command-index.md, docs/de/cli/command-index.md, docs/de/reference/cli-machine-coverage.md, docs/reference/cli-machine-coverage.md, internal/application/perses_lifecycle.go, internal/application/perses_lifecycle_test.go, internal/capability/perses.go.
+- Differing content between #1598 head 4ce0ca03eca1e1375d8daba5a965b692e5b6b69a and my head 69982520688e18a5c9bad89f093165c16d5be5d4 (sha256 first 12): 5 files —
+  cmd/baha/machine_coverage.go (1598:045a9e1c6569 vs 1599:89f848d3200b), cmd/baha/perses_lifecycle.go (be8a09df814e vs f940c057beaf), docs/reference/cli-machine-coverage.md (ea15702905ac vs d722d13be9dc), docs/de/reference/cli-machine-coverage.md (e6d17697f669 vs 4735da4cc4e8), internal/capability/perses.go (db35133cd2a1 vs 5c0427f3a4f4). The other 7 are byte-identical.
+- `git merge-tree --write-tree 4ce0ca0 699825206`: exit 1, tree 43048435dc11c4a739ba7a4fc69586719060c4ea, **3 conflict regions**:
+  1. `docs/reference/cli-machine-coverage.md` (stage blobs 41d2a81ae1a7 / 3a79daefbb38 / 480c534c86b7),
+  2. `internal/application/manifest_test.go` (8edb70d488e9 / a5dec29d439e / 99b419a31eef — develop-side file, not in either PR write-set),
+  3. `internal/capability/perses.go` (05a5c073224b / 4cfe5ff509eb / 06a652bbdee5).
+  `cmd/baha/machine_coverage.go` and `docs/de/reference/cli-machine-coverage.md` auto-merge.
+- Consequence per the stacking rule: this PR is sequenced after #1598; the PR body of #1599 now states base=develop + the STACK note (corrected via the GitHub API, this lane pushed nothing). Integration owner of the three conflict regions: whoever lands after #1598; resolution must preserve both cards' semantics (084 lifecycle coverage rows / capability text, 089 security-policy rows / bind field), never content-guess.
+
+## END (revised: blocked on #1598 ordering, not on code)
+
+END_DONE mission-089-compose-config-render.md: candidate 69982520688e18a5c9bad89f093165c16d5be5d4 stands (PR #1599, base develop fac01c772, run 44544947599 SUCCESS); PR body corrected (base=develop + STACK sequenced after #1598); shared-write-set measurement filed above (12 files, 5 differing, 3 conflict regions vs 4ce0ca0). No further lane action; card blocked purely on merge order #1598 -> #1599.
