@@ -329,10 +329,11 @@ ok  	github.com/mcpdev80/baseharbor/internal/application	0.005s [no tests to run
 
 ## Final END witness (both worktrees, terminal state)
 
-After every witness/provenance edit, one last pair of checks confirms the on-disk state:
+After every witness/provenance edit, the final pair of checks confirms the on-disk state:
 
 - `/var/tmp/mission-088-wt` (HEAD `76331c7d8`, porcelain empty):
-  `--- PASS: TestPersesRuntimeSmokeDockerIsolated (22.24s)` (mission-088-final-check.log)
+  `--- PASS: TestPersesRuntimeSmokeDockerIsolated (8.39s)` (mission-088-final-check3.log;
+  the earlier terminal pair was run 7: 22.24s / 7.57s+7.34s across both worktrees)
 - `/var/tmp/mission-088-develop` (HEAD `da76c5cf9`, porcelain empty):
   `testing: warning: no tests to run` (mission-088-final-check2.log)
 - After both runs: `docker ps -a` shows only ambient `bh-local-shared-*` (other lanes,
@@ -352,7 +353,7 @@ missing hosted wire as Owner finding 0428-114.
 
 ```
 $ git ls-remote origin refs/heads/main
-bf127f142da3e53ca916d6eb7aa287e5c405815d	refs/heads/main
+b8d35ca58b69e5da21d01c3e8e8eed0dd3b470cb	refs/heads/main
 $ git cat-file -e origin/main:evidence/r28-welle4-2026-11-19/perses-runtime/witness-1.md && echo PRESENT
 PRESENT
 $ git merge-base --is-ancestor 073e13e9 origin/main; echo $?
