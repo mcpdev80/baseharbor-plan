@@ -32,6 +32,7 @@ card_short_title: "docs/internal/**/*.json faellt"
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
+**Required by:** [t-20261119-r28-en-docs-warning-term](t-20261119-r28-en-docs-warning-term.md)  
 **Owner:** Owner-Ausfuehrung (scripts/** + .github/** ist Owner-Scope); auf bitte der unabhaengigen review in abgesetztem worktree ausgefuehrt, Coordinator dispatcht dafuer KEINE worker-lane  
 **Priority:** not set  
 **PRs:** none  

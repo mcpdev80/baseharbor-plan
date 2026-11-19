@@ -13,7 +13,7 @@ kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-131 · EN-Dokumentation nennt das
 priority: ""
-depends_on: []
+depends_on: [t-20261119-r28-prgate-docs-internal-json-mapping]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1697]
 sources: []
@@ -27,13 +27,14 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
     <!-- generated:card -->
     **Owner:** w131-0428-131-endocshowpf (codeman siehe board-zeile, ornith) — uebernommen, hopf + exakter lauf  
     **PR:** [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697)  
+    **Needs:** [t-20261119-r28-prgate-docs-internal-json-mapping](t-20261119-r28-prgate-docs-internal-json-mapping.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/en-docs-warning-term/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44478483899), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1697.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** none  
+**Depends on:** [t-20261119-r28-prgate-docs-internal-json-mapping](t-20261119-r28-prgate-docs-internal-json-mapping.md)  
 **Owner:** w131-0428-131-endocshowpf (codeman siehe board-zeile, ornith) — uebernommen, hopf + exakter lauf  
 **Priority:** not set  
 **PRs:** [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697)  
