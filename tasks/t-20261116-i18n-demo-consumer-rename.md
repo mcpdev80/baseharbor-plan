@@ -15,7 +15,7 @@ kanban_title: 0428-099 · match renamed Warning marker
 priority: ""
 depends_on: [t-20261115-bughunt-d28-i18n-achtung]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor-demo#164]
+prs: [mcpdev80/baseharbor-demo#164, "https://github.com/mcpdev80/baseharbor-demo/pull/164"]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -79,3 +79,5 @@ One or two sentences: the observable outcome.
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+
+reviewer-poll: exact-head checks auf 86afbbebb existieren (Guided consent production-path regressions completed SUCCESS); 3-file diff erfuellt 0428-099 (Achtung|Warning dual-match + dedicated production-flow test). PR bleibt DRAFT bis CODEX-MERGE-Uebernahme — Ownership fuer review/promote/merge #164 an Codex geroutet (2026-11-19, Offer angenommen); Merge entblockt die #1663 merge-window-Dependency (demo-seitig)
