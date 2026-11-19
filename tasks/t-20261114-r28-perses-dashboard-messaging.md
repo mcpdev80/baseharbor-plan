@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: Codex team (current chat)
+kanban_status: active
+kanban_lane: active
 kanban_summary: Deliver RabbitMQ panels conditional on real supported metrics.
 kanban_title: 0428-079 · Perses messaging dashboards
 priority: normal
@@ -23,19 +23,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-messaging · Perses messaging dashboards #task #release/v0-4-28 #status/planned #view/ready #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-messaging · Perses messaging dashboards #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
+    **Owner:** Codex team (current chat) · **Priority:** normal  
     **PR:** [baseharbor#1603](https://github.com/mcpdev80/baseharbor/pull/1603)  
-    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** unassigned  
+**Owner:** Codex team (current chat)  
 **Priority:** normal  
 **PRs:** [baseharbor#1603](https://github.com/mcpdev80/baseharbor/pull/1603)  
 **Source:** 
