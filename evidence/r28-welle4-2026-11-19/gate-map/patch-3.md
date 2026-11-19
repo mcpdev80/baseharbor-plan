@@ -248,17 +248,21 @@ foreign cards untouched; /var/tmp scratch removed after the dossier push.
 
 ## ls-remote / origin/main witness
 
-(filled as the second-to-last action; the exact command output is pasted below before END — see the pushed
-version of this file)
-
 ```
 $ git ls-remote origin main
-<pending>
+1318c24ba17a1594e42a7652292e211f74f2ed44	refs/heads/main
 $ git fetch origin main && git cat-file -e origin/main:evidence/r28-welle4-2026-11-19/gate-map/patch-3.md && echo PRESENT
-<pending>
+PRESENT
+$ git cat-file -e origin/main:evidence/r28-welle4-2026-11-19/gate-map/gate-map-v3.patch && echo PRESENT
+PRESENT
 $ git log --oneline -2 origin/main
-<pending>
+1318c24b evidence(0428-114 gate-map patch v3): hunks (e) dispatch default release/v0.4.21->develop and (g) ORAS install step in docker-runtime job; git apply --check rc=0 vs develop da76c5cf + yaml-parse witnesses; v2 unchanged; plan-artifact only, application is owner action
+bd13c742 evidence: track lane 1459c172 (PR #1713)
 ```
+
+Candidate (evidence) SHA: `1318c24ba17a1594e42a7652292e211f74f2ed44` on baseharbor-plan origin/main, pushed
+directly on top of the fetched tip (bd13c742, which itself was ahead of the 8c6e3e2b tip seen at lane start; the
+push was a fast-forward, no other lane's content touched). Product repo untouched; no product candidate SHA.
 
 ## Revision labels
 
