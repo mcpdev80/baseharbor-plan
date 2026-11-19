@@ -199,12 +199,11 @@ $ git -C baseharbor merge-tree --write-tree ab6932296f1f24c2024810f10b155633d931
 
 ## Cleanliness
 
-- before docker ps -a: (host witness)
-- after docker ps -a: identical
-- before podman ps -a: (host witness)
-- after podman ps -a: identical
+- before docker ps -a: 8 containers (ambient shared: `bh-local-shared-openbao-*`, `bh-local-shared-postgres-*` etc., pre-existing, not this lane's).
+- after docker ps -a: 8 containers, identical list (`docker ps -a --format '{{.Names}} {{.Status}}'`): bh-local-shared-openbao-1 Created, bh-local-shared-openbao-member-1-1 Created, bh-local-shared-postgres-init-1 Exited (1) 2 days ago, bh-local-shared-postgres-1 Up 2 days, bh-local-shared-openbao-admin-1 Up 2 days, bh-local-shared-postgres-admin-1 Up 2 days, bh-local-shared-postgres-member-1-1 Up 2 days.
+- before/after podman ps -a: `podman: command not found` (0 podman state).
 - This lane started NO container/network/volume/compose project (read-only `gh api`/git audit).
-- cleanliness: clean — no docker/podman artifacts created by this lane.
+- cleanliness: clean — no docker/podman artifacts created by this lane; scratch confined to the read-only git/`gh` path.
 
 ## Scope compliance
 
@@ -218,5 +217,9 @@ END_DONE mission-pr-ref-reconciliation.md: 4 cards reconciled — 0428-079/#1603
 ## Origin/main verification (pasted before push, per mission)
 
 ```
-<paste git ls-tree origin/main output here>
+$ git push -q origin main && git fetch -q origin main
+$ git ls-tree origin/main -- evidence/r28-welle4-2026-11-19/pr-ref-reconciliation/befund-1.md
+100644 blob 3082ff7f154d72112c18e614553fbf2b266db2e9	evidence/r28-welle4-2026-11-19/pr-ref-reconciliation/befund-1.md
+$ git log -1 --format='%H' origin/main
+45155da0eee61ad88e2bf739282f0bccb2904fa0
 ```
