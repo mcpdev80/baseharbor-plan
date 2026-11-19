@@ -17,7 +17,7 @@ wait_reason: ""
 resolution: accepted
 superseded_by: ""
 prs: [mcpdev80/baseharbor#1677]
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md", "https://github.com/mcpdev80/baseharbor/pull/1677", "https://github.com/mcpdev80/baseharbor/actions/runs/44031866829", "https://github.com/mcpdev80/baseharbor/pull/1679", "https://github.com/mcpdev80/baseharbor/commit/0ec4706b12c8fa869a2c23db18b6cab4f91f2178", "https://github.com/mcpdev80/baseharbor/commit/dd62b9d30d96ee988e6f914fe86c4d15bf762512", "https://github.com/mcpdev80/baseharbor/actions/runs/44427948182", "https://github.com/mcpdev80/baseharbor/commit/97a840e54dd037949cea3e6ae2614621f637eefb"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md", "https://github.com/mcpdev80/baseharbor/pull/1677", "https://github.com/mcpdev80/baseharbor/actions/runs/44031866829", "https://github.com/mcpdev80/baseharbor/pull/1679", "https://github.com/mcpdev80/baseharbor/commit/0ec4706b12c8fa869a2c23db18b6cab4f91f2178", "https://github.com/mcpdev80/baseharbor/commit/dd62b9d30d96ee988e6f914fe86c4d15bf762512", "https://github.com/mcpdev80/baseharbor/actions/runs/44427948182", "https://github.com/mcpdev80/baseharbor/commit/97a840e54dd037949cea3e6ae2614621f637eefb", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/codex-welle3-review/1677.md"]
 card_short_title: App-Klasse fehlt in der
 ---
 
@@ -29,7 +29,7 @@ Owner decision (2026-11-17): Unblock for implementation. Integrate the already m
     <!-- generated:card -->
     **Owner:** Codex  
     **PR:** [baseharbor#1677](https://github.com/mcpdev80/baseharbor/pull/1677)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44031866829), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1679), [proof 5](https://github.com/mcpdev80/baseharbor/commit/0ec4706b12c8fa869a2c23db18b6cab4f91f2178), [proof 6](https://github.com/mcpdev80/baseharbor/commit/dd62b9d30d96ee988e6f914fe86c4d15bf762512), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44427948182), [proof 8](https://github.com/mcpdev80/baseharbor/commit/97a840e54dd037949cea3e6ae2614621f637eefb)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44031866829), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1679), [proof 5](https://github.com/mcpdev80/baseharbor/commit/0ec4706b12c8fa869a2c23db18b6cab4f91f2178), [proof 6](https://github.com/mcpdev80/baseharbor/commit/dd62b9d30d96ee988e6f914fe86c4d15bf762512), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44427948182), [proof 8](https://github.com/mcpdev80/baseharbor/commit/97a840e54dd037949cea3e6ae2614621f637eefb), [proof 9](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/codex-welle3-review/1677.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -109,3 +109,5 @@ Prerequisites now satisfied: #1679 and #1680 merged. Codex claims exact-head dif
 0428-102 accepted: exact PR head dd62b9d30 passed required run 44427948182; CODEX-MERGE acceptance recorded in PR comment 6995803623; merged to develop as 97a840e54.
 
 MERGED: merge commit 97a840e54dd037949cea3e6ae2614621f637eefb auf develop; exakter PR-head dd62b9d30d96ee988e6f914fe86c4d15bf762512, exact-run 44427948182 SUCCESS, ACCEPT kommentar 6995803623 (CODEX in eigener lane-uebernahme, kein worker jemals auf 1677). Runtime-/ORAS-debt liegt ausdruecklich bei 0428-114, nicht hier
+
+END_DONE 0428-102: exact head dd62b9d30, run 44427948182 SUCCESS, squash merge 97a840e5; CI cost 34.75 hosted runner-minutes.
