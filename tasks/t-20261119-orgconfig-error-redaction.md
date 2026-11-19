@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: Codex team (current thread)
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: Reject secret-like organization environment references without copying their contents into validation errors. Keep error…
 kanban_title: 0428-149 · Redact secret-like
 priority: high
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/commit/c90c3b89007e87a4bf277c8c9015fab3ac65728e"]
 ---
 
-- [ ] t-20261119-orgconfig-error-redaction · Redact secret-like organization references in validation errors #task #release/v0-4-28 #status/active #view/active #area/architecture #area/security #kind/task
+- [ ] t-20261119-orgconfig-error-redaction · Redact secret-like organization references in validation errors #task #release/v0-4-28 #status/review #view/review #area/architecture #area/security #kind/task
     <!-- generated:card -->
     **Owner:** Codex team (current thread) · **Priority:** high  
     **PR:** [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596)  
@@ -32,7 +32,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/c90c3b89007e87a4bf277c
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md)  
 **Owner:** Codex team (current thread)  
@@ -81,4 +81,4 @@ Reject secret-like organization environment references without copying their con
 
 ## Handoff
 
-- Fix commit `c90c3b89007e87a4bf277c8c9015fab3ac65728e` is integrated by fast-forward into #1596 branch `cli2-org-env-reconcile`; the PR exact head is now this commit, based on `lane-0428-env-registry` `4d14741ee9485b7e0c346fa873ed59f637e71b68`. Focused `go test ./internal/orgconfig -run '^TestOrgEnvIdentitySecretMaterialRejected$' -count=1`, full `go test ./internal/orgconfig -count=1`, and `go vet ./internal/orgconfig` all pass at the exact commit. These tests auto-discover under Go unit CI. No new CI run/status is visible for this head yet; old run `43816373208` is on prior head `de51105c` and is not evidence for this commit. PR remains Draft and the task stays active pending exact-head CI and full parent-task acceptance.
+- Fix commit `c90c3b89007e87a4bf277c8c9015fab3ac65728e` is integrated by fast-forward into #1596 branch `cli2-org-env-reconcile`; the PR exact head is this commit, based on `lane-0428-env-registry` `4d14741ee9485b7e0c346fa873ed59f637e71b68`. The card specified a standalone commit for owner cherry-pick; this was integrated directly by fast-forward instead, preserving the exact prior parent and all existing commits. Focused `go test ./internal/orgconfig -run '^TestOrgEnvIdentitySecretMaterialRejected$' -count=1`, full `go test ./internal/orgconfig -count=1`, and `go vet ./internal/orgconfig` all pass at the exact commit. The focused regression is auto-discovered in `PR · Draft Go · packages`; exact run [44592530459](https://github.com/mcpdev80/baseharbor/actions/runs/44592530459) completed SUCCESS on this SHA: source/routing and all five Draft Go shards passed, including the packages shard executing `./internal/orgconfig`; non-draft release/runtime/native jobs were skipped because the PR is Draft and are not claimed as passed. The task is in review for the identity-reference fix; parent #1596 remains Draft and has separate integration/acceptance blockers before Ready/merge.
