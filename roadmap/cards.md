@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 56/157 · **Blocked:** 5 · **Waiting:** 21  
+    **Accepted tasks:** 57/157 · **Blocked:** 5 · **Waiting:** 21  
     **Blocker:** [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) — Owner-Aktion erforderlich: PR \#1615 erhaelt keine exact-head CI, weil der Workflow auf dem BASIS-ast 'cli2-env-policy-head' (5ef9c329b) PR-CI nur fuer base dev…  
     **Blocker:** [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) — Owner-scope .github CI-structure: ci-executor-tests + Focused Python fail identically on develop itself (proven, evidence 8c99af8f); candidate 022c454c green o…  
     Plus 3 further blockers in the task list.  
