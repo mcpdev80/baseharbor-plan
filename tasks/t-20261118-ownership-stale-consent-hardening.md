@@ -10,7 +10,7 @@ card_short_title: harden Prov ownership chain vs
 kanban_title: 0428-119 · harden Prov ownership chain vs
 prs: [mcpdev80/baseharbor#1690]
 wait_reason: ""
-blocker: "Acceptance ruling: no waiver for unit-only success plus a failed or aborted Docker attempt. Exact-head Docker lifecycle evidence must execute and pass; run 44464060182 on head 84ee9a93 failed before Core setup because ORAS was unavailable. Keep blocked until a supported exact-head route passes, otherwise record ZWEIFEL and hand this lane to the next free independent card."
+blocker: "ZWEIFEL + handoff (owner-wort 2026-11-19): exact-head Docker-beleg ist nicht lieferbar — unit-seite ist grün (lauf 44464033443 SUCCESS auf exakt 84ee9a93e), aber der explizit bestellte Docker-Core-beleg 44464060182 bricht VOR den tests in der runner-vorbereitung ('ORAS is required' vor Core-setup): umwelt-fehler, kein acceptance-pass. dieselbe workflow ist auf develop per push grün (44461341870 SUCCESS auf deeeb6477). naechster trigger: (a) owner setzt die dispatch-route instand (intake t-20261119-coord-r28-docker-gate-oras-wiring, probe laeuft) ODER (b) owner/reviewer qualifizieren einen supported-host-ersatzbeleg. kein merge, kein security.go-Eingriff"
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44464033443", "https://github.com/mcpdev80/baseharbor/actions/runs/44464060182"]
 
 ---
@@ -20,7 +20,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44464033443", "h
     <!-- generated:card -->
     **Owner:** w99-0428-119 r3 (codeman f5dabf03)  
     **PR:** [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690)  
-    **Blocker:** Acceptance ruling: no waiver for unit-only success plus a failed or aborted Docker attempt. Exact-head Docker lifecycle evidence must execute and pass; run 44464060182 on head 84ee9a93 failed before Core setup because ORAS was unavailable.…  
+    **Blocker:** ZWEIFEL + handoff (owner-wort 2026-11-19): exact-head Docker-beleg ist nicht lieferbar — unit-seite ist grün (lauf 44464033443 SUCCESS auf exakt 84ee9a93e), aber der explizit bestellte Docker-Core-beleg 44464060182 bricht VOR den tests in…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44464033443), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44464060182)  
     <!-- /generated:card -->
 
