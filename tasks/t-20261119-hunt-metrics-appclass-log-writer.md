@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: 0428-122 r4 (codeman 0028c6d2, abnahme-gruen)
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-122 · Klasse App hat keinen
 priority: ""
@@ -17,21 +17,21 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1692]
 sources: []
-blocker: 
+blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1692", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1692.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44451374676", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44473809584", "https://github.com/mcpdev80/baseharbor/actions/runs/44535325043", "https://github.com/mcpdev80/baseharbor/actions/runs/44536505959"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1692", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1692.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44451374676", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44473809584", "https://github.com/mcpdev80/baseharbor/actions/runs/44535325043", "https://github.com/mcpdev80/baseharbor/actions/runs/44536505959", "https://github.com/mcpdev80/baseharbor/commit/fac01c77276ca2bf1e20cd0b7334bda5dd43e353"]
 ---
 
-- [ ] t-20261119-hunt-metrics-appclass-log-writer · Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) #task #release/v0-4-28 #status/review #view/review #kind/task
+- [x] t-20261119-hunt-metrics-appclass-log-writer · Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** 0428-122 r4 (codeman 0028c6d2, abnahme-gruen)  
     **PR:** [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1692), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1692.md), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44451374676), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-2.md), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44473809584), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44535325043), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/44536505959)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1692), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1692.md), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44451374676), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-2.md), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44473809584), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44535325043), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/44536505959), [proof 9](https://github.com/mcpdev80/baseharbor/commit/fac01c77276ca2bf1e20cd0b7334bda5dd43e353)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** 0428-122 r4 (codeman 0028c6d2, abnahme-gruen)  
@@ -114,3 +114,5 @@ kopf-folge im verlauf: c21dc6235 (44532116583 SUCCESS) → 3f8024e81 (4453026106
 ENTSCHEIDUNG: EIN letzter integrationsschritt atop develop 695ad54944734e9976fe9cc1dbae117482677dc6 + EIN frischer exact-head-lauf, dann ruhe (owner-rat, queue563). grund, warum der neue base ZAHLT: der unterschied 859654861→695ad5494 = .github/workflows/ci.yml (+3/-1, MIGRATION_CONTROLLER-pin auf 859654861, 'old lane bases fall back to this immutable commit') und scripts/test_ci_check_routes.py (+5) — beides CI-halb, also andere required-check-auswahl. NEUE REGEL STATT BLINDEM NACHLAUFEN: ein lauf gilt als beweis, wenn sein base sich von develop nur durch dateien unterscheidet, die weder .github/workflows/ci.yml noch scripts/test_pr_* / scripts/test_ci_* beruehren; die lane weist 'git diff --name-only <base> origin/develop' in der akte aus. lauf 44535325043 bleibt nuetzlich fuer code-testergebnisse (Go-shards/format), ist aber nicht die end-beweislage. KEIN MERGE
 
 review: kopf 14f279867e76ddedaa5fe82488b7f5a827d410e7 (parents 97eb3625 + 695ad5494), base = develop 695ad54944734e9976fe9cc1dbae117482677dc6, mergeable_state CLEAN, draft=false, lauf 44536505959 completed SUCCESS (0 fehljobs). owner-entscheidung 13:5xZ: PR-gate ohne eigenen Docker/Podman-lauf, weil der trusted native-planner auf base 695ad5494 fuer diese pfade {include: []} liefert und 'PR Selected Checks' NATIVE_REQUIRED=false akzeptiert — skip ist policy, kein bypass. DER AUSDRUECKLICHE VORBEHALT, den ich als karten-vermerk und im 114-draht (punkt e) festhalte: VOR dem v0.4.28-tag muss die develop/release-akzeptanz Docker UND rootless Podman fuer den optionalen Perses-pfad unabhaengig beweisen oder begruenden, warum nicht anwendbar. akte: evidence/r28-welle4-2026-11-19/appclass-writer/fix-4.md (279 zeilen, von mir aus ihrem local-only commit 3019c513 gegen echtes origin/main reconciliert, main @ d1d04a3a; die aeltere fix-3.md auf main bleibt unangetastet)
+
+GEMERGT durch den owner 15:07:47Z, develop fac01c77276ca2bf1e20cd0b7334bda5dd43e353. SQUASH-INHALTSBEWEIS von mir: 12/12 dateien blob-hash-identisch zwischen PR-head 14f279867e76ddedaa5fe82488b7f5a827d410e7 und develop, 0 abweichungen. qualifizierung: exaktkopf-lauf 44536505959 completed SUCCESS auf base 695ad5494, 'PR Selected Checks' success, trusted native-planner {include: []}. owner-grenze, die ich festhalte: PR-gate OHNE eigenen Docker/Podman-lauf; VOR dem v0.4.28-tag muss die develop/release-akzeptanz Docker UND rootless Podman fuer den optionalen Perses-pfad beweisen oder die nicht-anwendbarkeit begruenden (punkt (e) des 114-drahts). akte: evidence/r28-welle4-2026-11-19/appclass-writer/fix-4.md (plan-main d1d04a3a), von mir aus dem local-only commit 3019c513 gegen echtes origin/main reconciliert
