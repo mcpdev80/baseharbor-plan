@@ -83,7 +83,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261117-hunt-signals-101](../tasks/t-20261117-hunt-signals-101.md) | ID-Raum-Heterogenitaet und Keycloak-Kollision in Signal-IDs | blocked | not set | — | — | — |
 | [t-20261118-ownership-stale-consent-hardening](../tasks/t-20261118-ownership-stale-consent-hardening.md) | harden provider ownership chain vs stale-impact-consent | blocked | not set | w99-0428-119 r3 (codeman f5dabf03) | — | [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690) |
 | [t-20261119-r28-app-source-verification-none-ignored](../tasks/t-20261119-r28-app-source-verification-none-ignored.md) | Verifier: Verification=none is ignored for application-class metrics sources | blocked | not set | — | — | — |
-| [t-20261119-r28-en-docs-warning-term](../tasks/t-20261119-r28-en-docs-warning-term.md) | EN-Dokumentation nennt das Marker-Wort 'Achtung' statt 'Warning' (i18n-drift nach 0428-126) | blocked | not set | 0428-131 (codeman bbd9132d) | — | [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697) |
+| [t-20261119-r28-en-docs-warning-term](../tasks/t-20261119-r28-en-docs-warning-term.md) | EN-Dokumentation nennt das Marker-Wort 'Achtung' statt 'Warning' (i18n-drift nach 0428-126) | blocked | not set | keine aktive session (bisheriger owner codeman bbd9132d ist nicht mehr da, 0 treffer in agent list) — UMSETZUNG reserviert an eine von mir zu dispatchende lane | — | [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697) |
 
 ## Ready to assign
 

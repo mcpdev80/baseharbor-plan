@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-131 (codeman bbd9132d)
+owner: keine aktive session (bisheriger owner codeman bbd9132d ist nicht mehr da, 0 treffer in agent list) — UMSETZUNG reserviert an eine von mir zu dispatchende lane
 kanban_status: blocked
 kanban_lane: blocked
 kanban_summary: "One or two sentences: the observable outcome."
@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1697]
 sources: []
-blocker: "hosted-beleg fehlt, nicht der inhalt: die kartenpflicht verlangt den bestehenden documentation-audit in der betroffenen CI-gruppe, aber 'PR · Validation · documentation-audit' materialisiert nicht fuer die geaenderten docs/internal/*.json-pfade (abnehmer-wort + kommentar 7002848508 auf exaktem head 3448f73e6, base da76c5cf9 clean, run 44478483899 SUCCESS). lokal-PASS und JSON-parse sind kein exact-head-zeug. naechster trigger: (a) die pfad-auswahl des bestehenden audits erfuellt docs/internal/*.json (owner-scope, laeuft im audit 0428-133 mit) ODER (b) ein freigegebener hosted-route fuellt den audit auf diesem head nach. kein merge bis dahin"
+blocker: "unveraendert extern, grund aktuell gehalten (15:4xZ, von mir gegen gelesen): der PR #1697 ist inhaltlich pruefbar (head 3448f73e697cd7fdb1a338ef8422b5d484bbe814, base da76c5cf9, develop ist 1019190d8dc0ecac7693f3461153e76be0e2cb8a, mergeable_state 'behind', draft=false, EIGENE aenderungen = 3 dateien, 'git merge-tree --write-tree origin/develop <kopf>' = 0 konflikte). was fehlt, ist NICHT code, sondern der CI-draht: die kartenpflicht verlangt den bestehenden documentation-audit in der betroffenen CI-gruppe fuer docs/internal/*.json; dieser auswahl-punkt ist der (a)-punke des 114-drahtes und liegt beim owner (.github ist owner-scope, keine lane darf das setzen). ZUSAETzlich: unabhaengige review auf exakt diesem head/base ist BEANTRAGT und FREIGEGEBEN (see note) — review-only, kein merge"
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/en-docs-warning-term/fix-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44478483899", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1697.md"]
@@ -25,9 +25,9 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 - [ ] t-20261119-r28-en-docs-warning-term · EN-Dokumentation nennt das Marker-Wort 'Achtung' statt 'Warning' (i18n-drift nach 0428-126) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-131 (codeman bbd9132d)  
+    **Owner:** keine aktive session (bisheriger owner codeman bbd9132d ist nicht mehr da, 0 treffer in agent list) — UMSETZUNG reserviert an eine von mir zu dispatchende lane  
     **PR:** [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697)  
-    **Blocker:** hosted-beleg fehlt, nicht der inhalt: die kartenpflicht verlangt den bestehenden documentation-audit in der betroffenen CI-gruppe, aber 'PR · Validation · documentation-audit' materialisiert nicht fuer die geaenderten docs/internal/\*.json-…  
+    **Blocker:** unveraendert extern, grund aktuell gehalten (15:4xZ, von mir gegen gelesen): der PR \#1697 ist inhaltlich pruefbar (head 3448f73e697cd7fdb1a338ef8422b5d484bbe814, base da76c5cf9, develop ist 1019190d8dc0ecac7693f3461153e76be0e2cb8a, mergeab…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/en-docs-warning-term/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44478483899), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1697.md)  
     <!-- /generated:card -->
 
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0428-131 (codeman bbd9132d)  
+**Owner:** keine aktive session (bisheriger owner codeman bbd9132d ist nicht mehr da, 0 treffer in agent list) — UMSETZUNG reserviert an eine von mir zu dispatchende lane  
 **Priority:** not set  
 **PRs:** [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697)  
 **Source:** 
@@ -92,3 +92,5 @@ abgegeben: EN-doku an drei stelle auf 'Warning' gezogen (docs/de bewusst unverae
 CODEX-REVIEW: REQUEST CHANGES at exact head 3448f73e697cd7fdb1a338ef8422b5d484bbe814. Content scope passes; required documentation-audit check is absent from exact-head CI because docs/internal/*.json did not select it. Recipe: select the existing docs-audit gate for those paths (or use the approved exact-head hosted CI route that executes it), then record terminal SUCCESS. Run 44478483899 PR Selected Checks SUCCESS does not prove the skipped/unselected docs check. No merge.
 
 inhaltlich ist die korrektur in Ordnung (drei EN-JSON-stellen, docs/de unveraendert) — die karte haengt an der gate-auswahl, nicht am text
+
+ZUORDNUNG DER UNABHAENGIGEN REVIEW (auf bitte der abnahme, read-only): ziel = PR #1697 auf genauen kopf 3448f73e697cd7fdb1a338ef8422b5d484bbe814 gegen base develop 1019190d8dc0ecac7693f3461153e76be0e2cb8a. umfang: die 3 dateien des diffs, EN/DE marker-term 'Warning' konsistenz, und die frage, ob der documentation-audit die geaenderten pfade erwischt (wenn nein: datei:zeile der selektionsregel als befuind, dann wird es ein weiterer 114-draht-punkt). REGELN DAFUER: nur lesen, kein commit/push auf den zweig, KEIN merge, KEIN urteil ueber andere koepfe; ein urteil gilt nur fuer DIESEN kopf und faellt mit jedem develop-sprung, der .github/workflows/ci.yml oder scripts/test_pr_*|test_ci_* beruehrt (meine base-abstands-regel). UMSETZUNG etwaniger funde bleibt bei einer worker-lane, die ICH dispatche (§2: die abnahme implementiert nicht), und der sitz dafuer wird erst frei, wenn 089s korrektur-lane laeuft oder ornith-holds verfallen
