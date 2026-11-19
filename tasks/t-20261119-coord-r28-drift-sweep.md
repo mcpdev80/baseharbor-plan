@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: drift-sweep (codeman 6d23313f)
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: "0428-137 · ahead/behind,"
 priority: ""
@@ -19,17 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/e6d31f12/evidence/r28-welle4-2026-11-19/drift-sweep/befund-1.md"]
 ---
 
-- [ ] t-20261119-coord-r28-drift-sweep · Drift-fahrt ueber die 25 lebend-kandidaten: ahead/behind, merge-tree-konflikte, schreibset-kollisionen, hopf-reihenfolge #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261119-coord-r28-drift-sweep · Drift-fahrt ueber die 25 lebend-kandidaten: ahead/behind, merge-tree-konflikte, schreibset-kollisionen, hopf-reihenfolge #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** drift-sweep (codeman 6d23313f)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/e6d31f12/evidence/r28-welle4-2026-11-19/drift-sweep/befund-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** drift-sweep (codeman 6d23313f)  
@@ -83,3 +84,5 @@ Grundlage fuer meine hopf-reihenfolge im merge-window: welche lebend-kandidaten 
 akte evidence/r28-welle4-2026-11-19/drift-sweep/befund-1.md (tabelle + sortierung + nachweis-spalte). read-only, KEIN push/comment/close/merge/dispatch, keine karten-statuswechsel, isolierte clones unter /var/tmp, kein subagent (§4.8), host besenrein.
 
 read-only fahrt ueber die 25 lebend-kandidaten: ahead/behind, merge-tree-konflikt-prognose, schreibset-kollisionen, hopf-reihenfolge (akte drift-sweep/befund-1.md). kein push/comment/close durch die lane
+
+sweep abgegeben und mit zwei STICHPROBEN von mir bestaetigt: (a) #1615 ist der wichtigste fund — GitHub sagt 'clean', mein eigener 'git merge-tree --write-tree origin/develop <head>' zeigt aber 'CONFLICT (content) in internal/deployment/target.go': mergeable_state ist fuer gestapelte PRs (base ist ein lane-ast, nicht develop) UNZUEREICHEND, in zukunft zaehlt die merge-tree-prognose; (b) #1695 teilt internal/metrics/prometheus_verify.go mit #1691 (treffer 1) und ist merge-tree-konfliktfrei (1493f2cbb) — die einordnung SERIAL-BEHIND-1691 stimt damit in beiden richtungen. gesamt: 25 lebend-kandidaten, 20 konfliktfrei (4 base-exakt #1691/#1697/#1692/#1695), 5 konfliktbehaftet (#1645/#1613/#1598/#1597 je 4-8 dateien, #1615 add/add), hartester schreibset-cluster perses {1645,1613,1598,1597} je 20 dateien, rebase-chain 1578->1615. gruendung fuer meine weitere sequenzierung: 122r3/123/124r3 bleiben hinter dem 121-merge
