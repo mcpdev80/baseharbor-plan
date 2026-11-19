@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: pr-inventory (codeman bf3d2fb7-61e8-4e01-98a2-479edace99b9)
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-135 · 38 offene PRs gegen board —
 priority: ""
@@ -19,17 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/d4a4efa4/evidence/r28-welle4-2026-11-19/pr-inventory/befund-1.md"]
 ---
 
-- [ ] t-20261119-coord-r28-pr-inventory · PR-inventar 0.4.28: 38 offene PRs gegen board — dublette/superseded/kandidatenlos, liste zum schliessen #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261119-coord-r28-pr-inventory · PR-inventar 0.4.28: 38 offene PRs gegen board — dublette/superseded/kandidatenlos, liste zum schliessen #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** pr-inventory (codeman bf3d2fb7-61e8-4e01-98a2-479edace99b9)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/d4a4efa4/evidence/r28-welle4-2026-11-19/pr-inventory/befund-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** pr-inventory (codeman bf3d2fb7-61e8-4e01-98a2-479edace99b9)  
@@ -83,3 +84,5 @@ Der basics-check meldet dauerhaft OPEN-PRS > 12. Diese karte stellt je offenem P
 evidence/r28-welle4-2026-11-19/pr-inventory/befund-1.md: tabelle je PR | head-sha | basis | mergeable_state | karte (task-id oder 'keine') | einordnung (LEBEND / SUPERSEDED-ancestry / DUPLIKAT-von-pr / FREMDKOERPER-andere-welt) | begruendung mit nachweis (merge-base --is-ancestor ausgabe oder 'git diff --stat basis...head' leer). KEIN schliessen, KEIN comment, KEIN merge durch die lane — nur die liste; das schliessen mache ich. kein subagent (§4.8), tmp /var/tmp, read-only, host besenrein.
 
 lane lauft read-only durch die offenen PRs (akte pr-inventory/befund-1.md); klassen LEBEND/SUPERSEDED-ancestry/DUPLIKAT/FREMDE-welt, nachweis je zeile; schliessen mache ich
+
+inventar abgegeben (akte d4a4efa4): 38 offene core-PRs = 25 LEBEND, 11 STACK-PR (kettenposition), 1 DUPLIKAT (#1606 zu #1650, karte 078), 1 SUPERSEDED-by-content (#1649); 0 demo-PRs offen, 0 ancestry-superseded, 0 fremdkoerper. MEINE NACHPRUEfung VOR DEM SCHLIESSEN: beide schliess-kandidaten FAILN meinen test, daher bleibt BEIDES offen — (a) #1649: 'git cherry -v origin/develop <head>' zeigt 7 von 8 commits als '-' (bereits in develop), aber EINEN '+' commit c8db6333c 'test: use empty fixtures across coreless runtime gates'; sein inhalt liegt NICHT in develop (datei-hash-vergleich scripts/pr-gate-coverage.json, scripts/pre-release-runtime-impact.json, scripts/test_pr_gate_coverage.py = UNTERSCHIEDLICH, nur scripts/test_pre_release_runtime_reuse.py = gleich). der riese zwei-dot diff (177 dateien, -8074) ist nur die basis-entfernung, kein supersessions-zeug. (b) #1606 vs #1650: 'git cherry -v <1650-head> <1606-head>' zeigt drei '+' commits (1c124c47d, 6e9b12243, 4e81c16dd) — 1606s inhalt ist also NICHT in 1650 enthalten, ein close waere ein verlust. beide PRs gehoeren zur owner-blockierten karte 078/101 (.github-scope) und bleiben offen, bis die 078-entscheidung faellt
