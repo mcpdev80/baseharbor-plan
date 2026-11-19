@@ -7,3 +7,4 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261119-r28-demo-drive-matcher-warning-marker](../tasks/t-20261119-r28-demo-drive-matcher-warning-marker.md) | Demo: drive.py matcher auf das Warning-marker-verhalten der annerkennenden stadien ziehen | ready | not set | — | — | — |
