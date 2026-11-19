@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: dualmatch-lane
+owner: 0428-126 (codeman 5f65f620)
 kanban_status: review
 kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
@@ -15,7 +15,7 @@ kanban_title: 0428-126 · ein CLI-Stadium druckt kein
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#1696"]
+prs: [mcpdev80/baseharbor#1696]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -25,7 +25,7 @@ evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-we
 
 - [ ] t-20261119-hunt-metrics-dualmatch-marker-docs · Warning/Achtung dual-match: ein CLI-Stadium druckt kein Warning + EN-Normdoku hinter rename zurueck #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** dualmatch-lane  
+    **Owner:** 0428-126 (codeman 5f65f620)  
     **PR:** [baseharbor#1696](https://github.com/mcpdev80/baseharbor/pull/1696)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/dualmatch-docs/fix-1.md)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-we
 **State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** dualmatch-lane  
+**Owner:** 0428-126 (codeman 5f65f620)  
 **Priority:** not set  
 **PRs:** [baseharbor#1696](https://github.com/mcpdev80/baseharbor/pull/1696)  
 **Source:** 
@@ -80,3 +80,5 @@ One or two sentences: the observable outcome.
 ## Befund (intake aus hunt-918)
 Befund 5 (LOW) + 4-sub: Zwei doku-/marker-fragmente aus der i18n-rename-kette: dual-match verhaelt sich korrekt auf machine-EOs, aber ein CLI-Stadium druckt kein Warning (readProviderImpactAcknowledgement-EOF); EN normdoku blieb hinter dem rename zurueck. Akzeptanz: marker in jedem acknowledging Stadium + EN/DE doku gleichstandig. Befund 4 ist hier NICHT cardwuertig (already carded 105/112/073)
 Erlaubtes write-set (vorschlag, lane prueft): docs + CLI marker stage. Evidence-Quelle: https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/hunt-metrics/befund-1.md (17 probes, base 97a840e54).
+
+126 abgegeben: Warning-marker wird in jedem annerkennenden CLI-stadium gedruckt (nur repraesentation, gate-semantik unveraendert) + EN-normdoku auf den i18n-rename gezogen. kandidat 864fdcd3a auf lane-0428-126-dualmatch-docs, PR #1696, run 44471319498 (alle selected checks pass), akte dualmatch-docs/fix-1.md origin/main daceecb5. folgearbeit gemeldet: demo drive.py matcher-pattern (eigene karte im demo-repo)
