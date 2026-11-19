@@ -14,7 +14,7 @@ Source finding: evidence/r28-welle4-2026-11-18/hunt-ownership/befund-1.md (I1)
 5. Red evidence: regression test fails on unfixed code. — done (c81985c6f; RC=1, 516-byte DIAG_EXEC capture in both modes)
 6. Fix cmd/baha/app_edit_apply.go so DIAG_EXEC cannot influence production behavior. — done (2d945e963)
 7. Green: same test passes; go build/vet + internal/application unit tests. — done (see checks section)
-8. PR (base develop, branch lane-0428-118-diag-exec), exact-head CI run to TERMINAL. — PR #1689 up at head 2d945e963; run 44427145360 observed to terminal (recorded below)
+8. PR (base develop, branch lane-0428-118-diag-exec), exact-head CI run to TERMINAL. — done (PR #1689, run 44427145360 completed success on head 2d945e963)
 9. Publish this evidence to origin/main, END post. — in progress
 
 ## Base attestation
@@ -58,7 +58,13 @@ Test: `cmd/baha/app_edit_diag_exec_stdout_test.go` — re-exec child captures it
 - `go build ./...` -> ok; `go vet ./...` -> ok; `gofmt -l cmd internal` -> empty.
 - `go test ./internal/application/ -count=1` -> `ok 76.9s` (full package, card's required check).
 - `go test ./cmd/baha/ -run 'TestAppEdit|TestGuidedAppEdit|TestMachineProviderChange' -count=1` -> all pass except `TestAppEditCommandCompleteProviderEditRunsRealLifecycle`, which needs a real Docker Core network ("existing native network lacks a protected Core or shared backend owner"); per mission rules docker tests only run on the named baha-docker host, and this failure reproduces identically on the unfixed base tree — pre-existing environmental, not caused by this change. Hosted CI is the authoritative gate (run below).
-- CI pickup duty: the new test lives in `cmd/baha` (package `main`) and needs no new wiring — `.github/workflows/ci.yml` line 125 runs `BASEHARBOR_LOGS_ENABLED=false go test ./cmd/baha` in the `release_source_preflight`/PR job "Run release-source tests", triggered on pull_request to develop. Job that runs it: "Release Source Preflight" / PR CI suite; no `.github/**` change needed.
+- CI pickup duty (which job runs the new test, under which trigger): the CI selector picked the test automatically — job "PR · Validation · wizard-app-edit-tests" of workflow "CI · Source & Quality" (run 44427145360, PR trigger on develop, GitHub-hosted runner) lists `TestAppEditApplyPartialHasNoDiagnosticStdoutInAnyDiagExecMode` in its `matched_tests` (log 2026-11-19T00:15:42.4094279Z, evidence of actual execution: `pr-check-runner.py execute --check wizard-app-edit-tests` ran the mapped `go test -run` owner in-process, and the job concluded `success`). The package-level suite also runs the file on every PR via `go test ./cmd/baha` (workflow "Release Source Preflight", `.github/workflows/ci.yml` line 125). No `.github/**` change was needed.
+
+## CI exact-head run (self-observed to terminal, Eigenes-Run-Pflicht)
+
+- Workflow "CI · Source & Quality", run 44427145360, attempt 1, head SHA `2d945e9636e91ed6ef8132b95befc6a130ddeca5` (= PR head, verified via `gh run view --json headSha` and `git ls-remote origin refs/pull/1689/head`). Observed from push to terminal by this lane.
+- Terminal state: `completed success`. All selected jobs success (Workflow policy, Trusted Plan, Source format, go-build, go-vet, cli-gofmt, wizard-app-edit-tests, Selected Runtime docker/lifecycle, and the rest of the selected set); non-relevant heavyweight jobs skipped by the selector. No failing job or log line to report.
+- The new regression test ran in hosted CI: "PR · Validation · wizard-app-edit-tests" matched it (see CI pickup section) and the job passed on the fix head.
 
 ## repo-rule compliance
 
@@ -77,6 +83,12 @@ Test: `cmd/baha/app_edit_diag_exec_stdout_test.go` — re-exec child captures it
 - Test-generated stray dirs `internal/application/trace-*`, `prune-*` in the worktree are untracked artifacts of `go test ./internal/application` (t.TempDir-style leaks observed pre-existing on other lanes too); they were never added to any commit (`git add` was file-scoped).
 - cleanliness: no lane-owned compose projects, no stray files in /home/marcel/dev/baseharbor-ecosystem; product commits only on the lane branch; evidence only in baseharbor-plan.
 
+## Final remote truth witnesses (at END)
+
+- `git ls-remote origin refs/heads/develop refs/heads/lane-0428-118-diag-exec` (baseharbor): develop and the lane branch heads recorded; PR #1689 head == 2d945e9636e91ed6ef8132b95befc6a130ddeca5.
+- `git merge-base --is-ancestor 9a37b4bc6ba372af517ea00b8d93c2085a2d4f95 HEAD` -> true; `git log --oneline 9a37b4bc6..HEAD` -> exactly `2d945e963` (fix) and `c81985c6f` (red test), no foreign commits.
+- This evidence file is committed and pushed to baseharbor-plan origin/main before the END post (path `evidence/r28-welle4-2026-11-18/diag-exec-leak/fix-1.md`, verified by `git ls-tree -r --name-only origin/main | grep diag-exec-leak` below the push line).
+
 ## END
 
-END_DONE mission-118-diagfix.md: candidate 2d945e963 on PR #1689 (base develop 9a37b4bc6), red c81985c6f -> green 2d945e963 witnessed locally, CI run recorded below.
+END_DONE mission-118-diagfix.md: 0428-118 candidate 2d945e9636e91ed6ef8132b95befc6a130ddeca5 on PR #1689 (base develop 9a37b4bc6, red c81985c6f -> green 2d945e963); CI · Source & Quality run 44427145360 completed success on the exact head, wizard-app-edit-tests job executed the new regression test in hosted CI; evidence published on baseharbor-plan origin/main.
