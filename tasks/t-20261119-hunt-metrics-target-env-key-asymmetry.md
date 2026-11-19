@@ -15,12 +15,12 @@ kanban_title: 0428-125 · Runtime-metrics
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
-sources: []
+prs: [https://github.com/mcpdev80/baseharbor/pull/1694]
+sources: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/hunt-metrics/befund-1.md]
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/target-env-key/fix-1.md]
 ---
 
 - [ ] t-20261119-hunt-metrics-target-env-key-asymmetry · Runtime-metrics target-file-key fuehrt environment nicht, group-label schon — asymmetrische Zuordnung #task #release/v0-4-28 #status/active #view/active #kind/task
@@ -75,6 +75,7 @@ One or two sentences: the observable outcome.
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+- 2026-11-19: fix-1 candidate published. Branch `lane-0428-125-target-env-key` @ `4fcb2b35d1182e7b639a8dc18f5cccf33ea8564f`, PR https://github.com/mcpdev80/baseharbor/pull/1694 (base develop `ec592fd38`). Red regression green after fix; CI run 44457185039 terminal success on the exact head. Evidence: evidence/r28-welle4-2026-11-19/target-env-key/fix-1.md.
 ## Befund (intake aus hunt-918)
 Befund 7 (MEDIUM): Der runtime-metrics target-file-key spaart den environment, das gespeicherte group-label fuehrt ihn — asymmetrisch, in multi-env collision. Akzeptanz: schluessel-formel ein documentarischer ort, test mit zwei envs.
 Erlaubtes write-set (vorschlag, lane prueft): file-key builder. Evidence-Quelle: https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/hunt-metrics/befund-1.md (17 probes, base 97a840e54).
