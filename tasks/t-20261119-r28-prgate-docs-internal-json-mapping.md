@@ -36,7 +36,7 @@ prs: [mcpdev80/baseharbor#1705]
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Required by:** [t-20261119-r28-1697-witness-hop-and-run](t-20261119-r28-1697-witness-hop-and-run.md), [t-20261119-r28-en-docs-warning-term](t-20261119-r28-en-docs-warning-term.md)  
+**Required by:** [t-20261119-r28-en-docs-warning-term](t-20261119-r28-en-docs-warning-term.md)  
 **Owner:** Codex team (Owner-delegated Maintainer)  
 **Priority:** not set  
 **PRs:** [baseharbor#1705](https://github.com/mcpdev80/baseharbor/pull/1705)  
