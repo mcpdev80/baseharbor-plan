@@ -10,9 +10,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 10 |
+| active | 11 |
 | review | 21 |
-| wait | 16 |
+| wait | 15 |
 | blocked | 4 |
 | ready | 1 |
 | queued | 25 |
@@ -32,6 +32,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261116-r28-guided-rootless-bootstrap](../tasks/t-20261116-r28-guided-rootless-bootstrap.md) | Guided rootless runtime prerequisite repair | active | high | ChatGPT | — | [baseharbor#1664](https://github.com/mcpdev80/baseharbor/pull/1664) |
 | [t-20261117-hunt-signals-106](../tasks/t-20261117-hunt-signals-106.md) | CLI destructive-consent paths still emit German Achtung fall | active | not set | worker-ornith1.5 | — | [baseharbor#1683](https://github.com/mcpdev80/baseharbor/pull/1683) |
 | [t-20261117-observability-native-gate-bootstrap](../tasks/t-20261117-observability-native-gate-bootstrap.md) | CI: Run observability acceptance with verified ORAS bootstrap | active | not set | lane-113-pr1680-fixes (this session, intake per Hunt→Karte duty) | — | — |
+| [t-20261119-hunt-metrics-appclass-log-writer](../tasks/t-20261119-hunt-metrics-appclass-log-writer.md) | Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) | active | not set | 0428-122 r2 (codeman 40d70b4e) | — | [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692) |
 | [t-20261119-hunt-metrics-dualmatch-marker-docs](../tasks/t-20261119-hunt-metrics-dualmatch-marker-docs.md) | Warning/Achtung dual-match: ein CLI-Stadium druckt kein Warning + EN-Normdoku hinter rename zurueck | active | not set | dualmatch-lane | — | — |
 | [t-20261119-hunt-metrics-env-filter-list-pfade](../tasks/t-20261119-hunt-metrics-env-filter-list-pfade.md) | Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) | active | not set | 0428-121 r2 (codeman 045d7e8a) | — | [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691) |
 
@@ -78,7 +79,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-perses-contact-routing](../tasks/t-20261114-r28-perses-contact-routing.md) | Define alert notification routing | wait | normal | coord | [t-20261114-r28-perses-alerts](../tasks/t-20261114-r28-perses-alerts.md) (open), [t-20261114-r28-perses-secure-access](../tasks/t-20261114-r28-perses-secure-access.md) (open) | — |
 | [t-20261115-bughunt-d28-state-dir-target](../tasks/t-20261115-bughunt-d28-state-dir-target.md) | BF-01 target selection ignores BASEHARBOR_STATE_DIR (reads foreign registrations) | wait | not set | lane-0428-fix-bf01 (flash) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1585](https://github.com/mcpdev80/baseharbor/pull/1585) |
 | [t-20261115-bughunt-d28-tmp-selection](../tasks/t-20261115-bughunt-d28-tmp-selection.md) | BF-03 persisted target selection in world-writable /tmp path | wait | not set | lane-0427-187-fix-bf03 (ornith) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1582](https://github.com/mcpdev80/baseharbor/pull/1582) |
-| [t-20261119-hunt-metrics-appclass-log-writer](../tasks/t-20261119-hunt-metrics-appclass-log-writer.md) | Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) | wait | not set | w99-0428-122 (codeman 5350d482) | — | [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692) |
 | [t-20261119-hunt-metrics-registration-visibility-only](../tasks/t-20261119-hunt-metrics-registration-visibility-only.md) | Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export | wait | not set | w01-0428-123 (codeman 1e209bb7) | — | [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693) |
 | [t-20261119-hunt-metrics-verification-none-blind](../tasks/t-20261119-hunt-metrics-verification-none-blind.md) | verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe | wait | not set | w99-0428-124 (codeman 2a92c21e) | — | [baseharbor#1695](https://github.com/mcpdev80/baseharbor/pull/1695) |
 
