@@ -77,3 +77,5 @@ Make the existing observability runtime acceptance runnable and selectable for a
 ## Handoff
 
 ZWEIFEL queued for the existing CI owner. Exact failure evidence is in runs 44057402207, 44057603711 and 44057705927. Product PR #1680 remains open pending proper runtime acceptance.
+
+reichweite erwisert (entscheid statt sequenzierung): 114 besitzt jetzt beide 128-symptome mit datei:zeile. grund: 114 hat keinen lebenden sitz und keinen PR (nur ein nominaler owner-vermerk), eine sequenzierung 'warte auf 114, dann 128' wuerde 119/088 unbefristet blockieren; zugleich wuerde eine separate 128-aenderung dieselbe coverage-map zwei mal anfassen
