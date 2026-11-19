@@ -136,6 +136,16 @@ After-census: identical. `git status --porcelain` residue in the read worktree w
 
 - No container, network, volume, image or compose project was started by this lane on any host. `cleanliness: PASS — 0 lane-owned containers/networks/volumes/compose projects; after-census equals before-census; worktree to be pruned at END.`
 
+## commit + evidence provenance
+
+- Evidence commits (baseharbor-plan `main`): `85bc3700` carried the first cut of this akte and 16 probe files (see the concurrent-publication note above); `ece32f3e` adds Befund 7, the 17th probe and the witness tally.
+- Base attestation (baseharbor-plan): `origin/main` was `85bc370092750a0613707c89b7289c475b0b89c8` when I cut; `git merge-base --is-ancestor 85bc3700 HEAD` → yes.
+- Log-line check: `git log --oneline origin/main..HEAD` before the push listed ONLY `ece32f3e evidence(hunt-metrics-918): Befund 7 runtime-metrics file key + full witness run` — no foreign candidate carried on top.
+- ls-remote witness (pasted before END):
+  `ece32f3e9e349194a87dbee97c639ad3d2ca9c13	refs/heads/main`
+- Path verified on `origin/main`: `git ls-tree -r --name-only origin/main -- evidence/r28-welle4-2026-11-19/hunt-metrics` → 18 entries (this akte + 17 probe files), and the file list is byte-identical to the local `scripts/` directory (`diff` clean).
+- Product base (baseharbor `develop`): `97a840e54dd037949cea3e6ae2614621f637eefb`, verified an ancestor of the read worktree HEAD; no product commit exists for this hunt (findings only).
+
 ## END
 
-END_DONE mission-hunt-metrics-918.md — Befunde 1-6 in this akte, candidate `97a840e54dd037949cea3e6ae2614621f637eefb` (develop head; #1663/#1677/#1679/#1680 all verified ancestors). Headline: the environment filter does NOT act on all list paths (Befund 2, high) and the class-`application` log source has no writer (Befund 3, high); alert level still empty develop-wide (Befund 4, info) with EN docs still naming the marker **Achtung**; i18n rename is behavior-neutral on all machine surfaces (Befund 5, low).
+END_DONE mission-hunt-metrics-918.md — Befunde 1-7 in this akte, candidate `97a840e54dd037949cea3e6ae2614621f637eefb` (develop head; #1663/#1677/#1679/#1680 all verified ancestors). Headline: the environment filter does NOT act on all list paths (Befund 2, high) and the class-`application` log source has no writer at all (Befund 3, high); the app-class metrics registration is visibility-only (Befund 1, medium); the alert level is still empty develop-wide and "never provisioned" is indistinguishable from "provisioned and empty" (Befund 4, info + medium doc drift); the i18n rename is behavior-neutral on all machine surfaces, one CLI stage prints no marker (Befund 5, low); a `verification: none` source yields no scrape target and no assertion (Befund 6, medium); the runtime-metrics file key omits the environment (Befund 7, medium). Evidence on origin/main at `ece32f3e`.
