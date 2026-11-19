@@ -10,7 +10,7 @@ parent: ""
 owner: ""
 kanban_status: blocked
 kanban_lane: blocked
-blocker: "Pre-existing behaviour on develop, not introduced by 0428-123: the provider loop skips sources whose Verification mode is none, the application loop does not. Changing it alters the up-sample obligation for application-class sources, so it needs an explicit contract decision before any lane edits code. Witnesses in the note below. Next trigger: owner decision plus a free seat after #1693 and #1599"
+blocker: "voir karten-text; entscheidung ist jetzt enger gefasst"
 wait_reason: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
@@ -24,7 +24,7 @@ card_short_title: Verification=none is ignored
 - [ ] t-20261119-r28-app-source-verification-none-ignored · Verifier: Verification=none is ignored for application-class metrics sources #task #release/v0-4-28 #status/blocked #view/blocked #area/metrics #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Blocker:** Pre-existing behaviour on develop, not introduced by 0428-123: the provider loop skips sources whose Verification mode is none, the application loop does not. Changing it alters the up-sample obligation for application-class sources, so it…  
+    **Blocker:** voir karten-text; entscheidung ist jetzt enger gefasst  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/blob/fac01c77276ca2bf1e20cd0b7334bda5dd43e353/internal/metrics/prometheus_verify.go)  
     <!-- /generated:card -->
 
@@ -73,3 +73,5 @@ application-class sources, while it does for provider-class sources.
 - A CI-executed regression test in the package that owns the verifier proves the chosen semantics for
   an application-class source with `Verification=none` (test ID mapped to its gate per the CI intake rule).
 - The contract text states the semantics in one place; no silent behaviour change.
+
+VERKLEINERT durch meine disposition zu #1693: die parity-zeile 'if source.Verification == capability.ObservabilityVerifyNone { continue }' wird im application-loop von 0428-123 als FOLGE ihres routing-fixes gesetzt (sonst liefe eine app-queLLE mit mode none durch ihren PR neu in den timeout). UEB Rig bleibt damit nur die vertrags-text-frage: bedeutet 'none' einheitlich 'keine verifikation' (dann ist die parity dauerhafte semantik) oder ist die provider/app-verschiedenheit gewollt (dann muss der vertragstext das ausdruecklich sagen). zeugen: internal/metrics/prometheus_verify.go:174 (app-loop) gegen :185 (provider-loop) auf develop fac01c77276ca2bf1e20cd0b7334bda5dd43e353; owner-entscheidung erforderlich, bevor eine lane documentation-onlyarbeit daran tut
