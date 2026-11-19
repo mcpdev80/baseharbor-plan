@@ -72,4 +72,4 @@
 
 ## END
 
-END_IN_PROGRESS mission-120-mcp-status.md: red evidence + fix written, tests pending, SHA 8dccd4fe1
+END_DONE mission-120-mcp-status.md: fix-1 red->green, PR #1688 base develop, CI run 44426400958 completed success, evidence on origin/main; candidate SHA 23837dcc5 (base 9a37b4bc6 after develop move)
