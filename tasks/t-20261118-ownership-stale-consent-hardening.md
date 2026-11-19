@@ -4,27 +4,28 @@ release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
 owner: w119-0428-119-consenthop (codeman 80aa0bf4, ornith:2) — uebernommen von w99-0428-119 r3 (session f5dabf03 ist weg)
-kanban_status: active
+kanban_status: blocked
 card_number: 0428-119
 card_short_title: harden Prov ownership chain vs
 kanban_title: 0428-119 · harden Prov ownership chain vs
 prs: [mcpdev80/baseharbor#1690]
 wait_reason: ""
-blocker: 
+blocker: owner wire 114(a): docker-runtime-acceptance.yml has no ORAS-install step in the PR job (lines 174-330) versus the install lines 127-128 that exist only in the push job; Targeted HA docker/podman/core-less SKIPPED on exact-head run 44563139929 (Go unit owner shard PASS). Runtime confirmation blocked, not unit-proven. Requires the ORAS wire (Owner scope, .github/**), then re-open 0428-119 for acceptance.
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44464033443", "https://github.com/mcpdev80/baseharbor/actions/runs/44464060182"]
 
 ---
 # t-20261118-ownership-stale-consent-hardening · close ownership-race windows behind stale-impact-consent
 
-- [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
     **Owner:** w119-0428-119-consenthop (codeman 80aa0bf4, ornith:2) — uebernommen von w99-0428-119 r3 (session f5dabf03 ist weg)  
     **PR:** [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690)  
+    **Blocker:** owner wire 114(a): docker-runtime-acceptance.yml has no ORAS-install step in the PR job (lines 174-330) versus the install lines 127-128 that exist only in the push job; Targeted HA docker/podman/core-less SKIPPED on exact-head run 4456313…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44464033443), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44464060182)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w119-0428-119-consenthop (codeman 80aa0bf4, ornith:2) — uebernommen von w99-0428-119 r3 (session f5dabf03 ist weg)  
@@ -64,3 +65,5 @@ Handoff decision: 0428-128 already owns the read-only Docker/ORAS route probe; d
 119-lane ist bereits entlassen (f5dabf03 deleted) — sitz traegt jetzt 121-r2/128-probe; keine nicht-ueberlappende quellarbeit an 119 bis 128 die route klaert
 
 STATT EINES HOLDS: der sitz bekommt echte, konfliktfreie arbeit, und der owner-ZWEIFEL bleibt unangetastet. gemessen gegen develop 1019190d8dc0ecac7693f3461153e76be0e2cb8a: EIGENE aenderungen = 5 dateien (cmd/baha/application_provider_authorization.go, internal/application/provider_change_plan.go, provider_change_types.go, provider_consent_authority.go, provider_consent_oscillation_test.go), disjunkt zu allen vier aktiven lanen, 'git merge-tree --write-tree origin/develop <kopf>' = 0 konflikte, PR 'behind' (base deeeb6477). AUFTRAG NUR: monotoner hopf + terminale exact-head-CI + akte, damit nach deinem ORAS-draht sofort abgenommen werden kann, ohne nochmal zu hopfen. ICH AKZEPTIERE DAMIT NICHT: die karte behaelt deinen wortlaut 'kein abnahme-freiraum fuer unit gruen + runtime-versuch rot', und der grund bleibt aussen — '.github/workflows/docker-runtime-acceptance.yml' hat im PR-zweig_keinen ORAS-install-schritt (zeilen 174-330) waehrend die install-zeilen 127-128 nur im push-job stehen (114, punkt (a)); eine lane aendert daran nichts, sie meldet nur. wenn der required-aggregate gruen ist und der runtime-rest offen bleibt, geht die karte zurueck auf blocked mit genau diesem wortlaut
+
+END (session 80aa0bf4, fresh takeover of vanished f5dabf03): branch lane-0428-119-consent-hard neu auf develop 1019190d8 gecutt, 5 files aus dem squash 84ee9a93 aufgebracht, commit 184eefde (nur meine commits, 84ee9a93 nicht Ancestor), PR #1690 head auf 184eefde upgedatet. Exact-head run 44563139929 SUCCESS; Go unit owner (internal/application) shard PASS inkl. TestConsentSurvivesUnverifiableStateOscillation + TestConsentDoesNotFoldUnwitnessedRuntimeState; docker/podman/core-less SKIPPED (ORAS wire 114(a)). required-aggregate gruen, runtime-rest offen -> karte auf blocked mit lautlaut 'owner wire 114(a)'. Evidence fix-2.md (a1cdc884 auf origin/main). Kein merge. Lane fuer next ready card freigegeben.
