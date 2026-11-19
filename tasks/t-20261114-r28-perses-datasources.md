@@ -7,7 +7,7 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0428-083 folge (codeman 5447f0df-ce0f-44e3-85f5-2c7c47a43523, flash)
+owner: 0428-083 lane (codeman 5447f0df, flash) — END angenommen, basis-hopf ausstehend
 kanban_status: active
 kanban_lane: active
 kanban_summary: Provision authorized existing Prometheus datasource in Perses using supported pinned native plugin and proxy/TLS contract.
@@ -20,7 +20,7 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md", "https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md", "https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44573407736"]
 ---
 
 ## Owner decision — 2026-11-17
@@ -29,9 +29,9 @@ Owner decision (2026-11-17): Unblock. Reopen PR #1608 if it remains suitable, ot
 
 - [ ] t-20261114-r28-perses-datasources · Connect Perses Prometheus #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-083 folge (codeman 5447f0df-ce0f-44e3-85f5-2c7c47a43523, flash) · **Priority:** normal  
+    **Owner:** 0428-083 lane (codeman 5447f0df, flash) — END angenommen, basis-hopf ausstehend · **Priority:** normal  
     **PR:** [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44573407736)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -39,7 +39,7 @@ Owner decision (2026-11-17): Unblock. Reopen PR #1608 if it remains suitable, ot
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
 **Required by:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-dashboards](t-20261114-r28-perses-dashboards.md)  
-**Owner:** 0428-083 folge (codeman 5447f0df-ce0f-44e3-85f5-2c7c47a43523, flash)  
+**Owner:** 0428-083 lane (codeman 5447f0df, flash) — END angenommen, basis-hopf ausstehend  
 **Priority:** normal  
 **PRs:** [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684)  
 **Source:** 
@@ -101,3 +101,5 @@ korrektur-runde abgeliefert, von mir qualifiziert: branch lane-0428-083-datasour
 URTEIL AUF f0adef107 = REQUEST CHANGES ('runtime consumer and mounts absent / no merge'), von mir gegen deinen neuen kopf nachgerechnet: a9befb3127b26a8a0f622bcf686fb6bcbb9b9e6e unterscheidet sich von f0adef107 um GENAU EINE datei (internal/metrics/perses_prometheus_datasource_runtime.go), und 'MaterializePersesPrometheusDatasourceAt' taucht dort nur in internal/metrics/*_runtime.go + seiner eigenen test-datei auf, in internal/application/ nirgends — die aufruf-stelle fehlt also weiter. monotoner stack ist OK (e1dc2cf61 ancestor, f0adef107 ancestor), PR draft=false/blocked, lauf 44522363321 in_progress, aber der ist nicht die qualifying stelle. befehl an dieselbe lane: (1) aufruf an der echten apply-grenze in internal/application/perses_runtime.go VOR dem Perses-start, (2) read-only compose-mounts aus dem materializer-ergebnis (config-/datenpfade, kein zweite konstante), (3) isolierter Docker-runtime-test mit gepinntem image, der das LADEN der GlobalDatasource zeigt + query/proxy/TLS, zelle muss AUSGEFUEHRT statt skipped sein (sonst befuind an den owner mit datei:zeile der skip-bedingung, nicht selbst aendern), (4) grep-beleg vor push, (5) akte fix-3.md mit matrix
 
 ENTBLOCKT durch den #1592-merge (develop 3b634232f): internal/application/perses_runtime.go ist jetzt in develop, also ist die aufruf-stelle folge-arbeit und kein fork von 088s kandidat. mission verlangt: aufruf an der apply-grenze vor dem Perses-start, read-only compose-mounts aus dem materializer-ergebnis, isolierter Docker-runtime-test (zelle muss laufen, sonst skip-bedingung als befuind + host-zeugen-praezedenz)
+
+END ANGENOMMEN, alle zeugen von mir gegen gelesen: zweig-head 24cd5f4538fa8f9bc814fcd481143484742c3a14, base = develop c296086ca (der #1616-merge), PR non-draft, merge-tree gegen develop 0 konflikte, lauf 44573407736 completed SUCCESS created 17:05:46Z auf GENAU DIESEM kopf; akte evidence/r28-welle4-2026-11-19/perses-datasources-hopf/fix-4.md (main b01fb21d, blob c0113b26). DER EINE GRUND, WARUM SIE NICHT AUF REVIEW GEHT: der owner hat um 18:19:51+01:00 #1581 gemergt, develop ist 7ee6f817dbff5a238bbc651315d6d76b3819fc91, und der unterschied c296086ca -> 7ee6f817d betrifft scripts/test_pr_gate_plan.py + scripts/ci-workflow-policy.sh — scripts/test_pr_* ist ein treffer meiner base-abstands-regel, also schuldet die lane EINEN monotonen hopf auf 7ee6f817d plus EINEN exact-head-lauf. Kein inhalt zweifelt daran: die drei teile (apply-grenze runtime_postgres.go:140 -> ensurePersesDatasourceRuntime, read-only compose-mounts resolver-abgeleitet perses_runtime.go:99 fail-closed, container-akzeptanz-test lokal 3x gruen) sind geliefert. IHR BEFUND ist notiert und geht in die owner-draht-liste: 'PR Selected Runtime' skipped, skip-kette ci.yml:973 runtime_required=false <- pr-selected-runtime-matrix.py <- pr-gate-plan.py ohne mapping fuer perses/apply-pfade (owner-scope, von der lane NICHT geaendert) — nach dem hopf prueft sie, ob #1581 ihren fall schon abbildet
