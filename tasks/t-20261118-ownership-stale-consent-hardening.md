@@ -4,27 +4,28 @@ release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
 owner: w119-0428-119-consenthop (codeman 80aa0bf4, ornith:2) — uebernommen von w99-0428-119 r3 (session f5dabf03 ist weg)
-kanban_status: active
+kanban_status: wait
 card_number: 0428-119
 card_short_title: harden Prov ownership chain vs
 kanban_title: 0428-119 · harden Prov ownership chain vs
 prs: [mcpdev80/baseharbor#1690]
-wait_reason: ""
+wait_reason: "MEIN FEHLER, korrigiert: der dispatch-versuch scheiterte an 'spawn-lane: unknown flag --ornith' (spawn-lane.sh kennt nur --laptop/--flash, default ist ornith), die karte war trotzdem auf active gesetzt — das war ein falscher brettstand. INHALTLICH weiter offen (CODEX-r2 REQUEST CHANGES auf 5b9a9545aa9adb74870695133daa0561cac5c5ca, VON MIR AM CODE NACHGEMESSEN): (1) internal/application/provider_consent_authority.go:500-511 sameProviderInstanceAuthority laesst 'Reference' UND 'OwnerEnvironment' weg, beide felder existieren (internal/capability/registry.go :44/:45) und 'reference' loest externe provider aktiv auf (registry.go:133). (2) equalProviderCapabilities :552-565 duplikats-loch: a=[x,x] vs b=[x,y] -> TRUE (laenge gleich, mitgliedschaft erfuellt), die mengen sind verschieden. (3) die regression endet bei DescribeProviderChanges/revalidation, der antrag-pfad in cmd/baha ist unbelegt. Auftragstext liegt fertig unter /var/tmp/mission-119-r2.md und geht auf den NAechSTEN freien sitz. LAUFZEIT-GATES weiter owner-draht 114(a) (ORAS-install im PR-job fehlt)."
 blocker: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44464033443", "https://github.com/mcpdev80/baseharbor/actions/runs/44464060182"]
 
 ---
 # t-20261118-ownership-stale-consent-hardening · close ownership-race windows behind stale-impact-consent
 
-- [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** w119-0428-119-consenthop (codeman 80aa0bf4, ornith:2) — uebernommen von w99-0428-119 r3 (session f5dabf03 ist weg)  
     **PR:** [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690)  
+    **Waiting:** MEIN FEHLER, korrigiert: der dispatch-versuch scheiterte an 'spawn-lane: unknown flag --ornith' (spawn-lane.sh kennt nur --laptop/--flash, default ist ornith), die karte war trotzdem auf active gesetzt — das war ein falscher brettstand. IN…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44464033443), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44464060182)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w119-0428-119-consenthop (codeman 80aa0bf4, ornith:2) — uebernommen von w99-0428-119 r3 (session f5dabf03 ist weg)  
