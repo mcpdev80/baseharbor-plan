@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-121 r4 (codeman 02edbbbf, frische lane)
+owner: 0428-121 r4 (codeman 02edbbbf, frische lane nach entlassung der r3-lane; KEINE dublette)
 kanban_status: active
 kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 - [ ] t-20261119-hunt-metrics-env-filter-list-pfade · Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-121 r4 (codeman 02edbbbf, frische lane)  
+    **Owner:** 0428-121 r4 (codeman 02edbbbf, frische lane nach entlassung der r3-lane; KEINE dublette)  
     **PR:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-route2-review.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1691)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0428-121 r4 (codeman 02edbbbf, frische lane)  
+**Owner:** 0428-121 r4 (codeman 02edbbbf, frische lane nach entlassung der r3-lane; KEINE dublette)  
 **Priority:** not set  
 **PRs:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
 **Source:** 
@@ -96,3 +96,5 @@ INHALTLICH GELUOST auf head 4f4b3d7a60b057fd8f29cbba3c2685fc9346b66d (monoton, d
 abgegeben und von mir verifiziert: head d1fcfdf6b8376a30f5100c8c30f5f3491427cf9e, monoton (develop da76c5cf9 ancestor), PR #1691 clean, exact-head run 44487090323 TERMINAL SUCCESS und KEIN nicht-gruener job (der Source-format-fehljob ist weg: registry.go 730 zeilen < 800, die neue datei internal/observability/environment.go nimmt die filter-logik). inhalts-zeug der route: SourceMatchesEnvironment(source, requestedEnvironment) vergleicht case-normalisiert, false bei unloesbar/mehrdeutig/leer; List + wrapper geben requestedEnvironment durch; sechs tests inkl. prod/stage-caller, leer fail-closed, mutation-drop. akte env-filter-fix/fix-3.md. abnahme vorgelegt — damit.loest sich die serie 122r3 und 124r3 sowie 123 auf
 
 abnahme lehnt head d1fcfdf6b fuer merge ab (PR-kommentar 7004083156), grund ist ein FUNKTIONALER daten-verlust, nicht die route: SourceEnvironment zerlegt generierte provider-project-ids nach FESTER token-zahl; 'bh-prod-my-app-dev' (bindestrich-im-app-namen, vier tokens nach 'bh-') gilt als unloesbar und wird von SourceMatchesEnvironment WEGGEFILTERT — app-scoped metrics/logs/traces fuer gueltige namen mit bindestrich verschwinden stillschweigend. das bestehende prod/stage-beispiel (Class=SourceApplication, target bhm-abc:9464) laeuft gar nicht durch projectTokenFromID und ist fuer den fall blind. befehl r4: moredeutigkeits-loesung OHNE neues feld + regression (a) bh-prod-my-app-dev wird mit 'prod' gefunden, (b) mit 'stage' nicht, (c) mehrdeutig/zerstoert bleibt unsichtbar, (d) provider-target-fall bleibt gruen; nachweis dass (a) durch projectTokenFromID laeuft; dann gofmt/build/vet, hopf, push mit ancestor-zeug d1fcfdf6b..neu, exact-head CI terminal, akte fix-4.md. wenn ohne neues feld nicht eindeutig loesbar: QUESTION mit zwei varianten statt raten
+
+zweite abnahme-runde auf demselben head d1fcfdf6b (kommentar 7004115394) — vier nachtraege an die lane weitergeleitet: (1) die claimed hyphenated-provider-regression nutzt Class=SourceApplication + bhm-target und laeuft damit an trailingProjectEnvironment VORBEI; (2) die in fix-3.md (zeile 99) behauptete reserved-prometheus-token regression existiert im code nicht; (3) pflicht-faelle: (a) provider-shaped 'bh-local-demo-prod-west' fuer 'west'-caller AUSGESCHLOSSEN (mehrdeutig => fail-closed), (b) reserved token 'prometheus' => fail-closed, (c) legacy bare-ID => fail-closed, (d) echt generiertes namespaced target mit bindestrich-app-name bleibt bei PASSENDER environment SICHTBAR; je fall die datei:zeile, die nachweist dass sie durch projectTokenFromID (environment.go:74) und trailingProjectEnvironment (environment.go:88, regel in zeilen 100-107, feste pruefung zeile 61) laufen. (4) fix-3.md war NIE gepusht (auf origin/main liegt nur fix-1.md; die datei lag untracked in der alten kopie /var/tmp/m121-efilter-wt/env-filter-fix/fix-3.md, 112 zeilen) — sicherheit durch die r4-lane: read-only kopieren, in fix-4.md weiterfuehren, zeile-99-behauptung berichtigen, fix-4.md im evidence-feld dieser karte verlinken. #1691 bleibt bis auf weiteres UNMERGED

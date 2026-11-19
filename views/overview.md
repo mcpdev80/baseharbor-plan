@@ -34,7 +34,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261117-hunt-signals-106](../tasks/t-20261117-hunt-signals-106.md) | CLI destructive-consent paths still emit German Achtung fall | active | not set | worker-ornith1.5 | — | [baseharbor#1683](https://github.com/mcpdev80/baseharbor/pull/1683) |
 | [t-20261119-coord-r28-drift-sweep](../tasks/t-20261119-coord-r28-drift-sweep.md) | Drift-fahrt ueber die 25 lebend-kandidaten: ahead/behind, merge-tree-konflikte, schreibset-kollisionen, hopf-reihenfolge | active | not set | drift-sweep (codeman 6d23313f) | — | — |
 | [t-20261119-hunt-metrics-appclass-log-writer](../tasks/t-20261119-hunt-metrics-appclass-log-writer.md) | Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) | active | not set | 0428-122 r3 (wartet auf sitz, nach 121-merge) | — | [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692) |
-| [t-20261119-hunt-metrics-env-filter-list-pfade](../tasks/t-20261119-hunt-metrics-env-filter-list-pfade.md) | Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) | active | not set | 0428-121 r4 (codeman 02edbbbf, frische lane) | — | [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691) |
+| [t-20261119-hunt-metrics-env-filter-list-pfade](../tasks/t-20261119-hunt-metrics-env-filter-list-pfade.md) | Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) | active | not set | 0428-121 r4 (codeman 02edbbbf, frische lane nach entlassung der r3-lane; KEINE dublette) | — | [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691) |
 
 ## Ready for review
 
