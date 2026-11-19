@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** coord · **Priority:** normal  
     **Waiting:** batch17 APPROVE CONTENT (design-akte, kein PR-objekt); offen: owner-entscheidung queue-124  
-    **Needs:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md)  
+    **Needs:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w089-0428-089-secureaccess (codeman b60c11a1, flash)
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Integrate Perses with existing management access, verified transport and authorization; inspect selected upstream version…"
 kanban_title: 0428-089 · Protect Perses operator access
 priority: normal
@@ -19,19 +19,19 @@ prs: [mcpdev80/baseharbor#1599]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5027ca029761ebf485b06a/evidence/r28-welle1-2026-11-15/perses-secure-access/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1599-0428-089.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44544947599", "https://github.com/mcpdev80/baseharbor/actions/runs/44551362534"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5027ca029761ebf485b06a/evidence/r28-welle1-2026-11-15/perses-secure-access/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1599-0428-089.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44544947599", "https://github.com/mcpdev80/baseharbor/actions/runs/44551362534", "https://github.com/mcpdev80/baseharbor/commit/6e87ddcb4dc87c20876ae0045bf7ac5bbb5311d0"]
 ---
 
-- [ ] t-20261114-r28-perses-secure-access · Protect Perses operator access #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [x] t-20261114-r28-perses-secure-access · Protect Perses operator access #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w089-0428-089-secureaccess (codeman b60c11a1, flash) · **Priority:** normal  
     **PR:** [baseharbor#1599](https://github.com/mcpdev80/baseharbor/pull/1599)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5027ca029761ebf485b06a/evidence/r28-welle1-2026-11-15/perses-secure-access/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1599-0428-089.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44544947599), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44551362534)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5027ca029761ebf485b06a/evidence/r28-welle1-2026-11-15/perses-secure-access/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1599-0428-089.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44544947599), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44551362534), [proof 5](https://github.com/mcpdev80/baseharbor/commit/6e87ddcb4dc87c20876ae0045bf7ac5bbb5311d0)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
 **Required by:** [t-20261114-r28-perses-contact-routing](t-20261114-r28-perses-contact-routing.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
@@ -109,3 +109,5 @@ EIGENE KORREKTUR MEINES HANDOFF-PLANS: ich hatte eine neue lane 'w089-0428-089-c
 Independent read-only review on PR #1599 head `97d88ffefa0c89281d0c1b776f47b46f4449123f` (2026-11-19): Compose combines `network_mode` with `networks`, and Perses v0.55.1 rejects enabled auth with no provider. Exact-head run 44582754552 completed successfully: Go shards, build/vet, docs checks and required aggregate passed; runtime/native gates skipped. See [review evidence](../evidence/r28-welle4-2026-11-19/codex-review-wave/1599-0428-089-independent-review.md). No merge recommendation.
 
 fix-7 final auf e43552734, run 44598112016 completed/success am exaktkopf; runtime-/HA-zellen SKIPPED (owner-draht 114(a) ORAS-install)
+
+CODEX-REVIEW APPROVE auf exaktkopf e435527348587d6246b0af600c6bd82717ce9c32 (akte 1599-0428-089-r2.md), CODEX-MERGE squash auf develop 6e87ddcb4dc87c20876ae0045bf7ac5bbb5311d0 (merged_at 2026-11-19T20:04:22Z). INHALTSBEWEIS VON MIR NACHGEMESSEN: 34 diff-dateien, 34/34 blobs identisch gegen develop, 0 abweichend, 0 fehlend. lauf 44598112016 completed/success am exaktkopf; runtime-/HA-zellen SKIPPED (owner-draht 114(a)) — die karte war trotzdem abnehmbar, weil der compose-/config-pfad durch die echten validierungs-tests (perses_fix7_regression_test.go:11/:19/:48, inkl. docker compose config -q) belegt ist. variantes A (gateway-alias am bestehenden spec.NetworkAliases, network_mode exklusiv) wie entschieden gebaut.
