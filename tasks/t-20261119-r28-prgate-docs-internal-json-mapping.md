@@ -7,7 +7,7 @@ areas: [ci, docs]
 release: v0.4.28
 version: ""
 parent: ""
-owner: "Owner-Ausfuehrung (scripts/** + .github/** ist Owner-Scope); auf bitte der unabhaengigen review in abgesetztem worktree ausgefuehrt, Coordinator dispatcht dafuer KEINE worker-lane"
+owner: "Codex team (Owner-delegated Maintainer)"
 kanban_status: active
 kanban_lane: active
 blocker: ""
@@ -15,7 +15,7 @@ wait_reason: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
 evidence:
-  - "https://github.com/mcpdev80/baseharbor/blob/1019190d8dc0ecac7693f3461153e76be0e2cb8a/scripts/pr-gate-plan.py"
+  - "https://github.com/mcpdev80/baseharbor/pull/1705"
 resolution: ""
 created: 2026-11-19
 card_short_title: "docs/internal/**/*.json faellt"
@@ -25,9 +25,9 @@ prs: [mcpdev80/baseharbor#1705]
 
 - [ ] t-20261119-r28-prgate-docs-internal-json-mapping · docs/internal/**/*.json faellt durch die DOC_CHECKS-verzweigung von pr-gate-plan.py und wird nie validiert #task #release/v0-4-28 #status/active #view/active #area/ci #area/docs #kind/task
     <!-- generated:card -->
-    **Owner:** Owner-Ausfuehrung (scripts/\*\* + .github/\*\* ist Owner-Scope); auf bitte der unabhaengigen review in abgesetztem worktree ausgefuehrt, Coordinator dispatcht dafuer KEINE worker-lane  
+    **Owner:** Codex team (Owner-delegated Maintainer)  
     **PR:** [baseharbor#1705](https://github.com/mcpdev80/baseharbor/pull/1705)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/blob/1019190d8dc0ecac7693f3461153e76be0e2cb8a/scripts/pr-gate-plan.py)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1705)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +35,7 @@ prs: [mcpdev80/baseharbor#1705]
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261119-r28-en-docs-warning-term](t-20261119-r28-en-docs-warning-term.md)  
-**Owner:** Owner-Ausfuehrung (scripts/** + .github/** ist Owner-Scope); auf bitte der unabhaengigen review in abgesetztem worktree ausgefuehrt, Coordinator dispatcht dafuer KEINE worker-lane  
+**Owner:** Codex team (Owner-delegated Maintainer)  
 **Priority:** not set  
 **PRs:** [baseharbor#1705](https://github.com/mcpdev80/baseharbor/pull/1705)  
 **Source:** 
@@ -78,4 +78,4 @@ never be accepted on its own hopf - the gap is in the path mapping, not in the d
 - A hosted run on the exact head shows `documentation-audit` executed for a `docs/internal/*.json` diff.
 - Evidence akte: `evidence/r28-welle4-2026-11-19/prgate-docs-internal-mapping/fix-1.md`.
 
-Owner-Ausfuehrung laeuft (scripts/** ist Owner-Scope, sagt die karte selbst): #1705 head 23e91f00f base ab77e29d7 = LATEST BASE, draft=false, zwei dateien scripts/pr-gate-plan.py + scripts/test_pr_gate_plan.py, positive und negative tests angemeldet. Exakter-head-lauf noch nicht terminal — daher active, nicht review. Die meldung an mich: #1697 bleibt hinter #1705 queued, hop nach deren merge
+Current execution: Codex team (Owner-delegated Maintainer) owns PR #1705. The current exact head is `0b5dd34713fe778aaf4d79dfa0b2a0600fc50e6a` on base `ab77e29d7c1cf981777e1069e51dfff82ffcf654`; hosted run `44619193702` is still pending. Local `scripts/ci-fast-check.sh` passed with 286 tests. An independent review found no blocker; it prompted the added positive `.yaml` selector test. After the PR checks pass and #1705 merges, #1697 must hop and show `documentation-audit` executed for its internal JSON change before 0428-144 is accepted.
