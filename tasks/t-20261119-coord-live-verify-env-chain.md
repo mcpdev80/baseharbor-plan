@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: ""
-kanban_status: planned
-kanban_lane: ready
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-130 · Live-verify der gemergten
 priority: ""
@@ -19,18 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verify-env-chain/befund-1.md"]
 ---
 
-- [ ] t-20261119-coord-live-verify-env-chain · Live-verify der gemergten environment-kette (0428-125 + 0428-126 + 0428-115) auf develop #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [x] t-20261119-coord-live-verify-env-chain · Live-verify der gemergten environment-kette (0428-125 + 0428-126 + 0428-115) auf develop #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verify-env-chain/befund-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** unassigned  
@@ -82,3 +82,5 @@ Dachkarte fuer eine live-verify-runde ueber die im merge-window gemergte environ
 
 ## Acceptance
 je these ein beleg (targeted unit-lauf oder read-only-inspektion mit file:zeile) bestaetigt/widersprochen; akte evidence/r28-welle4-2026-11-19/verify-env-chain/befund-1.md; widerspruch = severity + kartenwuerdigkeit.
+
+alle vier thesen bestaetigt mit fernbelegten W-pflichten: T1 115 (W2 50f87cfb8 exit 0; docs/decisions/0020:43 + docs/de/decisions/0020:44 + SQL connector_enrollment.go:126-128), T2 125 (W2 21161b101; internal/metrics/runtime_source.go:219/223 + TestRuntimeSourceSeparatesTargetFilesPerEnvironment PASS), T3 126 (W2 da76c5cf9 + TestProviderImpactMarkerPrintedOnEveryAcknowledgingStage PASS gegen TestOrdinaryYesNeverAcknowledgesProviderEffects), T4 querkette (TestCross0428ChainEnvironmentMarkerGuards PASS + mutation control). akte d826934c, host besenrein. NEBFUND -> neue karte: EN-doku nennt 'Achtung' wo der ausgelieferte EN-katalog 'Warning' sagt
