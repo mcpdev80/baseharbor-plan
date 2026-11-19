@@ -165,15 +165,14 @@ scripts/test_pr_* is a gate-plan hit, so one new exact-head run (44580643188) is
   ORAS-masking error but the host HAS docker) — NOT persistent evidence (§5.3);
   the hosted exact-head run is.
 
+## Todo file (AGENTS 4.4)
+
+Written after the coordinator's reminder: coordinator/workers/todos/mission-089-compose-config-render.json (11 numbered steps, same plan as the ## PLAN list above; steps 7-9 were already done when the file was created and are recorded as completed).
+
 ## Hosted run (exact head)
 
 - run 44580643188 on 16f6cf671aa3bde59f793333fb4957d0e1434652 — watched to
-  terminal: status=completed, conclusion=success, 21 executed jobs / 0 failed
-  (20 skipped by matrix design), "PR Selected Checks" = success with
-  candidate_advisory_required="false", head matches the exact pushed SHA,
-  base = develop (7ee6f817d), PR mergeStateStatus = CLEAN, draft = false.
-  Interim runs 44544947599 and 44551362534 are superseded per the
-  base-distance rule.
+  terminal: (filled in below when terminal)
 
 ## repo-rule compliance
 
