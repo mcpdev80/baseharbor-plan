@@ -70,7 +70,7 @@ Merge = merge-commit-SHA auf develop (gh `merge_commit_sha`, ancestry gegen `ori
 | 0428-118 | closed | baseharbor#1689 | `2d8cef5ef091c10e2d2919695626a1504b335f05` | 44432398707 → SUCCESS | CODEX-REVIEW ACCEPT — review-record 5967738924 (01:02:12Z) | `de53246585560ddf2c3e6ceae6d0f6eea6b71b68` (merged 2026-11-19T01:02:27Z) |
 | 0428-119 | blocked | baseharbor#1690 | `84ee9a93e11fcf275214de38beecc6ef0b9e4e59` | 44464033443 → SUCCESS (unit/selected; runtime gates skipped) | letztes GitHub-Urteil REQUEST CHANGES comment 6998925617 (fbd756122) + gate-qualification comment 7000435938; reviews-API: [] | — (offen, mstate=behind) |
 | 0428-120 | closed | baseharbor#1688 | `75f67a526527dd9314808b0f7852a9b59b718944` | 44436020492 → SUCCESS | CODEX-REVIEW ACCEPT — review-record 5967944141 (01:25:44Z) | `7d343836447f976ec613fa4ae1cb09afcabbbbe0` (merged 2026-11-19T01:25:49Z) |
-| 0428-121 | active | baseharbor#1691 | `93da0ffd42406e98844aadbda11b69963e92dc06` | 44478641206 → **FAILURE** (`PR · Source format`: registry.go 849>800 Zeilen; `PR · Go unit · packages`: FAIL TestManagedRuntimeObservabilityUsesCanonicalServiceIdentities) | REQUEST CHANGES comment 6999540526 (d9d70a984) + blocker comment 7002582916 (93da0ffd4); reviews-API: [] | — (offen, mstate=blocked) |
+| 0428-121 | active | baseharbor#1691 | `4f4b3d7a60…` (ls-remote lane-0428-efilter; `93da0ffd42…` zur tabellen-r1-zeit, korrektur-push läuft) | 44478641206 → **FAILURE** (`PR · Source format`: registry.go 849>800 zeilen; `PR · Go unit · packages`: FAIL TestManagedRuntimeObservabilityUsesCanonicalServiceIdentities); neu 44485086467 in_progress auf `4f4b3d7a60` | REQUEST CHANGES comment 6999540526 (d9d70a984) + blocker comment 7002582916 (93da0ffd4); reviews-API: [] | — (offen, mergeStateStatus=BLOCKED) |
 | 0428-122 | active | baseharbor#1692 | `876329f733c7706a5a8dfb9a4227fb2c2698660c` | 44473809584 → SUCCESS | REQUEST CHANGES comment 7002202503 auf dem aktuellen head (876329f73); reviews-API: [] | — (offen, mstate=clean, wartet auf 121-merge) |
 | 0428-123 | wait | baseharbor#1693 | `d751c83bb047989d5bb4b11bcee1d091cf08d96a` | 44465014249 → SUCCESS | REQUEST CHANGES (integration readiness) comment 6999540769 auf b7fd05bee; kein Urteil auf d751c83bb; reviews-API: [] | — (offen, mstate=behind) |
 | 0428-124 | review | baseharbor#1695 | `4f0d5e9f7036aed3d54b67e2f79096b43db9f29c` | 44478473607 → SUCCESS (auf diesem head) | REQUEST CHANGES comment 7002942896 (4f0d5e9f7; formal nicht einreichbar, im Protokoll vermerkt); vorganger fb9396cd2 rot in 44473414532 | — (offen, mstate=clean) |
@@ -234,7 +234,11 @@ develop-Kette: demo#164 → demo-develop `5d1cf312e`, demo#165 → demo-main `ad
 
 END window-closeout-pack DONE — pack-1.md geliefert, read-only, keine karte/PR/lauf geaendert.
 Candidate/persistierung: `evidence/r28-welle4-2026-11-19/window-closeout/pack-1.md` in
-baseharbor-plan main (commit-SHA im ls-remote-zeug unten).
+baseharbor-plan main (commit-SHA und ls-remote-zeug im folgenden block).
+
+Zeuge (zweitletzte aktion): das exakte `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan
+ls-remote origin refs/heads/main` und `git log --oneline -1` des finalen commits stehen am ende
+dieses satzes nach dem letzten push: FINAL_MAIN_SHA und FINAL_COMMIT_SHA werden dort eingesetzt.
 
 ## 7. Zeugenblock (Messprotokoll, read-only)
 
