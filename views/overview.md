@@ -36,7 +36,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261118-app-env-recovery-flags-claim](../tasks/t-20261118-app-env-recovery-flags-claim.md) | align app env recovery-flag docs with the real command contract | active | not set | coord | — | [baseharbor#1687](https://github.com/mcpdev80/baseharbor/pull/1687) |
 | [t-20261118-diag-exec-iftrue-leak](../tasks/t-20261118-diag-exec-iftrue-leak.md) | fix DIAG_EXEC if-true leak in app_edit_apply.go | active | not set | Flash (codeman d5ecb550 / 0428-118) | — | — |
 | [t-20261118-mcp-partial-change-success](../tasks/t-20261118-mcp-partial-change-success.md) | MCP/HTTP edit path must fail loud on partial provider-change result | active | not set | w1-lane-5584d84a (0428-120) | — | — |
-| [t-20261118-ownership-stale-consent-hardening](../tasks/t-20261118-ownership-stale-consent-hardening.md) | harden provider ownership chain vs stale-impact-consent | active | not set | — | — | — |
+| [t-20261118-ownership-stale-consent-hardening](../tasks/t-20261118-ownership-stale-consent-hardening.md) | harden provider ownership chain vs stale-impact-consent | active | not set | w99-0428-119 (codeman 9a898351) | — | — |
 
 ## Ready for review
 

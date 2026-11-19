@@ -3,6 +3,7 @@ id: t-20261118-ownership-stale-consent-hardening
 release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
+owner: w99-0428-119 (codeman 9a898351)
 kanban_status: active
 card_number: 0428-119
 card_short_title: harden Prov ownership chain vs
@@ -12,14 +13,14 @@ kanban_title: 0428-119 · harden Prov ownership chain vs
 
 - [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
+    **Owner:** w99-0428-119 (codeman 9a898351)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w99-0428-119 (codeman 9a898351)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
