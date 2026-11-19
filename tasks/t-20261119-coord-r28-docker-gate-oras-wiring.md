@@ -89,3 +89,5 @@ Ein pre-merge-pfad existiert, der die docker-lifecycle-zelle auf dem EXAKTEN kan
 Owner-scope: workflow-Dateien und runner-/host-praesenz von ORAS (trust-plane). Kein lane-zugriff.
 
 diagnose-phase laeuft (read-only A/B-probe: develop-push-route SUCCESS vs dispatch-route ORAS-abort), korrektur selbst bleibt owner-scope (.github + runner-trust-plane). KEIN produkt-aenderung, KEIN security.go-Eingriff (owner-wort 2026-11-19)
+
+A/achse fernbelegt: dispatch auf develop-kopf 44466684726 FAILURE vs push auf develop 44461341870/44467228776 SUCCESS — pfad-abhaengig, nicht kandidaten-abhaengig. lane liefert nur noch den trennenden schritt mit datei:zeile + akte probe-1.md. korrektur selbst bleibt owner-scope (.github dispatch-pfad + runner-ORAS)
