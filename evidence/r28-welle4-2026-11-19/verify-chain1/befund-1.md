@@ -104,6 +104,5 @@ END verify-chain1 DONE
 
 ### Publication witness (second-to-last action)
 
-- `git ls-remote origin main` (baseharbor-plan) → `bd752f7c104f40a5639a4cdbc868821b2d2f7bf3 refs/heads/main`
-- Evidence commits: `1194076b` (akte) and `bd752f7c` (witness commit, = origin/main head). The witness commit contains this file's full content including the final ls-remote line above (line added in the working tree before this commit; its own SHA is cited from the line above).
+- `git ls-remote origin main` (baseharbor-plan) → `85b26744888fbb9a76a153bef06f2a54865c99fc refs/heads/main` (= this final witness commit; remote file content verified present via `git show origin/main:evidence/r28-welle4-2026-11-19/verify-chain1/befund-1.md`). Earlier chain: 1194076b (akte) → bd752f7c (intermediate witness).
 - Race note: the planning repo was hot while this lane worked (main moved dc45bbc2 → 08c5b593 → 9b9514e9 → 1194076b → …); the first push hit a ref-lock race whose remote head already equalled this lane's 1194076b, and one later push needed a plain `git rebase origin/main` (no duplicate patch left, `git cherry` empty, workspace clean). No force at any point.
