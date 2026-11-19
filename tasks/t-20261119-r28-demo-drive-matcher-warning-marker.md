@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: 0428-129 (codeman 60be3d2d)
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-129 · drive.py matcher auf das
 priority: ""
@@ -19,19 +19,19 @@ prs: [mcpdev80/baseharbor-demo#165]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/demo-drive-matcher/fix-1.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/demo-drive-matcher/fix-1.md", "https://github.com/mcpdev80/baseharbor-demo/pull/165", "https://github.com/mcpdev80/baseharbor-demo/actions/runs/44477622615", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/129-demo-165.md"]
 ---
 
-- [ ] t-20261119-r28-demo-drive-matcher-warning-marker · Demo: drive.py matcher auf das Warning-marker-verhalten der annerkennenden stadien ziehen #task #release/v0-4-28 #status/review #view/review #kind/task
+- [x] t-20261119-r28-demo-drive-matcher-warning-marker · Demo: drive.py matcher auf das Warning-marker-verhalten der annerkennenden stadien ziehen #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** 0428-129 (codeman 60be3d2d)  
     **PR:** [baseharbor-demo#165](https://github.com/mcpdev80/baseharbor-demo/pull/165)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/demo-drive-matcher/fix-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/demo-drive-matcher/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-demo/pull/165), [proof 3](https://github.com/mcpdev80/baseharbor-demo/actions/runs/44477622615), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/129-demo-165.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** 0428-129 (codeman 60be3d2d)  
@@ -91,3 +91,5 @@ Folgekarte zu 0428-126 (core, PR #1696, gemeldet in evidence/r28-welle4-2026-11-
 Content-abhaengig von 0428-126 (merged oder abgenommen); basis ist develop des demo-repos.
 
 demo-seitig abgegeben: drive.py/new_edit.py nutzen jetzt EINE generierte regel auf der core-Warning-marker-basis aus #1696 ('Achtung:' nur als negativer guard), rote->gruene regression test_21..test_25, kandidat bc4c6113b auf lane-0428-demo-drive-matcher (basis demo origin/develop 5d1cf312e), run 44477622615 SUCCESS am exakten kopf, akte a372fe8c. OWNER-BEFUND: .github/workflows/pr-guided-consent.yml:5 triggert nur auf main — develop-kandidaten im demo-repo starten damit keine CI (aufgenommen in 0428-114)
+
+CODEX-REVIEW: ACCEPT at exact head bc4c6113be92599c962b2377b038173593483a18. The shared generated matcher covers marked/plain acknowledge and apply labels; production-path regression suite passes in exact-head PR run 44477622615 (41 seconds). CODEX-MERGE: squash merge adda7599cb5b79689702f6a63a5ca802179df967 verified as demo main. The current PR-gate workflow selects PRs to main only; develop-targeted candidates need the owner-scoped trigger fix tracked by 0428-114.
