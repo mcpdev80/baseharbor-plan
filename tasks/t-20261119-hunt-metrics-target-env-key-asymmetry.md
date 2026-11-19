@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: "worker (mission-targetenvkey, opencode-flash)"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-125 · Runtime-metrics
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-hunt-metrics-target-env-key-asymmetry · Runtime-metrics target-file-key fuehrt environment nicht, group-label schon — asymmetrische Zuordnung #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261119-hunt-metrics-target-env-key-asymmetry · Runtime-metrics target-file-key fuehrt environment nicht, group-label schon — asymmetrische Zuordnung #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** worker (mission-targetenvkey, opencode-flash)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** worker (mission-targetenvkey, opencode-flash)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

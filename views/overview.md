@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 11 |
+| active | 12 |
 | review | 23 |
 | wait | 13 |
 | blocked | 2 |
-| ready | 4 |
+| ready | 3 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
@@ -35,6 +35,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261117-observability-native-gate-bootstrap](../tasks/t-20261117-observability-native-gate-bootstrap.md) | CI: Run observability acceptance with verified ORAS bootstrap | active | not set | lane-113-pr1680-fixes (this session, intake per Hunt→Karte duty) | — | — |
 | [t-20261118-ownership-stale-consent-hardening](../tasks/t-20261118-ownership-stale-consent-hardening.md) | harden provider ownership chain vs stale-impact-consent | active | not set | codeman-9a898351 (w99-0428-119, claim c55a8b4f) | — | [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690) |
 | [t-20261119-hunt-metrics-appclass-log-writer](../tasks/t-20261119-hunt-metrics-appclass-log-writer.md) | Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) | active | not set | w99-0428-122 (codeman 5350d482) | — | [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692) |
+| [t-20261119-hunt-metrics-target-env-key-asymmetry](../tasks/t-20261119-hunt-metrics-target-env-key-asymmetry.md) | Runtime-metrics target-file-key fuehrt environment nicht, group-label schon — asymmetrische Zuordnung | active | not set | worker (mission-targetenvkey, opencode-flash) | — | — |
 
 ## Ready for review
 
@@ -95,7 +96,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261119-hunt-metrics-dualmatch-marker-docs](../tasks/t-20261119-hunt-metrics-dualmatch-marker-docs.md) | Warning/Achtung dual-match: ein CLI-Stadium druckt kein Warning + EN-Normdoku hinter rename zurueck | ready | not set | — | — | — |
-| [t-20261119-hunt-metrics-target-env-key-asymmetry](../tasks/t-20261119-hunt-metrics-target-env-key-asymmetry.md) | Runtime-metrics target-file-key fuehrt environment nicht, group-label schon — asymmetrische Zuordnung | ready | not set | — | — | — |
 | [t-20261119-hunt-metrics-verification-none-blind](../tasks/t-20261119-hunt-metrics-verification-none-blind.md) | verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe | ready | not set | — | — | — |
 
 ## By release
