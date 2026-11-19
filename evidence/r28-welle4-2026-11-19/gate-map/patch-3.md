@@ -34,10 +34,9 @@ SCHRITT 0 (mission quote): mission-tag `gate-map-patch-v3`; first three lines of
    gemeinsame kopie), host besenrein (vorher/nachher docker ps -a + podman ps -a, 'cleanliness:'-zeile; ambient
    bh-local-shared-* und core-*/bilder fremder karren unangetastet), revision-labels, END. Mission-tag:
    gate-map-patch-v3.
-3. DANN — (Zeile 2 endet hier; Zeile 3 der Datei): alle Hunk-Bedingungen erfüllt; es folgen in der Datei nur die
-   GRENZEN- und END-Pflichten innerhalb desselben Absatzes wie in Zeile 2 der Missionsbeschreibung zusammengefasst
-   (keine separaten zusätzlichen Sätze; siehe Zeilen 1–2 oben, die den vollständigen Inhalt der Datei wiedergeben —
-   die Datei hat genau 2 Zeilen).
+3. Zeile 3 der Datei existiert nicht — `/var/tmp/missions/mission-gatemap-patch-v3-tight.md` hat genau 2 Zeilen
+   (Zeile 1: SCHRITT 0/Abgrenzung, Zeile 2: Inhalt + GRENZEN + Mission-tag). Zitiert sind hier beide Zeilen in
+   ihrem Wortlaut oben; SCHRITT 0 ist damit erfüllt.
 
 ## PLAN
 
