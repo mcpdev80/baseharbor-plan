@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w99-0428-124 (codeman 2a92c21e)
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-124 · none Metriken erzeugen weder
 priority: ""
@@ -18,21 +18,22 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1695]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "korrektur-lane wartet auf freien sitz; recipe von CODEX-REVIEW (CompositionState in den echten composition-pfad + real-seam regression)"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verification-none/fix-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1695.md"]
 - https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verification-none/fix-1.md
 ---
 
-- [ ] t-20261119-hunt-metrics-verification-none-blind · verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261119-hunt-metrics-verification-none-blind · verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** w99-0428-124 (codeman 2a92c21e)  
     **PR:** [baseharbor#1695](https://github.com/mcpdev80/baseharbor/pull/1695)  
+    **Waiting:** korrektur-lane wartet auf freien sitz; recipe von CODEX-REVIEW (CompositionState in den echten composition-pfad + real-seam regression)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verification-none/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1695.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verification-none/fix-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w99-0428-124 (codeman 2a92c21e)  
@@ -85,3 +86,5 @@ Erlaubtes write-set (vorschlag, lane prueft): target composition. Evidence-Quell
 124 abgabefertig: PR #1695 head cc25c17e1 (rebased auf develop deeeb6477), CI run 44462738608 TERMINAL SUCCESS, akte fix-1.md publiziert (plan origin/main 206d0bf4). red->green verifiziert: composition-counter meldet verification:none explizit statt still null targets
 
 CODEX-REVIEW REQUEST CHANGES at exact head cc25c17e17d989710923b93d7e629b14a3c0a3e0: CompositionState is computed but has no production consumer; cmd/baha output remains generic. TestRedAllVerificationNoneHasNoCompositionCounter only asserts the existing skips and does not fail on the base. Recipe: wire the state to the operator-facing composition path and add a real-seam output regression plus a true base-red witness. Run 44462738608 is SUCCESS but cannot replace the missing behavior. Return to review after correction and fresh exact-head checks.
+
+REQUEST_CHANGES auf cc25c17e1: ProviderFiles.CompositionState/ProviderSourcesCompositionState werden produktiv nirgends verbraucht, cmd/baha/app_metrics.go druckt weiter den alten zustand. rezept: verdrahten in den operator-facing pfad, regression mit null-target-grund + positiver fall + unveraenderter fall
