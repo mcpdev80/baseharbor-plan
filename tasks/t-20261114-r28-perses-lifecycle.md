@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 8c2da3ba
-kanban_status: review
-kanban_lane: review
+owner: 0428-084 (codeman c319dac2-7211-4b3e-ac71-45d56b08d1c0)
+kanban_status: active
+kanban_lane: active
 kanban_summary: Guide enable/status/disable and ownership-safe removal of optional Perses using the accepted CLI contract; preserve monitoring…
 kanban_title: 0428-084 · Perses lifecycle commands
 priority: normal
@@ -23,19 +23,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-lifecycle · Perses lifecycle commands #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [ ] t-20261114-r28-perses-lifecycle · Perses lifecycle commands #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 8c2da3ba · **Priority:** normal  
+    **Owner:** 0428-084 (codeman c319dac2-7211-4b3e-ac71-45d56b08d1c0) · **Priority:** normal  
     **PR:** [baseharbor#1598](https://github.com/mcpdev80/baseharbor/pull/1598)  
     **Needs:** [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** 8c2da3ba  
+**Owner:** 0428-084 (codeman c319dac2-7211-4b3e-ac71-45d56b08d1c0)  
 **Priority:** normal  
 **PRs:** [baseharbor#1598](https://github.com/mcpdev80/baseharbor/pull/1598)  
 **Source:** 
@@ -78,3 +78,5 @@ Prerequisites are encoded in `depends_on`. One worker per card/branch/PR, no con
 Supersedes [t-20261113-r28-grafana-lifecycle](t-20261113-r28-grafana-lifecycle.md) under the [Owner decision](../decisions/2026-11-14-perses-replaces-grafana-v0428.md).
 
 delivered option-1 slice: head bcd13ddcb62, 14 tests, ci dispatcht; runtime-e2e deferred (frost)
+
+hopf-runde angesetzt: #1598 war 'dirty' (merge-konflikt) UND draft; lane fuehrt monotonen merge-hopf auf develop aus, loest perses-konflikte inhaltserhaltend, haelt die 800-zeilen-grenze (source-readability-audit) und promoted den PR, bevor sie den exact-head-lauf beobachtet (akte perses-lifecycle-hopf/fix-1.md). SERIELLL mit 0428-076/#1597: dieselbe perses-dateimenge, daher noch nicht parallel angesetzt
