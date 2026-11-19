@@ -29,7 +29,6 @@ Owner decision (2026-11-17): Unblock for implementation. Integrate the already m
     <!-- generated:card -->
     **Owner:** Codex  
     **PR:** [baseharbor#1677](https://github.com/mcpdev80/baseharbor/pull/1677)  
-    **Needs:** [t-20261117-docker-loki-ingestion-timeout](t-20261117-docker-loki-ingestion-timeout.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44031866829), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1679), [proof 5](https://github.com/mcpdev80/baseharbor/commit/0ec4706b12c8fa869a2c23db18b6cab4f91f2178)  
     <!-- /generated:card -->
 

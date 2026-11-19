@@ -11,14 +11,14 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 10 |
-| review | 27 |
+| review | 26 |
 | wait | 13 |
 | blocked | 1 |
 | ready | 2 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
-| closed | 300 |
+| closed | 301 |
 
 ## Active
 
@@ -30,7 +30,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | CLI redesign: Organization environment reconciliation | active | high | welle2-056-cli2-org-env | [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) (open) | — |
 | [t-20261115-r28-podman-runtime-performance](../tasks/t-20261115-r28-podman-runtime-performance.md) | Speed up Podman lifecycle | active | high | ChatGPT | — | [baseharbor#1600](https://github.com/mcpdev80/baseharbor/pull/1600) |
 | [t-20261116-r28-guided-rootless-bootstrap](../tasks/t-20261116-r28-guided-rootless-bootstrap.md) | Guided rootless runtime prerequisite repair | active | high | ChatGPT | — | [baseharbor#1664](https://github.com/mcpdev80/baseharbor/pull/1664) |
-| [t-20261117-hunt-signals-102](../tasks/t-20261117-hunt-signals-102.md) | application-Klasse fehlt in der Signal-Registry | active | not set | Codex | [t-20261117-trace-probe-adapter-gap](../tasks/t-20261117-trace-probe-adapter-gap.md), [t-20261117-docker-loki-ingestion-timeout](../tasks/t-20261117-docker-loki-ingestion-timeout.md) (open) | [baseharbor#1677](https://github.com/mcpdev80/baseharbor/pull/1677) |
+| [t-20261117-hunt-signals-102](../tasks/t-20261117-hunt-signals-102.md) | application-Klasse fehlt in der Signal-Registry | active | not set | Codex | [t-20261117-trace-probe-adapter-gap](../tasks/t-20261117-trace-probe-adapter-gap.md), [t-20261117-docker-loki-ingestion-timeout](../tasks/t-20261117-docker-loki-ingestion-timeout.md) | [baseharbor#1677](https://github.com/mcpdev80/baseharbor/pull/1677) |
 | [t-20261117-hunt-signals-106](../tasks/t-20261117-hunt-signals-106.md) | CLI destructive-consent paths still emit German Achtung fall | active | not set | worker-ornith1.5 | — | [baseharbor#1683](https://github.com/mcpdev80/baseharbor/pull/1683) |
 | [t-20261117-observability-native-gate-bootstrap](../tasks/t-20261117-observability-native-gate-bootstrap.md) | CI: Run observability acceptance with verified ORAS bootstrap | active | not set | lane-113-pr1680-fixes (this session, intake per Hunt→Karte duty) | — | — |
 | [t-20261118-ownership-stale-consent-hardening](../tasks/t-20261118-ownership-stale-consent-hardening.md) | harden provider ownership chain vs stale-impact-consent | active | not set | w99-0428-119 (codeman 9a898351) | — | — |
@@ -59,7 +59,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) | Launch optional Perses | review | normal | worker m088-pluginextract (coordinator handover 2026-11-18/19, r2 plugin-extract correction round) | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md) | [baseharbor#1592](https://github.com/mcpdev80/baseharbor/pull/1592) |
 | [t-20261114-r28-perses-secure-access](../tasks/t-20261114-r28-perses-secure-access.md) | Protect Perses operator access | review | normal | coord | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) (open) | [baseharbor#1599](https://github.com/mcpdev80/baseharbor/pull/1599) |
 | [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | Connect Perses Tempo | review | normal | coord | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) (open), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610) |
-| [t-20261117-docker-loki-ingestion-timeout](../tasks/t-20261117-docker-loki-ingestion-timeout.md) | Observability: Docker Loki provider ingestion gate times out | review | not set | coord | [t-20261117-observability-native-gate-bootstrap](../tasks/t-20261117-observability-native-gate-bootstrap.md) (open) | [baseharbor#1680](https://github.com/mcpdev80/baseharbor/pull/1680) |
 | [t-20261117-hunt-uid-docs-110](../tasks/t-20261117-hunt-uid-docs-110.md) | Corrupt-config and mutation paths stay silent despite fail-l | review | not set | worker-flash (mission-110-mutation-loud) | — | [baseharbor#1682](https://github.com/mcpdev80/baseharbor/pull/1682) |
 | [t-20261118-app-env-recovery-flags-claim](../tasks/t-20261118-app-env-recovery-flags-claim.md) | align app env recovery-flag docs with the real command contract | review | not set | w01-0428-117 (codeman 27c5ae85) | — | [baseharbor#1687](https://github.com/mcpdev80/baseharbor/pull/1687) |
 | [t-20261118-diag-exec-iftrue-leak](../tasks/t-20261118-diag-exec-iftrue-leak.md) | fix DIAG_EXEC if-true leak in app_edit_apply.go | review | not set | w01-0428-118 (codeman d5ecb550) | — | [baseharbor#1689](https://github.com/mcpdev80/baseharbor/pull/1689) |
@@ -102,7 +101,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 7 open, 162 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 67 open, 70 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 66 open, 71 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))

@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coord
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: Remove the invalid Prometheus-attributed application workload log source that caused the Docker Loki ingestion gate to query a…
 kanban_title: 0428-113 · Docker Loki Prov ingestion
 priority: ""
@@ -19,20 +19,20 @@ prs: [mcpdev80/baseharbor#1680]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1680", "https://github.com/mcpdev80/baseharbor/commit/504a8678c2391cb379622fa02c2c8d9769fa192b", "https://github.com/mcpdev80/baseharbor/actions/runs/44057402207", "https://github.com/mcpdev80/baseharbor/actions/runs/44057603711", "https://github.com/mcpdev80/baseharbor/actions/runs/44057705927", "https://github.com/mcpdev80/baseharbor/actions/runs/44049176474"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1680", "https://github.com/mcpdev80/baseharbor/commit/504a8678c2391cb379622fa02c2c8d9769fa192b", "https://github.com/mcpdev80/baseharbor/actions/runs/44057402207", "https://github.com/mcpdev80/baseharbor/actions/runs/44057603711", "https://github.com/mcpdev80/baseharbor/actions/runs/44057705927", "https://github.com/mcpdev80/baseharbor/actions/runs/44049176474", "https://github.com/mcpdev80/baseharbor/commit/aadee4520ce5c01cf614662d078c05d684f44233", "https://github.com/mcpdev80/baseharbor/actions/runs/44396957393", "https://github.com/mcpdev80/baseharbor/actions/runs/44427948182"]
 ---
 
-- [ ] t-20261117-docker-loki-ingestion-timeout · Observability: Docker Loki provider ingestion gate times out #task #release/v0-4-28 #status/review #view/review #kind/task
+- [x] t-20261117-docker-loki-ingestion-timeout · Observability: Docker Loki provider ingestion gate times out #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** coord  
     **PR:** [baseharbor#1680](https://github.com/mcpdev80/baseharbor/pull/1680)  
     **Needs:** [t-20261117-observability-native-gate-bootstrap](t-20261117-observability-native-gate-bootstrap.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1680), [proof 2](https://github.com/mcpdev80/baseharbor/commit/504a8678c2391cb379622fa02c2c8d9769fa192b), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44057402207), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44057603711), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44057705927), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44049176474)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1680), [proof 2](https://github.com/mcpdev80/baseharbor/commit/504a8678c2391cb379622fa02c2c8d9769fa192b), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44057402207), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44057603711), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44057705927), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44049176474), [proof 7](https://github.com/mcpdev80/baseharbor/commit/aadee4520ce5c01cf614662d078c05d684f44233), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/44396957393), [proof 9](https://github.com/mcpdev80/baseharbor/actions/runs/44427948182)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261117-observability-native-gate-bootstrap](t-20261117-observability-native-gate-bootstrap.md)  
 **Required by:** [t-20261117-hunt-signals-102](t-20261117-hunt-signals-102.md)  
@@ -81,3 +81,5 @@ Remove the invalid Prometheus-attributed application workload log source that ca
 **ZWEIFEL - returned to the queue; no merge.** Product fix is in PR [#1680](https://github.com/mcpdev80/baseharbor/pull/1680), exact SHA 504a8678c2391cb379622fa02c2c8d9769fa192b. Local targeted/full application, observability, metrics, vet and build checks passed; PR #1680 workflow checks passed. Required runtime evidence is absent: Docker [run 44057603711](https://github.com/mcpdev80/baseharbor/actions/runs/44057603711) and Podman [run 44057705927](https://github.com/mcpdev80/baseharbor/actions/runs/44057705927) failed before test execution because ORAS was not installed (app_observability_acceptance_test.go:34); the ordinary PR native gate matrix was skipped for these internal/application paths. No Loki runtime assertion executed, so the fix is not accepted and PR #1680 remains open. Handoff to 0428-114 for existing CI owner to restore ORAS setup and route this source to both existing observability gates; next free implementation card is 0428-109.
 
 kandidat 46de903f1, exact-head run 44396957393 SUCCESS; runtime-Loki-akzeptanz blockiert durch nie-verdrahteten ORAS-schritt in observability-acceptance.yml (.github-befund mit file:line in fix-1.md, owner-stueck)
+
+## Owner closeout — 2026-11-19 (supersedes the prior ZWEIFEL handoff)\n\nOwner-authorized code acceptance: PR #1680 merged at aadee4520 after exact-head PR checks passed. The remaining Docker/Loki workflow wiring is an owner-scope .github debt, not an active product lane or blocker to the merged code slice. Follow-on PR #1677 integrated aadee4520 and its exact-head run 44427948182 passed the selected Docker observability gate. Podman was not selected for that PR by the trusted plan. Resolution is accepted under the owner disposition; no further 0428-113 lane is active.
