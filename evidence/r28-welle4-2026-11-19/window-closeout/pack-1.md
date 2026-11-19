@@ -233,9 +233,13 @@ develop-Kette: demo#164 → demo-develop `5d1cf312e`, demo#165 → demo-main `ad
 
 ## END
 
-END window-closeout-pack DONE — pack-1.md geliefert, read-only, keine karte/PR/lauf geaendert.
-Candidate/persistierung: `evidence/r28-welle4-2026-11-19/window-closeout/pack-1.md` in
-baseharbor-plan main. Karten-/PR-/lauf-inventar mit fernzeugen; read-only; revision r5.
+END window-closeout-pack DONE — pack-1.md geliefert (r5, revision-labels §5); read-only,
+keine karte/PR/lauf geaendert. Persistiert in baseharbor-plan main unter
+`evidence/r28-welle4-2026-11-19/window-closeout/pack-1.md`.
+Letztes ls-remote-zeug: `git -C .../baseharbor-plan ls-remote origin refs/heads/main`
+→ `35e13bf2dcdf8fc366641b1944a1b67a8ed2dcb9 refs/heads/main`. Kandidaten/akte auf origin/main
+vor diesem END-post (ls-tree-zeug oben). Host besenrein: keine container/netzwerke/volumes von
+dieser lane; ambient `bh-local-shared-*` bleiben unangetastet.
 
 Zeuge (zweitletzte aktion, exakte ausgabe):
 `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-remote origin refs/heads/main`
