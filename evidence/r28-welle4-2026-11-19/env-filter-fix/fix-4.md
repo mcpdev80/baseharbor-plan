@@ -103,11 +103,11 @@ env; `strings.Count` guard for the double-anchor case).
 
 ## HOST HYGIENE
 
-- before docker ps -a: PENDING
-- before podman ps -a: PENDING
-- after docker ps -a: PENDING
-- after podman ps -a: PENDING
-- cleanliness: PENDING
+- before docker ps -a: ambient bh-local-shared-* containers (openbao/postgres), none mine
+- before podman ps -a: podman not installed on this host
+- after docker ps -a: unchanged — this lane ran pure Go unit tests, no containers/compose
+- after podman ps -a: n/a (not installed)
+- cleanliness: clean. Zero containers created. /var/tmp/baha-r4 worktree removed after commit. Ambient bh-local-shared-* and core-* images left untouched.
 
 ## HANDOFF
 
