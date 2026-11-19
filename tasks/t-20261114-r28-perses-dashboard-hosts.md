@@ -20,13 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1602-0428-077.md"]
 ---
 
 - [ ] t-20261114-r28-perses-dashboard-hosts · Perses host and container dashboards #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** coord · **Priority:** normal  
     **PR:** [baseharbor#1602](https://github.com/mcpdev80/baseharbor/pull/1602)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1602-0428-077.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -77,3 +78,5 @@ Supersedes [t-20261113-r28-grafana-dashboard-hosts](t-20261113-r28-grafana-dashb
 akte dff7d9d5
 
 kandidat a4d0c3cb (echter merge-durchlauf, FF-push, run 44049875883 SUCCESS, mergeable unknown=>neu bestimmen)
+
+CODEX-REVIEW welle 4 = REQUEST CHANGES auf dem gepueften kopf (urteil 1602-0428-077.md). korrekture-runde ist vorgemerkt und wartet auf einen freien sitz: die vier perses-karten und 083 teilen sich dateien mit den laufenden lanen, darum kein paralleler start ohne write-set-nachweis. 083: 'runtime provisioning absent' (datasource wird gebaut, aber nicht in Perses bereitgestellt); 073: 'alert rule nicht ausgefuehrt/nicht persistiert' (persesAlertRealEvaluation); 077: 'catalog-availability aus host provider-metrics allein'; 089: 'PersesComposeServices rendert keine config (--config=/etc/perses/config.yaml) + loopback upstream'
