@@ -8,35 +8,36 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: Codex team (current chat)
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: Deliver RabbitMQ panels conditional on real supported metrics.
 kanban_title: 0428-079 · Perses messaging dashboards
 priority: normal
 depends_on: [t-20261114-r28-perses-dashboard-selection]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1603]
+prs: [mcpdev80/baseharbor#1701]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1701", "https://github.com/mcpdev80/baseharbor/commit/f9f02507ba69c178185c54987384cfc0fc6a006f", "https://github.com/mcpdev80/baseharbor/actions/runs/44581190442"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-messaging · Perses messaging dashboards #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-messaging · Perses messaging dashboards #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** Codex team (current chat) · **Priority:** normal  
-    **PR:** [baseharbor#1603](https://github.com/mcpdev80/baseharbor/pull/1603)  
+    **PR:** [baseharbor#1701](https://github.com/mcpdev80/baseharbor/pull/1701)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1701), [proof 2](https://github.com/mcpdev80/baseharbor/commit/f9f02507ba69c178185c54987384cfc0fc6a006f), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44581190442)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
 **Owner:** Codex team (current chat)  
 **Priority:** normal  
-**PRs:** [baseharbor#1603](https://github.com/mcpdev80/baseharbor/pull/1603)  
+**PRs:** [baseharbor#1701](https://github.com/mcpdev80/baseharbor/pull/1701)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -79,4 +80,4 @@ Supersedes [t-20261113-r28-grafana-dashboard-messaging](t-20261113-r28-grafana-d
 1. The RabbitMQ telemetry signal is explicitly UNAVAILABLE in this ecosystem (no native signal source; owner decision 2026-11-15: no exporter is introduced). This card therefore owns only the conditional eligibility layer: panels may appear if and only if a real supported signal is later validated.
 2. Board number: this card carries `0428-079` (kanban_title). There is no separate "rabbitmq-source" task; PR #1603 (`draft(0428-079)`) is this card's deliverable. Prior Luna note "RabbitMQ-source task absent in Planning" is resolved by this clarification.
 
-BOARD-KORREKTUR, wichtig: die karte stand auf review, aber #1603 ist closed-ohne-merge (merged=false, closed 2026-11-17T08:26Z, draft damals) und der head fed843492 ist KEIN ancestor von develop — der kandidat existiert also NICHT MEHR, es gibt nichts abzunehmen. Rueckstandiger zustand, kein fortschritt. Fuer eine neue abnahme braucht es eine frische lane mit eigenem PR auf dem aktuellen develop; niemand hat die arbeit verloren, sie ist nur nicht gelandet. Ich melde sie als freie, dep-freie arbeit
+2026-11-19: PR #1701 is the replacement candidate on current `develop` `7ee6f817dbff5a238bbc651315d6d76b3819fc91`; exact head `f9f02507ba69c178185c54987384cfc0fc6a006f`. Implemented a deterministic unavailable catalog document because `RabbitMQIntegration` declares no observability signals and the Owner decision forbids adding an exporter. Focused tests: `TestPersesMessagingCatalogIsUnavailableWithoutNativeSignal`, `TestPersesMessagingEligibilityFailsClosedForSelectionAndInventories`, `TestPersesMessagingEligibilityFailsClosedWithoutPinnedRelease`, `TestPersesMessagingNativeSignalRequiresBackendVerification`, `TestPersesMessagingUnavailableJSONMatchesGolden`, and `TestPersesMessagingAvailabilityMapIsExplicit`. `go test ./internal/metrics ./internal/capability`, `go build ./...`, `go vet ./...`, `bash scripts/source-readability-audit.sh`, and `git diff --cached --check` passed. Full `go test ./...` and exact-head PR run `44581190442` are pending; do not accept or merge until they finish green.
