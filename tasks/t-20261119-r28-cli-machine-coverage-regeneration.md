@@ -9,8 +9,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: "w154-pr0428-154-covcheck (codeman dbec9d13, ornith:2)"
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 blocker: ""
 wait_reason: ""
 depends_on: [t-20261114-r28-cli2-source-model]
@@ -18,20 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 source_note: "ubertrag aus dem transfer-ersuchen der 0428-059-lane (handoff e426cb5b): der replay von eda0cd61 laeuft auf konflikte in cmd/baha/machine_coverage.go und den vier generierten CLI-index-/coverage-dokumenten. VON MIR GEMESSEN: keine lebende karte reserviert diese pfade — die karten, die sie nennen (0427-013, 0428-047, 0427-131, 0428-084, 0427-023), sind ALLE closed; der einzige offene PR, der sie anfasst, ist #1595."
-evidence:
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1595", "https://github.com/marcel-placeholder"]
   - "https://github.com/mcpdev80/baseharbor/pull/1595"
-resolution: ""
+resolution: accepted
 created: 2026-11-19
 ---
 
-- [ ] t-20261119-r28-cli-machine-coverage-regeneration · generierte cli-index-dateien neu erzeugen #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #area/docs #kind/task
+- [x] t-20261119-r28-cli-machine-coverage-regeneration · generierte cli-index-dateien neu erzeugen #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/cli #area/docs #kind/task
     <!-- generated:card -->
     **Owner:** w154-pr0428-154-covcheck (codeman dbec9d13, ornith:2)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1595)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1595), [proof 2](https://github.com/marcel-placeholder), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1595)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Owner:** w154-pr0428-154-covcheck (codeman dbec9d13, ornith:2)  

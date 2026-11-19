@@ -10,7 +10,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 13 |
+| active | 12 |
 | review | 0 |
 | wait | 17 |
 | blocked | 11 |
@@ -18,7 +18,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | queued | 25 |
 | waiting | 179 |
 | backlog | 7 |
-| closed | 343 |
+| closed | 344 |
 
 ## Active
 
@@ -35,7 +35,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-hunt-metrics-registration-visibility-only](../tasks/t-20261119-hunt-metrics-registration-visibility-only.md) | Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export | active | not set | w123-pr1693-regvisibility-r7 (codeman 14e0c0d1, ornith:2) — akten-runde | — | [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693) |
 | [t-20261119-r28-bughunt-lifecycle-consent-desk](../tasks/t-20261119-r28-bughunt-lifecycle-consent-desk.md) | hunt lifecycle/consent desk | active | not set | Coordinator 9142ab1f (bahn: hunt-lane auf ornith:2, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/) | — | — |
 | [t-20261119-r28-bughunt-observability-desk](../tasks/t-20261119-r28-bughunt-observability-desk.md) | hunt observability desk | active | not set | Coordinator 9142ab1f (bahn: hunt-lane auf ornith:1, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/) | — | — |
-| [t-20261119-r28-cli-machine-coverage-regeneration](../tasks/t-20261119-r28-cli-machine-coverage-regeneration.md) | generierte cli-index-dateien neu erzeugen | active | not set | w154-pr0428-154-covcheck (codeman dbec9d13, ornith:2) | [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) | — |
 | [t-20261119-r28-window-integrity-verify](../tasks/t-20261119-r28-window-integrity-verify.md) | fensterstand gegen abnahmebelege pruefen | active | not set | w150-pr0428-150-windowverify | — | — |
 
 ## Ready for review
@@ -92,7 +91,7 @@ None.
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 7 open, 162 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 60 open, 113 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 59 open, 114 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
