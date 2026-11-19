@@ -147,7 +147,8 @@ After-census: `diff` of the before/after listings is empty for both hosts — `L
 - Base attestation (baseharbor-plan): `origin/main` was `85bc370092750a0613707c89b7289c475b0b89c8` when I cut; `git merge-base --is-ancestor 85bc3700 HEAD` → yes.
 - Log-line check: `git log --oneline origin/main..HEAD` before the push listed ONLY `ece32f3e evidence(hunt-metrics-918): Befund 7 runtime-metrics file key + full witness run` — no foreign candidate carried on top.
 - ls-remote witness (pasted before END):
-  `ece32f3e9e349194a87dbee97c639ad3d2ca9c13	refs/heads/main`
+  `9adf3380038beaedadc85fc82eebf530f87e7e1c	refs/heads/main`
+  (earlier in the same chain: `ece32f3e9e349194a87dbee97c639ad3d2ca9c13`, `fd0d42ccbd5be12cc88f15345430f025def3f33f`)
 - Path verified on `origin/main`: `git ls-tree -r --name-only origin/main -- evidence/r28-welle4-2026-11-19/hunt-metrics` → 18 entries (this akte + 17 probe files), and the file list is byte-identical to the local `scripts/` directory (`diff` clean).
 - Product base (baseharbor `develop`): `97a840e54dd037949cea3e6ae2614621f637eefb`, verified an ancestor of the read worktree HEAD; no product commit exists for this hunt (findings only).
 
