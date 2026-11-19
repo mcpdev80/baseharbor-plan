@@ -143,7 +143,7 @@ After-census: `diff` of the before/after listings is empty for both hosts — `L
 
 ## commit + evidence provenance
 
-- Evidence commits (baseharbor-plan `main`): `85bc3700` carried the first cut of this akte and 16 probe files (see the concurrent-publication note above); `ece32f3e` adds Befund 7, the 17th probe and the witness tally.
+- Evidence commits (baseharbor-plan `main`): `85bc3700` carried the first cut of this akte and 16 probe files (see the concurrent-publication note above); `ece32f3e` adds Befund 7, the 17th probe and the witness tally; `fd0d42cc` adds the provenance/END blocks; `9adf3380` adds the after-census diff and cleanliness line; `0f622b9b` is the final witness update (HEAD of `main` at END).
 - Base attestation (baseharbor-plan): `origin/main` was `85bc370092750a0613707c89b7289c475b0b89c8` when I cut; `git merge-base --is-ancestor 85bc3700 HEAD` → yes.
 - Log-line check: `git log --oneline origin/main..HEAD` before the push listed ONLY `ece32f3e evidence(hunt-metrics-918): Befund 7 runtime-metrics file key + full witness run` — no foreign candidate carried on top.
 - ls-remote witness (pasted before END):
