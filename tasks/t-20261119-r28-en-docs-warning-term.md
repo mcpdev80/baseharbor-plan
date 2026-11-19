@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: keine aktive session (bisheriger owner codeman bbd9132d ist nicht mehr da, 0 treffer in agent list) — UMSETZUNG reserviert an eine von mir zu dispatchende lane
-kanban_status: blocked
-kanban_lane: blocked
+owner: w131-0428-131-endocshowpf (codeman siehe board-zeile, ornith) — uebernommen, hopf + exakter lauf
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-131 · EN-Dokumentation nennt das
 priority: ""
@@ -17,25 +17,24 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1697]
 sources: []
-blocker: "unveraendert extern, grund aktuell gehalten (15:4xZ, von mir gegen gelesen): der PR #1697 ist inhaltlich pruefbar (head 3448f73e697cd7fdb1a338ef8422b5d484bbe814, base da76c5cf9, develop ist 1019190d8dc0ecac7693f3461153e76be0e2cb8a, mergeable_state 'behind', draft=false, EIGENE aenderungen = 3 dateien, 'git merge-tree --write-tree origin/develop <kopf>' = 0 konflikte). was fehlt, ist NICHT code, sondern der CI-draht: die kartenpflicht verlangt den bestehenden documentation-audit in der betroffenen CI-gruppe fuer docs/internal/*.json; dieser auswahl-punkt ist der (a)-punke des 114-drahtes und liegt beim owner (.github ist owner-scope, keine lane darf das setzen). ZUSAETzlich: unabhaengige review auf exakt diesem head/base ist BEANTRAGT und FREIGEGEBEN (see note) — review-only, kein merge"
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/en-docs-warning-term/fix-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44478483899", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1697.md"]
 ---
 
-- [ ] t-20261119-r28-en-docs-warning-term · EN-Dokumentation nennt das Marker-Wort 'Achtung' statt 'Warning' (i18n-drift nach 0428-126) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261119-r28-en-docs-warning-term · EN-Dokumentation nennt das Marker-Wort 'Achtung' statt 'Warning' (i18n-drift nach 0428-126) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** keine aktive session (bisheriger owner codeman bbd9132d ist nicht mehr da, 0 treffer in agent list) — UMSETZUNG reserviert an eine von mir zu dispatchende lane  
+    **Owner:** w131-0428-131-endocshowpf (codeman siehe board-zeile, ornith) — uebernommen, hopf + exakter lauf  
     **PR:** [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697)  
-    **Blocker:** unveraendert extern, grund aktuell gehalten (15:4xZ, von mir gegen gelesen): der PR \#1697 ist inhaltlich pruefbar (head 3448f73e697cd7fdb1a338ef8422b5d484bbe814, base da76c5cf9, develop ist 1019190d8dc0ecac7693f3461153e76be0e2cb8a, mergeab…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/en-docs-warning-term/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44478483899), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1697.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** keine aktive session (bisheriger owner codeman bbd9132d ist nicht mehr da, 0 treffer in agent list) — UMSETZUNG reserviert an eine von mir zu dispatchende lane  
+**Owner:** w131-0428-131-endocshowpf (codeman siehe board-zeile, ornith) — uebernommen, hopf + exakter lauf  
 **Priority:** not set  
 **PRs:** [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697)  
 **Source:** 
