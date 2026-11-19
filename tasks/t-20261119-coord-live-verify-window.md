@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: live-verify-window (codeman b9a62e5c-6102-4887-839a-f2d06a8ba31c)
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-138 · Accept-/smoke-pfade der
 priority: ""
@@ -19,17 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/78f02964/evidence/r28-welle4-2026-11-19/verify-window/befund-1.md"]
 ---
 
-- [ ] t-20261119-coord-live-verify-window · Live-verifikation des gemergten fensters auf develop: acceptance-/smoke-pfade der heutigen merges, ergebnis je karte #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261119-coord-live-verify-window · Live-verifikation des gemergten fensters auf develop: acceptance-/smoke-pfade der heutigen merges, ergebnis je karte #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** live-verify-window (codeman b9a62e5c-6102-4887-839a-f2d06a8ba31c)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/78f02964/evidence/r28-welle4-2026-11-19/verify-window/befund-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** live-verify-window (codeman b9a62e5c-6102-4887-839a-f2d06a8ba31c)  
@@ -85,3 +86,5 @@ akte evidence/r28-welle4-2026-11-19/verify-window/befund-1.md: tabelle je pruefu
 fahrt ueber die heutigen merges auf develop (akte verify-window/befund-1.md): acceptance-/smoke-pfade der betroffenen gruppen, je zeile PASS/FAIL/SKIP + grund, gegenprobe an sicher gruenem pfad. read-only, kein dispatch/rerun/push
 
 read-only fahrt ueber die heutigen merges auf develop (akte verify-window/befund-1.md): acceptance-/smoke-pfade der betroffenen gruppen, je zeile PASS/FAIL/SKIP + grund, gegenprobe an sicher gruenem pfad. kein dispatch/rerun/push
+
+fahrt abgegeben und von mir nachgeprueft (akte 78f02964, ancestor origin/main): basis develop da76c5cf9c963207038d5599bd130b89ecb1e8a4; lokal go test/vet PASS je gruppe (internal/metrics, internal/observability, internal/identityprovider, internal/application, cmd/baha fuer 0428-118-stdout-leak) und hosted 'Runtime · Docker Core' + 'Runtime · Podman Core' auf da76c5cf9 SUCCESS (von mir per gh api bestaetigt, dazu derselbe stand auf 21161b101); merge-kette first-parent #1696 <- #1694 <- ... <- #1688 <- #1689 <- #1685. ERGEBNIS: die heutigen merges (093/102/115/116/117/118/120/125/126 + demo 099) sind gemeinsam auf develop gruen — ein release-qualifikations-offset ist damit belegt, solange develop sich nicht bewegt
