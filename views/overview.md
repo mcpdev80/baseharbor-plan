@@ -10,10 +10,10 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 11 |
+| active | 10 |
 | review | 16 |
 | wait | 15 |
-| blocked | 4 |
+| blocked | 5 |
 | ready | 2 |
 | queued | 25 |
 | waiting | 177 |
@@ -34,7 +34,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261116-r28-guided-rootless-bootstrap](../tasks/t-20261116-r28-guided-rootless-bootstrap.md) | Guided rootless runtime prerequisite repair | active | high | ChatGPT | — | [baseharbor#1664](https://github.com/mcpdev80/baseharbor/pull/1664) |
 | [t-20261117-hunt-signals-106](../tasks/t-20261117-hunt-signals-106.md) | CLI destructive-consent paths still emit German Achtung fall | active | not set | worker-ornith1.5 | — | [baseharbor#1683](https://github.com/mcpdev80/baseharbor/pull/1683) |
 | [t-20261118-ownership-stale-consent-hardening](../tasks/t-20261118-ownership-stale-consent-hardening.md) | harden provider ownership chain vs stale-impact-consent | active | not set | w119-0428-119-consenthop (codeman 80aa0bf4, ornith:2) — uebernommen von w99-0428-119 r3 (session f5dabf03 ist weg) | — | [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690) |
-| [t-20261119-r28-en-docs-warning-term](../tasks/t-20261119-r28-en-docs-warning-term.md) | EN-Dokumentation nennt das Marker-Wort 'Achtung' statt 'Warning' (i18n-drift nach 0428-126) | active | not set | w131-0428-131-endocshowpf (codeman siehe board-zeile, ornith) — uebernommen, hopf + exakter lauf | [t-20261119-r28-prgate-docs-internal-json-mapping](../tasks/t-20261119-r28-prgate-docs-internal-json-mapping.md) (open) | [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697) |
 
 ## Ready for review
 
@@ -85,6 +84,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) | Perses identity dashboard | blocked | normal | coord | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650) |
 | [t-20261117-hunt-signals-101](../tasks/t-20261117-hunt-signals-101.md) | ID-Raum-Heterogenitaet und Keycloak-Kollision in Signal-IDs | blocked | not set | — | — | — |
 | [t-20261119-r28-app-source-verification-none-ignored](../tasks/t-20261119-r28-app-source-verification-none-ignored.md) | Verifier: Verification=none is ignored for application-class metrics sources | blocked | not set | — | — | — |
+| [t-20261119-r28-en-docs-warning-term](../tasks/t-20261119-r28-en-docs-warning-term.md) | EN-Dokumentation nennt das Marker-Wort 'Achtung' statt 'Warning' (i18n-drift nach 0428-126) | blocked | not set | w131-0428-131-endocshowpf (codeman siehe board-zeile, ornith) — uebernommen, hopf + exakter lauf | [t-20261119-r28-prgate-docs-internal-json-mapping](../tasks/t-20261119-r28-prgate-docs-internal-json-mapping.md) (open) | [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697) |
 
 ## Ready to assign
 
