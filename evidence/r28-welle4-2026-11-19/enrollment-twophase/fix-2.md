@@ -4,8 +4,10 @@ Lane: this session (flash worker), r3 correction round. Branch: `lane-0428-115-t
 (exactly one candidate per chain). Reviewer context: comment 6993699816 (r2) + REQUEST CHANGES
 6998325146 on head 3b9a3f78e (2026-11-19). Final candidate: `711e04c303e7ca00eb9d34d4d7af1f504842a546`.
 
-## PLAN (completed)
+## PLAN (completed — board file: workers/todos/mission-115r2-wording-hopf.md.json)
 
+Note: this session exposes no native todowrite tool, so the AGENTS 4.4 record exists as the
+JSON board file (a) and this PLAN list (b). Work steps, all done:
 - Reality check: ls-remote develop + branch, PR #1685 state.
 - Planning repo path verified and quoted.
 - Worktree + base attestation (exact base SHA, ancestor proof, own-commits-only log).
@@ -160,13 +162,6 @@ merge executed by this lane (merge into develop is reserved for CODEX-MERGE, AGE
 - No containers/compose projects were started by this lane (docs/comment-only change);
   `ps-witness`: nothing to bring down. Worktree `/tmp/opencode/w-hopf-115r2-wt` lives in tmp
   and is removed after END. No files created in the ecosystem root.
-
-## Push witness (evidence on origin/main)
-
-    $ git ls-tree -r --name-only origin/main | grep enrollment-twophase
-    evidence/r28-welle4-2026-11-18/enrollment-twophase/fix-1.md
-    evidence/r28-welle4-2026-11-19/enrollment-twophase/fix-2.md
-    origin/main == d4e38b297173df8480964f61018ac36623e874bf (this lane's evidence commit)
 
 ## END
 
