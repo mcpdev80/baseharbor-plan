@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: "lane-demo-drive-matcher (opencode worker, mission-demo-drive-matcher.md)"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-129 · drive.py matcher auf das
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-r28-demo-drive-matcher-warning-marker · Demo: drive.py matcher auf das Warning-marker-verhalten der annerkennenden stadien ziehen #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261119-r28-demo-drive-matcher-warning-marker · Demo: drive.py matcher auf das Warning-marker-verhalten der annerkennenden stadien ziehen #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** lane-demo-drive-matcher (opencode worker, mission-demo-drive-matcher.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** lane-demo-drive-matcher (opencode worker, mission-demo-drive-matcher.md)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
