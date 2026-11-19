@@ -7,7 +7,7 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: hopf-1592 (codeman 65015cd6)
+owner: hopf-handoff 65015cd6 (sitz entlassen)
 kanban_status: review
 kanban_lane: review
 prs: [mcpdev80/baseharbor#1592]
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 - [ ] t-20261114-r28-perses-runtime · Launch optional Perses #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** hopf-1592 (codeman 65015cd6) · **Priority:** normal  
+    **Owner:** hopf-handoff 65015cd6 (sitz entlassen) · **Priority:** normal  
     **PR:** [baseharbor#1592](https://github.com/mcpdev80/baseharbor/pull/1592)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1592-r3-runtime.md)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md)  
 **Required by:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md), [t-20261114-r28-perses-lifecycle](t-20261114-r28-perses-lifecycle.md), [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
-**Owner:** hopf-1592 (codeman 65015cd6)  
+**Owner:** hopf-handoff 65015cd6 (sitz entlassen)  
 **Priority:** normal  
 **PRs:** [baseharbor#1592](https://github.com/mcpdev80/baseharbor/pull/1592)  
 **Source:** 
@@ -86,3 +86,5 @@ board-wahrheit: Codex haelt REQUEST CHANGES auf 54fbe4771 aufrecht (letzter rech
 r3 END akzeptiert: runtime-zeug PASS (32/32 module via /api/v1/plugins, tmpfs+read_only beide koepfe), monotoner hopf c452f705c normal gepusht, exact-head run 44456253144 SUCCESS selbst beobachtet, akte 4b271bf9. OWNER-FIND: scripts/pr-gate-coverage.json:60-63 ohne perses-gate, kein workflow setzt BASEHARBOR_PERSES_RUNTIME_SMOKE — dauerloesung beim owner. Routing an CODEX (rezept-punkt 'nicht falsifiziert zur laufzeit' damit erfuellebt)
 
 hopf-route berichtigt: rebase unbrauchbar, weil der zweig develop-merge-commits traegt und der 075-seam-ahn (4bab986dc) schon auf develop liegt — rebase spielt integrierte history neu ab. merge-hopf angewiesen, PR-head bleibt bis zum neuen kopf c452f705c, karte bleibt review (basisarbeit, kein inhaltsschritt)
+
+base-exakt: merge-hopf auf develop 21161b101, kopf 76331c7d8, PR #1592 clean, inhalt byte-identisch (diff-vs-diff-belege in r4-1.md), CI-CP #5653 SUCCESS — abnahme kann auf diesem kopf urteilen
