@@ -76,3 +76,5 @@ Prerequisites are encoded in `depends_on`. One worker per card/branch/PR, no con
 Supersedes [t-20261113-r28-grafana-dashboard-databases](t-20261113-r28-grafana-dashboard-databases.md) under the [Owner decision](../decisions/2026-11-14-perses-replaces-grafana-v0428.md).
 
 delivered: head 2e5f8703, ci dispatcht, base-parity-lauf laeuft
+
+Independent read-only review of PR #1597 / 0428-076 (2026-11-19): draft/dirty, stale base, 23 commits/31 files including selection work outside scope; only draft feedback ran and workflow-dispatch validation failed at ORAS setup. Found Tempo service.name mismatch, unresolved Prometheus dashboard variables, Loki query label mismatch and unsorted aggregate JSON map. See [review evidence](../evidence/r28-welle4-2026-11-19/codex-review-wave/1597-0428-076-independent-review.md).
