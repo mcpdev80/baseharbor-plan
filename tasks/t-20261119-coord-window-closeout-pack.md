@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: closeout-pack (codeman 59c94cab)
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-132 · karten-/PR-/run-inventar mit
 priority: ""
@@ -19,17 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/24a32c43/evidence/r28-welle4-2026-11-19/window-closeout/pack-1.md"]
 ---
 
-- [ ] t-20261119-coord-window-closeout-pack · Merge-window closeout-pack v0.4.28: karten-/PR-/run-inventar mit fernzeugen #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261119-coord-window-closeout-pack · Merge-window closeout-pack v0.4.28: karten-/PR-/run-inventar mit fernzeugen #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** closeout-pack (codeman 59c94cab)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/24a32c43/evidence/r28-welle4-2026-11-19/window-closeout/pack-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** closeout-pack (codeman 59c94cab)  
@@ -80,3 +81,5 @@ One or two sentences: the observable outcome.
 Dachkarte fuer das closeout-heft des merge-windows: je karte status + PR + exakter head + terminal-run + abnahme-verdict + merge-commit, develop-linie als kette, und die offenen linien mit grund (owner-scope gate-map/ORAS, serielle reihenfolge, abhaengigkeiten). read-only gegen fernzeuge; keine statuswechsel durch die lane.
 
 lane arbeitet das heft plan-only (evidence/r28-welle4-2026-11-19/window-closeout/pack-1.md); keine statuswechsel durch die lane
+
+pack-1 geliefert und verifiziert (akte commit 24a32c43, ls-remote-zeug; 6c3add19 war der zwischenstand): 21 karten mit exakten head-shas, terminal-laufen, urteils-ids und merge-shas, develop-kette 907f16713..da76c5cf9 (11 merges), offene linien 088/114/119/121/122/123/124/131 + gate-map-patch 134. BEFUNDE AUS DEM HEFT, von mir dispositioniert: F-1 window-begin-marker fehlt (release-ops, owner-punkt), F-2 #1686 wurde vor dem letzten REQUEST_CHANGES-protokoll gemergt (protokoll-befund, in queue), F-4 demo#165 base=main -> VON MIR BEHOBEN: PR ist jetzt auf base=develop retargetet (head bc4c6113b unveraendert, exact-head run 44477622615 bleibt der zeuge), F-7 dispatch-FAIL 44466684726 -> eigene probe-karte (queue450), weil der grund ein neuer ist
