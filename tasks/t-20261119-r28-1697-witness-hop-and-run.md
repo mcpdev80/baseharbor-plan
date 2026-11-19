@@ -7,7 +7,7 @@ type: task
 areas: [ci, docs, governance]
 release: v0.4.28
 version: ""
-parent: "t-20261119-r28-en-docs-warning-term"
+parent: ""
 owner: ""
 kanban_status: planned
 kanban_lane: planned
@@ -37,7 +37,6 @@ created: 2026-11-19
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Parent:** [t-20261119-r28-en-docs-warning-term](t-20261119-r28-en-docs-warning-term.md)  
 **Depends on:** [t-20261119-r28-prgate-docs-internal-json-mapping](t-20261119-r28-prgate-docs-internal-json-mapping.md)  
 **Owner:** unassigned  
 **Priority:** not set  

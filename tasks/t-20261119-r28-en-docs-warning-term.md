@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1697]
 sources: []
 blocker: ""
-wait_reason: "BLOCKER WEG, GEMESSEN: karte 0428-144 ist GEMERGt — PR #1705 merged=true state=closed merge_commit 28fb427f0574 (= develop-spitze jetzt), ihr exact-head 0b5dd3471 mit run 44619193702 (PR Selected Checks, pr-planner-tests, ci-policy, focused Python, source format, native gate plan, trusted plan = success). Damit bildet scripts/pr-gate-plan.py docs/internal/**/*.json ab, und der documentation-audit kann diesen kandidat treffen. WARTET JETZT NUR NOCH AUF EINEN FREIEN SITZ (pool 5/5 belegt): auszufuehren ist ein monotoner merge-hopf auf die aktuelle develop-spitze (basis 1019190d8 ist 190 koepfe alt) + draft=false halten + EIN terminaler pull_request-lauf am neuen kopf, in dem der documentation-audit fuer die drei docs/internal JSON-dateien SICHTBAR laeuft (nicht skipped). Stand gemessen: #1697 head 708f5c5c8 base 1019190d8, 3 dateien, PR-lauf aus altem stand zaehlt nicht."
+wait_reason: "eigene korrektur meines blockers von vorhin: der wait war ein ZIRKEL — 0428-144 braucht einen zeugen aus #1697, mein wait hat genau den verhindert. AUFGELÖST DURCH KINDER-KARTE 0428-153 (witness-only: nur hopf + terminaler lauf auf #1697, KEIN accept, KEIN merge). Fuer 0428-131 selbst (den EN-Marker-text in den docs) bleibt der inhaltliche grund: basis 1019190d8 = 190 koepfe alt, merge-tree konfliktfrei gegen develop, PR-lauf am kopf 708f5c5c8 aus altem stand; naechster schritt = hopf + eigene korrekturrunde auf einem freien sitz"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/en-docs-warning-term/fix-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44478483899", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1697.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44559589447"]
 ---
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
     <!-- generated:card -->
     **Owner:** w131-0428-131-endocshowpf (codeman 93521518, ornith:1) — uebernommen von bbd9132d  
     **PR:** [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697)  
-    **Waiting:** BLOCKER WEG, GEMESSEN: karte 0428-144 ist GEMERGt — PR \#1705 merged=true state=closed merge\_commit 28fb427f0574 (= develop-spitze jetzt), ihr exact-head 0b5dd3471 mit run 44619193702 (PR Selected Checks, pr-planner-tests, ci-policy, focuse…  
+    **Waiting:** eigene korrektur meines blockers von vorhin: der wait war ein ZIRKEL — 0428-144 braucht einen zeugen aus \#1697, mein wait hat genau den verhindert. AUFGELÖST DURCH KINDER-KARTE 0428-153 (witness-only: nur hopf + terminaler lauf auf \#1697,…  
     **Needs:** [t-20261119-r28-prgate-docs-internal-json-mapping](t-20261119-r28-prgate-docs-internal-json-mapping.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/en-docs-warning-term/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44478483899), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1697.md), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44559589447)  
     <!-- /generated:card -->

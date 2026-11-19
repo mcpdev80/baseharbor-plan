@@ -36,7 +36,7 @@ prs: [mcpdev80/baseharbor#1705]
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Required by:** [t-20261119-r28-en-docs-warning-term](t-20261119-r28-en-docs-warning-term.md)  
+**Required by:** [t-20261119-r28-1697-witness-hop-and-run](t-20261119-r28-1697-witness-hop-and-run.md), [t-20261119-r28-en-docs-warning-term](t-20261119-r28-en-docs-warning-term.md)  
 **Owner:** Codex team (Owner-delegated Maintainer)  
 **Priority:** not set  
 **PRs:** [baseharbor#1705](https://github.com/mcpdev80/baseharbor/pull/1705)  
@@ -81,3 +81,5 @@ never be accepted on its own hopf - the gap is in the path mapping, not in the d
 - Evidence akte: [fix-1.md](../evidence/r28-welle4-2026-11-19/prgate-docs-internal-mapping/fix-1.md).
 
 Current execution: PR #1705 merged as `28fb427f057499efca705c1b7459e7653bd532a8`. Exact head `0b5dd34713fe778aaf4d79dfa0b2a0600fc50e6a` on base `ab77e29d7c1cf981777e1069e51dfff82ffcf654`; hosted run `44619193702` passed PR Selected Checks, PR planner tests, CI policy, focused Python, source format, native gate plan and trusted plan. Local `scripts/ci-fast-check.sh` passed with 286 tests. Independent review found no blocker and prompted the added positive `.yaml` selector test. PR #1697 remains on its old base and old successful run skipped `documentation-audit`. A local trusted-base simulation on post-merge develop `28fb427f` now resolves its three internal JSON changes and selects `documentation-audit` plus strict EN/DE docs builds; this is not hosted evidence. The 0428-144 card remains active until #1697 hops and a new exact-head run executes `documentation-audit` successfully.
+
+wird NICHT auf review gestellt, obwohl #1705 gemergt ist (merged=true, merge_commit 28fb427f): die acceptance verlangt einen GEHOSTETEN docs/internal JSON-zeugen, den nur #1697 liefern kann — der zeuge laeuft jetzt ueber kinder-karte 0428-153, damit die karte aktiv bleibt, bis der beleg da ist. Exact-head 0b5dd3471 mit run 44619193702 (PR Selected Checks, pr-planner-tests, ci-policy, focused Python, source format, native gate plan, trusted plan success) ist notiert
