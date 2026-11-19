@@ -3,7 +3,7 @@ id: t-20261118-receipt-guard-single-operand
 release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
-kanban_status: review
+kanban_status: closed
 card_number: 0428-116
 card_short_title: receipt verification guard
 kanban_title: 0428-116 · receipt verification guard
@@ -11,20 +11,21 @@ owner: w01-0428-116r4 (codeman 4d606ac2)
 wait_reason: ""
 blocker: ""
 prs: [mcpdev80/baseharbor#1686]
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1686", "https://github.com/mcpdev80/baseharbor/actions/runs/44438849188", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/receipt-guard/r4-1.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1686", "https://github.com/mcpdev80/baseharbor/actions/runs/44438849188", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/receipt-guard/r4-1.md", "https://github.com/mcpdev80/baseharbor/commit/40b9901398a6bae5b92ee45494ef3b70f192a2a7"]
+resolution: accepted
 
 ---
 # t-20261118-receipt-guard-single-operand · receipt verification guard collapses to single operand
 
-- [ ] t-20261118-receipt-guard-single-operand · receipt verification guard collapses to single operand #task #release/v0-4-28 #status/review #view/review #kind/task
+- [x] t-20261118-receipt-guard-single-operand · receipt verification guard collapses to single operand #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** w01-0428-116r4 (codeman 4d606ac2)  
     **PR:** [baseharbor#1686](https://github.com/mcpdev80/baseharbor/pull/1686)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1686), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44438849188), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/receipt-guard/r4-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1686), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44438849188), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/receipt-guard/r4-1.md), [proof 4](https://github.com/mcpdev80/baseharbor/commit/40b9901398a6bae5b92ee45494ef3b70f192a2a7)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w01-0428-116r4 (codeman 4d606ac2)  
@@ -75,3 +76,5 @@ Fail-closed regression must assert BOTH: Status==failed AND ErrorCode=='actual-d
 r4 END akzeptiert: head 96ac1b2e mit normalem develop-merge 7d343836 (monoton), fail-closed guard + exact ErrorCode-MATRIX (failed + actual-disposition-differs, reviewer-gegenprueft), run 44438849188 SUCCESS, r4-1.md am band 20d206e5 + r2-1.md ce9890-stornierung. Merge-fenster: review-finaliteit obliegt CODEX
 
 Codex reviewer: current exact head 96ac1b2e independently reviewed; fail-closed matrix asserts failed plus actual-disposition-differs; run 44438849188 terminal SUCCESS; base current develop 7d34383644. Source/tests accepted; merge gate passed.
+
+Accepted by independent Codex review at exact head 96ac1b2e; exact run 44438849188 SUCCESS; merge 40b9901398a6bae5b92ee45494ef3b70f192a2a7 verified as develop.
