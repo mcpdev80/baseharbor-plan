@@ -107,8 +107,10 @@ All from `/var/tmp/057-stack-hopf-wt/wt` (isolated worktree under /var/tmp; host
 
 ## Host cleanliness
 
-- before (`docker ps -a`): only ambient `bh-local-shared-*` (foreign cards, untouched); `podman ps -a`: empty. Networks/volumes: unchanged ambient set (`baseharbor-local-*`, `bh-*-shared*` — foreign).
-- after: identical; this lane started **no** containers or compose projects (nothing to bring down; ps-witness = this section). Leftover test artifact `cmd/baha/baseharbor.yaml` removed; `git status --short` on the worktree at END: empty.
+- before (`docker ps -a`): only ambient `bh-local-shared-*` (foreign cards, untouched); `podman` is not installed on this host (`podman ps -a` → command not found). Networks/volumes: unchanged ambient set (`baseharbor-local-default`, `baseharbor-local-secrets`, shared volumes — foreign).
+- after (witness at 2026-11-19T~11:2xZ): `docker ps -a --format '{{.Names}}'` → identical set: `bh-local-shared-openbao-1 bh-local-shared-openbao-admin-1 bh-local-shared-openbao-member-1-1 bh-local-shared-postgres-1 bh-local-shared-postgres-admin-1 bh-local-shared-postgres-init-1 bh-local-shared-postgres-member-1-1`; networks: `baseharbor-local-default baseharbor-local-secrets bridge host none`. This lane started **no** containers or compose projects (nothing to bring down; ps-witness = this list).
+- Leftovers removed: leaked `cmd/baha/baseharbor.yaml` and `cmd/baha/.baseharbor/` from all my worktrees (worktree `git status` at END: 0 entries); quarantined foreign untracked files (0428-121 in-flight test files etc.) restored untouched into `wt` (the lane candidate branch `lane-057-stack-hopf` retains them uncommitted for the Owner).
+- Residue note (honest): my probe worktree `wt-probe` (commit d7ad05d8, the superseded revert candidate, NEVER pushed as final) and a read-only develop worktree `wt-devbase` remain under `/var/tmp/057-stack-hopf-wt/` — no product files, no state; plus `/var/tmp/057-stack-hopf-wt/fakehome/go/pkg/mod` (Go module cache, read-only perms, cannot self-delete). All are outside the ecosystem workspace and disposable.
 - `cleanliness: clean — no lane-owned containers/networks/volumes/state dirs; ambient bh-local-shared-* and core images untouched; foreign host artifact ~/.local/bin/oras reported, not removed.`
 
 ## PLAN
