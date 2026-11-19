@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w142-0428-142-pr1702-statuswit-r2
-kanban_status: review
-kanban_lane: review
+owner: w142-pr1702-statuswit-r5
+kanban_status: active
+kanban_lane: active
 kanban_summary: "'baha perses status' nennt pro observability-signal eine ECHTE backend-witness (erreicht / gematcht / nicht erreichbar) statt…"
 kanban_title: 0428-142 · echte backend-witness fuer
 priority: ""
@@ -23,18 +23,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w142-0428-142-pr1702-statuswit-r2  
+    **Owner:** w142-pr1702-statuswit-r5  
     **PR:** [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261119-r28-perses-alert-verifier-caller-wiring](t-20261119-r28-perses-alert-verifier-caller-wiring.md)  
-**Owner:** w142-0428-142-pr1702-statuswit-r2  
+**Owner:** w142-pr1702-statuswit-r5  
 **Priority:** not set  
 **PRs:** [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702)  
 **Source:** 
@@ -92,3 +92,5 @@ kopf e22f6795c (ls-remote), base develop 223cb97a9, draft=false, lauf 4460057015
 CODEX-r1 REQUEST CHANGES auf e22f6795c (akte 1702-0428-142.md): (1) 'configured' ist manifest-erklaerung statt backend-witness, 'unreachable' deklariert aber ohne emission-pfad (app_status_result.go:64-65/:92-98/:108-114/:124-130); (2) oeffentliche ausgabe behaelt verbotene wortliste configured_unverified/verified (:38-45/:234-250/:351-353 + perses_lifecycle.go:75-79/:217-233); dazu ein test, der unreachable nur behauptet. rotation auf frische bahn.
 
 ALLES VON MIR GEMESSEN, zum ersten mal in dieser karte ohne abweicherung: head 6740299f9, base 28fb427f = AKTUELLE develop-spitze, ZWEI eltern (56d85ddb63aff + develop, an der platte gezaehlt), merge-base --is-ancestor = 0, merge-tree konfliktfrei, draft=false, PR-lauf 44621032956 event=pull_request completed success am exakten kopf (21:44:55Z), akte fix-2.md auf main. Finding 1 ('unreachable' produzierbar) ist mit stop-kriterium ESCALIERT auf 0428-143 — review muss sagen, ob das eine akzeptanz-luecke ist oder eine follow-up-karte
+
+CODEX r4 REQUEST CHANGES (zwei blocker): P2 'manifest flag duerfen keinen backend-nachweis vortaeuschen' (app_status_result.go:76-139) und P4 bleibt OWNER-punkt (0428-143, unreachable auf echtem evidence-pfad); P5 ist eine scope-frage an dich, nicht an die lane. Mechanischer teil (P1/P2-trennung/P3/P7-akte) geht auf laptop:2, mit hopf-zwang (mergeable_state=behind, develop 4b3a3559). 0428-152 haengt laut CODEX-urteil ausdbruecklich hinter diesem PR
