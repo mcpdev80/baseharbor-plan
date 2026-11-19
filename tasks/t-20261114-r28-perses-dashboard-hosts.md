@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: 0428-077 r2 (END akzeptiert, sitz entlassen)
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Deliver host/container panels only for actually available matching metrics, without adding privileged exporters."
 kanban_title: 0428-077 · Perses host and container
 priority: normal
@@ -19,19 +19,19 @@ prs: [mcpdev80/baseharbor#1602]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1602-0428-077.md", "https://github.com/mcpdev80/baseharbor-plan/blob/1731df3a6d1eddcf1541d44435f687b5890c068b/evidence/r28-welle4-2026-11-19/dashboard-hosts-hopf/fix-2.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1602-0428-077.md", "https://github.com/mcpdev80/baseharbor-plan/blob/1731df3a6d1eddcf1541d44435f687b5890c068b/evidence/r28-welle4-2026-11-19/dashboard-hosts-hopf/fix-2.md", "https://github.com/mcpdev80/baseharbor/pull/1602", "https://github.com/mcpdev80/baseharbor/actions/runs/44530337283", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-review-wave/1602-0428-077-r2.md"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-hosts · Perses host and container dashboards #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [x] t-20261114-r28-perses-dashboard-hosts · Perses host and container dashboards #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** 0428-077 r2 (END akzeptiert, sitz entlassen) · **Priority:** normal  
     **PR:** [baseharbor#1602](https://github.com/mcpdev80/baseharbor/pull/1602)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1602-0428-077.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/1731df3a6d1eddcf1541d44435f687b5890c068b/evidence/r28-welle4-2026-11-19/dashboard-hosts-hopf/fix-2.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1602-0428-077.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/1731df3a6d1eddcf1541d44435f687b5890c068b/evidence/r28-welle4-2026-11-19/dashboard-hosts-hopf/fix-2.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1602), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44530337283), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-review-wave/1602-0428-077-r2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
@@ -84,3 +84,5 @@ CODEX-REVIEW welle 4 = REQUEST CHANGES auf dem gepueften kopf (urteil 1602-0428-
 REQUEST-CHANGES-runde dispatched. zweig 'behind' -> hopf auf develop e1dc2cf61 ist schritt 1. write-set-klausel: internal/capability/perses.go + internal/metrics/perses_contract_test.go geteilt mit dem 084-zweig (comm -12 gemessen) — fuer beide gilt SCHREIB-VERBOT + stop/meldung, damit kein paralleles schreiben entsteht. gegen die lanen 122 und 088 ist der schreibset disjunkt (077 vs 088: leer)
 
 END akzeptiert, qualifiziert: head 9f5470f97a112a6dae226712d63731676775b405, monoton auf develop 3b634232f (zwei hopfs), b6c9702ba ist ancestor, merge-tree 0 konflikte, PR open/draft=false/clean, exaktkopf-lauf 44530337283 completed SUCCESS (0 fehljobs, 15 ausgefuehrte zellen, 'PR Selected Checks' success). rezept belegt: internal/logs/render.go:145/163/296 ('target_label = "baseharbor_provider"'), internal/telemetry/otlp_payload.go:28 ('baseharbor.provider'), internal/metrics/perses_dashboards_hosts.go:90/216/243-245 (unavailable-kind + begruendung), neue matrix mit 'Prometheus gesund, Loki ohne signal -> Loki unavailable'. CODEX-REVIEW beauftragt (1602-0428-077-r2.md), bei approve merge. FOLGE-KARTE angelegt fuer die von ihr gemeldete grenze (echte backend-witness im CLI-gesicht braucht cmd/baha/app_status_result.go)
+
+CODEX-REVIEW approved candidate 9f5470f97a112a6dae226712d63731676775b405; CODEX-MERGE squash merge 5a68196a1e6bf627fbd8e17f106d58f1e63f6ce6. Exact-head run 44530337283 passed PR Selected Checks; runtime and Core-less jobs were skipped and are not claimed as passes.
