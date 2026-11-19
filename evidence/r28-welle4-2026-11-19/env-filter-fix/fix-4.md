@@ -87,8 +87,38 @@ Each table row logs the file:line that decides it: environment.go
 `trailingProjectEnvironment` (anchor via `strings.Index(value, "-<app>-")`, remainder as
 env; `strings.Count` guard for the double-anchor case).
 
+## CANDIDATE HEAD
+
+- candidate head: f28b97a53870bb3f5cb5c90618dea977df3f1c2b
+
 ## CI EVIDENCE
 
+## CI (this run, own watch)
+
+- Run-ID: 44495408370
+- URL: https://github.com/mcpdev80/baseharbor/actions/runs/44495408370
+- head_sha: f28b97a53870bb3f5cb5c90618dea977df3f1c2b, branch lane-0428-efilter
+- status: completed, conclusion: success (terminal)
+- trigger: standard branch-push CI (kein rerun / workflow_dispatch dieser Lane)
+- ausgeführte Zellen: 16 success (alle Required-Jobs grün):
+  PR · Workflow policy, PR · Native gate plan, PR · Trusted Plan,
+  PR · Source format, PR · Exact Candidate, PR · Runner Interface,
+  PR · Demo Pin, PR · Focused Python, PR · Validation · go-build,
+  PR · Validation · go-vet, PR · Validation · identity-provider-package-tests,
+  PR · Go unit · cli-0, cli-1, cli-2, cli-3, packages, owner;
+  PR · Selected Runtime (atomic/docker/identity) / Executed docker · identity;
+  PR · Selected Runtime (atomic/docker/observability) / Executed docker · observability.
+- Selected-Runtime-Zellen (die zwei ausgeführten Gates):
+  atomic/docker/identity + atomic/docker/observability — beide success.
+- skipped (16, nicht Required für diesen Change; kein Required-Check umgangen):
+  Targeted HA · podman, PR · Main release Go · ${{matrix.shard}} (3),
+  PR · Draft Go · ${{matrix.shard}} (3), PR · Exact full Pre-Release,
+  PR · Draft source and routing, Release Source Preflight, PR · Main release source,
+  Targeted HA · docker, validate, PR · Native · ${{matrix.id}} (3),
+  PR · Native Keycloak/Core · ${{matrix.runtime}} (2), PR · Consumer Pins,
+  PR · Public Contracts, PR · Selected Core-less · ${{matrix.runtime}}.
+  Grund: keine Produktänderung an diesen Pfaden; die betroffenen Pfade
+  (observability/list) sind durch die 16 ausgeführten Required-Jobs abgedeckt.
 - Run: `44495408370`, conclusion **success** (terminal), head_sha `f28b97a53870bb3f5cb5c90618dea977df3f1c2b`, branch `lane-0428-efilter`.
 - Required PR jobs all SUCCESS: `PR · Source format`, `PR · Validation · go-build`, `PR · Validation · go-vet`, `PR · Exact Candidate`, `PR · Runner Interface`, `PR · Demo Pin`, `PR · Focused Python`, `PR · Validation · identity-provider-package-tests`, `PR · Go unit · {cli-0,cli-1,cli-2,cli-3,packages,owner}`, `PR · Native gate plan`, `PR · Trusted Plan`, `PR · Workflow policy`, docker runtime gates `PR · Selected Runtime ... observability` + `identity`.
 - Trigger: standard push-triggered CI on the branch push (no rerun/workflow_dispatch by this lane).
