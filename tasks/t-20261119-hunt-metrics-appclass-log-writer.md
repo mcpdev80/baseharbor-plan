@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-122 r3 (codeman 0028c6d2, vier punkte befohlen)
-kanban_status: blocked
-kanban_lane: blocked
+owner: 0428-122 r4 (codeman 0028c6d2, abnahme-gruen)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-122 · Klasse App hat keinen
 priority: ""
@@ -17,25 +17,24 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1692]
 sources: []
-blocker: "AKTUELLER STAND (board nachgezogen, damit nicht der alte grund steht): kopf 97eb3625af9203f269ec6f516dc0ae586a47d00c (parents aac6b2f8 + 859654861), base-ref 859654861, exaktkopf-lauf 44535325043 in_progress (start 13:37:35Z, 'PR · Source format' bereits success). GRUND blocked, nicht mehr der 833/800-fehler (der ist auf aac6b2f8 behoben): develop ist 695ad5494 ('Pin lane-compatible CI migration controller', ueber 86858f129), also PR 'behind' — 97eb ist NICHT monoton auf dem neuesten develop ('merge-base --is-ancestor origin/develop 97eb…' fehlt). NEUES LESBAR AN DEN ZELLEN: 'PR · Exact Candidate' und 'PR · Candidate-added checks (advisory)' sind SKIPPED, was die base-owned-migration bestaetigt: kandidat-eigene validations laufen nicht mehr im required-plan. NAechster trigger: eine weitere monotoner merge-hopf auf den dann neuesten develop + frischer exact-head-lauf bis terminal + akte mit 'candidate_advisory_required'-wert und der required-zellen-liste. KEIN END, KEIN MERGE, solange (i) der lauf nicht terminal ist und (ii) mein zeitstempel-vergleich lauf-start gegen 'git show -s --format=%cI origin/develop' nicht aufht"
+blocker: 
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1692", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1692.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44451374676", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44473809584", "https://github.com/mcpdev80/baseharbor/actions/runs/44535325043"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1692", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1692.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44451374676", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44473809584", "https://github.com/mcpdev80/baseharbor/actions/runs/44535325043", "https://github.com/mcpdev80/baseharbor/actions/runs/44536505959"]
 ---
 
-- [ ] t-20261119-hunt-metrics-appclass-log-writer · Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261119-hunt-metrics-appclass-log-writer · Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-122 r3 (codeman 0028c6d2, vier punkte befohlen)  
+    **Owner:** 0428-122 r4 (codeman 0028c6d2, abnahme-gruen)  
     **PR:** [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692)  
-    **Blocker:** AKTUELLER STAND (board nachgezogen, damit nicht der alte grund steht): kopf 97eb3625af9203f269ec6f516dc0ae586a47d00c (parents aac6b2f8 + 859654861), base-ref 859654861, exaktkopf-lauf 44535325043 in\_progress (start 13:37:35Z, 'PR · Source…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1692), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1692.md), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44451374676), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-2.md), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44473809584), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44535325043)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1692), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1692.md), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44451374676), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-2.md), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44473809584), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44535325043), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/44536505959)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0428-122 r3 (codeman 0028c6d2, vier punkte befohlen)  
+**Owner:** 0428-122 r4 (codeman 0028c6d2, abnahme-gruen)  
 **Priority:** not set  
 **PRs:** [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692)  
 **Source:** 
@@ -113,3 +112,5 @@ board-abgleich nach der meldung der abnahme: aktueller kopf aac6b2f8, aktueller 
 kopf-folge im verlauf: c21dc6235 (44532116583 SUCCESS) → 3f8024e81 (44530261060 FAILURE, 833/800) → aac6b2f8 (44534195307 SUCCESS, aber base 13:32:13Z > start 13:30:53Z) → 97eb3625 (44535325043 in_progress). akte fix-3.md haelt alle vier; kein lauf der ersten drei ist die end-beweislage
 
 ENTSCHEIDUNG: EIN letzter integrationsschritt atop develop 695ad54944734e9976fe9cc1dbae117482677dc6 + EIN frischer exact-head-lauf, dann ruhe (owner-rat, queue563). grund, warum der neue base ZAHLT: der unterschied 859654861→695ad5494 = .github/workflows/ci.yml (+3/-1, MIGRATION_CONTROLLER-pin auf 859654861, 'old lane bases fall back to this immutable commit') und scripts/test_ci_check_routes.py (+5) — beides CI-halb, also andere required-check-auswahl. NEUE REGEL STATT BLINDEM NACHLAUFEN: ein lauf gilt als beweis, wenn sein base sich von develop nur durch dateien unterscheidet, die weder .github/workflows/ci.yml noch scripts/test_pr_* / scripts/test_ci_* beruehren; die lane weist 'git diff --name-only <base> origin/develop' in der akte aus. lauf 44535325043 bleibt nuetzlich fuer code-testergebnisse (Go-shards/format), ist aber nicht die end-beweislage. KEIN MERGE
+
+review: kopf 14f279867e76ddedaa5fe82488b7f5a827d410e7 (parents 97eb3625 + 695ad5494), base = develop 695ad54944734e9976fe9cc1dbae117482677dc6, mergeable_state CLEAN, draft=false, lauf 44536505959 completed SUCCESS (0 fehljobs). owner-entscheidung 13:5xZ: PR-gate ohne eigenen Docker/Podman-lauf, weil der trusted native-planner auf base 695ad5494 fuer diese pfade {include: []} liefert und 'PR Selected Checks' NATIVE_REQUIRED=false akzeptiert — skip ist policy, kein bypass. DER AUSDRUECKLICHE VORBEHALT, den ich als karten-vermerk und im 114-draht (punkt e) festhalte: VOR dem v0.4.28-tag muss die develop/release-akzeptanz Docker UND rootless Podman fuer den optionalen Perses-pfad unabhaengig beweisen oder begruenden, warum nicht anwendbar. akte: evidence/r28-welle4-2026-11-19/appclass-writer/fix-4.md (279 zeilen, von mir aus ihrem local-only commit 3019c513 gegen echtes origin/main reconciliert, main @ d1d04a3a; die aeltere fix-3.md auf main bleibt unangetastet)
