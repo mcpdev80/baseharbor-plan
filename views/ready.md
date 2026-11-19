@@ -7,3 +7,4 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261119-coord-r28-pr-inventory](../tasks/t-20261119-coord-r28-pr-inventory.md) | PR-inventar 0.4.28: 38 offene PRs gegen board — dublette/superseded/kandidatenlos, liste zum schliessen | ready | not set | — | — | — |
