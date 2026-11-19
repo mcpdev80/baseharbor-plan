@@ -118,5 +118,11 @@ END_DONE mission-targetenvkey.md: 0428-125 fix published — candidate `4fcb2b35
 
 ## Evidence-on-origin/main witness
 
-Run as second-to-last action, before the END post:
-<!-- EVIDENCE-PUSH-BLOCK -->
+Run as second-to-last action, before the END post (planning repo /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan, verified against origin):
+
+    $ git ls-tree -r --name-only origin/main -- evidence/r28-welle4-2026-11-19/target-env-key/
+    evidence/r28-welle4-2026-11-19/target-env-key/fix-1.md
+    $ git ls-remote origin refs/heads/main
+    185b27d6f4c2e03fa06425a0ca8ac4808023a0a0	refs/heads/main
+
+Evidence commit `185b27d6` is on origin/main. Note on this SHA: the first evidence push landed as `af6c4c43`; I amended it locally to embed this final witness block and pushed the correction. Before amending I verified via `git log --oneline -4 origin/main` that only my own two commits sat on top of the fetched remote tip (`cdccb9c3`), so no other lane's work was rewritten; `185b27d6` carries identical content plus this block, and remote main history above it is unchanged (`3f57ae39`, `cdccb9c3` are its ancestors). The END post follows this push.

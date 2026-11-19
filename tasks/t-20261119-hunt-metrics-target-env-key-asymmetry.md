@@ -15,8 +15,8 @@ kanban_title: 0428-125 · Runtime-metrics
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [https://github.com/mcpdev80/baseharbor/pull/1694]
-sources: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/hunt-metrics/befund-1.md]
+prs: [mcpdev80/baseharbor#1694]
+sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
@@ -26,6 +26,8 @@ evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-we
 - [ ] t-20261119-hunt-metrics-target-env-key-asymmetry · Runtime-metrics target-file-key fuehrt environment nicht, group-label schon — asymmetrische Zuordnung #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** worker (mission-targetenvkey, opencode-flash)  
+    **PR:** [baseharbor#1694](https://github.com/mcpdev80/baseharbor/pull/1694)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/target-env-key/fix-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -34,7 +36,7 @@ evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-we
 **Depends on:** none  
 **Owner:** worker (mission-targetenvkey, opencode-flash)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1694](https://github.com/mcpdev80/baseharbor/pull/1694)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -69,7 +71,7 @@ One or two sentences: the observable outcome.
 
 ## Dependencies and file ownership
 
-- Owned files or areas:
+- Owned files or areas: internal/metrics/runtime_source.go (target file key formula and resource id) plus the new regression test file.
 - Shared files: coordinate through the owning task.
 
 ## Handoff
