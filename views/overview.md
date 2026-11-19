@@ -13,12 +13,12 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | active | 10 |
 | review | 20 |
 | wait | 15 |
-| blocked | 5 |
+| blocked | 4 |
 | ready | 2 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
-| closed | 310 |
+| closed | 311 |
 
 ## Active
 
@@ -31,7 +31,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261115-r28-podman-runtime-performance](../tasks/t-20261115-r28-podman-runtime-performance.md) | Speed up Podman lifecycle | active | high | ChatGPT | — | [baseharbor#1600](https://github.com/mcpdev80/baseharbor/pull/1600) |
 | [t-20261116-r28-guided-rootless-bootstrap](../tasks/t-20261116-r28-guided-rootless-bootstrap.md) | Guided rootless runtime prerequisite repair | active | high | ChatGPT | — | [baseharbor#1664](https://github.com/mcpdev80/baseharbor/pull/1664) |
 | [t-20261117-hunt-signals-106](../tasks/t-20261117-hunt-signals-106.md) | CLI destructive-consent paths still emit German Achtung fall | active | not set | worker-ornith1.5 | — | [baseharbor#1683](https://github.com/mcpdev80/baseharbor/pull/1683) |
-| [t-20261117-observability-native-gate-bootstrap](../tasks/t-20261117-observability-native-gate-bootstrap.md) | CI: Run observability acceptance with verified ORAS bootstrap | active | not set | lane-113-pr1680-fixes (this session, intake per Hunt→Karte duty) | — | — |
+| [t-20261117-observability-native-gate-bootstrap](../tasks/t-20261117-observability-native-gate-bootstrap.md) | CI: Run observability acceptance with verified ORAS bootstrap | active | not set | Owner-Ausfuehrung (.github/scripts); umfang vom Coordinator erweitert 2026-11-19 (beleg: 0428-128 probe-1.md 57ffc7c6) | — | — |
 | [t-20261119-hunt-metrics-appclass-log-writer](../tasks/t-20261119-hunt-metrics-appclass-log-writer.md) | Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) | active | not set | 0428-122 r2 (codeman 40d70b4e) | — | [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692) |
 | [t-20261119-hunt-metrics-env-filter-list-pfade](../tasks/t-20261119-hunt-metrics-env-filter-list-pfade.md) | Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) | active | not set | 0428-121 r2 (codeman 045d7e8a) | — | [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691) |
 
@@ -88,7 +88,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) | Launch optional Perses | blocked | normal | hopf-handoff 65015cd6 (sitz entlassen) | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md) | [baseharbor#1592](https://github.com/mcpdev80/baseharbor/pull/1592) |
 | [t-20261117-hunt-signals-101](../tasks/t-20261117-hunt-signals-101.md) | ID-Raum-Heterogenitaet und Keycloak-Kollision in Signal-IDs | blocked | not set | — | — | — |
 | [t-20261118-ownership-stale-consent-hardening](../tasks/t-20261118-ownership-stale-consent-hardening.md) | harden provider ownership chain vs stale-impact-consent | blocked | not set | w99-0428-119 r3 (codeman f5dabf03) | — | [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690) |
-| [t-20261119-coord-r28-docker-gate-oras-wiring](../tasks/t-20261119-coord-r28-docker-gate-oras-wiring.md) | Docker-lebenszyklus-beleg vor dem merge nicht fahrbar (ORAS trust-plane + targeted-integration integriert-only) | blocked | not set | 0428-128-probe (codeman 6637b11b) | — | — |
 
 ## Ready to assign
 
@@ -101,7 +100,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 7 open, 162 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 66 open, 80 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 65 open, 81 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
