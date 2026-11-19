@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: hopf-handoff 65015cd6 (sitz entlassen)
-kanban_status: review
-kanban_lane: review
+kanban_status: blocked
+kanban_lane: blocked
 prs: [mcpdev80/baseharbor#1592]
 kanban_summary: "Implement explicitly enabled optional Perses runtime, pinned reviewed image/plugin versions, lifecycle and safe storage using…"
 kanban_title: 0428-088 · Launch optional Perses
@@ -17,21 +17,22 @@ priority: normal
 depends_on: [t-20261114-r28-perses-contract-seam]
 repos: [mcpdev80/baseharbor]
 sources: []
-blocker: ""
+blocker: "exact-head runtime-zeuge fehlt + kein gemappter CI-trigger fuer TestPersesRuntimeSmokeDockerIsolated (BASEHARBOR_PERSES_RUNTIME_SMOKE ungesetzt, PR-checks skippen native gates) — gem. CODEX-REVIEW auf head 76331c7d8, exact CI 44467712113 SUCCESS (Source & Quality), inhalt durch base-hopf unveraendert (r4-1.md). dieselbe owner-scope-klasse wie 0428-128: gate-map scripts/pr-gate-coverage.json + .github trust-plane/ORAS-bootstrap. naechster trigger: owner-mapping ODER autorisierte disposition des zeugen"
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1592-r3-runtime.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-runtime/r4-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44467712113"]
 ---
 
-- [ ] t-20261114-r28-perses-runtime · Launch optional Perses #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [ ] t-20261114-r28-perses-runtime · Launch optional Perses #task #release/v0-4-28 #status/blocked #view/blocked #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** hopf-handoff 65015cd6 (sitz entlassen) · **Priority:** normal  
     **PR:** [baseharbor#1592](https://github.com/mcpdev80/baseharbor/pull/1592)  
+    **Blocker:** exact-head runtime-zeuge fehlt + kein gemappter CI-trigger fuer TestPersesRuntimeSmokeDockerIsolated (BASEHARBOR\_PERSES\_RUNTIME\_SMOKE ungesetzt, PR-checks skippen native gates) — gem. CODEX-REVIEW auf head 76331c7d8, exact CI 44467712113 S…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1592-r3-runtime.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-runtime/r4-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44467712113)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md)  
 **Required by:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md), [t-20261114-r28-perses-lifecycle](t-20261114-r28-perses-lifecycle.md), [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
@@ -90,3 +91,5 @@ hopf-route berichtigt: rebase unbrauchbar, weil der zweig develop-merge-commits 
 base-exakt: merge-hopf auf develop 21161b101, kopf 76331c7d8, PR #1592 clean, inhalt byte-identisch (diff-vs-diff-belege in r4-1.md), CI-CP #5653 SUCCESS — abnahme kann auf diesem kopf urteilen
 
 CODEX-REVIEW current-head recheck: #1592 head 76331c7d8, base develop 21161b101; exact-head Source & Quality 44467712113 SUCCESS. r4-1 proves Perses content byte-identical across hopfs. Hold remains: no exact-current-head Docker witness and TestPersesRuntimeSmokeDockerIsolated has no mapped/selected CI/native gate (BASEHARBOR_PERSES_RUNTIME_SMOKE unset). 32/32 plugin witness was on c452f705c, so cannot stand in for current-head execution. No merge pending exact-head runtime witness and owner-approved gate mapping/disposition. GitHub review API rejected REQUEST_CHANGES because connected identity authored PR; equivalent finding posted as PR issue comment 7001328277.
+
+hopf-arbeit abgeschlossen (merge auf develop 21161b101, kopf 76331c7d8), abnahme hebt stale review — kein merge bis zelle gemapped ist
