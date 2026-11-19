@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: ""
-kanban_status: planned
-kanban_lane: ready
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-128 · Docker-lebenszyklus-beleg vor
 priority: ""
@@ -17,20 +17,20 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: ""
+blocker: "owner-scope: .github/workflows (targeted-integration integriert-only, docker-runtime-acceptance ORAS-trust-plane) + runner-/host-praesenz von ORAS. naechster trigger: owner-entscheid"
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-coord-r28-docker-gate-oras-wiring · Docker-lebenszyklus-beleg vor dem merge nicht fahrbar (ORAS trust-plane + targeted-integration integriert-only) #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261119-coord-r28-docker-gate-oras-wiring · Docker-lebenszyklus-beleg vor dem merge nicht fahrbar (ORAS trust-plane + targeted-integration integriert-only) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Blocker:** owner-scope: .github/workflows (targeted-integration integriert-only, docker-runtime-acceptance ORAS-trust-plane) + runner-/host-praesenz von ORAS. naechster trigger: owner-entscheid  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** unassigned  

@@ -13,8 +13,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | active | 11 |
 | review | 24 |
 | wait | 13 |
-| blocked | 3 |
-| ready | 2 |
+| blocked | 4 |
+| ready | 1 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
@@ -90,13 +90,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) | Perses identity dashboard | blocked | normal | coord | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650) |
 | [t-20261117-hunt-signals-101](../tasks/t-20261117-hunt-signals-101.md) | ID-Raum-Heterogenitaet und Keycloak-Kollision in Signal-IDs | blocked | not set | — | — | — |
 | [t-20261118-ownership-stale-consent-hardening](../tasks/t-20261118-ownership-stale-consent-hardening.md) | harden provider ownership chain vs stale-impact-consent | blocked | not set | w99-0428-119 r3 (codeman f5dabf03) | — | [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690) |
+| [t-20261119-coord-r28-docker-gate-oras-wiring](../tasks/t-20261119-coord-r28-docker-gate-oras-wiring.md) | Docker-lebenszyklus-beleg vor dem merge nicht fahrbar (ORAS trust-plane + targeted-integration integriert-only) | blocked | not set | — | — | — |
 
 ## Ready to assign
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261119-coord-r28-docker-gate-oras-wiring](../tasks/t-20261119-coord-r28-docker-gate-oras-wiring.md) | Docker-lebenszyklus-beleg vor dem merge nicht fahrbar (ORAS trust-plane + targeted-integration integriert-only) | ready | not set | — | — | — |
 
 ## By release
 
