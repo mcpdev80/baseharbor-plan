@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0428-089 korrektur (codeman b60c11a1, flash) — SELBE session fuehrt die korrektur aus, keine neue lane
-kanban_status: active
-kanban_lane: active
+owner: w089-0428-089-secureaccess (codeman b60c11a1, flash)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Integrate Perses with existing management access, verified transport and authorization; inspect selected upstream version…"
 kanban_title: 0428-089 · Protect Perses operator access
 priority: normal
@@ -23,19 +23,19 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5027ca029761ebf485b06a/evidence/r28-welle1-2026-11-15/perses-secure-access/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1599-0428-089.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44544947599", "https://github.com/mcpdev80/baseharbor/actions/runs/44551362534"]
 ---
 
-- [ ] t-20261114-r28-perses-secure-access · Protect Perses operator access #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-secure-access · Protect Perses operator access #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-089 korrektur (codeman b60c11a1, flash) — SELBE session fuehrt die korrektur aus, keine neue lane · **Priority:** normal  
+    **Owner:** w089-0428-089-secureaccess (codeman b60c11a1, flash) · **Priority:** normal  
     **PR:** [baseharbor#1599](https://github.com/mcpdev80/baseharbor/pull/1599)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5027ca029761ebf485b06a/evidence/r28-welle1-2026-11-15/perses-secure-access/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1599-0428-089.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44544947599), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44551362534)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
 **Required by:** [t-20261114-r28-perses-contact-routing](t-20261114-r28-perses-contact-routing.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** 0428-089 korrektur (codeman b60c11a1, flash) — SELBE session fuehrt die korrektur aus, keine neue lane  
+**Owner:** w089-0428-089-secureaccess (codeman b60c11a1, flash)  
 **Priority:** normal  
 **PRs:** [baseharbor#1599](https://github.com/mcpdev80/baseharbor/pull/1599)  
 **Source:** 
@@ -107,3 +107,5 @@ ZWEI BLOCKER, beide von mir an ed7f448f6a84a6ed917260cd4186a2a122a077ed nachgele
 EIGENE KORREKTUR MEINES HANDOFF-PLANS: ich hatte eine neue lane 'w089-0428-089-composekey-fix' auf demselben zweig vorbereitet (/var/tmp/mission-089-corrective.md) undangekuendigt. Das ist HALTLOS, sobald die korrekturmission auf b60c11a1 angenommen ist — zwei schreiber am selben zweig verletzten §4.3 (genau ein aktiver inhaber pro task) und §3.6 (keine ersatzworker, solange eine session weiteraendert). ENTSCHLUSS: b60c11a1 bleibt der EINIGE inhaber von lane-welle2-089-perses-secure-access und fuehrt B1 + B2 in ihrer session zu ende; die neue lane entsteht NICHT. Freigabe an die abnahme erst nach terminalem 'PR Selected Checks' auf dem neuen kopf. Die unabhaengige stelle haelt sich fern von diesem zweig (zugesichert) und reviewt #1697
 
 Independent read-only review on PR #1599 head `97d88ffefa0c89281d0c1b776f47b46f4449123f` (2026-11-19): Compose combines `network_mode` with `networks`, and Perses v0.55.1 rejects enabled auth with no provider. Exact-head run 44582754552 completed successfully: Go shards, build/vet, docs checks and required aggregate passed; runtime/native gates skipped. See [review evidence](../evidence/r28-welle4-2026-11-19/codex-review-wave/1599-0428-089-independent-review.md). No merge recommendation.
+
+fix-7 final auf e43552734, run 44598112016 completed/success am exaktkopf; runtime-/HA-zellen SKIPPED (owner-draht 114(a) ORAS-install)
