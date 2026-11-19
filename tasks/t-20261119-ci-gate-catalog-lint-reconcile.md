@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: Codex team (current thread)
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Make the CI gate-catalog policy detect validation registration changes in existing planner, runner, and workflow files, then…"
 kanban_title: 0428-145 · reconcile catalog lint guard
 priority: ""
@@ -19,18 +19,19 @@ prs: [mcpdev80/baseharbor#1581]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1581"]
 ---
 
-- [ ] t-20261119-ci-gate-catalog-lint-reconcile · CI: reconcile catalog lint guard on current develop #task #release/v0-4-28 #status/review #view/review #area/ci #kind/task
+- [x] t-20261119-ci-gate-catalog-lint-reconcile · CI: reconcile catalog lint guard on current develop #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** Codex team (current thread)  
     **PR:** [baseharbor#1581](https://github.com/mcpdev80/baseharbor/pull/1581)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1581)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** Codex team (current thread)  
@@ -81,3 +82,5 @@ Make the CI gate-catalog policy detect validation registration changes in existi
 - The regression suite covers planner ID, runner registry, CI dispatch arm, coordinated planner/runner/workflow/catalog update, and benign unrelated edits (five tests).
 - Verification: `python3 -m unittest scripts.test_pr_gate_plan.WorkflowPolicyRegistrationTests -v` PASS (5); `python3 -m unittest scripts/test_pr_gate_plan.py scripts/test_pre_release_runtime_reuse.py` PASS (200); exact event simulation `BASEHARBOR_POLICY_BASE_SHA=c296086... BASEHARBOR_POLICY_HEAD_SHA=7c404... GITHUB_EVENT_NAME=pull_request bash scripts/ci-workflow-policy.sh` PASS; `bash -n` and `git diff --check` PASS. Exact hosted route `ci-policy`, `pr-planner-tests`, related validation gates and `PR Selected Checks` all SUCCESS on run `44575019761`.
 - Maintainer acceptance remains separate; this card is handed off to review and is not marked accepted.
+
+GEMESSEN merged=true, state=closed, merged_at=2026-11-19T17:19:52Z, merge_commit 7ee6f817dbff (der merge-commit ist zugleich die BASE von #1684, damit ist die Inhalte-Aufnahme belegt); karte 0428-145 damit abgeschlossen

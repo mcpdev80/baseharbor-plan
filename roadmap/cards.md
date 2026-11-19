@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 76/168 · **Blocked:** 8 · **Waiting:** 24  
+    **Accepted tasks:** 77/168 · **Blocked:** 8 · **Waiting:** 24  
     **Blocker:** [t-20261114-r28-cli2-app-export](../tasks/t-20261114-r28-cli2-app-export.md) — managedSecretScopePresent hardcoded (false,nil), cmd/baha/app\_export.go:273-275 — angekündigter managed-secret export nie verfuegbar; base cli2-identity-secret…  
     **Blocker:** [t-20261114-r28-cli2-app-interact](../tasks/t-20261114-r28-cli2-app-interact.md) — drei CLI-defekte: logs -c selector wirkungslos, exec ohne shell-parse, kind-exit-code unbelegt; base cli2-identity-secrets-head -\> kein exaktkopf-lauf (ci.yml:…  
     Plus 6 further blockers in the task list.  
