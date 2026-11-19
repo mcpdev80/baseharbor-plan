@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-121 r5b (codeman 43911492, gepusht 5b8cccc15, korrektur laeuft)
-kanban_status: review
-kanban_lane: review
+owner: 0428-121 r5 (Codeman 43911492)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-121 · Env-Filter wirkt nicht auf
 priority: ""
@@ -20,21 +20,21 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-route2-review.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-anchor-recheck.md", "https://github.com/mcpdev80/baseharbor/pull/1691", "https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7005246254", "https://github.com/mcpdev80/baseharbor/actions/runs/44495408370", "https://github.com/mcpdev80/baseharbor/actions/runs/44495408370/job/135465056267", "https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7006167759", "https://github.com/mcpdev80/baseharbor/actions/runs/44503654267", "https://github.com/mcpdev80/baseharbor/actions/runs/44503654267/job/135494319127"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-route2-review.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-anchor-recheck.md", "https://github.com/mcpdev80/baseharbor/pull/1691", "https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7005246254", "https://github.com/mcpdev80/baseharbor/actions/runs/44495408370", "https://github.com/mcpdev80/baseharbor/actions/runs/44495408370/job/135465056267", "https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7006167759", "https://github.com/mcpdev80/baseharbor/actions/runs/44503654267", "https://github.com/mcpdev80/baseharbor/actions/runs/44503654267/job/135494319127", "https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7006544772", "https://github.com/mcpdev80/baseharbor/actions/runs/44506393063"]
 ---
 
-- [ ] t-20261119-hunt-metrics-env-filter-list-pfade · Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261119-hunt-metrics-env-filter-list-pfade · Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-121 r5b (codeman 43911492, gepusht 5b8cccc15, korrektur laeuft)  
+    **Owner:** 0428-121 r5 (Codeman 43911492)  
     **PR:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-route2-review.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-4.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-anchor-recheck.md), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1691), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7005246254), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44495408370), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/44495408370/job/135465056267), [proof 9](https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7006167759), [proof 10](https://github.com/mcpdev80/baseharbor/actions/runs/44503654267), [proof 11](https://github.com/mcpdev80/baseharbor/actions/runs/44503654267/job/135494319127)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-route2-review.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-4.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-anchor-recheck.md), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1691), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7005246254), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44495408370), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/44495408370/job/135465056267), [proof 9](https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7006167759), [proof 10](https://github.com/mcpdev80/baseharbor/actions/runs/44503654267), [proof 11](https://github.com/mcpdev80/baseharbor/actions/runs/44503654267/job/135494319127), [proof 12](https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7006544772), [proof 13](https://github.com/mcpdev80/baseharbor/actions/runs/44506393063)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0428-121 r5b (codeman 43911492, gepusht 5b8cccc15, korrektur laeuft)  
+**Owner:** 0428-121 r5 (Codeman 43911492)  
 **Priority:** not set  
 **PRs:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
 **Source:** 
@@ -122,3 +122,5 @@ vierte korrektur an dieselbe lane, alle drei punkte von mir im code belegt: (1) 
 2026-11-19 10:25Z: exact-head run 44503654267 on 5b8cccc15831ce4e591e154b2f5f9c5aee07d541 completed SUCCESS; required PR Selected Checks job 135494319127 PASS. Functional review still holds: case (c) must use canonical project := bhruntime.ApplicationProjectName("prod", "my-app", "dev") identically in ID and RuntimeTarget, and prove derived env dev. New correction commit plus new exact-head run required; no merge yet.
 
 SPERR-VERMERK gesetzt (aucht bei der abnahme): head 5b8cccc15 ist gepusht und lauf 44503654267 SUCCESS, aber ZWEI korrekturen fehlen — (1) colon-regel in environment.go nimmt bei 'loki:<project>' das erste segment (=provider), develop baut 'ID: "loki:" + placement.Project' (internal/logs/realization.go:233) => ID-grammatik unbewiesen; (2) fall (c) mischt ID 'loki:bh-prod-my-app-dev' mit Target 'baseharbor-my-app-dev' (zeilen 263/272 im gepushten stand) => die aussage laeuft still ueber den target. der gruene lauf kaedt beides nicht, weil der target rettet. faelle (a)/(b) sind in diesem kopf BEREITS richtig (eine konstante collisionProject in ID UND Target, zeilen 59/89, metrik-target 'prometheus'), das ist der fortschritt seit 5b. korrektur 5b laeuft in derselben lane, mit nachweis-assert dass die korrigierte colon-regel 'dev' allein aus der ID liefert
+
+2026-11-19 10:35Z: r5b head b66b76c63c095211a677d15a52f7c564a180101c canonicalizes case (c) ID and Target via ApplicationProjectName; focused TestRoute5 passes. Exact run 44506393063 is in_progress. Review hold updated: this commit changes provider-ID colon parsing in environment.go, but case (c) proof/list also supplies Target, so it does not isolate ID parsing. Add ID-only proof (canonical provider-qualified ID, no Target) deriving dev, then rerun exact-head tests/required checks. PR remains open; no merge.
