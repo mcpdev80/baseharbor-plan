@@ -15,17 +15,19 @@ kanban_title: 0428-122 · Klasse App hat keinen
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1692]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1692"]
 ---
 
 - [ ] t-20261119-hunt-metrics-appclass-log-writer · Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** w-appclass-writer (flash lane, mission-appclass-writer.md)  
+    **PR:** [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1692)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -34,7 +36,7 @@ evidence: []
 **Depends on:** none  
 **Owner:** w-appclass-writer (flash lane, mission-appclass-writer.md)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692)  
 **Source:** 
 <!-- /generated:links -->
 
