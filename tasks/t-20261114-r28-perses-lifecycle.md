@@ -7,7 +7,7 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0428-084 hopf (codeman 3ae5c022, ornith)
+owner: 0428-084 hopf (codeman 3ae5c022, STOP zurueckgewiesen)
 kanban_status: active
 kanban_lane: active
 kanban_summary: Guide enable/status/disable and ownership-safe removal of optional Perses using the accepted CLI contract; preserve monitoring…
@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md", "https://github.com/mcpdev80/baseharbor-plan/blob/c7376f916380d9d95d70e05204a10da2ef42d9b6/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084-r2.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md", "https://github.com/mcpdev80/baseharbor-plan/blob/c7376f916380d9d95d70e05204a10da2ef42d9b6/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6f05b59ccf3f13065093f7848de098063548d84f/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-3.md"]
 ---
 
 - [ ] t-20261114-r28-perses-lifecycle · Perses lifecycle commands #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-084 hopf (codeman 3ae5c022, ornith) · **Priority:** normal  
+    **Owner:** 0428-084 hopf (codeman 3ae5c022, STOP zurueckgewiesen) · **Priority:** normal  
     **PR:** [baseharbor#1598](https://github.com/mcpdev80/baseharbor/pull/1598)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/c7376f916380d9d95d70e05204a10da2ef42d9b6/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084-r2.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/c7376f916380d9d95d70e05204a10da2ef42d9b6/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/6f05b59ccf3f13065093f7848de098063548d84f/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** 0428-084 hopf (codeman 3ae5c022, ornith)  
+**Owner:** 0428-084 hopf (codeman 3ae5c022, STOP zurueckgewiesen)  
 **Priority:** normal  
 **PRs:** [baseharbor#1598](https://github.com/mcpdev80/baseharbor/pull/1598)  
 **Source:** 
@@ -94,3 +94,5 @@ END akzeptiert, von mir qualifiziert auf dem NEUEN develop: head ea6cddd204fbc40
 URTEIL: 'APPROVE CONTENT — exact head ea6cddd204fbc408b8e1b3b587f1f054ea1f43ce', 'END_APPROVE_CONTENT #1598 / run 44523123388 SUCCESS / merge held for monotonic base hop and fresh exact-head'. von mir gegen das JETZIGE develop geprueft: PR open/draft=false/mergeable_state 'behind' (NICHT dirty), 'git merge-tree --write-tree origin/develop <kopf>' = 0 konflikte gegen f518e859d, aggregate 'PR Selected Checks' auf diesem sha = completed success, combined status 'pending' (0 contexts, weil der develop bewegt ist). mission-084-hopf-onto-f518e859.md ist GESCHRIEBEN (reiner hopf, keine produkt-aenderung, konfliktannahme an environment.go/registry.go + config_mutation.go-beruehr-verbot) und startet auf dem ersten freien sitz; danach meldet die lane den neuen kopf + den frischen exact-head-lauf, und die abnahme mergt
 
 hopf-lane gestartet (mission-084-hopf-onto-f518e859.md, reiner hopf auf f518e859d, keine produkt-aenderung): die abnahme hat APPROVE CONTENT auf ea6cddd20 erteilt, den merge aber an 'monotonic base hop + fresh exact-head' gekoppelt. sitz kam frei, weil 088s lane abgeliefert hat (088 selbst ist jetzt im fenster). nach deren lauf-meldung geht der kopf sofort zur abnahme mit dem einzigen zusatz-beleg 'git diff --name-only ea6cddd20 <kopf>' = leer
+
+END_BLOCKED PRUEFE ich als FALSE zurueck, weil alle drei gruenden widerlegt sind: (1) 'git show <rev>:internal/machine/contract.go | grep -c app.perses' = 0 in develop 3b634232f, im 088-kopf 78c002ff5, in f518e859d UND im alten develop da76c5cf9 — die vier app.perses-ops waren nie in develop, sie sind 084s eigener zusatz (zeilen 205-208 ihres astes); (2) 'git merge-tree --write-tree 3b634232f ea6cddd20' = 0 CONFLICT-zeilen (merge-tree c82b5b4882776d3e7d9bdf21c2d184f35631a271), PR 'behind' statt 'dirty'; (3) der einzige kommentar-unterschied in internal/metrics/perses_contract_test.go zwischen develop und 084 ist 084s EIGENER block, von #1592 kommt dort nichts. BEFEHL: hopf als MERGE-commit ('git merge origin/develop', macht develop zum ancestor ohne die zeilen anzufassen) + die vier nachweise in der akte (ancestor rc=0, merge-tree 0, ea6cddd20 als ancestor, grep app.perses = 4) und der abschnitt 'was ich falsch gemeldet habe', weil die akte 12163463 einen falschen fernzeug enthaelt. dann fokus-tests, push, exact-head lauf bis terminal
