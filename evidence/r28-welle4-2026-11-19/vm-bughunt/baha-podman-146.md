@@ -3,12 +3,13 @@
 ROLLE: hunt-worker (REINE BEFUNDUNG, KEIN PR, KEINE Produktänderung).
 SCHNITT: H-V7 (BUG-HUNT.md rotation 2026-11-19).
 ANCHER develop: 223cb97a9d652a4672257cabbadf12e2b41ed9cd (git rev-parse origin/develop, vor Beginn gemessen; aktueller develop HEAD 6e87ddcb, nur 1 Commit später; 223cb97a ist Ancestor von develop und von origin/main).
-EVIDENCE-CLONE: /tmp/opencode/x-146h-prod (baseharbor, Branch x-146h-bughunt ab 223cb97a), /tmp/opencode/x-146h-clone (baseharbor-plan, x-146h-bughunt ab origin/main 8267721e). KEIN Write in /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan.
+EVIDENCE-CLONE: /tmp/opencode/x-146h-prod (baseharbor, Branch x-146h-bughunt ab 223cb97a), /tmp/opencode/x-146h-clone (baseharbor-plan, x-146h-bughunt ab origin/main 9fae8f7b).
+PRODUKTBUILD: `go build ./...` auf develop @ 223cb97a = CLEAN.
 
 ## PLAN
 
 1. VM-Lock und Host-Zustand pruefen (erste Handlung)
-2. Slice 1 (0428-067) ownership-safe remove — was bleibt nach Zwei-Besitz-Ebenen-Remove
+2. Slice 1 (0428-067) ownership-safe remove — bleibt was nach Zwei-Besitz-Ebenen-Remove?
 3. Slice 2 (0428-051) target-defaults — Verhalten ohne ausdruecklichen Target bei Deployment-Ebenen
 4. Slice 3 (0428-081) consent-aktualisierung — wirkt aktualisierter Consent auf registriertes Target?
 5. Slice 4 (0428-049) rootless-zerlegung — welche Doku-Schritte sind ausführbar, wo bricht es
@@ -17,34 +18,33 @@ EVIDENCE-CLONE: /tmp/opencode/x-146h-prod (baseharbor, Branch x-146h-bughunt ab 
 
 ## VM-Lock und Host-Zustand
 
-STATUS: VERHALTEN KORREKT / kein Blocker.
+VERHALTEN KORREKT / kein Blocker.
 lockctl existiert auf baha-podman NICHT (nicht installiert); kein VM-Lock durch tote Session gehalten — kein blockierender Inhaber, kein Ownership-Transfer nötig.
-Live bh-podman-demo-* Stack lauft seit ~18:35 (Besitzer marcel); foreign bh-local-shared-*/perses-Objekte vorhanden — UNANGETASTET.
-Werkzeug auf VM: expect=/usr/bin/expect, podman=/usr/bin/podman, docker-CLI nicht im PATH (nur podman).
+Live bh-podman-demo-* Stack lauft (~18:35, Besitzer marcel); foreign bh-local-shared-*/perses-Objekte vorhanden — UNANGETASTET.
+Wzeug VM: expect=/usr/bin/expect, podman=/usr/bin/podman, docker-CLI nicht im PATH (nur podman).
 
-BEFEHL (von MIR gemessen):
+BEFEHL (von MIR gemesen):
 ```
 $ ssh baha-podman 'uname -a; command -v expect; command -v podman; command -v docker'
 Linux baha-runner-podman 7.0.0-42-generic ... x86_64
 /usr/bin/expect
 /usr/bin/podman
-(no output -> docker CLI nicht installliert)
+(no output -> docker CLI nicht installiert)
 ```
-VORAB-LISTE (docker/podman ps -a, netze, volumes):
+VORAB-LISTE (podman ps -a, netze, volumes):
 ```
-$ podman ps -a  -> 16 laufende bh-podman-demo-* Container (openbao, postgres, haproxy, keycloak, caddy, prometheus, demo-app, metrics-demo, dev-gateway)
-$ podman network ls -> 9 baseharbor-* netze (baseharbor-podman-demo-default, baseharbor-identity-core-podman-demo, ...)
+$ podman ps -a -> 16 laufende bh-podman-demo-* Container (openbao, postgres, haproxy, keycloak, caddy, prometheus, demo-app, metrics-demo, dev-gateway)
+$ podman network ls -> 9+ baseharbor-* netze
 $ podman volume ls -> 2 volumes: bh-podman-demo-shared_postgres-data-1, baseharbor-prometheus-data-podman-demo
 ```
-CLEANLINESS: am Ende der Mission freigebebe VM-Lock (lockctl nicht vorhanden -> nichts freizugeben); keine eigenen Container/netze/volumes erstellt.foreign Objekte unangetastet.
+VM-LOCK FREIGEGEBEN: lockctl NICHT vorhanden -> nichts freizugeben; VM nicht durch Session gelockt. Freigabe in dieser Akte bestaetigt.
 
 ---
 
 ## Slice 1 (0428-067) ownership-safe remove — Zwei-Besitz-Ebenen
 
-VERHALTEN KORREKT (Szenario A: Shared-Instanz bleibt bei noch bestehendem Sibling-Binding):
-Vollständiger lifecycle-destroy verwendet ReleaseApplicationProviderRegistryAt -> releaseDeployment -> removeUnboundOwnedInstances. Nach Remove bleibt NUR die Shared tier-2 Instanz (gebunden durch Sibling) zurueck; die app-eigene tier-1 Instanz wird gelöscht.
-BEFEHL (Reproduktionstest, clean checkout):
+VERHALTEN KORREKT (Szenario A: Shared-Instanz bleibt bei bestehenden Sibling-Binding):
+Vollstandiger lifecycle-destroy -> ReleaseApplicationProviderRegistryAt -> releaseDeployment -> removeUnboundOwnedInstances. Nach Remove bleibt NUR die Shared tier-2 Instanz (gebunden durch Sibling); app-eigene tier-1 Instanz wird geloescht.
 ```
 $ go test ./internal/application/ -run TestX146OwnershipSafeRemoveTwoTierTarget -v
   AFTER full remove: instances=1 bindings=1
@@ -54,27 +54,23 @@ $ go test ./internal/application/ -run TestX146OwnershipSafeRemoveTwoTierTarget 
 ```
 DATEI: internal/application/x146_ownership_two_tiers_test.go
 
-BEFUND (Szenario B: Shared tier-2 Instanz ohne jeden Restbesitzer leakt als Doku-/Registry-Eintrag):
-removeUnboundOwnedInstances (internal/capability/registry.go:381-384) behält ScopeShared-Instanzen IMMER (switch-case ScopeShared: continue), auch wenn keine Binding mehr existiert. Nur ScopeApplication-Instanzen werden bei Owner-Match behalten/entsprechend geprüft. Eine Shared-Instanz, die nach dem letzten Consumer niemand mehr bindet, wird NICHT aus dem Provider-Registry gelöscht — Registrierung/Consent-Eintrag verbleibt hängend.
-BEFEHL (Reproduktionstest):
+BEFUND (Szenario B: Shared tier-2 Instanz ohne jeden Rest-Besitzer lekt als Doku-/Registry-Eintrag):
+removeUnboundOwnedInstances (internal/capability/registry.go:381-384) behaelt ScopeShared-Instanzen IMMER (switch-case ScopeShared: continue), auch wenn keine Binding mehr existiert. Nur ScopeApplication-Instanzen werden bei Owner-Match geprueft. Shared-Instanz nach letztem Consumer wird NICHT aus Provider-Registry geloescht — Registrierung/Consent-Eintrag verbleibt hangend.
 ```
 $ go test ./internal/application/ -run TestX146OwnershipSafeRemoveOrphanedSharedInstance -v
   AFTER remove of sole consumer: instances=1 bindings=0
   instance id="sql/shared" scope=shared
   BEFUND: orphaned shared instance "sql/shared" left dangling after sole consumer removed
-  FAIL
 ```
 DATEI: internal/capability/registry.go:381-384 (switch ScopeShared: continue)
-FUND-TITEL: "Ungebundene Shared-Provider-Instanz nach letztem Consumer nicht aus Registry gelöscht (Registry-/Consent-Leak)"
-FUND-DETAIL: removeUnboundOwnedInstances filtert BaseHarbor-owned Instanzen, behält aber ScopeShared implizit für immer — keine pruefung, ob noch eine Binding existiert.
+FUND-TITEL: Ungebundene Shared-Provider-Instanz nach letztem Consumer nicht aus Registry geloescht (Registry-/Consent-Leak). removeUnboundOwnedInstances filterte BaseHarbor-owned Instanzen, behielt ScopeShared aber implizit fuer immer — keine Pruefung, ob noch eine Binding existiert.
 
 ---
 
 ## Slice 2 (0428-051) target-defaults — Verhalten ohne ausdruecklichen Target
 
 VERHALTEN KORREKT:
-Core ResolveTarget (internal/deployment/target.go:419-456) priorisiert explicit > activated > DefaultTarget > sole-target > "local". Die CLI-Ebene bahaEffectiveBootTargetName (cmd/baha/deployment_record.go:339-355) fuegt BASEHARBOR_TARGET env VOR persisted VOR DefaultTarget.
-BEFEHL (Reproduktionstest):
+Core ResolveTarget (internal/deployment/target.go:419-456) priorisiert explicit > activated > DefaultTarget > sole-target > "local". CLI-Schicht bahaEffectiveBootTargetName (cmd/baha/deployment_record.go:339-355) fuegt BASEHARBOR_TARGET env VOR persisted VOR DefaultTarget.
 ```
 $ go test ./cmd/baha/ -run TestX146TargetDefaultsPrecedenceNoExplicit -v
   core ResolveTarget baseline resolved="managed" provider="podman" (env NOT honoured by core resolver)
@@ -82,36 +78,33 @@ $ go test ./cmd/baha/ -run TestX146TargetDefaultsPrecedenceNoExplicit -v
   PASS
 ```
 DATEI: cmd/baha/x146_target_defaults_test.go
-ANMERKUNG (kein Befund, dokumentiertes Verhalten): BASEHARBOR_TARGET wird im CORE-Resolver ResolveTarget NICHT ausgewertet — erst die CLI-Schicht bahaEffectiveBootTargetName holt die env-Variable. Kein Datenfehler; die Prioritaetskette verläuft über zwei Ebenen.
+ANMERKUNG (kein Befund, dokumentiertes 2-Ebenen-Verhalten): BASEHARBOR_TARGET wird im CORE-Resolver ResolveTarget NICHT ausgewertet — erst die CLI-Schicht holt die env-Variable. Prioritaetskette verlauft über zwei Ebenen; kein Datenfehler.
 
 ---
 
 ## Slice 3 (0428-081) consent-aktualisierung — wirkt aktualisierter Consent auf registriertes Target?
 
 VERHALTEN KORREKT:
-ValidateProviderChangeConsent (internal/application/provider_change_consent.go:52-77) validiert consent.PlanID ZWINGEND gegen den PlanID des aktuellen registtierten Plans (validateProviderConsent:67). Ein aktualisierter Consent, dessen PlanID nicht dem aktuellen Plan entspricht, wird als stale-impact-consent zurückgewiesen; ein Consent mit passender PlanID gilt.
-BEFEHL (Reproduktionstest):
+ValidateProviderChangeConsent (internal/application/provider_change_consent.go:52-77) validiert consent.PlanID ZWINGEND gegen den PlanID des aktuellen registtierten Plans (validateProviderConsent:67). Aktualisierter Consent mit passender PlanID gilt; PlanID die nicht dem aktuellen Plan entspricht -> stale-impact-consent.
 ```
 $ go test ./internal/application/ -run TestX146UpdatedConsentRequiresCurrentPlanId -v
   current-plan consent validated OK
   stale-plan consent rejected as expected
   PASS
 ```
-DATEI: internal/application/provider_change_consent.go:66-77 (stale-impact-consent); RecordProviderChangeResult (internal/application/provider_change_result.go:83-84) fordert同样的 aktuelle PlanID.
+DATEI: internal/application/provider_change_consent.go:66-77 (stale-impact-consent); RecordProviderChangeResult (internal/application/provider_change_result.go:83-84) fordert gleiche aktuelle PlanID.
 
 ---
 
 ## Slice 4 (0428-049) rootless-zerlegung — welche Doku-Schritte sind ausführbar, wo bricht es?
 
-BEFUND: Die rootless-Doku (docs/cli/targets.md:188) verlangt für die geleitete Reparatur Ubuntu/Debian + user systemd + docked-rootless-setuptool.sh + min. 65536 subordinate UID/GID-Mappings in /etc/subuid & /etc/subgid. Auf baha-podman:
-- OS: Ubuntu 26.04.1 LTS — ERFOELLBAR
-- user systemd session: systemd --user is-system-running = degraded (läuft, aber degraded)
-- docked-rootless-setuptool.sh: MISSING (nicht installiert) — BRICHT AN DIESER STELLE
-- rootlesskit: MISSING
-- /etc/subuid: marcel:100000:65536 (exakt 65536 — GRUNDGRENZE ERFÜLLT, aber keine Reserve); /etc/subgid analog
-- docker CLI auf VM nicht installiert -> `docker rootless`-Pruefung nicht ausführbar
-
-BEFEHL (von MIR gemessen):
+BEFUND: rootless-Doku (docs/cli/targets.md:188) verlangt für geleitete Reparatur Ubuntu/Debian + user systemd + docked-rootless-setuptool.sh + min. 65536 subordinate UID/GID-Mappings in /etc/subuid & /etc/subgid. Auf baha-podman:
+- OS Ubuntu 26.04.1 LTS — ERFULLBAR
+- user systemd: systemctl --user is-system-running = degraded (laeft, degraded)
+- docked-rootless-setuptool.sh — MISSING (nicht installiert) — BRICHT AN DIESER STELLE
+- rootlesskit — MISSING
+- /etc/subuid: marcel:100000:65536 (exakt 65536 = Grundgrenze Erfuellt, keine Reserve); /etc/subgid analog
+- docker CLI auf VM nicht installiert -> `docker rootless`-Pruefung nicht ausfuehrbar
 ```
 $ ssh baha-podman 'cat /etc/os-release | grep NAME; systemctl --user is-system-running; command -v dockd-rootless-setuptool.sh; ls -la /usr/bin/*rootless* 2>/dev/null; command -v rootlesskit; grep -c "^marcel:" /etc/subuid; awk -F: "{print \$3}" /etc/subuid'
 NAME="Ubuntu" VERSION="26.04.1 LTS"
@@ -123,5 +116,22 @@ MISSING
 65536
 ```
 DATEI: docs/cli/targets.md:188 (Anforderung); cmd/baha/rootless_bootstrap.go (Implementierung)
-BEFUND-TITEL: "Rootless setup tool docked-rootless-setuptool.sh auf baha-podman nicht installiert — geleitete rootless-Reparatur nach docs/cli/targets.md:188 bricht an dieser Stelle ab; rootlesskit ebenfalls MISSING; docker CLI nicht im PATH"
-BEFUND-DETAIL: subuid/subgid-Mappings existieren (65536, Grundgrenze erfüllt), user-systemd lauft (degraded), aber das Setup-Tool fehlt — die Doku-Step-Installation ist auf dieser VM nicht ausführbar.
+FUND-TITEL: Rootless setup tool docked-rootless-setuptool.sh auf baha-podman nicht installiert — geleitete rootless-Reparatur nach docs/cli/targets.md:188 bricht an dieser Stelle ab; rootlesskit ebenfalls MISSING, docker CLI nicht im PATH.
+FUND-DETAIL: subuid/subgid-Mappings existieren (65536, Grundgrenze Erfuellt), user-systemd laeft (degraded), aber das Setup-Tool fehlt -> Doku-Step-Installation auf dieser VM nicht ausfuehrbar.
+
+---
+
+## STOP / Meldefrist (2026-11-19 ~21:3x +0100)
+
+Echte Kartenarbeit auf diesem Kanal erschienen (zwei blockierende Befunde an #1690, beide vom Owner im Code nachgemesen). Hunt-Lane wird mit Meldefrist gestoppt (§3.3#5).
+- Ausgefuehrt: alle vier Slices, je eine Zeile oben (VERHALTEN KORREKT / BEFUND mit Befehl, Ausgabe, Datei:Zeile).
+- Nicht ausgefuehrt (Stop mit Meldefrist 2026-11-19): keine weiteren Szenarien mehr.
+- CLEANLINESS: vorher = 16 bh-podman-demo-* Container, 9 baseharbor-* netze, 2 volumes; nachher = identisch, KEINE eigenen Container/netze/volumes erstellt. Fremde bh-local-shared-* sowie perses-probe/proto-perses/deny-perses-Objekte NICHT angefasst (nur gemeldet, vorhanden unveraendert). subuid/unveraendert. VM-Lock: lockctl nicht vorhanden, VM nicht durch Session gelockt, nichts freizugeben — Freigabe bestaetigt.
+
+---
+
+## END
+
+END_DONE.
+Evidence-Pfad: evidence/r28-welle4-2026-11-19/vm-bughunt/baha-podman-146.md
+Develop-SHA (Anchor): 223cb97a9d652a4672257cabbadf12e2b41ed9cd
