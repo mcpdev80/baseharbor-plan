@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 13 |
-| review | 24 |
+| active | 12 |
+| review | 25 |
 | wait | 13 |
 | blocked | 1 |
 | ready | 2 |
@@ -35,7 +35,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261117-observability-native-gate-bootstrap](../tasks/t-20261117-observability-native-gate-bootstrap.md) | CI: Run observability acceptance with verified ORAS bootstrap | active | not set | lane-113-pr1680-fixes (this session, intake per Hunt→Karte duty) | — | — |
 | [t-20261118-app-env-recovery-flags-claim](../tasks/t-20261118-app-env-recovery-flags-claim.md) | align app env recovery-flag docs with the real command contract | active | not set | coord | — | [baseharbor#1687](https://github.com/mcpdev80/baseharbor/pull/1687) |
 | [t-20261118-diag-exec-iftrue-leak](../tasks/t-20261118-diag-exec-iftrue-leak.md) | fix DIAG_EXEC if-true leak in app_edit_apply.go | active | not set | Flash (codeman d5ecb550 / 0428-118) | — | — |
-| [t-20261118-mcp-partial-change-success](../tasks/t-20261118-mcp-partial-change-success.md) | MCP/HTTP edit path must fail loud on partial provider-change result | active | not set | w1-lane-5584d84a (0428-120) | — | — |
 | [t-20261118-ownership-stale-consent-hardening](../tasks/t-20261118-ownership-stale-consent-hardening.md) | harden provider ownership chain vs stale-impact-consent | active | not set | w99-0428-119 (codeman 9a898351) | — | — |
 
 ## Ready for review
@@ -65,6 +64,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261117-docker-loki-ingestion-timeout](../tasks/t-20261117-docker-loki-ingestion-timeout.md) | Observability: Docker Loki provider ingestion gate times out | review | not set | coord | [t-20261117-observability-native-gate-bootstrap](../tasks/t-20261117-observability-native-gate-bootstrap.md) (open) | [baseharbor#1680](https://github.com/mcpdev80/baseharbor/pull/1680) |
 | [t-20261117-hunt-uid-docs-110](../tasks/t-20261117-hunt-uid-docs-110.md) | Corrupt-config and mutation paths stay silent despite fail-l | review | not set | worker-flash (mission-110-mutation-loud) | — | [baseharbor#1682](https://github.com/mcpdev80/baseharbor/pull/1682) |
 | [t-20261118-enrollment-two-phase-boundary-doc](../tasks/t-20261118-enrollment-two-phase-boundary-doc.md) | document the enrollment consume/issue two-phase boundary | review | not set | w115 (opencode ses_e0f576c30ffe) | — | [baseharbor#1685](https://github.com/mcpdev80/baseharbor/pull/1685) |
+| [t-20261118-mcp-partial-change-success](../tasks/t-20261118-mcp-partial-change-success.md) | MCP/HTTP edit path must fail loud on partial provider-change result | review | not set | w1-lane-5584d84a (0428-120) | — | [baseharbor#1688](https://github.com/mcpdev80/baseharbor/pull/1688) |
 | [t-20261118-receipt-guard-single-operand](../tasks/t-20261118-receipt-guard-single-operand.md) | receipt verification guard collapses to single operand | review | not set | coord | — | [baseharbor#1686](https://github.com/mcpdev80/baseharbor/pull/1686) |
 
 ## Waiting for resources
