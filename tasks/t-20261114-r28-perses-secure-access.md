@@ -7,7 +7,7 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0428-089 korrektur (codeman b60c11a1, flash) — sequenz-hopf getan, lauf pending
+owner: 0428-089 korrektur (codeman b60c11a1, flash) — unabhaengige abnahme laeuft
 kanban_status: review
 kanban_lane: review
 kanban_summary: "Integrate Perses with existing management access, verified transport and authorization; inspect selected upstream version…"
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5
 
 - [ ] t-20261114-r28-perses-secure-access · Protect Perses operator access #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-089 korrektur (codeman b60c11a1, flash) — sequenz-hopf getan, lauf pending · **Priority:** normal  
+    **Owner:** 0428-089 korrektur (codeman b60c11a1, flash) — unabhaengige abnahme laeuft · **Priority:** normal  
     **PR:** [baseharbor#1599](https://github.com/mcpdev80/baseharbor/pull/1599)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5027ca029761ebf485b06a/evidence/r28-welle1-2026-11-15/perses-secure-access/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1599-0428-089.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44544947599), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44551362534)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
 **Required by:** [t-20261114-r28-perses-contact-routing](t-20261114-r28-perses-contact-routing.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** 0428-089 korrektur (codeman b60c11a1, flash) — sequenz-hopf getan, lauf pending  
+**Owner:** 0428-089 korrektur (codeman b60c11a1, flash) — unabhaengige abnahme laeuft  
 **Priority:** normal  
 **PRs:** [baseharbor#1599](https://github.com/mcpdev80/baseharbor/pull/1599)  
 **Source:** 
@@ -95,3 +95,5 @@ selbstkorrektur: ich hatte 'acht gemeinsame dateien' gemeldet (ueber 'gh pr view
 
 REIHENFOLGE ERFUELLT: #1598 ist GEMERGT als 1019190d8dc0ecac7693f3461153e76be0e2cb8a (14:56:29Z), develop = der wert, PR #1599 head ed7f448f6a84a6ed917260cd4186a2a122a077ed, draft=false, mergeable_state 'blocked' = NOCH KEIN TERMINALER BEWEIS: lauf 44551362534 (start 15:08:09Z) in_progress, ein job laufend, 0 fehljobs; Trusted Plan + Native gate plan + workflow policy + source format PASS, Go-shards/build/vet/focused Python pending. therefore kann 'PR Selected Checks' nicht terminal sein — KEIN merge, KEIN accepted; die aelteren laeufe 44535875227 (base 859) und 44544947599 (base fac01c772) sind nach der base-abstands-regel keine abnahme. CODE-REVIEW-LAGE, read-only, ausdrtuecklich KEIN verdict: die zwei frueheren runtime-blocker sehen adressiert — Perses-config deterministisch gerendert, auf vorhandensein/inhalt geprueft, read-only gemountet; Perses joined die gateway-netzwerk-namespace mit 'network_mode: service:…' ohne eigenen port; integrationstest prueft reachability/auth/host-invisibility. akte: evidence/r28-welle4-2026-11-19/secure-access-hopf/fix-4.md (main d6249180); PR-body von ihr berichtigt auf base=develop + STACK-vermerk
 REIHENFOLGE ERFUELLT (beide notizen waren meine, hier zusammengefuehrt): STAND 15:1xZ, von mir fern_gelesen: develop 1019190d8dc0ecac7693f3461153e76be0e2cb8a (#1598 GEMERGT 14:56:29Z, damit ist die von mir festgelegte REIHENFOLGE #1598 vor #1599 erfuellt), PR #1599 head ed7f448f6a84a6ed917260cd4186a2a122a077ed, draft=false, mergeable_state 'blocked' = ES GIBT NOCH KEIN TERMINALEN BEWEIS: lauf 44551362534 (start 15:08:09Z) in_progress, 1 job laufend, 0 fehljobs; Trusted Plan, Native gate plan, workflow policy und source format sind PASS, mehrere Go-shards + build/vet + focused Python noch pending. DER AGGREGAT 'PR Selected Checks' KANN DADARCH NICHT TERMINAL SEIN — kein merge, kein accepted, und die beiden aelteren laeufe (44535875227 auf base 859, 44544947599 auf fac01c772) sind nach der base-abstands-regel keine abnahme. CODE-REVIEW-LAGE (read-only, ausdruecklich KEIN verdict der abnahme): die zwei früheren runtime-blocker sehen im neuen diff adressiert — Perses-config deterministisch gerendert + auf vorhandensein/inhalt geprueft + read-only gemountet; Perses joined die gateway-netzwerk-namespace mit 'network_mode: service:…' ohne eigenen port; ein integrationstest prueft reachability/auth/host-invisibility. akte-PFAD auf main: evidence/r28-welle4-2026-11-19/secure-access-hopf/fix-4.md (main d6249180), PR-body von ihr berichtigt auf base=develop + STACK-vermerk
+
+BOARD AUF TERMINALEN STAND (mein vorheriger text meldete 'lauf pending' — das war beim lesen um 15:1xZ bereits ueberholt): lauf 44551362534 = completed SUCCESS, updated 15:13:47Z, head ed7f448f6a84a6ed917260cd4186a2a122a077ed, 0 fehljobs, 'PR · Native gate plan' + 'PR · Source format' success, 'PR · Exact Candidate'/'Release Source Preflight'/native-core zellen skipped (base-plan waehlt sie fuer diese pfade nicht), PR #1599 draft=false, mergeable_state clean. SEQUENZ: ed7f448 hat ausdrtuecklich die eltern 699825206 + 1019190d8, und 'git merge-base --is-ancestor 1019190d8… ed7f448…' = 0 — der merge von #1598 ist also PARENT, die von mir festgelegte reihenfolge #1598 vor #1599 ist erfuellt und es bleibt KEINE sequenz-sperre. karten-depends_on = [perses-contract-seam, perses-runtime]; der seam ist geschlossen und gemergt (#1575 → squash, content in develop), perses-runtime-status siehe vermerk. akte: evidence/r28-welle4-2026-11-19/secure-access-hopf/fix-4.md + fix-5 (ihr letzter hopf), plan-main 4b97a4bc
