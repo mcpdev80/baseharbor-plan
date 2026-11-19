@@ -8,16 +8,16 @@ areas: [ci, docs, governance]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: planned
+owner: Codex team (current thread)
+kanban_status: active
+kanban_lane: active
 blocker: ""
 wait_reason: ""
-depends_on: [t-20261119-r28-prgate-docs-internal-json-mapping]
+depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1697]
 sources: []
-source_note: "process-knoten von der 0428-144-lane gemeldet und von MIR GEMESSEN: #1705 (144) ist merged=true merge_commit 28fb427f057499efca705c1b7459e7653bd532a8, aber ihre acceptance verlangt einen gehosteten docs/internal JSON-zeugen, den nur #1697 liefern kann — und #1697 steht auf 0428-131, das ich auf wait gesetzt hatte. Der wait haette den zeugen verhindert: Zirkel. Aufloesung nach brettvertrag: witness-only-kinderkarte statt gegenseitiger blockade."
+source_note: "0428-144 implementation PR #1705 is already merged at 28fb427f057499efca705c1b7459e7653bd532a8; only its acceptance witness is outstanding. This witness-only card may run before 0428-144 acceptance because the hosted #1697 result is evidence needed for that acceptance."
 evidence:
   - "https://github.com/mcpdev80/baseharbor/pull/1705"
   - "https://github.com/mcpdev80/baseharbor/pull/1697"
@@ -25,20 +25,18 @@ resolution: ""
 created: 2026-11-19
 ---
 
-- [ ] t-20261119-r28-1697-witness-hop-and-run · nur zeuge produzieren, nichts annehmen #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/ci #area/docs #area/governance #kind/task
+- [ ] t-20261119-r28-1697-witness-hop-and-run · nur zeuge produzieren, nichts annehmen #task #release/v0-4-28 #status/active #view/active #area/ci #area/docs #area/governance #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
+    **Owner:** Codex team (current thread)  
     **PR:** [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697)  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261119-r28-prgate-docs-internal-json-mapping](t-20261119-r28-prgate-docs-internal-json-mapping.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1705), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1697)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261119-r28-prgate-docs-internal-json-mapping](t-20261119-r28-prgate-docs-internal-json-mapping.md)  
-**Owner:** unassigned  
+**Depends on:** none  
+**Owner:** Codex team (current thread)  
 **Priority:** not set  
 **PRs:** [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697)  
 **Source:** 
@@ -65,3 +63,7 @@ Fuer karte 0428-144 (PR #1705, merged = 28fb427f) einen gehosteten ZEUGEN produz
 
 - **Modified features:** keine produkt-aenderung; pruefe nur, ob der hopf unveraendert bleibt ('git diff --name-only <kopf>..origin/develop' fuer die drei dateien muss leer sein).
 - **CI integration:** EIN pull_request-lauf am exakten kopf bis terminal; die anderen zellen duerfen skipped sein — der documentation-audit NICHT.
+
+## Ownership and dependency correction
+
+The former dependency on 0428-144 represented an acceptance dependency, not an implementation prerequisite: #1705 already merged the selector fix. Requiring 0428-144 to be accepted first would create a cycle because this exact #1697 run is the evidence needed to accept 0428-144. The witness run does not accept or merge either product task.
