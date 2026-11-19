@@ -23,7 +23,7 @@ Host evidence: [witness-1.md](../perses-runtime/witness-1.md), Planning commit `
 
 ## CI cost note
 
-Hosted run `44467712113` completed in 4m25s wall time. Selected checks executed and passed; runtime Docker was skipped. Host runtime witness elapsed time is 117.15 seconds across the five listed repetitions plus the independent 11.80-second cross-check and terminal 22.24/8.39-second repetitions as captured in the evidence (no hosted runner minutes charged for these host-local runs).
+Hosted run `44467712113` completed in 4m25s wall time. Selected checks executed and passed; runtime Docker was skipped. Host runtime witness elapsed time totals 117.15 seconds across all eight recorded PASS invocations, including the five requested repetitions, independent worktree cross-check, and final confirmations (no hosted runner minutes charged for these host-local runs).
 
 ## END
 
