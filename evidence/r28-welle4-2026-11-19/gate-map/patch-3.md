@@ -259,24 +259,26 @@ $ podman ps -a
 cleanliness: pass — 0 new containers/networks/volumes by this lane; ambient bh-local-shared-* and core/* images of
 foreign cards untouched; /var/tmp scratch removed after the dossier push.
 
-## ls-remote / origin/main witness
+## ls-remote / origin/main witness (second-to-last action, exact output)
 
 ```
 $ git ls-remote origin main
-e611d271ba89e08a279b69561685190e04a11406	refs/heads/main
-$ git log --oneline -1 origin/main
-e611d271 evidence: mission-1613 required-CI evidence for card 0428-073 / PR #1613 head d8838f622
+ba53cf7018022b3a70fe2f01a79daff505264e4f	refs/heads/main
+$ git merge-base --is-ancestor ba53cf7018022b3a70fe2f01a79daff505264e4f origin/main && echo ancestor
+ancestor: ba53cf7018022b3a70fe2f01a79daff505264e4f is an ancestor of origin/main tip
 $ git cat-file -e origin/main:evidence/r28-welle4-2026-11-19/gate-map/patch-3.md && echo PRESENT
-PRESENT
+patch-3.md PRESENT on origin/main
 $ git cat-file -e origin/main:evidence/r28-welle4-2026-11-19/gate-map/gate-map-v3.patch && echo PRESENT
-PRESENT
+gate-map-v3.patch PRESENT on origin/main
+$ git log --oneline origin/main -1
+ba53cf70 evidence(0428-114 gate-map v3): per-hunk apply-check witnesses (e/g, order-independent), corrected candidate chain
 ```
 
-Candidate (evidence) chain on baseharbor-plan main: lane-start base 8c6e3e2b -> 1318c24b (gate-map v3 dossier +
-gate-map-v3.patch) -> 1febe04e (witness paste) -> 0c644243 (quote wording) -> e959afb0 (witness block) ->
-383683cd (END line + chain note). Other lanes' commits (bd13c742, af33577a, 42e4b3ab, e611d271, 16d374dc)
-interleaved on main between my pushes; all pushes were fast-forwards and touched only my two evidence files.
-Product repo untouched; no product candidate SHA.
+Candidate (evidence) SHA: `ba53cf7018022b3a70fe2f01a79daff505264e4f` = the tip of baseharbor-plan origin/main.
+Chain: lane-start base 8c6e3e2b -> 1318c24b (gate-map v3 dossier + gate-map-v3.patch) -> 1febe04e -> 0c644243 ->
+e959afb0 -> 383683cd -> ba53cf70 (candidate). Other lanes' commits (bd13c742, af33577a, 42e4b3ab, e611d271,
+16d374dc) interleaved on main between my pushes; all my pushes were fast-forwards and touched only these two
+evidence files. Product repo untouched; no product candidate SHA (this is a plan-artifact-only deliverable).
 
 ## Revision labels
 
