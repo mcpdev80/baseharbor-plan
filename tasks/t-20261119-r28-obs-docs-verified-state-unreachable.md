@@ -15,11 +15,13 @@ blocker: ""
 wait_reason: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1703]
 sources: []
 source_note: "hunt 0428-147 (akte evidence/r28-welle4-2026-11-19/vm-bughunt/baha-docker-147.md, haupt d667cce4)"
 evidence:
   - "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/vm-bughunt/baha-docker-147.md"
+  - "https://github.com/mcpdev80/baseharbor/commit/dd7deadc665f4bb8dc6ceddae94a2835635a3e75"
+  - "https://github.com/mcpdev80/baseharbor/actions/runs/44594850148"
 resolution: ""
 created: 2026-11-19
 ---
@@ -27,7 +29,8 @@ created: 2026-11-19
 - [ ] t-20261119-r28-obs-docs-verified-state-unreachable · doku verspricht perses-zustand 'verified' #task #release/v0-4-28 #status/active #view/active #area/docs #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** Codex team (current thread)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/vm-bughunt/baha-docker-147.md)  
+    **PR:** [baseharbor#1703](https://github.com/mcpdev80/baseharbor/pull/1703)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/vm-bughunt/baha-docker-147.md), [proof 2](https://github.com/mcpdev80/baseharbor/commit/dd7deadc665f4bb8dc6ceddae94a2835635a3e75), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44594850148)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -36,7 +39,7 @@ created: 2026-11-19
 **Depends on:** none  
 **Owner:** Codex team (current thread)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1703](https://github.com/mcpdev80/baseharbor/pull/1703)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -46,7 +49,7 @@ Die observability-how-to fuehrt fuer 'perses status' einen zustand 'verified', d
 
 ## Scope
 
-- In scope: docs/en/guides/observability-how-to.md (zeile 32 laut fund) und die entsprechende DE-stelle (zeile 28), plus der pfad, der die zustaende erzeugt (cmd/baha 'app perses status').
+- In scope: `docs/how-to/observability.md` and `docs/de/how-to/observability.md`, plus the status path `cmd/baha app perses status` and its existing production-path tests.
 - Zur einordnung: der wert 'verified' existiert im code an anderer stelle (cmd/baha/app_evidence.go:168/:178) fuer einen ANDEREN kontext — das ist nicht derselbe zustandsraum.
 - Out of scope: die 'Verification=none'-vertragsfrage (karte 0428-143, beim owner). Hier geht es ausschliesslich um ein versprochenes ergebnis in der doku.
 
@@ -59,4 +62,8 @@ Die observability-how-to fuehrt fuer 'perses status' einen zustand 'verified', d
 ## Required checks
 
 - **Modified features:** doku-check (documentation-audit) + die status-regression der observability-pfade.
-- **CI integration:** die neue regression muss in ihrem paket vom 'PR · Go unit'-shard ausgefuehrt werden (CI-aufnahmepflicht neuer tests).
+- **CI integration:** the existing status regression is `cmd/baha::TestBahaStatusPersesConfiguredUnverifiedPositive` and `cmd/baha::TestBahaStatusPersesNotConfiguredWhenUnselected`; both run in package `cmd/baha` under the mapped Go unit gate. This card adds no new code test or CI mapping.
+
+## Handoff
+
+- PR [#1703](https://github.com/mcpdev80/baseharbor/pull/1703) is open and ready for review at exact head `dd7deadc665f4bb8dc6ceddae94a2835635a3e75` on current develop base `558dc42d0c8c9d798fcdf5938be2ea14e432b754`. EN/DE how-to now state that invalid/unavailable or unselected Perses is `not_configured`, selected Perses with valid pin is `configured_unverified`, and `verified` is unreachable without a health probe. Existing production-path tests pass with `go test ./cmd/baha -run 'TestBahaStatusPersesConfiguredUnverifiedPositive|TestBahaStatusPersesNotConfiguredWhenUnselected' -count=1`; `bash scripts/documentation-audit.sh`, `python3 scripts/documentation-language-audit.py`, `python3 scripts/check_docs_locale_parity.py`, and `git diff --check` also pass locally. Exact hosted run [44594850148](https://github.com/mcpdev80/baseharbor/actions/runs/44594850148) is still pending. Do not accept or merge until required selected checks complete at this head.
