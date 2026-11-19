@@ -8,9 +8,9 @@ areas: [capability, lifecycle]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w151-pr0428-151-sharedinst
+kanban_status: active
+kanban_lane: active
 blocker: ""
 wait_reason: ""
 depends_on: []
@@ -24,18 +24,17 @@ resolution: ""
 created: 2026-11-19
 ---
 
-- [ ] t-20261119-r28-registry-orphan-shared-instance · orphan shared instanz nach remove #task #release/v0-4-28 #status/planned #view/ready #area/capability #area/lifecycle #kind/task
+- [ ] t-20261119-r28-registry-orphan-shared-instance · orphan shared instanz nach remove #task #release/v0-4-28 #status/active #view/active #area/capability #area/lifecycle #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w151-pr0428-151-sharedinst  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/vm-bughunt/baha-podman-146.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w151-pr0428-151-sharedinst  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -60,3 +59,5 @@ Nach dem entfernen des letzten verbleibendenverbrauchers bleibt eine ScopeShared
 
 - **Modified features:** go test ./internal/capability -run '^Test(Registry|RemoveUnbound|Provider|External)' und die lifecycle-regression am gleichen pfad; neue tests muessen vom 'PR · Go unit'-shard ausgefuehrt werden (CI-aufnahmepflicht).
 - **CI integration:** exact-head-lauf bis terminal; runtime-zellen koennen SKIPPED bleiben (owner-draht 114(a)) und sind dann als nicht erbracht zu nennen (§5.4).
+
+fund->karte erfuellt; lane dispatched auf laptop:2 mit meiner eigenen messung der stelle (removeUnboundOwnedInstances behaelt ScopeShared unbedingt, registry.go:366-390 am develop 6e87ddcb4)
