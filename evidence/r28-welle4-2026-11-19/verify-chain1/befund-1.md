@@ -119,6 +119,11 @@ All three chain1 theses that were actually merged (116, 120, 118) are confirmed 
 
 END mission-verify-chain1.md DONE (befund-1 chain1 stage complete; see befund-2.md for the chain2 stage).
 
+## Planning-repo provenance note (re-checked this stage)
+
+- `git pull --rebase origin main` reported "Already up to date" against a stale local `origin/main` ref (predating the prior lane's 194a2da5 series). Correct discipline is `git fetch origin main` BEFORE the ancestry check; this stage re-fetched (tip 290f1e5b), committed on top and pushed (0bbc491c).
+- `git log --oneline origin/main..HEAD` after the push → empty (nothing unpushed); the verify-chain1 commits on origin/main are 7dafd3f8 and 0bbc491c (this lane) plus the 1194076b..194a2da5 series (prior lane) — no foreign commits are carried by this lane; its commits touch only evidence/r28-welle4-2026-11-19/verify-chain1/.
+
 ---
 
 # Appendix A — prior chain1-stage akte (commits 1194076b..194a2da5, restored verbatim)
@@ -242,4 +247,7 @@ git log --oneline origin/main | head -3 (after this commit, re-fetched):
 194a2da5 evidence(verify-chain1): cleanliness ps-witness + foreign orphan process note
 8e613151 evidence(verify-chain1): END annotation names final planning commit 85fa82af
 
-git ls-tree -r --name-only origin/main | grep verify-chain1: (to be pasted post-push)
+git ls-tree -r --name-only origin/main | grep verify-chain1 (post-push, observed):
+evidence/r28-welle4-2026-11-19/verify-chain1/befund-1.md
+evidence/r28-welle4-2026-11-19/verify-chain1/befund-2.md
+tasks/t-20261119-coord-live-verify-chain1.md
