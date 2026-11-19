@@ -69,6 +69,10 @@ Selected scope only, encrypted archive, secrets consent, non-Git/OCI metadata, u
 - Map every added/changed test to an existing CI check or native gate and its trigger. If routing is missing, coordinate with the CI owner and block acceptance until actual execution is proven. No parallel CI framework or indiscriminate full matrix.
 - Handoff exact branch/PR/commit, tests → check/gate → trigger → actual result, remaining gaps, dependencies and shared-file conflicts. Codex/Owner-delegated Maintainer reviews and merges only after actual checks; never claim an independent review that did not occur. No release/tag authorized.
 
+## Independent review
+
+Read-only findings: [PR #1625 / 0428-065](../evidence/r28-welle4-2026-11-19/codex-review-wave/1625-0428-065-independent-review.md). Draft head `da7a4e62` has no exact-head checks; managed-secret export is unreachable/unimplemented, no positive authorized-path test exists, and authorization precedes interactive source selection.
+
 ## Handoff
 
 Planned and unassigned. No product implementation or acceptance yet.
