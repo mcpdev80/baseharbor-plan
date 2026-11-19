@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0428-089 korrektur (codeman b60c11a1, flash) — END angenommen, EIN rest-hopf uebrig
-kanban_status: active
-kanban_lane: active
+owner: 0428-089 korrektur (codeman b60c11a1, flash) — EIN hopf nach policy, kandidat qualifiziert
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Integrate Perses with existing management access, verified transport and authorization; inspect selected upstream version…"
 kanban_title: 0428-089 · Protect Perses operator access
 priority: normal
@@ -20,22 +20,22 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5027ca029761ebf485b06a/evidence/r28-welle1-2026-11-15/perses-secure-access/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1599-0428-089.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5027ca029761ebf485b06a/evidence/r28-welle1-2026-11-15/perses-secure-access/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1599-0428-089.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44544947599"]
 ---
 
-- [ ] t-20261114-r28-perses-secure-access · Protect Perses operator access #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-secure-access · Protect Perses operator access #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-089 korrektur (codeman b60c11a1, flash) — END angenommen, EIN rest-hopf uebrig · **Priority:** normal  
+    **Owner:** 0428-089 korrektur (codeman b60c11a1, flash) — EIN hopf nach policy, kandidat qualifiziert · **Priority:** normal  
     **PR:** [baseharbor#1599](https://github.com/mcpdev80/baseharbor/pull/1599)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5027ca029761ebf485b06a/evidence/r28-welle1-2026-11-15/perses-secure-access/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1599-0428-089.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5027ca029761ebf485b06a/evidence/r28-welle1-2026-11-15/perses-secure-access/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1599-0428-089.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44544947599)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
 **Required by:** [t-20261114-r28-perses-contact-routing](t-20261114-r28-perses-contact-routing.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** 0428-089 korrektur (codeman b60c11a1, flash) — END angenommen, EIN rest-hopf uebrig  
+**Owner:** 0428-089 korrektur (codeman b60c11a1, flash) — EIN hopf nach policy, kandidat qualifiziert  
 **Priority:** normal  
 **PRs:** [baseharbor#1599](https://github.com/mcpdev80/baseharbor/pull/1599)  
 **Source:** 
@@ -88,3 +88,5 @@ CODEX-REVIEW welle 4 = REQUEST CHANGES auf dem gepueften kopf (urteil 1599-0428-
 REQUEST-CHANGES-runde auf dem frei gewordenen 084-sitz. startfaehig JETZT, weil 084 END angenommen und die lane entlassen ist — die 12 geteilten dateien (comm -12 vorher) sind ruhend.verbote bleiben: environment.go/envfilter (121), perses_dashboards_hosts.go + perses_contract_test.go + capability/perses.go (077 laeuft), .github/scripts
 
 END_DONE inspiziert und ANGENOMMEN, mit einer offenEN mechanischen stelle: kopf 233be0af2bba691fed7bd99655fb78a7515e2a0f auf #1599 (draft=false), exaktkopf-lauf 44535875227 = completed SUCCESS, 23 ausgefuehrte zellen, 'PR Selected Checks' = success, candidate_advisory_required=false, akte auf plan-main 6c992aa6, host besenrein (7 ambient container unberuehrt). URSAHE des rest-hopfs = VERALTETE BASE/API-anderung, KEIN produktfehler: ihr hopf haelt 859654861, develop ist fac01c772 (kette 695ad5494 + 86858f129 + bcd0e29ca + fac01c772); der unterschied beruehrt .github/workflows/ci.yml (MIGRATION_CONTROLLER a6756c5… → 859654861…) und scripts/test_ci_check_routes.py, also verlangt meine base-abstands-regel (queue563, von der owner-policy 15:3xZ bestaetigt) genau EINEN neuen lauf auf dem aktuellen base. KEIN weiteres hopfen danach, wenn develop sich nur ausserhalb dieser dateien bewegt. Schreibe: mission-089-final-hopf.md
+
+END ANGENOMMEN, alle zeugen von mir fern_gelesen im selben schritt: develop = fac01c77276ca2bf1e20cd0b7334bda5dd43e353, PR #1599 head = 69982520688e18a5c9bad89f093165c16d5be5d4, base = develop (aktuell), state open, draft=false, mergeable_state clean; 'merge-base --is-ancestor origin/develop <kopf>' = 0 (monoton) und 233be0af2 ist ancestor (ein hopf, kein history-rewrite); exaktkopf-lauf 44544947599 = completed SUCCESS, 'PR Selected Checks' = success, candidate_advisory_required=false, advisory-zelle skipped, KEINE HA-/runtime-zelle ausgeloest (genau die neue policy: keine breite matrix, wenn der base-plan sie nicht waehlt und die acceptance sie nicht verlangt); ci-fast-check vor dem push; akte fix-4.md auf plan-main 0d7d2a6a; host besenrein (7 ambient container unberuehrt). DAMIT: flash-sitz wird freigegeben (soll 1), karte geht in die abnahme
