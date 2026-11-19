@@ -8,7 +8,7 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coord
-kanban_status: review
+kanban_status: closed
 kanban_lane: active
 kanban_summary: "BF-04 (ux/i18n): German \"Achtung\" hint appears in English output and inside the JSON contract (15 sites). Found on develop…"
 kanban_title: "0428-093 · bf04 english-only hints"
@@ -19,8 +19,8 @@ prs: [mcpdev80/baseharbor#1663, "https://github.com/mcpdev80/baseharbor/pull/166
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md", "https://github.com/mcpdev80/baseharbor/pull/1663"]
 ---
 
 - [ ] t-20261115-bughunt-d28-i18n-achtung · BF-04 German 'Achtung' hint in English output and JSON contract (15 sites) #task #release/v0-4-28 #status/active #view/active #kind/task
@@ -93,3 +93,5 @@ CODEX-REVIEW REQUEST CHANGES 21:20Z: scope-verletzung — 51 files, docs/**-ante
 - Public Contracts witness must be produced AGAINST THE FINAL SHA after terminal CI, then CODEX re-review. Merge stays blocked until all three exist for the same SHA.
 
 scope-fix END: head d0351baf5 clean/MERGEABLE; run 44407750981 attempt2 completed SUCCESS (attempt1 war interim-Fehlerstand, upated_at 23:43Z — vom reviewer bestaetigt); pristine Public-Contracts witness-3 gleicher SHA; akten am band; Re-review geroutet
+
+MERGED: PR #1663 closed, merge commit 9a37b4bc6ba372af517ea00b8d93c2085a2d4f95 auf develop; exakter PR-head d0351baf5def60d7ceaa40008d8553c809503310, run 44407750981 attempt2 completed SUCCESS, Public-Contracts witness-3 gleicher SHA; CODEX-REVIEW ACCEPT kommentar 6995280942

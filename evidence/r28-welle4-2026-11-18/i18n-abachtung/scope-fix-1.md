@@ -387,3 +387,5 @@ plan-line + end-line (with literal run-id + conclusion) follow once the run is
 genuinely terminal and the witness-2 local public-contracts run is done.
 
 ~~END_DONE mission-093-scope-fix.md: docs/** reset to develop on 0428-093, candidate cb3777dce pushed to lane-093 branch (PR #1663), 38-file code/catalog diff only, exact-head run 44404028009 observed to terminal — see run section.~~ (premature, retracted)
+## Canonical closure note (coord, 2026-11-19)
+The original candidate 4ef41a31 (END_PENDING at the time) was SUPERSEDED by scope-fix candidate d0351baf5def60d7ceaa40008d8553c809503310 and must not be attributed to the merge. Merge attribution belongs solely to d0351baf5 -> merge commit 9a37b4bc6ba372af517ea00b8d93c2085a2d4f95 (run 44407750981 attempt 2 SUCCESS, ACCEPT comment 6995280942). END_PENDING for 4ef41a31 is hereby closed as superseded.

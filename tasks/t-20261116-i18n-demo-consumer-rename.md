@@ -8,7 +8,7 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: coord
-kanban_status: review
+kanban_status: closed
 kanban_lane: review
 kanban_summary: "baseharbor-demo/tests/guided/drive.py:431-432 (and 507-508, 203, newedithelperstest.py:190 per lane finding) still match the…"
 kanban_title: 0428-099 · match renamed Warning marker
@@ -19,8 +19,8 @@ prs: [mcpdev80/baseharbor-demo#164, "https://github.com/mcpdev80/baseharbor-demo
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-demo/pull/164"]
 ---
 
 - [ ] t-20261116-i18n-demo-consumer-rename · Demo: match renamed Warning marker after core 0428-093 lands #task #release/v0-4-28 #status/review #view/review #kind/task
@@ -81,3 +81,7 @@ One or two sentences: the observable outcome.
 - Current state, branch, PR and evidence links. Newest first.
 
 reviewer-poll: exact-head checks auf 86afbbebb existieren (Guided consent production-path regressions completed SUCCESS); 3-file diff erfuellt 0428-099 (Achtung|Warning dual-match + dedicated production-flow test). PR bleibt DRAFT bis CODEX-MERGE-Uebernahme — Ownership fuer review/promote/merge #164 an Codex geroutet (2026-11-19, Offer angenommen); Merge entblockt die #1663 merge-window-Dependency (demo-seitig)
+
+MERGED: baseharbor-demo#164 closed, merge commit 5d1cf312e18d06915db35c340bebe4e3d4f39d45 auf demo-develop; exakter PR-head 86afbbebb7574b5c4bc1caeb098a4406e1e4a9e3, Guided consent production-path regressions SUCCESS; draft-Status vor merge aufgehoben (kein offener DRAFT-Vermerk mehr gueltig)
+## Final state (2026-11-19): merged
+#164 promoted from draft and MERGED at 5d1cf312e18d06915db35c340bebe4e3d4f39d45 (demo develop). Alle frueheren DRAFT-Vermerke sind gegenstandslos.
