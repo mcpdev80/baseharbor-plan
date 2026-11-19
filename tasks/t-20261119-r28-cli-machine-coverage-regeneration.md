@@ -44,19 +44,21 @@ created: 2026-11-19
 
 ## Goal
 
-Die CLI-Kette hinterlaeuft generierte dateien, die niemand bewusst pflegt: cmd/baha/machine_coverage.go und die vier dokument-ausgaben docs/cli/command-index.md, docs/de/cli/command-index.md, docs/reference/cli-machine-coverage.md, docs/de/reference/cli-machine-coverage.md. Bei jedem replay eines cli2-commits entstehen konflikte an genau diesen pfaden, weil sie das ERGEBNIS eines generators sind, nicht einer entscheidung. Ziel ist ein einziger, nachvollziehbarer regenerationsschritt auf dem aktuellen develop-stand, der die dateien aus dem code NEU erzeugt, statt konfliktseiten manuell zusammenzukleben — und eine regel, dass kein anderer PR diese dateien von hand editiert.
+Die CLI-Doku-Kette hinterlaeuft VIER generierte markdown-dateien, die niemand bewusst pflegt: docs/cli/command-index.md, docs/de/cli/command-index.md, docs/reference/cli-machine-coverage.md, docs/de/reference/cli-machine-coverage.md. Bei jedem replay eines cli2-commits entstehen konflikte an genau diesen pfaden, weil sie das ERGEBNIS von tests sind, nicht einer entscheidung. Ziel ist ein einziger, nachvollziehbarer regenerationsschritt auf dem stand nach 0428-059, der die dateien aus dem code NEU erzeugt, statt konfliktseiten manuell zusammenzukleben.
+
+PRÄMISSE-KORREKTUR (quelle-inspektion der 0428-059-lane, VON MIR AM develop 4b3a3559 NACHGEMESSEN, queue667): cmd/baha/machine_coverage.go ist KEIN generator-output, sondern die HANDSCHRIFTLICHE classifications-registrierung — 'var cliPresentationCommands = map[string]string' (machine_coverage.go:133), gelesen in :88. Die registry-eintraege fuer die neuen source-/component-/path-kommandos GEHOEREN zum feature-patch von 0428-059 und bleiben dort. Nur die vier markdown-dateien sind generiert; wer sie schreibt, ist gemessen: cmd/baha/human_documentation_test.go:101 (docPath cli/command-index.md, koepfe :78 DE / :80 EN) und cmd/baha/machine_documentation_test.go:57 (checkGeneratedDocumentation fuer cli-machine-coverage.md). Diese karte war mit FUENF dateien angelegt — ein pauschal-fuenf-file-verfahren waere falsch und ist berichtigt.
 
 ## Scope
 
-- In scope: die fünf genannten dateien, NUR WERKZEUGSEITIG NEU ERZEUGT (der generator im repo, nicht manuell geschrieben). Pruefe vorher, WELCHER befehl sie erzeugt (im repository-vertrag oder in scripts/), und schreibe den befehl in die akte.
-- Out of scope: jede aenderung an der REGEL, die die dateien abdeckt (.github/**, scripts/test_pr_*, scripts/pr-gate-plan.py — owner-scope), jede aenderung an cmd/baha/*.go, die den inhalt der registrierten kommandos veraendert (das ist sache der jeweiligen cli2-karte), und jeder versuch, konflikte durch manuelles zusammenkleben zweier seiten zu loesen (verbotene Praxis, §5.6 'kein blanket-pick').
-- ABHANGIGKEIT gemessen: diese karte arbeitet AUF DEM STAND von 0428-059 (#1595) und ist NACH deren merge sinnvoll; laeuft sie vorher, ist das ergebnis beim naechsten cli2-commit schon wieder falsch.
+- In scope: GENAU die vier markdown-dateien docs/cli/command-index.md, docs/de/cli/command-index.md, docs/reference/cli-machine-coverage.md, docs/de/reference/cli-machine-coverage.md — und NUR WERKZEUGSEITIG neu erzeugt (ueber die beiden tests oben, nicht mit dem text editor). Nenne den befehl in der akte.
+- Out of scope: cmd/baha/machine_coverage.go (handschriftliche registrierung, gehort zu 0428-059, gemessen :133/:88); jede aenderung an .github/**, scripts/pr-gate-plan.py, scripts/test_pr_* (owner-scope; pr-gate-plan.py nennt die vier dateien nur als audit-pfade); jede aenderung an cmd/baha/*.go, die den inhalt der kommandos veraendert; und das manuelle zusammenkleben zweier konfliktseiten (verbotene praxis, §5.6).
+- ABHANGIGKEIT gemessen: arbeitet AUF DEM STAND von 0428-059 (#1595) und ist NACH deren merge sinnvoll; vorher ist das ergebnis beim naechsten cli2-commit wieder falsch.
 
 ## Acceptance
 
-- Die fünf dateien entsprechen dem generator-ausgang auf dem stand nach 0428-059, belegt durch 'git status --porcelain' LEER nach einem frischen generator-lauf (also: nichts mehr zu aendern) und durch den diff gegen develop, der NUR diese fünf dateien nennt.
-- Ein test ODER ein CI-job haelt fest, dass die generierten dateien nicht von hand abweichen (pruefe, ob dafuer bereits ein audit-exists — 0427-013/0428-047 haben die dateien genannt, aber closed; wenn der nachweis fehlt, ist das ein befund an mich, keine eigene .github-aenderung).
-- Kein anderer offener PR der kette enthaelt eine manuelle aenderung an diesen pfaden (pruefe #1578/#1580/#1595 per dateiliste und melde jede manuelle aenderung, die du findest, statt sie zu uebernehmen).
+- Die vier dateien entsprechen dem generator-ausgang auf dem stand nach 0428-059: 'git status --porcelain' ist nach einem frischen generator-lauf LEER fuer diese vier pfade (nichts mehr zu aendern), und der diff gegen develop nennt NUR diese vier dateien — KEINEN treffer in cmd/baha/machine_coverage.go.
+- Ein nachweis, dass die vier dateien nicht von hand abweichen, ist VORHANDEN oder fehlt ausdruecklich: pruefe, ob documentation-audit/mkDocs-gates sie treffen (scripts/pr-gate-plan.py nennt alle vier, gemessen) und ob ein lauf sie am PR-head prueft; fehlt der nachweis, ist das ein befund an mich, keine eigene .github-aenderung.
+- Kein anderer offener PR der kette enthaelt eine MANUELLE änderung an den vier markdown-pfaden (pruefe #1578/#1580/#1595 per dateiliste; die registry-anteile in machine_coverage.go sind ERWARTET und gehoeren in 059, nicht hierher).
 
 ## Required checks
 
