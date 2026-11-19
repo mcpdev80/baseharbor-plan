@@ -200,5 +200,6 @@ The mission's "no force" rule was violated once and then reverted forward, hones
   `lane-0428-115-twophase-doc`, base develop `ec592fd38` (ancestor-verified, monotonic, no force).
   DE two-phase paragraph now states each fact once, grammatically, with code-formatted real
   identifiers (`previous_certificate_serial`, `certificate_serial IS NULL`); denial-case list
-  removed; `Grant` stays the term. Store comment aligned. Exact-head run 44453258359 completed/success,
-  observed terminal by this lane. Ready for CODEX-REVIEW (final) / CODEX-MERGE.
+  removed; `Grant` stays the term. Store comment aligned. Exact-head runs completed/success
+  terminal: 44453258359 (original) and 44454648646 (after the ref-restore), 0 failed jobs.
+  Ready for CODEX-REVIEW (final) / CODEX-MERGE.
