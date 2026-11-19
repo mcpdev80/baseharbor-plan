@@ -5,7 +5,8 @@ Card: t-20261119-hunt-metrics-env-filter-list-pfade (0428-121)
 Repo: mcpdev80/baseharbor
 Branch: lane-0428-efilter
 PR: https://github.com/mcpdev80/baseharbor/pull/1691 (base develop)
-Final head: 6d17d8b6dc8df1e37958e43525a900065c21b8cc
+Final head: d9d70a9845ea11f6d839b3f5600b67b214002d20
+Commit chain (candidate): 361398af (fix) -> 1c92dbcd (hop-merge onto ec592fd385) -> 6d17d8b6 (test header comment) -> d9d70a98 (environment-token normalization from self-review)
 Mission supplements honored: base-hopping rule (develop moved twice during this shift, see base attestation) and the 0428-116 guard cross-check (see repo-rule compliance).
 
 ## PLAN
@@ -17,8 +18,8 @@ Mission supplements honored: base-hopping rule (develop moved twice during this 
 5. Run affected tests + `go vet` + `go build`; regression must go red->green — DONE (plus same-environment baseline comparison of pre-existing FAILs)
 6. Base hop per mission supplement: `ls-remote` right before push; monotonic hop-merge when behind; exact-head run hits final head — DONE
 7. Open PR: base develop, branch lane-0428-efilter; ancestry witnesses; log-line lists ONLY own commits — DONE (#1691)
-8. Wait for exact-head CI run to TERMINAL state; record run id, status — IN PROGRESS (observed below)
-9. Evidence on origin/main, verify path, END — pending (this file + push)
+8. Wait for exact-head CI run to TERMINAL state; record run id, status — IN PROGRESS (run 44450253933 on final head d9d70a98, observed via `gh run watch`)
+9. Evidence on origin/main, verify path, END — IN PROGRESS (final witness commit appended below)
 
 ## wrong-zone check
 
@@ -31,7 +32,8 @@ Mission supplements honored: base-hopping rule (develop moved twice during this 
 - Mission supplement (same shift): develop moved `de532465..40b99013` (#116 fail-closed merge). With no commits yet, HEAD fast-forwarded to `40b9901398a6bae5b92ee45494ef3b70f192a2a7` (witnessed monotonic: `git merge-base --is-ancestor de53246585 40b99013` yes; overlap of changed files with my write-set: empty).
 - Second supplement: develop moved `40b99013..ec592fd3` (#1687, docs only). Monotonicity proven (`git merge-base --is-ancestor 40b99013 ec592fd385` yes); normal `git merge --no-ff` hop-merge `1c92dbcd` onto `ec592fd3852328439ae9de8763c816ae9dd88dcc` (no force, no rebase of pushed content).
 - Final base: develop = `ec592fd3852328439ae9de8763c816ae9dd88dcc`, proven ancestor of first candidate commit `361398af` (`git merge-base --is-ancestor ec592fd385 361398af` → yes).
-- Log-line proof: `git log --oneline origin/develop..HEAD` (develop=ec592fd385) lists exactly:
+- Log-line proof (final): `git log --oneline origin/develop..HEAD` (develop=`ec592fd385`, fetched fresh before push) lists exactly:
+  - `d9d70a98 fix(0428-121): normalize the derived project environment token`
   - `6d17d8b6 docs(0428-121): align regression test header comment with final filename`
   - `1c92dbcd Merge develop ec592fd3 into lane-0428-efilter (monotonic base hop, no force)`
   - `361398af fix(0428-121): central environment filter on every observability list path`
@@ -101,7 +103,7 @@ RED at base `de53246585` (fix present only as the temporary `ProviderPlacement.E
 
 (the five FAIL lines reproduce hunt-918 Befund 2 exactly, including the `got dev=1 prod=1, want dev=0 prod=1` shape of probe zz_hunt918_repro and the 3-sources shape of zz_hunt918_b.)
 
-GREEN at candidate head `6d17d8b6` (after the fix, on the final base `ec592fd385` — observed on intermediate heads too):
+GREEN at candidate head (after the fix) — observed identically on `6d17d8b6` and final `d9d70a98`:
 
 ```
 === RUN   TestEnvironmentFilterAppliesToListApplicationMetrics
@@ -144,8 +146,9 @@ New test `TestEnvironmentFilter*` lives in package `internal/observability` and 
 
 ## CI run record (Eigenes-Run-Pflicht)
 
-- Run `44449321977` "CI · Source & Quality" was auto-cancelled by the branch-concurrency group when `6d17d8b6` was pushed (superseded-candidate note per CI discipline: content of the fix unchanged; last commit is a comment-only alignment; exact-head rule honored — final run below).
-- (final exact-head run on `6d17d8b6`: id/status recorded by append below before END.)
+- Run `44449321977` on head `1c92dbcd` — cancelled by the branch-concurrency group when `6d17d8b6` was pushed (superseded candidate; content change was comment-only).
+- Run `44449406644` on head `6d17d8b6` — in progress when `d9d70a98` (normalization fix found by self-review: raw vs lower-cased project token comparison) was pushed; it is superseded by the exact-head rule below.
+- Exact-head run `44450253933` on final head `d9d70a9845ea11f6d839b3f5600b67b214002d20`: (terminal status appended below before END).
 
 ## repo-rule compliance
 
