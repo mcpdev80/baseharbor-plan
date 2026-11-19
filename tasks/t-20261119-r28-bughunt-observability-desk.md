@@ -1,6 +1,6 @@
 ---
 id: t-20261119-r28-bughunt-observability-desk
-kanban_title: "0428-145 · Bug-hunt: observability-desk auf develop (docker-runtime)"
+kanban_title: "0428-145 · hunt observability desk"
 card_number: "0428-145"
 type: task
 areas: [observability, qa]
@@ -18,10 +18,10 @@ evidence:
   - "https://github.com/mcpdev80/baseharbor/commit/c296086ca1e35ef3212d293afc94d7bebcd1690f"
 resolution: ""
 created: 2026-11-19
-card_short_title: "Bug-hunt: observability-desk auf develop (docker-runtime)"
+card_short_title: "hunt observability desk"
 ---
 
-- [ ] t-20261119-r28-bughunt-observability-desk · Bug-hunt: observability-desk auf develop (docker-runtime) #task #release/v0-4-28 #status/active #view/active #area/observability #area/qa #kind/task
+- [ ] t-20261119-r28-bughunt-observability-desk · hunt observability desk #task #release/v0-4-28 #status/active #view/active #area/observability #area/qa #kind/task
     <!-- generated:card -->
     **Owner:** Coordinator 9142ab1f (bahn: hunt-lane auf ornith:1, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/c296086ca1e35ef3212d293afc94d7bebcd1690f)  
@@ -29,7 +29,7 @@ card_short_title: "Bug-hunt: observability-desk auf develop (docker-runtime)"
 
 <!-- generated:links -->
 **State:** active  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:** v0.4.28  
 **Depends on:** none  
 **Owner:** Coordinator 9142ab1f (bahn: hunt-lane auf ornith:1, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/)  
 **Priority:** not set  

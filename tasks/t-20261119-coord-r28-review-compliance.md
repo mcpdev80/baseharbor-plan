@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/59358ba677993e7d62f
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:** v0.4.28  
 **Depends on:** none  
 **Owner:** review-compliance (codeman 5435da37-bf38-4790-9543-f33232f568ae)  
 **Priority:** not set  

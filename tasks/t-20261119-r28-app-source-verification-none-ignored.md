@@ -30,7 +30,7 @@ card_short_title: Verification=none is ignored
 
 <!-- generated:links -->
 **State:** blocked  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:** v0.4.28  
 **Depends on:** none  
 **Owner:** unassigned  
 **Priority:** not set  

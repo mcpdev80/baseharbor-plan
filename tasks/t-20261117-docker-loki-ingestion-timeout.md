@@ -33,7 +33,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1680", "https://github.c
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:** v0.4.28  
 **Depends on:** [t-20261117-observability-native-gate-bootstrap](t-20261117-observability-native-gate-bootstrap.md)  
 **Required by:** [t-20261117-hunt-signals-102](t-20261117-hunt-signals-102.md)  
 **Owner:** coord  

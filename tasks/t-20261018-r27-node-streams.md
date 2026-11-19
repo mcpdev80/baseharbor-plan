@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-node-connector/pull/22"]
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:** v0.4.28  
 **Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md), [t-20261105-r27-test-wire-helper](t-20261105-r27-test-wire-helper.md)  
 **Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md)  
 **Owner:** coord-welle5 (Lane w215, freigegeben)  

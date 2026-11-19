@@ -36,7 +36,7 @@ Owner decision (2026-11-17): Unblock. Reopen PR #1608 if it remains suitable, ot
 
 <!-- generated:links -->
 **State:** active  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:** v0.4.28  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
 **Required by:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-dashboards](t-20261114-r28-perses-dashboards.md)  
 **Owner:** 0428-083 folge (codeman 5447f0df-ce0f-44e3-85f5-2c7c47a43523, flash)  

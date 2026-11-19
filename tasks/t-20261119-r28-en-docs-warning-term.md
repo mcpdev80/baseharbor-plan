@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 <!-- generated:links -->
 **State:** blocked  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:** v0.4.28  
 **Depends on:** [t-20261119-r28-prgate-docs-internal-json-mapping](t-20261119-r28-prgate-docs-internal-json-mapping.md)  
 **Owner:** w131-0428-131-endocshowpf (codeman 93521518, ornith:1) — uebernommen von bbd9132d  
 **Priority:** not set  

@@ -26,7 +26,7 @@ resolution: accepted
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:** v0.4.28  
 **Depends on:** none  
 **Owner:** w99-0428-115 r5 (codeman baf201fd)  
 **Priority:** not set  

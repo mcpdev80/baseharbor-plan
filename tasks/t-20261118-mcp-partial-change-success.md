@@ -26,7 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1688"]
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:** v0.4.28  
 **Depends on:** none  
 **Owner:** w1-lane-5584d84a (0428-120)  
 **Priority:** not set  

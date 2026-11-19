@@ -32,7 +32,7 @@ evidence: []
 
 <!-- generated:links -->
 **State:** waiting  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:** v0.4.28  
 **Depends on:** [t-20261114-r28-cli2-cli-docs](t-20261114-r28-cli2-cli-docs.md)  
 **Required by:** [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md)  
 **Owner:** unassigned  

@@ -1,6 +1,6 @@
 ---
 id: t-20261119-r28-bughunt-lifecycle-consent-desk
-kanban_title: "0428-146 · Bug-hunt: lifecycle-, rootless- und consent-pfade (podman-runtime)"
+kanban_title: "0428-146 · hunt lifecycle/consent desk"
 card_number: "0428-146"
 type: task
 areas: [runtime, ownership, qa]
@@ -19,10 +19,10 @@ evidence:
   - "https://github.com/mcpdev80/baseharbor/commit/8dccd4fe1"
 resolution: ""
 created: 2026-11-19
-card_short_title: "Bug-hunt: lifecycle-, rootless- und consent-pfade (podman-runtime)"
+card_short_title: "hunt lifecycle/consent desk"
 ---
 
-- [ ] t-20261119-r28-bughunt-lifecycle-consent-desk · Bug-hunt: lifecycle-, rootless- und consent-pfade (podman-runtime) #task #release/v0-4-28 #status/active #view/active #area/ownership #area/qa #area/runtime #kind/task
+- [ ] t-20261119-r28-bughunt-lifecycle-consent-desk · hunt lifecycle/consent desk #task #release/v0-4-28 #status/active #view/active #area/ownership #area/qa #area/runtime #kind/task
     <!-- generated:card -->
     **Owner:** Coordinator 9142ab1f (bahn: hunt-lane auf ornith:2, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/1019190d8dc0ecac7693f3461153e76be0e2cb8a), [proof 2](https://github.com/mcpdev80/baseharbor/commit/8dccd4fe1)  
@@ -30,7 +30,7 @@ card_short_title: "Bug-hunt: lifecycle-, rootless- und consent-pfade (podman-run
 
 <!-- generated:links -->
 **State:** active  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:** v0.4.28  
 **Depends on:** none  
 **Owner:** Coordinator 9142ab1f (bahn: hunt-lane auf ornith:2, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/)  
 **Priority:** not set  

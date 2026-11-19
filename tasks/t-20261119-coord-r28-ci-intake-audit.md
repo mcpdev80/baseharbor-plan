@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/74fa2814evidence"]
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:** v0.4.28  
 **Depends on:** none  
 **Owner:** ci-intake-audit (codeman 7add5c03-efa6-49d9-a355-bfc5f246eca1)  
 **Priority:** not set  

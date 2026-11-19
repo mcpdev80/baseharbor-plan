@@ -33,7 +33,7 @@ superseded_by: t-20261117-observability-native-gate-bootstrap
 
 <!-- generated:links -->
 **State:** superseded  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:** v0.4.28  
 **Depends on:** none  
 **Owner:** 0428-128-probe (codeman 6637b11b)  
 **Priority:** not set  

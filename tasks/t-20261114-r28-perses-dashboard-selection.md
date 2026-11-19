@@ -32,7 +32,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:** v0.4.28  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
 **Required by:** [t-20261114-r28-perses-dashboard-databases](t-20261114-r28-perses-dashboard-databases.md), [t-20261114-r28-perses-dashboard-hosts](t-20261114-r28-perses-dashboard-hosts.md), [t-20261114-r28-perses-dashboard-identity](t-20261114-r28-perses-dashboard-identity.md), [t-20261114-r28-perses-dashboard-messaging](t-20261114-r28-perses-dashboard-messaging.md), [t-20261114-r28-perses-dashboard-valkey](t-20261114-r28-perses-dashboard-valkey.md), [t-20261114-r28-perses-dashboards](t-20261114-r28-perses-dashboards.md)  
 **Owner:** coord  

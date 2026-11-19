@@ -9,7 +9,7 @@ version: ""
 parent: v0.4.28
 owner: coord
 kanban_status: planned
-kanban_lane: ready
+kanban_lane: queued
 kanban_summary: Deliver RabbitMQ panels conditional on real supported metrics.
 kanban_title: 0428-079 · Perses messaging dashboards
 priority: normal
@@ -23,16 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-messaging · Perses messaging dashboards #task #release/v0-4-28 #status/planned #view/ready #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-messaging · Perses messaging dashboards #task #release/v0-4-28 #status/planned #view/queued #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** coord · **Priority:** normal  
     **PR:** [baseharbor#1603](https://github.com/mcpdev80/baseharbor/pull/1603)  
-    **Ready to assign** · prerequisites accepted  
+    **Later release** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**State:** queued  
+**Release:** v0.4.28  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
 **Owner:** coord  

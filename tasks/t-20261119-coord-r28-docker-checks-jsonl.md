@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/60a73a18/evidence/r
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:** v0.4.28  
 **Depends on:** none  
 **Owner:** docker-checks-jsonl (codeman 272065d5-ee21-491f-ad70-e4e1c0a1cdac)  
 **Priority:** not set  

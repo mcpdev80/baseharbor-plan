@@ -9,8 +9,8 @@ version: ""
 parent: ""
 owner: ""
 kanban_status: planned
-kanban_lane: ready
-kanban_summary: "One or two sentences: the observable outcome."
+kanban_lane: queued
+kanban_summary: "'baha perses status' nennt pro observability-signal eine ECHTE backend-witness (erreicht / gematcht / nicht erreichbar) statt…"
 kanban_title: 0428-142 · echte backend-witness fuer
 priority: ""
 depends_on: []
@@ -23,15 +23,15 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/planned #view/queued #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Later release** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**State:** queued  
+**Release:** v0.4.28  
 **Depends on:** none  
 **Owner:** unassigned  
 **Priority:** not set  
@@ -41,16 +41,19 @@ evidence: []
 
 ## Goal
 
-One or two sentences: the observable outcome.
+'baha perses status' nennt pro observability-signal eine ECHTE backend-witness (erreicht / gematcht / nicht erreichbar) statt pauschal 'nicht verifiziert', sodass Loki und Tempo nicht dauerhaft als unbestaetigt erscheinen, obwohl der datasource-gesund-pfad (#1616, #1592 gemergt) die info laengst hat. Sichtbares ergebnis: ein operator sieht im status, WELCHE quelle warum gruen oder rot ist.
 
 ## Scope
 
-- In scope:
-- Out of scope:
+- In scope: das status-ergebnis-feld und seine ausgabe in cmd/baha/app_status_result.go plus sein test cmd/baha/app_status_result_test.go; die drei faelle (backend erreicht UND stream gematcht) / (erreicht, aber KEIN match) / (nicht erreichbar) pro signal, inklusive source-id im text.
+- Out of scope: aenderungen an den query-/health-pfaden selbst (internal/logs/loki_datasource.go, internal/capability/perses.go, internal/metrics/prometheus_verify.go). Diese karte KONSUMIERT nur, was dort gemergt ist.
+- HARTE GRENZE: beruehrt die arbeit internal/capability/perses.go oder cmd/baha/machine_coverage.go, STOP + frage an den coordinator — die dateien haelt die laufende lane zu PR #1599 (0428-089).
 
 ## Acceptance
 
-- Each criterion as a plain bullet. Do not use checkboxes here: only the card line above is a checkbox.
+- 'perses status' liefert pro signal eine zeile mit source-id und einem der drei zustaende; kein zustand 'unverified' mehr, wenn der health-pfad eine entscheidung getroffen hat.
+- Ein unit-test pro fall (gematcht / kein match / fehler) in cmd/baha/app_status_result_test.go, ausgefuehrt im 'PR · Go unit'-shard (CI-aufnahmepflicht neuer tests, owner-direktive 2026-11-07): die auswahlregel muss die datei treffen, sonst befuend mit datei:zeile melden.
+- Die menschen-ausgabe und die machine-ausgabe (cli-machine-coverage) zeigen denselben zustand — kein drift zwischen den beiden gesichtern.
 
 ## Required checks
 
