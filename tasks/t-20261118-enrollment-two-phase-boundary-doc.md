@@ -4,27 +4,28 @@ release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
 owner: w99-0428-115 r3 (codeman 1e406836)
-kanban_status: review
+kanban_status: blocked
 card_number: 0428-115
 card_short_title: document the enrollment
 kanban_title: 0428-115 · document the enrollment
 prs: [mcpdev80/baseharbor#1685]
 wait_reason: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/enrollment-twophase/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1685", "https://github.com/mcpdev80/baseharbor/actions/runs/44408281995", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1685.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44446194802"]
-blocker: ""
+blocker: "Review changes requested at exact head 711e04c303e7ca00eb9d34d4d7af1f504842a546: German wording still misstates transaction commit semantics; see PR comment 6999389290."
 
 ---
 # t-20261118-enrollment-two-phase-boundary-doc · document the enrollment consume/issue two-phase boundary
 
-- [ ] t-20261118-enrollment-two-phase-boundary-doc · document the enrollment consume/issue two-phase boundary #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261118-enrollment-two-phase-boundary-doc · document the enrollment consume/issue two-phase boundary #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
     **Owner:** w99-0428-115 r3 (codeman 1e406836)  
     **PR:** [baseharbor#1685](https://github.com/mcpdev80/baseharbor/pull/1685)  
+    **Blocker:** Review changes requested at exact head 711e04c303e7ca00eb9d34d4d7af1f504842a546: German wording still misstates transaction commit semantics; see PR comment 6999389290.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/enrollment-twophase/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1685), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44408281995), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1685.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44446194802)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w99-0428-115 r3 (codeman 1e406836)  
@@ -56,3 +57,5 @@ CODEX-REVIEW REQUEST CHANGES at 3b9a3f78e7e91f1c9a58a564ecbc013540697481; DE two
 reviewer haelt bei 3b9a3f78e (comment 6998325146): DE-absatz ungrammatisch + denial-wiederholung + raw identifiers unformatiert. da die r2-lane bereits released war: neue r3-lane auf ersten freiraum dispatched (mission erweitert). kein merge
 
 r3 END akzeptiert: DE-absatz einmal + code-formatierte identifiers, denial-liste getilgt, Grant als terminus behalten; head 711e04c3 (develop ec592fd38 ancestor), beide runs terminal gruen. SELBSTANGABE force-slip beim amend, Vorwaerts-umgekehrt mit ref-restore-protokoll in der akte — gemeldet statt versteckt, bewertet als geheilt. Routing an CODEX (comment 6998325146 abarbeiten)
+
+Exact-head run 44454648646 is green, but semantic DE documentation blocker remains; do not merge until corrected and re-reviewed.

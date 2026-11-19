@@ -11,9 +11,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 12 |
-| review | 23 |
+| review | 22 |
 | wait | 13 |
-| blocked | 2 |
+| blocked | 3 |
 | ready | 3 |
 | queued | 25 |
 | waiting | 177 |
@@ -61,7 +61,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-perses-secure-access](../tasks/t-20261114-r28-perses-secure-access.md) | Protect Perses operator access | review | normal | coord | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) (open) | [baseharbor#1599](https://github.com/mcpdev80/baseharbor/pull/1599) |
 | [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | Connect Perses Tempo | review | normal | coord | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) (open), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610) |
 | [t-20261117-hunt-uid-docs-110](../tasks/t-20261117-hunt-uid-docs-110.md) | Corrupt-config and mutation paths stay silent despite fail-l | review | not set | worker-flash (mission-110-mutation-loud) | — | [baseharbor#1682](https://github.com/mcpdev80/baseharbor/pull/1682) |
-| [t-20261118-enrollment-two-phase-boundary-doc](../tasks/t-20261118-enrollment-two-phase-boundary-doc.md) | document the enrollment consume/issue two-phase boundary | review | not set | w99-0428-115 r3 (codeman 1e406836) | — | [baseharbor#1685](https://github.com/mcpdev80/baseharbor/pull/1685) |
 | [t-20261119-hunt-metrics-env-filter-list-pfade](../tasks/t-20261119-hunt-metrics-env-filter-list-pfade.md) | Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) | review | not set | w99-0428-121 (codeman 0a79da12) | — | [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691) |
 | [t-20261119-hunt-metrics-registration-visibility-only](../tasks/t-20261119-hunt-metrics-registration-visibility-only.md) | Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export | review | not set | w01-0428-123 (codeman 1e209bb7) | — | [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693) |
 
@@ -89,6 +88,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) | Perses identity dashboard | blocked | normal | coord | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650) |
 | [t-20261117-hunt-signals-101](../tasks/t-20261117-hunt-signals-101.md) | ID-Raum-Heterogenitaet und Keycloak-Kollision in Signal-IDs | blocked | not set | — | — | — |
+| [t-20261118-enrollment-two-phase-boundary-doc](../tasks/t-20261118-enrollment-two-phase-boundary-doc.md) | document the enrollment consume/issue two-phase boundary | blocked | not set | w99-0428-115 r3 (codeman 1e406836) | — | [baseharbor#1685](https://github.com/mcpdev80/baseharbor/pull/1685) |
 
 ## Ready to assign
 
