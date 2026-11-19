@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: 0428-084 r2 (END akzeptiert, sitz entlassen)
-kanban_status: review
-kanban_lane: review
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: Guide enable/status/disable and ownership-safe removal of optional Perses using the accepted CLI contract; preserve monitoring…
 kanban_title: 0428-084 · Perses lifecycle commands
 priority: normal
@@ -18,21 +18,22 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1598]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "abnahme hat APPROVE CONTENT auf ea6cddd20 erteilt, aber 'merge held for monotonic base hop and fresh exact-head' — hopf-mission liegt bereit und wartet auf den ersten freien sitz (pool 4/4)"
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md", "https://github.com/mcpdev80/baseharbor-plan/blob/c7376f916380d9d95d70e05204a10da2ef42d9b6/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084-r2.md"]
 ---
 
-- [ ] t-20261114-r28-perses-lifecycle · Perses lifecycle commands #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [ ] t-20261114-r28-perses-lifecycle · Perses lifecycle commands #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** 0428-084 r2 (END akzeptiert, sitz entlassen) · **Priority:** normal  
     **PR:** [baseharbor#1598](https://github.com/mcpdev80/baseharbor/pull/1598)  
+    **Waiting:** abnahme hat APPROVE CONTENT auf ea6cddd20 erteilt, aber 'merge held for monotonic base hop and fresh exact-head' — hopf-mission liegt bereit und wartet auf den ersten freien sitz (pool 4/4)  
     **Needs:** [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/c7376f916380d9d95d70e05204a10da2ef42d9b6/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084-r2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
@@ -91,3 +92,5 @@ URTEIL REQUEST CHANGES auf dem CI-gruenen kopf 3852472aa (lauf 44510690944 SUCCE
 REQUEST-CHANGES-runde laeuft, gestartet auf dem frei gewordenen 057-sitz: das parallel-schreiben an internal/machine/contract.go + contracts/machine/v1/control.golden.json + docs/reference/mcp.md ist aufgehoben, weil 057 END_BLOCKED gemeldet und die lane entlassen ist (§4.3). kopf 3852472aa ist CI-gruen, aber das convergence-gate ist invertiert (machine transports skippen apply, direkter CLI fuehrt aus)
 
 END akzeptiert, von mir qualifiziert auf dem NEUEN develop: head ea6cddd204fbc408b8e1b3b587f1f054ea1f43ce, monoton auf e1dc2cf61 (3852472aa ist ancestor), merge-tree 0 konflikte, PR open/draft=false/clean, exaktkopf-lauf 44523123388 completed SUCCESS mit 0 fehljobs und 'PR Selected Checks' = success. inhalt: gate jetzt richtig herum (cmd/baha/perses_lifecycle.go:19-25 'machine transports (MCP stdio, HTTP/remote) run the shared apply lifecycle immediately; the direct human CLI defers … prints the actionable deferred-apply notice'). CODEX-REVIEW fuer DIESEN kopf beauftragt (1598-0428-084-r2.md), bei approve merge ich ins fenster
+
+URTEIL: 'APPROVE CONTENT — exact head ea6cddd204fbc408b8e1b3b587f1f054ea1f43ce', 'END_APPROVE_CONTENT #1598 / run 44523123388 SUCCESS / merge held for monotonic base hop and fresh exact-head'. von mir gegen das JETZIGE develop geprueft: PR open/draft=false/mergeable_state 'behind' (NICHT dirty), 'git merge-tree --write-tree origin/develop <kopf>' = 0 konflikte gegen f518e859d, aggregate 'PR Selected Checks' auf diesem sha = completed success, combined status 'pending' (0 contexts, weil der develop bewegt ist). mission-084-hopf-onto-f518e859.md ist GESCHRIEBEN (reiner hopf, keine produkt-aenderung, konflikt预期 an environment.go/registry.go + config_mutation.go-beruehr-verbot) und startet auf dem ersten freien sitz; danach meldet die lane den neuen kopf + den frischen exact-head-lauf, und die abnahme mergt
