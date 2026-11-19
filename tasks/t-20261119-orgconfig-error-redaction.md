@@ -15,18 +15,20 @@ kanban_title: 0428-149 · Redact secret-like
 priority: high
 depends_on: [t-20261114-r28-cli2-org-env]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1596]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/c90c3b89007e87a4bf277c8c9015fab3ac65728e"]
 ---
 
 - [ ] t-20261119-orgconfig-error-redaction · Redact secret-like organization references in validation errors #task #release/v0-4-28 #status/active #view/active #area/architecture #area/security #kind/task
     <!-- generated:card -->
     **Owner:** Codex team (current thread) · **Priority:** high  
+    **PR:** [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596)  
     **Needs:** [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/c90c3b89007e87a4bf277c8c9015fab3ac65728e)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +37,7 @@ evidence: []
 **Depends on:** [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md)  
 **Owner:** Codex team (current thread)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -46,7 +48,7 @@ Reject secret-like organization environment references without copying their con
 ## Scope
 
 - In scope: redact the reference value from the `validateEnvironmentIdentity` rejection path; add a regression using a distinctive secret sentinel and assert the error remains useful but does not contain the sentinel.
-- Out of scope: changing secret-detection rules, authorization policy, unrelated organization config behavior, or editing another worker’s branch. Deliver as an additive fix commit based on the exact 0428-056 candidate and hand it to that owner for integration.
+- Out of scope: changing secret-detection rules, authorization policy, unrelated organization config behavior, or editing another worker’s branch. Deliver as a narrow additive commit on the exact 0428-056 PR branch; preserve all existing commits and use fast-forward only.
 
 ## Acceptance
 
@@ -79,4 +81,4 @@ Reject secret-like organization environment references without copying their con
 
 ## Handoff
 
-- Active; exact PR head and owner-accepted integration path are being established. No product edit has been pushed yet.
+- Fix commit `c90c3b89007e87a4bf277c8c9015fab3ac65728e` is integrated by fast-forward into #1596 branch `cli2-org-env-reconcile`; the PR exact head is now this commit, based on `lane-0428-env-registry` `4d14741ee9485b7e0c346fa873ed59f637e71b68`. Focused `go test ./internal/orgconfig -run '^TestOrgEnvIdentitySecretMaterialRejected$' -count=1`, full `go test ./internal/orgconfig -count=1`, and `go vet ./internal/orgconfig` all pass at the exact commit. These tests auto-discover under Go unit CI. No new CI run/status is visible for this head yet; old run `43816373208` is on prior head `de51105c` and is not evidence for this commit. PR remains Draft and the task stays active pending exact-head CI and full parent-task acceptance.
