@@ -198,3 +198,13 @@ $ gh api "repos/mcpdev80/baseharbor/actions/runs/<id>/jobs?per_page=100" --jq '.
 ## Handoff
 
 END_DONE mission-review-compliance.md: 22 review-cards audited — 8 ZULASSUNG JA (#1613 #1602 #1684 #1616 #1592 #1599 #1682 #1695, each with terminal success run incl. executed `PR Selected Checks` on exact head), 14 exceptions (10 draft-only-green, 6 with NO run on head, incl. #1615 head pushed minutes ago; dirty: #1580 #1597 #1603 #1665 #1610; closed-PR cards: #1603 #1610 #1619; failing run: #1598 44499778660 cli-0/cli-3 shards).
+
+## Origin/main verification (pasted before push, per mission)
+
+```
+$ git push -q origin main && git fetch -q origin main
+$ git ls-tree origin/main -- evidence/r28-welle4-2026-11-19/review-compliance/befund-1.md
+100644 blob e7e53bdee970e772cf9c7c37114c5add14e1cad3	evidence/r28-welle4-2026-11-19/review-compliance/befund-1.md
+$ git log -1 --format='%H' origin/main
+0cc139d674364f733020b071128c4a7f552d71de
+```
