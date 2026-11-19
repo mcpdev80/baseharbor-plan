@@ -78,3 +78,5 @@ Supersedes [t-20261113-r28-grafana-dashboards](t-20261113-r28-grafana-dashboards
 
 ## Owner decision — 2026-11-18 (takeover)
 Proceed directly after the 083-ready decision: once 083+080 are in develop, rebase #1665 onto active develop, prove Security/Authorization and exact-head checks, independent review; continue only on green + acceptance evidence. No release-gate shortening.
+
+Independent read-only review of PR #1665 / 0428-082 (2026-11-19): draft, no exact-head CI, stacked on old #1684 branch and includes shared datasource files. Dashboard labels host resource panels while queries return scrape statistics; probe calls discard context. See [review evidence](../evidence/r28-welle4-2026-11-19/codex-review-wave/1665-0428-082-independent-review.md).
