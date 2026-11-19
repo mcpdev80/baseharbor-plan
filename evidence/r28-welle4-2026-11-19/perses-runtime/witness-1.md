@@ -353,7 +353,7 @@ missing hosted wire as Owner finding 0428-114.
 
 ```
 $ git ls-remote origin refs/heads/main
-b8d35ca58b69e5da21d01c3e8e8eed0dd3b470cb	refs/heads/main
+79ed0f5b329a43b16c27f082fcc0446723912f6f	refs/heads/main
 $ git cat-file -e origin/main:evidence/r28-welle4-2026-11-19/perses-runtime/witness-1.md && echo PRESENT
 PRESENT
 $ git merge-base --is-ancestor 073e13e9 origin/main; echo $?
