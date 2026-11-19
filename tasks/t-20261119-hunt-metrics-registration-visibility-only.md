@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w123-pr1693-regvisibility-r7
-kanban_status: review
-kanban_lane: review
+owner: w123-pr1693-regvisibility-hopf
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-123 · registry-Eintrag ohne
 priority: ""
@@ -23,18 +23,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44557894265", "https://github.com/mcpdev80/baseharbor/actions/runs/44578337221"]
 ---
 
-- [ ] t-20261119-hunt-metrics-registration-visibility-only · Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261119-hunt-metrics-registration-visibility-only · Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w123-pr1693-regvisibility-r7  
+    **Owner:** w123-pr1693-regvisibility-hopf  
     **PR:** [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44557894265), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44578337221)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w123-pr1693-regvisibility-r7  
+**Owner:** w123-pr1693-regvisibility-hopf  
 **Priority:** not set  
 **PRs:** [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693)  
 **Source:** 
