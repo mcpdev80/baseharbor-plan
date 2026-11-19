@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: blocked
-kanban_lane: blocked
+owner: 0428-128-probe (codeman 6637b11b)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-128 · Docker-lebenszyklus-beleg vor
 priority: ""
@@ -17,23 +17,22 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: "owner-scope: .github/workflows (targeted-integration integriert-only, docker-runtime-acceptance ORAS-trust-plane) + runner-/host-praesenz von ORAS. naechster trigger: owner-entscheid"
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-coord-r28-docker-gate-oras-wiring · Docker-lebenszyklus-beleg vor dem merge nicht fahrbar (ORAS trust-plane + targeted-integration integriert-only) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261119-coord-r28-docker-gate-oras-wiring · Docker-lebenszyklus-beleg vor dem merge nicht fahrbar (ORAS trust-plane + targeted-integration integriert-only) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Blocker:** owner-scope: .github/workflows (targeted-integration integriert-only, docker-runtime-acceptance ORAS-trust-plane) + runner-/host-praesenz von ORAS. naechster trigger: owner-entscheid  
+    **Owner:** 0428-128-probe (codeman 6637b11b)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** 0428-128-probe (codeman 6637b11b)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -88,3 +87,5 @@ Ein pre-merge-pfad existiert, der die docker-lifecycle-zelle auf dem EXAKTEN kan
 
 ## Blocker
 Owner-scope: workflow-Dateien und runner-/host-praesenz von ORAS (trust-plane). Kein lane-zugriff.
+
+diagnose-phase laeuft (read-only A/B-probe: develop-push-route SUCCESS vs dispatch-route ORAS-abort), korrektur selbst bleibt owner-scope (.github + runner-trust-plane). KEIN produkt-aenderung, KEIN security.go-Eingriff (owner-wort 2026-11-19)
