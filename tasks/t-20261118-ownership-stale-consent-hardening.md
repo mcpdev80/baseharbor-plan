@@ -3,29 +3,30 @@ id: t-20261118-ownership-stale-consent-hardening
 release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
-owner: codeman-9a898351 (w99-0428-119, claim c55a8b4f)
-kanban_status: active
+owner: w01-0428-119 (codeman f5dabf03)
+kanban_status: blocked
 card_number: 0428-119
 card_short_title: harden Prov ownership chain vs
 kanban_title: 0428-119 · harden Prov ownership chain vs
 prs: [mcpdev80/baseharbor#1690]
 wait_reason: ""
-blocker: ""
+blocker: "exact-head Docker-zeug fehlt (Targeted HA + Selected Runtime skipped; lauf 44456088960 auf 4e032c858 laeuft, dispatch/baha-route instrukt). naechster trigger: terminaler docker-beleg + END der owner-lane f5dabf03"
 
 ---
 # t-20261118-ownership-stale-consent-hardening · close ownership-race windows behind stale-impact-consent
 
-- [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
-    **Owner:** codeman-9a898351 (w99-0428-119, claim c55a8b4f)  
+    **Owner:** w01-0428-119 (codeman f5dabf03)  
     **PR:** [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690)  
+    **Blocker:** exact-head Docker-zeug fehlt (Targeted HA + Selected Runtime skipped; lauf 44456088960 auf 4e032c858 laeuft, dispatch/baha-route instrukt). naechster trigger: terminaler docker-beleg + END der owner-lane f5dabf03  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** codeman-9a898351 (w99-0428-119, claim c55a8b4f)  
+**Owner:** w01-0428-119 (codeman f5dabf03)  
 **Priority:** not set  
 **PRs:** [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690)  
 **Source:** 
