@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: Codex team (current chat)
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: Deliver RabbitMQ panels conditional on real supported metrics.
 kanban_title: 0428-079 · Perses messaging dashboards
 priority: normal
@@ -19,19 +19,19 @@ prs: [mcpdev80/baseharbor#1701]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1701", "https://github.com/mcpdev80/baseharbor/commit/f9f02507ba69c178185c54987384cfc0fc6a006f", "https://github.com/mcpdev80/baseharbor/actions/runs/44581190442"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1701", "https://github.com/mcpdev80/baseharbor/commit/f9f02507ba69c178185c54987384cfc0fc6a006f", "https://github.com/mcpdev80/baseharbor/actions/runs/44581190442", "https://github.com/mcpdev80/baseharbor/commit/558dc42d0c8c9d798fcdf5938be2ea14e432b754"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-messaging · Perses messaging dashboards #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [x] t-20261114-r28-perses-dashboard-messaging · Perses messaging dashboards #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** Codex team (current chat) · **Priority:** normal  
     **PR:** [baseharbor#1701](https://github.com/mcpdev80/baseharbor/pull/1701)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1701), [proof 2](https://github.com/mcpdev80/baseharbor/commit/f9f02507ba69c178185c54987384cfc0fc6a006f), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44581190442)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1701), [proof 2](https://github.com/mcpdev80/baseharbor/commit/f9f02507ba69c178185c54987384cfc0fc6a006f), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44581190442), [proof 4](https://github.com/mcpdev80/baseharbor/commit/558dc42d0c8c9d798fcdf5938be2ea14e432b754)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
@@ -80,4 +80,4 @@ Supersedes [t-20261113-r28-grafana-dashboard-messaging](t-20261113-r28-grafana-d
 1. The RabbitMQ telemetry signal is explicitly UNAVAILABLE in this ecosystem (no native signal source; owner decision 2026-11-15: no exporter is introduced). This card therefore owns only the conditional eligibility layer: panels may appear if and only if a real supported signal is later validated.
 2. Board number: this card carries `0428-079` (kanban_title). There is no separate "rabbitmq-source" task; PR #1603 (`draft(0428-079)`) is this card's deliverable. Prior Luna note "RabbitMQ-source task absent in Planning" is resolved by this clarification.
 
-2026-11-19: PR #1701 is the replacement candidate on current `develop` `7ee6f817dbff5a238bbc651315d6d76b3819fc91`; exact head `f9f02507ba69c178185c54987384cfc0fc6a006f`. Implemented a deterministic unavailable catalog document because `RabbitMQIntegration` declares no observability signals and the Owner decision forbids adding an exporter. Focused tests: `TestPersesMessagingCatalogIsUnavailableWithoutNativeSignal`, `TestPersesMessagingEligibilityFailsClosedForSelectionAndInventories`, `TestPersesMessagingEligibilityFailsClosedWithoutPinnedRelease`, `TestPersesMessagingNativeSignalRequiresBackendVerification`, `TestPersesMessagingUnavailableJSONMatchesGolden`, and `TestPersesMessagingAvailabilityMapIsExplicit`. `go test ./internal/metrics ./internal/capability`, `go build ./...`, `go vet ./...`, `bash scripts/source-readability-audit.sh`, and `git diff --cached --check` passed. Full `go test ./...` and exact-head PR run `44581190442` are pending; do not accept or merge until they finish green.
+2026-11-19: PR #1701 merged to `develop` at `558dc42d0c8c9d798fcdf5938be2ea14e432b754` after exact-head run `44581190442` succeeded at `f9f02507ba69c178185c54987384cfc0fc6a006f`. The run's Selected Checks, all six Go unit shards, build, vet, source format, workflow policy, and trusted-plan checks passed. Native Docker/Podman and runtime checks were skipped by the accepted native-gate plan because this change adds no runtime resources or lifecycle. Focused tests: `TestPersesMessagingCatalogIsUnavailableWithoutNativeSignal`, `TestPersesMessagingEligibilityFailsClosedForSelectionAndInventories`, `TestPersesMessagingEligibilityFailsClosedWithoutPinnedRelease`, `TestPersesMessagingNativeSignalRequiresBackendVerification`, `TestPersesMessagingUnavailableJSONMatchesGolden`, and `TestPersesMessagingAvailabilityMapIsExplicit`; `go test ./internal/metrics ./internal/capability`, `go build ./...`, `go vet ./...`, and `bash scripts/source-readability-audit.sh` passed. A broader local `go test ./...` was also attempted but cannot serve as clean evidence in this workstation: unrelated command/runtime/database tests require an existing configured Docker target, trusted live-Core CA, protected Docker backend, or `BASEHARBOR_TEST_DATABASE_URL`; the exact isolated CI shards for this candidate all passed. No security, exporter, runtime, CI-workflow, or shared registry files changed.
