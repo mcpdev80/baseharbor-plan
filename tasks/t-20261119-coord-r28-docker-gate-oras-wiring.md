@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: 0428-128-probe (codeman 6637b11b)
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-128 · Docker-lebenszyklus-beleg vor
 priority: ""
@@ -17,19 +17,20 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: ""
+blocker: "owner-scope, now precise: der job 'docker-runtime' in .github/workflows/docker-runtime-acceptance.yml fuehrt KEINEN ORAS-install-schritt (zeilen 174-330), die install-zeilen 127-128 stecken nur im push-job. der job hat zusaetzlich eine if-bedingung (zeile 174-175), die im dispatch-pfad greift — deshalb laeuft dort der runtime-test ohne trust-plane und bricht in app_repository_integration_test.go:27 'ORAS is required'. korrektur = install-schritt in den docker-runtime-job heben (eine zeilen-klasse, .github = owner-scope). beleg: akte probe-1.md, origin/main 57ffc7c6; laeufe 44461341870/44467228776 (push gruen) vs 44463592314/44464060182 (dispatch rot, job ausgefuehrt). hinweis zur protokoll-korrektur: mein lauf 44466684726 (#658) nutzte den default inputs.ref release/v0.4.21 und war damit als control unbrauchbar — die asymmetrie haelt ueber die job-analyse"
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-coord-r28-docker-gate-oras-wiring · Docker-lebenszyklus-beleg vor dem merge nicht fahrbar (ORAS trust-plane + targeted-integration integriert-only) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261119-coord-r28-docker-gate-oras-wiring · Docker-lebenszyklus-beleg vor dem merge nicht fahrbar (ORAS trust-plane + targeted-integration integriert-only) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
     **Owner:** 0428-128-probe (codeman 6637b11b)  
+    **Blocker:** owner-scope, now precise: der job 'docker-runtime' in .github/workflows/docker-runtime-acceptance.yml fuehrt KEINEN ORAS-install-schritt (zeilen 174-330), die install-zeilen 127-128 stecken nur im push-job. der job hat zusaetzlich eine if-…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** 0428-128-probe (codeman 6637b11b)  
@@ -91,3 +92,5 @@ Owner-scope: workflow-Dateien und runner-/host-praesenz von ORAS (trust-plane). 
 diagnose-phase laeuft (read-only A/B-probe: develop-push-route SUCCESS vs dispatch-route ORAS-abort), korrektur selbst bleibt owner-scope (.github + runner-trust-plane). KEIN produkt-aenderung, KEIN security.go-Eingriff (owner-wort 2026-11-19)
 
 A/achse fernbelegt: dispatch auf develop-kopf 44466684726 FAILURE vs push auf develop 44461341870/44467228776 SUCCESS — pfad-abhaengig, nicht kandidaten-abhaengig. lane liefert nur noch den trennenden schritt mit datei:zeile + akte probe-1.md. korrektur selbst bleibt owner-scope (.github dispatch-pfad + runner-ORAS)
+
+probe geliefert (read-only, host besenrein), keine produkt-aenderung, keine duplikate. nach der owner-korrektur ist der exact-head-beleg fuer #1690 (119) sofort nachfahrbar
