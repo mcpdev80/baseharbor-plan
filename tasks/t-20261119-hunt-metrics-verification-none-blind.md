@@ -15,12 +15,13 @@ kanban_title: 0428-124 · none Metriken erzeugen weder
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [1695]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence:
+- evidence/r28-welle4-2026-11-19/verification-none/fix-1.md
 ---
 
 - [ ] t-20261119-hunt-metrics-verification-none-blind · verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe #task #release/v0-4-28 #status/active #view/active #kind/task
