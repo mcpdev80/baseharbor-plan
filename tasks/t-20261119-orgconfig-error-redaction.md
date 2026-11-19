@@ -3,17 +3,17 @@ id: t-20261119-orgconfig-error-redaction
 card_number: "0428-149"
 card_short_title: "Redact secret-like"
 type: task
-areas: []
+areas: [architecture, security]
 release: v0.4.28
 version: ""
-parent: ""
+parent: v0.4.28
 owner: Codex team (current thread)
 kanban_status: active
 kanban_lane: active
-kanban_summary: "One or two sentences: the observable outcome."
+kanban_summary: Reject secret-like organization environment references without copying their contents into validation errors. Keep error…
 kanban_title: 0428-149 · Redact secret-like
-priority: ""
-depends_on: []
+priority: high
+depends_on: [t-20261114-r28-cli2-org-env]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -23,33 +23,37 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-orgconfig-error-redaction · Redact secret-like organization references in validation errors #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261119-orgconfig-error-redaction · Redact secret-like organization references in validation errors #task #release/v0-4-28 #status/active #view/active #area/architecture #area/security #kind/task
     <!-- generated:card -->
-    **Owner:** Codex team (current thread)  
+    **Owner:** Codex team (current thread) · **Priority:** high  
+    **Needs:** [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** none  
+**Depends on:** [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md)  
 **Owner:** Codex team (current thread)  
-**Priority:** not set  
+**Priority:** high  
 **PRs:** none  
 **Source:** 
 <!-- /generated:links -->
 
 ## Goal
 
-One or two sentences: the observable outcome.
+Reject secret-like organization environment references without copying their contents into validation errors. Keep error messages useful while preventing token/password/credential values from reaching CLI output, logs or audit text.
 
 ## Scope
 
-- In scope:
-- Out of scope:
+- In scope: redact the reference value from the `validateEnvironmentIdentity` rejection path; add a regression using a distinctive secret sentinel and assert the error remains useful but does not contain the sentinel.
+- Out of scope: changing secret-detection rules, authorization policy, unrelated organization config behavior, or editing another worker’s branch. Deliver as an additive fix commit based on the exact 0428-056 candidate and hand it to that owner for integration.
 
 ## Acceptance
 
-- Each criterion as a plain bullet. Do not use checkboxes here: only the card line above is a checkbox.
+- A secret-like identity reference is rejected with a safe, actionable error that does not include the supplied reference or any substring of the secret sentinel.
+- Existing non-secret reference validation behavior remains unchanged.
+- A regression test fails on the current 0428-056 head and passes after the fix.
+- Local focused unit tests pass and the commit is integrated into the existing 0428-056 PR before that PR is marked ready or merged.
 
 ## Required checks
 
@@ -60,7 +64,7 @@ One or two sentences: the observable outcome.
 - **Hard acceptance gate:** For every required test provide exact SHA -> test ID -> mapped check/native gate -> trigger -> actual run URL/outcome. Missing test, registration, mapping, selection, trigger or real passing execution BLOCKS acceptance. Docker/rootless Podman each require independent live evidence when applicable; do not rerun unaffected checks needlessly.
 
 
-- **Test binding (select exactly one):** ☐ normal (auto-discovered) · ☐ contract → add to `REQUIRED_CLIENT_TESTS` or the package equivalent in the same PR · ☐ new check → update `scripts/pr-gate-plan.py` and `scripts/release-requirements.json` in the same PR.
+- **Test binding:** normal Go package test auto-discovery (`internal/orgconfig`). The regression is a unit test and adds no CI workflow, catalog or package selector changes.
 - Name every new or changed test (package, exact test ID, fixture/env and native runtime if applicable). Targeted checks for the changed area; broaden when impact is unknown.
 - Record the existing CI validation/check or Docker/Podman native gate that actually executes each test, and which PR paths, develop integration event or release candidate selection triggers it.
 - If coverage is absent, implement/register it in the owning CI lane before acceptance; prove positive selection for a relevant change and negative/non-selection for an unrelated change. Missing, skipped or failed mandatory execution is NOT PASS.
@@ -69,9 +73,10 @@ One or two sentences: the observable outcome.
 
 ## Dependencies and file ownership
 
-- Owned files or areas:
-- Shared files: coordinate through the owning task.
+- Owned files: only the validation and its dedicated test in `internal/orgconfig/`.
+- Dependency: 0428-056 (#1596), whose candidate introduces `EnvironmentIdentity` validation.
+- Preserve all commits and worktree state on the 0428-056 branch; deliver a standalone commit for its owner to cherry-pick. No `.github/**` or `security.go` edits.
 
 ## Handoff
 
-- Current state, branch, PR and evidence links. Newest first.
+- Active; exact PR head and owner-accepted integration path are being established. No product edit has been pushed yet.
