@@ -49,7 +49,7 @@ Make CI failures faster to diagnose and give developers a local fast-feedback pa
 
 ## Acceptance
 
-- **Require — base-owned minimum only:** "Required is only what comes from the base; everything added by the PR is less than required—it may run and inform, and becomes binding only after merge." Implement and test this as an explicit invariant.
+- **Require — base-owned minimum only:** "Only checks selected by trusted policy from the PR target base (including its predeclared legacy broad fallback) may block this PR. Checks introduced by the PR may run and report, but become merge-required only after they merge into the base." Implement and test this as an explicit invariant.
 - Candidate CI changes can run in the same PR and report additional checks, but cannot make those checks a merge requirement for that same PR or remove a base-required check.
 - **Require — old-base compatibility:** when a stacked PR targets a base has an older planner that does not understand the candidate's new plan format or check IDs, selection falls back to the conservative relevant suite and succeeds when that suite succeeds; it must not fail merely because the old planner cannot parse the newer plan. Add a regression for new candidate plan vs old base planner.
 - Unknown or unclassified paths broaden validation safely; they do not silently skip relevant checks and do not fail solely because the planner vocabulary is stale.
@@ -67,7 +67,7 @@ Make CI failures faster to diagnose and give developers a local fast-feedback pa
 - **Hard acceptance gate:** For every required test provide exact SHA -> test ID -> mapped check/native gate -> trigger -> actual run URL/outcome. Missing test, registration, mapping, selection, trigger or real passing execution BLOCKS acceptance. Docker/rootless Podman each require independent live evidence when applicable; do not rerun unaffected checks needlessly.
 
 
-- **Test binding (select exactly one):** ☐ normal (auto-discovered) · ☐ contract → add to `REQUIRED_CLIENT_TESTS` or the package equivalent in the same PR · ☐ new check → update `scripts/pr-gate-plan.py` and `scripts/release-requirements.json` in the same PR.
+- **Test binding (select exactly one):** ☐ normal (auto-discovered) · ☑ contract → the existing CI test package (`pr_focused` and `ci-executor-tests`; planner tests stay on `pr-planner-tests`) · ☐ new check → update `scripts/pr-gate-plan.py` and `scripts/release-requirements.json` in the same PR.
 - Name every new or changed test (package, exact test ID, fixture/env and native runtime if applicable). Targeted checks for the changed area; broaden when impact is unknown.
 - Record the existing CI validation/check or Docker/Podman native gate that actually executes each test, and which PR paths, develop integration event or release candidate selection triggers it.
 - If coverage is absent, implement/register it in the owning CI lane before acceptance; prove positive selection for a relevant change and negative/non-selection for an unrelated change. Missing, skipped or failed mandatory execution is NOT PASS.
