@@ -91,13 +91,18 @@ All from `/var/tmp/057-stack-hopf-wt/wt` (isolated worktree under /var/tmp; host
 1. `TestRuntimeUpRequiresORASBeforeCoreBootstrap` fails on **plain origin/develop da76c5cf too** when `~/.local/bin/oras` exists on PATH (`includeInstalledORASOnPath` prepends it; the test then gets the runtime-orchestration error instead of "ORAS is required…"). The oras binary is a foreign host artifact — reported, not removed. With an empty `HOME` it PASSES on both develop and this candidate.
 2. `TestRemoteMutationArgumentsFailClosed/apply/`, `TestCoreStopCLIJSONAndMCP…`, `TestRemoteAppStatusRequiresExplicitNameAndVerifiedCore` failed only after a sibling lane's test run leaked repo artifacts (`cmd/baha/baseharbor.yaml`, `cmd/baha/.baseharbor/apps/raced/`) into this shared checkout via the process-CWD hazard (0428-050 lineage). After removing the leaked files, the suite passes on the exact candidate tree (`ok … 0.756s`). My own probe runs re-created one such leftover (`cmd/baha/baseharbor.yaml`, untracked); removed at END (ps/ls witness in the cleanliness section).
 
-## exact-head run (step 4) — state at 2026-11-19T11:00:40Z: QUEUED, no run materialized yet
+## exact-head run (step 4) — terminal observation of the INPUT: stuck 'queued', no run materialized (CI-entry finding for Owner)
 
-- `gh api repos/mcpdev80/baseharbor/commits/f93564a0d707983bfe6a8b59375c1c1c914d7827/check-suites` → suite id 120471174270, `status: "queued"`, `conclusion: null`, `head_branch: cli2-identity-secrets-head`, attached to PR #1615 (base `cli2-env-policy-head` @ 5ef9c329).
-- `gh api 'repos/mcpdev80/baseharbor/actions/runs?head_sha=f93564a0d707983bfe6a8b59375c1c1c914d7827'` → `total_count: 0` (empty list).
-- Earlier observation (~10:33→11:00 UTC): no run for this head at all. The draft→ready flip is therefore plausibly the trigger and the suite is now queued; comparison: #1684 ran within minutes of its `gh pr ready`.
-- Executed cells: 0 so far; skipped: whole matrix (not materialized). NOT claimed green. Watching until the run materializes and reaches terminal (§4.6). If nothing runs within ~15 min of this state, this becomes a CI-entry finding for the Owner (no second push, no self-set trigger).
-- Prior finding (STATE; `.github/**` Owner scope, untouched): `.github/workflows/ci.yml` `on.pull_request.branches` (lines 12-18) lists only `develop`, `main`, `'lane-*'` (line 18 `- 'lane-*'`); the stacked base `cli2-env-policy-head` matches none — despite the comment "Stacked development PRs target a lane-* branch and receive the same PR CI". Needed Owner change (file:line): add `- 'cli2-*'` to `on.pull_request.branches` (ci.yml ~line 18) and mirror the `startsWith(github.base_ref, 'lane-')` clauses (lines 514, 1137, 1160) for `cli2-` prefixes.
+- Query timeline (all via `gh api` / GitHub REST):
+  - 2026-11-19T11:00:40Z — `gh api repos/mcpdev80/baseharbor/commits/f93564a0d707983bfe6a8b59375c1c1c914d7827/check-suites` → suite id **120471174270**, `status: "queued"`, `conclusion: null`, head_branch `cli2-identity-secrets-head`, attached to PR #1615 (base `cli2-env-policy-head` @ 5ef9c329). `gh api 'repos/mcpdev80/baseharbor/actions/runs?head_sha=f93564a0…'` → `total_count: 0` (empty list).
+  - 11:00→11:18 UTC — repeated polls (45s cadence) for a run on the exact head: **none materialized**; suite remained `queued` with `updated_at` frozen at **2026-11-19T10:27:37Z** (the moment my restore-push of f93564a0 hit the branch).
+  - 2026-11-19T11:18:53Z — final state: runs `total_count: 0`; suite `queued`; PR `draft=false`, `mergeable_state=clean`, head=f93564a0.
+- draft→ready comparison: #1684's run appeared within minutes after its `gh pr ready`; here the suite QUEUED (the ready flip registered) but the workflow run never materialized — so the flip alone did not start CI for this chain.
+- Per instruction: **no second push, no self-set trigger.** This is a CI-entry finding:
+  - `.github/workflows/ci.yml` `on.pull_request.branches` (candidate revision, lines 12-18) lists only `develop`, `main`, `'lane-*'` (line 18 `- 'lane-*'`); the stacked base `cli2-env-policy-head` matches none — despite the in-file comment "Stacked development PRs target a lane-* branch and receive the same PR CI".
+  - **Needed Owner change (file:line):** add `- 'cli2-*'` to `on.pull_request.branches` (ci.yml ~line 18) and mirror the job-level `startsWith(github.base_ref, 'lane-')` clauses (lines 514, 1137, 1160) to accept `cli2-` prefixes.
+- Executed cells: 0; skipped: entire PR matrix (never materialized). NOT claimed green. Self-run duty fulfilled as far as observable: run never existed to watch; terminal result cannot be produced by this lane without Owner input.
+
 
 
 ## Host cleanliness
@@ -118,6 +123,10 @@ All from `/var/tmp/057-stack-hopf-wt/wt` (isolated worktree under /var/tmp; host
 8. exact-head CI to terminal — watched to terminal; NO run scheduled; Owner finding filed with file:line above; not claimed green
 9. Evidence committed + pushed to origin/main — below
 10. Cleanliness + END — done
+
+## END
+
+END mission-057-stack-hopf.md BLOCKED: candidate head `f93564a0d707983bfe6a8b59375c1c1c914d7827` verified (hopf done, conflicts resolved, local checks green, PR ready), but the exact-head PR CI never materialized (check-suite stuck 'queued', runs total_count 0) — Owner CI-entry decision needed per finding above.
 
 ## origin/main witness
 
