@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w99-0428-122 (codeman 5350d482)
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-122 · Klasse App hat keinen
 priority: ""
@@ -18,20 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1692]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "korrektur-lane wartet auf freien sitz; recipe von CODEX-REVIEW (service-dimension in source-id/reconcile-boundary + render-time reconciliation des aktiven service-sets)"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1692", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1692.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44451374676"]
 ---
 
-- [ ] t-20261119-hunt-metrics-appclass-log-writer · Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261119-hunt-metrics-appclass-log-writer · Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** w99-0428-122 (codeman 5350d482)  
     **PR:** [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692)  
+    **Waiting:** korrektur-lane wartet auf freien sitz; recipe von CODEX-REVIEW (service-dimension in source-id/reconcile-boundary + render-time reconciliation des aktiven service-sets)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1692), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1692.md), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44451374676)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w99-0428-122 (codeman 5350d482)  
@@ -84,3 +85,5 @@ Erlaubtes write-set (vorschlag, lane prueft): observability classes + schema/doc
 END akzeptiert: option (a) writer+ReconcileMatching, 6 regressionen, head 8956bf08e base-exakt ec592fd38, terminal 14 SUCCESS/0 FAILURE, akte 65520ba8. DATEI-OVERLAP mit 0428-121 (#1691: registry.go, logs/realization.go, runtime_observability.go) funktions-disjunkt — Integrationsreihenfolge folgt dem ersten gruenen review; der andere hopft danach monoton
 
 CODEX-REVIEW REQUEST CHANGES at 8956bf08e40e52b84a0dae55a9f1cb54db957636: current writer collapses service identity and overwrites sibling service sources. Recipe and exact-head evidence: https://github.com/mcpdev80/baseharbor/pull/1692#issuecomment-6998969728 and evidence/r28-welle4-2026-11-19/codex-welle3-review/1692.md.
+
+REQUEST_CHANGES auf 8956bf08e (zweig inzwischen base-exakt b7f245f10, run 44464979623 SUCCESS): service-dimension geht in source-id und reconcile-boundary verloren; render-time reconciliation muss den aktiven service-set registrieren und stale eintraege entfernen
