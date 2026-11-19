@@ -16,6 +16,8 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 evidence:
   - "https://github.com/mcpdev80/baseharbor/pull/1705"
+  - "https://github.com/mcpdev80/baseharbor/commit/28fb427f057499efca705c1b7459e7653bd532a8"
+  - "https://github.com/mcpdev80/baseharbor/actions/runs/44619193702"
 resolution: ""
 created: 2026-11-19
 card_short_title: "docs/internal/**/*.json faellt"
@@ -27,7 +29,7 @@ prs: [mcpdev80/baseharbor#1705]
     <!-- generated:card -->
     **Owner:** Codex team (Owner-delegated Maintainer)  
     **PR:** [baseharbor#1705](https://github.com/mcpdev80/baseharbor/pull/1705)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1705)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1705), [proof 2](https://github.com/mcpdev80/baseharbor/commit/28fb427f057499efca705c1b7459e7653bd532a8), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44619193702)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -78,4 +80,4 @@ never be accepted on its own hopf - the gap is in the path mapping, not in the d
 - A hosted run on the exact head shows `documentation-audit` executed for a `docs/internal/*.json` diff.
 - Evidence akte: `evidence/r28-welle4-2026-11-19/prgate-docs-internal-mapping/fix-1.md`.
 
-Current execution: Codex team (Owner-delegated Maintainer) owns PR #1705. The current exact head is `0b5dd34713fe778aaf4d79dfa0b2a0600fc50e6a` on base `ab77e29d7c1cf981777e1069e51dfff82ffcf654`; hosted run `44619193702` is still pending. Local `scripts/ci-fast-check.sh` passed with 286 tests. An independent review found no blocker; it prompted the added positive `.yaml` selector test. After the PR checks pass and #1705 merges, #1697 must hop and show `documentation-audit` executed for its internal JSON change before 0428-144 is accepted.
+Current execution: PR #1705 merged as `28fb427f057499efca705c1b7459e7653bd532a8`. Exact head `0b5dd34713fe778aaf4d79dfa0b2a0600fc50e6a` on base `ab77e29d7c1cf981777e1069e51dfff82ffcf654`; hosted run `44619193702` passed PR Selected Checks, PR planner tests, CI policy, focused Python, source format, native gate plan and trusted plan. Local `scripts/ci-fast-check.sh` passed with 286 tests. Independent review found no blocker and prompted the added positive `.yaml` selector test. PR #1697 remains on its old base and old successful run skipped `documentation-audit`; the 0428-144 card remains active until #1697 hops and a new exact-head run executes that check for its internal JSON change.
