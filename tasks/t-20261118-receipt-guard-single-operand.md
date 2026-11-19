@@ -3,7 +3,7 @@ id: t-20261118-receipt-guard-single-operand
 release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
-kanban_status: closed
+kanban_status: review
 card_number: 0428-116
 card_short_title: receipt verification guard
 kanban_title: 0428-116 · receipt verification guard
@@ -12,12 +12,11 @@ wait_reason: ""
 blocker: ""
 prs: [mcpdev80/baseharbor#1686]
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1686", "https://github.com/mcpdev80/baseharbor/actions/runs/44438849188", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/receipt-guard/r4-1.md", "https://github.com/mcpdev80/baseharbor/commit/40b9901398a6bae5b92ee45494ef3b70f192a2a7"]
-resolution: accepted
 
 ---
 # t-20261118-receipt-guard-single-operand · receipt verification guard collapses to single operand
 
-- [x] t-20261118-receipt-guard-single-operand · receipt verification guard collapses to single operand #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
+- [ ] t-20261118-receipt-guard-single-operand · receipt verification guard collapses to single operand #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** w01-0428-116r4 (codeman 4d606ac2)  
     **PR:** [baseharbor#1686](https://github.com/mcpdev80/baseharbor/pull/1686)  
@@ -25,7 +24,7 @@ resolution: accepted
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w01-0428-116r4 (codeman 4d606ac2)  
@@ -78,3 +77,5 @@ r4 END akzeptiert: head 96ac1b2e mit normalem develop-merge 7d343836 (monoton), 
 Codex reviewer: current exact head 96ac1b2e independently reviewed; fail-closed matrix asserts failed plus actual-disposition-differs; run 44438849188 terminal SUCCESS; base current develop 7d34383644. Source/tests accepted; merge gate passed.
 
 Accepted by independent Codex review at exact head 96ac1b2e; exact run 44438849188 SUCCESS; merge 40b9901398a6bae5b92ee45494ef3b70f192a2a7 verified as develop.
+
+CODEX-REVIEW FOLLOW-UP REQUEST CHANGES at 96ac1b2e7: code/matrix and exact-head run 44438849188 SUCCESS (PR Selected Checks integration 15368; 21.48 runner-min) pass. Blocking: provider_change_result.go:51-52 says fail-closed but retains stale “status=applied”; align comment with failed / actual-disposition-differs. Reuse existing exact-head CI if code head stays unchanged; do not merge before correction. Evidence: evidence/r28-welle4-2026-11-19/codex-welle3-review/1686-r4.md.

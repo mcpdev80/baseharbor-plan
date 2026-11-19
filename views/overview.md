@@ -11,14 +11,14 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 12 |
-| review | 22 |
+| review | 23 |
 | wait | 13 |
 | blocked | 2 |
 | ready | 5 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
-| closed | 305 |
+| closed | 304 |
 
 ## Active
 
@@ -63,6 +63,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | Connect Perses Tempo | review | normal | coord | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) (open), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610) |
 | [t-20261117-hunt-uid-docs-110](../tasks/t-20261117-hunt-uid-docs-110.md) | Corrupt-config and mutation paths stay silent despite fail-l | review | not set | worker-flash (mission-110-mutation-loud) | — | [baseharbor#1682](https://github.com/mcpdev80/baseharbor/pull/1682) |
 | [t-20261118-enrollment-two-phase-boundary-doc](../tasks/t-20261118-enrollment-two-phase-boundary-doc.md) | document the enrollment consume/issue two-phase boundary | review | not set | w115 (opencode ses_e0f576c30ffe) | — | [baseharbor#1685](https://github.com/mcpdev80/baseharbor/pull/1685) |
+| [t-20261118-receipt-guard-single-operand](../tasks/t-20261118-receipt-guard-single-operand.md) | receipt verification guard collapses to single operand | review | not set | w01-0428-116r4 (codeman 4d606ac2) | — | [baseharbor#1686](https://github.com/mcpdev80/baseharbor/pull/1686) |
 
 ## Waiting for resources
 
@@ -103,7 +104,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 7 open, 162 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 68 open, 75 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 69 open, 74 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
