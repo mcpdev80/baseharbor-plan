@@ -10,7 +10,7 @@ card_short_title: harden Prov ownership chain vs
 kanban_title: 0428-119 · harden Prov ownership chain vs
 prs: [mcpdev80/baseharbor#1690]
 wait_reason: ""
-blocker: "ZWEIFEL + handoff (owner-wort 2026-11-19): exact-head Docker-beleg ist nicht lieferbar — unit-seite ist grün (lauf 44464033443 SUCCESS auf exakt 84ee9a93e), aber der explizit bestellte Docker-Core-beleg 44464060182 bricht VOR den tests in der runner-vorbereitung ('ORAS is required' vor Core-setup): umwelt-fehler, kein acceptance-pass. dieselbe workflow ist auf develop per push grün (44461341870 SUCCESS auf deeeb6477). naechster trigger: (a) owner setzt die dispatch-route instand (intake t-20261119-coord-r28-docker-gate-oras-wiring, probe laeuft) ODER (b) owner/reviewer qualifizieren einen supported-host-ersatzbeleg. kein merge, kein security.go-Eingriff"
+blocker: "ZWEIFEL: 0428-119 cannot satisfy its exact-head Docker lifecycle acceptance on current runners. Run 44464060182 executes but aborts before tests because ORAS is unavailable; run 44464033443 unit/source success is insufficient. 0428-128 is probing the supported ORAS-ready exact-SHA route. Keep PR #1690 open and unmerged; if 0428-128 finds no route, return this card to the queue with this reason."
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44464033443", "https://github.com/mcpdev80/baseharbor/actions/runs/44464060182"]
 
 ---
@@ -20,7 +20,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44464033443", "h
     <!-- generated:card -->
     **Owner:** w99-0428-119 r3 (codeman f5dabf03)  
     **PR:** [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690)  
-    **Blocker:** ZWEIFEL + handoff (owner-wort 2026-11-19): exact-head Docker-beleg ist nicht lieferbar — unit-seite ist grün (lauf 44464033443 SUCCESS auf exakt 84ee9a93e), aber der explizit bestellte Docker-Core-beleg 44464060182 bricht VOR den tests in…  
+    **Blocker:** ZWEIFEL: 0428-119 cannot satisfy its exact-head Docker lifecycle acceptance on current runners. Run 44464060182 executes but aborts before tests because ORAS is unavailable; run 44464033443 unit/source success is insufficient. 0428-128 is…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44464033443), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44464060182)  
     <!-- /generated:card -->
 
@@ -59,3 +59,5 @@ kein abnahme-zeug, kein merge (owner-wort). docker-route-erklaerung: targeted-in
 PR #1690 head ist nach berichtigtem hopf wieder auf dem lane-exklusiven zweig: 84ee9a93e (ec592fd385/deeeb6477 ancestry, seitenzweig getilgt), r3-code unveraendert, akte r4-routentabelle published
 
 Delegated reviewer ruling (2026-11-19): do not qualify run 44464033443 unit success plus run 44464060182 runtime failure as acceptance. Need content-bearing exact-head Docker lifecycle PASS. The Docker job did execute, but target setup failed at the ORAS prerequisite; this is not a product pass. Try a supported exact-SHA runtime route with verified ORAS setup. If it cannot be provided without altering protected security.go or violating CI-owner constraints, close out as ZWEIFEL with evidence and release the lane to the next independent ready card. No merge.
+
+Handoff decision: 0428-128 already owns the read-only Docker/ORAS route probe; do not duplicate it. After 0428-119 evidence/END is captured, release its lane to the next independent ready card. Re-open 0428-119 only when a supported exact-head Docker lifecycle witness can run; no waiver for unit success plus runtime abort.
