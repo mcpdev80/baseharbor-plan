@@ -32,7 +32,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md)  
 **Required by:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md), [t-20261114-r28-perses-lifecycle](t-20261114-r28-perses-lifecycle.md), [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
 **Owner:** 0428-088 fenster-hopf (END akzeptiert, sitz entlassen)  

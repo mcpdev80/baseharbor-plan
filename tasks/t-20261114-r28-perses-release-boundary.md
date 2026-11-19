@@ -33,7 +33,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1577", "https://github.c
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** coord  
 **Priority:** high  

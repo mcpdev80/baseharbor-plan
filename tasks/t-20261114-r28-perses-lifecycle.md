@@ -32,7 +32,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
 **Owner:** 0428-084 korrektur (codeman 3ae5c022, ornith) — monoton auf develop, aggregate gruen  

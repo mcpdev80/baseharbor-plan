@@ -35,7 +35,7 @@ STACK (owner-anweisung 2026-11-15): basis-karte = cli2-uid-environment (kette ap
 
 <!-- generated:links -->
 **State:** review  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-uid-environment](t-20261114-r28-cli2-uid-environment.md)  
 **Required by:** [t-20261114-r28-cli2-context-shell](t-20261114-r28-cli2-context-shell.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
 **Owner:** coord  

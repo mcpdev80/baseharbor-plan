@@ -30,7 +30,7 @@ card_short_title: Corrupt-config and mutation
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** 0428-110 r2 (codeman 14c1d53d, END akzeptiert)  
 **Priority:** not set  

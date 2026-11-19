@@ -33,7 +33,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 <!-- generated:links -->
 **State:** review  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** 0428-124 r2 (codeman 7110b25d, entlassen) — r3 wartet auf freien sitz  
 **Priority:** not set  

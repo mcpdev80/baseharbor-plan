@@ -32,7 +32,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44557894265"]
 
 <!-- generated:links -->
 **State:** active  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w123-0428-123-regvisibility (codeman c5d271cb, laptop) — korrekturrunde  
 **Priority:** not set  

@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/e6d31f12/evidence/r
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** drift-sweep (codeman 6d23313f)  
 **Priority:** not set  

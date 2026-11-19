@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/78f02964/evidence/r
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** live-verify-window (codeman b9a62e5c-6102-4887-839a-f2d06a8ba31c)  
 **Priority:** not set  

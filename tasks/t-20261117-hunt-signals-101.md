@@ -30,7 +30,7 @@ card_short_title: ID-Raum-Heterogenitaet und
 
 <!-- generated:links -->
 **State:** blocked  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261117-hunt-signals-103](t-20261117-hunt-signals-103.md), [t-20261117-hunt-signals-104](t-20261117-hunt-signals-104.md)  
 **Owner:** unassigned  

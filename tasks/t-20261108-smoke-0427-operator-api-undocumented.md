@@ -34,7 +34,7 @@ early: true
 
 <!-- generated:links -->
 **State:** wait  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
 **Owner:** flash-lane mission-169-runbook (session 0427-169)  
 **Priority:** normal  

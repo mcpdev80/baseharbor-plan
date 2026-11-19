@@ -30,7 +30,7 @@ card_short_title: v0.4.28 lacks release notes
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** Codex (Codeman lane)  
 **Priority:** not set  

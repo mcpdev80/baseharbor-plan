@@ -31,7 +31,7 @@ evidence: []
 
 <!-- generated:links -->
 **State:** wait  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261117-docker-loki-ingestion-timeout](t-20261117-docker-loki-ingestion-timeout.md)  
 **Owner:** Owner-Ausfuehrung (.github/scripts); umfang vom Coordinator erweitert 2026-11-19 (beleg: 0428-128 probe-1.md 57ffc7c6)  

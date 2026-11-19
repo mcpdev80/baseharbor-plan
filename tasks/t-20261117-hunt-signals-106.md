@@ -30,7 +30,7 @@ card_short_title: CLI destructive-consent paths
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** worker-ornith1.5  
 **Priority:** not set  

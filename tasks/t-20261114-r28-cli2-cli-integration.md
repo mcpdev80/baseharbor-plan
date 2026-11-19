@@ -32,7 +32,7 @@ evidence: []
 
 <!-- generated:links -->
 **State:** waiting  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-app-data](t-20261114-r28-cli2-app-data.md), [t-20261114-r28-cli2-app-export](t-20261114-r28-cli2-app-export.md), [t-20261114-r28-cli2-app-interact](t-20261114-r28-cli2-app-interact.md), [t-20261114-r28-cli2-app-status](t-20261114-r28-cli2-app-status.md), [t-20261114-r28-cli2-context-shell](t-20261114-r28-cli2-context-shell.md), [t-20261114-r28-cli2-source-pull](t-20261114-r28-cli2-source-pull.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md), [t-20261114-r28-cli2-wizard-platform](t-20261114-r28-cli2-wizard-platform.md)  
 **Required by:** [t-20261114-r28-cli2-cli-docs](t-20261114-r28-cli2-cli-docs.md)  
 **Owner:** unassigned  

@@ -31,7 +31,7 @@ resolution: dropped
 
 <!-- generated:links -->
 **State:** dropped  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261106-r27-remote-up-podman-owner-missing](t-20261106-r27-remote-up-podman-owner-missing.md)  
 **Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md)  
 **Owner:** unassigned  

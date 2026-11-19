@@ -33,7 +33,7 @@ early: true
 
 <!-- generated:links -->
 **State:** superseded  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-grafana-dashboard-selection](t-20261113-r28-grafana-dashboard-selection.md)  
 **Owner:** unassigned  
 **Priority:** normal  

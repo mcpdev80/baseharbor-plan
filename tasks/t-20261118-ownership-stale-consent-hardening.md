@@ -26,7 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44464033443", "h
 
 <!-- generated:links -->
 **State:** blocked  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w119-0428-119-consenthop (codeman 80aa0bf4, ornith:2) — uebernommen von w99-0428-119 r3 (session f5dabf03 ist weg)  
 **Priority:** not set  

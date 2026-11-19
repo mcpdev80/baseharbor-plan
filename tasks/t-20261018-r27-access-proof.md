@@ -33,7 +33,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [console-2](console-2-live-core-adapter-workflow-proofs.md), [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  
 **Owner:** unassigned  

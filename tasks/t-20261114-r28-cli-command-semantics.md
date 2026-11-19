@@ -31,7 +31,7 @@ evidence: []
 
 <!-- generated:links -->
 **State:** waiting  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md)  
 **Required by:** [core-821](core-821-wsl2-host-behavior-windows-boundaries.md), [core-822](core-822-macos-darwin-adapters.md)  
 **Owner:** unassigned  

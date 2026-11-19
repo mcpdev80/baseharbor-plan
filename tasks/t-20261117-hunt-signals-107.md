@@ -29,7 +29,7 @@ card_short_title: docs/de keeps
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** coord  
 **Priority:** not set  

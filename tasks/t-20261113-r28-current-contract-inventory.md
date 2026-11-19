@@ -32,7 +32,7 @@ early: true
 
 <!-- generated:links -->
 **State:** dropped  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
 **Required by:** [t-20261113-r28-console-api-contracts](t-20261113-r28-console-api-contracts.md)  
 **Owner:** unassigned  

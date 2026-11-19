@@ -29,7 +29,7 @@ card_short_title: "hunt observability desk"
 
 <!-- generated:links -->
 **State:** active  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** Coordinator 9142ab1f (bahn: hunt-lane auf ornith:1, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/)  
 **Priority:** not set  
