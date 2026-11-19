@@ -14,7 +14,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | review | 23 |
 | wait | 13 |
 | blocked | 2 |
-| ready | 1 |
+| ready | 7 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
@@ -94,12 +94,18 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261119-hunt-metrics-appclass-log-writer](../tasks/t-20261119-hunt-metrics-appclass-log-writer.md) | Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) | ready | not set | — | — | — |
+| [t-20261119-hunt-metrics-dualmatch-marker-docs](../tasks/t-20261119-hunt-metrics-dualmatch-marker-docs.md) | Warning/Achtung dual-match: ein CLI-Stadium druckt kein Warning + EN-Normdoku hinter rename zurueck | ready | not set | — | — | — |
+| [t-20261119-hunt-metrics-env-filter-list-pfade](../tasks/t-20261119-hunt-metrics-env-filter-list-pfade.md) | Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) | ready | not set | — | — | — |
+| [t-20261119-hunt-metrics-registration-visibility-only](../tasks/t-20261119-hunt-metrics-registration-visibility-only.md) | Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export | ready | not set | — | — | — |
+| [t-20261119-hunt-metrics-target-env-key-asymmetry](../tasks/t-20261119-hunt-metrics-target-env-key-asymmetry.md) | Runtime-metrics target-file-key fuehrt environment nicht, group-label schon — asymmetrische Zuordnung | ready | not set | — | — | — |
+| [t-20261119-hunt-metrics-verification-none-blind](../tasks/t-20261119-hunt-metrics-verification-none-blind.md) | verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe | ready | not set | — | — | — |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 7 open, 162 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 64 open, 73 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 70 open, 73 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
