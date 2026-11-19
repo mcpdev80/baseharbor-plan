@@ -10,15 +10,15 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 12 |
+| active | 11 |
 | review | 1 |
 | wait | 18 |
 | blocked | 11 |
-| ready | 2 |
+| ready | 4 |
 | queued | 25 |
-| waiting | 181 |
+| waiting | 179 |
 | backlog | 7 |
-| closed | 341 |
+| closed | 342 |
 
 ## Active
 
@@ -28,7 +28,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-coordination](../tasks/t-20261114-r28-cli2-coordination.md) | CLI redesign: coordinate five workers | active | high | coord | — | — |
 | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) | CLI redesign: Replace name-based environment policy | active | high | coord | [t-20261114-r28-cli2-uid-environment](../tasks/t-20261114-r28-cli2-uid-environment.md) (open) | — |
 | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | CLI redesign: Organization environment reconciliation | active | high | welle2-056-cli2-org-env | [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) (open) | — |
-| [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) | CLI redesign: Extend app sources and components | active | high | codex-open-pr-sweep-1595 | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-uid-app](../tasks/t-20261114-r28-cli2-uid-app.md) | [baseharbor#1595](https://github.com/mcpdev80/baseharbor/pull/1595) |
 | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | Connect Perses Prometheus | active | normal | 0428-083 lane (codeman 5447f0df, flash) — korrekturrunde: gate-zuordnung | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684) |
 | [t-20261119-coord-tooling-defects](../tasks/t-20261119-coord-tooling-defects.md) | skript-zeile statt bahn-pruefen | active | not set | w155-pr0428-155-toolfixes | — | — |
 | [t-20261119-hunt-metrics-registration-visibility-only](../tasks/t-20261119-hunt-metrics-registration-visibility-only.md) | Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export | active | not set | w123-pr1693-regvisibility-r7 (codeman 14e0c0d1, ornith:2) — akten-runde | — | [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693) |
@@ -71,7 +70,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261114-r28-cli2-app-export](../tasks/t-20261114-r28-cli2-app-export.md) | CLI redesign: App export and recovery UX | blocked | high | coord | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) (open) | [baseharbor#1625](https://github.com/mcpdev80/baseharbor/pull/1625) |
-| [t-20261114-r28-cli2-app-interact](../tasks/t-20261114-r28-cli2-app-interact.md) | CLI redesign: Guide app logs exec and urls | blocked | high | coord | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) (open), [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) (open) | [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623) |
+| [t-20261114-r28-cli2-app-interact](../tasks/t-20261114-r28-cli2-app-interact.md) | CLI redesign: Guide app logs exec and urls | blocked | high | coord | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) (open), [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) | [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623) |
 | [t-20261114-r28-cli2-env-delete](../tasks/t-20261114-r28-cli2-env-delete.md) | CLI redesign: Environment deletion lifecycle | blocked | high | coord | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) (open), [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) (open) | [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627) |
 | [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) | CLI redesign: Separate human/runtime secret authority | blocked | high | 0428-057 (codeman 01b370c0, END_BLOCKED, sitz wird entlassen) | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) (open), [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) (open) | [baseharbor#1615](https://github.com/mcpdev80/baseharbor/pull/1615) |
 | [t-20261114-r28-cli2-wizard-platform](../tasks/t-20261114-r28-cli2-wizard-platform.md) | CLI redesign: Platform and access wizards | blocked | high | coord | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) (open) | [baseharbor#1620](https://github.com/mcpdev80/baseharbor/pull/1620) |
@@ -86,14 +85,16 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [t-20261114-r28-cli2-app-status](../tasks/t-20261114-r28-cli2-app-status.md) | CLI redesign: Unify app status and versions | ready | high | coord | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) | [baseharbor#1614](https://github.com/mcpdev80/baseharbor/pull/1614) |
 | [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | Connect Perses Tempo | ready | normal | coord | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645) |
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261119-r28-cli-machine-coverage-regeneration](../tasks/t-20261119-r28-cli-machine-coverage-regeneration.md) | generierte cli-index-dateien neu erzeugen | ready | not set | — | [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) | — |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 7 open, 162 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 62 open, 111 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 61 open, 112 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))

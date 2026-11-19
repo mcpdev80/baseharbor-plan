@@ -28,7 +28,7 @@ evidence: []
     **Owner:** coord · **Priority:** high  
     **PR:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623)  
     **Blocker:** drei CLI-defekte: logs -c selector wirkungslos, exec ohne shell-parse, kind-exit-code unbelegt; base cli2-identity-secrets-head -\> kein exaktkopf-lauf (ci.yml:14-18)  
-    **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
+    **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

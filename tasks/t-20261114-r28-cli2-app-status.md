@@ -9,7 +9,7 @@ version: ""
 parent: v0.4.28
 owner: coord
 kanban_status: planned
-kanban_lane: planned
+kanban_lane: ready
 kanban_summary: "Unify app status and versions. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-062 · Unify app status and versions
 priority: high
@@ -23,16 +23,15 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-app-status · CLI redesign: Unify app status and versions #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-app-status · CLI redesign: Unify app status and versions #task #release/v0-4-28 #status/planned #view/ready #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** coord · **Priority:** high  
     **PR:** [baseharbor#1614](https://github.com/mcpdev80/baseharbor/pull/1614)  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  

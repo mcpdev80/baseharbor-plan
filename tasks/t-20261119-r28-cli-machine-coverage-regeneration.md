@@ -10,7 +10,7 @@ version: ""
 parent: ""
 owner: ""
 kanban_status: planned
-kanban_lane: planned
+kanban_lane: ready
 blocker: ""
 wait_reason: ""
 depends_on: [t-20261114-r28-cli2-source-model]
@@ -24,16 +24,15 @@ resolution: ""
 created: 2026-11-19
 ---
 
-- [ ] t-20261119-r28-cli-machine-coverage-regeneration · generierte cli-index-dateien neu erzeugen #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/ci #area/cli #area/docs #kind/task
+- [ ] t-20261119-r28-cli-machine-coverage-regeneration · generierte cli-index-dateien neu erzeugen #task #release/v0-4-28 #status/planned #view/ready #area/ci #area/cli #area/docs #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
+    **Ready to assign** · prerequisites accepted  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1595)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Owner:** unassigned  

@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: codex-open-pr-sweep-1595
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Extend app sources and components. Follow the owner working brief, command mapping and code entry index; revalidate current…"
 kanban_title: 0428-059 · Extend app sources and
 priority: high
@@ -19,19 +19,19 @@ prs: [mcpdev80/baseharbor#1595]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-source-model/round-1.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-source-model/round-1.md", "https://github.com/mcpdev80/baseharbor/pull/1595"]
 ---
 
-- [ ] t-20261114-r28-cli2-source-model · CLI redesign: Extend app sources and components #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [x] t-20261114-r28-cli2-source-model · CLI redesign: Extend app sources and components #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** codex-open-pr-sweep-1595 · **Priority:** high  
     **PR:** [baseharbor#1595](https://github.com/mcpdev80/baseharbor/pull/1595)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-source-model/round-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-source-model/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1595)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-uid-app](t-20261114-r28-cli2-uid-app.md)  
 **Required by:** [t-20261114-r28-cli2-app-interact](t-20261114-r28-cli2-app-interact.md), [t-20261114-r28-cli2-app-status](t-20261114-r28-cli2-app-status.md), [t-20261114-r28-cli2-source-pull](t-20261114-r28-cli2-source-pull.md), [t-20261119-r28-cli-machine-coverage-regeneration](t-20261119-r28-cli-machine-coverage-regeneration.md)  
@@ -105,3 +105,5 @@ INHASBERSCHAFT FREIGEGEBEN, karte zurueck auf planned/ready damit scripts/plan.p
 - Independent review found four additional defects at `fb3a61a7`: local-source files were omitted from desired-state fingerprints; `source add` could panic for missing option values; source removal could persist the model before rejecting a malformed mapping; and local-source resolution ignored developer-local mapping overrides. Fixed all four with regression tests in commits `bf837744` and `b1651e32` (the fingerprint change, source CLI/parser + transactional ordering, and map-only resolution override).
 - Local verification on the combined tree passed: focused workspace/source/auth/fingerprint Go tests, `go test ./internal/development -count=1`, `go build ./...`, and `git diff --check`. Documentation audit passed at the preceding content-equivalent `fb3a61a7` (including EN/DE command coverage); its only subsequent change is Go code/tests and does not alter documentation.
 - Exact PR workflow `44632927623` is running on current PR head `b1651e32060ea5df6324dcf9316e9c415acb5f81`, base `develop` `4b3a3559070e9b81b1886a357f6a46bc6dfce790`. Initial check inventory: source format, native gate plan and trusted-plan pass; documentation, selected Go shards, build/vet and workflow policy are still running. Runtime/release gates are skipped by the selected impact plan. Merge remains gated on terminal exact-head CI and independent review of the final combined candidate.
+
+GEMESSEN merged=true, state=closed, merge_commit 15727ca88789 (= develop-spitze), merged_at 2026-11-19T23:05:24Z, draft=false zum merge-zeitpunkt, PR-head b1428b0b0. Der PR-head ist KEIN ahne von develop — der inhalt ist, wie von der lane angemeldet, ISOLIERT neu committet (ohne die 197-koepfe-alte stack-geschichte). Diff Umfang: machine_coverage.go +40 (handschriftliche registrierung, gehoert laut meiner berichtigten karte 154 hierher) und die vier generator-docs +22/+22/+18/+18. OFFENER VERMERK FUER DAS DOSSIER: in MEINEM fenster existiert KEIN CODEX-urteil am merged sha b1428b0b0 — dieannahme folgt aus dem owner-/andere-welt-merge, nicht aus einer pruefung durch Codex. Darum resolution accepted mit diesem vorbehalt, nicht als 'geprüft durch CODEX'
