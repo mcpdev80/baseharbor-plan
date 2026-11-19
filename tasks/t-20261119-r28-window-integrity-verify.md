@@ -8,9 +8,9 @@ areas: [coordination, ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w150-pr0428-150-windowverify
+kanban_status: active
+kanban_lane: active
 blocker: ""
 wait_reason: ""
 depends_on: []
@@ -24,18 +24,17 @@ resolution: ""
 created: 2026-11-19
 ---
 
-- [ ] t-20261119-r28-window-integrity-verify · fensterstand gegen abnahmebelege pruefen #task #release/v0-4-28 #status/planned #view/ready #area/ci #area/coordination #kind/task
+- [ ] t-20261119-r28-window-integrity-verify · fensterstand gegen abnahmebelege pruefen #task #release/v0-4-28 #status/active #view/active #area/ci #area/coordination #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w150-pr0428-150-windowverify  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/window-integrity/verify-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w150-pr0428-150-windowverify  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
