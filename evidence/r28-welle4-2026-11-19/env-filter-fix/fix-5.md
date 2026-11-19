@@ -141,18 +141,35 @@ The two colliding anchor cases this round must pin at the seam:
   `runtime://bh-prod-my-app-dev/loki`) still returns `dev` because only one side
   is derivable — the fail-closed rule does not over-reach into normal provider
   logic.
-- CI: exact-head run 44512393468 (head e5a943d1b0cc4e700f2ff980e1d900dab4473288
-  on lane-0428-efilter) was running with Go CLI shards/packages and the
-  Docker observability/identity cells open at the last Owner check. It does NOT
-  count as qualified until those open cells are terminal; if any of them is red
-  the run is a failure to be triaged, not a pass.
+- CI: exact-head run 44516157576 (head e5a943d1b0cc4e700f2ff980e1d900dab4473288
+  on lane-0428-efilter) completed SUCCESS, 35 executed cells, 0 failures,
+  'PR Selected Checks' = success; both 'PR · Selected Runtime
+  (atomic/docker/identity)' success. Qualified per Owner quality gate.
 
 ## CI EVIDENCE
 
-- Run-ID: to be recorded
-- URL: to be recorded
-- head_sha: f28b97a53870bb3f5cb5c90618dea977df3f1c2b (after my commit)
-- trigger: standard push-triggered CI on the branch push (no rerun/workflow_dispatch by this lane)
+- Run-ID: 44516157576 (GitHub run #6576 on lane-0428-efilter)
+- URL: https://github.com/mcpdev80/baseharbor/actions/runs/44516157576
+- head_sha: e5a943d1b0cc4e700f2ff980e1d900dab4473288 (40 chars; monotone on
+  develop da76c5cf9, and 594086014e146f4a965f7446fef25def2d8d8cd1 is an
+  ancestor — the r6 stack is clean, one candidate per chain)
+- trigger: standard push-triggered CI on the lane push (no rerun/workflow_dispatch by this lane)
+- executed cells: 35 success, 0 failure, 0 skipped-required ('PR Selected Checks' = success)
+- both 'PR · Selected Runtime (atomic/docker/identity)' cells: success
+- matrix proven at the seam (each isolated so one path cannot hide another):
+  (i) three-part '<provider>:<project>:<service>' -> PROJECT (parts[1]);
+  (ii) two-part '<provider>:<project>' (develop, internal/logs/realization.go:233)
+  -> PROJECT; (iii) runtime://<project>/<service> -> PROJECT via the existing
+  runtime:// trim; ID-only (Target='') -> PROJECT from the ID grammar alone.
+  Fail-closed witnesses: bare 'loki' -> ok=false; empty project 'loki::loki' ->
+  ok=false; contradicting sides (ID '-dev' vs Target '-stage') -> ('',false).
+- API boundary (finding, Owner must know): ListMetrics hardcodes
+  includeApplicationSources=false (registry.go body of ListMetrics calls
+  List(SignalMetrics, placement, applications, false, includeApplicationProviders,
+  includePlatformProviders, requestedEnvironment)), so a source-class metrics
+  source can never appear via ListMetrics; the metrics cases here therefore use
+  provider-class fixtures (Class=SourceApplicationProvider) on the real seam.
+- Local pre-checks: gofmt -l . empty; go vet ./internal/observability ./internal/application clean; go build ./... exit 0; focused go test ./internal/observability ./internal/application -run '^TestRoute5|^TestRoute2|^TestManagedRuntimeObservability' all pass; bash scripts/source-readability-audit.sh PASS; git merge-tree 0 conflicts.
 
 ## BRANCH PROVENANCE
 
@@ -163,11 +180,17 @@ The two colliding anchor cases this round must pin at the seam:
 
 ## HOST HYGIENE
 
-- before docker ps -a: to be recorded
-- before podman ps -a: to be recorded
-- after docker ps -a: to be recorded
-- after podman ps -a: to be recorded
-- cleanliness: to be recorded
+- before docker ps -a: only ambient bh-local-shared-* (openbao/postgres) from
+  other lanes; none started by this lane.
+- before podman ps -a: podman not installed on this host.
+- This lane ran pure Go unit tests + CI observation only — no docker/podman
+  containers or compose projects were started.
+- after docker ps -a: unchanged — ambient bh-local-shared-* untouched, no
+  lane-owned containers.
+- after podman ps -a: n/a (not installed).
+- cleanliness: clean. Zero containers/volumes created by this lane. Ambient
+  bh-local-shared-* containers of other lanes left untouched. Worktree under
+  /tmp/opencode/mission-121-round5-listseam-wt removed after commit.
 
 ## HANDOFF
 
