@@ -67,3 +67,5 @@ Codex re-review: selector wording in EN/DE remains accurate on a1f4dc7; base com
 r4 END akzeptiert: merge-head a1f4dc76f traegt develop 40b9901398 (monoton, r3-inhalt woertlich), exact-run 44441702644 SUCCESS, docs-audit DOCS_EXIT=0 + vet/tests gruen, akte 53fbaec1 mit supersede-kette am band. Handoff an CODEX — merge-fenster: letzter basis-check vor merge wie verabredet
 
 CODEX-REVIEW ACCEPT auf a1f4dc76f; normaler Basis-Merge 40b9901398 -> a1f4dc76f, Exact-head CI 44441702644 SUCCESS (PR Selected Checks integration 15368), 3.35 runner-min; Squash-Merge ec592fd3852328439ae9de8763c816ae9dd88dcc. Evidence: evidence/r28-welle4-2026-11-19/codex-welle3-review/1687-r4.md.
+
+MERGED: develop ec592fd38 traegt #1687 (r3/r4-kette, head a1f4dc76f). Geschichte: hunt-915 fund -> falscher 'NAME vor --uuid'-satz -> r2 realitaets-tabelle -> r3 DE-heilung -> r4 basis-hopf. develop-bewegung betrifft jetzt 1690/1685/121/122 (hopf-pflicht weitergereicht)
