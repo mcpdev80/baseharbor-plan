@@ -80,10 +80,30 @@ I did NOT touch `.github/**`, `internal/capability/registry.go`, `cmd/baha/**`, 
 
 `bash scripts/ci-fast-check.sh` to be run before the push; wait for the terminal "PR Selected Checks" aggregate. Required checks come from the base plan; checks this PR adds are advisory. On old/unknown paths select conservately BROAD and keep running if red.
 
+## CI EVIDENCE (B3) — run 44621875256
+
+Exact head: `f5dcf12885489d8b8beb8a57720d659f4b737378` (branch `w073-perses-alerts`).
+Run: `gh run list --repo mcpdev80/baseharbor --branch w073-perses-alerts` → run id `44621875256`, status=completed, conclusion=success.
+Aggregate: `PR Selected Checks` = completed/**success**.
+34 jobs: 14 success, 20 skipped, 0 failure.
+
+Success (14): PR · Native gate plan, PR · Trusted Plan, PR · Source format, Workflow policy, PR · Focused Python, PR · Validation · go-vet, PR · Validation · go-build, PR · Go unit · cli-0, cli-1, cli-2, cli-3, **PR · Go unit · packages**, PR · Go unit · owner, **PR Selected Checks**.
+
+The Go unit `packages` shard (`internal/metrics` has no declared runtime gate owner → broad required fallback, CI policy) **executed** (all steps completed). Package log:
+```
+2026-11-19T21:47:53.7006773Z ok  	github.com/mcpdev80/baseharbor/internal/metrics	0.337s
+```
+My 3 new tests (`TestPersesAlertEvaluatorHealthUnselectedManifestReturnsError`, `TestPersesAlertEvaluatorHealthSelectedStaysFailsClosed`, `TestPersesAlertEvaluatorHealthGuardOwnerAuthorizationAbsent`) run in this shard (no test filter) — executed, not claimed.
+
+Skipped (20): Targeted HA · docker, validate, PR · Main release source, PR · Main release Go · shard, Release Source Preflight, PR · Draft source and routing, PR · Draft Go · shard, Targeted HA · podman, PR · Exact full Pre-Release, PR · Native · matrix.id, PR · Runner Interface, PR · Exact Candidate, PR · Candidate-added checks (advisory), PR · Consumer Pins, PR · Native Keycloak/Core · runtime, PR · Demo Pin, PR · Public Contracts, PR · Selected Runtime, PR · Selected Core-less · runtime, PR · Main release checks. These are release/draft/native-targeted runtime cells (ORAS path = owner-draht 114(a)); skipped, never run — SKIPPED is not pass, and none of these cover the `internal/metrics` diff path. The required Go build/vet/unit paths all completed.
+
+`bash scripts/ci-fast-check.sh` (local, before push): exit 0 — gofmt clean, go vet PASS, workflow policy PASS (20 approved files), source-readability PASS, 286 python gate assertions OK.
+
 ## cleanliness:
 
-(no containers, compose projects, networks or volumes started — no VM/test host involved this round)
+(no containers, compose projects, networks or volumes started — no VM/test host involved this round; the 5 pre-existing containers on the host belong to other lanes, not started by this lane)
 
 ## END
 
-END_BLOCKED x-073r3: gating P6 finding — `perses_prometheus_alerts.go` verifier/build/Reachability have zero production callers (not wired to an output path); needs Owner call whether to apply the in-scope P1 text fix now or hold for 0428-142/0428-151 — candidate SHA pending (no commit this round; branch head 90e1f141752abc8050c44f54942eba454b78a69a unchanged)
+END_DONE x-073r3: r3 fix delivered on branch w073-perses-alerts head f5dcf12885489d8b8beb8a57720d659f4b737378. P1 text corrected (selected=>unavailable (owner-gated evaluator contract), unselected=>not configured), stub stays false, A2 exact-state + A3 guard tests RED-then-GREEN on exact head, CI run 44621875256 success (PR Selected Checks success; internal/metrics package passed in Go unit packages shard). Branch hopped monotonically to latest develop 28fb427f (two parents 90e1f1417+28fb427f). ESCALATION: 0428-152 — zero production callers, verifier not wired to an output surface (verify symbol names VerifyPersesAlertEvaluatorHealth / BuildPersesAlertEvaluator / PersesAlertReachability / persesAlertRealEvaluatorContractPresent; Owner grep witness `grep -rn 'VerifyPersesAlertEvaluatorHealth\|BuildPersesAlertEvaluator\|PersesAlertReachability' --include=*.go internal cmd`). PR #1704 head still 90e1f1417 (PR retarget is Owner/Maintainer action; a fresh CI run is required on f5dcf128 for the PR to be measured).
+
