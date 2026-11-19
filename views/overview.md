@@ -11,14 +11,14 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 12 |
-| review | 17 |
+| review | 16 |
 | wait | 15 |
 | blocked | 5 |
 | ready | 1 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
-| closed | 324 |
+| closed | 325 |
 
 ## Active
 
@@ -29,8 +29,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) | CLI redesign: Replace name-based environment policy | active | high | coord | [t-20261114-r28-cli2-uid-environment](../tasks/t-20261114-r28-cli2-uid-environment.md) (open) | — |
 | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | CLI redesign: Organization environment reconciliation | active | high | welle2-056-cli2-org-env | [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) (open) | — |
 | [t-20261114-r28-perses-dashboard-hosts](../tasks/t-20261114-r28-perses-dashboard-hosts.md) | Perses host and container dashboards | active | normal | 0428-077 korrektur (codeman 335715a4-de66-41c8-9de3-570eb353e325, flash) | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1602](https://github.com/mcpdev80/baseharbor/pull/1602) |
-| [t-20261114-r28-perses-lifecycle](../tasks/t-20261114-r28-perses-lifecycle.md) | Perses lifecycle commands | active | normal | 0428-084 hopf (codeman 3ae5c022, ornith) | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) (open) | [baseharbor#1598](https://github.com/mcpdev80/baseharbor/pull/1598) |
-| [t-20261114-r28-perses-secure-access](../tasks/t-20261114-r28-perses-secure-access.md) | Protect Perses operator access | active | normal | 0428-089 korrektur (codeman b60c11a1-ea32-4370-9c6a-94db90021174, flash) | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) (open) | [baseharbor#1599](https://github.com/mcpdev80/baseharbor/pull/1599) |
+| [t-20261114-r28-perses-lifecycle](../tasks/t-20261114-r28-perses-lifecycle.md) | Perses lifecycle commands | active | normal | 0428-084 hopf (codeman 3ae5c022, ornith) | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) | [baseharbor#1598](https://github.com/mcpdev80/baseharbor/pull/1598) |
+| [t-20261114-r28-perses-secure-access](../tasks/t-20261114-r28-perses-secure-access.md) | Protect Perses operator access | active | normal | 0428-089 korrektur (codeman b60c11a1-ea32-4370-9c6a-94db90021174, flash) | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) | [baseharbor#1599](https://github.com/mcpdev80/baseharbor/pull/1599) |
 | [t-20261115-r28-podman-runtime-performance](../tasks/t-20261115-r28-podman-runtime-performance.md) | Speed up Podman lifecycle | active | high | ChatGPT | — | [baseharbor#1600](https://github.com/mcpdev80/baseharbor/pull/1600) |
 | [t-20261116-r28-guided-rootless-bootstrap](../tasks/t-20261116-r28-guided-rootless-bootstrap.md) | Guided rootless runtime prerequisite repair | active | high | ChatGPT | — | [baseharbor#1664](https://github.com/mcpdev80/baseharbor/pull/1664) |
 | [t-20261117-hunt-signals-106](../tasks/t-20261117-hunt-signals-106.md) | CLI destructive-consent paths still emit German Achtung fall | active | not set | worker-ornith1.5 | — | [baseharbor#1683](https://github.com/mcpdev80/baseharbor/pull/1683) |
@@ -52,11 +52,10 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-perses-dashboard-databases](../tasks/t-20261114-r28-perses-dashboard-databases.md) | Perses database dashboards | review | normal | coord | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597) |
 | [t-20261114-r28-perses-dashboard-messaging](../tasks/t-20261114-r28-perses-dashboard-messaging.md) | Perses messaging dashboards | review | normal | coord | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1603](https://github.com/mcpdev80/baseharbor/pull/1603) |
 | [t-20261114-r28-perses-dashboards](../tasks/t-20261114-r28-perses-dashboards.md) | Perses infrastructure dashboards | review | normal | coord | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md), [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) (open) | [baseharbor#1665](https://github.com/mcpdev80/baseharbor/pull/1665) |
-| [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | Connect Perses Prometheus | review | normal | 0428-083 r3 (codeman 15f0cb63, kopf a9befb312 laeuft) | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) (open), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684) |
+| [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | Connect Perses Prometheus | review | normal | 0428-083 r3 (codeman 15f0cb63, kopf a9befb312 laeuft) | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684) |
 | [t-20261114-r28-perses-log-trace-dash](../tasks/t-20261114-r28-perses-log-trace-dash.md) | Perses log and trace views | review | normal | coord | [t-20261114-r28-perses-loki-source](../tasks/t-20261114-r28-perses-loki-source.md) (open), [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) (open) | [baseharbor#1619](https://github.com/mcpdev80/baseharbor/pull/1619) |
-| [t-20261114-r28-perses-loki-source](../tasks/t-20261114-r28-perses-loki-source.md) | Connect Perses Loki | review | normal | coord | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) (open), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1616](https://github.com/mcpdev80/baseharbor/pull/1616) |
-| [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) | Launch optional Perses | review | normal | 0428-088 fenster-hopf (END akzeptiert, sitz entlassen) | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md) | [baseharbor#1592](https://github.com/mcpdev80/baseharbor/pull/1592) |
-| [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | Connect Perses Tempo | review | normal | coord | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) (open), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610) |
+| [t-20261114-r28-perses-loki-source](../tasks/t-20261114-r28-perses-loki-source.md) | Connect Perses Loki | review | normal | coord | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1616](https://github.com/mcpdev80/baseharbor/pull/1616) |
+| [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | Connect Perses Tempo | review | normal | coord | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610) |
 | [t-20261119-hunt-metrics-verification-none-blind](../tasks/t-20261119-hunt-metrics-verification-none-blind.md) | verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe | review | not set | 0428-124 r2 (codeman 7110b25d, entlassen) — r3 wartet auf freien sitz | — | [baseharbor#1695](https://github.com/mcpdev80/baseharbor/pull/1695) |
 
 ## Waiting for resources
@@ -99,7 +98,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 7 open, 162 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 64 open, 94 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 63 open, 95 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))

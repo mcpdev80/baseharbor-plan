@@ -27,7 +27,7 @@ early: true
 - [x] t-20261113-r28-grafana-secure-access · Protect Grafana operator login #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/security #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-grafana-runtime](t-20261113-r28-grafana-runtime.md)  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-perses-replaces-grafana-v0428.md)  
     <!-- /generated:card -->
 

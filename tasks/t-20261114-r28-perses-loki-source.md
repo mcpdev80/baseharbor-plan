@@ -27,7 +27,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob//evidence/r28-welle
     <!-- generated:card -->
     **Owner:** coord · **Priority:** normal  
     **PR:** [baseharbor#1616](https://github.com/mcpdev80/baseharbor/pull/1616)  
-    **Needs:** [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob//evidence/r28-welle4-2026-11-19/codex-review-wave/1616-0428-086.md)  
     <!-- /generated:card -->
 

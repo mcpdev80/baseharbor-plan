@@ -27,7 +27,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2
     <!-- generated:card -->
     **Owner:** 0428-084 hopf (codeman 3ae5c022, ornith) · **Priority:** normal  
     **PR:** [baseharbor#1598](https://github.com/mcpdev80/baseharbor/pull/1598)  
-    **Needs:** [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/c7376f916380d9d95d70e05204a10da2ef42d9b6/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084-r2.md)  
     <!-- /generated:card -->
 
