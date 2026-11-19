@@ -125,6 +125,11 @@
 
 ## cleanliness
 
+Compose/container witness at END (read-only listings, taken twice — before and after every probe):
+
+- `docker compose ls -a` on this host lists exactly one project, `bh-local-shared`, whose config path is `/var/tmp/hunt-uid-he/.local/share/baseharbor/targets/local/runtime/compose.yaml` — another (dead) lane's zone, NOT mine. This lane started no compose project anywhere.
+- `git status --porcelain` in the read worktree at END: 0 entries (probe files removed, existing-suite scratch dirs `prune-sameid/` etc. cleaned); `git diff --name-only`: 0 tracked changes.
+
 Before-census (read-only listing; this host is the coordinator/codeman server, so no test stack was started here):
 
 - coordinator host `docker ps -a`: `bh-local-shared-openbao-1`, `bh-local-shared-openbao-member-1-1`, `bh-local-shared-postgres-init-1`, `bh-local-shared-postgres-1`, `bh-local-shared-openbao-admin-1`, `bh-local-shared-postgres-admin-1`, `bh-local-shared-postgres-member-1-1`
@@ -132,9 +137,9 @@ Before-census (read-only listing; this host is the coordinator/codeman server, s
 - coordinator host volumes: 13 entries, all pre-existing (`bh-local-shared_postgres-data-1`, `baseharbor-multi-ci-1202130-*`, `testvol`, …)
 - `baha-docker` (`ssh baha-docker`, read-only): containers: none; networks: `bridge`, `host`, `none`; volumes: `bh-cellprobe-shared_postgres-data-1`, `bh-celltest-1026291-shared_postgres-data-1`
 
-After-census: identical. `git status --porcelain` residue in the read worktree was cleaned: the test-run scratch directories the existing `internal/application` suite creates (`prune-owner/`, `prune-sameid/`, `trace-handoff/`, `trace-intent-off/`, `trace-owner-managed-collector/`, `trace-owner-registered-external/`, `trace-policy-ext/`, `trace-policy-off/`, `trace-unbound-prune/`) were removed; only `zz_hunt918_*` probe files remain, and those are deleted below.
+After-census: `diff` of the before/after listings is empty for both hosts — `LOCAL CENSUS: identical (0 lane residue)` and `BAHA-DOCKER CENSUS: identical (0 lane residue)`. Read-worktree residue was cleaned: the scratch directories the existing `internal/application` suite creates (`prune-owner/`, `prune-sameid/`, `trace-handoff/`, `trace-intent-off/`, `trace-owner-managed-collector/`, `trace-owner-registered-external/`, `trace-policy-ext/`, `trace-policy-off/`, `trace-unbound-prune/`) were removed, and the probe files were deleted from the worktree after being copied to `scripts/` here.
 
-- No container, network, volume, image or compose project was started by this lane on any host. `cleanliness: PASS — 0 lane-owned containers/networks/volumes/compose projects; after-census equals before-census; worktree to be pruned at END.`
+- No container, network, volume, image or compose project was started by this lane on any host. `cleanliness: PASS — 0 lane-owned containers/networks/volumes/compose projects/state dirs; after-census == before-census (diff empty, both hosts); read worktree reports 0 porcelain entries and 0 tracked changes.`
 
 ## commit + evidence provenance
 
