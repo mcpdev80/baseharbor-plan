@@ -16,8 +16,9 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 37/137 · **Blocked:** 1 · **Waiting:** 21  
+    **Accepted tasks:** 37/137 · **Blocked:** 2 · **Waiting:** 21  
     **Blocker:** [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) — Owner-scope .github CI-structure: ci-executor-tests + Focused Python fail identically on develop itself (proven, evidence 8c99af8f); candidate 022c454c green o…  
+    **Blocker:** [t-20261117-hunt-signals-101](../tasks/t-20261117-hunt-signals-101.md) — ZWEIFEL laut handoff: requiredes write-set (internal/id-...) ueberschneidet offenes \#1650 (blockiert auf Owner-.github-struktur). naechster trigger: \#1650-loes…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next
