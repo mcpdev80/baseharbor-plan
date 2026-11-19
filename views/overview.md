@@ -11,14 +11,14 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 9 |
-| review | 26 |
+| review | 25 |
 | wait | 13 |
 | blocked | 2 |
 | ready | 1 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
-| closed | 302 |
+| closed | 303 |
 
 ## Active
 
@@ -60,7 +60,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | Connect Perses Tempo | review | normal | coord | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) (open), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610) |
 | [t-20261117-hunt-uid-docs-110](../tasks/t-20261117-hunt-uid-docs-110.md) | Corrupt-config and mutation paths stay silent despite fail-l | review | not set | worker-flash (mission-110-mutation-loud) | — | [baseharbor#1682](https://github.com/mcpdev80/baseharbor/pull/1682) |
 | [t-20261118-app-env-recovery-flags-claim](../tasks/t-20261118-app-env-recovery-flags-claim.md) | align app env recovery-flag docs with the real command contract | review | not set | w01-0428-117 (codeman 27c5ae85) | — | [baseharbor#1687](https://github.com/mcpdev80/baseharbor/pull/1687) |
-| [t-20261118-diag-exec-iftrue-leak](../tasks/t-20261118-diag-exec-iftrue-leak.md) | fix DIAG_EXEC if-true leak in app_edit_apply.go | review | not set | w01-0428-118 (codeman d5ecb550) | — | [baseharbor#1689](https://github.com/mcpdev80/baseharbor/pull/1689) |
 | [t-20261118-enrollment-two-phase-boundary-doc](../tasks/t-20261118-enrollment-two-phase-boundary-doc.md) | document the enrollment consume/issue two-phase boundary | review | not set | w115 (opencode ses_e0f576c30ffe) | — | [baseharbor#1685](https://github.com/mcpdev80/baseharbor/pull/1685) |
 | [t-20261118-mcp-partial-change-success](../tasks/t-20261118-mcp-partial-change-success.md) | MCP/HTTP edit path must fail loud on partial provider-change result | review | not set | w1-lane-5584d84a (0428-120) | — | [baseharbor#1688](https://github.com/mcpdev80/baseharbor/pull/1688) |
 | [t-20261118-receipt-guard-single-operand](../tasks/t-20261118-receipt-guard-single-operand.md) | receipt verification guard collapses to single operand | review | not set | w01-0428-116r3 (codeman 2d4e69dd) | — | [baseharbor#1686](https://github.com/mcpdev80/baseharbor/pull/1686) |
@@ -100,7 +99,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 7 open, 162 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 65 open, 72 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 64 open, 73 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
