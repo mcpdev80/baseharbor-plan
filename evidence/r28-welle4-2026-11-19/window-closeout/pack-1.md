@@ -8,9 +8,11 @@ Nothing is from memory. This file changes nothing: cards, PRs and runs are read-
 
 ## PLAN
 
-1. Read mission; create the numbered plan in all three places (native `todowrite` is not exposed
-   by this session's tool surface — recorded as finding F-5; the board JSON file and this PLAN
-   list carry the plan) — done.
+1. Read mission; create the numbered plan in all three places: native `todowrite` is not
+   exposed by this session's tool surface (checked: only opencode/browser/context7 in Code Mode;
+   per mission instruction no tool-hunt via execute) — recorded as finding F-5. The plan is
+   carried by (a) the board file `workers/todos/mission-window-closeout-pack.md.json` and
+   (b) this PLAN list — done.
 2. Zone + provenance verification: planning repo is
    `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan` (see witness §0); the quarantined
    `workers/baseharbor` checkout was never cited — done.
