@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w99-0428-verify2 (codeman 9ca0132d)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-127 · accepted-Inhalte der Welle
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-coord-live-verify-chain1 · Live-Verify-Kette 1: accepted-Inhalte der Welle gegen den lebenden develop pruefen #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261119-coord-live-verify-chain1 · Live-Verify-Kette 1: accepted-Inhalte der Welle gegen den lebenden develop pruefen #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w99-0428-verify2 (codeman 9ca0132d)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w99-0428-verify2 (codeman 9ca0132d)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -78,3 +77,5 @@ One or two sentences: the observable outcome.
 - Current state, branch, PR and evidence links. Newest first.
 ## Purpose (coordination)
 Dachkarte fuer wiederkehrende live-verify-runden ueber bereits acceptedem content (sitz-pflicht stufe 2). Erster Auftrag: verify-chain1 (116-guard, 120-fail-loud, 121-filter, 122-writer, 118-leck) auf develop ec592fd385. Reine gegenpruefung, KEINE produkt-aenderung; funde -> neue karten via intake.
+
+chain1 geliefert und aktenpflichtig geprueft (befund-1.md, origin/main): 116/120/118 auf lebendem develop BESTAETIGT (file:line + unit-laeufe), 121/122 erwartungsgemaess NICHT auf develop (nur auf den unmerged kandidaten d9d70a98/#1691 und 8956bf08/#1692, dort green) — keine neuen karten. NEBENBEFUND bereinigt: zwei 5h-alte PPID=1 baha.test DiagExec-Stdout-orphans (1341964/1405874) getoetet, die zwei lebenden dualmatch-prozesse von lane 126 blieben unberuehrt. chain2 beauftragt: 102/093/099/117 auf develop deeeb6477

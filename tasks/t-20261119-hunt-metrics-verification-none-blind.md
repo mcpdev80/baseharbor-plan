@@ -7,15 +7,15 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: worker-ornith1.5
-kanban_status: active
-kanban_lane: active
+owner: w99-0428-124 (codeman 2a92c21e)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-124 · none Metriken erzeugen weder
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [1695]
+prs: [mcpdev80/baseharbor#1695]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -24,18 +24,20 @@ evidence:
 - evidence/r28-welle4-2026-11-19/verification-none/fix-1.md
 ---
 
-- [ ] t-20261119-hunt-metrics-verification-none-blind · verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261119-hunt-metrics-verification-none-blind · verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** worker-ornith1.5  
+    **Owner:** w99-0428-124 (codeman 2a92c21e)  
+    **PR:** [baseharbor#1695](https://github.com/mcpdev80/baseharbor/pull/1695)  
+    **Evidence:** [proof 1](evidence/r28-welle4-2026-11-19/verification-none/fix-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** worker-ornith1.5  
+**Owner:** w99-0428-124 (codeman 2a92c21e)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1695](https://github.com/mcpdev80/baseharbor/pull/1695)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -79,3 +81,5 @@ One or two sentences: the observable outcome.
 ## Befund (intake aus hunt-918)
 Befund 6 (MEDIUM): Ein Metrik-source mit verification:none ernt weder scrape-target noch assertion; jede uberspringung fuer sich korrekt, die composition hat keine gegenprobe. Akzeptanz: counter/assertion auf 'null effektive targets nach composition' mit klarem grund-EOF.
 Erlaubtes write-set (vorschlag, lane prueft): target composition. Evidence-Quelle: https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/hunt-metrics/befund-1.md (17 probes, base 97a840e54).
+
+124 abgabefertig: PR #1695 head cc25c17e1 (rebased auf develop deeeb6477), CI run 44462738608 TERMINAL SUCCESS, akte fix-1.md publiziert (plan origin/main 206d0bf4). red->green verifiziert: composition-counter meldet verification:none explizit statt still null targets
