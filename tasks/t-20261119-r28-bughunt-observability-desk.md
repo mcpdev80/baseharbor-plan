@@ -1,7 +1,7 @@
 ---
 id: t-20261119-r28-bughunt-observability-desk
-kanban_title: "0428-145 · hunt observability desk"
-card_number: "0428-145"
+kanban_title: "0428-147 · hunt observability desk"
+card_number: "0428-147"
 type: task
 areas: [observability, qa]
 release: v0.4.28
