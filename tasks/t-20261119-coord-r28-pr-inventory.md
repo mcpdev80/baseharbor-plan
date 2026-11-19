@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: pr-inventory (codeman )
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-135 · 38 offene PRs gegen board —
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-coord-r28-pr-inventory · PR-inventar 0.4.28: 38 offene PRs gegen board — dublette/superseded/kandidatenlos, liste zum schliessen #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261119-coord-r28-pr-inventory · PR-inventar 0.4.28: 38 offene PRs gegen board — dublette/superseded/kandidatenlos, liste zum schliessen #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** pr-inventory (codeman )  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** pr-inventory (codeman )  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -82,3 +81,5 @@ Der basics-check meldet dauerhaft OPEN-PRS > 12. Diese karte stellt je offenem P
 
 ## Acceptance
 evidence/r28-welle4-2026-11-19/pr-inventory/befund-1.md: tabelle je PR | head-sha | basis | mergeable_state | karte (task-id oder 'keine') | einordnung (LEBEND / SUPERSEDED-ancestry / DUPLIKAT-von-pr / FREMDKOERPER-andere-welt) | begruendung mit nachweis (merge-base --is-ancestor ausgabe oder 'git diff --stat basis...head' leer). KEIN schliessen, KEIN comment, KEIN merge durch die lane — nur die liste; das schliessen mache ich. kein subagent (§4.8), tmp /var/tmp, read-only, host besenrein.
+
+lane lauft read-only durch die offenen PRs (akte pr-inventory/befund-1.md); klassen LEBEND/SUPERSEDED-ancestry/DUPLIKAT/FREMDE-welt, nachweis je zeile; schliessen mache ich
