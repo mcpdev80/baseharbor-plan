@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: 0428-084 korrektur (codeman 3ae5c022, ornith) — monoton auf develop, aggregate gruen
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: Guide enable/status/disable and ownership-safe removal of optional Perses using the accepted CLI contract; preserve monitoring…
 kanban_title: 0428-084 · Perses lifecycle commands
 priority: normal
@@ -19,19 +19,19 @@ prs: [mcpdev80/baseharbor#1598]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md", "https://github.com/mcpdev80/baseharbor-plan/blob/c7376f916380d9d95d70e05204a10da2ef42d9b6/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6f05b59ccf3f13065093f7848de098063548d84f/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-3.md", "https://github.com/mcpdev80/baseharbor-plan/blob/c23cf7586911b623cde384d8769001626a686dd8/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-4.md", "https://github.com/mcpdev80/baseharbor/pull/1598"]
+resolution: "accepted"
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md", "https://github.com/mcpdev80/baseharbor-plan/blob/c7376f916380d9d95d70e05204a10da2ef42d9b6/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6f05b59ccf3f13065093f7848de098063548d84f/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-3.md", "https://github.com/mcpdev80/baseharbor-plan/blob/c23cf7586911b623cde384d8769001626a686dd8/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-4.md", "https://github.com/mcpdev80/baseharbor/pull/1598", "https://github.com/mcpdev80/baseharbor-plan/blob/c5927a9bb48b75ccd592c091fa7c0d49dfa1c547/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084-r3.md"]
 ---
 
-- [ ] t-20261114-r28-perses-lifecycle · Perses lifecycle commands #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [x] t-20261114-r28-perses-lifecycle · Perses lifecycle commands #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** 0428-084 korrektur (codeman 3ae5c022, ornith) — monoton auf develop, aggregate gruen · **Priority:** normal  
     **PR:** [baseharbor#1598](https://github.com/mcpdev80/baseharbor/pull/1598)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/c7376f916380d9d95d70e05204a10da2ef42d9b6/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/6f05b59ccf3f13065093f7848de098063548d84f/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-3.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/c23cf7586911b623cde384d8769001626a686dd8/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-4.md), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1598)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/c7376f916380d9d95d70e05204a10da2ef42d9b6/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/6f05b59ccf3f13065093f7848de098063548d84f/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-3.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/c23cf7586911b623cde384d8769001626a686dd8/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-4.md), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1598), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/c5927a9bb48b75ccd592c091fa7c0d49dfa1c547/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084-r3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
