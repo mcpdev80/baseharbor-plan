@@ -32,7 +32,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261115-r28-podman-runtime-performance](../tasks/t-20261115-r28-podman-runtime-performance.md) | Speed up Podman lifecycle | active | high | ChatGPT | — | [baseharbor#1600](https://github.com/mcpdev80/baseharbor/pull/1600) |
 | [t-20261116-r28-guided-rootless-bootstrap](../tasks/t-20261116-r28-guided-rootless-bootstrap.md) | Guided rootless runtime prerequisite repair | active | high | ChatGPT | — | [baseharbor#1664](https://github.com/mcpdev80/baseharbor/pull/1664) |
 | [t-20261117-hunt-signals-106](../tasks/t-20261117-hunt-signals-106.md) | CLI destructive-consent paths still emit German Achtung fall | active | not set | worker-ornith1.5 | — | [baseharbor#1683](https://github.com/mcpdev80/baseharbor/pull/1683) |
-| [t-20261119-coord-live-verify-window](../tasks/t-20261119-coord-live-verify-window.md) | Live-verifikation des gemergten fensters auf develop: acceptance-/smoke-pfade der heutigen merges, ergebnis je karte | active | not set | live-verify-window (codeman ) | — | — |
+| [t-20261119-coord-live-verify-window](../tasks/t-20261119-coord-live-verify-window.md) | Live-verifikation des gemergten fensters auf develop: acceptance-/smoke-pfade der heutigen merges, ergebnis je karte | active | not set | live-verify-window (codeman b9a62e5c-6102-4887-839a-f2d06a8ba31c) | — | — |
 | [t-20261119-hunt-metrics-appclass-log-writer](../tasks/t-20261119-hunt-metrics-appclass-log-writer.md) | Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) | active | not set | 0428-122 r3 (wartet auf sitz, nach 121-merge) | — | [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692) |
 
 ## Ready for review

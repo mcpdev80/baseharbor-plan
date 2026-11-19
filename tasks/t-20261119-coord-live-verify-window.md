@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: live-verify-window (codeman )
+owner: live-verify-window (codeman b9a62e5c-6102-4887-839a-f2d06a8ba31c)
 kanban_status: active
 kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
@@ -25,14 +25,14 @@ evidence: []
 
 - [ ] t-20261119-coord-live-verify-window · Live-verifikation des gemergten fensters auf develop: acceptance-/smoke-pfade der heutigen merges, ergebnis je karte #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** live-verify-window (codeman )  
+    **Owner:** live-verify-window (codeman b9a62e5c-6102-4887-839a-f2d06a8ba31c)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** live-verify-window (codeman )  
+**Owner:** live-verify-window (codeman b9a62e5c-6102-4887-839a-f2d06a8ba31c)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -83,3 +83,5 @@ Die heutigen merges (093, 102, 115, 116, 117, 118, 120, 125, 126 + demo 099) sin
 akte evidence/r28-welle4-2026-11-19/verify-window/befund-1.md: tabelle je pruefung (name | befehl | lauf-id oder host-zeug | PASS/FAIL/SKIP + grund | betroffene karte), gegenprobe an einem bekannten gruenen pfad, und eine klare aussage, ob develop da76c5cf9 (oder der dann aktuelle kopf) fuer ein release-qualifikationsoffset taugt. KEINE produkt-aenderung, KEIN .github/scripts-eingriff (befund mit datei:zeile), KEIN merge, KEIN PR, isolierte worktrees nur unter /var/tmp, host besenrein (vorher/nachher docker ps -a + podman ps -a, 'cleanliness:'-zeile; ambient bh-local-shared-* und core-*/bilder fremder karren unangetastet), kein subagent (§4.8).
 
 fahrt ueber die heutigen merges auf develop (akte verify-window/befund-1.md): acceptance-/smoke-pfade der betroffenen gruppen, je zeile PASS/FAIL/SKIP + grund, gegenprobe an sicher gruenem pfad. read-only, kein dispatch/rerun/push
+
+read-only fahrt ueber die heutigen merges auf develop (akte verify-window/befund-1.md): acceptance-/smoke-pfade der betroffenen gruppen, je zeile PASS/FAIL/SKIP + grund, gegenprobe an sicher gruenem pfad. kein dispatch/rerun/push
