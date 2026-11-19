@@ -65,3 +65,13 @@ The Owner retires the evidence and receipt approval chain. This task supplies on
 Deferred from v0.4.27 release: GitHub Actions/GitLab example consumption is optional developer integration documentation, not the VM CLI->Core acceptance gate.
 
 Preserve original card ID/number, prior PR and test history. This is a release-scope move, not acceptance or implementation completion. The Coordinator must inspect current merged Core code, first-party provider contracts, real selected CI, and the existing task before dispatch; Codex independently reviews/merges. Release v0.4.27 cannot claim the deferred feature as complete.
+
+## Codex continuation — 2026-11-19
+
+The current thread took over the existing Codex-owned PR #1589 in an isolated product worktree while Codeman's worker pool remained full. No Codeman worker, coordinator, or shared Codeman checkout was changed.
+
+- Candidate: `82fb2f7f7eed9e7c3e45f6a4fad2ac97b84db42f`, based on current `develop` `6e87ddcb4dc87c20876ae0045bf7ac5bbb5311d0` by a normal merge hop.
+- Replaced the old examples with manual-only GitHub Actions/GitLab flows and a shared CLI helper; added six controlled fake-CLI behavior tests, wired into `scripts/documentation-audit.sh`.
+- Added positive and negative planner routing for `docs/example/**/*.yml|yaml` and `docs/internal/**/*.json`, so existing documentation checks select these files and unrelated paths remain fail-closed. Planner suite: 181 tests passed.
+- Local verification: six consumption tests, `scripts/documentation-audit.sh`, strict EN/DE MkDocs builds, and `git diff --check` passed. Test binding: `scripts/test_ci_consumption_examples.py` -> `documentation-audit` -> existing selected PR documentation check; planner selector tests -> ordinary planner test suite.
+- Exact-head hosted run `44615568958` was observed with draft-only checks; the PR was still a draft, so final selected checks had not yet run. Task remains active pending full exact-head checks and merge review.
