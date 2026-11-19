@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w01-0428-123 (codeman 1e209bb7)
-kanban_status: review
-kanban_lane: review
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-123 · registry-Eintrag ohne
 priority: ""
@@ -18,19 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1693]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "abnehmer-wort: nicht vor #1691 mergen; hopf auf den develop-kopf nach #1691, dann re-review"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-hunt-metrics-registration-visibility-only · Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261119-hunt-metrics-registration-visibility-only · Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** w01-0428-123 (codeman 1e209bb7)  
     **PR:** [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693)  
+    **Waiting:** abnehmer-wort: nicht vor \#1691 mergen; hopf auf den develop-kopf nach \#1691, dann re-review  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w01-0428-123 (codeman 1e209bb7)  
@@ -81,3 +82,5 @@ Befund 1 (MEDIUM): Application-class metrics registration ist sicht-only: regist
 Erlaubtes write-set (vorschlag, lane prueft): registry registration path. Evidence-Quelle: https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/hunt-metrics/befund-1.md (17 probes, base 97a840e54).
 
 END akzeptiert: registered==exportiert Invariante load-bearing gemacht (befund 1 these geloest ohne silent-annahme), head b7fd05be base-exakt ec592fd38 clean, exact-run 44453978212 SUCCESS, akte 7c72160d am band. Routing an CODEX-REVIEW. Overlap-notiz: registry.go ist auch bei 121/122 betroeffen (functionen disjunkt), erst-gruen-zuerst-regel gilt
+
+REQUEST_CHANGES 'integration readiness' auf b7fd05bee (base-exakt jetzt d751c83bb, run 44465014249 SUCCESS): SourceApplication-export haengt am korrigierten environment-filter aus #1691
