@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: "owner-scope, now precise: der job 'docker-runtime' in .github/workflows/docker-runtime-acceptance.yml fuehrt KEINEN ORAS-install-schritt (zeilen 174-330), die install-zeilen 127-128 stecken nur im push-job. der job hat zusaetzlich eine if-bedingung (zeile 174-175), die im dispatch-pfad greift — deshalb laeuft dort der runtime-test ohne trust-plane und bricht in app_repository_integration_test.go:27 'ORAS is required'. korrektur = install-schritt in den docker-runtime-job heben (eine zeilen-klasse, .github = owner-scope). beleg: akte probe-1.md, origin/main 57ffc7c6; laeufe 44461341870/44467228776 (push gruen) vs 44463592314/44464060182 (dispatch rot, job ausgefuehrt). hinweis zur protokoll-korrektur: mein lauf 44466684726 (#658) nutzte den default inputs.ref release/v0.4.21 und war damit als control unbrauchbar — die asymmetrie haelt ueber die job-analyse"
+blocker: "owner-scope, zwei symptome EINE korrekturklasse: (1) .github/workflows/docker-runtime-acceptance.yml — der job 'docker-runtime' (zeilen 174-330) hat KEINEN ORAS-install-schritt, die install-zeilen 127-128 liegen nur im push-job, if-bedingung 174-175 laesst im dispatch-pfad den unvorbereiteten job laufen -> exact-head-dispatch bricht in app_repository_integration_test.go:27 'ORAS is required' (belege runs 44463592314/44464060182 rot gegen 44461341870/44467228776 gruen, akte probe-1.md origin/main 57ffc7c6). (2) TestPersesRuntimeSmokeDockerIsolated hat keinen gemappten CI-trigger (BASEHARBOR_PERSES_RUNTIME_SMOKE ungesetzt, PR-checks skippen die native zelle) -> blockiert 0428-088/#1592 (CODEX-REVIEW head 76331c7d8, exact CI 44467712113 SUCCESS). korrektur = install-schritt in den docker-runtime-job + gate-map in scripts/pr-gate-coverage.json. danach sind 119 (#1690) und 088 (#1592) sofort abnahmefaehig"
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -26,7 +26,7 @@ evidence: []
 - [ ] t-20261119-coord-r28-docker-gate-oras-wiring · Docker-lebenszyklus-beleg vor dem merge nicht fahrbar (ORAS trust-plane + targeted-integration integriert-only) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
     **Owner:** 0428-128-probe (codeman 6637b11b)  
-    **Blocker:** owner-scope, now precise: der job 'docker-runtime' in .github/workflows/docker-runtime-acceptance.yml fuehrt KEINEN ORAS-install-schritt (zeilen 174-330), die install-zeilen 127-128 stecken nur im push-job. der job hat zusaetzlich eine if-…  
+    **Blocker:** owner-scope, zwei symptome EINE korrekturklasse: (1) .github/workflows/docker-runtime-acceptance.yml — der job 'docker-runtime' (zeilen 174-330) hat KEINEN ORAS-install-schritt, die install-zeilen 127-128 liegen nur im push-job, if-bedingu…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
