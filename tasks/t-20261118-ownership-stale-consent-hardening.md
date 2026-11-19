@@ -4,7 +4,7 @@ release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
 owner: codeman-9a898351 (w99-0428-119, claim c55a8b4f)
-kanban_status: review
+kanban_status: active
 card_number: 0428-119
 card_short_title: harden Prov ownership chain vs
 kanban_title: 0428-119 · harden Prov ownership chain vs
@@ -15,14 +15,14 @@ blocker: ""
 ---
 # t-20261118-ownership-stale-consent-hardening · close ownership-race windows behind stale-impact-consent
 
-- [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** codeman-9a898351 (w99-0428-119, claim c55a8b4f)  
     **PR:** [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** codeman-9a898351 (w99-0428-119, claim c55a8b4f)  
@@ -46,3 +46,5 @@ Hunt 916: the chain provider_union.go:164-168 -> digest -> application_provider_
 Separate fix card = YES (this one). Linkage to t-20261115-bughunt-d28-i18n-achtung/#1663 is CONDITIONAL: if the in-flight lane triage shows the document_database failure reproduces on plain develop (pre-existing race per hunt 916 windows), #1663 proceeds via one sanctioned rerun and no depends_on edge is added. If it reproduces ONLY with the 093 merge, add depends_on: [t-20261118-ownership-stale-consent-hardening] to the 093 card before any re-review.
 
 END akzeptiert: head d94cc67d auf base 7d3438364 (exakt develop), exact-run 44437197853 SUCCESS terminal, akte fix-1.md 0da426cc am band mit revision-labels. hunt-916 race-fenster laut akte geschlossen; Routing an CODEX-REVIEW
+
+REQUEST_CHANGES vom reviewer (kommentar 6997135020 auf d94cc67d): consent-equivalence ignoriert Realization.Verified+Evidence (fail-closed-luecke im echten authorization path, validateApplicationProviderExecution verlangt keinen verified state) + docker-gate fehlt (targeted HA/selected runtime nur skipped). korrektur-r2-mission RESERVIERT (mission-119r2-consent-semantics) fuer ersten echten END-freiraum; pool ist voll, keine doppelarbeit
