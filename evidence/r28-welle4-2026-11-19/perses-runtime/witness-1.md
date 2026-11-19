@@ -308,6 +308,37 @@ All runs on 2026-11-19. Times are Go test elapsed seconds as reported in the PAS
 - develop compared: `da76c5cf9c963207038d5599bd130b89ecb1e8a4`
 - precedent: `r3-1.md`, `r4-1.md`
 
+### Run 7 — terminal witness pair (before END)
+
+`/var/tmp/mission-088-wt` at `76331c7d8` (porcelain empty):
+
+```
+=== RUN   TestPersesRuntimeSmokeDockerIsolated
+--- PASS: TestPersesRuntimeSmokeDockerIsolated (22.24s)
+PASS
+ok  	github.com/mcpdev80/baseharbor/internal/application	22.249s
+```
+
+`/var/tmp/mission-088-develop` at `da76c5cf9` (porcelain empty):
+
+```
+testing: warning: no tests to run
+PASS
+ok  	github.com/mcpdev80/baseharbor/internal/application	0.005s [no tests to run]
+```
+
+## Final END witness (both worktrees, terminal state)
+
+After every witness/provenance edit, one last pair of checks confirms the on-disk state:
+
+- `/var/tmp/mission-088-wt` (HEAD `76331c7d8`, porcelain empty):
+  `--- PASS: TestPersesRuntimeSmokeDockerIsolated (22.24s)` (mission-088-final-check.log)
+- `/var/tmp/mission-088-develop` (HEAD `da76c5cf9`, porcelain empty):
+  `testing: warning: no tests to run` (mission-088-final-check2.log)
+- After both runs: `docker ps -a` shows only ambient `bh-local-shared-*` (other lanes,
+  untouched); `docker network ls | grep -i perses|smoke` -> none; `docker volume ls |
+  grep -i perses|smoke` -> none.
+
 ## END
 
 END_DONE mission-088-host-witness.md: host witness `TestPersesRuntimeSmokeDockerIsolated`
@@ -321,7 +352,7 @@ missing hosted wire as Owner finding 0428-114.
 
 ```
 $ git ls-remote origin refs/heads/main
-c27b1cc766e2a69ff540325edd6f8eca2a19313d	refs/heads/main
+bf127f142da3e53ca916d6eb7aa287e5c405815d	refs/heads/main
 $ git cat-file -e origin/main:evidence/r28-welle4-2026-11-19/perses-runtime/witness-1.md && echo PRESENT
 PRESENT
 $ git merge-base --is-ancestor 073e13e9 origin/main; echo $?
@@ -329,7 +360,8 @@ $ git merge-base --is-ancestor 073e13e9 origin/main; echo $?
 ```
 
 This lane's evidence commits on origin/main: `073e13e9` (initial witness, parent
-`4ca4ab28`) through `c27b1cc7` (terminal: run 6 confirmations 7.57s / 7.34s, END restated).
-Coordinator commits interleaved on the path (`779dd3c6`, `984055db`, gate-map intake) are
-not this lane's and were preserved. `git log --oneline origin/main..HEAD` is empty after
-the final push (nothing of this lane is unpushed).
+`4ca4ab28`) through the terminal commit that adds the run-7 witness and the final
+origin/main values (this commit). Coordinator commits interleaved on the path
+(`779dd3c6`, `984055db`, gate-map intake) are not this lane's and were preserved.
+`git log --oneline origin/main..HEAD` is empty after the final push (nothing of this lane
+is unpushed).
