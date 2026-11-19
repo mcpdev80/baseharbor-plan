@@ -79,7 +79,12 @@ no other sentence touched; EN page untouched; no content step.
 
 - Local `bash scripts/documentation-audit.sh`: PASS (all sections, exit 0) at 50f87cfb8.
 - Hosted run: `CI · Source & Quality` run `44460025899` on head 50f87cfb8dd6e87913044f96cc0204af1423b61c —
-  observed to terminal state (result recorded in the END section below).
+  observed by this lane to terminal **completed / success, 0 failed or cancelled jobs**.
+  Docs group green: `PR · Validation · documentation-audit`, `mkdocs-en-strict`, `mkdocs-de-strict`,
+  `go-vet`, `go-build`, `pages-candidate-build`, `Focused Python`, all `PR · Go unit` shards,
+  both `PR · Native Keycloak/Core` (docker + podman), `Source format`, `Workflow policy`.
+  `PR Selected Checks`: **SUCCESS**. Heavyweight release gates skipped by the docs-change
+  selection (as intended, no bypass).
 
 ## Revision labels (reviewer findings -> resolution)
 
@@ -108,5 +113,5 @@ no other sentence touched; EN page untouched; no content step.
   `lane-0428-115-twophase-doc`, base develop `ec592fd385` (ancestor-verified, monotonic, normal
   push, no force, no hopf needed — develop already contained). DE paragraph now names both
   identity-write guard conditions exactly as the EN page does. Exact-head run 44460025899:
-  TERMINAL result recorded below. Handoff: predecessor r4 head bb685c2dc (lane released);
+  TERMINAL completed/success, `PR Selected Checks` SUCCESS. Handoff: predecessor r4 head bb685c2dc (lane released);
   this lane closes the card's review cycle — ready for CODEX-REVIEW final / CODEX-MERGE.
