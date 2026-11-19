@@ -29,7 +29,7 @@ card_short_title: runtimeComponentTraceProbe
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261117-hunt-signals-102](t-20261117-hunt-signals-102.md)  
 **Owner:** coord  
@@ -64,14 +64,15 @@ card_short_title: runtimeComponentTraceProbe
 - Clean remote-head witness at 39810520b: clean detached checkout; `go build ./...` passed; `go vet ./cmd/baha ./internal/observability ./internal/telemetry ./internal/application` passed; `go test ./internal/observability -count=1` and `go test ./internal/application -run '^Test(WorkloadTrace|WorkloadReceiver|LegacyPrometheus|ReceiverTracePrune|RuntimeComponentReconcile)'` passed. The focused same-ID and empty-desired runtime-component cases passed; an isolated fail-first with the old caller confirmed stale metrics remain without explicit ownership.
 - Exact-head run [44046875648](https://github.com/mcpdev80/baseharbor/actions/runs/44046875648) is in progress on this commit. Run #44042477049 is green only for the previous head and is not evidence for this change. Keep acceptance pending the new run and final diff review.
 
-<<<<<<< HEAD
 candidate 39810520b, run 44046875648 SUCCESS, reviewer null-befund; merge laeuft owner-delegiert (Codex welle2c obj1)
 
 remote merge (2-parent) durch mcpdev80 08:34:55Z als 0ec4706b — mission-form (squash) abweichend, inhalt identisch approved; Codex-STOP korrekt
-=======
 
 ## Maintainer acceptance - 2026-11-17
 
 - Owner-delegated Maintainer acceptance by Codex. Exact PR head 39810520b5b1b7859faee4d9b489a4864a150948 passed required selected CI run [44046875648](https://github.com/mcpdev80/baseharbor/actions/runs/44046875648); clean detached build, affected-package vet, observability tests and focused trace/runtime-component regressions are recorded above.
 - Independent diff review resolved the receiver identity, same-ID provider ownership, and empty-desired runtime-component findings with regressions. PR [#1679](https://github.com/mcpdev80/baseharbor/pull/1679) merged to develop at merge commit [0ec4706b12c8fa869a2c23db18b6cab4f91f2178](https://github.com/mcpdev80/baseharbor/commit/0ec4706b12c8fa869a2c23db18b6cab4f91f2178); verified remote develop points to that commit.
->>>>>>> origin/main
+
+## Coordinator marker-repair 2026-11-19
+
+- Diese datei enthielt eingebackene git-konfliktmarker aus einem stash/stale-upstream-vorfall (2026-11-16/17). Beide seiten sind inhaltlich BEHALTEN (kandidaten-notiz + maintainer-acceptance-tekst); keine zeile ist dabei erfunden oder geloescht. Fund: beim board-check des coordinators, repariert per targeted commit.

@@ -20,16 +20,13 @@ Environment-scoped destruction with impact preview, one Keep-data (default)/Dele
 ## STATUS (progress)
 
 - Steps 1-4 implemented and locally verified on the post-sync base.
-<<<<<<< Updated upstream:evidence/r28-welle1-2026-11-15/cli2-env-delete/round-1.md
 - Full cmd/baha regression suite ran to completion (569s, fresh single run, runner now clear): exactly ONE failure — `TestPrepareStagedCoreGitCandidatePinsCanonicalApplication` — a native `git archive` subprocess killed by OOM under shared-runner memory pressure (`signal: killed`). Reproduced on the CLEAN base in isolation; it is unrelated to this env-delete slice (does not touch management_core_git_candidate). No env-delete, coverage, or doc-drift failures.
 - gofmt: clean on all 4 files. go vet ./cmd/baha/ ./internal/deployment/: clean.
 - Focused scope green: TestCLIEnvDestroy* (4), internal/deployment full suite, cmd/baha command/coverage/doc tests.
 - Note: the worktree `/tmp/opencode/w-envdel` was deleted out from under me mid-run while a full-suite run was queued behind runner contention; all 4 source files were recreated verbatim from authored content, re-registered (commands.go:141), and re-verified green. Base attestation unchanged.
-=======
+
 - Full cmd/baha regression suite in progress (10m Go test timeout; other lanes share the runner).
 - NOTE (2026-11-16 ~04:30): my worktree `/tmp/opencode/w-envdel` was deleted out from under me while a full-suite run was queued behind runner contention. All 4 source files were recreated from their authored content, re-registered in commands.go:141, and re-verified: build OK, vet OK, domain + CLI integration tests green, docs regenerated. Base attestation unchanged (post-sync e5ad8a68).
->>>>>>> Stashed changes:evidence/cli-redesign-20261114/r28-welle1-2026-11-16/cli2-env-delete/round-1.md
-
 ## BASE ATTESTATION
 
 - Old base (pre-sync): `018b4e58a3aaf417f61b6b1c2bb37c1c17a49ccc  refs/heads/cli2-env-policy-head`
@@ -70,3 +67,7 @@ END lane DONE (pending)
 - PR #1627 (`mcpdev80/baseharbor`), base `cli2-env-policy-head` = `e5ad8a68`, HEAD `cli2-env-delete` = `c69d3fb6`, state DRAFT/OPEN/MERGEABLE, write-set = 9 files.
 - Runtime smoke (built binary, real state dir): `env --help` and `env destroy --help` render; `--json` preview returns plan with rc 0 and no mutation; `--keep-data --yes` with no matching identity fails closed rc 1; `--delete-data --yes` without typed `DELETE` confirmation (EOF) fails safe.
 - Regression: full cmd/baha suite ran to completion (569s, runner clear) — exactly ONE failure, `TestPrepareStagedCoreGitCandidatePinsCanonicalApplication`, a native `git archive` subprocess killed by OOM under shared-runner contention (`signal: killed`); reproduces on the CLEAN base in isolation; unrelated to this slice (does not touch management_core_git_candidate).
+
+## Coordinator marker-repair 2026-11-19
+
+- Eingebackene konfliktmarker aus 'Updated upstream' vs 'Stashed changes' (git-stash-wiederherstellung, 2026-11-16) entfernt; beide aufzaehlungen bleiben stehen. Die zeitlich spaetere aussage ('suite ran to completion, exactly ONE failure') beschreibt den abgeSchlossenen zustand; die 'in progress'-zeile ist der fraehere stand. Keine inhaltliche aenderung.
