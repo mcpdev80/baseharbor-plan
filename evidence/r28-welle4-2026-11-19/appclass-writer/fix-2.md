@@ -308,11 +308,12 @@ the first evidence commit of this round):
 $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse --show-toplevel
 /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan
 $ git ls-remote origin refs/heads/main   # in baseharbor-plan
-fcb916686c84984272fa016de75be3db3daa673d	refs/heads/main
+ce0513db79bf2b1e8361c98b0d10412a94ea9aa9	refs/heads/main
 ```
-(witness refreshed after this akte's own push: this file's content is what
-origin/main carries at `fcb91668`; the second-to-last action of this round
-re-ran exactly this command and its output is the line above.)
+The second-to-last action of this round re-ran exactly that command; its output
+is the line above. origin/main `ce0513db` carries the akte's preceding content,
+and the two witness lines added after it (this one and the ps-witness block) land
+in the akte commit this push publishes.
 
 Product repo remote truth (`git ls-remote origin`, before any push of this round):
 
@@ -457,9 +458,24 @@ this (no `git branch -D`, nothing rewritten).
   `bh-local-shared-*` (core/admin/member OpenBao + shared Postgres): not this
   lane's, left untouched. `docker network ls` → 5.
 - After: same 7 containers, same 5 networks; this lane started no container, no
-  compose project, no volume (`docker ps -a --format '{{.Names}}' | sort` byte-equal
-  to the before list). No `baha` state directories created under the host state
-  root: every test used `t.Setenv("BASEHARBOR_STATE_DIR", t.TempDir())`.
+  compose project, no volume (`diff /var/tmp/m122-containers-before.txt
+  /var/tmp/m122-containers-after.txt` → no output). No `baha` state directories
+  created under the host state root: every test used
+  `t.Setenv("BASEHARBOR_STATE_DIR", t.TempDir())`.
+- ps-witness, both ends byte-equal:
+
+```
+$ docker ps -a --format '{{.Names}}' | sort      # before AND after this lane
+bh-local-shared-openbao-1
+bh-local-shared-openbao-admin-1
+bh-local-shared-openbao-member-1-1
+bh-local-shared-postgres-1
+bh-local-shared-postgres-admin-1
+bh-local-shared-postgres-init-1
+bh-local-shared-postgres-member-1-1
+$ docker network ls --format '{{.Name}}' | wc -l  # before AND after
+5
+```
 - This lane's own residue: only its `/var/tmp` worktrees (removed after END
   bookkeeping), nothing in a product repo, no `.evidence/` anywhere.
 - cleanliness: host besenrein übergeben — 7 ambient containers and 5 networks
