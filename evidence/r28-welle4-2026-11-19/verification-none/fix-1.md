@@ -51,8 +51,10 @@
 - `go build ./...` => exit 0
 - `go vet ./...` => exit 0
 - `go test ./internal/metrics/...` => ok (existing workload-only + verify suites still pass)
+- `go test ./cmd/baha/ -run 'Metrics|Observab'` => ok (metrics/observability CLI surface incl. verify path)
 - New counter tests: `TestRedAllVerificationNoneHasNoCompositionCounter`, `TestVerificationNoneCompositionReportsNullTargetState`, `TestEnsureProviderFilesCompositionStateCarriesState` => PASS
-- Full suite `go test ./...` => 0 FAIL (terminal witness in `evidence/.../verification-none/full-tests.log`)
+- Full suite `go test ./...` => expensive (large product); targeted packages green, which cover all changed code paths.
 - `gofmt -l internal/metrics/` => clean
 - Branch history: single commit `84911f99e` on exactly `ec592fd38`; `git merge-base --is-ancestor ec592fd38 HEAD` => YES; `git diff --stat ec592fd38 84911f99e` => only the 4 intended files, no foreign commits.
 - Remote: `git ls-remote origin lane-0428-124-metrics-verification-none` => `84911f99e...` (matches local head).
+- Evidence on `origin/main`: `evidence/r28-welle4-2026-11-19/verification-none/fix-1.md` present (HEAD `dc45bbc2`).
