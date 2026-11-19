@@ -131,3 +131,9 @@ END mission-057-stack-hopf.md BLOCKED: candidate head `f93564a0d707983bfe6a8b593
 ## origin/main witness
 
 (second-to-last action, output appended before this push)
+
+```
+$ git ls-tree -r --name-only origin/main | grep identity-secrets-hopf
+evidence/r28-welle4-2026-11-19/identity-secrets-hopf/fix-1.md
+(evidence commit e349314d2953cfb65ca8040121b6acb6b8184471 = origin/main head)
+```
