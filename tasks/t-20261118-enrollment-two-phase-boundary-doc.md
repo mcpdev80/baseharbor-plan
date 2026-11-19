@@ -3,8 +3,8 @@ id: t-20261118-enrollment-two-phase-boundary-doc
 release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
-owner: w99-0428-115 r4 (codeman f11d4b4e-8e57-42cb-aac2-66ac494afbe0)
-kanban_status: active
+owner: w99-0428-115 r4 (codeman f11d4b4e)
+kanban_status: review
 card_number: 0428-115
 card_short_title: document the enrollment
 kanban_title: 0428-115 · document the enrollment
@@ -16,18 +16,18 @@ blocker: ""
 ---
 # t-20261118-enrollment-two-phase-boundary-doc · document the enrollment consume/issue two-phase boundary
 
-- [ ] t-20261118-enrollment-two-phase-boundary-doc · document the enrollment consume/issue two-phase boundary #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261118-enrollment-two-phase-boundary-doc · document the enrollment consume/issue two-phase boundary #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** w99-0428-115 r4 (codeman f11d4b4e-8e57-42cb-aac2-66ac494afbe0)  
+    **Owner:** w99-0428-115 r4 (codeman f11d4b4e)  
     **PR:** [baseharbor#1685](https://github.com/mcpdev80/baseharbor/pull/1685)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/enrollment-twophase/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1685), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44408281995), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1685.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44446194802)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w99-0428-115 r4 (codeman f11d4b4e-8e57-42cb-aac2-66ac494afbe0)  
+**Owner:** w99-0428-115 r4 (codeman f11d4b4e)  
 **Priority:** not set  
 **PRs:** [baseharbor#1685](https://github.com/mcpdev80/baseharbor/pull/1685)  
 **Source:** 
@@ -62,3 +62,5 @@ Exact-head run 44454648646 is green, but semantic DE documentation blocker remai
 vierte rueckweisung (comment 6999389290): 'Transaktionen verpflichtet werden' = commit-semantik verdreht + unrunder schlusssatz, alles sonst gruen (run 44454648646 SUCCESS). r3-lane war released -> r4-stufe in mission geschrieben, neue lane auf ersten END-freiraum. kein merge
 
 r4-lane dispatched (freie 088er-spur uebernommen): zwei sprach-punkte gem. comment 6999389290, kein inhalt
+
+r4 END akzeptiert: 'verpflichtet' durch 'eigene Transaktion abgeschlossen' ersetzt (commit-semantik korrekt), guard-satz direkt; head bb685c2dc monoton (ec592fd385 ancestor), run 44457842661 SUCCESS terminal + PR Selected Checks, akte fix-3.md (3f57ae39). vierte rueckweisung abgearbeitet — Routing an CODEX final
