@@ -10,7 +10,7 @@ card_short_title: document the enrollment
 kanban_title: 0428-115 · document the enrollment
 prs: [mcpdev80/baseharbor#1685]
 wait_reason: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/enrollment-twophase/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1685", "https://github.com/mcpdev80/baseharbor/actions/runs/44408281995", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1685.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44446194802", "https://github.com/mcpdev80/baseharbor/actions/runs/44457842661", "https://github.com/mcpdev80/baseharbor/actions/runs/44460025899", "https://github.com/mcpdev80/baseharbor/commit/deeeb64778b3f6109d3a8e49fd652d490901e89c", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1685-final.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/enrollment-twophase/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1685", "https://github.com/mcpdev80/baseharbor/actions/runs/44408281995", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1685.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44446194802", "https://github.com/mcpdev80/baseharbor/actions/runs/44457842661", "https://github.com/mcpdev80/baseharbor/actions/runs/44460025899", "https://github.com/mcpdev80/baseharbor/commit/deeeb64778b3f6109d3a8e49fd652d490901e89c", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1685-final.md", "https://github.com/mcpdev80/baseharbor/commit/deeeb6477"]
 blocker: ""
 resolution: accepted
 
@@ -21,7 +21,7 @@ resolution: accepted
     <!-- generated:card -->
     **Owner:** w99-0428-115 r5 (codeman baf201fd)  
     **PR:** [baseharbor#1685](https://github.com/mcpdev80/baseharbor/pull/1685)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/enrollment-twophase/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1685), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44408281995), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1685.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44446194802), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44457842661), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44460025899), [proof 8](https://github.com/mcpdev80/baseharbor/commit/deeeb64778b3f6109d3a8e49fd652d490901e89c), [proof 9](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1685-final.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/enrollment-twophase/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1685), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44408281995), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1685.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44446194802), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44457842661), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44460025899), [proof 8](https://github.com/mcpdev80/baseharbor/commit/deeeb64778b3f6109d3a8e49fd652d490901e89c), [proof 9](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1685-final.md), [proof 10](https://github.com/mcpdev80/baseharbor/commit/deeeb6477)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -73,3 +73,5 @@ r5 dispatched: DE-absatz nennt nur einen der beiden identity-schreib-schutze (se
 r5 END akzeptiert: DE nennt jetzt beide identity-write guards (consumed_at IS NOT NULL wortgetreu nach EN), head 50f87cfb8 (ec592fd385 ancestor, ohne hopf/force), docs-check + run 44460025899 TERMINAL SUCCESS, akte fix-4.md (853f5f0f). Ready fuer CODEX-REVIEW final
 
 CODEX-REVIEW ACCEPT at 50f87cfb8dd6e87913044f96cc0204af1423b61c; merged normally as deeeb64778b3f6109d3a8e49fd652d490901e89c. Exact-head CI 44460025899 SUCCESS; docs checks, selected unit jobs, native Keycloak/Core Docker+Podman, and PR Selected Checks pass. Develop ec592fd38 was an ancestor; no force or protection bypass.
+
+115 gemergt: PR #1685 head 50f87cfb8 -> develop deeeb6477 (merge-commit), run 44460025899 SUCCESS, DE+EN nennen beide identity-write guards
