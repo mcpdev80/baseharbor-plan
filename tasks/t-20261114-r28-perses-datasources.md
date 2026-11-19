@@ -7,7 +7,7 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0428-083 r2 (codeman 15f0cb63, kopf f0adef107)
+owner: 0428-083 r3 (codeman 15f0cb63, kopf a9befb312 laeuft)
 kanban_status: review
 kanban_lane: review
 kanban_summary: Provision authorized existing Prometheus datasource in Perses using supported pinned native plugin and proxy/TLS contract.
@@ -20,7 +20,7 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md", "https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md"]
 ---
 
 ## Owner decision — 2026-11-17
@@ -29,10 +29,10 @@ Owner decision (2026-11-17): Unblock. Reopen PR #1608 if it remains suitable, ot
 
 - [ ] t-20261114-r28-perses-datasources · Connect Perses Prometheus #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-083 r2 (codeman 15f0cb63, kopf f0adef107) · **Priority:** normal  
+    **Owner:** 0428-083 r3 (codeman 15f0cb63, kopf a9befb312 laeuft) · **Priority:** normal  
     **PR:** [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684)  
     **Needs:** [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -40,7 +40,7 @@ Owner decision (2026-11-17): Unblock. Reopen PR #1608 if it remains suitable, ot
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
 **Required by:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-dashboards](t-20261114-r28-perses-dashboards.md)  
-**Owner:** 0428-083 r2 (codeman 15f0cb63, kopf f0adef107)  
+**Owner:** 0428-083 r3 (codeman 15f0cb63, kopf a9befb312 laeuft)  
 **Priority:** normal  
 **PRs:** [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684)  
 **Source:** 
@@ -98,3 +98,5 @@ CODEX-REVIEW welle 4 = REQUEST CHANGES auf dem gepueften kopf (urteil 1684-0428-
 REQUEST CHANGES abgeholt: datasource muss im laufenden Perses erscheinen (runtime provisioning), nicht nur als builder/golden-artefakt; branch lane-0428-083-datasources-r2 @ ab6932296, write-set gegen 121/057/110 gemessen disjunkt
 
 korrektur-runde abgeliefert, von mir qualifiziert: branch lane-0428-083-datasources-r2 = f0adef107, monoton auf dem NEUEN develop e1dc2cf61, merge-tree 0 konflikte, PR open/draft=false/clean, exaktkopf-lauf 44520439061 completed SUCCESS (0 fehljobs, 33 ausgefuehrte zellen, 'PR Selected Checks' success). akte perses-datasources-hopf/fix-2.md auf origin/main. CODEX-REVIEW fuer diesen kopf beauftragt (urteil 1684-0428-083-r2.md); merge erst in meinem fenster
+
+URTEIL AUF f0adef107 = REQUEST CHANGES ('runtime consumer and mounts absent / no merge'), von mir gegen deinen neuen kopf nachgerechnet: a9befb3127b26a8a0f622bcf686fb6bcbb9b9e6e unterscheidet sich von f0adef107 um GENAU EINE datei (internal/metrics/perses_prometheus_datasource_runtime.go), und 'MaterializePersesPrometheusDatasourceAt' taucht dort nur in internal/metrics/*_runtime.go + seiner eigenen test-datei auf, in internal/application/ nirgends — die aufruf-stelle fehlt also weiter. monotoner stack ist OK (e1dc2cf61 ancestor, f0adef107 ancestor), PR draft=false/blocked, lauf 44522363321 in_progress, aber der ist nicht die qualifying stelle. befehl an dieselbe lane: (1) aufruf an der echten apply-grenze in internal/application/perses_runtime.go VOR dem Perses-start, (2) read-only compose-mounts aus dem materializer-ergebnis (config-/datenpfade, kein zweite konstante), (3) isolierter Docker-runtime-test mit gepinntem image, der das LADEN der GlobalDatasource zeigt + query/proxy/TLS, zelle muss AUSGEFUEHRT statt skipped sein (sonst befuind an den owner mit datei:zeile der skip-bedingung, nicht selbst aendern), (4) grep-beleg vor push, (5) akte fix-3.md mit matrix
