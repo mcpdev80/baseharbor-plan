@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w123-0428-123-regvisibility (codeman c5d271cb, laptop) — korrekturrunde
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-123 · registry-Eintrag ohne
 priority: ""
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44557894265", "https://github.com/mcpdev80/baseharbor/actions/runs/44578337221"]
 ---
 
-- [ ] t-20261119-hunt-metrics-registration-visibility-only · Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261119-hunt-metrics-registration-visibility-only · Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** w123-0428-123-regvisibility (codeman c5d271cb, laptop) — korrekturrunde  
     **PR:** [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693)  
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44557894265", "h
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w123-0428-123-regvisibility (codeman c5d271cb, laptop) — korrekturrunde  
@@ -100,3 +100,5 @@ ZWEITES REQUEST CHANGES (akte 1693-0428-123-r2.md, haupt a8b830bad), und der neu
 Independent read-only review of PR #1693 / 0428-123 (2026-11-19) found stale scrape-target retention when the same application source changes from verified to `VerificationNone`: `appKeep` retains the filename although the write loop skips output. Exact-head run 44578337221 passed but runtime gates skipped and base 7ee6f81 is behind develop 558dc42d. See [review evidence](../evidence/r28-welle4-2026-11-19/codex-review-wave/1693-0428-123-independent-review.md). Related to blocked unowned 0428-143 contract decision; do not take that card until the contract is resolved.
 
 CODEX-r3 REQUEST CHANGES auf exaktkopf 57f49d785 (akte 1693-0428-123-r3.md): zwei blokaden — (B2) ein provider--*.json einer ABGEWAEHLTEN quelle bleibt in der aktiven provider-glob stehen (prometheus_files.go:98-153 prueft nur die JETZIGE source-liste), (B1) der neue test prueft die gerenderte routing-tabelle nicht auf job-glob-ebene (prometheus_render.go:194-200 applications, :222-226 provider)
+
+CODEX r5 REQUEST CHANGES auf 6d06d4283 (gemessen bestaetigt: prometheus_files.go:147 gate 'hasProvider || len(sources)==0' laesst provider-orphan bei application-only-sync, kommentar :106-121 behauptet das gegenteil; test :304-310 faehrt nur die leere liste). Korrekturrunde r6 in derselben lane 129c8528_dispatched
