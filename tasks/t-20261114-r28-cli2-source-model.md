@@ -70,7 +70,9 @@ No neighboring scans or artificial components; unique names and multi-component 
 
 ## Handoff
 
-Planned and unassigned. No product implementation or acceptance yet.
+2026-11-19 22:17 UTC — stack recovery owner `codex-open-pr-sweep-1595`. PR #1595 remains OPEN+DRAFT, exact head `818d572b982a69e2caebd5474a4ba270ed21fd41`, base `lane-0428-uid-target` at `ae0602e02882619dea151dc82d62b98b72481566`, `CLEAN` relative to that base. Current exact-head run `43814664405` is SUCCESS for the draft source/routing and Go shard/package cells, but the selected-check aggregator, source format/build/vet and native/release cells were skipped under draft policy. Prior content reviews approve; this does not satisfy a new non-draft exact-head acceptance run.
+
+The stack is the current integration blocker: #1580 is OPEN+DRAFT and CONFLICTING against its base #1578; both are still unmerged. #1595 is based on #1580, so do not retarget it directly to `develop` or merge the stacked history until #1578 → #1580 ownership/conflicts and required checks are reconciled. Downstream #1614, #1623 and #1625 overlap the generated CLI index / machine-coverage paths in this PR; integrate those shared paths sequentially and leave their current owner files untouched. No product changes have been made in this recovery pass yet. Next: verify the parent stack owners/conflicts and choose the smallest safe sequence; then hop/promote #1595 and run exact-head checks when the base is valid.
 
 draft PR #1595 @ eda0cd61c, base lane-0428-uid-target; local package+audit runs green on candidate SHA; CI trigger finding (no PR CI for lane bases) in akte
 
