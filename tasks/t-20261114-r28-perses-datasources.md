@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0428-083 (codeman dff6359e)
-kanban_status: review
-kanban_lane: review
+owner: 0428-083 korrektur (codeman 15f0cb63-4dbe-4918-b344-1cb96af1de76, flash)
+kanban_status: active
+kanban_lane: active
 kanban_summary: Provision authorized existing Prometheus datasource in Perses using supported pinned native plugin and proxy/TLS contract.
 kanban_title: 0428-083 · Connect Perses Prometheus
 priority: normal
@@ -27,20 +27,20 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9
 
 Owner decision (2026-11-17): Unblock. Reopen PR #1608 if it remains suitable, otherwise create a superseding PR on develop. Restore the Prometheus datasource integration and rebase PR #1665 onto an actively CI-covered base. Run the applicable exact-head CI and security/authorization checks before review and merge. No merge is authorized solely by this decision.
 
-- [ ] t-20261114-r28-perses-datasources · Connect Perses Prometheus #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [ ] t-20261114-r28-perses-datasources · Connect Perses Prometheus #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-083 (codeman dff6359e) · **Priority:** normal  
+    **Owner:** 0428-083 korrektur (codeman 15f0cb63-4dbe-4918-b344-1cb96af1de76, flash) · **Priority:** normal  
     **PR:** [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684)  
     **Needs:** [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
 **Required by:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-dashboards](t-20261114-r28-perses-dashboards.md)  
-**Owner:** 0428-083 (codeman dff6359e)  
+**Owner:** 0428-083 korrektur (codeman 15f0cb63-4dbe-4918-b344-1cb96af1de76, flash)  
 **Priority:** normal  
 **PRs:** [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684)  
 **Source:** 
@@ -94,3 +94,5 @@ hopf delivered und verifiziert: branch lane-0428-083-datasources-r2 = ab6932296,
 END akzeptiert, sitz entlassen: head ab6932296f1f24c2024810f10b155633d931f7d4, monoton auf develop da76c5cf9, merge-tree 0 konflikte, exact-head run 44505333646 completed SUCCESS mit NULL fehljobs (von mir per gh api auf jobs geprueft, nicht nur der lauf-status), PR #1684 open/draft=false/clean. akte perses-datasources-hopf/fix-1.md von mir aus der gemeinsamen kopie gesichert und gepusht (board 79cc02a1)
 
 CODEX-REVIEW welle 4 = REQUEST CHANGES auf dem gepueften kopf (urteil 1684-0428-083.md). korrekture-runde ist vorgemerkt und wartet auf einen freien sitz: die vier perses-karten und 083 teilen sich dateien mit den laufenden lanen, darum kein paralleler start ohne write-set-nachweis. 083: 'runtime provisioning absent' (datasource wird gebaut, aber nicht in Perses bereitgestellt); 073: 'alert rule nicht ausgefuehrt/nicht persistiert' (persesAlertRealEvaluation); 077: 'catalog-availability aus host provider-metrics allein'; 089: 'PersesComposeServices rendert keine config (--config=/etc/perses/config.yaml) + loopback upstream'
+
+REQUEST CHANGES abgeholt: datasource muss im laufenden Perses erscheinen (runtime provisioning), nicht nur als builder/golden-artefakt; branch lane-0428-083-datasources-r2 @ ab6932296, write-set gegen 121/057/110 gemessen disjunkt
