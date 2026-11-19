@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: "w123-pr1693-regvisibility-r7 (codeman 14e0c0d1, ornith:2) — akten-runde"
-kanban_status: active
-kanban_lane: active
+owner: w123-pr1693-regvisibility-r7
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-123 · registry-Eintrag ohne
 priority: ""
@@ -23,18 +23,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44557894265", "https://github.com/mcpdev80/baseharbor/actions/runs/44578337221"]
 ---
 
-- [ ] t-20261119-hunt-metrics-registration-visibility-only · Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261119-hunt-metrics-registration-visibility-only · Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** w123-pr1693-regvisibility-r7 (codeman 14e0c0d1, ornith:2) — akten-runde  
+    **Owner:** w123-pr1693-regvisibility-r7  
     **PR:** [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44557894265), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44578337221)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w123-pr1693-regvisibility-r7 (codeman 14e0c0d1, ornith:2) — akten-runde  
+**Owner:** w123-pr1693-regvisibility-r7  
 **Priority:** not set  
 **PRs:** [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693)  
 **Source:** 
@@ -104,3 +104,5 @@ CODEX-r3 REQUEST CHANGES auf exaktkopf 57f49d785 (akte 1693-0428-123-r3.md): zwe
 CODEX r5 REQUEST CHANGES auf 6d06d4283 (gemessen bestaetigt: prometheus_files.go:147 gate 'hasProvider || len(sources)==0' laesst provider-orphan bei application-only-sync, kommentar :106-121 behauptet das gegenteil; test :304-310 faehrt nur die leere liste). Korrekturrunde r6 in derselben lane 129c8528_dispatched
 
 r6 VON MIR GEMESSEN, der merge-hopf ist diesmal WIRKLICH einer: 'git log -1 --format=%P 93eea495437f' = 3ca7fa63ccd3a + 28fb427f0574 (ZWEI eltern), ls-remote zweig == PR-head, draft=false, merge-tree konfliktfrei. Basis 28fb427f, develop 4b3a3559 — abstand 3 (nur #1697, docs; KEIN treffer an ci.yml/pr-gate-plan.py/plan.py/test_pr_*), also zaehlt der pull_request-lauf 44621387502 completed success (21:47:04Z) nach meiner eigenen basis-distanz-regel. Akte 18177 bytes byte-fest auf main. PRUEFWUrdig gemeldete luecke, die das urteil sehen muss: die lane sagt 'zwei dateien', die PR-dateiliste nennt DREI (prometheus_render.go dazu) — erklaerung gefordert. Drei workflow_dispatch-runs sind failure/cancelled, von ihrerklaert als host-seitig (SharedCoreOwnerConflict, gleicher fehler auf unveraenderter basis, failing test in internal/application, im PR-pfad per 'if: event_name == pull_request' SKIPPED)
+
+CODEX-URTEIL am exakten kopf: 'APPROVE CONTENT — HOP REQUIRED BEFORE MERGE' (1693-0428-123-r7.md, 5902 bytes auf main). Inhalt ist angenommen, null produkt-aenderungen offen. FEHLT NUR NOCH: ein monotoper merge-hopf auf develop d5c11753ea43 (PR-base 28fb427f0574 ist drei hops zurueck), dann EIN terminaler pull_request-lauf, dann CODEX-MERGE. Warteraum: kein freier sitz, die jagd 158 wird mit meldefrist gestoppt und ihr sitz geht an diese bahn (AGENTS 3.3 punkt 5). Nachgemessen: lauf 44621387502 (pull_request, completed/success am kopf 93eea4954) zaehlt nach der basis-distanz-regel, weil 28fb427f..develop keine geschuetzte datei beruehrt; die akten-zeile 'PR base now 15727ca88' war eine kategorien-fehler der bahn (base.sha ist eine speicherung am PR-objekt), ohne folge fuer den kandidat
