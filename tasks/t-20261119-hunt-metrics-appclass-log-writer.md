@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-122 r3 (codeman 0028c6d2-391b-4086-a1ed-72675c56a931, ornith)
-kanban_status: active
-kanban_lane: active
+owner: 0428-122 r3 (codeman 0028c6d2, vier punkte befohlen)
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-122 · Klasse App hat keinen
 priority: ""
@@ -17,24 +17,25 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1692]
 sources: []
-blocker: ""
+blocker: "Zwei gruende, beide fern-belegt: (1) required job 'PR · Source format' fails auf head 3f8024e81 — lauf 44530261060 completed FAILURE mit 'source readability: internal/observability/registry.go has 833 lines (limit: 800; baseline ratchet: 0)', 'PR Selected Checks' darauf BLOCKED; develop haelt 730 zeilen, der neuere kopf c21dc6235 mit 765 zeilen besteht (lauf 44532116583 SUCCESS). (2) base-ref ist 3b634232f, develop ist 5a68196a1 (#1602, 13:25:17Z), PR 'behind'. NAechster trigger: lane extrahiert registry.go unter 800 zeilen (echte extraktion, keine kommentar-kurzung), zieht develop als merge-commit hinein, pushht den finalen kopf und der exact-head-lauf zeigt 'PR Selected Checks' SUCCESS; dazu die runtime-evidenz-frage der abnahme: auf 44532116583 waren 'Targeted HA · docker' UND 'podman' skipped, also braucht die akte entweder die datei:zeile der selektionsregel (dann owner-draht) oder den ausdruecklichen vermerk 'explicit CI coverage debt'. KEIN merge bis dahin"
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1692", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1692.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44451374676", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44473809584"]
 ---
 
-- [ ] t-20261119-hunt-metrics-appclass-log-writer · Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261119-hunt-metrics-appclass-log-writer · Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-122 r3 (codeman 0028c6d2-391b-4086-a1ed-72675c56a931, ornith)  
+    **Owner:** 0428-122 r3 (codeman 0028c6d2, vier punkte befohlen)  
     **PR:** [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692)  
+    **Blocker:** Zwei gruende, beide fern-belegt: (1) required job 'PR · Source format' fails auf head 3f8024e81 — lauf 44530261060 completed FAILURE mit 'source readability: internal/observability/registry.go has 833 lines (limit: 800; baseline ratchet: 0…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1692), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1692.md), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44451374676), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-2.md), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44473809584)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0428-122 r3 (codeman 0028c6d2-391b-4086-a1ed-72675c56a931, ornith)  
+**Owner:** 0428-122 r3 (codeman 0028c6d2, vier punkte befohlen)  
 **Priority:** not set  
 **PRs:** [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692)  
 **Source:** 
@@ -102,3 +103,5 @@ Post-#1691 dependency check: #1692 changed files include internal/observability/
 STATUS VON MIR GEGEN DIE FERNZEUGE GELESEN (dein read-only-check, bestaetigt): PR #1692 open, draft=false, mergeable_state 'dirty', kopf 876329f733c7700f… (updated 07:01Z) — 'merge-base --is-ancestor e1dc2cf61 <kopf>' schlägt FEHL, 'git merge-tree --write-tree origin/develop <kopf>' = GENAU 1 content-conflict: internal/observability/registry.go, und genau den pfad hat #1691 bewegt (ueberschneidung der dateimengen da76c5cf9..e1dc2cf61 gegen den PR-diff). lauf 44473809584 (SUCCESS, created 06:39Z) ist UNTER diesem kopf gegenstandslos. MISSION mission-122-service-dimension.md ist um 'SCHRITT 0' ergaenzt: hopf auf e1dc2cf61, konflikt INHALTLICH loesen (environment-ableitung aus 121 UND service-dimension behalten, sonst STOP mit zwei datei:zeilen), ancestor- + merge-tree-0-zeug in die akte, draft=false, dann fokus-tests und neuer exact-head lauf. REIHENFOLGE: 122 ist der ERSTE auf dem naechsten freien sitz (124/#1695 bleibt weiter hinter seinen abhaengigkeiten), keine dublette, kein vorzeitiger start
 
 SITZ FREI GEWORDEN (121-aktenlane entlassen) und wie zugesagt sofort besetzt: start auf ORNITH (kein --flash-flag = default ornith). ERSTER schritt laut meinem nachtrag 'SCHRITT 0': hopf des kopfs 876329f733c7706a5a8dfb9a4227fb2c2698660c (refs/heads/lane-0428-appclass-writer) auf develop e1dc2cf61 — merge-tree zeigt GENAU EINEN content-conflict in internal/observability/registry.go, den genau #1691 bewegt hat; inhaltliche loesung (environment-ableitung aus 121 UND service-dimension behalten), sonst STOP mit zwei datei:zeilen. der SUCCESS-lauf 44473809584 von 06:39Z zaehlt nicht, exact-head-lauf kommt erst nach dem hopf
+
+status auf blocked nach des abnehmers dringender pruefung — ich hatte 'in_progress' gemeldet, der lauf ist completed FAILURE; das war mein lesefehler im letzten tick (status ohne conclusion), danke fuer die korrektur. vier befehle an die lane: (1) registry.go unter 800 zeilen durch echte extraktion, (2) develop 5a68196a1 als merge-commit hinein (monoton, kein force), (3) evidence-push NUR aus /var/tmp/m122-plan-wt gegen den GitHub-origin (fetch+rebase, kein push in die gemeinsame lokale kopie, die receive.denyCurrentBranch hat), (4) runtime-evidenz entweder als selektions-beleg (datei:zeile der CI-regel, geht als owner-draht weiter) oder als 'explicit CI coverage debt' markieren — entscheidung an mich melden, nicht allein waehlen
