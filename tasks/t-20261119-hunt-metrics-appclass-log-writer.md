@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1692", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1692.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44451374676"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1692", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1692.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44451374676", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44473809584"]
 ---
 
 - [ ] t-20261119-hunt-metrics-appclass-log-writer · Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** 0428-122 r2 (codeman 40d70b4e, sitz entlassen)  
     **PR:** [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1692), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1692.md), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44451374676)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1692), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1692.md), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44451374676), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-2.md), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44473809584)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -90,3 +90,5 @@ REQUEST_CHANGES auf 8956bf08e (zweig inzwischen base-exakt b7f245f10, run 444649
 korrektur-runde laeuft: service-dimension in source-id + reconcile-boundary, render-time reconciliation auf dem aktiven service-set (REQUEST_CHANGES-kommentar auf 8956bf08e). arbeit in /var/tmp/m122-appclass-wt, ein kandidat auf refs/heads/lane-0428-appclass-writer (PR #1692, stand b7f245f10). alt-worktree /tmp/opencode/w-appclass-writer-wt (stale 8956bf08e, untracked test-streuobst) bewusst nicht angefasst; toter res-pool-eintrag bereinigt
 
 korrektur abgegeben: service-dimension in source-id UND reconcile-boundary zurueck, render-time reconciliation auf dem aktiven service-set (stale eintraege weg). rot auf b7f245f10 -> gruen auf 876329f73, monoton auf develop da76c5cf9 (enthaelt 21161b101), exact-head run 44473809584 TERMINAL SUCCESS 14/0 inkl. 'Go unit · packages'; akte appclass-writer/fix-2.md (origin/main 38832422). hinweis der lane: PR #1692 steht im auto-merge-queue-pfad, ein queue-push hat ihren laufenden job abgebrochen — dritter lauf fuer die abnahme nicht noetig, der terminal SUCCESS auf exaktem kopf liegt vor
+
+CODEX-REVIEW: REQUEST CHANGES at exact head 876329f733c7706a5a8dfb9a4227fb2c2698660c. Explicit Workload.Components service sets are fixed, but empty Components still maps to synthetic workload; MaterializeWorkload selects all available non-managed Compose services when requested is empty. Carry the actual selected set into reconciliation and add an implicit two-service Compose regression with stale cleanup. Exact-head run 44473809584 SUCCESS (20.38 runner-minutes); no merge. Owner correction lane must claim this card before work resumes.
