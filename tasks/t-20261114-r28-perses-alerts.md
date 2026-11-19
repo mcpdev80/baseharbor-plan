@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: coord
-kanban_status: review
-kanban_lane: review
+owner: 0428-073 (codeman bef94af2-794f-4445-98da-cff6f7bb1d73)
+kanban_status: active
+kanban_lane: active
 kanban_summary: Define actual alert rule evaluation and persistence using supported existing Prometheus contract or an Owner-approved…
 kanban_title: 0428-073 · Define and provision alert
 priority: normal
@@ -23,19 +23,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-alerts · Define and provision alert rules #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [ ] t-20261114-r28-perses-alerts · Define and provision alert rules #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** coord · **Priority:** normal  
+    **Owner:** 0428-073 (codeman bef94af2-794f-4445-98da-cff6f7bb1d73) · **Priority:** normal  
     **PR:** [baseharbor#1613](https://github.com/mcpdev80/baseharbor/pull/1613)  
     **Needs:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
 **Required by:** [t-20261114-r28-perses-contact-routing](t-20261114-r28-perses-contact-routing.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md), [t-20261117-alert-evaluator-persistence-missing](t-20261117-alert-evaluator-persistence-missing.md), [t-20261117-hunt-signals-105](t-20261117-hunt-signals-105.md)  
-**Owner:** coord  
+**Owner:** 0428-073 (codeman bef94af2-794f-4445-98da-cff6f7bb1d73)  
 **Priority:** normal  
 **PRs:** [baseharbor#1613](https://github.com/mcpdev80/baseharbor/pull/1613)  
 **Source:** 
@@ -75,3 +75,5 @@ Record exact candidate SHA and focused tests by name. Route every changed test t
 Prerequisites are encoded in `depends_on`. One worker per card/branch/PR, no concurrent writes to shared files. Codex/Owner-delegated Maintainer reviews and merges only after real checks; no independent-review claim. Archive Console/Node Connector repos are excluded. No implementation or release has occurred.
 
 Supersedes [t-20261113-r28-grafana-alerts](t-20261113-r28-grafana-alerts.md) under the [Owner decision](../decisions/2026-11-14-perses-replaces-grafana-v0428.md).
+
+hopf-runde angesetzt: PR #1613 ist 'dirty' gegen develop (head 470735c1d) — die lane hebt den kandidat monoton per MERGE auf da76c5cf9, loest die manifest-konflikte inhaltserhaltend und bringt einen neuen exaktkopfigen terminalen run; akte perses-alerts-hopf/fix-1.md
