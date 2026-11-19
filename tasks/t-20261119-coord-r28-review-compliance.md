@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: review-compliance (codeman 5435da37-bf38-4790-9543-f33232f568ae)
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-139 · jeder karte im zustand review
 priority: ""
@@ -19,17 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/59358ba677993e7d62f5ed04a49a4ab823377a1b/evidence/r28-welle4-2026-11-19/review-compliance/befund-1.md"]
 ---
 
-- [ ] t-20261119-coord-r28-review-compliance · Review-zulassungs-pruefung: jeder karte im zustand review ihr PR + exakten head + terminalen run + nicht-draft zuordnen, ausnahmen liste #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261119-coord-r28-review-compliance · Review-zulassungs-pruefung: jeder karte im zustand review ihr PR + exakten head + terminalen run + nicht-draft zuordnen, ausnahmen liste #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** review-compliance (codeman 5435da37-bf38-4790-9543-f33232f568ae)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/59358ba677993e7d62f5ed04a49a4ab823377a1b/evidence/r28-welle4-2026-11-19/review-compliance/befund-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** review-compliance (codeman 5435da37-bf38-4790-9543-f33232f568ae)  
@@ -83,3 +84,5 @@ Im fenster sind karten in review, deren PRs drafts sind, deren letzter lauf ein 
 akte evidence/r28-welle4-2026-11-19/review-compliance/befund-1.md: tabelle je review-karte (task-id | PR | gepushter head aus ls-remote/gh | PR draft-flag | letzter terminaler PR-lauf id + schluss + zahl der ausgefuehrten zellen | ZULASSUNG ja/nein + grund mit datei:zeile oder lauf-zeug). ausnahmen-oben, dann die erfuellten. KEIN draft-wechsel, KEIN comment, KEIN merge, KEIN rerun, keine karten-statuswechsel, isolierte clones unter /var/tmp, read-only, kein subagent (§4.8), host besenrein.
 
 prueft den gesamten review-bestand gegen fernzeuge (draft-flag, gepushter head, terminaler lauf, 'PR Selected Checks' ausgefuehrt) und liefert die ausnahmen-liste (akte review-compliance/befund-1.md). read-only
+
+END akzeptiert, 22 review-karten gepraemt (8 ZULASSUNG JA, 14 ausnahmen), von mir an vier stichproben gegen die fernzeuge bestaetigt: #1684 lauf 44505333646 mit 'PR Selected Checks' = success (nebenbei: 'PR · Selected Runtime' ist dort skipped, der Aggregate ist der entscheidende zeuge); #1602 und #1592 open/draft=false/behind; #1615 hat NULL laeufe auf dem head f93564a0d (befund 1, bestaetigt meine eigene status-context-pending-pruefung); #1598 letzter terminaler lauf 44499778660 = failure auf 831c2bea8. NEWE INFO, die die akte nicht haben konnte: 084 hat nach ihrem fehlgeschlagenen lauf einen FRISCHEN head 6e371c99b gepusht, lauf 44509535053 laeuft gerade — die zeile #1598 der akte ist damit ueberholt (kopf, nicht ergebnis). sitz entlassen
