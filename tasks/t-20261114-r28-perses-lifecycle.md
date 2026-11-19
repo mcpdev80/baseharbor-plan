@@ -7,7 +7,7 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0428-084 korrektur (codeman 3ae5c022, ornith) — rest-hopf auf fac01c772, content angenommen, CI PR Selected Checks success
+owner: 0428-084 korrektur (codeman 3ae5c022, ornith) — monoton auf develop, aggregate gruen
 kanban_status: review
 kanban_lane: review
 kanban_summary: Guide enable/status/disable and ownership-safe removal of optional Perses using the accepted CLI contract; preserve monitoring…
@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md", "https://github.com/mcpdev80/baseharbor-plan/blob/c7376f916380d9d95d70e05204a10da2ef42d9b6/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6f05b59ccf3f13065093f7848de098063548d84f/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-3.md", "https://github.com/mcpdev80/baseharbor-plan/blob/c23cf7586911b623cde384d8769001626a686dd8/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-4.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md", "https://github.com/mcpdev80/baseharbor-plan/blob/c7376f916380d9d95d70e05204a10da2ef42d9b6/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6f05b59ccf3f13065093f7848de098063548d84f/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-3.md", "https://github.com/mcpdev80/baseharbor-plan/blob/c23cf7586911b623cde384d8769001626a686dd8/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-4.md", "https://github.com/mcpdev80/baseharbor/pull/1598"]
 ---
 
 - [ ] t-20261114-r28-perses-lifecycle · Perses lifecycle commands #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-084 korrektur (codeman 3ae5c022, ornith) — rest-hopf auf fac01c772, content angenommen, CI PR Selected Checks success · **Priority:** normal  
+    **Owner:** 0428-084 korrektur (codeman 3ae5c022, ornith) — monoton auf develop, aggregate gruen · **Priority:** normal  
     **PR:** [baseharbor#1598](https://github.com/mcpdev80/baseharbor/pull/1598)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/c7376f916380d9d95d70e05204a10da2ef42d9b6/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/6f05b59ccf3f13065093f7848de098063548d84f/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-3.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/c23cf7586911b623cde384d8769001626a686dd8/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-4.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/c7376f916380d9d95d70e05204a10da2ef42d9b6/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/6f05b59ccf3f13065093f7848de098063548d84f/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-3.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/c23cf7586911b623cde384d8769001626a686dd8/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-4.md), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1598)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** 0428-084 korrektur (codeman 3ae5c022, ornith) — rest-hopf auf fac01c772, content angenommen, CI PR Selected Checks success  
+**Owner:** 0428-084 korrektur (codeman 3ae5c022, ornith) — monoton auf develop, aggregate gruen  
 **Priority:** normal  
 **PRs:** [baseharbor#1598](https://github.com/mcpdev80/baseharbor/pull/1598)  
 **Source:** 
@@ -98,3 +98,5 @@ hopf-lane gestartet (mission-084-hopf-onto-f518e859.md, reiner hopf auf f518e859
 END_BLOCKED PRUEFE ich als FALSE zurueck, weil alle drei gruenden widerlegt sind: (1) 'git show <rev>:internal/machine/contract.go | grep -c app.perses' = 0 in develop 3b634232f, im 088-kopf 78c002ff5, in f518e859d UND im alten develop da76c5cf9 — die vier app.perses-ops waren nie in develop, sie sind 084s eigener zusatz (zeilen 205-208 ihres astes); (2) 'git merge-tree --write-tree 3b634232f ea6cddd20' = 0 CONFLICT-zeilen (merge-tree c82b5b4882776d3e7d9bdf21c2d184f35631a271), PR 'behind' statt 'dirty'; (3) der einzige kommentar-unterschied in internal/metrics/perses_contract_test.go zwischen develop und 084 ist 084s EIGENER block, von #1592 kommt dort nichts. BEFEHL: hopf als MERGE-commit ('git merge origin/develop', macht develop zum ancestor ohne die zeilen anzufassen) + die vier nachweise in der akte (ancestor rc=0, merge-tree 0, ea6cddd20 als ancestor, grep app.perses = 4) und der abschnitt 'was ich falsch gemeldet habe', weil die akte 12163463 einen falschen fernzeug enthaelt. dann fokus-tests, push, exact-head lauf bis terminal
 
 END_DONE inspiziert, disposition: INHALT angenommen (APPROVE CONTENT auf ea6cddd20, app.perses = 4 typed ops erhalten, merge-commit 3316714c mit develop 859654861 + ea6cddd20 als ancestors, merge-tree 0), QUALIFIKATION fehlt — urSAche = VERALTETE BASE, kein produktfehler: develop = fac01c772 (695ad5494 + 86858f129 + bcd0e29ca + fac01c772), der unterschied zu ihrem base beruehrt .github/workflows/ci.yml und scripts/test_ci_check_routes.py, also genau EIN weiterer lauf. ihr lauf 44536437699: unit/docs/format/readability PASS; der 'runtime-integration'-schritt fiel wegen ORAS/trust-plane runner-precondition aus — das ist eine ÄUSSERE BLOCKADE (punkt (a) des 114-drahts), von ihr korrekt gemeldet und von mir NICHT als ihr defect gebucht. IHRE FINDING, von mir an der datei geprueft statt geraten: 'scripts/pr-candidate-advisory.py' existiert auf develop (142 zeilen); .github/workflows/ci.yml:1111 ist die base_ref-bedingung, :1133 ruft das advisory-skript, :731/:795/:805 fuehren den output 'candidate_advisory_required'. ANTWORT an sie: ihre lane-validations sind in IHREM eigenem PR advisory (policy, owner-direktive 15:3xZ), das erklaert auch ihr 'integration_sha_mismatch' — kein STOP-grund. akte auf plan-main 981b0e85
+
+REVIEW-KANDIDAT: head 4ce0ca0…, base = develop fac01c77276ca2bf1e20cd0b7334bda5dd43e353 (aktuell), draft=false, 'merge-base --is-ancestor origin/develop <kopf>' = 0 (monoton, ein hopf), 'PR Selected Checks' = success auf exakt diesem kopf, 'PR · Source format' success, 0 fehljobs. INHALT von der abnahme schon APPROVE CONTENT (ea6cddd20), app.perses = 4 typed ops erhalten. REIHENFOLIE-PFLICHT, von mir GEMESSEN: sie teilt 12 dateien mit #1599 (0428-089), davon drei GLEICH (internal/application/perses_lifecycle.go blob 9a8ee71, cmd/baha/commands.go 05ec558, cmd/baha/completion.go a692437) und zwei inhaltlich VERSCHIEDEN: cmd/baha/perses_lifecycle.go (084 = 295 zeilen gegen 089 = 190 zeilen) und internal/capability/perses.go. Das ist gestapelte/funktionell ueberlappende arbeit, kein zufallsgleichnam. DARUM GEHT #1598 VOR #1599 (land/reconcile, dann 089 rebase + review ihres sicherheits-/serviceaccess-rests gegen das genaue ergebnis). akte: evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/ auf plan-main
