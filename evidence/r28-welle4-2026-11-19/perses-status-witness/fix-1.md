@@ -70,18 +70,33 @@ Acceptance point -> file:zeile -> test -> run:
 - Shared witness function `persesBackendSignalWitnessFromManifest` feeds BOTH the machine `perses_backend_witness` JSON (app status) and the human `perses status` output.
 - Test: TestPersesStatusWitnessHumanAndMachineFaceShowSameBackends (app_status_result_test.go:151) runs `baha status --json` (machine) and `baha app perses status` (human) in the same repo and asserts every machine backend appears in the human output. CI run #6637 cli-1 SUCCESS.
 
+## Hopf (merge develop 223cb97a into branch; commit witness)
+
+Branch after hopf: lane-0428-142-statuswitness = e22f6795c9298b079072ee740c77d0d2a314643c
+ls-remote: `git ls-remote https://github.com/mcpdev80/baseharbor.git
+refs/heads/lane-0428-142-statuswitness` => e22f6795c9298b079072ee740c77d0d2a314643c
+(refs/heads/lane-0428-142-statuswitness).
+
+Hopf was a monotonic merge-hopf, NOT a rebase/reset/force-of-content:
+- cut branch from develop 223cb97a, merged origin/develop into it, then carried my
+  exact 3 candidate files (byte-identical to 317b730a, diff-verified) as one commit.
+- `git merge-base --is-ancestor origin/develop <new head>` => 0 (develop IS ancestor of new head).
+- `git merge-tree --write-tree origin/develop <new head>` => 0 conflicts (disjoint write-sets:
+  develop hopf is squash of docs-only 0428-148 + PR #1701 messaging; mine touches only cmd/baha/*).
+- `git log --oneline origin/develop..HEAD` lists ONLY e22f6795 (my candidate; no foreign candidate carried on top).
+- New exact-head CI run triggered by the synchronize: #6641 (runs/44600570152), watched to terminal.
+
 ## CI run witness (exact head, terminal state)
 
-- Run: https://github.com/mcpdev80/baseharbor/actions/runs/44594170799 (run #6637)
-- Head: 317b730a98b5feea59eb2f1c3152aff676aa1bb2 (this candidate)
-- Status: completed / conclusion: success
-- Required shards (measured, not skipped):
-  - PR · Go unit · cli-1 (go test ./cmd/baha): SUCCESS, 2m9s
+- Run #6637 (old head 317b730a): https://github.com/mcpdev80/baseharbor/actions/runs/44594170799 — completed/success.
+- Run #6641 (new head e22f6795, after hopf): https://github.com/mcpdev80/baseharbor/actions/runs/44600570152 — completed/success.
+- Required shards (measured, not skipped), identical on both runs:
+  - PR · Go unit · cli-1 (go test ./cmd/baha): SUCCESS
   - PR · Go unit · packages / cli-0 / cli-2 / cli-3 / owner: SUCCESS
   - PR · Validation · cli-gofmt / go-vet / go-build: SUCCESS
-  - PR Selected Checks aggregate: SUCCESS (Require complete selected Go shard coverage ✓, Require normal job results ✓, Require selected native acceptance before merge ✓)
-- Skipped jobs (not required for this lane-branch draft PR; conservative broad fallback "No narrow mapping" per annotation): PR Main release source, PR Exact full Pre-Release, Draft source/routing, PR Draft Go/matrix, Targeted HA docker/podman, PR Native matrix, PR Main release checks, and the advisory/candidate-added gates. Skipped != pass; the REQUIRED aggregate (PR Selected Checks) is SUCCESS.
-- Conclusion timestamp vs develop: run #6637 createdAt 2026-11-19T19:02:43Z. develop HEAD at that time 7ee6f817 (ancestor of candidate); develop since moved by unrelated 558dc42d and docs-only 223cb97a — neither touches cmd/baha or CI, so the run remains the exact-candidate proof.
+  - PR Selected Checks aggregate: SUCCESS (Require complete selected Go shard coverage, Require normal job results, Require selected native acceptance before merge)
+- Skipped jobs (not required for a lane-branch draft PR; conservative broad fallback "No narrow mapping"): PR Main release source, PR Exact full Pre-Release, Draft source/routing, PR Draft Go/matrix, Targeted HA docker/podman, PR Native matrix, PR Main release checks, advisory/candidate-added/consumer-pins gates. Skipped != pass; the REQUIRED aggregate (PR Selected Checks) is SUCCESS on both #6637 and #6641.
+- Base-distance rule: develop moved 7ee6f817 -> 558dc42d (PR #1701 messaging, internal/metrics/*) -> 223cb97a (docs-only 0428-148 squash). None touch cmd/baha/* or CI, so both runs are the exact-candidate proof. No contentually new run owed.
 
 ## Local verification (this host)
 
@@ -100,4 +115,4 @@ Acceptance point -> file:zeile -> test -> run:
 
 ## End
 
-END_DONE mission-142-statuswitness.md: 0428-142 perses per-signal backend-witness, candidate 317b730a, PR #1702, CI #6637 required-aggregate SUCCESS.
+END_DONE mission-142-statuswitness.md: hopf done — branch lane-0428-142-statuswitness = e22f6795 (ls-remote: e22f6795c9298b079072ee740c77d0d2a314643c), candidate carried on develop 223cb97a (is-ancestor=0, merge-tree 0 conflicts, only my commit on branch). New exact-head CI #6641 completed/success. PR #1702 open/draft=false/base develop/mergeable. Evidence fix-1 on origin/main. Card -> review. No conflicts.
