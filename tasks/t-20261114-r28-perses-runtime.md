@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w01-0428-088 (lane released, r3 reserviert)
-kanban_status: active
-kanban_lane: active
+owner: w99-0428-088r3 (codeman c4f5bb9b)
+kanban_status: review
+kanban_lane: review
 prs: [mcpdev80/baseharbor#1592]
 kanban_summary: "Implement explicitly enabled optional Perses runtime, pinned reviewed image/plugin versions, lifecycle and safe storage using…"
 kanban_title: 0428-088 · Launch optional Perses
@@ -23,18 +23,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-runtime · Launch optional Perses #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-runtime · Launch optional Perses #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** w01-0428-088 (lane released, r3 reserviert) · **Priority:** normal  
+    **Owner:** w99-0428-088r3 (codeman c4f5bb9b) · **Priority:** normal  
     **PR:** [baseharbor#1592](https://github.com/mcpdev80/baseharbor/pull/1592)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md)  
 **Required by:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md), [t-20261114-r28-perses-lifecycle](t-20261114-r28-perses-lifecycle.md), [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
-**Owner:** w01-0428-088 (lane released, r3 reserviert)  
+**Owner:** w99-0428-088r3 (codeman c4f5bb9b)  
 **Priority:** normal  
 **PRs:** [baseharbor#1592](https://github.com/mcpdev80/baseharbor/pull/1592)  
 **Source:** 
@@ -81,3 +81,5 @@ kandidat e264ca4b7, exact-head run 44403933672 SUCCESS, TLS material generiert+p
 r2 plugin-extract: kandidat 54fbe4771, exact-head run 44420115459 SUCCESS, /etc/perses/plugins writable tmpfs unter read_only:true, TestPersesRuntimeSmokeDockerIsolated verschaerft -> GET /api/v1/plugins meldet shipped UI plugin
 
 board-wahrheit: Codex haelt REQUEST CHANGES auf 54fbe4771 aufrecht (letzter recheck 00:01Z, comment am PR) — die 088-lane hat danach keinen neuen kopf gestellt und ist released. r3-mission wird beim naechsten END-freiraum aus dem PR-kommentar-rezept geschnitten und dispatched. review-status war damit nicht mehr zutreffend -> active
+
+r3 END akzeptiert: runtime-zeug PASS (32/32 module via /api/v1/plugins, tmpfs+read_only beide koepfe), monotoner hopf c452f705c normal gepusht, exact-head run 44456253144 SUCCESS selbst beobachtet, akte 4b271bf9. OWNER-FIND: scripts/pr-gate-coverage.json:60-63 ohne perses-gate, kein workflow setzt BASEHARBOR_PERSES_RUNTIME_SMOKE — dauerloesung beim owner. Routing an CODEX (rezept-punkt 'nicht falsifiziert zur laufzeit' damit erfuellebt)
