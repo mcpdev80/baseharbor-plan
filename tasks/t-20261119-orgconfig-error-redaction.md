@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: Codex team (current thread)
-kanban_status: review
-kanban_lane: review
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: Reject secret-like organization environment references without copying their contents into validation errors. Keep error…
 kanban_title: 0428-149 · Redact secret-like
 priority: high
@@ -18,21 +18,22 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1596]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "PR #1596 ist ein DRAFT (draft=true gemessen) und damit KEIN kandidat (§5.2: drafts sind keine kandidaten) — der review-spalteneintrag war ein brett-feehler von mir. Basis-Rueckstand gemessen: 190 develop-koepfe hinter der heutigen develop-spitze ab77e29d7; PR-head ist KEIN ahne von develop, merge-tree zeigt KONFLIKT gegen develop. NAechster sinnvoller schritt: ein hopf auf develop + draft raus + ein terminaler exact-head-lauf, dafuer braucht die karte einen arbeiter-sitz (pool 5/5 belegt). Ein PR-lauf am kopf existiert aus altem stand (1596: letzter pull_request success), der zaehlt nicht fuer den heutigen kopf."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/commit/c90c3b89007e87a4bf277c8c9015fab3ac65728e"]
 ---
 
-- [ ] t-20261119-orgconfig-error-redaction · Redact secret-like organization references in validation errors #task #release/v0-4-28 #status/review #view/review #area/architecture #area/security #kind/task
+- [ ] t-20261119-orgconfig-error-redaction · Redact secret-like organization references in validation errors #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/security #kind/task
     <!-- generated:card -->
     **Owner:** Codex team (current thread) · **Priority:** high  
     **PR:** [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596)  
+    **Waiting:** PR \#1596 ist ein DRAFT (draft=true gemessen) und damit KEIN kandidat (§5.2: drafts sind keine kandidaten) — der review-spalteneintrag war ein brett-feehler von mir. Basis-Rueckstand gemessen: 190 develop-koepfe hinter der heutigen develop-…  
     **Needs:** [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/c90c3b89007e87a4bf277c8c9015fab3ac65728e)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md)  
 **Owner:** Codex team (current thread)  
