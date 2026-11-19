@@ -11,14 +11,14 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 12 |
-| review | 22 |
+| review | 21 |
 | wait | 13 |
 | blocked | 2 |
 | ready | 5 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
-| closed | 305 |
+| closed | 306 |
 
 ## Active
 
@@ -62,7 +62,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-perses-secure-access](../tasks/t-20261114-r28-perses-secure-access.md) | Protect Perses operator access | review | normal | coord | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) (open) | [baseharbor#1599](https://github.com/mcpdev80/baseharbor/pull/1599) |
 | [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | Connect Perses Tempo | review | normal | coord | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) (open), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610) |
 | [t-20261117-hunt-uid-docs-110](../tasks/t-20261117-hunt-uid-docs-110.md) | Corrupt-config and mutation paths stay silent despite fail-l | review | not set | worker-flash (mission-110-mutation-loud) | — | [baseharbor#1682](https://github.com/mcpdev80/baseharbor/pull/1682) |
-| [t-20261118-app-env-recovery-flags-claim](../tasks/t-20261118-app-env-recovery-flags-claim.md) | align app env recovery-flag docs with the real command contract | review | not set | w01-0428-117r4 (codeman 28318f22) | — | [baseharbor#1687](https://github.com/mcpdev80/baseharbor/pull/1687) |
 
 ## Waiting for resources
 
@@ -103,7 +102,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 7 open, 162 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 68 open, 75 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 67 open, 76 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))

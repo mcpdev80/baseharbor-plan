@@ -4,27 +4,28 @@ release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
 owner: w01-0428-117r4 (codeman 28318f22)
-kanban_status: review
+kanban_status: closed
 card_number: 0428-117
 card_short_title: align app env recovery-flag
 kanban_title: 0428-117 · align app env recovery-flag
 prs: [mcpdev80/baseharbor#1687]
 wait_reason: ""
 blocker: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44439013578", "https://github.com/mcpdev80/baseharbor/actions/runs/44441702644"]
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44439013578", "https://github.com/mcpdev80/baseharbor/actions/runs/44441702644", "https://github.com/mcpdev80/baseharbor/pull/1687"]
+resolution: accepted
 
 ---
 # t-20261118-app-env-recovery-flags-claim · app-env recovery-flag claim vs actual command contract
 
-- [ ] t-20261118-app-env-recovery-flags-claim · align app env recovery-flag docs with the real command contract #task #release/v0-4-28 #status/review #view/review #kind/task
+- [x] t-20261118-app-env-recovery-flags-claim · align app env recovery-flag docs with the real command contract #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** w01-0428-117r4 (codeman 28318f22)  
     **PR:** [baseharbor#1687](https://github.com/mcpdev80/baseharbor/pull/1687)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44439013578), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44441702644)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44439013578), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44441702644), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1687)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w01-0428-117r4 (codeman 28318f22)  
@@ -64,3 +65,5 @@ Update: normal base refresh is complete. Fresh compare is ahead 2 / behind 0 fro
 Codex re-review: selector wording in EN/DE remains accurate on a1f4dc7; base compare ahead 2/behind 0 from current develop 40b9901. Run 44441702644 terminal success; documentation-audit, mkdocs EN/DE strict, source format, trusted plan and selected-check enforcement all passed. Native/runtime/Go jobs skipped as irrelevant for docs-only. Await refreshed r4 evidence with current SHA/base.
 
 r4 END akzeptiert: merge-head a1f4dc76f traegt develop 40b9901398 (monoton, r3-inhalt woertlich), exact-run 44441702644 SUCCESS, docs-audit DOCS_EXIT=0 + vet/tests gruen, akte 53fbaec1 mit supersede-kette am band. Handoff an CODEX — merge-fenster: letzter basis-check vor merge wie verabredet
+
+CODEX-REVIEW ACCEPT auf a1f4dc76f; normaler Basis-Merge 40b9901398 -> a1f4dc76f, Exact-head CI 44441702644 SUCCESS (PR Selected Checks integration 15368), 3.35 runner-min; Squash-Merge ec592fd3852328439ae9de8763c816ae9dd88dcc. Evidence: evidence/r28-welle4-2026-11-19/codex-welle3-review/1687-r4.md.
