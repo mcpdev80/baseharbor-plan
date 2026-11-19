@@ -238,6 +238,7 @@ All runs on 2026-11-19. Times are Go test elapsed seconds as reported in the PAS
 | 2 | mission-088-develop | `da76c5cf9` | n/a (no tests) |
 | 3 | mission-088-develop (checkout of candidate) | `76331c7d8` | 11.80s |
 | 4 | mission-088-wt (recomputation) | `76331c7d8` | 25.99s |
+| 5 | mission-088-wt (post-rebase recomputation) | `76331c7d8` | 10.19s |
 
 ## Revision labels
 
