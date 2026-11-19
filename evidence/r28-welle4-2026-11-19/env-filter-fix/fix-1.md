@@ -176,6 +176,10 @@ porcelain: 0 entries
 
 Comparison worktree `/tmp/opencode/efilter-base-wt` removed after the baseline census (nothing of this lane left in the tree; no compose/container was ever started — `cleanliness: PASS — 0 lane-owned containers/networks/volumes/compose projects/state dirs`).
 
+## card status note (state verified on origin/main)
+
+`git show origin/main:tasks/t-20261119-hunt-metrics-env-filter-list-pfade.md` → `kanban_status: review`, `prs: [mcpdev80/baseharbor#1691]` — the `active -> review` transition IS on origin/main (commit chain 4d71299b -> 139e36a6 -> 0e8a9017). The intermediate `active`-only state described by earlier drafts of this note was superseded by the final push. Evidence path verified on origin/main: `git ls-tree -r --name-only origin/main -- evidence/r28-welle4-2026-11-19/env-filter-fix/` → `fix-1.md`.
+
 ## END
 
 END mission-efilter.md DONE — card t-20261119-hunt-metrics-env-filter-list-pfade (0428-121): central environment filter on every observability list path; candidate `d9d70a9845ea11f6d839b3f5600b67b214002d20` on branch `lane-0428-efilter`, PR https://github.com/mcpdev80/baseharbor/pull/1691 (base develop `ec592fd385`, MERGEABLE/OPEN); RED->green regression in `internal/observability/envfilter_regression_test.go` (5 FAIL at base, all PASS at candidate); exact-head CI run 44450253933 completed SUCCESS on GitHub-hosted runners (PR · Go unit · packages executes the new test; run URL in this akte). Card at `review`. No compose/container started (none to bring down); no `.github/**` change; no merge, no force, no subagents.
