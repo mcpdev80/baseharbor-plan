@@ -148,6 +148,13 @@ Host is the coordinator/codeman server: it is NOT a test host, and this lane sta
 - Product candidate: `bc4c6113be92599c962b2377b038173593483a18` on `lane-0428-demo-drive-matcher`, pushed to origin (mcpdev80/baseharbor-demo); PR https://github.com/mcpdev80/baseharbor-demo/pull/165. `git ls-remote origin refs/heads/lane-0428-demo-drive-matcher` → `bc4c6113be92599c962b2377b038173593483a18`.
 - Planning repo: cut from `origin/main` at `4962e642d576d0168d4f552bf5817bbe0ea207e4` (verified ancestor of the evidence commit `bbbd0ca8`); the only other commit between base and remote head (`857b12ed`, a coordinator kanban state change on a different card) is another session's planning act, not carried by this lane's product candidate.
 
+## origin/main witness
+
+The exact `git ls-remote origin refs/heads/main` output is pasted in the "Final
+origin/main witness" block at the very end of this file, taken as the
+second-to-last action after the last evidence push, together with the
+`git ls-tree` path presence proof.
+
 ## END
 
 END_DONE mission-demo-drive-matcher.md: demo `drive.py`/`new_edit.py` matcher now follows the core Warning-marker rule from #1696 (one generated rule, retired `Achtung:` only as negative guard); red-before-green coupling regression `test_21`..`test_25` in `tests/guided/test_consent_capture.py`; candidate `bc4c6113be92599c962b2377b038173593483a18` on `lane-0428-demo-drive-matcher` (cut from demo `origin/develop@5d1cf312e`), PR https://github.com/mcpdev80/baseharbor-demo/pull/165, required run https://github.com/mcpdev80/baseharbor-demo/actions/runs/44477622615 `completed success` observed to terminal at the exact head; card 0428-129 at review. Owner finding: the demo PR gate triggers only on `main` (`.github/workflows/pr-guided-consent.yml:5`), so develop-based candidates start no CI.
