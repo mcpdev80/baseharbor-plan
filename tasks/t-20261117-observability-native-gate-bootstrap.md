@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "owner-scope: fuinf drahte, gebuendelt in einer aenderung: (a) ORAS-install-schritt im 'docker-runtime'-job (treffer 0 in zeilen 174-330; der push-job hat ihn zeile 128, 'single_default_native' zeile 127-128), (b) perses-smoke-zelle — vorschlag liegt als patch-skizze in 0428-134 gate-map-v2.patch, (c) baseharbor-demo .github/workflows/pr-guided-consent.yml:4-5 branches:[main] -> [main, develop], (d) documentation-audit-pfad fuer docs/internal/*.json in scripts/pr-gate-plan.py (zeile 1189 ff.), NEU (e) docker-runtime-acceptance.yml zeile 16 'default: release/v0.4.21' ist ein dead ref (branch existiert nicht auf origin, gh 404) — ein nackter dispatch prueft damit ins leere; default auf develop. fund (e) aus probe 0428-136"
+wait_reason: "owner-scope: SECHS drahte, gebuendelt in einer aenderung: (a) ORAS-install im 'docker-runtime'-job (docker-runtime-acceptance.yml zeilen 174-330, treffer 0; 'single_default_native' hat zeile 127-128 'bash scripts/ci-install-oras.sh'), (b) perses-smoke-zelle (vorschlag als patch-skizze in 0428-134 v2), (c) baseharbor-demo pr-guided-consent.yml:4-5 branches:[main] -> [main, develop], (d) documentation-audit-pfad docs/internal/*.json in scripts/pr-gate-plan.py:1189 ff., (e) NEU: docker-runtime-acceptance.yml zeile 16 'default: release/v0.4.21' ist ein dead ref (gh api branches/release/v0.4.21 = 404, git ls-remote leer) — ein nackter dispatch prueft ins leere, 'Checkout requested ref' faehrt ab, steps 3-17 skipped, der always()-verify trifft die fehlende tests/main.jsonl (FileNotFoundError im lauf 44466684726); loesung: default auf develop, KEIN path-/mkdir-umbau, (f) die v3-beweisarbeit laeuft gerade in lane 6e5eba71 (ihr name traegt 128, inhalt ist 114s (e)+(a))"
 resolution: ""
 evidence: []
 ---
@@ -26,7 +26,7 @@ evidence: []
 - [ ] t-20261117-observability-native-gate-bootstrap · CI: Run observability acceptance with verified ORAS bootstrap #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** Owner-Ausfuehrung (.github/scripts); umfang vom Coordinator erweitert 2026-11-19 (beleg: 0428-128 probe-1.md 57ffc7c6)  
-    **Waiting:** owner-scope: fuinf drahte, gebuendelt in einer aenderung: (a) ORAS-install-schritt im 'docker-runtime'-job (treffer 0 in zeilen 174-330; der push-job hat ihn zeile 128, 'single\_default\_native' zeile 127-128), (b) perses-smoke-zelle — vorsc…  
+    **Waiting:** owner-scope: SECHS drahte, gebuendelt in einer aenderung: (a) ORAS-install im 'docker-runtime'-job (docker-runtime-acceptance.yml zeilen 174-330, treffer 0; 'single\_default\_native' hat zeile 127-128 'bash scripts/ci-install-oras.sh'), (b)…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -82,3 +82,5 @@ ZWEIFEL queued for the existing CI owner. Exact failure evidence is in runs 4405
 reichweite erwisert (entscheid statt sequenzierung): 114 besitzt jetzt beide 128-symptome mit datei:zeile. grund: 114 hat keinen lebenden sitz und keinen PR (nur ein nominaler owner-vermerk), eine sequenzierung 'warte auf 114, dann 128' wuerde 119/088 unbefristet blockieren; zugleich wuerde eine separate 128-aenderung dieselbe coverage-map zwei mal anfassen
 
 inhalt bleibt gleich, nummer (e) neu aufgenommen: erklaert den F-7-fehljob aus dem closeout-heft, ohne dass die product-tests schuld sind
+
+fund (e) erklaert F-7 aus dem closeout-heft ohne produkt-schuld; 119/#1690 bleibt davon unberuehrt blocked (wartet auf (a))
