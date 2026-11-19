@@ -7,15 +7,15 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: regvisibility-lane (1e209bb7)
-kanban_status: active
-kanban_lane: active
+owner: w01-0428-123 (codeman 1e209bb7)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-123 · registry-Eintrag ohne
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1693]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,18 +23,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-hunt-metrics-registration-visibility-only · Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261119-hunt-metrics-registration-visibility-only · Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** regvisibility-lane (1e209bb7)  
+    **Owner:** w01-0428-123 (codeman 1e209bb7)  
+    **PR:** [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** regvisibility-lane (1e209bb7)  
+**Owner:** w01-0428-123 (codeman 1e209bb7)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -78,3 +79,5 @@ One or two sentences: the observable outcome.
 ## Befund (intake aus hunt-918)
 Befund 1 (MEDIUM): Application-class metrics registration ist sicht-only: registry-Eintrag ohne effective scrape/export. Akzeptanz: registriert==exportiert Invariante mit test; oder registrierung schlaegt fehl statt still. Kein Overlap mit dem gefixten List-Pfad (dd62b9d3).
 Erlaubtes write-set (vorschlag, lane prueft): registry registration path. Evidence-Quelle: https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/hunt-metrics/befund-1.md (17 probes, base 97a840e54).
+
+END akzeptiert: registered==exportiert Invariante load-bearing gemacht (befund 1 these geloest ohne silent-annahme), head b7fd05be base-exakt ec592fd38 clean, exact-run 44453978212 SUCCESS, akte 7c72160d am band. Routing an CODEX-REVIEW. Overlap-notiz: registry.go ist auch bei 121/122 betroeffen (functionen disjunkt), erst-gruen-zuerst-regel gilt
