@@ -78,3 +78,8 @@ Read-only findings: [PR #1625 / 0428-065](../evidence/r28-welle4-2026-11-19/code
 Planned and unassigned. No product implementation or acceptance yet.
 
 BOARD-KORREKTUR nach unabhaengiger GEGENLESE (akte evidence/r28-welle4-2026-11-19/codex-review-wave/board-sweep-gegenlese-1.md, haupt e86d817d): der PR dieses fachers ist draft=true. Ein draft ist KEIN kanditat (§5.2), also war der zustand 'review' zu gut — er versprach einen pruefbaren kanditaten, den es nicht gibt. FEHLENDE STUFE, klar benannt: draft auf non-draft, EIN monotoner hopf auf den aktuellen develop, EIN exact-head-lauf bis terminal; die arbeit im zweig ist vorhanden. Rueckstandiger zustand, kein inhaltlicher rueckstand
+
+## Independent review 2026-11-19
+
+- Befund (independent review 1625): cmd/baha/app_export.go:273-275 'managedSecretScopePresent' ist HARDCODED (false, nil), collectExportEntries (:279-298) behandelt den fall als leer — der ANGEKUENDIGTE managed-secret export ist nie verfuegbar. Entweder implementieren (mit positivem authorized-path-test) oder aus dem vertrag entfernen.
+- Nachweis-Voraussetzung: ein exaktkopf-lauf mit dem geforderten gate; ueber den gestapelten base-ref ist der derzeit nicht ausloesbar (owner-draht ci.yml:14-18, derselbe grund wie #1615).

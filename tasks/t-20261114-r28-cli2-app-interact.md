@@ -78,3 +78,8 @@ Read-only findings: [PR evidence](../evidence/r28-welle4-2026-11-19/codex-review
 Round-1 delivered by w063 (flash): candidate lane-0428-063-cli2-app-interact @ beb2ee5859a8a2ffa07fd5725370275411e27011, draft PR baseharbor#1623 (base cli2-identity-secrets-head). Guided logs/exec/urls over the delivered read view, fail-closed app.logs/app.exec/app.urls authorization; no merge, no ready_for_review. Evidence: evidence/r28-welle1-2026-11-15/cli2-app-interact/round-1.md. CI dispatch belongs to the coordinator.
 
 BOARD-KORREKTUR nach unabhaengiger GEGENLESE (akte evidence/r28-welle4-2026-11-19/codex-review-wave/board-sweep-gegenlese-1.md, haupt e86d817d): der PR dieses fachers ist draft=true. Ein draft ist KEIN kanditat (§5.2), also war der zustand 'review' zu gut — er versprach einen pruefbaren kanditaten, den es nicht gibt. FEHLENDE STUFE, klar benannt: draft auf non-draft, EIN monotoner hopf auf den aktuellen develop, EIN exact-head-lauf bis terminal; die arbeit im zweig ist vorhanden. Rueckstandiger zustand, kein inhaltlicher rueckstand
+
+## Independent review 2026-11-19
+
+- Befunde (independent review 1623): (1) 'app logs -c NAME' parst den component-selector, der ausfuehrungspfad nutzt aber nur options.service — die auswahl filtert NICHT; (2) 'app exec --cmd "echo hi > /tmp/x"' geht als EIN argument an Compose, kein shell-parse, die beworbene syntax funktioniert nicht; (3) preserveWorkloadExitStatus wickelt den kind-exit als presented error ein, cli.ExitCode mappt das falsch — der bewahrte exit-code ist nicht belegt.
+- Nachweis-Voraussetzung: ein exaktkopf-lauf mit dem geforderten gate; ueber den gestapelten base-ref ist der derzeit nicht ausloesbar (owner-draht ci.yml:14-18, derselbe grund wie #1615).

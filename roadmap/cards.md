@@ -16,10 +16,10 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 73/165 · **Blocked:** 6 · **Waiting:** 28  
+    **Accepted tasks:** 73/165 · **Blocked:** 7 · **Waiting:** 27  
     **Blocker:** [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) — Owner-Aktion erforderlich: PR \#1615 erhaelt keine exact-head CI, weil der Workflow auf dem BASIS-ast 'cli2-env-policy-head' (5ef9c329b) PR-CI nur fuer base dev…  
-    **Blocker:** [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) — Owner-scope .github CI-structure: ci-executor-tests + Focused Python fail identically on develop itself (proven, evidence 8c99af8f); candidate 022c454c green o…  
-    Plus 4 further blockers in the task list.  
+    **Blocker:** [t-20261114-r28-cli2-wizard-platform](../tasks/t-20261114-r28-cli2-wizard-platform.md) — audit-fehler blockiert secret-reveal nicht (app\_access.go --reveal) UND base cli2-env-policy-head -\> kein exaktkopf-lauf (ci.yml:14-18)  
+    Plus 5 further blockers in the task list.  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next
