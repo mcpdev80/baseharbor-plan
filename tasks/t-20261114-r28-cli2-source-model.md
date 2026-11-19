@@ -15,19 +15,19 @@ kanban_title: 0428-059 · Extend app sources and
 priority: high
 depends_on: [t-20261114-r28-cli2-contract, t-20261114-r28-cli2-uid-app]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1595]
+prs: [mcpdev80/baseharbor#1595, mcpdev80/baseharbor#1706]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: accepted
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1595", "https://github.com/mcpdev80/baseharbor/actions/runs/44633680279", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-source-model/round-1.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1595", "https://github.com/mcpdev80/baseharbor/actions/runs/44633680279", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-source-model/round-1.md", "https://github.com/mcpdev80/baseharbor/pull/1706", "https://github.com/mcpdev80/baseharbor/actions/runs/44635693057", "https://github.com/mcpdev80/baseharbor/commit/97abbe1572a74170e3414448fe2dce843309c10a", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/0428-059-symlink-follow-up.md"]
 ---
 
 - [x] t-20261114-r28-cli2-source-model · CLI redesign: Extend app sources and components #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** codex-open-pr-sweep-1595 · **Priority:** high  
-    **PR:** [baseharbor#1595](https://github.com/mcpdev80/baseharbor/pull/1595)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1595), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44633680279), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-source-model/round-1.md)  
+    **PR:** [baseharbor#1595](https://github.com/mcpdev80/baseharbor/pull/1595), [baseharbor#1706](https://github.com/mcpdev80/baseharbor/pull/1706)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1595), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44633680279), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-source-model/round-1.md), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1706), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44635693057), [proof 6](https://github.com/mcpdev80/baseharbor/commit/97abbe1572a74170e3414448fe2dce843309c10a), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/0428-059-symlink-follow-up.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -37,7 +37,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1595", "https://github.c
 **Required by:** [t-20261114-r28-cli2-app-interact](t-20261114-r28-cli2-app-interact.md), [t-20261114-r28-cli2-app-status](t-20261114-r28-cli2-app-status.md), [t-20261114-r28-cli2-source-pull](t-20261114-r28-cli2-source-pull.md), [t-20261119-r28-cli-machine-coverage-regeneration](t-20261119-r28-cli-machine-coverage-regeneration.md)  
 **Owner:** codex-open-pr-sweep-1595  
 **Priority:** high  
-**PRs:** [baseharbor#1595](https://github.com/mcpdev80/baseharbor/pull/1595)  
+**PRs:** [baseharbor#1595](https://github.com/mcpdev80/baseharbor/pull/1595), [baseharbor#1706](https://github.com/mcpdev80/baseharbor/pull/1706)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -107,3 +107,10 @@ INHASBERSCHAFT FREIGEGEBEN, karte zurueck auf planned/ready damit scripts/plan.p
 - Exact PR workflow `44632927623` is running on current PR head `b1651e32060ea5df6324dcf9316e9c415acb5f81`, base `develop` `4b3a3559070e9b81b1886a357f6a46bc6dfce790`. Initial check inventory: source format, native gate plan and trusted-plan pass; documentation, selected Go shards, build/vet and workflow policy are still running. Runtime/release gates are skipped by the selected impact plan. Merge remains gated on terminal exact-head CI and independent review of the final combined candidate.
 
 GEMESSEN merged=true, state=closed, merge_commit 15727ca88789 (= develop-spitze), merged_at 2026-11-19T23:05:24Z, draft=false zum merge-zeitpunkt, PR-head b1428b0b0. Der PR-head ist KEIN ahne von develop — der inhalt ist, wie von der lane angemeldet, ISOLIERT neu committet (ohne die 197-koepfe-alte stack-geschichte). Diff Umfang: machine_coverage.go +40 (handschriftliche registrierung, gehoert laut meiner berichtigten karte 154 hierher) und die vier generator-docs +22/+22/+18/+18. OFFENER VERMERK FUER DAS DOSSIER: in MEINEM fenster existiert KEIN CODEX-urteil am merged sha b1428b0b0 — dieannahme folgt aus dem owner-/andere-welt-merge, nicht aus einer pruefung durch Codex. Darum resolution accepted mit diesem vorbehalt, nicht als 'geprüft durch CODEX'
+
+
+2026-11-20 — Post-merge symlink-containment follow-up (#1706):
+- Independent post-merge review of #1595 found that workspace subpaths could escape through symlinks and repository fingerprinting followed symlink targets. Follow-up branch `codex/0428-059-symlink-containment`, based on the #1595 merge `15727ca8878938df7e924319c236c0bcc4a4201c`, fixed containment and no-follow hashing; `security.go` remained unchanged.
+- Exact candidate `930df12a482595bba06748ded501fe082f0aab76`; exact PR run [44635693057](https://github.com/mcpdev80/baseharbor/actions/runs/44635693057) completed SUCCESS and `PR Selected Checks` passed. Selected Go shards/packages, focused Python, build, vet, format, policy, native gate plan and trusted plan passed. Native/runtime/release gates were skipped by the impact plan; this filesystem-only change did not require those gates.
+- Focused local tests passed for symlink escape rejection, local workspace subpaths, write authorization and fingerprint behavior; `go vet ./internal/development ./cmd/baha`, `go build ./cmd/baha`, readability audit and `git diff --check` passed.
+- Independent review of the exact diff found no blocker. PR [#1706](https://github.com/mcpdev80/baseharbor/pull/1706) merged at `97abbe1572a74170e3414448fe2dce843309c10a` on 2026-11-19 23:19:12 UTC; remote `develop` was verified at that merge SHA. No release/tag was created. Full record: `evidence/r28-welle4-2026-11-20/pr-sweep/0428-059-symlink-follow-up.md`.
