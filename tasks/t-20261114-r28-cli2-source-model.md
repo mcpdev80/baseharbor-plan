@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: ""
-kanban_status: active
-kanban_lane: active
+kanban_status: planned
+kanban_lane: ready
 kanban_summary: "Extend app sources and components. Follow the owner working brief, command mapping and code entry index; revalidate current…"
 kanban_title: 0428-059 · Extend app sources and
 priority: high
@@ -23,15 +23,16 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-source-model/round-1.md"]
 ---
 
-- [ ] t-20261114-r28-cli2-source-model · CLI redesign: Extend app sources and components #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-source-model · CLI redesign: Extend app sources and components #task #release/v0-4-28 #status/planned #view/ready #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **PR:** [baseharbor#1595](https://github.com/mcpdev80/baseharbor/pull/1595)  
+    **Ready to assign** · prerequisites accepted  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-source-model/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-uid-app](t-20261114-r28-cli2-uid-app.md)  
 **Required by:** [t-20261114-r28-cli2-app-interact](t-20261114-r28-cli2-app-interact.md), [t-20261114-r28-cli2-app-status](t-20261114-r28-cli2-app-status.md), [t-20261114-r28-cli2-source-pull](t-20261114-r28-cli2-source-pull.md)  
@@ -77,3 +78,5 @@ draft PR #1595 @ eda0cd61c, base lane-0428-uid-target; local package+audit runs 
 BOARD-KORREKTUR nach unabhaengiger GEGENLESE (akte evidence/r28-welle4-2026-11-19/codex-review-wave/board-sweep-gegenlese-1.md, haupt e86d817d): der PR dieses fachers ist draft=true. Ein draft ist KEIN kanditat (§5.2), also war der zustand 'review' zu gut — er versprach einen pruefbaren kanditaten, den es nicht gibt. FEHLENDE STUFE, klar benannt: draft auf non-draft, EIN monotoner hopf auf den aktuellen develop, EIN exact-head-lauf bis terminal; die arbeit im zweig ist vorhanden. Rueckstandiger zustand, kein inhaltlicher rueckstand
 
 INHASBERSCHAFT FREIGEGEBEN (transfer-ersuchen, queue662): der eigentümer-text nannte 'lane-0428-059-cli2-source-model (flash)' — GEMESSEN KEINE solche sitzung (codeman agent list: nur codex-rev-cli2b als reviewer, idle; der flash-sitz traegt 0428-083). zweig refs/heads/lane-0428-059-cli2-source-model = 818d572b982a, PR #1595 draft=true base.ref=lane-0428-uid-target, 19 dateien, unveraendert seit 11-16. write-set cmd/baha/app_workspace* + human_workspace.go ist DISJUNKT zu meinen laeufernden PRs (#1690 application_provider_authorization.go, #1702 app_status_*/app_perses_*, #1684 app_apply_lifecycle.go — keine gemeinsame datei gemessen). ACHTUNG: ein base.ref der cli2-kette eroeffnet KEINEN pull_request-lauf (ci.yml :14-18 nur develop/main/lane-*)
+
+INHASBERSCHAFT FREIGEGEBEN, karte zurueck auf planned/ready damit scripts/plan.py claim sie annehmen kann (active ohne owner war ein regelverstoss, den mein eigenes skript nicht schreiben kann: 'if a.owner:' ist fuer einen leeren string falsy — queue662, werkzeug-befund). Gemessen: keine sitzung namens lane-0428-059-cli2-source-model mehr (flash traegt 0428-083); zweig 818d572b982a; PR #1595 draft=true base.ref=lane-0428-uid-target; write-set cmd/baha/app_workspace* disjunkt zu meinen laeufernden PRs. WARNUNG an den nehmer: ein base.ref der cli2-kette eroeffnet KEINEN pull_request-lauf (ci.yml :14-18 oeffnet nur develop/main/lane-*) — basis auf develop umbiegen oder den Zweig in lane-* umbenennen, sonst gibt es nie einen exact-head-beleg
