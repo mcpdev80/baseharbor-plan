@@ -78,6 +78,6 @@ never be accepted on its own hopf - the gap is in the path mapping, not in the d
 - Planner unit tests pass locally and in CI, including the two new selector cases with test IDs mapped
   to their gate (CI intake rule: every new test is executed by the GitHub CI).
 - A hosted run on the exact head shows `documentation-audit` executed for a `docs/internal/*.json` diff.
-- Evidence akte: `evidence/r28-welle4-2026-11-19/prgate-docs-internal-mapping/fix-1.md`.
+- Evidence akte: [fix-1.md](../evidence/r28-welle4-2026-11-19/prgate-docs-internal-mapping/fix-1.md).
 
 Current execution: PR #1705 merged as `28fb427f057499efca705c1b7459e7653bd532a8`. Exact head `0b5dd34713fe778aaf4d79dfa0b2a0600fc50e6a` on base `ab77e29d7c1cf981777e1069e51dfff82ffcf654`; hosted run `44619193702` passed PR Selected Checks, PR planner tests, CI policy, focused Python, source format, native gate plan and trusted plan. Local `scripts/ci-fast-check.sh` passed with 286 tests. Independent review found no blocker and prompted the added positive `.yaml` selector test. PR #1697 remains on its old base and old successful run skipped `documentation-audit`; the 0428-144 card remains active until #1697 hops and a new exact-head run executes that check for its internal JSON change.
