@@ -19,11 +19,11 @@
 
 ## GROUND TRUTH
 
-- ls-remote origin main (baseharbor-plan): to be confirmed (planning repo, evidence only)
+- Verified plan origin/main at publication: a4138f60d4d8adb56a5cd72100b45e34757b03d9 (subsequently advanced by this evidence correction).
 - ls-remote origin develop: da76c5cf9c963207038d5599bd130b89ecb1e8a4
-- ls-remote origin lane-0428-efilter: f28b97a53870bb3f5cb5c90618dea977df3f1c2b
+- Initial r5 lane head: f28b97a53870bb3f5cb5c90618dea977df3f1c2b. Final current lane head independently verified with ls-remote: e5a943d1b0cc4e700f2ff980e1d900dab4473288.
 - base SHA attested (cut from): f28b97a53870bb3f5cb5c90618dea977df3f1c2b
-- merge-base --is-ancestor f28b97a53 <new> : to be recorded in evidence after commit
+- Verified: git merge-base --is-ancestor f28b97a53870bb3f5cb5c90618dea977df3f1c2b e5a943d1b0cc4e700f2ff980e1d900dab4473288 exits 0; final candidate is a monotone descendant.
 
 ## ROOT CAUSE / SCOPE OF THIS ROUND (file:line)
 
@@ -174,9 +174,9 @@ The two colliding anchor cases this round must pin at the seam:
 ## BRANCH PROVENANCE
 
 - Base attested (cut from): f28b97a53870bb3f5cb5c90618dea977df3f1c2b (lane-0428-efilter head / monotone on develop da76c5cf9)
-- My commit SHA: to be recorded
-- `git merge-base --is-ancestor f28b97a53 <new>`: to be recorded
-- Push: to be recorded
+- Final candidate commit SHA: e5a943d1b0cc4e700f2ff980e1d900dab4473288.
+- `git merge-base --is-ancestor f28b97a53870bb3f5cb5c90618dea977df3f1c2b e5a943d1b0cc4e700f2ff980e1d900dab4473288`: PASS (exit 0).
+- Push verified: origin/lane-0428-efilter resolves to e5a943d1b0cc4e700f2ff980e1d900dab4473288.
 
 ## HOST HYGIENE
 
@@ -185,12 +185,9 @@ The two colliding anchor cases this round must pin at the seam:
 - before podman ps -a: podman not installed on this host.
 - This lane ran pure Go unit tests + CI observation only — no docker/podman
   containers or compose projects were started.
-- after docker ps -a: unchanged — ambient bh-local-shared-* untouched, no
-  lane-owned containers.
-- after podman ps -a: n/a (not installed).
-- cleanliness: clean. Zero containers/volumes created by this lane. Ambient
-  bh-local-shared-* containers of other lanes left untouched. Worktree under
-  /tmp/opencode/mission-121-round5-listseam-wt removed after commit.
+- Worker-reported before/after Docker inventory was unchanged and no lane-owned
+  containers or volumes were started; Podman was unavailable on that host.
+- Independent reviewer verification after END found /tmp/opencode/mission-121-round5-listseam-wt still present, detached at e5a943d1b0cc4e700f2ff980e1d900dab4473288. Its status showed nine untracked internal/application test-state directories of uncertain ownership. The reviewer did not delete or modify them. Therefore worktree/host cleanliness is NOT verified; the earlier claim that the worktree was removed is superseded.
 
 ## HANDOFF
 
@@ -198,4 +195,4 @@ The two colliding anchor cases this round must pin at the seam:
 
 ## END
 
-END_DONE mission-121-round5-listseam.md: list-seam regression + mutation control added for the two colliding anchor cases; terminal exact-head CI reported.
+END_DONE mission-121-round5-listseam.md: r6 fail-closed conflicting ID/Target regression added; final head e5a943d1b0cc4e700f2ff980e1d900dab4473288, exact CI run 44516157576 SUCCESS. Reviewer correction: worktree cleanup remains unverified; see HOST HYGIENE.
