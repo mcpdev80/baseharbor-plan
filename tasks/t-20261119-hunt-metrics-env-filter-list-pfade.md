@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-121 r5 (Codeman 43911492)
-kanban_status: active
-kanban_lane: active
+owner: 0428-121 r5 (codeman 43911492)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-121 · Env-Filter wirkt nicht auf
 priority: ""
@@ -23,18 +23,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-route2-review.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-anchor-recheck.md", "https://github.com/mcpdev80/baseharbor/pull/1691", "https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7005246254", "https://github.com/mcpdev80/baseharbor/actions/runs/44495408370", "https://github.com/mcpdev80/baseharbor/actions/runs/44495408370/job/135465056267"]
 ---
 
-- [ ] t-20261119-hunt-metrics-env-filter-list-pfade · Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261119-hunt-metrics-env-filter-list-pfade · Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-121 r5 (Codeman 43911492)  
+    **Owner:** 0428-121 r5 (codeman 43911492)  
     **PR:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-route2-review.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-4.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-anchor-recheck.md), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1691), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7005246254), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44495408370), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/44495408370/job/135465056267)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0428-121 r5 (Codeman 43911492)  
+**Owner:** 0428-121 r5 (codeman 43911492)  
 **Priority:** not set  
 **PRs:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
 **Source:** 
@@ -108,3 +108,5 @@ Independent review at exact head f28b97a53870bb3f5cb5c90618dea977df3f1c2b: CI ru
 r5 angesetzt wegen PR-kommentar 7005246254: head f28b97a53 ist terminal SUCCESS (workflow policy, native/trusted plan, source format, candidate, build/vet, 6 go-unit shards, focused Python, ausgewaehlte runtime-identity/observability-zellen; 13 skipped = release-/HA-/main-pfade) — aber TestRoute2AnchorRuleTable prueft nur projectTokenFromID, und an der caller-sichtbaren schaerfe fehlen die List-aussagen fuer die zwei kollidierenden anker-faelle: (demo, bh-local-demo-prod-west, 'west') => AUSGESCHLOSSEN, (demo-prod, selben projekt, 'west') => SICHTBAR, (my-app, bh-prod-my-app-dev, dev/prod) => sichtbar/ausgeschlossen, plus mutations-kontrolle. ohne produkt-logik zu aendern; dann exact-head CI + akte fix-5.md. #1695/#1692 bleiben seriell dahinter
 
 Korrekturrunde r5 ist live auf Codeman-Session 43911492. Der Review-Hold aus Comment 7005246254 bleibt: caller-visible List/ListLogs-Matrix ergänzen, dann ready head + exakte Required Checks + erneute Review. #1695/#1692 bleiben seriell dahinter.
+
+live-reviewer-befund AN DIE LANE weitergegeben und von MIR im worktree bestaetigt (datei internal/observability/envfilter_route5_listseam_test.go): faelle (a)/(b) waren trivial — zeilen 29/33 Class=SourceApplication + Target 'bhm-abc:9464' (legacy metrics-pfad, laeuft NICHT durch projectTokenFromID/trailingProjectEnvironment) und zeilen 42/50 List(...,false,false,false,'west') / ListLogs(...,false,false,'west'): die app-quellen sind VOR der sichtbarkeits-pruefung abgeschaltet, (a) besteht durch nichts, (b) kann nie enthalten sein. befehl: (a)/(b) auf echte provider-fixtures wie in (c)/(d) ab zeile 114 (Class=SourceApplicationProvider, Target=RuntimeTarget('bh-local-demo-prod-west','prometheus'), provider-foermige ID, includeApplicationProviders=true), same-project-vergleich demo (ausgeschlossen) vs demo-prod (enthalten) bei requested 'west', my-app dev/prod und mutations-kontrolle behalten, zusatzlich je fall eine nachweis-zeile, dass projectTokenFromID das fixture mit 'prod-west',true loest (nicht der metrics-pfad). dann gofmt / fokus-test / readability-audit / build / vet / hopf / push (ancestor auf f28b97a53) / exact-head CI terminal / akte fix-5.md. KEIN commit vorher, keine neue lane
