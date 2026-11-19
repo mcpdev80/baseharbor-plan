@@ -9,13 +9,13 @@ version: ""
 parent: v0.4.28
 owner: coord
 kanban_status: planned
-kanban_lane: review
+kanban_lane: ready
 kanban_summary: "Provision selected authorized Tempo datasource via supported Perses plugin, scoped and verified."
 kanban_title: 0428-091 · Connect Perses Tempo
 priority: normal
 depends_on: [t-20261114-r28-perses-contract-seam, t-20261114-r28-perses-runtime, t-20261114-r28-perses-signal-inventory]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1610, "mcpdev80/baseharbor#1610,mcpdev80/baseharbor#1645"]
+prs: [mcpdev80/baseharbor#1610, mcpdev80/baseharbor#1645]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,20 +23,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-tempo-source · Connect Perses Tempo #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [ ] t-20261114-r28-perses-tempo-source · Connect Perses Tempo #task #release/v0-4-28 #status/planned #view/ready #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** coord · **Priority:** normal  
-    **PR:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610)  
+    **PR:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
 **Required by:** [t-20261114-r28-perses-log-trace-dash](t-20261114-r28-perses-log-trace-dash.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
 **Owner:** coord  
 **Priority:** normal  
-**PRs:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610)  
+**PRs:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645)  
 **Source:** 
 <!-- /generated:links -->
 
