@@ -1,8 +1,8 @@
 ---
 id: t-20261119-r28-registry-orphan-shared-instance
-kanban_title: "0428-151 · registry: orphan shared instanz"
+kanban_title: "0428-151 · registry: orphan shared"
 card_number: "0428-151"
-card_short_title: "registry: orphan shared instanz"
+card_short_title: "registry: orphan shared"
 type: task
 areas: [capability, lifecycle]
 release: v0.4.28
