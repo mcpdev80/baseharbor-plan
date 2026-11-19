@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: ci-intake-audit (codeman 7add5c03-efa6-49d9-a355-bfc5f246eca1)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-133 · tests ohne gemappten trigger —
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-coord-r28-ci-intake-audit · CI-aufnahme-audit: tests ohne gemappten trigger (perses-smoke, demo-pr-gate, weitere) — liste mit datei:zeile fuer die gate-map #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261119-coord-r28-ci-intake-audit · CI-aufnahme-audit: tests ohne gemappten trigger (perses-smoke, demo-pr-gate, weitere) — liste mit datei:zeile fuer die gate-map #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** ci-intake-audit (codeman 7add5c03-efa6-49d9-a355-bfc5f246eca1)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** ci-intake-audit (codeman 7add5c03-efa6-49d9-a355-bfc5f246eca1)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -82,3 +81,5 @@ Ein audit ueber die tests des fensters, die auf dem papier existieren, aber von 
 
 ## Acceptance
 liste je fund: testname, datei:zeile des tests, workflow-/gate-datei mit zeile die ihn NICHT erwaehnt, betroffene karte/PR, vorschlag des passendes gates (existierend, kein neuer gate). akte evidence/r28-welle4-2026-11-19/ci-intake-audit/befund-1.md. KEINE aenderung an .github oder scripts (owner-scope), KEINE neuen gates.
+
+audit laeuft read-only (akte ci-intake-audit/befund-1.md): alle tests des fensters ohne gemappten CI-trigger, inklusive der drei bekannten faelle (perses-smoke, demo pr-gate main-only, pr-gate-coverage ohne perses). kein .github/scripts-eingriff durch die lane — nur die liste fuer deine gate-map
