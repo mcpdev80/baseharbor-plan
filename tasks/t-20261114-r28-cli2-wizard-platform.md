@@ -69,6 +69,10 @@ User guided across empty/missing/ambiguous contexts; trust and destructive conse
 - Map every added/changed test to an existing CI check or native gate and its trigger. If routing is missing, coordinate with the CI owner and block acceptance until actual execution is proven. No parallel CI framework or indiscriminate full matrix.
 - Handoff exact branch/PR/commit, tests → check/gate → trigger → actual result, remaining gaps, dependencies and shared-file conflicts. Codex/Owner-delegated Maintainer reviews and merges only after actual checks; never claim an independent review that did not occur. No release/tag authorized.
 
+## Independent review
+
+Read-only review: [PR #1620 / 0428-067](../evidence/r28-welle4-2026-11-19/codex-review-wave/1620-0428-067-independent-review.md). Current PR head `e7eeeb5802a3c2203947655f5adcaa0a6aa9df0d` has no checks and remains a Draft on `cli2-env-policy-head`; audit-write failure does not prevent the secret reveal, which conflicts with the stated fail-closed intent.
+
 ## Handoff
 
 Planned and unassigned. No product implementation or acceptance yet.
