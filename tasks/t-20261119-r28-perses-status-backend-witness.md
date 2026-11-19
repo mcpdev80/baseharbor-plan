@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: laptop-142-statuswitness (codeman 3839712e, laptop)
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: "'baha perses status' nennt pro observability-signal eine ECHTE backend-witness (erreicht / gematcht / nicht erreichbar) statt…"
 kanban_title: 0428-142 · echte backend-witness fuer
 priority: ""
@@ -23,14 +23,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** laptop-142-statuswitness (codeman 3839712e, laptop)  
     **PR:** [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** laptop-142-statuswitness (codeman 3839712e, laptop)  
@@ -87,3 +87,5 @@ Die 077-korrektur hat die Perses-katalog-verfuegbarkeit backend-spezifisch gemac
 ein test, der den CLI-pfad gegen eine backend-witness prueft ( Loki mit eigenem signal -> verfuegbar; Loki ohne eigenes signal -> unavailable), ohne die eine-argument-API von app_status_result zu aendern; die drei stellen internal/logs/render.go:145/163/296, internal/telemetry/otlp_payload.go:28 und internal/metrics/perses_dashboards_hosts.go:243-245 sind die label-zeugen. akte evidence/r28-welle4-2026-11-19/perses-status-witness/befund-1.md + pr. KEIN merge durch die lane, keine .github/scripts-anderungen (befund statt dessen), kein subagent (§4.8), host besenrein.
 
 kopf e22f6795c (ls-remote), base develop 223cb97a9, draft=false, lauf 44600570152 completed/success, 15 checks ausgefuehrt, 6 SKIPPED (nicht erbracht; runtime/HA = owner-draht 114(a)). GESCHICHTS-BEFUND von mir gemessen: der zweite 'hopf' war KEIN merge-hopf — vorgaenger 317b730a9 ist kein ancestor, head hat einen eltern; drei blobs byte-identisch (a79ed5d365/be8d5fd7e7/2b9a088474), kein inhalt verloren. lane geruegt, akten-klarstellung verlangt.
+
+CODEX-r1 REQUEST CHANGES auf e22f6795c (akte 1702-0428-142.md): (1) 'configured' ist manifest-erklaerung statt backend-witness, 'unreachable' deklariert aber ohne emission-pfad (app_status_result.go:64-65/:92-98/:108-114/:124-130); (2) oeffentliche ausgabe behaelt verbotene wortliste configured_unverified/verified (:38-45/:234-250/:351-353 + perses_lifecycle.go:75-79/:217-233); dazu ein test, der unreachable nur behauptet. rotation auf frische bahn.
