@@ -45,3 +45,14 @@
   - `go-vet` => `go vet ./...`
 - No `.github/**` change needed: the new test rides the existing `go test ./...` unit gate, so it is durable CI evidence.
 - Affected source files only: `internal/metrics/{prometheus.go, prometheus_files.go, prometheus_verify.go}` + `cmd/baha/app_metrics.go` (CLI [STATE] surface) + `internal/metrics/verify_none_red_test.go`.
+
+## Verification (local, exact head 84911f99e)
+
+- `go build ./...` => exit 0
+- `go vet ./...` => exit 0
+- `go test ./internal/metrics/...` => ok (existing workload-only + verify suites still pass)
+- New counter tests: `TestRedAllVerificationNoneHasNoCompositionCounter`, `TestVerificationNoneCompositionReportsNullTargetState`, `TestEnsureProviderFilesCompositionStateCarriesState` => PASS
+- Full suite `go test ./...` => 0 FAIL (terminal witness in `evidence/.../verification-none/full-tests.log`)
+- `gofmt -l internal/metrics/` => clean
+- Branch history: single commit `84911f99e` on exactly `ec592fd38`; `git merge-base --is-ancestor ec592fd38 HEAD` => YES; `git diff --stat ec592fd38 84911f99e` => only the 4 intended files, no foreign commits.
+- Remote: `git ls-remote origin lane-0428-124-metrics-verification-none` => `84911f99e...` (matches local head).
