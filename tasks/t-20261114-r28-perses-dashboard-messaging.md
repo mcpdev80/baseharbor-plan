@@ -7,7 +7,7 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: coord
+owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: Deliver RabbitMQ panels conditional on real supported metrics.
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261114-r28-perses-dashboard-messaging · Perses messaging dashboards #task #release/v0-4-28 #status/planned #view/ready #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** coord · **Priority:** normal  
+    **Owner:** unassigned · **Priority:** normal  
     **PR:** [baseharbor#1603](https://github.com/mcpdev80/baseharbor/pull/1603)  
     **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: []
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** coord  
+**Owner:** unassigned  
 **Priority:** normal  
 **PRs:** [baseharbor#1603](https://github.com/mcpdev80/baseharbor/pull/1603)  
 **Source:** 
