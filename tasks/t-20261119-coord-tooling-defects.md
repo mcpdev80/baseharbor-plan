@@ -8,14 +8,14 @@ areas: [coordination, ci, tooling]
 release: v0.4.28
 version: ""
 parent: ""
-owner: w155-pr0428-155-toolfixes
-kanban_status: review
-kanban_lane: review
+owner: "folgelane (wird gesetzt)"
+kanban_status: active
+kanban_lane: active
 blocker: ""
 wait_reason: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/coordinator#0]
+prs: []
 sources: []
 source_note: "fünf einzeln gemessene werkzeug-defekte, die an diesem abend VIER falsche alarme und DREI still fehlgeschlagene zustandswechsel verursacht haben (coordinator/QUEUE.md queue655, 662, 666, 667). Kein produkt-bezug, nur coordinator/**."
 evidence: []
@@ -23,19 +23,18 @@ resolution: ""
 created: 2026-11-19
 ---
 
-- [ ] t-20261119-coord-tooling-defects · skript-zeile statt bahn-pruefen #task #release/v0-4-28 #status/review #view/review #area/ci #area/coordination #area/tooling #kind/task
+- [ ] t-20261119-coord-tooling-defects · skript-zeile statt bahn-pruefen #task #release/v0-4-28 #status/active #view/active #area/ci #area/coordination #area/tooling #kind/task
     <!-- generated:card -->
-    **Owner:** w155-pr0428-155-toolfixes  
-    **PR:** [coordinator#0](https://github.com/mcpdev80/coordinator/pull/0)  
+    **Owner:** folgelane (wird gesetzt)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w155-pr0428-155-toolfixes  
+**Owner:** folgelane (wird gesetzt)  
 **Priority:** not set  
-**PRs:** [coordinator#0](https://github.com/mcpdev80/coordinator/pull/0)  
+**PRs:** none  
 **Source:** 
 <!-- /generated:links -->
 
