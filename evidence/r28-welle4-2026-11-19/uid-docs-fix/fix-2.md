@@ -95,6 +95,20 @@ After the fix the same test passes.
 - `TestSaveStateRouteFirstWriteNotRejectedAsGhost` (line ~218): `<state>/config.yaml` present, `<state>/config/config.yaml` absent, first `SaveExpected(nil)` must succeed, write lands only in the configured config root, no `.config-*` temp leaked into state or config.
 - `TestSaveRouteXDGGhostStillRejected` (line ~255): XDG route `<xdg>/baseharbor/config.yaml` present, nested `config.yaml` absent → `Save` still returns `ErrConfigMissing`.
 
+## CI RUN EXACT-HEAD (§4.6)
+
+Run #6580, run-id `44520608459` (https://github.com/mcpdev80/baseharbor/actions/runs/44520608459) at head `7cc41858b771bb0e2cc4e1d8ffac0f4feadbf4e1`, status **completed / success**; 0 failure/error jobs (native gate, Go unit owners/CLI, Go vet, go build, deployment-package-tests, selected Docker lifecycle gate all green).
+
+| CI job | result |
+| --- | --- |
+| PR · Native gate plan / Trusted Plan / Workflow policy | success |
+| PR · Source format / Runner Interface / Demo Pin / Focused Python | success |
+| PR · Go unit · owner / cli-0..3 / packages | success |
+| PR · Validation · go-vet / go-build / deployment-package-tests | success |
+| PR · Exact Candidate | success |
+| Docker lifecycle gate | success |
+| Release Source Preflight / Main release / Consumer Pins | skipped (not a release branch) |
+
 ## repo-rule compliance
 
 - Write-set limited to `internal/deployment/config_mutation.go` and its test.
