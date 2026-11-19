@@ -3,8 +3,8 @@ id: t-20261118-enrollment-two-phase-boundary-doc
 release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
-owner: w01-0428-115 (r3-lane reserviert)
-kanban_status: active
+owner: w99-0428-115 r3 (codeman 1e406836)
+kanban_status: review
 card_number: 0428-115
 card_short_title: document the enrollment
 kanban_title: 0428-115 · document the enrollment
@@ -16,18 +16,18 @@ blocker: ""
 ---
 # t-20261118-enrollment-two-phase-boundary-doc · document the enrollment consume/issue two-phase boundary
 
-- [ ] t-20261118-enrollment-two-phase-boundary-doc · document the enrollment consume/issue two-phase boundary #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261118-enrollment-two-phase-boundary-doc · document the enrollment consume/issue two-phase boundary #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** w01-0428-115 (r3-lane reserviert)  
+    **Owner:** w99-0428-115 r3 (codeman 1e406836)  
     **PR:** [baseharbor#1685](https://github.com/mcpdev80/baseharbor/pull/1685)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/enrollment-twophase/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1685), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44408281995), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1685.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44446194802)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w01-0428-115 (r3-lane reserviert)  
+**Owner:** w99-0428-115 r3 (codeman 1e406836)  
 **Priority:** not set  
 **PRs:** [baseharbor#1685](https://github.com/mcpdev80/baseharbor/pull/1685)  
 **Source:** 
@@ -54,3 +54,5 @@ r2/r3 END akzeptiert: head 3b9a3f78 mit develop ec532... ec592fd38 integration, 
 CODEX-REVIEW REQUEST CHANGES at 3b9a3f78e7e91f1c9a58a564ecbc013540697481; DE two-phase paragraph still has grammatical/technical-wording defects and repeats denial cases. Narrow recipe and exact-head evidence: https://github.com/mcpdev80/baseharbor/pull/1685#issuecomment-6998325146 and evidence/r28-welle4-2026-11-19/codex-welle3-review/1685.md.
 
 reviewer haelt bei 3b9a3f78e (comment 6998325146): DE-absatz ungrammatisch + denial-wiederholung + raw identifiers unformatiert. da die r2-lane bereits released war: neue r3-lane auf ersten freiraum dispatched (mission erweitert). kein merge
+
+r3 END akzeptiert: DE-absatz einmal + code-formatierte identifiers, denial-liste getilgt, Grant als terminus behalten; head 711e04c3 (develop ec592fd38 ancestor), beide runs terminal gruen. SELBSTANGABE force-slip beim amend, Vorwaerts-umgekehrt mit ref-restore-protokoll in der akte — gemeldet statt versteckt, bewertet als geheilt. Routing an CODEX (comment 6998325146 abarbeiten)
