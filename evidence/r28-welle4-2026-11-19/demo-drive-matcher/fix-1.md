@@ -164,15 +164,16 @@ Taken as the second-to-last action, in `/home/marcel/dev/baseharbor-ecosystem/ba
 
 ```
 $ git ls-remote origin refs/heads/main
-77fd853b676dd9d7c77b660dbb1ceeb4f14a4ddd	refs/heads/main
+297bb41d1f13075a51a88392f0c14805c52ed72a	refs/heads/main
 $ git ls-tree -r --name-only origin/main -- evidence/r28-welle4-2026-11-19/demo-drive-matcher
 evidence/r28-welle4-2026-11-19/demo-drive-matcher/fix-1.md
-$ git show origin/main:evidence/r28-welle4-2026-11-19/demo-drive-matcher/fix-1.md | grep -c "## END"
+$ git show origin/main:evidence/r28-welle4-2026-11-19/demo-drive-matcher/fix-1.md | grep -c "^## END"
+1
+$ git show origin/main:evidence/r28-welle4-2026-11-19/demo-drive-matcher/fix-1.md | grep -c "END_DONE mission-demo-drive-matcher.md"
 1
 ```
 
-`## END` is unique: it heads the section that carries the END line, so the count
-of 1 proves the akte on origin/main `77fd853b` contains it.
+Both counts are 1 and unique: the akte on origin/main `297bb41d` carries the END section and its END line. The push output was `bbe781e1..297bb41d main -> main` (`297bb41d` is this lane's evidence commit; `bbe781e1` is another lane's 0428-131 dossier, rebased under it — no act of this lane touches another card).
 
 ```
 $ git ls-remote origin refs/heads/main
