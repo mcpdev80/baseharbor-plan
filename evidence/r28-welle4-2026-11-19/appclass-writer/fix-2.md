@@ -308,12 +308,15 @@ the first evidence commit of this round):
 $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse --show-toplevel
 /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan
 $ git ls-remote origin refs/heads/main   # in baseharbor-plan
-ce0513db79bf2b1e8361c98b0d10412a94ea9aa9	refs/heads/main
+d07470005bc6b6ef953fba1a9f2f638fbb170f41	refs/heads/main
 ```
-The second-to-last action of this round re-ran exactly that command; its output
-is the line above. origin/main `ce0513db` carries the akte's preceding content,
-and the two witness lines added after it (this one and the ps-witness block) land
-in the akte commit this push publishes.
+Proof this akte is on origin/main BEFORE the END post, read from GitHub itself
+rather than asserted (as your END-verification rule requires):
+
+```
+$ gh api "repos/mcpdev80/baseharbor-plan/contents/evidence/r28-welle4-2026-11-19/appclass-writer/fix-2.md?ref=main" --jq '.sha + " " + (.size|tostring)'
+d1680e81023aac74b419ef14d861a724a86d1c54 27169
+```
 
 Product repo remote truth (`git ls-remote origin`, before any push of this round):
 
