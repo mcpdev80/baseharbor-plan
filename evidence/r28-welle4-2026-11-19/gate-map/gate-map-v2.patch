@@ -1,0 +1,118 @@
+--- combined gate-map patch v2 for karte 0428-134 ---
+--- CHANGE 1: .github/workflows/ci.yml (widens validate if to run go test ./... on PR)
+--- CHANGE 2: .github/workflows/targeted-integration.yml (new perses_runtime_smoke job)
+--- CHANGE 4: scripts/pr-gate-plan.py (docs/internal/*.json -> DOC_CHECKS)
+--- CHANGE 3: baseharbor-demo .github/workflows/pr-guided-consent.yml (branches: [main, develop])
+diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml
+index 5f38a9600..f89016956 100644
+--- a/.github/workflows/ci.yml
++++ b/.github/workflows/ci.yml
+@@ -255,8 +255,15 @@ jobs:
+         timeout-minutes: 3
+         run: bash scripts/ci-runtime-reset.sh podman
+ 
++  # CHANGE 1 (0428-134): run the full Go unit suite on PR too.
++  # BEFORE: the `if` here excluded pull_request, so `go test ./...`
++  # (ci.yml unit_tests) never ran on a Pull Request; coverage was only
++  # delegated to pr_unit_shards and gated by pr_plan unit_scope.
++  # AFTER: the if now also matches pull_request, so the unit_tests run
++  # on PR as well. The runtime-validation source-prefix guards stay
++  # (only widened, never removed).
+   validate:
+-    if: github.event_name != 'pull_request' && !startsWith(github.ref_name, 'runtime-validation/source-preflight/') && !startsWith(github.ref_name, 'runtime-validation/ha/')
++    if: github.event_name == 'pull_request' || (github.event_name != 'pull_request' && !startsWith(github.ref_name, 'runtime-validation/source-preflight/') && !startsWith(github.ref_name, 'runtime-validation/ha/'))
+     runs-on: ubuntu-latest
+     timeout-minutes: 20
+     services:
+diff --git a/.github/workflows/targeted-integration.yml b/.github/workflows/targeted-integration.yml
+index 7fbbb41d0..a809515c8 100644
+--- a/.github/workflows/targeted-integration.yml
++++ b/.github/workflows/targeted-integration.yml
+@@ -705,6 +705,53 @@ jobs:
+         timeout-minutes: 3
+         run: bash scripts/ci-runtime-reset.sh docker
+ 
++  perses_runtime_smoke:
++    # CHANGE 2 (0428-134): real-container smoke test for the Perses lifecycle.
++    # BEFORE: no job ran TestPersesRuntimeSmokeDockerIsolated; the test and its
++    # BASEHARBOR_PERSES_RUNTIME_SMOKE=1 guard live only on the perses candidate
++    # branch and are absent from develop, so the smoke test had no CI trigger.
++    # AFTER: this workflow_dispatch gate runs it on the existing docker runtime
++    # path (rootless Docker image + ORAS publish), gated by the flag.
++    if: ${{ github.event_name == 'workflow_dispatch' && inputs.gate == 'perses-runtime-smoke' }}
++    name: Perses runtime smoke · docker
++    runs-on: ubuntu-latest
++    timeout-minutes: 20
++    env:
++      BASEHARBOR_RUNTIME_IMAGE: baseharbor-runtime:targeted-integration
++      BASEHARBOR_PERSES_RUNTIME_SMOKE: "1"
++
++    steps:
++      - name: Checkout requested ref
++        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
++        with:
++          ref: ${{ inputs.ref }}
++
++      - name: Set up Go
++        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
++        with:
++          go-version-file: go.mod
++          cache: false
++
++      - name: Prepare isolated rootless Docker
++        timeout-minutes: 5
++        env:
++          BASEHARBOR_TEST_RUNTIME: docker
++        run: bash scripts/ci-core-rootless-runtime.sh
++
++      - name: Install verified ORAS for Core bootstrap
++        run: bash scripts/ci-install-oras.sh
++
++      - name: Build BaseHarbor control-plane image
++        run: docker build --pull -t "$BASEHARBOR_RUNTIME_IMAGE" -f deploy/control-plane/Dockerfile .
++
++      - name: Perses runtime smoke (isolated)
++        run: go test ./internal/application -run '^TestPersesRuntimeSmokeDockerIsolated$' -count=1 -v -timeout 15m
++
++      - name: Cleanup Docker runner state
++        if: always()
++        timeout-minutes: 3
++        run: bash scripts/ci-runtime-reset.sh docker
++
+   app_backup_restore_podman:
+     # Focused Podman opt-in: native backup/restore acceptance on Podman/Quadlet.
+     # Proves disaster-recovery on Podman (SQL data, secrets, consumer access,
+diff --git a/scripts/pr-gate-plan.py b/scripts/pr-gate-plan.py
+index 80e154051..30b41e9d3 100644
+--- a/scripts/pr-gate-plan.py
++++ b/scripts/pr-gate-plan.py
+@@ -1186,9 +1186,15 @@ def targeted_plan(diff, requirements, mapping, repository='.',
+             # generic tests cannot qualify changed authorizers/mutators.
+             area = 'registration-mixed-unresolved'
+             unresolved.append('mixed registration/execution source needs independent diff review: ' + path)
++        # CHANGE 4 (0428-134): BEFORE the `documentation` area only matched
++        # docs/*.md/.rst, README/CONTRIBUTING/CHANGELOG, mkdocs.yml/.de.yml
++        # and site/, so docs/internal/*.json routed to no DOC_CHECKS and the
++        # documentation-audit job never ran. AFTER: docs/internal/*.json also
++        # emits DOC_CHECKS.
+         elif (path.startswith('docs/') and path.endswith(('.md', '.rst')) or
+                 path in ('README.md', 'CONTRIBUTING.md', 'CHANGELOG.md',
+                          'mkdocs.yml', 'mkdocs.de.yml') or
++                 path.startswith('docs/internal/')) or
+                 path.startswith('site/')):
+             area = 'documentation'
+             require(DOC_CHECKS)
+
+diff --git a/.github/workflows/pr-guided-consent.yml b/.github/workflows/pr-guided-consent.yml
+index cc361bd..5218a20 100644
+--- a/.github/workflows/pr-guided-consent.yml
++++ b/.github/workflows/pr-guided-consent.yml
+@@ -2,7 +2,7 @@ name: Demo · PR guided consent regressions
+ 
+ on:
+   pull_request:
+-    branches: [main]
++    branches: [main, develop]
+   workflow_dispatch:
+ 
+ permissions:
