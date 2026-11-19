@@ -3,32 +3,31 @@ id: t-20261118-app-env-recovery-flags-claim
 release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
-owner: w01-0428-117r4 (codeman 28318f22-0671-4ad9-a5be-438dd4d42669)
-kanban_status: blocked
+owner: w01-0428-117r4 (codeman 28318f22)
+kanban_status: review
 card_number: 0428-117
 card_short_title: align app env recovery-flag
 kanban_title: 0428-117 · align app env recovery-flag
 prs: [mcpdev80/baseharbor#1687]
 wait_reason: ""
-blocker: "Current develop 40b9901398a6bae5b92ee45494ef3b70f192a2a7 is included in exact head a1f4dc76f6f67b5f17048bc164df169d4380a9c5. Exact-head run 44441702644 is terminal success and all selected documentation/source checks pass. Published r3 evidence still names old head/base; owner must publish current-head/base evidence before merge."
+blocker: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44439013578", "https://github.com/mcpdev80/baseharbor/actions/runs/44441702644"]
 
 ---
 # t-20261118-app-env-recovery-flags-claim · app-env recovery-flag claim vs actual command contract
 
-- [ ] t-20261118-app-env-recovery-flags-claim · align app env recovery-flag docs with the real command contract #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261118-app-env-recovery-flags-claim · align app env recovery-flag docs with the real command contract #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** w01-0428-117r4 (codeman 28318f22-0671-4ad9-a5be-438dd4d42669)  
+    **Owner:** w01-0428-117r4 (codeman 28318f22)  
     **PR:** [baseharbor#1687](https://github.com/mcpdev80/baseharbor/pull/1687)  
-    **Blocker:** Current develop 40b9901398a6bae5b92ee45494ef3b70f192a2a7 is included in exact head a1f4dc76f6f67b5f17048bc164df169d4380a9c5. Exact-head run 44441702644 is terminal success and all selected documentation/source checks pass. Published r3 evi…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44439013578), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44441702644)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w01-0428-117r4 (codeman 28318f22-0671-4ad9-a5be-438dd4d42669)  
+**Owner:** w01-0428-117r4 (codeman 28318f22)  
 **Priority:** not set  
 **PRs:** [baseharbor#1687](https://github.com/mcpdev80/baseharbor/pull/1687)  
 **Source:** 
@@ -63,3 +62,5 @@ Codex review: EN/DE selector wording passes on head d957de2c8d6f88f4900cb64d54ad
 Update: normal base refresh is complete. Fresh compare is ahead 2 / behind 0 from develop 40b9901. EN/DE diff unchanged and source/docs review still passes; exact-head CI is queued on a1f4dc7. Await terminal run and current evidence.
 
 Codex re-review: selector wording in EN/DE remains accurate on a1f4dc7; base compare ahead 2/behind 0 from current develop 40b9901. Run 44441702644 terminal success; documentation-audit, mkdocs EN/DE strict, source format, trusted plan and selected-check enforcement all passed. Native/runtime/Go jobs skipped as irrelevant for docs-only. Await refreshed r4 evidence with current SHA/base.
+
+r4 END akzeptiert: merge-head a1f4dc76f traegt develop 40b9901398 (monoton, r3-inhalt woertlich), exact-run 44441702644 SUCCESS, docs-audit DOCS_EXIT=0 + vet/tests gruen, akte 53fbaec1 mit supersede-kette am band. Handoff an CODEX — merge-fenster: letzter basis-check vor merge wie verabredet
