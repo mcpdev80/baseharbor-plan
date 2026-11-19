@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: "ChatGPT"
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: A fresh Linux workstation can complete the supported baha up new local-Core journey without manually discovering how to install…
 kanban_title: "0428-098 · Guided rootless bootstrap"
 priority: high
@@ -19,18 +19,19 @@ prs: [mcpdev80/baseharbor#1664]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1664"]
 ---
 
-- [ ] t-20261116-r28-guided-rootless-bootstrap · Guided rootless runtime prerequisite repair #task #release/v0-4-28 #status/active #view/active #area/cli #area/runtime #area/security #kind/task
+- [x] t-20261116-r28-guided-rootless-bootstrap · Guided rootless runtime prerequisite repair #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/cli #area/runtime #area/security #kind/task
     <!-- generated:card -->
     **Owner:** ChatGPT · **Priority:** high  
     **PR:** [baseharbor#1664](https://github.com/mcpdev80/baseharbor/pull/1664)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1664)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** ChatGPT  
@@ -86,3 +87,5 @@ A fresh Linux workstation can complete the supported `baha up new` local-Core jo
 ## Handoff
 
 Implementation candidate: [baseharbor#1664](https://github.com/mcpdev80/baseharbor/pull/1664) (draft, feature branch `feat/0428-098-guided-rootless-pr`). Replaces prematurely opened and closed PR #1662. Implementation includes guided repair, consent/fail-closed regression tests, EN/DE documentation and existing-gate source mappings. Await exact-head CI and real first-run Linux evidence before acceptance; no merge/release claimed.
+
+BOARD-KORREKTUR: PR #1664 merged=true, merge-commit 145f98b9c (2026-11-16T21:49Z) ist ANCESTOR von develop — content-integration ist damit BELEGT. Dass der head b60da1bf7 selbst KEIN ancestor ist (squash-merge) und nur 4/8 dateien blob-identisch zu develop aussehen, ist FOLGE spaeterer aenderungen derselben pfade auf develop (rootless_bootstrap.go wurde nach dem merge weiter gepflegt), KEIN verlust: der beweis ist der merge-commit, nicht der blob-vergleich gegen ein bewegtes develop

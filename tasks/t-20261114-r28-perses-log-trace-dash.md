@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: coord
-kanban_status: review
-kanban_lane: review
+kanban_status: planned
+kanban_lane: planned
 kanban_summary: Provide native Perses log/trace dashboards using validated Loki/Tempo plugin versions and actual telemetry.
 kanban_title: 0428-085 · Perses log and trace views
 priority: normal
@@ -23,15 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-log-trace-dash · Perses log and trace views #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [ ] t-20261114-r28-perses-log-trace-dash · Perses log and trace views #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** coord · **Priority:** normal  
     **PR:** [baseharbor#1619](https://github.com/mcpdev80/baseharbor/pull/1619)  
+    **Waiting for prerequisites**  
     **Needs:** [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
@@ -75,3 +76,5 @@ Record exact candidate SHA and focused tests by name. Route every changed test t
 Prerequisites are encoded in `depends_on`. One worker per card/branch/PR, no concurrent writes to shared files. Codex/Owner-delegated Maintainer reviews and merges only after real checks; no independent-review claim. Archive Console/Node Connector repos are excluded. No implementation or release has occurred.
 
 Supersedes [t-20261113-r28-grafana-log-trace-dash](t-20261113-r28-grafana-log-trace-dash.md) under the [Owner decision](../decisions/2026-11-14-perses-replaces-grafana-v0428.md).
+
+BOARD-KORREKTUR: #1619 closed-ohne-merge (merged=false, 2026-11-16T12:58Z), head fbffb965f kein ancestor von develop — auch hier ist der 'review'-zustand ein irregefuehrender rest. Die karte haengt inhaltlich an 0428-086 (loki) und 0428-091 (tempo); 086 ist gemergt-qualifiziert in abnahme, 091 selbst hat nur den DRAFT #1645 (draft ist kein kandidat, §5.2). Neue lane noetig, sobald #1616/#1645 geklaert sind

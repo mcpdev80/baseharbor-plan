@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w131-0428-131-endocshowpf (codeman siehe board-zeile, ornith) — uebernommen, hopf + exakter lauf
+owner: w131-0428-131-endocshowpf (codeman 93521518, ornith:1) — uebernommen von bbd9132d
 kanban_status: blocked
 kanban_lane: blocked
 kanban_summary: "One or two sentences: the observable outcome."
@@ -17,26 +17,26 @@ depends_on: [t-20261119-r28-prgate-docs-internal-json-mapping]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1697]
 sources: []
-blocker: "CI-pfad-mapping Loch: docs/internal/*.json waichert von scripts/pr-gate-plan.py:1189 DOC_CHECKS nicht (nur .md/.rst); documentation-audit auf exakter Lauf 44559589447 nicht ausgewaehlt. Owner-draht-Punkt t-20261119-r28-prgate-docs-internal-json-mapping."
+blocker: "owner-draht karte 0428-144: der documentation-audit laeuft fuer diesen kandidat NIEMALS, weil scripts/pr-gate-plan.py die Doku-auswahl nur auf '.md'/'.rst' (plus README/CONTRIBUTING/CHANGELOG/mkdocs*.yml/site/) stellt; die stelle ist datei scripts/pr-gate-plan.py zeile 1195 (die 1189 der lane-akte zaehlt die elif-kette von oben, ist also dieselbe stelle). DEINE 3 GEAENDERTEN DATEIEN SIND docs/internal/*.json — genau die fallen durchs raster, daher beweist der grüne PR Selected Checks ueberhaupt NICHTS fuer deinen inhalt"
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/en-docs-warning-term/fix-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44478483899", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1697.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/en-docs-warning-term/fix-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44478483899", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1697.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44559589447"]
 ---
 
 - [ ] t-20261119-r28-en-docs-warning-term · EN-Dokumentation nennt das Marker-Wort 'Achtung' statt 'Warning' (i18n-drift nach 0428-126) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
-    **Owner:** w131-0428-131-endocshowpf (codeman siehe board-zeile, ornith) — uebernommen, hopf + exakter lauf  
+    **Owner:** w131-0428-131-endocshowpf (codeman 93521518, ornith:1) — uebernommen von bbd9132d  
     **PR:** [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697)  
-    **Blocker:** CI-pfad-mapping Loch: docs/internal/\*.json waichert von scripts/pr-gate-plan.py:1189 DOC\_CHECKS nicht (nur .md/.rst); documentation-audit auf exakter Lauf 44559589447 nicht ausgewaehlt. Owner-draht-Punkt t-20261119-r28-prgate-docs-internal…  
+    **Blocker:** owner-draht karte 0428-144: der documentation-audit laeuft fuer diesen kandidat NIEMALS, weil scripts/pr-gate-plan.py die Doku-auswahl nur auf '.md'/'.rst' (plus README/CONTRIBUTING/CHANGELOG/mkdocs\*.yml/site/) stellt; die stelle ist datei…  
     **Needs:** [t-20261119-r28-prgate-docs-internal-json-mapping](t-20261119-r28-prgate-docs-internal-json-mapping.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/en-docs-warning-term/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44478483899), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1697.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/en-docs-warning-term/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44478483899), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1697.md), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44559589447)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261119-r28-prgate-docs-internal-json-mapping](t-20261119-r28-prgate-docs-internal-json-mapping.md)  
-**Owner:** w131-0428-131-endocshowpf (codeman siehe board-zeile, ornith) — uebernommen, hopf + exakter lauf  
+**Owner:** w131-0428-131-endocshowpf (codeman 93521518, ornith:1) — uebernommen von bbd9132d  
 **Priority:** not set  
 **PRs:** [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697)  
 **Source:** 
@@ -95,3 +95,5 @@ CODEX-REVIEW: REQUEST CHANGES at exact head 3448f73e697cd7fdb1a338ef8422b5d484bb
 inhaltlich ist die korrektur in Ordnung (drei EN-JSON-stellen, docs/de unveraendert) — die karte haengt an der gate-auswahl, nicht am text
 
 ZUORDNUNG DER UNABHAENGIGEN REVIEW (auf bitte der abnahme, read-only): ziel = PR #1697 auf genauen kopf 3448f73e697cd7fdb1a338ef8422b5d484bbe814 gegen base develop 1019190d8dc0ecac7693f3461153e76be0e2cb8a. umfang: die 3 dateien des diffs, EN/DE marker-term 'Warning' konsistenz, und die frage, ob der documentation-audit die geaenderten pfade erwischt (wenn nein: datei:zeile der selektionsregel als befuind, dann wird es ein weiterer 114-draht-punkt). REGELN DAFUER: nur lesen, kein commit/push auf den zweig, KEIN merge, KEIN urteil ueber andere koepfe; ein urteil gilt nur fuer DIESEN kopf und faellt mit jedem develop-sprung, der .github/workflows/ci.yml oder scripts/test_pr_*|test_ci_* beruehrt (meine base-abstands-regel). UMSETZUNG etwaniger funde bleibt bei einer worker-lane, die ICH dispatche (§2: die abnahme implementiert nicht), und der sitz dafuer wird erst frei, wenn 089s korrektur-lane laeuft oder ornith-holds verfallen
+
+KANDIDAT IST TADELLOS UND FERNSICHTIG BELEGT, von mir im selben schritt gelesen: zweig-head 708f5c5c8acee5133e480d151544cb139bb3ded3 per ls-remote, base = develop 1019190d8dc0ecac7693f3461153e76be0e2cb8a, mergeable_state clean, draft=false, 'git merge-base --is-ancestor origin/develop 708f5c5c8' = 0 (monotoner hopf, KEIN rewrite), lauf 44559589447 completed SUCCESS auf GENAU DIESEM kopf (created 15:51:54Z, updated 15:56:50Z, nach dem develop-commit 14:56:29Z), 'PR Selected Checks' success, 0 fehljobs; dein diff gegen develop = genau 3 dateien docs/internal/*.json. AKTE auf main: evidence/r28-welle4-2026-11-19/en-docs-warning-term/fix-2.md (commit 09cba8e2, 12 zeilen mit den 40er-shas/lauf-id). DER GRUND WARUM SIE TROTZGRDEM BLOCKED BLEIBT UND NICHT REVIEW: ein 'review' verlangt einen pruefbaren kanditaten MIT PASSENDER EVIDENCE (§5.1), und die fehlende stelle ist nicht deine arbeit: ohne die DOC_CHECKS-abbildung kann dich niemand unabhaengig pruefen, weil der audit nicht einmal gestartet wird. NACH dem owner-draht: ein einziger exact-head-lauf mit documentation-audit in der ausgewaehlten liste, dann review — du musst dafuer NICHT nochmal hopfen, der kopf 708f5c5c8 bleibt gueltig, solange develop ihn enthaelt

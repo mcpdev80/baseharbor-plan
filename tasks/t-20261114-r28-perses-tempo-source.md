@@ -8,14 +8,14 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: coord
-kanban_status: review
+kanban_status: planned
 kanban_lane: review
 kanban_summary: "Provision selected authorized Tempo datasource via supported Perses plugin, scoped and verified."
 kanban_title: 0428-091 · Connect Perses Tempo
 priority: normal
 depends_on: [t-20261114-r28-perses-contract-seam, t-20261114-r28-perses-runtime, t-20261114-r28-perses-signal-inventory]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1610]
+prs: [mcpdev80/baseharbor#1610, "mcpdev80/baseharbor#1610,mcpdev80/baseharbor#1645"]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -76,3 +76,5 @@ Prerequisites are encoded in `depends_on`. One worker per card/branch/PR, no con
 Supersedes [t-20261113-r28-grafana-tempo-source](t-20261113-r28-grafana-tempo-source.md) under the [Owner decision](../decisions/2026-11-14-perses-replaces-grafana-v0428.md).
 
 luna-r1 REQUEST_CHANGES (bdafd838) — korrekturrunde laeuft
+
+BOARD-KORREKTUR: der eingetragene #1610 ist closed-ohne-merge (d57ab5275, 2026-11-16T12:58Z), der einzige offene traeger ist #1645 — und der ist DRAFT. Ein draft ist kein kandidat (§5.2, meine eigene regel den lanen), deshalb darf die karte nicht auf review stehen. Zustand planned; der weg zur abnahme: draft #1645 auf non-draft + hopf + exaktkopf-lauf
