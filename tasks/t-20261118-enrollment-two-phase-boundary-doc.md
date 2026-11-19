@@ -75,3 +75,5 @@ r5 END akzeptiert: DE nennt jetzt beide identity-write guards (consumed_at IS NO
 CODEX-REVIEW ACCEPT at 50f87cfb8dd6e87913044f96cc0204af1423b61c; merged normally as deeeb64778b3f6109d3a8e49fd652d490901e89c. Exact-head CI 44460025899 SUCCESS; docs checks, selected unit jobs, native Keycloak/Core Docker+Podman, and PR Selected Checks pass. Develop ec592fd38 was an ancestor; no force or protection bypass.
 
 115 gemergt: PR #1685 head 50f87cfb8 -> develop deeeb6477 (merge-commit), run 44460025899 SUCCESS, DE+EN nennen beide identity-write guards
+
+Verified merge: PR #1685 head 50f87cfb8dd6e87913044f96cc0204af1423b61c merged as deeeb64778b3f6109d3a8e49fd652d490901e89c, now develop. Exact-head run 44460025899 terminal success; docs audit and strict EN/DE plus selected Go/native jobs passed. German RecordIssued guard description now includes both certificate_serial IS NULL and consumed_at IS NOT NULL, matching EN. Accepted after merged-head verification.
