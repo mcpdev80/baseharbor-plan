@@ -3,32 +3,31 @@ id: t-20261118-enrollment-two-phase-boundary-doc
 release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
-owner: w99-0428-115 r4 (codeman f11d4b4e)
-kanban_status: blocked
+owner: w99-0428-115 r5 (codeman baf201fd-6d17-4c08-a529-fd3b28764cf4)
+kanban_status: active
 card_number: 0428-115
 card_short_title: document the enrollment
 kanban_title: 0428-115 · document the enrollment
 prs: [mcpdev80/baseharbor#1685]
 wait_reason: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/enrollment-twophase/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1685", "https://github.com/mcpdev80/baseharbor/actions/runs/44408281995", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1685.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44446194802", "https://github.com/mcpdev80/baseharbor/actions/runs/44457842661"]
-blocker: "Review changes requested at exact head bb685c2dca5b4d19159eca8ceda8cb9076638dd4: German paragraph omits RecordIssued consumed-grant predicate consumed_at IS NOT NULL; see PR comment 6999847636."
+blocker: ""
 
 ---
 # t-20261118-enrollment-two-phase-boundary-doc · document the enrollment consume/issue two-phase boundary
 
-- [ ] t-20261118-enrollment-two-phase-boundary-doc · document the enrollment consume/issue two-phase boundary #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261118-enrollment-two-phase-boundary-doc · document the enrollment consume/issue two-phase boundary #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w99-0428-115 r4 (codeman f11d4b4e)  
+    **Owner:** w99-0428-115 r5 (codeman baf201fd-6d17-4c08-a529-fd3b28764cf4)  
     **PR:** [baseharbor#1685](https://github.com/mcpdev80/baseharbor/pull/1685)  
-    **Blocker:** Review changes requested at exact head bb685c2dca5b4d19159eca8ceda8cb9076638dd4: German paragraph omits RecordIssued consumed-grant predicate consumed\_at IS NOT NULL; see PR comment 6999847636.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/enrollment-twophase/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1685), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44408281995), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1685.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44446194802), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44457842661)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w99-0428-115 r4 (codeman f11d4b4e)  
+**Owner:** w99-0428-115 r5 (codeman baf201fd-6d17-4c08-a529-fd3b28764cf4)  
 **Priority:** not set  
 **PRs:** [baseharbor#1685](https://github.com/mcpdev80/baseharbor/pull/1685)  
 **Source:** 
@@ -67,3 +66,5 @@ r4-lane dispatched (freie 088er-spur uebernommen): zwei sprach-punkte gem. comme
 r4 END akzeptiert: 'verpflichtet' durch 'eigene Transaktion abgeschlossen' ersetzt (commit-semantik korrekt), guard-satz direkt; head bb685c2dc monoton (ec592fd385 ancestor), run 44457842661 SUCCESS terminal + PR Selected Checks, akte fix-3.md (3f57ae39). vierte rueckweisung abgearbeitet — Routing an CODEX final
 
 Re-reviewed exact head bb685c2d; corrected commit wording now reads clearly, but EN/DE guard descriptions are asymmetric because DE omits the consumed-grant predicate in RecordIssued. Exact-head run 44457842661 terminal success. Review comment 6999847636; no merge pending narrow DE correction and refreshed exact-head evidence.
+
+r5 dispatched: DE-absatz nennt nur einen der beiden identity-schreib-schutze (serial-is-null) — consumed_at IS NOT NULL fehlt gegen EN (comment 6999847636, korrigierter end-text). eine stelle, kein inhaltsschritt. head bb685c2dc anerkannt bis darauf
