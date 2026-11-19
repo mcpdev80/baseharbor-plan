@@ -17,7 +17,7 @@ depends_on: [t-20261114-r28-cli2-contract, t-20261114-r28-cli2-env-policy]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1620]
 sources: []
-blocker: "audit-fehler blockiert secret-reveal nicht (app_access.go --reveal) UND base cli2-env-policy-head -> kein exaktkopf-lauf (ci.yml:14-18)"
+blocker: "audit-fehler blockiert secret-reveal nicht (cmd/baha/app_access.go, --reveal-Zweig) UND base cli2-env-policy-head -> kein exaktkopf-lauf moeglich (ci.yml:14-18, owner-draht wie #1615)"
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** coord · **Priority:** high  
     **PR:** [baseharbor#1620](https://github.com/mcpdev80/baseharbor/pull/1620)  
-    **Blocker:** audit-fehler blockiert secret-reveal nicht (app\_access.go --reveal) UND base cli2-env-policy-head -\> kein exaktkopf-lauf (ci.yml:14-18)  
+    **Blocker:** audit-fehler blockiert secret-reveal nicht (cmd/baha/app\_access.go, --reveal-Zweig) UND base cli2-env-policy-head -\> kein exaktkopf-lauf moeglich (ci.yml:14-18, owner-draht wie \#1615)  
     **Needs:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
     <!-- /generated:card -->
 
