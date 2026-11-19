@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: regvisibility-lane (1e209bb7)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-123 · registry-Eintrag ohne
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-hunt-metrics-registration-visibility-only · Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261119-hunt-metrics-registration-visibility-only · Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** regvisibility-lane (1e209bb7)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** regvisibility-lane (1e209bb7)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
