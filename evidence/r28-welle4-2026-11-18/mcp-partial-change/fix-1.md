@@ -54,7 +54,21 @@
 - No container/compose project started (R1, unit-only).
 - No .github/** touched, no workflow_dispatch / rerun.
 - Worktree /tmp/opencode/120-mcp-status-wt only; git untouched elsewhere.
+- Base move handled: develop moved 8dccd4fe1 -> 9a37b4bc6 (PR #1663/demo#164 merged);
+  branch rebased (no force of shared history) onto new base, affected checks rerun.
 - cleanliness: OK — no test-eigen artefacts.
+
+## Green: exact-head run on new base
+
+- Rebased branch onto 9a37b4bc6 (new develop HEAD); log shows ONLY my commit
+  23837dcc on top of base 9a37b4bc6; base is ancestor of HEAD.
+- go build/vet + TestCore921 green on new base (local).
+- CI run 44426400958 (pull_request, head 23837dcc5) COMPLETED success:
+  Source format, Native gate plan, Workflow policy, PR Trusted Plan,
+  Focused Python, go-vet, Go unit (cli-0/1/2/3, owner, packages), go-build,
+  cli-gofmt all success; targeted docker/podman/HA/release gates skipped (no
+  affected path). Run-ID 44426400958, status completed, conclusion success.
+- PR #1688, base develop, head 23837dcc, mergeable, 1 commit / 2 files.
 
 ## END
 

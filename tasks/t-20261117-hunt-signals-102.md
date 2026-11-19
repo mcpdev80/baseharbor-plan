@@ -101,7 +101,7 @@ Einzelschritte in der referenzierten hunt-akte (befund-1.md); Umsetzung als norm
 - Additional local verification at `d144945af13641e5bdb1564f77b807b2d52b81cb`: `go vet ./...`, full `go test ./internal/application -count=1` (277s), and `go build ./...` passed. Runtime gate remains open pending diagnosis.
 
 
-## Handoff - 2026-11-17
+## Handoff - 2026-11-17 — [SUPERSEDED 2026-11-19: prerequisites #1679/#1680 merged, Codex claim am band (active/Codex); der ZWEIFEL-stop gilt nicht mehr als arbeitsanweisung, review/refresh laeuft in der Codex-lane. Kein Worker editet/pusht #1677 — verifiziert: 4 laufende lanes gehören zu 118/120/117/119]
 
 **ZWEIFEL / not accepted.** The implementation and unit/build/vet checks are complete, but PR #1677 cannot be accepted while the selected Docker observability gate repeatedly times out querying Loki for prometheus/workload. Two executions at exact head d144945af13641e5bdb1564f77b807b2d52b81cb failed with context deadline exceeded after the metrics scrape passed; the expected negative-consent assertion is separate. See [0428-113](t-20261117-docker-loki-ingestion-timeout.md), [run 44049176474](https://github.com/mcpdev80/baseharbor/actions/runs/44049176474), and [candidate commit](https://github.com/mcpdev80/baseharbor/commit/d144945af13641e5bdb1564f77b807b2d52b81cb). PR #1677 remains open and unmerged. This lane stops work on 0428-102 and moves to next independent Ready card 0428-105; 0428-113 is queued for a separate lane to diagnose the gate failure.
 
