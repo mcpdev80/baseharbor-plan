@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: coord
-kanban_status: planned
-kanban_lane: planned
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "App export and recovery UX. Follow the owner working brief, command mapping and code entry index; revalidate current develop and…"
 kanban_title: 0428-065 · App export and recovery UX
 priority: high
@@ -17,22 +17,22 @@ depends_on: [t-20261114-r28-cli2-contract, t-20261114-r28-cli2-identity-secrets]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1625]
 sources: []
-blocker: ""
+blocker: "managedSecretScopePresent hardcoded (false,nil), app_export.go:273-275 — angekündigter export nie verfuegbar; base cli2-identity-secrets-head -> kein exaktkopf-lauf (ci.yml:14-18)"
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-app-export · CLI redesign: App export and recovery UX #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-app-export · CLI redesign: App export and recovery UX #task #release/v0-4-28 #status/blocked #view/blocked #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** coord · **Priority:** high  
     **PR:** [baseharbor#1625](https://github.com/mcpdev80/baseharbor/pull/1625)  
-    **Waiting for prerequisites**  
+    **Blocker:** managedSecretScopePresent hardcoded (false,nil), app\_export.go:273-275 — angekündigter export nie verfuegbar; base cli2-identity-secrets-head -\> kein exaktkopf-lauf (ci.yml:14-18)  
     **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  

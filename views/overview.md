@@ -10,13 +10,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 10 |
+| active | 11 |
 | review | 6 |
 | wait | 14 |
-| blocked | 7 |
+| blocked | 10 |
 | ready | 4 |
 | queued | 25 |
-| waiting | 183 |
+| waiting | 180 |
 | backlog | 7 |
 | closed | 334 |
 
@@ -31,6 +31,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | CLI redesign: Organization environment reconciliation | active | high | welle2-056-cli2-org-env | [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) (open) | — |
 | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | Connect Perses Prometheus | active | normal | 0428-083 lane (codeman 5447f0df, flash) — korrekturrunde: gate-zuordnung | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684) |
 | [t-20261114-r28-perses-secure-access](../tasks/t-20261114-r28-perses-secure-access.md) | Protect Perses operator access | active | normal | 0428-089 korrektur (codeman b60c11a1, flash) — SELBE session fuehrt die korrektur aus, keine neue lane | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) | [baseharbor#1599](https://github.com/mcpdev80/baseharbor/pull/1599) |
+| [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | active | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) (open) | — |
 | [t-20261119-r28-bughunt-lifecycle-consent-desk](../tasks/t-20261119-r28-bughunt-lifecycle-consent-desk.md) | hunt lifecycle/consent desk | active | not set | Coordinator 9142ab1f (bahn: hunt-lane auf ornith:2, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/) | — | — |
 | [t-20261119-r28-bughunt-observability-desk](../tasks/t-20261119-r28-bughunt-observability-desk.md) | hunt observability desk | active | not set | Coordinator 9142ab1f (bahn: hunt-lane auf ornith:1, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/) | — | — |
 | [t-20261119-r28-perses-status-backend-witness](../tasks/t-20261119-r28-perses-status-backend-witness.md) | CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben | active | not set | laptop-142-statuswitness | — | — |
@@ -69,6 +70,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [t-20261114-r28-cli2-app-export](../tasks/t-20261114-r28-cli2-app-export.md) | CLI redesign: App export and recovery UX | blocked | high | coord | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) (open) | [baseharbor#1625](https://github.com/mcpdev80/baseharbor/pull/1625) |
+| [t-20261114-r28-cli2-app-interact](../tasks/t-20261114-r28-cli2-app-interact.md) | CLI redesign: Guide app logs exec and urls | blocked | high | coord | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) (open), [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) (open) | [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623) |
+| [t-20261114-r28-cli2-env-delete](../tasks/t-20261114-r28-cli2-env-delete.md) | CLI redesign: Environment deletion lifecycle | blocked | high | coord | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) (open), [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) (open) | [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627) |
 | [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) | CLI redesign: Separate human/runtime secret authority | blocked | high | 0428-057 (codeman 01b370c0, END_BLOCKED, sitz wird entlassen) | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) (open), [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) (open) | [baseharbor#1615](https://github.com/mcpdev80/baseharbor/pull/1615) |
 | [t-20261114-r28-cli2-wizard-platform](../tasks/t-20261114-r28-cli2-wizard-platform.md) | CLI redesign: Platform and access wizards | blocked | high | coord | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) (open) | [baseharbor#1620](https://github.com/mcpdev80/baseharbor/pull/1620) |
 | [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) | Perses identity dashboard | blocked | normal | coord | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650) |
@@ -90,7 +94,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 7 open, 162 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 61 open, 104 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 62 open, 104 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
