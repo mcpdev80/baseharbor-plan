@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-122 r2 (codeman 40d70b4e)
-kanban_status: active
-kanban_lane: active
+owner: 0428-122 r2 (codeman 40d70b4e, sitz entlassen)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-122 · Klasse App hat keinen
 priority: ""
@@ -23,18 +23,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1692", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1692.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44451374676"]
 ---
 
-- [ ] t-20261119-hunt-metrics-appclass-log-writer · Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261119-hunt-metrics-appclass-log-writer · Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-122 r2 (codeman 40d70b4e)  
+    **Owner:** 0428-122 r2 (codeman 40d70b4e, sitz entlassen)  
     **PR:** [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1692), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1692.md), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44451374676)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0428-122 r2 (codeman 40d70b4e)  
+**Owner:** 0428-122 r2 (codeman 40d70b4e, sitz entlassen)  
 **Priority:** not set  
 **PRs:** [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692)  
 **Source:** 
@@ -88,3 +88,5 @@ CODEX-REVIEW REQUEST CHANGES at 8956bf08e40e52b84a0dae55a9f1cb54db957636: curren
 REQUEST_CHANGES auf 8956bf08e (zweig inzwischen base-exakt b7f245f10, run 44464979623 SUCCESS): service-dimension geht in source-id und reconcile-boundary verloren; render-time reconciliation muss den aktiven service-set registrieren und stale eintraege entfernen
 
 korrektur-runde laeuft: service-dimension in source-id + reconcile-boundary, render-time reconciliation auf dem aktiven service-set (REQUEST_CHANGES-kommentar auf 8956bf08e). arbeit in /var/tmp/m122-appclass-wt, ein kandidat auf refs/heads/lane-0428-appclass-writer (PR #1692, stand b7f245f10). alt-worktree /tmp/opencode/w-appclass-writer-wt (stale 8956bf08e, untracked test-streuobst) bewusst nicht angefasst; toter res-pool-eintrag bereinigt
+
+korrektur abgegeben: service-dimension in source-id UND reconcile-boundary zurueck, render-time reconciliation auf dem aktiven service-set (stale eintraege weg). rot auf b7f245f10 -> gruen auf 876329f73, monoton auf develop da76c5cf9 (enthaelt 21161b101), exact-head run 44473809584 TERMINAL SUCCESS 14/0 inkl. 'Go unit · packages'; akte appclass-writer/fix-2.md (origin/main 38832422). hinweis der lane: PR #1692 steht im auto-merge-queue-pfad, ein queue-push hat ihren laufenden job abgebrochen — dritter lauf fuer die abnahme nicht noetig, der terminal SUCCESS auf exaktem kopf liegt vor
