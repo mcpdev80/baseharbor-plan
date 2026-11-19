@@ -104,5 +104,5 @@ END verify-chain1 DONE
 
 ### Publication witness (second-to-last action)
 
-- `git ls-remote origin main` (baseharbor-plan) → `cfb30a549787ad8628e7219657ba7f04428741b9 refs/heads/main`; `git rev-parse HEAD` equals it, workspace clean. The akte content is verified on origin/main at this head via `git show origin/main:evidence/r28-welle4-2026-11-19/verify-chain1/befund-1.md` (line above included). Chain: 1194076b (akte) → bd752f7c/85b26744/cfb30a54 (witness commits, rebased monotonically through the hot planning repo; no force).
+- `git rev-parse HEAD` (baseharbor-plan) → `c3c8fbf4ada4ac83117ac8c20055ba4825d8011e`, equal to `git ls-remote origin main` (same SHA), `git status -sb` clean. Akte content read back from the remote at this head via `git show origin/main:evidence/r28-welle4-2026-11-19/verify-chain1/befund-1.md`. Chain: 1194076b (akte) → bd752f7c → 85b26744 → cfb30a54 → c3c8fbf4 (witness commits, rebased monotonically through the hot planning repo; no force, `git cherry` empty).
 - Race note: the planning repo was hot while this lane worked (main moved dc45bbc2 → 08c5b593 → 9b9514e9 → 1194076b → …); the first push hit a ref-lock race whose remote head already equalled this lane's 1194076b, and one later push needed a plain `git rebase origin/main` (no duplicate patch left, `git cherry` empty, workspace clean). No force at any point.
