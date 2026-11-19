@@ -28,7 +28,7 @@ evidence: []
     **Owner:** lane-0428-env-registry · **Priority:** high  
     **PR:** [baseharbor#1591](https://github.com/mcpdev80/baseharbor/pull/1591)  
     **Waiting:** approved on b85efaf6 (act-1591-review-r1); frost-bis, dann window in stack-reihenfolge  
-    **Needs:** [t-20261114-r28-cli2-uid-environment](t-20261114-r28-cli2-uid-environment.md), [t-20261114-r28-cli2-uid-target](t-20261114-r28-cli2-uid-target.md)  
+    **Needs:** [t-20261114-r28-cli2-uid-target](t-20261114-r28-cli2-uid-target.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

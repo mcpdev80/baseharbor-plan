@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: codex-open-pr-sweep-1578
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Introduce logical environment identity. Follow the owner working brief, command mapping and code entry index; revalidate current…"
 kanban_title: 0428-051 · Introduce logical Env identity
 priority: high
@@ -19,21 +19,22 @@ prs: [mcpdev80/baseharbor#1578]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1578", "https://github.com/mcpdev80/baseharbor/actions/runs/44637676104"]
 ---
 
-- [ ] t-20261114-r28-cli2-uid-environment · CLI redesign: Introduce logical environment identity #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [x] t-20261114-r28-cli2-uid-environment · CLI redesign: Introduce logical environment identity #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** codex-open-pr-sweep-1578 · **Priority:** high  
     **PR:** [baseharbor#1578](https://github.com/mcpdev80/baseharbor/pull/1578)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1578), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44637676104)  
     <!-- /generated:card -->
 
 STACK (owner-anweisung 2026-11-15): basis-karte = cli2-uid-app (kette app->env->target, max 3 ebenen); branch am head der basis-lane, gewartet wird nur auf inhalte, nie auf merges; nach basis-anderung: rebasen + hier vermerken — PR #1578 base = lane-0428-uid-app (retarget 15.11)+
 
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-uid-app](t-20261114-r28-cli2-uid-app.md)  
 **Required by:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md), [t-20261114-r28-cli2-uid-target](t-20261114-r28-cli2-uid-target.md)  
@@ -75,4 +76,9 @@ Identity uniqueness, concurrent registration, rename stability, shared multiple 
 
 ## Handoff
 
-Planned and unassigned. No product implementation or acceptance yet.
+Accepted and merged by the Maintainer under the delegated authorization. PR #1578 head `97689a75d54d2b28a04e002ccc3afd202b9d5210` merged to `develop` as `d5c11753ea437495eb2469a02f80b91d788fef4f` on 2026-11-19 23:32:33 UTC.
+
+- Regression: `TestGetEnvironmentConcurrentRegistrationIsAtomic` (package `internal/deployment`), auto-discovered by PR Go unit and `deployment-package-tests`.
+- Local verification on the merged candidate: focused concurrency test `-count=30`, `go test ./internal/environment ./internal/deployment -count=1`, matching `go vet`, `go build ./...`, source readability audit, and `git diff --check` passed.
+- Exact-head hosted run `44637676104` passed selected Go shards/packages, deployment-package-tests, build, vet, source format, workflow policy, trusted plan, focused Python, and aggregate. Native/runtime/release checks were skipped by impact selection; this change is a local filesystem identity registration fix.
+- No release/tag or cross-repository work was involved.

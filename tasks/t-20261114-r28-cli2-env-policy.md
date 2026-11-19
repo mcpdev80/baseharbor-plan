@@ -26,7 +26,6 @@ evidence: []
 - [ ] t-20261114-r28-cli2-env-policy · CLI redesign: Replace name-based environment policy #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** coord · **Priority:** high  
-    **Needs:** [t-20261114-r28-cli2-uid-environment](t-20261114-r28-cli2-uid-environment.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
