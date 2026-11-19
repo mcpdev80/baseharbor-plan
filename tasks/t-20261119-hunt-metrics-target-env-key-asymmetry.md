@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/target-env-key/fix-1.md]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/target-env-key/fix-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1694.md"]
 ---
 
 - [ ] t-20261119-hunt-metrics-target-env-key-asymmetry · Runtime-metrics target-file-key fuehrt environment nicht, group-label schon — asymmetrische Zuordnung #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** w99-0428-125 (codeman e409b9b1)  
     **PR:** [baseharbor#1694](https://github.com/mcpdev80/baseharbor/pull/1694)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/target-env-key/fix-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/target-env-key/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1694.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
