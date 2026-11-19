@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: coord
-kanban_status: review
-kanban_lane: review
+owner: kein lebender inhaber (owner war 'coord'), korrekurrunde = draft-promotion
+kanban_status: planned
+kanban_lane: planned
 kanban_summary: "Add stable target identity. Follow the owner working brief, command mapping and code entry index; revalidate current develop and…"
 kanban_title: 0428-052 · Add stable target identity
 priority: high
@@ -23,10 +23,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-uid-target · CLI redesign: Add stable target identity #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-uid-target · CLI redesign: Add stable target identity #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** coord · **Priority:** high  
+    **Owner:** kein lebender inhaber (owner war 'coord'), korrekurrunde = draft-promotion · **Priority:** high  
     **PR:** [baseharbor#1580](https://github.com/mcpdev80/baseharbor/pull/1580)  
+    **Waiting for prerequisites**  
     **Needs:** [t-20261114-r28-cli2-uid-environment](t-20261114-r28-cli2-uid-environment.md)  
     <!-- /generated:card -->
 
@@ -34,11 +35,11 @@ STACK (owner-anweisung 2026-11-15): basis-karte = cli2-uid-environment (kette ap
 
 
 <!-- generated:links -->
-**State:** review  
+**State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-uid-environment](t-20261114-r28-cli2-uid-environment.md)  
 **Required by:** [t-20261114-r28-cli2-context-shell](t-20261114-r28-cli2-context-shell.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
-**Owner:** coord  
+**Owner:** kein lebender inhaber (owner war 'coord'), korrekurrunde = draft-promotion  
 **Priority:** high  
 **PRs:** [baseharbor#1580](https://github.com/mcpdev80/baseharbor/pull/1580)  
 **Source:** 
@@ -74,3 +75,7 @@ Existing target migration is idempotent; rename preserves UID; collisions fail c
 ## Handoff
 
 Planned and unassigned. No product implementation or acceptance yet.
+
+test
+
+BOARD-KORREKTUR nach unabhaengiger GEGENLESE (akte evidence/r28-welle4-2026-11-19/codex-review-wave/board-sweep-gegenlese-1.md, haupt e86d817d): der PR dieses fachers ist draft=true. Ein draft ist KEIN kanditat (§5.2), also war der zustand 'review' zu gut — er versprach einen pruefbaren kanditaten, den es nicht gibt. FEHLENDE STUFE, klar benannt: draft auf non-draft, EIN monotoner hopf auf den aktuellen develop, EIN exact-head-lauf bis terminal; die arbeit im zweig ist vorhanden. Rueckstandiger zustand, kein inhaltlicher rueckstand

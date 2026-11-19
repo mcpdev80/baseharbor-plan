@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: coord
-kanban_status: review
-kanban_lane: review
+kanban_status: planned
+kanban_lane: planned
 kanban_summary: "Platform and access wizards. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-067 · Platform and access wizards
 priority: high
@@ -23,15 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-wizard-platform · CLI redesign: Platform and access wizards #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-wizard-platform · CLI redesign: Platform and access wizards #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** coord · **Priority:** high  
     **PR:** [baseharbor#1620](https://github.com/mcpdev80/baseharbor/pull/1620)  
+    **Waiting for prerequisites**  
     **Needs:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
@@ -71,3 +72,5 @@ User guided across empty/missing/ambiguous contexts; trust and destructive conse
 ## Handoff
 
 Planned and unassigned. No product implementation or acceptance yet.
+
+BOARD-KORREKTUR nach unabhaengiger GEGENLESE (akte evidence/r28-welle4-2026-11-19/codex-review-wave/board-sweep-gegenlese-1.md, haupt e86d817d): der PR dieses fachers ist draft=true. Ein draft ist KEIN kanditat (§5.2), also war der zustand 'review' zu gut — er versprach einen pruefbaren kanditaten, den es nicht gibt. FEHLENDE STUFE, klar benannt: draft auf non-draft, EIN monotoner hopf auf den aktuellen develop, EIN exact-head-lauf bis terminal; die arbeit im zweig ist vorhanden. Rueckstandiger zustand, kein inhaltlicher rueckstand
