@@ -8,33 +8,35 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: "lane-demo-drive-matcher (opencode worker, mission-demo-drive-matcher.md)"
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-129 · drive.py matcher auf das
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor-demo]
-prs: []
+prs: ["mcpdev80/baseharbor-demo#165"]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/demo-drive-matcher/fix-1.md"]
 ---
 
-- [ ] t-20261119-r28-demo-drive-matcher-warning-marker · Demo: drive.py matcher auf das Warning-marker-verhalten der annerkennenden stadien ziehen #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261119-r28-demo-drive-matcher-warning-marker · Demo: drive.py matcher auf das Warning-marker-verhalten der annerkennenden stadien ziehen #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** lane-demo-drive-matcher (opencode worker, mission-demo-drive-matcher.md)  
+    **PR:** [baseharbor-demo#165](https://github.com/mcpdev80/baseharbor-demo/pull/165)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/demo-drive-matcher/fix-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** lane-demo-drive-matcher (opencode worker, mission-demo-drive-matcher.md)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor-demo#165](https://github.com/mcpdev80/baseharbor-demo/pull/165)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -75,6 +77,7 @@ One or two sentences: the observable outcome.
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+- 2026-11-19: candidate `bc4c6113be92599c962b2377b038173593483a18` on `lane-0428-demo-drive-matcher` (cut from demo `origin/develop@5d1cf312e18d06915db35c340bebe4e3d4f39d45`), PR https://github.com/mcpdev80/baseharbor-demo/pull/165, required run https://github.com/mcpdev80/baseharbor-demo/actions/runs/44477622615 `completed success` observed by the lane at the exact head. Evidence: `evidence/r28-welle4-2026-11-19/demo-drive-matcher/fix-1.md`. Card at review; merge/acceptance is not the lane's step.
 
 ## Purpose
 Folgekarte zu 0428-126 (core, PR #1696, gemeldet in evidence/r28-welle4-2026-11-19/dualmatch-docs/fix-1.md): das Warning-marker wird jetzt in JEDEM annerkennenden CLI-stadium gedruckt (gate-semantik unveraendert). Die Demo-Bahn `drive.py` erkennt stadien ueber ein eigenes matcher-pattern; bleibt das Muster unveraendert, sieht die demo einen zustand als nicht-annerkannt, waehrend der core das marker setzt — also eine demo-seitige Scheibenfalse-negativ-erkennungs-luecke.
