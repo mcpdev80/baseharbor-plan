@@ -89,7 +89,17 @@ env; `strings.Count` guard for the double-anchor case).
 
 ## CI EVIDENCE
 
-- Run-ID / status / job list: PENDING (after push + terminal CI run)
+- Run: `44495408370`, conclusion **success** (terminal), head_sha `f28b97a53870bb3f5cb5c90618dea977df3f1c2b`, branch `lane-0428-efilter`.
+- Required PR jobs all SUCCESS: `PR · Source format`, `PR · Validation · go-build`, `PR · Validation · go-vet`, `PR · Exact Candidate`, `PR · Runner Interface`, `PR · Demo Pin`, `PR · Focused Python`, `PR · Validation · identity-provider-package-tests`, `PR · Go unit · {cli-0,cli-1,cli-2,cli-3,packages,owner}`, `PR · Native gate plan`, `PR · Trusted Plan`, `PR · Workflow policy`, docker runtime gates `PR · Selected Runtime ... observability` + `identity`.
+- Trigger: standard push-triggered CI on the branch push (no rerun/workflow_dispatch by this lane).
+- Local pre-checks (before push): `gofmt -l .` empty; `go build ./...` exit 0; `go vet ./...` clean; `go test ./internal/observability/ ./internal/metrics/ ./internal/logs/ ./internal/application/` all ok; `bash scripts/source-readability-audit.sh` all three checks PASS.
+
+## BRANCH PROVENANCE
+
+- Base attested (cut from): d1fcfdf6b8376a30f5100c8c30f5f3491427cf9e (lane-0428-efitter head / monotone on develop da76c5cf9)
+- My commit: f28b97a53870bb3f5cb5c90618dea977df3f1c2b (single commit, 2 files, +152/−24)
+- `git merge-base --is-ancestor d1fcfdf6b ... f28b97a5` → YES (monotone hop, no foreign commit)
+- Push: `d1fcfdf6..f28b97a5 HEAD -> lane-0428-efilter` (remote head before push d1fcfdf6b, after push f28b97a5)
 
 ## HOST HYGIENE
 
