@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-121 r6 (Codeman 43911492, head 594086014e146f4a965f7446fef25def2d8d8cd1, CI gruen, Abnahme-Hold)
-kanban_status: active
-kanban_lane: active
+owner: 0428-121 r6 (codeman 43911492, head 594086014 gepusht, fail-closed-korrektur laeuft)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-121 · Env-Filter wirkt nicht auf
 priority: ""
@@ -23,18 +23,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-route2-review.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-anchor-recheck.md", "https://github.com/mcpdev80/baseharbor/pull/1691", "https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7005246254", "https://github.com/mcpdev80/baseharbor/actions/runs/44495408370", "https://github.com/mcpdev80/baseharbor/actions/runs/44495408370/job/135465056267", "https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7006167759", "https://github.com/mcpdev80/baseharbor/actions/runs/44503654267", "https://github.com/mcpdev80/baseharbor/actions/runs/44503654267/job/135494319127", "https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7006544772", "https://github.com/mcpdev80/baseharbor/actions/runs/44506393063", "https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7006780126", "https://github.com/mcpdev80/baseharbor/actions/runs/44506393063/job/135499103544", "https://github.com/mcpdev80/baseharbor/actions/runs/44512393468", "https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7007503951", "https://github.com/mcpdev80/baseharbor/actions/runs/44512393468/job/135523754447"]
 ---
 
-- [ ] t-20261119-hunt-metrics-env-filter-list-pfade · Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261119-hunt-metrics-env-filter-list-pfade · Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-121 r6 (Codeman 43911492, head 594086014e146f4a965f7446fef25def2d8d8cd1, CI gruen, Abnahme-Hold)  
+    **Owner:** 0428-121 r6 (codeman 43911492, head 594086014 gepusht, fail-closed-korrektur laeuft)  
     **PR:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-route2-review.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-4.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-anchor-recheck.md), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1691), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7005246254), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44495408370), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/44495408370/job/135465056267), [proof 9](https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7006167759), [proof 10](https://github.com/mcpdev80/baseharbor/actions/runs/44503654267), [proof 11](https://github.com/mcpdev80/baseharbor/actions/runs/44503654267/job/135494319127), [proof 12](https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7006544772), [proof 13](https://github.com/mcpdev80/baseharbor/actions/runs/44506393063), [proof 14](https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7006780126), [proof 15](https://github.com/mcpdev80/baseharbor/actions/runs/44506393063/job/135499103544), [proof 16](https://github.com/mcpdev80/baseharbor/actions/runs/44512393468), [proof 17](https://github.com/mcpdev80/baseharbor/pull/1691#issuecomment-7007503951), [proof 18](https://github.com/mcpdev80/baseharbor/actions/runs/44512393468/job/135523754447)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0428-121 r6 (Codeman 43911492, head 594086014e146f4a965f7446fef25def2d8d8cd1, CI gruen, Abnahme-Hold)  
+**Owner:** 0428-121 r6 (codeman 43911492, head 594086014 gepusht, fail-closed-korrektur laeuft)  
 **Priority:** not set  
 **PRs:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
 **Source:** 
@@ -134,3 +134,5 @@ r6 head 594086014e146f4a965f7446fef25def2d8d8cd1 ist gepusht. Lokal PASS: applic
 Unabhaengige Abnahme auf 5940860: lokaler Application-Fall und ^TestRoute5 PASS. Exact-head Run 44512393468 laeuft noch (Go shards/packages, Docker observability+identity). Zusaetzlicher Security-Hold: projectTokenFromID bevorzugt bei widerspruechlich aber separat kanonischem ID/Target die ID; muss fail-closed sein. Review-Kommentar 7007503951; keine Merge-Freigabe bis Regression, terminale CI und Abnahme.
 
 Exact-head run 44512393468 SUCCESS auf 594086014e146f4a965f7446fef25def2d8d8cd1; PR Selected Checks 135523754447 PASS, Go shards/packages, build/vet/format, Docker observability+identity PASS. Lokale Application-Regression + ^TestRoute5 ebenfalls PASS. Abnahme bleibt geblockt: canonical ID und canonical Target koennen widerspruechliche Environments tragen, projectTokenFromID nimmt ID zuerst und leakt zum falschen Environment. Kommentar 7007503951 verlangt fail-closed conflict regression + frischen Exact-head-CI. PR offen, kein Merge.
+
+STATUS-BESTAETIGUNG an den owner: exaktkopf-lauf 44512393468 completed SUCCESS auf 594086014e146f4a965f7446fef25def2d8d8cd1, 'PR Selected Checks' job 135523754447 completed SUCCESS (10 schritte), PR draft=false/clean — colon- und fixture-punkte sind damit belegt. Der ambiguitaets-vermerk 7007503951 ist NICHT erledigt und mein SPERR-VERMERK bleibt stehen: projectTokenFromID nimmt weiter den ersten gueltigen wert (ID vor Target), widerspruechliche canonical-seiten (ID '-dev', Target '-stage') hoeren deshalb nicht fail-closed auf. r6 ist in dieser lane dispatcht (nachricht accepted 43911492): beide seiten unabhaengig ableiten, beivershiedenen environments -> "", bei einer seite wie bisher, dazu der neue fall 'widerspruechliche canonical-seiten' mit ListLogs fuer 'dev' UND 'stage' ohne diese quelle, plus der gegenteil-fall (ID und Target gleiche environment bleibt sichtbar) und der bestehende target-only-fall (ID 'loki' ohne project-token) — dann frischer exact-head lauf bis terminal. KEIN merge bis der gruene lauf DIESEN kopf zeigt
