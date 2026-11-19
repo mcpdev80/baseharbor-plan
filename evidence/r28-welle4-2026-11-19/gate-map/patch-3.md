@@ -120,10 +120,19 @@ Evidence it is not a planning artifact:
 Check witnesses (this lane, against da76c5cf):
 
 ```
-$ git -C /var/tmp/gatemap-v3-wt apply --check /var/tmp/gatemap-hunk-1.patch   # hunk (e) alone
+$ git -C /var/tmp/gatemap-v3-wt apply --check /var/tmp/gatemap-hunk-e.patch   # hunk (e) alone
 rc=0
-$ python3 -c "import yaml; yaml.safe_load(open('/var/tmp/gatemap-v3-wt/.github/workflows/docker-runtime-acceptance.yml')); print('yaml.safe_load: OK')"   # patched (e) only
-yaml.safe_load: OK
+$ git -C /var/tmp/gatemap-v3-wt apply --check /var/tmp/gatemap-hunk-g.patch   # hunk (g) alone
+rc=0
+$ git -C /var/tmp/gatemap-v3-wt apply /var/tmp/gatemap-hunk-g.patch           # hunk (g) applied
+$ git -C /var/tmp/gatemap-v3-wt apply --check /var/tmp/gatemap-hunk-e.patch   # hunk (e) on top of (g)
+rc=0        # order-independent: both hunks apply on a clean tree and on each other's result
+$ git -C /var/tmp/gatemap-v3-wt apply --check /var/tmp/gatemap-v3-raw.patch   # combined patch
+rc=0
+$ python3 -c "import yaml; yaml.safe_load(open('/var/tmp/gatemap-v3-wt/.github/workflows/docker-runtime-acceptance.yml')); print('yaml.safe_load patched: OK')"   # combined patch applied
+yaml.safe_load patched: OK
+$ python3 -c "import yaml; yaml.safe_load(open('/var/tmp/gatemap-v3-wt/.github/workflows/docker-runtime-acceptance.yml')); print('yaml.safe_load rc=0 OK')"   # hunk (e) applied alone (earlier pass)
+yaml.safe_load rc=0 OK
 ```
 
 qualification: plan-artifact only, anwendung ist owner-aktion.
@@ -161,8 +170,13 @@ Evidence it is not a planning artifact:
 Check witnesses (this lane, against da76c5cf):
 
 ```
-$ git -C /var/tmp/gatemap-v3-wt apply --check /var/tmp/gatemap-hunk-2.patch   # hunk (g) alone
+$ git -C /var/tmp/gatemap-v3-wt apply --check /var/tmp/gatemap-hunk-g.patch   # hunk (g) alone
 rc=0
+$ git -C /var/tmp/gatemap-v3-wt apply --check /var/tmp/gatemap-hunk-e.patch   # hunk (e) alone
+rc=0
+$ git -C /var/tmp/gatemap-v3-wt apply /var/tmp/gatemap-hunk-g.patch           # hunk (g) applied
+$ git -C /var/tmp/gatemap-v3-wt apply --check /var/tmp/gatemap-hunk-e.patch   # hunk (e) on top of (g)
+rc=0        # order-independent: both hunks apply on a clean tree and on each other's result
 $ git -C /var/tmp/gatemap-v3-wt apply --check /var/tmp/gatemap-v3.patch        # both hunks, full patch
 rc=0
 $ git -C /var/tmp/gatemap-v3-wt apply /var/tmp/gatemap-v3.patch               # dry-run in isolated /var/tmp clone
@@ -259,10 +273,10 @@ PRESENT
 ```
 
 Candidate (evidence) chain on baseharbor-plan main: lane-start base 8c6e3e2b -> 1318c24b (gate-map v3 dossier +
-gate-map-v3.patch) -> 1febe04e (witness paste) -> 0c644243 (quote wording) -> e959afb0 (this file's final
-witness commit — candidate SHA). Other lanes' commits (bd13c742, af33577a, 42e4b3ab, e611d271) interleaved on
-main between my pushes; all pushes were fast-forwards and touched only my two evidence files. Product repo
-untouched; no product candidate SHA.
+gate-map-v3.patch) -> 1febe04e (witness paste) -> 0c644243 (quote wording) -> e959afb0 (witness block) ->
+383683cd (END line + chain note). Other lanes' commits (bd13c742, af33577a, 42e4b3ab, e611d271, 16d374dc)
+interleaved on main between my pushes; all pushes were fast-forwards and touched only my two evidence files.
+Product repo untouched; no product candidate SHA.
 
 ## Revision labels
 
