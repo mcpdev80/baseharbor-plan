@@ -10,8 +10,8 @@ card_short_title: align app env recovery-flag
 kanban_title: 0428-117 · align app env recovery-flag
 prs: [mcpdev80/baseharbor#1687]
 wait_reason: ""
-blocker: "Current develop is 40b9901398a6bae5b92ee45494ef3b70f192a2a7; candidate d957de2c is 11 commits behind. Existing exact-head run 44439013578 is green but does not include the latest develop ancestry. Normal base refresh, fresh exact-head CI, and refreshed evidence required before merge."
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44439013578"]
+blocker: "Base is now current develop 40b9901398a6bae5b92ee45494ef3b70f192a2a7 at head a1f4dc76f6f67b5f17048bc164df169d4380a9c5. Exact-head CI run 44441702644 is queued; require terminal success and current-head evidence before review/merge."
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44439013578", "https://github.com/mcpdev80/baseharbor/actions/runs/44441702644"]
 
 ---
 # t-20261118-app-env-recovery-flags-claim · app-env recovery-flag claim vs actual command contract
@@ -20,8 +20,8 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44439013578"]
     <!-- generated:card -->
     **Owner:** w01-0428-117r4 (codeman 28318f22-0671-4ad9-a5be-438dd4d42669)  
     **PR:** [baseharbor#1687](https://github.com/mcpdev80/baseharbor/pull/1687)  
-    **Blocker:** Current develop is 40b9901398a6bae5b92ee45494ef3b70f192a2a7; candidate d957de2c is 11 commits behind. Existing exact-head run 44439013578 is green but does not include the latest develop ancestry. Normal base refresh, fresh exact-head CI,…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44439013578)  
+    **Blocker:** Base is now current develop 40b9901398a6bae5b92ee45494ef3b70f192a2a7 at head a1f4dc76f6f67b5f17048bc164df169d4380a9c5. Exact-head CI run 44441702644 is queued; require terminal success and current-head evidence before review/merge.  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44439013578), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44441702644)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -59,3 +59,5 @@ r3 END akzeptiert: head d957de2c8 (hopf monoton), run 44439013578 SUCCESS, alle 
 reopen fuer basis-freshness (reviewer-pflicht): develop 40b9901398, 116er-kette zeigt das muster — d957de2c bleibt inhaltlich die r3-fassung, NUR basis-hopf + run-refresh + akten-zeile. keine wort-aenderung an der doku vorgesehen
 
 Codex review: EN/DE selector wording passes on head d957de2c8d6f88f4900cb64d54ad374174b3a947; fresh compare develop 40b9901398a6bae5b92ee45494ef3b70f192a2a7 vs candidate shows merge base de53246585560ddf2c3e6ceae6d0f6eea6b71b68, 11 commits behind. Hold for normal owner hopf and exact-head CI.
+
+Update: normal base refresh is complete. Fresh compare is ahead 2 / behind 0 from develop 40b9901. EN/DE diff unchanged and source/docs review still passes; exact-head CI is queued on a1f4dc7. Await terminal run and current evidence.
