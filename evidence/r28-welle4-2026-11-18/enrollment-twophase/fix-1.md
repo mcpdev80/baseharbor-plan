@@ -218,8 +218,165 @@ not the quarantined checkout): `/tmp/opencode/w115-plan-verify` at `59f0da85` co
 `evidence/r28-welle4-2026-11-18/enrollment-twophase/fix-1.md` (line 207 carries this akte's END line).
 
 
+## r2 correction (wording hopf, mission-115r2-wording-hopf)
+
+This section records the r2 correction lane that fixes the reviewer finding
+(comment 6993699816, remains valid) on top of the released candidate: the DE
+two-phase paragraph translated the one-use authorization `Grant` as `Zuschuss`,
+`denial` as `Leugnung` and the consumed state as `toter Zuschuss` — subsidy /
+denial-of-a-fact / dead-subsidy in German, blurring the one-use authorization
+state the doc must clarify.
+
+- Mission: `/var/tmp/missions/mission-115r2-wording-hopf.md`
+- Lane/session: this r2 worker session (no subagents, AGENTS 4.8).
+- Product repo: `mcpdev80/baseharbor`, branch `lane-0428-115-twophase-doc`, PR #1685.
+- Write-set: `docs/de/decisions/0020-scoped-connector-enrollment.md` only (one paragraph
+  in the added two-phase block). No behavior, schema, migration, `.github/**` or EN edit.
+
+### Word healing (DE, added two-phase paragraph only)
+- `Zuschuss` -> `Grant` (occurrences: "der Zuschuss" -> "der Grant", "one-use Zuschuss" -> "one-use Grant").
+- `toter Zuschuss` -> `toten Grant` (the consumed-but-unissued one-use grant left behind by a half-finished enrollment).
+- Added one clarifying sentence rendering the repeated `denial` as `Verweigerung (denial)`, matching the EN `denial`.
+- `internal/targetenrollment/authority.go` code identifiers preserved: `UPDATE`, `previous_certificate_serial`, `serial-is-null`, `Enroll`, `CreateRenewal`.
+- EN untouched: the EN side already carries `grant`/`denial` as authorization/denial terminology with no subsidy semantics, so there was no same mis-translation to correct.
+- Post-edit counts in the DE file: `Zuschuss` = 0, `Grant` = 5, `Verweigerung` = 1, `Leugnung` = 1 (line 32, outside this paragraph's scope, intentionally not touched).
+
+### Why `Grant` stays English (Eigenname, rule 7)
+`Grant` is the system's proper name for the one-use authorization token in the
+enrollment API (`Consume`/`RecordIssued`, `authority.go`), not a financial
+concept. Translating it to `Zuschuss` injected wrong security semantics (a
+subsidy vs. a one-use credential). Per the language-purity rule (Owner
+directive 2026-11-14, AGENTS §3.7 rule 7) the English product term stays as the
+German text's Eigenname; only the free-text rendering of `denial`/consumed-state
+was corrected into German.
+
+### head / run label
+- Candidate head: `fd55328e0e55d27ed65da066d27074bc2879c7a3`
+  (`docs(0428-115 r2): fix DE two-phase wording for authorization Grant/denial`).
+- Hosted CI: run `44444691121` ("CI · PR #1685", workflow `CI · Source & Quality`),
+  event `pull_request`, `headSha` = `fd55328e...` (== candidate, exact head).
+- Terminal state observed (self-run duty), watched to completion:
+  `gh run list --repo mcpdev80/baseharbor --commit fd55328e ... --json status,conclusion`
+  -> `"completed"` / `"success"`, run id `44444691121`.
+- All executed jobs passed, 0 failures / 0 cancellations:
+  `Workflow policy`, `PR · Source format`, `PR · Native gate plan`, `PR · Trusted Plan`,
+  `PR · Focused Python`, `PR · Validation · go-build`/`go-vet`/`mkdocs-de-strict`/`mkdocs-en-strict`/`documentation-audit`/`pages-candidate-build`,
+  `PR · Native Keycloak/Core · docker`/`podman`, `PR · Go unit · owner|packages|cli-0|cli-1|cli-2|cli-3`.
+  Release/pre-release and consumer-pin jobs `skipped` by the docs-only routing (CI's own selection; no rerun/dispatch triggered).
+- Which CI job covers the doc change and under which trigger (AGENTS 5.3):
+  `PR · Validation · documentation-audit`, `mkdocs-en-strict` and `mkdocs-de-strict`
+  run `scripts/documentation-audit.sh` / `mkdocs build --strict` on every
+  `pull_request` into `develop` — they cover `docs/de/decisions/0020-scoped-connector-enrollment.md`.
+  No new test was introduced by this card, so no test-selection or `.github/**` mapping change is needed.
+
+### rev-parse + porcelain witness
+    $ git -C /tmp/baha-115-r2-wt rev-parse HEAD
+    fd55328e0e55d27ed65da066d27074bc2879c7a3
+    $ git -C /tmp/baha-115-r2-wt log --oneline -3 | cat
+    fd55328e docs(0428-115 r2): fix DE two-phase wording for authorization Grant/denial
+    0d53cd85 hopf-merge 0428-115: integrate develop ec592fd38 (PR #1687) before docs wording fix
+    ec592fd3 docs(0428-117): separate --uuid vs -e/--environment selector semantics; drop DE Germanizations (r3) (#1687)
+    $ git -C /tmp/baha-115-r2-wt merge-base --is-ancestor ec592fd3852328439ae9de8763c816ae9dd88dcc HEAD && echo OK
+    OK
+    $ git -C /tmp/baha-115-r2-wt merge-base --is-ancestor 8dccd4fe1a52bbcc61c67f7809079f33b8040d64 HEAD && echo OK
+    OK
+    $ git ls-remote origin refs/heads/lane-0428-115-twophase-doc
+    fd55328e0e55d27ed65da066d27074bc2879c7a3        refs/heads/lane-0428-115-twophase-doc
+    $ git ls-remote origin refs/heads/develop
+    ec592fd3852328439ae9de8763c816ae9dd88dcc        refs/heads/develop
+- Log-line witness lists ONLY this lane's own commits (hopf-merge 0d53cd85 + doc-fix fd55328e);
+  no foreign candidate carried on top.
+- Base attestation: release base `8dccd4fe1` is an ancestor of `fd55328e`; the hopf-merge
+  integrated develop `ec592fd38` (moved forward from the original `40b9901398` via PR #1687).
+- Monotonic merge only, no force; PR #1685 remains OPEN (head `fd55328e`), merge into develop
+  reserved for the Owner / CODEX-MERGE (AGENTS 5.2).
+
+### local exact-head checks (before the hosted run)
+- `bash scripts/documentation-audit.sh --check` -> EXIT 0 (168 paired pages, DE integrity PASS).
+- `go build ./...` -> EXIT 0; `go vet ./cmd/baha/ ./internal/application/` -> EXIT 0.
+- `go test ./internal/application/ ./internal/observability/ ./internal/metrics/` -> ok.
+
+### r2 gap closure (run-2 witness)
+Run `44408281995` in the r1 akte was the r1 head `2039628b`. This r2 section supplies the
+missing r2 terminal witness for head `fd55328e` (run `44444691121`, completed/success) that the
+coordinator's END Zwischenstand required under the self-run duty (AGENTS 4.6); a local green does
+not substitute for the hosted run.
+
+## r3 correction (smooth DE wording, mission-115r2-wording-hopf review)
+
+Review comment 6997988022 accepted the r2 run (44444691121, completed/success on
+`fd55328e`) but flagged two remaining language issues in the DE two-phase paragraph:
+(1) the paragraph was halting — the stray `Leugnung` should go and the sentence flow
+should be smoothed; (2) the second DE sentence was redundant (repeated
+"verbraucht / nie wiederhergestellt / CreateRenewal" already stated). Rule: smooth
+only the affected sentences, Fachwörter stay English, `Grant` stays `Grant`; delete or
+merge the redundant sentence, do not double the content.
+
+- Write-set: `docs/de/decisions/0020-scoped-connector-enrollment.md` only (the added
+  two-phase paragraph). No behavior, schema, migration, `.github/**` or EN edit.
+- Head: `3b9a3f78e7e91f1c9a58a564ecbc013540697481`
+  (`docs(0428-115 r3): smooth DE two-phase wording, drop redundant sentence`).
+- The two sentences were merged into one flowing paragraph. `Zuschuss` stays 0,
+  `Leugnung` removed from the added paragraph, `Grant` stays the Eigenname, `denial`
+  rendered as `Verweigerung (denial)`. Post-edit counts: `Zuschuss` 0, `Leugnung` 0
+  in the added paragraph (the pre-existing line-32 `Leugnung` is out of r2/r3 scope and
+  intentionally untouched), `Grant` 4, `Verweigerung` 1, `denial` 1.
+- Base: develop `ec592fd38` (unchanged this shift; no hopf-drang — `fd55328e` already
+  integrated develop and develop did not move). Monotonic, no force.
+- Local exact-head: `documentation-audit --check` EXIT 0; `go build ./...` EXIT 0;
+  `go vet ./cmd/baha/ ./internal/application/` EXIT 0;
+  `go test ./internal/application/ ./internal/observability/ ./internal/metrics/` ok.
+- Hosted CI: run `44446194802` ("CI · PR #1685", workflow `CI · Source & Quality`),
+  event `pull_request`, `headSha` = `3b9a3f78...` (== candidate, exact head).
+  Terminal state observed (self-run duty): `completed` / `success` (created
+  2026-11-19T02:41:55Z, updated 2026-11-19T02:47:27Z). 19 executed jobs, 0 failures:
+  `PR · Native gate plan`, `Workflow policy`, `PR · Trusted Plan`, `PR · Source format`,
+  `PR · Focused Python`, `PR · Native Keycloak/Core · docker`/`podman`,
+  `PR · Go unit · owner|packages|cli-0|cli-1|cli-2|cli-3`,
+  `PR · Validation · go-build`/`go-vet`/`mkdocs-de-strict`/`mkdocs-en-strict`/
+  `documentation-audit`/`pages-candidate-build`.
+  Release/pre-release and consumer-pin jobs `skipped` by the docs-only routing.
+  This is the last (r3) head; the newest run counts for the final head (AGENTS 5.4).
+- Which CI job covers the doc change and under which trigger (AGENTS 5.3):
+  `PR · Validation · documentation-audit`, `mkdocs-en-strict` and `mkdocs-de-strict`
+  run `scripts/documentation-audit.sh` / `mkdocs build --strict` on every
+  `pull_request` into `develop` — they cover `docs/de/decisions/0020-scoped-connector-enrollment.md`.
+  No new test introduced, so no `.github/**` mapping change needed.
+
+### rev-parse + porcelain witness
+    $ git -C /tmp/baha-115-r2-wt rev-parse HEAD
+    3b9a3f78e7e91f1c9a58a564ecbc013540697481
+    $ git -C /tmp/baha-115-r2-wt log --oneline -3 | cat
+    3b9a3f78 docs(0428-115 r3): smooth DE two-phase wording, drop redundant sentence
+    fd55328e docs(0428-115 r2): fix DE two-phase wording for authorization Grant/denial
+    0d53cd85 hopf-merge 0428-115: integrate develop ec592fd38 (PR #1687) before docs wording fix
+    $ git ls-remote origin refs/heads/lane-0428-115-twophase-doc
+    3b9a3f78e7e91f1c9a58a564ecbc013540697481        refs/heads/lane-0428-115-twophase-doc
+    $ git ls-remote origin refs/heads/develop
+    ec592fd3852328439ae9de8763c816ae9dd88dcc        refs/heads/develop
+- Log-line witness lists ONLY this lane's own commits (hopf-merge 0d53cd85, r2 fix
+  fd55328e, r3 smooth 3b9a3f78); no foreign candidate carried on top.
+- Base attestation: release base `8dccd4fe1` is an ancestor of `3b9a3f78`; develop
+  `ec592fd38` is an ancestor (integrated via the r2 hopf-merge, PR #1687).
+
+### r3 gap closure (run-3 witness)
+Run `44444691121` was the r2 head `fd55328e`. This section supplies the missing r3
+terminal witness for head `3b9a3f78` (run `44446194802`, completed/success) that the
+review comment required under the self-run duty (AGENTS 4.6); the local exact-head
+checks above do not substitute for the hosted run. The newest run counts for the final
+head.
+
 ## END
 
+- END_DONE: mission-115r2-wording-hopf.md — DONE (r3). Card t-20261118-enrollment-two-phase-boundary-doc
+  (0428-115) stays `active` on this lane (no rotation). Final candidate
+  `3b9a3f78e7e91f1c9a58a564ecbc013540697481` on `lane-0428-115-twophase-doc`, base
+  `develop` @ `ec592fd38`, PR #1685 (OPEN), CI run 44446194802 completed/success on the
+  exact head (19 executed jobs, 0 failures; docs/EN-DE/selected-go/Native-Docker+Podman).
+  DE two-phase paragraph smoothed into one flowing paragraph — `Zuschuss`/`Leugnung` gone,
+  `Grant` stays the English Eigenname, `denial` rendered as `Verweigerung (denial)`, the
+  redundant sentence removed. No hopf-drang (develop unchanged this shift). Merge into
+  develop reserved for Owner / CODEX-MERGE (AGENTS 5.2).
 - END_DONE: mission-115-twophase-doc.md — DONE. Card t-20261118-enrollment-two-phase-boundary-doc
   (0428-115) is published at `review` with `prs: [mcpdev80/baseharbor#1685]`.
   Candidate `2039628ba8d981488d93e90f59dff5023fb9a477` on `lane-0428-115-twophase-doc`, base
