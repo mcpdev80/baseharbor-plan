@@ -3,32 +3,31 @@ id: t-20261118-enrollment-two-phase-boundary-doc
 release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
-owner: coord (reserviert)
-kanban_status: blocked
+owner: w99-0428-115 r4 (codeman f11d4b4e-8e57-42cb-aac2-66ac494afbe0)
+kanban_status: active
 card_number: 0428-115
 card_short_title: document the enrollment
 kanban_title: 0428-115 · document the enrollment
 prs: [mcpdev80/baseharbor#1685]
 wait_reason: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/enrollment-twophase/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1685", "https://github.com/mcpdev80/baseharbor/actions/runs/44408281995", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1685.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44446194802"]
-blocker: "sprach-korrektur r4 reserviert (comment 6999389290: 'Transaktionen verpflichtet werden' commit-semantik-verdreht + schlusssatz unrund). naechster trigger: erster END-freiraum im pool -> neue lane mit mission-r4-stufe"
+blocker: ""
 
 ---
 # t-20261118-enrollment-two-phase-boundary-doc · document the enrollment consume/issue two-phase boundary
 
-- [ ] t-20261118-enrollment-two-phase-boundary-doc · document the enrollment consume/issue two-phase boundary #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261118-enrollment-two-phase-boundary-doc · document the enrollment consume/issue two-phase boundary #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** coord (reserviert)  
+    **Owner:** w99-0428-115 r4 (codeman f11d4b4e-8e57-42cb-aac2-66ac494afbe0)  
     **PR:** [baseharbor#1685](https://github.com/mcpdev80/baseharbor/pull/1685)  
-    **Blocker:** sprach-korrektur r4 reserviert (comment 6999389290: 'Transaktionen verpflichtet werden' commit-semantik-verdreht + schlusssatz unrund). naechster trigger: erster END-freiraum im pool -\> neue lane mit mission-r4-stufe  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/enrollment-twophase/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1685), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44408281995), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1685.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44446194802)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** coord (reserviert)  
+**Owner:** w99-0428-115 r4 (codeman f11d4b4e-8e57-42cb-aac2-66ac494afbe0)  
 **Priority:** not set  
 **PRs:** [baseharbor#1685](https://github.com/mcpdev80/baseharbor/pull/1685)  
 **Source:** 
@@ -61,3 +60,5 @@ r3 END akzeptiert: DE-absatz einmal + code-formatierte identifiers, denial-liste
 Exact-head run 44454648646 is green, but semantic DE documentation blocker remains; do not merge until corrected and re-reviewed.
 
 vierte rueckweisung (comment 6999389290): 'Transaktionen verpflichtet werden' = commit-semantik verdreht + unrunder schlusssatz, alles sonst gruen (run 44454648646 SUCCESS). r3-lane war released -> r4-stufe in mission geschrieben, neue lane auf ersten END-freiraum. kein merge
+
+r4-lane dispatched (freie 088er-spur uebernommen): zwei sprach-punkte gem. comment 6999389290, kein inhalt
