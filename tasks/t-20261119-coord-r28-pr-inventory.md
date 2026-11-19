@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: pr-inventory (codeman )
+owner: pr-inventory (codeman bf3d2fb7-61e8-4e01-98a2-479edace99b9)
 kanban_status: active
 kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
@@ -25,14 +25,14 @@ evidence: []
 
 - [ ] t-20261119-coord-r28-pr-inventory · PR-inventar 0.4.28: 38 offene PRs gegen board — dublette/superseded/kandidatenlos, liste zum schliessen #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** pr-inventory (codeman )  
+    **Owner:** pr-inventory (codeman bf3d2fb7-61e8-4e01-98a2-479edace99b9)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** pr-inventory (codeman )  
+**Owner:** pr-inventory (codeman bf3d2fb7-61e8-4e01-98a2-479edace99b9)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
