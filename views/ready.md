@@ -8,4 +8,3 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261119-hunt-metrics-dualmatch-marker-docs](../tasks/t-20261119-hunt-metrics-dualmatch-marker-docs.md) | Warning/Achtung dual-match: ein CLI-Stadium druckt kein Warning + EN-Normdoku hinter rename zurueck | ready | not set | — | — | — |
-| [t-20261119-hunt-metrics-verification-none-blind](../tasks/t-20261119-hunt-metrics-verification-none-blind.md) | verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe | ready | not set | — | — | — |

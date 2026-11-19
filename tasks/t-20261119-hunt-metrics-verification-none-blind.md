@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: worker-ornith1.5
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-124 · none Metriken erzeugen weder
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-hunt-metrics-verification-none-blind · verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261119-hunt-metrics-verification-none-blind · verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** worker-ornith1.5  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** worker-ornith1.5  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
