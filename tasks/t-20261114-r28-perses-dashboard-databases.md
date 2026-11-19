@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: coord
-kanban_status: review
-kanban_lane: review
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: Deliver PostgreSQL/MongoDB panels only when verified compatible metrics and permissions exist.
 kanban_title: 0428-076 · Perses database dashboards
 priority: normal
@@ -18,19 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1597]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "PR #1597 ist ein DRAFT (draft=true gemessen) und damit KEIN kandidat (§5.2: drafts sind keine kandidaten) — der review-spalteneintrag war ein brett-feehler von mir. Basis-Rueckstand gemessen: 72 develop-koepfe hinter der heutigen develop-spitze ab77e29d7; PR-head ist KEIN ahne von develop, merge-tree zeigt KONFLIKT gegen develop. NAechster sinnvoller schritt: ein hopf auf develop + draft raus + ein terminaler exact-head-lauf, dafuer braucht die karte einen arbeiter-sitz (pool 5/5 belegt). Ein PR-lauf am kopf existiert aus altem stand (1597: letzter pull_request success), der zaehlt nicht fuer den heutigen kopf."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-databases · Perses database dashboards #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-databases · Perses database dashboards #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** coord · **Priority:** normal  
     **PR:** [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597)  
+    **Waiting:** PR \#1597 ist ein DRAFT (draft=true gemessen) und damit KEIN kandidat (§5.2: drafts sind keine kandidaten) — der review-spalteneintrag war ein brett-feehler von mir. Basis-Rueckstand gemessen: 72 develop-koepfe hinter der heutigen develop-s…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
