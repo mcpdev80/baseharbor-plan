@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w086-0428-086-lokisource (codeman e7dfe31a, laptop)
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Provision selected authorized Loki datasource via supported Perses plugin, scoped and verified."
 kanban_title: 0428-086 · Connect Perses Loki
 priority: normal
@@ -20,18 +20,18 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob//evidence/r28-welle4-2026-11-19/codex-review-wave/1616-0428-086.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob//evidence/r28-welle4-2026-11-19/codex-review-wave/1616-0428-086.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44557985875"]
 ---
 
-- [ ] t-20261114-r28-perses-loki-source · Connect Perses Loki #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-loki-source · Connect Perses Loki #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w086-0428-086-lokisource (codeman e7dfe31a, laptop) · **Priority:** normal  
     **PR:** [baseharbor#1616](https://github.com/mcpdev80/baseharbor/pull/1616)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob//evidence/r28-welle4-2026-11-19/codex-review-wave/1616-0428-086.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob//evidence/r28-welle4-2026-11-19/codex-review-wave/1616-0428-086.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44557985875)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
 **Required by:** [t-20261114-r28-perses-log-trace-dash](t-20261114-r28-perses-log-trace-dash.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
@@ -86,3 +86,5 @@ PR #1616 head ed401f460, CI run 44548246953 terminal SUCCESS 13success/17skipped
 REVIEW ZURUECKGENOMMEN (die lane hatte sie selbst auf review gesetzt, bevor der befund vorlag) — grund ist ein gemessener funktionaler defect an ihrem kopf, von mir wörtlich gelesen in internal/logs/loki_datasource.go:318 'func persesLokiDatasourceQuery': 'matchers = append(matchers, fmt.Sprintf("baseharbor_application=%q,baseharbor_service=%q", …))' und 'query := "{" + strings.Join(matchers, ",") + "}"'. Bei zwei oder mehr quellen entstehen doppelte label-namen in EINEM selector; LogQL liest das als gleichzeitige matcher, nicht als vereinigung — ein gesunder Loki mit mehreren quellen liefert dann KEIN matching stream. ihre tests seeden bisher eine quelle und pruefen nie die composition, therefore ist der gruene lauf 44548246953 ('PR Selected Checks' success) korrekt, deckt den fall aber nicht. MEINE ANWEISUNG: EIN queryStream-aufruf pro freigegebener quelle mit je einem gueltigen selector + health-policy nach Loki-dokumentation (wahr nur bei echtem matching stream, fehler weitergeben wenn keine quelle matcht) + ein mehrquellen-test, dessen fake die empfangenen queries aufzeichnet und (i) zwei verschiedene selector, (ii) keinen doppelten label-namen, (iii) kein 'or' zwischen stream selectors, (iv) fehlertrennung beweist. WICHTIG: meine ERSTE anweisung nannte '{a} or {b}' als option — das war von mir FALSCH und ist zurueckgenommen (LogQL: jede log query enthaelt genau EINEN log stream selector; 'or' gilt fuer label-filter ausdruecke in einer pipeline, quelle https://grafana.com/docs/loki/latest/query/log_queries/). die lane hat die korrektur vor dem ersten build erhalten
 
 REVIEW-ZURUECKNAHME (die lane hatte sie selbst auf review gesetzt, main f2d606f3). grund 1, gemessen an ihrem kopf: internal/logs/loki_datasource.go:318 'func persesLokiDatasourceQuery' haengt matcher mit strings.Join(matchers, ',') zu EINEM selector zusammen — bei zwei oder mehr quellen entstehen doppelte label-namen im selben selector, und LogQL liest das als gleichzeitige matcher statt als vereinigung, therefore liefert ein gesunder Loki mit mehreren quellen KEIN matching stream. ihre tests seeden EINE quelle, therefore ist der gruene lauf 44548246953 richtig, deckt den fall aber nicht. grund 2, veralteter base: develop 1019190d8dc0ecac7693f3461153e76be0e2cb8a, PR 'behind' (von mir gegen gelesen), therefore ist der alte lauf keine abnahme. WIDERRUF VON MIR: meine erste anweisung nannte '{a} or {b}' als option — falsch, LogQL hat pro log query genau EINEN log stream selector, 'or' gilt nur fuer label-filter ausdruecke in einer pipeline (https://grafana.com/docs/loki/latest/query/log_queries/). BEFOHLEN: EIN queryStream pro quelle mit je einem gueltigen selector, health-policy nach dokumentation, mehrquellen-test MIT AUFRUFAUFZEICHNUNG; EIN monotoner hopf auf develop; frischer exaktkopf-lauf bis terminal
+
+END ANGENOMMEN, zeugen von mir gegen gelesen: zweig-head 7042ee612430b472ba16cdaffbec0684e78686f6, PR clean, draft=false, base = develop 1019190d8dc0ecac7693f3461153e76be0e2cb8a, 'git merge-base --is-ancestor origin/develop 7042ee612' = 0 (monotoner hopf), lauf 44557985875 completed SUCCESS (updated 15:48:52Z), 0 fehljobs; 'Targeted HA · docker'/'podman' + 'PR · Selected Runtime' skipped, 'PR Selected Checks' success (der base-plan waehlt die runtime-zellen fuer diese pfade nicht). DER GEMELDETE DEFECT IST WIRKLICH GEKOES, von mir im code nachgelesen: persesLokiDatasourceQuery ruft jetzt PRO QUELLE 'probe.queryStream' mit je GENAU EINEM selector '{baseharbor_application=%q,baseharbor_service=%q}', gibt fehler pro quelle weiter ('perses Loki datasource query for source %s') und liefert matchedAny — also true nur bei echtem matching stream, fail-closed wenn keine quelle matcht. das 'strings.Join(matchers, ",")'-muster ist weg. drei neue tests belegen es: TestPersesLokiDatasourceMultiSourceQueryOneSelectorPerSource (:500), TestPersesLokiDatasourceMultiSourcePartialMatchability (:555), TestPersesLokiDatasourceMultiSourceNoneMatchFailsClosed (:606), mit recordingQueryCaptureServer, das JEDEN query pro aufruf aufzeichnet (:391). KEIN 'or' zwischen stream selectors, wie ich es zuerst falsch erlaubt und dann widerrufen hatte. akte: evidence/r28-welle4-2026-11-19/loki-source-hopf/fix-2.md auf plan-main
