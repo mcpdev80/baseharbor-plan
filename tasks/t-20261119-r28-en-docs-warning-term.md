@@ -7,15 +7,15 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: 0428-131 (codeman bbd9132d)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-131 · EN-Dokumentation nennt das
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1697]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,19 +23,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-r28-en-docs-warning-term · EN-Dokumentation nennt das Marker-Wort 'Achtung' statt 'Warning' (i18n-drift nach 0428-126) #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261119-r28-en-docs-warning-term · EN-Dokumentation nennt das Marker-Wort 'Achtung' statt 'Warning' (i18n-drift nach 0428-126) #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** 0428-131 (codeman bbd9132d)  
+    **PR:** [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** 0428-131 (codeman bbd9132d)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -84,3 +84,5 @@ Nebefund aus der live-verify-kette 0428-130 (akte evidence/r28-welle4-2026-11-19
 - alle EN-doku-stellen fuer das marker sagen 'Warning' (grep-beleg: kein 'Achtung' in EN-dateien), deutsche texte bleiben bei 'Achtung'
 - ein docs-check laeuft in der betroffenen CI-gruppe mit (bestehender docs-audit genuegt, keine neue workflow-datei)
 - akte evidence/r28-welle4-2026-11-19/en-docs-warning-term/fix-1.md mit datei:zeile je fundstelle + gruenlauf
+
+abgegeben: EN-doku an drei stelle auf 'Warning' gezogen (docs/de bewusst unveraendert), grep-kontrolle leer, head 3448f73e base-exakt develop da76c5cf9, PR #1697 clean, run 44478483899 TERMINAL SUCCESS (14 jobs gruen, rest durch if-bedingungen skipped), akte origin/main 084c3f93, host besenrein (docker 7 ambient vorher==nachher, podman 0)
