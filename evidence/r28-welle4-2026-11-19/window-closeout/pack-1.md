@@ -1,7 +1,7 @@
 # v0.4.28 merge-window closeout heft — pack-1
 
 Mission tag: `window-closeout-pack`. Lane: window-closeout-pack (this session, codeman 59c94cab).
-Shift: r28-welle4-2026-11-19. Revision label of this heft: **pack-1 r1 (2026-11-19)**.
+Shift: r28-welle4-2026-11-19. Revision label of this heft: **pack-1 r5 (2026-11-19)** (r2: 121-head-drift; r3/r4: END-zeugblock; r5: terminaler lauf 44485086467 eingemessen).
 Every remote fact below was measured live at pack time via `git ls-remote` and `gh api`
 (remotes of `mcpdev80/baseharbor`, `mcpdev80/baseharbor-demo`, `mcpdev80/baseharbor-plan`).
 Nothing is from memory. This file changes nothing: cards, PRs and runs are read-only here.
@@ -235,19 +235,21 @@ develop-Kette: demo#164 → demo-develop `5d1cf312e`, demo#165 → demo-main `ad
 
 END window-closeout-pack DONE — pack-1.md geliefert, read-only, keine karte/PR/lauf geaendert.
 Candidate/persistierung: `evidence/r28-welle4-2026-11-19/window-closeout/pack-1.md` in
-baseharbor-plan main (commit-SHA und ls-remote-zeug im folgenden block).
+baseharbor-plan main. Karten-/PR-/lauf-inventar mit fernzeugen; read-only; revision r5.
 
 Zeuge (zweitletzte aktion, exakte ausgabe):
 `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-remote origin refs/heads/main`
-→ `9ffd88b1560b4933def06c2c9ca324b21ac433d1 refs/heads/main`
-`git -C ... log --oneline -1` → `9ffd88b1 evidence(window-closeout-pack): pack-1 r3 —
-END-zeugblock (ls-remote + tree-pfad + cleanliness)`.
+→ `e4b782bbfaddd5f6009f9f1f037dae0ea6b55f4d refs/heads/main`
+`git -C ... log --oneline -1` → `e4b782bb evidence(window-closeout-pack): pack-1 r5 —
+121 terminal-run 44485086467 FAILURE eingemessen`.
 Das pfad-zeugnis gegen origin/main: `git ls-tree -r --name-only origin/main | grep window-closeout`
 → `evidence/r28-welle4-2026-11-19/window-closeout/pack-1.md` (vor dem END-post auf origin/main).
 Host-cleanliness: keine container/netzwerke/volumes/state angelegt (diese lane ist read-only,
 ls-remote/gh api/git fetch nur); temporär nur `/var/tmp/*.json`, `/var/tmp/collect_*.py`;
-eigene worktrees: keine; keine compose-projekte gestartet. Sauberkeitszeug: diese lane hat zu
-keinem zeitpunkt docker/podman aufgerufen — ` cleanliness: besenrein, kein runtime-eingriff`.
+eigene worktrees: keine; keine compose-projekte gestartet. Sauberkeitszeug: `docker ps -q` →
+4 container, alle com.docker.compose.project=bh-local-shared (ambient-core, 2 tage alt,
+nicht diese lane — bleiben unangetastet, owner-direktive 2026-11-08); `podman ps -q` → 0.
+cleanliness: besenrein, kein runtime-eingriff durch diese lane.
 
 ## 7. Zeugenblock (Messprotokoll, read-only)
 
