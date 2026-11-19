@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "owner-scope: SECHS drahte, gebuendelt in einer aenderung: (a) ORAS-install im 'docker-runtime'-job (docker-runtime-acceptance.yml zeilen 174-330, treffer 0; 'single_default_native' hat zeile 127-128 'bash scripts/ci-install-oras.sh'), (b) perses-smoke-zelle (vorschlag als patch-skizze in 0428-134 v2), (c) baseharbor-demo pr-guided-consent.yml:4-5 branches:[main] -> [main, develop], (d) documentation-audit-pfad docs/internal/*.json in scripts/pr-gate-plan.py:1189 ff., (e) NEU: docker-runtime-acceptance.yml zeile 16 'default: release/v0.4.21' ist ein dead ref (gh api branches/release/v0.4.21 = 404, git ls-remote leer) — ein nackter dispatch prueft ins leere, 'Checkout requested ref' faehrt ab, steps 3-17 skipped, der always()-verify trifft die fehlende tests/main.jsonl (FileNotFoundError im lauf 44466684726); loesung: default auf develop, KEIN path-/mkdir-umbau, (f) die v3-beweisarbeit laeuft gerade in lane 6e5eba71 (ihr name traegt 128, inhalt ist 114s (e)+(a))"
+wait_reason: "owner-scope, FUENF drahte (punkt (g) ist ZURUECKGENOMMEN, siehe akte gate-routing/probe-1.md commit 7d3cb684): (a) ORAS-install im 'docker-runtime'-job (docker-runtime-acceptance.yml zeilen 174-330, treffer 0; schwester 'single_default_native' hat zeile 127-128 'bash scripts/ci-install-oras.sh'), (b) perses-smoke-zelle (skizze in 0428-134 v2, gate-input 'perses-runtime-smoke'), (c) baseharbor-demo .github/workflows/pr-guided-consent.yml:4-5 branches:[main] -> [main, develop], (d) documentation-audit-pfad docs/internal/*.json in scripts/pr-gate-plan.py:1189 ff., (e) docker-runtime-acceptance.yml zeile 16 'default: release/v0.4.21' = dead ref (gh 404, ls-remote leer) -> ein nackter dispatch prueft ins leere; loesung: default: develop. (g) WAR KEIN gate-loch: die probe hat belegt, dass #1613 ein DRAFT-PR ist und ci.yml die normalen zellen an 'draft == false' haengt (zeilen 514/1137/1160, draft-routing gegen probe bei 41) — der planner scripts/pr-gate-plan.py ist draft-agnostisch. das ist mein PROZESSFEHLER (draft als kandidat gefuehrt), nicht deine gate-map"
 resolution: ""
 evidence: []
 ---
@@ -26,7 +26,7 @@ evidence: []
 - [ ] t-20261117-observability-native-gate-bootstrap · CI: Run observability acceptance with verified ORAS bootstrap #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** Owner-Ausfuehrung (.github/scripts); umfang vom Coordinator erweitert 2026-11-19 (beleg: 0428-128 probe-1.md 57ffc7c6)  
-    **Waiting:** owner-scope: SECHS drahte, gebuendelt in einer aenderung: (a) ORAS-install im 'docker-runtime'-job (docker-runtime-acceptance.yml zeilen 174-330, treffer 0; 'single\_default\_native' hat zeile 127-128 'bash scripts/ci-install-oras.sh'), (b)…  
+    **Waiting:** owner-scope, FUENF drahte (punkt (g) ist ZURUECKGENOMMEN, siehe akte gate-routing/probe-1.md commit 7d3cb684): (a) ORAS-install im 'docker-runtime'-job (docker-runtime-acceptance.yml zeilen 174-330, treffer 0; schwester 'single\_default\_nat…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -84,3 +84,5 @@ reichweite erwisert (entscheid statt sequenzierung): 114 besitzt jetzt beide 128
 inhalt bleibt gleich, nummer (e) neu aufgenommen: erklaert den F-7-fehljob aus dem closeout-heft, ohne dass die product-tests schuld sind
 
 fund (e) erklaert F-7 aus dem closeout-heft ohne produkt-schuld; 119/#1690 bleibt davon unberuehrt blocked (wartet auf (a))
+
+GEGENMASSNAHME VON MIR UMGESETZT: coord-state.py meldet jetzt DRAFT-CANDIDATE fuer jeden offenen draft-PR (neue aktion, syntax geprueft, erster treffer #1665) und der lanes=[]-bug ist behoben (beide schluessel 'session' und 'lane' akzeptiert) — dein punkt 4 aus dem prioritaeten-blatt
