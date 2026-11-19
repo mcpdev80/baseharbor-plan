@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: Codex team (current thread)
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Make the CI gate-catalog policy detect validation registration changes in existing planner, runner, and workflow files, then…"
 kanban_title: 0428-145 · reconcile catalog lint guard
 priority: ""
@@ -23,14 +23,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-ci-gate-catalog-lint-reconcile · CI: reconcile catalog lint guard on current develop #task #release/v0-4-28 #status/active #view/active #area/ci #kind/task
+- [ ] t-20261119-ci-gate-catalog-lint-reconcile · CI: reconcile catalog lint guard on current develop #task #release/v0-4-28 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** Codex team (current thread)  
     **PR:** [baseharbor#1581](https://github.com/mcpdev80/baseharbor/pull/1581)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** Codex team (current thread)  
@@ -77,6 +77,7 @@ Make the CI gate-catalog policy detect validation registration changes in existi
 
 ## Handoff
 
-- Current state: #1581 is open, non-draft, unassigned, based on stale develop; independent review found a false-negative in existing-file registrations. Work starts only after this claim is published.
-- Test binding route: existing unittest + `pr-planner-tests`/`ci-policy` checks, selected by changes to the owned paths.
-- Newest first: branch/PR, exact head, run and findings.
+- 2026-11-19 completion handoff (Maintainer review pending): PR #1581 merged into `develop` as `7ee6f817dbff5a238bbc651315d6d76b3819fc91`; source head `7c404775cce2dd4cdd14cfcac9c105d6fcd85831`, base `c296086ca1e35ef3212d293afc94d7bebcd1690f`, exact CI run `44575019761` completed successfully. Open PR count fell from 31 to 30.
+- The regression suite covers planner ID, runner registry, CI dispatch arm, coordinated planner/runner/workflow/catalog update, and benign unrelated edits (five tests).
+- Verification: `python3 -m unittest scripts.test_pr_gate_plan.WorkflowPolicyRegistrationTests -v` PASS (5); `python3 -m unittest scripts/test_pr_gate_plan.py scripts/test_pre_release_runtime_reuse.py` PASS (200); exact event simulation `BASEHARBOR_POLICY_BASE_SHA=c296086... BASEHARBOR_POLICY_HEAD_SHA=7c404... GITHUB_EVENT_NAME=pull_request bash scripts/ci-workflow-policy.sh` PASS; `bash -n` and `git diff --check` PASS. Exact hosted route `ci-policy`, `pr-planner-tests`, related validation gates and `PR Selected Checks` all SUCCESS on run `44575019761`.
+- Maintainer acceptance remains separate; this card is handed off to review and is not marked accepted.
