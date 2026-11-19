@@ -11,6 +11,7 @@ owner: w01-0428-116r4 (codeman 4d606ac2)
 wait_reason: ""
 blocker: ""
 prs: [mcpdev80/baseharbor#1686]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1686", "https://github.com/mcpdev80/baseharbor/actions/runs/44438849188", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/receipt-guard/r4-1.md"]
 
 ---
 # t-20261118-receipt-guard-single-operand · receipt verification guard collapses to single operand
@@ -19,6 +20,7 @@ prs: [mcpdev80/baseharbor#1686]
     <!-- generated:card -->
     **Owner:** w01-0428-116r4 (codeman 4d606ac2)  
     **PR:** [baseharbor#1686](https://github.com/mcpdev80/baseharbor/pull/1686)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1686), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44438849188), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/receipt-guard/r4-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -71,3 +73,5 @@ FAIL CLOSED overrides both coord rulings: an applied non-continuation receipt ca
 Fail-closed regression must assert BOTH: Status==failed AND ErrorCode=='actual-disposition-differs' (non-continuation ghost edge); continuation branch keeps its missing-evidence code. Base must contain current develop at push time (coordination note: normal merge, monotonic).
 
 r4 END akzeptiert: head 96ac1b2e mit normalem develop-merge 7d343836 (monoton), fail-closed guard + exact ErrorCode-MATRIX (failed + actual-disposition-differs, reviewer-gegenprueft), run 44438849188 SUCCESS, r4-1.md am band 20d206e5 + r2-1.md ce9890-stornierung. Merge-fenster: review-finaliteit obliegt CODEX
+
+Codex reviewer: current exact head 96ac1b2e independently reviewed; fail-closed matrix asserts failed plus actual-disposition-differs; run 44438849188 terminal SUCCESS; base current develop 7d34383644. Source/tests accepted; merge gate passed.
