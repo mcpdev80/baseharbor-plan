@@ -3,7 +3,7 @@ id: t-20261118-receipt-guard-single-operand
 release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
-kanban_status: active
+kanban_status: review
 card_number: 0428-116
 card_short_title: receipt verification guard
 kanban_title: 0428-116 · receipt verification guard
@@ -15,14 +15,14 @@ prs: [mcpdev80/baseharbor#1686]
 ---
 # t-20261118-receipt-guard-single-operand · receipt verification guard collapses to single operand
 
-- [ ] t-20261118-receipt-guard-single-operand · receipt verification guard collapses to single operand #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261118-receipt-guard-single-operand · receipt verification guard collapses to single operand #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** w01-0428-116r4 (codeman 4d606ac2)  
     **PR:** [baseharbor#1686](https://github.com/mcpdev80/baseharbor/pull/1686)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w01-0428-116r4 (codeman 4d606ac2)  
@@ -69,3 +69,5 @@ REOPEN nach abnahme-entscheid (2026-11-19, reviewer unter owner-delegation): inv
 FAIL CLOSED overrides both coord rulings: an applied non-continuation receipt carrying an unexpected continuation edge must fail (partial/error + grund). Grundlagen: sicherheitskonzept (secure-by-design) + urspruenglicher akzeptanzsatz der karte. Die downgrades (2f35cf72 applied/intentional) sind gegenstandslos. Umsetzung: schmale matcher-validierung + matrix-regression beide zweige, pin-umkehr. Pruefung laeuft in lane 4d606ac2 (hopf auf de53246585 inbegriffen).
 ## Acceptance contract detail (abnahme, 2026-11-19)
 Fail-closed regression must assert BOTH: Status==failed AND ErrorCode=='actual-disposition-differs' (non-continuation ghost edge); continuation branch keeps its missing-evidence code. Base must contain current develop at push time (coordination note: normal merge, monotonic).
+
+r4 END akzeptiert: head 96ac1b2e mit normalem develop-merge 7d343836 (monoton), fail-closed guard + exact ErrorCode-MATRIX (failed + actual-disposition-differs, reviewer-gegenprueft), run 44438849188 SUCCESS, r4-1.md am band 20d206e5 + r2-1.md ce9890-stornierung. Merge-fenster: review-finaliteit obliegt CODEX
