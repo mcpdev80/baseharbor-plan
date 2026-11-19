@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w086-0428-086-lokisource (codeman e7dfe31a, laptop)
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Provision selected authorized Loki datasource via supported Perses plugin, scoped and verified."
 kanban_title: 0428-086 · Connect Perses Loki
 priority: normal
@@ -19,19 +19,19 @@ prs: [mcpdev80/baseharbor#1616]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob//evidence/r28-welle4-2026-11-19/codex-review-wave/1616-0428-086.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44557985875"]
+resolution: "accepted"
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/ec387fd7351b2821d3e0f5b095404deca1365329/evidence/r28-welle4-2026-11-19/codex-review-wave/1616-0428-086-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/fcd7b6765df8d7ce573cd8eac77bc5e4209174b8/evidence/r28-welle4-2026-11-19/loki-source-hopf/merge-1.md", "https://github.com/mcpdev80/baseharbor/pull/1616", "https://github.com/mcpdev80/baseharbor/actions/runs/44557985875"]
 ---
 
-- [ ] t-20261114-r28-perses-loki-source · Connect Perses Loki #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [x] t-20261114-r28-perses-loki-source · Connect Perses Loki #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w086-0428-086-lokisource (codeman e7dfe31a, laptop) · **Priority:** normal  
     **PR:** [baseharbor#1616](https://github.com/mcpdev80/baseharbor/pull/1616)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob//evidence/r28-welle4-2026-11-19/codex-review-wave/1616-0428-086.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44557985875)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/ec387fd7351b2821d3e0f5b095404deca1365329/evidence/r28-welle4-2026-11-19/codex-review-wave/1616-0428-086-r2.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/fcd7b6765df8d7ce573cd8eac77bc5e4209174b8/evidence/r28-welle4-2026-11-19/loki-source-hopf/merge-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1616), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44557985875)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
 **Required by:** [t-20261114-r28-perses-log-trace-dash](t-20261114-r28-perses-log-trace-dash.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  

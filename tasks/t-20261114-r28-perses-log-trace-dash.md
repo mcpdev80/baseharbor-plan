@@ -28,7 +28,7 @@ evidence: []
     **Owner:** coord · **Priority:** normal  
     **PR:** [baseharbor#1619](https://github.com/mcpdev80/baseharbor/pull/1619)  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
+    **Needs:** [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
