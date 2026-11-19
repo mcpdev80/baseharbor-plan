@@ -9,13 +9,13 @@ version: ""
 parent: v0.4.28
 owner: coord
 kanban_status: closed
-kanban_lane: review
+kanban_lane: closed
 kanban_summary: "baseharbor-demo/tests/guided/drive.py:431-432 (and 507-508, 203, newedithelperstest.py:190 per lane finding) still match the…"
 kanban_title: 0428-099 · match renamed Warning marker
 priority: ""
 depends_on: [t-20261115-bughunt-d28-i18n-achtung]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor-demo#164, "https://github.com/mcpdev80/baseharbor-demo/pull/164"]
+prs: [mcpdev80/baseharbor-demo#164]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,15 +23,15 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-demo/pull/164"]
 ---
 
-- [ ] t-20261116-i18n-demo-consumer-rename · Demo: match renamed Warning marker after core 0428-093 lands #task #release/v0-4-28 #status/review #view/review #kind/task
+- [x] t-20261116-i18n-demo-consumer-rename · Demo: match renamed Warning marker after core 0428-093 lands #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** coord  
     **PR:** [baseharbor-demo#164](https://github.com/mcpdev80/baseharbor-demo/pull/164)  
-    **Needs:** [t-20261115-bughunt-d28-i18n-achtung](t-20261115-bughunt-d28-i18n-achtung.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-demo/pull/164)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261115-bughunt-d28-i18n-achtung](t-20261115-bughunt-d28-i18n-achtung.md)  
 **Owner:** coord  

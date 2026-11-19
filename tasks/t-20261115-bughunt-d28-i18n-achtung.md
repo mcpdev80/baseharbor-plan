@@ -9,13 +9,13 @@ version: ""
 parent: ""
 owner: coord
 kanban_status: closed
-kanban_lane: active
+kanban_lane: closed
 kanban_summary: "BF-04 (ux/i18n): German \"Achtung\" hint appears in English output and inside the JSON contract (15 sites). Found on develop…"
 kanban_title: "0428-093 · bf04 english-only hints"
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1663, "https://github.com/mcpdev80/baseharbor/pull/1663"]
+prs: [mcpdev80/baseharbor#1663]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,15 +23,15 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md", "https://github.com/mcpdev80/baseharbor/pull/1663"]
 ---
 
-- [ ] t-20261115-bughunt-d28-i18n-achtung · BF-04 German 'Achtung' hint in English output and JSON contract (15 sites) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261115-bughunt-d28-i18n-achtung · BF-04 German 'Achtung' hint in English output and JSON contract (15 sites) #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** coord  
     **PR:** [baseharbor#1663](https://github.com/mcpdev80/baseharbor/pull/1663)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1663)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261116-i18n-demo-consumer-rename](t-20261116-i18n-demo-consumer-rename.md)  

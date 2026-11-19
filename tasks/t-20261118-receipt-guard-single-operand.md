@@ -10,7 +10,7 @@ kanban_title: 0428-116 · receipt verification guard
 owner: coord
 wait_reason: ""
 blocker: ""
-prs: [mcpdev80/baseharbor#1686, "https://github.com/mcpdev80/baseharbor/pull/1686"]
+prs: [mcpdev80/baseharbor#1686]
 
 ---
 # t-20261118-receipt-guard-single-operand · receipt verification guard collapses to single operand
