@@ -321,7 +321,7 @@ missing hosted wire as Owner finding 0428-114.
 
 ```
 $ git ls-remote origin refs/heads/main
-ae9fe595484685b043ab3d79725a379d7b237736	refs/heads/main
+e687224cd5ecde1768ed38407c26015fdd89bd4e	refs/heads/main
 $ git cat-file -e origin/main:evidence/r28-welle4-2026-11-19/perses-runtime/witness-1.md && echo PRESENT
 PRESENT
 $ git merge-base --is-ancestor 073e13e9 origin/main; echo $?
@@ -329,7 +329,7 @@ $ git merge-base --is-ancestor 073e13e9 origin/main; echo $?
 ```
 
 This lane's evidence commits on origin/main: `073e13e9` (initial witness, parent
-`4ca4ab28`) through `ae9fe595` (final content: PLAN list, runs 4/5, origin/main witness,
-run 5 recomputed live at 14.50s). Coordinator commits interleaved on the path
-(`779dd3c6`, `984055db`, gate-map intake) are not this lane's and were preserved.
-`git log --oneline origin/main..HEAD` lists only this lane's commits.
+`4ca4ab28`) through `9670f5df` (terminal: run 6 confirmations 7.57s / 7.34s, END restated).
+Coordinator commits interleaved on the path (`779dd3c6`, `984055db`, gate-map intake) are
+not this lane's and were preserved. `git log --oneline origin/main..HEAD` is empty after
+the final push (nothing of this lane is unpushed).
