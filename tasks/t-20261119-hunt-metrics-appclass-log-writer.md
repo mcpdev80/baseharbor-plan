@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: "w-appclass-writer (flash lane, mission-appclass-writer.md)"
-kanban_status: active
-kanban_lane: active
+owner: w99-0428-122 (codeman 5350d482)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-122 · Klasse App hat keinen
 priority: ""
@@ -23,18 +23,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1692"]
 ---
 
-- [ ] t-20261119-hunt-metrics-appclass-log-writer · Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261119-hunt-metrics-appclass-log-writer · Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** w-appclass-writer (flash lane, mission-appclass-writer.md)  
+    **Owner:** w99-0428-122 (codeman 5350d482)  
     **PR:** [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1692)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w-appclass-writer (flash lane, mission-appclass-writer.md)  
+**Owner:** w99-0428-122 (codeman 5350d482)  
 **Priority:** not set  
 **PRs:** [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692)  
 **Source:** 
@@ -80,3 +80,5 @@ One or two sentences: the observable outcome.
 ## Befund (intake aus hunt-918)
 Befund 3 (HIGH): Kein production code schreibt je eine LOG-Quelle der Klasse application: die dokumentierte EO-Klasse hat keinen writer — stille Erfolgsmeldung der Klasse selbst. Akzeptanz: entweder writer implementieren ODER Klasse aus docs/schema nehmen mit expliziter abweisung; kein dritter zustand. Zwei silent-success-formen in der akte.
 Erlaubtes write-set (vorschlag, lane prueft): observability classes + schema/docs. Evidence-Quelle: https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/hunt-metrics/befund-1.md (17 probes, base 97a840e54).
+
+END akzeptiert: option (a) writer+ReconcileMatching, 6 regressionen, head 8956bf08e base-exakt ec592fd38, terminal 14 SUCCESS/0 FAILURE, akte 65520ba8. DATEI-OVERLAP mit 0428-121 (#1691: registry.go, logs/realization.go, runtime_observability.go) funktions-disjunkt — Integrationsreihenfolge folgt dem ersten gruenen review; der andere hopft danach monoton
