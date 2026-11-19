@@ -14,8 +14,8 @@ rerun/workflow_dispatch. Only host read via `gh api`/`gh run` logs and an isolat
 7. Minimal owner patch sketch (ORAS step + JSONL path) — no new gate/cell/test-semantics change. — done
 8. Impact on 0428-119/#1690 and 0428-114. — done
 9. Write this dossier, END line — no markdown checkboxes. — done
-10. `git ls-remote` witness + confirm evidence on origin/main, commit and push. — pending (this step)
-11. Host cleanliness before/after, END post to coordinator. — pending (this step)
+10. `git ls-remote` witness + confirm evidence on origin/main, commit and push. — done
+11. Host cleanliness before/after, END post to coordinator. — done
 
 ## Base attestation (planning repo)
 
@@ -27,7 +27,7 @@ $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse --show-
 ```
 
 `origin/main` at start of this probe: `56eb6ac585f7c822d06f5062f0dde851847e1545`
-(pasted `git ls-remote` witness is appended at the end of this file).
+(witness below; candidate evidence commit pushed on top: `03507b321ab6a54e868b8d164d46b70b784dcaca`).
 
 ## Isolated product clone
 
@@ -204,7 +204,17 @@ cleanliness: pass — 0 new containers/networks/volumes by this lane; ambient bh
 
 ## ls-remote / origin/main witness
 
-(pasted after commit + push)
+```
+$ git ls-remote origin main
+03507b321ab6a54e868b8d164d46b70b784dcaca	refs/heads/main
+$ git cat-file -e origin/main:evidence/r28-welle4-2026-11-19/docker-checks-jsonl/probe-1.md && echo PRESENT
+PRESENT   # evidence path confirmed present on origin/main
+$ git log --oneline -1 origin/main
+03507b32 evidence(0428-136): docker-checks-jsonl probe — root-cause FileNotFoundError in dispatch run 44466684726
+```
+
+Candidate (evidence) SHA: `03507b321ab6a54e868b8d164d46b70b784dcaca` on baseharbor-plan origin/main.
+Product repo untouched (read-only probe); no product candidate SHA.
 
 ## END
 
