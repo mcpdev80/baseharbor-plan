@@ -150,11 +150,36 @@ Host is the coordinator/codeman server: it is NOT a test host, and this lane sta
 
 ## origin/main witness
 
-The exact `git ls-remote origin refs/heads/main` output is pasted in the "Final
-origin/main witness" block at the very end of this file, taken as the
-second-to-last action after the last evidence push, together with the
-`git ls-tree` path presence proof.
+See "Final origin/main witness" at the end of this file: it carries the exact
+`git ls-remote origin refs/heads/main` output plus the `git ls-tree` path
+presence proof, taken after the last evidence push.
 
 ## END
 
-END_DONE mission-demo-drive-matcher.md: demo `drive.py`/`new_edit.py` matcher now follows the core Warning-marker rule from #1696 (one generated rule, retired `Achtung:` only as negative guard); red-before-green coupling regression `test_21`..`test_25` in `tests/guided/test_consent_capture.py`; candidate `bc4c6113be92599c962b2377b038173593483a18` on `lane-0428-demo-drive-matcher` (cut from demo `origin/develop@5d1cf312e`), PR https://github.com/mcpdev80/baseharbor-demo/pull/165, required run https://github.com/mcpdev80/baseharbor-demo/actions/runs/44477622615 `completed success` observed to terminal at the exact head; card 0428-129 at review. Owner finding: the demo PR gate triggers only on `main` (`.github/workflows/pr-guided-consent.yml:5`), so develop-based candidates start no CI.
+END_DONE mission-demo-drive-matcher.md: demo `drive.py`/`new_edit.py` matcher now follows the core Warning-marker rule from #1696 (one generated rule, retired `Achtung:` only as negative guard); red-before-green coupling regression `test_21`..`test_25` in `tests/guided/test_consent_capture.py`; candidate `bc4c6113be92599c962b2377b038173593483a18` on `lane-0428-demo-drive-matcher` (cut from demo `origin/develop@5d1cf312e`), PR https://github.com/mcpdev80/baseharbor-demo/pull/165, required run 44477622615 (https://github.com/mcpdev80/baseharbor-demo/actions/runs/44477622615) `completed success` observed to terminal at the exact head; card 0428-129 at review. Owner finding: the demo PR gate triggers only on `main` (`.github/workflows/pr-guided-consent.yml:5`), so develop-based candidates start no CI.
+
+## Final origin/main witness
+
+Taken as the second-to-last action, in `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan`, after the last evidence push:
+
+```
+$ git ls-remote origin refs/heads/main
+77fd853b676dd9d7c77b660dbb1ceeb4f14a4ddd	refs/heads/main
+$ git ls-tree -r --name-only origin/main -- evidence/r28-welle4-2026-11-19/demo-drive-matcher
+evidence/r28-welle4-2026-11-19/demo-drive-matcher/fix-1.md
+$ git show origin/main:evidence/r28-welle4-2026-11-19/demo-drive-matcher/fix-1.md | grep -c "## END"
+1
+```
+
+`## END` is unique: it heads the section that carries the END line, so the count
+of 1 proves the akte on origin/main `77fd853b` contains it.
+
+```
+$ git ls-remote origin refs/heads/main
+77fd853b676dd9d7c77b660dbb1ceeb4f14a4ddd	refs/heads/main
+$ git ls-tree -r --name-only origin/main -- evidence/r28-welle4-2026-11-19/demo-drive-matcher
+evidence/r28-welle4-2026-11-19/demo-drive-matcher/fix-1.md
+$ git show origin/main:evidence/r28-welle4-2026-11-19/demo-drive-matcher/fix-1.md | grep -c END_DONE
+1
+```
+
