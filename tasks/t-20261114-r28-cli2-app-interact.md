@@ -69,6 +69,10 @@ Component filtering, ambiguous/non-interactive behavior, safe quoting, no unrela
 - Map every added/changed test to an existing CI check or native gate and its trigger. If routing is missing, coordinate with the CI owner and block acceptance until actual execution is proven. No parallel CI framework or indiscriminate full matrix.
 - Handoff exact branch/PR/commit, tests → check/gate → trigger → actual result, remaining gaps, dependencies and shared-file conflicts. Codex/Owner-delegated Maintainer reviews and merges only after actual checks; never claim an independent review that did not occur. No release/tag authorized.
 
+## Independent review
+
+Read-only findings: [PR evidence](../evidence/r28-welle4-2026-11-19/codex-review-wave/1623-0428-063-independent-review.md). Draft #1623 `8014d71e` has no exact-head checks and three behavior gaps: `app logs -c` does not filter, `app exec --cmd` does not shell-parse, and child exit status collapses to 1.
+
 ## Handoff
 
 Round-1 delivered by w063 (flash): candidate lane-0428-063-cli2-app-interact @ beb2ee5859a8a2ffa07fd5725370275411e27011, draft PR baseharbor#1623 (base cli2-identity-secrets-head). Guided logs/exec/urls over the delivered read view, fail-closed app.logs/app.exec/app.urls authorization; no merge, no ready_for_review. Evidence: evidence/r28-welle1-2026-11-15/cli2-app-interact/round-1.md. CI dispatch belongs to the coordinator.
