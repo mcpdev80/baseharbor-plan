@@ -45,6 +45,8 @@ This reproduces Befund 1 exactly: `ListMetrics` (the provider-files/verify route
 Full suites (running while this was written; focused packages already green):
 
 - `go test ./internal/observability/ ./internal/metrics/ ./internal/application/` → `ok` (cached) for all three.
+- CI-equivalent run against ephemeral PostgreSQL (mirrors `scripts/pr-unit-database.sh` owner shard):
+  `BASEHARBOR_TEST_DATABASE_URL=postgres://postgres:postgres@127.0.0.1:5433/baseharbor_test?sslmode=disable go test ./internal/metrics/ ./internal/observability/ -count=1 -v` → both packages `ok`, exit 0, `TestRegVisibilityRegisteredSourceIsExported` and `TestRegVisibilityVerificationNoneStaysUnexported` PASS.
 
 ## Fix
 
