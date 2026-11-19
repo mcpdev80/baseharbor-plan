@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0428-073 (codeman bef94af2-794f-4445-98da-cff6f7bb1d73)
-kanban_status: active
-kanban_lane: active
+owner: 0428-073 (hopf delivered, codeman bef94af2 entlassen)
+kanban_status: review
+kanban_lane: review
 kanban_summary: Define actual alert rule evaluation and persistence using supported existing Prometheus contract or an Owner-approved…
 kanban_title: 0428-073 · Define and provision alert
 priority: normal
@@ -23,19 +23,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-alerts · Define and provision alert rules #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-alerts · Define and provision alert rules #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-073 (codeman bef94af2-794f-4445-98da-cff6f7bb1d73) · **Priority:** normal  
+    **Owner:** 0428-073 (hopf delivered, codeman bef94af2 entlassen) · **Priority:** normal  
     **PR:** [baseharbor#1613](https://github.com/mcpdev80/baseharbor/pull/1613)  
     **Needs:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
 **Required by:** [t-20261114-r28-perses-contact-routing](t-20261114-r28-perses-contact-routing.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md), [t-20261117-alert-evaluator-persistence-missing](t-20261117-alert-evaluator-persistence-missing.md), [t-20261117-hunt-signals-105](t-20261117-hunt-signals-105.md)  
-**Owner:** 0428-073 (codeman bef94af2-794f-4445-98da-cff6f7bb1d73)  
+**Owner:** 0428-073 (hopf delivered, codeman bef94af2 entlassen)  
 **Priority:** normal  
 **PRs:** [baseharbor#1613](https://github.com/mcpdev80/baseharbor/pull/1613)  
 **Source:** 
@@ -77,3 +77,5 @@ Prerequisites are encoded in `depends_on`. One worker per card/branch/PR, no con
 Supersedes [t-20261113-r28-grafana-alerts](t-20261113-r28-grafana-alerts.md) under the [Owner decision](../decisions/2026-11-14-perses-replaces-grafana-v0428.md).
 
 hopf-runde angesetzt: PR #1613 ist 'dirty' gegen develop (head 470735c1d) — die lane hebt den kandidat monoton per MERGE auf da76c5cf9, loest die manifest-konflikte inhaltserhaltend und bringt einen neuen exaktkopfigen terminalen run; akte perses-alerts-hopf/fix-1.md
+
+hopf abgeliefert und von mir verifiziert: head d8838f622b551cdc8a7f8e8320c3f122b2ae5783, monoton (develop da76c5cf9 ancestor UND der alte head 470735c1d ist Vorfahr), PR #1613 jetzt clean (war 'dirty'), vier konflikte inhaltserhaltend geloest, akte perses-alerts-hopf/fix-1.md. ABER EVIDENZ-LACKE, von mir selbst gefunden: der exact-head lauf 44491028219 meldet SUCCESS, hat aber NUR 'PR · Draft source and routing' + 'PR · Draft Go · cli-0/1/2/3/packages' ausgefuehrt, alle Go-unit/build/vet/policy-zellen sind 'skipped' — der kandidat ist an seinem kopf also NICHT voll geprueft, und 'SUCCESS' darf hier nicht als required-CI gelesen werden (§5.3 'keine gruen gerechneten gates'). die lauf-liste des zweigs zeigt dasselbe muster seit 11-16 (immer nur draft-zellen bei pull_request). ursache-sonde laeuft bereits (akte gate-routing/probe-1.md), gefundenes geht als punkt (g) in 0428-114. daher: review MIT ausdruecklich teil-zeug, abnahme möge nicht auf 'lauf success' allein entscheiden
