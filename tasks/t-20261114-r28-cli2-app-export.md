@@ -17,7 +17,7 @@ depends_on: [t-20261114-r28-cli2-contract, t-20261114-r28-cli2-identity-secrets]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1625]
 sources: []
-blocker: "managedSecretScopePresent hardcoded (false,nil), app_export.go:273-275 — angekündigter export nie verfuegbar; base cli2-identity-secrets-head -> kein exaktkopf-lauf (ci.yml:14-18)"
+blocker: "managedSecretScopePresent hardcoded (false,nil), cmd/baha/app_export.go:273-275 — angekündigter managed-secret export nie verfuegbar; base cli2-identity-secrets-head -> kein exaktkopf-lauf (ci.yml:14-18)"
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** coord · **Priority:** high  
     **PR:** [baseharbor#1625](https://github.com/mcpdev80/baseharbor/pull/1625)  
-    **Blocker:** managedSecretScopePresent hardcoded (false,nil), app\_export.go:273-275 — angekündigter export nie verfuegbar; base cli2-identity-secrets-head -\> kein exaktkopf-lauf (ci.yml:14-18)  
+    **Blocker:** managedSecretScopePresent hardcoded (false,nil), cmd/baha/app\_export.go:273-275 — angekündigter managed-secret export nie verfuegbar; base cli2-identity-secrets-head -\> kein exaktkopf-lauf (ci.yml:14-18)  
     **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
     <!-- /generated:card -->
 
