@@ -7,14 +7,15 @@
 
 ## PLAN
 
-- Establish ground truth: confirm baseSHAs via ls-remote (baseharbor-plan main, develop, lane-0428-efilter)
-- Locate the exact seam: observability.List/ListLogs/ListMetrics/ListTraces + SourceMatchesEnvironment + projectTokenFromID anchor cases (a) and (b)
-- Add caller-visible seam tests for the three mandated table rows (a/demo, b/demo-prod, c/my-app) on List/ListLogs/ListMetrics/ListTraces, asserting source length + IDs (not just the helper)
-- Add the mutation control: same source wired with anchor (visible) and same source with destroyed project (invisible)
-- gofmt -l . empty, go build ./..., go vet ./..., bash scripts/source-readability-audit.sh (limit 800)
-- Monotone hopf on develop (NO rebase), push with ancestor witness, NO force
-- Watch exact-head CI to terminal SUCCESS; record run-ID, URL, cells, skipped cells + reason (file:line), PR Selected Checks
-- Write evidence, push to origin/main, clean host (docker/podman), END as one line
+- Ground truth: ls-remote develop da76c5cf9, lane-0428-efilter f28b97a53; isolated worktree at f28b97a53; CI head f28b97a53 run 44495408370 terminal success.
+- r5 list-seam regression: add TestRoute5 (logs + metrics fixtures, three-part IDs) + mutation control on the real List/ListLogs/ListMetrics seam.
+- r5b: environment.go colon fix (segment after first colon) + canonical project var in case (c) + colon-proof asserts.
+- r6 colon: projectTokenFromID take parts[1] (project) from a '<provider>:<project>[:<service]>' split; three-part fixtures + ID-only proof (Target='').
+- r6 service-dimension: coherent Loki provider identity in the two-services case; go test/vet/build clean; merge-tree no conflicts; push b66b76c63..594086014 with ancestor witness.
+- r6 cross-environment: projectTokenFromID fail-closed on contradicting canonical sides (ID vs Target disagree -> ('', false)); TestRoute5ContradictingCanonicalSidesFailClosed; target-only stays 'dev'.
+- Push e5a943d1b with ancestor witness on b66b76c63..HEAD (monotone hop, NO force); confirm remote head.
+- Watch exact-head CI run to terminal (§4.6): record run-ID, URL, head, all cell statuses; do not claim pass while Go shards/packages or Docker observability/identity cells open; fail-closed if any cell red.
+- Publish fix-5.md 'widerspruechliche canonical-seiten fallen closed' to baseharbor-plan origin/main, verify ls-remote origin/main, bring down any compose, post END_DONE.
 
 ## GROUND TRUTH
 
@@ -118,6 +119,33 @@ The two colliding anchor cases this round must pin at the seam:
   (internal/application/runtime_observability_test.go:58, the exact failing line)
   now passes: the PostgreSQL target `runtime://<project>/postgres` resolves its
   project segment and the environment filter keeps it.
+
+## WIDERSPRÜCHLICHE CANONICAL-SEITEN FALL CLOSED (cross-environment listing)
+
+- Security direction: `projectTokenFromID` previously took the FIRST derivable
+  side (ID, then Target), so when ID and Target are both canonical but resolve
+  to DIFFERENT environments (e.g. ID `loki:bh-prod-my-app-dev:loki` against
+  Target `runtime://bh-prod-my-app-stage/loki`) the ID still won and the source
+  was assigned to one environment — letting a caller list a source whose
+  environment is not the one it asked for.
+- Fix (environment.go `projectTokenFromID`, r6): derive BOTH sides
+  independently via `trailingProjectEnvironment`, then reconcile: both resolve
+  and disagree -> `("", false)` (fail closed); exactly one derivable -> use it;
+  none -> false. The old ID-then-Target first-match order is replaced by an
+  explicit comparison.
+- Test carrying it: `TestRoute5ContradictingCanonicalSidesFailClosed`
+  (internal/observability/envfilter_route5_listseam_test.go) — contradictory
+  ID('-dev')/Target('-stage') yields `ok=false` and is invisible to both
+  `ListLogs(..., 'dev')` and `ListLogs(..., 'stage')` callers; matching sides
+  (ID and Target agree on '-dev') stay visible; target-only (ID `loki`, Target
+  `runtime://bh-prod-my-app-dev/loki`) still returns `dev` because only one side
+  is derivable — the fail-closed rule does not over-reach into normal provider
+  logic.
+- CI: exact-head run 44512393468 (head e5a943d1b0cc4e700f2ff980e1d900dab4473288
+  on lane-0428-efilter) was running with Go CLI shards/packages and the
+  Docker observability/identity cells open at the last Owner check. It does NOT
+  count as qualified until those open cells are terminal; if any of them is red
+  the run is a failure to be triaged, not a pass.
 
 ## CI EVIDENCE
 
