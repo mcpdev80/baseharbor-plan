@@ -86,31 +86,31 @@ der negative Nachweis (Ablehnung ohne Wirkung, Zerstörbarkeit) bleibt gültig.
 
 ## Claim 2026-11-04
 - Aus dem Integrationslauf w142 entstanden und von mir auf dem Rechner nachgemessen (Bildabruf mit
-  Fehlerausgabe wiederholt). Kein Auftrag an eine laufende Lane: alle fünf Sitze belegt, erste freie Bahn
+  Fehlerausgabe wiederholt). Kein Auftrag an eine laufende Lane: alle fünf Sitze belegt, erste freie lane
   erhält diese Arbeit.
 
 ## Auftrag 2026-11-04 (aus nachgemessenem Befund)
 
 ## Kandidat pruefbar 2026-11-04 (nach dem Neu-Schnitt)
-- Kopf 52be57c9893 auf work/r27-private-integration, von mir gegen die ECHTE Adresse gemessen; develop ist
+- head 52be57c9893 auf work/r27-private-integration, von mir gegen die ECHTE Adresse gemessen; develop ist
   Vorfahr; die Log-Zeile origin/develop..HEAD traegt NUR deinen eigenen Commit — die anmeldungsdateien, die
   mein verjaerter Spiegel untergeschoben hatte, sind nachgewiesen raus (name-only ohne contracts/).
-- Gehosteter Lauf 41913050087 auf genau diesem Kopf: abgeschlossen/erfolgreich (von der Lane beobachtet, von
+- Gehosteter run 41913050087 auf genau diesem head: abgeschlossen/erfolgreich (von der Lane beobachtet, von
   mir mit eigener gh-run-Abruf bestaetigt). Draft-PR, basis develop.
 
 ## Review-Rueckruf 2026-11-05 (r1379 REJECT, NUR das gate)
-Inhalt (Umschaltung + beide Gegenproben) bestanden. Der Lauf am exakten Kopf uebersprang den Job 'Selected
-Checks' — vermutlich draft-schalter. Kleinauftrag: PR auf ready, neuen Lauf terminal beobachten, beide
-Modus-Zellen am lauf belegen; bleibt der skip: Befund mit Workflow-zeile an den Owner, keine Gewalt.
+Inhalt (Umschaltung + beide Gegenproben) bestanden. Der run am exakten head uebersprang den Job 'Selected
+Checks' — vermutlich draft-schalter. Kleinauftrag: PR auf ready, neuen run terminal beobachten, beide
+Modus-Zellen am run belegen; bleibt der skip: Befund mit Workflow-zeile an den Owner, keine Gewalt.
 
-## Gate-Nachweis geliefert — wieder pruefbar (kopf unveraendert 52be57c9893)
-PR ist auf ready gestellt, der ausgewiesene Pflichtlauf 'PR Selected Checks' ist am exakten Kopf terminal
-ERFOLGREICH (lauf 41978410480, von mir abgerufen; beide Modus-Zellen in der Akte belegt). Der einzige
+## Gate-Nachweis geliefert — wieder pruefbar (head unveraendert 52be57c9893)
+PR ist auf ready gestellt, der ausgewiesene Pflichtlauf 'PR Selected Checks' ist am exakten head terminal
+ERFOLGREICH (run 41978410480, von mir abgerufen; beide Modus-Zellen in der Akte belegt). Der einzige
 Ablehnungspunkt der Prüfung (uebersprungener Gate-Job) ist damit ausgeraeumt — Inhalt war schon vorher
 bestanden. Merge-obliegt der Owner-Runde.
 
 ## ACCEPT 2026-11-05 (r1379b, Gate-Punkt geschlossen)
-Kopf unveraendert 52be57c9893; 'PR Selected Checks' terminal erfolgreich + die zwei modus-zellen belegt —
+head unveraendert 52be57c9893; 'PR Selected Checks' terminal erfolgreich + die zwei modus-zellen belegt —
 der einzige ablehnungspunkt der runde 1379 ist ausgeraeumt. MERGE-REIF fuer die Owner-Runde.
 
 

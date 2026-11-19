@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1693]
 sources: []
 blocker: ""
-wait_reason: "abnehmer-wort: nicht vor #1691 mergen; hopf auf den develop-kopf nach #1691, dann re-review"
+wait_reason: "abnehmer-wort: nicht vor #1691 mergen; hopf auf den develop-head nach #1691, dann re-review"
 resolution: ""
 evidence: []
 ---
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w01-0428-123 (codeman 1e209bb7)  
     **PR:** [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693)  
-    **Waiting:** abnehmer-wort: nicht vor \#1691 mergen; hopf auf den develop-kopf nach \#1691, dann re-review  
+    **Waiting:** abnehmer-wort: nicht vor \#1691 mergen; hopf auf den develop-head nach \#1691, dann re-review  
     <!-- /generated:card -->
 
 <!-- generated:links -->

@@ -77,10 +77,10 @@ the connector package.
 Born 2026-11-05 from lane w153's dialog escalation on t-20261018-r27-node-streams (case-b evidence path).
 Coordinator owns sequencing: w153 waits; helper lane delivers; w153 resumes with the import.
 
-## Kandidat pruefbar 2026-11-05 (kopf e3afb49a8f2)
+## Kandidat pruefbar 2026-11-05 (head e3afb49a8f2)
 - Genau zwei neue Dateien (exportierter Test-Draht + Smoke-Test), alle bestehenden Vertrauens-/Sitzungs-
-  dateien blob-identisch (name-only belegt), main ist Vorfahr, Smoke-Rahmen rc=0, gehosteter Lauf terminal
-  erfolgreich. Weckt die Knoten-Stroeme-Lane erst nach Merge — Import aus main, nicht aus einem fremden Zweig.
+  dateien blob-identisch (name-only belegt), main ist Vorfahr, Smoke-Rahmen rc=0, gehosteter run terminal
+  erfolgreich. Weckt die Knoten-Stroeme-Lane erst nach Merge — Import aus main, nicht aus einem fremden branch.
 
 ## Merge closeout
 

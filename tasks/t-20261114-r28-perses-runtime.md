@@ -17,7 +17,7 @@ priority: normal
 depends_on: [t-20261114-r28-perses-contract-seam]
 repos: [mcpdev80/baseharbor]
 sources: []
-blocker: "exact-head runtime-zeuge fehlt in der hosted-zelle (TestPersesRuntimeSmokeDockerIsolated hat keinen trigger, BASEHARBOR_PERSES_RUNTIME_SMOKE ungesetzt; gate-map scripts/pr-gate-coverage.json + .github = owner-scope, gebuendelt in 0428-114). ARBEITET GERADE: host-lokaler baha-docker-zeuge auf exaktem kopf 76331c7d8 nach praezedenz 088-r3 (lane laeuft, akte perses-runtime/witness-1.md) — damit ist die karte abnahmefaehig, ohne dass der hosted-draht wartet"
+blocker: "exact-head runtime-zeuge fehlt in der hosted-zelle (TestPersesRuntimeSmokeDockerIsolated hat keinen trigger, BASEHARBOR_PERSES_RUNTIME_SMOKE ungesetzt; gate-map scripts/pr-gate-coverage.json + .github = owner-scope, gebuendelt in 0428-114). ARBEITET GERADE: host-lokaler baha-docker-zeuge auf exaktem head 76331c7d8 nach praezedenz 088-r3 (lane laeuft, akte perses-runtime/witness-1.md) — damit ist die karte abnahmefaehig, ohne dass der hosted-draht wartet"
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1592-r3-runtime.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-runtime/r4-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44467712113"]
@@ -82,16 +82,16 @@ kandidat e264ca4b7, exact-head run 44403933672 SUCCESS, TLS material generiert+p
 
 r2 plugin-extract: kandidat 54fbe4771, exact-head run 44420115459 SUCCESS, /etc/perses/plugins writable tmpfs unter read_only:true, TestPersesRuntimeSmokeDockerIsolated verschaerft -> GET /api/v1/plugins meldet shipped UI plugin
 
-board-wahrheit: Codex haelt REQUEST CHANGES auf 54fbe4771 aufrecht (letzter recheck 00:01Z, comment am PR) — die 088-lane hat danach keinen neuen kopf gestellt und ist released. r3-mission wird beim naechsten END-freiraum aus dem PR-kommentar-rezept geschnitten und dispatched. review-status war damit nicht mehr zutreffend -> active
+board-wahrheit: Codex haelt REQUEST CHANGES auf 54fbe4771 aufrecht (letzter recheck 00:01Z, comment am PR) — die 088-lane hat danach keinen neuen head gestellt und ist released. r3-mission wird beim naechsten END-freiraum aus dem PR-kommentar-rezept geschnitten und dispatched. review-status war damit nicht mehr zutreffend -> active
 
 r3 END akzeptiert: runtime-zeug PASS (32/32 module via /api/v1/plugins, tmpfs+read_only beide koepfe), monotoner hopf c452f705c normal gepusht, exact-head run 44456253144 SUCCESS selbst beobachtet, akte 4b271bf9. OWNER-FIND: scripts/pr-gate-coverage.json:60-63 ohne perses-gate, kein workflow setzt BASEHARBOR_PERSES_RUNTIME_SMOKE — dauerloesung beim owner. Routing an CODEX (rezept-punkt 'nicht falsifiziert zur laufzeit' damit erfuellebt)
 
-hopf-route berichtigt: rebase unbrauchbar, weil der zweig develop-merge-commits traegt und der 075-seam-ahn (4bab986dc) schon auf develop liegt — rebase spielt integrierte history neu ab. merge-hopf angewiesen, PR-head bleibt bis zum neuen kopf c452f705c, karte bleibt review (basisarbeit, kein inhaltsschritt)
+hopf-route berichtigt: rebase unbrauchbar, weil der branch develop-merge-commits traegt und der 075-seam-ahn (4bab986dc) schon auf develop liegt — rebase spielt integrierte history neu ab. merge-hopf angewiesen, PR-head bleibt bis zum neuen head c452f705c, karte bleibt review (basisarbeit, kein inhaltsschritt)
 
-base-exakt: merge-hopf auf develop 21161b101, kopf 76331c7d8, PR #1592 clean, inhalt byte-identisch (diff-vs-diff-belege in r4-1.md), CI-CP #5653 SUCCESS — abnahme kann auf diesem kopf urteilen
+base-exakt: merge-hopf auf develop 21161b101, head 76331c7d8, PR #1592 clean, inhalt byte-identisch (diff-vs-diff-belege in r4-1.md), CI-CP #5653 SUCCESS — abnahme kann auf diesem head urteilen
 
 CODEX-REVIEW current-head recheck: #1592 head 76331c7d8, base develop 21161b101; exact-head Source & Quality 44467712113 SUCCESS. r4-1 proves Perses content byte-identical across hopfs. Hold remains: no exact-current-head Docker witness and TestPersesRuntimeSmokeDockerIsolated has no mapped/selected CI/native gate (BASEHARBOR_PERSES_RUNTIME_SMOKE unset). 32/32 plugin witness was on c452f705c, so cannot stand in for current-head execution. No merge pending exact-head runtime witness and owner-approved gate mapping/disposition. GitHub review API rejected REQUEST_CHANGES because connected identity authored PR; equivalent finding posted as PR issue comment 7001328277.
 
-hopf-arbeit abgeschlossen (merge auf develop 21161b101, kopf 76331c7d8), abnahme hebt stale review — kein merge bis zelle gemapped ist
+hopf-arbeit abgeschlossen (merge auf develop 21161b101, head 76331c7d8), abnahme hebt stale review — kein merge bis zelle gemapped ist
 
 hopf-stand: 76331c7d8 = merge auf develop da76c5cf9 (inhalt byte-identisch, r4-1.md), PR #1592 open behind (entwickelt sich mit naechstem merge)

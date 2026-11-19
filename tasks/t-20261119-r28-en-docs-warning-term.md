@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1697]
 sources: []
-blocker: "hosted-beleg fehlt, nicht der inhalt: die kartenpflicht verlangt den bestehenden documentation-audit in der betroffenen CI-gruppe, aber 'PR · Validation · documentation-audit' materialisiert nicht fuer die geaenderten docs/internal/*.json-pfade (abnehmer-wort + kommentar 7002848508 auf exaktem kopf 3448f73e6, base da76c5cf9 clean, run 44478483899 SUCCESS). lokal-PASS und JSON-parse sind kein exact-head-zeug. naechster trigger: (a) die pfad-auswahl des bestehenden audits erfuellt docs/internal/*.json (owner-scope, laeuft im audit 0428-133 mit) ODER (b) ein freigegebener hosted-route fuellt den audit auf diesem kopf nach. kein merge bis dahin"
+blocker: "hosted-beleg fehlt, nicht der inhalt: die kartenpflicht verlangt den bestehenden documentation-audit in der betroffenen CI-gruppe, aber 'PR · Validation · documentation-audit' materialisiert nicht fuer die geaenderten docs/internal/*.json-pfade (abnehmer-wort + kommentar 7002848508 auf exaktem head 3448f73e6, base da76c5cf9 clean, run 44478483899 SUCCESS). lokal-PASS und JSON-parse sind kein exact-head-zeug. naechster trigger: (a) die pfad-auswahl des bestehenden audits erfuellt docs/internal/*.json (owner-scope, laeuft im audit 0428-133 mit) ODER (b) ein freigegebener hosted-route fuellt den audit auf diesem head nach. kein merge bis dahin"
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/en-docs-warning-term/fix-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44478483899", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1697.md"]
@@ -80,7 +80,7 @@ One or two sentences: the observable outcome.
 - Current state, branch, PR and evidence links. Newest first.
 
 ## Purpose
-Nebefund aus der live-verify-kette 0428-130 (akte evidence/r28-welle4-2026-11-19/verify-env-chain/befund-1.md): nach 0428-126 heisst das annerkennende marker im ausgelieferten EN-katalog 'Warning', die englische dokumentation (EN-zweig der doku, inkl. decisions-/cli-texte) verwendet an mindestens einer stelle weiterhin 'Achtung'. severity niedrig, aber kartenwuerdig, weil die EN-doku damit ein wort zeigt, das der EN-CLI nie druckt — dieselbe klasse wie der von 0428-126 behobene rename-drift.
+Nebefund aus der live-verify-kette 0428-130 (akte evidence/r28-welle4-2026-11-19/verify-env-chain/befund-1.md): nach 0428-126 heisst das annerkennende marker im ausgelieferten EN-katalog 'Warning', die englische dokumentation (EN-branch der doku, inkl. decisions-/cli-texte) verwendet an mindestens einer stelle weiterhin 'Achtung'. severity niedrig, aber kartenwuerdig, weil die EN-doku damit ein wort zeigt, das der EN-CLI nie druckt — dieselbe klasse wie der von 0428-126 behobene rename-drift.
 
 ## Acceptance
 - alle EN-doku-stellen fuer das marker sagen 'Warning' (grep-beleg: kein 'Achtung' in EN-dateien), deutsche texte bleiben bei 'Achtung'

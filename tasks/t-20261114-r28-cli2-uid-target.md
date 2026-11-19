@@ -30,7 +30,7 @@ evidence: []
     **Needs:** [t-20261114-r28-cli2-uid-environment](t-20261114-r28-cli2-uid-environment.md)  
     <!-- /generated:card -->
 
-STACK (owner-anweisung 2026-11-15): basis-karte = cli2-uid-environment (kette app->env->target, max 3 ebenen); branch am kopf der basis-lane, gewartet wird nur auf inhalte, nie auf merges; nach basis-anderung: rebasen + hier vermerken — PR #1580 base = lane-0428-uid-environment (retarget 15.11)+
+STACK (owner-anweisung 2026-11-15): basis-karte = cli2-uid-environment (kette app->env->target, max 3 ebenen); branch am head der basis-lane, gewartet wird nur auf inhalte, nie auf merges; nach basis-anderung: rebasen + hier vermerken — PR #1580 base = lane-0428-uid-environment (retarget 15.11)+
 
 
 <!-- generated:links -->

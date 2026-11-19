@@ -30,7 +30,7 @@ evidence: []
     **Waiting:** approved on 756d21b7 (act-1578-review-r1); frost-bis, dann uid-app-\>uid-env-\>uid-target  
     <!-- /generated:card -->
 
-STACK (owner-anweisung 2026-11-15): basis-karte = cli2-uid-app (kette app->env->target, max 3 ebenen); branch am kopf der basis-lane, gewartet wird nur auf inhalte, nie auf merges; nach basis-anderung: rebasen + hier vermerken — PR #1578 base = lane-0428-uid-app (retarget 15.11)+
+STACK (owner-anweisung 2026-11-15): basis-karte = cli2-uid-app (kette app->env->target, max 3 ebenen); branch am head der basis-lane, gewartet wird nur auf inhalte, nie auf merges; nach basis-anderung: rebasen + hier vermerken — PR #1578 base = lane-0428-uid-app (retarget 15.11)+
 
 
 <!-- generated:links -->

@@ -72,10 +72,10 @@ produce both green and red for the same commit today; that poisons every other c
 - go test ./internal/development -count=1 + race-count=50 of the two named tests, build, vet, gofmt;
   hosted runs of the exact head to terminal, PR Selected Checks not skipped.
 
-## Runde 1 pruefbar 2026-11-05 (kopf fa4067e3f40)
+## Runde 1 pruefbar 2026-11-05 (head fa4067e3f40)
 Nachgemessen: ls-remote echt==head, develop 42bfcb1cb4 VORFAHR (frischer schnitt), genau ein eigener
 commit, write-set = die zwei dateien der karte; race-50 wiederholbar gruen; quiet-begleiter gruen;
-lauf 42010882741 terminal am exakten kopf. MUTANTEN-HINWEIS fuer die pruefung: einzellauf-rot ueber
+run 42010882741 terminal am exakten head. MUTANTEN-HINWEIS fuer die pruefung: einzellauf-rot ueber
 deadlock der beobachtungs-naht (hook aus => test haengt bis timeout) — formal rot, die pruefung soll
 bewerten ob ein SAUBERER assertiver fehler gefordert wird statt haenge-tod.
 
@@ -84,33 +84,33 @@ Race-50 und quiet sind gruen, blobs unveraendert — aber die hook-aus-Mutante l
 paket-timeout. Runde 2: test-seitige bounded wartestelle + typisiertes signal, fail-fast mit BENANNTEN
 fehler als einziges mutanten-rot.
 
-## Runde 2 pruefbar 2026-11-05 (kopf d5ff9bc7b599)
+## Runde 2 pruefbar 2026-11-05 (head d5ff9bc7b599)
 Nachgemessen: ls-remote echt==head, develop Vorfahr, eigene commits, write-set = die zwei karten-dateien;
 fail-fast mutante mit benanntem sentinel (0,007s statt 10min-hang), race-50 + quiet-20 gemeldet gruen,
-lauf 42026851319 terminal SUCCESS am exakten kopf, round-2.md auf main (ad9...). Die zeit-basierte
+run 42026851319 terminal SUCCESS am exakten head, round-2.md auf main (ad9...). Die zeit-basierte
 gruen/rueckfall-klasse der karte ist damit behoben — entpoisoned alle PR-tore.
 
-## Kopf-Wechsel 2026-11-05 (17:4x): kandidat ist jetzt 27cf86c3396
+## head-Wechsel 2026-11-05 (17:4x): kandidat ist jetzt 27cf86c3396
 Die fertige Lane hatte ihre Runden-Akte versehentlich ALS COMMIT ins Produkt-Repo gelegt (92958471) und
-zusaetzlich einen zweiten PR #1389 auf demselben zweig geoeffnet — beide Regelbrueche von mir bereinigt:
-Doppel-PR geschlossen (nachweis: gleicher zweig), content-only-fehlablage VORWAERTS zurueckgenommen
+zusaetzlich einen zweiten PR #1389 auf demselben branch geoeffnet — beide Regelbrueche von mir bereinigt:
+Doppel-PR geschlossen (nachweis: gleicher branch), content-only-fehlablage VORWAERTS zurueckgenommen
 (revert 27cf86c3, loescht NUR .evidence/snapshot-flake/round-2.md; die akte liegt korrekt im plan-repo).
-Code-identitaet zu d5ff9bc7 bleibt, gate-lauf am neuen kopf laeuft. Abnahme 1387b gilt dem neuen kopf.
+Code-identitaet zu d5ff9bc7 bleibt, gate-run am neuen head laeuft. Abnahme 1387b gilt dem neuen head.
 
-## Rueckruf 2026-11-05: der fixed guard ist auf GEHOSTETEM lauf ROT — nicht mehr per timing, per EIGENER schranke
-lauf 42050483534 am kopf 27cf86c3396 (docs-bereinigung, code=d5ff9bc): '--- FAIL: TestSourceSnapshotDetectsChangeDuringRead (5.01s)'
+## Rueckruf 2026-11-05: der fixed guard ist auf GEHOSTETEM run ROT — nicht mehr per timing, per EIGENER schranke
+run 42050483534 am head 27cf86c3396 (docs-bereinigung, code=d5ff9bc): '--- FAIL: TestSourceSnapshotDetectsChangeDuringRead (5.01s)'
 = die neue 5s-SENTINEL grenze laeuft auf, der hook wird auf dem CI-dateisystem/unter last NICHT FEUERBAR
-beobachtet (mtime-delta-beweis trift dort nicht ein). Lunas BLOCKED-urteil war richtig: die historischen
+beobachtet (mtime-delta-beweis trift dort nicht ein). Lunas BLOCKED-verdict war richtig: die historischen
 belege zaehlen nicht gegen diesen realen ausfall. Runde 3: nachweis-BARRE statt mtime-hoffnung (dieselbe
 klasse wie tagebuch: ereignis-naht, die den wechsel BEWEIST — nicht 'mtime hat sich seit walk-start
-geaendert'), danach race50 + einzellauf-mutante + NEUER hosted lauf bis terminal.
+geaendert'), danach race50 + einzellauf-mutante + NEUER hosted run bis terminal.
 
-## Runde 3 pruefbar 2026-11-05 (kopf e2d87906a510)
-Nachgemessen: ls-remote echt==head, GEHOSTETER lauf 42057573429 terminal SUCCESS am exakten kopf
+## Runde 3 pruefbar 2026-11-05 (head e2d87906a510)
+Nachgemessen: ls-remote echt==head, GEHOSTETER run 42057573429 terminal SUCCESS am exakten head
 (go-unit-tests + selected checks gruen — das war die neue Annahme-Klausel), race50 gruen, quiet20 gruen,
 einzellauf-mutante 3x rot mit benanntem sentinel; EREIGNIS-barre im Produktionslauf (kein test-schalter).
 Ketihenbereinigung dokumentiert (reset auf 27cf86c + ein commit + develop-merge a53c10a7, ancestor rc=0;
-develop ist seitdem auf 10e8d646 weitergelaufen = merge-zweig-notiz). round-3.md auf main.
+develop ist seitdem auf 10e8d646 weitergelaufen = merge-branch-notiz). round-3.md auf main.
 
 ## Rueckruf (1387c REJECT, ein punkt): schluss-verifizierung der baseline-pfade muss wieder rein — ereignis-barre bleibt, verteidigung-in-tiefe. mission w189 fertig.
 
@@ -122,13 +122,13 @@ round-4 (w189): defense in depth. EREIGNIS barrier fixed to real os.Lstat mid-wa
 
 round-4 (w189): defense in depth. EREIGNIS barrier fixed to real os.Lstat mid-walk re-stat (root cause of round-3 flake); final baseline-path verification restored as Layer 2; late-mutation regression pinned deterministically. Hosted 42083071514 @ d21badc6 terminal SUCCESS (PR Selected Checks green). Evidence: round-4.md.
 
-## Runde 4 pruefbar 2026-11-05 (kopf d21badc6f4): WARMEURSACHE gefunden und benannt — die ereignis-barre\nverglich ein totes entry.Info() statt echter Lstat-inspektion mitten im lauf (das war der runde-3-rest-flake).\nEndcheck (verifyFinalBaseline) wieder drin; race50+quiet20 gruen, beide mutanten benannt rot, hosted am kopf.\n1387c-punkt damit adressiert + tiefer. round-4.md auf main.
+## Runde 4 pruefbar 2026-11-05 (head d21badc6f4): WARMEURSACHE gefunden und benannt — die ereignis-barre\nverglich ein totes entry.Info() statt echter Lstat-inspektion mitten im run (das war der runde-3-rest-flake).\nEndcheck (verifyFinalBaseline) wieder drin; race50+quiet20 gruen, beide mutanten benannt rot, hosted am head.\n1387c-punkt damit adressiert + tiefer. round-4.md auf main.
 
-## Rueckruf (1387d REJECT, ein punkt nach urteil): race-verzahnung der late-mutation fehlt —\nendcheck-entfernt-mutante blieb GRUEN (test prueft endcheck nicht). lstat + beide schutzschichten bleiben.\nWahrheit zur kette: runde 4 brachte die WARMEURSACHE (totes entry.Info) und endcheck-rueckkehr; die\nbarre-mutante ist rot, die endcheck-mutante war's noch nicht.
+## Rueckruf (1387d REJECT, ein punkt nach verdict): race-verzahnung der late-mutation fehlt —\nendcheck-entfernt-mutante blieb GRUEN (test prueft endcheck nicht). lstat + beide schutzschichten bleiben.\nWahrheit zur kette: runde 4 brachte die WARMEURSACHE (totes entry.Info) und endcheck-rueckkehr; die\nbarre-mutante ist rot, die endcheck-mutante war's noch nicht.
 
-## Runde 5 pruefbar 2026-11-05 (kopf 0298871895c1)
-Nachgemessen: ls-remote echt==head, develop 3d8fc207 VORFAHR (rc=0, beide attestate in der akte), lauf
-42106254196 TERMINAL SUCCESS am exakten kopf, akte round-5.md auf main. END-zeile der lane nannte
+## Runde 5 pruefbar 2026-11-05 (head 0298871895c1)
+Nachgemessen: ls-remote echt==head, develop 3d8fc207 VORFAHR (rc=0, beide attestate in der akte), run
+42106254196 TERMINAL SUCCESS am exakten head, akte round-5.md auf main. END-zeile der lane nannte
 veraltet den zwischenkopf 07108f0847 — messe gilt (praeszedenz w185). Beide mutanten benannt rot, race50+
 quiet20 gruen, wahre ursache (totes entry.Info) behoben, endcheck wieder drin.
 
@@ -137,8 +137,8 @@ per channel, aber es gibt KEIN WRITE-ACK: der test beweißt nicht, dass die änd
 capture weiterläuft. Darum wird die endcheck-mutante auch ohne echte dateiänderung rot (nicht-diskriminierend).
 Rezept: beidseitige barre + identitätsnachweis der geschriebenen datei.
 
-## Runde 6 pruefbar 2026-11-06 (kopf d0e0bdc6e84)
-Nachgemessen: ls-remote echt==head, develop VORFAHR, lauf 42125295757 TERMINAL SUCCESS am exakten kopf,
+## Runde 6 pruefbar 2026-11-06 (head d0e0bdc6e84)
+Nachgemessen: ls-remote echt==head, develop VORFAHR, run 42125295757 TERMINAL SUCCESS am exakten head,
 akte round-6.md auf main. 1387e-punkt geschlossen: BEIDSEITIGE write-ACK-barre, beide richtungen ROT mit
 sentinel, GEGENPROBE ohne mutation GRUEN (diskriminierung bewiesen), race-50 gruen.
 
@@ -152,10 +152,10 @@ sentinel, GEGENPROBE ohne mutation GRUEN (diskriminierung bewiesen), race-50 gru
 GEHOSTET twice TERMINAL ROT an :247 'MutationAcked never fired' — der ack-wait haelt einem ZEITLIMIT unter
 runner-last, nicht einer kausalen barre. Mission w209-flake-r7 steht; journal-#1393-merge wartet darauf.
 
-## Runde 7 pruefbar 2026-11-06 (kopf 1c84f5fe43c, PR #1400)
+## Runde 7 pruefbar 2026-11-06 (head 1c84f5fe43c, PR #1400)
 Nachgemessen: ls-remote echt==head, develop VORFAHR rc=0, ZWEI terminale GRUEN-Beobachtungen am selben
-kopf (lauf 42172734295 + Attempt-2-rerun, job 127749031811), akte round-7.md auf origin/main (coord-record
-aus publish-zweig der lane, merge-uebernahme). Kausale ack-barriere statt zeitlimit; nil-pforte drin;
+head (run 42172734295 + Attempt-2-rerun, job 127749031811), akte round-7.md auf origin/main (coord-record
+aus publish-branch der lane, merge-uebernahme). Kausale ack-barriere statt zeitlimit; nil-pforte drin;
 fremder validate-befund (4 compose/workload-zellen) separat dokumentiert -> compose-karten-notiz.
 
 ## Rueckruf (1400a REJECT, zwei punkte): (1) NIL-HOOK ueberschreibt frischen Lstat-wert =>

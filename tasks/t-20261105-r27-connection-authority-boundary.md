@@ -78,9 +78,9 @@ Consuming candidate: PR #1380 (connection-client), which resumes on a free seat 
 
 w168 IMPLEMENTATION DONE 2026-11-05: ResolverForTargetSelection in internal/coreinstallation/authority.go (a14bac06, branch work/r27-connection-authority cut from connection-client head). Derives live CA issuer from verified install+target state via serviceaccess.Issuer, no app-context; fail-closed ErrUnverifiableInstallation/ErrForeignTarget. coreinstall green; cmd/baha green (1 pre-existing Docker-socket flaky on pristine HEAD). name-only=2 files; log=own commit only; lsremote a14bac06. Ready for integration into consumer PR #1380 (w164) — no second PR/rerun/.github edits per scope split.
 
-## Kandidat pruefbar 2026-11-05 (kopf b730243cbe1, zweiter Schnitt)
+## Kandidat pruefbar 2026-11-05 (head b730243cbe1, zweiter Schnitt)
 Nach der Basis-Korrektur gemessen: develop ist Vorfahr, EIN eigener Commit, Querschnitt nur Autoritaet +
-Sondendatei (die #1380-eigenen Dateien sind korrekt draußen), Lauf 41981375241 terminal erfolgreich.
+Sondendatei (die #1380-eigenen Dateien sind korrekt draußen), run 41981375241 terminal erfolgreich.
 Fail-closed-Zellen + Grundlinien-Umschaltbeleg in der Akte.
 
 ## Rueckruf (1386a REJECT): lesend statt erzeugend
@@ -88,14 +88,14 @@ Der Resolver zieht bei fehlender Autorität eine neue CA hoch (EnsureLocalIssuer
 zur Implikation. Runde 2: rein lesende Beobachtung + zwei neue Sonden-Zellen (fehlendes Verzeichnis, leere
 Issuer-Datei); Stopkriterium: je erzeugtes Material.
 
-## Runde 2 pruefbar 2026-11-05 (kopf aa62518c6a6)
+## Runde 2 pruefbar 2026-11-05 (head aa62518c6a6)
 Nachgemessen: ls-remote echt==head, develop Vorfahr, zwei eigene commits, write-set genau die zwei
 Dateien der Akte; code-gelesen: observeLocalIssuer strictly read-only, kein EnsureLocalIssuer-Aufruf im
-Resolver; lauf 41988118382 terminal SUCCESS am exakten Kopf (Selected Checks nicht skipped). Akte
+Resolver; run 41988118382 terminal SUCCESS am exakten head (Selected Checks nicht skipped). Akte
 round-2.md publiziert (b998131).
 
 ## ACCEPT 2026-11-05 (r1386b): merge-reif fuer die Owner-Runde
-Kopf aa62518c6a6; alle vier Sonden selbstonde bestaetigt, Fehlgeburts-Mutante rot, Resolver bleibt lesend —
+head aa62518c6a6; alle vier Sonden selbstonde bestaetigt, Fehlgeburts-Mutante rot, Resolver bleibt lesend —
 fehlende/unvollstaendige Autoritaet schlaegt fail-closed fehl. Verbindungs-Karte (#1380) wird nach Merge frei.
 
 

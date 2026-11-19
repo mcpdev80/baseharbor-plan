@@ -81,9 +81,9 @@ full transcript: [rebuild-1.md](../evidence/r27-welle4-2026-11-04/vm-integration
   build, vet, gofmt.
 - Hosted runs of the exact head to terminal state.
 
-## Kandidat pruefbar 2026-11-05 (kopf 942e3cc562b)
+## Kandidat pruefbar 2026-11-05 (head 942e3cc562b)
 - Gemessen von mir: Vorfahr ja, eigener commit, Querschnitt nur Zerstörungs-/Telemetrie-Pfad + zwei neue
-  Tests, Lauf 41937967623 terminal erfolgreich.
+  Tests, run 41937967623 terminal erfolgreich.
 - Der halbfertige Anbieterwechsel-Zustand endet jetzt mit sauberer Entfernung (Erfolg, kein Rest); die
   geschlossene Zelle (Zustandsdatei fehlt ganz) und der Glueckpfad unveraendert, Schranke blob-identisch.
 - Offene Prueffrage an den Kanal: warum die Telemetrie-Autorisierungsdatei mit im Schnitt liegt.
@@ -94,19 +94,19 @@ GEMEINSAM gelesenen Datei-Leser nachsichtig (fehlende Datei => leere Liste fuer 
 unterdrueckt echte Bindeungs-Fehler im normalen Betrieb. Runde 2 setzt die Datei auf deinen Stand zurueck
 und haelt die Nachsicht strikt im Zerstoerungspfad mit Eigentumsnachweis.
 
-## Runde 2 pruefbar 2026-11-05 (kopf 3691173821)
+## Runde 2 pruefbar 2026-11-05 (head 3691173821)
 Rezept ausgefuehrt: Telemetrie-Rücksetzung blob-identisch zu develop (abbb5bb6, von mir gemessen),
 Nachsicht jetzt im Zerstoerungspfad mit neuer Eigentumsdatei; Zelle rc=0, #1375-Zelle und Glueckpfad
 gruen. Prueffrage an den Kanal: wer ruft runtime_owner_write.go auf (nur Zerstoerungspfad?).
 
-## Rueckruf auf EIGENE messung 2026-11-05 (nicht auf ein Urteil)
-Der Lauf am Runde-2-Kopf ist in Source-Format, cli-gofmt und den Unit-Jobs rot (gofmt-Absage an cmd/baha,
+## Rueckruf auf EIGENE messung 2026-11-05 (nicht auf ein verdict)
+Der run am Runde-2-head ist in Source-Format, cli-gofmt und den Unit-Jobs rot (gofmt-Absage an cmd/baha,
 Wortlaut aus dem Runner-Job). Runde 3 stellt Form und Unit-Ernst her; Compose-Vorbestand bleibt separiert
 (Hebelkarte). Der Inhaltliche Rezeptpunkt (Telemetrie rueckgesetzt, blob gemessen) gilt weiterhin.
 
-## Runde 3 pruefbar 2026-11-05 (kopf d1f4eada327)
+## Runde 3 pruefbar 2026-11-05 (head d1f4eada327)
 - Rezept 1382b in Verhalten gefasst (kein Refactoring um des Refactorings willen): gemeinsamer Stopp-Pfad
   endet bei degeneratem Zustand FEHLERHAFT (fail-closed, Vorher/Nachher gemessen); der Erfolg rc=0 lebt in
   zerstoerungs-eigenen Helfer-Dateien; drei Mutations-Zellen (sichern/TLS/ordinärer Stopp) beweisen die
   Abgrenzung. Erledigt ausserdem: mein Format-Befund aus dem Runner (gofmt-Liste leer), vier formerly-red
-  Jobs gruen in lauf 41951027459 terminal.
+  Jobs gruen in run 41951027459 terminal.

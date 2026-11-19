@@ -80,36 +80,36 @@ flips the runtime gate red for unrelated candidates).
   (a) clean state, (b) deliberately polluted shared state — transcripts in evidence.
 - go build, vet, gofmt; hosted runs of the exact head to terminal.
 
-## Kandidat pruefbar 2026-11-05 (kopf 9bf29c89846, basis-auffrischung drin)
+## Kandidat pruefbar 2026-11-05 (head 9bf29c89846, basis-auffrischung drin)
 Zellenstand nach dem nachtrag: zustimmungs-ursache fixiert, verseuchter develop JETZT rot gemessen (war
-zuerst gruen — grund war die aeltere basis), head gruen; isolierungs-frage wird im urteil als eigener
+zuerst gruen — grund war die aeltere basis), head gruen; isolierungs-frage wird im verdict als eigener
 abschnitt gefuehrt.
 
 ## Rueckruf 2026-11-05 (1383a REJECT: zustimmung belegt, isolierung OFFEN)
 Der fixture-harness nutzt den Umgebungs-Daemon; am verseuchten kandidaten bleibt die schranke rot. Runde 2:
 pro lebenszyklus-test eigener daemon/socket- oder gleichwertiger namespace OHNE shared state zu loeschen;
-beweis: vier tests zweimal, sauber + absichtlich verseucht, am exakten kopf.
+beweis: vier tests zweimal, sauber + absichtlich verseucht, am exakten head.
 
-## Runde 2 pruefbar 2026-11-05 (kopf 789ae14655b)
-Nachgemessen: ls-remote echt==head, eigener test-commit auf der kette, lauf 42002171842 terminal SUCCESS
-am exakten kopf (frische shared runner = neutraler beweis der wiederhergestellten isolation), akte
+## Runde 2 pruefbar 2026-11-05 (head 789ae14655b)
+Nachgemessen: ls-remote echt==head, eigener test-commit auf der kette, run 42002171842 terminal SUCCESS
+am exakten head (frische shared runner = neutraler beweis der wiederhergestellten isolation), akte
 round-2.md publiziert. Basis noch develop 24c7d0492f3 (ancestor gegen 42bfcb1cb4 NEIN) — develop-merge
-obliegt dem merge-zweig, wie in der akte vermerkt.
+obliegt dem merge-branch, wie in der akte vermerkt.
 
 ## Rueckruf (1383b REJECT, zwei punkte):
 Die bootstrap-auswahl bleibt als fallback in den lebenszyklus-tests stehen (target-scope allein dichet die
 naht nicht — ein test ohne eigenen scope erwischt den geteilten bootstrap-core), und das kontaminierte
 ensemble wurde nie real gefahren. Runde 3: scope-entraeucherung der bootstrap-naht + 2x sauber/2x verseucht
-mit ort+zeit, mutanten-pflicht, dazu develop-merge in den zweig.
+mit ort+zeit, mutanten-pflicht, dazu develop-merge in den branch.
 
 ## Runde 3 inhaltlich geliefert, zwei nachweise OFFEN (deshalb NICHT pruefbar gemeldet)
-Kopf 3fcba08f6a5: bootstrap-scope dicht, develop integriert (ancestor JA), lauf terminal SUCCESS — aber
+head 3fcba08f6a5: bootstrap-scope dicht, develop integriert (ancestor JA), run terminal SUCCESS — aber
 das gruen-ensemble UND die ueberschreibungsmutante liefen noch NIRGENDWO: host war erschöpft (befund in
-round-3.md), der gehostete lauf ueberspringt die runtime-gates bei test-only PR. Darum: eigene GATE-LANE
+round-3.md), der gehostete run ueberspringt die runtime-gates bei test-only PR. Darum: eigene GATE-LANE
 mit VM-raumraeumung + vier zellen + mutante (mission fertig). Kein scheingruen.
 
 ## Umgebungsblocker dokumentiert, inhalt untouched
-Kopf 3fcba08f6a5 bleibt pruefbar gebaut (hostete laeufe gruen); die zwei restlichen Zellen (verseuchtes
+head 3fcba08f6a5 bleibt pruefbar gebaut (hostete laeufe gruen); die zwei restlichen Zellen (verseuchtes
 ensemble + mutante) liegen an der VM-Pool-Erschöpfung, protokoliert in gate-vm-1.md (266 zeilen:
 prune/disconnect/freigabe-namentlich/down wörtlich + nachher-zeilen + inspect). Akte nachtraeglich von
 mir publiziert — lane war schon freigegeben, disk-check vor rm war LUECKENDICH; protokolliert.
@@ -117,7 +117,7 @@ mir publiziert — lane war schon freigegeben, disk-check vor rm war LUECKENDICH
 ## Zusatz-befund 2026-11-05 (aus w180s verifizierungs-akt, veröffentlicht):
 Der Gehostete beweis-Pfad scheidet fuer DIESEN PR-Typ aus: validate ist an Nicht-PR-ereignisse gebunden
 (ci.yml:256), Selected Runtime benoetigt runtime-required=true im PR-plan (ci.yml:913) — test-only Aenderungen
-bekommen das flag nie. Damit war meine fruehere 'tor erfuellt durch gruenen lauf'-bewertung fuer compose-zellen
+bekommen das flag nie. Damit war meine fruehere 'tor erfuellt durch gruenen run'-bewertung fuer compose-zellen
 FALSCH-GRUEN (die tests liefen in keinem der laeufe). Zwei wege raus: (a) VM-IPAM-Entscheidung des owners
 (aktueller blocker), (b) PR-plan-mapping korrigieren lassen (ci-impact hoheit des owners, befund notiert).
 Rueckwirkend zu pruefen: ob aehnliche test-only-ketten (streams? flake?) dieselbe skip-klischee traf.
@@ -169,21 +169,21 @@ klausel ergaenzt). Mission: gate auf baha-docker, design A1 (frische isolierte C
 
 **Unblocked; resume work now.** Do not keep this task in `blocked` merely because #1404 has not merged. Prepare and run independent isolation test cells now on approved test hosts, with actual clean/polluted Docker and Podman runtime observations, omitted-isolation mutation RED, restored GREEN, and exact-SHA evidence. Any final default-SINGLE integration cells that require #1404 must be executed against the merged product baseline before final acceptance. Do not claim a skipped runtime test as PASS. No reset of shared Podman hosts.
 
-kopf 61566c6805d, basis 3fa6f7b0 ist Vorfahr (merge-base-Zeuge + compare forward ahead_by:0), CI run 42326862499 SUCCESS am kopf. alle 8 zellen (docker+podman) ROT an ErrDeploymentOwnerMissing deployment_store.go:107 — isolation-bootstrap-tor ist weg, das ist der ehrliche naechste fehler; defekt liegt auf karte 0427-117 (w286). delta-abnahme laeuft (act-1383c).
+head 61566c6805d, basis 3fa6f7b0 ist Vorfahr (merge-base-Zeuge + compare forward ahead_by:0), CI run 42326862499 SUCCESS am head. alle 8 zellen (docker+podman) ROT an ErrDeploymentOwnerMissing deployment_store.go:107 — isolation-bootstrap-tor ist weg, das ist der ehrliche naechste fehler; defekt liegt auf karte 0427-117 (w286). delta-abnahme laeuft (act-1383c).
 
 delta-abnahme laeuft
 
-kopf 61566c6805d, basis 3fa6f7b0 Vorfahr (merge-base + compare ahead_by:0), CI run 42326862499 SUCCESS am kopf; 8 zellen ROT an ErrDeploymentOwnerMissing (defekt auf karte 0427-117/w286); delta-abnahme act-1383c laeuft
+head 61566c6805d, basis 3fa6f7b0 Vorfahr (merge-base + compare ahead_by:0), CI run 42326862499 SUCCESS am head; 8 zellen ROT an ErrDeploymentOwnerMissing (defekt auf karte 0427-117/w286); delta-abnahme act-1383c laeuft
 
-review-urteil act-1383c = REJECT am kopf 61566c6805d, aber NICHT wegen der änderung: die vier InCI-tests werden von der CI nie ausgefuehrt (skip ohne BASEHARBOR_CI_RUNTIME_INTEGRATION=1, cmd/baha/app_repository_integration_test.go:17-19) und der lauf 'PR · Selected Runtime' ist am kandidat skipped. zuordnung existiert schon in scripts/pr-gate-plan.py:1241-1248 (atomic/docker/lifecycle + atomic/podman/lifecycle) — es fehlt der ausfuehrende job (inhaber: owner/CI-arbeit heute nacht). zweiter grund: ErrDeploymentOwnerMissing wird erst mit karte 0427-117 (w286) behoben. deshalb zurueck auf active, keine weitere auffrischungsrunde auf diesem ast.
+review-verdict act-1383c = REJECT am head 61566c6805d, aber NICHT wegen der änderung: die vier InCI-tests werden von der CI nie ausgefuehrt (skip ohne BASEHARBOR_CI_RUNTIME_INTEGRATION=1, cmd/baha/app_repository_integration_test.go:17-19) und der run 'PR · Selected Runtime' ist am kandidat skipped. zuordnung existiert schon in scripts/pr-gate-plan.py:1241-1248 (atomic/docker/lifecycle + atomic/podman/lifecycle) — es fehlt der ausfuehrende job (inhaber: owner/CI-arbeit heute nacht). zweiter grund: ErrDeploymentOwnerMissing wird erst mit karte 0427-117 (w286) behoben. deshalb zurueck auf active, keine weitere auffrischungsrunde auf diesem ast.
 
-urteil act-1383c eingetroffen und rueckgemeldet: REJECT am kopf 61566c6805d — grund ist NICHT die änderung, sondern dass die vier InCI-tests von der CI nie ausgefuehrt werden (skip ohne BASEHARBOR_CI_RUNTIME_INTEGRATION=1; job 'PR · Selected Runtime' am kandidat skipped) + der Besitzer-Fehler selbst (0427-117). keine weitere auffrischung auf diesem ast bis die CI-aufnahme (owner-arbeit) und 0427-117 gelandet sind.
+verdict act-1383c eingetroffen und rueckgemeldet: REJECT am head 61566c6805d — grund ist NICHT die änderung, sondern dass die vier InCI-tests von der CI nie ausgefuehrt werden (skip ohne BASEHARBOR_CI_RUNTIME_INTEGRATION=1; job 'PR · Selected Runtime' am kandidat skipped) + der Besitzer-Fehler selbst (0427-117). keine weitere auffrischung auf diesem ast bis die CI-aufnahme (owner-arbeit) und 0427-117 gelandet sind.
 
-vormals active mit toter bahn w282 (reboot); korrekt auf blocked gesetzt.
+vormals active mit toter lane w282 (reboot); korrekt auf blocked gesetzt.
 
 ## Owner-Abgleich — 2026-11-07
 
-- PR [#1383](https://github.com/mcpdev80/baseharbor/pull/1383) head `61566c6805d74a0966a8b096a596bb3bd6fb43b8` bleibt offen, GitHub meldet nicht mergeable. Gruener PR-Lauf [42326862499](https://github.com/mcpdev80/baseharbor/actions/runs/42326862499) ist **kein** PASS der vier gezielten Native-Tests.
+- PR [#1383](https://github.com/mcpdev80/baseharbor/pull/1383) head `61566c6805d74a0966a8b096a596bb3bd6fb43b8` bleibt offen, GitHub meldet nicht mergeable. Gruener PR-run [42326862499](https://github.com/mcpdev80/baseharbor/actions/runs/42326862499) ist **kein** PASS der vier gezielten Native-Tests.
 - Fehlende echte Ausfuehrung sowie die spaetere rote Docker-/Podman-Abnahme bleiben Blocker. Der zwischenzeitliche Installation-Owner- und Consent-Fortschritt anderer PRs ersetzt die vier Test- und Isolationsbeweise nicht. Erneut gegen aktuellen develop rebasen und exakt-head native sauber/kontaminiert belegen; **blocked** bis dahin.
 
 owner-direktive 2026-11-07: 110 FERTIGSTELLEN. echter blocker war PR#1383 CONFLICTING + 4 native docker/podman lifecycle tests nie echt ausgefuehrt. VM-raeume frei (podman w169 strays removed).
@@ -214,7 +214,7 @@ Status: Two Funde (Owner-Loan ~line 60, SQL volume ~line 107) fixed, built, vet-
 ## Native Acceptance Fortschritt — 2026-11-08 (docker lane, 0427-110)
 
 Drift-Warnung bearbeitet: develop ist auf `0fe53052d` (#1438) gezogen. `git fetch origin develop`
-+ `git merge origin/develop` im WIP-Kopf; Ancestor-Regel `06e4b1eaa` JA; Delta nach Merge = exakt
++ `git merge origin/develop` im WIP-head; Ancestor-Regel `06e4b1eaa` JA; Delta nach Merge = exakt
 `cmd/baha/target.go` (eigene Änderung), develop-Änderungen konfliktfrei übernommen. Build/vet CLEAN.
 
 **Fund Zeile 107 (BEHEBT, Produkt-Testpfad):** `app apply` schreibt das Workload-Runtime-Compose
@@ -246,9 +246,9 @@ Tests PASS — die Isolation nutzt durchgehend den eigenen Bootstrap-Core, nie d
 
 Alle `bh-w169-ci-bootstrap-<suffix>-…`-Container auf `baha-docker` stammen aus DEN eigenen
 Testläufen (`runtime_integration_test_support_test.go:60`, hartcodiert `w169-ci-bootstrap-`). Der
-Test-Hilfscode räumt den Bootstrap-Core nach jedem Lauf NICHT ab (kein `down` + Volumes + Netze);
+Test-Hilfscode räumt den Bootstrap-Core nach jedem run NICHT ab (kein `down` + Volumes + Netze);
 das ist ein LEAK im Produkt-Test-Code. Bereits geleakte Suffixe: `2e0a4b61`, `d1dfaab2`, `afe2d8fa`
-(+ `92505478`, `431036d1`, `185e354d`, `169b4fbf`, `996d1f7f`) — nach JEDEM Lauf alle im Lauf
+(+ `92505478`, `431036d1`, `185e354d`, `169b4fbf`, `996d1f7f`) — nach JEDEM run alle im run
 erzeugten Bootstrap-Container komplett entfernen (running + exited, `docker rm -f`), Volumes und
 Netze mit, laufenden Test nicht unterbrechen. Ambienter `bh-local-shared`-Core bleibt bestehen.
 Before/after `docker ps` + Cleanliness-Zeile in dieser Akte dokumentiert.

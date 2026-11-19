@@ -85,4 +85,4 @@ Erlaubtes write-set (vorschlag, lane prueft): docs + CLI marker stage. Evidence-
 
 CODEX-REVIEW: ACCEPT at exact head 864fdcd3a71c83d1fd2a5ae9a3304b23a5cefd6c. The marker is present at acknowledgement stages and consent semantics are unchanged; EN normdocs align to Warning. Exact-head run 44471319498 SUCCESS (34.13 summed hosted runner-minutes); PR Selected Checks app 15368. CODEX-MERGE: squash merge da76c5cf9c963207038d5599bd130b89ecb1e8a4 verified as develop head. Follow-up card 0428-129 covers the demo drive.py matcher; current origin/main card still shows unassigned, so confirm its claim/status.
 
-126 gemergt: PR #1696 (kopf 864fdcd3a) ist als da76c5cf9 auf develop (Warning-marker in jedem annerkennenden stadium, gate-semantik unveraendert + EN-doku). follow-karte 0428-129 (demo drive.py matcher) laeuft bereits auf dieser grundlage
+126 gemergt: PR #1696 (head 864fdcd3a) ist als da76c5cf9 auf develop (Warning-marker in jedem annerkennenden stadium, gate-semantik unveraendert + EN-doku). follow-karte 0428-129 (demo drive.py matcher) laeuft bereits auf dieser grundlage

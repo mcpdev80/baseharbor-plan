@@ -67,7 +67,7 @@ Raised 2026-11-04 by coordinator from lane w80 dialog 5 (demo location proven: s
 
 
 ## Review-Rueckruf 2026-11-04 (Luna review-128d, verdict REJECT)
-- Gegenprobe hash-stimmig-plus-fremder-fehler loest im Produktionspfad trotzdem einen zweiten Lauf aus
+- Gegenprobe hash-stimmig-plus-fremder-fehler loest im Produktionspfad trotzdem einen zweiten run aus
   (fail-closed-Luecke).
 - Der Dauer-Test laeuft in einem normalen Demo-Testlauf nicht mit (Entdeckungsproblem).
 - Karte zurueck auf active; Korrekturrunde ist vorgemerkt (Mission w109-demo-r5), Lane folgt mit der ersten
@@ -75,7 +75,7 @@ Raised 2026-11-04 by coordinator from lane w80 dialog 5 (demo location proven: s
 
 ## Abschluss 2026-11-04 (Eigentümerverbindung, wahrheitsgemäß vermerkt)
 - Der Antrag ist vom Eigentümer am 13:58Z in die Hauptlinie verbunden (Verbindungsschnitt c355d2a15f).
-- Keine unabhängige Codex-Annahme auf dem verbundenen Kopf: das letzte Prüfurteil (review-128d) war ABLEHNUNG,
+- Keine unabhängige Codex-Annahme auf dem verbundenen head: das letzte Prüfurteil (review-128d) war ABLEHNUNG,
   die danach folgenden Korrekturen wurden nicht mehr auf dem Endkopf nachgeprüft. Die Annahme beruht auf der
   Delegationsmacht des Eigentümers, nicht auf einer fremden Abnahme — deshalb hier so und nicht anders geschrieben.
 - Wirkung im Produkt: der geführte Start liefert die Kandidaten-Zustimmung selbst und ist gegenprüfbar

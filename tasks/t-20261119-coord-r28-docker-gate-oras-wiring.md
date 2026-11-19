@@ -82,18 +82,18 @@ One or two sentences: the observable outcome.
 ## Purpose (befund-aufnahme)
 Zwei strukturelle befunde aus der welle 2026-11-19, beide blockieren den pre-merge docker-lifecycle-beleg mehrerer karten (betroffen: 0428-119 #1690, kinftige coreless-/runtime-karten):
 
-1. .github/workflows/targeted-integration.yml — die zelle 'Core-less application' checkt ref: develop aus und prueft danach 'git rev-parse HEAD = CANDIDATE_SHA' (schritt 'Checkout integrated exact SHA' / 'Verify exact SHA input'). Damit ist der lauf ein INTEGRIERTER post-merge-beleg; vor dem merge kann er strukturell nie gruen werden. Belege: push-getriggert #557-#559 und dispatch #560/#561 auf kopf 4e032c858, dispatch #562ff auf 84ee9a93e (run-ids 44462753158/44462927088/44463099667/44463184000/44463342207), alle brachen in demselben schritt.
-2. .github/workflows/docker-runtime-acceptance.yml (name 'Runtime · Docker Core') respektiert inputs.ref (checkout ref: ${{ inputs.ref || github.sha }}, zeile ~188-190) und fuehrt den job 'docker-runtime' tatsaechlich aus — der lauf bricht aber in der vorbereitung: app_repository_integration_test.go:27 'prepare BaseHarbor integration trust plane: ORAS is required'. Zeuge: run 44464060182, job 135357465520, kopf 84ee9a93e; derselbe bruch reproduziert auf sauberem develop (c000c5db25) und host-lokal (baha-docker, ORAS 1.3.6 installiert, docker native plugin 'native' nicht gefunden).
+1. .github/workflows/targeted-integration.yml — die zelle 'Core-less application' checkt ref: develop aus und prueft danach 'git rev-parse HEAD = CANDIDATE_SHA' (schritt 'Checkout integrated exact SHA' / 'Verify exact SHA input'). Damit ist der run ein INTEGRIERTER post-merge-beleg; vor dem merge kann er strukturell nie gruen werden. Belege: push-getriggert #557-#559 und dispatch #560/#561 auf head 4e032c858, dispatch #562ff auf 84ee9a93e (run-ids 44462753158/44462927088/44463099667/44463184000/44463342207), alle brachen in demselben schritt.
+2. .github/workflows/docker-runtime-acceptance.yml (name 'Runtime · Docker Core') respektiert inputs.ref (checkout ref: ${{ inputs.ref || github.sha }}, zeile ~188-190) und fuehrt den job 'docker-runtime' tatsaechlich aus — der run bricht aber in der vorbereitung: app_repository_integration_test.go:27 'prepare BaseHarbor integration trust plane: ORAS is required'. Zeuge: run 44464060182, job 135357465520, head 84ee9a93e; derselbe bruch reproduziert auf sauberem develop (c000c5db25) und host-lokal (baha-docker, ORAS 1.3.6 installiert, docker native plugin 'native' nicht gefunden).
 
 ## Akzeptanz
-Ein pre-merge-pfad existiert, der die docker-lifecycle-zelle auf dem EXAKTEN kandidaten-kopf ausfuehrt (nicht skipped, nicht integrated-only), oder die karten-vertraege werden auf einen qualifizierten ersatz-beleg umgestellt. Beides ist - bzw. runner-scope = owner-entscheid.
+Ein pre-merge-pfad existiert, der die docker-lifecycle-zelle auf dem EXAKTEN kandidaten-head ausfuehrt (nicht skipped, nicht integrated-only), oder die karten-vertraege werden auf einen qualifizierten ersatz-beleg umgestellt. Beides ist - bzw. runner-scope = owner-entscheid.
 
 ## Blocker
 Owner-scope: workflow-Dateien und runner-/host-praesenz von ORAS (trust-plane). Kein lane-zugriff.
 
 diagnose-phase laeuft (read-only A/B-probe: develop-push-route SUCCESS vs dispatch-route ORAS-abort), korrektur selbst bleibt owner-scope (.github + runner-trust-plane). KEIN produkt-aenderung, KEIN security.go-Eingriff (owner-wort 2026-11-19)
 
-A/achse fernbelegt: dispatch auf develop-kopf 44466684726 FAILURE vs push auf develop 44461341870/44467228776 SUCCESS — pfad-abhaengig, nicht kandidaten-abhaengig. lane liefert nur noch den trennenden schritt mit datei:zeile + akte probe-1.md. korrektur selbst bleibt owner-scope (.github dispatch-pfad + runner-ORAS)
+A/achse fernbelegt: dispatch auf develop-head 44466684726 FAILURE vs push auf develop 44461341870/44467228776 SUCCESS — pfad-abhaengig, nicht kandidaten-abhaengig. lane liefert nur noch den trennenden schritt mit datei:zeile + akte probe-1.md. korrektur selbst bleibt owner-scope (.github dispatch-pfad + runner-ORAS)
 
 probe geliefert (read-only, host besenrein), keine produkt-aenderung, keine duplikate. nach der owner-korrektur ist der exact-head-beleg fuer #1690 (119) sofort nachfahrbar
 

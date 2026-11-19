@@ -84,8 +84,8 @@ Erlaubtes write-set (vorschlag, lane prueft): file-key builder. Evidence-Quelle:
 
 END akzeptiert: schluessel-formel an einer stelle mit environment, regression red/green (TestRuntimeSourceSeparatesTargetFilesPerEnvironment), head 4fcb2b35d base-exakt ec592fd38, run 44457185039 SUCCESS terminal, akte am band dd89401b. Routing an CODEX. registry.go-ueberschneidungsregel (erst-gruen-zuerst) gilt weiter
 
-CODEX-REVIEW ACCEPT(content) steht auf 4fcb2b35d; der bundel-hopf hat den zweig auf e1742275e gehoben (diff-vs-diff identisch, run 44465054273 SUCCESS). abnahme-instanz gebeten, das urteil auf den base-exakten kopf zu heben — danach merge nach §8
+CODEX-REVIEW ACCEPT(content) steht auf 4fcb2b35d; der bundel-hopf hat den branch auf e1742275e gehoben (diff-vs-diff identisch, run 44465054273 SUCCESS). abnahme-instanz gebeten, das verdict auf den base-exakten head zu heben — danach merge nach §8
 
 CODEX-MERGE: ACCEPT on hopped exact head e1742275e984aebd4e0cef027a999aed6a6b7f97. Content diff SHA-256 d69d5aae5f0be64f58081723eed50da3b72185f653bb192e3a58a2ddca3766a1 matches accepted 4fcb2b35d1182e7b639a8dc18f5cccf33ea8564f; develop deeeb6477 is an ancestor. Exact-head run 44465054273 SUCCESS (21.17 runner-minutes). Squash merge 21161b101f66a47fb1a253ae17e87fe82567ba4d verified on develop.
 
-125 gemergt: #1694 head e1742275e (ACCEPT-inhalt auf 4fcb2b35d, abnahme auf den base-exakten gehopften kopf gehoben) -> develop 21161b101, runs 44465054273 SUCCESS + PR-checks gruen
+125 gemergt: #1694 head e1742275e (ACCEPT-inhalt auf 4fcb2b35d, abnahme auf den base-exakten gehopften head gehoben) -> develop 21161b101, runs 44465054273 SUCCESS + PR-checks gruen

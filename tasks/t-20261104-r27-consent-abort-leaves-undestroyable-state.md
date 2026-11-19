@@ -81,13 +81,13 @@ Raised 2026-11-04 by coordinator from lane w80 finding (evidence: baseharbor-pla
 - Es fehlt der Lebenszyklus-Nachweis: die Wiedergabe ruft nur den Auflösungshelfer für das Zerstören auf,
   nicht den echten Zerstörungsbefehl mit Erfolgs-Rückgabewert; die Folgeanwendung speichert einen
   Anwendungs-Datensatz, führt die Anwendung aber nicht bis betriebsbereit aus.
-- Korrekturrunde = Lane w131 auf demselben Zweig (w120-fix): echter Zerstörungsdurchlauf mit rc=0 auf dem
+- Korrekturrunde = Lane w131 auf demselben branch (w120-fix): echter Zerstörungsdurchlauf mit rc=0 auf dem
   abgelehnten Stand, echte Folgeanwendung bis betriebsbereit, vorher-rot-Nachweis inklusive.
 
 ## Handoff 2026-11-04 (Runde 2, plattenfest nachgemessen)
-- Kandidat: PR #1375, Zweig w120-fix, Kopf edd38d31609 (ls-remote == Kopf); Entwicklung ist Vorfahr (durch
+- Kandidat: PR #1375, branch w120-fix, head edd38d31609 (ls-remote == head); Entwicklung ist Vorfahr (durch
   Ausdruck des Verbindungsschnitts, kein Kraftübertragung).
-- Die zwei fehlenden Nachweise aus dem letzten Urteil sind jetzt geführt: Ablehnung ohne Zusage lässt einen
+- Die zwei fehlenden Nachweise aus dem letzten verdict sind jetzt geführt: Ablehnung ohne Zusage lässt einen
   löschbaren Zustand (echter Zerstörungsbefehl mit Erfolgs-Rückgabewert) und die Folgeanwendung mit richtiger
   Kennung erreicht den betriebsbereiten Zustand ohne manuelles Nachräumen; Erstfassung rot, jetzt grün.
 - Der vollständige Paketlauf bleibt eine Umweltgrenze (Docker-Socket nicht verfügbar, die
@@ -100,7 +100,7 @@ Raised 2026-11-04 by coordinator from lane w80 finding (evidence: baseharbor-pla
   isoliert erbracht.
 - Abgenommen wird die Form: die zwei eingecheckten Prüfungen enden vor dem Zerstören bzw. vor dem
   betriebsbereiten Durchlauf und bleiben auf dem kranken Stand grün (wörtlich auf c24a6c7c gemessen: beide
-  Erfolg). Zudem ist der Schranken-Code auf altem und neuem Kopf identisch (Blob c2bb123b0b82), die Änderung
+  Erfolg). Zudem ist der Schranken-Code auf altem und neuem head identisch (Blob c2bb123b0b82), die Änderung
   dort ist Kommentartext — die Prüfungen schützen also nichts.
 - Runde 3 = Archäologie (wo war es wirklich kaputt), echte Lebenszyklusprüfungen, rot auf dem kranken Stand,
   grün auf dem eigenen, endgültige Protokollnachweise. Ergibt die Suche keinen produktseitig kranken Commit,
@@ -111,25 +111,25 @@ Raised 2026-11-04 by coordinator from lane w80 finding (evidence: baseharbor-pla
   verhält sich wörtlich gleich, ändert also nichts an der Stelle. Die Zerstörung leitet ihren Eigentümer aus
   dem Stapelzustand ab, nicht aus der Auslieferungsdatei
   (internal/application/shared_backends_state.go:15, internal/application/shared_core_sql.go:13).
-- Nächster Auslöser: Korrekturlauf auf demselben Zweig; Messzelle A (Deine Hauptlinie) ist die Rot-Grundlage.
+- Nächster Auslöser: Korrekturlauf auf demselben branch; Messzelle A (Deine Hauptlinie) ist die Rot-Grundlage.
 
 ## Handoff 2026-11-04 (Runde 3, nach der Vier-Zellen-Messung)
-- Kandidat: PR #1375, Zweig w120-fix, Kopf 24c9ac5ceba (ls-remote == Kopf), develop e444ae11 ist Vorfahr.
+- Kandidat: PR #1375, branch w120-fix, head 24c9ac5ceba (ls-remote == head), develop e444ae11 ist Vorfahr.
 - Was jetzt gilt: die Zerstörung einer nie ausgelieferten Anwendung endet mit Erfolg, die Schranke selbst ist
   unangetastet fail-closed, und die neue Regression ist auf Deiner Hauptlinie ROT (Zustandsdatei fehlt) und auf
   dem Kandidaten grün — die Grundlinie ist also gemessen, nicht behauptet.
-- Antrag ist zur Prüfung freigegeben; Lauf 41908789544 beobachtet.
+- Antrag ist zur Prüfung freigegeben; run 41908789544 beobachtet.
 
 ## Eigentümer-Übergabe 2026-11-04 (Direktive, bindend)
 PR #1375 wird von ChatGPT unabhängig bereinigt. Bis zur Rückgabe gilt: keine Worker-Änderungen an diesem
-Zweig/PR, keine Korrekturrunde aus meinem Review-Kanal. Der Kandidat (Kopf 24c9ac5ceba, develop ist Vorfahr,
+branch/PR, keine Korrekturrunde aus meinem Review-Kanal. Der Kandidat (head 24c9ac5ceba, develop ist Vorfahr,
 Zerstörung rc=0, Regression auf Deiner Hauptlinie rot gemessen) bleibt unverändert liegen; meine
 Review-Mission r1375c ist auf HALD gestellt. Andere Lanes laufen unberührt weiter.
 
 ## Owner-Abnahme und Merge 2026-11-04 (Abschluss-Handoff)
 
 - PR [baseharbor#1375](https://github.com/mcpdev80/baseharbor/pull/1375) nach direkter Code- und Sicherheitsprüfung durch Owner/ChatGPT auf **develop squash-gemergt**, Merge-SHA `ea3fb38e8f372ab2da38c10d964f3ea452fb8561`.
-- Final geprüfter PR-Head: `58685dbd047df4f26f599a5c53ca41f835dd34f2`; [GitHub-hosted CI-Lauf 41917374377](https://github.com/mcpdev80/baseharbor/actions/runs/41917374377): alle ausgewählten Tests und PR Selected Checks grün.
+- Final geprüfter PR-Head: `58685dbd047df4f26f599a5c53ca41f835dd34f2`; [GitHub-hosted CI-run 41917374377](https://github.com/mcpdev80/baseharbor/actions/runs/41917374377): alle ausgewählten Tests und PR Selected Checks grün.
 - Owner-Code-Review fand zusätzliche Risiken: Destroy ohne `--yes`, unbestätigte Owner-Identität und fehlende Unterscheidung zwischen nie ausgeliefertem und verlorenem Deployment-Record. Alle drei sind im finalen Head korrigiert; zusätzliche Regressionen für verlorenen Record und Destroy ohne `--yes` sind enthalten.
 - `#1371`-fremde Änderungen aus dem PR-Diff entfernt. Die vorherige Review-Halteanweisung ist durch den erfolgreichen Owner-Merge erledigt.
 - Die Karten-Metadaten/den generierten Status bei der nächsten regulären Planning-Render-Runde auf `closed / accepted` synchronisieren. Release- oder Docker-/Podman-Gesamtintegration wird durch diesen gezielten PR nicht behauptet.

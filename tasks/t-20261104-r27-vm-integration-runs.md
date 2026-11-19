@@ -83,19 +83,19 @@ The selected release candidate completes the developer-PC-to-Core-VM journey wit
 
 akte auf plan main: evidence/r27-welle5-folge-2026-11-06/vm-integration-runs/round-1.md + docker-2-finding.md; neue defektkarte t-20261107-r27-runtime-broker-oras-missing-edge-readiness ist von mir schema-gefixt (b8fe933e) und in arbeit
 
-wieder active gesetzt: w288 faehrt gerade die podman-seite der matrix (0/4 war der stand von w269). offene zweigruende bleiben: (1) connector-zelle ist TWO-HOST-flow — R2 erlaubt einer Bahn nur EINEN host, wartet auf deine regelentscheidung; (2) demo-zelle braucht auf dem host das r27-w150-demo-repo + provisioniertes managed backend (sql/redis/s3) — provisioning-lane folgt, sobald ein sitz frei ist. docker-seite: 2/4 gruen (core+console PASS), akte auf main.
+wieder active gesetzt: w288 faehrt gerade die podman-seite der matrix (0/4 war der stand von w269). offene zweigruende bleiben: (1) connector-zelle ist TWO-HOST-flow — R2 erlaubt einer lane nur EINEN host, wartet auf deine regelentscheidung; (2) demo-zelle braucht auf dem host das r27-w150-demo-repo + provisioniertes managed backend (sql/redis/s3) — provisioning-lane folgt, sobald ein sitz frei ist. docker-seite: 2/4 gruen (core+console PASS), akte auf main.
 
-owner-freigabe 05:0xZ: zwei-rechner-ausnahme fuer die fertigstellende bahn — w288 haelt baha-podman + baha-docker-2 gleichzeitig und uebernimmt damit auch die demo-provisionierung (bisher als externer blocker gemeldet). status gruende damit beseitigt: connector-zelle = ausgehend freigeben, demo-zelle = einrichtung teil dieses auftrags.
+owner-freigabe 05:0xZ: zwei-rechner-ausnahme fuer die fertigstellende lane — w288 haelt baha-podman + baha-docker-2 gleichzeitig und uebernimmt damit auch die demo-provisionierung (bisher als externer blocker gemeldet). status gruende damit beseitigt: connector-zelle = ausgehend freigeben, demo-zelle = einrichtung teil dieses auftrags.
 
 kein blocker mehr: braucht ein nachweis mehrere Maschinen, werden mehrere bereitgestellt (owner-regel 05:2xZ, RUNBOOK R2). w288 haelt baha-podman + baha-docker-2 und faehrt: podman-matrix (4 zellen) -> demo-einrichtung auf docker-2 (r27-w150-demo-repo + managed backend sql/redis/s3) -> connector-zelle im zwei-rechner-ablauf. bisherige zeugen: docker-seite 2/4 gruen (core+console PASS, akte round-1.md + docker-2-finding.md auf main).
 
-bahn nach system-reboot frisch beauftragt (takeover der toten lane), konfliktfreie produkt-/testarbeit unter aufgehobenem basis-HOLD (develop 934be499b), .github weiterhin owner-tabu
+lane nach system-reboot frisch beauftragt (takeover der toten lane), konfliktfreie produkt-/testarbeit unter aufgehobenem basis-HOLD (develop 934be499b), .github weiterhin owner-tabu
 
 akte round-3-docker-podman2.md auf origin/main (c5b947df); lane hat eigene compose auf beiden hosts downgemacht (0 lane-container ps-zeugnis).
 
-owner-direktive 2026-11-07: #107 -> ACTIVE. podman-2 host-blocker behoben (ip_forward). realer docker+podman integration-lauf wird jetzt gefahren (coord host-ops + 021 CI runtime cells + 003/118 outputs).
+owner-direktive 2026-11-07: #107 -> ACTIVE. podman-2 host-blocker behoben (ip_forward). realer docker+podman integration-run wird jetzt gefahren (coord host-ops + 021 CI runtime cells + 003/118 outputs).
 
-#107 host-config erledigt (ip_forward). native VM-laeufe fuellen #110/#003 pods. KEINE aktive worker-bahn => wait, nicht active. trigger: #110 podman cells durch.
+#107 host-config erledigt (ip_forward). native VM-laeufe fuellen #110/#003 pods. KEINE aktive worker-lane => wait, nicht active. trigger: #110 podman cells durch.
 
 owner-direktive: hand-festival docker-2 — greenfield+brownfield+alle wizards, KEIN HA, nur befundung ohne produkt-aenderungen. lane 2cc3a33a.
 

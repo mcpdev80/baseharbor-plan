@@ -81,14 +81,14 @@ Verbindung überspringen statt fehlzuschlagen — plattenfest fünf Dateien:
 
 ## Abgrenzung
 Nicht Produktcode, nicht Workflow. Eigene Prüfumgebungs-Annahme: Ohne Verbindung MUSS ein Fehlschlag mit
-klarer Meldung stehen, damit ein Lauf nicht scheingrün wird. Wo ein Überspringen fachlich richtig ist
+klarer Meldung stehen, damit ein run nicht scheingrün wird. Wo ein Überspringen fachlich richtig ist
 (z. B. optionaler Treiber), bleibt es ausdrücklich mit Begründung im Code, nicht im stillen Schweigen.
 
 ## Akzeptanz
 1. Jede der fünf Stellen: ohne Verbindung rot mit klarer Meldung, mit Verbindung grün und ausgeführt.
 2. Gegenprobe mit absichtlich falschem Ziel: rot (Beweis, dass wirklich geprüft wird).
 3. Keine Überspringung bleibt ohne schriftliche Begründung im Code.
-4. Prüfprotokoll der gehosteten Läufe bis zum endgültigen Zustand in der Nachweissammlung.
+4. Prüfprotokoll der gehosteten runs bis zum endgültigen Zustand in der Nachweissammlung.
 
 ## Claim 2026-11-04
 - Auftrag: die fünf verbliebenen Stellen, die ohne Verbindungsangabe überspringen statt fehlzuschlagen,
@@ -96,7 +96,7 @@ klarer Meldung stehen, damit ein Lauf nicht scheingrün wird. Wo ein Überspring
   Begründung im Code. Gegenprobe je Stelle mit unerreichbarem Ziel muss rot bleiben.
 
 ## Earlier handoff (superseded by the merged closeout below)
-- Kandidat: PR #1378, Zweig work/r27-db-skip-sites, Kopf aca8ff97df8 (ls-remote == Kopf), develop 2ea2c6f1 ist
+- Kandidat: PR #1378, branch work/r27-db-skip-sites, head aca8ff97df8 (ls-remote == head), develop 2ea2c6f1 ist
   Vorfahr; Prüfprotokoll: acht grün, null rot, elf nach Auswahlregel übersprungen; Antrag ist verbindbar.
 - Vier echte Stellen umgestellt (Steuerungsschicht, Anmeldungs-Datenbank, Rückbau, Bereitstellungsprüfung):
   ohne gesetzte Verbindung jetzt Fehlschlag mit klarer Meldung, keine Überspringung mehr in diesen Dateien.
@@ -106,4 +106,4 @@ klarer Meldung stehen, damit ein Lauf nicht scheingrün wird. Wo ein Überspring
 - Gegenproben mit unerreichbarem Ziel sind für alle vier Stellen rot belegt.
 
 ## Temporary blocker after review-1378b (resolved)
-Die damalige Abnahme war wegen der belegten Port-5433-Bindung blockiert. Die neutrale Gegenprobe auf Port 55000 und der terminal erfolgreiche Lauf 41922518146 hoben diesen Blocker auf; siehe review-1378c und neutral-1.
+Die damalige Abnahme war wegen der belegten Port-5433-Bindung blockiert. Die neutrale Gegenprobe auf Port 55000 und der terminal erfolgreiche run 41922518146 hoben diesen Blocker auf; siehe review-1378c und neutral-1.
