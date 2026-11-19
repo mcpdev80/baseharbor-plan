@@ -237,7 +237,8 @@ END window-closeout-pack DONE — pack-1.md geliefert (r5, revision-labels §5);
 keine karte/PR/lauf geaendert. Persistiert in baseharbor-plan main unter
 `evidence/r28-welle4-2026-11-19/window-closeout/pack-1.md`.
 Letztes ls-remote-zeug: `git -C .../baseharbor-plan ls-remote origin refs/heads/main`
-→ `35e13bf2dcdf8fc366641b1944a1b67a8ed2dcb9 refs/heads/main`. Kandidaten/akte auf origin/main
+→ `6c3add19da15da743ba9504c50b0b9e4486c318a refs/heads/main` (END_COMMIT, der diesen satz
+selbst traegt; gemessen nach dem push). Kandidaten/akte auf origin/main
 vor diesem END-post (ls-tree-zeug oben). Host besenrein: keine container/netzwerke/volumes von
 dieser lane; ambient `bh-local-shared-*` bleiben unangetastet.
 
