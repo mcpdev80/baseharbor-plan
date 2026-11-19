@@ -7,22 +7,35 @@ Date: 2026-11-19
 
 ## PLAN
 
-1. Reality check: fetch origin, verify develop (da76c5cf9) is an ancestor of the head ab6932296f, merge-tree conflict count.
-2. Study builder + Perses startup/config-rendering path; decide the provisioning realization (config.yaml + provisioning folder mount).
-3. Implement: materialize the validated datasource into the Perses runtime provisioning path (authorization, pinned native plugin, proxy, TLS preserved, no secrets).
-4. Add ONE runtime-level test (datasource appears in rendered/joined Perses config) + isolated runtime query/proxy/TLS check.
-5. Focused checks: go test ./internal/metrics ./internal/application, go build ./..., go vet (two packages), gofmt -l, source-readability-audit.sh.
-6. Commit + push monotonic to lane-0428-083-datasources-r2 (no force), ancestor witness; keep PR draft=false.
-7. Observe exact-head PR run to terminal; record run id + executed cells.
-8. Evidence complete, commit + push planning repo (pull --rebase first), verify on origin/main, cleanliness END.
+1. Reality check: fetch origin, verify develop (da76c5cf9) is an ancestor of the head ab6932296f, merge-tree conflict count. DONE
+2. Study builder + Perses startup/config-rendering path; decide the provisioning realization (config.yaml + provisioning folder mount). DONE
+3. Implement: materialize the validated datasource into the Perses runtime provisioning path (authorization, pinned native plugin, proxy, TLS preserved, no secrets). DONE
+4. Window hopf onto develop e1dc2cf61 (coordinator window directive mid-round): monotonic merge, no content loss. DONE (merge a4a9efee9, 0 conflicts)
+5. Add ONE runtime-level test (datasource appears in rendered/joined Perses config) + isolated runtime query/proxy/TLS check. DONE
+6. Focused checks: go test ./internal/metrics ./internal/application ./internal/observability, go build ./..., go vet (three packages), gofmt -l (empty), source-readability-audit.sh (PASS), doc-tests (ok). DONE
+7. Commit + push monotonic to lane-0428-083-datasources-r2 (no force), ancestor witnesses; PR draft=false kept. DONE (head f0adef107)
+8. Observe exact-head PR run 44520439061 to terminal; record run id + executed cells. RUNNING
+9. Evidence complete, commit + push planning repo (pull --rebase first), verify on origin/main, cleanliness END. PENDING
+
+## Reality check + window hopf (coordinator window directive mid-round)
+
+- Mission start: develop = `da76c5cf9`; `git merge-base --is-ancestor origin/develop ab6932296` -> YES (monotonic at dispatch).
+- Window move: #1691 (0428-121) squash-merged at 2026-11-19T11:56:52Z, develop = `e1dc2cf61ebbd7ee4e0467a5d33e22345c2e6b88` (ls-remote witness). `git merge-base --is-ancestor e1dc2cf61 ab6932296` -> NO -> hopped the branch monotonically per instruction: `git merge origin/develop` -> merge commit `a4a9efee9`, CLEAN (zero conflicts, zero markers, nothing to resolve — the e1dc2cf61 content and the 083 files are disjoint; `internal/observability/environment.go`, the envfilter tests and `internal/runtime/project_names.go` changed on develop only in files this card does not write).
+- `git merge-tree --write-tree origin/develop <head>` at BOTH bases (pre-hop vs ab6932296, post-hop vs f0adef107): 0 CONFLICT lines each.
+- Content-loss check: `git diff ab6932296 HEAD -- internal/metrics/perses_prometheus_datasource.go internal/metrics/perses_prometheus_datasource_test.go internal/metrics/testdata/perses-prometheus-datasource/prometheus.json` -> empty (the reviewed candidate's files survive the merge byte-identical; only develop-side files joined the tree).
+- After the hopf, the focused suite was re-run at the merged tree (see "Checks" below).
 
 ## Base attestation
 
 - Planning repo verified: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse --show-toplevel` -> `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan` (remote `https://github.com/mcpdev80/baseharbor-plan.git`). NOT workers/baseharbor-plan.
-- `origin/develop` = `da76c5cf9c963207038d5599bd130b9ecb1e8a4` (git ls-remote + fetch origin --prune, 2026-11-19).
-- `git merge-base --is-ancestor origin/develop ab6932296f1f24c2024810f10b155633d931f7d4` -> exit 0 (monotonic, no hopf needed).
-- `git merge-tree --write-tree origin/develop ab6932296f1f24c2024810f10b155633d931f7d4` -> 0 CONFLICT lines.
-- New commits in this round are cut from `ab6932296f1f24c2024810f10b155633d931f7d4` (the current branch head) and will list ONLY this lane's commits in `git log origin/develop..HEAD` beyond the prior candidate.
+- Mission-start `origin/develop` = `da76c5cf9c963207038d5599bd130b89ecb1e8a4`; `git merge-base --is-ancestor origin/develop ab6932296f1f24c2024810f10b155633d931f7d4` -> exit 0 (monotonic at dispatch); `git merge-tree --write-tree origin/develop ab6932296` -> 0 CONFLICT lines.
+- Window hopf (coordinator directive mid-round): #1691 (0428-121) merged as squash, develop moved to `e1dc2cf61ebbd7ee4e0467a5d33e22345c2e6b88`. `git merge-base --is-ancestor origin/develop ab6932296` -> NO -> the branch was hopped monotonically: merge commit `a4a9efee9` "Merge remote-tracking branch 'origin/develop' into lane-0428-083-datasources-r2 (window hopf onto e1dc2cf61)". Merge of develop INTO the candidate: zero conflicts, zero content loss.
+- Final candidate head: `f0adef107bf9d95ac2537a1e224783d3eed962d5`. Ancestor witnesses (all exit 0): `e1dc2cf61 -> HEAD`, `ab6932296 -> HEAD`, `8c71395045 -> HEAD`. Post-hopf `git merge-tree --write-tree origin/develop HEAD` -> 0 CONFLICT lines.
+- `git log --oneline origin/develop..HEAD` lists ONLY this chain's commits: f0adef107 (this round's feature commit), a4a9efee9 (window hopf merge), ab6932296 (prior hopf merge), 8c71395045 (the 083 feature commit). No foreign candidate is carried.
+
+## Does new develop touch my write-set? (coordinator question)
+
+Measured `git show e1dc2cf61 --name-only` (#1691 squash content): it changes `internal/observability/environment.go`, `internal/observability/envfilter_route2_test.go`, `envfilter_route5_listseam_test.go`, `internal/runtime/project_names.go`, `internal/logs/*`, `internal/metrics/prometheus_files.go`, `prometheus_test.go`, `prometheus_verify.go` and `cmd/baha` logs/traces — it does NOT touch `internal/metrics/perses_prometheus_datasource*.go` or my new testdata. The shared-package compile risk was re-verified at the merged head: `go build ./...`, `go vet ./internal/metrics ./internal/application ./internal/observability` and full `go test` of those three packages all PASS (no semantic collision).
 
 ## Worktree
 

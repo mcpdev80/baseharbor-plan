@@ -20,10 +20,14 @@ writes outside its configured location.
 
 ## BASE ATTESTATION
 
-- Base ref (develop head): `da76c5cf9c963207038d5599bd130b89ecb1e8a4`
-- `git merge-base origin/develop fb6f36936924ca07a9de512c113dc138d38360f1` = `907f16713cbf38693d30c9dadaad7fe299759219` (develop is a strict ancestor of the candidate — the candidate is NOT monotonic on develop, as the mission states).
-- `git merge-base --is-ancestor da76c5cf9 fb6f36936` → TRUE: my base is an ancestor of the candidate head.
-- My first commit will be cut from `da76c5cf9` and will carry NO commit from the candidate chain (only-base lineage, verified in evidence below).
+- Base ref at mission start (develop head): `da76c5cf9c963207038d5599bd130b89ecb1e8a4`
+- **Window update (Owner 2026-11-19):** develop was moved by squash-merge of #1691 (0428-121). New develop head: `e1dc2cf61ebbd7ee4e0467a5d33e22345c2e6b88` (merged_by mcpdev80, 2026-11-19T11:56:52Z). Content witness: `internal/observability/environment.go`, `envfilter_route5_listseam_test.go`, `envfilter_route2_test.go` are file-hash-identical between PR head `e5a943d1b` and develop; `SplitN(value, ":", 3)` at `environment.go:134` in develop.
+- `git merge-base --is-ancestor origin/develop 171a32e90(old)` → NO (old head based on da76c5cf9).
+- Rebased onto new develop → new head `7cc41858b`; `git merge-base --is-ancestor origin/develop 7cc41858b` → YES.
+- `git merge-tree --write-tree origin/develop HEAD` conflict count: **0**; tree SHA `549d746316cafc792154013145309431f1c7ad75`.
+- Commit count `origin/develop..HEAD`: **1** (only my commit `7cc41858b`).
+- Candidate `fb6f36936` is NOT in my ancestry (no foreign commit).
+- **New develop touching my write-set?** NO. `internal/deployment/config_mutation.go`/`config_mutation_test.go` are untouched by #1691. develop's other changes (`internal/observability/environment.go`, `envfilter*` tests, `internal/runtime/project_names.go`) are disjoint from my scoped fix — confirmed by the zero-conflict rebase.
 
 ## FIX
 
