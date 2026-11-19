@@ -82,3 +82,30 @@ cleanliness: clean — no test containers/networks/volumes/state created this sh
 ## Handoff
 
 END_DONE x-123r5: B2 room-scoped sweep + B1 emitted-glob regression implemented on lane-0428-123-regvisibility; candidate at new merge head; CI run pending.
+
+## CI witness (§4.6 / §5.4)
+
+- Candidate exact head after correction: `6d06d4283b1341b64f9cbdf85786102dc82c8251` (gofmt import-ordering follow-up on `8b210394b`).
+- Monotonic merge-hopf: `git merge --no-ff origin/develop`; two parents confirmed `git log -1 --format=%p` = `6d06d4283 8b210394b 6e87ddcb4`. No rebase/reset/force. `git merge-base --is-ancestor origin/develop HEAD` = 0. merge-tree preflight wrote tree `861537b26870c6a854775d3e103c50f9b0af5159` with 0 conflict entries.
+- PR #1693 via GitHub API: head `6d06d4283` (auto-retargeted to new develop base after merge), base `6e87ddcb4`, draft=false, merged=false, mergeable=true.
+- Exact-head CI run: `44611024592` (run 6644), event pull_request, `.github/workflows/ci.yml`, terminal conclusion **success**.
+  - Required jobs actually completed/success (no skips): Native gate plan, Trusted Plan, Source format, go-vet, go-build, Go unit cli-0/1/2/3, Go unit owner, Go unit packages.
+  - Runtime/HA cells (Targeted HA docker/podman, Native Keycloak/Core, Main release Go, Exact Candidate, Demo Pin, Runner Interface, Consumer Pins, Public Contracts, candidate-added advisory) correctly **skipped** (owner-draht 114(a): ORAS-install in the PR job; skipped is not a fail).
+  - First CI run (44609609533 on `8b210394b`) failed only on the Source format gate (pre-existing develop-side formatting debt on the merge); the follow-up gofmt commit `6d06d4283` re-ran and passed.
+- Local: `go build ./...`, `go vet ./internal/metrics`, `go test ./internal/metrics -count=1` all clean; `bash scripts/ci-fast-check.sh` PASS (280 tests, workflow policy + gofmt + ratchet green).
+- Timestamp cross-check: today = 2026-11-19; `git show -s --format=%cI origin/develop` = 2026-11-19T21:04:21+01:00.
+
+## ls-remote witness (of MY branch, AGENTS 5.3)
+
+- `git ls-remote origin refs/heads/lane-0428-123-regvisibility` -> `6d06d4283b1341b64f9cbdf85786102dc82c8251`
+- `git ls-remote origin refs/pulls/1693` -> head sha `6d06d4283`, base `6e87ddcb4`
+- `git ls-remote origin develop` -> `6e87ddcb4dc87c20876ae0045bf7ac5bbb5311d0`
+- `git ls-remote origin 558dc42d0` resolves; ancestor of develop.
+
+## Cleanliness
+
+containers: none started (no docker/podman run this shift)
+networks: none
+volumes: none
+state: n/a
+cleanliness: clean — no test containers/networks/volumes/state created this shift
