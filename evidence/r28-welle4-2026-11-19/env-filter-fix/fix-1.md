@@ -15,11 +15,11 @@ Mission supplements honored: base-hopping rule (develop moved twice during this 
 2. Read hunt-918 evidence `evidence/r28-welle4-2026-11-19/hunt-metrics/befund-1.md` Befund 2 (17 probes as template) — DONE
 3. Write RED regression: environment filter checked on EVERY list path (no caller-prefix workaround) — DONE (red witness captured)
 4. Implement fix: one central filter path instead of caller-prefix; no touch of merged registry/List chain (card 102) without STOP+file:line; no impact on cmd/baha (card 118 territory, merged) — DONE
-5. Run affected tests + `go vet` + `go build`; regression must go red->green — DONE (plus same-environment baseline comparison of pre-existing FAILs)
+5. Run affected tests + `go vet` + `go build`; regression must go red->green — DONE (plus same-environment baseline comparison of pre-existing FAILs — identical sets)
 6. Base hop per mission supplement: `ls-remote` right before push; monotonic hop-merge when behind; exact-head run hits final head — DONE
 7. Open PR: base develop, branch lane-0428-efilter; ancestry witnesses; log-line lists ONLY own commits — DONE (#1691)
-8. Wait for exact-head CI run to TERMINAL state; record run id, status — IN PROGRESS (run 44450253933 on final head d9d70a98, observed via `gh run watch`)
-9. Evidence on origin/main, verify path, END — IN PROGRESS (final witness commit appended below)
+8. Wait for exact-head CI run to TERMINAL state; record run id, status — DONE (run 44450253933 on final head d9d70a98 completed SUCCESS)
+9. Evidence on origin/main, verify path, END — FINAL STEPS (witnesses appended here, push, verify, END post)
 
 ## wrong-zone check
 
@@ -140,6 +140,8 @@ go vet ./internal/... ./cmd/... — clean; go build ./... — clean
 
 Baseline comparison of pre-existing FAILs (same host, same command, both worktrees): `internal/controlplaneruntime` (missing `BASEHARBOR_TEST_DATABASE_URL`), `internal/database` (same), `internal/development` (`TestStagePinnedGitTree…` "native Git archive failed: signal: killed" — 60s timeout), `cmd/baha` (`TestAppEditCommandCompleteProviderEditRunsRealLifecycle`: "existing native network lacks a protected Core or shared backend owner"; `TestRuntimeUpRequiresORASBeforeCoreBootstrap`; two 60s Git-archive timeouts) — IDENTICAL failure names and messages at base `de532465`/`40b99013` and at candidate head. These are environmental (unset DATABASE_URL / no live Core network / this host's archive limits), not introduced by this change. The `cmd/baha` 600s "test timed out" in the first bulk run did not reproduce in per-test runs on either tree.
 
+Hosted-CI note: these environment-gated tests run WITH their prerequisites on the GitHub runners (`ci.yml:61,277,1526` provide `BASEHARBOR_TEST_DATABASE_URL` + a database service; the PR Go-unit shards execute the packages) — my local FAILs are "prerequisite missing", never "assertion differs", and the exact-head hosted run below is the authoritative witness. Full -v census, same host and command on both trees: FAIL sets at base `de532465` and at candidate `d9d70a98` are IDENTICAL (4 tests, `comm -3` empty).
+
 ## CI integration (AGENTS 5.3)
 
 New test `TestEnvironmentFilter*` lives in package `internal/observability` and is auto-discovered by `go test ./...` — no `.github/**` change is needed; the existing PR Go-unit selection for the package covers it (precedent: hunt-918 akte §repo-rule compliance). Trigger: pull_request on PR #1691 (and every later push to this branch), plus develop/push. Run witness below.
@@ -148,10 +150,13 @@ New test `TestEnvironmentFilter*` lives in package `internal/observability` and 
 
 - Run `44449321977` on head `1c92dbcd` — cancelled by the branch-concurrency group when `6d17d8b6` was pushed (superseded candidate; content change was comment-only).
 - Run `44449406644` on head `6d17d8b6` — in progress when `d9d70a98` (normalization fix found by self-review: raw vs lower-cased project token comparison) was pushed; it is superseded by the exact-head rule below.
-- Exact-head run `44450253933` on final head `d9d70a9845ea11f6d839b3f5600b67b214002d20`: (terminal status appended below before END).
+- Exact-head run `44450253933` on final head `d9d70a9845ea11f6d839b3f5600b67b214002d20`: TERMINAL `completed / success` (https://github.com/mcpdev80/baseharbor/actions/runs/44450253933). Required jobs green: Workflow policy, PR · Source format, PR · Trusted Plan, PR · Native gate plan, PR · Exact Candidate, PR · Demo Pin, PR · Focused Python, PR · Runner Interface, PR · Validation · go-build / go-vet / runtime-provider-package-tests / identity-provider-package-tests, PR · Go unit · packages + owner + cli-0..3, PR · Selected Runtime (docker · identity), PR Selected Checks. Not-applicable release/HA/matrix jobs `skipped` by the trusted plan (conservative selection note: "No narrow mapping: conservative checks selected").
+- CI pickup witness (AGENTS 5.3): job `PR · Go unit · packages` log line `2026-11-19T03:18:40Z ok github.com/mcpdev80/baseharbor/internal/observability 0.009s` — the new `TestEnvironmentFilter*` regression executed and passed in hosted CI on the exact head; trigger = `pull_request` on PR #1691. No `.github/**` change was needed (auto-discovery by `go test ./...`).
 
 ## repo-rule compliance
 
+- Card 0428-121 moved `active -> review` in the final planning commit (plan.py check: 0 errors). PR merge/acceptance belongs to the review lane (CODEX) per AGENTS 5.2 — this lane does not merge.
+- PR state witness at END: `{"state":"OPEN","mergeable":"MERGEABLE","headRefOid":"d9d70a9845ea11f6d839b3f5600b67b214002d20"}` — exact-head candidate, no conflicts.
 - Write-set: mission allows `internal/observability` (list-pfade). Actual set: `internal/observability` (core), plus the minimal plumbing the central filter requires in its consumers/writers (`internal/capability` placement field; `internal/metrics`, `internal/logs`, `internal/traces`, `internal/identityprovider`, `internal/telemetry`(none), `internal/application` placement/registry/writer stamping; `internal/runtime` token export; `cmd/baha/app_broker.go` + `app_logs.go` + `app_traces.go` environment pass-through). One-line placement projections only in cmd/baha — no cmd/baha behavior logic (card 118 territory respected).
 - Card 102 chain: read-side aligned with the already env-scoped prune side; `PruneApplicationMetrics` semantics untouched; no regression of `TestListApplicationMetricsRequiresExplicitClassAndApplicationScope` / `TestRegisterProviderSignalsEmptyDesiredPrunesOnlyOwnedProvider` (both pass).
 - Mission-named SHA `dd62b9d30` is the card-102 final candidate (PR #1677): it exists as a commit (`git cat-file -t` → commit, fetched via `refs/pull/1677/head`) and is an ancestor of the PR head, but is NOT an ancestor of develop (squash-merge — develop carries its content in `97a840e54`). My fix therefore touches no file of that chain's prune side; the only card-102-adjacent edit removes #1677's caller-side prefix skip in `prometheus_verify.go:171-174`, strictly superseded by the central filter (documented in-code). No STOP trigger fired: the change aligns with, not against, the chain's intent; the chain's own regression fixture (`prometheus_verify_workload_only_test.go`) passes.
@@ -163,8 +168,14 @@ New test `TestEnvironmentFilter*` lives in package `internal/observability` and 
 
 ## porcelain / revision-label witness (taken second-to-last)
 
-(pending — appended below before END)
+```
+$ cd /tmp/opencode/efilter-wt && git rev-parse HEAD --abbrev-ref HEAD && git status --porcelain
+REV: d9d70a9845ea11f6d839b3f5600b67b214002d20 lane-0428-efilter
+porcelain: 0 entries
+```
+
+Comparison worktree `/tmp/opencode/efilter-base-wt` removed after the baseline census (nothing of this lane left in the tree; no compose/container was ever started — `cleanliness: PASS — 0 lane-owned containers/networks/volumes/compose projects/state dirs`).
 
 ## END
 
-(pending)
+END mission-efilter.md DONE — card t-20261119-hunt-metrics-env-filter-list-pfade (0428-121): central environment filter on every observability list path; candidate `d9d70a9845ea11f6d839b3f5600b67b214002d20` on branch `lane-0428-efilter`, PR https://github.com/mcpdev80/baseharbor/pull/1691 (base develop `ec592fd385`, MERGEABLE/OPEN); RED->green regression in `internal/observability/envfilter_regression_test.go` (5 FAIL at base, all PASS at candidate); exact-head CI run 44450253933 completed SUCCESS on GitHub-hosted runners (PR · Go unit · packages executes the new test; run URL in this akte). Card at `review`. No compose/container started (none to bring down); no `.github/**` change; no merge, no force, no subagents.
