@@ -43,7 +43,7 @@ traeger-verschiebung: capability -> serviceaccess, begruendung: 0428-084 ist gem
 | --- | --- | --- |
 | fix-6 candidate (qualifying) | 97d88ffefa0c89281d0c1b776f47b46f4449123f | run 44582754552 SUCCESS (21 executed) — superseded by fix-7 per the review |
 | + fix-7 content (carrier move + B1 + B2 + regressions) | 2048612cf3cfd1a23745fa52ad703d1742023bfd | run 44593538443 on this head CANCELLED by the concurrency group when the comment-only follow-up pushed |
-| + comment-only witness commit | 8c5b6b95486632c4fcbd95d847a36167b56b502c | exact-head run under watch: 44594142616 — terminal result recorded by the follow-up commit of this file |
+| + comment-only witness commit | 8c5b6b95486632c4fcbd95d847a36167b56b502c | exact-head run 44594142616: completed SUCCESS, 21 executed / 0 failed, "PR Selected Checks" success, candidate_advisory_required="false", PR mergeStateStatus CLEAN, draft=false. THIS head is the fix-7 qualification. |
 
 Ancestry: origin/develop(558dc42d0) → both heads true; ed7f448f6 → both true; no rebase, no force; develop did not move during this window (ls-remote 558dc42d0 at push time; the existing hopf 97d88ffef already carried it, so no new hopf was due).
 
