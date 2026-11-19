@@ -74,10 +74,54 @@ I STOPPED at the exact point where no deterministic backend witness seam exists 
 
 This is the card 0428-143 Owner question: does "Verification=none" mean "no verification" (so the backend-witness state must stay `unreachable`, never `configured`) or is the provider/app asymmetry already documented as correctly resolved? I did not resolve it here and did not add a seam. The Folgebahn (0428-143) should own the emission path for `unreachable` at `cmd/baha/app_status_result.go:64-65` / `:76-139`.
 
-## CI STATE (not a defect of this change — prior head `3bdc16d63`)
+## HOPF 2026-11-19 — rebase onto NEW develop (run 2026-11-19T22:3xZ, PR #1589 = 0427-020)
 
-- On head `3bdc16d63` the runner had an ORAS/trust-plane prerequisite gap; run `44611510526` (workflow_dispatch, FAILURE) skipped the runtime cells. This was a shared-runner environment gap, NOT a regression: the six failing runtime-integration tests (TestRepositoryWorkflowRealLifecycle, TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI, TestRepositoryComposeWorkloadOnlyLifecycleInCI, TestRepositoryComposePinnedWorkloadLifecycleInCI, TestRepositoryBuildWorkloadRebuildsSourceChangesInCI, internal/application/TestMultiInstanceComposeLifecycleInCI) do not import any of the files changed by this card.
-- On head `56d85ddb6` the same runner no longer had the gap; run `44617491031` ran the runtime cells (success) and `PR Selected Checks` = success. No runtime cells were skipped at the passing head.
+Owner directive (branch-wide hopf order): develop moved `6e87ddcb4` -> `28fb427f057499efca705c1b7459e7653bd532a8` (PR #1589 = 0427-020, merged by owner 17:19Z/22:2x local). This spring touches scripts/pr-gate-plan.py AND scripts/test_pr_gate_plan.py — exactly the files the base-distance rule keys on (a run only counts if lane-base -> develop does NOT touch .github/workflows/ci.yml, the planner, or scripts/test_pr_* / test_ci_*). The prior exact-head run is therefore DEVALUED for acceptance, even though green.
+
+### H1 — monotonic merge-hopf (two parents, proof)
+
+- `git fetch origin` then `git merge --no-ff origin/develop` — EXIT 0, no conflict produced by this branch.
+- merge commit: `6740299f91c040af7b1357d63be898eac57669f5`
+  - parent1 (my previous head): `56d85ddb63aff806b10253912edc973c18c0e704`
+  - parent2 (develop HEAD at hopf): `28fb427f057499efca705c1b7459e7653bd532a8`
+- `git merge-base --is-ancestor origin/develop HEAD` => 0 (develop IS an ancestor of HEAD)
+- `git log -1 --format=%P HEAD` => `56d85ddb63aff806b10253912edc973c18c0e704 28fb427f057499efca705c1b7459e7653bd532a8` (two parents)
+- No rebase, no reset, no force-push this shift.
+
+### H2 — conflict resolution
+
+- No conflict produced by this branch's merge (EXIT 0). The gate-plan files (scripts/pr-gate-plan.py, scripts/test_pr_gate_plan.py) changed only by develop's own PR #1589 content — not a conflict, not my write. No blind 'ours'/'theirs' selection.
+
+### H3 — local gate-plan on my diff (compared to pre-hopf)
+
+- `scripts/pr-diff-base.py --target-base origin/develop --head HEAD` -> JSON -> `scripts/pr-gate-plan.py --diff <that>` with runner context (GITHUB_REPOSITORY=mcpdev80/baseharbor GITHUB_BASE_REF=develop GITHUB_HEAD_REF=lane-0428-142-statuswitness GITHUB_SHA=6740299f91...).
+- Required `required_validation_checks`: capability-package-tests, cli-build, cli-gofmt, cli-package-tests, cli-vet, source-contracts. `broad_required: true`, `coverage_status: unresolved`, `unresolved_coverage: CLI runtime impact (app_status_collect.go, app_status_result.go, perses_lifecycle.go) + application/capability implementation (management_ui.go, perses_lifecycle.go/test, perses_runtime.go/test, perses.go, perses_security_test.go)`.
+- **CHANGE vs pre-hopf: NONE in the required gates.** The 13 card files are unchanged by the hopf (my diff-to-develop is the same card content); develop only extended the documentation-area gate matching (docs/internal/*.json, docs/example/*.yml), which does not touch my diff. No gate that was skipped pre-hopf is now required, and vice versa. `selected_gates: []` (none selected; the 6 required checks run regardless — this is the valid unresolved form). This is exactly why PR #1589 was merged: to confirm the gate-plan for this diff is stable across the develop spring.
+
+### H4 — exact-SHA PR run (terminal)
+
+- Run: `44621032956` | event: `pull_request` | head: `6740299f91c040af7b1357d63be898eac57669f5` | created `2026-11-19T21:39:56Z` / updated `2026-11-19T21:44:55Z`
+- status: `completed` — conclusion: `success`
+- `validate` => **success** (ran this time; NO runtime cells skipped — no ORAS/trust-plane gap on this runner; owner-draht 114(a) not triggered — nothing skipped here)
+- `PR Selected Checks` => **success**
+- `PR · Go unit · {cli-0,cli-1,cli-2,cli-3,owner,packages}` => all success
+- `PR · Focused Python`, `PR · Source format`, `PR · Trusted Plan`, `PR · Native gate plan`, `PR · Validation {cli-gofmt,go-build,go-vet}` => success
+
+### Run 44621032956 as the merge witness
+
+- The `pull_request` run `44621032956` for head `6740299f9` is the exact-SHA PR run required by §5.2 after the develop spring. Conclusion `success`, `PR Selected Checks` green, `validate` ran (nothing skipped). This is the merge witness for the hopf.
+
+### H5 — branch state
+
+- `git ls-remote origin/lane-0428-142-statuswitness`: `6740299f91c040af7b1357d63be898eac57669f5`
+- `git ls-remote origin/develop`: `28fb427f057499efca705c1b7459e7653bd532a8`
+- `git show -s --format=%cI origin/develop`: `2026-11-19T22:31:47+01:00` (my HEAD: `2026-11-19T22:36:22+01:00`)
+
+## CI STATE (prior heads, for the run-devaluation note)
+
+- On head `3bdc16d63` the runner had an ORAS/trust-plane prerequisite gap; run `44611510526` (workflow_dispatch, FAILURE) skipped the runtime cells. Shared-runner environment gap, NOT a regression: the six failing runtime-integration tests do not import any files changed by this card.
+- On head `56d85ddb6` (run `44617491031`, pull_request, success) the gap was absent; runtime cells ran.
+- On head `6740299f9` (run `44621032956`, pull_request, success) the gap was again absent; `validate` ran with nothing skipped. No runtime cells skipped at any passing head this shift.
 
 ## END
 
