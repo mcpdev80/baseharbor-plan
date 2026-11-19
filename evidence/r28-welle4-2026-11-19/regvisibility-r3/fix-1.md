@@ -58,3 +58,14 @@ Candidate `d751c83b` was hopf-monotonically merged onto develop head `fac01c772`
 ## CI run (PR Selected Checks, §4.6)
 
 - To be recorded with terminal PR Selected Checks aggregate after the pushed candidate runs.
+
+## Evidence provenance (second-to-last witness)
+
+`git ls-remote origin main`:
+
+```
+fe26c6472e128a71eae614bfe4be55f9afe4f301	refs/heads/main
+```
+
+Evidence `fix-1.md` committed to `baseharbor-plan` `origin/main` (commit `fe26c647`), pushed from own clone `/var/tmp/plan-123` via `git rebase origin/main` + `git push` (no force). plan.py check: 0 errors, 22 known r27-acceptance warnings only.
+
