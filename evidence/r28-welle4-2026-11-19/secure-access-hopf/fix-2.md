@@ -93,6 +93,10 @@ The Perses service definition set the `--config` flag, but no mount fed it (file
 - Local focused checks (this worktree, HEAD 233be0af2): `go build ./...` clean; `go vet` clean; `gofmt -l .` empty; `bash scripts/source-readability-audit.sh` PASS (size/function/ratchet); `go test ./internal/serviceaccess -run Perses -count=1 -v` = 14 top-level Perses tests PASS; `go test ./internal/serviceaccess ./internal/application ./internal/capability -count=1` all ok. No full ./... run (per mission).
 - Reviewer: Codex Luna re-review against the REQUEST-CHANGES recipe in evidence/r28-welle4-2026-11-19/codex-review-wave/1599-0428-089.md.
 
+## Zero-reach witness (mission branch name)
+
+`git ls-remote origin refs/heads/lane-0428-089-secure-access` -> empty (ref does not exist on mcpdev80/baseharbor; before AND after my push). Product diff at candidate contains 0 occurrences of that string. One candidate only: `lane-welle2-089-perses-secure-access` = 233be0af2 (ls-remote witnesses in Reality check and Handoff).
+
 ## END
 
 END_DONE mission-089-compose-config-render.md: deterministic policy renderer + read-only mount + reachable, non-host-visible Perses landed on candidate 233be0af2 (PR #1599, draft=false); exact-head run 44535875227 SUCCESS with PR Selected Checks = SUCCESS and candidate_advisory_required=false; evidence on origin/main.
