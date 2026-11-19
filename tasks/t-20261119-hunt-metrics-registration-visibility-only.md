@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w123-0428-123-regvisibility (codeman c5d271cb, laptop)
-kanban_status: review
-kanban_lane: review
+owner: w123-0428-123-regvisibility (codeman c5d271cb, laptop) — korrekturrunde
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-123 · registry-Eintrag ohne
 priority: ""
@@ -23,18 +23,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44557894265", "https://github.com/mcpdev80/baseharbor/actions/runs/44578337221"]
 ---
 
-- [ ] t-20261119-hunt-metrics-registration-visibility-only · Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261119-hunt-metrics-registration-visibility-only · Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w123-0428-123-regvisibility (codeman c5d271cb, laptop)  
+    **Owner:** w123-0428-123-regvisibility (codeman c5d271cb, laptop) — korrekturrunde  
     **PR:** [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44557894265), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44578337221)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w123-0428-123-regvisibility (codeman c5d271cb, laptop)  
+**Owner:** w123-0428-123-regvisibility (codeman c5d271cb, laptop) — korrekturrunde  
 **Priority:** not set  
 **PRs:** [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693)  
 **Source:** 
@@ -94,3 +94,5 @@ END ANGENOMMEN, alle zeugen von mir im selben schritt gegen gelesen: zweig lane-
 CODEX-REVIEW REQUEST CHANGES auf exaktkopf 4f22bf6e92354637367a821318f1dfbd6d1c1515, akte evidence/r28-welle4-2026-11-19/codex-review-wave/1693-0428-123.md (plan-main f322b9d004d7). BEIDE BEFUNDE SIND ECHT, von mir im code des kanditaten nachgelesen, und BEFUND 1 IST STAERKER ALS BERICHTET: appTargetFileName schreibt '<application>--<environment>--<source>.json' (prometheus_files.go:47/:53/:134); syncProviderTargets loescht ALLES was mit 'provider--' oder 'provider-secure--' beginnt (praezisierung :40/:42, loeschbedingung :76, os.Remove :78); der applications-glob liest '*--*--*.json' (prometheus_render.go:198). Eine gueltige application mit slug 'provider' erzeugt also 'provider--dev--api.json', das (a) von BEIDEN globs erfasst wird UND (b) von der provider-sync-loeschung EINF WEGGEGESEN wird — nicht nur doppelt gescort, sondern verlustig. Befund 2: die app-datei-bereinigung fehlt vollstaendig (os.Remove liegt ausschliesslich in demer provider-praefix-zweig; :186 ist der wipe-des-ordners, keine reconciliation) → ein stage-target bleibt nach einem dev-only-sync stehen. Deshalb review->active (§5.1), korrektur an dieselbe session
 
 KORREKTUR ANGENOMMEN, alle zeugen von mir gegen gelesen: zweig-head 97987af6954aca0318a16aef99b19c27dbee231a per ls-remote, base = develop 7ee6f817dbff5a238bbc651315d6d76b3819fc91 (dein merge #1581), clean, draft=false, 'merge-base --is-ancestor origin/develop 97987af6' = 0 (monotoner hopf), merge-tree 0 konflikte, lauf 44578337221 completed SUCCESS created 17:32:50Z updated 17:38:06Z, 0 fehljobs, 'PR Selected Checks' + go unit owner/packages success. BEIDE BEFUNDE SIND IM CODE DES NEUEN KOFPFS NACHGELESEN (nicht in der akte): (1) 'const applicationTargetPrefix = "application--"' (prometheus_files.go:53) mit appTargetFileName :55/:59 — das namespace ist STRUKTURELL disjunkt zum provider-glob, ein slug 'provider' kann kein provider-- mehr erzeugen; (2) syncProviderTargets :98 mit reconciliation-kommentar :109 'application--: retain exactly the files for the currently selected …' — die bereinigung ist da. BEIDE regressions sind vorhanden: internal/metrics/regvisibility_regression_test.go mit TestRegVisibilityApplicationNamedProviderIsDisjoint und TestRegVisibilityStaleApplicationTargetReconciledOnSync, diff = 3 dateien (prometheus_files.go, prometheus_render.go, regvisibility_regression_test.go). akte fix-3.md AUF MAIN (bc05739f), 9 zeilen mit 40er-sha/lauf-id — der fehlende zeuge von eben ist nachgeliefert. FREMDLANDE bleibt 0428-143 (die breitere 'Verification=none'-vertragsfrage), hier ausdruecklich kein defect
+
+ZWEITES REQUEST CHANGES (akte 1693-0428-123-r2.md, haupt a8b830bad), und der neue blocker ist ANDERS als der erste: disjunktion + reconciliation sind gesetzt (prometheus_files.go:113-130 appKeep), ABER der loop behandelt provider-praefix-dateien bei :131-135 ueber 'providerSourcePresent', und der regression-seed (regvisibility_regression_test.go:135-150) enthaelt nur '0-runtime-target.json' + 'provider-ca.pem' — keine provider-json eines FREMDEN eigentuemers. Eine application-reconciliation kann also fremde provider--/provider-secure-- dateien loeschen, ohne dass ein test es faengt. Zusaetzlich der 'outstanding B1 emit'-punkt im urteil. Inhaltlich kein rueckgaengig: die laeufe 44578337221 blieben SUCCESS, der kopf aenderte sich im review nicht
