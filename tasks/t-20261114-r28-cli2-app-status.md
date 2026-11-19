@@ -7,7 +7,7 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w062-pr1614-appstatus-hopf
+owner: codex-thread (owner-directive 2026-11-20T00:5x+01:00, eigenes team); vorgaenger-lane w062-pr1614-appstatus-hopf (codeman d0a488eb) mit meldefrist gestoppt, KEIN remote-write von ihr (zweig-head unveraendert 80d4df52e913, gemessen)
 kanban_status: active
 kanban_lane: active
 kanban_summary: "Unify app status and versions. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261114-r28-cli2-app-status · CLI redesign: Unify app status and versions #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** w062-pr1614-appstatus-hopf · **Priority:** high  
+    **Owner:** codex-thread (owner-directive 2026-11-20T00:5x+01:00, eigenes team); vorgaenger-lane w062-pr1614-appstatus-hopf (codeman d0a488eb) mit meldefrist gestoppt, KEIN remote-write von ihr (zweig-head unveraendert 80d4df52e913, gemessen) · **Priority:** high  
     **PR:** [baseharbor#1614](https://github.com/mcpdev80/baseharbor/pull/1614)  
     <!-- /generated:card -->
 
@@ -34,7 +34,7 @@ evidence: []
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** w062-pr1614-appstatus-hopf  
+**Owner:** codex-thread (owner-directive 2026-11-20T00:5x+01:00, eigenes team); vorgaenger-lane w062-pr1614-appstatus-hopf (codeman d0a488eb) mit meldefrist gestoppt, KEIN remote-write von ihr (zweig-head unveraendert 80d4df52e913, gemessen)  
 **Priority:** high  
 **PRs:** [baseharbor#1614](https://github.com/mcpdev80/baseharbor/pull/1614)  
 **Source:** 
@@ -72,3 +72,8 @@ Preserve wanted/applied/observed machine fields, unknown Git/image digest, -c fi
 Planned and unassigned. No product implementation or acceptance yet.
 
 BOARD-KORREKTUR nach unabhaengiger GEGENLESE (akte evidence/r28-welle4-2026-11-19/codex-review-wave/board-sweep-gegenlese-1.md, haupt e86d817d): der PR dieses fachers ist draft=true. Ein draft ist KEIN kanditat (§5.2), also war der zustand 'review' zu gut — er versprach einen pruefbaren kanditaten, den es nicht gibt. FEHLENDE STUFE, klar benannt: draft auf non-draft, EIN monotoner hopf auf den aktuellen develop, EIN exact-head-lauf bis terminal; die arbeit im zweig ist vorhanden. Rueckstandiger zustand, kein inhaltlicher rueckstand
+
+UEBERGABE DURCH OWNER-BEFEHL. WAHRHEIT VORAB, und sie ist mein fehler: der claim dieser karte war zu dem zeitpunkt, als der owner fragte, NICHT auf origin/main (karte zeigte 'owner: coord', 'kanban_status: planned', letzter commit 01a725b6 um 00:07). Ich hatte die bahn dispatched, ohne den fehlgeschlagenen publizierungs-schritt zu bemerken — verstoss gegen AGENTS 4.3 (claim veroeffentlichen, BEVOR aenderungen beginnen). Diese zeile hier ist der berichtigte, gepubliscte zustand.
+FAKTEN FUER DEN NEUEN INHABER (gemessen, nicht erzaehlt): PR mcpdev80/baseharbor#1614, zweig lane-0428-062-cli2-app-status, kopf 80d4df52e913 seit 2026-11-16T10:32:06+01:00 (committer w073-perses-alerts), draft=TRUE, checks ALLE SKIPPED (ein draft laeuft nicht), base-sha 15727ca8878938 = ZWEI hops hinter develop d5c11753ea43. write-set 14 dateien, schwerpunkt cmd/baha/app_version_view.go, app_versions_view.go, app_versions_command.go, app_status_result.go plus parity-/regression-tests.
+ZWEI WARNUNGEN, die der owner vor dem ersten diff kennen sollte: (1) der diff beruehrt cmd/baha/app_workspace.go UND cmd/baha/app_workspace_source_model.go — beide dateien hat 0428-059 im merge 15727ca88 ANDERS geloest; wenn 062 dort eigene zeilen setzt, pruefe, ob du 059 rueckgaengig machst. (2) KOLLIDIERENDES WRITE-SET: PR #1645 (karte 091, Perses Tempo) beruehrt cmd/baha/app_status_result.go — von mir gemessen (pr diff name-only, treffer 1). Wenn du und 091 gleichzeitig daran arbeiten, braucht es einen integrations-inhaber, sonst zwei konfliktfaelle in derselben datei.
+KONTAKT: die alt-lane meldet ihren /var/tmp-worktree-pfad noch (arbeitsbaum bleibt stehen, damit du dort weitermachen kannst, statt bei null).
