@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-122 r3 (waiting for free seat; rebase after 0428-121 merge)
-kanban_status: wait
-kanban_lane: wait
+owner: 0428-122 r3 (codeman 0028c6d2-391b-4086-a1ed-72675c56a931, ornith)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-122 · Klasse App hat keinen
 priority: ""
@@ -18,24 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1692]
 sources: []
 blocker: ""
-wait_reason: "sitz frei (pool 4/4); die lane braucht ZUERST einen hopf auf develop e1dc2cf61, weil #1691 den registry.go-pfad bewegt hat"
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1692", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1692.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44451374676", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44473809584"]
 ---
 
-- [ ] t-20261119-hunt-metrics-appclass-log-writer · Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) #task #release/v0-4-28 #status/wait #view/wait #kind/task
+- [ ] t-20261119-hunt-metrics-appclass-log-writer · Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-122 r3 (waiting for free seat; rebase after 0428-121 merge)  
+    **Owner:** 0428-122 r3 (codeman 0028c6d2-391b-4086-a1ed-72675c56a931, ornith)  
     **PR:** [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692)  
-    **Waiting:** sitz frei (pool 4/4); die lane braucht ZUERST einen hopf auf develop e1dc2cf61, weil \#1691 den registry.go-pfad bewegt hat  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1692), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1692.md), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44451374676), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-2.md), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44473809584)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0428-122 r3 (waiting for free seat; rebase after 0428-121 merge)  
+**Owner:** 0428-122 r3 (codeman 0028c6d2-391b-4086-a1ed-72675c56a931, ornith)  
 **Priority:** not set  
 **PRs:** [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692)  
 **Source:** 
@@ -101,3 +100,5 @@ Post-#1691 dependency check: #1692 changed files include internal/observability/
 Post-#1691 dependency check: #1692 changed files include internal/observability/registry.go and internal/application/runtime_observability.go, both touched by newly merged #1691. Current PR head 876329f is stale and DIRTY/CONFLICTING against develop e1dc2cf. Prior CI run 44473809584 predates integration and is not qualifying. Required next step: monotone rebase to current develop, resolve conflicts, rerun focused tests and exact-head PR checks. Owner r3 is waiting for a worker seat; no duplicate lane started.
 
 STATUS VON MIR GEGEN DIE FERNZEUGE GELESEN (dein read-only-check, bestaetigt): PR #1692 open, draft=false, mergeable_state 'dirty', kopf 876329f733c7700f… (updated 07:01Z) — 'merge-base --is-ancestor e1dc2cf61 <kopf>' schlägt FEHL, 'git merge-tree --write-tree origin/develop <kopf>' = GENAU 1 content-conflict: internal/observability/registry.go, und genau den pfad hat #1691 bewegt (ueberschneidung der dateimengen da76c5cf9..e1dc2cf61 gegen den PR-diff). lauf 44473809584 (SUCCESS, created 06:39Z) ist UNTER diesem kopf gegenstandslos. MISSION mission-122-service-dimension.md ist um 'SCHRITT 0' ergaenzt: hopf auf e1dc2cf61, konflikt INHALTLICH loesen (environment-ableitung aus 121 UND service-dimension behalten, sonst STOP mit zwei datei:zeilen), ancestor- + merge-tree-0-zeug in die akte, draft=false, dann fokus-tests und neuer exact-head lauf. REIHENFOLGE: 122 ist der ERSTE auf dem naechsten freien sitz (124/#1695 bleibt weiter hinter seinen abhaengigkeiten), keine dublette, kein vorzeitiger start
+
+SITZ FREI GEWORDEN (121-aktenlane entlassen) und wie zugesagt sofort besetzt: start auf ORNITH (kein --flash-flag = default ornith). ERSTER schritt laut meinem nachtrag 'SCHRITT 0': hopf des kopfs 876329f733c7706a5a8dfb9a4227fb2c2698660c (refs/heads/lane-0428-appclass-writer) auf develop e1dc2cf61 — merge-tree zeigt GENAU EINEN content-conflict in internal/observability/registry.go, den genau #1691 bewegt hat; inhaltliche loesung (environment-ableitung aus 121 UND service-dimension behalten), sonst STOP mit zwei datei:zeilen. der SUCCESS-lauf 44473809584 von 06:39Z zaehlt nicht, exact-head-lauf kommt erst nach dem hopf
