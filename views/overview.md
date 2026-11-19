@@ -10,10 +10,10 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 12 |
+| active | 11 |
 | review | 0 |
 | wait | 18 |
-| blocked | 9 |
+| blocked | 10 |
 | ready | 3 |
 | queued | 25 |
 | waiting | 181 |
@@ -35,7 +35,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-r28-bughunt-lifecycle-consent-desk](../tasks/t-20261119-r28-bughunt-lifecycle-consent-desk.md) | hunt lifecycle/consent desk | active | not set | Coordinator 9142ab1f (bahn: hunt-lane auf ornith:2, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/) | — | — |
 | [t-20261119-r28-bughunt-observability-desk](../tasks/t-20261119-r28-bughunt-observability-desk.md) | hunt observability desk | active | not set | Coordinator 9142ab1f (bahn: hunt-lane auf ornith:1, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/) | — | — |
 | [t-20261119-r28-perses-status-backend-witness](../tasks/t-20261119-r28-perses-status-backend-witness.md) | CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben | active | not set | w142-pr1702-statuswit-r5 | — | [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702) |
-| [t-20261119-r28-registry-orphan-shared-instance](../tasks/t-20261119-r28-registry-orphan-shared-instance.md) | orphan shared instanz nach remove | active | not set | w151-pr0428-151-sharedinst | — | — |
 
 ## Ready for review
 
@@ -77,6 +76,7 @@ None.
 | [t-20261119-hunt-metrics-verification-none-blind](../tasks/t-20261119-hunt-metrics-verification-none-blind.md) | verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe | blocked | not set | 0428-124 r2 (codeman 7110b25d, entlassen) — r3 wartet auf freien sitz | — | [baseharbor#1695](https://github.com/mcpdev80/baseharbor/pull/1695) |
 | [t-20261119-r28-app-source-verification-none-ignored](../tasks/t-20261119-r28-app-source-verification-none-ignored.md) | Verifier: Verification=none is ignored for application-class metrics sources | blocked | not set | — | — | — |
 | [t-20261119-r28-perses-alert-verifier-caller-wiring](../tasks/t-20261119-r28-perses-alert-verifier-caller-wiring.md) | alert-verifier haengt in der luft | blocked | not set | — | [t-20261119-r28-perses-status-backend-witness](../tasks/t-20261119-r28-perses-status-backend-witness.md) (open) | — |
+| [t-20261119-r28-registry-orphan-shared-instance](../tasks/t-20261119-r28-registry-orphan-shared-instance.md) | orphan shared instanz nach remove | blocked | not set | w151-pr0428-151-sharedinst | — | — |
 
 ## Ready to assign
 

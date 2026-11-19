@@ -9,9 +9,9 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w151-pr0428-151-sharedinst
-kanban_status: active
-kanban_lane: active
-blocker: ""
+kanban_status: blocked
+kanban_lane: blocked
+blocker: "KEIN code-befund, sondern EINE VERTRAGS-FRAGE an den owner — und meine vorige praemisse war FALSCH. GEMESSEN am develop 4b3a3559070e: cmd/baha/app_core_requirement_test.go:192 TestCapabilityRemovalThenOtherDestroyRetainsUnboundSharedOwnership verlangt ausdbruecklich, dass nach ReleaseApplicationProviderRegistryAt 'len(registry.Instances) != 1 || len(registry.Bindings) != 0' FEHLSCHLAEGT — eine shared instanz mit NULL bindungen ist der GEWOLLTE zustand, und zwei zeilen tiefer wird 'len(footprint.Unused) != 2' verlangt, also SICHTBARKEIT des ungenutzten bestands. footprint.go:345-347 rechnet genau daraus: !selected && keine bindings -> Unused. Ein drop-if-unbound (die variante 1, die ich der lane vor 40 minuten auftrag, und der owner bestaetigte) WUERDE diesen vertrag brechen. NAechster trigger: owner-entscheidung zwischen (a) karte als kein-fehler schliessen und hunt-akte 0428-146 berichtigen, oder (b) vertrag aendern + beide upstream-tests anpassen (dann neue runde)."
 wait_reason: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
@@ -24,14 +24,15 @@ resolution: ""
 created: 2026-11-19
 ---
 
-- [ ] t-20261119-r28-registry-orphan-shared-instance · orphan shared instanz nach remove #task #release/v0-4-28 #status/active #view/active #area/capability #area/lifecycle #kind/task
+- [ ] t-20261119-r28-registry-orphan-shared-instance · orphan shared instanz nach remove #task #release/v0-4-28 #status/blocked #view/blocked #area/capability #area/lifecycle #kind/task
     <!-- generated:card -->
     **Owner:** w151-pr0428-151-sharedinst  
+    **Blocker:** KEIN code-befund, sondern EINE VERTRAGS-FRAGE an den owner — und meine vorige praemisse war FALSCH. GEMESSEN am develop 4b3a3559070e: cmd/baha/app\_core\_requirement\_test.go:192 TestCapabilityRemovalThenOtherDestroyRetainsUnboundSharedOwners…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/vm-bughunt/baha-podman-146.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w151-pr0428-151-sharedinst  
