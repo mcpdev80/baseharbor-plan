@@ -231,6 +231,11 @@ END_DONE mission-121-round5-listseam.md: r6 fail-closed conflicting ID/Target re
 - git merge-tree --write-tree origin/develop e5a943d1b0cc4e700f2ff980e1d900dab4473288:
   clean tree a7368d43aa9f43bb270c868d38a0953cdf6a1226, 0 ^CONFLICT lines.
 
+- Evidence publish witness (this correction): `git ls-remote origin main` =
+  e8a2858a69b63728448cd055ce6c5f06a23cb5a0 refs/heads/main; commit e8a2858a is an
+  ancestor of origin/main (PASS). Only this one commit is ahead of the pre-push origin/main
+  (fecc1c2e) — no foreign commit carried onto main.
+
 ## HOST HYGIENE (121-evidence-reconcile, 2026-11-19)
 
 - The worktree /tmp/opencode/mission-121-round5-listseam-wt belongs to ANOTHER lane and
