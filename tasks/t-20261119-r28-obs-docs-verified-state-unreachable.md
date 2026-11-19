@@ -1,8 +1,8 @@
 ---
 id: t-20261119-r28-obs-docs-verified-state-unreachable
-kanban_title: "0428-148 · docs: perses 'verified' unerreichbar"
+kanban_title: 0428-148 · docs verified-state fehlt
 card_number: "0428-148"
-card_short_title: "docs: perses 'verified' unerreichbar"
+card_short_title: "docs verified-state fehlt"
 type: task
 areas: [docs, observability]
 release: v0.4.28
