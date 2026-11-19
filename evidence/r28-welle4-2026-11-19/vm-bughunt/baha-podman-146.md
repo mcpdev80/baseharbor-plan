@@ -126,7 +126,19 @@ FUND-DETAIL: subuid/subgid-Mappings existieren (65536, Grundgrenze Erfuellt), us
 Echte Kartenarbeit auf diesem Kanal erschienen (zwei blockierende Befunde an #1690, beide vom Owner im Code nachgemesen). Hunt-Lane wird mit Meldefrist gestoppt (§3.3#5).
 - Ausgefuehrt: alle vier Slices, je eine Zeile oben (VERHALTEN KORREKT / BEFUND mit Befehl, Ausgabe, Datei:Zeile).
 - Nicht ausgefuehrt (Stop mit Meldefrist 2026-11-19): keine weiteren Szenarien mehr.
-- CLEANLINESS: vorher = 16 bh-podman-demo-* Container, 9 baseharbor-* netze, 2 volumes; nachher = identisch, KEINE eigenen Container/netze/volumes erstellt. Fremde bh-local-shared-* sowie perses-probe/proto-perses/deny-perses-Objekte NICHT angefasst (nur gemeldet, vorhanden unveraendert). subuid/unveraendert. VM-Lock: lockctl nicht vorhanden, VM nicht durch Session gelockt, nichts freizugeben — Freigabe bestaetigt.
+- CLEANLINESS: vorher = 16 bh-podman-demo-* Container (openbao/postgres/haproxy/keycloak/caddy/prometheus/demo-app/metrics-demo/dev-gateway), 9 baseharbor-* netze (baseharbor-podman-demo-default, baseharbor-identity-core-podman-demo, ...), 2 volumes (bh-podman-demo-shared_postgres-data-1, baseharbor-prometheus-data-podman-demo); nachher = identisch, KEINE eigenen Container/netze/volumes erstellt. Fremde bh-local-shared-* sowie perses-probe/proto-perses/deny-perses-Objekte NICHT angefasst (nur gemeldet, vorhanden unveraendert). subuid/unveraendert (marcel:100000:65536).
+
+## VM-LOCK (Block — nachtraglich, 2026-11-19 ~21:5x +0100)
+
+BEFUND: VM-Lock auf baha-podman haelt weiter unter mission-hunt-146 (seit 17:18:46Z). Im Journal fuer baha-podman KEIN release (nur baha-docker wurde 17:48:48Z freigegeben).
+lockctl existiert NICHT auf any erreichbarem Host (baha-podman, baha-docker, baha-k3s, baha-podman-2, baha-docker-2: `command -v lockctl` -> not found; nur /usr/bin/flock praesent). Der Lock-Manager + mission-hunt-146-Zustand liegt AUSSERHALB der erreichbaren VMs (coordinator/codeman-Host, von dieser Lane nicht erreichbar) — ich kann den Lock von hier aus NICHT freigeben.
+BEFEHL (ausgefuehrt, fehler):
+```
+$ ssh baha-podman 'lockctl release baha-podman'
+bash: line 1: lockctl: command not found
+exit: 127
+```
+VOM OWNER: bei Freigabe-Haftung klaert der Owner (nicht die Lane auf eigener Faust). Melde hier nur Befehl + Fehlerzeile fuer die Owner-Klaerung.
 
 ---
 
