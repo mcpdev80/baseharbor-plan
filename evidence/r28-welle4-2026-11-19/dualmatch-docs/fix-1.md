@@ -120,3 +120,14 @@ PR #1696, workflow run 44471319498 (`CI · Source & Quality`), observed to termi
 END_DONE mission-dualmatch.md: Warning/Achtung dual-match complete — every acknowledging CLI stage prints the `Warning:` lead (semantics unchanged) and EN normdocs follow the i18n rename; candidate `864fdcd3a71c83d1fd2a5ae9a3304b23a5cefd6c`, branch `lane-0428-126-dualmatch-docs`, PR https://github.com/mcpdev80/baseharbor/pull/1696 (run 44471319498: all selected checks pass at the exact head, docs-audit + mkdocs-en/de-strict + Go unit cli shards included); card t-20261119-hunt-metrics-dualmatch-marker-docs at review.
 
 Follow-up finding (not in this write-set, baseharbor-demo repo): `tests/guided/drive.py:507`/`new_edit.py:203` match the old marker-less prompt text `Confirm the displayed provider changes`; after this change the stage prints `Warning: Confirm the displayed provider changes`. Rules are optional=True, but the demo matcher should add the new pattern in a demo-repo card.
+
+## CODEX-REVIEW / CODEX-MERGE closeout
+
+- Exact PR head `864fdcd3a71c83d1fd2a5ae9a3304b23a5cefd6c`; exact-head run [44471319498](https://github.com/mcpdev80/baseharbor/actions/runs/44471319498) completed `SUCCESS`, including `PR Selected Checks` from Actions integration 15368. Summed hosted runner time: 34.13 minutes.
+- Candidate parent is current develop `21161b101f66a47fb1a253ae17e87fe82567ba4d`; `mergeStateStatus=CLEAN`, `mergeable=MERGEABLE`, and no PR review threads/comments were open at final gate.
+- `CODEX-REVIEW: ACCEPT` — the CLI acknowledgement prompts propagate `Scope.Attention` and print the Warning marker in the missing single-confirmation stage and both apply stages; the explicit tests cover one/two-stage, destructive and marker-absent behavior. Consent fields and gate semantics remain unchanged. EN normdocs align to the shipped `Warning` marker.
+- `CODEX-MERGE`: PR #1696 squash-merged with expected-head guard. Merge `da76c5cf9c963207038d5599bd130b89ecb1e8a4` verified as remote `develop` head. Planning card closed/accepted through `card-status.py` with PR and run evidence.
+- Follow-up #129 remains separate: `baseharbor-demo/tests/guided/drive.py:507` does not yet match `Warning: Confirm the displayed provider changes`; the planning card at the verified `origin/main` snapshot still showed no owner, despite the reported occupied seat.
+- CI cost note: run 44471319498 = 34.13 summed hosted runner-minutes; tests were not rerun locally in this review.
+
+END_ACCEPT+MERGED #1696 head `864fdcd3a71c83d1fd2a5ae9a3304b23a5cefd6c`, run `44471319498` SUCCESS (34.13 runner-minutes), squash merge `da76c5cf9c963207038d5599bd130b89ecb1e8a4`.
