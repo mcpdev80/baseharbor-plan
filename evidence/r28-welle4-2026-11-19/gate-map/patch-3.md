@@ -274,11 +274,14 @@ $ git log --oneline origin/main -1
 ba53cf70 evidence(0428-114 gate-map v3): per-hunk apply-check witnesses (e/g, order-independent), corrected candidate chain
 ```
 
-Candidate (evidence) SHA: `ba53cf7018022b3a70fe2f01a79daff505264e4f` = the tip of baseharbor-plan origin/main.
+Candidate (evidence) SHA: `7b651f852063b00c87a7fe5dd0656135c73891f2` = the tip of baseharbor-plan origin/main
+(the witness above was taken one commit earlier at `ba53cf70`; the commit that pastes it is `7b651f85`, so the
+file on origin/main names its own SHA).
 Chain: lane-start base 8c6e3e2b -> 1318c24b (gate-map v3 dossier + gate-map-v3.patch) -> 1febe04e -> 0c644243 ->
-e959afb0 -> 383683cd -> ba53cf70 (candidate). Other lanes' commits (bd13c742, af33577a, 42e4b3ab, e611d271,
-16d374dc) interleaved on main between my pushes; all my pushes were fast-forwards and touched only these two
-evidence files. Product repo untouched; no product candidate SHA (this is a plan-artifact-only deliverable).
+e959afb0 -> 383683cd -> ba53cf70 -> 7b651f85 (candidate). Other lanes' commits (bd13c742, af33577a, 42e4b3ab,
+e611d271, 16d374dc) interleaved on main between my pushes; all my pushes were fast-forwards and touched only
+these two evidence files. Product repo untouched; no product candidate SHA (this is a plan-artifact-only
+deliverable).
 
 ## Revision labels
 
