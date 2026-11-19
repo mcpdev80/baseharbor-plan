@@ -76,6 +76,25 @@ decided here: cited with file:line, not implemented.
 Drift rule: human `perses status` output and the `app status` machine
 (host-containers JSON) MUST show the SAME per-signal state.
 
+## Loki/Tempo logs/traces contract: Verification=none is 0428-143, NOT here
+
+reference.go:132-134 (LokiIntegration): `loki-logs` signal is
+`ObservabilityUnsupported` with `Verification: ObservabilityVerifyNone`.
+reference.go:146-148 (TempoIntegration): `tempo-logs`/`tempo-traces` are
+`ObservabilityUnsupported`/`NotApplicable` with `Verification: ObservabilityVerifyNone`.
+
+Consequence: the Loki/Tempo LOG/TRACE backend witness can NOT be proven from
+manifest truth — its Verification=none flag is exactly the contract question for
+card 0428-143 (Owner). THIS card never implements a real probe. The manifest-only
+witness here therefore models only what manifest truth decides:
+- signal declared in manifest (logs/traces collected + observability management UI
+  + perses selected) -> "configured"
+- signal absent -> "not configured"
+- configured in manifest but the backend's own answer not present -> "unreachable"
+
+NEVER emit "healthy"/"verified" from a manifest flag. The real-probe path is
+cited, not implemented.
+
 ## Finding
 
 The real per-backend witness lives in `internal/logs/loki_datasource.go` (`matchedAny`, `Reachability`).
