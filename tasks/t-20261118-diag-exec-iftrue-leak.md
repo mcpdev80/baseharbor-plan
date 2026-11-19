@@ -51,3 +51,5 @@ candidate 2d945e963; CI 44427145360 completed success; red c81985c6f -> green; e
 END akzeptiert: head 2d945e963 auf base 9a37b4bc, red c81985c6f -> green, exact-run 44427145360 SUCCESS, akte fix-1.md (463d9d65) mit 9 head-referenzen. GitHub meldet 'behind' — pruefen ob develop erneut zog; merge-fenster wie besprochen. Routing an CODEX-REVIEW
 
 CODEX-REVIEW ACCEPT ohne Befund auf 2d8cef5ef; Exact-head CI 44432398707 SUCCESS (PR Selected Checks von integration 15368), 32.13 runner-min; normaler Squash-Merge de53246585560ddf2c3e6ceae6d0f6eea6b71b68. Evidence: evidence/r28-welle4-2026-11-19/codex-welle3-review/1689.md.
+
+MERGED: develop de5324658 traegt den PR (squash/merge wie am band ausgewiesen); kandidat-kette 2d945e963 -> hopf 2d8cef5ef (Codex-review-lane, normaler develop-merge) -> merge de5324658. Exact-run auf 2d8cef5ef war terminal gruen (#6511). Red c81985c6f -> green belegt, akte fix-1.md 463d9d65
