@@ -8,7 +8,7 @@ areas: [coordination, ci, tooling]
 release: v0.4.28
 version: ""
 parent: ""
-owner: "folgelane (wird gesetzt)"
+owner: w155-pr0428-155-waitfix
 kanban_status: active
 kanban_lane: active
 blocker: ""
@@ -25,14 +25,14 @@ created: 2026-11-19
 
 - [ ] t-20261119-coord-tooling-defects · skript-zeile statt bahn-pruefen #task #release/v0-4-28 #status/active #view/active #area/ci #area/coordination #area/tooling #kind/task
     <!-- generated:card -->
-    **Owner:** folgelane (wird gesetzt)  
+    **Owner:** w155-pr0428-155-waitfix  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** folgelane (wird gesetzt)  
+**Owner:** w155-pr0428-155-waitfix  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

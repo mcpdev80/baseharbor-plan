@@ -5,22 +5,38 @@ card_number: "0428-158"
 card_short_title: "bughunt source symlink slice"
 type: task
 areas: [cli, application, security]
+repos: [mcpdev80/baseharbor]
 release: v0.4.28
 version: ""
 parent: ""
 depends_on: []
 blocked_by: []
 superseded_by: []
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w158-pr0428-158-symhunt
+kanban_status: active
+kanban_lane: active
 blocker: ""
 resolution: ""
 evidence: []
 prs: []
 created: 2026-11-20
+wait_reason: ""
+
 ---
-- [ ] t-20261120-r28-bughunt-source-symlink-slice · source-model- und symlink-flaeche befunden
+- [ ] t-20261120-r28-bughunt-source-symlink-slice · source-model- und symlink-flaeche befunden #task #release/v0-4-28 #status/active #view/active #area/application #area/cli #area/security #kind/task
+    <!-- generated:card -->
+    **Owner:** w158-pr0428-158-symhunt  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** active  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** none  
+**Owner:** w158-pr0428-158-symhunt  
+**Priority:** not set  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 ## Ziel
 
 Bug-Hunt-Schnitt H-V9 auf der frisch gemergten Flaeche: 0428-059 source model slice
