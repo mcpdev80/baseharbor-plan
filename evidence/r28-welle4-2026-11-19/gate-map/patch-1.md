@@ -58,11 +58,29 @@ Reason for `targeted-integration.yml`:
 
 ## dry-run witnesses (git apply --check)
 
-1. `git -C /var/tmp/gatemap-wt/baseharbor apply --check --verbose < patch` against `907f16713cbf38693d30c9dadaad7fe299759219` (ci.yml / pr-gate-plan.py) — witness below.
-2. `git -C /var/tmp/gatemap-wt/demo apply --check --verbose < patch` against `adda7599cb5b79689702f6a63a5ca802179df967` (demo pr-guided-consent.yml) — witness below.
+Isolated clones: baseharbor-wt at `907f16713cbf38693d30c9dadaad7fe299759219` (origin/develop), demo-wt at `adda7599cb5b79689702f6a63a5ca802179df967` (origin/main). Full patch /tmp/gate-map.patch verified per file-block.
 
-(Exact command output pasted in gate-map.patch header witness block.)
+Witness 1 — baseharbor (CHANGE 1 + CHANGE 4), forward-check against `907f1671`:
+```
+$ cd /var/tmp/gatemap-wt/baseharbor-wt && git checkout -- . && git apply --check /tmp/bhonly.patch
+(no output)
+$ echo $?
+0
+```
+Witness 2 — baseharbor-demo (CHANGE 3), forward-check against `adda7599`:
+```
+$ cd /var/tmp/gatemap-wt/demo-wt && git checkout -- . && git apply --check /tmp/demonly.patch
+(no output)
+$ echo $?
+0
+```
+Witness 3 — assembled multi-repo /tmp/gate-map.patch:
+- baseharbor-only blocks (CHANGE 1 + 4) apply clean: `git apply --check` EXIT 0.
+- demo-only block (CHANGE 3) apply clean: `git apply --check` EXIT 0.
+- The full assembled patch does NOT forward-check inside baseharbor-wt because the demo hunk references a file not present in baseharbor — expected for a multi-repo patch.
 
 ## END
 
-END_DONE mission-ci-intake-audit... (see handoff line). Mission `gate-map-patch-draft` (karte 0428-134): draft patch written, four changes, every change dry-run `git apply --check`-verified against the target head; no product write, no workflow/scripts edit, no PR, no merge, no subagent. Evidence on origin/main.
+END_DONE mission-gatemap-patch-draft (karte 0428-134). Evidence on origin/main: `e687224cd5ecde1768ed38407c26015fdd89bd4e` 2026-11-19 08:58:28 +0100; `git ls-remote origin main` => `e687224cd5ecde1768ed38407c26015fdd89bd4e refs/heads/main`. Draft patch written (patch-1.md + gate-map.patch), four changes, every hunk `git apply --check`-verified against target head; no product write, no workflow/scripts edit, no PR, no merge, no subagent.
+
+END_DONE
