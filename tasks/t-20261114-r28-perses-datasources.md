@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0428-083 lane (codeman 5447f0df, flash)
-kanban_status: review
-kanban_lane: review
+owner: 0428-083 lane (codeman 5447f0df, flash) — korrekturrunde: gate-zuordnung
+kanban_status: active
+kanban_lane: active
 kanban_summary: Provision authorized existing Prometheus datasource in Perses using supported pinned native plugin and proxy/TLS contract.
 kanban_title: 0428-083 · Connect Perses Prometheus
 priority: normal
@@ -20,26 +20,26 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md", "https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44573407736"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md", "https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44573407736", "https://github.com/mcpdev80/baseharbor/actions/runs/44577713744"]
 ---
 
 ## Owner decision — 2026-11-17
 
 Owner decision (2026-11-17): Unblock. Reopen PR #1608 if it remains suitable, otherwise create a superseding PR on develop. Restore the Prometheus datasource integration and rebase PR #1665 onto an actively CI-covered base. Run the applicable exact-head CI and security/authorization checks before review and merge. No merge is authorized solely by this decision.
 
-- [ ] t-20261114-r28-perses-datasources · Connect Perses Prometheus #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [ ] t-20261114-r28-perses-datasources · Connect Perses Prometheus #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-083 lane (codeman 5447f0df, flash) · **Priority:** normal  
+    **Owner:** 0428-083 lane (codeman 5447f0df, flash) — korrekturrunde: gate-zuordnung · **Priority:** normal  
     **PR:** [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44573407736)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44573407736), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44577713744)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
 **Required by:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-dashboards](t-20261114-r28-perses-dashboards.md)  
-**Owner:** 0428-083 lane (codeman 5447f0df, flash)  
+**Owner:** 0428-083 lane (codeman 5447f0df, flash) — korrekturrunde: gate-zuordnung  
 **Priority:** normal  
 **PRs:** [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684)  
 **Source:** 
@@ -105,3 +105,5 @@ ENTBLOCKT durch den #1592-merge (develop 3b634232f): internal/application/perses
 END ANGENOMMEN, alle zeugen von mir gegen gelesen: zweig-head 24cd5f4538fa8f9bc814fcd481143484742c3a14, base = develop c296086ca (der #1616-merge), PR non-draft, merge-tree gegen develop 0 konflikte, lauf 44573407736 completed SUCCESS created 17:05:46Z auf GENAU DIESEM kopf; akte evidence/r28-welle4-2026-11-19/perses-datasources-hopf/fix-4.md (main b01fb21d, blob c0113b26). DER EINE GRUND, WARUM SIE NICHT AUF REVIEW GEHT: der owner hat um 18:19:51+01:00 #1581 gemergt, develop ist 7ee6f817dbff5a238bbc651315d6d76b3819fc91, und der unterschied c296086ca -> 7ee6f817d betrifft scripts/test_pr_gate_plan.py + scripts/ci-workflow-policy.sh — scripts/test_pr_* ist ein treffer meiner base-abstands-regel, also schuldet die lane EINEN monotonen hopf auf 7ee6f817d plus EINEN exact-head-lauf. Kein inhalt zweifelt daran: die drei teile (apply-grenze runtime_postgres.go:140 -> ensurePersesDatasourceRuntime, read-only compose-mounts resolver-abgeleitet perses_runtime.go:99 fail-closed, container-akzeptanz-test lokal 3x gruen) sind geliefert. IHR BEFUND ist notiert und geht in die owner-draht-liste: 'PR Selected Runtime' skipped, skip-kette ci.yml:973 runtime_required=false <- pr-selected-runtime-matrix.py <- pr-gate-plan.py ohne mapping fuer perses/apply-pfade (owner-scope, von der lane NICHT geaendert) — nach dem hopf prueft sie, ob #1581 ihren fall schon abbildet
 
 BEIDE BEDINGUNGEN SIND JETZT ERFUELLT, von mir gegen gelesen: hopf geliefert — zweig-head 738ed514b208239e02cb06968cc72bb808bc070c, base = develop 7ee6f817dbff5a238bbc651315d6d76b3819fc91 (dein merge #1581), 'git merge-base --is-ancestor origin/develop 738ed514b' = 0 (monoton), merge-tree 0 konflikte, PR clean + draft=false; exact-head-lauf terminal: 'PR Selected Checks' success, 0 fehljobs. INHALT (aus fix-4, unveraendert gueltig): aufruf an der ECHTEN apply-grenze (runtime_postgres.go:140 -> ensurePersesDatasourceRuntime), read-only compose-mounts aus dem resolver abgeleitet (perses_runtime.go:99, fail-closed), container-akzeptanz TestPersesPrometheusDatasourceContainerLoadsProvisionedDatasource lokal 3x gruen. IHR BEFUND BLEIBT OFFEN UND GEHOERT DIR (owner-scope, von ihr zu recht NICHT geaendert): 'PR Selected Runtime' wird fuer perses/apply-pfade NICHT selektiert — skip-kette ci.yml:973 runtime_required=false <- pr-selected-runtime-matrix.py <- pr-gate-plan.py ohne mapping; #1581 hat nur scripts/test_pr_gate_plan.py + ci-workflow-policy.sh geaendert, also bleibt der befund stehen (im planner sind 18 perses/apply-zeilen, aber keine runtime-selektion fuer diese pfade). Abnahme jetzt bei codex-welle3, mission aus den gemessenen zeugen
+
+REVIEW->ACTIVE nach OWNER-DIREKTIVE (kein rueckgaengig-machen des contents — CODEX sagt APPROVE CONTENT, akte 1684-0428-083-r3.md auf main cb4cb793c0cd). KANONISCHER BLOCKER, JETZT AUS DER MESSUNG UND NICHT AUS DEM HANDOFF-WORTLAUT: scripts/pr-gate-coverage.json hat im abschnitt 'native_checks' GENAU VIER eintraege (native/podman/installation-destroy, native/docker/greenfield, native/docker/onboarding, native/podman/second-target-conflict) und im abschnitt 'gates' KEINEN einzigen treffer fuer 'obser' oder 'perses' — die observability-oberflaeche existiert nur als component-artige zeile, nie als natives PR-gate. Folge: scripts/pr-native-gate-plan.py:26 'validator.resolve_native_checks(changed_paths, coverage)' liefert fuer die 15 dateien des kanditaten die leere menge, ci.yml:851 setzt daraus runtime_required=false, und die jobs ci.yml:973/:1029 ('Targeted HA · docker'/'podman', 'PR · Selected Runtime') SKIPPEN am exact-head-lauf 44577713744. Der container-akzeptanztest war damit NUR lokal belegt — das ist die luecke, die der owner geschlossen haben will. DER OWNER HAT DIE GRENZE GEÖFFNET: 'die CI-Anpassung darf im selben PR wie Tests/Code landen', also aendert die lane scripts/pr-gate-coverage.json + positive UND negative routing-regression in diesem PR, ohne pauschale docker+podman-matrix; .github/workflows/** bleibt bis auf weiteres bei mir. Karte bleibt offen, bis der live-gate-nachweis (job-zeile mit conclusion=success + job-url) am exaktkopf ERBRACHT ist
