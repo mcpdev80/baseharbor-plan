@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: pr-ref-reconciliation (codeman 3b553796, ornith)
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-140 · PR-verweise korrigieren und
 priority: ""
@@ -19,17 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/b2cc2ffbfa58ce20175a5d36d94a9f32af9f3c47/evidence/r28-welle4-2026-11-19/pr-ref-reconciliation/befund-1.md"]
 ---
 
-- [ ] t-20261119-coord-r28-pr-ref-reconciliation · Review-karten gegen fernzeuge nachziehen: PR-verweise korrigieren (nachfolger zu #1603/#1610/#1619, basis-ast von #1665) und grund je karte dokumentieren #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261119-coord-r28-pr-ref-reconciliation · Review-karten gegen fernzeuge nachziehen: PR-verweise korrigieren (nachfolger zu #1603/#1610/#1619, basis-ast von #1665) und grund je karte dokumentieren #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** pr-ref-reconciliation (codeman 3b553796, ornith)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/b2cc2ffbfa58ce20175a5d36d94a9f32af9f3c47/evidence/r28-welle4-2026-11-19/pr-ref-reconciliation/befund-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** pr-ref-reconciliation (codeman 3b553796, ornith)  
@@ -81,3 +82,5 @@ Die zulassungs-pruefung 0428-139 (akte review-compliance/befund-1.md, findings 3
 
 ## Acceptance
 akte evidence/r28-welle4-2026-11-19/pr-ref-reconciliation/befund-1.md: tabelle je betroffene karte (task-id | bisheriger PR-verweis | fernzeug: state/head-ref-existenz von PR + branch via ls-remote | nachfolger-PR oder 'kein nachfolger' | EMPTFEHLUNG: welchen verweis ich im board setzen soll + grund mit lauf-id/datei:zeile). zusaetzlich fuer #1665: 'git -C baseharbor merge-base --is-ancestor <head von #1684> <head von #1665>' als zeuge, ob der basis-ast ueberhaupt drin steckt, und was ein retarget bedeuten wuerde (zahl der konflikte ueber 'git merge-tree --write-tree'). KEIN karten-statuswechsel, KEIN PR-comment, KEIN retarget durch dich, KEIN merge, KEIN rerun/dispatch, isolierte clones unter /var/tmp, read-only, kein subagent (§4.8), host besenrein (vorher/nachher docker ps -a, 'cleanliness:'-zeile).
+
+END akzeptiert, sitz entlassen: 4 karten nachgezogen, alle vier fernzeuge von mir gegengelesen (#1603 closed/merged=null, head-ref lane-0428-079-r28-perses-messaging; #1610 closed auf basis lane-0428-075-perses-seam; #1619 closed mit base w091-0428-091; #1665 base=w083-perses-datasources@ed55d8933, gegen develop UND gegen #1684-ast je 6 konflikte per merge-tree, #1684-head NICHT enthalten — meine eigene zaehlung bestaetigt die lane). EINE KORREKTUR ZU IHRER EMPFEHLUNG: sie nennt #1645 als nachfolger mit 'terminal SUCCESS' — das ist als zulassung NICHT brauchbar, denn #1645 ist weiter draft=true, und auf lauf 43876671426 ist 'PR Selected Checks' SKIPPED (30 zellen ausgefuehrt, aber der aggregate nicht), also draft-zellen-only. repoint ist richtig, qualifiziert ist der kopf erst nach promotion + frischem lauf
