@@ -7,10 +7,10 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
-kanban_summary: "One or two sentences: the observable outcome."
+owner: "Codex (CI fast feedback, current chat)"
+kanban_status: active
+kanban_lane: active
+kanban_summary: Make CI failures faster to diagnose and give developers a local fast-feedback path. Let a PR add and exercise its own checks…
 kanban_title: 0428-141 · fast feedback with safe
 priority: ""
 depends_on: []
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-ci-fast-feedback · CI: fast feedback with safe PR-owned checks #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261119-ci-fast-feedback · CI: fast feedback with safe PR-owned checks #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** Codex (CI fast feedback, current chat)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** Codex (CI fast feedback, current chat)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -41,16 +40,23 @@ evidence: []
 
 ## Goal
 
-One or two sentences: the observable outcome.
+Make CI failures faster to diagnose and give developers a local fast-feedback path. Let a PR add and exercise its own checks while preserving only the base-defined minimum merge contract and backward compatibility with stacked PRs whose base planner is older.
 
 ## Scope
 
-- In scope:
-- Out of scope:
+- In scope: truthful setup/dispatch/test failure reporting; a documented local fast-check command aligned with the quick PR checks; simplify path selection and reporting only where the acceptance criteria preserve existing proof; exact-head required aggregator behavior; same-PR evolution of optional/additional checks; old-base compatibility for lane stacks.
+- Out of scope: broad rewrite, blanket full PR matrix, removing existing required native/runtime proof, stopping Codeman, changing release qualification, or allowing candidate-defined checks to become required for that candidate.
 
 ## Acceptance
 
-- Each criterion as a plain bullet. Do not use checkboxes here: only the card line above is a checkbox.
+- **Require — base-owned minimum only:** "Required is only what comes from the base; everything added by the PR is less than required—it may run and inform, and becomes binding only after merge." Implement and test this as an explicit invariant.
+- Candidate CI changes can run in the same PR and report additional checks, but cannot make those checks a merge requirement for that same PR or remove a base-required check.
+- **Require — old-base compatibility:** when a stacked PR targets a base has an older planner that does not understand the candidate's new plan format or check IDs, selection falls back to the conservative relevant suite and succeeds when that suite succeeds; it must not fail merely because the old planner cannot parse the newer plan. Add a regression for new candidate plan vs old base planner.
+- Unknown or unclassified paths broaden validation safely; they do not silently skip relevant checks and do not fail solely because the planner vocabulary is stale.
+- Setup, checkout, dispatch, test execution, and test assertion failures are reported as distinct causes with the failing step and an actionable local reproduction hint. A missing output artifact must not masquerade as a test failure when the test command never started.
+- Provide one documented local fast-check entry point that covers quick formatting, workflow/policy syntax, and focused tests without invoking native or full-release qualification.
+- Keep exact-head final aggregation, current required check semantics, and all existing relevant Docker/Podman and cross-repository qualification gates intact.
+- Measure the before/after required checks and runner-minutes on comparable PR changes; remove work only where equivalent proof remains. Do not add a full PR matrix.
 
 ## Required checks
 
@@ -70,9 +76,10 @@ One or two sentences: the observable outcome.
 
 ## Dependencies and file ownership
 
-- Owned files or areas:
-- Shared files: coordinate through the owning task.
+- Owned files or areas: BaseHarbor CI planner, PR workflow selection/reporting and associated routing/compatibility tests. Owner: Codex (this chat, CI fast feedback).
+- Shared files: isolate edits in a dedicated worktree; do not modify a file while another active task owns it. The current Codeman work continues; no restart or interruption is needed.
 
 ## Handoff
 
-- Current state, branch, PR and evidence links. Newest first.
+- Start with the smallest diagnostic/false-blocker fix, then the local fast-check entry point, then planner/required-check simplification. Do not begin planner changes until both explicit Require invariants above have regression coverage.
+- Record exact changed files, SHA, required-check outcomes, old-base fallback proof, and comparable runner cost. Current baseline: CI audit and current PR checks discussed in Codex chat 2026-11-19; refresh live run/PR facts before editing.
