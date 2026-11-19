@@ -93,3 +93,24 @@ All four chain2 theses (102, 093, 099-demo, 117) are confirmed on their live dev
 ## END marker
 
 END mission-verify-chain1.md DONE
+
+## Cleanliness ps-witness (this lane, chain2 stage, END-time)
+
+docker ps --format "{{.ID}} {{.Names}}" (live):
+2531cbd8df86 bh-local-shared-postgres-1
+4e4e8006c43f bh-local-shared-openbao-admin-1
+52047404d2d4 bh-local-shared-postgres-admin-1
+d86c9d69f729 bh-local-shared-postgres-member-1-1
+
+docker ps -a (all, states):
+de665349790f bh-local-shared-openbao-1 Created
+f821395e1f09 bh-local-shared-openbao-member-1-1 Created
+828d8f4579d1 bh-local-shared-postgres-init-1 Exited (1) 2 days ago
+(the five bh-local-shared-* projects are the ambient core stack of another owner, up 2 days; this lane started NOTHING - docker/podman untouched per R1)
+
+ps -eo pid,etime,cmd | grep -iE "chain1|verify-chain" | grep -v grep -> (empty after cleanup)
+
+Own artifacts removed at END: /var/tmp/chain1-wt, /var/tmp/chain1-efilter-wt, /var/tmp/chain1-appclass-wt (git worktree remove), /var/tmp/chain1-demo-wt clone, Go caches /var/tmp/chain1-gocache + /var/tmp/chain1-gopath.
+Residue from the earlier chain1-stage lane (left untouched by this lane, sizes measured): /var/tmp/verify-chain1-wt 508M, /var/tmp/verify-chain1-efilter-d9d70a98 90M, /var/tmp/verify-chain1-appclass-8956bf08 90M, /var/tmp/verify-chain1-preserve (befund copy, cited above).
+
+cleanliness: this lane left zero own processes, containers, networks, volumes or state directories; only the listed /var/tmp residues of the earlier same-tag lane remain for its own cleanup.
