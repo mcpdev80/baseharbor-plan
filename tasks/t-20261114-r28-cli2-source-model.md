@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: accepted
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-source-model/round-1.md", "https://github.com/mcpdev80/baseharbor/pull/1595"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1595", "https://github.com/mcpdev80/baseharbor/actions/runs/44633680279", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-source-model/round-1.md"]
 ---
 
 - [x] t-20261114-r28-cli2-source-model · CLI redesign: Extend app sources and components #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** codex-open-pr-sweep-1595 · **Priority:** high  
     **PR:** [baseharbor#1595](https://github.com/mcpdev80/baseharbor/pull/1595)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-source-model/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1595)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1595), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44633680279), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-source-model/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
