@@ -15,7 +15,7 @@ kanban_title: 0428-141 · fast feedback with safe
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1698]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,6 +26,7 @@ evidence: []
 - [ ] t-20261119-ci-fast-feedback · CI: fast feedback with safe PR-owned checks #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** Codex (CI fast feedback, current chat)  
+    **PR:** [baseharbor#1698](https://github.com/mcpdev80/baseharbor/pull/1698)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -34,7 +35,7 @@ evidence: []
 **Depends on:** none  
 **Owner:** Codex (CI fast feedback, current chat)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1698](https://github.com/mcpdev80/baseharbor/pull/1698)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -81,5 +82,7 @@ Make CI failures faster to diagnose and give developers a local fast-feedback pa
 
 ## Handoff
 
+- **Implementation in progress:** [PR #1698](https://github.com/mcpdev80/baseharbor/pull/1698), branch `ci-fast-feedback`, current source SHA `188016b91b9de7673c3545ef55db3946e2e00fce` (based on `develop` `3b634232`). Local `scripts/ci-fast-check.sh` passes (274 tests); hosted run `44533217111` is running. Earlier hosted attempts caught and fixed: English documentation byte limit, EN/DE technical parity, old trusted final-verifier CLI compatibility (`--plan`), and a truncated large fixture upload. The remote fixture now matches the local 169,505-byte file exactly and has zero NUL bytes.
+- **Remaining acceptance work:** complete the exact-head selected checks; then exercise the merged policy through an old `lane-*` base. The currently pinned migration controller `a6756c5cd0f2a8ec43b0b7f777bf215bff2b9248` predates lane-target support, so after PR #1698 is trusted in `develop`, update that pin in a follow-up and verify conservative broad success on a real old-lane PR. Rulesets remain disabled during repair.
 - Start with the smallest diagnostic/false-blocker fix, then the local fast-check entry point, then planner/required-check simplification. Do not begin planner changes until both explicit Require invariants above have regression coverage.
 - Record exact changed files, SHA, required-check outcomes, old-base fallback proof, and comparable runner cost. Current baseline: CI audit and current PR checks discussed in Codex chat 2026-11-19; refresh live run/PR facts before editing.
