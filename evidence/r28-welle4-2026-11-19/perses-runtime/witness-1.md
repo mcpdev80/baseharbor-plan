@@ -186,6 +186,31 @@ PASS
 ok  	github.com/mcpdev80/baseharbor/internal/application	14.510s
 ```
 
+### Run 6 — final confirmation (both worktrees, candidate head `76331c7d8`)
+
+Run immediately before the END post, once in each worktree, same command.
+
+`cd /var/tmp/mission-088-wt` (HEAD `76331c7d8`, porcelain empty):
+
+```
+=== RUN   TestPersesRuntimeSmokeDockerIsolated
+--- PASS: TestPersesRuntimeSmokeDockerIsolated (7.57s)
+PASS
+ok  	github.com/mcpdev80/baseharbor/internal/application	7.579s
+```
+
+`cd /var/tmp/mission-088-develop` (HEAD `76331c7d8`, porcelain empty):
+
+```
+=== RUN   TestPersesRuntimeSmokeDockerIsolated
+--- PASS: TestPersesRuntimeSmokeDockerIsolated (7.34s)
+PASS
+ok  	github.com/mcpdev80/baseharbor/internal/application	7.348s
+```
+
+Afterwards `/var/tmp/mission-088-develop` was switched back to `develop`
+(`da76c5cf9`) so both worktrees' on-disk heads match the recorded witness runs.
+
 ## Container/network witness
 
 Before run 1:
@@ -244,7 +269,7 @@ untouched (not this lane's projects).
 2. Fetch exact candidate head for lane-0428-088-perses-runtime (`76331c7d8`) and isolated
    worktrees under `/var/tmp` — done.
 3. Run `TestPersesRuntimeSmokeDockerIsolated` on the candidate head with full logs and
-   timing — done (PASS four runs at the exact head: 19.32s, 11.80s, 25.99s, 14.50s).
+   timing — done (PASS six runs at the exact head; terminal runs 7.57s and 7.34s).
 4. Run the same command on develop head `da76c5cf9` for comparison — done
    ("no tests to run": the test file is absent on develop).
 5. Compose evidence `witness-1.md` with required metadata, commit and push to
@@ -253,10 +278,9 @@ untouched (not this lane's projects).
 
 ## Verdict
 
-- Candidate `76331c7d8` PASS four times: 19.32s (run 1, mission-088-wt), 11.80s (run 3,
-  mission-088-develop cross-check), 25.99s (run 4, mission-088-wt recomputation) and
-  14.50s (run 5, mission-088-wt final recomputation). Every PASS line is quoted verbatim
-  in the Run sections above.
+- Candidate `76331c7d8` PASS six times across both worktrees: 19.32s (run 1), 11.80s
+  (run 3), 25.99s (run 4), 14.50s (run 5), 7.57s and 7.34s (run 6, both worktrees).
+  Every PASS line is quoted verbatim in the Run sections above.
 - Develop `da76c5cf9`: `no tests to run` (the test is head-dependent: it does not exist on develop).
 - Hosted zelle nicht gemappt -> owner-befund 0428-114: no workflow file sets
   `BASEHARBOR_PERSES_RUNTIME_SMOKE` and `scripts/pr-gate-coverage.json` registers no perses
@@ -274,6 +298,8 @@ All runs on 2026-11-19. Times are Go test elapsed seconds as reported in the PAS
 | 3 | mission-088-develop (checkout of candidate) | `76331c7d8` | 11.80s |
 | 4 | mission-088-wt (recomputation) | `76331c7d8` | 25.99s |
 | 5 | mission-088-wt (post-rebase recomputation) | `76331c7d8` | 14.50s |
+| 6a | mission-088-wt (final confirmation) | `76331c7d8` | 7.57s |
+| 6b | mission-088-develop (final confirmation) | `76331c7d8` | 7.34s |
 
 ## Revision labels
 
@@ -285,11 +311,11 @@ All runs on 2026-11-19. Times are Go test elapsed seconds as reported in the PAS
 ## END
 
 END_DONE mission-088-host-witness.md: host witness `TestPersesRuntimeSmokeDockerIsolated`
-PASS four times at exact candidate head `76331c7d8` on the session host (runs 1/4/5 in
-mission-088-wt: 19.32s / 25.99s / 14.50s; cross-check run 3 in mission-088-develop at the
-same head: 11.80s); develop `da76c5cf9` reports "no tests to run" (head-dependent: the test
-file does not exist on develop); no product change, no PR; host-local fallback per 088-r3
-precedent with the missing hosted wire as Owner finding 0428-114.
+PASS six times at exact candidate head `76331c7d8` on the session host (terminal
+confirmation run 6: 7.57s in mission-088-wt, 7.34s in mission-088-develop); develop
+`da76c5cf9` reports "no tests to run" (head-dependent: the test file does not exist on
+develop); no product change, no PR; host-local fallback per 088-r3 precedent with the
+missing hosted wire as Owner finding 0428-114.
 
 ## Evidence on origin/main before END (second-to-last action)
 
