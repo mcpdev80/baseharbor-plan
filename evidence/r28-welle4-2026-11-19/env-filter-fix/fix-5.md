@@ -1,13 +1,13 @@
 # 0428-121 / PR #1691 — Environment-Filter List-Seam Regression (Correction Round r5)
 
-- Mission: /var/tmp/missions/mission-121-round5-listseam.md (121-round5-listseam)
+- Mission: /var/tmp/missions/mission-121-evidence-reconcile.md (121-evidence-reconcile)
 - Card: 0428-121 · PR #1691
-- Candidate head worked on: f28b97a53870bb3f5cb5c90618dea977df3f1c2b on refs/heads/lane-0428-efilter
-- Base on develop: da76c5cf9c963207038d5599bd130b89ecb1e8a4 (monotone hop, ahead 1 / behind 0)
+- Candidate head worked on: e5a943d1b0cc4e700f2ff980e1d900dab4473288 on refs/heads/lane-0428-efilter
+- Base on develop: da76c5cf9c963207038d5599bd130b89ecb1e8a4 (cut-from base; the candidate was a monotone hop ahead of develop)
 
 ## PLAN
 
-- Ground truth: ls-remote develop da76c5cf9, lane-0428-efilter f28b97a53; isolated worktree at f28b97a53; CI head f28b97a53 run 44495408370 terminal success.
+- Ground truth (verified): ls-remote origin develop e1dc2cf61 (current head); PR #1691 squash-merged into develop, branch lane-0428-efilter deleted, so `git ls-remote origin refs/heads/lane-0428-efilter` returns nothing; candidate head e5a943d1b on lane-0428-efilter; CI head e5a943d1b run 44516157576 terminal success.
 - r5 list-seam regression: add TestRoute5 (logs + metrics fixtures, three-part IDs) + mutation control on the real List/ListLogs/ListMetrics seam.
 - r5b: environment.go colon fix (segment after first colon) + canonical project var in case (c) + colon-proof asserts.
 - r6 colon: projectTokenFromID take parts[1] (project) from a '<provider>:<project>[:<service]>' split; three-part fixtures + ID-only proof (Target='').
@@ -19,11 +19,12 @@
 
 ## GROUND TRUTH
 
-- Verified plan origin/main at publication: a4138f60d4d8adb56a5cd72100b45e34757b03d9 (subsequently advanced by this evidence correction).
-- ls-remote origin develop: da76c5cf9c963207038d5599bd130b89ecb1e8a4
-- Initial r5 lane head: f28b97a53870bb3f5cb5c90618dea977df3f1c2b. Final current lane head independently verified with ls-remote: e5a943d1b0cc4e700f2ff980e1d900dab4473288.
-- base SHA attested (cut from): f28b97a53870bb3f5cb5c90618dea977df3f1c2b
-- Verified: git merge-base --is-ancestor f28b97a53870bb3f5cb5c90618dea977df3f1c2b e5a943d1b0cc4e700f2ff980e1d900dab4473288 exits 0; final candidate is a monotone descendant.
+- Verified plan origin/main at publication (this correction, run 2026-11-19): a4138f60d4d8adb56a5cd72100b45e34757b03d9.
+- ls-remote origin develop: current origin/develop = e1dc2cf61ebbd7ee4e0467a5d33e22345c2e6b88 (PR #1691 was squash-merged here at 2026-11-19T11:56:52Z). The develop SHA the candidate was cut from is da76c5cf9c963207038d5599bd130b89ecb1e8a4 (PR base_sha).
+- ls-remote origin refs/heads/lane-0428-efilter: returns nothing — the branch was deleted after the squash-merge of PR #1691; the head SHA e5a943d1b0cc4e700f2ff980e1d900dab4473288 survives only in PR history / CI.
+- Final candidate head: e5a943d1b0cc4e700f2ff980e1d900dab4473288 (40 chars), the exact head of PR #1691 as recorded by gh.
+- base SHA attested (cut from): da76c5cf9c963207038d5599bd130b89ecb1e8a4 (develop). The candidate was a monotone hop off develop; the r5 lane head f28b97a53870bb3f5cb5c90618dea977df3f1c2b was the intermediate base of the stack, not the develop cut-from point.
+- Verified: git merge-base --is-ancestor da76c5cf9c963207038d5599bd130b89ecb1e8a4 e5a943d1b0cc4e700f2ff980e1d900dab4473288 exits 0 (develop is an ancestor of the candidate); git merge-base --is-ancestor 594086014e146f4a965f7446fef25def2d8d8cd1 e5a943d1b0cc4e700f2ff980e1d900dab4473288 exits 0 (r6 stack is a monotone descendant). git merge-tree --write-tree origin/develop e5a943d1b ... returns a clean tree a7368d43aa9f43bb270c868d38a0953cdf6a1226 with 0 ^CONFLICT lines.
 
 ## ROOT CAUSE / SCOPE OF THIS ROUND (file:line)
 
@@ -193,6 +194,59 @@ The two colliding anchor cases this round must pin at the seam:
 
 - END line below; no tool-calls after END.
 
-## END
+## END (OBSOLETE — superseded by 121-evidence-reconcile)
 
 END_DONE mission-121-round5-listseam.md: r6 fail-closed conflicting ID/Target regression added; final head e5a943d1b0cc4e700f2ff980e1d900dab4473288, exact CI run 44516157576 SUCCESS. Reviewer correction: worktree cleanup remains unverified; see HOST HYGIENE.
+
+- NOTE: this END is now OBSOLETE. It was written by the r5/r6 correction lane before
+  PR #1691 was merged. The 121-evidence-reconcile correction (mission
+  /var/tmp/missions/mission-121-evidence-reconcile.md) re-attested provenance after the
+  squash-merge and re-recorded host hygiene. The prose history is kept readable; the
+  operative END is the one in the correction run below.
+
+## DEVELOP-MOVE + FILE-IDENTITY (coordinator FENSTER-MELDUNG, 2026-11-19)
+
+- develop moved after the r6 correction: PR #1691 (0428-121) was SQUASH-MERGED into
+  develop. New develop head = e1dc2cf61ebbd7ee4e0467a5d33e22345c2e6b88,
+  merged_by mcpdev80, merged_at 2026-11-19T11:56:52Z. This is why `git ls-remote origin
+  refs/heads/lane-0428-efilter` now returns nothing and why e5a943d1b0cc4e700f2ff980e1d900dab4473288
+  is not a linear ancestor of origin/develop (a squash merge has a single parent, da76c5cf9).
+- git fetch origin --prune; new develop head read = e1dc2cf61ebbd7ee4e0467a5d33e22345c2e6b88.
+- git merge-base --is-ancestor origin/develop e5a943d1b0cc4e700f2ff980e1d900dab4473288:
+  NO (squash merge; expected — the PR head SHA is not carried linearly). No rebase / force
+  push of any foreign branch was performed, because (a) this mission is evidence-reconcile
+  only — no product code, no push to baseharbor, no merge, no CI (mission GRENZEN), and
+  (b) the worktree /tmp/opencode/mission-121-round5-listseam-wt belongs to another lane.
+- FILE-IDENTITY VERIFIED (content-loss = NONE): the three files the coordinator named as
+  touched by the move are file-hash-identical between the PR head e5a943d1b and the new
+  develop e1dc2cf61:
+  - internal/observability/environment.go: 497e93efc438d2682532628604e74bfcc6999ecc (both)
+  - internal/observability/envfilter_route5_listseam_test.go: aed674d13292534d705f4ffc8ea4fe7db6fba25e (both)
+  - internal/observability/envfilter_route2_test.go: 666006757769668f588c9788f02610043de1c246 (both)
+  - environment.go:134 carries `strings.SplitN(value, ":", 3)` in develop — the r6 colon
+    rule is present and unchanged.
+- CONCLUSION: the candidate is NOT stale. Its content is byte-identical to what is now in
+  develop, so no rebase, no fresh push, and no re-run of CI is required. The candidate head
+  e5a943d1b stands as the verified exact head of the merged PR.
+- git merge-tree --write-tree origin/develop e5a943d1b0cc4e700f2ff980e1d900dab4473288:
+  clean tree a7368d43aa9f43bb270c868d38a0953cdf6a1226, 0 ^CONFLICT lines.
+
+## HOST HYGIENE (121-evidence-reconcile, 2026-11-19)
+
+- The worktree /tmp/opencode/mission-121-round5-listseam-wt belongs to ANOTHER lane and
+  was NOT touched by this correction (coordinator directive, mission GRENZEN). Its status:
+  detached at e5a943d1b0cc4e700f2ff980e1d900dab4473288. This correction did not delete or
+  modify it and did not run `git worktree remove` on it.
+- before docker ps -a: 7 ambient bh-local-shared-* (openbao/postgres) from other lanes.
+- after docker ps -a: 7 ambient bh-local-shared-* (openbao/postgres) from other lanes; unchanged (before == after).
+- cleanliness: 0 lane-owned containers started, 0 removed, before == after (7 ambient bh-local-shared-* present, none mine).
+- This correction ran pure evidence edits + remote witnesses + git file-hash comparisons
+  only — no docker/podman containers or compose projects were started by this lane.
+
+## HANDOFF
+
+- END line below; no tool-calls after END.
+
+## END
+
+END_DONE mission-121-evidence-reconcile.md: PR #1691 squash-merged into develop (new develop = e1dc2cf61, merged_at 2026-11-19T11:56:52Z); candidate head e5a943d1b0cc4e700f2ff980e1d900dab4473288 verified, CI run 44516157576 SUCCESS (35 cells, 0 failures), job 135536735403 success. File-identity of environment.go / envfilter_route5_listseam_test.go / envfilter_route2_test.go between PR head and new develop CONFIRMED (hash-identical) — no content-loss, candidate not stale, no rebase/push/CI needed. Worktree /tmp/opencode/mission-121-round5-listseam-wt belongs to another lane and was not touched.
