@@ -18,7 +18,7 @@ Backlog, Planned und Closed werden hier als Zähler gezeigt. Die interaktive Kan
 
 ## v0.4.28
 
-**Backlog:** 0 · **Planned:** 22 · **Ready:** 1 · **Active:** 11 · **Wait:** 9 · **Review:** 21 · **Blocked:** 4 · **Closed:** 86
+**Backlog:** 0 · **Planned:** 21 · **Ready:** 0 · **Active:** 12 · **Wait:** 9 · **Review:** 21 · **Blocked:** 4 · **Closed:** 86
 
 ![[BaseHarbor.base#v0.4.28]]
 

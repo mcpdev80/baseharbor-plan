@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: docker-checks-jsonl (codeman 272065d5-ee21-491f-ad70-e4e1c0a1cdac)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-136 · Docker-runtime-job schreibt
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-coord-r28-docker-checks-jsonl · Docker-runtime-job schreibt keine tests/*.jsonl — verify-step faehrt mit FileNotFoundError (root-cause + owner-rezept) #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261119-coord-r28-docker-checks-jsonl · Docker-runtime-job schreibt keine tests/*.jsonl — verify-step faehrt mit FileNotFoundError (root-cause + owner-rezept) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** docker-checks-jsonl (codeman 272065d5-ee21-491f-ad70-e4e1c0a1cdac)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** docker-checks-jsonl (codeman 272065d5-ee21-491f-ad70-e4e1c0a1cdac)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -82,3 +81,5 @@ Fund F-7 aus dem closeout-heft: der dispatch-lauf 44466684726 ('Runtime · Docke
 
 ## Acceptance
 akte evidence/r28-welle4-2026-11-19/docker-checks-jsonl/probe-1.md: (1) root-cause mit datei:zeile, (2) der exakte mechanismus, warum 'tests/main.jsonl' fehlt (name der variablen, wo sie gesetzt wird, welche jobs sie setzen und welcher nicht), (3) ein minimales owner-rezept als patch-skizze (kein neuer gate, keine neue zelle), (4) gegenprobe: ein job, bei dem die JSONL-erzeugung FUNKTIONIERT, mit seinem laufenden zeug, (5) auswirkung auf 0428-119/#1690 (exaktkopfiger docker-zeuge) mit klarer aussage. KEIN .github-eingriff durch die lane, kein merge, kein subagent (§4.8), host besenrein.
+
+probe laeuft read-only (akte docker-checks-jsonl/probe-1.md): warum der 'docker-runtime'-job keine tests/main.jsonl schreibt (FileNotFoundError im verify-step, job-log 135366064519) + fehlender ORAS-schritt im selben job (zeilen 174-330) — owner-rezept als patch-skizze, auswirkung auf 0428-119/#1690

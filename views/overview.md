@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 12 |
+| active | 13 |
 | review | 21 |
 | wait | 14 |
 | blocked | 4 |
-| ready | 2 |
+| ready | 1 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
@@ -33,6 +33,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261116-r28-guided-rootless-bootstrap](../tasks/t-20261116-r28-guided-rootless-bootstrap.md) | Guided rootless runtime prerequisite repair | active | high | ChatGPT | — | [baseharbor#1664](https://github.com/mcpdev80/baseharbor/pull/1664) |
 | [t-20261117-hunt-signals-106](../tasks/t-20261117-hunt-signals-106.md) | CLI destructive-consent paths still emit German Achtung fall | active | not set | worker-ornith1.5 | — | [baseharbor#1683](https://github.com/mcpdev80/baseharbor/pull/1683) |
 | [t-20261117-observability-native-gate-bootstrap](../tasks/t-20261117-observability-native-gate-bootstrap.md) | CI: Run observability acceptance with verified ORAS bootstrap | active | not set | Owner-Ausfuehrung (.github/scripts); umfang vom Coordinator erweitert 2026-11-19 (beleg: 0428-128 probe-1.md 57ffc7c6) | — | — |
+| [t-20261119-coord-r28-docker-checks-jsonl](../tasks/t-20261119-coord-r28-docker-checks-jsonl.md) | Docker-runtime-job schreibt keine tests/*.jsonl — verify-step faehrt mit FileNotFoundError (root-cause + owner-rezept) | active | not set | docker-checks-jsonl (codeman 272065d5-ee21-491f-ad70-e4e1c0a1cdac) | — | — |
 | [t-20261119-coord-r28-pr-inventory](../tasks/t-20261119-coord-r28-pr-inventory.md) | PR-inventar 0.4.28: 38 offene PRs gegen board — dublette/superseded/kandidatenlos, liste zum schliessen | active | not set | pr-inventory (codeman bf3d2fb7-61e8-4e01-98a2-479edace99b9) | — | — |
 | [t-20261119-hunt-metrics-appclass-log-writer](../tasks/t-20261119-hunt-metrics-appclass-log-writer.md) | Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) | active | not set | 0428-122 r3 (wartet auf sitz, nach 121-merge) | — | [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692) |
 | [t-20261119-hunt-metrics-env-filter-list-pfade](../tasks/t-20261119-hunt-metrics-env-filter-list-pfade.md) | Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) | active | not set | 0428-121 r3 (codeman 045d7e8a, worktree /var/tmp/m121-efilter-wt) | — | [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691) |
@@ -96,7 +97,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261119-coord-r28-docker-checks-jsonl](../tasks/t-20261119-coord-r28-docker-checks-jsonl.md) | Docker-runtime-job schreibt keine tests/*.jsonl — verify-step faehrt mit FileNotFoundError (root-cause + owner-rezept) | ready | not set | — | — | — |
 
 ## By release
 
