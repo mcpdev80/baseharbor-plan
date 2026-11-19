@@ -4,28 +4,28 @@ release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
 owner: w119-0428-119-consenthop (codeman 80aa0bf4, ornith:2) — uebernommen von w99-0428-119 r3 (session f5dabf03 ist weg)
-kanban_status: blocked
+kanban_status: wait
 card_number: 0428-119
 card_short_title: harden Prov ownership chain vs
 kanban_title: 0428-119 · harden Prov ownership chain vs
 prs: [mcpdev80/baseharbor#1690]
-wait_reason: ""
-blocker: owner wire 114(a): docker-runtime-acceptance.yml has no ORAS-install step in the PR job (lines 174-330) versus the install lines 127-128 that exist only in the push job; Targeted HA docker/podman/core-less SKIPPED on exact-head run 44563139929 (Go unit owner shard PASS). Runtime confirmation blocked, not unit-proven. Requires the ORAS wire (Owner scope, .github/**), then re-open 0428-119 for acceptance.
+wait_reason: "korrektur fertig gemessen, aber KEIN freier sitz (pool 5/5; der sitz kommt frei, sobald die hunt-lane 99dda85e ihre meldefrist erfuellt hat). INHALTLICH offen (CODEX-r2 REQUEST CHANGES auf 5b9a9545aa9adb74870695133daa0561cac5c5ca, VON MIR IM CODE BESTAETIGT): (1) internal/application/provider_consent_authority.go:502-511 sameProviderInstanceAuthority vergleicht ID/ProviderID/ProviderVersion/ProviderProtocol/Kind/Capabilities/Scope/SharingBoundary/Ownership/OwnerApplicationID, laesst aber 'Reference' UND 'OwnerEnvironment' weg — beide felder existieren (internal/capability/registry.go:44/:45) und 'reference' loest externe provider aktiv auf (registry.go:133). (2) equalProviderCapabilities :552-565 hat ein DUPLIKATS-LOCH: a=[x,x] vs b=[x,y] -> laengen gleich, mitgliedschaft erfuellt, TRUE, obwohl die mengen verschieden sind. ZUSATZ: die regression (provider_consent_oscillation_test.go:566+) endet bei DescribeProviderChanges/revalidation, der antrag-pfad in cmd/baha ist nicht belegt. LAUFZEIT-GATES weiter owner-draht 114(a) (ORAS-install im PR-job fehlt)."
+blocker: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44464033443", "https://github.com/mcpdev80/baseharbor/actions/runs/44464060182"]
 
 ---
 # t-20261118-ownership-stale-consent-hardening · close ownership-race windows behind stale-impact-consent
 
-- [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** w119-0428-119-consenthop (codeman 80aa0bf4, ornith:2) — uebernommen von w99-0428-119 r3 (session f5dabf03 ist weg)  
     **PR:** [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690)  
-    **Blocker:** owner wire 114(a): docker-runtime-acceptance.yml has no ORAS-install step in the PR job (lines 174-330) versus the install lines 127-128 that exist only in the push job; Targeted HA docker/podman/core-less SKIPPED on exact-head run 4456313…  
+    **Waiting:** korrektur fertig gemessen, aber KEIN freier sitz (pool 5/5; der sitz kommt frei, sobald die hunt-lane 99dda85e ihre meldefrist erfuellt hat). INHALTLICH offen (CODEX-r2 REQUEST CHANGES auf 5b9a9545aa9adb74870695133daa0561cac5c5ca, VON MIR…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44464033443), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44464060182)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w119-0428-119-consenthop (codeman 80aa0bf4, ornith:2) — uebernommen von w99-0428-119 r3 (session f5dabf03 ist weg)  
