@@ -172,7 +172,21 @@ Written after the coordinator's reminder: coordinator/workers/todos/mission-089-
 ## Hosted run (exact head)
 
 - run 44580643188 on 16f6cf671aa3bde59f793333fb4957d0e1434652 — watched to
-  terminal: (filled in below when terminal)
+  terminal: completed SUCCESS, 21 executed / 0 failed (20 skipped by matrix
+  design), "PR Selected Checks" = success, candidate_advisory_required="false",
+  base develop (7ee6f817d), draft=false, mergeStateStatus CLEAN. This head is
+  the full fix-6 qualification.
+- Interim runs 44544947599 and 44551362534 are superseded per the
+  base-distance rule.
+- Post-qualification: a comment-only test cleanup (c4b0759a7) started run
+  44582266839, which the branch's concurrency group CANCELLED when develop
+  moved (558dc42d0, #1701) and the lane executed the required monotone hopf
+  into the same push: head 97d88ffefa0c89281d0c1b776f47b46f4449123f
+  (ancestors: ed7f448f6 true, origin/develop(558dc42d0) true; merge-tree
+  conflicts 0; diff 7ee6f817d..558dc42d0 touches only
+  internal/metrics/perses_dashboards_messaging* — no CI-half files, no
+  overlap with this lane's write-set). Its exact-head run: 44582754552 —
+  terminal result: (recorded by the follow-up commit of this file).
 
 ## repo-rule compliance
 
