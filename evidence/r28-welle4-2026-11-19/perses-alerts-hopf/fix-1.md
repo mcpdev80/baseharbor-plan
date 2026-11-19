@@ -68,7 +68,10 @@
 
 ## CI
 
-- Exact-head CI for d8838f622: status PENDING at time of writing (see below).
+- Run ID 44491028219 (commit d8838f622b551cdc8a7f8e8320c3f122b2ae5783, PR #1613, branch w073-perses-alerts, base develop da76c5cf9).
+- gh api .../check-runs: total 30 check runs. All "PR · Draft Go" jobs terminal SUCCESS (5/5): cli-0, cli-1, cli-2, cli-3, packages. No failure.
+- The other 25 runs are release/pre-release/targeted gates (skipped, not applicable to a Draft Go PR) — not relevant to this hopf-dirty fix.
+- Terminal SUCCESS witness captured via gh api check-runs (all in_progress resolved to conclusion=success; 0 failed).
 
 ## Host hygiene
 
