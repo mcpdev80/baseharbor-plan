@@ -1,0 +1,66 @@
+---
+id: t-20261119-r28-perses-alert-verifier-caller-wiring
+kanban_title: 0428-152 · alert-verifier caller wiring
+card_number: "0428-152"
+card_short_title: "alert-verifier caller wiring"
+type: task
+areas: [metrics, observability, cli]
+release: v0.4.28
+version: ""
+parent: ""
+owner: ""
+kanban_status: planned
+kanban_lane: planned
+blocker: ""
+wait_reason: ""
+depends_on: [t-20261119-r28-perses-status-backend-witness]
+repos: [mcpdev80/baseharbor]
+prs: []
+sources: []
+source_note: "befund aus der unabhaengigen review und der korrekturrunde von karte 0428-073 (PR #1704), fundstelle von MIR am develop 28fb427f nachgemessen; akte evidence/r28-welle4-2026-11-19/codex-review-wave/1704-0428-073.md P6"
+evidence:
+  - "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-review-wave/1704-0428-073.md"
+resolution: ""
+created: 2026-11-19
+---
+
+- [ ] t-20261119-r28-perses-alert-verifier-caller-wiring · alert-verifier haengt in der luft #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/cli #area/metrics #area/observability #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261119-r28-perses-status-backend-witness](t-20261119-r28-perses-status-backend-witness.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-review-wave/1704-0428-073.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** waiting  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** [t-20261119-r28-perses-status-backend-witness](t-20261119-r28-perses-status-backend-witness.md)  
+**Owner:** unassigned  
+**Priority:** not set  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
+
+## Goal
+
+Der Perses-alert-evaluator-verifier (internal/metrics/perses_prometheus_alerts.go) ist eine vertragsoberflaeche OHNE abnehmer: kein produktionspfad ruft ihn. Ziel ist ein einziger, ehrlicher abnehmer — die 'baha app perses status'-observation — der das ergebnis des verifikators zeigt, ohne einen zustand zu erfinden, den der verifikator nicht liefern darf. Eine korrektur des zustands-textes (karte 0428-073, laeuft) ist ohne abnehmer eine sicherung ohne geraet: der text kann beim naechsten refactoring verschwinden, ohne dass ein test es merkt.
+
+## Scope
+
+- In scope: der abnehmer-pfad in cmd/baha/app_status_collect.go (gemessen: zeile ~401 setzt eine 'management-ui/perses'-observation ueber AddObservation) und die zugehoerigen tests in cmd/baha/. VON MIR NACHGEMESSEN am develop 28fb427f mit 'git grep -n "VerifyPersesAlertEvaluatorHealth|BuildPersesAlertEvaluator|PersesAlertReachability|persesAlertRealEvaluatorContractPresent" -- cmd internal': null treffer ausserhalb von internal/metrics/**.
+- Out of scope: jede aenderung an internal/metrics/perses_prometheus_alerts.go (karte 0428-073, laeuft), internal/metrics/prometheus_files.go (0428-123), internal/capability/registry.go (0428-151), internal/application/provider_consent_authority.go (0428-119).
+- ABHANGIGKEIT (gemessen): karte 0428-142 (PR #1702) aendert GENAU DIESE datei (cmd/baha/app_status_collect.go in ihrer aenderungsliste). Diese karte DARF NICHT parallel zu 0428-142 arbeiten; sie hopft auf deren gemergten inhalt.
+
+## Acceptance
+
+- 'baha app perses status' zeigt fuer den alert-evaluator genau einen von drei zustaenden: 'not configured' (im manifest nicht ausgewaehlt), 'unavailable (owner-gated evaluator contract)' (ausgewaehlt, contract fehlt) — und NIE 'healthy'/'verified', solange persesAlertRealEvaluatorContractPresent() false ist.
+- Die entscheidung kommt AUS DEM VERIFIKATOR (ein aufruf, ein ergebnis), nicht aus einer zweiten, parallel gelernten logik im cli.
+- Ein negativer test beweist: wenn der verifikator einen fehler liefert, darf die observation nicht auf 'healthy' fallen (fail-closed am abnehmer, nicht nur im verifikator).
+- Kein neuer zustaeds-behaälter, kein neues manifest-feld: die entscheidung muss aus den bestehenden bindings/feldern ableitbar sein (owner-regel: kein state ohne vertrag).
+- Ein positiver test haelt den EXAKTEN wortlaut der zustands-texte fest (das ist der punkt, an dem 0428-073 bisher gescheitert ist).
+
+## Required checks
+
+- **Modified features:** go test ./cmd/baha -count=1 -run '^Test(Perses|AppStatus|Observability)' und go test ./internal/metrics -count=1 -run '^TestPersesAlert'; neue tests muessen vom 'PR · Go unit'-shard ausgefuehrt werden (CI-aufnahmepflicht §5.3), job + workflow-zeile in der akte nennen.
+- **CI integration:** ein pull_request-lauf am exakten kopf bis terminal; die runtime-zellen duerfen wegen der fehlenden ORAS-installation im PR-job (owner-draht 114(a)) skipped bleiben, dann die skip-zeile wORTLICH in die akte — SKIPPED ist nicht pass (§5.4).
