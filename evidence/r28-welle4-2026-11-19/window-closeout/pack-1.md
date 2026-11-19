@@ -239,7 +239,7 @@ baseharbor-plan main. Karten-/PR-/lauf-inventar mit fernzeugen; read-only; revis
 
 Zeuge (zweitletzte aktion, exakte ausgabe):
 `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-remote origin refs/heads/main`
-→ `e4b782bbfaddd5f6009f9f1f037dae0ea6b55f4d refs/heads/main`
+→ `d287a3573c563a0d05cd586b04239fb095bce1bb refs/heads/main` (dieser satz liegt im gleichnamigen commit d287a357, der ihn auf den wert nach sich selbst setzt — letzte zeile dieses blocks: END_COMMIT d287a357)
 `git -C ... log --oneline -1` → `e4b782bb evidence(window-closeout-pack): pack-1 r5 —
 121 terminal-run 44485086467 FAILURE eingemessen`.
 Das pfad-zeugnis gegen origin/main: `git ls-tree -r --name-only origin/main | grep window-closeout`
