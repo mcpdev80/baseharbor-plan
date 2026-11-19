@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0428-084 korrektur (codeman 611e3d8a-be13-48b3-9edd-98c7d691e7f7, flash)
-kanban_status: active
-kanban_lane: active
+owner: 0428-084 r2 (END akzeptiert, sitz entlassen)
+kanban_status: review
+kanban_lane: review
 kanban_summary: Guide enable/status/disable and ownership-safe removal of optional Perses using the accepted CLI contract; preserve monitoring…
 kanban_title: 0428-084 · Perses lifecycle commands
 priority: normal
@@ -23,20 +23,20 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md"]
 ---
 
-- [ ] t-20261114-r28-perses-lifecycle · Perses lifecycle commands #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-lifecycle · Perses lifecycle commands #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-084 korrektur (codeman 611e3d8a-be13-48b3-9edd-98c7d691e7f7, flash) · **Priority:** normal  
+    **Owner:** 0428-084 r2 (END akzeptiert, sitz entlassen) · **Priority:** normal  
     **PR:** [baseharbor#1598](https://github.com/mcpdev80/baseharbor/pull/1598)  
     **Needs:** [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** 0428-084 korrektur (codeman 611e3d8a-be13-48b3-9edd-98c7d691e7f7, flash)  
+**Owner:** 0428-084 r2 (END akzeptiert, sitz entlassen)  
 **Priority:** normal  
 **PRs:** [baseharbor#1598](https://github.com/mcpdev80/baseharbor/pull/1598)  
 **Source:** 
@@ -89,3 +89,5 @@ END angenommen, von mir ferngeprueft: head 3852472aa5281e6f69d38cba07cfb2cd7b9db
 URTEIL REQUEST CHANGES auf dem CI-gruenen kopf 3852472aa (lauf 44510690944 SUCCESS, 'PR Selected Checks' success — CI sagt ueber diese stelle nichts: das lifecycle-convergence-gate ist invertiert, machine transports skippen den runtime-apply, direkter CLI fuehrt ihn sofort aus). rezept: cmd/baha/perses_lifecycle.go + geteilte CLI/MCP-lifecycle-tests, transport/aktions-matrix ueber enable/disable/remove, stop-kriterium 'machine transport meldet erfolg ohne apply'. MISSION vorbereitet (/var/tmp/missions/mission-084-convergence-gate.md), startet auf dem naechsten freien sitz. GRUND, warum ich sie NICHT schon jetzt dispatche: ihr schreibset teilt internal/machine/contract.go + contracts/machine/v1/control.golden.json + docs/reference/mcp.md mit der LAUFENDEN 057-lane (comm -12 gemessen) — paralleles schreiben in dieselben dateien ist ohne integrationsplan verboten (§4.3)
 
 REQUEST-CHANGES-runde laeuft, gestartet auf dem frei gewordenen 057-sitz: das parallel-schreiben an internal/machine/contract.go + contracts/machine/v1/control.golden.json + docs/reference/mcp.md ist aufgehoben, weil 057 END_BLOCKED gemeldet und die lane entlassen ist (§4.3). kopf 3852472aa ist CI-gruen, aber das convergence-gate ist invertiert (machine transports skippen apply, direkter CLI fuehrt aus)
+
+END akzeptiert, von mir qualifiziert auf dem NEUEN develop: head ea6cddd204fbc408b8e1b3b587f1f054ea1f43ce, monoton auf e1dc2cf61 (3852472aa ist ancestor), merge-tree 0 konflikte, PR open/draft=false/clean, exaktkopf-lauf 44523123388 completed SUCCESS mit 0 fehljobs und 'PR Selected Checks' = success. inhalt: gate jetzt richtig herum (cmd/baha/perses_lifecycle.go:19-25 'machine transports (MCP stdio, HTTP/remote) run the shared apply lifecycle immediately; the direct human CLI defers … prints the actionable deferred-apply notice'). CODEX-REVIEW fuer DIESEN kopf beauftragt (1598-0428-084-r2.md), bei approve merge ich ins fenster
