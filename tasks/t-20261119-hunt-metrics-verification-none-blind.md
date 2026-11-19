@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-124 r2 (codeman 7110b25d)
+owner: 0428-124 r2 (codeman 7110b25d, entlassen) — r3 wartet auf freien sitz
 kanban_status: review
 kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
@@ -26,7 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 - [ ] t-20261119-hunt-metrics-verification-none-blind · verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-124 r2 (codeman 7110b25d)  
+    **Owner:** 0428-124 r2 (codeman 7110b25d, entlassen) — r3 wartet auf freien sitz  
     **PR:** [baseharbor#1695](https://github.com/mcpdev80/baseharbor/pull/1695)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verification-none/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1695.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verification-none/fix-1.md)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0428-124 r2 (codeman 7110b25d)  
+**Owner:** 0428-124 r2 (codeman 7110b25d, entlassen) — r3 wartet auf freien sitz  
 **Priority:** not set  
 **PRs:** [baseharbor#1695](https://github.com/mcpdev80/baseharbor/pull/1695)  
 **Source:** 
@@ -89,3 +89,5 @@ CODEX-REVIEW REQUEST CHANGES at exact head cc25c17e17d989710923b93d7e629b14a3c0a
 REQUEST_CHANGES auf cc25c17e1: ProviderFiles.CompositionState/ProviderSourcesCompositionState werden produktiv nirgends verbraucht, cmd/baha/app_metrics.go druckt weiter den alten zustand. rezept: verdrahten in den operator-facing pfad, regression mit null-target-grund + positiver fall + unveraenderter fall
 
 korrektur abgegeben: CompositionState/CompositionStateError in den echten operator-facing pfad verdrahtet, real-seam regression (null-target-grund + positiver fall + unveraenderter fall). head 4f0d5e9f70 base-exakt develop da76c5cf9 (ancestor bestaetigt), PR clean, run 44478473607 terminal SUCCESS — 'PR · Go unit · cli-1' now green (ORAS is present on the GitHub runner; the earlier local/develop abort was the DISPATCH job's missing install step, see 0428-114). akte verification-none/fix-2.md auf origin/main
+
+abnahme REQUEST_CHANGES auf exaktem kopf 4f0d5e9f70 (PR-kommentar 7002942896; formelles review lehnt GitHub ab, weil das PR-autor-konto identisch ist — urteil darum als kommentar, nicht als review-objekt): base clean gegen da76c5cf9, run 44478473607 SUCCESS, produkt-verdrahtung im kern okay. zwei operator-ausgabe-faelle: (1) ProviderCompositionState behauptet bei LEERER source-slice 'all provider sources are Verification=none' und der operator-pfad ruft den renderer ohne quellen auf — eigener zustand fuer 'keine quellen' + regression am echten cli-seam; (2) im all-none-fall druckt der CLI die state-zeile, loescht den CompositionStateError und die zweite bedingungslose nachschau druckt sie NOCH EINMAL — genau eine zeile, regression mit count==1. r3 ist vorbereitet (/var/tmp/missions/mission-124-composition-round3.md) und wird auf dem naechsten freien sitz angesetzt; ACHTUNG SCHREIBSET: die dateien cmd/baha/app_logs.go + internal/metrics/{prometheus_files.go,prometheus_verify.go} sind dieselben wie bei 0428-121 — r3 laeuft erst NACH dem 121-merge (koerper der kette)
