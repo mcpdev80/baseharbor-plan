@@ -17,7 +17,7 @@ depends_on: [t-20261114-r28-cli2-env-policy, t-20261114-r28-cli2-env-registry]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1627]
 sources: []
-blocker: "destroy-preview verspricht mehr als der apply-pfad tut (nur DestroyEnvironmentIdentity); base cli2-env-policy-head -> kein exaktkopf-lauf (ci.yml:14-18)"
+blocker: "destroy-preview verspricht mehr als der apply-pfad tut (nur DestroyEnvironmentIdentity), lifecycle-blocker; base cli2-env-policy-head -> kein exaktkopf-lauf (ci.yml:14-18)"
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** coord · **Priority:** high  
     **PR:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627)  
-    **Blocker:** destroy-preview verspricht mehr als der apply-pfad tut (nur DestroyEnvironmentIdentity); base cli2-env-policy-head -\> kein exaktkopf-lauf (ci.yml:14-18)  
+    **Blocker:** destroy-preview verspricht mehr als der apply-pfad tut (nur DestroyEnvironmentIdentity), lifecycle-blocker; base cli2-env-policy-head -\> kein exaktkopf-lauf (ci.yml:14-18)  
     **Needs:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
     <!-- /generated:card -->
 
