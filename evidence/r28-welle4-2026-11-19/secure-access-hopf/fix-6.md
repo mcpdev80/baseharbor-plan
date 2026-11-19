@@ -168,7 +168,12 @@ scripts/test_pr_* is a gate-plan hit, so one new exact-head run (44580643188) is
 ## Hosted run (exact head)
 
 - run 44580643188 on 16f6cf671aa3bde59f793333fb4957d0e1434652 — watched to
-  terminal: (filled in below when terminal)
+  terminal: status=completed, conclusion=success, 21 executed jobs / 0 failed
+  (20 skipped by matrix design), "PR Selected Checks" = success with
+  candidate_advisory_required="false", head matches the exact pushed SHA,
+  base = develop (7ee6f817d), PR mergeStateStatus = CLEAN, draft = false.
+  Interim runs 44544947599 and 44551362534 are superseded per the
+  base-distance rule.
 
 ## repo-rule compliance
 
