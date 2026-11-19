@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w99-0428-121 (codeman 0a79da12)
-kanban_status: review
-kanban_lane: review
+owner: 0428-121 r2 (codeman 045d7e8a)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-121 · Env-Filter wirkt nicht auf
 priority: ""
@@ -23,18 +23,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1691"]
 ---
 
-- [ ] t-20261119-hunt-metrics-env-filter-list-pfade · Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261119-hunt-metrics-env-filter-list-pfade · Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w99-0428-121 (codeman 0a79da12)  
+    **Owner:** 0428-121 r2 (codeman 045d7e8a)  
     **PR:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1691)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w99-0428-121 (codeman 0a79da12)  
+**Owner:** 0428-121 r2 (codeman 045d7e8a)  
 **Priority:** not set  
 **PRs:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
 **Source:** 
@@ -82,3 +82,5 @@ Befund 2 (HIGH): Der Environment-Filter ist kein echter Filter: er wird caller-s
 Erlaubtes write-set (vorschlag, lane prueft): internal/observability (list-pfade). Evidence-Quelle: https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/hunt-metrics/befund-1.md (17 probes, base 97a840e54).
 
 END akzeptiert: zentraler env-filter auf allen list-Pfaden, head d9d70a98 base-exakt ec592fd38 MERGEABLE, exact-run 44450253933 SUCCESS, red->green regression envfilter_regression_test.go, akte am band (head+run refs). Overlap mit #1692 (122, beide review): functionsdisjunkt, erst-gruenes-review-zuerst-Regel gilt — Integrationsreihenfolge wird beim ersten merge veraendert
+
+korrektur-runde laeuft: environment-resolver faehrt application-scoped quellen mit fehlender/mehrdeutiger environment-zuordnung nicht sauber raus (cross-environment visibility leak, REQUEST_CHANGES-kommentar auf d9d70a984). rezept: explizite oder eindeutig ableitbare zuordnung verlangen, sonst fail-closed im filter. kopf afc0dde86 ist base-exakt deeeb6477
