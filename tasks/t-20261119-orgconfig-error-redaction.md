@@ -20,13 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/c90c3b89007e87a4bf277c8c9015fab3ac65728e"]
 ---
 
 - [ ] t-20261119-orgconfig-error-redaction · Redact secret-like organization references in validation errors #task #release/v0-4-28 #status/active #view/active #area/architecture #area/security #kind/task
     <!-- generated:card -->
     **Owner:** Codex team (current thread) · **Priority:** high  
     **Needs:** [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/c90c3b89007e87a4bf277c8c9015fab3ac65728e)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -79,4 +80,4 @@ Reject secret-like organization environment references without copying their con
 
 ## Handoff
 
-- Active; exact PR head and owner-accepted integration path are being established. No product edit has been pushed yet.
+- Fix commit `c90c3b89007e87a4bf277c8c9015fab3ac65728e` is pushed to `lane-0428-149-orgconfig-error-redaction`, based on #1596 head `de51105c9f229c85cf707d933a34174729e30f6b`. Focused `go test ./internal/orgconfig -run '^TestOrgEnvIdentitySecretMaterialRejected$' -count=1`, full `go test ./internal/orgconfig -count=1`, and `go vet ./internal/orgconfig` all pass at the exact commit. These tests auto-discover under Go unit CI; CI has not yet run for this commit. Handed to 0428-056 owner to cherry-pick into #1596 before rebasing/ready; no separate PR created to avoid another stack entry.
