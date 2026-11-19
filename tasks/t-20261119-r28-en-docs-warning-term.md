@@ -20,13 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/en-docs-warning-term/fix-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44478483899", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1697.md"]
 ---
 
 - [ ] t-20261119-r28-en-docs-warning-term · EN-Dokumentation nennt das Marker-Wort 'Achtung' statt 'Warning' (i18n-drift nach 0428-126) #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** 0428-131 (codeman bbd9132d)  
     **PR:** [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/en-docs-warning-term/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44478483899), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1697.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -86,3 +87,5 @@ Nebefund aus der live-verify-kette 0428-130 (akte evidence/r28-welle4-2026-11-19
 - akte evidence/r28-welle4-2026-11-19/en-docs-warning-term/fix-1.md mit datei:zeile je fundstelle + gruenlauf
 
 abgegeben: EN-doku an drei stelle auf 'Warning' gezogen (docs/de bewusst unveraendert), grep-kontrolle leer, head 3448f73e base-exakt develop da76c5cf9, PR #1697 clean, run 44478483899 TERMINAL SUCCESS (14 jobs gruen, rest durch if-bedingungen skipped), akte origin/main 084c3f93, host besenrein (docker 7 ambient vorher==nachher, podman 0)
+
+CODEX-REVIEW: REQUEST CHANGES at exact head 3448f73e697cd7fdb1a338ef8422b5d484bbe814. Content scope passes; required documentation-audit check is absent from exact-head CI because docs/internal/*.json did not select it. Recipe: select the existing docs-audit gate for those paths (or use the approved exact-head hosted CI route that executes it), then record terminal SUCCESS. Run 44478483899 PR Selected Checks SUCCESS does not prove the skipped/unselected docs check. No merge.
