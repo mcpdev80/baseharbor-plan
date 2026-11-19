@@ -10,7 +10,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 13 |
+| active | 12 |
 | review | 24 |
 | wait | 13 |
 | blocked | 2 |
@@ -18,7 +18,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
-| closed | 307 |
+| closed | 308 |
 
 ## Active
 
@@ -33,7 +33,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261117-hunt-signals-106](../tasks/t-20261117-hunt-signals-106.md) | CLI destructive-consent paths still emit German Achtung fall | active | not set | worker-ornith1.5 | — | [baseharbor#1683](https://github.com/mcpdev80/baseharbor/pull/1683) |
 | [t-20261117-observability-native-gate-bootstrap](../tasks/t-20261117-observability-native-gate-bootstrap.md) | CI: Run observability acceptance with verified ORAS bootstrap | active | not set | lane-113-pr1680-fixes (this session, intake per Hunt→Karte duty) | — | — |
 | [t-20261118-ownership-stale-consent-hardening](../tasks/t-20261118-ownership-stale-consent-hardening.md) | harden provider ownership chain vs stale-impact-consent | active | not set | w99-0428-119 r3 (codeman f5dabf03) | — | [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690) |
-| [t-20261119-coord-live-verify-chain1](../tasks/t-20261119-coord-live-verify-chain1.md) | Live-Verify-Kette 1: accepted-Inhalte der Welle gegen den lebenden develop pruefen | active | not set | w99-0428-verify2 (codeman 9ca0132d) | — | — |
 | [t-20261119-hunt-metrics-appclass-log-writer](../tasks/t-20261119-hunt-metrics-appclass-log-writer.md) | Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) | active | not set | w99-0428-122 (codeman 5350d482) | — | [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692) |
 | [t-20261119-hunt-metrics-dualmatch-marker-docs](../tasks/t-20261119-hunt-metrics-dualmatch-marker-docs.md) | Warning/Achtung dual-match: ein CLI-Stadium druckt kein Warning + EN-Normdoku hinter rename zurueck | active | not set | dualmatch-lane | — | — |
 | [t-20261119-hunt-metrics-verification-none-blind](../tasks/t-20261119-hunt-metrics-verification-none-blind.md) | verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe | active | not set | w99-0428-124 (codeman 2a92c21e) | — | [baseharbor#1695](https://github.com/mcpdev80/baseharbor/pull/1695) |
@@ -102,7 +101,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 7 open, 162 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 67 open, 77 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 66 open, 78 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))

@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w99-0428-verify2 (codeman 9ca0132d)
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-127 · accepted-Inhalte der Welle
 priority: ""
@@ -19,17 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verify-chain1/befund-2.md"]
 ---
 
-- [ ] t-20261119-coord-live-verify-chain1 · Live-Verify-Kette 1: accepted-Inhalte der Welle gegen den lebenden develop pruefen #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261119-coord-live-verify-chain1 · Live-Verify-Kette 1: accepted-Inhalte der Welle gegen den lebenden develop pruefen #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** w99-0428-verify2 (codeman 9ca0132d)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verify-chain1/befund-2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w99-0428-verify2 (codeman 9ca0132d)  
@@ -79,3 +80,5 @@ One or two sentences: the observable outcome.
 Dachkarte fuer wiederkehrende live-verify-runden ueber bereits acceptedem content (sitz-pflicht stufe 2). Erster Auftrag: verify-chain1 (116-guard, 120-fail-loud, 121-filter, 122-writer, 118-leck) auf develop ec592fd385. Reine gegenpruefung, KEINE produkt-aenderung; funde -> neue karten via intake.
 
 chain1 geliefert und aktenpflichtig geprueft (befund-1.md, origin/main): 116/120/118 auf lebendem develop BESTAETIGT (file:line + unit-laeufe), 121/122 erwartungsgemaess NICHT auf develop (nur auf den unmerged kandidaten d9d70a98/#1691 und 8956bf08/#1692, dort green) — keine neuen karten. NEBENBEFUND bereinigt: zwei 5h-alte PPID=1 baha.test DiagExec-Stdout-orphans (1341964/1405874) getoetet, die zwei lebenden dualmatch-prozesse von lane 126 blieben unberuehrt. chain2 beauftragt: 102/093/099/117 auf develop deeeb6477
+
+beide ketten geliefert: chain1 (116/120/118 bestaetigt auf lebendem develop, 121/122 korrekt als review-stage erfasst), chain2 (102/093/099/117 alle bestaetigt, file:line + gruene targeted runs). akten befund-1.md + befund-2.md auf origin/main (d3cdca0b), host besenrein. keine neuen karten aus den runden
