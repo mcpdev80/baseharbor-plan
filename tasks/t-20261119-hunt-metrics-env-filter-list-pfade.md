@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-121 r2 (codeman 045d7e8a)
+owner: 0428-121 r2 (codeman 045d7e8a, worktree /var/tmp/m121-efilter-wt)
 kanban_status: active
 kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 - [ ] t-20261119-hunt-metrics-env-filter-list-pfade · Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-121 r2 (codeman 045d7e8a)  
+    **Owner:** 0428-121 r2 (codeman 045d7e8a, worktree /var/tmp/m121-efilter-wt)  
     **PR:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1691)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0428-121 r2 (codeman 045d7e8a)  
+**Owner:** 0428-121 r2 (codeman 045d7e8a, worktree /var/tmp/m121-efilter-wt)  
 **Priority:** not set  
 **PRs:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
 **Source:** 
@@ -86,3 +86,5 @@ END akzeptiert: zentraler env-filter auf allen list-Pfaden, head d9d70a98 base-e
 korrektur-runde laeuft: environment-resolver faehrt application-scoped quellen mit fehlender/mehrdeutiger environment-zuordnung nicht sauber raus (cross-environment visibility leak, REQUEST_CHANGES-kommentar auf d9d70a984). rezept: explizite oder eindeutig ableitbare zuordnung verlangen, sonst fail-closed im filter. kopf afc0dde86 ist base-exakt deeeb6477
 
 routen-entscheid gefallen (route 2, caller-agnostic source-herleitung + fail-closed), weil der eigene placement.Environment-kopf auf der 125-basis nicht baut (develop traegt environment jetzt in internal/application/connectivity.go, nicht in capability/provider_placement.go). bedingung: go build/vet lokal gruen vor jedem push; realer caller-placement-only-fall im code = STOP + QUESTION (dann route 1 additiv). lauf 44467889900 (PR · Go unit · packages) war rot auf 295b908edc
+
+uebergabe-punkt: commit 9a4325028 liegt fertig im worktree auf develop da76c5cf9 (route 2: herleitung aus source-id, fail-closed bei mehrdeutig/fehlend). ausstehend: gofmt/build lokal gruen, push auf lane-0428-efilter (monoton, ancestor-zeug), exact-head-CI bis terminal, akte fix-2.md mit W-belegen, verlustfreie rueckgabe der gemeinsamen kopie (11 dirty eintraege, stash statt reset). 122r3 laeuft erst NACH deinem merge — beide schreiben runtime_observability.go
