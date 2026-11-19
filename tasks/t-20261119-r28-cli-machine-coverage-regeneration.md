@@ -8,9 +8,9 @@ areas: [cli, docs, ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: "w154-pr0428-154-covcheck (codeman dbec9d13, ornith:2)"
+kanban_status: active
+kanban_lane: active
 blocker: ""
 wait_reason: ""
 depends_on: [t-20261114-r28-cli2-source-model]
@@ -24,18 +24,17 @@ resolution: ""
 created: 2026-11-19
 ---
 
-- [ ] t-20261119-r28-cli-machine-coverage-regeneration · generierte cli-index-dateien neu erzeugen #task #release/v0-4-28 #status/planned #view/ready #area/ci #area/cli #area/docs #kind/task
+- [ ] t-20261119-r28-cli-machine-coverage-regeneration · generierte cli-index-dateien neu erzeugen #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #area/docs #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w154-pr0428-154-covcheck (codeman dbec9d13, ornith:2)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1595)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
-**Owner:** unassigned  
+**Owner:** w154-pr0428-154-covcheck (codeman dbec9d13, ornith:2)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
