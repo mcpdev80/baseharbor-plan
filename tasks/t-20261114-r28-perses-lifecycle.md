@@ -7,7 +7,7 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0428-084 hopf (codeman 3ae5c022, STOP zurueckgewiesen)
+owner: 0428-084 korrektur (codeman 3ae5c022, ornith) — rest-hopf auf fac01c772 laeuft
 kanban_status: active
 kanban_lane: active
 kanban_summary: Guide enable/status/disable and ownership-safe removal of optional Perses using the accepted CLI contract; preserve monitoring…
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2
 
 - [ ] t-20261114-r28-perses-lifecycle · Perses lifecycle commands #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-084 hopf (codeman 3ae5c022, STOP zurueckgewiesen) · **Priority:** normal  
+    **Owner:** 0428-084 korrektur (codeman 3ae5c022, ornith) — rest-hopf auf fac01c772 laeuft · **Priority:** normal  
     **PR:** [baseharbor#1598](https://github.com/mcpdev80/baseharbor/pull/1598)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2b7c121412cef3089e7ca3/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/c7376f916380d9d95d70e05204a10da2ef42d9b6/evidence/r28-welle4-2026-11-19/codex-review-wave/1598-0428-084-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/6f05b59ccf3f13065093f7848de098063548d84f/evidence/r28-welle4-2026-11-19/perses-lifecycle-hopf/fix-3.md)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98dc8066b74bc2
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** 0428-084 hopf (codeman 3ae5c022, STOP zurueckgewiesen)  
+**Owner:** 0428-084 korrektur (codeman 3ae5c022, ornith) — rest-hopf auf fac01c772 laeuft  
 **Priority:** normal  
 **PRs:** [baseharbor#1598](https://github.com/mcpdev80/baseharbor/pull/1598)  
 **Source:** 
@@ -96,3 +96,5 @@ URTEIL: 'APPROVE CONTENT — exact head ea6cddd204fbc408b8e1b3b587f1f054ea1f43ce
 hopf-lane gestartet (mission-084-hopf-onto-f518e859.md, reiner hopf auf f518e859d, keine produkt-aenderung): die abnahme hat APPROVE CONTENT auf ea6cddd20 erteilt, den merge aber an 'monotonic base hop + fresh exact-head' gekoppelt. sitz kam frei, weil 088s lane abgeliefert hat (088 selbst ist jetzt im fenster). nach deren lauf-meldung geht der kopf sofort zur abnahme mit dem einzigen zusatz-beleg 'git diff --name-only ea6cddd20 <kopf>' = leer
 
 END_BLOCKED PRUEFE ich als FALSE zurueck, weil alle drei gruenden widerlegt sind: (1) 'git show <rev>:internal/machine/contract.go | grep -c app.perses' = 0 in develop 3b634232f, im 088-kopf 78c002ff5, in f518e859d UND im alten develop da76c5cf9 — die vier app.perses-ops waren nie in develop, sie sind 084s eigener zusatz (zeilen 205-208 ihres astes); (2) 'git merge-tree --write-tree 3b634232f ea6cddd20' = 0 CONFLICT-zeilen (merge-tree c82b5b4882776d3e7d9bdf21c2d184f35631a271), PR 'behind' statt 'dirty'; (3) der einzige kommentar-unterschied in internal/metrics/perses_contract_test.go zwischen develop und 084 ist 084s EIGENER block, von #1592 kommt dort nichts. BEFEHL: hopf als MERGE-commit ('git merge origin/develop', macht develop zum ancestor ohne die zeilen anzufassen) + die vier nachweise in der akte (ancestor rc=0, merge-tree 0, ea6cddd20 als ancestor, grep app.perses = 4) und der abschnitt 'was ich falsch gemeldet habe', weil die akte 12163463 einen falschen fernzeug enthaelt. dann fokus-tests, push, exact-head lauf bis terminal
+
+END_DONE inspiziert, disposition: INHALT angenommen (APPROVE CONTENT auf ea6cddd20, app.perses = 4 typed ops erhalten, merge-commit 3316714c mit develop 859654861 + ea6cddd20 als ancestors, merge-tree 0), QUALIFIKATION fehlt — urSAche = VERALTETE BASE, kein produktfehler: develop = fac01c772 (695ad5494 + 86858f129 + bcd0e29ca + fac01c772), der unterschied zu ihrem base beruehrt .github/workflows/ci.yml und scripts/test_ci_check_routes.py, also genau EIN weiterer lauf. ihr lauf 44536437699: unit/docs/format/readability PASS; der 'runtime-integration'-schritt fiel wegen ORAS/trust-plane runner-precondition aus — das ist eine ÄUSSERE BLOCKADE (punkt (a) des 114-drahts), von ihr korrekt gemeldet und von mir NICHT als ihr defect gebucht. IHRE FINDING, von mir an der datei geprueft statt geraten: 'scripts/pr-candidate-advisory.py' existiert auf develop (142 zeilen); .github/workflows/ci.yml:1111 ist die base_ref-bedingung, :1133 ruft das advisory-skript, :731/:795/:805 fuehren den output 'candidate_advisory_required'. ANTWORT an sie: ihre lane-validations sind in IHREM eigenem PR advisory (policy, owner-direktive 15:3xZ), das erklaert auch ihr 'integration_sha_mismatch' — kein STOP-grund. akte auf plan-main 981b0e85
