@@ -10,9 +10,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 10 |
+| active | 11 |
 | review | 12 |
-| wait | 15 |
+| wait | 14 |
 | blocked | 6 |
 | ready | 3 |
 | queued | 25 |
@@ -25,6 +25,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | active | normal | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261018-r27-ci-consumption](../tasks/t-20261018-r27-ci-consumption.md) | Deferred CI consumption examples for accepted product APIs | active | normal | Codex team (current thread) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-docs](../tasks/t-20261018-r27-docs.md), [t-20261018-r27-public-surfaces](../tasks/t-20261018-r27-public-surfaces.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | [baseharbor#1589](https://github.com/mcpdev80/baseharbor/pull/1589) |
 | [t-20261114-r28-cli2-coordination](../tasks/t-20261114-r28-cli2-coordination.md) | CLI redesign: coordinate five workers | active | high | coord | — | — |
 | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) | CLI redesign: Replace name-based environment policy | active | high | coord | [t-20261114-r28-cli2-uid-environment](../tasks/t-20261114-r28-cli2-uid-environment.md) (open) | — |
 | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | CLI redesign: Organization environment reconciliation | active | high | welle2-056-cli2-org-env | [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) (open) | — |
@@ -60,7 +61,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261017-release-0-4-27-qualify](../tasks/t-20261017-release-0-4-27-qualify.md) | v0.4.27 · Pre-release: complete required candidate checks | wait | normal | mission-closeout27 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) (open) | — |
 | [t-20261017-release-0-4-27-verify](../tasks/t-20261017-release-0-4-27-verify.md) | v0.4.27 · Release: verify publication, artifacts, Pages and closeout | wait | normal | mission-closeout27 | [t-20261017-release-0-4-27-publish](../tasks/t-20261017-release-0-4-27-publish.md) (open) | — |
 | [t-20261017-release-0-4-28-cleanup](../tasks/t-20261017-release-0-4-28-cleanup.md) | v0.4.28 · Release start: reconcile old PRs, tasks and branches | wait | high | lane-0428-002-r28 | [t-20261017-release-0-4-27-verify](../tasks/t-20261017-release-0-4-27-verify.md) (open) | — |
-| [t-20261018-r27-ci-consumption](../tasks/t-20261018-r27-ci-consumption.md) | Deferred CI consumption examples for accepted product APIs | wait | normal | worker-0427-020-ci-consumption (ornith-laptop) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-docs](../tasks/t-20261018-r27-docs.md), [t-20261018-r27-public-surfaces](../tasks/t-20261018-r27-public-surfaces.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | [baseharbor#1589](https://github.com/mcpdev80/baseharbor/pull/1589) |
 | [t-20261018-r27-team-proof](../tasks/t-20261018-r27-team-proof.md) | Acceptance: prove two workstations share one authoritative deployment | wait | normal | worker-059-teamproof | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-maintenance-client](../tasks/t-20261018-r27-maintenance-client.md), [t-20261018-r27-public-surfaces](../tasks/t-20261018-r27-public-surfaces.md), [t-20261018-r27-stage-versions](../tasks/t-20261018-r27-stage-versions.md), [t-20261018-r27-state-recovery](../tasks/t-20261018-r27-state-recovery.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
 | [t-20261108-smoke-0427-operator-api-undocumented](../tasks/t-20261108-smoke-0427-operator-api-undocumented.md) | Remote Core: API route runbook missing | wait | normal | flash-lane mission-169-runbook (session 0427-169) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) | [baseharbor#1587](https://github.com/mcpdev80/baseharbor/pull/1587) |
 | [t-20261109-r27-target-policy-presets](../tasks/t-20261109-r27-target-policy-presets.md) | Target: editable best-practice deployment policy presets | wait | high | m186-policy-presets (0427-186 lane) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) | [baseharbor#1588](https://github.com/mcpdev80/baseharbor/pull/1588) |
