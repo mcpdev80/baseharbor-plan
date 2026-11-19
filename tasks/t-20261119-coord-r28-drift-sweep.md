@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: drift-sweep (codeman 6d23313f)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: "0428-137 · ahead/behind,"
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-coord-r28-drift-sweep · Drift-fahrt ueber die 25 lebend-kandidaten: ahead/behind, merge-tree-konflikte, schreibset-kollisionen, hopf-reihenfolge #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261119-coord-r28-drift-sweep · Drift-fahrt ueber die 25 lebend-kandidaten: ahead/behind, merge-tree-konflikte, schreibset-kollisionen, hopf-reihenfolge #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** drift-sweep (codeman 6d23313f)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** drift-sweep (codeman 6d23313f)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -82,3 +81,5 @@ Grundlage fuer meine hopf-reihenfolge im merge-window: welche lebend-kandidaten 
 
 ## Acceptance
 akte evidence/r28-welle4-2026-11-19/drift-sweep/befund-1.md (tabelle + sortierung + nachweis-spalte). read-only, KEIN push/comment/close/merge/dispatch, keine karten-statuswechsel, isolierte clones unter /var/tmp, kein subagent (§4.8), host besenrein.
+
+read-only fahrt ueber die 25 lebend-kandidaten: ahead/behind, merge-tree-konflikt-prognose, schreibset-kollisionen, hopf-reihenfolge (akte drift-sweep/befund-1.md). kein push/comment/close durch die lane
