@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-121 r2 (codeman 045d7e8a, worktree /var/tmp/m121-efilter-wt)
+owner: 0428-121 r3 (codeman 045d7e8a, worktree /var/tmp/m121-efilter-wt)
 kanban_status: active
 kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 - [ ] t-20261119-hunt-metrics-env-filter-list-pfade · Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-121 r2 (codeman 045d7e8a, worktree /var/tmp/m121-efilter-wt)  
+    **Owner:** 0428-121 r3 (codeman 045d7e8a, worktree /var/tmp/m121-efilter-wt)  
     **PR:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1691)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0428-121 r2 (codeman 045d7e8a, worktree /var/tmp/m121-efilter-wt)  
+**Owner:** 0428-121 r3 (codeman 045d7e8a, worktree /var/tmp/m121-efilter-wt)  
 **Priority:** not set  
 **PRs:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
 **Source:** 
@@ -90,3 +90,5 @@ routen-entscheid gefallen (route 2, caller-agnostic source-herleitung + fail-clo
 uebergabe-punkt: commit 9a4325028 liegt fertig im worktree auf develop da76c5cf9 (route 2: herleitung aus source-id, fail-closed bei mehrdeutig/fehlend). ausstehend: gofmt/build lokal gruen, push auf lane-0428-efilter (monoton, ancestor-zeug), exact-head-CI bis terminal, akte fix-2.md mit W-belegen, verlustfreie rueckgabe der gemeinsamen kopie (11 dirty eintraege, stash statt reset). 122r3 laeuft erst NACH deinem merge — beide schreiben runtime_observability.go
 
 STOP vor push/merge nach unabhaengigem review: SourceMatchesEnvironment prueft nur aufloesbarkeit, keinen vergleich mit dem gewuenschten environment -> fail-open fuer cross-environment listing (prod+stage derselben application passieren die zentrale List-pruefung). carrier-umfeld ist an allen aufruferstellen schon da (cmd/baha/app_logs.go:140 und app_traces.go:249 ueber prepared.manifest.Environment; internal/metrics/prometheus_files.go:233/240/451 und prometheus_verify.go:141/152 ueber m.Environment; internal/logs/overrides.go:105, registration.go:27 im manifest-/registration-kontext). befehl: parameter requestedEnvironment in List + wrapper, vergleich case-normalisiert, nicht aufloesbar/mehrdeutig = unsichtbar, '' = explicit fail-closed; regression prod/stage/leer + mutations-kontrolle; dann gofmt/build/vet, hopf auf da76c5cf9, push, exact-head-CI terminal, akte fix-2.md mit aufrufer-tabelle. KEIN ProviderPlacement.Environment, KEIN security.go
+
+INHALTLICH GELUOST auf head 4f4b3d7a60b057fd8f29cbba3c2685fc9346b66d (monoton, develop da76c5cf9 ancestor): SourceMatchesEnvironment(source, requestedEnvironment) vergleicht case-normalisiert, false bei unloesbarem environment; List + wrapper reichen requestedEnvironment durch; sechs tests (prod/stage-caller, leer fail-closed, unloesbar fail-closed, mutation-drop, shared-sichtbarkeit). Go-unit shards + Selected Runtime SUCCESS. EIN FEHLJOB: 'PR · Source format' — job-log: 'source readability: internal/observability/registry.go has 877 lines (limit: 800)'. befehl r3: die neue filter-logik in eigene datei internal/observability/envfilter.go auslagern (verhalten/API unveraendert, datei unter 800 zeilen), gofmt -l leer, hopf (kein rebase), push mit ancestor-zeug, exact-head CI terminal SUCCESS, akte env-filter-fix/fix-3.md. KEIN ProviderPlacement.Environment, KEIN security.go, KEIN .github

@@ -36,7 +36,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-coord-r28-pr-inventory](../tasks/t-20261119-coord-r28-pr-inventory.md) | PR-inventar 0.4.28: 38 offene PRs gegen board — dublette/superseded/kandidatenlos, liste zum schliessen | active | not set | pr-inventory (codeman bf3d2fb7-61e8-4e01-98a2-479edace99b9) | — | — |
 | [t-20261119-coord-window-closeout-pack](../tasks/t-20261119-coord-window-closeout-pack.md) | Merge-window closeout-pack v0.4.28: karten-/PR-/run-inventar mit fernzeugen | active | not set | closeout-pack (codeman 59c94cab) | — | — |
 | [t-20261119-hunt-metrics-appclass-log-writer](../tasks/t-20261119-hunt-metrics-appclass-log-writer.md) | Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) | active | not set | 0428-122 r3 (wartet auf sitz, nach 121-merge) | — | [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692) |
-| [t-20261119-hunt-metrics-env-filter-list-pfade](../tasks/t-20261119-hunt-metrics-env-filter-list-pfade.md) | Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) | active | not set | 0428-121 r2 (codeman 045d7e8a, worktree /var/tmp/m121-efilter-wt) | — | [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691) |
+| [t-20261119-hunt-metrics-env-filter-list-pfade](../tasks/t-20261119-hunt-metrics-env-filter-list-pfade.md) | Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) | active | not set | 0428-121 r3 (codeman 045d7e8a, worktree /var/tmp/m121-efilter-wt) | — | [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691) |
 
 ## Ready for review
 
