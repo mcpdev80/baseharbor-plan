@@ -10,7 +10,8 @@ card_short_title: harden Prov ownership chain vs
 kanban_title: 0428-119 · harden Prov ownership chain vs
 prs: [mcpdev80/baseharbor#1690]
 wait_reason: ""
-blocker: "exact-head docker lifecycle beleg nicht fahrbar: ORAS-praesenz auf dem pruef-system fehlt. hosted 'Runtime · Docker Core' run 44464060182 (job docker-runtime 135357465520) hat ECHT ausgefuehrt und bricht in app_repository_integration_test.go:27 'prepare BaseHarbor integration trust plane: ORAS is required' — derselbe bruch reproduziert auf sauberem develop c000c5db25 und host-lokal (baha-docker, ORAS 1.3.6 vorhanden, native plugin fehlt). targeted-integration ist integriert-only (checkt ref: develop + HEAD==CANDIDATE_SHA). naechster trigger: owner-entscheid ueber runner/host-ORAS-trust-plane ODER reviewer-qualifikation, dass unit-matrix-run 44456088960 SUCCESS auf head 84ee9a93e + dokumentierter ausgefuehrter-abort genuegen"
+blocker: "Acceptance ruling: no waiver for unit-only success plus a failed or aborted Docker attempt. Exact-head Docker lifecycle evidence must execute and pass; run 44464060182 on head 84ee9a93 failed before Core setup because ORAS was unavailable. Keep blocked until a supported exact-head route passes, otherwise record ZWEIFEL and hand this lane to the next free independent card."
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44464033443", "https://github.com/mcpdev80/baseharbor/actions/runs/44464060182"]
 
 ---
 # t-20261118-ownership-stale-consent-hardening · close ownership-race windows behind stale-impact-consent
@@ -19,7 +20,8 @@ blocker: "exact-head docker lifecycle beleg nicht fahrbar: ORAS-praesenz auf dem
     <!-- generated:card -->
     **Owner:** w99-0428-119 r3 (codeman f5dabf03)  
     **PR:** [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690)  
-    **Blocker:** exact-head docker lifecycle beleg nicht fahrbar: ORAS-praesenz auf dem pruef-system fehlt. hosted 'Runtime · Docker Core' run 44464060182 (job docker-runtime 135357465520) hat ECHT ausgefuehrt und bricht in app\_repository\_integration\_test.…  
+    **Blocker:** Acceptance ruling: no waiver for unit-only success plus a failed or aborted Docker attempt. Exact-head Docker lifecycle evidence must execute and pass; run 44464060182 on head 84ee9a93 failed before Core setup because ORAS was unavailable.…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44464033443), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44464060182)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -55,3 +57,5 @@ docker-lage berichtigt: run 44454644057 workflow-seitig success, aber job 'Targe
 kein abnahme-zeug, kein merge (owner-wort). docker-route-erklaerung: targeted-integration ist integriert-only (ref: develop + HEAD==CANDIDATE_SHA), daher #557-#561 alle im schritt 'Verify exact SHA input' gebrochen. dreistufen-route an lane: docker-runtime-acceptance inputs.ref pruefen, sonst host-lokaler baha-docker-zeuge nach praezedenz 088-r3, fehlender hosted-draht als owner-befund
 
 PR #1690 head ist nach berichtigtem hopf wieder auf dem lane-exklusiven zweig: 84ee9a93e (ec592fd385/deeeb6477 ancestry, seitenzweig getilgt), r3-code unveraendert, akte r4-routentabelle published
+
+Delegated reviewer ruling (2026-11-19): do not qualify run 44464033443 unit success plus run 44464060182 runtime failure as acceptance. Need content-bearing exact-head Docker lifecycle PASS. The Docker job did execute, but target setup failed at the ORAS prerequisite; this is not a product pass. Try a supported exact-SHA runtime route with verified ORAS setup. If it cannot be provided without altering protected security.go or violating CI-owner constraints, close out as ZWEIFEL with evidence and release the lane to the next independent ready card. No merge.
