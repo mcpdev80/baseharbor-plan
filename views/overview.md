@@ -12,7 +12,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | ---: |
 | active | 12 |
 | review | 14 |
-| wait | 14 |
+| wait | 15 |
 | blocked | 5 |
 | ready | 2 |
 | queued | 25 |
@@ -74,6 +74,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261115-bughunt-d28-state-dir-target](../tasks/t-20261115-bughunt-d28-state-dir-target.md) | BF-01 target selection ignores BASEHARBOR_STATE_DIR (reads foreign registrations) | wait | not set | lane-0428-fix-bf01 (flash) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1585](https://github.com/mcpdev80/baseharbor/pull/1585) |
 | [t-20261115-bughunt-d28-tmp-selection](../tasks/t-20261115-bughunt-d28-tmp-selection.md) | BF-03 persisted target selection in world-writable /tmp path | wait | not set | lane-0427-187-fix-bf03 (ornith) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1582](https://github.com/mcpdev80/baseharbor/pull/1582) |
 | [t-20261117-observability-native-gate-bootstrap](../tasks/t-20261117-observability-native-gate-bootstrap.md) | CI: Run observability acceptance with verified ORAS bootstrap | wait | not set | Owner-Ausfuehrung (.github/scripts); umfang vom Coordinator erweitert 2026-11-19 (beleg: 0428-128 probe-1.md 57ffc7c6) | — | — |
+| [t-20261119-r28-prgate-docs-internal-json-mapping](../tasks/t-20261119-r28-prgate-docs-internal-json-mapping.md) | docs/internal/**/*.json faellt durch die DOC_CHECKS-verzweigung von pr-gate-plan.py und wird nie validiert | wait | not set | Owner-Ausfuehrung (scripts/** + .github/** ist Owner-Scope); auf bitte der unabhaengigen review in abgesetztem worktree ausgefuehrt, Coordinator dispatcht dafuer KEINE worker-lane | — | — |
 
 ## Blocked
 
@@ -96,7 +97,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 7 open, 162 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 61 open, 99 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 62 open, 99 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
