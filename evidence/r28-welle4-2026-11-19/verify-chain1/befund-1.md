@@ -51,7 +51,7 @@ Befund: **bestätigt** auf develop ec592fd385.
 
 Erwartung ( Mission-Kurzform): der environment-filter ist zentral in allen list-pfaden.
 
-Befund auf develop ec592fd385: **widersprochen — der Inhalt ist dort nicht vorhanden**. Das ist kein neuer Defekt, sondern der Kartenstand: 0428-121 ist in review (PR #1691), nicht gemergt. Historie des develop-Kopfs (git log) enthält kein 0428-121; `internal/observability/registry.go` auf develop hat kein environment-Feld und keine zentrale Filterprädikat-Stelle (List :488-546 filtert nur class/scope, kein environment).
+Befund auf develop ec592fd385: **widersprochen — der Inhalt ist dort nicht vorhanden**. Das ist kein neuer Defekt, sondern der Kartenstand: 0428-121 ist in review (PR #1691), nicht gemergt. Historie des develop-Kopfs (git log) enthält kein 0428-121; grep auf develop `internal/observability/registry.go`: `SourceMatchesEnvironment` 0 Treffer, kein `SourceEnvironment`-Helfer, `SignalSource` ohne environment-Feld — `List` (:488-546) filtert nur class/scope. Der einzige environment-bezogene Code sind `ApplicationMetricsSourceID` :559 und `PruneApplicationMetrics` :563 (ID-Präfix-Logik, genau der caller-side prefix workaround aus hunt-918 Befund 2).
 
 Befund auf dem Kandidaten d9d70a9845ea11f6d839b3f5600b67b214002d20 (refs/pull/1691/head = refs/heads/lane-0428-efilter): **bestätigt**.
 
@@ -104,5 +104,5 @@ END verify-chain1 DONE
 
 ### Publication witness (second-to-last action)
 
-- `git rev-parse HEAD` (baseharbor-plan) → `2e96615c97f0284f66fe1191f88985b2b3c80ff1`, equal to `git ls-remote origin main` (same SHA); the remote copy of this exact file was read back with `git show origin/main:evidence/r28-welle4-2026-11-19/verify-chain1/befund-1.md` before posting END. Chain: 1194076b (akte) → bd752f7c → 85b26744 → cfb30a54 → c3c8fbf4 → 22b299fe → 2e96615c → 4027072a (this final witness commit; the END post follows immediately, so 4027072a is the last planning commit of this lane). All witness commits rebased monotonically through the hot planning repo; no force, `git cherry` empty.
+- `git rev-parse HEAD` (baseharbor-plan) → `c1226cf35bedb84764a4cb639e2868e2845c1a20`, equal to `git ls-remote origin main` (same SHA, measured in the same command chain); the remote copy of this file was read back with `git show origin/main:evidence/r28-welle4-2026-11-19/verify-chain1/befund-1.md`. Chain of this lane's planning commits: 1194076b (akte) → bd752f7c → 85b26744 → cfb30a54 → c3c8fbf4 → 22b299fe → 2e96615c → c1226cf3 (final; the END post follows immediately). One further precision edit may land as one more normal (non-forced) commit; the file path and akte content are confirmed on origin/main either way. All rebased monotonically through the hot planning repo; no force, `git cherry` empty.
 - Race note: the planning repo was hot while this lane worked (main moved dc45bbc2 → 08c5b593 → 9b9514e9 → 1194076b → …); the first push hit a ref-lock race whose remote head already equalled this lane's 1194076b, and one later push needed a plain `git rebase origin/main` (no duplicate patch left, `git cherry` empty, workspace clean). No force at any point.
