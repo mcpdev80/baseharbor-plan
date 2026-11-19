@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: hopf-handoff 65015cd6 (sitz entlassen)
-kanban_status: blocked
-kanban_lane: blocked
+owner: 0428-088 (host witness durch 3b1d7885, sitz entlassen)
+kanban_status: review
+kanban_lane: review
 prs: [mcpdev80/baseharbor#1592]
 kanban_summary: "Implement explicitly enabled optional Perses runtime, pinned reviewed image/plugin versions, lifecycle and safe storage using…"
 kanban_title: 0428-088 · Launch optional Perses
@@ -17,26 +17,25 @@ priority: normal
 depends_on: [t-20261114-r28-perses-contract-seam]
 repos: [mcpdev80/baseharbor]
 sources: []
-blocker: "exact-head runtime-zeuge fehlt in der hosted-zelle (TestPersesRuntimeSmokeDockerIsolated hat keinen trigger, BASEHARBOR_PERSES_RUNTIME_SMOKE ungesetzt; gate-map scripts/pr-gate-coverage.json + .github = owner-scope, gebuendelt in 0428-114). ARBEITET GERADE: host-lokaler baha-docker-zeuge auf exaktem head 76331c7d8 nach praezedenz 088-r3 (lane laeuft, akte perses-runtime/witness-1.md) — damit ist die karte abnahmefaehig, ohne dass der hosted-draht wartet"
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1592-r3-runtime.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-runtime/r4-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44467712113"]
 ---
 
-- [ ] t-20261114-r28-perses-runtime · Launch optional Perses #task #release/v0-4-28 #status/blocked #view/blocked #area/observability #kind/task
+- [ ] t-20261114-r28-perses-runtime · Launch optional Perses #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** hopf-handoff 65015cd6 (sitz entlassen) · **Priority:** normal  
+    **Owner:** 0428-088 (host witness durch 3b1d7885, sitz entlassen) · **Priority:** normal  
     **PR:** [baseharbor#1592](https://github.com/mcpdev80/baseharbor/pull/1592)  
-    **Blocker:** exact-head runtime-zeuge fehlt in der hosted-zelle (TestPersesRuntimeSmokeDockerIsolated hat keinen trigger, BASEHARBOR\_PERSES\_RUNTIME\_SMOKE ungesetzt; gate-map scripts/pr-gate-coverage.json + .github = owner-scope, gebuendelt in 0428-114)…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1592-r3-runtime.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-runtime/r4-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44467712113)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md)  
 **Required by:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md), [t-20261114-r28-perses-lifecycle](t-20261114-r28-perses-lifecycle.md), [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
-**Owner:** hopf-handoff 65015cd6 (sitz entlassen)  
+**Owner:** 0428-088 (host witness durch 3b1d7885, sitz entlassen)  
 **Priority:** normal  
 **PRs:** [baseharbor#1592](https://github.com/mcpdev80/baseharbor/pull/1592)  
 **Source:** 
@@ -95,3 +94,5 @@ CODEX-REVIEW current-head recheck: #1592 head 76331c7d8, base develop 21161b101;
 hopf-arbeit abgeschlossen (merge auf develop 21161b101, head 76331c7d8), abnahme hebt stale review — kein merge bis zelle gemapped ist
 
 hopf-stand: 76331c7d8 = merge auf develop da76c5cf9 (inhalt byte-identisch, r4-1.md), PR #1592 open behind (entwickelt sich mit naechstem merge)
+
+host witness beigebracht (exact head 76331c7d83055f821fa1e6ff21c1cc37d9a08ae9, branch-ref gezeugt): BASEHARBOR_PERSES_RUNTIME_SMOKE=1 go test ./internal/application -run '^TestPersesRuntimeSmokeDockerIsolated$' -> PASS, multiple runs 19.32/25.99/14.50/22.24/8.39s plus cross-check worktree 11.80s; develop da76c5cf9 meldet 'no tests to run' (der test existiert nur auf dem kandidaten, bestaetigt audit 0428-133 fund 2). akte perses-runtime/witness-1.md commit ebf15c9f (ancestor von origin/main). PR #1592 open behind (basis hat sich bewegt, inhalt unchanged, hopf r4-1.md). hosted smoke-zelle bleibt owner-scope 0428-114 — nach praezedenz 088-r3 gilt der host witness als zeuge, wenn genau dieser fehlende draht als owner-befund dokumentiert ist; das ist er. daher: review statt blocked
