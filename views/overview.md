@@ -10,9 +10,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 12 |
+| active | 11 |
 | review | 21 |
-| wait | 14 |
+| wait | 15 |
 | blocked | 4 |
 | ready | 1 |
 | queued | 25 |
@@ -32,7 +32,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261115-r28-podman-runtime-performance](../tasks/t-20261115-r28-podman-runtime-performance.md) | Speed up Podman lifecycle | active | high | ChatGPT | — | [baseharbor#1600](https://github.com/mcpdev80/baseharbor/pull/1600) |
 | [t-20261116-r28-guided-rootless-bootstrap](../tasks/t-20261116-r28-guided-rootless-bootstrap.md) | Guided rootless runtime prerequisite repair | active | high | ChatGPT | — | [baseharbor#1664](https://github.com/mcpdev80/baseharbor/pull/1664) |
 | [t-20261117-hunt-signals-106](../tasks/t-20261117-hunt-signals-106.md) | CLI destructive-consent paths still emit German Achtung fall | active | not set | worker-ornith1.5 | — | [baseharbor#1683](https://github.com/mcpdev80/baseharbor/pull/1683) |
-| [t-20261117-observability-native-gate-bootstrap](../tasks/t-20261117-observability-native-gate-bootstrap.md) | CI: Run observability acceptance with verified ORAS bootstrap | active | not set | Owner-Ausfuehrung (.github/scripts); umfang vom Coordinator erweitert 2026-11-19 (beleg: 0428-128 probe-1.md 57ffc7c6) | — | — |
 | [t-20261119-coord-r28-pr-inventory](../tasks/t-20261119-coord-r28-pr-inventory.md) | PR-inventar 0.4.28: 38 offene PRs gegen board — dublette/superseded/kandidatenlos, liste zum schliessen | active | not set | pr-inventory (codeman bf3d2fb7-61e8-4e01-98a2-479edace99b9) | — | — |
 | [t-20261119-hunt-metrics-appclass-log-writer](../tasks/t-20261119-hunt-metrics-appclass-log-writer.md) | Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) | active | not set | 0428-122 r3 (wartet auf sitz, nach 121-merge) | — | [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692) |
 | [t-20261119-hunt-metrics-env-filter-list-pfade](../tasks/t-20261119-hunt-metrics-env-filter-list-pfade.md) | Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) | active | not set | 0428-121 r3 (codeman 045d7e8a, worktree /var/tmp/m121-efilter-wt) | — | [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691) |
@@ -80,6 +79,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-perses-contact-routing](../tasks/t-20261114-r28-perses-contact-routing.md) | Define alert notification routing | wait | normal | coord | [t-20261114-r28-perses-alerts](../tasks/t-20261114-r28-perses-alerts.md) (open), [t-20261114-r28-perses-secure-access](../tasks/t-20261114-r28-perses-secure-access.md) (open) | — |
 | [t-20261115-bughunt-d28-state-dir-target](../tasks/t-20261115-bughunt-d28-state-dir-target.md) | BF-01 target selection ignores BASEHARBOR_STATE_DIR (reads foreign registrations) | wait | not set | lane-0428-fix-bf01 (flash) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1585](https://github.com/mcpdev80/baseharbor/pull/1585) |
 | [t-20261115-bughunt-d28-tmp-selection](../tasks/t-20261115-bughunt-d28-tmp-selection.md) | BF-03 persisted target selection in world-writable /tmp path | wait | not set | lane-0427-187-fix-bf03 (ornith) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1582](https://github.com/mcpdev80/baseharbor/pull/1582) |
+| [t-20261117-observability-native-gate-bootstrap](../tasks/t-20261117-observability-native-gate-bootstrap.md) | CI: Run observability acceptance with verified ORAS bootstrap | wait | not set | Owner-Ausfuehrung (.github/scripts); umfang vom Coordinator erweitert 2026-11-19 (beleg: 0428-128 probe-1.md 57ffc7c6) | — | — |
 | [t-20261119-hunt-metrics-registration-visibility-only](../tasks/t-20261119-hunt-metrics-registration-visibility-only.md) | Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export | wait | not set | w01-0428-123 (codeman 1e209bb7) | — | [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693) |
 
 ## Blocked

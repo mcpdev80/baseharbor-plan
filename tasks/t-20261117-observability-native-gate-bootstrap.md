@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: "Owner-Ausfuehrung (.github/scripts); umfang vom Coordinator erweitert 2026-11-19 (beleg: 0428-128 probe-1.md 57ffc7c6)"
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Make the existing observability runtime acceptance runnable and selectable for application observability changes, so the Loki…"
 kanban_title: 0428-114 · Run observability Accept with
 priority: ""
@@ -18,18 +18,19 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "owner-scope: fuinf drahte, gebuendelt in einer aenderung: (a) ORAS-install-schritt im 'docker-runtime'-job (treffer 0 in zeilen 174-330; der push-job hat ihn zeile 128, 'single_default_native' zeile 127-128), (b) perses-smoke-zelle — vorschlag liegt als patch-skizze in 0428-134 gate-map-v2.patch, (c) baseharbor-demo .github/workflows/pr-guided-consent.yml:4-5 branches:[main] -> [main, develop], (d) documentation-audit-pfad fuer docs/internal/*.json in scripts/pr-gate-plan.py (zeile 1189 ff.), NEU (e) docker-runtime-acceptance.yml zeile 16 'default: release/v0.4.21' ist ein dead ref (branch existiert nicht auf origin, gh 404) — ein nackter dispatch prueft damit ins leere; default auf develop. fund (e) aus probe 0428-136"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261117-observability-native-gate-bootstrap · CI: Run observability acceptance with verified ORAS bootstrap #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261117-observability-native-gate-bootstrap · CI: Run observability acceptance with verified ORAS bootstrap #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** Owner-Ausfuehrung (.github/scripts); umfang vom Coordinator erweitert 2026-11-19 (beleg: 0428-128 probe-1.md 57ffc7c6)  
+    **Waiting:** owner-scope: fuinf drahte, gebuendelt in einer aenderung: (a) ORAS-install-schritt im 'docker-runtime'-job (treffer 0 in zeilen 174-330; der push-job hat ihn zeile 128, 'single\_default\_native' zeile 127-128), (b) perses-smoke-zelle — vorsc…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261117-docker-loki-ingestion-timeout](t-20261117-docker-loki-ingestion-timeout.md)  
@@ -79,3 +80,5 @@ Make the existing observability runtime acceptance runnable and selectable for a
 ZWEIFEL queued for the existing CI owner. Exact failure evidence is in runs 44057402207, 44057603711 and 44057705927. Product PR #1680 remains open pending proper runtime acceptance.
 
 reichweite erwisert (entscheid statt sequenzierung): 114 besitzt jetzt beide 128-symptome mit datei:zeile. grund: 114 hat keinen lebenden sitz und keinen PR (nur ein nominaler owner-vermerk), eine sequenzierung 'warte auf 114, dann 128' wuerde 119/088 unbefristet blockieren; zugleich wuerde eine separate 128-aenderung dieselbe coverage-map zwei mal anfassen
+
+inhalt bleibt gleich, nummer (e) neu aufgenommen: erklaert den F-7-fehljob aus dem closeout-heft, ohne dass die product-tests schuld sind
