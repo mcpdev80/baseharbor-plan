@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: 0428-126 (codeman 5f65f620)
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-126 · ein CLI-Stadium druckt kein
 priority: ""
@@ -19,19 +19,19 @@ prs: [mcpdev80/baseharbor#1696]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/dualmatch-docs/fix-1.md]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/dualmatch-docs/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1696", "https://github.com/mcpdev80/baseharbor/actions/runs/44471319498"]
 ---
 
-- [ ] t-20261119-hunt-metrics-dualmatch-marker-docs · Warning/Achtung dual-match: ein CLI-Stadium druckt kein Warning + EN-Normdoku hinter rename zurueck #task #release/v0-4-28 #status/review #view/review #kind/task
+- [x] t-20261119-hunt-metrics-dualmatch-marker-docs · Warning/Achtung dual-match: ein CLI-Stadium druckt kein Warning + EN-Normdoku hinter rename zurueck #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** 0428-126 (codeman 5f65f620)  
     **PR:** [baseharbor#1696](https://github.com/mcpdev80/baseharbor/pull/1696)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/dualmatch-docs/fix-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/dualmatch-docs/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1696), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44471319498)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** 0428-126 (codeman 5f65f620)  
@@ -82,3 +82,5 @@ Befund 5 (LOW) + 4-sub: Zwei doku-/marker-fragmente aus der i18n-rename-kette: d
 Erlaubtes write-set (vorschlag, lane prueft): docs + CLI marker stage. Evidence-Quelle: https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/hunt-metrics/befund-1.md (17 probes, base 97a840e54).
 
 126 abgegeben: Warning-marker wird in jedem annerkennenden CLI-stadium gedruckt (nur repraesentation, gate-semantik unveraendert) + EN-normdoku auf den i18n-rename gezogen. kandidat 864fdcd3a auf lane-0428-126-dualmatch-docs, PR #1696, run 44471319498 (alle selected checks pass), akte dualmatch-docs/fix-1.md origin/main daceecb5. folgearbeit gemeldet: demo drive.py matcher-pattern (eigene karte im demo-repo)
+
+CODEX-REVIEW: ACCEPT at exact head 864fdcd3a71c83d1fd2a5ae9a3304b23a5cefd6c. The marker is present at acknowledgement stages and consent semantics are unchanged; EN normdocs align to Warning. Exact-head run 44471319498 SUCCESS (34.13 summed hosted runner-minutes); PR Selected Checks app 15368. CODEX-MERGE: squash merge da76c5cf9c963207038d5599bd130b89ecb1e8a4 verified as develop head. Follow-up card 0428-129 covers the demo drive.py matcher; current origin/main card still shows unassigned, so confirm its claim/status.
