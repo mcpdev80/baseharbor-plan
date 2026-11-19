@@ -10,7 +10,7 @@ card_short_title: harden Prov ownership chain vs
 kanban_title: 0428-119 · harden Prov ownership chain vs
 prs: [mcpdev80/baseharbor#1690]
 wait_reason: ""
-blocker: "dauerhafter ZWEIFEL + handoff (owner-wort 2026-11-19, 05:4xZ): keine abnahme-freigabe fuer 'unit gruen (44464033443) + fehlgeschlagener runtime-versuch (44464060182)'. der exact-head Docker-lifecycle-beleg muss ueber eine UNTERSTUETZTE, ORAS-faehige route kommen. die routen-klaelung liegt jetzt ausschliesslich bei karte 0428-128 (read-only A/B-probe, lane 6637b11b) — nicht doppelt prufen. nach 128s END: entweder route belegt -> neuer docker-beleg auf #1690, oder ZWEIFEL bleibt dauerhaft und die lane geht an die naechste unabhaengige bereite karte. kein merge, PR #1690 bleibt offen, kein security.go-Eingriff"
+blocker: "dauerhafter ZWEIFEL + handoff (owner-wort): kein abnahme-freiraum fuer 'unit gruen + runtime-versuch rot'. ursache jetzt scharf und NICHT kandidaten-seitig: der docker-runtime-job in docker-runtime-acceptance.yml hat keinen ORAS-install-schritt (zeilen 174-330), die install-zeilen 127-128 liegen nur im push-job — karte 0428-128 traegt den korrektur-beleg (akte probe-1.md, 57ffc7c6). naechster trigger: owner-merge der .github-korrektur, danach ein exact-head-dispatch auf #1690 (run-id + job-ids in die akte). bis dahin PR #1690 offen, kein merge, kein security.go-eingriff"
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44464033443", "https://github.com/mcpdev80/baseharbor/actions/runs/44464060182"]
 
 ---
@@ -20,7 +20,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44464033443", "h
     <!-- generated:card -->
     **Owner:** w99-0428-119 r3 (codeman f5dabf03)  
     **PR:** [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690)  
-    **Blocker:** dauerhafter ZWEIFEL + handoff (owner-wort 2026-11-19, 05:4xZ): keine abnahme-freigabe fuer 'unit gruen (44464033443) + fehlgeschlagener runtime-versuch (44464060182)'. der exact-head Docker-lifecycle-beleg muss ueber eine UNTERSTUETZTE, OR…  
+    **Blocker:** dauerhafter ZWEIFEL + handoff (owner-wort): kein abnahme-freiraum fuer 'unit gruen + runtime-versuch rot'. ursache jetzt scharf und NICHT kandidaten-seitig: der docker-runtime-job in docker-runtime-acceptance.yml hat keinen ORAS-install-sc…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44464033443), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44464060182)  
     <!-- /generated:card -->
 
