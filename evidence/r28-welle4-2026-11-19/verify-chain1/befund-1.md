@@ -104,6 +104,6 @@ END verify-chain1 DONE
 
 ### Publication witness (second-to-last action)
 
-- `git ls-remote origin main` (baseharbor-plan) → `1194076bee12423128e50d5477020e1a4787cbc3 refs/heads/main`
-- This akte's evidence commit = `1194076b` = origin/main head; path verified on the remote via `git fetch` + `git merge-base --is-ancestor origin/main HEAD` → yes.
-- Race note: the planning repo was hot while this lane worked (main moved dc45bbc2 → 08c5b593 → 9b9514e9 → 1194076b); the first push attempt hit a ref-lock race and the fetched remote head already equalled this lane's commit 1194076b, so publication is confirmed without any force.
+- `git ls-remote origin main` (baseharbor-plan) → `bd752f7c104f40a5639a4cdbc868821b2d2f7bf3 refs/heads/main`
+- Evidence commits: `1194076b` (akte) and `bd752f7c` (witness commit, = origin/main head). The witness commit contains this file's full content including the final ls-remote line above (line added in the working tree before this commit; its own SHA is cited from the line above).
+- Race note: the planning repo was hot while this lane worked (main moved dc45bbc2 → 08c5b593 → 9b9514e9 → 1194076b → …); the first push hit a ref-lock race whose remote head already equalled this lane's 1194076b, and one later push needed a plain `git rebase origin/main` (no duplicate patch left, `git cherry` empty, workspace clean). No force at any point.
