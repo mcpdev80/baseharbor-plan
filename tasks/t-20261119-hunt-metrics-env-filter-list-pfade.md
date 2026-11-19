@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-121 r4 (codeman 02edbbbf, frische lane nach entlassung der r3-lane; KEINE dublette)
-kanban_status: active
-kanban_lane: active
+owner: 0428-121 r4 (codeman 02edbbbf)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-121 · Env-Filter wirkt nicht auf
 priority: ""
@@ -23,18 +23,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-route2-review.md", "https://github.com/mcpdev80/baseharbor/pull/1691"]
 ---
 
-- [ ] t-20261119-hunt-metrics-env-filter-list-pfade · Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261119-hunt-metrics-env-filter-list-pfade · Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-121 r4 (codeman 02edbbbf, frische lane nach entlassung der r3-lane; KEINE dublette)  
+    **Owner:** 0428-121 r4 (codeman 02edbbbf)  
     **PR:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-route2-review.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1691)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0428-121 r4 (codeman 02edbbbf, frische lane nach entlassung der r3-lane; KEINE dublette)  
+**Owner:** 0428-121 r4 (codeman 02edbbbf)  
 **Priority:** not set  
 **PRs:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
 **Source:** 
@@ -98,3 +98,5 @@ abgegeben und von mir verifiziert: head d1fcfdf6b8376a30f5100c8c30f5f3491427cf9e
 abnahme lehnt head d1fcfdf6b fuer merge ab (PR-kommentar 7004083156), grund ist ein FUNKTIONALER daten-verlust, nicht die route: SourceEnvironment zerlegt generierte provider-project-ids nach FESTER token-zahl; 'bh-prod-my-app-dev' (bindestrich-im-app-namen, vier tokens nach 'bh-') gilt als unloesbar und wird von SourceMatchesEnvironment WEGGEFILTERT — app-scoped metrics/logs/traces fuer gueltige namen mit bindestrich verschwinden stillschweigend. das bestehende prod/stage-beispiel (Class=SourceApplication, target bhm-abc:9464) laeuft gar nicht durch projectTokenFromID und ist fuer den fall blind. befehl r4: moredeutigkeits-loesung OHNE neues feld + regression (a) bh-prod-my-app-dev wird mit 'prod' gefunden, (b) mit 'stage' nicht, (c) mehrdeutig/zerstoert bleibt unsichtbar, (d) provider-target-fall bleibt gruen; nachweis dass (a) durch projectTokenFromID laeuft; dann gofmt/build/vet, hopf, push mit ancestor-zeug d1fcfdf6b..neu, exact-head CI terminal, akte fix-4.md. wenn ohne neues feld nicht eindeutig loesbar: QUESTION mit zwei varianten statt raten
 
 zweite abnahme-runde auf demselben head d1fcfdf6b (kommentar 7004115394) — vier nachtraege an die lane weitergeleitet: (1) die claimed hyphenated-provider-regression nutzt Class=SourceApplication + bhm-target und laeuft damit an trailingProjectEnvironment VORBEI; (2) die in fix-3.md (zeile 99) behauptete reserved-prometheus-token regression existiert im code nicht; (3) pflicht-faelle: (a) provider-shaped 'bh-local-demo-prod-west' fuer 'west'-caller AUSGESCHLOSSEN (mehrdeutig => fail-closed), (b) reserved token 'prometheus' => fail-closed, (c) legacy bare-ID => fail-closed, (d) echt generiertes namespaced target mit bindestrich-app-name bleibt bei PASSENDER environment SICHTBAR; je fall die datei:zeile, die nachweist dass sie durch projectTokenFromID (environment.go:74) und trailingProjectEnvironment (environment.go:88, regel in zeilen 100-107, feste pruefung zeile 61) laufen. (4) fix-3.md war NIE gepusht (auf origin/main liegt nur fix-1.md; die datei lag untracked in der alten kopie /var/tmp/m121-efilter-wt/env-filter-fix/fix-3.md, 112 zeilen) — sicherheit durch die r4-lane: read-only kopieren, in fix-4.md weiterfuehren, zeile-99-behauptung berichtigen, fix-4.md im evidence-feld dieser karte verlinken. #1691 bleibt bis auf weiteres UNMERGED
+
+r4 abgegeben, exaktkopfig gruen: head f28b97a53870bb3f5cb5c90618dea977df3f1c2b, monoton auf develop da76c5cf9, lauf 44495408370 TERMINAL SUCCESS (ausgefuehrt u.a. 'PR Selected Checks', 'PR · Source format', Trusted/Native gate plan, Validation go-build + go-vet, Go-unit shards; skipped sind ausschliesslich runtime-/HA-/release-pfade), PR open draft=false clean. ROUTE: environment ist jetzt das segment NACH dem einmaligen vorkommen '-<app>-' im projekt (anker = SignalSource.OwnerApplication, field 'owner_application'; target-schema registry.go:264 'runtime://<project>/<service>'), KEIN neuer parameter, KEIN placement-feld, KEINE environment-woerterbuch — die alternative 'namespace durch List ziehen' habe ich abgelehnt (oeffentliche signatur an acht aufruferstellen). faelle: bh-prod-my-app-dev + app 'my-app' => env 'dev' (sichtbar fuer 'dev', fuer 'prod' nicht); bh-local-demo-prod-west + app 'demo' => env 'prod-west' => 'west'-caller sieht sie NICHT; dieselbe kette + app 'demo-prod' => env 'west' => sichtbar; reserved 'prometheus' => bh-<target>-prometheus-app-<env>; legacy bare ID => kein anker => fail-closed; metrics-ID-grammatik behaelt die explizite segment-auswertung. akte env-filter-fix/fix-4.md (105 zeilen) + fix-3.md (112, unrechmuessig untracked in der gemeinsamen kopie — von mir gesichert und gepusht), zeile 99 von fix-3 richtiggestellt
