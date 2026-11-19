@@ -70,6 +70,55 @@ The two colliding anchor cases this round must pin at the seam:
 - Existing tests left UNCHANGED (no new product helper, no ProviderPlacement field, no security.go,
   no .github/scripts).
 
+## WHAT RUN 44503654267 DOES NOT PROVE
+
+- The green exact-head CI run on b66b76c63 ran the seam assertions with a
+  two-segment ID (`loki:<canonical-project>`) AND a populated Target. With the
+  old (wrong) environment.go colon rule (`value = value[:idx]` — keep the segment
+  BEFORE the first colon), the ID path collapsed to the bare provider token and
+  resolved nothing; the assertion passed ONLY because `SourceEnvironment` fell
+  through to the `Target` fallback (`runtime://<project>/<service>`, which the
+  old rule handled correctly). So the ID grammar was never exercised by a pass.
+- Consequence: with the wrong colon rule, a real three-part ID
+  `"<provider>:<project>:<service>"` (internal/application/runtime_observability.go:242
+  builds `id := fmt.Sprintf("%s:%s:%s", provider, project, service)`) was
+  truncated to the provider token, the `-<app>-` anchor was lost, and the source
+  was silently dropped by the environment filter — exactly the missing
+  PostgreSQL target reported by the failing job
+  `PR · Go unit · packages` (run 44506393063,
+  internal/application/runtime_observability_test.go:58). That failure is the
+  direct evidence this round corrects.
+- The fix (environment.go trailingProjectEnvironment) now does
+  `strings.SplitN(value, ":", 3)` and keeps `parts[1]` (the PROJECT), failing
+  closed when there are fewer than two segments or an empty project segment.
+
+## WHAT RUN 44506393063 REBUTS (the three-segment ID)
+
+- Run 44506393063 fails because a real application-provider ID is THREE
+  segments; the two-segment ID alone cannot carry the service dimension, and the
+  environment must resolve from the PROJECT segment (parts[1]).
+- The matrix the corrected environment.go now satisfies (each isolated so one
+  path cannot hide another):
+  - (i) three-part `<provider>:<project>:<service>` -> PROJECT. Proven by
+    TestRoute5ListSeamCaseC `case (c) colon proof [three-part]` and the ID-only
+    sub-assert (Target=""), and by TestRoute5ServiceDimensionInert (lokiID /
+    grafanaID, both `loki:<project>:<service>`, both resolve 'dev' with Target="").
+  - (ii) two-part `<provider>:<project>` (develop pattern
+    `ID: "loki:" + placement.Project`, internal/logs/realization.go:233,
+    internal/logs/lifecycle.go:172) -> PROJECT. Proven by
+    TestRoute5ListSeamCaseC `case (c) colon proof [two-part]`.
+  - (iii) `runtime://<project>/<service>` -> PROJECT via the existing `runtime://`
+    trimming branch, independent of the ID. Proven by
+    TestRoute5ListSeamCaseC `case (c) colon proof [runtime-target-only]` where the
+    ID is a bare provider token (`loki`) so the only possible source of the
+    environment is the Target fallback.
+- Fail-closed witnesses (also in the test): bare provider `loki` -> ok=false;
+  empty project `loki::loki` -> ok=false.
+- The corrected `TestManagedRuntimeObservabilityUsesCanonicalServiceIdentities`
+  (internal/application/runtime_observability_test.go:58, the exact failing line)
+  now passes: the PostgreSQL target `runtime://<project>/postgres` resolves its
+  project segment and the environment filter keeps it.
+
 ## CI EVIDENCE
 
 - Run-ID: to be recorded

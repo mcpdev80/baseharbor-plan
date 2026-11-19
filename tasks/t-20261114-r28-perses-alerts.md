@@ -20,7 +20,7 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-alerts-hopf/fix-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1613-alert-contract-review.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-alerts-hopf/fix-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1613-alert-contract-review.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1613-0428-073.md"]
 ---
 
 - [ ] t-20261114-r28-perses-alerts · Define and provision alert rules #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
@@ -28,7 +28,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
     **Owner:** 0428-073 (hopf + required-ci-zeug delivered) · **Priority:** normal  
     **PR:** [baseharbor#1613](https://github.com/mcpdev80/baseharbor/pull/1613)  
     **Needs:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-alerts-hopf/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1613-alert-contract-review.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-alerts-hopf/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1613-alert-contract-review.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1613-0428-073.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -84,3 +84,5 @@ hopf abgeliefert und von mir verifiziert: head d8838f622b551cdc8a7f8e8320c3f122b
 EVIDENZ-LACKE GESCHLOSSEN, grund war draft-status (nicht die gate-map): PR #1613 war draft=true, und ci.yml haengt source-format/build/vet/unit/policy an 'draft == false' (zeilen 514/1137/1160; probe-akte gate-routing/probe-1.md commit 7d3cb684; der planner scripts/pr-gate-plan.py ist draft-agnostisch, targeted_plan() zeile 763 ohne draft-referenz). ich habe den PR auf ready gesetzt; der neue lauf 44495425072 auf demSELBEN exakten head d8838f622b551cdc8a7f8e8320c3f122b2ae5783 ist TERMINAL SUCCESS mit 14 ausgefuehrten zellen: 'PR Selected Checks', 'PR · Trusted Plan', 'PR · Native gate plan', 'PR · Source format', 'Workflow policy', 'PR · Validation · go-build', 'PR · Validation · go-vet', 'PR · Focused Python', 'PR · Go unit · packages/owner/cli-0/cli-1/cli-2/cli-3'; 19 zellen skipped (runtime/HA/release-pfade, ausserhalb des diff-routings). damit ist der kandidat abnahmefaehig OHNE teil-zeug-vermerk. PR-Zustand: open, draft=false, head d8838f622, monoton auf develop da76c5cf9
 
 required-ci-zeug delivered und verifiziert (akte perses-alerts-hopf/ci-1.md, commit e611d271, ancestor origin/main): alle 30 zellen completed, 0 failure, 9 required zellen pass; skipped sind release-/draft-/native-targeted pfade. head d8838f622b551cdc8a7f8e8320c3f122b2ae5783, check_suite 120443180547. die lane hat dafuer einen FRISCHEN isolierten clone unter /var/tmp benutzt (filter=blob:none) statt der gemeinsam-genutzten kopie — praezedenz fuer alle zeugen-fahrten. karte bleibt review mit vollstaendiger exaktkopfiger evidenz
+
+CODEX-REVIEW welle 4 = REQUEST CHANGES auf dem gepueften kopf (urteil 1613-0428-073.md). korrekture-runde ist vorgemerkt und wartet auf einen freien sitz: die vier perses-karten und 083 teilen sich dateien mit den laufenden lanen, darum kein paralleler start ohne write-set-nachweis. 083: 'runtime provisioning absent' (datasource wird gebaut, aber nicht in Perses bereitgestellt); 073: 'alert rule nicht ausgefuehrt/nicht persistiert' (persesAlertRealEvaluation); 077: 'catalog-availability aus host provider-metrics allein'; 089: 'PersesComposeServices rendert keine config (--config=/etc/perses/config.yaml) + loopback upstream'
