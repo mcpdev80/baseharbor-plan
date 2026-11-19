@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-122 r3 (wartet auf sitz, nach 121-merge)
-kanban_status: active
-kanban_lane: active
+owner: 0428-122 r3 (waiting for free seat; rebase after 0428-121 merge)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-122 · Klasse App hat keinen
 priority: ""
@@ -18,23 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1692]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "All 4 worker seats are occupied. PR head 876329f is DIRTY/CONFLICTING against current develop e1dc2cf after #1691; r3 must rebase monotonically, resolve overlaps, then run exact-head CI before review."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1692", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1692.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44451374676", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44473809584"]
 ---
 
-- [ ] t-20261119-hunt-metrics-appclass-log-writer · Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261119-hunt-metrics-appclass-log-writer · Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-122 r3 (wartet auf sitz, nach 121-merge)  
+    **Owner:** 0428-122 r3 (waiting for free seat; rebase after 0428-121 merge)  
     **PR:** [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692)  
+    **Waiting:** All 4 worker seats are occupied. PR head 876329f is DIRTY/CONFLICTING against current develop e1dc2cf after \#1691; r3 must rebase monotonically, resolve overlaps, then run exact-head CI before review.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1692), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1692.md), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44451374676), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/appclass-writer/fix-2.md), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44473809584)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0428-122 r3 (wartet auf sitz, nach 121-merge)  
+**Owner:** 0428-122 r3 (waiting for free seat; rebase after 0428-121 merge)  
 **Priority:** not set  
 **PRs:** [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692)  
 **Source:** 
@@ -94,3 +95,7 @@ korrektur abgegeben: service-dimension in source-id UND reconcile-boundary zurue
 CODEX-REVIEW: REQUEST CHANGES at exact head 876329f733c7706a5a8dfb9a4227fb2c2698660c. Explicit Workload.Components service sets are fixed, but empty Components still maps to synthetic workload; MaterializeWorkload selects all available non-managed Compose services when requested is empty. Carry the actual selected set into reconciliation and add an implicit two-service Compose regression with stale cleanup. Exact-head run 44473809584 SUCCESS (20.38 runner-minutes); no merge. Owner correction lane must claim this card before work resumes.
 
 abnahme-verdict auf exaktem head 876329f73 (CI 44473809584 SUCCESS) = REQUEST CHANGES, kommentar 7002202503 + akte codex-welle3-review/1692.md: leere Compose Workload.Components werden in selectWorkloadServices auf die TATSAECHLICH nicht-verwalteten services gemappt, der writer schreibt aber einen synthetischen workload — r3 muss den materialisierten service-set durch die reconciliation tragen und zwei regressionen bringen: impliziter fall mit zwei services + shrink-fall. karte bleibt active (nicht accepted, kein merge). REIHENFOLGE nach absprache mit der abnahme: erst 121/#1691 fixen+mergen, dann 122r3 — beide schreiben internal/application/runtime_observability.go, also kein paralleles arbeiten
+
+Post-#1691 dependency check: #1692 changed files include internal/observability/registry.go and internal/application/runtime_observability.go, both touched by newly merged #1691. Current PR head 876329f is stale and DIRTY/CONFLICTING against develop e1dc2cf. Prior CI run 44473809584 predates integration and is not qualifying. Required next step: monotone rebase to current develop, resolve conflict, rerun focused tests and exact-head PR checks. Owner r3 is waiting for a worker seat; no duplicate lane started.
+
+Post-#1691 dependency check: #1692 changed files include internal/observability/registry.go and internal/application/runtime_observability.go, both touched by newly merged #1691. Current PR head 876329f is stale and DIRTY/CONFLICTING against develop e1dc2cf. Prior CI run 44473809584 predates integration and is not qualifying. Required next step: monotone rebase to current develop, resolve conflicts, rerun focused tests and exact-head PR checks. Owner r3 is waiting for a worker seat; no duplicate lane started.
