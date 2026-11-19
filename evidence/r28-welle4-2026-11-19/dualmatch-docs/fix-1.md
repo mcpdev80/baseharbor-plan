@@ -102,7 +102,7 @@ Final candidate is `864fdcd3a…` (monotonic hopf: rebased onto develop `21161b1
 - Final candidate `864fdcd3a` has exactly one parent, `21161b101…` (the develop head fetched immediately before push — direct ancestry, `git log --format='%H %P'`): `864fdcd3a71c83d1fd2a5ae9a3304b23a5cefd6c 21161b101f66a47fb1a253ae17e87fe82567ba4d`. Provenance chain: original cut `ec592fd38` (develop at lane start, verified ancestor of the first commit `4a8c51e30`); r2 rebase onto `deeeb6477`; r3 rebase onto `21161b101`; no other commits in `git log --oneline origin/develop..HEAD`.
 
 - Planning repo: cut from `origin/main` at claim time (`a82cdc06` includes the claim); evidence commits listed via ls-remote below.
-- `git ls-remote origin refs/heads/main` in baseharbor-plan, pasted as second-to-last action: (see END section)
+- `git ls-remote origin refs/heads/main` in baseharbor-plan, pasted as second-to-last action: `8bfbb1340cfbc4be3468d23f98357de85aba64a4	refs/heads/main`; path verified on origin/main via `git ls-tree -r --name-only origin/main -- evidence/r28-welle4-2026-11-19/dualmatch-docs` → `evidence/r28-welle4-2026-11-19/dualmatch-docs/fix-1.md`.
 - Product candidate: `864fdcd3a71c83d1fd2a5ae9a3304b23a5cefd6c` on `lane-0428-126-dualmatch-docs`, pushed to `origin` (mcpdev80/baseharbor); PR https://github.com/mcpdev80/baseharbor/pull/1696 against develop. Card state at review; merge is the Codex acceptance step, not this lane's.
 
 ## Hosted CI terminal result (exact head 864fdcd3a71c83d1fd2a5ae9a3304b23a5cefd6c)
