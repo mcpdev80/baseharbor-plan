@@ -15,17 +15,19 @@ kanban_title: 0428-121 · Env-Filter wirkt nicht auf
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1691]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1691"]
 ---
 
 - [ ] t-20261119-hunt-metrics-env-filter-list-pfade · Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** mission-efilter  
+    **PR:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1691)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -34,7 +36,7 @@ evidence: []
 **Depends on:** none  
 **Owner:** mission-efilter  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
 **Source:** 
 <!-- /generated:links -->
 
