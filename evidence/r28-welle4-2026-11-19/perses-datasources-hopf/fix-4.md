@@ -156,13 +156,15 @@ observed output above; the cell is CI-executable via the opt-in env once a gate 
 2. gap proof (grep chain before): internal/application empty — done (see above)
 3. part 1 apply-boundary call site via cycle-free seams + registration from metrics init — done
 4. part 2 read-only compose mounts from the materializer path formula, fail-closed — done
-5. part 3 docker-gated container acceptance: LOADED + proxy query + TLS fail-closed — done (green locally)
+5. part 3 docker-gated container acceptance: LOADED + proxy query + TLS fail-closed — done (green locally, 3 runs)
 6. stale-generation hardening + regression test — done (2a112434)
-7. focused checks (unit Perses, build, vet, gofmt, readability) — done
-8. hopf onto 859654861 and 1019190d as merge commits — done
-9. push with ancestor witness on a9befb31 — done (a9befb31..2a112434 fast-forward push)
-10. exact-head CI watch to terminal + finding for the runtime-gate skip — done
-11. evidence fix-4.md in /var/tmp/plan-083-clone, push origin/main, END post — done last
+7. focused checks (unit Perses, build, vet, gofmt, readability) — done on final tree
+8. hopf onto 859654861, 1019190d and c296086c as merge commits (no force) — done
+9. push with ancestor witness on a9befb31 — done (a9befb31..24cd5f45 monotone chain)
+10. exact-head CI watch to terminal + finding for the runtime-gate skip — done (run 44573407736 success; 44570550143 failure = machinehttp flake, documented)
+11. evidence fix-4.md in /var/tmp/plan-083-clone, push origin/main (7a4dbf43) — done
+12. GUI todo file workers/todos/mission-083-runtime-call-site.md.json synced to this PLAN (AGENTS §4.4) — done
+13. END post to coordinator 9142ab1f-c464-4f2f-abc8-d6997d8655ae — done last
 
 ## repo-rule compliance
 
