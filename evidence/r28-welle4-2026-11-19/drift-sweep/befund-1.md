@@ -135,4 +135,13 @@ cleanliness: diese Lane hat nichts gestartet und nichts zu tear down; nothing to
 
 ## Candidate
 
-Kein Produktkandidat (read-only mission). Evidence-Commit folgt (push-Zeuge unten, VOR END-Post).
+Kein Produktkandidat (read-only mission — KEIN push an ein produkt-repo, nur evidence in baseharbor-plan).
+
+Evidence-auf-origin/main-Zeuge (gemessen VOR diesem END-Post, second-to-last action):
+
+    $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-remote origin main
+    80bbb43bd5bd34c81ca5316df5f8f870d717cd85	refs/heads/main
+
+Evidence-commit: 80bbb43bd5bd34c81ca5316df5f8f870d717cd85 (pfad evidence/r28-welle4-2026-11-19/drift-sweep/befund-1.md, geaendert in diesem commit; push 3791d9e6..80bbb43b main -> main).
+
+END (this lane) DONE mission-drift-sweep.md: Drift sweep ueber 25 LEBEND-kandidaten fertig — 20 konflikt-frei (4 base-exakt: #1691/#1697/#1692/#1695), 5 mit merge-tree-konflikt gegen develop (#1645/#1613/#1598/#1597/#1615); 121-serial-abhaengig: #1692/#1693/#1695 (registry.go, prometheus_verify.go); hartester schreibset-cluster: perses {1645,1613,1598,1597} je 20 dateien; akte 80bbb43b auf origin/main.
