@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w086-0428-086-lokisource (laptop, filled by coord)
-kanban_status: review
-kanban_lane: review
+owner: w086-0428-086-lokisource (codeman e7dfe31a, laptop)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Provision selected authorized Loki datasource via supported Perses plugin, scoped and verified."
 kanban_title: 0428-086 · Connect Perses Loki
 priority: normal
@@ -23,19 +23,19 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob//evidence/r28-welle4-2026-11-19/codex-review-wave/1616-0428-086.md"]
 ---
 
-- [ ] t-20261114-r28-perses-loki-source · Connect Perses Loki #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [ ] t-20261114-r28-perses-loki-source · Connect Perses Loki #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** w086-0428-086-lokisource (laptop, filled by coord) · **Priority:** normal  
+    **Owner:** w086-0428-086-lokisource (codeman e7dfe31a, laptop) · **Priority:** normal  
     **PR:** [baseharbor#1616](https://github.com/mcpdev80/baseharbor/pull/1616)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob//evidence/r28-welle4-2026-11-19/codex-review-wave/1616-0428-086.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
 **Required by:** [t-20261114-r28-perses-log-trace-dash](t-20261114-r28-perses-log-trace-dash.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** w086-0428-086-lokisource (laptop, filled by coord)  
+**Owner:** w086-0428-086-lokisource (codeman e7dfe31a, laptop)  
 **Priority:** normal  
 **PRs:** [baseharbor#1616](https://github.com/mcpdev80/baseharbor/pull/1616)  
 **Source:** 
@@ -82,3 +82,7 @@ CODEX-REVIEW welle 4 = ACCEPT (urteilsdatei 1616-0428-086.md): inhalt + running 
 Laptop 2: PR #1616 ist draft=false/state open, aber es lief keine session mehr dazu (karte hing auf review mit owner coord = vorgemerkt, nicht bestaetigt — jetzt berichtigt). write-set disjunkt gemessen: internal/logs/loki_datasource.go, internal/logs/loki_test.go, internal/logs/runtime_log_source_snapshot.go + testdata; merge-tree gegen develop fac01c772 = 0 konflikte. abgrenzung: NICHT internal/metrics/perses_prometheus_datasource* (083 busy), NICHT cmd/baha/** oder docs/cli/** (084/089), NICHT registry.go (123), NICHT cmd/baha/app_status_result.go (reserviert fuer 062/#1614 und 142). inhalt: der loki-adapter muss die echte backend-witness fuer 'perses status' liefern (verfuegbarkeit pro backend, nicht global) — das ist der 077-fund, der bereits auf karte t-20261119-r28-perses-status-backend-witness (0428-142) steht
 
 PR #1616 head ed401f460, CI run 44548246953 terminal SUCCESS 13success/17skipped 0fail; CODEX-REVIEW welle4 ACCEPT at 7d6538b45; hopf develop fac01c77 content-preserving 4-file write-set
+
+REVIEW ZURUECKGENOMMEN (die lane hatte sie selbst auf review gesetzt, bevor der befund vorlag) — grund ist ein gemessener funktionaler defect an ihrem kopf, von mir wörtlich gelesen in internal/logs/loki_datasource.go:318 'func persesLokiDatasourceQuery': 'matchers = append(matchers, fmt.Sprintf("baseharbor_application=%q,baseharbor_service=%q", …))' und 'query := "{" + strings.Join(matchers, ",") + "}"'. Bei zwei oder mehr quellen entstehen doppelte label-namen in EINEM selector; LogQL liest das als gleichzeitige matcher, nicht als vereinigung — ein gesunder Loki mit mehreren quellen liefert dann KEIN matching stream. ihre tests seeden bisher eine quelle und pruefen nie die composition, therefore ist der gruene lauf 44548246953 ('PR Selected Checks' success) korrekt, deckt den fall aber nicht. MEINE ANWEISUNG: EIN queryStream-aufruf pro freigegebener quelle mit je einem gueltigen selector + health-policy nach Loki-dokumentation (wahr nur bei echtem matching stream, fehler weitergeben wenn keine quelle matcht) + ein mehrquellen-test, dessen fake die empfangenen queries aufzeichnet und (i) zwei verschiedene selector, (ii) keinen doppelten label-namen, (iii) kein 'or' zwischen stream selectors, (iv) fehlertrennung beweist. WICHTIG: meine ERSTE anweisung nannte '{a} or {b}' als option — das war von mir FALSCH und ist zurueckgenommen (LogQL: jede log query enthaelt genau EINEN log stream selector; 'or' gilt fuer label-filter ausdruecke in einer pipeline, quelle https://grafana.com/docs/loki/latest/query/log_queries/). die lane hat die korrektur vor dem ersten build erhalten
+
+REVIEW-ZURUECKNAHME (die lane hatte sie selbst auf review gesetzt, main f2d606f3). grund 1, gemessen an ihrem kopf: internal/logs/loki_datasource.go:318 'func persesLokiDatasourceQuery' haengt matcher mit strings.Join(matchers, ',') zu EINEM selector zusammen — bei zwei oder mehr quellen entstehen doppelte label-namen im selben selector, und LogQL liest das als gleichzeitige matcher statt als vereinigung, therefore liefert ein gesunder Loki mit mehreren quellen KEIN matching stream. ihre tests seeden EINE quelle, therefore ist der gruene lauf 44548246953 richtig, deckt den fall aber nicht. grund 2, veralteter base: develop 1019190d8dc0ecac7693f3461153e76be0e2cb8a, PR 'behind' (von mir gegen gelesen), therefore ist der alte lauf keine abnahme. WIDERRUF VON MIR: meine erste anweisung nannte '{a} or {b}' als option — falsch, LogQL hat pro log query genau EINEN log stream selector, 'or' gilt nur fuer label-filter ausdruecke in einer pipeline (https://grafana.com/docs/loki/latest/query/log_queries/). BEFOHLEN: EIN queryStream pro quelle mit je einem gueltigen selector, health-policy nach dokumentation, mehrquellen-test MIT AUFRUFAUFZEICHNUNG; EIN monotoner hopf auf develop; frischer exaktkopf-lauf bis terminal
