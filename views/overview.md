@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 11 |
-| review | 5 |
+| active | 10 |
+| review | 6 |
 | wait | 16 |
 | blocked | 8 |
 | ready | 5 |
@@ -31,7 +31,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | CLI redesign: Organization environment reconciliation | active | high | welle2-056-cli2-org-env | [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) (open) | — |
 | [t-20261114-r28-perses-alerts](../tasks/t-20261114-r28-perses-alerts.md) | Define and provision alert rules | active | normal | w073-pr1613-persesalerts (codeman c74a1fe2, ornith:2) | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) (open) | [baseharbor#1613](https://github.com/mcpdev80/baseharbor/pull/1613) |
 | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | Connect Perses Prometheus | active | normal | 0428-083 lane (codeman 5447f0df, flash) — korrekturrunde: gate-zuordnung | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684) |
-| [t-20261119-hunt-metrics-registration-visibility-only](../tasks/t-20261119-hunt-metrics-registration-visibility-only.md) | Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export | active | not set | w123-0428-123-regvisibility (codeman c5d271cb, laptop) — korrekturrunde | — | [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693) |
 | [t-20261119-r28-bughunt-lifecycle-consent-desk](../tasks/t-20261119-r28-bughunt-lifecycle-consent-desk.md) | hunt lifecycle/consent desk | active | not set | Coordinator 9142ab1f (bahn: hunt-lane auf ornith:2, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/) | — | — |
 | [t-20261119-r28-bughunt-observability-desk](../tasks/t-20261119-r28-bughunt-observability-desk.md) | hunt observability desk | active | not set | Coordinator 9142ab1f (bahn: hunt-lane auf ornith:1, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/) | — | — |
 | [t-20261119-r28-perses-status-backend-witness](../tasks/t-20261119-r28-perses-status-backend-witness.md) | CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben | active | not set | laptop-142-statuswitness (codeman 3839712e, laptop) | — | [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702) |
@@ -43,6 +42,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-perses-dashboard-databases](../tasks/t-20261114-r28-perses-dashboard-databases.md) | Perses database dashboards | review | normal | coord | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597) |
 | [t-20261114-r28-perses-dashboards](../tasks/t-20261114-r28-perses-dashboards.md) | Perses infrastructure dashboards | review | normal | coord | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md), [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) (open) | [baseharbor#1665](https://github.com/mcpdev80/baseharbor/pull/1665) |
 | [t-20261119-ci-gate-catalog-lint-reconcile](../tasks/t-20261119-ci-gate-catalog-lint-reconcile.md) | CI: reconcile catalog lint guard on current develop | review | not set | Codex team (current thread) | — | [baseharbor#1581](https://github.com/mcpdev80/baseharbor/pull/1581) |
+| [t-20261119-hunt-metrics-registration-visibility-only](../tasks/t-20261119-hunt-metrics-registration-visibility-only.md) | Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export | review | not set | w123-0428-123-regvisibility (codeman c5d271cb, laptop) — korrekturrunde | — | [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693) |
 | [t-20261119-hunt-metrics-verification-none-blind](../tasks/t-20261119-hunt-metrics-verification-none-blind.md) | verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe | review | not set | 0428-124 r2 (codeman 7110b25d, entlassen) — r3 wartet auf freien sitz | — | [baseharbor#1695](https://github.com/mcpdev80/baseharbor/pull/1695) |
 | [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | review | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) (open) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
 
