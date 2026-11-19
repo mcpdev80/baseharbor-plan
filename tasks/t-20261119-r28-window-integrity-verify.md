@@ -9,8 +9,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: "w150-prverify-window (codeman, laptop:2)"
-kanban_status: active
-kanban_lane: active
+kanban_status: planned
+kanban_lane: ready
 blocker: ""
 wait_reason: ""
 depends_on: []
@@ -24,14 +24,15 @@ resolution: ""
 created: 2026-11-19
 ---
 
-- [ ] t-20261119-r28-window-integrity-verify · fensterstand gegen abnahmebelege pruefen #task #release/v0-4-28 #status/active #view/active #area/ci #area/coordination #kind/task
+- [ ] t-20261119-r28-window-integrity-verify · fensterstand gegen abnahmebelege pruefen #task #release/v0-4-28 #status/planned #view/ready #area/ci #area/coordination #kind/task
     <!-- generated:card -->
     **Owner:** w150-prverify-window (codeman, laptop:2)  
+    **Ready to assign** · prerequisites accepted  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/window-integrity/verify-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w150-prverify-window (codeman, laptop:2)  
@@ -60,3 +61,5 @@ Der develop-Stand des merge-fensters (223cb97a9) enthaelt heute gemergte karten 
 
 - **Modified features:** keine (read-only). Die pruefung uses 'git ls-tree'/'git cat-file -p' gegen develop und die PR-heads, plus 'gh api' fuer lauf-id und conclusion.
 - **CI integration:** die pruefung loest KEIN produkt-CI aus; ein 'go test ./...' -lauf ist ausdruecklich NICHT gefordert (kein produktwechsel).
+
+zurueckgesetzt auf planned: der einzige freie sitz (laptop:2) ging an die korrekturrunde 0428-142 (echte kartenarbeit vor verify-auftrag, §3.3#5 reihenfolge). karte bleibt als fenster-nachweis offen, naechster freier sitz.
