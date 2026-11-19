@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: 0428-128-probe (codeman 6637b11b)
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-128 · Docker-lebenszyklus-beleg vor
 priority: ""
@@ -17,20 +17,22 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: "owner-scope, zwei symptome EINE korrekturklasse: (1) .github/workflows/docker-runtime-acceptance.yml — der job 'docker-runtime' (zeilen 174-330) hat KEINEN ORAS-install-schritt, die install-zeilen 127-128 liegen nur im push-job, if-bedingung 174-175 laesst im dispatch-pfad den unvorbereiteten job laufen -> exact-head-dispatch bricht in app_repository_integration_test.go:27 'ORAS is required' (belege runs 44463592314/44464060182 rot gegen 44461341870/44467228776 gruen, akte probe-1.md origin/main 57ffc7c6). (2) TestPersesRuntimeSmokeDockerIsolated hat keinen gemappten CI-trigger (BASEHARBOR_PERSES_RUNTIME_SMOKE ungesetzt, PR-checks skippen die native zelle) -> blockiert 0428-088/#1592 (CODEX-REVIEW head 76331c7d8, exact CI 44467712113 SUCCESS). korrektur = install-schritt in den docker-runtime-job + gate-map in scripts/pr-gate-coverage.json. danach sind 119 (#1690) und 088 (#1592) sofort abnahmefaehig"
+blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: superseded
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/docker-gate-wiring/probe-1.md"]
+superseded_by: t-20261117-observability-native-gate-bootstrap
+
 ---
 
-- [ ] t-20261119-coord-r28-docker-gate-oras-wiring · Docker-lebenszyklus-beleg vor dem merge nicht fahrbar (ORAS trust-plane + targeted-integration integriert-only) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [x] t-20261119-coord-r28-docker-gate-oras-wiring · Docker-lebenszyklus-beleg vor dem merge nicht fahrbar (ORAS trust-plane + targeted-integration integriert-only) #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** 0428-128-probe (codeman 6637b11b)  
-    **Blocker:** owner-scope, zwei symptome EINE korrekturklasse: (1) .github/workflows/docker-runtime-acceptance.yml — der job 'docker-runtime' (zeilen 174-330) hat KEINEN ORAS-install-schritt, die install-zeilen 127-128 liegen nur im push-job, if-bedingu…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/docker-gate-wiring/probe-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** superseded  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** 0428-128-probe (codeman 6637b11b)  
@@ -94,3 +96,5 @@ diagnose-phase laeuft (read-only A/B-probe: develop-push-route SUCCESS vs dispat
 A/achse fernbelegt: dispatch auf develop-kopf 44466684726 FAILURE vs push auf develop 44461341870/44467228776 SUCCESS — pfad-abhaengig, nicht kandidaten-abhaengig. lane liefert nur noch den trennenden schritt mit datei:zeile + akte probe-1.md. korrektur selbst bleibt owner-scope (.github dispatch-pfad + runner-ORAS)
 
 probe geliefert (read-only, host besenrein), keine produkt-aenderung, keine duplikate. nach der owner-korrektur ist der exact-head-beleg fuer #1690 (119) sofort nachfahrbar
+
+inhaltlich in 0428-114 uebernommen (ORAS-install im docker-runtime-job + gate-map fuer TestPersesRuntimeSmokeDockerIsolated) — eine owner-aenderung statt zweier schriebe in scripts/pr-gate-coverage.json. probe-akte bleibt der beleg, 119/088 verweisen auf 114

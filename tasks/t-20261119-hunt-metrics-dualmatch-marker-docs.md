@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: accepted
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/dualmatch-docs/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1696", "https://github.com/mcpdev80/baseharbor/actions/runs/44471319498"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/dualmatch-docs/fix-1.md", "https://github.com/mcpdev80/baseharbor/pull/1696", "https://github.com/mcpdev80/baseharbor/actions/runs/44471319498", "https://github.com/mcpdev80/baseharbor/commit/da76c5cf9"]
 ---
 
 - [x] t-20261119-hunt-metrics-dualmatch-marker-docs · Warning/Achtung dual-match: ein CLI-Stadium druckt kein Warning + EN-Normdoku hinter rename zurueck #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** 0428-126 (codeman 5f65f620)  
     **PR:** [baseharbor#1696](https://github.com/mcpdev80/baseharbor/pull/1696)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/dualmatch-docs/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1696), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44471319498)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/dualmatch-docs/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1696), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44471319498), [proof 4](https://github.com/mcpdev80/baseharbor/commit/da76c5cf9)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -84,3 +84,5 @@ Erlaubtes write-set (vorschlag, lane prueft): docs + CLI marker stage. Evidence-
 126 abgegeben: Warning-marker wird in jedem annerkennenden CLI-stadium gedruckt (nur repraesentation, gate-semantik unveraendert) + EN-normdoku auf den i18n-rename gezogen. kandidat 864fdcd3a auf lane-0428-126-dualmatch-docs, PR #1696, run 44471319498 (alle selected checks pass), akte dualmatch-docs/fix-1.md origin/main daceecb5. folgearbeit gemeldet: demo drive.py matcher-pattern (eigene karte im demo-repo)
 
 CODEX-REVIEW: ACCEPT at exact head 864fdcd3a71c83d1fd2a5ae9a3304b23a5cefd6c. The marker is present at acknowledgement stages and consent semantics are unchanged; EN normdocs align to Warning. Exact-head run 44471319498 SUCCESS (34.13 summed hosted runner-minutes); PR Selected Checks app 15368. CODEX-MERGE: squash merge da76c5cf9c963207038d5599bd130b89ecb1e8a4 verified as develop head. Follow-up card 0428-129 covers the demo drive.py matcher; current origin/main card still shows unassigned, so confirm its claim/status.
+
+126 gemergt: PR #1696 (kopf 864fdcd3a) ist als da76c5cf9 auf develop (Warning-marker in jedem annerkennenden stadium, gate-semantik unveraendert + EN-doku). follow-karte 0428-129 (demo drive.py matcher) laeuft bereits auf dieser grundlage

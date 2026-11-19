@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: "lane-113-pr1680-fixes (this session, intake per Hunt→Karte duty)"
+owner: "Owner-Ausfuehrung (.github/scripts); umfang vom Coordinator erweitert 2026-11-19 (beleg: 0428-128 probe-1.md 57ffc7c6)"
 kanban_status: active
 kanban_lane: active
 kanban_summary: "Make the existing observability runtime acceptance runnable and selectable for application observability changes, so the Loki…"
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261117-observability-native-gate-bootstrap · CI: Run observability acceptance with verified ORAS bootstrap #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** lane-113-pr1680-fixes (this session, intake per Hunt→Karte duty)  
+    **Owner:** Owner-Ausfuehrung (.github/scripts); umfang vom Coordinator erweitert 2026-11-19 (beleg: 0428-128 probe-1.md 57ffc7c6)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -33,7 +33,7 @@ evidence: []
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261117-docker-loki-ingestion-timeout](t-20261117-docker-loki-ingestion-timeout.md)  
-**Owner:** lane-113-pr1680-fixes (this session, intake per Hunt→Karte duty)  
+**Owner:** Owner-Ausfuehrung (.github/scripts); umfang vom Coordinator erweitert 2026-11-19 (beleg: 0428-128 probe-1.md 57ffc7c6)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -46,7 +46,10 @@ Make the existing observability runtime acceptance runnable and selectable for a
 ## Scope
 
 - In scope: add the existing verified ORAS installation step to observability-acceptance.yml; route the relevant internal/application observability source/test paths through the existing atomic/docker/observability and atomic/podman/observability gates; add focused selector/workflow regressions and verify positive and negative selection.
-- Out of scope: new gates or CI framework, weakening Loki or consent assertions, changing security.go, full-release qualification.
+- Out of scope: new gates or CI framework, weakening Loki or consent assertions, changing security.go, full-release qualification; das Postgres-image bleibt non-root (owner-vorgabe 2026-11-19).
+- Erweiterter umfang (Coordinator-entscheid 2026-11-19, delegation des owners): dieselbe korrekturklasse fuer die zwei funde aus 0428-128 — (a) `.github/workflows/docker-runtime-acceptance.yml`: der job `docker-runtime` (zeilen 174-330) erhaelt den existierenden ORAS-install-schritt `bash scripts/ci-install-oras.sh` (genau die zeile, die im push-job zeile 128 steht), damit der exact-head-dispatch-pfad den runtime-test mit trust-plane ausfuehrt; (b) `scripts/pr-gate-coverage.json`: ein gemappter trigger fuer `TestPersesRuntimeSmokeDockerIsolated` (BASEHARBOR_PERSES_RUNTIME_SMOKE), damit die native perses-zelle in den PR-checks laeuft statt still skipped.
+- Akzeptanz-erweiterung: nach diesem change sind (i) auf #1690 (0428-119) und (ii) auf #1592 (0428-088) exact-head docker-runtime-zeugen produzierbar; die beiden karten bleiben bis dahin blocked mit ZWEIFEL.
+
 
 ## Acceptance
 
@@ -74,3 +77,5 @@ Make the existing observability runtime acceptance runnable and selectable for a
 ## Handoff
 
 ZWEIFEL queued for the existing CI owner. Exact failure evidence is in runs 44057402207, 44057603711 and 44057705927. Product PR #1680 remains open pending proper runtime acceptance.
+
+reichweite erwisert (entscheid statt sequenzierung): 114 besitzt jetzt beide 128-symptome mit datei:zeile. grund: 114 hat keinen lebenden sitz und keinen PR (nur ein nominaler owner-vermerk), eine sequenzierung 'warte auf 114, dann 128' wuerde 119/088 unbefristet blockieren; zugleich wuerde eine separate 128-aenderung dieselbe coverage-map zwei mal anfassen
