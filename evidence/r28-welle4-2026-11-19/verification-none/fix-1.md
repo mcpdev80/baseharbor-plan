@@ -46,15 +46,23 @@
 - No `.github/**` change needed: the new test rides the existing `go test ./...` unit gate, so it is durable CI evidence.
 - Affected source files only: `internal/metrics/{prometheus.go, prometheus_files.go, prometheus_verify.go}` + `cmd/baha/app_metrics.go` (CLI [STATE] surface) + `internal/metrics/verify_none_red_test.go`.
 
-## Verification (local, exact head 84911f99e)
+## Verification (local, exact head cc25c17e1 — after rebase onto develop deeeb6477)
 
+### Local
 - `go build ./...` => exit 0
 - `go vet ./...` => exit 0
 - `go test ./internal/metrics/...` => ok (existing workload-only + verify suites still pass)
 - `go test ./cmd/baha/ -run 'Metrics|Observab'` => ok (metrics/observability CLI surface incl. verify path)
 - New counter tests: `TestRedAllVerificationNoneHasNoCompositionCounter`, `TestVerificationNoneCompositionReportsNullTargetState`, `TestEnsureProviderFilesCompositionStateCarriesState` => PASS
-- Full suite `go test ./...` => expensive (large product); targeted packages green, which cover all changed code paths.
 - `gofmt -l internal/metrics/` => clean
-- Branch history: single commit `84911f99e` on exactly `ec592fd38`; `git merge-base --is-ancestor ec592fd38 HEAD` => YES; `git diff --stat ec592fd38 84911f99e` => only the 4 intended files, no foreign commits.
-- Remote: `git ls-remote origin lane-0428-124-metrics-verification-none` => `84911f99e...` (matches local head).
-- Evidence on `origin/main`: `evidence/r28-welle4-2026-11-19/verification-none/fix-1.md` present (HEAD `dc45bbc2`).
+
+### Hosted CI (run 44462738608, URL https://github.com/mcpdev80/baseharbor/actions/runs/44462738608)
+- Head: `cc25c17e17d989710923b93d7e629b14a3c0a3e0` (PR #1695, base develop)
+- Run conclusion: **success** (terminal; all non-skipped jobs pass)
+- Relevant jobs: `PR · Validation · go-build` success · `PR · Validation · go-vet` success · `PR · Go unit · owner` success · `PR · Go unit · packages` success (selects internal/metrics) · `PR · Go unit · cli-0..3` success · `PR · Native gate plan` success · `PR · Focused Python` success · `PR · Source format` success · `PR · Trusted Plan` success · `Workflow policy` success. Native/release gates skipped (not applicable to pure Go change).
+- CI gate mapping (via `scripts/pr-gate-plan.py`): `coverage_status=resolved`, required checks `go-build`/`go-unit-tests`/`go-vet` (`go test ./...` selects internal/metrics, so the new test runs under CI). No `.github/**` change needed.
+
+### Branch provenance
+- Base: `ec592fd3852328439ae9de8763c816ae9dd88dcc`; develop at time of work: `deeeb64778b3f6109d3a8e49fd652d490901e89c` (only 115-docs added, no conflict).
+- Single commit `cc25c17e1` rebased onto `origin/develop`; `git merge-base --is-ancestor origin/develop HEAD` => YES; `git diff --stat origin/develop HEAD` => only the 4 intended files, no foreign commits.
+- PR: https://github.com/mcpdev80/baseharbor/pull/1695 (base develop, head lane-0428-124-metrics-verification-none, not a draft).
