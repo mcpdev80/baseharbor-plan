@@ -13,23 +13,24 @@ depends_on: []
 blocked_by: []
 superseded_by: []
 owner: w158-pr0428-158-symhunt
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-source-symlink/round-1.md"]
 prs: []
 created: 2026-11-20
 wait_reason: ""
 
 ---
-- [ ] t-20261120-r28-bughunt-source-symlink-slice · source-model- und symlink-flaeche befunden #task #release/v0-4-28 #status/active #view/active #area/application #area/cli #area/security #kind/task
+- [x] t-20261120-r28-bughunt-source-symlink-slice · source-model- und symlink-flaeche befunden #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/application #area/cli #area/security #kind/task
     <!-- generated:card -->
     **Owner:** w158-pr0428-158-symhunt  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-source-symlink/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w158-pr0428-158-symhunt  
@@ -53,3 +54,5 @@ keine Produktaenderung. Funde gehen als eigene Karten zurueck an den Coordinator
 ## Akte
 
 evidence/r28-welle4-2026-11-19/bughunt-source-symlink/round-1.md
+
+jagd H-V9 BEFUNDBLOS, vier szenen je mit datei:zeile (S1 entwicklungResolveWorkspace/resolveContainedWorkspaceDirector, S2 internal/development/source.go:174-176 uniqueness, S3 machine_coverage.go :95/:133/:189 gegen den kommando-baum, S4 wizard/mcp-validierungs-helfer), akte 5917 bytes auf main 1c01f635, checkboxen null, besenrein. Fund→Karten-pflicht: kein fund, keine neue karte. Der inhaltliche wert: der 059-und-#1706-merge ist damit von zwei seiten befunden (destroy-pfade durch 157, quelle/pfade durch 159-vorgaenger 158)
