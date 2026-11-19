@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 12 |
-| review | 25 |
+| active | 13 |
+| review | 24 |
 | wait | 13 |
 | blocked | 2 |
 | ready | 1 |
@@ -36,6 +36,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-coord-live-verify-chain1](../tasks/t-20261119-coord-live-verify-chain1.md) | Live-Verify-Kette 1: accepted-Inhalte der Welle gegen den lebenden develop pruefen | active | not set | w99-0428-verify2 (codeman 9ca0132d) | — | — |
 | [t-20261119-hunt-metrics-appclass-log-writer](../tasks/t-20261119-hunt-metrics-appclass-log-writer.md) | Klasse application hat keinen production writer fuer LOG-Quellen (silent-success zweifach) | active | not set | w99-0428-122 (codeman 5350d482) | — | [baseharbor#1692](https://github.com/mcpdev80/baseharbor/pull/1692) |
 | [t-20261119-hunt-metrics-dualmatch-marker-docs](../tasks/t-20261119-hunt-metrics-dualmatch-marker-docs.md) | Warning/Achtung dual-match: ein CLI-Stadium druckt kein Warning + EN-Normdoku hinter rename zurueck | active | not set | dualmatch-lane | — | — |
+| [t-20261119-hunt-metrics-verification-none-blind](../tasks/t-20261119-hunt-metrics-verification-none-blind.md) | verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe | active | not set | w99-0428-124 (codeman 2a92c21e) | — | [baseharbor#1695](https://github.com/mcpdev80/baseharbor/pull/1695) |
 
 ## Ready for review
 
@@ -65,7 +66,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-hunt-metrics-env-filter-list-pfade](../tasks/t-20261119-hunt-metrics-env-filter-list-pfade.md) | Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) | review | not set | w99-0428-121 (codeman 0a79da12) | — | [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691) |
 | [t-20261119-hunt-metrics-registration-visibility-only](../tasks/t-20261119-hunt-metrics-registration-visibility-only.md) | Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export | review | not set | w01-0428-123 (codeman 1e209bb7) | — | [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693) |
 | [t-20261119-hunt-metrics-target-env-key-asymmetry](../tasks/t-20261119-hunt-metrics-target-env-key-asymmetry.md) | Runtime-metrics target-file-key fuehrt environment nicht, group-label schon — asymmetrische Zuordnung | review | not set | w99-0428-125 (codeman e409b9b1) | — | [baseharbor#1694](https://github.com/mcpdev80/baseharbor/pull/1694) |
-| [t-20261119-hunt-metrics-verification-none-blind](../tasks/t-20261119-hunt-metrics-verification-none-blind.md) | verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe | review | not set | w99-0428-124 (codeman 2a92c21e) | — | [baseharbor#1695](https://github.com/mcpdev80/baseharbor/pull/1695) |
 
 ## Waiting for resources
 
