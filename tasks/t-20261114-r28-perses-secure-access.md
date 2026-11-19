@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0428-089 korrektur (codeman b60c11a1, flash) — unabhaengige abnahme laeuft
-kanban_status: review
-kanban_lane: review
+owner: 0428-089 korrektur (codeman b60c11a1, flash) — zwei production-blocker, retaskiert
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Integrate Perses with existing management access, verified transport and authorization; inspect selected upstream version…"
 kanban_title: 0428-089 · Protect Perses operator access
 priority: normal
@@ -23,19 +23,19 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5027ca029761ebf485b06a/evidence/r28-welle1-2026-11-15/perses-secure-access/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1599-0428-089.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44544947599", "https://github.com/mcpdev80/baseharbor/actions/runs/44551362534"]
 ---
 
-- [ ] t-20261114-r28-perses-secure-access · Protect Perses operator access #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [ ] t-20261114-r28-perses-secure-access · Protect Perses operator access #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-089 korrektur (codeman b60c11a1, flash) — unabhaengige abnahme laeuft · **Priority:** normal  
+    **Owner:** 0428-089 korrektur (codeman b60c11a1, flash) — zwei production-blocker, retaskiert · **Priority:** normal  
     **PR:** [baseharbor#1599](https://github.com/mcpdev80/baseharbor/pull/1599)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5027ca029761ebf485b06a/evidence/r28-welle1-2026-11-15/perses-secure-access/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1599-0428-089.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44544947599), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44551362534)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
 **Required by:** [t-20261114-r28-perses-contact-routing](t-20261114-r28-perses-contact-routing.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** 0428-089 korrektur (codeman b60c11a1, flash) — unabhaengige abnahme laeuft  
+**Owner:** 0428-089 korrektur (codeman b60c11a1, flash) — zwei production-blocker, retaskiert  
 **Priority:** normal  
 **PRs:** [baseharbor#1599](https://github.com/mcpdev80/baseharbor/pull/1599)  
 **Source:** 
@@ -99,3 +99,5 @@ REIHENFOLGE ERFUELLT (beide notizen waren meine, hier zusammengefuehrt): STAND 1
 BOARD AUF TERMINALEN STAND (mein vorheriger text meldete 'lauf pending' — das war beim lesen um 15:1xZ bereits ueberholt): lauf 44551362534 = completed SUCCESS, updated 15:13:47Z, head ed7f448f6a84a6ed917260cd4186a2a122a077ed, 0 fehljobs, 'PR · Native gate plan' + 'PR · Source format' success, 'PR · Exact Candidate'/'Release Source Preflight'/native-core zellen skipped (base-plan waehlt sie fuer diese pfade nicht), PR #1599 draft=false, mergeable_state clean. SEQUENZ: ed7f448 hat ausdrtuecklich die eltern 699825206 + 1019190d8, und 'git merge-base --is-ancestor 1019190d8… ed7f448…' = 0 — der merge von #1598 ist also PARENT, die von mir festgelegte reihenfolge #1598 vor #1599 ist erfuellt und es bleibt KEINE sequenz-sperre. karten-depends_on = [perses-contract-seam, perses-runtime]; der seam ist geschlossen und gemergt (#1575 → squash, content in develop), perses-runtime-status siehe vermerk. akte: evidence/r28-welle4-2026-11-19/secure-access-hopf/fix-4.md + fix-5 (ihr letzter hopf), plan-main 4b97a4bc
 
 BOARD AUF TERMINALEN LAUF, vorheriger text meldete 'lauf pending' — ueberholt beim lesen: 44551362534 = completed SUCCESS, updated 15:13:47Z, head ed7f448f6a84a6ed917260cd4186a2a122a077ed, 0 fehljobs; 'PR · Native gate plan' + 'PR · Source format' success, 'PR · Exact Candidate' + 'Release Source Preflight' + native-core zellen skipped (der base-plan waehlt sie fuer diese pfade nicht, also kein fehlender beweis). PR #1599 draft=false, mergeable_state clean, develop unveraendert 1019190d8dc0ecac7693f3461153e76be0e2cb8a. SEQUENZ-SPERRE: KEINE — ed7f448 hat die eltern 699825206 + 1019190d8, 'merge-base --is-ancestor 1019190d8 ed7f448' = 0, der #1598-merge ist PARENT, reihenfolge #1598 vor #1599 erfuellt; karten-depends_on [perses-contract-seam, perses-runtime] sind BEIDE closed (seam gemergt als #1575). Freigabe-punkt ist jetzt allein deine unabhaengige abnahme (code + evidence), kein weiterer PR-hangt davor
+
+RETIERSCHLUESSEL, kein base-thema: kopf ed7f448f ist formal gruen (lauf 44551362534 completed SUCCESS, 0 fehljobs, clean, base develop 1019190d), ABER der owner hat zwei ECHTE blocker gefunden und ich bestaetige beide an der datei. (1) internal/application/runtime_postgres.go:369 ruft in der produktions-komposition weiterhin 'writePersesUIComposeService' (einziger aufruf im zweig, definition perses_runtime.go:61); der gateway-pfad (internal/serviceaccess/perses_gateway.go, network_mode nur in kommentaren :120/:154) wird nicht von der komposition aufgerufen, 'PersesGatewayPlanFor' (perses_management_ui.go:292) ist der UI-/proxy-plan — therefore bindet die ausgelieferte compose Perses auf 0.0.0.0 mit direktem loopback-port. (2) internal/serviceaccess/perses_config_render.go:65 'enable_auth: true' + :67 'encryption_key_file: ' + PersesEncryptionKeyContainerPath (:35 '/etc/perses/…'); 'grep PersesEncryptionKeyContainerPath' liefert NUR konstante, config-zeile, test und ein os.WriteFile in perses_config_render_test.go:114 — KEIN produktions-schreiber/projection/mount, waehrend der capability-vertrag (internal/capability/perses_security.go:53) den start ohne key verweigert. AUFTRAG: produktionskomposition auf gateway-only exposure umstellen + secret-sichere key-erzeugung/projection/read-only-mount (distroless nonroot kann 0600 bind mounts nicht lesen, perses_runtime.go-kommentar beachten) + regression DURCH den produкомpositionspfad fuer (a) gateway-only, (b) key fehlend fail-closed, (c) key vorhanden; gleicher zweig, monoton, kein konkurrierender zweig, kein force; dann neuer exaktkopf-lauf. Freigabe/Merge bleibt beim owner
