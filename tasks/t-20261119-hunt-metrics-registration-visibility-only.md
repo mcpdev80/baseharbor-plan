@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w123-0428-123-regvisibility (codeman c5d271cb, laptop)
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-123 · registry-Eintrag ohne
 priority: ""
@@ -20,17 +20,18 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44557894265"]
 ---
 
-- [ ] t-20261119-hunt-metrics-registration-visibility-only · Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261119-hunt-metrics-registration-visibility-only · Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** w123-0428-123-regvisibility (codeman c5d271cb, laptop)  
     **PR:** [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44557894265)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w123-0428-123-regvisibility (codeman c5d271cb, laptop)  
@@ -87,3 +88,5 @@ REQUEST_CHANGES 'integration readiness' auf b7fd05bee (base-exakt jetzt d751c83b
 r3-fortsetzung auf Laptop 1 (owner-freigabe: resume derselben karte, keine doppel-lane). inhaltlicher kern, von mir fern_belegt: develop hat ueber #1691/#1692 die signaturen von observability.ListMetrics und List auf FUENF argumente gestellt (neu requestedEnvironment), der PR-zweig ruft an vier stellen viert-argtig: internal/metrics/prometheus_files.go:240, :451, internal/metrics/prometheus_verify.go:141, internal/application/runtime_observability_trace_source_test.go:162. das ist eine VERALTETE BASE/API-anderung, kein produktfehler. die lane stellt die aufrufe auf die 5-arg-form, erhaelt die requested-environment-filterung (fail-closed, kein ''-fuellwert) und prueft die abnahme-semantik: app-class-metriken werden auch bei includeApplicationSources=false angehaengt — ScopeApplication als einzige filter-stufe, keine doppelten scrape-targets, keine cross-environment-exposure. qualifizierung: ein lauf auf dem aktuellen base fac01c772, terminales 'PR Selected Checks'-aggregat; SKIPPED ist kein pass
 
 BEHIND bestaetigt (head f3c1bf43bf1a682c29145bf0dade48b319d8e481 gegen develop 1019190d8dc0ecac7693f3461153e76be0e2cb8a); alter lauf 44546638806 ist auf aelterem base gefahren und zaehlt nicht als abnahme (owner-feststellung 15:08Z, von mir gegen gelesen). hopf + frischer exaktkopf-lauf befohlen; inhaltliche forderungen bleiben: exporter-routing (job baseharbor-applications + application/environment/source labels), end-to-end-assertion, duplicate-freiheit, dev/stage-sibling-queLLE; die none-asymmetrie im verifier ist NICHT gegenstand dieser karte (0428-143, angelegt und blocked)
+
+END ANGENOMMEN, alle zeugen von mir im selben schritt gegen gelesen: zweig lane-0428-123-regvisibility = 4f22bf6e92354637367a821318f1dfbd6d1c1515 per ls-remote, develop unveraendert 1019190d8dc0ecac7693f3461153e76be0e2cb8a, 'git merge-base --is-ancestor origin/develop 4f22bf6e' = 0 (monotoner hopf, KEIN rewrite), lauf 44557894265 completed SUCCESS mit 0 fehljobs. AUFGELOEST sind damit die von mir gemessenen punkte: (i) routing — app-class-quellen gehen in den baseharbor-applications-job (prometheus_files.go + die target-globs in prometheus_render.go, statt provider--*.json mit provider-labels), (ii) parity-guard 'source.Verification == capability.ObservabilityVerifyNone' im application-loop (prometheus_verify.go), sodass die parity nicht neu in den timeout laeuft — die vertragsbreitere frage bleibt auf 0428-143, (iii) end-to-end-assertion + duplicate-freiheit, (iv) dev/stage-sibling-queLLE mit 'dev sieht nur dev'. akte: evidence/r28-welle4-2026-11-19/regvisibility-r3/fix-2.md auf plan-main (9 zeilen mit den 40er-shas/lauf-id). DER SITZ BLEIBT BESSETZT bis deine unabhaengige abnahme durch ist; korrekturrunde = dieselbe session. FREMDLANDE, das ich NICHT als erledigt buche: die perses-probe/proto-perses/deny-perses-sonden auf dem host — 123 sagt 'lane 086', 086 sagte vorher 'nicht meine session'; bei meiner messung (16:0xZ) waren bei mir null perses-genannte container und 7+ /var/tmp/confirm-candidate-probe-* auf der platte. zuordnung also UNKLAR, an dich gemeldet (queue580), keine lane loescht fremde container
