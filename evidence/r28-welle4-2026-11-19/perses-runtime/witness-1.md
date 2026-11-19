@@ -259,9 +259,9 @@ precedent with the missing hosted wire as Owner finding 0428-114.
 
 ```
 $ git rev-parse origin/main
-<fill>
+177345848f9f21642dec4f9c636afecc23f82122
 $ git cat-file -e origin/main:evidence/r28-welle4-2026-11-19/perses-runtime/witness-1.md && echo PRESENT
-<fill>
+PRESENT
 ```
 
 The initial evidence commit is `073e13e9` (single evidence-file commit, parent

@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: ci-intake-audit (codeman 7add5c03-efa6-49d9-a355-bfc5f246eca1)
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-133 · tests ohne gemappten trigger —
 priority: ""
@@ -19,17 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/74fa2814evidence"]
 ---
 
-- [ ] t-20261119-coord-r28-ci-intake-audit · CI-aufnahme-audit: tests ohne gemappten trigger (perses-smoke, demo-pr-gate, weitere) — liste mit datei:zeile fuer die gate-map #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261119-coord-r28-ci-intake-audit · CI-aufnahme-audit: tests ohne gemappten trigger (perses-smoke, demo-pr-gate, weitere) — liste mit datei:zeile fuer die gate-map #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** ci-intake-audit (codeman 7add5c03-efa6-49d9-a355-bfc5f246eca1)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/74fa2814evidence)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** ci-intake-audit (codeman 7add5c03-efa6-49d9-a355-bfc5f246eca1)  
@@ -83,3 +84,5 @@ Ein audit ueber die tests des fensters, die auf dem papier existieren, aber von 
 liste je fund: testname, datei:zeile des tests, workflow-/gate-datei mit zeile die ihn NICHT erwaehnt, betroffene karte/PR, vorschlag des passendes gates (existierend, kein neuer gate). akte evidence/r28-welle4-2026-11-19/ci-intake-audit/befund-1.md. KEINE aenderung an .github oder scripts (owner-scope), KEINE neuen gates.
 
 audit laeuft read-only (akte ci-intake-audit/befund-1.md): alle tests des fensters ohne gemappten CI-trigger, inklusive der drei bekannten faelle (perses-smoke, demo pr-gate main-only, pr-gate-coverage ohne perses). kein .github/scripts-eingriff durch die lane — nur die liste fuer deine gate-map
+
+audit abgegeben und verifiziert:akte befund-1.md commit 74fa2814, ancestor von origin/main 36cf77e2. VIER löcher derselben klasse mit datei:zeile: (1) das VOLLE go-unit-suite-lauf 'go test ./...' sitzt in ci.yml:342 hinter einer if-bedingung zeile 259, die pull_request ausschliesst — auf PRs haengt jede Go-unit-abdeckung an der pr_plan-routinen-auswahl (zeile 709, pr_unit_shards/pr_validations/pr_focused), pr_focused (1091) ist eine fixe Python-suite; (2) TestPersesRuntimeSmokeDockerIsolated existiert nur auf dem kandidaten-zweig (internal/application/perses_runtime_test.go auf lane-0428-088, 0 treffer auf develop) und hat KEINEN trigger — genau die §5.3-verletzung, die 088/#1592 blockiert; (3) baseharbor-demo .github/workflows/pr-guided-consent.yml:4-5 triggert nur auf branches:[main]; (4) documentation-audit (ci.yml:1186) wird durch scripts/pr-gate-plan.py:1189-119x fuer docs/internal/*.json nicht ausgewaehlt — blockiert 131/#1697. gegenprobe der methode: TestObservabilityFullStackAcceptanceInCI ist positiv gemappt (observability-acceptance.yml:78 und :186) — die masse ist also nicht pauschal blind. KEIN .github/scripts-eingriff durch die lane, host besenrein
