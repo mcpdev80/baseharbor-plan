@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: docker-checks-jsonl (codeman 272065d5-ee21-491f-ad70-e4e1c0a1cdac)
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-136 · Docker-runtime-job schreibt
 priority: ""
@@ -19,17 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/60a73a18/evidence/r28-welle4-2026-11-19/docker-checks-jsonl/probe-1.md"]
 ---
 
-- [ ] t-20261119-coord-r28-docker-checks-jsonl · Docker-runtime-job schreibt keine tests/*.jsonl — verify-step faehrt mit FileNotFoundError (root-cause + owner-rezept) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261119-coord-r28-docker-checks-jsonl · Docker-runtime-job schreibt keine tests/*.jsonl — verify-step faehrt mit FileNotFoundError (root-cause + owner-rezept) #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** docker-checks-jsonl (codeman 272065d5-ee21-491f-ad70-e4e1c0a1cdac)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/60a73a18/evidence/r28-welle4-2026-11-19/docker-checks-jsonl/probe-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** docker-checks-jsonl (codeman 272065d5-ee21-491f-ad70-e4e1c0a1cdac)  
@@ -83,3 +84,5 @@ Fund F-7 aus dem closeout-heft: der dispatch-lauf 44466684726 ('Runtime · Docke
 akte evidence/r28-welle4-2026-11-19/docker-checks-jsonl/probe-1.md: (1) root-cause mit datei:zeile, (2) der exakte mechanismus, warum 'tests/main.jsonl' fehlt (name der variablen, wo sie gesetzt wird, welche jobs sie setzen und welcher nicht), (3) ein minimales owner-rezept als patch-skizze (kein neuer gate, keine neue zelle), (4) gegenprobe: ein job, bei dem die JSONL-erzeugung FUNKTIONIERT, mit seinem laufenden zeug, (5) auswirkung auf 0428-119/#1690 (exaktkopfiger docker-zeuge) mit klarer aussage. KEIN .github-eingriff durch die lane, kein merge, kein subagent (§4.8), host besenrein.
 
 probe laeuft read-only (akte docker-checks-jsonl/probe-1.md): warum der 'docker-runtime'-job keine tests/main.jsonl schreibt (FileNotFoundError im verify-step, job-log 135366064519) + fehlender ORAS-schritt im selben job (zeilen 174-330) — owner-rezept als patch-skizze, auswirkung auf 0428-119/#1690
+
+probe abgegeben und VON MIR nachgeprueft (akte 60a73a18, ancestor origin/main): root-cause ist ein dead default-ref. meine eigene kontrolle: develop .github/workflows/docker-runtime-acceptance.yml zeile 16 = 'default: release/v0.4.21'; 'git ls-remote origin refs/heads/release/v0.4.21' leer; gh api repos/.../branches/release/v0.4.21 -> 404 'Branch not found'. damit scheitert ein nackter workflow_dispatch an 'Checkout requested ref', alle steps 3-17 werden skipped und der always()-verify-step laeuft auf die fehlende tests/main.jsonl — das ist der FileNotFoundError aus 44466684726, kein test-inhalt. GEGENPROBE der lane: dispatch mit gueltigem SHA-ref -> checkout okay, der fehler wandert nach 'Run runtime integration'. GRENZZEHNUNG: das ORAS-loch ist EIN ANDERER fall (lauf 44464060182, app_repository_integration_test.go:27) und bleibt 0428-114(a). FOLGE: 119/#1690 bleibt blocked (wartet auf 114a), 0428-114 bekommt einen FUENFTEN punkt 'default-ref auf develop setzen' (eine zeile, kein neuer gate, kein mkdir/path-umbau)
