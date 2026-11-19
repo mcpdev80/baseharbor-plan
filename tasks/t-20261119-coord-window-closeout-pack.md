@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: closeout-pack (codeman 59c94cab)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-132 · karten-/PR-/lauf-inventar mit
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-coord-window-closeout-pack · Merge-window closeout-pack v0.4.28: karten-/PR-/lauf-inventar mit fernzeugen #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261119-coord-window-closeout-pack · Merge-window closeout-pack v0.4.28: karten-/PR-/lauf-inventar mit fernzeugen #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** closeout-pack (codeman 59c94cab)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** closeout-pack (codeman 59c94cab)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -79,3 +78,5 @@ One or two sentences: the observable outcome.
 
 ## Purpose (coordination)
 Dachkarte fuer das closeout-heft des merge-windows: je karte status + PR + exakter kopf + terminal-lauf + abnahme-urteil + merge-commit, develop-linie als kette, und die offenen linien mit grund (owner-scope gate-map/ORAS, serielle reihenfolge, abhaengigkeiten). read-only gegen fernzeuge; keine statuswechsel durch die lane.
+
+lane arbeitet das heft plan-only (evidence/r28-welle4-2026-11-19/window-closeout/pack-1.md); keine statuswechsel durch die lane

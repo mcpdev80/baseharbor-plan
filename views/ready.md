@@ -7,4 +7,3 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261119-coord-window-closeout-pack](../tasks/t-20261119-coord-window-closeout-pack.md) | Merge-window closeout-pack v0.4.28: karten-/PR-/lauf-inventar mit fernzeugen | ready | not set | — | — | — |
