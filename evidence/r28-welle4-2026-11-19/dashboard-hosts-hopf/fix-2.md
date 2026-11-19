@@ -268,7 +268,7 @@ lines change; witness in `git diff b6c9702ba c81d1eda8 -- internal/metrics/testd
   `docker network ls` greps for 077/perses/loki/tempo return nothing). No compose project was started
   by this lane on this host or on any SSH test host; no vm-lock was taken.
 - `podman`: not installed on this host (`command not found`), so no podman state can exist here.
-- cleanliness: host left besenrein; work confined to /tmp/opencode/w077-hopf and /var/tmp/plan-077.
+- cleanliness: host left besenrein — AFTER shows exactly the 7 pre-existing foreign bh-local-shared-* containers (7 total), zero lane-owned containers/networks/volumes; podman not installed; the lane worktree /tmp/opencode/w077-hopf was removed after the push (git worktree list shows 0 w077 entries).
 
 ## Evidence-on-origin/main witness (second-to-last action)
 
