@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w073-pr1613-persesalerts (codeman c74a1fe2, ornith:2)
-kanban_status: review
-kanban_lane: review
+owner: w073-pr1704-persesalerts-r3
+kanban_status: active
+kanban_lane: active
 kanban_summary: Define actual alert rule evaluation and persistence using supported existing Prometheus contract or an Owner-approved…
 kanban_title: 0428-073 · Define and provision alert
 priority: normal
@@ -23,20 +23,20 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-alerts-hopf/fix-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1613-alert-contract-review.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1613-0428-073.md"]
 ---
 
-- [ ] t-20261114-r28-perses-alerts · Define and provision alert rules #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [ ] t-20261114-r28-perses-alerts · Define and provision alert rules #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** w073-pr1613-persesalerts (codeman c74a1fe2, ornith:2) · **Priority:** normal  
+    **Owner:** w073-pr1704-persesalerts-r3 · **Priority:** normal  
     **PR:** [baseharbor#1613](https://github.com/mcpdev80/baseharbor/pull/1613), [baseharbor#1704](https://github.com/mcpdev80/baseharbor/pull/1704)  
     **Needs:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-alerts-hopf/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1613-alert-contract-review.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1613-0428-073.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
 **Required by:** [t-20261114-r28-perses-contact-routing](t-20261114-r28-perses-contact-routing.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md), [t-20261117-alert-evaluator-persistence-missing](t-20261117-alert-evaluator-persistence-missing.md), [t-20261117-hunt-signals-105](t-20261117-hunt-signals-105.md)  
-**Owner:** w073-pr1613-persesalerts (codeman c74a1fe2, ornith:2)  
+**Owner:** w073-pr1704-persesalerts-r3  
 **Priority:** normal  
 **PRs:** [baseharbor#1613](https://github.com/mcpdev80/baseharbor/pull/1613), [baseharbor#1704](https://github.com/mcpdev80/baseharbor/pull/1704)  
 **Source:** 
@@ -92,3 +92,5 @@ Independent read-only review of PR #1613 / 0428-073 (2026-11-19): exact run 4449
 korrekturrunde aus der unabhaengigen review 1613: hopf (2 konflikte gemessen) + stub-HONESTIE (perses_prometheus_alerts.go:178-182 return false bleibt, unavailable muss aber ALS unavailable erscheinen) + manifest-selected-pruefung in VerifyPersesAlertEvaluatorHealth :194-212. schreibdisjunkt zu #1684/#1702/#1693 (gemessen, keine ueberlappung)
 
 #1613 ist closed (gemessen state=closed), #1704 ist der nachfolger auf LATEST BASE 6e87ddcb4 mit zwei eltern, konfliktfrei, run 44614171320 success am kopf 90e1f1417; zwei dateien internal/metrics/perses_prometheus_alerts{.go,_test.go}
+
+CODEX 1704 REQUEST CHANGES, ein blocker P1 (gemessen bestaetigbar im urteilstext): selected-pfad perses_prometheus_alerts.go:220-222 textet 'fails closed (not_enabled)' statt des verlangten 'unavailable (owner-gated evaluator contract)', test :332-350 haelt den wortlaut nicht fest; dazu kein produktions-callsite-Nachweis. Stub bleibt false (owner-freigabepunkt). Neue lane w073-pr1704-persesalerts-r3 auf ornith:2, uebergabe dokumentiert (c74a1fe2 entlassen)
