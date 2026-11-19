@@ -102,6 +102,11 @@ Conservative by construction: countdown samples remain excluded (existing digest
 - Scratch confined to /var/tmp and /tmp/opencode; nothing created in /home/marcel/dev/baseharbor-ecosystem outside the planning checkout's tracked paths.
 - cleanliness: no lane-owned compose projects, no stray files in /home/marcel/dev/baseharbor-ecosystem; only evidence in baseharbor-plan.
 
+## Evidence publishing witness
+
+- `git ls-tree -r --name-only origin/main | grep ownership-hardening` -> `evidence/r28-welle4-2026-11-19/ownership-hardening/fix-1.md` (present on origin/main).
+- Evidence commit `eb8c69db20e49b01cf4d801b8583e7aed281125c` sits directly on the fetched origin/main tip `cf808b17f7af2f224853620d621d110452f12290` (`git pull --rebase` reported up to date; push fast-forwarded cf808b17..eb8c69db). Claim commit was c55a8b4f.
+
 ## END
 
 END_DONE mission-119-consent-hardening.md: candidate `d94cc67d235b720079c8db8f070c97550f647535` on PR #1690 (base develop 7d3438364), CI · Source & Quality run 44437197853 completed/success at exact head; red->green regression in internal/application (C3 window pinned both directions); 116/118 pins honored; evidence published to origin/main (witness below).
