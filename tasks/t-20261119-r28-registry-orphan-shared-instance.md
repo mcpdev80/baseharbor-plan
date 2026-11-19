@@ -1,37 +1,44 @@
 ---
 id: t-20261119-r28-registry-orphan-shared-instance
-kanban_title: "0428-151 · registry: orphan shared"
+kanban_title: 0428-151 · shared provider retention
 card_number: "0428-151"
-card_short_title: "registry: orphan shared"
+card_short_title: "shared provider retention"
 type: task
 areas: [capability, lifecycle]
 release: v0.4.28
 version: ""
 parent: ""
 owner: codex-open-pr-sweep-0428-151
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 blocker: ""
 wait_reason: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-source_note: "hunt 0428-146 (akte evidence/r28-welle4-2026-11-19/vm-bughunt/baha-podman-146.md, haupt b2adabe7); fund-stelle von MIR am develop 6e87ddcb4 nachgemessen"
+source_note: "False-positive disposition for hunt 0428-146 after auditing BaseHarbor develop d5c11753ea437495eb2469a02f80b91d788fef4f."
 evidence:
+  - "https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/internal/application/provider_registry.go#L49-L51"
+  - "https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/internal/application/provider_registry.go#L270-L289"
+  - "https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/cmd/baha/app_core_requirement_test.go#L192-L212"
+  - "https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/internal/application/provider_registry_test.go#L347-L375"
+  - "https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/cmd/baha/runtime_openbao_registry_test.go#L39-L52"
+  - "https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/internal/capability/registry.go#L366-L389"
+  - "https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/cmd/baha/app_metrics.go#L149-L156"
   - "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/vm-bughunt/baha-podman-146.md"
-resolution: ""
+resolution: accepted
 created: 2026-11-19
 ---
 
-- [ ] t-20261119-r28-registry-orphan-shared-instance · orphan shared instanz nach remove #task #release/v0-4-28 #status/active #view/active #area/capability #area/lifecycle #kind/task
+- [x] t-20261119-r28-registry-orphan-shared-instance · shared-provider retention is by contract #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/capability #area/lifecycle #kind/task
     <!-- generated:card -->
     **Owner:** codex-open-pr-sweep-0428-151  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/vm-bughunt/baha-podman-146.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/internal/application/provider_registry.go#L49-L51), [proof 2](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/internal/application/provider_registry.go#L270-L289), [proof 3](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/cmd/baha/app_core_requirement_test.go#L192-L212), [proof 4](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/internal/application/provider_registry_test.go#L347-L375), [proof 5](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/cmd/baha/runtime_openbao_registry_test.go#L39-L52), [proof 6](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/internal/capability/registry.go#L366-L389), [proof 7](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/cmd/baha/app_metrics.go#L149-L156), [proof 8](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/vm-bughunt/baha-podman-146.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** codex-open-pr-sweep-0428-151  
@@ -42,25 +49,25 @@ created: 2026-11-19
 
 ## Goal
 
-Nach dem entfernen des letzten verbrauchers bleibt eine ScopeShared-instanz als registry-eintrag (und damit auf jeder oberflaeche, die daraus liest) bestehen. Auf einer echten Podman-zelle beobachtet. Ziel: die retention auf dem destroy-/retirement-pfad so zu entscheiden, dass eine shared instanz nur dann zurueckkehrt, wenn nach dem release NOCH ein binding auf sie zeigt — ohne dass eine instanz mit lebendem sibling-binding angefasst wird.
+Determine whether retaining a shared provider registry record after its last application binding is removed violates provider ownership. The hunt observed the state correctly but misclassified retained target-owned inventory as an orphan.
 
-PREMISE-CORREKTUR (von der lane gemeldet, von MIR UND DEM OWNER am stand entwickelt nachgemessen): die urspruengliche vermutung (und der wortlaut der hunt-akte) zeigte auf internal/capability/registry.go:381-384 removeUnboundOwnedInstances. DIE STELLE IST RICHTIG: 'case ScopeShared: continue' springt vor dem append weg — die instanz wird ALSO ENTFERNT, wenn kein binding mehr auf ihr steht (referenced-set wird :367-370 global ueber alle bindings aufgebaut). Das wort 'continue' war der les-fehler. DIE WIRKLICH UNDICHTE STELLE ist der wieder-eintragungs-loop auf dem destroy-pfad.
+## Disposition
 
-## Scope
+Accepted as a false positive. `ScopeShared` plus `OwnershipBaseHarbor` represents target/platform-owned provider inventory. Application bindings are consumer references; removing the last binding does not transfer or erase that provider ownership. `ReleaseApplicationProviderRegistryAt` intentionally snapshots shared instances, releases the selected application's bindings, then restores the shared instances. Unused inventory remains visible, and reclamation requires explicit ownership-verified cleanup.
 
-- In scope: internal/application/provider_registry.go, ReleaseApplicationProviderRegistryAt (gemessen develop 28fb427f, :270-290): die funktion sammelt ZUERST JEDE ScopeShared-instanz in 'retained', ruft 'registry.ReleaseApplicationDeployment(m.ApplicationID, m.Environment)' und registriert dan ALLE gespeicherten instanzen per 'registry.Register(instance)' WIEDER — ohne blick auf die bindings. Eine orphan-shared-instanz (bindings = 0) aufersteht auf diesem pfad. Produktions-aufrufer gemessen: cmd/baha/app_destroy_lifecycle.go:714, cmd/baha/app_runtime_retirement.go:78, cmd/baha/runtime_destroy_all.go:388 (tests: cmd/baha/app_core_requirement_test.go:202, cmd/baha/runtime_openbao_registry_test.go:39, cmd/baha/shared_core_dedup_runtime_test.go:38).
-- Out of scope: internal/capability/registry.go — dort ist das verhalten nachweislich richtig; ein 'defense in depth' dort ist ein scope-verstoß ohne befund (§4.2, owner-entscheidung 2026-11-19: 'Do not add the unrelated registry.go defense-in-depth change; the original hunt premise at that file was disproven'). Ebenso ausserhalb: jede neue zustands-ablage, jedes neue manifest-feld (kein state ohne vertrag).
-- Kollisions-pruefung gemessen: karte 0428-119 aendert internal/application/provider_consent_authority.go (andere datei, disjunkt), karten 0428-123/073/083 internal/metrics/**, 0428-142 cmd/baha/app_status_*.go — die write-sets dieser karte sind disjunkt.arbor' und (b) im 'case ScopeShared:' wird per 'continue' verworfen, im 'case ScopeApplication:' nur bei owner-gleichheit; der rest der zweige faellt durch und wird mit 'instances = append(instances, instance)' BEHALTEN. Der jagd-befund nennt :381-384 als die stelle, an der 'Shared-Instanzen IMMER' bleiben — pruefe das an deinem kopf, bevor du aenderst (§4.7).
+The initial hunt also misread `removeUnboundOwnedInstances`: it builds a new instance slice, so `case ScopeShared: continue` omits an unreferenced shared instance from that slice. The observed retention comes from the application-level preservation contract and is independently asserted by existing tests. No product code or tests were changed. Existing tests are cited below; they were inspected, not rerun for this planning-only disposition.
 
-## Acceptance
+## Evidence
 
-- Nach dem entfernen des letztenverbrauchers ist die Shared-Instanz NICHT mehr in der registry, und ein 'baha app status'/'doctor'-pfad zeigt sie nicht mehr.
-- Der fall 'Shared-Instanz mit weiter bestehendem sibling-binding' bleibt UNANGETASTET (regression fuer beide richtungen, positiv + blockend).
-- Kein neuer zustands-behaälter: die entscheidung muss aus den bestehenden bindings + ownership feldernableitbar sein (bhrule: kein state ohne vertrag).
+- The provider-registry contract says removed capability instances retain ownership and releasing a binding does not reclaim a provider: [provider_registry.go:49-51](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/internal/application/provider_registry.go#L49-L51).
+- The destroy path snapshots all shared instances, releases the selected app/environment bindings, then re-registers those instances: [provider_registry.go:270-289](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/internal/application/provider_registry.go#L270-L289).
+- The direct lifecycle regression removes SQL from the manifest, destroys the app, and asserts one shared provider remains with zero bindings and is reported in `Footprint.Unused`: [app_core_requirement_test.go:192-212](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/cmd/baha/app_core_requirement_test.go#L192-L212).
+- A separate multi-environment regression asserts destroying one environment preserves the shared inventory and the other environment's binding: [provider_registry_test.go:347-375](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/internal/application/provider_registry_test.go#L347-L375).
+- A zero-binding shared OpenBao control-plane root must survive application release: [runtime_openbao_registry_test.go:39-52](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/cmd/baha/runtime_openbao_registry_test.go#L39-L52).
+- The lower-level `continue` branch omits the shared instance from the newly built slice; it does not append/preserve it: [registry.go:366-389](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/internal/capability/registry.go#L366-L389).
+- The user-facing metrics lifecycle labels unused provider resources `[RETAINED]` and requires explicit ownership-verified cleanup for reclamation: [app_metrics.go:149-156](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/cmd/baha/app_metrics.go#L149-L156).
+- The original hunt record is corrected at [baha-podman-146.md](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/vm-bughunt/baha-podman-146.md).
 
-## Required checks
+## Handoff
 
-- **Modified features:** go test ./internal/capability -run '^Test(Registry|RemoveUnbound|Provider|External)' und die lifecycle-regression am gleichen pfad; neue tests muessen vom 'PR · Go unit'-shard ausgefuehrt werden (CI-aufnahmepflicht).
-- **CI integration:** exact-head-lauf bis terminal; runtime-zellen koennen SKIPPED bleiben (owner-draht 114(a)) und sind dann als nicht erbracht zu nennen (§5.4).
-
-fund->karte erfuellt; lane dispatched auf laptop:2 mit meiner eigenen messung der stelle (removeUnboundOwnedInstances behaelt ScopeShared unbedingt, registry.go:366-390 am develop 6e87ddcb4)
+2026-11-20: Owner-delegated Maintainer disposition completed. The only change is this planning card and its linked hunt evidence. No product branch, PR, provider-registry mutation, VM mutation, or test execution was performed. Planning validation: `python3 scripts/plan.py render` and `python3 scripts/plan.py check`.

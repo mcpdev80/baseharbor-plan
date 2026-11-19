@@ -1,5 +1,28 @@
 # Akte 0428-146 — lifecycle/consent-desk hunt (H-V7), baha-podman
 
+## Superseding correction: 0428-151 was a false positive (2026-11-20)
+
+The original Slice 1 observation (`instances=1, bindings=0` after removing the sole consumer) was accurate. Its interpretation as a leak was wrong under the current provider-ownership contract. This correction supersedes the original Slice 1 classification and the resulting card acceptance criteria. Product develop was audited at `d5c11753ea437495eb2469a02f80b91d788fef4f`.
+
+A `ScopeShared` provider with `OwnershipBaseHarbor` is target/platform-owned inventory. Application bindings represent consumers. Removing the final consumer leaves an unused provider, not an ownerless provider; ownership-verified cleanup remains explicit. `ReleaseApplicationProviderRegistryAt` intentionally copies all `ScopeShared` instances, releases only the selected application/environment bindings, and registers those shared instances again. The source comment in `internal/application/provider_registry.go` states that removed capability instances retain their ownership and releasing a binding does not reclaim a provider. The user-facing lifecycle calls unused provider resources `[RETAINED]` and says reclamation needs explicit ownership-verified cleanup.
+
+The original reading of `removeUnboundOwnedInstances` inverted the slice behavior: that function starts a new slice (`instances := r.Instances[:0]`); for an unreferenced BaseHarbor-owned shared instance, `case ScopeShared: continue` skips the append and therefore omits the entry. The overall app-release path preserves the inventory because its caller snapshots and restores shared instances.
+
+Current exact source and existing regression evidence (pinned to the audited develop SHA):
+
+- [provider_registry.go contract comment](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/internal/application/provider_registry.go#L49-L51)
+- [shared snapshot/release/restore path](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/internal/application/provider_registry.go#L270-L289)
+- [last-consumer removal followed by app destroy retains zero-binding inventory and reports it unused](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/cmd/baha/app_core_requirement_test.go#L192-L212)
+- [multi-environment retirement keeps shared ownership and sibling binding](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/internal/application/provider_registry_test.go#L347-L375)
+- [zero-binding shared OpenBao control-plane root survives app release](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/cmd/baha/runtime_openbao_registry_test.go#L39-L52)
+- [unbound Shared branch omits rather than appends the instance](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/internal/capability/registry.go#L366-L389)
+- [unused resources are presented as retained pending explicit ownership-verified cleanup](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/cmd/baha/app_metrics.go#L149-L156)
+
+Disposition: close 0428-151 as accepted false positive; do not change product code or the ownership contract. The existing tests were inspected, not rerun; this is a planning/evidence correction only.
+
+---
+
+
 ROLLE: hunt-worker (REINE BEFUNDUNG, KEIN PR, KEINE Produktänderung).
 SCHNITT: H-V7 (BUG-HUNT.md rotation 2026-11-19).
 ANCHER develop: 223cb97a9d652a4672257cabbadf12e2b41ed9cd (git rev-parse origin/develop, vor Beginn gemessen; aktueller develop HEAD 6e87ddcb, nur 1 Commit später; 223cb97a ist Ancestor von develop und von origin/main).
@@ -41,29 +64,23 @@ VM-LOCK FREIGEGEBEN: lockctl NICHT vorhanden -> nichts freizugeben; VM nicht dur
 
 ---
 
-## Slice 1 (0428-067) ownership-safe remove — Zwei-Besitz-Ebenen
+## Slice 1 (0428-067) ownership-safe remove — two ownership tiers
 
-VERHALTEN KORREKT (Szenario A: Shared-Instanz bleibt bei bestehenden Sibling-Binding):
-Vollstandiger lifecycle-destroy -> ReleaseApplicationProviderRegistryAt -> releaseDeployment -> removeUnboundOwnedInstances. Nach Remove bleibt NUR die Shared tier-2 Instanz (gebunden durch Sibling); app-eigene tier-1 Instanz wird geloescht.
-```
-$ go test ./internal/application/ -run TestX146OwnershipSafeRemoveTwoTierTarget -v
-  AFTER full remove: instances=1 bindings=1
-  instance id="sql/shared" scope=shared ownerApp=""
-  binding app=... env="dev" inst="sql/shared"
-  PASS
-```
-DATEI: internal/application/x146_ownership_two_tiers_test.go
+VERHALTEN KORREKT. A shared tier-2 provider remains when a sibling application still binds it; the app-owned tier-1 provider is removed with its owner.
 
-BEFUND (Szenario B: Shared tier-2 Instanz ohne jeden Rest-Besitzer lekt als Doku-/Registry-Eintrag):
-removeUnboundOwnedInstances (internal/capability/registry.go:381-384) behaelt ScopeShared-Instanzen IMMER (switch-case ScopeShared: continue), auch wenn keine Binding mehr existiert. Nur ScopeApplication-Instanzen werden bei Owner-Match geprueft. Shared-Instanz nach letztem Consumer wird NICHT aus Provider-Registry geloescht — Registrierung/Consent-Eintrag verbleibt hangend.
-```
-$ go test ./internal/application/ -run TestX146OwnershipSafeRemoveOrphanedSharedInstance -v
-  AFTER remove of sole consumer: instances=1 bindings=0
-  instance id="sql/shared" scope=shared
-  BEFUND: orphaned shared instance "sql/shared" left dangling after sole consumer removed
-```
-DATEI: internal/capability/registry.go:381-384 (switch ScopeShared: continue)
-FUND-TITEL: Ungebundene Shared-Provider-Instanz nach letztem Consumer nicht aus Registry geloescht (Registry-/Consent-Leak). removeUnboundOwnedInstances filterte BaseHarbor-owned Instanzen, behielt ScopeShared aber implizit fuer immer — keine Pruefung, ob noch eine Binding existiert.
+The original scenario B reported `instances=1, bindings=0` after removing the sole consumer and destroying the app. That output is correct, but the original "dangling registry/consent leak" label is a false positive: the remaining `ScopeShared` + `OwnershipBaseHarbor` instance is target-owned provider inventory, retained by contract. Zero application bindings means it is unused, not unowned. The destroy path deliberately snapshots shared inventory around app-binding release, and existing tests assert this behavior, including the shared control-plane OpenBao root.
+
+The original source-level explanation was also incorrect. In `removeUnboundOwnedInstances`, an unreferenced BaseHarbor-owned shared instance reaches `case ScopeShared: continue` while the function is building a new instance slice. `continue` omits that instance from the result slice; it does not preserve it. `ReleaseApplicationProviderRegistryAt` is the layer that deliberately restores shared inventory after releasing the selected app's bindings.
+
+Current source/test evidence at develop `d5c11753ea437495eb2469a02f80b91d788fef4f`:
+- [shared provider retention contract and implementation](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/internal/application/provider_registry.go#L49-L51) · [release path](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/internal/application/provider_registry.go#L270-L289)
+- [direct zero-binding lifecycle regression and unused-footprint assertion](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/cmd/baha/app_core_requirement_test.go#L192-L212)
+- [multi-environment/sibling binding regression](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/internal/application/provider_registry_test.go#L347-L375)
+- [unbound Shared control flow](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/internal/capability/registry.go#L366-L389) · [explicit retained-resource cleanup rule](https://github.com/mcpdev80/baseharbor/blob/d5c11753ea437495eb2469a02f80b91d788fef4f/cmd/baha/app_metrics.go#L149-L156)
+
+The `x146` test output above remains historical evidence of the observed registry state; it does not establish a defect. Card 0428-151 is closed as accepted false positive. No product code or tests were changed, and no test was rerun for this planning disposition.
+
+FUND-TITEL KORRIGIERT: Shared-Provider-Inventar bleibt nach letztem Consumer absichtlich erhalten; keine Registry-/Consent-Leak.
 
 ---
 
