@@ -3,32 +3,31 @@ id: t-20261118-ownership-stale-consent-hardening
 release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
-owner: w119-0428-119-consenthop (codeman 80aa0bf4, ornith:2) — uebernommen von w99-0428-119 r3 (session f5dabf03 ist weg)
-kanban_status: wait
+owner: w119-pr1690-consentauth-r2
+kanban_status: active
 card_number: 0428-119
 card_short_title: harden Prov ownership chain vs
 kanban_title: 0428-119 · harden Prov ownership chain vs
 prs: [mcpdev80/baseharbor#1690]
-wait_reason: "MEIN FEHLER, korrigiert: der dispatch-versuch scheiterte an 'spawn-lane: unknown flag --ornith' (spawn-lane.sh kennt nur --laptop/--flash, default ist ornith), die karte war trotzdem auf active gesetzt — das war ein falscher brettstand. INHALTLICH weiter offen (CODEX-r2 REQUEST CHANGES auf 5b9a9545aa9adb74870695133daa0561cac5c5ca, VON MIR AM CODE NACHGEMESSEN): (1) internal/application/provider_consent_authority.go:500-511 sameProviderInstanceAuthority laesst 'Reference' UND 'OwnerEnvironment' weg, beide felder existieren (internal/capability/registry.go :44/:45) und 'reference' loest externe provider aktiv auf (registry.go:133). (2) equalProviderCapabilities :552-565 duplikats-loch: a=[x,x] vs b=[x,y] -> TRUE (laenge gleich, mitgliedschaft erfuellt), die mengen sind verschieden. (3) die regression endet bei DescribeProviderChanges/revalidation, der antrag-pfad in cmd/baha ist unbelegt. Auftragstext liegt fertig unter /var/tmp/mission-119-r2.md und geht auf den NAechSTEN freien sitz. LAUFZEIT-GATES weiter owner-draht 114(a) (ORAS-install im PR-job fehlt)."
+wait_reason: ""
 blocker: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44464033443", "https://github.com/mcpdev80/baseharbor/actions/runs/44464060182"]
 
 ---
 # t-20261118-ownership-stale-consent-hardening · close ownership-race windows behind stale-impact-consent
 
-- [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/wait #view/wait #kind/task
+- [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w119-0428-119-consenthop (codeman 80aa0bf4, ornith:2) — uebernommen von w99-0428-119 r3 (session f5dabf03 ist weg)  
+    **Owner:** w119-pr1690-consentauth-r2  
     **PR:** [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690)  
-    **Waiting:** MEIN FEHLER, korrigiert: der dispatch-versuch scheiterte an 'spawn-lane: unknown flag --ornith' (spawn-lane.sh kennt nur --laptop/--flash, default ist ornith), die karte war trotzdem auf active gesetzt — das war ein falscher brettstand. IN…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44464033443), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44464060182)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w119-0428-119-consenthop (codeman 80aa0bf4, ornith:2) — uebernommen von w99-0428-119 r3 (session f5dabf03 ist weg)  
+**Owner:** w119-pr1690-consentauth-r2  
 **Priority:** not set  
 **PRs:** [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690)  
 **Source:** 
@@ -71,3 +70,5 @@ END (session 80aa0bf4, fresh takeover of vanished f5dabf03): branch lane-0428-11
 Independent read-only review (2026-11-19) of PR #1690 head `184eefde9b84ff7d6bfb3dc0017989a2143ddede` found an additional code blocker: `equalRegistry` compares only map lengths, allowing same-cardinality registry mutation to pass consent equivalence. Exact-head run 44563139929 passed unit checks but skipped Docker lifecycle; PR base 1019190d is behind current develop 558dc42d. See [review evidence](../evidence/r28-welle4-2026-11-19/codex-review-wave/1690-0428-119-independent-review.md). No merge recommendation.
 
 CODEX-r2 befunde VON MIR AM KOPF 5b9a9545a NACHGEMESSEN: provider_consent_authority.go:500-511 ohne Reference/OwnerEnvironment (beide felder registry.go:44/:45, reference loest auf :133); equalProviderCapabilities :552-565 duplikats-loch a=[x,x] vs b=[x,y] -> TRUE. Neue lane w119-pr1690-consent-auth auf ornith:2
+
+sitz frei geworden (073-kandidat im review) -> sofort besetzt. Auftrag ist auf die AKTUELLE spitze gebracht und enthaelt jetzt den hopf-zwang: der basis-abstand von #1690 (223cb97a9) beruehrt scripts/pr-gate-plan.py und scripts/test_pr_gate_plan.py, also ist der alte lauf 44597195363 unabhaengig von seinem gruen-ergebnis ENTWERTET (meine eigene basis-distanz-regel)
