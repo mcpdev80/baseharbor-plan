@@ -20,7 +20,7 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob//evidence/r28-welle4-2026-11-19/codex-review-wave/1616-0428-086.md"]
 ---
 
 - [ ] t-20261114-r28-perses-loki-source · Connect Perses Loki #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
@@ -28,6 +28,7 @@ evidence: []
     **Owner:** coord · **Priority:** normal  
     **PR:** [baseharbor#1616](https://github.com/mcpdev80/baseharbor/pull/1616)  
     **Needs:** [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob//evidence/r28-welle4-2026-11-19/codex-review-wave/1616-0428-086.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -76,3 +77,5 @@ Record exact candidate SHA and focused tests by name. Route every changed test t
 Prerequisites are encoded in `depends_on`. One worker per card/branch/PR, no concurrent writes to shared files. Codex/Owner-delegated Maintainer reviews and merges only after real checks; no independent-review claim. Archive Console/Node Connector repos are excluded. No implementation or release has occurred.
 
 Supersedes [t-20261113-r28-grafana-loki-source](t-20261113-r28-grafana-loki-source.md) under the [Owner decision](../decisions/2026-11-14-perses-replaces-grafana-v0428.md).
+
+CODEX-REVIEW welle 4 = ACCEPT (urteilsdatei 1616-0428-086.md): inhalt + running evidence auf exaktem kopf, KEIN merge in dieser welle. kopf: 088 76331c7d83055f821fa1e6ff21c1cc37d9a08ae9 (lauf 44467712113 SUCCESS + host-zeuge 5x), 086 7d6538b45cac40f4e8fa0de8aa97fcede7893e6c (lauf 44052892273 SUCCESS, mergeable 'behind'). karte bleibt review, weil der zustand 'accepted' in diesem schema nicht existiert — die abnahme ist durch die urteilsdatei belegt, der merge folgt im fenster, danach closed
