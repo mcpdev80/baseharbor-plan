@@ -293,7 +293,7 @@ deliverable).
 ## END
 
 END gate-map-patch-v3 DONE — gate-map-v3.patch (hunks e+g) + patch-3.md delivered on baseharbor-plan origin/main;
-candidate (evidence) chain tip: e80efa0861db40f8db4c55b45cc6e94524ec2ddf (this commit; dossier+patch landed at
-1318c24b, all witness commits fast-forwards on top); v2 untouched; per-hunk `git apply --check` rc=0 against
+candidate (evidence) chain tip: 5e3b98e3028dfb50fbf1bfc49e6d086d345eaca4 (dossier+patch landed at 1318c24b, all
+witness commits fast-forwards on top); v2 untouched; per-hunk `git apply --check` rc=0 against
 current develop head da76c5cf + yaml-parse witnesses; qualification: plan-artifact only, anwendung ist
 owner-aktion; no product commit, no PR/merge/rerun, host besenrein.
