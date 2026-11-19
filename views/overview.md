@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 12 |
-| review | 1 |
+| active | 11 |
+| review | 2 |
 | wait | 19 |
 | blocked | 8 |
 | ready | 4 |
@@ -28,7 +28,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-coordination](../tasks/t-20261114-r28-cli2-coordination.md) | CLI redesign: coordinate five workers | active | high | coord | — | — |
 | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) | CLI redesign: Replace name-based environment policy | active | high | coord | [t-20261114-r28-cli2-uid-environment](../tasks/t-20261114-r28-cli2-uid-environment.md) (open) | — |
 | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | CLI redesign: Organization environment reconciliation | active | high | welle2-056-cli2-org-env | [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) (open) | — |
-| [t-20261114-r28-perses-alerts](../tasks/t-20261114-r28-perses-alerts.md) | Define and provision alert rules | active | normal | w073-pr1704-persesalerts-r3 | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) (open) | [baseharbor#1613](https://github.com/mcpdev80/baseharbor/pull/1613), [baseharbor#1704](https://github.com/mcpdev80/baseharbor/pull/1704) |
 | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | Connect Perses Prometheus | active | normal | 0428-083 lane (codeman 5447f0df, flash) — korrekturrunde: gate-zuordnung | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684) |
 | [t-20261119-hunt-metrics-registration-visibility-only](../tasks/t-20261119-hunt-metrics-registration-visibility-only.md) | Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export | active | not set | w123-0428-123-regvisibility (codeman c5d271cb, laptop) — korrekturrunde | — | [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693) |
 | [t-20261119-r28-1697-witness-hop-and-run](../tasks/t-20261119-r28-1697-witness-hop-and-run.md) | nur zeuge produzieren, nichts annehmen | active | not set | w153-pr1697-witness1697 | — | [baseharbor#1697](https://github.com/mcpdev80/baseharbor/pull/1697) |
@@ -41,6 +40,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [t-20261114-r28-perses-alerts](../tasks/t-20261114-r28-perses-alerts.md) | Define and provision alert rules | review | normal | w073-0428-073-pr1704-persesalerts-r3 | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) (open) | [baseharbor#1613](https://github.com/mcpdev80/baseharbor/pull/1613), [baseharbor#1704](https://github.com/mcpdev80/baseharbor/pull/1704) |
 | [t-20261119-r28-perses-status-backend-witness](../tasks/t-20261119-r28-perses-status-backend-witness.md) | CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben | review | not set | w142-0428-142-pr1702-statuswit-r2 | — | [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702) |
 
 ## Waiting for resources
