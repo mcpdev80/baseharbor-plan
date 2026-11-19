@@ -175,6 +175,8 @@ er blockiert keine daemon-pools.
 
 ## Candidate
 
-Evidence-Commit: (diese Datei), planning repo main. Kein Produktkandidat (read-only mission).
+Evidence-Commit: 9f2b8ab7f04f09d0129895253e39d398c5e72859 (planning repo main; push-Zeuge:
+`git ls-remote origin main` → `9f2b8ab7f04f09d0129895253e39d398c5e72859 refs/heads/main`,
+d.h. die Evidence ist auf origin/main VOR diesem END-Post). Kein Produktkandidat (read-only mission).
 
 END (this lane) DONE mission-pr-inventory.md: Inventar fertig — 38 core PRs (25 LEBEND, 11 STACK-PR, 1 DUPLIKAT #1606→#1650, 1 SUPERSEDED-by-content #1649), 0 demo PRs, 0 Fremdkörper, 0 SUPERSEDED-ancestry.
