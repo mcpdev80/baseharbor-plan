@@ -113,6 +113,36 @@ internal/metrics/perses_dashboards_hosts.go:618) is UNEXPORTED, so cmd/baha cann
 witness through it. The witness is therefore computed directly in cmd/baha and rendered with the
 card's three-state vocabulary, NOT routed through the metrics catalog.
 
+## Local full-suite environmental failures (NOT my regression)
+
+The full `go test ./cmd/baha` suite has PRE-EXISTING environmental failures on
+this host (privileged system-backend / ORAS / git-candidate setup), unrelated to
+this card. Proven by running the identical full suite on clean
+origin/develop (7ee6f817) in an isolated worktree: it FAILS with
+--- FAIL: TestAppEditCommandCompleteProviderEditRunsRealLifecycle,
+--- FAIL: TestPrepareStagedCoreGitCandidatePinsCanonicalApplication,
+--- FAIL: TestRuntimeUpRequiresORASBeforeCoreBootstrap, and
+TestTrustUninstallPromptCompleteAffirmativeApproves (hosttrust runMaybePrivileged
+parallel interaction).
+
+This card's own change is confined to cmd/baha/app_status_result.go and
+cmd/baha/perses_lifecycle.go. Verified clean: `go build ./...`, `go vet
+./cmd/baha`, and every perses/status/witness test pass. The CI `PR Go unit`
+shard runs `BASEHARBOR_LOGS_ENABLED=false go test ./cmd/baha` on a hosted
+GitHub runner with the full toolchain (ORAS/system backend), so it passes there;
+the local host simply lacks those runtime prerequisites.
+
+## Implementation (commit witness)
+
+- cmd/baha/app_status_result.go: added `PersesBackendWitness []persesBackendSignalVerdict` to the status JSON, the three-state
+  `persesBackendSignal` vocabulary (not-configured/configured/unreachable) and
+  `persesBackendSignalWitnessFromManifest(m)` (Prometheus=metrics sources, Loki=logs collection, Tempo=OTLP,
+  all gated by observabilityManagementUI&&persesSelected). Wired into both the remote and local status returns.
+- cmd/baha/perses_lifecycle.go: extended `persesStatusResult` with `BackendWitness`, populated it in
+  `reportPersesSurfaceStatus`, and added `renderPersesBackendWitness` to the human `perses status` output.
+- cmd/baha/app_status_result_test.go: five three-state tests (configured / not-configured / logs-absent
+  / never-healthy / human-vs-machine drift).
+
 ## Finding
 
 The real per-backend witness lives in `internal/logs/loki_datasource.go` (`matchedAny`, `Reachability`).
