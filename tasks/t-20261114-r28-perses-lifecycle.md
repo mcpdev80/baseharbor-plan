@@ -7,7 +7,7 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0428-084 r2 (codeman 1d88dd2d)
+owner: 0428-084 (END akzeptiert, sitz entlassen)
 kanban_status: review
 kanban_lane: review
 kanban_summary: Guide enable/status/disable and ownership-safe removal of optional Perses using the accepted CLI contract; preserve monitoring…
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261114-r28-perses-lifecycle · Perses lifecycle commands #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-084 r2 (codeman 1d88dd2d) · **Priority:** normal  
+    **Owner:** 0428-084 (END akzeptiert, sitz entlassen) · **Priority:** normal  
     **PR:** [baseharbor#1598](https://github.com/mcpdev80/baseharbor/pull/1598)  
     **Needs:** [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: []
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** 0428-084 r2 (codeman 1d88dd2d)  
+**Owner:** 0428-084 (END akzeptiert, sitz entlassen)  
 **Priority:** normal  
 **PRs:** [baseharbor#1598](https://github.com/mcpdev80/baseharbor/pull/1598)  
 **Source:** 
@@ -82,3 +82,5 @@ delivered option-1 slice: head bcd13ddcb62, 14 tests, ci dispatcht; runtime-e2e 
 hopf-runde angesetzt: #1598 war 'dirty' (merge-konflikt) UND draft; lane fuehrt monotonen merge-hopf auf develop aus, loest perses-konflikte inhaltserhaltend, haelt die 800-zeilen-grenze (source-readability-audit) und promoted den PR, bevor sie den exact-head-lauf beobachtet (akte perses-lifecycle-hopf/fix-1.md). SERIELLL mit 0428-076/#1597: dieselbe perses-dateimenge, daher noch nicht parallel angesetzt
 
 hopf delivered und von mir geprueft: head 831c2bea8bd9b87aac71588353318e66d582c901, monoton (develop da76c5cf9 ancestor UND alter head e86672374 Vorfahr), merge-tree gegen develop 0 konflikte (ware 4), PR promoted draft=false. ABER exact-head lauf 44499778660 FAILURE: 'PR · Go unit · cli-0' und 'cli-3' -> 'machine_documentation_test.go:48: unclassified product command: baha app perses disable' + 'human_documentation_test.go:107: machine documentation drift in docs/cli/command-index.md'. ursache ist echte fehlende klassifikation der neuen lifecycle-kommandos (entscheidung in cmd/baha/machine_coverage.go:21 currentCommandCoverage(); 'gap' = fatal, 'semantic' verlangt machine.OperationByID-eintrag in internal/machine/contract.go), keine flaezigkeit. befehl r2: typed operations fuer alle neuen perses-kommandos wie bei 'app delete'/'app stop', die zwei generierten referenzen (docs/reference/cli-machine-coverage.md, docs/cli/command-index.md) neu erzeugen, lokal 'go test ./cmd/baha -run TestMachineDocumentation|TestHumanDocumentation' gruen, dann hopf-push + exact-head CI mit ausdrucklich gruenen cli-0/cli-3; akte fix-1.md mit fehlzeile + entscheidung je kommando + beiden laeufen
+
+END angenommen, von mir ferngeprueft: head 3852472aa5281e6f69d38cba07cfb2cd7b9db018 monoton auf da76c5cf9, merge-tree 0 konflikte, PR open/draft=false/clean, exaktkopf-lauf 44510690944 completed SUCCESS mit NULL fehljobs und 'PR Selected Checks' = success (die 'PR · Selected Runtime'/'Core-less'-zellen skipped, wie vorgesehen). kopf-folge war: 831c2bea8 documentation-classification (44499778660 FAIL, machine_documentation_test.go:48), 6e371c99b golden-record (44509535053 FAIL, contracts/machine_control_test.go:41), 3852472aa gruen. abnahme fehlt noch — CODEX-REVIEW dafuer beauftragt
