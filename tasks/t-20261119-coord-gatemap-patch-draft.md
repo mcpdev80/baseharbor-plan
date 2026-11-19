@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: gate-map-patch (codeman 1a8f8b70)
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-134 · die vier audit-loecher als
 priority: ""
@@ -19,17 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/7bc1ad15/evidence/r28-welle4-2026-11-19/gate-map/patch-2.md"]
 ---
 
-- [ ] t-20261119-coord-gatemap-patch-draft · Gate-map-patchvorschlag: die vier audit-loecher als EINer owner- patch datei (kein .github-eingriff durch die lane) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261119-coord-gatemap-patch-draft · Gate-map-patchvorschlag: die vier audit-loecher als EINer owner- patch datei (kein .github-eingriff durch die lane) #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** gate-map-patch (codeman 1a8f8b70)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/7bc1ad15/evidence/r28-welle4-2026-11-19/gate-map/patch-2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** gate-map-patch (codeman 1a8f8b70)  
@@ -83,3 +84,5 @@ Der audit 0428-133 hat vier loecher derselben klasse mit datei:zeile geliefert. 
 evidence/r28-welle4-2026-11-19/gate-map/patch-1.md + gate-map.patch: je fund eine aenderung (go-unit-routine auf PR-pfade des fensters; perses-smoke-zelle mit BASEHARBOR_PERSES_RUNTIME_SMOKE auf den bestehenden runtime-docker-pfad; demo pr-guided-consent.yml branches: [main, develop]; documentation-audit-pfad fuer docs/internal/*.json in scripts/pr-gate-plan.py), jeweils mit datei:zeile des audits als begruendung, KEIN neuer gate, keine produkt-aenderung. dry-run-zeug: 'git apply --check' gegen den jeweiligen head (patch-entwurf-AST unter /var/tmp, nicht die gemeinsame kopie) + 'git apply --check' fehlgeschlagen = befund statt behauptung. revision-labels, END.
 
 lane arbeitet den gebuendelten patchvorschlag (akte gate-map/patch-1.md + gate-map.patch) — die vier funde aus 133 als EINER owner-aenderung, dry-run-zeug je aenderung, KEIN .github-eingriff in der lane
+
+v2 abgegeben und VON MIR nachgeprueft (nicht nur die lane-Angabe): 'git apply --check' rc=0 gegen die AKTUELLEN heads — core develop da76c5cf9 (mit --exclude '*pr-guided-consent.yml') und demo main adda7599 (mit --include '*pr-guided-consent.yml'); die lane nannte in ihrer END wieder ein aelteres develop 907f1671 (ancestor von da76c5cf9), ihr dry-run gilt also erst durch meinen Nachlauf. FUNKTIONAL: CHANGE 1 wechselt jetzt die if-zeile tatstaechlich ('if: github.event_name != pull_request && ...' -> 'if: github.event_name == pull_request || (...)'), damit laeuft 'go test ./...' wieder auf PRs; CHANGE 2 ist ein echter job 'perses_runtime_smoke' in .github/workflows/targeted-integration.yml (yaml-geparst: env BASEHARBOR_PERSES_RUNTIME_SMOKE=1, steps inkl. 'Install verified ORAS for Core bootstrap' und 'Prepare isolated rootless Docker', timeout 20) — ABER an 'workflow_dispatch' mit inputs.gate == 'perses-runtime-smoke' gebunden: der job laeuft also NICHT automatisch im PR, sondern ist der freigegebene hosted-route, mit dem ich 088/#1592 und 119/#1690 die exaktkopfige Zelle auf demande bringe; CHANGE 3 (demo branches [main, develop]) und 4 (docs/internal/ in der documentation-audit-auswahl) bleiben wie in v1 richtig. kosten-hinweis fuer dich: CHANGE 1 macht die volle suite auf JEDEM PR scharf (laufzeit-kosten), wenn dir das zu grob ist, ist die alternative route die bestehende pr_plan-routine auf die fenster-pfade zu erweitern — sag mir welches, dann bestelle ich die entsprechende fassung
