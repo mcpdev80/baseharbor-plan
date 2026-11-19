@@ -82,4 +82,6 @@ Remove the invalid Prometheus-attributed application workload log source that ca
 
 kandidat 46de903f1, exact-head run 44396957393 SUCCESS; runtime-Loki-akzeptanz blockiert durch nie-verdrahteten ORAS-schritt in observability-acceptance.yml (.github-befund mit file:line in fix-1.md, owner-stueck)
 
-## Owner closeout — 2026-11-19 (supersedes the prior ZWEIFEL handoff)\n\nOwner-authorized code acceptance: PR #1680 merged at aadee4520 after exact-head PR checks passed. The remaining Docker/Loki workflow wiring is an owner-scope .github debt, not an active product lane or blocker to the merged code slice. Follow-on PR #1677 integrated aadee4520 and its exact-head run 44427948182 passed the selected Docker observability gate. Podman was not selected for that PR by the trusted plan. Resolution is accepted under the owner disposition; no further 0428-113 lane is active.
+## Owner closeout — 2026-11-19 (supersedes the prior ZWEIFEL handoff)
+
+Owner-authorized code acceptance: PR #1680 merged at `aadee4520` after exact-head PR checks passed. The remaining Docker/Loki workflow wiring is an owner-scope `.github` debt, not an active product lane or blocker to the merged code slice. Follow-on PR #1677 integrated `aadee4520`, and its exact-head run [44427948182](https://github.com/mcpdev80/baseharbor/actions/runs/44427948182) passed the selected Docker observability gate. Podman was not selected for that PR by the trusted plan. Resolution is accepted under the owner disposition; no further 0428-113 lane is active.
