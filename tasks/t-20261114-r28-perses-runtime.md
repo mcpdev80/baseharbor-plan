@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0428-088 fenster-hopf (codeman a9212508-20e3-43f8-8234-b40426e56dab, ornith)
-kanban_status: active
-kanban_lane: active
+owner: 0428-088 fenster-hopf (END akzeptiert, sitz entlassen)
+kanban_status: review
+kanban_lane: review
 prs: [mcpdev80/baseharbor#1592]
 kanban_summary: "Implement explicitly enabled optional Perses runtime, pinned reviewed image/plugin versions, lifecycle and safe storage using…"
 kanban_title: 0428-088 · Launch optional Perses
@@ -23,19 +23,19 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1592-r3-runtime.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-runtime/r4-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44467712113", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1592-host-witness-review.md", "https://github.com/mcpdev80/baseharbor-plan/blob//evidence/r28-welle4-2026-11-19/codex-review-wave/1592-0428-088.md"]
 ---
 
-- [ ] t-20261114-r28-perses-runtime · Launch optional Perses #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-runtime · Launch optional Perses #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-088 fenster-hopf (codeman a9212508-20e3-43f8-8234-b40426e56dab, ornith) · **Priority:** normal  
+    **Owner:** 0428-088 fenster-hopf (END akzeptiert, sitz entlassen) · **Priority:** normal  
     **PR:** [baseharbor#1592](https://github.com/mcpdev80/baseharbor/pull/1592)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1592-r3-runtime.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-runtime/r4-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44467712113), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1592-host-witness-review.md), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob//evidence/r28-welle4-2026-11-19/codex-review-wave/1592-0428-088.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md)  
 **Required by:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md), [t-20261114-r28-perses-lifecycle](t-20261114-r28-perses-lifecycle.md), [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
-**Owner:** 0428-088 fenster-hopf (codeman a9212508-20e3-43f8-8234-b40426e56dab, ornith)  
+**Owner:** 0428-088 fenster-hopf (END akzeptiert, sitz entlassen)  
 **Priority:** normal  
 **PRs:** [baseharbor#1592](https://github.com/mcpdev80/baseharbor/pull/1592)  
 **Source:** 
@@ -100,3 +100,5 @@ host witness beigebracht (exact head 76331c7d83055f821fa1e6ff21c1cc37d9a08ae9, b
 CODEX-REVIEW welle 4 = ACCEPT (urteilsdatei 1592-0428-088.md): inhalt + running evidence auf exaktem kopf, KEIN merge in dieser welle. kopf: 088 76331c7d83055f821fa1e6ff21c1cc37d9a08ae9 (lauf 44467712113 SUCCESS + host-zeuge 5x), 086 7d6538b45cac40f4e8fa0de8aa97fcede7893e6c (lauf 44052892273 SUCCESS, mergeable 'behind'). karte bleibt review, weil der zustand 'accepted' in diesem schema nicht existiert — die abnahme ist durch die urteilsdatei belegt, der merge folgt im fenster, danach closed
 
 urteil ACCEPT galt 76331c7d83055f821fa1e6ff21c1cc37d9a08ae9; develop ist jetzt e1dc2cf61 (#1691 squash-merged), der ast ist 'behind' und 'merge-base --is-ancestor e1dc2cf61 <kopf>' fehlt — darum hopf + frischer exact-head-lauf + NEUES urteil auf dem neuen kopf (§5.2, urteil uebertraegt nicht). ZUSAMMENHANG, den ich dokumentiere: 0428-083 haengt an dieser karte, weil internal/application/perses_runtime.go NUR auf dem 088-ast existiert (cat-file -e fehlt fuer develop, e1dc2cf61, a9befb312, f0adef107) — 083 hat recht mit seiner scope-warnung und ich habe (b) befohlen: nicht forken, nach meinem 088-merge rebasen und dann aufruf-stelle + mounts + docker-runtime-test liefern
+
+END akzeptiert, kandidat steht auf dem AKTUELLEN develop: head 78c002ff5c99b00148451404bdbefbd7d3d40e0f, monoton auf f518e859d, der akzeptierte kopf 76331c7d8 IST ancestor (rein hopf, kein squash-verdacht), merge-tree 0 konflikte, PR open/draft=false/clean, exaktkopf-lauf 44526880434 completed SUCCESS (33 ausgefuehrte zellen, 0 fehljobs, 'PR Selected Checks' success). zusaetzlich von mir geprueft: internal/observability/environment.go ist zwischen develop und diesem kopf datei-hash-IDENTISCH, die 121-ableitung ist also unveraendert. CODEX-REVIEW + bei approve CODEX-MERGE beauftragt (1592-0428-088-r2.md). REIHENFOLGE-HINWEIS: dieser merge entblockt 0428-083, weil internal/application/perses_runtime.go nur auf diesem ast existiert
