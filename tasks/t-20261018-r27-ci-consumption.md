@@ -9,10 +9,10 @@ version: ""
 parent: v0.4.28
 priority: normal
 owner: Codex team (current thread)
-kanban_lane: active
+kanban_lane: closed
 wait_reason: ""
 kanban_summary: ""
-kanban_status: active
+kanban_status: closed
 kanban_title: "0427-020 · Deferred CI consumption"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-docs, t-20261018-r27-public-surfaces, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
@@ -20,18 +20,19 @@ prs: [mcpdev80/baseharbor#1589]
 sources: []
 early: true
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1589", "https://github.com/mcpdev80/baseharbor/commit/ab77e29d7c1cf981777e1069e51dfff82ffcf654", "https://github.com/mcpdev80/baseharbor/actions/runs/44617085771"]
 ---
 
-- [ ] t-20261018-r27-ci-consumption · Deferred CI consumption examples for accepted product APIs #task #release/v0-4-28 #status/active #view/active #area/docs #kind/task
+- [x] t-20261018-r27-ci-consumption · Deferred CI consumption examples for accepted product APIs #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/docs #kind/task
     <!-- generated:card -->
     **Owner:** Codex team (current thread) · **Priority:** normal  
     **PR:** [baseharbor#1589](https://github.com/mcpdev80/baseharbor/pull/1589)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1589), [proof 2](https://github.com/mcpdev80/baseharbor/commit/ab77e29d7c1cf981777e1069e51dfff82ffcf654), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44617085771)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-docs](t-20261018-r27-docs.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  
@@ -68,10 +69,10 @@ Preserve original card ID/number, prior PR and test history. This is a release-s
 
 ## Codex continuation — 2026-11-19
 
-The current thread took over the existing Codex-owned PR #1589 in an isolated product worktree while Codeman's worker pool remained full. No Codeman worker, coordinator, or shared Codeman checkout was changed.
+The current thread took over the existing Codex-owned PR #1589 in an isolated product worktree while Codeman's worker pool remained occupied. No Codeman worker, coordinator, or shared Codeman checkout was changed.
 
-- Candidate: `82fb2f7f7eed9e7c3e45f6a4fad2ac97b84db42f`, based on current `develop` `6e87ddcb4dc87c20876ae0045bf7ac5bbb5311d0` by a normal merge hop.
-- Replaced the old examples with manual-only GitHub Actions/GitLab flows and a shared CLI helper; added six controlled fake-CLI behavior tests, wired into `scripts/documentation-audit.sh`.
+- Merged as `ab77e29d7c1cf981777e1069e51dfff82ffcf654` from candidate `c4a9e15fd90561e9c635b8dbd6ec8d7643147963`, based on `develop` `6e87ddcb4dc87c20876ae0045bf7ac5bbb5311d0` by a normal merge hop.
+- Replaced the old examples with manual-only GitHub Actions/GitLab flows and the shared `scripts/consumption-example.sh`; six controlled fake-CLI behavior tests run through `scripts/documentation-audit.sh`.
 - Added positive and negative planner routing for `docs/example/**/*.yml|yaml` and `docs/internal/**/*.json`, so existing documentation checks select these files and unrelated paths remain fail-closed. Planner suite: 181 tests passed.
-- Local verification: six consumption tests, `scripts/documentation-audit.sh`, strict EN/DE MkDocs builds, and `git diff --check` passed. Test binding: `scripts/test_ci_consumption_examples.py` -> `documentation-audit` -> existing selected PR documentation check; planner selector tests -> ordinary planner test suite.
-- Exact-head hosted run `44615568958` was observed with draft-only checks; the PR was still a draft, so final selected checks had not yet run. Task remains active pending full exact-head checks and merge review.
+- Local verification: six consumption tests, `scripts/documentation-audit.sh`, strict EN/DE MkDocs builds, 181 planner tests, and `git diff --check` passed. Test binding: `scripts/ci_consumption_examples_test.py` -> `documentation-audit` -> existing selected PR documentation check; planner selector tests -> `pr-planner-tests`.
+- Exact-head hosted run `44617085771` passed, including `documentation-audit` and `PR Selected Checks`; PR #1589 merged after exact-head verification.

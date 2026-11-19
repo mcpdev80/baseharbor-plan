@@ -8,10 +8,10 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: "Owner-Ausfuehrung (scripts/** + .github/** ist Owner-Scope); auf bitte der unabhaengigen review in abgesetztem worktree ausgefuehrt, Coordinator dispatcht dafuer KEINE worker-lane"
-kanban_status: wait
-kanban_lane: wait
+kanban_status: active
+kanban_lane: active
 blocker: ""
-wait_reason: "scripts/pr-gate-plan.py ist owner-scope: worker-lanes melden nur befuende mit datei:zeile und aendern keine zuordnungsregeln (AGENTS 4.5, CI-aufnahmepflicht). daher fuehrt der owner bzw. die von ihm beauftragte stelle diese abbildung aus, keine ornith/laptop/flash lane"
+wait_reason: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
 evidence:
@@ -19,23 +19,25 @@ evidence:
 resolution: ""
 created: 2026-11-19
 card_short_title: "docs/internal/**/*.json faellt"
+prs: [mcpdev80/baseharbor#1705]
+
 ---
 
-- [ ] t-20261119-r28-prgate-docs-internal-json-mapping · docs/internal/**/*.json faellt durch die DOC_CHECKS-verzweigung von pr-gate-plan.py und wird nie validiert #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/docs #kind/task
+- [ ] t-20261119-r28-prgate-docs-internal-json-mapping · docs/internal/**/*.json faellt durch die DOC_CHECKS-verzweigung von pr-gate-plan.py und wird nie validiert #task #release/v0-4-28 #status/active #view/active #area/ci #area/docs #kind/task
     <!-- generated:card -->
     **Owner:** Owner-Ausfuehrung (scripts/\*\* + .github/\*\* ist Owner-Scope); auf bitte der unabhaengigen review in abgesetztem worktree ausgefuehrt, Coordinator dispatcht dafuer KEINE worker-lane  
-    **Waiting:** scripts/pr-gate-plan.py ist owner-scope: worker-lanes melden nur befuende mit datei:zeile und aendern keine zuordnungsregeln (AGENTS 4.5, CI-aufnahmepflicht). daher fuehrt der owner bzw. die von ihm beauftragte stelle diese abbildung aus,…  
+    **PR:** [baseharbor#1705](https://github.com/mcpdev80/baseharbor/pull/1705)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/blob/1019190d8dc0ecac7693f3461153e76be0e2cb8a/scripts/pr-gate-plan.py)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261119-r28-en-docs-warning-term](t-20261119-r28-en-docs-warning-term.md)  
 **Owner:** Owner-Ausfuehrung (scripts/** + .github/** ist Owner-Scope); auf bitte der unabhaengigen review in abgesetztem worktree ausgefuehrt, Coordinator dispatcht dafuer KEINE worker-lane  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1705](https://github.com/mcpdev80/baseharbor/pull/1705)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -75,3 +77,5 @@ never be accepted on its own hopf - the gap is in the path mapping, not in the d
   to their gate (CI intake rule: every new test is executed by the GitHub CI).
 - A hosted run on the exact head shows `documentation-audit` executed for a `docs/internal/*.json` diff.
 - Evidence akte: `evidence/r28-welle4-2026-11-19/prgate-docs-internal-mapping/fix-1.md`.
+
+Owner-Ausfuehrung laeuft (scripts/** ist Owner-Scope, sagt die karte selbst): #1705 head 23e91f00f base ab77e29d7 = LATEST BASE, draft=false, zwei dateien scripts/pr-gate-plan.py + scripts/test_pr_gate_plan.py, positive und negative tests angemeldet. Exakter-head-lauf noch nicht terminal — daher active, nicht review. Die meldung an mich: #1697 bleibt hinter #1705 queued, hop nach deren merge
