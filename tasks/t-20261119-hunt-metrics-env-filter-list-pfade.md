@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-121 r3 (codeman 045d7e8a, entlassen)
-kanban_status: review
-kanban_lane: review
+owner: 0428-121 r4 (codeman 02edbbbf, frische lane)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-121 · Env-Filter wirkt nicht auf
 priority: ""
@@ -23,18 +23,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-route2-review.md", "https://github.com/mcpdev80/baseharbor/pull/1691"]
 ---
 
-- [ ] t-20261119-hunt-metrics-env-filter-list-pfade · Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261119-hunt-metrics-env-filter-list-pfade · Environment-Filter wirkt nicht auf alle list-Pfade (caller-side prefix workaround only) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-121 r3 (codeman 045d7e8a, entlassen)  
+    **Owner:** 0428-121 r4 (codeman 02edbbbf, frische lane)  
     **PR:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/env-filter-fix/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1691-route2-review.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1691)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0428-121 r3 (codeman 045d7e8a, entlassen)  
+**Owner:** 0428-121 r4 (codeman 02edbbbf, frische lane)  
 **Priority:** not set  
 **PRs:** [baseharbor#1691](https://github.com/mcpdev80/baseharbor/pull/1691)  
 **Source:** 
@@ -94,3 +94,5 @@ STOP vor push/merge nach unabhaengigem review: SourceMatchesEnvironment prueft n
 INHALTLICH GELUOST auf head 4f4b3d7a60b057fd8f29cbba3c2685fc9346b66d (monoton, develop da76c5cf9 ancestor): SourceMatchesEnvironment(source, requestedEnvironment) vergleicht case-normalisiert, false bei unloesbarem environment; List + wrapper reichen requestedEnvironment durch; sechs tests (prod/stage-caller, leer fail-closed, unloesbar fail-closed, mutation-drop, shared-sichtbarkeit). Go-unit shards + Selected Runtime SUCCESS. EIN FEHLJOB: 'PR · Source format' — job-log: 'source readability: internal/observability/registry.go has 877 lines (limit: 800)'. befehl r3: die neue filter-logik in eigene datei internal/observability/envfilter.go auslagern (verhalten/API unveraendert, datei unter 800 zeilen), gofmt -l leer, hopf (kein rebase), push mit ancestor-zeug, exact-head CI terminal SUCCESS, akte env-filter-fix/fix-3.md. KEIN ProviderPlacement.Environment, KEIN security.go, KEIN .github
 
 abgegeben und von mir verifiziert: head d1fcfdf6b8376a30f5100c8c30f5f3491427cf9e, monoton (develop da76c5cf9 ancestor), PR #1691 clean, exact-head run 44487090323 TERMINAL SUCCESS und KEIN nicht-gruener job (der Source-format-fehljob ist weg: registry.go 730 zeilen < 800, die neue datei internal/observability/environment.go nimmt die filter-logik). inhalts-zeug der route: SourceMatchesEnvironment(source, requestedEnvironment) vergleicht case-normalisiert, false bei unloesbar/mehrdeutig/leer; List + wrapper geben requestedEnvironment durch; sechs tests inkl. prod/stage-caller, leer fail-closed, mutation-drop. akte env-filter-fix/fix-3.md. abnahme vorgelegt — damit.loest sich die serie 122r3 und 124r3 sowie 123 auf
+
+abnahme lehnt head d1fcfdf6b fuer merge ab (PR-kommentar 7004083156), grund ist ein FUNKTIONALER daten-verlust, nicht die route: SourceEnvironment zerlegt generierte provider-project-ids nach FESTER token-zahl; 'bh-prod-my-app-dev' (bindestrich-im-app-namen, vier tokens nach 'bh-') gilt als unloesbar und wird von SourceMatchesEnvironment WEGGEFILTERT — app-scoped metrics/logs/traces fuer gueltige namen mit bindestrich verschwinden stillschweigend. das bestehende prod/stage-beispiel (Class=SourceApplication, target bhm-abc:9464) laeuft gar nicht durch projectTokenFromID und ist fuer den fall blind. befehl r4: moredeutigkeits-loesung OHNE neues feld + regression (a) bh-prod-my-app-dev wird mit 'prod' gefunden, (b) mit 'stage' nicht, (c) mehrdeutig/zerstoert bleibt unsichtbar, (d) provider-target-fall bleibt gruen; nachweis dass (a) durch projectTokenFromID laeuft; dann gofmt/build/vet, hopf, push mit ancestor-zeug d1fcfdf6b..neu, exact-head CI terminal, akte fix-4.md. wenn ohne neues feld nicht eindeutig loesbar: QUESTION mit zwei varianten statt raten
