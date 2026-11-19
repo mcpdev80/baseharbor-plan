@@ -33,3 +33,15 @@
 - Do NOT touch: `internal/observability/registry.go` (registry, ~123), env-filter, writer/log-source (~122), consent-folds (119r3 running).
 - Do NOT remove the `verification:none` skips (they are correct).
 - No `.github/**` edits (Owner scope). No merge, no force, no subagent.
+
+## CI mapping (verified via `scripts/pr-gate-plan.py`)
+
+- Diff-base: `ec592fd38` (develop) -> `84911f99e` (branch head), single-parent, `--integration == head`.
+- `coverage_status: resolved`, `broad_required: false`.
+- `selected_gates: []` (pure Go logic, no native runtime impact).
+- `required_validation_checks` (what CI actually runs at `84911f99e`):
+  - `go-build` => `go build ./...`
+  - `go-unit-tests` => `go test ./... -count=1` (this selects `internal/metrics`, so the new `verify_none_red_test.go` runs under CI)
+  - `go-vet` => `go vet ./...`
+- No `.github/**` change needed: the new test rides the existing `go test ./...` unit gate, so it is durable CI evidence.
+- Affected source files only: `internal/metrics/{prometheus.go, prometheus_files.go, prometheus_verify.go}` + `cmd/baha/app_metrics.go` (CLI [STATE] surface) + `internal/metrics/verify_none_red_test.go`.
