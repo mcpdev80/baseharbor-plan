@@ -32,7 +32,7 @@ Lane: pr-inventory. Datum: 2026-11-19.
 - Inhaltstest je PR: `git diff --stat origin/develop...<head>` → bei allen NICHT leer (kein PR ist
   inhaltlich-identisch-superseded). Ergänzend patch-id-Vergleich aller PR-only-commits gegen die
   letzten 531 develop-commits: nur #1649 zeigt Content-Wiederauffinden in develop (7/10 commits,
- 其余 3 thematisch-equivalent via squash `8e1d3158a`).
+ uebrige 3 thematisch-equivalent via squash `8e1d3158a`).
 
 ## Methode-Klassen (missions definition)
 
