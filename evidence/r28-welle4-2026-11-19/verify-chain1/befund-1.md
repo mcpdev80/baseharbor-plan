@@ -98,7 +98,8 @@ Befund: **bestätigt** auf develop ec592fd385.
 - `git ls-remote --symref origin main` (baseharbor-plan, VOR erstem Evidence-Commit dieser Lane): refs/heads/main = dc45bbc29331319b9eacfbdfe22ebb4373677f98; lokaler HEAD = origin/main = dc45bbc2… (single-parent commit)
 - product develop head gegenprueft: ec592fd3852328439ae9de8763c816ae9dd88dcc (ls-remote + clone-HEAD identisch)
 - Candidate heads: refs/pull/1691/head = d9d70a9845ea11f6d839b3f5600b67b214002d20; refs/pull/1692/head = 8956bf08e40e52b84a0dae55a9f1cb54db957636; beide mit ec592fd385 als Ancestor (merge-base proof oben)
-- `docker ps -a --format '{{.Names}} {{.Status}}'` auf diesem host: nur ambient-core/ Bilder/fremde Container, keine dieser Lane; keine compose projects, no volumes/networks created (pure `go test` runs).
+- `docker ps -a` / `docker network ls` / `docker volume ls` on this host (ps-witness): only ambient stacks of other lanes (bh-local shared postgres/openbao, bh-*-ci, backup-foreign sentinel, testvol) — this lane started ZERO containers/networks/volumes/compose projects; nothing of mine to bring down (R1 unit-only honored).
+- Ambient foreign process note (report, not touch): two orphaned `baha.test -test.run=^TestAppEditDiagExecStdoutChild$` re-exec children (PIDs 1341964, 1405874-class) have been sleeping ~5h with PPID=1 and caches (/var/tmp/go-build4031416813, /var/tmp/go-build314779866) already deleted — they predate this lane. They are the named re-exec child of the #118 stdout test hanging in an unset-mode invocation (candidate: mission-dualmatch lane). Not killed here: foreign worktree/process, mission forbids touching other sessions' state. Flagged for the coordinator to clean.
 
 END verify-chain1 DONE
 Candidate: read-only verify mission (keine Produktänderung); planning commits dieser Lane enden mit 85fa82af auf origin/main
