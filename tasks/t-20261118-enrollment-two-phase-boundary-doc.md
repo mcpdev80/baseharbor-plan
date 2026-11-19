@@ -3,8 +3,8 @@ id: t-20261118-enrollment-two-phase-boundary-doc
 release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
-owner: w99-0428-115 r5 (codeman baf201fd-6d17-4c08-a529-fd3b28764cf4)
-kanban_status: active
+owner: w99-0428-115 r5 (codeman baf201fd)
+kanban_status: review
 card_number: 0428-115
 card_short_title: document the enrollment
 kanban_title: 0428-115 · document the enrollment
@@ -16,18 +16,18 @@ blocker: ""
 ---
 # t-20261118-enrollment-two-phase-boundary-doc · document the enrollment consume/issue two-phase boundary
 
-- [ ] t-20261118-enrollment-two-phase-boundary-doc · document the enrollment consume/issue two-phase boundary #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261118-enrollment-two-phase-boundary-doc · document the enrollment consume/issue two-phase boundary #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** w99-0428-115 r5 (codeman baf201fd-6d17-4c08-a529-fd3b28764cf4)  
+    **Owner:** w99-0428-115 r5 (codeman baf201fd)  
     **PR:** [baseharbor#1685](https://github.com/mcpdev80/baseharbor/pull/1685)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/enrollment-twophase/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1685), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44408281995), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1685.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44446194802), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44457842661)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w99-0428-115 r5 (codeman baf201fd-6d17-4c08-a529-fd3b28764cf4)  
+**Owner:** w99-0428-115 r5 (codeman baf201fd)  
 **Priority:** not set  
 **PRs:** [baseharbor#1685](https://github.com/mcpdev80/baseharbor/pull/1685)  
 **Source:** 
@@ -68,3 +68,5 @@ r4 END akzeptiert: 'verpflichtet' durch 'eigene Transaktion abgeschlossen' erset
 Re-reviewed exact head bb685c2d; corrected commit wording now reads clearly, but EN/DE guard descriptions are asymmetric because DE omits the consumed-grant predicate in RecordIssued. Exact-head run 44457842661 terminal success. Review comment 6999847636; no merge pending narrow DE correction and refreshed exact-head evidence.
 
 r5 dispatched: DE-absatz nennt nur einen der beiden identity-schreib-schutze (serial-is-null) — consumed_at IS NOT NULL fehlt gegen EN (comment 6999847636, korrigierter end-text). eine stelle, kein inhaltsschritt. head bb685c2dc anerkannt bis darauf
+
+r5 END akzeptiert: DE nennt jetzt beide identity-write guards (consumed_at IS NOT NULL wortgetreu nach EN), head 50f87cfb8 (ec592fd385 ancestor, ohne hopf/force), docs-check + run 44460025899 TERMINAL SUCCESS, akte fix-4.md (853f5f0f). Ready fuer CODEX-REVIEW final
