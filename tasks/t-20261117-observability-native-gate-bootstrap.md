@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "owner-scope, FUENF drahte (punkt (g) ist ZURUECKGENOMMEN, siehe akte gate-routing/probe-1.md commit 7d3cb684): (a) ORAS-install im 'docker-runtime'-job (docker-runtime-acceptance.yml zeilen 174-330, treffer 0; schwester 'single_default_native' hat zeile 127-128 'bash scripts/ci-install-oras.sh'), (b) perses-smoke-zelle (skizze in 0428-134 v2, gate-input 'perses-runtime-smoke'), (c) baseharbor-demo .github/workflows/pr-guided-consent.yml:4-5 branches:[main] -> [main, develop], (d) documentation-audit-pfad docs/internal/*.json in scripts/pr-gate-plan.py:1189 ff., (e) docker-runtime-acceptance.yml zeile 16 'default: release/v0.4.21' = dead ref (gh 404, ls-remote leer) -> ein nackter dispatch prueft ins leere; loesung: default: develop. (g) WAR KEIN gate-loch: die probe hat belegt, dass #1613 ein DRAFT-PR ist und ci.yml die normalen zellen an 'draft == false' haengt (zeilen 514/1137/1160, draft-routing gegen probe bei 41) — der planner scripts/pr-gate-plan.py ist draft-agnostisch. das ist mein PROZESSFEHLER (draft als kandidat gefuehrt), nicht deine gate-map"
+wait_reason: "Owner-Aktion: sechs drahte in EINER .github-aenderung anwenden (a-f, vollständige liste im notizfeld); naechster trigger = angewandter patch + ein lauf auf develop"
 resolution: ""
 evidence: []
 ---
@@ -26,7 +26,7 @@ evidence: []
 - [ ] t-20261117-observability-native-gate-bootstrap · CI: Run observability acceptance with verified ORAS bootstrap #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** Owner-Ausfuehrung (.github/scripts); umfang vom Coordinator erweitert 2026-11-19 (beleg: 0428-128 probe-1.md 57ffc7c6)  
-    **Waiting:** owner-scope, FUENF drahte (punkt (g) ist ZURUECKGENOMMEN, siehe akte gate-routing/probe-1.md commit 7d3cb684): (a) ORAS-install im 'docker-runtime'-job (docker-runtime-acceptance.yml zeilen 174-330, treffer 0; schwester 'single\_default\_nat…  
+    **Waiting:** Owner-Aktion: sechs drahte in EINER .github-aenderung anwenden (a-f, vollständige liste im notizfeld); naechster trigger = angewandter patch + ein lauf auf develop  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -86,3 +86,5 @@ inhalt bleibt gleich, nummer (e) neu aufgenommen: erklaert den F-7-fehljob aus d
 fund (e) erklaert F-7 aus dem closeout-heft ohne produkt-schuld; 119/#1690 bleibt davon unberuehrt blocked (wartet auf (a))
 
 GEGENMASSNAHME VON MIR UMGESETZT: coord-state.py meldet jetzt DRAFT-CANDIDATE fuer jeden offenen draft-PR (neue aktion, syntax geprueft, erster treffer #1665) und der lanes=[]-bug ist behoben (beide schluessel 'session' und 'lane' akzeptiert) — dein punkt 4 aus dem prioritaeten-blatt
+
+DRAHT-PUNKT (f) NEU, von zwei unabhaengigen beobachtungen belegt: PR-CI-FREIGABE FUER NIEDERLANDBASES. .github/workflows/ci.yml oeffnet PR-CI nur fuer base develop/main/'lane-*' — 'pull_request.branches' zeilen 14-18 und die job-bedingungen mit "github.base_ref == 'develop' || startsWith(github.base_ref, 'lane-')" auf develop zeilen 514/1137/1160 (auf dem basis-ast cli2-env-policy-head@5ef9329b analog 428/478/515). folge: jeder PR, dessen base ein ketten-ast OHNE 'lane-'-praefix ist (cli2-env-policy-head, cli2-identity-secrets-head, w083-perses-datasources, w091-0428-091), erhaelt NILLE required-CI — beleg #1615: check-suite 120471174270 'queued' seit 10:27:37Z, actions/runs?head_sha=f93564a0d… total_count=0 um 11:21:44Z, PR draft=false/ready, monoton, merge-tree 0 konflikte. VORSCHLAG: base-agnostisch machen ('github.event_name == "pull_request" && github.event.pull_request.draft == false') ODER die branches-liste um 'cli2-*' und 'w0*' erweitern; die liste ist der effektive filter, die job-bedingungen muessen mitziehen, sonst laufen die zellen als 'skipped' statt 'selected' ein. bestehende punkte bleiben: (a) ORAS-install im docker-runtime-job, (b) perses-smoke-zelle, (c) demo pr-guided-consent.yml zeilen 4-5, (d) docs/internal/*.json fuer documentation-audit, (e) toter dispatch-default 'release/v0.4.21'
