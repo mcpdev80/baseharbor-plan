@@ -48,6 +48,31 @@
 4. Second befund (stale emitted target after same-ID source switches to VerificationNone): checked separately below
 5. Hosted run at the exact head, observed to terminal state, run-id + conclusion
 
+## Second befund (open, out of write-set)
+
+PR #1693 independent review reproduced a stale emitted target: when a same-ID
+application-class source switches from a verified Verification mode to
+`VerificationNone`, the previously emitted `application--<app>--<env>--<source>.json`
+is not removed.
+
+- Confirmed against current develop (40cb28c758b0), locked file:
+  `internal/metrics/prometheus_files.go`. The exporter write loop skips
+  `Verification==none` (line 146-147: `if source.Verification == capability.ObservabilityVerifyNone { continue }`),
+  so no new file is written for the `none` source. The room-sweep at
+  lines 122-144 only deletes `application--*` files when a *different* app source
+  is present (`hasApplication`), and never on the application scope — so a
+  same-ID source that switches to `none` while it is the only app source leaves
+  its stale `application--*.json` behind. This is exactly the reviewer's finding
+  (1693-0428-123-independent-review.md, file prometheus_files.go:113-117 at the
+  1693 head).
+- **Not addressed by this change.** My fix is confined to
+  `internal/metrics/prometheus_verify.go` (stop waiting) and the single contract
+  sentence; the stale-file deletion lives in the locked
+  `internal/metrics/prometheus_files.go`, outside this card's write-set (4.3).
+- Status: **OPEN**, file:line `internal/metrics/prometheus_files.go:146-147`
+  (write loop) + `:122-144` (sweep condition). Per fund->karten-pflicht this
+  stays with the coordinator (owner casts the card); not built here.
+
 ## END
 
 END_DONE w203-0428-143-vernone: <head SHA> pr=<n> run=<id> evidence=<path on origin/main>
