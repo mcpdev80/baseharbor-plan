@@ -7,9 +7,9 @@ areas: [cli, lifecycle]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w200-0428-200-verrmask
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-200 · record version mismatch masked
 priority: ""
@@ -24,17 +24,16 @@ evidence: []
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-deployment-version-mismatch-masked · record version mismatch masked #task #release/v0-4-28 #status/planned #view/ready #area/cli #area/lifecycle #kind/bug
+- [ ] t-20261120-deployment-version-mismatch-masked · record version mismatch masked #task #release/v0-4-28 #status/active #view/active #area/cli #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w200-0428-200-verrmask  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w200-0428-200-verrmask  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -79,3 +78,5 @@ behind a statement that is false.
   `internal/metrics/**` (#1714), `internal/serviceaccess/**` (#1684), `cmd/baha/context_terminal*.go` (#1718).
 - This card must not introduce a migration: an upgrade writer would need its own card and an owner decision.
 - No subagents (AGENTS 4.8), no `git add -A`, no merge, no force-push on develop/main.
+
+ARBEITET JETZT, kante gegen session gemessen (w200-0428-200-verrmask, laptop, worktree aus develop 40cb28c758b0): die MELDUNG wird repariert, nicht die entscheidung - version-mismatch eines bestehenden deployment-record bekommt eigene ursache ( gefundene version, erwartete version, naechster schritt) statt 'no registered deployment'; fail-closed bleibt byte-identisch; regression pro oberflaeche (status, destroy, list) durch die echte kommando-oberflaeche. schreibfeld absichtlich eng: internal/deployment/deployment_store.go (fehler-art + meldung) und cmd/baha/app_context.go (kind-abbildung). internal/serviceaccess/** ist EXPRESS verschlossen, weil dort gerade der policy-befund 2af892e4e (#1594-rail, karte 0428-202) liegt - lesen erlaubt, aendern nicht.
