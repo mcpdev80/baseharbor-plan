@@ -1,7 +1,7 @@
 ---
 id: t-20261120-r28-cli2-context-precedence-evidence
 card_number: "0428-178"
-card_short_title: "context show precedence evidence"
+card_short_title: "context show precedence"
 type: bug
 areas: []
 release: v0.4.28
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: ""
-kanban_title: 0428-178 · context show precedence evidence
+kanban_title: 0428-178 · context show precedence
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
