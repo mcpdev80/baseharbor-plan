@@ -35,7 +35,7 @@ created: 2026-11-20
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Required by:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md), [t-20261120-r28-valkey-dashboard-unavailable-only](t-20261120-r28-valkey-dashboard-unavailable-only.md)  
+**Required by:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md), [t-20261120-gate-catalog-ci-fast-check](t-20261120-gate-catalog-ci-fast-check.md), [t-20261120-r28-valkey-dashboard-unavailable-only](t-20261120-r28-valkey-dashboard-unavailable-only.md)  
 **Owner:** w198-0428-198-cligate  
 **Priority:** not set  
 **PRs:** [baseharbor#1726](https://github.com/mcpdev80/baseharbor/pull/1726)  

@@ -7,9 +7,9 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: planned
+owner: w220-0428-205-catalog
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-205 · Gate catalog for ci-fast-check
 priority: normal
@@ -23,18 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-gate-catalog-ci-fast-check · 0428-205 · Wire scripts/ci-fast-check.sh into the gate catalog #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/ci #kind/bug
+- [ ] t-20261120-gate-catalog-ci-fast-check · 0428-205 · Wire scripts/ci-fast-check.sh into the gate catalog #task #release/v0-4-28 #status/active #view/active #area/ci #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
+    **Owner:** w220-0428-205-catalog · **Priority:** normal  
     **Needs:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
-**Owner:** unassigned  
+**Owner:** w220-0428-205-catalog  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
@@ -101,3 +100,5 @@ PR selection surface the policy script reads), so a PR whose base comparison see
 - The failing cell on a stacked/older-base PR (evidence: PR #1665) is explained by this pairing alone, verified by re-running
   the policy script on that head in a scratch worktree - not by any `.github/**` change.
 - One PR, base develop, non-draft from the start; hosted `Workflow policy` + `PR Selected Checks` observed at the exact head.
+
+Karte aus w215s round-2-befund gegossen (fund->karte, §3.3.5): scripts/ci-fast-check.sh existiert auf develop, hat aber keine release-requirements.json-paarung, darumfaellt die zelle "Workflow policy" an PRs, deren base-vergleich die neue datei sieht (#1665 gemessen FAILURE, #1731 gemessen SUCCESS job 136551503837). sitz w220 (flash) ergaenzt NUR die paarung, beweis lokal ueber bash scripts/ci-workflow-policy.sh am exakten head + gegenprobe am #1665-head. allowlist-edit an scripts/ci-workflow-policy.sh oder .github/** = STOP + MELDEN (owner-scope).
