@@ -15,17 +15,19 @@ kanban_title: 0428-188 · Bind local operation grants to
 priority: high
 depends_on: [t-20261114-r28-cli2-uid-environment]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1717]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1717", "https://github.com/mcpdev80/baseharbor/actions/runs/44758114769"]
 ---
 
 - [ ] t-20261120-trusted-local-operation-grant · CLI security: Bind local operation grants to calls #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #area/security #kind/task
     <!-- generated:card -->
     **Owner:** Codex (Marcel assigned) · **Priority:** high  
+    **PR:** [baseharbor#1717](https://github.com/mcpdev80/baseharbor/pull/1717)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1717), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44758114769)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +37,7 @@ evidence: []
 **Required by:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
 **Owner:** Codex (Marcel assigned)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1717](https://github.com/mcpdev80/baseharbor/pull/1717)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -85,4 +87,4 @@ Bind existing local runtime authorization to exactly one typed CLI operation, ap
 
 ## Handoff
 
-- Owner directed an in-process opaque grant: no HMAC, TTL, Unix-socket IPC or `SO_PEERCRED`. It protects against accidental internal misuse, not a hostile local OS user. Implementation is underway on the isolated develop worktree; current changes bind the typed operation, environment UID and application UID and consume a monotonic nonce once. Product PR targets `develop`; after merge, update and validate #1594 first, then #1615. Record exact SHA -> test ID -> mapped gate -> run URL/outcome for each required test.
+- Owner directed an in-process opaque grant: no HMAC, TTL, Unix-socket IPC or `SO_PEERCRED`. It protects against accidental internal misuse, not a hostile local OS user. PR #1717 is open against develop at `4b51ce350e171e28b432b75408be4206c0896722`. Table-driven tests are `TestLocalRuntimeGrantIsOperationTargetEnvironmentBoundAndSingleUse` (valid, operation/target/environment mismatch, missing, replay) and `TestCheckLocalRuntimeGrantFailsClosedAndUsesMonotonicNonce` (invalid IDs, failed/missing check, monotonic nonce). The existing `authority-package-tests` gate includes `internal/operatorauth`; `test_operatorauth_source_and_tests_select_real_package_runner` confirms source/test mapping. Local package tests, CLI regression tests, vet, build, selector test and authority package runner passed. Exact hosted PR run: https://github.com/mcpdev80/baseharbor/actions/runs/44758114769 (queued at handoff). Once green and merged, update and validate #1594 first, then #1615. The actual #1615 base `cli2-env-policy-head` already matches `pull_request.branches` `cli2-*` in its workflow file.
