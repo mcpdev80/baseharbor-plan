@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w175-pr0428-175-publish-gate
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Every published planning text passes the same integrity gates a dispatched payload passes, and the watch registry can be cleaned…"
 kanban_title: 0428-175 · card-status.py bypasses the
 priority: ""
@@ -18,18 +18,19 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "werkzeug ist geliefert (payload-gate in dispatch-lane.sh, plan-publish.sh mit preflight, card-status-regeln), aber die abnahmestufe fuer coordinator/-werkzeug steht aus. keine live session."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-coord-publish-integrity-gaps · Coordinator tooling: card-status.py bypasses the payload integrity gates; watch.py rm signature unusable #task #release/v0-4-28 #status/active #view/active #kind/maintenance
+- [ ] t-20261120-coord-publish-integrity-gaps · Coordinator tooling: card-status.py bypasses the payload integrity gates; watch.py rm signature unusable #task #release/v0-4-28 #status/wait #view/wait #kind/maintenance
     <!-- generated:card -->
     **Owner:** w175-pr0428-175-publish-gate  
+    **Waiting:** werkzeug ist geliefert (payload-gate in dispatch-lane.sh, plan-publish.sh mit preflight, card-status-regeln), aber die abnahmestufe fuer coordinator/-werkzeug steht aus. keine live session.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w175-pr0428-175-publish-gate  
@@ -72,3 +73,5 @@ second live instance measured 2026-11-20, by me: a non-latin token entered the n
 delegate statt selbst: die beiden defekte habe ich gemessen (card-status.py laesst den zeichensatz-gate von sanitize.py passieren — zweimal live belegt, board-sha 232ff2cbfb1c und die 091-note; watch.py rm nimmt keine short session id — 'error: argument c: invalid choice', zweimal belegt). write-set ist coordinator/scripts, damit keine beruehrung mit den laufenden produktkarten. abnahme macht eine andere session, nicht der coordinator ueber sich selbst
 
 nachtrag, dritter fund der familie: card-status.py verlaesst den arbeitsbaum bei gleichzeitigem schreiben mit offenem MERGE_HEAD ('Automatic merge failed; fix conflicts and then commit the result'), heute dreimal gemessen, letzte manuelle loesung @ plan main c11b0d4c3923. erwartet: fetch+rebase vor publish, UNION-merge fuer prose-felder (note/blocker/wait_reason, beide texte, zeit-stempel-reihenfolge, nie --ours/--theirs), ABBRUCH bei kanban_status/owner/prs (konkurrierender zustand, keine stille verschmelzung), und NIE den baum mit offenem MERGE_HEAD zuruecklassen. tests: zwei publizierende klone auf derselben karte (prose ueberlebt, status bricht ab). POSITIVER BEWEIS IHRES ARBEITSPUNKTS: ihr payload-gate hat in diesem tick zwei texte des coordinators abgelehnt (ein U+2014 = paritaetsfehler gegen sanitize.py, ein als Verdeutschung geschriebenes englisches fachwort = korrekt)
+
+wartet auf ihre entscheidung, ob coordinator-werkzeug produktgleich abgenommen wird. die lane w175 ist freigegeben, karte 0428-175 geschlossen.
