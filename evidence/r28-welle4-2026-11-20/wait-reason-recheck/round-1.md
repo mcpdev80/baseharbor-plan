@@ -155,6 +155,16 @@ observed, never started; tests would have run only on baha-docker/baha-podman â€
 - After: identical (`docker ps` empty, same network and volume lists â€” nothing added, nothing removed).
 - cleanliness: no lane-owned docker/podman state exists; ambient foreign stacks untouched (owner-direktive 2026-11-08).
 
+## Evidence-on-origin-main witness (second-to-last action)
+
+`git -C baseharbor-plan fetch origin main && git ls-tree -r --name-only origin/main | grep wait-reason-recheck`:
+
+```
+evidence/r28-welle4-2026-11-20/wait-reason-recheck/round-1.md
+```
+
+plan main after this lane's push: 661040912af115e1935c312bf7eeda04a955cd6c.
+
 ## END
 
 END_DONE w212-0428-202-waitrecheck: 35 wait cards rechecked against #1732's green packages cell; dossier on
