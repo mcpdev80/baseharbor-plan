@@ -13,8 +13,8 @@ depends_on: []
 blocked_by: []
 superseded_by: []
 owner: w168-pr0428-168-signal-mig-r3
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 blocker: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44692628196", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md"]
@@ -24,7 +24,7 @@ wait_reason: ""
 
 ---
 
-- [ ] t-20261120-r28-keycloak-signal-id-migration-gap · migrate un-prefixed keycloak registrations #task #release/v0-4-28 #status/review #view/review #area/capability #area/observability #kind/bug
+- [ ] t-20261120-r28-keycloak-signal-id-migration-gap · migrate un-prefixed keycloak registrations #task #release/v0-4-28 #status/active #view/active #area/capability #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** w168-pr0428-168-signal-mig-r3  
     **PR:** [baseharbor#1709](https://github.com/mcpdev80/baseharbor/pull/1709)  
@@ -32,7 +32,7 @@ wait_reason: ""
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261120-r28-provider-signal-id-scope-inconsistency](t-20261120-r28-provider-signal-id-scope-inconsistency.md), [t-20261120-r28-signal-id-normalization-collision](t-20261120-r28-signal-id-normalization-collision.md)  
@@ -82,3 +82,5 @@ Run [44692628196](https://github.com/mcpdev80/baseharbor/actions/runs/4469262819
 uebergabe dokumentiert (§3.6): die vorige session ist entlassen, ihr END_BLOCKED-grund war 'Der Kontext meiner Session erreichte sein Limit' — kein inhaltliches problem, aber eine frische session war faellig. ihr stand ist NICHT verloren: PR #1709 head 4d3494ea7a14 liegt bei github (35/35 checks fertig, 2 failure = 'PR · Source format' + 'PR Selected Checks'). die neue lane uebernimmt mit dem ausdrücklichen hinweis, den die vorige nicht genutzt hat: der EXISTIERENDE develop-test TestStandaloneSharedPostgresUsesPhysicalOwnerAcrossAppAndRecoveryLifecycle (internal/application/shared_postgres_runtime_owner_test.go) war bei ihr rot, ihr neuer test 234x — ein auf develop grüner, am zweig roher test ist inhalt (§5.3), keine umgebungsfrage. akte round-3.md mit uebernahme-protokoll
 
 uebernahme hat in 30 minuten geliefert, wofuer die vorige session 4 stunden brauchte und dabei nur lokal arbeitete: head 85bb4b4a4cb8, base.sha = develop-spitze 36d075fad77f, draft=false, 7 dateien, 35/35 checks completed, 0 failure, mergeable=clean. waehrung gemessen: fetch refs/pull/1709/head, merge-base --is-ancestor = JA. CODEX-REVIEW r2 bestellt (session 95971e0a, rolle REVIEW, akte 1709-0428-168-r2.md) mit zusatzauftrag: die rezept-tests muessen den ECHTEN register-/change-strom aufrufen, und der EXISTIERENDE shared-postgres-test muss gruen bleiben. ihre akte fix-2.md raeumt ein, dass meine messung 'head stuck at 0d1568ec4dc8 seit 03:13Z' wahr war: der zustand war nie bei github
+
+CODEX-REVIEW r2 = BLOCKED, nicht inhaltlich: 'Review stopped: candidate changed during review' (akze 1709-0428-168-r2.md). angefragt war 85bb4b4a4cb8, der reviewer traf 380c66c49218 vor (branch + refs/pull/1709/head identisch, mergeable=blocked). URSACHE IST MEIN VERFAHREN: ich habe die abnahme bestellt, waehrend die lane noch gearbeitet und gepusht hat. inhalteilich haelt der reviewer in diesem unterbrochenen protokoll fest: P1 largely addressed, P2 addressed (registry.go:708-710 fuehrt mutation ueber mutateChanged), P4 addressed, und der packages-shard die neuen tests ausfuehrt. karte zurueck auf active; einfrier-befehl hinaus (kein push bis abnahme-bestellung), dann review am EINFRIERTEN head
