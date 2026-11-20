@@ -18,24 +18,25 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1596]
 sources: []
 blocker: ""
-wait_reason: "PR #1596 ist ein DRAFT (draft=true gemessen) und damit KEIN kandidat (§5.2: drafts sind keine kandidaten) — der review-spalteneintrag war ein brett-feehler von mir. Basis-Rueckstand gemessen: 190 develop-koepfe hinter der heutigen develop-spitze ab77e29d7; PR-head ist KEIN ahne von develop, merge-tree zeigt KONFLIKT gegen develop. NAechster sinnvoller schritt: ein hopf auf develop + draft raus + ein terminaler exact-head-lauf, dafuer braucht die karte einen arbeiter-sitz (pool 5/5 belegt). Ein PR-lauf am kopf existiert aus altem stand (1596: letzter pull_request success), der zaehlt nicht fuer den heutigen kopf."
+wait_reason: "At 2026-11-20 00:03 UTC, predecessor 0428-056/#1596 is still Draft at exact head c90c3b89007e87a4bf277c8c9015fab3ac65728e on base lane-0428-env-registry@4d14741ee9485b7e0c346fa873ed59f637e71b68. Its exact run 44592530459 passed the Draft source/routing job and all five Draft Go shards, but PR Selected Checks, Trusted Plan, workflow policy, source format, native/runtime/release gates were skipped by draft gating; this is partial package evidence, not readiness/acceptance. The preceding #1591 PR is also Draft at 08fc5ad310e181394f6cef51d91ba8df42b2b446 on lane-0428-uid-target@ae0602e02882619dea151dc82d62b98b72481566, so the stack path must be reconciled by its active owners before this fix can be integrated and qualified. Current develop is d5c11753ea437495eb2469a02f80b91d788fef4f."
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/commit/c90c3b89007e87a4bf277c8c9015fab3ac65728e"]
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/c90c3b89007e87a4bf277c8c9015fab3ac65728e", "https://github.com/mcpdev80/baseharbor/actions/runs/44592530459"]
 ---
 
 - [ ] t-20261119-orgconfig-error-redaction · Redact secret-like organization references in validation errors #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/security #kind/task
     <!-- generated:card -->
     **Owner:** Codex team (current thread) · **Priority:** high  
     **PR:** [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596)  
-    **Waiting:** PR \#1596 ist ein DRAFT (draft=true gemessen) und damit KEIN kandidat (§5.2: drafts sind keine kandidaten) — der review-spalteneintrag war ein brett-feehler von mir. Basis-Rueckstand gemessen: 190 develop-koepfe hinter der heutigen develop-…  
+    **Waiting:** At 2026-11-20 00:03 UTC, predecessor 0428-056/\#1596 is still Draft at exact head c90c3b89007e87a4bf277c8c9015fab3ac65728e on base lane-0428-env-registry@4d14741ee9485b7e0c346fa873ed59f637e71b68. Its exact run 44592530459 passed the Draft s…  
     **Needs:** [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/c90c3b89007e87a4bf277c8c9015fab3ac65728e)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/c90c3b89007e87a4bf277c8c9015fab3ac65728e), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44592530459)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md)  
+**Required by:** [t-20261120-redact-invalid-org-environment-key](t-20261120-redact-invalid-org-environment-key.md)  
 **Owner:** Codex team (current thread)  
 **Priority:** high  
 **PRs:** [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596)  
@@ -85,3 +86,4 @@ Reject secret-like organization environment references without copying their con
 - 2026-11-20: User supplied an adjacent leak in the same validation surface: `Config.Validate` interpolates a secret-like `Environments` map key with `%q` in its invalid-name error (`internal/orgconfig/model.go:149-152` at PR head `c90c3b89`). This is within the card's goal of keeping secret-like organization values out of validation errors and within its owned validation/test files. Added `TestSecretLikeEnvironmentMapKeyIsRedactedFromValidationError`; it fails on `c90c3b89` by printing the sentinel `token=environment-map-key-sentinel-7f3a`. Fix returns a useful generic secret-like environment-name error, while ordinary invalid names retain the previous detailed message. Focused identity/map-key tests, full `go test ./internal/orgconfig -count=1`, `go vet ./internal/orgconfig`, and `git diff --check` pass. Standalone local additive commit `f113baf57aef9e24de5083740decdf84b361f8d8` is in `/var/tmp/baseharbor-sweep-1596` branch `codex/0428-149-map-key-redact`, parent `c90c3b89`; not pushed/integrated because the parent PR is still Draft and its stack hop is pending. Existing prior exact-head CI evidence above covers only `c90c3b89`, not this local commit.
 
 - Fix commit `c90c3b89007e87a4bf277c8c9015fab3ac65728e` is integrated by fast-forward into #1596 branch `cli2-org-env-reconcile`; the PR exact head is this commit, based on `lane-0428-env-registry` `4d14741ee9485b7e0c346fa873ed59f637e71b68`. The card specified a standalone commit for owner cherry-pick; this was integrated directly by fast-forward instead, preserving the exact prior parent and all existing commits. Focused `go test ./internal/orgconfig -run '^TestOrgEnvIdentitySecretMaterialRejected$' -count=1`, full `go test ./internal/orgconfig -count=1`, and `go vet ./internal/orgconfig` all pass at the exact commit. The focused regression is auto-discovered in `PR · Draft Go · packages`; exact run [44592530459](https://github.com/mcpdev80/baseharbor/actions/runs/44592530459) completed SUCCESS on this SHA: source/routing and all five Draft Go shards passed, including the packages shard executing `./internal/orgconfig`; non-draft release/runtime/native jobs were skipped because the PR is Draft and are not claimed as passed. The task is in review for the identity-reference fix; parent #1596 remains Draft and has separate integration/acceptance blockers before Ready/merge.
+- ZWEIFEL/follow-up: the separate invalid environment-map-key leak is tracked as planned card [0428-161](t-20261120-redact-invalid-org-environment-key.md). It depends on both #1596's introducing stack and this card; it is unassigned and cannot start until those prerequisites are accepted and the single-writer path is released.
