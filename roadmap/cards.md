@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 108/192 · **Blocked:** 3 · **Waiting:** 21  
+    **Accepted tasks:** 109/192 · **Blocked:** 3 · **Waiting:** 21  
     **Blocker:** [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) — Owner-Aktion erforderlich: PR \#1615 erhaelt keine exact-head CI, weil der Workflow auf dem BASIS-ast 'cli2-env-policy-head' (5ef9c329b) PR-CI nur fuer base dev…  
     **Blocker:** [t-20261114-r28-cli2-wizard-platform](../tasks/t-20261114-r28-cli2-wizard-platform.md) — Exact PR checks are unroutable while base is cli2-env-policy-head; PR remains Draft. CI owner/coordinator must provide an approved qualifying stack base, then…  
     Plus 1 further blockers in the task list.  

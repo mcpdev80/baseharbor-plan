@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w068-pr0428-068-context-shell
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Terminal-scoped context and completion. Follow the owner working brief, command mapping and code entry index; revalidate current…"
 kanban_title: 0428-068 · Terminal-scoped context and
 priority: high
@@ -19,11 +19,11 @@ prs: [mcpdev80/baseharbor#1710]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44695244800", "https://github.com/mcpdev80/baseharbor/actions/runs/44696968212", "https://github.com/mcpdev80/baseharbor/actions/runs/44699230683", "https://github.com/mcpdev80/baseharbor/actions/runs/44700679422", "https://github.com/mcpdev80/baseharbor/pull/1710", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md"]
 ---
 
-- [ ] t-20261114-r28-cli2-context-shell · CLI redesign: Terminal-scoped context and completion #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [x] t-20261114-r28-cli2-context-shell · CLI redesign: Terminal-scoped context and completion #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** w068-pr0428-068-context-shell · **Priority:** high  
     **PR:** [baseharbor#1710](https://github.com/mcpdev80/baseharbor/pull/1710)  
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44695244800", "h
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md), [t-20261114-r28-cli2-uid-target](t-20261114-r28-cli2-uid-target.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
@@ -110,3 +110,14 @@ abnahme bestellt, vier bedingungen gemessen: (1) head bf923b52ba43 eingefroren, 
 test
 
 korrekturrunde r3 laeuft (session 7578ff5b busy): CODEX-REVIEW am eingefrorenen head bf923b52ba43 ist gueltig ('PR head before/after review' = derselbe SHA, vierter gueltiger anlauf unter der einfrier-regel) und bringt VIER blockierende punkte: B1 'context use TARGET' uebernimmt das angeforderte ziel nicht, wenn schon ein kontext gesetzt ist (cmd/baha/completion_setup.go:83-90, der wrapper verwirft den ersten output und ruft erneut); B2 fish-wrapper rekursiert (registriert :75-76, interner aufruf :68) und hat keinen eigenen shell-test; B3 praedenz-/fallback-kette nicht an den bestehenden user-/system-selection-vertrag angebunden (cmd/baha/context_terminal.go:187-208); B4 IHRE MUTATIONSSONDEN A UND C SIND NICHT UNABHAENGIG - beide loesen denselben end-to-end-test aus (mutant-proofs.md:5-21, round-2.md:37-39). B4 ist die folge meines ausdruecklichen hinweises an den reviewer, die mutationen auf unabhaengigkeit zu pruefen: der hinweis hat also einen echten befund erzeugt, keine dekorative nachfrage. ERLEICHTERUNGEN bestaetigt: prozessgrenze fuer bash, beide shell-guards (:111-117, :119-124), completion heil, KEIN marker-file, scope = 10 dateien, commands.go bei einer additiven zeile. MEIN EIGENER FEHLER IN DIESEM TICK, dokumentiert: ich habe die karte zunaechst mit einem verschriebenen owner-wert ('w068-pr068-pr0428-068-context-shell') UND dem platzhalternotiztext 'test' publiziert - ein rest einer probe, die ich zum testen des pfads abgesetzt hatte. korrigiert auf 'w068-pr0428-068-context-shell' mit dieser notiz. falls ihr reviewer in der zwischenzeit die karte las, war der zustand nicht vertrauenswuerdig; dafuer uebernehme ich die verantwortung, nicht die lane
+
+GEMERGT VOM OWNER, nicht durch eine abnahme: merged_at=2026-11-20T11:04:29Z, merge-commit f1c2c34236f4,
+merged_by=mcpdev80, PR-head beim merge = 74f5f707b812 = EIGENER fix-commit des owners ('fix CLI terminal context',
+11:58:28+01:00) ueber dem kanditaten der lane bf923b52ba43. die abnahme hatte REQUEST CHANGES geliefert (gueltig, vier
+punkte B1-B4, akte codex-review-wave/1710-0428-068-r2.md); der owner hat danach selbst nachgebessert und gemergt - als
+autoritative instanz sein recht (§5.2: abnahme durch berechtigte instanz), und ich fuehre die karte mit dem merge-beleg als
+accepted/closed. MEIN EIGENER FEHLER IN DIESER RUNDE, protokolliert: ich habe der lane vor gut einer stunde einen
+korrekturauftrag fuer B1-B4 zugestellt, OHNE vorher merged_at geprueft zu haben - der PR war da seit fast einer stunde
+gemergt. die lane ist jetzt gestoppt und liefert eine abschluss-notiz (round-3.md): welche der vier punkte der owner-fix
+wirklich behebt und was als nachfass bleibt (aus ihrem befund gruende ich eine folge-karte, wenn sie es begruendet).
+develop damit fuer alle Lanes: f1c2c34236f4.
