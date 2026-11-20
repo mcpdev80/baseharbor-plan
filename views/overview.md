@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 13 |
-| review | 0 |
+| active | 12 |
+| review | 1 |
 | wait | 19 |
 | blocked | 3 |
 | ready | 4 |
@@ -36,11 +36,12 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-r28-window-integrity-verify](../tasks/t-20261119-r28-window-integrity-verify.md) | fensterstand gegen abnahmebelege pruefen | active | not set | w150-pr0428-150-windowverify | — | — |
 | [t-20261120-coord-publish-integrity-gaps](../tasks/t-20261120-coord-publish-integrity-gaps.md) | Coordinator tooling: card-status.py bypasses the payload integrity gates; watch.py rm signature unusable | active | not set | w175-pr0428-175-publish-gate | — | — |
 | [t-20261120-r28-develop-runtime-integration-red](../tasks/t-20261120-r28-develop-runtime-integration-red.md) | Develop: runtime integration tests fail serially in docker-runtime (base defect) | active | not set | w083-pr0428-083-datasources-hopf5 | — | — |
-| [t-20261120-r28-keycloak-signal-id-migration-gap](../tasks/t-20261120-r28-keycloak-signal-id-migration-gap.md) | migrate un-prefixed keycloak registrations | active | not set | w168-pr0428-168-signal-mig-r3 | — | [baseharbor#1709](https://github.com/mcpdev80/baseharbor/pull/1709) |
 
 ## Ready for review
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261120-r28-keycloak-signal-id-migration-gap](../tasks/t-20261120-r28-keycloak-signal-id-migration-gap.md) | migrate un-prefixed keycloak registrations | review | not set | w168-pr0428-168-signal-mig-r3 | — | [baseharbor#1709](https://github.com/mcpdev80/baseharbor/pull/1709) |
 
 ## Waiting for resources
 
