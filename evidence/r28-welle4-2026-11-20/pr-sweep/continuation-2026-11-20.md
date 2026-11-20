@@ -330,3 +330,14 @@ Wait audit found no Review/closure candidate. #1650/0428-078 remains Wait after 
 Fresh read-only Codeman observation: basics-check currency `ok`, inflight, clean, 0 ahead / 1 behind; 5/5 workers and reviewer/merger 1/1; 19 open PRs. `watch.py list` shows five workers busy and two role=None sessions. `pool-reconcile.py status` says Coordinator idle, all five worker seats occupied, no open seats/holds; `coord-state.py --json` returns empty lanes/missions and the same 19 PR head candidates. These views conflict on Coordinator activity; no Codeman message, response, acknowledgment, dispatch or write was made.
 
 Overall sweep remains active; no PR was merged or closed by this audit.
+
+
+## #1645 advanced head still failing; current sweep refresh — 2026-11-20 ~06:47 UTC
+
+Live GitHub shows #1645 remains OPEN+Ready and mergeable, now at head `6a7e462cc0bc10fb8fe55e2746efb6a3e03e73a2` on develop `36d075fad77fa61ac8c153e979855546589b32c2`. New exact PR run [44689126814](https://github.com/mcpdev80/baseharbor/actions/runs/44689126814) completed FAILURE. The `go-vet` job finds undefined `PersesConfiguredStatusNow` in two tests (`internal/capability/perses_security_test.go:292`, `cmd/baha/app_perses_access_cli_test.go:136`); the `packages` job includes Perses fixture tests failing because the persisted gateway plan is absent and a capability package build failure. Multiple selected Go shards and `PR Selected Checks` fail. Native/runtime/release jobs are skipped. Reviews remain empty; previous maintainer comment 7029885443 still calls for real authorized/scoped Tempo provisioning and runtime acceptance. Card 0428-091 remains Active; no Review or closure transition is supported.
++
++Fresh Blocked audit reconfirmed four cards with unchanged blockers: #1615 lacks exact-head CI and depends on Draft #1594; #1620/#1623 remain Draft with no exact-head runs; #1684 exact native runtime smoke fails before Perses assertions due read-only `/etc/perses/database`. No Blocked card can advance or close. Wait audit found no Review/closure candidate: #1650 remains held by two explicit acceptance gaps and #1702 by unresolved backend-evidence gaps/capacity. #1645 is the only material head change and its new run fails.
++
++Codeman read-only snapshot: basics currency `ok`, inflight, clean, ahead/behind 0; workers 5/5 and reviewer/merger 1/1; 19 open PRs; pending QUESTION for `7578ff5b`; two `bh-*` container alarm. Watch lists five busy workers and two role=None sessions. Pool says Coordinator busy, five workers/no open seats; coord-state has empty lanes/missions and same 19 heads, including #1645 at `6a7e462`. No Codeman message, response, acknowledgment, dispatch or write was made.
++
++Fresh PR search still returns the same 19 open IDs. Overall sweep remains active.

@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44688554297"]
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44688554297", "https://github.com/mcpdev80/baseharbor/actions/runs/44689126814"]
 ---
 
 - [ ] t-20261114-r28-perses-tempo-source · Connect Perses Tempo #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w091-pr0428-091-tempo-source · **Priority:** normal  
     **PR:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44688554297)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44688554297), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44689126814)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -88,3 +88,8 @@ entscheidung auf ihre frage: KEIN owner-scope noetig. ihr gruen-beleg run 446654
 ## 2026-11-20 exact-head CI recheck
 
 PR #1645 is now Ready (not Draft) at `253883eb96fd4d1765397028f67b4409fa9c7371`, based on `develop@36d075fad77fa61ac8c153e979855546589b32c2`. Exact PR run [44688554297](https://github.com/mcpdev80/baseharbor/actions/runs/44688554297) completed with overall conclusion `cancelled`; `go-vet` and the `packages` shard fail to compile because `internal/metrics/perses_tempo_fixture_test.go:95` calls missing `serviceissuer.Issuer.CertificateFor`. The PR Selected Checks job fails because selected Go shard coverage is incomplete. Runtime/native and release gates were skipped. Earlier exact-head run 44688531802 was also cancelled. Keep this task Active for its owner to repair the candidate and obtain a terminal passing exact-head run; do not move to Review based on Ready metadata alone.
+
+
+## 2026-11-20 latest candidate refresh
+
+The owner advanced #1645 to `6a7e462cc0bc10fb8fe55e2746efb6a3e03e73a2` (Ready, based on develop `36d075fad77fa61ac8c153e979855546589b32c2`). Exact PR run [44689126814](https://github.com/mcpdev80/baseharbor/actions/runs/44689126814) completed with failure. `go-vet` reports undefined `PersesConfiguredStatusNow` in `internal/capability/perses_security_test.go:292` and `cmd/baha/app_perses_access_cli_test.go:136`; the packages shard reports Perses fixture tests failing because the persisted gateway plan file is absent, plus capability build failures. Selected Go shards and `PR Selected Checks` fail; native/runtime and release gates are skipped. No formal GitHub review exists. Keep Active; require the owner to repair the current head and produce passing exact-head required checks plus Tempo runtime acceptance before Review.
