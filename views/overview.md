@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 13 |
-| review | 1 |
+| active | 14 |
+| review | 0 |
 | wait | 17 |
 | blocked | 4 |
 | ready | 5 |
@@ -35,14 +35,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-r28-bughunt-lifecycle-consent-desk](../tasks/t-20261119-r28-bughunt-lifecycle-consent-desk.md) | hunt lifecycle/consent desk | active | not set | Coordinator 9142ab1f (bahn: hunt-lane auf ornith:2, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/) | — | — |
 | [t-20261119-r28-bughunt-observability-desk](../tasks/t-20261119-r28-bughunt-observability-desk.md) | hunt observability desk | active | not set | Coordinator 9142ab1f (bahn: hunt-lane auf ornith:1, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/) | — | — |
 | [t-20261119-r28-window-integrity-verify](../tasks/t-20261119-r28-window-integrity-verify.md) | fensterstand gegen abnahmebelege pruefen | active | not set | w150-pr0428-150-windowverify | — | — |
+| [t-20261120-r28-keycloak-signal-id-migration-gap](../tasks/t-20261120-r28-keycloak-signal-id-migration-gap.md) | migrate un-prefixed keycloak registrations | active | not set | w168-pr0428-168-signal-mig-r2 | — | [baseharbor#1709](https://github.com/mcpdev80/baseharbor/pull/1709) |
 | [t-20261120-r28-provider-signal-id-scope-inconsistency](../tasks/t-20261120-r28-provider-signal-id-scope-inconsistency.md) | scope signal ids uniformly per project | active | not set | w167-pr0428-167-loki-scope | [t-20261120-r28-keycloak-signal-id-migration-gap](../tasks/t-20261120-r28-keycloak-signal-id-migration-gap.md) (open) | — |
 | [t-20261120-r28-superseded-pr-closeout](../tasks/t-20261120-r28-superseded-pr-closeout.md) | close superseded PRs with ancestry proof | active | not set | w169-pr0428-169-closeout | — | — |
 
 ## Ready for review
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261120-r28-keycloak-signal-id-migration-gap](../tasks/t-20261120-r28-keycloak-signal-id-migration-gap.md) | migrate un-prefixed keycloak registrations | review | not set | w168-pr0428-168-signal-migration | — | [baseharbor#1709](https://github.com/mcpdev80/baseharbor/pull/1709) |
+None.
 
 ## Waiting for resources
 
