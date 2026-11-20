@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: codex-thread (owner-directive 2026-11-20T00:5x+01:00, eigenes team); vorgaenger-lane w062-pr1614-appstatus-hopf (codeman d0a488eb) mit meldefrist gestoppt, KEIN remote-write von ihr (zweig-head unveraendert 80d4df52e913, gemessen)
-kanban_status: active
-kanban_lane: active
+owner: Codex (owner-directive 2026-11-20)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Unify app status and versions. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-062 · Unify app status and versions
 priority: high
@@ -18,23 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1614]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "arbeit gestartet und pausiert: #1614 draft auf develop, inhalt haengt an den CLI2-vertragskarten (env-policy / identity-secrets). keine session arbeitet jetzt daran."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-app-status · CLI redesign: Unify app status and versions #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-app-status · CLI redesign: Unify app status and versions #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** codex-thread (owner-directive 2026-11-20T00:5x+01:00, eigenes team); vorgaenger-lane w062-pr1614-appstatus-hopf (codeman d0a488eb) mit meldefrist gestoppt, KEIN remote-write von ihr (zweig-head unveraendert 80d4df52e913, gemessen) · **Priority:** high  
+    **Owner:** Codex (owner-directive 2026-11-20) · **Priority:** high  
     **PR:** [baseharbor#1614](https://github.com/mcpdev80/baseharbor/pull/1614)  
+    **Waiting:** arbeit gestartet und pausiert: \#1614 draft auf develop, inhalt haengt an den CLI2-vertragskarten (env-policy / identity-secrets). keine session arbeitet jetzt daran.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** codex-thread (owner-directive 2026-11-20T00:5x+01:00, eigenes team); vorgaenger-lane w062-pr1614-appstatus-hopf (codeman d0a488eb) mit meldefrist gestoppt, KEIN remote-write von ihr (zweig-head unveraendert 80d4df52e913, gemessen)  
+**Owner:** Codex (owner-directive 2026-11-20)  
 **Priority:** high  
 **PRs:** [baseharbor#1614](https://github.com/mcpdev80/baseharbor/pull/1614)  
 **Source:** 
@@ -77,3 +78,5 @@ UEBERGABE DURCH OWNER-BEFEHL. WAHRHEIT VORAB, und sie ist mein fehler: der claim
 FAKTEN FUER DEN NEUEN INHABER (gemessen, nicht erzaehlt): PR mcpdev80/baseharbor#1614, zweig lane-0428-062-cli2-app-status, kopf 80d4df52e913 seit 2026-11-16T10:32:06+01:00 (committer w073-perses-alerts), draft=TRUE, checks ALLE SKIPPED (ein draft laeuft nicht), base-sha 15727ca8878938 = ZWEI hops hinter develop d5c11753ea43. write-set 14 dateien, schwerpunkt cmd/baha/app_version_view.go, app_versions_view.go, app_versions_command.go, app_status_result.go plus parity-/regression-tests.
 ZWEI WARNUNGEN, die der owner vor dem ersten diff kennen sollte: (1) der diff beruehrt cmd/baha/app_workspace.go UND cmd/baha/app_workspace_source_model.go — beide dateien hat 0428-059 im merge 15727ca88 ANDERS geloest; wenn 062 dort eigene zeilen setzt, pruefe, ob du 059 rueckgaengig machst. (2) KOLLIDIERENDES WRITE-SET: PR #1645 (karte 091, Perses Tempo) beruehrt cmd/baha/app_status_result.go — von mir gemessen (pr diff name-only, treffer 1). Wenn du und 091 gleichzeitig daran arbeiten, braucht es einen integrations-inhaber, sonst zwei konfliktfaelle in derselben datei.
 KONTAKT: die alt-lane meldet ihren /var/tmp-worktree-pfad noch (arbeitsbaum bleibt stehen, damit du dort weitermachen kannst, statt bei null).
+
+wer die einheitliche status-zeile zieht, braucht zuerst die basis-karten. draft ist kein kandidat.
