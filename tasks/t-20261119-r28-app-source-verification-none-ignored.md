@@ -8,10 +8,10 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w203-0428-143-vernone
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 blocker: ""
-wait_reason: ""
+wait_reason: "HANDOFF VOLLSTAENDIG, PFLICHTCHECK KANN NICHT GRUEN WERDEN, UND ICH KENNE JETZT BEIDEN GRUEND - DARUM wait mit NAMEN, muster wie 177/199/201/083 (§3.7). gemessen: PR #1729 head 809a8196e1cf, branch lane-0428-143-verify-none == refs/pull/1729/head, base develop, 'git merge-base --is-ancestor 40cb28c758b0 <head>' = JA, draft=FALSE, 3 dateien. run 44805066271 am exakten head: 8 success / 6 failure / 20 skipped. URSACHEN GETRENNT NACHGEPREUEFT (nicht der lane geglaubt): die vier cli-zellen + 'PR Selected Checks' = feld-gate 0428-198; die zelle 'PR · Go unit · packages' ist ROT WEGEN 0428-202 - job 136526893242, die einzigen fehlschlagenden tests sind TestPersesLokiDatasourceMultiSourceQueryOneSelectorPerSource, TestPersesLokiDatasourceMultiSourcePartialMatchability, TestPersesLokiDatasourceMultiSourceNoneMatchFailsClosed in internal/logs, und in DIESEM job stehen NULL operator-meldungen. das ist die ZWEITE UNABHAENGIGE reproduction des 202-symptoms auf einem fremden PR (die erste war w202's packages-befund, zeile 789 ff.) - fueralles, was die owner-entscheidung zur policy-seite klaeren muss. IHRE MELDUNG 'my packages GREEN' WAR SO NICHT HALTBAR (die ZELLE ist rot, ihre eigenen tests bestehen) - sie hat es nach meiner forderung selbst berichtigt und die per-cell-conclusions in die akte geschrieben (plan main e2f15c3d: run 44805066271 vier nennungen, ihr falling TestVerifyApplicationSourceVerificationNoneIsSkipped zweimal, cleanliness eine zeile, 88 zeilen, 0 checkboxen). PRODUKTSEITIG GELIEFERT: option A durchgaengig (anwendungs-schleife traegt dieselbe ObservabilityVerifyNone-wache wie die provider-schleife), contract-satz an genau einer stelle (internal/capability/integration_contract.go). ZWEITER BEFUND: 'stale emitted target nach same-id-wechsel auf VerificationNone' - ich habe DARAUFLINIE KARTE 0428-203 (tasks/t-20261120-verif-none-stale-target.md) mit zeugen, write-set, akzeptanz und stop-regel angelegt (fund->karten-pflicht erfuellt, §3.3.5); sie haengen damit nichts an. sitz wird freigegeben; der ornith-platz bleibt besetzt mit w204-0428-076-hop. TRIGGER FUER DIE NAechSTE KANTE: gruenes feld-gate (0428-198) UND gelesener 0428-202, dann review."
 depends_on: []
 repos: [mcpdev80/baseharbor]
 evidence:
@@ -19,21 +19,26 @@ evidence:
 resolution: ""
 created: 2026-11-19
 card_short_title: Verification=none is ignored
+prs: [mcpdev80/baseharbor#1729]
+
 ---
 
-- [ ] t-20261119-r28-app-source-verification-none-ignored · Verifier: Verification=none is ignored for application-class metrics sources #task #release/v0-4-28 #status/active #view/active #area/metrics #area/observability #kind/bug
+- [ ] t-20261119-r28-app-source-verification-none-ignored · Verifier: Verification=none is ignored for application-class metrics sources #task #release/v0-4-28 #status/wait #view/wait #area/metrics #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** w203-0428-143-vernone  
+    **PR:** [baseharbor#1729](https://github.com/mcpdev80/baseharbor/pull/1729)  
+    **Waiting:** HANDOFF VOLLSTAENDIG, PFLICHTCHECK KANN NICHT GRUEN WERDEN, UND ICH KENNE JETZT BEIDEN GRUEND - DARUM wait mit NAMEN, muster wie 177/199/201/083 (§3.7). gemessen: PR \#1729 head 809a8196e1cf, branch lane-0428-143-verify-none == refs/pull/17…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/blob/fac01c77276ca2bf1e20cd0b7334bda5dd43e353/internal/metrics/prometheus_verify.go)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
+**Required by:** [t-20261120-verif-none-stale-target](t-20261120-verif-none-stale-target.md)  
 **Owner:** w203-0428-143-vernone  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1729](https://github.com/mcpdev80/baseharbor/pull/1729)  
 **Source:** 
 <!-- /generated:links -->
 
