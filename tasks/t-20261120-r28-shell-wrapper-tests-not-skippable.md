@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1731]
 sources: []
 blocker: ""
-wait_reason: "PR #1731 run 44812248904 fails cli-0..3 on existing managed-operator test-context failures addressed by prerequisite 0428-057 / PR #1615. Its cli-3 job installed zsh and fish, but final exact-head acceptance remains open. Wait for #1615 exact run 44815738274 on head 80bea2a73dabcd8f37e046cc9dcf3c190665afb0 and merge; then hop #1731 to current develop and rerun exact CI, verifying the wrapper test executes."
+wait_reason: "PR #1731 run 44812248904 fails cli-0..3 on existing managed-operator test-context failures addressed by prerequisite 0428-057 / PR #1615. Its cli-3 job installed zsh and fish, but final exact-head acceptance remains open. Wait for #1615 exact run 44817430166 on head 9dccd0ed67689fcc8a3bb69f89853fa96121091b and merge; then hop #1731 to current develop and rerun exact CI, verifying the wrapper test executes."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1731", "https://github.com/mcpdev80/baseharbor/actions/runs/44812248904"]
 ---

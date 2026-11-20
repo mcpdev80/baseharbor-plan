@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1718]
 sources: []
 blocker: ""
-wait_reason: "Waiting for prerequisite 0428-057 / PR #1615 to merge with exact required CI green. Its test-context changes address the managed-operator authentication failures in this PR's cli shards. Then hop #1718 onto current develop and rerun exact CI. Current #1615 head 80bea2a73dabcd8f37e046cc9dcf3c190665afb0; exact run 44815738274 is pending."
+wait_reason: "Waiting for prerequisite 0428-057 / PR #1615 to merge with exact required CI green. Its test-context changes address the managed-operator authentication failures in this PR's cli shards. Then hop #1718 onto current develop and rerun exact CI. Current #1615 head 9dccd0ed67689fcc8a3bb69f89853fa96121091b; exact run 44817430166 is pending."
 resolution: ""
 evidence: []
 ---
