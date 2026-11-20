@@ -27,14 +27,14 @@ wait_reason: ""
 - [x] t-20261120-r28-provider-signal-id-scope-inconsistency · scope signal ids uniformly per project #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/capability #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** w167-pr0428-167-loki-scope  
-    **Needs:** t-20261120-r28-keycloak-signal-id-migration-gap  
+    **Needs:** [t-20261120-r28-keycloak-signal-id-migration-gap](t-20261120-r28-keycloak-signal-id-migration-gap.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/loki-signal-scope/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** t-20261120-r28-keycloak-signal-id-migration-gap  
+**Depends on:** [t-20261120-r28-keycloak-signal-id-migration-gap](t-20261120-r28-keycloak-signal-id-migration-gap.md)  
 **Owner:** w167-pr0428-167-loki-scope  
 **Priority:** not set  
 **PRs:** none  
