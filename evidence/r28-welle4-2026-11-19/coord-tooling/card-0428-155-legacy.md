@@ -1,3 +1,5 @@
+<!-- LEGACY (Owner-Entscheidung 2026-11-20): diese Karte fuehrt das Produkt-Release-Board v0.4.28 nicht mehr. Coordinator-Tooling liegt in https://github.com/mcpdev80/codeman-coordinator-tooling; Werkzeug-Details laufen dort, nicht als Produktkarten. Der Inhalt bleibt unveraendert als Verlaufstraeger erhalten. -->
+
 ---
 id: t-20261119-coord-tooling-defects
 kanban_title: 0428-155 · coordinator script defects
@@ -23,7 +25,7 @@ resolution: accepted
 created: 2026-11-19
 ---
 
-- [x] t-20261119-coord-tooling-defects · skript-zeile statt bahn-pruefen #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/coordination #area/tooling #kind/task
+- LEGAKARTE (war: t-20261119-coord-tooling-defects · skript-zeile statt lane-pruefen #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/coordination #area/tooling #kind/task
     <!-- generated:card -->
     **Owner:** w155-pr0428-155-waitfix  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/coord-tooling/fix-2.md)  
@@ -31,7 +33,7 @@ created: 2026-11-19
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:**   
 **Depends on:** none  
 **Owner:** w155-pr0428-155-waitfix  
 **Priority:** not set  
@@ -83,3 +85,5 @@ inhaber -> `active` muss durchgehen; karte ohne inhaber-zeile -> muss brechen; k
 `owner: ""` -> muss brechen.
 
 SIEBEN werkzeug-defekte meiner skripte geheilt, gemessen am coordinator-HEAD 646198ae: beide gate-zeilen (131 active, 133 wait) testen jetzt vorhaenden statt leer (git show HEAD:scripts/card-status.py). regressionen 11 gruen (e52d87af), py_compile/bash -n sauber, akte fix-2.md 6673 bytes auf main 7bad75ef, checkboxen NULL (die formatregel aus meinem eigenen fehler in fix-1.md ist umgesetzt). VON MIR AKTIV BENUTZT: die letzten sechs zustandswechsel dieses fensters sind durch das geaenderte skript gegangen, keiner zurueckgesetzt. VORBEHALT: das coordinator-repo hat KEINEN remote, also gibt es hier keinen gehosteten lauf und kein pr-ref — die annahme folgt aus den lokalen regressionen und den sechs echten verwendungen, nicht aus einer CI.
+
+Legacy-Hinweis (Owner-Entscheidung 2026-11-20): Coordinator-Tooling liegt nicht mehr im Produkt-Vault. Diese Karte bleibt als geschlossener Verlaufsträger erhalten, fuehrt das Produkt-Release-Board v0.4.28 aber nicht mehr (release-Feld geleert). Aktuelles Werkzeug und zugehoerige Issues/PRs: https://github.com/mcpdev80/codeman-coordinator-tooling. Neue Werkzeug-Details werden dort, nicht hier gefuehrt.

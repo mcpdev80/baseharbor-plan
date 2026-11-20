@@ -65,3 +65,5 @@ Der develop-Stand des merge-fensters (223cb97a9) enthaelt heute gemergte karten 
 zurueckgesetzt auf planned: der einzige freie sitz (laptop:2) ging an die korrekturrunde 0428-142 (echte kartenarbeit vor verify-auftrag, §3.3#5 reihenfolge). karte bleibt als fenster-nachweis offen, naechster freier sitz.
 
 nachweis-pflichtig pro karte, nicht als lump. naechster trigger: der naechste merge im fenster (gerade: f5ce95af, #1716).
+
+Werkzeug-Hinweis: die Ablaufe dieser Karte werden von Coordinator-Skripten getragen; Werkzeug-Details und -Fehler laufen im Tooling-Repo https://github.com/mcpdev80/codeman-coordinator-tooling, nicht als Produktkarten.
