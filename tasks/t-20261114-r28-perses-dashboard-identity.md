@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
-**Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
+**Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md), [t-20261120-r28-prune-key-too-coarse](t-20261120-r28-prune-key-too-coarse.md), [t-20261120-r28-registerprovider-signal-failclosed](t-20261120-r28-registerprovider-signal-failclosed.md), [t-20261120-r28-restart-persist-signal-dump](t-20261120-r28-restart-persist-signal-dump.md), [t-20261120-r28-runtimetarget-failclosed](t-20261120-r28-runtimetarget-failclosed.md), [t-20261120-r28-signal-one-active-write-path](t-20261120-r28-signal-one-active-write-path.md), [t-20261120-r28-signalregistry-race](t-20261120-r28-signalregistry-race.md)  
 **Owner:** Codex (owner takeover, pr-sweep)  
 **Priority:** normal  
 **PRs:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
