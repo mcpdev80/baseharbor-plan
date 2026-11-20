@@ -7,9 +7,9 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w198-0428-198-cligate
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Jeder Pull Request, der auf develop 40cb28c758b0 (Merge von #1594, cli2-env-policy-head) gehopft wird, verliert die vier shards…"
 kanban_title: 0428-198 · cli shards need operator env
 priority: ""
@@ -24,17 +24,16 @@ evidence: []
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-r28-cli-shard-operator-env · cli shards need operator env #task #release/v0-4-28 #status/planned #view/ready #area/ci #area/cli #kind/bug
+- [ ] t-20261120-r28-cli-shard-operator-env · cli shards need operator env #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w198-0428-198-cligate  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w198-0428-198-cligate  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -78,3 +77,5 @@ setzen muss (§3.8 letzter Absatz).
   diese Karte repariert den PR-Gate, nicht die Sicherheitsentscheidung.
 - Wenn die Reparatur eine Änderung an `internal/operatorauth/**` oder `internal/identityprovider/**` verlangt
   (Arbeitsfeld von #1650, owner laeuft dort): STOP + MELDEN mit der einen Zeile (§4.3).
+
+ARBEITET JETZT, kante gegen session gemessen (w198-0428-198-cligate, laptop, worktree aus develop 40cb28c758b0): der weg zurueck zu gruenen cli-shards ohne owner-env. ansatz: die zwei tests bauen ihre operator-identitaet im test auf (fixture, wie es sie im repo schon gibt), statt sie von der workflow-umgebung zu verlangen - am alten base f5ce95af war 'PR · Go unit · cli-2' naemlich executed/success (run 44759243414), die forderung kam mit #1594.Produkt-kode ist verschlossen, nur test-dateien; ist es WIRKLICH nur per umgebung loesbar, stoppt die lane und meldet (AGENTS 3.8).
