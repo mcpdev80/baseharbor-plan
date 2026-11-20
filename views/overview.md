@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 6 |
-| review | 2 |
+| active | 7 |
+| review | 1 |
 | wait | 27 |
 | blocked | 1 |
 | ready | 3 |
@@ -30,13 +30,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261120-bughunt-shipped-surface-desk](../tasks/t-20261120-bughunt-shipped-surface-desk.md) | hunt shipped-surface desk | active | not set | w196-0428-196-huntswt | — | — |
 | [t-20261120-perses-tmpfs-mountpoint](../tasks/t-20261120-perses-tmpfs-mountpoint.md) | Perses runtime smoke cannot mount tmpfs at /etc/perses/database on hosted runners | active | not set | 0428-083- | — | — |
 | [t-20261120-post-merge-acceptance-audit-40cb28c](../tasks/t-20261120-post-merge-acceptance-audit-40cb28c.md) | post-merge acceptance audit | active | not set | w197-0428-197-postmerge | — | — |
+| [t-20261120-r28-valkey-dashboard-unavailable-only](../tasks/t-20261120-r28-valkey-dashboard-unavailable-only.md) | Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable | active | not set | w183-0428-183-valkeyfix | — | [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714) |
 
 ## Ready for review
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261120-r28-cli2-context-precedence-evidence](../tasks/t-20261120-r28-cli2-context-precedence-evidence.md) | CLI2: persisted-over-default precedence is not asserted through baha context show | review | not set | w178-0428-178-contextshow | — | [baseharbor#1718](https://github.com/mcpdev80/baseharbor/pull/1718) |
-| [t-20261120-r28-valkey-dashboard-unavailable-only](../tasks/t-20261120-r28-valkey-dashboard-unavailable-only.md) | Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable | review | not set | w183-0428-183-valkeygate | — | [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714) |
 
 ## Waiting for resources
 
