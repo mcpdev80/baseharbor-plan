@@ -12,9 +12,9 @@ parent: ""
 depends_on: []
 blocked_by: []
 superseded_by: []
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w160-pr0428-160-prinv
+kanban_status: active
+kanban_lane: active
 blocker: ""
 resolution: ""
 evidence: []
@@ -23,17 +23,16 @@ created: 2026-11-20
 wait_reason: ""
 
 ---
-- [ ] t-20261120-r28-pr-inventory-audit · offene pull-requests des fensters inventurieren #task #release/v0-4-28 #status/planned #view/ready #area/application #area/cli #area/security #kind/task
+- [ ] t-20261120-r28-pr-inventory-audit · offene pull-requests des fensters inventurieren #task #release/v0-4-28 #status/active #view/active #area/application #area/cli #area/security #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w160-pr0428-160-prinv  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w160-pr0428-160-prinv  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
