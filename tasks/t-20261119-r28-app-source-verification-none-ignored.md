@@ -7,11 +7,11 @@ areas: [metrics, observability]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: blocked
-kanban_lane: blocked
-blocker: "voir karten-text; entscheidung ist jetzt enger gefasst"
-wait_reason: ""
+owner: codex-open-pr-sweep-0428-143
+kanban_status: wait
+kanban_lane: wait
+blocker: ""
+wait_reason: "Owner decision and regression are prepared locally on the current #1693 head; awaiting the busy Codeman Coordinator to finish its handoff before updating that branch, then a fresh exact-head CI run is required."
 depends_on: []
 repos: [mcpdev80/baseharbor]
 evidence:
@@ -21,18 +21,18 @@ created: 2026-11-19
 card_short_title: Verification=none is ignored
 ---
 
-- [ ] t-20261119-r28-app-source-verification-none-ignored · Verifier: Verification=none is ignored for application-class metrics sources #task #release/v0-4-28 #status/blocked #view/blocked #area/metrics #area/observability #kind/bug
+- [ ] t-20261119-r28-app-source-verification-none-ignored · Verifier: Verification=none is ignored for application-class metrics sources #task #release/v0-4-28 #status/wait #view/wait #area/metrics #area/observability #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Blocker:** voir karten-text; entscheidung ist jetzt enger gefasst  
+    **Owner:** codex-open-pr-sweep-0428-143  
+    **Waiting:** Owner decision and regression are prepared locally on the current \#1693 head; awaiting the busy Codeman Coordinator to finish its handoff before updating that branch, then a fresh exact-head CI run is required.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/blob/fac01c77276ca2bf1e20cd0b7334bda5dd43e353/internal/metrics/prometheus_verify.go)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** codex-open-pr-sweep-0428-143  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -61,7 +61,16 @@ mode is `none` is excluded from exported `ListMetrics` output, yet `verifyProvid
 waits for it as a required `up` sample. So `Verification=none` does not mean "no verification" for
 application-class sources, while it does for provider-class sources.
 
-## Decision needed before implementation
+## Owner decision (2026-11-20)
+
+**Option A selected: uniform semantics.** `Verification=none` means no verifier assertion
+for every source class. For metrics, it also means the exporter emits no scrape target.
+This avoids timing out on a source the exporter intentionally omitted and removes the
+undocumented provider/application asymmetry. Option B (documented asymmetry) is declined.
+
+The application-source verifier guard and regression are prepared on an isolated local
+follow-up based on #1693's current head. The contract comment is in
+`internal/capability/integration_contract.go`; no remote branch has been updated yet.
 
 - Option A - uniform semantics: `Verification=none` means no verification everywhere; the application
   loop gets the same guard plus a regression test seeding an app-class source with `Verification=none`.
@@ -74,6 +83,21 @@ application-class sources, while it does for provider-class sources.
   an application-class source with `Verification=none` (test ID mapped to its gate per the CI intake rule).
 - The contract text states the semantics in one place; no silent behaviour change.
 
-VERKLEINERT durch meine disposition zu #1693: die parity-zeile 'if source.Verification == capability.ObservabilityVerifyNone { continue }' wird im application-loop von 0428-123 als FOLGE ihres routing-fixes gesetzt (sonst liefe eine app-queLLE mit mode none durch ihren PR neu in den timeout). UEB Rig bleibt damit nur die vertrags-text-frage: bedeutet 'none' einheitlich 'keine verifikation' (dann ist die parity dauerhafte semantik) oder ist die provider/app-verschiedenheit gewollt (dann muss der vertragstext das ausdruecklich sagen). zeugen: internal/metrics/prometheus_verify.go:174 (app-loop) gegen :185 (provider-loop) auf develop fac01c77276ca2bf1e20cd0b7334bda5dd43e353; owner-entscheidung erforderlich, bevor eine lane documentation-onlyarbeit daran tut
+The earlier narrowing found that #1693's exporter routing makes the missing application
+guard observable: an app source with mode `none` is not exported, but the verifier would
+still wait for it. The selected semantics above make the application guard part of the
+same contract, not a separate policy.
 
-Independent review of PR #1693 also reproduced a stale emitted target after a same-ID source switches to `VerificationNone` (see [review evidence](../evidence/r28-welle4-2026-11-19/codex-review-wave/1693-0428-123-independent-review.md)). This narrows implementation behavior but does not resolve the card’s existing contract blocker; do not change its status without that decision.
+Independent review of PR #1693 also reproduced a stale emitted target after a same-ID source switches to `VerificationNone` (see [review evidence](../evidence/r28-welle4-2026-11-19/codex-review-wave/1693-0428-123-independent-review.md)).
+
+## Handoff
+
+Local follow-up commit `82722617` is based on exact #1693 head `270a0de6`. It adds the
+application-source `VerificationNone` skip, a regression in
+`TestVerifyProviderAndApplicationSourcesSkipsOnlySnapshotMetadata`, and the contract
+comment. `go test ./internal/capability ./internal/metrics -count=1`,
+`go vet ./internal/capability ./internal/metrics`, and `git diff --check` pass locally.
+The normal `PR · Go unit · packages` shard auto-discovers the test. This commit is not
+pushed because #1693 had just been handed off and the Codeman Coordinator is busy; a new
+exact-head run must execute after integration. Current follow-up worktree:
+`/var/tmp/baseharbor-sweep-1693-hop`, branch `codex/0428-123-verify-none-hop`.
