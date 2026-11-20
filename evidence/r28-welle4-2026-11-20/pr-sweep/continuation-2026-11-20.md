@@ -341,3 +341,12 @@ Live GitHub shows #1645 remains OPEN+Ready and mergeable, now at head `6a7e462cc
 +Codeman read-only snapshot: basics currency `ok`, inflight, clean, ahead/behind 0; workers 5/5 and reviewer/merger 1/1; 19 open PRs; pending QUESTION for `7578ff5b`; two `bh-*` container alarm. Watch lists five busy workers and two role=None sessions. Pool says Coordinator busy, five workers/no open seats; coord-state has empty lanes/missions and same 19 heads, including #1645 at `6a7e462`. No Codeman message, response, acknowledgment, dispatch or write was made.
 +
 +Fresh PR search still returns the same 19 open IDs. Overall sweep remains active.
+
+
+## Reconcile latest live plan and current owner activity — 2026-11-20 ~06:50 UTC
+
+The plan main advanced concurrently to `232ff2cb` after the previous sweep commit. Its current card state shows 0428-078/#1650 **Active** again, indicating the assigned correction work resumed; update the earlier 06:47 snapshot accordingly. The unresolved requirements are unchanged: reject `ConfiguredUnverified` for verified eligibility and add real local/remote selected/unselected CLI status-seam regressions. PR remains OPEN+Ready at `ac2a5450`; selected checks success does not resolve the two findings or skipped runtime gates. Keep it Active while the owner works; no Review evidence exists. Card 0428-091/#1645 remains Active at `6a7e462` with exact run `44689126814` failed, as documented above. Card 0428-142/#1702 remains Wait, with stale base and backend-evidence gaps.
+
+Correction from the latest Blocked audit: runtime dependency card 0428-088/#1592 is accepted/closed in current plan main; do not cite it as an outstanding dependency for #1684. #1684 remains blocked by its own failing exact-head native smoke and the separate 0428-174 native qualification blocker. The four Blocked cards still have no justified lane change.
+
+The current 0428-091 task note had literal conflict delimiter lines from concurrent card updates. Removed only those delimiters while preserving the lane-owner instruction, latest run evidence, and current failure details. No PR or Codeman state was changed.
