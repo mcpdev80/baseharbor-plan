@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: Codex (Marcel assigned)
-kanban_status: active
-kanban_lane: active
+kanban_status: planned
+kanban_lane: ready
 kanban_summary: "Bind existing local runtime authorization to exactly one CLI operation, target, and canonical environment through a short-lived,…"
 kanban_title: 0428-188 · Bind local operation grants to
 priority: high
@@ -23,13 +23,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-trusted-local-operation-grant · CLI security: Bind local operation grants to calls #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #area/security #kind/task
+- [ ] t-20261120-trusted-local-operation-grant · CLI security: Bind local operation grants to calls #task #release/v0-4-28 #status/planned #view/ready #area/architecture #area/cli #area/security #kind/task
     <!-- generated:card -->
     **Owner:** Codex (Marcel assigned) · **Priority:** high  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-uid-environment](t-20261114-r28-cli2-uid-environment.md)  
 **Required by:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  

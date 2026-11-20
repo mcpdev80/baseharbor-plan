@@ -9,7 +9,7 @@
 | **Backlog** (`backlog`) | Idee/unsortierte Arbeit; nur Release `backlog` oder `triage`. |
 | **Planned** (`planned`) | Geplant, **noch nicht begonnen**. Auch wenn Abhängigkeiten offen oder Worker belegt sind. |
 | **Ready** (abgeleitet) | Planned, alle Abhängigkeiten akzeptiert, Release aktiv oder `early: true`. Noch nicht zugewiesen/gestartet. |
-| **Active** (`active`) | Bearbeitung hat begonnen. `owner` Pflicht. |
+| **Active** (`active`) | Wird **jetzt gerade** von der zugeordneten, aktuell beschäftigten Worker- oder Codex-Session bearbeitet. Eine bloße Zuweisung oder ein alter Claim reicht nicht. `owner` muss zur Live-Session passen. |
 | **Wait** (`wait`) | **Bereits begonnene** Arbeit pausiert: wartet auf andere Karte, Runner, Worker, Ressource oder Rückmeldung. `owner` und `wait_reason` Pflicht. |
 | **Review** (`review`) | Umsetzung fertig, Abnahme/Review offen. `owner` und mindestens ein `prs`-Eintrag Pflicht. |
 | **Blocked** (`blocked`) | **Alarm:** Owner-Entscheidung erforderlich oder Umsetzung derzeit technisch unmöglich. `blocker` mit genauer Ursache/Entscheidungsbedarf Pflicht. Nicht für normale Wartezeiten! |
