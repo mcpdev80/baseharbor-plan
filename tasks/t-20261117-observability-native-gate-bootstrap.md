@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: codex-open-pr-sweep-114
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Make the existing observability runtime acceptance runnable and selectable for application observability changes, so the Loki…"
 kanban_title: 0428-114 · Run observability Accept with
 priority: ""
@@ -23,14 +23,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261117-observability-native-gate-bootstrap · CI: Run observability acceptance with verified ORAS bootstrap #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261117-observability-native-gate-bootstrap · CI: Run observability acceptance with verified ORAS bootstrap #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** codex-open-pr-sweep-114  
     **PR:** [baseharbor#1708](https://github.com/mcpdev80/baseharbor/pull/1708)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261117-docker-loki-ingestion-timeout](t-20261117-docker-loki-ingestion-timeout.md)  
@@ -55,7 +55,7 @@ Make the existing observability runtime acceptance runnable and selectable for a
 ## Acceptance
 
 - PR native gate plan selects both existing observability gates for the 0428-113 application source paths and does not select them for an unrelated path.
-- Docker and rootless Podman runs install verified ORAS and execute TestObservabilityFullStackAcceptanceInCI against exact SHA 504a8678c2391cb379622fa02c2c8d9769fa192b.
+- Docker and rootless Podman runs install verified ORAS and execute TestObservabilityFullStackAcceptanceInCI against the exact post-hop candidate SHA, with the exact SHA recorded in Handoff evidence.
 - Both runs reach the Loki provider workload query and pass without weakening the assertion; preserve expected negative-consent refusal.
 - Record test -> gate -> trigger -> run URL/outcome. Keep PR #1680 unmerged until exact runtime evidence is green.
 
@@ -96,6 +96,13 @@ ZWEIFEL queued for the existing CI owner. Exact failure evidence is in runs 4405
 - A fresh independent open-PR audit found no other safe Review candidate: other non-draft PRs are actively owned, stale, or blocked by acceptance/dependency requirements. Live Codeman sessions were inspected read-only: Coordinator plus W124, W168, W119, W083, and W078 are busy; no Codeman prompt/session/worktree/config/file was changed.
 - #1594 / 0428-053 remains OPEN+DRAFT at `2af892e4`, exact run `44653386231` failed, and no owner-authoritative per-environment TrustedLocal policy source or production caller wiring has appeared. Keep downstream stack blocked; stable target/environment identifiers and the existing target-bound connection check do not authorize TrustedLocal.
 - Canonical plan main advanced to `afa1c378`; this handoff is being added on top of that fetched main. Keep 0428-114 active pending exact post-hop Docker+Podman completion and merge evidence.
+
+## Handoff update (2026-11-20 ~02:16 UTC)
+
+- Exact PR source `2ba3d0e3463627095696f671f25640aeb2d48dd4` passed run [44657509162](https://github.com/mcpdev80/baseharbor/actions/runs/44657509162), including the selected Docker observability runtime gate, all required Go shards, and PR Selected Checks.
+- Exact dual-runtime acceptance [44658591587](https://github.com/mcpdev80/baseharbor/actions/runs/44658591587) completed SUCCESS for both Docker and rootless Podman; both jobs executed `TestObservabilityFullStackAcceptanceInCI` after verified ORAS setup and isolated OCI publication. Candidate was exact SHA `2ba3d0e3463627095696f671f25640aeb2d48dd4`.
+- PR #1708 merged to develop as [e20f6f6e3b27fb7f5d5e88c9f3d0365de8c5aa03](https://github.com/mcpdev80/baseharbor/commit/e20f6f6e3b27fb7f5d5e88c9f3d0365de8c5aa03) at 2026-11-20 02:15 UTC; GitHub confirmed state MERGED with expected PR head. Card moved to review for Maintainer acceptance; no task acceptance is claimed here.
+- 0428-114 handoff was published to `baseharbor-plan/main` as `ac2bfe180b48d5d5f16c6e8b10b4ee8c7ad9b210`; `plan.py render/check` reported 608 tasks, 0 errors, 11 warnings.
 
 reichweite erwisert (entscheid statt sequenzierung): 114 besitzt jetzt beide 128-symptome mit datei:zeile. grund: 114 hat keinen lebenden sitz und keinen PR (nur ein nominaler owner-vermerk), eine sequenzierung 'warte auf 114, dann 128' wuerde 119/088 unbefristet blockieren; zugleich wuerde eine separate 128-aenderung dieselbe coverage-map zwei mal anfassen
 
