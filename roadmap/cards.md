@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 116/216 · **Blocked:** 3 · **Waiting:** 29  
+    **Accepted tasks:** 117/216 · **Blocked:** 3 · **Waiting:** 27  
     **Blocker:** [t-20261120-r28-cli2-context-precedence-evidence](../tasks/t-20261120-r28-cli2-context-precedence-evidence.md) — NICHT der kandidat, sondern die CI-UMGEBUNG: CODEX-REVIEW hat head aa3c9d2a5b799756837e6238fe82c948778e7a15 APPROVED (akte codex-review-wave/1718-0428-178.md).…  
     **Blocker:** [t-20261120-r28-packages-shard-develop-regression](../tasks/t-20261120-r28-packages-shard-develop-regression.md) — WURZEL GEFUNDEN, BESITZER IST DER OWNER-RAIL (nicht die lane, die die jagd vorschlug). bisect ueber zwei isolierte worktrees: f5ce95afce1c = 'PR · Go unit · pa…  
     Plus 1 further blockers in the task list.  

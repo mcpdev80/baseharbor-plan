@@ -28,7 +28,6 @@ evidence: []
     **Owner:** codex-open-pr-sweep-067 · **Priority:** high  
     **PR:** [baseharbor#1620](https://github.com/mcpdev80/baseharbor/pull/1620)  
     **Waiting:** Started implementation is paused on the unaccepted CLI2 environment-policy prerequisite (0428-053) and a qualifying exact-head run for \#1620. The current branch is Draft. Resume on the accepted stack; if the base is not admitted by the exi…  
-    **Needs:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

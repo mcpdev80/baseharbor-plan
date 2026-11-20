@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: Codex (Marcel assigned)
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Replace name-based environment policy. Follow the owner working brief, command mapping and code entry index; revalidate current…"
 kanban_title: 0428-053 · Replace name-based Env policy
 priority: high
@@ -19,19 +19,19 @@ prs: [mcpdev80/baseharbor#1594]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1594", "https://github.com/mcpdev80/baseharbor/actions/runs/44735405029", "https://github.com/mcpdev80/baseharbor/commit/3653369a4d832e16a427ebf862e959dcccb882b1", "https://github.com/mcpdev80/baseharbor/actions/runs/44758114769"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1594", "https://github.com/mcpdev80/baseharbor/commit/40cb28c758b02960356434b630086a341ebe1738", "https://github.com/mcpdev80/baseharbor/actions/runs/44769661499", "https://github.com/mcpdev80/baseharbor/actions/runs/44758114769"]
 ---
 
-- [ ] t-20261114-r28-cli2-env-policy · CLI redesign: Replace name-based environment policy #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [x] t-20261114-r28-cli2-env-policy · CLI redesign: Replace name-based environment policy #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** Codex (Marcel assigned) · **Priority:** high  
     **PR:** [baseharbor#1594](https://github.com/mcpdev80/baseharbor/pull/1594)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1594), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44735405029), [proof 3](https://github.com/mcpdev80/baseharbor/commit/3653369a4d832e16a427ebf862e959dcccb882b1), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44758114769)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1594), [proof 2](https://github.com/mcpdev80/baseharbor/commit/40cb28c758b02960356434b630086a341ebe1738), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44769661499), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44758114769)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-uid-environment](t-20261114-r28-cli2-uid-environment.md), [t-20261120-trusted-local-operation-grant](t-20261120-trusted-local-operation-grant.md)  
 **Required by:** [t-20261114-r28-cli2-app-lifecycle](t-20261114-r28-cli2-app-lifecycle.md), [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-env-delete](t-20261114-r28-cli2-env-delete.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md), [t-20261114-r28-cli2-wizard-platform](t-20261114-r28-cli2-wizard-platform.md)  
@@ -70,7 +70,7 @@ Two arbitrary names with identical settings behave equally; varied policy differ
 
 ## Handoff
 
-Planned and unassigned. No product implementation or acceptance yet.
+Accepted after PR #1594 merged into `develop` as `40cb28c758b02960356434b630086a341ebe1738`. Exact-head PR CI run [44769661499](https://github.com/mcpdev80/baseharbor/actions/runs/44769661499) passed on #1594 head `d8a7b9c30bda10d2f5e0d6d6140a348995169834`. The typed in-process grant prerequisite is accepted in 0428-188; dependent #1615/0428-057 is active and running its own exact-head checks.
 
 ## Note (owner 2026-11-15)
 

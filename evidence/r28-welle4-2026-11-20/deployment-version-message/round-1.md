@@ -45,12 +45,20 @@ Evidence path: evidence/r28-welle4-2026-11-20/deployment-version-message/round-1
 - Remote truth measured only via git ls-remote on lane-origin (https://github.com/mcpdev80/baseharbor.git) and a fresh clone /tmp/w200-verrmask-wt; the workers/baseharbor quarantined checkout was NOT cited.
 - Pre-existing cmd/baza tests that fail with 'Managed-environment machine operations require an authenticated BaseHarbor operator' (TestTrustStatusAbsentCoreInsideAndOutsideRepository, TestW138DestroyAfterRefusedApplyReturnsZero, TestW154DestroyAfterProviderChangeAbortReturnsZero, and the runtime_ports one) fail IDENTICALLY on the unmodified base head (verified via git stash) — this is the 0428-198/202 operator-auth gate defect, not caused by this change.
 
-## CI / hosted run
+## Correction round 0428-200 (draft → non-draft PR)
 
-- Gate defect (STATE, not a fix; cards 0428-198 and 0428-202, both owned): on this base the hosted Go unit gates (PR · Go unit · cli-0..3 / packages cells) fail with `Managed-environment machine operations require an authenticated BaseHarbor operator` (and the related `operator OIDC configuration is required`). This is the environment gate, not this card's defect.
-- Evidence route: the three new tests run under the Go unit gate that covers cmd/baha/ and internal/deployment/. CI-Aufnahmepflicht: every new test runs in the Go unit suite (no .github change needed — the existing group covers cmd/baha and internal/deployment; the gate is reachable in this same PR, no separate CI-owner handoff).
+- PR #1727 was created DRAFT and could not have its `draft` flag cleared via API (PATCH returned HTTP 200 but `draft` stayed true and `updated_at` never moved) — a GitHub quirk for a PR born draft. Per the correction round (note-200-fix), the non-draft requirement is a pre-condition for the required checks to run at all, so a fresh non-draft PR was opened.
+- PR #1728 (https://github.com/mcpdev80/baseharbor/pull/1728): **non-draft**, base `develop`, head `6e3122344f87bd84f0632a30e91817ea1b9748a5`, branch `w200-0428-200-verrmask-2` == `refs/pull/1728/head`. Content byte-identical to prior candidate 776812c2 (`git diff 776812c2 6e312234 --stat` empty).
+- Run ID on head 6e312234: `44804472715` (watched to terminal state per §4.6).
+
+## CI / hosted run (run 44804472715, head 6e312234)
+
+Terminal conclusions:
+- success: `go-build`, `go-vet`, `cli-gofmt`, `deployment-package-tests` (ran `./internal/deployment`, matched), `owner` shard, `Focused Python`, `Runner Interface`, `Demo Pin`, `Exact Candidate`.
+- failure (STATE, not this card): `PR · Go unit · cli-0`, `cli-1`, `cli-2`, `cli-3`, `packages`, `Selected Runtime` fail **exclusively** on the operator-auth gate. cli-2 detail: 73 `--- FAIL` lines, every sub-detail line reads `Managed-environment machine operations require an authenticated BaseHarbor operator` (or `operator OIDC configuration is required`, or `operator authentication needs interactive setup but input is not a terminal`); zero failures unrelated to the gate. `packages` fails on `TestPersesLokiDatasource*` `load Loki service access identity: ... client-cert.pem: no such file or directory` — the serviceaccess pki root (0428-202), not this card.
+- This is the field-gate defect 0428-198/202 (root cause `internal/serviceaccess/policy.go`, 2af892e4e). NOT a fix here: `internal/serviceaccess/**` is express-locked to card 0428-202 (owner-rail); no `.github/**` edit, no second/matrix run (§5.4, §3.8).
+- Evidence route satisfied: the three new tests are reachable by CI gates in this same PR — `TestListDeploymentsForDisplaySurfacesVersionMismatch` runs under `deployment-package-tests` (success); status/destroy surface tests run under the `cmd/baha` unit gate. Every new test runs in the Go unit suite; no `.github/**` change needed.
 - go build ./..., go vet ./internal/deployment/ ./cmd/baha/ clean; gofmt -l clean; internal/deployment/... full suite passes.
-- Hosted run on the exact head (776812c2): PENDING at handoff — the configured exact-head CI run and Codex review are the pending acceptance steps.
 
 ## cleanliness
 
