@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w142-pr1702-statuswit-r5
-kanban_status: review
-kanban_lane: review
+owner: w222-0428-142-witness
+kanban_status: active
+kanban_lane: active
 kanban_summary: "'baha perses status' nennt pro observability-signal eine ECHTE backend-witness (erreicht / gematcht / nicht erreichbar) statt…"
 kanban_title: 0428-142 · echte backend-witness fuer
 priority: ""
@@ -31,18 +31,18 @@ omit those sources from scrape targets. This assigned, started lane is parked
 pending worker capacity. #1702 still needs the concrete review corrections and
 a fresh exact-head run; it is not ready to merge.
 
-- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w142-pr1702-statuswit-r5  
+    **Owner:** w222-0428-142-witness  
     **PR:** [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261119-r28-perses-alert-verifier-caller-wiring](t-20261119-r28-perses-alert-verifier-caller-wiring.md)  
-**Owner:** w142-pr1702-statuswit-r5  
+**Owner:** w222-0428-142-witness  
 **Priority:** not set  
 **PRs:** [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702)  
 **Source:** 
@@ -106,3 +106,6 @@ CODEX r4 REQUEST CHANGES (zwei blocker): P2 'manifest flag duerfen keinen backen
 review HOLD (owner-verdict 2026-11-20): PR #1702 ist am exakten head green, aber karte 0428-142 verlangt echte erreichbare UND unreachable backend-witnesses; der stand ist manifest-only, der branch BEHIND develop, und der diff editiert internal/capability/perses.go ohne dokumentierte freigabe. nicht als freigebbare review-arbeit zaehlen. naechster schritt: rebasen + die perses.go-aenderung zurueckziehen oder per karte freigeben lassen.
 
 handoff abgeschlossen und required-aggregat GRUEN am exakten head: PR #1702 head 6740299f91c0, base develop, draft=false, 13 dateien, 'PR Selected Checks' = SUCCESS (check-runs am head: 15 success / 20 skipped, KEINE failure). das ist der EINE kandidat im fenster, der nicht an einer owner-buchung haengt (#1704 = karte 0428-073 mit ihrer entscheidung, #1650 = 0428-078 Codex). DARUM review statt wait. ZWEI RANDNOTIZEN FÜR DIE ABNAHME, beide gemessen: (i) die datei internal/metrics/verify_none_red_test.go existiert auf develop BEREITS (befund w219) - pruefen sie, ob der PR damit teils ueberfluessig ist oder ob die datei in ihrem PR weitergeht; (ii) ihr head ist aelter als #1594 (ancestry auf den aktuellen develop-tip NEIN), das required-aggregat ist aber trotzdem success, weil die required-zellen gegen den merge-ref laufen. ein merge ist also moeglich, OHNE dass 0428-204 fertig ist - und er wuerde inhalt auf develop bringen. TRIGGER FUER DIE NAechSTE KANTE: CODEX-verdict an diesem SHA, dann merge oder korrekturrunde.
+
+CODEX-REVIEW VERDICT REQUEST CHANGES am unveraenderten head 6740299f91c0 (required-aggregat war SUCCESS; der verdict haelt drei andere punkte fest). Korrekturarbeit aufgesetzt: sitz w222-0428-142-witness (ornith) mit dem dreiteiligen Rezept - (1) 'unreachable' als echter zustand im witness-Pfad statt allein aus manifest-flags, (2) die von der lane falsch belegte 'validate ...'-Zeile in der Akte berichtigen, (3) Wissensstand: der reviewer bestaetigt, dass nach einem merge auf develop 40cb28c die vier cli-shards rot bleiben, deshalb finger weg von cmd/baha/main.go und internal/operatorauth/** (das ist 0428-204). RANDBEFUND GEGEN DAS PROTOKOLL: die review-Akte lag nur lokal in der reviewer-sandbox; nachlieferung in baseharbor-plan main angefordert (§5.3: ein verdict ohne erreichbare datei ist wertlos).
+
