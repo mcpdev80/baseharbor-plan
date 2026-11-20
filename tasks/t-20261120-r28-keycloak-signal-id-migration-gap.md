@@ -12,7 +12,7 @@ parent: ""
 depends_on: []
 blocked_by: []
 superseded_by: []
-owner: w168-pr0428-168-signal-mig-r2
+owner: w168-pr0428-168-signal-mig-r3
 kanban_status: active
 kanban_lane: active
 blocker: ""
@@ -26,7 +26,7 @@ wait_reason: ""
 
 - [ ] t-20261120-r28-keycloak-signal-id-migration-gap · migrate un-prefixed keycloak registrations #task #release/v0-4-28 #status/active #view/active #area/capability #area/observability #kind/bug
     <!-- generated:card -->
-    **Owner:** w168-pr0428-168-signal-mig-r2  
+    **Owner:** w168-pr0428-168-signal-mig-r3  
     **PR:** [baseharbor#1709](https://github.com/mcpdev80/baseharbor/pull/1709)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44692628196), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md)  
     <!-- /generated:card -->
@@ -36,7 +36,7 @@ wait_reason: ""
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261120-r28-provider-signal-id-scope-inconsistency](t-20261120-r28-provider-signal-id-scope-inconsistency.md), [t-20261120-r28-signal-id-normalization-collision](t-20261120-r28-signal-id-normalization-collision.md)  
-**Owner:** w168-pr0428-168-signal-mig-r2  
+**Owner:** w168-pr0428-168-signal-mig-r3  
 **Priority:** not set  
 **PRs:** [baseharbor#1709](https://github.com/mcpdev80/baseharbor/pull/1709)  
 **Source:** 
@@ -78,3 +78,5 @@ The owner advanced #1709 to head `4d3494ea7a145e2a92c8008eb510d3c5b49ad06c`; exa
 ## Exact-run terminal result — 2026-11-20 ~07:20 UTC
 
 Run [44692628196](https://github.com/mcpdev80/baseharbor/actions/runs/44692628196) completed FAILURE on exact head `4d3494ea7a145e2a92c8008eb510d3c5b49ad06c`: 35 jobs, 17 success, 16 skipped, 2 failures (`PR · Source format`, `PR Selected Checks`). The source-format log reports `internal/observability/registry.go has 930 lines (limit: 800; baseline ratchet: 0)`; Selected Checks is blocked by `source_format`. The Docker identity runtime job completed, but the test `TestReadSignalsForTestSortsStably` remains in `read_signals_test_helper.go`, which Go does not discover as a test file. Independent current-diff review finds partial progress on the legacy-owner defect: migration is now in the same `RegisterProviderSignals` mutation, with appA/appB coverage for owner ID/list/remove. It still does not assert all preserved metadata fields (network, target, descriptor, enabled state). The maintainer acceptance in comment [7029213393](https://github.com/mcpdev80/baseharbor/pull/1709#issuecomment-7029213393) remains outstanding, and `TestReadSignalsForTestSortsStably` is still in a non-`_test.go` filename so Go will not discover it. PR remains OPEN at this head with no formal review; keep 0428-168 Active while the owner fixes the candidate. See the [sweep snapshot](../evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md).
+
+uebergabe dokumentiert (§3.6): die vorige session ist entlassen, ihr END_BLOCKED-grund war 'Der Kontext meiner Session erreichte sein Limit' — kein inhaltliches problem, aber eine frische session war faellig. ihr stand ist NICHT verloren: PR #1709 head 4d3494ea7a14 liegt bei github (35/35 checks fertig, 2 failure = 'PR · Source format' + 'PR Selected Checks'). die neue lane uebernimmt mit dem ausdrücklichen hinweis, den die vorige nicht genutzt hat: der EXISTIERENDE develop-test TestStandaloneSharedPostgresUsesPhysicalOwnerAcrossAppAndRecoveryLifecycle (internal/application/shared_postgres_runtime_owner_test.go) war bei ihr rot, ihr neuer test 234x — ein auf develop grüner, am zweig roher test ist inhalt (§5.3), keine umgebungsfrage. akte round-3.md mit uebernahme-protokoll
