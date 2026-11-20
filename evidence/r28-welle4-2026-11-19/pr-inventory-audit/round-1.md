@@ -158,4 +158,7 @@ ZAHLEN: AMEN = 7 (1704, 1702, 1693, 1690, 1615, 1596, 1580); HOPF-FREI = 7 (1684
 
 ## ls-remote witness (origin/main BEFORE END)
 
-- see below in final post.
+- `git ls-remote origin main` AFTER push: `83eadf03109530eb8cd14ac6455879c1d91e8794  refs/heads/main`
+- commit `83eadf03` (0428-160 pr-inventory-audit round-1) IS on origin/main; log `origin/main..HEAD` empty (only my commit).
+- planning-remote origin/main base before this work: `53b62118165bcc252d1de8eff857e58fa728f84c`.
+- evidence-path committed to baseharbor-plan evidence/r28-welle4-2026-11-19/pr-inventory-audit/round-1.md only.
