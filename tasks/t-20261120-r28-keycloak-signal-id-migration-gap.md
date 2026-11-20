@@ -17,7 +17,7 @@ kanban_status: active
 kanban_lane: active
 blocker: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44692628196", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44692628196", "https://github.com/mcpdev80/baseharbor/actions/runs/44699615600", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1709-0428-168-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md"]
 prs: [mcpdev80/baseharbor#1709]
 created: 2026-11-20
 wait_reason: ""
@@ -28,7 +28,7 @@ wait_reason: ""
     <!-- generated:card -->
     **Owner:** w168-pr0428-168-signal-mig-r3  
     **PR:** [baseharbor#1709](https://github.com/mcpdev80/baseharbor/pull/1709)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44692628196), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44692628196), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44699615600), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1709-0428-168-r2.md), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -86,3 +86,7 @@ uebernahme hat in 30 minuten geliefert, wofuer die vorige session 4 stunden brau
 CODEX-REVIEW r2 = BLOCKED, nicht inhaltlich: 'Review stopped: candidate changed during review' (akze 1709-0428-168-r2.md). angefragt war 85bb4b4a4cb8, der reviewer traf 380c66c49218 vor (branch + refs/pull/1709/head identisch, mergeable=blocked). URSACHE IST MEIN VERFAHREN: ich habe die abnahme bestellt, waehrend die lane noch gearbeitet und gepusht hat. inhalteilich haelt der reviewer in diesem unterbrochenen protokoll fest: P1 largely addressed, P2 addressed (registry.go:708-710 fuehrt mutation ueber mutateChanged), P4 addressed, und der packages-shard die neuen tests ausfuehrt. karte zurueck auf active; einfrier-befehl hinaus (kein push bis abnahme-bestellung), dann review am EINFRIERTEN head
 
 EINFRIEREN VON MIR VERIFIZIERT (unabhaengig von ihrer meldung, 10:0xZ): ls-remote lane-origin zeigt refs/heads/lane-0428-168-signal-id-migration = refs/pull/1709/head = 1fa78df421e5; PR base.sha = 36d075fad77f (develop-spitze), draft=false, 8 dateien; 'git fetch lane-origin refs/pull/1709/head' dann merge-base --is-ancestor = JA; 6 eigene commits ueber develop (log: keine fremden lane-commits). run 44700696085 = in_progress am EINGEFRORENEN head, created 08:12:25Z. neuer inhalt im letzten commit: partielles owner-Scan-Fallthrough, internal/identityprovider/keycloak_realization.go:217-227 und :323-335, mit tests + mutation proof D. KARTE BLEIBT active, NICHT review: die abnahme wird erst bestellt, wenn der run TERMINAL ist und ihre akte auf main liegt - das ist die regel, die ich nach dem unterbrochenen r2-review (candidate changed during review) selbst gesetzt habe. akte bisher: signal-id-migration/fix-2.md @ 38535a8d
+
+## Fresh head after interrupted review — 2026-11-20 08:05 UTC
+
+PR #1709 advanced during CODEX-REVIEW r2 to `380c66c49218a3f8c18d04412536acbc6a2c3a6d`, so the r2 artifact's final verdict is **BLOCKED / stale candidate**, not a verdict on this SHA. Exact run [44699615600](https://github.com/mcpdev80/baseharbor/actions/runs/44699615600) is still in progress; all Go shards/build/vet and package tests have passed, with the selected Docker identity runtime job remaining. Independent exact-head review confirms the stable-sort test is now discoverable in `read_signals_test.go`, but the required migration assertions for source metadata (including Target/Network/Path/Scheme/Descriptor/Enabled) remain absent; `stampLegacyTarget` rewrites Target. Owner-state discovery still swallows `ListKeycloakOwnerProjects`/per-owner `ReadDir` errors instead of failing closed before migration. GitHub reports PR OPEN/non-draft, mergeStateStatus BLOCKED, zero formal reviews. The owner is advancing the candidate; move 0428-168 back to Active while these current-head blockers and the runtime result are resolved. Do not apply run `44696406664` or review r2 as evidence for this newer SHA.
