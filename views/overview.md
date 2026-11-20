@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 5 |
+| active | 6 |
 | review | 0 |
 | wait | 30 |
 | blocked | 2 |
-| ready | 6 |
+| ready | 5 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
@@ -29,6 +29,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261120-perses-tmpfs-mountpoint](../tasks/t-20261120-perses-tmpfs-mountpoint.md) | Perses runtime smoke cannot mount tmpfs at /etc/perses/database on hosted runners | active | not set | 0428-083- | — | — |
 | [t-20261120-r28-cli2-context-precedence-evidence](../tasks/t-20261120-r28-cli2-context-precedence-evidence.md) | CLI2: persisted-over-default precedence is not asserted through baha context show | active | not set | w178-0428-178-contextshow | — | — |
 | [t-20261120-r28-valkey-dashboard-unavailable-only](../tasks/t-20261120-r28-valkey-dashboard-unavailable-only.md) | Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable | active | not set | w183-0428-183-valkeygate | — | [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714) |
+| [t-20261120-trusted-local-operation-grant](../tasks/t-20261120-trusted-local-operation-grant.md) | CLI security: Bind local operation grants to calls | active | high | Codex (Marcel assigned) | [t-20261114-r28-cli2-uid-environment](../tasks/t-20261114-r28-cli2-uid-environment.md) | — |
 
 ## Ready for review
 
@@ -85,7 +86,6 @@ None.
 | [t-20261120-r28-keycloak-producer-target-mismatch](../tasks/t-20261120-r28-keycloak-producer-target-mismatch.md) | Keycloak producer registers ID/target the identity witness can never match | ready | not set | — | — | — |
 | [t-20261120-r28-perses-status-never-verified](../tasks/t-20261120-r28-perses-status-never-verified.md) | No source API yields verified: status --json can never report true | ready | not set | — | — | — |
 | [t-20261120-r28-shell-wrapper-tests-not-skippable](../tasks/t-20261120-r28-shell-wrapper-tests-not-skippable.md) | CI intake: zsh/fish wrapper tests skip silently when the shell is not installed | ready | not set | — | — | — |
-| [t-20261120-trusted-local-operation-grant](../tasks/t-20261120-trusted-local-operation-grant.md) | CLI security: Bind local operation grants to calls | ready | high | Codex (Marcel assigned) | [t-20261114-r28-cli2-uid-environment](../tasks/t-20261114-r28-cli2-uid-environment.md) | — |
 
 ## By release
 

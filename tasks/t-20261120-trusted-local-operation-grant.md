@@ -8,9 +8,9 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: Codex (Marcel assigned)
-kanban_status: planned
-kanban_lane: ready
-kanban_summary: "Bind existing local runtime authorization to exactly one CLI operation, target, and canonical environment through a short-lived,…"
+kanban_status: active
+kanban_lane: active
+kanban_summary: "Bind existing local runtime authorization to exactly one typed CLI operation, application/environment identity, and policy check…"
 kanban_title: 0428-188 · Bind local operation grants to
 priority: high
 depends_on: [t-20261114-r28-cli2-uid-environment]
@@ -23,14 +23,13 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-trusted-local-operation-grant · CLI security: Bind local operation grants to calls #task #release/v0-4-28 #status/planned #view/ready #area/architecture #area/cli #area/security #kind/task
+- [ ] t-20261120-trusted-local-operation-grant · CLI security: Bind local operation grants to calls #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #area/security #kind/task
     <!-- generated:card -->
     **Owner:** Codex (Marcel assigned) · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-uid-environment](t-20261114-r28-cli2-uid-environment.md)  
 **Required by:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
@@ -42,23 +41,23 @@ evidence: []
 
 ## Goal
 
-Bind existing local runtime authorization to exactly one CLI operation, target, and canonical environment through a short-lived, single-use typed grant. Preserve valid local CLI behavior while failing closed on absent, altered, mismatched, expired, or replayed grants.
+Bind existing local runtime authorization to exactly one typed CLI operation, application/environment identity, and policy check through an opaque in-process grant. Preserve valid local CLI behavior while failing closed on missing, mismatched, or reused grants.
 
 ## Scope
 
-- In scope: implement a typed grant with typed operation (no string matching), Target (Environment UID + App UID), canonical Environment UID, 16-byte nonce, expiry no more than 60 seconds, and HMAC over a canonical encoding of all fields. Issue only at the existing local runtime authorization check; use the existing Unix socket and verify the caller with `SO_PEERCRED`. Keep the HMAC key only in the authority process or in a 0600 file inaccessible to the CLI. The CLI may request and forward the grant unchanged, but may not mint or alter one.
-- In scope: verify at the policy boundary that the MAC is valid, all operation/target/environment fields exactly match the concrete call, expiry is valid, and the nonce has not been used; consume the nonce once so concurrent replay is denied. Any missing field, mismatch, invalid MAC, expiry, or replay denies before operation execution. Keep verification on the existing architecture; if the policy boundary is in another process, use the existing socket to ask the authority to verify rather than exposing its key.
-- In scope: table-driven tests for valid grant, wrong operation, wrong target, wrong environment, missing grant, modified MAC, expired grant, and replay (same nonce twice). Register the cases in the existing test inventory and map them to the existing CI gate(s); document exact SHA -> test ID -> mapped gate -> run URL/outcome.
+- In scope: implement an unexported grant type whose fields cannot be directly constructed or modified by callers. Its only constructor is the existing local-runtime Check function. Bind a typed `machine.Operation`, Target identity (Environment UID + App UID), canonical Environment UID, and a monotonically increasing in-process nonce to one policy check. Do not add HMAC, TTL, socket IPC, or `SO_PEERCRED`.
+- In scope: policy accepts only the opaque grant type and verifies exact operation/target/environment identity plus one-time use. Missing grant, mismatched fields, or reused nonce denies before operation execution. The grant exists only during one request's check; the nonce protects against accidental same-process reuse, not a hostile local user.
+- In scope: table-driven tests for valid grant, wrong operation, wrong Target identity, wrong Environment UID, missing grant, and replay (same grant twice). Register the cases in the existing test inventory and map them to the existing CI gate(s); document exact SHA -> test ID -> mapped gate -> run URL/outcome.
 - In scope: update #1594 first, then bring #1615 forward to the resulting head. Ensure the workflow `pull_request.branches` rule runs CI for #1615's actual base; if needed, move the stack onto a `lane-` base without losing its dependency chain.
 - Out of scope: new infrastructure, public-key cryptography, registry changes, deriving authorization from names or environment variables, a freely settable trusted-local Boolean, unrelated CLI redesign, and changes to release scope.
 
 ## Acceptance
 
-- Grant fields and typed operation exactly match the scope; canonical MAC encoding is unambiguous and covers every field.
-- Only the existing local runtime authorization can issue grants; the Unix-socket peer is checked with `SO_PEERCRED`, and the CLI cannot mint, modify, or validate grants using the secret key.
-- Policy verification matches the exact operation, Target (Environment UID + App UID), and canonical Environment UID; invalid/missing/expired/replayed grants deny before execution.
-- Nonces are consumed atomically; restart behavior cannot make a prior grant replayable (for example, use a process-lifetime key and replay set so restart invalidates all outstanding grants).
-- All eight required cases pass, including two submissions of the same valid nonce where only the first can authorize.
+- Grant concrete type and fields are unexported, immutable after construction, and constructible only by the existing Check function. Operation is compared as a typed `machine.Operation`, not by parsing or matching strings.
+- Policy accepts only the opaque grant type and requires exact operation, Target (Environment UID + App UID), and canonical Environment UID matches; missing, mismatched, or reused grants deny before execution.
+- A monotonic in-process nonce is consumed once; repeated use of the same grant in the same process is denied.
+- Tests document the trust boundary: the grant prevents accidental internal forgery/reuse, while the local OS user can intentionally construct/modify process state; the grant is not a security boundary against that user.
+- All six required cases pass, including two submissions of the same grant where only the first can authorize.
 - Tests are registered in the existing test inventory and mapped to the existing gate. For each case, handoff documents exact candidate SHA -> test ID -> mapped gate -> triggering event -> run URL and outcome; all required exact CI runs are green.
 - PR targets `develop`; after its acceptance, #1594 is updated and verified first, then #1615 is updated and verified. The exact #1615 base is covered by `pull_request.branches` and its exact-head CI passes.
 - Existing authorized local operations continue to work through the grant flow; no existing authorization or runtime protections are weakened.
@@ -81,9 +80,9 @@ Bind existing local runtime authorization to exactly one CLI operation, target, 
 
 ## Dependencies and file ownership
 
-- Owned files or areas: local runtime authorization grant type/issuance, Unix-socket request/response and peer verification, policy verification/nonce consumption, focused tests, and test-inventory/gate-map entries for these tests.
-- Shared files: coordinate shared authorization/policy interfaces and CI inventory/gate mapping with their owners before editing. No public-key, registry, or new-infrastructure work.
+- Owned files or areas: local runtime authorization grant type/issuance, policy verification/nonce consumption, focused tests, and test-inventory/gate-map entries for these tests.
+- Shared files: coordinate shared authorization/policy interfaces and CI inventory/gate mapping with their owners before editing. No HMAC, socket IPC, public-key, registry, or new-infrastructure work.
 
 ## Handoff
 
-- Planned and assigned. No product implementation has started. Product PR must target `develop`; after this task's grant is merged, update and validate #1594 first, then #1615. Record exact SHA -> test ID -> mapped gate -> run URL/outcome for each required test.
+- Owner directed an in-process opaque grant: no HMAC, TTL, Unix-socket IPC or `SO_PEERCRED`. It protects against accidental internal misuse, not a hostile local OS user. Implementation is underway on the isolated develop worktree; current changes bind the typed operation, environment UID and application UID and consume a monotonic nonce once. Product PR targets `develop`; after merge, update and validate #1594 first, then #1615. Record exact SHA -> test ID -> mapped gate -> run URL/outcome for each required test.
