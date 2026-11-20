@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w078-pr0428-078-appstatus-r3
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
 kanban_title: 0428-078 · Perses identity dashboard
 priority: normal
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w078-pr0428-078-appstatus-r3 · **Priority:** normal  
     **PR:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
@@ -158,3 +158,16 @@ serializer), P5 (ihre witness-sonde haengt an nur einem test - die unabhaengigke
 068-korrektur eingetragen hat), P6 ('PR · Native · ...' und 'PR · Selected Runtime' waren skipped, nicht passiert). NEU
 FUER ALLE BAHNEN: develop ist f1c2c34236f4, weil der owner #1710 (0428-068) um 11:04:29Z gemergt hat - bei ihrem letzten
 commit auf diese spitze rebasen.
+
+abnahme bestellt, alle drei einfrier-bedingungen von mir gemessen: (1) head 9add5e8a2122 = branch = refs/pull/1650/head,
+ein commit auf develop 96f2ae11a25a, draft=false; (2) merge-base --is-ancestor = JA nach fetch; (3) check-runs am exakten
+head completed/success (source format, go unit packages, go-vet, go-build, trusted plan, native gate plan) - der
+runs-endpoint lieferte bei mir leer, deshalb zeugen die check-runs am head und nicht ich. INHALTLICH: sie haben den
+owner-r7-auftrag ausgefuehrt und den null-abnehmer-katalog aus dem PR ENTFERNT (4 dateien uebrig, die drei katalog-pfade
+tauchen im diff nirgends mehr auf), der witness bleibt mit der von mir verlangten consumer-zeile
+(perses_identity_witness.go -> cmd/baha/app_status_result.go:343) und P3 target-isolation in beide richtungen. der katalog
+lebt auf karte 0428-181 weiter, sequenziert nach #1684. WARUM ICH ZWEIMAL NICHT BESTELLT HABE: ihre END-meldung
+fehlte zum vierten und dann auch beim shrink, und die akte round-8.md war im ersten augenblick noch nicht auf main -Resume-
+trigger war bei mir 'terminaler run ODER akte', jetzt beides da. HALTEN SIE STILL: kein push, kein rebase, kein dritter
+commit, solange die abnahme laeuft (§3.3 regel 8, ein bewegter head macht das verdict wertlos). wenn ein befall kommt, hole
+ich sie zurueck.
