@@ -75,10 +75,10 @@ Per the card acceptance field (authoritative scope) the lane still ships the add
 
 ## CI — exact head, own terminal observation (4.6)
 
+- PR: #1730, head c90a73ac8128bca974eb7383c341eb614a2a636a, base refs/heads/lane-0428-143-verify-none, draft=false, branch == refs/pull/1730/head.
 - Run: GitHub Actions run #6826 (databaseId), URL https://github.com/mcpdev80/baseharbor/actions/runs/44812049031 (event `pull_request`).
 - Head at run: `c90a73ac8128bca974eb7383c341eb614a2a636a` (verified via `gh run list --branch lane-0428-203-stale-target`).
-- Run conclusion: **failure** (observed to terminal state, own terminal observation, AGENTS 4.6).
-- `PR Selected Checks`: **failure** — aggregate of the field-wide gates below; not my diff.
+- Run conclusion: **failure** (observed to terminal state, own terminal observation, AGENTS 4.6). Six red cells, all field-wide gates, none in this card's diff.
 
 ### Per-cell run-id + conclusion (run 6826 / 44812049031)
 
@@ -113,12 +113,11 @@ BEWEISKETTE:
 
 ## EVIDENCE PUBLICATION
 
-- Pre-push origin/main check: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep <evidence-path>`:
-- Post-push origin/main sha: <sha>
+- Pre-push origin/main check: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep verif-none-stale-target`:
 
 ## END
 
-END_DONE w205-0428-203-staletgt: head=<sha> pr=<n> run=<run-id> conclusion=<status> GATE-FAIL 0428-198/0428-202 evidence=origin/main <sha>
+END_DONE w205-0428-203-staletgt: PR #1730 head c90a73ac8128bca974eb7383c341eb614a2a636a base refs/heads/lane-0428-143-verify-none draft=false run 6826/44812049031 conclusion=failure (field gates only: cli-0..3 = 0428-198, packages internal/logs Loki-trio = 0428-202; internal/metrics ok in CI). Card set to wait by coordinator with 0428-198/0428-202 named. evidence=origin/main
 
 ## cleanliness:
 
