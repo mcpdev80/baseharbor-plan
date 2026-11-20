@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1610, mcpdev80/baseharbor#1645]
 sources: []
 blocker: ""
-wait_reason: "CODEX-REVIEW r1 am exakten head 0449f06587c8 = REQUEST CHANGES, vier funde P1-P4 (akte codex-review-wave/1645-0428-091.md): host-loopback-endpoint internal/traces/tempo.go:511-523; verlorene host-dashboard-regressionstests in internal/capability/perses_test.go; die resolvede authorisierung wird im http-client nicht weitergereicht (internal/metrics/perses_tempo_datasource.go:482-496); die drei luna-r1-rezepte nur teilweise erfuellt (594-631, 312-335). lane entlassen, weil ihr END_DONE berechtigt war (36/36 checks, 0 failure, akte @ 802cefb1); kein freier sitz fuer eine korrekturrunde (5/5 besetzt). naechster ausloeser: erster freier sitz im pool. NEUER ZEUGE FUER 0428-175: der payload-gate von card-status.py hat meinen ersten textfuersatz abgelehnt, weil beim tippen ein nicht-lateinisches token entstanden war - dieselbe fehlerklasse, die die karte schliessen will"
+wait_reason: "CODEX-REVIEW r2 on exact head 0449f065 returned REQUEST CHANGES: runtime endpoint reachability from Perses, preserving required mTLS, and two removed fail-closed host-dashboard tests remain unresolved (see evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md). Codeman currently reports 5/5 workers occupied and no open seat. Resume correction work when the first seat opens, then produce exact-head runtime/acceptance evidence."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44688554297", "https://github.com/mcpdev80/baseharbor/actions/runs/44689126814", "https://github.com/mcpdev80/baseharbor/actions/runs/44695439903", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md"]
 ---
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44688554297", "h
     <!-- generated:card -->
     **Owner:** w091-pr0428-091-tempo-source · **Priority:** normal  
     **PR:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645)  
-    **Waiting:** CODEX-REVIEW r1 am exakten head 0449f06587c8 = REQUEST CHANGES, vier funde P1-P4 (akte codex-review-wave/1645-0428-091.md): host-loopback-endpoint internal/traces/tempo.go:511-523; verlorene host-dashboard-regressionstests in internal/capa…  
+    **Waiting:** CODEX-REVIEW r2 on exact head 0449f065 returned REQUEST CHANGES: runtime endpoint reachability from Perses, preserving required mTLS, and two removed fail-closed host-dashboard tests remain unresolved (see evidence/r28-welle4-2026-11-20/co…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44688554297), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44689126814), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44695439903), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md)  
     <!-- /generated:card -->
 
@@ -116,3 +116,8 @@ A concurrent plan update moved this card to Review after run `44695439903` succe
 ## Independent CODEX-REVIEW result — 2026-11-20 07:51 UTC
 
 The exact-head review in [1645-0428-091.md](../evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md) returned **REQUEST CHANGES** on head `0449f06587c849f598447094428d2f7296ed1f5b`. It identifies: (P1) no pinned Perses runtime proof that the Tempo datasource plugin can reach the managed Tempo service-access endpoint from the Perses network namespace; current `localhost` rewrite does not prove routability; (P2) `tempoProviderHTTPClient` disables `AuthenticationRequired`, allowing required mTLS identity to be omitted; (P3) the candidate removed two fail-closed host-dashboard regression tests without replacements. The exact Actions run `44695439903` succeeded but skipped native/runtime jobs, so it cannot discharge P1. Direct GitHub PR reviews API remains empty; this is an internal Codex review artifact, not a submitted GitHub review. Card stays Active pending corrections and exact acceptance.
+
+
+## Wait-reason correction — 2026-11-20 08:09 UTC
+
+The current Wait status is supported by the owner pause and the latest Codeman pool snapshot (5/5 seats, no open seat), but the prior `wait_reason` incorrectly emphasized the earlier green run and did not reflect the later CODEX-REVIEW r2 REQUEST CHANGES. The reason now records the outstanding Perses runtime endpoint, mTLS policy, and host-dashboard regression findings and sets the concrete resume trigger: first open worker seat, followed by corrections and exact-head acceptance. PR #1645 remains OPEN+Ready at `0449f065`; no closure transition is supported.
