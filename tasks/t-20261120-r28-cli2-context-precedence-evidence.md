@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1718]
 sources: []
 blocker: ""
-wait_reason: "Waiting for prerequisite 0428-057 / PR #1615 to merge with exact required CI green. Latest head 90af401c55236d9df085c1fddbf4011660914973 is running exact CI 44823129405. The run validates scoped operator auth for managed status and the selected test-gate fixes. After it passes and #1615 merges, hop #1718 onto current develop and rerun exact CI."
+wait_reason: "Waiting for prerequisite 0428-057 / PR #1615 to merge with exact required CI green. Latest head 04a19a673a8e0184fac6aaf01daed8a22b69b960 is running exact CI 44826826577, including selected-gate status, lifecycle and guided checks. After it passes and #1615 merges, hop #1718 onto current develop and rerun exact CI."
 resolution: ""
 evidence: []
 ---
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w178-0428-178-contextshow  
     **PR:** [baseharbor#1718](https://github.com/mcpdev80/baseharbor/pull/1718)  
-    **Waiting:** Waiting for prerequisite 0428-057 / PR \#1615 to merge with exact required CI green. Latest head 90af401c55236d9df085c1fddbf4011660914973 is running exact CI 44823129405. The run validates scoped operator auth for managed status and the sel…  
+    **Waiting:** Waiting for prerequisite 0428-057 / PR \#1615 to merge with exact required CI green. Latest head 04a19a673a8e0184fac6aaf01daed8a22b69b960 is running exact CI 44826826577, including selected-gate status, lifecycle and guided checks. After it…  
     **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
     <!-- /generated:card -->
 

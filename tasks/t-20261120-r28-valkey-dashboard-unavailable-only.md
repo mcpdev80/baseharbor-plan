@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1714]
 sources: []
 blocker: ""
-wait_reason: "PR #1714 head 5159192dadeec8335eb401c90fca6614e29048b0 has failing required Go shards from two independent prerequisites. Card 0428-202 / PR #1732 fixes the Loki test fixture; exact run 44818799733 passes packages at its head bddb27e6251ec6bc76574a1dcdb13fc7ce017f24. Its cli-0..3 checks remain red and are owned by active card 0428-198 / PR #1726. Wait for both prerequisite fixes to merge, then hop #1714 onto current develop and rerun its exact required checks."
+wait_reason: "PR #1714 head 5159192dadeec8335eb401c90fca6614e29048b0 has failing required Go shards from two independent prerequisites. Card 0428-202 / PR #1732 fixes the Loki test fixture; exact run 44818799733 passes packages at its head bddb27e6251ec6bc76574a1dcdb13fc7ce017f24. Its cli-0..3 checks remain red and are owned by active card 0428-198 / PR #1726 (latest head bf6f10aff6fe5e7d69b7faffa5ee30b226685832; exact run 44826908648 queued). Wait for both prerequisite fixes to merge, then hop #1714 onto current develop and rerun its exact required checks."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md"]
 ---
