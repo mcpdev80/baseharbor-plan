@@ -168,6 +168,6 @@ plan main after this lane's push: 661040912af115e1935c312bf7eeda04a955cd6c.
 ## END
 
 END_DONE w212-0428-202-waitrecheck: 35 wait cards rechecked against #1732's green packages cell; dossier on
-baseharbor-plan main (SHA in the END post); 11 cards now hang only on the 198 rail (7 of them additionally
+baseharbor-plan main 7750391ddf28 (END post SHA; dossier commit 661040912af1); 11 cards now hang only on the 198 rail (7 of them additionally
 need #1732's MERGE), 24 have another reason; "PR Selected Checks" is a CI-internal aggregate, not a live
 required check (rulesets disabled, protection 404).
