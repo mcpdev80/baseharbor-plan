@@ -8,9 +8,9 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w176-pr1665-1665-closeout
-kanban_status: blocked
+kanban_status: active
 kanban_lane: active
-kanban_summary: "Decide and execute the fate of draft PR mcpdev80/baseharbor#1665 so that the board shows one truthful state: either a restacked,…"
+kanban_summary: ""
 kanban_title: 0428-176 · restack with evidence or close
 priority: ""
 depends_on: []
@@ -23,9 +23,23 @@ resolution: ""
 evidence: []
 ---
 
+- [ ] t-20261120-r28-stale-draft-pr-1665-closeout · Stale draft PR #1665 on parked card 0428-082: restack with evidence or close #task #release/v0-4-28 #status/active #view/active #kind/maintenance
     <!-- generated:card -->
     **Owner:** w176-pr1665-1665-closeout  
+    **PR:** [baseharbor#1665](https://github.com/mcpdev80/baseharbor/pull/1665)  
+    **Blocker:** write-set collision mit \#1684 (management\_ui.go, perses\_runtime.go) + perses-runtime-smoke rot ohne 0428-177; trigger: \#1684 gemergt oder 0428-177 landet  
     <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** active  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** none  
+**Owner:** w176-pr1665-1665-closeout  
+**Priority:** not set  
+**PRs:** [baseharbor#1665](https://github.com/mcpdev80/baseharbor/pull/1665)  
+**Source:** 
+<!-- /generated:links -->
+
 
 
 
