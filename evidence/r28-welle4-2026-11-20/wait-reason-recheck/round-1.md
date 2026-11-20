@@ -163,7 +163,8 @@ observed, never started; tests would have run only on baha-docker/baha-podman â€
 evidence/r28-welle4-2026-11-20/wait-reason-recheck/round-1.md
 ```
 
-plan main after this lane's push: 661040912af115e1935c312bf7eeda04a955cd6c.
+plan main after this lane's pushes: 0fae35bbe0a08c38909d738983d921eff66ac744
+(`git ls-remote origin refs/heads/main` = same; dossier commits 661040912af1, 7750391ddf28, 0fae35bbe0a0).
 
 ## END
 
