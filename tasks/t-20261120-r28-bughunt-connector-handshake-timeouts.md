@@ -12,27 +12,28 @@ parent: ""
 depends_on: []
 blocked_by: []
 superseded_by: []
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w173-pr0428-173-handshake
+kanban_status: active
+kanban_lane: active
 blocker: ""
 resolution: ""
 evidence: []
 prs: []
 created: 2026-11-20
+wait_reason: ""
+
 ---
 
-- [ ] t-20261120-r28-bughunt-connector-handshake-timeouts · audit handshake timeout and retry paths #task #release/v0-4-28 #status/planned #view/ready #area/capability #area/observability #kind/review
+- [ ] t-20261120-r28-bughunt-connector-handshake-timeouts · audit handshake timeout and retry paths #task #release/v0-4-28 #status/active #view/active #area/capability #area/observability #kind/review
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w173-pr0428-173-handshake  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w173-pr0428-173-handshake  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
