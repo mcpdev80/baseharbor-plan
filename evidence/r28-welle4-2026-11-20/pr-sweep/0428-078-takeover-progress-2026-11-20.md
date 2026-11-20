@@ -31,3 +31,8 @@
 
 - Run `44743111417` is now terminal `FAILURE` at head `c1485721f1305fe4f3b5ef3984df15fe53e937a4`. Its Podman `data-capabilities` selected runtime failed because candidate submission lacked explicit operator/automation consent (`--confirm-candidate`); the wizard cancelled without changes, then `new-edit-new-sql-remove` exceeded the 180-second no-output timeout at 241 seconds. `PR Selected Checks` failed because selected runtime did not succeed.
 - The Coordinator was told to track this as an active CI blocker and route the consent fixture/flow plus timeout reproduction to the existing owner. This supersedes the earlier review-time note that the workflow was still in progress.
+
+## 13:40 UTC delta — capacity mismatch and new #1716
+
+- Fresh `gh pr list` now reports 21 open PRs; new #1716 / 0428-182 is open on head `1a67bd27d157499e74fbedec25d9b2a4b6d78c66`, base `develop@96f2ae11a25a508998c44a9854ef17f8fa15c112`. Its proposed scope is to mark PostgreSQL/Valkey metrics `Unsupported` instead of `RequiresAdapter` where no producer exists. Exact run `44746178682` is still in progress and `mergeStateStatus=BLOCKED`; do not accept based on partial green checks.
+- Fresh Codeman `basics-check --json` reports Worker roles 5/5, while `lanes.busy=[]` and `lanes.idle=[]`; board is `ok` but `inflight=true`, behind 2 and dirty 1. The Coordinator was steered with this measured reservation/mission mismatch and asked to reconcile all five seat IDs against live sessions, plan cards and PR heads, then re-run the same check. No worker/session was changed by Codex.
