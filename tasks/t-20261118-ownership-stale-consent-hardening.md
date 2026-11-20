@@ -4,27 +4,28 @@ release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
 owner: w119-pr0428-119-pr1690-hopf2
-kanban_status: active
+kanban_status: closed
 card_number: 0428-119
 card_short_title: harden Prov ownership chain vs
 kanban_title: 0428-119 · harden Prov ownership chain vs
 prs: [mcpdev80/baseharbor#1690]
 wait_reason: ""
 blocker: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44464033443", "https://github.com/mcpdev80/baseharbor/actions/runs/44464060182"]
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44464033443", "https://github.com/mcpdev80/baseharbor/actions/runs/44464060182", "https://github.com/mcpdev80/baseharbor/pull/1690"]
+resolution: accepted
 
 ---
 # t-20261118-ownership-stale-consent-hardening · close ownership-race windows behind stale-impact-consent
 
-- [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** w119-pr0428-119-pr1690-hopf2  
     **PR:** [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44464033443), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44464060182)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44464033443), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44464060182), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1690)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w119-pr0428-119-pr1690-hopf2  
@@ -84,3 +85,5 @@ kopf 932459d94324 (ein elter 9596c17a142f, rebase auf 6b8188df26a1), 30 checks s
 zweiter rebase sitzt, von mir gemessen: head 6dd3bbf518d5 (ein elter 51fe5aafb7af), 'git merge-base --is-ancestor origin/develop 6dd3bbf518d5' = JA mit develop 83b19dce24ee — die merge-currency-bedingung (ruleset 25223521) ist damit erfuellt. inhalts-beweis: 'git diff --name-only 932459d94324 6dd3bbf518d5 -- internal/application/provider_consent_authority.go internal/capability/registry.go cmd/baha' = LEER, comparator-zeile 'a.OwnerApplication == b.OwnerApplication' ist im neuen head vorhanden. gh meldet mergeable=blocked, check-runs am head: 1 success / 9 offen, also laeuft die qualifikation noch. naechster ausloeser: terminaler zustand dieses runs, dann develop-spitze unmittelbar vorher neu messen und CODEX-MERGE im selben zug
 
 ihre END_DONE 'merge kann folgen' war in diesem zug NICHT haltbar, gemessen: develop e20f6f6e3b27 (03:15:13, merge #1708), head 6dd3bbf518d5, merge-base --is-ancestor = NEIN, gh mergeable=behind. run 44658511764 'CI · PR #1690' completed/success am head ist gruen, aber am falschen base UND überholt, weil #1708 die gate-logik selbst geaendert hat (ci.yml, pr-gate-plan.py, ci-native-pr-gate.sh, zwei workflows). dritter rebase auf die jetzige spitze angeordnet, mit inhaltsbeweis (provider_consent_authority.go diff = leer, comparator-zeile bleibt), meldung von head + run-id SOFORT nach dem push. ERLEICHTERUNG: #1708 hat die ORAS-installation in den PR-job gehoben (docker-runtime-acceptance.yml:126-127, :220-221) — die runtime-zellen laufen jetzt echt statt SKIPPED, die zweite merge-bedingung der karte ist damit nicht mehr owner-blocked
+
+GEMERGT, von mir gemessen: merge-commit ec02d5faad24 = JETZIGE develop-spitze, eltern e20f6f6e3b27 + 948dd930c014, #1690 merged=true merged_at 2026-11-20T02:29:00Z. Erster merge dieses fensters MIT urteil am merged sha: evidence/codex-review-wave/1690-0428-119-merge.md, 'ROLLE: CODEX-MERGE', 'Verdict: MERGED ec02d5faad2499c8bf5ed08ce2ae1f5aac25d80f', dazu develop-sha vor dem merge (e20f6f6e3b27), run 44659964934 completed/success am exakten head, und die blob-identitaet zum angenommenen kopf ff9c5978585f (provider_consent_authority.go 66df2553d0, oscillation_test 040567dad1). Weg bis hier: APPROVE CONTENT an ff9c59785, dann drei aktualisierungen auf die sich bewegende spitze (932459d9 auf 6b8188df, 6dd3bbf5 auf 83b19dce, 948dd930 auf e20f6f6e) — jede mit merge-base-nachweis und inhaltsdiff = leer, weil #1708 zwischendurch die gate-logik selbst wechselte und damit alte grüne runs ungültig wurden
