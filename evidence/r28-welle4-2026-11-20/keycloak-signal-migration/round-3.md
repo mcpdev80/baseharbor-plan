@@ -332,6 +332,14 @@ by this lane. Stray test temp dirs are under Go's own cleanup.
 cleanliness: this lane leaves the machine as it found it plus the two
 /tmp/opencode worktrees and the pushed candidate.
 
+## evidence delivery witness (second-to-last action, word for word)
+
+`git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main` →
+`8de1c2f37dde7d7f61cc4479766ab18c18281d10 refs/heads/main`, and
+`git ls-tree --name-only origin/main evidence/r28-welle4-2026-11-20/keycloak-signal-migration/` →
+`evidence/r28-welle4-2026-11-20/keycloak-signal-migration/round-3.md`.
+Planning commits 7252d620 + 8de1c2f3; evidence on origin/main before this END post.
+
 ## END
 
 END_DONE x-168r3: takeover complete — r2 blocker fixed, P1/P2/P4 coverage with mutation proofs A-D, FROZEN candidate 1fa78df421e521ab7aeaec05a58d6cf646ddf971 on PR #1709, run 44700696085 completed SUCCESS at exact head (35 checks, 0 open, 0 failure). No further pushes until acceptance is ordered.
