@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w205-0428-203-staletgt
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "When an already-verified metrics source switches its Verification mode to none while keeping the same source ID, the emitted…"
 kanban_title: 0428-203 · Stale target on none switch
 priority: normal
@@ -18,20 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1730]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "handoff abgeschlossen: PR #1730 head c90a73ac8128 == refs/pull/1730/head, base refs/heads/lane-0428-143-verify-none (stapel korrekt auf der basis-lane), draft=false, 2 dateien (internal/capability/integration_contract.go + internal/metrics/prometheus_verify_workload_only_test.go). run 44812049031 terminal = 8 success / 6 failure, an eigenem inhalt fehlerfrei: cli-0..3 = feld-gate 0428-198, packages (Loki-trio) = feld-gate 0428-202. befund war 'covered', abgeliefert als eine contract-zeile + eine regression ueber das echte TargetsDir, wart-semantics aus 0428-143 unveraendert. akte traegt PR-num-mer, head, base, run-id, conclusion je zelle + cleanliness-zeile."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-verif-none-stale-target · Stale emitted target after Verification=none switch #task #release/v0-4-28 #status/active #view/active #area/metrics #area/observability #kind/bug
+- [ ] t-20261120-verif-none-stale-target · Stale emitted target after Verification=none switch #task #release/v0-4-28 #status/wait #view/wait #area/metrics #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** w205-0428-203-staletgt · **Priority:** normal  
     **PR:** [baseharbor#1730](https://github.com/mcpdev80/baseharbor/pull/1730)  
+    **Waiting:** handoff abgeschlossen: PR \#1730 head c90a73ac8128 == refs/pull/1730/head, base refs/heads/lane-0428-143-verify-none (stapel korrekt auf der basis-lane), draft=false, 2 dateien (internal/capability/integration\_contract.go + internal/metrics…  
     **Needs:** [t-20261119-r28-app-source-verification-none-ignored](t-20261119-r28-app-source-verification-none-ignored.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261119-r28-app-source-verification-none-ignored](t-20261119-r28-app-source-verification-none-ignored.md)  
 **Owner:** w205-0428-203-staletgt  
