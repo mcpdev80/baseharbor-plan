@@ -199,6 +199,30 @@ dirs Go already cleaned. No compose projects were started on any VM
 (VMs are not part of this mission; all gates are GitHub-hosted).
 cleanliness: besenrein except the two named lane worktrees.
 
+## CI terminal witness (§4.6, watched by this lane)
+
+Run `44704834012`, event `pull_request`, exact head
+`489e4e66a2b11f32bad63719adc2a3b885579db7`, this lane watched it to terminal:
+
+```
+{"conclusion":"success","headSha":"489e4e66a2b11f32bad63719adc2a3b885579db7","status":"completed","updatedAt":"2026-11-20T08:51:22Z"}
+```
+
+Check-runs at the exact head (`gh api .../commits/489e4e66a/check-runs`,
+total / not-completed / failures):
+
+```
+35	0	0
+```
+
+`PR · Source format` and `PR Selected Checks` success; `PR · Go unit ·
+packages` executes both new r4 tests plus the r3 suite (no name filter); the
+selected `PR · Selected Runtime (atomic/docker/identity, docker, identity) /
+Executed docker · identity` job completed success (its only annotation is the
+hosted-runner Node.js-20 deprecation notice, a runner-environment warning, not
+a check failure). Skipped cells (native matrix, Targeted HA, release, draft)
+remain skipped-by-selection and are not counted as passes.
+
 ## END
 
-(runde-4 terminal CI result appended below before the END post)
+END_DONE x-168r3: r4 correction complete — P1 mixed-state blocker fixed (union + propagated read error + fail-closed abort), mutation proof E recorded, FROZEN candidate 489e4e66a2b11f32bad63719adc2a3b885579db7 on PR #1709 (branch == refs/pull/1709/head, develop 36d075fad ancestor), run 44700696085→44704834012 watched to terminal: completed SUCCESS at exact head, 35/35 checks, 0 failures. Branch quiet until acceptance; signatures for 0428-166 announced frozen in this akte.
