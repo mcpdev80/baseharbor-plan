@@ -13,12 +13,12 @@ kanban_lane: wait
 kanban_summary: ""
 kanban_title: 0428-183 · valkey dashboards gate
 priority: ""
-depends_on: []
+depends_on: [t-20261120-r28-packages-shard-develop-regression, t-20261120-r28-cli-shard-operator-env]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1714]
 sources: []
 blocker: ""
-wait_reason: "Inhalt ist geliefert und belegbar: candidate 5159192dadeec8335eb401c90fca6614e29048b0 auf PR #1714, branch == refs/pull/1714/head gemessen, akte evidence/r28-welle4-2026-11-20/valkey-dashboard-gate/round-4.md auf main (112 zeilen, 0 checkboxen, P2 query-payload + P3 vertragstext, P1 mit dem echten producer).Der exakt-head-prueflauf 'PR · Go unit · packages' faellt NICHT an ihren dateien (internal/metrics ist im selben log ok), sondern an einem develop-seitigen defekt in internal/logs (loki multi-source, karte 0428-202) und an den cli-shards (0428-198). ein review mit rotem pflichtcheck waere keine pruefbare abgabe (§5.2: nur der SHA-genuege kandidat mit den vorgeschriebenen checks), und 'active' behauptet arbeit, die nicht laeuft - also wait mit den zwei namen."
+wait_reason: "PR #1714 head 5159192dadeec8335eb401c90fca6614e29048b0 has failing required Go shards from two independent prerequisites. Card 0428-202 / PR #1732 fixes the Loki test fixture; exact run 44818799733 passes packages at its head bddb27e6251ec6bc76574a1dcdb13fc7ce017f24. Its cli-0..3 checks remain red and are owned by active card 0428-198 / PR #1726. Wait for both prerequisite fixes to merge, then hop #1714 onto current develop and rerun its exact required checks."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md"]
 ---
@@ -27,14 +27,15 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
     <!-- generated:card -->
     **Owner:** w183-0428-183-valkeyfix  
     **PR:** [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714)  
-    **Waiting:** Inhalt ist geliefert und belegbar: candidate 5159192dadeec8335eb401c90fca6614e29048b0 auf PR \#1714, branch == refs/pull/1714/head gemessen, akte evidence/r28-welle4-2026-11-20/valkey-dashboard-gate/round-4.md auf main (112 zeilen, 0 checkb…  
+    **Waiting:** PR \#1714 head 5159192dadeec8335eb401c90fca6614e29048b0 has failing required Go shards from two independent prerequisites. Card 0428-202 / PR \#1732 fixes the Loki test fixture; exact run 44818799733 passes packages at its head bddb27e6251ec…  
+    **Needs:** [t-20261120-r28-packages-shard-develop-regression](t-20261120-r28-packages-shard-develop-regression.md), [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** none  
+**Depends on:** [t-20261120-r28-packages-shard-develop-regression](t-20261120-r28-packages-shard-develop-regression.md), [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
 **Owner:** w183-0428-183-valkeyfix  
 **Priority:** not set  
 **PRs:** [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714)  

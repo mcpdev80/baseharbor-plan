@@ -13,7 +13,7 @@ kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-202 · packages shard red on develop
 priority: ""
-depends_on: [t-20261114-r28-cli2-identity-secrets]
+depends_on: [t-20261114-r28-cli2-env-policy]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1732"]
 sources: []
@@ -28,14 +28,14 @@ created: 2026-11-20
     <!-- generated:card -->
     **Owner:** w207-0428-202-lokifix  
     **PR:** [baseharbor#1732](https://github.com/mcpdev80/baseharbor/pull/1732)  
-    **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/packages-shard-develop-regression/round-2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
+**Depends on:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
+**Required by:** [t-20261120-r28-valkey-dashboard-unavailable-only](t-20261120-r28-valkey-dashboard-unavailable-only.md)  
 **Owner:** w207-0428-202-lokifix  
 **Priority:** not set  
 **PRs:** [baseharbor#1732](https://github.com/mcpdev80/baseharbor/pull/1732)  
