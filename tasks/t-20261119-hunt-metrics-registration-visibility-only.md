@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: hopf-lane (wird gesetzt) — CODEX verweigerte merge wegen AKTIVER repository-regel (ruleset 25223521)
+owner: w123-pr0428-123-pr1693-hopf2 (zweiter hopf auf die dann aktuelle spitze)
 kanban_status: active
 kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44557894265", "h
 
 - [ ] t-20261119-hunt-metrics-registration-visibility-only · Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** hopf-lane (wird gesetzt) — CODEX verweigerte merge wegen AKTIVER repository-regel (ruleset 25223521)  
+    **Owner:** w123-pr0428-123-pr1693-hopf2 (zweiter hopf auf die dann aktuelle spitze)  
     **PR:** [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44557894265), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44578337221)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44557894265", "h
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** hopf-lane (wird gesetzt) — CODEX verweigerte merge wegen AKTIVER repository-regel (ruleset 25223521)  
+**Owner:** w123-pr0428-123-pr1693-hopf2 (zweiter hopf auf die dann aktuelle spitze)  
 **Priority:** not set  
 **PRs:** [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693)  
 **Source:** 
