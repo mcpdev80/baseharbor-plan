@@ -8,34 +8,34 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: 0428-057 (codeman 01b370c0, END_BLOCKED, sitz wird entlassen)
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Separate human/runtime secret authority. Follow the owner working brief, command mapping and code entry index; revalidate…"
 kanban_title: 0428-057 · Separate human/runtime secret
 priority: high
-depends_on: [t-20261114-r28-cli2-env-policy, t-20261114-r28-cli2-env-registry]
+depends_on: [t-20261114-r28-cli2-env-policy, t-20261114-r28-cli2-env-registry, t-20261120-trusted-local-operation-grant]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1615]
 sources: []
-blocker: "Der Trigger-Blocker ist behoben, aber der exakte PR-Head-Lauf 44735405029 auf ca930ce63c4ff080a736c6e3439dc1d87d017e0c ist rot: vier CLI-Go-Shards und ausgewählte/native Jobs scheitern am fehlenden Trusted-Local authority proof bzw. unkonfigurierten Runtime-Fixtures. Der Parent #1594 ist Draft und stale/conflicted; erst 0428-053 sicher end-to-end korrigieren, Parent aktualisieren, diesen Stack synchronisieren und neue exakte CI + Review bestehen lassen. Kein Promote/Merge vor grünen Checks."
-wait_reason: ""
+blocker: ""
+wait_reason: "Waiting for 0428-188's typed local operation grant, then for #1594 to integrate that grant and pass exact-head CI. After #1594 is updated and verified, hop #1615 to the resulting stack and run its exact CI; also confirm its actual base is included by the pull_request.branches workflow rule."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-identity-secrets/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98d/evidence/r28-welle4-2026-11-19/identity-secrets-hopf/fix-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44735405029"]
 ---
 
-- [ ] t-20261114-r28-cli2-identity-secrets · CLI redesign: Separate human/runtime secret authority #task #release/v0-4-28 #status/blocked #view/blocked #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-identity-secrets · CLI redesign: Separate human/runtime secret authority #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** 0428-057 (codeman 01b370c0, END\_BLOCKED, sitz wird entlassen) · **Priority:** high  
     **PR:** [baseharbor#1615](https://github.com/mcpdev80/baseharbor/pull/1615)  
-    **Blocker:** Der Trigger-Blocker ist behoben, aber der exakte PR-Head-Lauf 44735405029 auf ca930ce63c4ff080a736c6e3439dc1d87d017e0c ist rot: vier CLI-Go-Shards und ausgewählte/native Jobs scheitern am fehlenden Trusted-Local authority proof bzw. unkonf…  
-    **Needs:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
+    **Waiting:** Waiting for 0428-188's typed local operation grant, then for \#1594 to integrate that grant and pass exact-head CI. After \#1594 is updated and verified, hop \#1615 to the resulting stack and run its exact CI; also confirm its actual base is…  
+    **Needs:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261120-trusted-local-operation-grant](t-20261120-trusted-local-operation-grant.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-identity-secrets/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98d/evidence/r28-welle4-2026-11-19/identity-secrets-hopf/fix-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44735405029)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
+**Depends on:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md), [t-20261120-trusted-local-operation-grant](t-20261120-trusted-local-operation-grant.md)  
 **Required by:** [t-20261114-r28-cli2-app-data](t-20261114-r28-cli2-app-data.md), [t-20261114-r28-cli2-app-export](t-20261114-r28-cli2-app-export.md), [t-20261114-r28-cli2-app-interact](t-20261114-r28-cli2-app-interact.md), [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md)  
 **Owner:** 0428-057 (codeman 01b370c0, END_BLOCKED, sitz wird entlassen)  
 **Priority:** high  

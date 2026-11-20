@@ -8,33 +8,34 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: coord
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Replace name-based environment policy. Follow the owner working brief, command mapping and code entry index; revalidate current…"
 kanban_title: 0428-053 · Replace name-based Env policy
 priority: high
-depends_on: [t-20261114-r28-cli2-uid-environment]
+depends_on: [t-20261114-r28-cli2-uid-environment, t-20261120-trusted-local-operation-grant]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1594]
 sources: []
-blocker: "Exact stacked CI is now routed; PR #1615 exact head ca930ce63c4ff080a736c6e3439dc1d87d017e0c ran via 44735405029 and failed at the fail-closed operator-auth boundary across CLI/MCP tests. The CLI verifies local runtime authority but discards the op/target/environment-bound proof; existing policy resolvers do not consistently carry that tuple. A bare trustedLocal boolean would weaken authorization; a safe end-to-end opaque proof path remains to implement. Parent PR #1594 is Draft, stale/conflicted against develop, and has no current-head CI. Separate native fixture failures include unconfigured w169-ci-bootstrap target."
-wait_reason: ""
+blocker: ""
+wait_reason: "Waiting for 0428-188 to implement the typed, operation/target/environment-bound local grant and exact fail-closed tests. Then update #1594 on the grant implementation, resolve its current-base issues, and run its exact CI before proceeding."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1594", "https://github.com/mcpdev80/baseharbor/actions/runs/44735405029"]
 ---
 
-- [ ] t-20261114-r28-cli2-env-policy · CLI redesign: Replace name-based environment policy #task #release/v0-4-28 #status/blocked #view/blocked #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-env-policy · CLI redesign: Replace name-based environment policy #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** coord · **Priority:** high  
     **PR:** [baseharbor#1594](https://github.com/mcpdev80/baseharbor/pull/1594)  
-    **Blocker:** Exact stacked CI is now routed; PR \#1615 exact head ca930ce63c4ff080a736c6e3439dc1d87d017e0c ran via 44735405029 and failed at the fail-closed operator-auth boundary across CLI/MCP tests. The CLI verifies local runtime authority but discar…  
+    **Waiting:** Waiting for 0428-188 to implement the typed, operation/target/environment-bound local grant and exact fail-closed tests. Then update \#1594 on the grant implementation, resolve its current-base issues, and run its exact CI before proceeding.  
+    **Needs:** [t-20261120-trusted-local-operation-grant](t-20261120-trusted-local-operation-grant.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1594), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44735405029)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261114-r28-cli2-uid-environment](t-20261114-r28-cli2-uid-environment.md)  
+**Depends on:** [t-20261114-r28-cli2-uid-environment](t-20261114-r28-cli2-uid-environment.md), [t-20261120-trusted-local-operation-grant](t-20261120-trusted-local-operation-grant.md)  
 **Required by:** [t-20261114-r28-cli2-app-lifecycle](t-20261114-r28-cli2-app-lifecycle.md), [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-env-delete](t-20261114-r28-cli2-env-delete.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md), [t-20261114-r28-cli2-wizard-platform](t-20261114-r28-cli2-wizard-platform.md)  
 **Owner:** coord  
 **Priority:** high  

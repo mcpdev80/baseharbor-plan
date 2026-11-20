@@ -16,10 +16,9 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 114/203 · **Blocked:** 4 · **Waiting:** 21  
-    **Blocker:** [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) — Exact stacked CI is now routed; PR \#1615 exact head ca930ce63c4ff080a736c6e3439dc1d87d017e0c ran via 44735405029 and failed at the fail-closed operator-auth bo…  
-    **Blocker:** [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) — Der Trigger-Blocker ist behoben, aber der exakte PR-Head-Lauf 44735405029 auf ca930ce63c4ff080a736c6e3439dc1d87d017e0c ist rot: vier CLI-Go-Shards und ausgewäh…  
-    Plus 2 further blockers in the task list.  
+    **Accepted tasks:** 114/203 · **Blocked:** 2 · **Waiting:** 21  
+    **Blocker:** [t-20261114-r28-cli2-wizard-platform](../tasks/t-20261114-r28-cli2-wizard-platform.md) — Exact PR checks are unroutable while base is cli2-env-policy-head; PR remains Draft. CI owner/coordinator must provide an approved qualifying stack base, then…  
+    **Blocker:** [t-20261120-r28-stale-draft-pr-1665-closeout](../tasks/t-20261120-r28-stale-draft-pr-1665-closeout.md) — restack nicht konfliktfrei: \#1665-diff und der offene PR \#1684 (0428-083) teilen sich internal/application/management\_ui.go; perses-runtime-smoke bleibt rot bi…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next
