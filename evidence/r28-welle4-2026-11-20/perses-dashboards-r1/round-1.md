@@ -123,6 +123,13 @@ Action boundary: the failing step is the CI base-resolution planner, which lives
 
 Candidate db27880c1 is correct (clean hop, 14-file write-set, all 13 082 tests pass locally, build+vet clean). Blocked on an Owner/coordinator base-resolution decision (083 lane not merged to develop; CI base-resolution planner rejects it). No further push on #1665.
 
+Cleanup (one candidate per chain, AGENTS 3.8): my earlier test-push branch `0428-082-dashboards-r1` (= db27880c1) was a duplicate. ls-remote BEFORE: `db27880c108a84c6c11bcb5a02484d3da00244bd refs/heads/0428-082-dashboards-r1`; after `--delete`: absent. Only one 082 candidate branch remains: `lane-0428-082-perses-dashboards` = db27880c1; PR #1665 head = db27880c1.
+
+Evidence on origin/main (verify):
+```
+evidence/r28-welle4-2026-11-20/perses-dashboards-r1/round-1.md
+```
+
 ## REPRODUCTION COMMAND (for CI run)
 
 `go test ./internal/metrics/ -count=1` and `go build ./...` in repo `mcpdev80/baseharbor` at candidate head.
