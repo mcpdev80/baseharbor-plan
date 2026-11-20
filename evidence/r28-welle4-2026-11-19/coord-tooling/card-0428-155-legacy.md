@@ -25,7 +25,7 @@ resolution: accepted
 created: 2026-11-19
 ---
 
-- [x] t-20261119-coord-tooling-defects · skript-zeile statt bahn-pruefen #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/coordination #area/tooling #kind/task
+- LEGAKARTE (war: t-20261119-coord-tooling-defects · skript-zeile statt lane-pruefen #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/coordination #area/tooling #kind/task
     <!-- generated:card -->
     **Owner:** w155-pr0428-155-waitfix  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/coord-tooling/fix-2.md)  
