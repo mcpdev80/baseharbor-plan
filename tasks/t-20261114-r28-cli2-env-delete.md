@@ -28,7 +28,6 @@ evidence: []
     **Owner:** codex-open-pr-sweep-055 · **Priority:** high  
     **PR:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627)  
     **Waiting:** Arbeit ist begonnen und pausiert, bis 0428-053 und die Env-Registry-Voraussetzung akzeptiert sind. Beim Wiederaufnehmen gehoeren die korrekte Destroy-Semantik, die erforderliche Gate-Verdrahtung (falls sie fehlt), isolierte Docker/Podman-N…  
-    **Needs:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
