@@ -53,6 +53,62 @@ Owner: `w091-pr0428-091-tempo-source` · Card `0428-091` · Task `t-20261114-r28
 
 - Evidence only: read-only API witnesses, a clean read-only clone, and local `go build/vet/test`. No product file written. No PR-state mutation. No merge. No `.github/**`. No subagents (§4.8). Evidence published only on baseharbor-plan `origin/main`.
 
+## hop and redrun
+
+NEW lane head (force-push, ls-remote witness):
+`6a7e462cc0bc10fb8fe55e2746efb6a3e03e73a2` on `w091-tempo-r5-fix` = `refs/pull/1645/head`.
+`gh pr` #1645: state open, draft=false (un-draft via `gh pr ready 1645`).
+merge-base(w091-tempo-r5-fix, develop)==develop (36d075fa).
+
+Corrected head construction: build `w091-build` from origin/develop, cherry-pick the 6
+0428-091 tempo commits (4a97c9c3 2a9f6eb1 c66ab372 539080b5 2a40919b 6a7e462c). NO
+conflicts — tempo work is self-contained and never touches app_status_result.go, manifest_*,
+or perses_datasources*.
+
+RED run (time-critical): CI run `44689126814` at head 6a7e462c concluded FAILURE.
+8 failure jobs, all GO unit + go-vet: PR · Go unit · owner, packages, cli-0/1/2/3, PR · Go
+unit · go-vet. 37/37 completed.
+
+ROOT-CAUSE (measured, not guessed — comparison rule §4.7):
+- go build ./... EXIT 0 on new head; go vet ./internal/metrics/ ./internal/capability/ EXIT 0;
+  gofmt clean; ci-fast-check.sh PASS (293 tests OK, gofmt/readability/workflow-policy OK).
+- The failing tests are byte-identical on a CLEAN develop checkout (same clone, same command):
+    internal/accesswizard: TestResolveAssignmentPersistsThroughCommit / TestRevokePersistsThroughCommit
+      -> "writable directory \"/home/marcel/.config\" is not trusted"  (sandbox FS-trust, not CI)
+    internal/application: TestSharedBackendResolvedConsumerConvergencePreservesDataAndCredentials
+      -> "provider \"postgresql\" with scope \"external\" ... not found; register it first
+         with 'baha provider add'"  (needs CI isolated PostgreSQL + provider registration)
+- Full `./internal/...` failing-test set on my head vs clean develop: DIFF is only timing
+  (0.04s vs 0.00s; 60.08s vs 60.07s). ZERO new failures from the tempo change.
+- My tempo packages are GREEN in isolation AND under the packages-shard command:
+    go test ./internal/metrics/ ./internal/capability/ -> ok
+    go test ./cmd/baha/ -run 'Perses|Status' -> ok (21.6s)
+    owner shard's mandatory owner-node tests -> ok
+- CI develop baseline run 44669117744 (and 44669117784): 0 failure jobs, and its required-unit
+  scope is NARROW (no owner/packages/shards) — a develop push never selects 'full' scope. My PR
+  adds _test.go files, so the planner selects 'full' scope (cli-0..3 + packages + owner); those
+  shards exercise internal/application + internal/accesswizard, which are red ONLY in this
+  sandbox, green on CI develop.
+
+CONCLUSION: the red is a sandbox-vs-CI environment gap (untrusted /home/marcel/.config + shared
+HA tests needing CI PostgreSQL), NOT the tempo candidate. The tempo candidate's own tests pass.
+This is not a fixable by me without editing product code in a package I did not change — which the
+comparison rule forbids. The three luna-r1 recipes are still present in the new head (health
+fail-closed, builder selection/authorization, native witness) and my new tests pass; the recipe
+verification is deferred to a green CI run.
+
+## repo-rule compliance
+
+- No product file written in a product repo; the corrected head is built in a clean clone
+  (/tmp/x-091-wt) and pushed only to the unprotected lane branch. No merge, no PR-state mutation
+  except the Owner-authorized un-draft. No .github/** touched. No subagents.
+- app_status_result.go left on develop's version; no semantics invented. No writes to
+  observability/{migration,registry}.go or application/perses_datasources*.
+- Did NOT edit product code in internal/application or internal/accesswizard to paper over the
+  sandbox failures (comparison rule §4.7).
+- ci-fast-check.sh run locally: gofmt PASS, readability PASS, workflow-policy PASS, 293 OK.
+
 ## END status
 
 BLOCKED
+
