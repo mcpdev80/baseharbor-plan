@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 116/208 · **Blocked:** 1 · **Waiting:** 28  
+    **Accepted tasks:** 115/208 · **Blocked:** 1 · **Waiting:** 28  
     **Blocker:** [t-20261120-r28-shell-wrapper-tests-not-skippable](../tasks/t-20261120-r28-shell-wrapper-tests-not-skippable.md) — ECHTER EXTERNER BLOCKER, OWNER-ENTSCHEID NÖTIG: der Kandidat 0eeda344 (base 3653369a4d83, 2 dateien: cmd/baha/context\_terminal\_test.go fail-loud + .github/work…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
