@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w187-0428-187-consentgate
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-187 · consent gate stalls cell
 priority: ""
@@ -19,17 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: dropped
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/consent-gate-stall/round-1.md"]
 ---
 
-- [ ] t-20261120-r28-podman-consent-gate-stall · The podman data-capabilities cell stalls the guided wizard at the candidate-consent step #task #release/v0-4-28 #status/active #view/active #kind/bug
+- [x] t-20261120-r28-podman-consent-gate-stall · The podman data-capabilities cell stalls the guided wizard at the candidate-consent step #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/bug
     <!-- generated:card -->
     **Owner:** w187-0428-187-consentgate  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/consent-gate-stall/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w187-0428-187-consentgate  
@@ -79,3 +80,5 @@ consent env, report the needed change as a finding with file:line instead of edi
 gefunden im PR #1715, run 44743111417 job 136312259900: 'Existing consent authority requires 2 confirmation(s)' -> 'Error: wizard cancelled without changes' -> 'candidate submission requires an explicit operator' -> 'new-edit-new-sql-remove exceeded no-output timeout: elapsed=241s no-output=180' -> demo-data-capabilities FAIL. base-drift ist NICHT bewiesen: der job erscheint nur in PR-selected-laeufen, kein develop-push traegt ihn (gemessen runs 44728573148 / 44726527868 ohne diesen job).
 
 ARBEITET JETZT: session 425eb851 (ornith-kanal, model worker-ornith1.5, spawn verifiziert), worktree aus develop f5ce95afce1c. auftrag: scenario new-edit-new-sql-remove in der podman data-capabilities-zelle reproduzieren, dann ENTSCHEIDEN welche seite fixt (fixture liefert die zweite bestaetigung ODER produkt verlangt nicht twice), kein auto-approve im runner (§3.8), dentro 180s no-output. schreibfeld: scripts/ci-greenfield-apply.py + guided-wizard in cmd/baha + fixture; die dateien von 0428-184 (#1715) und 0428-183 (#1714) sind in der mission ausdruecklich verschlossen.
+
+BEFUNDOLOS fuer den core-pfad, von lane 425eb851 fern belegt: die zelle stallte am demo-seitigen matched-catalog (CurrentConsent auf baseharbor-demo pin f23b6e09), der den core-text 'Warning: confirm the displayed outcome without a working alternative.' (internal/application/provider_change_consent.go:37) nicht akzeptierte -> stufe 1/2 blieb ohne antwort -> no-output timeout. der owner hat den pin auf adda7599cb5b79689702f6a63a5ca802179df967 gehoben; run 44748241522 attempt 2 zeigt an #1715 0 failures. der core-text ist bereits feld-abgedeckt durch cmd/baha/provider_change_confirmation_test.go:81, kein produktaenderung noetig. karte wird DROPPED, nicht accepted: sie hat nichts geliefert ausser dem nachweis, dass die ursache ausserhalb dieses repositories lag.
