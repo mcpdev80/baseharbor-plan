@@ -15,7 +15,7 @@ kanban_title: 0428-114 · Run observability Accept with
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1708]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,6 +26,7 @@ evidence: []
 - [ ] t-20261117-observability-native-gate-bootstrap · CI: Run observability acceptance with verified ORAS bootstrap #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** codex-open-pr-sweep-114  
+    **PR:** [baseharbor#1708](https://github.com/mcpdev80/baseharbor/pull/1708)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +36,7 @@ evidence: []
 **Required by:** [t-20261117-docker-loki-ingestion-timeout](t-20261117-docker-loki-ingestion-timeout.md)  
 **Owner:** codex-open-pr-sweep-114  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1708](https://github.com/mcpdev80/baseharbor/pull/1708)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -77,6 +78,14 @@ Make the existing observability runtime acceptance runnable and selectable for a
 ## Handoff
 
 ZWEIFEL queued for the existing CI owner. Exact failure evidence is in runs 44057402207, 44057603711 and 44057705927. Product PR #1680 remains open pending proper runtime acceptance.
+
+## Handoff update (2026-11-20)
+
+- PR #1708 is OPEN + Ready at exact head `542e3b6e2d692e8b39db0b80fc4057f027fba452`; its recorded base SHA is `b7cbc00f0adfa36945d6f7af8098d88096276c4f`, while live `develop` has advanced to `83b19dce24eed2f837dd2dda7d56222d20a7da32`, so the PR is behind. The prior exact PR run `44655129333` was cancelled by the next head update while its selected Docker observability gate was executing; it is not a pass. New exact PR run `44656039328` is queued/running.
+- Docker + Podman dispatch `44655136998` executed the acceptance test on both runtimes, but both failed at `TestObservabilityFullStackAcceptanceInCI`: the fixture's `app apply` supplied provider-impact consent but omitted the now-required exact `--confirm-candidate` digest. Runtime preparation, ORAS installation, image build and isolated OCI publication passed on both runtimes. This is acceptance-fixture behavior, not evidence of a runtime-specific failure.
+- Updated the acceptance fixture to first observe the fail-closed candidate-consent error, extract only its exact digest, then retry with explicit candidate consent while retaining provider-impact consent. Local verification at the new source: `go test ./cmd/baha -run '^TestObservabilityFullStackAcceptanceInCI$' -count=1` (compile; skipped without runtime opt-in), source-readability audit, and `git diff --check` passed. Exact Docker + Podman dispatch `44656074577` and PR run `44656039328` are active on the new head; neither has terminal evidence yet.
+- The old acceptance target SHA `504a8678c2391cb379622fa02c2c8d9769fa192b` is no longer current develop. The next accepted-source run must use a verified current source commit after this PR head is qualified and hopped to current develop.
+- Independent read-only audit of #1594 / 0428-053 confirms its policy-aware helpers have no production consumers; current callers still use name-only wrappers. Exact draft run `44653386231` failed the CLI shards because routine local `dev` flows now demand managed OIDC, and its package shard also has unrelated missing Perses/Loki client-cert fixtures. Stable target/environment IDs identify scope but do not grant `TrustedLocal`. Keep #1594 DRAFT and blocked pending an owner-approved authoritative policy source and production caller scope; do not infer trust from names or identifiers.
 
 reichweite erwisert (entscheid statt sequenzierung): 114 besitzt jetzt beide 128-symptome mit datei:zeile. grund: 114 hat keinen lebenden sitz und keinen PR (nur ein nominaler owner-vermerk), eine sequenzierung 'warte auf 114, dann 128' wuerde 119/088 unbefristet blockieren; zugleich wuerde eine separate 128-aenderung dieselbe coverage-map zwei mal anfassen
 
