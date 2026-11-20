@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1718]
 sources: []
 blocker: ""
-wait_reason: "Waiting for prerequisite 0428-057 / PR #1615 to merge with exact required CI green. Its test-context changes address the managed-operator authentication failures in this PR's cli shards. Then hop #1718 onto current develop and rerun exact CI. Current #1615 head 9dccd0ed67689fcc8a3bb69f89853fa96121091b; exact run 44817430166 is pending."
+wait_reason: "Waiting for prerequisite 0428-057 / PR #1615 to merge with exact required CI green. The latest code head is fc6fe96a0ce058765ef08b8acc37f9e9c18806fa; exact run 44821862388 is in progress. It includes the scoped runtime authorization and test-gate fixes. After it passes and #1615 merges, hop #1718 onto current develop and rerun exact CI."
 resolution: ""
 evidence: []
 ---
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w178-0428-178-contextshow  
     **PR:** [baseharbor#1718](https://github.com/mcpdev80/baseharbor/pull/1718)  
-    **Waiting:** Waiting for prerequisite 0428-057 / PR \#1615 to merge with exact required CI green. Its test-context changes address the managed-operator authentication failures in this PR's cli shards. Then hop \#1718 onto current develop and rerun exact…  
+    **Waiting:** Waiting for prerequisite 0428-057 / PR \#1615 to merge with exact required CI green. The latest code head is fc6fe96a0ce058765ef08b8acc37f9e9c18806fa; exact run 44821862388 is in progress. It includes the scoped runtime authorization and te…  
     **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
     <!-- /generated:card -->
 
