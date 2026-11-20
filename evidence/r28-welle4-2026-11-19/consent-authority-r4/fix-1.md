@@ -81,6 +81,16 @@ broad_required=true confirms the Go-only diff selects normal broad unit/vet/buil
 - This is owner-scope (.github/**). I did not edit any workflow line, did not trigger workflow_dispatch/rerun, and did not green-compute a SKIP.
 - Resolution route per mission: after the hopf, re-check whether the new run executes the runtime cells. If still skipped, report the exact skip reason from the gate-plan and the owner-wire 114(a) finding (ORAS install missing in PR job) as a legal external blocker; mark the card blocked rather than letting it circle in review.
 
+## branch provenance (FINAL)
+
+- Named candidate `lane-0428-119-consent-hard` (PR #1690) remote head: `ff9c5978585f480b802d9dc8f073c4a69dcf21a7` (ls-remote witness).
+- `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/lane-0428-119-consent-hard` = `ff9c5978585f480b802d9dc8f073c4a69dcf21a7`.
+- Base attestation: cut at `5be347068b3725bea37a3ecc936eead76175524d` (prior r3 head; an ancestor of develop `4b3a35590` → direct ancestor of new develop tip `15727ca887` / `d5c11753ea` / `97abbe1572`).
+- r4 fix `e31292073` has SINGLE parent `5be347068` (the exact base) — the one added comparison line.
+- Merge-hopf `ff9c59785` has TWO parents: `e31292073` (my fix) + `d5c11753ea437495eb2469a02f80b91d788fef4f` (develop) — monotonic `git merge --no-ff`, no rebase/reset/force. Base merge-parent `4b3a35590` confirmed an ancestor of the develop tip at hopf time.
+- `git log --oneline` on the named branch shows ONLY my two commits (`ff9c59785`, `e31292073`) on top of develop's `d5c11753e`; the carried `0428-059` base was already merged.
+- Extra working branch `lane-0428-119-consent-hard-r4` deleted (ls-remote before `ff9c59785`; after = empty).
+
 ## run witness (my own observed CI, §4.6)
 
 - CI run id **44647040369** (run_number 6683), event `pull_request`, head_branch `lane-0428-119-consent-hard`, head_sha `ff9c5978585f480b802d9dc8f073c4a69dcf21a7`, status `completed`, conclusion `success`, created 2026-11-20T00:35:11Z, updated 2026-11-20T00:39:44Z. gh API: `gh api repos/mcpdev80/baseharbor/actions/runs/44647040369`.
