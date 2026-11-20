@@ -112,8 +112,13 @@ broad_required=true confirms the Go-only diff selects normal broad unit/vet/buil
 - `git show origin/main:evidence/r28-welle4-2026-11-19/consent-authority-r4/fix-1.md` renders the file.
 - My commit `581652e9` sits on top of `origin/main` `2e7c72b6` (fast-forwarded via merge 1700ec9f).
 
+## lane status
+
+- Codeman END_DONE posted to coordinator 9142ab1f: "END_DONE x-119r4: 0428-119 r4 consent-authority OwnerApplication fix + hopf + CI 44647040369 success; Docker runtime cells skipped (owner-wire ORAS)".
+- Card t-20261118-ownership-stale-consent-hardening (0428-119) / PR #1690: P1 resolved (OwnerApplication now compared + both test directions green in CI). P4: the exact-head Docker lifecycle PASS remains produced by the owner-wire ORAS fix in the PR runtime job (owner scope .github/**); recorded here as a documented external blocker, not a green-computed pass.
+
 ## cleanliness
 
-- worktree /tmp/opencode/x-119r4-wt: only the three touched files changed; no container/compose project started; no docker/podman network, volume or state directory created.
+- worktree /tmp/opencode/x-119r4-wt: only the three touched files changed; no container/compose project started by this lane; no docker/podman network, volume or state directory created (worktree removed at END). The ambient bh-local-shared-* containers on the host are another lane's Core services, not started here.
 - No scratch/extract/stray files placed under /home/marcel/dev/baseharbor-ecosystem.
 - Base-check worktree /tmp/opencode/x-119base-check removed after the regression check.
