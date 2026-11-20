@@ -7,9 +7,9 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w196-0428-196-huntswt
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Reine Befundung (kein Produktwechsel): was die seit dieser Woche geschlossenen Karten an der ausgelieferten Oberflaeche (baha)…"
 kanban_title: 0428-196 · hunt shipped-surface desk
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-bughunt-shipped-surface-desk · hunt shipped-surface desk #task #release/v0-4-28 #status/planned #view/ready #area/ci #kind/task
+- [ ] t-20261120-bughunt-shipped-surface-desk · hunt shipped-surface desk #task #release/v0-4-28 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w196-0428-196-huntswt  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w196-0428-196-huntswt  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -70,3 +69,5 @@ Reine Befundung (kein Produktwechsel): was die seit dieser Woche geschlossenen K
 
 - Fund ohne `FUND-FUER-KARTE`-Zeile, Akte ohne `cleanliness`-Zeile, oder ein Versuch, Produktcode zu aendern.
 - Ausloeser fuer sofortige Stop-with-Meldefrist: eine dep-freie, konfliktfreie Produktkarte wird frei (§3.3.5).
+
+ARBEITET JETZT, kante gegen session gemessen (02aab8d1, ornith, develop-Anker 40cb28c): Hunt-Schnitt H-V21 'ausgelieferte-oberflaechen-desk' - (1) command-abdeckung der heutigen Karten gegen 'baha --help' und die help-Ausgaben der unterschen, (2) Fehler-meldungen auf echten fehlerpfaden (0428-188 grants, 0428-182 unsupported, 0428-184 shared destroy, 0428-068 per-terminal context), (3) verhalten des ausgelieferten binary auf einem zustand einer AELTEREN ausgelieferten version. reine befundung; FUND-FUER-KARTE-zeile pro fund; doppelungsausschluss gegen H-V18/19/20 und 0428-189..194. fuellt den nach H-V20 freigewordenen ornith-sitz (scan: konfliktfreie produktkarten = 0).
