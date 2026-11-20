@@ -12,27 +12,28 @@ parent: ""
 depends_on: []
 blocked_by: []
 superseded_by: []
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w170-pr0428-170-instdestroy
+kanban_status: active
+kanban_lane: active
 blocker: ""
 resolution: ""
 evidence: []
 prs: []
 created: 2026-11-20
+wait_reason: ""
+
 ---
 
-- [ ] t-20261120-r28-bughunt-install-destroy-retry · audit destroy vs interrupted retry #task #release/v0-4-28 #status/planned #view/ready #area/release #area/runtime #kind/review
+- [ ] t-20261120-r28-bughunt-install-destroy-retry · audit destroy vs interrupted retry #task #release/v0-4-28 #status/active #view/active #area/release #area/runtime #kind/review
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w170-pr0428-170-instdestroy  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w170-pr0428-170-instdestroy  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
