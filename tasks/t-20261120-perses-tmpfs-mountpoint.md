@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: 0428-083-
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-177 · Perses runtime smoke cannot
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-perses-tmpfs-mountpoint · Perses runtime smoke cannot mount tmpfs at /etc/perses/database on hosted runners #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261120-perses-tmpfs-mountpoint · Perses runtime smoke cannot mount tmpfs at /etc/perses/database on hosted runners #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** 0428-083-  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** 0428-083-  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -127,3 +126,5 @@ Ist: das Starten scheitert im container-init, das Verzeichnis des Mountpoints ka
 
 Bleibt der Mount-Fehler auf dem Runner, obwohl die Produktstelle korrekt ist (storage-driver-bedingter Runner-Defekt),
 dann ist das kein Produktbug: Karte auf `blocked` mit dem Lauf als Zeugen und klaerer Owner-Anfrage.
+
+karte aus dem fehlgeschlagenen smoke-run 44717007640 (PR #1684) gegossen - fund->karten-pflicht, damit der beund nicht in einer lane-meldung verdampft. besetzt mit der lane, die ihn gefunden hat (sid 473e54be, '0428-083-', ornith 2/2), weil dort der kontext schon liegt; die umbenennung der lane folgt dem muster 'eine lane, zwei auftraege nur nacheinander' - ihr alter auftrag 0428-083 steht solange auf blocked. entscheidungsbedarf in der karte: elternverzeichnis vor dem mount anlegen ODER benanntes volume/bind mit gleicher isolation; sicherheitseigenschaft der tmpfs muss erhalten bleiben; regression muss in der CI rot werden, wenn die mount-konfiguration fehlt. STOPP-KRITERIUM: bleibt es ein runner-defekt, ist die karte kein produktfehler - dann koennte nur der owner einen anderen gate-ort freigeben
