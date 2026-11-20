@@ -76,7 +76,7 @@ The lane branch `perses-dashboard-databases-lane` is contaminated with ~20 other
 
 ## END
 
-END_BLOCKED w202-0428-076-dbpanels: awaiting Owner scope decision on PR #1597 branch contamination (QUESTION posted to coordinator, run id 9142ab1f-c464-4f2f-abc8-d6997d8655ae). Card 0428-076 own write-set isolated and measured (6 files); branch also carries ~15 non-Perses r27 commits that are outside card 076's write-set. No product change, no push, no .github edit.
+END_BLOCKED w202-0428-076-dbpanels: awaiting Owner scope decision on PR #1597 branch contamination (QUESTION posted to coordinator, run id 9142ab1f-c464-4f2f-abc8-d6997d8655ae). Card 0428-076 own write-set isolated and measured (6 files); branch also carries ~15 non-Perses r27 commits that are outside card 076's write-set. No product change, no push, no .github edit. (Fourth re-dispatch of this same card; Perses chain resolved as stacked 0428-177#1724 <- 0428-083#1684, but card 076's PR #1597 is a separate older branch that also absorbed unrelated r27 work — an Owner scope call, not mine.)
 
 ## repo-rule compliance
 
