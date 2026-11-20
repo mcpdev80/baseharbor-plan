@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w078-pr0428-078-appstatus-r3
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
 kanban_title: 0428-078 · Perses identity dashboard
 priority: normal
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w078-pr0428-078-appstatus-r3 · **Priority:** normal  
     **PR:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
@@ -96,3 +96,5 @@ Posted these blockers on [PR #1650](https://github.com/mcpdev80/baseharbor/pull/
 uebergabe dokumentiert (§3.6): die bisherige session w078-…-r2 ist entlassen, ihr zustand war drei commits, die durch einen dateisystem-remote ('origin' = lokaler pfad) NIE bei github ankamen (gh api: No commit found fuer 23a9f656b, 7820a9325, 16d343023). neue lane uebernimmt: push ueber lane-origin, rebase auf develop, EIN run am neuen head
 
 uebernahme erfolgreich gemessen: PR-head ac2a54503794, base = develop 36d075fad77f (merge-base Ahn JA), run 44680875974 completed/success, 34/34 checks fertig, 0 failure, mergeState CLEAN. gate-plan korrekt selectiert: PR Selected Checks success, PR Native gate plan success, native runtime-jobs skipped (der diff selectiert sie nicht). karte bleibt active, weil round-3-akte noch nicht auf main liegt — review kommt erst mit geschriebener evidence (§5.3)
+
+kandidat zugestellt und abnahme bereit: head ac2a54503794 (draft=false, mergeable=clean, base = develop 36d075fad77f, merge-base Ahn JA), run 44680875974 completed/success, 34/34 checks fertig, 0 failure, skipped sind die nativen runtime-jobs, weil der diff sie nicht selectiert (PR Native gate plan = success). evidence round-3.md auf plan main @ 973945a3 mit ls-remote-beweisen. CODEX-REVIEW am exakten head ist bestellt (session 95971e0a, dieselbe reviewer-session wie r1, rolle REVIEW, akte 1650-0428-078-r2.md)
