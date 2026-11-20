@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w078-pr0428-078-appstatus-r3
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
 kanban_title: 0428-078 · Perses identity dashboard
 priority: normal
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w078-pr0428-078-appstatus-r3 · **Priority:** normal  
     **PR:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
@@ -108,3 +108,5 @@ CODEX-REVIEW am exakten head ac2a54503794 = REQUEST CHANGES (akte codex-review-w
 ## Exact-head re-audit — 2026-11-20 07:05 UTC
 
 The active owner advanced #1650 to `7705a33660736a3ab21b441bebe9057bcccc60fe`; exact run [44692217649](https://github.com/mcpdev80/baseharbor/actions/runs/44692217649) is still in progress (current selection skips native/Core/runtime). Independent diff review confirms both blockers from maintainer comment [7031412203](https://github.com/mcpdev80/baseharbor/pull/1650#issuecomment-7031412203) remain: the eligibility predicate accepts `ConfiguredUnverified`, and the test explicitly expects true for that state; local status tests still do not exercise remote target/output. Prior run 44691504805 failed on superseded head `cd6de5eb0def34d4a190130e6458466c6102a9eb` and is not evidence about this current head. Keep this card Active while the assigned owner continues correction; no Review/acceptance transition is supported. See [sweep evidence](../evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md).
+
+kandidat ist vollstaendig und unabhaengig gemessen: head 7705a3366073, develop 36d075fad77f ist ahne (merge-base --is-ancestor JA), 35/35 checks completed, 0 failure, cli-shards success, mergeable=clean, draft=false. AKTE round-4.md (plan main @ c84f98fe) enthaelt den MUTATIONSPROOF, den das r2-verdict verlangte: gate in app_status_result.go:167-168 raus -> '--- FAIL: TestIdentityDashboardEligibleRequiresConfiguredVerifiedPerses' (app_status_perses_gate_test.go:137) UND '--- FAIL: TestIdentityDashboardEligibleGatesOnKeycloakWitness'; danach wieder drin, gate-diff leer. neue dateien am head: cmd/baha/app_status_perses_gate_test.go. CODEX-REVIEW r3 am exakten head ist bestellt (session 95971e0a, rolle REVIEW, akte 1650-0428-078-r3.md). lane bleibt fuer eine korrekturrunde stehen (§3.6), danach sofort freigegeben
