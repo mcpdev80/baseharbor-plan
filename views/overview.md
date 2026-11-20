@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 6 |
-| review | 0 |
+| active | 5 |
+| review | 1 |
 | wait | 34 |
 | blocked | 0 |
 | ready | 4 |
@@ -29,11 +29,12 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-perses-dashboards](../tasks/t-20261114-r28-perses-dashboards.md) | Perses infrastructure dashboards | active | normal | w208-0428-082-dashboards | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md), [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) (open) | [baseharbor#1665](https://github.com/mcpdev80/baseharbor/pull/1665) |
 | [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | Connect Perses Tempo | active | normal | 0428-091- | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645) |
 | [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) | cli shards need operator env | active | not set | w198-0428-198-cligate | — | [baseharbor#1726](https://github.com/mcpdev80/baseharbor/pull/1726) |
-| [t-20261120-r28-packages-shard-develop-regression](../tasks/t-20261120-r28-packages-shard-develop-regression.md) | packages shard red on develop | active | not set | w207-0428-202-lokifix | [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) (open) | — |
 
 ## Ready for review
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261120-r28-packages-shard-develop-regression](../tasks/t-20261120-r28-packages-shard-develop-regression.md) | packages shard red on develop | review | not set | w207-0428-202-lokifix | [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) (open) | [baseharbor#1732](https://github.com/mcpdev80/baseharbor/pull/1732) |
 
 ## Waiting for resources
 

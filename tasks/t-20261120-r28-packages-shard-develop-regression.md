@@ -8,35 +8,37 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w207-0428-202-lokifix
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-202 · packages shard red on develop
 priority: ""
 depends_on: [t-20261114-r28-cli2-identity-secrets]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1732"]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/packages-shard-develop-regression/round-2.md"]
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-r28-packages-shard-develop-regression · packages shard red on develop #task #release/v0-4-28 #status/active #view/active #area/ci #area/observability #kind/bug
+- [ ] t-20261120-r28-packages-shard-develop-regression · packages shard red on develop #task #release/v0-4-28 #status/review #view/review #area/ci #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** w207-0428-202-lokifix  
+    **PR:** [baseharbor#1732](https://github.com/mcpdev80/baseharbor/pull/1732)  
     **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/packages-shard-develop-regression/round-2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
 **Owner:** w207-0428-202-lokifix  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1732](https://github.com/mcpdev80/baseharbor/pull/1732)  
 **Source:** 
 <!-- /generated:links -->
 

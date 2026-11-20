@@ -29,9 +29,9 @@ Base attestation SHA I rebase from: the new base head `b71c6da27e8bbf180d26762eb
 
 ## PLAN (numbered)
 
-1. Rebase the 082 candidate branch onto the new base head b71c6da27e8b so the candidate carries only 082 content on top of current 083.
-2. Prove ancestry: `git merge-base --is-ancestor b71c6da27e8b <new head>` == YES, paste output.
-3. Scope check: `git diff --name-only b71c6da27e8b <new head>` must list only the write-set above. Foreign files are left untouched and reported file:line, not merged in.
+1. Rebase the 082 candidate onto the new base head b71c6da27e8b so the candidate carries only 082 content on top of current 083. DONE: cherry-picked the 082-only commit chain (3a4599539..e580d3241) onto b71c6da27; resolved the app_status_result.go seam conflict by keeping the base version (new base already carries 083's perses wiring). New candidate head `db27880c1`.
+2. Prove ancestry: `git merge-base --is-ancestor b71c6da27e8b <new head>` == YES. DONE: `git merge-base --is-ancestor b71c6da27e8b db27880c1` -> YES.
+3. Scope check: `git diff --name-only b71c6da27e8b <new head>` must list only the write-set above. DONE: lists only `cmd/baha/app_perses_infra_dashboards_cli_test.go`, `internal/metrics/perses_infra_dashboards.go` + `_test.go`, `internal/metrics/testdata/perses-infra-dashboard/*`, and `git log b71c6da27..HEAD` shows only `db27880c1`. No foreign files.
 4. Undraft the PR via `gh api -X POST repos/mcpdev80/baseharbor/pulls/1665/mark_ready` (PATCH draft=false is inert).
 5. Verify live: `gh pr view 1665 --json isDraft,baseRefName,headRefOid` — isDraft MUST be false; paste all three values.
 6. Run one hosted run on the exact new head, watched to terminal (4.6). Prove with smallest matching gate: `go test ./internal/metrics/ -count=1` and `go build ./...`.
