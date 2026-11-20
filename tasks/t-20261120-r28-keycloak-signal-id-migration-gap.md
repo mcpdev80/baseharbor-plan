@@ -1,0 +1,66 @@
+---
+id: t-20261120-r28-keycloak-signal-id-migration-gap
+kanban_title: 0428-168 · signal id migration gap
+card_number: "0428-168"
+card_short_title: "signal id migration gap"
+type: bug
+areas: [observability, capability]
+repos: [mcpdev80/baseharbor]
+release: v0.4.28
+version: ""
+parent: ""
+depends_on: []
+blocked_by: []
+superseded_by: []
+owner: ""
+kanban_status: planned
+kanban_lane: ready
+blocker: ""
+resolution: ""
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md"]
+prs: []
+created: 2026-11-20
+---
+
+- [ ] t-20261120-r28-keycloak-signal-id-migration-gap · migrate un-prefixed keycloak registrations #bug #release/v0-4-28 #status/planned #view/ready #area/capability #area/observability #kind/bug
+    <!-- generated:card -->
+    **Owner:** unassigned  
+    **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** ready  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** none  
+**Owner:** unassigned  
+**Priority:** not set  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
+
+## Ziel
+
+Bug-Karte aus Bug-Hunt H-V12 (FUND 3, K3). PR #1707 hat die Keycloak-Signal-ID von
+`"keycloak-metrics"` auf `"keycloak:<project>"` umgestellt, ohne Bestandsumschreibung.
+
+## Befund (Quelle: Akte)
+
+- Vor #1707: `ID: "keycloak-metrics"` (wörtlich, aus dem Merge-Diff gestrichen).
+- Nach #1707: `ID: "keycloak:" + r.files.Project` = z. B. `keycloak:bh-<target>-<app>-identity-<env>`.
+- `List` (`internal/observability/registry.go:383`) und `Remove` (`:367`) arbeiten auf exakter ID.
+- Eine bestehende Registration ohne Präfix wird damit nach dem Deploy **nicht mehr gefunden** —
+  sie ist weder sichtbar noch löschbar.
+
+## Erwartung vs. Ist
+
+Erwartet: Ein Deploy der ID-Regel behält bestehende Registrationen beobachtbar oder stellt sie um.
+Ist: bestehende Registrationen werden zu unreachbaren Leichen.
+
+## Reihenfolge
+
+Diese Karte blockiert 0428-166 und 0428-167 (jede weitere ID-Änderung vertieft das Loch).
+
+## Akte
+
+https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md
