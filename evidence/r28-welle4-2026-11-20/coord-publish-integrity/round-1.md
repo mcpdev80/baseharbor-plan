@@ -95,7 +95,14 @@ sanitize.py CJK ranges = U+0400-04FF (kirillisch), U+0300-036F (kombinierte diak
 
 ## main-tree restore handoff (Owner action)
 
-- main working tree /home/marcel/dev/baseharbor-ecosystem/coordinator still has my modified scripts (uncommitted); the Owner will restore it.
+- main working tree /home/marcel/dev/baseharbor-ecosystem/coordinator still had my modified scripts (uncommitted); the Owner restored it.
 - patch backup (main-tree diff): /var/tmp/coord-175-main-diff.patch
 - file backups: /var/tmp/coord-175-payload_check.py.bak, /var/tmp/coord-175-tests.bak
-- my committed work (to cherry-pick once the main tree is restored): branch coord-0428-175-publish-gates, commit b2ddb78e
+- my committed work (to cherry-pick once the main tree is restored): branch coord-0428-175-publish-gates, commits b2ddb78e (r1), 26a99705 (r2), 16096c0d (r3)
+
+## branch + commit-sha for Owner merge
+
+- branch: coord-0428-175-publish-gates (worktree /tmp/coord-175-wt)
+- commits: b2ddb78e (r1 gates) -> 26a99705 (r2) -> 16096c0d (r3)
+- base 63565328 confirmed ancestor of all three; no foreign commits in 63565328..HEAD
+- Owner merges (I do not merge): report branch + commit-sha, Owner merges.
