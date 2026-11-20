@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w184-0428-184-shareddestroy
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-184 · shared destroy skips registry
 priority: ""
@@ -23,18 +23,17 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md"]
 ---
 
-- [ ] t-20261120-r28-shared-destroy-no-registry-cleanup · Shared destroy does not clean the signal registry (stale owners survive) #task #release/v0-4-28 #status/planned #view/ready #kind/bug
+- [ ] t-20261120-r28-shared-destroy-no-registry-cleanup · Shared destroy does not clean the signal registry (stale owners survive) #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w184-0428-184-shareddestroy  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w184-0428-184-shareddestroy  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -53,3 +52,11 @@ F3 of hunt round-1: the destroy path for shared resources removes containers/vol
 ## Boundaries
 
 internal/observability/** plus the destroy path in internal/runtime/**. Read 0428-166 merged behaviour first (provider_registration.go, migration.go) and stop with a report if the cleanup would change collision semantics.
+
+lane auf dem zweiten freien sitz, gegruendet aus zwei hunt-befunden dieses tages (hunt-signals-103 F3 und die
+wiederholung in hunt-signals-104: loki/tempo/otel sauber, keycloak/broker/executor/shared-backends OHNE Remove).
+auftrag: shared destroy raumt genau die registry-eintraege des eigenen owners, eine re-registration mit demselben token
+gelingt danach; regression in beide richtungen PLUS der fall 'fremder owner-eintrag bleibt ERHALTEN' (kein cross-tenant
+wipe). vorgeschaltet ist lesend die pruefung der HEUTE gemergten 0428-166-stellen (internal/observability/provider_registration.go
+und migration.go) mit der zeile 'welche zeile ich NICHT antaste' in der akte. grenzen: KEIN .github/**, KEINE aenderung an
+internal/application/perses_runtime.go (dort arbeitet 0428-083), stopp + meldung bei drohender §4.3-kollision.
