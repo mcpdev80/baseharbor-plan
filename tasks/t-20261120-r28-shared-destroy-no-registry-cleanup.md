@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w184-0428-184-shareddestroy (sitz freigegeben)
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-184 · shared destroy skips registry
 priority: ""
@@ -19,19 +19,19 @@ prs: [mcpdev80/baseharbor#1715]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/shared-destroy-registry/round-3.md"]
 ---
 
-- [ ] t-20261120-r28-shared-destroy-no-registry-cleanup · Shared destroy does not clean the signal registry (stale owners survive) #task #release/v0-4-28 #status/review #view/review #kind/bug
+- [x] t-20261120-r28-shared-destroy-no-registry-cleanup · Shared destroy does not clean the signal registry (stale owners survive) #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/bug
     <!-- generated:card -->
     **Owner:** w184-0428-184-shareddestroy (sitz freigegeben)  
     **PR:** [baseharbor#1715](https://github.com/mcpdev80/baseharbor/pull/1715)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/shared-destroy-registry/round-3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w184-0428-184-shareddestroy (sitz freigegeben)  

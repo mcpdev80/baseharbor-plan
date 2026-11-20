@@ -11,14 +11,14 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 6 |
-| review | 3 |
+| review | 2 |
 | wait | 25 |
 | blocked | 4 |
 | ready | 3 |
 | queued | 25 |
 | waiting | 184 |
 | backlog | 7 |
-| closed | 377 |
+| closed | 378 |
 
 ## Active
 
@@ -36,7 +36,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261120-r28-cli2-context-precedence-evidence](../tasks/t-20261120-r28-cli2-context-precedence-evidence.md) | CLI2: persisted-over-default precedence is not asserted through baha context show | review | not set | w178-0428-178-contextshow | — | [baseharbor#1718](https://github.com/mcpdev80/baseharbor/pull/1718) |
-| [t-20261120-r28-shared-destroy-no-registry-cleanup](../tasks/t-20261120-r28-shared-destroy-no-registry-cleanup.md) | Shared destroy does not clean the signal registry (stale owners survive) | review | not set | w184-0428-184-shareddestroy (sitz freigegeben) | — | [baseharbor#1715](https://github.com/mcpdev80/baseharbor/pull/1715) |
 | [t-20261120-r28-valkey-dashboard-unavailable-only](../tasks/t-20261120-r28-valkey-dashboard-unavailable-only.md) | Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable | review | not set | w183-0428-183-valkeygate | — | [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714) |
 
 ## Waiting for resources
@@ -90,7 +89,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 6 open, 163 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 63 open, 146 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 62 open, 147 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
