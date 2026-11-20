@@ -79,8 +79,8 @@ None.
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261117-hunt-signals-103](../tasks/t-20261117-hunt-signals-103.md) | postgres-/valkey-Adapter ohne Plan | ready | not set | — | [t-20261117-hunt-signals-101](../tasks/t-20261117-hunt-signals-101.md), [t-20261117-hunt-signals-102](../tasks/t-20261117-hunt-signals-102.md) | — |
 | [t-20261117-hunt-signals-104](../tasks/t-20261117-hunt-signals-104.md) | Drei Quellen ohne Destroy-Cleanup | ready | not set | — | [t-20261117-hunt-signals-101](../tasks/t-20261117-hunt-signals-101.md), [t-20261117-hunt-signals-102](../tasks/t-20261117-hunt-signals-102.md) | — |
-| [t-20261120-r28-bughunt-connector-handshake-timeouts](../tasks/t-20261120-r28-bughunt-connector-handshake-timeouts.md) | audit handshake timeout and retry paths #task #release/v0-4-28 #status/planned #view/planned ##area/observability#area/capability | ready | not set | — | — | — |
-| [t-20261120-r28-bughunt-image-pin-skew](../tasks/t-20261120-r28-bughunt-image-pin-skew.md) | audit image pins and version skew #task #release/v0-4-28 #status/planned #view/planned ##area/runtime#area/release | ready | not set | — | — | — |
+| [t-20261120-r28-bughunt-connector-handshake-timeouts](../tasks/t-20261120-r28-bughunt-connector-handshake-timeouts.md) | audit handshake timeout and retry paths | ready | not set | — | — | — |
+| [t-20261120-r28-bughunt-image-pin-skew](../tasks/t-20261120-r28-bughunt-image-pin-skew.md) | audit image pins and version skew | ready | not set | — | — | — |
 
 ## By release
 

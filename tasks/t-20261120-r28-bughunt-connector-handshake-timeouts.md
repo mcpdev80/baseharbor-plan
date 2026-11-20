@@ -22,7 +22,7 @@ prs: []
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-r28-bughunt-connector-handshake-timeouts · audit handshake timeout and retry paths #task #release/v0-4-28 #status/planned #view/planned ##area/observability#area/capability #status/planned #view/ready #area/capability #area/observability #kind/review
+- [ ] t-20261120-r28-bughunt-connector-handshake-timeouts · audit handshake timeout and retry paths #task #release/v0-4-28 #status/planned #view/ready #area/capability #area/observability #kind/review
     <!-- generated:card -->
     **Owner:** unassigned  
     **Ready to assign** · prerequisites accepted  

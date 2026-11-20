@@ -22,7 +22,7 @@ prs: []
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-r28-bughunt-image-pin-skew · audit image pins and version skew #task #release/v0-4-28 #status/planned #view/planned ##area/runtime#area/release #status/planned #view/ready #area/release #area/runtime #kind/review
+- [ ] t-20261120-r28-bughunt-image-pin-skew · audit image pins and version skew #task #release/v0-4-28 #status/planned #view/ready #area/release #area/runtime #kind/review
     <!-- generated:card -->
     **Owner:** unassigned  
     **Ready to assign** · prerequisites accepted  
