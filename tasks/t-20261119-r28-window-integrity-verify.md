@@ -9,10 +9,10 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w150-pr0428-150-windowverify
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 blocker: ""
-wait_reason: ""
+wait_reason: "arbeit gestartet und pausiert: die fenster-integritaetspruefung braucht mehrere gemergte karten, um sinnvoll zu sein. keine live session, der sitz ist laengst frei."
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -24,14 +24,15 @@ resolution: ""
 created: 2026-11-19
 ---
 
-- [ ] t-20261119-r28-window-integrity-verify · fensterstand gegen abnahmebelege pruefen #task #release/v0-4-28 #status/active #view/active #area/ci #area/coordination #kind/task
+- [ ] t-20261119-r28-window-integrity-verify · fensterstand gegen abnahmebelege pruefen #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/coordination #kind/task
     <!-- generated:card -->
     **Owner:** w150-pr0428-150-windowverify  
+    **Waiting:** arbeit gestartet und pausiert: die fenster-integritaetspruefung braucht mehrere gemergte karten, um sinnvoll zu sein. keine live session, der sitz ist laengst frei.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/window-integrity/verify-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w150-pr0428-150-windowverify  
@@ -62,3 +63,5 @@ Der develop-Stand des merge-fensters (223cb97a9) enthaelt heute gemergte karten 
 - **CI integration:** die pruefung loest KEIN produkt-CI aus; ein 'go test ./...' -lauf ist ausdruecklich NICHT gefordert (kein produktwechsel).
 
 zurueckgesetzt auf planned: der einzige freie sitz (laptop:2) ging an die korrekturrunde 0428-142 (echte kartenarbeit vor verify-auftrag, §3.3#5 reihenfolge). karte bleibt als fenster-nachweis offen, naechster freier sitz.
+
+nachweis-pflichtig pro karte, nicht als lump. naechster trigger: der naechste merge im fenster (gerade: f5ce95af, #1716).
