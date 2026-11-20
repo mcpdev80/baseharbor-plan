@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w220-0428-205-catalog
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-205 · Gate catalog for ci-fast-check
 priority: normal
@@ -17,20 +17,21 @@ depends_on: [t-20261120-r28-cli-shard-operator-env]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: ""
+blocker: "Owner decision needed: the route that greens the Workflow-policy cell on mcpdev80/baseharbor#1665 needs the case arm at .github/workflows/ci.yml:1301 (Owner scope). w220 measured three candidate forms (akte gate-catalog-ci-fast-check/round-1.md, FINDING 3, runs R1a-R1f): rule scripts/ci-workflow-policy.sh:184-187 only accepts the pairing inside the COMPARED diff, so no develop-side pairing greens #1665, and rule 197-201 is inventory-based, so any new .gates[].id trips it unless planner and runners register the gate. A content-neutral scripts/pr-gate-plan.py edit does not exist. Local candidate fab709a45 (V2 form, 1 file, +12) stays unpushed as material. Decision A/B/C is written in the akte: A = one combined follow-up PR carrying registration plus the Owner arm (poured as 0428-208, planned, needs the arm first); B = close this card as explanation and do the registration on 0428-208; C = fuse this card with the Owner-scope lines (needs Owner sign-off). Next trigger: Owner answer."
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-gate-catalog-ci-fast-check · 0428-205 · Wire scripts/ci-fast-check.sh into the gate catalog #task #release/v0-4-28 #status/active #view/active #area/ci #kind/bug
+- [ ] t-20261120-gate-catalog-ci-fast-check · 0428-205 · Wire scripts/ci-fast-check.sh into the gate catalog #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #kind/bug
     <!-- generated:card -->
     **Owner:** w220-0428-205-catalog · **Priority:** normal  
+    **Blocker:** Owner decision needed: the route that greens the Workflow-policy cell on mcpdev80/baseharbor\#1665 needs the case arm at .github/workflows/ci.yml:1301 (Owner scope). w220 measured three candidate forms (akte gate-catalog-ci-fast-check/round…  
     **Needs:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
 **Required by:** [t-20261121-static-gate-registration](t-20261121-static-gate-registration.md)  
@@ -105,3 +106,5 @@ PR selection surface the policy script reads), so a PR whose base comparison see
 Karte aus w215s round-2-befund gegossen (fund->karte, §3.3.5): scripts/ci-fast-check.sh existiert auf develop, hat aber keine release-requirements.json-paarung, darumfaellt die zelle "Workflow policy" an PRs, deren base-vergleich die neue datei sieht (#1665 gemessen FAILURE, #1731 gemessen SUCCESS job 136551503837). sitz w220 (flash) ergaenzt NUR die paarung, beweis lokal ueber bash scripts/ci-workflow-policy.sh am exakten head + gegenprobe am #1665-head. allowlist-edit an scripts/ci-workflow-policy.sh oder .github/** = STOP + MELDEN (owner-scope).
 
 LANE-BEFUND KORRIGIERT MEINE KARTEN-SCHNEIDE (akte gate-catalog-ci-fast-check/round-1.md, plan-main 93bf3211): der #1665-fallerklaert sich NICHT allein durch die release-requirements.json-paarung - 'scripts/ci-workflow-policy.sh:178-195'verlangt, dass eine neue check-datei im selben wechsel beide 'scripts/pr-gate-plan.py' UND 'scripts/release-requirements.json'aendert. sitz w220 hat local einen kandidaten (branch lane-0428-205-gate-catalog-pairing, head 5e3fa3221b92, diff = nurrelease-requirements.json) und hat RICHTIGERWEISE gehalten statt still zu erweitern (4.2). ICH ERWEITERE DAS SCHREIB-UMFANG AUSDRUECKLICH AUF BEIDE DATEIEN (policy-skript und .github/** bleiben gesperrt) und verlange den beweis ueber'bash scripts/ci-workflow-policy.sh' am exakten head (beide PASS-zeilen), gegenprobe im scratch-worktree am #1665-headdb27880c108a. wenn das immer noch scheitert: STOP + MELDEN, dann ist es ein .github-inventar-thema bei ihnen. KARTE BLEIBTactive; kein zustand gewechselt, weil der kandidaten noch nicht veroeffentlicht ist.
+
+END_BLOCKED accepted: the card was cut too narrow BY MY HAND and the lane is correct. Measured consequence: this card cannot produce a green candidate without an Owner-scope line, so it goes to blocked (not wait) because it needs an Owner decision, which is the blocked semantics. 0428-208 is poured for the develop-side registration part and stays planned until the decision is recorded.
