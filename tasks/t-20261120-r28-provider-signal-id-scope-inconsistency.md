@@ -13,26 +13,26 @@ depends_on: [t-20261120-r28-keycloak-signal-id-migration-gap]
 blocked_by: []
 superseded_by: []
 owner: w167-pr0428-167-loki-scope
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 blocker: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md"]
+resolution: dropped
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/loki-signal-scope/round-1.md"]
 prs: []
 created: 2026-11-20
 wait_reason: ""
 
 ---
 
-- [ ] t-20261120-r28-provider-signal-id-scope-inconsistency · scope signal ids uniformly per project #task #release/v0-4-28 #status/active #view/active #area/capability #area/observability #kind/bug
+- [x] t-20261120-r28-provider-signal-id-scope-inconsistency · scope signal ids uniformly per project #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/capability #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** w167-pr0428-167-loki-scope  
     **Needs:** [t-20261120-r28-keycloak-signal-id-migration-gap](t-20261120-r28-keycloak-signal-id-migration-gap.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/loki-signal-scope/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-r28-keycloak-signal-id-migration-gap](t-20261120-r28-keycloak-signal-id-migration-gap.md)  
 **Owner:** w167-pr0428-167-loki-scope  
@@ -69,3 +69,5 @@ Keinesilent-Change der Loki-/Registry-IDs ohne Migrationspfad (siehe 0428-168).
 ## Akte
 
 https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md
+
+KEIN DEFEKT, karte DROPPED — der fehler sass in MEINEM jagd-befund (H-V12, fund 2), die lane hat ihn widerlegt und ich habe es selbst nachgemessen. Befund behauptete, Loki trage eine projektlose registration-id, belegt mit 'internal/logs/realization.go:233 signals["loki-metrics"]'. GEMESSEN auf develop 2026-11-20: dieselbe datei uebergibt 'ID: "loki:" + placement.Project'; das literal ist der SCHLUESSEL innerhalb der Signals-map, sonst nur ein descriptor-name in internal/capability/reference.go:132 ('git grep -c loki-metrics origin/develop -- internal/**/*.go' = 2 treffer, keine davon eine registration-id). registry.go RegisterProviderSignals uebernimmt registration.ID unveraendert, also war Loki immer projekt-scopiert (laut lane seit v0.4.19) und eine ueberdeckung zweier apps ist nach dieser regel nicht moeglich. DAUERHAFTER WERT: die lane haelt die invariant mit regressionen in internal/observability und internal/logs, die der CI-shard ueber 'scripts/pr-go-unit-shard.py --mode packages' (go list ./...) ausfuehrt — der fall ist also getestet, nicht nur behauptet. FOLGE FUER MEINE JAGD-METHODE: signal-NAME und registration-ID sind zwei ebenen, die ich kunftig getrennt belege, bevor ich eine karte giess. Karte 0428-168 ist von diesem fehler NICHT beroehrt (dort aendert #1707 die id-formel selbst, nachgewiesen am merge-diff)
