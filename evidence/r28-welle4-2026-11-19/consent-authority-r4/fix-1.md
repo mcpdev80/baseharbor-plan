@@ -95,6 +95,13 @@ broad_required=true confirms the Go-only diff selects normal broad unit/vet/buil
   - PR · Go unit · cli-3 : success
 - The 16 skipped jobs are runtime/release gates: Targeted HA · docker, Targeted HA · podman, PR · Exact Candidate, PR · Draft source and routing, PR · Draft Go · ${{matrix.shard}}, PR · Main release source, PR · Main release Go · ${{matrix.shard}}, Native, Native Keycloak/Core, Consumer Pins, Demo Pin, Runner Interface, Release Source Preflight, PR · Exact full Pre-Release, validate, Candidate-added checks (advisory). These are gated by the ORAS install that exists in the workflow_dispatch path (.github/workflows/docker-runtime-acceptance.yml:127-128) but is missing in the PR path (:174-330) — owner-scope 114(a). This Go-only diff selects no runtime gate per pr-gate-plan; the Docker cells are out of scope, not a logic failure. The r4 card P4 resolution route (mission) applies: the runtime cells remain skipped at this head, so the owner-wire finding stands as a documented external blocker, not a green-computed pass.
 
+## evidence published to origin/main
+
+- `git -C baseharbor-plan ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main`
+  returned `64bf725bd9134e7075ba5a2853e8d178c095a375 refs/heads/main`.
+- `git show origin/main:evidence/r28-welle4-2026-11-19/consent-authority-r4/fix-1.md` renders the file.
+- My commit `581652e9` sits on top of `origin/main` `2e7c72b6` (fast-forwarded via merge 1700ec9f).
+
 ## cleanliness
 
 - worktree /tmp/opencode/x-119r4-wt: only the three touched files changed; no container/compose project started; no docker/podman network, volume or state directory created.
