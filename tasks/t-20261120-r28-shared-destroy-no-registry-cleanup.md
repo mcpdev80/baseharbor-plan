@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w184-0428-184-shareddestroy
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-184 · shared destroy skips registry
 priority: ""
@@ -17,22 +17,21 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1715]
 sources: []
-blocker: "externe ursache: karte 0428-187 (podman data-capabilities-zelle stirbt am candidaten-consent-pfad, run 44743111417 job 136312259900) - ohne deren loesung bleibt 'PR Selected Checks' am exakten head rot, gleich gueltig ihr diff ist"
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md"]
 ---
 
-- [ ] t-20261120-r28-shared-destroy-no-registry-cleanup · Shared destroy does not clean the signal registry (stale owners survive) #task #release/v0-4-28 #status/blocked #view/blocked #kind/bug
+- [ ] t-20261120-r28-shared-destroy-no-registry-cleanup · Shared destroy does not clean the signal registry (stale owners survive) #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
     **Owner:** w184-0428-184-shareddestroy  
     **PR:** [baseharbor#1715](https://github.com/mcpdev80/baseharbor/pull/1715)  
-    **Blocker:** externe ursache: karte 0428-187 (podman data-capabilities-zelle stirbt am candidaten-consent-pfad, run 44743111417 job 136312259900) - ohne deren loesung bleibt 'PR Selected Checks' am exakten head rot, gleich gueltig ihr diff ist  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w184-0428-184-shareddestroy  
@@ -68,3 +67,5 @@ PR #1715 head c1485721f130, run 44743111417 TERMINAL FAILURE: 'PR · Selected Ru
 PR #1715 head c1485721f130, run 44743111417 TERMINAL FAILURE: 'PR · Selected Runtime (atomic/podman/data-capabilities' und 'PR Selected Checks' rot, 16 success / 16 skipped, alle go-unit-shards gruen. unabhaengig von der zelle die abnahme: mutationstest umgeht die owner-guard in RegisterProviderSignals, valkey-regression fehlt, akte fehlte auf main (korrektur zugestellt). registry.go +29/-0, nur die neue function PruneOwnedPlatformSources - registryPath bleibt ungebaut, die schema-entscheidung liegt beim owner.
 
 PR #1715 head c1485721f130, run 44743111417 TERMINAL FAILURE an 'PR · Selected Runtime (atomic/podman/data-capabilities' und 'PR Selected Checks'; alle go-unit-shards gruen. unabhaengig davon die abnahme (zugestellt): mutationstest umgeht die owner-guard in RegisterProviderSignals, valkey-regression fehlt. ihre akte auf main (commit f2458f81) traegt 8 checkbox-zeilen - die machen plan.py check rot und muessen beim abschluss auf 0. registry.go: nur die neue function PruneOwnedPlatformSources (+29/-0), registryPath ungebaut - die schema-entscheidung bleibt beim owner.
+
+ARBEITET JETZT (session e5840c51 busy, korrektur zugestellt): mutationstest durch die echte owner-guard in RegisterProviderSignals, valkey-regression, akte ohne checkboxen. PR #1715 head c1485721f130, run 44743111417 TERMINAL FAILURE - die rote zelle stammt aber aus karte 0428-187 (consent-gate stall), nicht aus ihrem diff. registry.go: nur PruneOwnedPlatformSources (+29/-0), registryPath ungebaut; die schema-entscheidung bleibt beim owner.
