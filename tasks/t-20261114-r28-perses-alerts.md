@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1613, mcpdev80/baseharbor#1704]
 sources: []
 blocker: ""
-wait_reason: "CODEX r3 (1704-0428-073-r3.md, head f5dcf12885) REQUEST CHANGES: P1 an der VERIFIER-STELLE geheilt (:221 + asserts :363-367), aber nicht benutzersichtbar, weil es KEINEN abnehmer gibt; P4 entscheidet ausdbruecklich gegen 'accepted with named gap', weil die acceptance-zeile :47 den echten evaluator-/rule-/notification-owner verlangt. 0428-073 haengt DAMIT AN 0428-152 (blockiert auf #1702). ZUSATZ aus dem urteil: mergeable_state=behind (base 28fb427f, develop 4b3a3559 — abstand ist #1697, reine docs, blobs identisch) -> monotoner hopf faellig, KEIN rebase/force; und fix-2.md braucht echte RED+GREEN-ausgaben WoERTLICH plus ls-remote NACH dem push"
+wait_reason: "review HOLD (owner-verdict 2026-11-20): PR #1704 ist am exakten head green, aber karte 0428-073 verlangt einen echten "
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-alerts-hopf/fix-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1613-alert-contract-review.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1613-0428-073.md"]
 ---
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
     <!-- generated:card -->
     **Owner:** w073-0428-073-pr1704-persesalerts-r3 · **Priority:** normal  
     **PR:** [baseharbor#1613](https://github.com/mcpdev80/baseharbor/pull/1613), [baseharbor#1704](https://github.com/mcpdev80/baseharbor/pull/1704)  
-    **Waiting:** CODEX r3 (1704-0428-073-r3.md, head f5dcf12885) REQUEST CHANGES: P1 an der VERIFIER-STELLE geheilt (:221 + asserts :363-367), aber nicht benutzersichtbar, weil es KEINEN abnehmer gibt; P4 entscheidet ausdbruecklich gegen 'accepted with nam…  
+    **Waiting:** review HOLD (owner-verdict 2026-11-20): PR \#1704 ist am exakten head green, aber karte 0428-073 verlangt einen echten  
     **Needs:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-alerts-hopf/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1613-alert-contract-review.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1613-0428-073.md)  
     <!-- /generated:card -->
@@ -97,3 +97,5 @@ korrekturrunde aus der unabhaengigen review 1613: hopf (2 konflikte gemessen) + 
 CODEX 1704 REQUEST CHANGES, ein blocker P1 (gemessen bestaetigbar im urteilstext): selected-pfad perses_prometheus_alerts.go:220-222 textet 'fails closed (not_enabled)' statt des verlangten 'unavailable (owner-gated evaluator contract)', test :332-350 haelt den wortlaut nicht fest; dazu kein produktions-callsite-Nachweis. Stub bleibt false (owner-freigabepunkt). Neue lane w073-pr1704-persesalerts-r3 auf ornith:2, uebergabe dokumentiert (c74a1fe2 entlassen)
 
 r3 VON MIR GEMESSEN: head f5dcf12885, base 28fb427f = aktuelle spitze, hopf ist ein ECHTER merge (vater 5763eb7fb mit zwei eltern), fix-commit darueber; ancestry 0, merge-tree konfliktfrei, draft=false; CI run 44621875256 event=pull_request completed success am exakten kopf. DER P1-BLOCKER IST HEILT: prometheus_alerts.go:221 traegt 'the alerting contract is unavailable (owner-gated evaluator contract)', test :365-367 asserts ihn UND :363-364 verbietet '(not_enabled)' ausdbruecklich; stub bleibt false. Offener punkt: unselected-zweig :202-204 sagt 'is not selected ...' statt 'not configured' — das urteil muss sagen, ob die acceptance das wort verlangt. Lane eskaliert correct: null production callers -> karte 0428-152 (angelegt, haengt an 0428-142, deren PR app_status_collect.go aendert)
+
+review HOLD (owner-verdict 2026-11-20): PR #1704 ist am exakten head green, aber karte 0428-073 verlangt einen echten alert-evaluator und einen notification-owner ODER eine ausdrueckliche owner-reduktion; der stand liefert ein constant false ohne produktiven aufrufer, und der branch ist BEHIND develop. nicht als freigebbare review-arbeit zaehlen. naechster schritt: owner-entscheidung 'reduzieren oder evaluator nachziehen', danach rebasen.
