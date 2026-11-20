@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 11 |
+| active | 12 |
 | review | 2 |
 | wait | 18 |
 | blocked | 7 |
-| ready | 3 |
+| ready | 2 |
 | queued | 25 |
 | waiting | 180 |
 | backlog | 7 |
@@ -35,6 +35,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-r28-bughunt-observability-desk](../tasks/t-20261119-r28-bughunt-observability-desk.md) | hunt observability desk | active | not set | Coordinator 9142ab1f (bahn: hunt-lane auf ornith:1, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/) | — | — |
 | [t-20261119-r28-window-integrity-verify](../tasks/t-20261119-r28-window-integrity-verify.md) | fensterstand gegen abnahmebelege pruefen | active | not set | w150-pr0428-150-windowverify | — | — |
 | [t-20261120-r28-bughunt-target-uid-migration](../tasks/t-20261120-r28-bughunt-target-uid-migration.md) | target-uid-migration gegen idempotenz pruefen | active | not set | w161-pr0428-161-tuidhunt | — | — |
+| [t-20261120-r28-merge-window-audit-r2](../tasks/t-20261120-r28-merge-window-audit-r2.md) | die merges nach karte 150 auf blob-identitaet pruefen | active | not set | w164-pr0428-164-windowaudit | — | — |
 
 ## Ready for review
 
@@ -84,7 +85,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | Connect Perses Tempo | ready | normal | coord | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645) |
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261120-r28-merge-window-audit-r2](../tasks/t-20261120-r28-merge-window-audit-r2.md) | die merges nach karte 150 auf blob-identitaet pruefen | ready | not set | — | — | — |
 
 ## By release
 
