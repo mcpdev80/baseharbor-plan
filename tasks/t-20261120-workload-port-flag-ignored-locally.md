@@ -7,9 +7,9 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: w199-0428-199-workloadport
-kanban_status: wait
-kanban_lane: wait
+owner: "Codex (Owner-directed full wait-card closeout, 2026-11-21)"
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-199 · workload-port ignored locally
 priority: ""
@@ -18,24 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1723]
 sources: []
 blocker: ""
-wait_reason: "INHALT GELIEFERT, PFLICHTCHECK KANN NICHT DURCHLAUFEN - darum wait, nicht review (dasselbe muster wie 0428-183, damit das board nicht zwei arten fuer einen zustand zeigt): PR #1723, head 26755fc1edfb, parent EXAKT develop 40cb28c758b0, branch == refs/pull/1723/head gemessen, draft=false, 4 dateien; die sieben eigenen workload-port-tests BESTEHEN, der cli-shard-lauf 44788134959 faellt an der vorbestehenden operator-/OIDC-meldung (main_test.go:60). abhaengigkeiten: 0428-198 (sammelstelle, lane arbeitet) und 0428-202 (policy-rail, blocked an 0428-053/#1594 des owners). akte evidence/r28-welle4-2026-11-20/workload-port-local/round-1.md (51 zeilen, 0 checkboxen, gate-zaehler 3, cleanliness). TRIGGER FÜR DIE NÄCHSTE KANTE: ein grüner prueflauf am exakten head, nachdem der gate repariert ist - dann review, dann CODEX-MERGE."
+wait_reason: ""
 resolution: ""
 evidence: []
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-workload-port-flag-ignored-locally · workload-port ignored locally #task #release/v0-4-28 #status/wait #view/wait #area/cli #kind/bug
+- [ ] t-20261120-workload-port-flag-ignored-locally · workload-port ignored locally #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** w199-0428-199-workloadport  
+    **Owner:** Codex (Owner-directed full wait-card closeout, 2026-11-21)  
     **PR:** [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723)  
-    **Waiting:** INHALT GELIEFERT, PFLICHTCHECK KANN NICHT DURCHLAUFEN - darum wait, nicht review (dasselbe muster wie 0428-183, damit das board nicht zwei arten fuer einen zustand zeigt): PR \#1723, head 26755fc1edfb, parent EXAKT develop 40cb28c758b0, bra…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w199-0428-199-workloadport  
+**Owner:** Codex (Owner-directed full wait-card closeout, 2026-11-21)  
 **Priority:** not set  
 **PRs:** [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723)  
 **Source:** 
