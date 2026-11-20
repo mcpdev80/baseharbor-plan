@@ -13,23 +13,24 @@ depends_on: []
 blocked_by: []
 superseded_by: []
 owner: w159-pr0428-159-uidhunt
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-uid-app/round-1.md"]
 prs: []
 created: 2026-11-20
 wait_reason: ""
 
 ---
-- [ ] t-20261120-r28-bughunt-uid-app-slice · uid-app-identitaet gegen rename und re-import befunden #task #release/v0-4-28 #status/active #view/active #area/application #area/cli #area/security #kind/task
+- [x] t-20261120-r28-bughunt-uid-app-slice · uid-app-identitaet gegen rename und re-import befunden #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/application #area/cli #area/security #kind/task
     <!-- generated:card -->
     **Owner:** w159-pr0428-159-uidhunt  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-uid-app/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w159-pr0428-159-uidhunt  
