@@ -11,7 +11,7 @@ owner: codex-open-pr-sweep-0428-143
 kanban_status: wait
 kanban_lane: wait
 blocker: ""
-wait_reason: "Owner decision and regression are prepared locally on the current #1693 head; awaiting the busy Codeman Coordinator to finish its handoff before updating that branch, then a fresh exact-head CI run is required."
+wait_reason: "The previous handoff was prepared against #1693 head 6d7ea080, which merged at merge commit 6b8188df on 2026-11-20; that base is no longer the branch target. Reconcile the prepared follow-up onto current develop 36d075fad77f after Coordinator handoff, then create/update the follow-up PR and run exact-head CI. No PR exists yet for this follow-up."
 depends_on: []
 repos: [mcpdev80/baseharbor]
 evidence:
@@ -24,7 +24,7 @@ card_short_title: Verification=none is ignored
 - [ ] t-20261119-r28-app-source-verification-none-ignored · Verifier: Verification=none is ignored for application-class metrics sources #task #release/v0-4-28 #status/wait #view/wait #area/metrics #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** codex-open-pr-sweep-0428-143  
-    **Waiting:** Owner decision and regression are prepared locally on the current \#1693 head; awaiting the busy Codeman Coordinator to finish its handoff before updating that branch, then a fresh exact-head CI run is required.  
+    **Waiting:** The previous handoff was prepared against \#1693 head 6d7ea080, which merged at merge commit 6b8188df on 2026-11-20; that base is no longer the branch target. Reconcile the prepared follow-up onto current develop 36d075fad77f after Coordina…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/blob/fac01c77276ca2bf1e20cd0b7334bda5dd43e353/internal/metrics/prometheus_verify.go)  
     <!-- /generated:card -->
 
@@ -101,3 +101,8 @@ The normal `PR · Go unit · packages` shard auto-discovers the test. This commi
 pushed because #1693 had just been handed off and the Codeman Coordinator is busy; a new
 exact-head run must execute after integration. Current follow-up worktree:
 `/var/tmp/baseharbor-sweep-1693-hop`, branch `codex/0428-123-verify-none-hop`.
+
+
+## 2026-11-20 parent PR merged
+
+PR #1693 merged on 2026-11-20 (`head=6d7ea080c59f1a6c3d368da54904bc7cd5ef7a4b`, merge commit `6b8188df26a1e263750379a8c5e8255ee4ef740c`); current develop is `36d075fad77fa61ac8c153e979855546589b32c2`. The previous wait reason targeted the old #1693 head. Updated the wait reason to require reconciling the prepared follow-up onto current develop after Coordinator handoff, creating/updating its PR, and running exact-head CI. This task remains Wait; no acceptance claim is made for the follow-up.

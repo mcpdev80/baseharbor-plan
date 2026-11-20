@@ -8,37 +8,38 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w083-pr0428-083-datasources-hopf5
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: Provision authorized existing Prometheus datasource in Perses using supported pinned native plugin and proxy/TLS contract.
 kanban_title: 0428-083 · Connect Perses Prometheus
 priority: normal
-depends_on: [t-20261114-r28-perses-contract-seam, t-20261114-r28-perses-runtime, t-20261114-r28-perses-signal-inventory]
+depends_on: [t-20261114-r28-perses-contract-seam, t-20261114-r28-perses-runtime, t-20261114-r28-perses-signal-inventory, t-20261120-r28-develop-runtime-integration-red]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1608, mcpdev80/baseharbor#1684]
 sources: []
-blocker: "erforderlicher native-gate faellt auf reinem develop (0428-174): run 44661597243 job docker-runtime step 'Run runtime integration tests serially' = failure, head ec02d5faad24, gemessen 2026-11-20T05:0xZ; der eigene kandidat 1c0e33ad864e ist waehrungfuellig (base = develop 36d075fad77f, merge-base Ahn JA) und 32 von 34 checks green. naechster ausloeser: 0428-174 gemergt auf develop, dann EIN rebase + EIN run am neuen head"
-wait_reason: ""
+blocker: ""
+wait_reason: "Started #1684 work is temporarily paused while the same assigned owner completes active card 0428-174 to restore the selected Docker runtime gate; exact-head run 44671189705 fails before Perses assertions. Resume with a monotonic hop of #1684 to the fixed develop base and one exact-head run after 0428-174 acceptance."
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md", "https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44573407736", "https://github.com/mcpdev80/baseharbor/actions/runs/44577713744", "https://github.com/mcpdev80/baseharbor-plan/blob/3d071fa2/tasks/t-20261114-r28-perses-datasources.md#fix-9"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md", "https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44573407736", "https://github.com/mcpdev80/baseharbor/actions/runs/44577713744", "https://github.com/mcpdev80/baseharbor-plan/blob/3d071fa2/tasks/t-20261114-r28-perses-datasources.md#fix-9", "https://github.com/mcpdev80/baseharbor/actions/runs/44671189705", "https://github.com/mcpdev80/baseharbor-plan/blob/main/tasks/t-20261120-r28-develop-runtime-integration-red.md"]
 ---
 
 ## Owner decision — 2026-11-17
 
 Owner decision (2026-11-17): Unblock. Reopen PR #1608 if it remains suitable, otherwise create a superseding PR on develop. Restore the Prometheus datasource integration and rebase PR #1665 onto an actively CI-covered base. Run the applicable exact-head CI and security/authorization checks before review and merge. No merge is authorized solely by this decision.
 
-- [ ] t-20261114-r28-perses-datasources · Connect Perses Prometheus #task #release/v0-4-28 #status/blocked #view/blocked #area/observability #kind/task
+- [ ] t-20261114-r28-perses-datasources · Connect Perses Prometheus #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w083-pr0428-083-datasources-hopf5 · **Priority:** normal  
     **PR:** [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684)  
-    **Blocker:** erforderlicher native-gate faellt auf reinem develop (0428-174): run 44661597243 job docker-runtime step 'Run runtime integration tests serially' = failure, head ec02d5faad24, gemessen 2026-11-20T05:0xZ; der eigene kandidat 1c0e33ad864e is…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44573407736), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44577713744), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/3d071fa2/tasks/t-20261114-r28-perses-datasources.md#fix-9)  
+    **Waiting:** Started \#1684 work is temporarily paused while the same assigned owner completes active card 0428-174 to restore the selected Docker runtime gate; exact-head run 44671189705 fails before Perses assertions. Resume with a monotonic hop of \#1…  
+    **Needs:** [t-20261120-r28-develop-runtime-integration-red](t-20261120-r28-develop-runtime-integration-red.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44573407736), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44577713744), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/3d071fa2/tasks/t-20261114-r28-perses-datasources.md#fix-9), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44671189705), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/tasks/t-20261120-r28-develop-runtime-integration-red.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
+**Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md), [t-20261120-r28-develop-runtime-integration-red](t-20261120-r28-develop-runtime-integration-red.md)  
 **Required by:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-dashboards](t-20261114-r28-perses-dashboards.md)  
 **Owner:** w083-pr0428-083-datasources-hopf5  
 **Priority:** normal  
@@ -122,3 +123,8 @@ decision b umgesetzt (3-arg signatures, splice uses files.Dir, RuntimeComposeYAM
 **The native/docker/perses-runtime-smoke CI gate FAILS — NOT a card defect.** Root cause reproduced identically on this local host AND on the Azure GitHub-hosted runners: `error mounting tmpfs to rootfs at /etc/perses/database ... mkdirat .../etc/perses/database: read-only file system`. The /etc/perses/database tmpfs mount is develop's code (serviceaccess/perses_compose_realization.go:388), untouched by my change; the ONLY diff between passing #6693 (576c6ad8) and failing runs (#44667006086, #44671189705) in the render path is contextDir=files.Dir vs files.Dir (identical value) -> byte-identical rendered compose. This is a Docker rootless-overlayfs tmpfs regression on the runner image/daemon, not my write-set.
 
 Evidence: evidence/x-083h5/fix-9.md. Owner to fix the runner tmpfs regression or waive the native smoke gate for this card; my card's Go gates are green. Card moved to blocked.
+
+
+## 2026-11-20 pause pending 0428-174 runtime gate repair
+
+Moved 0428-083 from Blocked to Wait. Its #1684 work has started and is temporarily paused behind 0428-174, an active task assigned to the same owner, which is restoring the selected Docker runtime gate. Exact-head run [44671189705](https://github.com/mcpdev80/baseharbor/actions/runs/44671189705) fails in `native/docker/perses-runtime-smoke` before Perses assertions. The acceptance order is now explicit in `depends_on`: complete 0428-174, then hop #1684 to the fixed develop base and run exact-head acceptance. This is a temporary technical pause, not an Owner decision or acceptance.

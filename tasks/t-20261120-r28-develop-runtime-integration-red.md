@@ -32,6 +32,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
+**Required by:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
 **Owner:** w083-pr0428-083-datasources-hopf5  
 **Priority:** not set  
 **PRs:** none  
