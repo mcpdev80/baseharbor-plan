@@ -10,10 +10,10 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 16 |
+| active | 15 |
 | review | 2 |
 | wait | 18 |
-| blocked | 2 |
+| blocked | 3 |
 | ready | 2 |
 | queued | 25 |
 | waiting | 180 |
@@ -31,7 +31,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-env-delete](../tasks/t-20261114-r28-cli2-env-delete.md) | CLI redesign: Environment deletion lifecycle | active | high | codex-open-pr-sweep-055 | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) (open), [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) (open) | [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627) |
 | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) | CLI redesign: Replace name-based environment policy | active | high | coord | [t-20261114-r28-cli2-uid-environment](../tasks/t-20261114-r28-cli2-uid-environment.md) | — |
 | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | CLI redesign: Organization environment reconciliation | active | high | welle2-056-cli2-org-env | [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) (open) | — |
-| [t-20261114-r28-cli2-wizard-platform](../tasks/t-20261114-r28-cli2-wizard-platform.md) | CLI redesign: Platform and access wizards | active | high | codex-open-pr-sweep-067 | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) (open) | [baseharbor#1620](https://github.com/mcpdev80/baseharbor/pull/1620) |
 | [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) | Perses identity dashboard | active | normal | w078-pr0428-078-identity-hopf | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650) |
 | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | Connect Perses Prometheus | active | normal | 0428-083 lane (codeman 5447f0df, flash) — korrekturrunde: gate-zuordnung | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684) |
 | [t-20261118-ownership-stale-consent-hardening](../tasks/t-20261118-ownership-stale-consent-hardening.md) | harden provider ownership chain vs stale-impact-consent | active | not set | w119-0428-119-pr1690-consentauth-r2 | — | [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690) |
@@ -77,6 +76,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261114-r28-cli2-app-interact](../tasks/t-20261114-r28-cli2-app-interact.md) | CLI redesign: Guide app logs exec and urls | blocked | high | coord | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) (open), [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) | [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623) |
 | [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) | CLI redesign: Separate human/runtime secret authority | blocked | high | 0428-057 (codeman 01b370c0, END_BLOCKED, sitz wird entlassen) | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) (open), [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) (open) | [baseharbor#1615](https://github.com/mcpdev80/baseharbor/pull/1615) |
+| [t-20261114-r28-cli2-wizard-platform](../tasks/t-20261114-r28-cli2-wizard-platform.md) | CLI redesign: Platform and access wizards | blocked | high | codex-open-pr-sweep-067 | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) (open) | [baseharbor#1620](https://github.com/mcpdev80/baseharbor/pull/1620) |
 
 ## Ready to assign
 
