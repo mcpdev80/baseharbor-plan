@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w142-pr1702-statuswit-r5
-kanban_status: wait
-kanban_lane: wait
+kanban_status: review
+kanban_lane: review
 kanban_summary: "'baha perses status' nennt pro observability-signal eine ECHTE backend-witness (erreicht / gematcht / nicht erreichbar) statt…"
 kanban_title: 0428-142 · echte backend-witness fuer
 priority: ""
@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1702]
 sources: []
 blocker: ""
-wait_reason: "Started work is paused pending a worker seat: #1702 still needs the concrete Codex review corrections and a fresh exact-head run. The former Owner-decision blocker was resolved by 0428-143; no Owner decision is currently pending."
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
@@ -31,15 +31,14 @@ omit those sources from scrape targets. This assigned, started lane is parked
 pending worker capacity. #1702 still needs the concrete review corrections and
 a fresh exact-head run; it is not ready to merge.
 
-- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/wait #view/wait #kind/task
+- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** w142-pr1702-statuswit-r5  
     **PR:** [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702)  
-    **Waiting:** Started work is paused pending a worker seat: \#1702 still needs the concrete Codex review corrections and a fresh exact-head run. The former Owner-decision blocker was resolved by 0428-143; no Owner decision is currently pending.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261119-r28-perses-alert-verifier-caller-wiring](t-20261119-r28-perses-alert-verifier-caller-wiring.md)  
@@ -105,3 +104,5 @@ ALLES VON MIR GEMESSEN, zum ersten mal in dieser karte ohne abweicherung: head 6
 CODEX r4 REQUEST CHANGES (zwei blocker): P2 'manifest flag duerfen keinen backend-nachweis vortaeuschen' (app_status_result.go:76-139) und P4 bleibt OWNER-punkt (0428-143, unreachable auf echtem evidence-pfad); P5 ist eine scope-frage an dich, nicht an die lane. Mechanischer teil (P1/P2-trennung/P3/P7-akte) geht auf laptop:2, mit hopf-zwang (mergeable_state=behind, develop 4b3a3559). 0428-152 haengt laut CODEX-urteil ausdbruecklich hinter diesem PR
 
 review HOLD (owner-verdict 2026-11-20): PR #1702 ist am exakten head green, aber karte 0428-142 verlangt echte erreichbare UND unreachable backend-witnesses; der stand ist manifest-only, der branch BEHIND develop, und der diff editiert internal/capability/perses.go ohne dokumentierte freigabe. nicht als freigebbare review-arbeit zaehlen. naechster schritt: rebasen + die perses.go-aenderung zurueckziehen oder per karte freigeben lassen.
+
+handoff abgeschlossen und required-aggregat GRUEN am exakten head: PR #1702 head 6740299f91c0, base develop, draft=false, 13 dateien, 'PR Selected Checks' = SUCCESS (check-runs am head: 15 success / 20 skipped, KEINE failure). das ist der EINE kandidat im fenster, der nicht an einer owner-buchung haengt (#1704 = karte 0428-073 mit ihrer entscheidung, #1650 = 0428-078 Codex). DARUM review statt wait. ZWEI RANDNOTIZEN FÜR DIE ABNAHME, beide gemessen: (i) die datei internal/metrics/verify_none_red_test.go existiert auf develop BEREITS (befund w219) - pruefen sie, ob der PR damit teils ueberfluessig ist oder ob die datei in ihrem PR weitergeht; (ii) ihr head ist aelter als #1594 (ancestry auf den aktuellen develop-tip NEIN), das required-aggregat ist aber trotzdem success, weil die required-zellen gegen den merge-ref laufen. ein merge ist also moeglich, OHNE dass 0428-204 fertig ist - und er wuerde inhalt auf develop bringen. TRIGGER FUER DIE NAechSTE KANTE: CODEX-verdict an diesem SHA, dann merge oder korrekturrunde.
