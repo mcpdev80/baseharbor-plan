@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w078-pr0428-078-appstatus-r3
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
 kanban_title: 0428-078 · Perses identity dashboard
 priority: normal
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w078-pr0428-078-appstatus-r3 · **Priority:** normal  
     **PR:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
@@ -131,3 +131,5 @@ CODEX-REVIEW r3 am exakten head 7705a3366073 = REQUEST CHANGES (akte codex-revie
 RUECKNAHME EINES COORDINATOR-SPRUCHS, belegt durch ihre eigene mutation: ich hatte (A) WAHR geantwortet, weil hasRemoteApplicationTarget (cmd/baha/app_remote_status.go:14-16) eine reine datenbedingung ist. WIDERLEGT: collectApplicationStatusResult ruft zuerst collectApplicationStatus (cmd/baha/app_status_result.go:130 -> cmd/baha/app_observe.go:32-41, newApplicationStatusCollection :36), und der scheitert an einem fernen target mit ErrUnavailable VOR der gate-Berechnung (app_status_result.go:144-146) und VOR dem remote-branch (zeile 147-153). ihr mutationsbeweis (akte round-5.md: 'gate entfernt -> ferner fall FEHLGESCHLAGEN, weil die gate nie getroffen wird') ist die probe, die ich von jeder lane verlange. PRODUKTBEFUND: der kommentar app_status_result.go:138-143 behauptet 'Computed before the remote-target early return below so remote-status --json also carries it', die ausfuehrung widerspricht dem - die dreizustand-vertragsseite (not_configured | configured_unverified | verified) erscheint auf der fernen JSON-oberflaeche NIE. variante (2)/serialisierter collector bleibt verboten (app_remote_status.go traegt 0 referenzen auf Perses/DashboardEligible, gemessen). BEFEHL r6, write-set von MIR ERWEITERT, grund ist diese notiz: zusaetzlich cmd/baha/app_status_result.go (nur die REIHENFOLGE der berechnung) und ggf. cmd/baha/app_observe.go (ferner zweig ueber collectResolvedApplicationStatus, app_observe.go:43-47, behandelt isRemoteApplication bereits korrekt); gate selbst (internal/capability/perses_selection.go:439, wert :153-155) und .github/** NICHT ZU AENDERN; ihr lokaler test bleibt unangetastet; neue ferne testfaelle an der echten oberflaeche, praedenz aus cmd/baha/app_maintenance_client_test.go:165/:543/:719, OHNE live-mTLS, OHNE Core-stub; mutationsbeweis (i) felderweitergabe im remote-branch entfernen -> NEUER test ROT, (ii) gate verbiegen -> ROT, (iii) ihr bisheriger gruen-befund muss verschwunden sein. ihr dreistuendiger stillstand auf head 7705a3366073 geht auf meine fehldeutung zurueck, nicht auf sie
 
 abnahme bestellt, alle drei bedingungen der einfrier-regel von mir gemessen: (1) head cb985bdeb50e eingefroren, branch lane-0428-078-perses-identity-on-resolver = refs/pull/1650/head, upd 09:14:51Z; (2) run 44709089717 completed/success am exakten head, base.sha = develop-spitze 681700ca66f3, draft=false, mergeable=clean; (3) akte appstatus-integration/round-6.md (124 zeilen) auf origin/main @ c115b4ae mit 'FREEZE PROOF (at exact head cb985bdeb5)' und 'MUTATIONSPROOF (three lines, verbatim)'. inhalt: reihenfolge-anderung, damit die perses-dreizustandsseite im REMOTHEN pfad mitgetragen wird, gate-logik unveraendert. CODEX-REVIEW r4 unterwegs (session 95971e0a, rolle REVIEW, akte 1650-0428-078-r4.md), mit mutationspflichten und der bitte, die mehreren branches mit 0428-078 im namen gegen §3.8 zu beurteilen
+
+test nur: verdict am eingefrorenen head cb985bdeb50e, ein punkt app_status_result.go:163-167
