@@ -7,3 +7,5 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261120-r28-cli2-context-precedence-evidence](../tasks/t-20261120-r28-cli2-context-precedence-evidence.md) | CLI2: persisted-over-default precedence is not asserted through baha context show | ready | not set | — | — | — |
+| [t-20261120-r28-shell-wrapper-tests-not-skippable](../tasks/t-20261120-r28-shell-wrapper-tests-not-skippable.md) | CI intake: zsh/fish wrapper tests skip silently when the shell is not installed | ready | not set | — | — | — |
