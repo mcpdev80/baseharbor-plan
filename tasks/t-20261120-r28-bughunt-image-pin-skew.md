@@ -13,24 +13,25 @@ depends_on: []
 blocked_by: []
 superseded_by: []
 owner: w172-pr0428-172-imageskew
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/bughunt-image-pin-skew/round-1.md"]
 prs: []
 created: 2026-11-20
 wait_reason: ""
 
 ---
 
-- [ ] t-20261120-r28-bughunt-image-pin-skew · audit image pins and version skew #task #release/v0-4-28 #status/active #view/active #area/release #area/runtime #kind/review
+- [x] t-20261120-r28-bughunt-image-pin-skew · audit image pins and version skew #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/release #area/runtime #kind/review
     <!-- generated:card -->
     **Owner:** w172-pr0428-172-imageskew  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/bughunt-image-pin-skew/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w172-pr0428-172-imageskew  
@@ -67,3 +68,5 @@ Nichts gefunden = 'VERHALTEN KORREKT' + Prüfweg. Kartenlose Funde sind verloren
 die Akte nennt für jeden Fund `DATEI:ZEILE`, `ERWARTET (Vertrag)`, `IST (gemessen)`;
 Karten gieße ich.
 
+
+jagd H-V15 BEFUNDLOS: alle vier prüfpfade VERHALTEN KORREKT (fail-closed, deterministischer embedded @sha256 pin, kein ungeprüfter schreibpfad). akte 11489 bytes / 99 zeilen @ 7996f22c, checkboxen null, cleanliness CLEAN. keine folge-karten. QUERBELEG FUER DAS RELEASE-BRETT: das ist der VIERTE befuendlose abschluss in folge (H-V13 install/destroy/retry, H-V14 secret reveal, H-V15 image pins, H-V16 connector handshake); nur H-V12 (keycloak signal scope) hatte funde -> karten 0428-166/167/168. die releasedesse von develop ist damit in fünf geschnitten an vier stellen sauber, und 168r2/078r2 sind genau die korrekturen aus dem einen treffer
