@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w178-0428-178-contextshow
-kanban_status: planned
-kanban_lane: ready
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-178 · context show precedence
 priority: ""
@@ -23,14 +23,13 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-r28-cli2-context-precedence-evidence · CLI2: persisted-over-default precedence is not asserted through baha context show #task #release/v0-4-28 #status/planned #view/ready #kind/bug
+- [ ] t-20261120-r28-cli2-context-precedence-evidence · CLI2: persisted-over-default precedence is not asserted through baha context show #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
     **Owner:** w178-0428-178-contextshow  
-    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w178-0428-178-contextshow  
@@ -66,3 +65,5 @@ workflow change to the coordinator instead). One PR for this card.
 ARBEITET JETZT: session , worktree aus develop f5ce95afce1c. auftrag: EINE regression, die die echte 'baha context show'-kette durchfaehrt (default A, persistierte auswahl B, kein env) und MUTATION IN BEIDEN RICHTUNGEN beweist; ci-jobname in der akte; Write-Set disjunkt zu 0428-187 (app_edit_apply_result.go / ci-greenfield-apply.py), 0428-184 (#1715), 0428-183 (#1714), 0428-083 (#1684).
 
 NICHT GESTARTET (korrektur meiner eigenen statuskante von vor zwei minuten): ich hatte die karte auf active gesetzt, obwohl der spawn mit 'ADMISSION-HOLD [POOL-FULL ornith 2/2]' ABGELEHNT war und es keine session gibt. bewiesen: 'codeman agent list' fuehrt keien w178-lane, pool 5/5 mit offenen sitzen = []. mission liegt bereit (/var/tmp/mission-178.md, gate exit 0) und wird auf dem ersten freien sitz dispatcht - naechster Kandidat ist der sitz von 0428-184 (session e5840c51), sobald deren END gemessen ist. inhalt der karte bleibt: eine regression durch den ECHTEN 'baha context show'-pfad (default A, persistierte auswahl B, kein env) plus mutation in beide richtungen.
+
+ARBEITET JETZT, kante gegen session gemessen (name 'w178-0428-178-contextshow', laptop-kanal, worktree aus develop f5ce95afce1c): eine regression durch den ECHTEN 'baha context show'-pfad (default A, persistierte auswahl B, kein env-override) plus mutation IN BEIDEN RICHTUNGEN mit woertlicher ausgabe, ci-job 'executed' statt 'skipped'. disjunkt zu 0428-187 (wizard-/ci-greenfield-dateien), #1714, #1684.
