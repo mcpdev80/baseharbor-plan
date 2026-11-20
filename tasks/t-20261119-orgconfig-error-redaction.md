@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1596]
 sources: []
 blocker: ""
-wait_reason: "At 2026-11-20 00:03 UTC, predecessor 0428-056/#1596 is still Draft at exact head c90c3b89007e87a4bf277c8c9015fab3ac65728e on base lane-0428-env-registry@4d14741ee9485b7e0c346fa873ed59f637e71b68. Its exact run 44592530459 passed the Draft source/routing job and all five Draft Go shards, but PR Selected Checks, Trusted Plan, workflow policy, source format, native/runtime/release gates were skipped by draft gating; this is partial package evidence, not readiness/acceptance. The preceding #1591 PR is also Draft at 08fc5ad310e181394f6cef51d91ba8df42b2b446 on lane-0428-uid-target@ae0602e02882619dea151dc82d62b98b72481566, so the stack path must be reconciled by its active owners before this fix can be integrated and qualified. Current develop is d5c11753ea437495eb2469a02f80b91d788fef4f."
+wait_reason: "At 2026-11-20 03:08 UTC, #1596 remains OPEN+DRAFT at exact head c90c3b89007e87a4bf277c8c9015fab3ac65728e, base develop@83b19dce24eed2f837dd2dda7d56222d20a7da32; current develop is f61ef0f4991cae88727c02b731d862bf395d8984. Draft run 44592530459 passed source/routing and all five Go shards on c90, but Ready-only selected checks were skipped. This task's clean additive redaction commit f113baf57aef9e24de5083740decdf84b361f8d8 is local on top of c90, with focused/full package tests and vet previously passing, but has no exact Actions run and is not integrated into #1596. Keep waiting until the parent PR owner hops/integrates the change, runs exact-head checks, and resolves the Draft review/acceptance route; do not treat c90's run as evidence for f113baf5."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/commit/c90c3b89007e87a4bf277c8c9015fab3ac65728e", "https://github.com/mcpdev80/baseharbor/actions/runs/44592530459"]
 ---
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/c90c3b89007e87a4bf277c
     <!-- generated:card -->
     **Owner:** Codex team (current thread) · **Priority:** high  
     **PR:** [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596)  
-    **Waiting:** At 2026-11-20 00:03 UTC, predecessor 0428-056/\#1596 is still Draft at exact head c90c3b89007e87a4bf277c8c9015fab3ac65728e on base lane-0428-env-registry@4d14741ee9485b7e0c346fa873ed59f637e71b68. Its exact run 44592530459 passed the Draft s…  
+    **Waiting:** At 2026-11-20 03:08 UTC, \#1596 remains OPEN+DRAFT at exact head c90c3b89007e87a4bf277c8c9015fab3ac65728e, base develop@83b19dce24eed2f837dd2dda7d56222d20a7da32; current develop is f61ef0f4991cae88727c02b731d862bf395d8984. Draft run 4459253…  
     **Needs:** [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/c90c3b89007e87a4bf277c8c9015fab3ac65728e), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44592530459)  
     <!-- /generated:card -->
