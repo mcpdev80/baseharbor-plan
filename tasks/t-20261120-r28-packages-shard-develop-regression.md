@@ -8,31 +8,32 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w207-0428-202-lokifix
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: ""
 kanban_title: 0428-202 · packages shard red on develop
 priority: ""
 depends_on: [t-20261114-r28-cli2-env-policy]
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#1732"]
+prs: [mcpdev80/baseharbor#1732]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "ABGELIEFERT UND VON MIR GEMESSEN: PR #1732 head bddb27e6251e, base develop 40cb28c758b0, draft=false, 1 datei (internal/logs/loki_test.go), branch == refs/pull/1732/head. 'PR · Go unit · packages' = SUCCESS am exakten head (job 136574098983, run 44818799733) - die Loki-MultiSource-zellen sind damit auch am develop-tip behoben, der fixture schreibt jetzt das fehlende mTLS client-paar. cli-0..3 bleiben failure = feld-gate 0428-198 (nicht ihr scope, rail ist verschlossen). DARUM wait statt review: eine required-zelle fehlt noch, und sie haengt an genau einem anderen fall. TRIGGER FUER DIE naechste KANTE: 0428-198 gruen im feld -> dann ist dieser kandidat mit einem laufenden exact-head-CI abnehmbar."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/packages-shard-develop-regression/round-2.md"]
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-r28-packages-shard-develop-regression · packages shard red on develop #task #release/v0-4-28 #status/active #view/active #area/ci #area/observability #kind/bug
+- [ ] t-20261120-r28-packages-shard-develop-regression · packages shard red on develop #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** w207-0428-202-lokifix  
     **PR:** [baseharbor#1732](https://github.com/mcpdev80/baseharbor/pull/1732)  
+    **Waiting:** ABGELIEFERT UND VON MIR GEMESSEN: PR \#1732 head bddb27e6251e, base develop 40cb28c758b0, draft=false, 1 datei (internal/logs/loki\_test.go), branch == refs/pull/1732/head. 'PR · Go unit · packages' = SUCCESS am exakten head (job 13657409898…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/packages-shard-develop-regression/round-2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
 **Required by:** [t-20261120-r28-valkey-dashboard-unavailable-only](t-20261120-r28-valkey-dashboard-unavailable-only.md)  
@@ -103,3 +104,5 @@ DISPOSITION NACH MESSEN: die lane tat genau das richtige - im verschlossenen fel
 URSACHE GEFUNDEN, UND SIE IST NICHT DER OWNER-RAIL: DIE packages-ZELLE FAELLT, WEIL EIN TEST-FIXTURE DAS CLIENT-PAR NICHT SCHREIBT. MESSEN (read-only, develop 40cb28c758b0 + job 136526893242 des runs 44805066271): woertlich 'load Loki service access identity: stat /tmp/<test>/001/providers/loki/shared/service-access/pki/client-cert.pem: no such file or directory', an genau drei tests (internal/logs/loki_test.go:522 / 586 / 633, familie TestPersesLokiDatasourceMultiSource). der helper materializeLokiServiceAccessPKI (internal/logs/loki_test.go:434) schreibt ca.pem + server-cert.pem + server-key.pem, ABER KEIN client-cert.pem; die consumer-seite lokiDatasourceHTTPClient (internal/logs/loki_datasource.go:394-401) verlangt ueber serviceaccess.ExistingTLSMaterial genau diese datei, und das producer-layout internal/serviceaccess/pki.go:485 benennt 'client-cert.pem'. serviceaccess.Resolve laeuft durch (sonst kaeme ein anderer fehler) - also ist 2af892e4e ('fail closed without explicit environment policy') HIER NICHT die ursache, und die owner-entscheidung, die ich als blocker bat, ist NICHT noetig. SITZ: w207-0428-202-lokifix (ornith), schreib-umfang internal/logs/*_test.go, internal/serviceaccess/** verschlossen. beweis-pflicht: kleinster gate 'go test ./internal/logs/ -run TestPersesLokiDatasourceMultiSource' vorher/nachher + ein terminaler hosted run am exakten head.
 
 TIP-BELEG VON SITZ w210 (read-only, akte evidence/r28-welle4-2026-11-20/bare-develop-gate/round-1.md, plan-main 446e5f29): am nackten develop 40cb28c758b02960356434b630086a341ebe1738 sind die Loki-MultiSource-zellen ROT, woertlich 'stat .../service-access/pki/client-cert.pem: no such file or directory' (internal/logs/loki_test.go:522/:586); am stand 96f2ae11a sind sie GRUEN; valkey-/tempo-zellen sind KEINE tip-regression. LESART: der fixture half bisher, weil die consumer-seite das client-material nicht verlangte; seit #1594/policy.go (2af892e4e) verlangt sie es. DARUM bleibt die entscheidungsfrage am owner, aber der einzige weg innerhalb eines erlaubten write-sets ist der test-seitige. AUFTRAG AN w207: ihren helper-diff AUF DEN TIP setzen (worktree auf 40cb28c758b0 + diff on top) und den kleinen gate dort fahren: gruen = kandidat, rot = STOP + MELDEN (policy-seite = owner-rail, kein griff). SITZ w210 ist nach akzeptierter akte freigegeben (cleanup hielt, weil ihr status beim freigabe-versuch noch busy war - naechster tick).
+
+ABGELIEFERT UND VON MIR GEMESSEN: PR #1732 head bddb27e6251e, base develop 40cb28c758b0, draft=false, 1 datei (internal/logs/loki_test.go), branch == refs/pull/1732/head. 'PR · Go unit · packages' = SUCCESS am exakten head (job 136574098983, run 44818799733) - die Loki-MultiSource-zellen sind damit auch am develop-tip behoben, der fixture schreibt jetzt das fehlende mTLS client-paar. cli-0..3 bleiben failure = feld-gate 0428-198 (nicht ihr scope, rail ist verschlossen). DARUM wait statt review: eine required-zelle fehlt noch, und sie haengt an genau einem anderen fall. TRIGGER FUER DIE naechste KANTE: 0428-198 gruen im feld -> dann ist dieser kandidat mit einem laufenden exact-head-CI abnehmbar.
