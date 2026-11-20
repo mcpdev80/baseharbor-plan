@@ -7,9 +7,9 @@ areas: [ci, observability]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w202-0428-202-pkgshard
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-202 · packages shard red on develop
 priority: ""
@@ -24,17 +24,16 @@ evidence: []
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-r28-packages-shard-develop-regression · packages shard red on develop #task #release/v0-4-28 #status/planned #view/ready #area/ci #area/observability #kind/bug
+- [ ] t-20261120-r28-packages-shard-develop-regression · packages shard red on develop #task #release/v0-4-28 #status/active #view/active #area/ci #area/observability #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w202-0428-202-pkgshard  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w202-0428-202-pkgshard  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -93,3 +92,5 @@ package is **not** the PR's own code:
 - `internal/identityprovider` failures inside this shard are NOT this card's work: name them, prove they are a
   different package, and leave them to #1650.
 - No subagents (AGENTS 4.8), no `git add -A`, no merge, no force-push on develop/main.
+
+ARBEITET JETZT, kante gegen session gemessen (w202-0428-202-pkgshard, laptop): ursache zuerst (bisect f5ce95afce1c -> 40cb28c758b0 mit 'go test ./internal/logs/ -run TestPersesLokiDatasourceMultiSource' an beiden enden), dann der kleinste fix am VERHALTEN, dann ein hosted run am exakten head mit 'PR · Go unit · packages' executed/success. die zwei nachmessungen, die den weg weisen: #1714 war am alten base f5ce95af GRUEN in diesem shard (run 44755545566), am neuen 40cb28c ROT an internal/logs (job 136433151042), und ein fremder PR (#1645, run 44731562217) faellt im selben shard an internal/identityprovider - das ist #1650/owner-feld, fuer diese karte nur zu benennen. develop-push faehrt das shard nicht (nur Runtime docker/podman, runs 44769994971/44769994909) - deshalb war der defekt unsichtbar.
