@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: coord
+owner: w175-pr0428-175-publish-gate
 kanban_status: active
 kanban_lane: active
 kanban_summary: "Every published planning text passes the same integrity gates a dispatched payload passes, and the watch registry can be cleaned…"
@@ -25,14 +25,14 @@ evidence: []
 
 - [ ] t-20261120-coord-publish-integrity-gaps · Coordinator tooling: card-status.py bypasses the payload integrity gates; watch.py rm signature unusable #task #release/v0-4-28 #status/active #view/active #kind/maintenance
     <!-- generated:card -->
-    **Owner:** coord  
+    **Owner:** w175-pr0428-175-publish-gate  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** coord  
+**Owner:** w175-pr0428-175-publish-gate  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -68,3 +68,5 @@ Every published planning text passes the same integrity gates a dispatched paylo
 - Opened by the Coordinator on 2026-11-20 from two self-measured incidents: a CJK garble (`ein nicht-lateinisches Zeichen`) published into card t-20261120-r28-develop-runtime-integration-red because `card-status.py` does not call the payload sanitizer, and an unusable `watch.py rm` call for released lane fd49077a.
 
 second live instance measured 2026-11-20, by me: a non-latin token entered the note of card t-20261114-r28-perses-tempo-source through card-status.py and reached origin/main while plan.py check reported 0 errors. the token was stripped and republished (board-sha 232ff2cbfb1c). additionally the same call printed NOTHING and did not publish once, then published silently on retry with a token of the same class: the failure mode is inconsistent and must be pinned. implementation of both fixes is coordinator tooling (coordinator/scripts), not product code, and runs after the merge window clears unless a free seat appears first
+
+delegate statt selbst: die beiden defekte habe ich gemessen (card-status.py laesst den zeichensatz-gate von sanitize.py passieren — zweimal live belegt, board-sha 232ff2cbfb1c und die 091-note; watch.py rm nimmt keine short session id — 'error: argument c: invalid choice', zweimal belegt). write-set ist coordinator/scripts, damit keine beruehrung mit den laufenden produktkarten. abnahme macht eine andere session, nicht der coordinator ueber sich selbst
