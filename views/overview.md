@@ -12,8 +12,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | ---: |
 | active | 7 |
 | review | 0 |
-| wait | 30 |
-| blocked | 2 |
+| wait | 32 |
+| blocked | 0 |
 | ready | 4 |
 | queued | 25 |
 | waiting | 183 |
@@ -66,6 +66,8 @@ None.
 | [t-20261119-r28-window-integrity-verify](../tasks/t-20261119-r28-window-integrity-verify.md) | fensterstand gegen abnahmebelege pruefen | wait | not set | w150-pr0428-150-windowverify | — | — |
 | [t-20261120-deployment-version-mismatch-masked](../tasks/t-20261120-deployment-version-mismatch-masked.md) | record version mismatch masked | wait | not set | w200-0428-200-verrmask | — | [baseharbor#1728](https://github.com/mcpdev80/baseharbor/pull/1728) |
 | [t-20261120-perses-tmpfs-mountpoint](../tasks/t-20261120-perses-tmpfs-mountpoint.md) | Perses runtime smoke cannot mount tmpfs at /etc/perses/database on hosted runners | wait | not set | 0428-083- | — | [baseharbor#1724](https://github.com/mcpdev80/baseharbor/pull/1724) |
+| [t-20261120-r28-cli2-context-precedence-evidence](../tasks/t-20261120-r28-cli2-context-precedence-evidence.md) | CLI2: persisted-over-default precedence is not asserted through baha context show | wait | not set | w178-0428-178-contextshow | [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) (open) | [baseharbor#1718](https://github.com/mcpdev80/baseharbor/pull/1718) |
+| [t-20261120-r28-packages-shard-develop-regression](../tasks/t-20261120-r28-packages-shard-develop-regression.md) | packages shard red on develop | wait | not set | w202-0428-202-pkgshard | [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) (open) | — |
 | [t-20261120-r28-stale-draft-pr-1665-closeout](../tasks/t-20261120-r28-stale-draft-pr-1665-closeout.md) | Stale draft PR #1665 on parked card 0428-082: restack with evidence or close | wait | not set | w176-pr1665-1665-closeout | — | [baseharbor#1665](https://github.com/mcpdev80/baseharbor/pull/1665) |
 | [t-20261120-r28-valkey-dashboard-unavailable-only](../tasks/t-20261120-r28-valkey-dashboard-unavailable-only.md) | Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable | wait | not set | w183-0428-183-valkeyfix | — | [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714) |
 | [t-20261120-shared-backend-state-version-message](../tasks/t-20261120-shared-backend-state-version-message.md) | shared state version message | wait | not set | w201-0428-201-statever | — | [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725) |
@@ -73,10 +75,7 @@ None.
 
 ## Blocked
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261120-r28-cli2-context-precedence-evidence](../tasks/t-20261120-r28-cli2-context-precedence-evidence.md) | CLI2: persisted-over-default precedence is not asserted through baha context show | blocked | not set | w178-0428-178-contextshow | — | [baseharbor#1718](https://github.com/mcpdev80/baseharbor/pull/1718) |
-| [t-20261120-r28-packages-shard-develop-regression](../tasks/t-20261120-r28-packages-shard-develop-regression.md) | packages shard red on develop | blocked | not set | w202-0428-202-pkgshard | — | — |
+None.
 
 ## Ready to assign
 

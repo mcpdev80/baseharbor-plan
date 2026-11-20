@@ -8,32 +8,33 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w202-0428-202-pkgshard
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: ""
 kanban_title: 0428-202 · packages shard red on develop
 priority: ""
-depends_on: []
+depends_on: [t-20261114-r28-cli2-identity-secrets]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: "WURZEL GEFUNDEN, BESITZER IST DER OWNER-RAIL (nicht die lane, die die jagd vorschlug). bisect ueber zwei isolierte worktrees: f5ce95afce1c = 'PR · Go unit · packages' SUCCESS (run 44755545566) gegen 40cb28c758b0 = RED an internal/logs (job 136433151042, run 44778040176); die ursache sitzt in internal/serviceaccess/policy.go, geaendert von 2af892e4e 'fix(policy): fail closed without explicit environment policy' (20.11 02:24) und ueber den #1594-rail in develop gefaltet - gemessen mit 'git log -- internal/serviceaccess/policy.go' (= 2af892e4e, 018b4e58a [0428-053], 8ca53ef1a) UND mit der dateienliste von #1684, die policy.go NICHT enthaelt. das bedeutet: serviceaccess.Resolve liefert jetzt fail-closed 'managed -> client-cert required', und die Loki-multi-source-producer sehen keine datenbasis mehr ('expected 2 per-source queries even on full miss, got 0'). NÄCHSTER TRIGGER: entscheidung im feld 0428-053/#1594 (owner), welche seite sich anpasst - der Loki-consumer (internal/logs) oder die policy-seite. wenn die korrektur in internal/logs gehoert, hebe ich diese karte und comissione eine lane; wenn sie in internal/serviceaccess/** gehoert, ist es #1594/0428-053-eigentümer-arbeit, und ich gebe sie nicht an eine fremde lane (praezedenz #1139, §4.3). akte der lane: evidence/r28-welle4-2026-11-20/packages-shard-develop-regression/round-1.md (182 zeilen, 0 checkboxen, bisect-beweis mit beiden enden)."
-wait_reason: ""
+blocker: ""
+wait_reason: "Waiting for prerequisite 0428-057 / PR #1615 to merge with its exact required CI green. That branch's current exact run has already passed PR · Go unit · packages on SHA 66b437c2092ab9edb5f405285492b4f355679c35, run 44812831798; once #1615 is merged, hop #1714 onto current develop and rerun its exact packages shard to confirm the Loki multi-source behavior on the new base. The earlier bisect finding remains recorded below; this card is waiting for the owner rail's CI fix, not technically blocked."
 resolution: ""
 evidence: []
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-r28-packages-shard-develop-regression · packages shard red on develop #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/observability #kind/bug
+- [ ] t-20261120-r28-packages-shard-develop-regression · packages shard red on develop #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** w202-0428-202-pkgshard  
-    **Blocker:** WURZEL GEFUNDEN, BESITZER IST DER OWNER-RAIL (nicht die lane, die die jagd vorschlug). bisect ueber zwei isolierte worktrees: f5ce95afce1c = 'PR · Go unit · packages' SUCCESS (run 44755545566) gegen 40cb28c758b0 = RED an internal/logs (job…  
+    **Waiting:** Waiting for prerequisite 0428-057 / PR \#1615 to merge with its exact required CI green. That branch's current exact run has already passed PR · Go unit · packages on SHA 66b437c2092ab9edb5f405285492b4f355679c35, run 44812831798; once \#1615…  
+    **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** none  
+**Depends on:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
 **Owner:** w202-0428-202-pkgshard  
 **Priority:** not set  
 **PRs:** none  

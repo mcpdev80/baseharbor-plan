@@ -8,32 +8,33 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w178-0428-178-contextshow
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: ""
 kanban_title: 0428-178 · context show precedence
 priority: ""
-depends_on: []
+depends_on: [t-20261114-r28-cli2-identity-secrets]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1718]
 sources: []
-blocker: "NICHT der kandidat, sondern die CI-UMGEBUNG: CODEX-REVIEW hat head aa3c9d2a5b799756837e6238fe82c948778e7a15 APPROVED (akte codex-review-wave/1718-0428-178.md). CODEX-MERGE hopfte auf develop 40cb28c758b0 (= 'Merge pull request #1594 ... cli2-env-policy-head'), neuer head ce5aa9633630b88a017f501da7c2f0bd00e44714, branch == refs/pull/1718/head gemessen, und der run 44774783515 endet completed/failure an ALLEN VIER 'PR · Go unit · cli-0..3' shards mit 'main_test.go:60 create failed: Managed-environment machine operations require an authenticated BaseHarbor operator' und 'app_secrets_shared_runtime_test.go:44 operator OIDC configuration' - meldungen, die mit der einen PR-datei (cmd/baha/context_terminal_test.go, +24 zeilen test) nichts zu tun haben. derselbe fehler erscheint an ihren eigenen PRs: run 44770516960 (cli2-identity-secrets-head 1bc3362155) und run 44765885244 (cf7d1e6014) completed/failure. kein merge wurde versucht (CODEX-MERGE meldet END_BLOCKED mit akte 1718-0428-178-merge.md, main 358a65504546). NÄCHSTER TRIGGER: owner stellt die operator-/OIDC-umgebung der cli-shards her (oder korrigiert die tests, die sie verlangen) - dann rebase + recheck + merge am exakten head, ohne neue inhaltsrunde. zweiter weg: owner nimmt die verschärfung aus #1594 zurueck, dann ist der alte head wieder gruen."
-wait_reason: ""
+blocker: ""
+wait_reason: "Waiting for prerequisite 0428-057 / PR #1615 to merge with its exact required CI green. Its test-context changes address the managed-operator authentication failures in this PR's cli shards. Then hop #1718 onto current develop and rerun the exact CI; do not treat earlier red runs as proof against this test. Current #1615 head 66b437c2092ab9edb5f405285492b4f355679c35, run 44812831798 is still in progress."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-r28-cli2-context-precedence-evidence · CLI2: persisted-over-default precedence is not asserted through baha context show #task #release/v0-4-28 #status/blocked #view/blocked #kind/bug
+- [ ] t-20261120-r28-cli2-context-precedence-evidence · CLI2: persisted-over-default precedence is not asserted through baha context show #task #release/v0-4-28 #status/wait #view/wait #kind/bug
     <!-- generated:card -->
     **Owner:** w178-0428-178-contextshow  
     **PR:** [baseharbor#1718](https://github.com/mcpdev80/baseharbor/pull/1718)  
-    **Blocker:** NICHT der kandidat, sondern die CI-UMGEBUNG: CODEX-REVIEW hat head aa3c9d2a5b799756837e6238fe82c948778e7a15 APPROVED (akte codex-review-wave/1718-0428-178.md). CODEX-MERGE hopfte auf develop 40cb28c758b0 (= 'Merge pull request \#1594 ... cl…  
+    **Waiting:** Waiting for prerequisite 0428-057 / PR \#1615 to merge with its exact required CI green. Its test-context changes address the managed-operator authentication failures in this PR's cli shards. Then hop \#1718 onto current develop and rerun th…  
+    **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** none  
+**Depends on:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
 **Owner:** w178-0428-178-contextshow  
 **Priority:** not set  
 **PRs:** [baseharbor#1718](https://github.com/mcpdev80/baseharbor/pull/1718)  
