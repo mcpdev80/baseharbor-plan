@@ -27,7 +27,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1680", "https://github.c
     <!-- generated:card -->
     **Owner:** coord  
     **PR:** [baseharbor#1680](https://github.com/mcpdev80/baseharbor/pull/1680)  
-    **Needs:** [t-20261117-observability-native-gate-bootstrap](t-20261117-observability-native-gate-bootstrap.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1680), [proof 2](https://github.com/mcpdev80/baseharbor/commit/504a8678c2391cb379622fa02c2c8d9769fa192b), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44057402207), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44057603711), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44057705927), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44049176474), [proof 7](https://github.com/mcpdev80/baseharbor/commit/aadee4520ce5c01cf614662d078c05d684f44233), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/44396957393), [proof 9](https://github.com/mcpdev80/baseharbor/actions/runs/44427948182)  
     <!-- /generated:card -->
 
