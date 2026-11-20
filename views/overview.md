@@ -10,7 +10,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 13 |
+| active | 12 |
 | review | 0 |
 | wait | 17 |
 | blocked | 3 |
@@ -18,7 +18,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | queued | 25 |
 | waiting | 178 |
 | backlog | 7 |
-| closed | 365 |
+| closed | 366 |
 
 ## Active
 
@@ -34,7 +34,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-r28-bughunt-lifecycle-consent-desk](../tasks/t-20261119-r28-bughunt-lifecycle-consent-desk.md) | hunt lifecycle/consent desk | active | not set | Coordinator 9142ab1f (bahn: hunt-lane auf ornith:2, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/) | — | — |
 | [t-20261119-r28-bughunt-observability-desk](../tasks/t-20261119-r28-bughunt-observability-desk.md) | hunt observability desk | active | not set | Coordinator 9142ab1f (bahn: hunt-lane auf ornith:1, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/) | — | — |
 | [t-20261119-r28-window-integrity-verify](../tasks/t-20261119-r28-window-integrity-verify.md) | fensterstand gegen abnahmebelege pruefen | active | not set | w150-pr0428-150-windowverify | — | — |
-| [t-20261120-r28-bughunt-connector-handshake-timeouts](../tasks/t-20261120-r28-bughunt-connector-handshake-timeouts.md) | audit handshake timeout and retry paths | active | not set | w173-pr0428-173-handshake | — | — |
 | [t-20261120-r28-bughunt-image-pin-skew](../tasks/t-20261120-r28-bughunt-image-pin-skew.md) | audit image pins and version skew | active | not set | w172-pr0428-172-imageskew | — | — |
 | [t-20261120-r28-keycloak-signal-id-migration-gap](../tasks/t-20261120-r28-keycloak-signal-id-migration-gap.md) | migrate un-prefixed keycloak registrations | active | not set | w168-pr0428-168-signal-mig-r2 | — | [baseharbor#1709](https://github.com/mcpdev80/baseharbor/pull/1709) |
 
@@ -86,7 +85,7 @@ None.
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 6 open, 163 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 54 open, 134 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 53 open, 135 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))

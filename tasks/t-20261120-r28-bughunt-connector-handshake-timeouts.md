@@ -13,24 +13,25 @@ depends_on: []
 blocked_by: []
 superseded_by: []
 owner: w173-pr0428-173-handshake
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/marcel"]
 prs: []
 created: 2026-11-20
 wait_reason: ""
 
 ---
 
-- [ ] t-20261120-r28-bughunt-connector-handshake-timeouts · audit handshake timeout and retry paths #task #release/v0-4-28 #status/active #view/active #area/capability #area/observability #kind/review
+- [x] t-20261120-r28-bughunt-connector-handshake-timeouts · audit handshake timeout and retry paths #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/capability #area/observability #kind/review
     <!-- generated:card -->
     **Owner:** w173-pr0428-173-handshake  
+    **Evidence:** [proof 1](https://github.com/marcel)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w173-pr0428-173-handshake  
