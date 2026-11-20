@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 12 |
-| review | 1 |
+| active | 13 |
+| review | 0 |
 | wait | 19 |
 | blocked | 3 |
 | ready | 4 |
@@ -26,6 +26,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | active | normal | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261114-r28-cli2-app-status](../tasks/t-20261114-r28-cli2-app-status.md) | CLI redesign: Unify app status and versions | active | high | codex-thread (owner-directive 2026-11-20T00:5x+01:00, eigenes team); vorgaenger-lane w062-pr1614-appstatus-hopf (codeman d0a488eb) mit meldefrist gestoppt, KEIN remote-write von ihr (zweig-head unveraendert 80d4df52e913, gemessen) | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) | [baseharbor#1614](https://github.com/mcpdev80/baseharbor/pull/1614) |
+| [t-20261114-r28-cli2-context-shell](../tasks/t-20261114-r28-cli2-context-shell.md) | CLI redesign: Terminal-scoped context and completion | active | high | w068-pr0428-068-context-shell | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md), [t-20261114-r28-cli2-uid-target](../tasks/t-20261114-r28-cli2-uid-target.md) | [baseharbor#1710](https://github.com/mcpdev80/baseharbor/pull/1710) |
 | [t-20261114-r28-cli2-coordination](../tasks/t-20261114-r28-cli2-coordination.md) | CLI redesign: coordinate five workers | active | high | coord | — | — |
 | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) | CLI redesign: Replace name-based environment policy | active | high | coord | [t-20261114-r28-cli2-uid-environment](../tasks/t-20261114-r28-cli2-uid-environment.md) | — |
 | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | CLI redesign: Organization environment reconciliation | active | high | welle2-056-cli2-org-env | [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) | — |
@@ -39,9 +40,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 ## Ready for review
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261114-r28-cli2-context-shell](../tasks/t-20261114-r28-cli2-context-shell.md) | CLI redesign: Terminal-scoped context and completion | review | high | w068-pr0428-068-context-shell | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md), [t-20261114-r28-cli2-uid-target](../tasks/t-20261114-r28-cli2-uid-target.md) | [baseharbor#1710](https://github.com/mcpdev80/baseharbor/pull/1710) |
+None.
 
 ## Waiting for resources
 
