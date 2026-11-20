@@ -17,7 +17,7 @@ kanban_status: active
 kanban_lane: active
 blocker: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44692628196", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md"]
 prs: [mcpdev80/baseharbor#1709]
 created: 2026-11-20
 wait_reason: ""
@@ -28,7 +28,7 @@ wait_reason: ""
     <!-- generated:card -->
     **Owner:** w168-pr0428-168-signal-mig-r2  
     **PR:** [baseharbor#1709](https://github.com/mcpdev80/baseharbor/pull/1709)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44692628196), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -69,3 +69,12 @@ Diese Karte blockiert 0428-166 und 0428-167 (jede weitere ID-Änderung vertieft 
 https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md
 
 loop-abbruch angeordnet (§3.6): gemessen 861 FAIL-zeilen, 234 paketlaeufe, ein test 177x rot. der wichtige unterschied: ihr NEUER test und ReconcileLegacySignals existieren NICHT auf develop (git grep leer), aber TestStandaloneSharedPostgresUsesPhysicalOwnerAcrossAppAndRecoveryLifecycle EXISTIERT dort (internal/application/shared_postgres_runtime_owner_test.go) und laeuft dort gruen (develop-push 44669117744/44669117784 success, packages-shard ohne namenfilter) — bei ihnen rot. das ist inhalt, nicht umfeld. befehl: zuerst WIP-stand ausliefern (vier stunden arbeit existieren nur auf diesemrechner = derselbe risikotyp wie bei karte 078), dann nur noch isolierte -run-laeufe mit den beiden FAIL-Blocken woertlich in die akte. DECKEL: scheitert ein weiterer anlauf an demselben existierenden test, rotation auf frische Lane
+
+
+## PR #1709 exact-head refresh — 2026-11-20 ~07:12 UTC
+
+The owner advanced #1709 to head `4d3494ea7a145e2a92c8008eb510d3c5b49ad06c`; exact run [44692628196](https://github.com/mcpdev80/baseharbor/actions/runs/44692628196) is still in progress. At the latest live read, 34 jobs were present: 15 successful, 16 skipped, `PR · Source format` failed, and Go/runtime jobs were still running. The maintainer findings in comment [7029213393](https://github.com/mcpdev80/baseharbor/pull/1709#issuecomment-7029213393) remain the acceptance reference: preserve legacy owner/source fields through the complete registration path, and ensure the stable-sort regression is in a Go-discoverable `_test.go` file. Keep this task Active while the owner works; do not infer acceptance from the partial run. See the [sweep snapshot](../evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md).
+
+## Exact-run terminal result — 2026-11-20 ~07:20 UTC
+
+Run [44692628196](https://github.com/mcpdev80/baseharbor/actions/runs/44692628196) completed FAILURE on exact head `4d3494ea7a145e2a92c8008eb510d3c5b49ad06c`: 35 jobs, 17 success, 16 skipped, 2 failures (`PR · Source format`, `PR Selected Checks`). The source-format log reports `internal/observability/registry.go has 930 lines (limit: 800; baseline ratchet: 0)`; Selected Checks is blocked by `source_format`. The Docker identity runtime job completed, but the test `TestReadSignalsForTestSortsStably` remains in `read_signals_test_helper.go`, which Go does not discover as a test file. Independent current-diff review finds partial progress on the legacy-owner defect: migration is now in the same `RegisterProviderSignals` mutation, with appA/appB coverage for owner ID/list/remove. It still does not assert all preserved metadata fields (network, target, descriptor, enabled state). The maintainer acceptance in comment [7029213393](https://github.com/mcpdev80/baseharbor/pull/1709#issuecomment-7029213393) remains outstanding, and `TestReadSignalsForTestSortsStably` is still in a non-`_test.go` filename so Go will not discover it. PR remains OPEN at this head with no formal review; keep 0428-168 Active while the owner fixes the candidate. See the [sweep snapshot](../evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md).

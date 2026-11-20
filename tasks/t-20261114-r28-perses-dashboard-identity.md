@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w078-pr0428-078-appstatus-r3
-kanban_status: review
-kanban_lane: review
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
 kanban_title: 0428-078 · Perses identity dashboard
 priority: normal
@@ -18,20 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1606, mcpdev80/baseharbor#1650]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "Internal CODEX-REVIEW r3 returned REQUEST CHANGES on head 7705a336: when worker capacity is available, add the missing remote status-output regression, reconcile the verified-only requirement so ConfiguredUnverified is not eligible, and complete required runtime acceptance plus exact-head checks."
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w078-pr0428-078-appstatus-r3 · **Priority:** normal  
     **PR:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md)  
+    **Waiting:** Internal CODEX-REVIEW r3 returned REQUEST CHANGES on head 7705a336: when worker capacity is available, add the missing remote status-output regression, reconcile the verified-only requirement so ConfiguredUnverified is not eligible, and co…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
@@ -109,4 +110,19 @@ CODEX-REVIEW am exakten head ac2a54503794 = REQUEST CHANGES (akte codex-review-w
 
 The active owner advanced #1650 to `7705a33660736a3ab21b441bebe9057bcccc60fe`; exact run [44692217649](https://github.com/mcpdev80/baseharbor/actions/runs/44692217649) is still in progress (current selection skips native/Core/runtime). Independent diff review confirms both blockers from maintainer comment [7031412203](https://github.com/mcpdev80/baseharbor/pull/1650#issuecomment-7031412203) remain: the eligibility predicate accepts `ConfiguredUnverified`, and the test explicitly expects true for that state; local status tests still do not exercise remote target/output. Prior run 44691504805 failed on superseded head `cd6de5eb0def34d4a190130e6458466c6102a9eb` and is not evidence about this current head. Keep this card Active while the assigned owner continues correction; no Review/acceptance transition is supported. See [sweep evidence](../evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md).
 
-kandidat ist vollstaendig und unabhaengig gemessen: head 7705a3366073, develop 36d075fad77f ist ahne (merge-base --is-ancestor JA), 35/35 checks completed, 0 failure, cli-shards success, mergeable=clean, draft=false. AKTE round-4.md (plan main @ c84f98fe) enthaelt den MUTATIONSPROOF, den das r2-verdict verlangte: gate in app_status_result.go:167-168 raus -> '--- FAIL: TestIdentityDashboardEligibleRequiresConfiguredVerifiedPerses' (app_status_perses_gate_test.go:137) UND '--- FAIL: TestIdentityDashboardEligibleGatesOnKeycloakWitness'; danach wieder drin, gate-diff leer. neue dateien am head: cmd/baha/app_status_perses_gate_test.go. CODEX-REVIEW r3 am exakten head ist bestellt (session 95971e0a, rolle REVIEW, akte 1650-0428-078-r3.md). lane bleibt fuer eine korrekturrunde stehen (§3.6), danach sofort freigegeben
+## Round-4 evidence disposition — 2026-11-20 ~07:15 UTC
+
+The new [round-4 artifact](../evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md), published on plan main `c84f98fe`, closes the previous local-status coverage gap: its new `cmd/baha` test drives real local `baha status --json` selected/unselected cases, and the mutation proof shows the test fails if the gate is disabled. It does not satisfy the full maintainer acceptance in [comment 7031412203](https://github.com/mcpdev80/baseharbor/pull/1650#issuecomment-7031412203): no remote target/output regression is present, and the predicate still admits `ConfiguredUnverified` while the selected test expects eligibility true for that status. Exact run [44692217649](https://github.com/mcpdev80/baseharbor/actions/runs/44692217649) is green for selected checks but skips Native Keycloak/Core and targeted runtime gates. At the time of this observation, the card remained Active; the later Review transition is reconciled below.
+
+## Review-lane transition re-audit — 2026-11-20 ~07:16 UTC
+
+Plan main `b3f547285541fb45b20b62b5ff3dd4018d269e22` moved 0428-078 from Active to Review after recording that CODEX-REVIEW r3 was requested against head `7705a33660736a3ab21b441bebe9057bcccc60fe` (session ID `95971e0a`). The transition is structurally valid for a review handoff: owner and PR are present. I could not independently verify that the reviewer started or completed; no r3 artifact is in the current plan tree, the reviewer session was not accessible, and GitHub has no formal review. Keep the card in Review as the recorded handoff, with `resolution` empty; this is not acceptance or merge approval.
+
+The substantive requirements remain unresolved. The current PR diff still accepts `ConfiguredUnverified` and the new test explicitly expects eligibility true in that state, contrary to the verified-only contract. The added regression covers local status JSON but not remote target/output. Exact run 44692217649 completed successfully for selected jobs, but Native Keycloak/Core and targeted runtime checks were skipped. GitHub still reports #1650 OPEN+Ready, mergeable, with no formal reviews or later comment resolving maintainer finding 7031412203. Do not accept or merge until the review result and remaining correctness/runtime requirements are addressed.
+
+
+## Review r3 disposition and wait transition — 2026-11-20 ~07:20 UTC
+
+The exact-head CODEX-REVIEW r3 artifact [1650-0428-078-r3.md](../evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md) returned **REQUEST CHANGES** on `7705a33660736a3ab21b441bebe9057bcccc60fe`. It confirms the new local production status test and mutation proof, but finds no regression through a non-local target / remote status return. This completes the Review handoff without accepting the PR. The review's suggested remote-positive `configured_unverified` expectation conflicts with maintainer comment [7031412203](https://github.com/mcpdev80/baseharbor/pull/1650#issuecomment-7031412203), which explicitly requires verified-only eligibility; resolve that contract conflict by keeping `ConfiguredUnverified` ineligible before merge. Native Keycloak/Core and targeted runtime acceptance also remain skipped/unproven.
+
+I moved 0428-078 from Review to **Wait** because the started correction is paused after REQUEST CHANGES and the fresh read-only Codeman pool snapshot reports workers 5/5, no open seats, reviewer/merger 1/1. Wait reason records the concrete next work: remote status regression, verified-only predicate/test, applicable runtime acceptance and exact-head checks when capacity is available. PR #1650 stays OPEN+Ready; no formal GitHub review or approval exists, and `resolution` remains empty.
