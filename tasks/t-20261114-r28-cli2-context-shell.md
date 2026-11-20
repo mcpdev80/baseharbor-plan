@@ -8,36 +8,40 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w068-pr0428-068-context-shell
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Terminal-scoped context and completion. Follow the owner working brief, command mapping and code entry index; revalidate current…"
 kanban_title: 0428-068 · Terminal-scoped context and
 priority: high
 depends_on: [t-20261114-r28-cli2-contract, t-20261114-r28-cli2-env-registry, t-20261114-r28-cli2-uid-target]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1710]
+prs: [mcpdev80/baseharbor#1710, mcpdev80/baseharbor#1713]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44695244800", "https://github.com/mcpdev80/baseharbor/actions/runs/44696968212", "https://github.com/mcpdev80/baseharbor/actions/runs/44699230683", "https://github.com/mcpdev80/baseharbor/actions/runs/44700679422", "https://github.com/mcpdev80/baseharbor/pull/1710", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44695244800", "https://github.com/mcpdev80/baseharbor/actions/runs/44696968212", "https://github.com/mcpdev80/baseharbor/actions/runs/44699230683", "https://github.com/mcpdev80/baseharbor/actions/runs/44700679422", "https://github.com/mcpdev80/baseharbor/pull/1710", "https://github.com/mcpdev80/baseharbor/pull/1713", "https://github.com/mcpdev80/baseharbor/actions/runs/44725704429", "https://github.com/mcpdev80/baseharbor/commit/e3b4300f3f2c7b6231624cc6552ca6c484fbb7f1", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md"]
 ---
 
-- [ ] t-20261114-r28-cli2-context-shell · CLI redesign: Terminal-scoped context and completion #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [x] t-20261114-r28-cli2-context-shell · CLI redesign: Terminal-scoped context and completion #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** w068-pr0428-068-context-shell · **Priority:** high  
-    **PR:** [baseharbor#1710](https://github.com/mcpdev80/baseharbor/pull/1710)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44695244800), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44696968212), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44699230683), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44700679422), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1710), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md)  
+    **PR:** [baseharbor#1710](https://github.com/mcpdev80/baseharbor/pull/1710), [baseharbor#1713](https://github.com/mcpdev80/baseharbor/pull/1713)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44695244800), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44696968212), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44699230683), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44700679422), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1710), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1713), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44725704429), [proof 8](https://github.com/mcpdev80/baseharbor/commit/e3b4300f3f2c7b6231624cc6552ca6c484fbb7f1), [proof 9](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md)  
     <!-- /generated:card -->
 
+## Verified acceptance — 2026-11-20
+
+PR #1710 was merged, then the actual installed Fish/Zsh E2E exposed wrapper defects. Follow-up PR #1713 fixes Fish function declaration/invocation and evaluates the final context snippet correctly; the end-to-end test now selects the shell executable explicitly. Local exact Zsh + Fish E2E, focused CLI suite (41.079s), `go vet ./cmd/baha`, and `git diff --check` passed. Independent review found no blocker. Exact PR head `ef32f7e3fcbad9b674eae78fd11e5415f88f4695` completed run [44725704429](https://github.com/mcpdev80/baseharbor/actions/runs/44725704429) with all 11 active checks successful. PR #1713 merged at 2026-11-20T11:18:30Z as `e3b4300f3f2c7b6231624cc6552ca6c484fbb7f1`.
+
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md), [t-20261114-r28-cli2-uid-target](t-20261114-r28-cli2-uid-target.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
 **Owner:** w068-pr0428-068-context-shell  
 **Priority:** high  
-**PRs:** [baseharbor#1710](https://github.com/mcpdev80/baseharbor/pull/1710)  
+**PRs:** [baseharbor#1710](https://github.com/mcpdev80/baseharbor/pull/1710), [baseharbor#1713](https://github.com/mcpdev80/baseharbor/pull/1713)  
 **Source:** 
 <!-- /generated:links -->
 
