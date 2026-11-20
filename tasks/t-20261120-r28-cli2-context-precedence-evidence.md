@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1718]
 sources: []
 blocker: ""
-wait_reason: "Waiting for prerequisite 0428-057 / PR #1615 to merge with exact required CI green. Latest head b8c49b303034ff00ca0f769235f5bc16a4f7b2c4 is running exact CI 44828619750. It adds the read-only cleanup owner preview to the isolated test-binary gate. After it passes and #1615 merges, hop #1718 onto current develop and rerun exact CI."
+wait_reason: "Waiting for prerequisite 0428-057 / PR #1615 to merge with exact required CI green. Latest head 5d5cfdf1b3edefabfdcafb154d711d61dad74ed8 is running exact CI 44828743735 after exact cleanup-preview and guided wizard test-gate fixes. After it passes and #1615 merges, hop #1718 onto current develop and rerun exact CI."
 resolution: ""
 evidence: []
 ---
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w178-0428-178-contextshow  
     **PR:** [baseharbor#1718](https://github.com/mcpdev80/baseharbor/pull/1718)  
-    **Waiting:** Waiting for prerequisite 0428-057 / PR \#1615 to merge with exact required CI green. Latest head b8c49b303034ff00ca0f769235f5bc16a4f7b2c4 is running exact CI 44828619750. It adds the read-only cleanup owner preview to the isolated test-bina…  
+    **Waiting:** Waiting for prerequisite 0428-057 / PR \#1615 to merge with exact required CI green. Latest head 5d5cfdf1b3edefabfdcafb154d711d61dad74ed8 is running exact CI 44828743735 after exact cleanup-preview and guided wizard test-gate fixes. After i…  
     **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
     <!-- /generated:card -->
 
