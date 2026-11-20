@@ -73,6 +73,16 @@ is not removed.
   (write loop) + `:122-144` (sweep condition). Per fund->karten-pflicht this
   stays with the coordinator (owner casts the card); not built here.
 
+## CI — exact head, own terminal observation (4.6)
+
+- PR: #1729, branch `lane-0428-143-verify-none`, head `809a8196e1cf8b29d410c6a9bd07114d99c2dc10`, base `develop` (40cb28c758b0).
+- GitHub Actions run #6818 (event `pull_request`), conclusion: **failure**.
+- The failure is NOT my change. Two independent pre-existing failures:
+  1. `PR · Go unit · cli-0/1/2/3` shards — `cmd/baha`: `--- FAIL: TestAppCreateListShowPlan` etc., root cause `main_test.go:60: create failed: Managed-environment machine operations require an authenticated BaseHarbor operator.` — the field-gate 198/202 failure (authenticated-operator on a managed Target), locked to lane 0428-198.
+  2. `PR · Go unit · packages` shard — `--- FAIL: TestPersesLokiDatasourceMultiSourceQueryOneSelectorPerSource` (and sibling Loki tests) in `internal/logs`: `load Loki service access identity: stat .../service-access/pki/client-cert.pem: no such file or directory`. Confirmed fails identically on unmodified develop (40cb28c758b0); unrelated to this card.
+- **My packages ARE green in CI.** `internal/metrics` (regression) and `internal/capability` (contract): `ok  github.com/mcpdev80/baseharbor/internal/metrics  0.434s`, `ok  github.com/mcpdev80/baseharbor/internal/capability  0.018s`. The regression `TestVerifyApplicationSourceVerificationNoneIsSkipped` was auto-discovered by the packages shard (draft Go package selection lists both packages). RED on original code, GREEN after the guard, verified locally and in CI.
+- go-build: SUCCESS, go-vet: SUCCESS, Source format: SUCCESS, Workflow policy: SUCCESS, Trusted Plan: SUCCESS.
+
 ## END
 
-END_DONE w203-0428-143-vernone: <head SHA> pr=<n> run=<id> evidence=<path on origin/main>
+END_DONE w203-0428-143-vernone: head=809a8196e1cf8b29d410c6a9bd07114d99c2dc10 pr=1729 run=6818 conclusion=failure(pre-existing cmd/baha field-gate 198 + internal/logs PKI; my packages metrics+capability GREEN) evidence=publishing
