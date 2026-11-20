@@ -1,6 +1,6 @@
 ---
 id: t-20261120-redact-invalid-org-environment-key
-card_number: "0428-161"
+card_number: "0428-162"
 card_short_title: "Redact env key errors"
 type: task
 areas: [architecture, security]
@@ -19,7 +19,7 @@ blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/blob/c90c3b89007e87a4bf277c8c9015fab3ac65728e/internal/orgconfig/model.go#L171-L174"]
-kanban_title: 0428-161 · Redact env key errors
+kanban_title: 0428-162 · Redact env key errors
 ---
 
 - [ ] t-20261120-redact-invalid-org-environment-key · Redact secret-like invalid environment keys #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/architecture #area/security #kind/task
