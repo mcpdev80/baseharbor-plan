@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 115/210 · **Blocked:** 2 · **Waiting:** 28  
+    **Accepted tasks:** 115/211 · **Blocked:** 2 · **Waiting:** 28  
     **Blocker:** [t-20261120-r28-cli2-context-precedence-evidence](../tasks/t-20261120-r28-cli2-context-precedence-evidence.md) — NICHT der kandidat, sondern die CI-UMGEBUNG: CODEX-REVIEW hat head aa3c9d2a5b799756837e6238fe82c948778e7a15 APPROVED (akte codex-review-wave/1718-0428-178.md).…  
     **Blocker:** [t-20261120-r28-shell-wrapper-tests-not-skippable](../tasks/t-20261120-r28-shell-wrapper-tests-not-skippable.md) — ECHTER EXTERNER BLOCKER, OWNER-ENTSCHEID NÖTIG: der Kandidat 0eeda344 (base 3653369a4d83, 2 dateien: cmd/baha/context\_terminal\_test.go fail-loud + .github/work…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
