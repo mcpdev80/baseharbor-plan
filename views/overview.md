@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 12 |
+| active | 13 |
 | review | 0 |
 | wait | 17 |
 | blocked | 3 |
-| ready | 6 |
+| ready | 5 |
 | queued | 25 |
 | waiting | 178 |
 | backlog | 7 |
@@ -35,6 +35,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-r28-bughunt-observability-desk](../tasks/t-20261119-r28-bughunt-observability-desk.md) | hunt observability desk | active | not set | Coordinator 9142ab1f (bahn: hunt-lane auf ornith:1, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/) | — | — |
 | [t-20261119-r28-window-integrity-verify](../tasks/t-20261119-r28-window-integrity-verify.md) | fensterstand gegen abnahmebelege pruefen | active | not set | w150-pr0428-150-windowverify | — | — |
 | [t-20261120-r28-bughunt-install-destroy-retry](../tasks/t-20261120-r28-bughunt-install-destroy-retry.md) | audit destroy vs interrupted retry | active | not set | w170-pr0428-170-instdestroy | — | — |
+| [t-20261120-r28-bughunt-secret-reveal-paths](../tasks/t-20261120-r28-bughunt-secret-reveal-paths.md) | audit where secrets land in clear text | active | not set | w171-pr0428-171-revealhunt | — | — |
 | [t-20261120-r28-keycloak-signal-id-migration-gap](../tasks/t-20261120-r28-keycloak-signal-id-migration-gap.md) | migrate un-prefixed keycloak registrations | active | not set | w168-pr0428-168-signal-mig-r2 | — | [baseharbor#1709](https://github.com/mcpdev80/baseharbor/pull/1709) |
 
 ## Ready for review
@@ -80,7 +81,6 @@ None.
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261117-hunt-signals-103](../tasks/t-20261117-hunt-signals-103.md) | postgres-/valkey-Adapter ohne Plan | ready | not set | — | [t-20261117-hunt-signals-101](../tasks/t-20261117-hunt-signals-101.md), [t-20261117-hunt-signals-102](../tasks/t-20261117-hunt-signals-102.md) | — |
 | [t-20261117-hunt-signals-104](../tasks/t-20261117-hunt-signals-104.md) | Drei Quellen ohne Destroy-Cleanup | ready | not set | — | [t-20261117-hunt-signals-101](../tasks/t-20261117-hunt-signals-101.md), [t-20261117-hunt-signals-102](../tasks/t-20261117-hunt-signals-102.md) | — |
-| [t-20261120-r28-bughunt-secret-reveal-paths](../tasks/t-20261120-r28-bughunt-secret-reveal-paths.md) | audit where secrets land in clear text | ready | not set | — | — | — |
 
 ## By release
 
