@@ -80,3 +80,21 @@ KEIN Merge; KEIN `.github`-/workflow-/script-aenderung; KEIN write an `internal/
 ## PLAN-STATUS (todos/x-078r2.json)
 
 Schritte 1-8 markiert erledigt (base/branch, files, status-gate, tests, bundle/rebase/push, provenance, build). Schritt 9 (PR-CI run zu terminal) BLOCKIERT durch PR-head-Verklebung => als END_BLOCKED gemeldet.
+
+## push-fehler und korrektur (owner-messen + korrigiert)
+
+### remote-beweis (frisch, clone /var/tmp/x078r2-verify)
+- `git ls-remote origin refs/heads/lane-0428-078-perses-identity-on-resolver` => `16d3430234d269a99f7b366efed800229d6127af` (head IST auf github, nicht verloren).
+- `git ls-remote origin refs/heads/develop` => `907f16713cbf38693d30c9dadaad7fe299759219`.
+- `git merge-base --is-ancestor origin/develop 16d343023` => JA.
+- diff `b6dab95` -> `16d343023` = 5 dateien: cmd/baha/app_status_result.go, internal/metrics/perses_identity_dashboards.go (+_test.go), internal/metrics/perses_identity_witness_test.go, internal/metrics/testdata/perses-identity-dashboards/identity-keycloak.json — exakt das required card work des verdicts.
+- commit 16d343023 elter 7820a932578d, date 04:58:18+01; `b6dab95` ist ahne von `16d343023` = JA (normale fortsetzung der linie).
+
+### korrigierte schritte
+- `git push --force-with-lease origin lane-0428-078-perses-identity-on-resolver` => "Everything up-to-date" (remote war bereits auf 16d343023; frischer clone bestaetigt den kopf).
+- `git rebase origin/develop` ABGEBROCHEN: add/add conflict in cmd/baha/app_init_uid_app_slice_test.go, ~106 ungerade lane-commits haetten mitrebasen muessen => keine unrelated-commits auf meinen kandidaten verschoben, branch auf 16d343023 belassen.
+
+### bleibender blocker (CI)
+- PR #1650 head bleibt auf github an `b6dab95` pinned; kein pull_request-run auf `16d343023` (letzte CI auf dem branch: run 44665488793 auf `b6dab95`, success, 03:06 UTC).
+- Ursaache: PR-basis `f61ef0f499` ist ein divergenter develop-fork; `git merge-base f61ef0f origin/develop` = `907f167` (geschwister, kein ahne). GitHub waeret den PR-head, solange basis nicht auf current develop retargetet ist.
+- Retarget der basis (merge/koordination) ist OUT OF SCOOPA fuer worker (KEIN merge, KEIN .github); befund an owner: PR #1650 base auf `907f16713` retargeten, danach feuert CI auf `16d343023`.
