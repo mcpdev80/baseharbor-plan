@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w078-pr0428-078-identity-hopf (codeman 9c6ca183, ornith)
-kanban_status: blocked
-kanban_lane: blocked
+owner: w078-pr0428-078-appstatus-int
+kanban_status: review
+kanban_lane: review
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
 kanban_title: 0428-078 · Perses identity dashboard
 priority: normal
@@ -17,26 +17,25 @@ depends_on: [t-20261114-r28-perses-dashboard-selection]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1606, mcpdev80/baseharbor#1650]
 sources: []
-blocker: "integrations-fall zwischen den zwei eigenen PRs der karte (#1650 lebt, #1606 draft) mit echter blob-divergenz in cmd/baha/app_status_result.go — bahn w078-pr0428-078-appstatus-int arbeitet genau daran (entscheidung mit blob-beweis, verlierenden PR schliessen, gewinnenden hopfen). Vorheriger blocker-text war eine behauptung, kein zustand"
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/blocked #view/blocked #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** w078-pr0428-078-identity-hopf (codeman 9c6ca183, ornith) · **Priority:** normal  
+    **Owner:** w078-pr0428-078-appstatus-int · **Priority:** normal  
     **PR:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
-    **Blocker:** integrations-fall zwischen den zwei eigenen PRs der karte (\#1650 lebt, \#1606 draft) mit echter blob-divergenz in cmd/baha/app\_status\_result.go — bahn w078-pr0428-078-appstatus-int arbeitet genau daran (entscheidung mit blob-beweis, verlier…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** w078-pr0428-078-identity-hopf (codeman 9c6ca183, ornith)  
+**Owner:** w078-pr0428-078-appstatus-int  
 **Priority:** normal  
 **PRs:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
 **Source:** 
