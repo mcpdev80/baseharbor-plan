@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w183-0428-183-valkeyfix
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: ""
 kanban_title: 0428-183 · valkey dashboards gate
 priority: ""
@@ -18,20 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1714]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "Inhalt ist geliefert und belegbar: candidate 5159192dadeec8335eb401c90fca6614e29048b0 auf PR #1714, branch == refs/pull/1714/head gemessen, akte evidence/r28-welle4-2026-11-20/valkey-dashboard-gate/round-4.md auf main (112 zeilen, 0 checkboxen, P2 query-payload + P3 vertragstext, P1 mit dem echten producer).Der exakt-head-prueflauf 'PR · Go unit · packages' faellt NICHT an ihren dateien (internal/metrics ist im selben log ok), sondern an einem develop-seitigen defekt in internal/logs (loki multi-source, karte 0428-202) und an den cli-shards (0428-198). ein review mit rotem pflichtcheck waere keine pruefbare abgabe (§5.2: nur der SHA-genuege kandidat mit den vorgeschriebenen checks), und 'active' behauptet arbeit, die nicht laeuft - also wait mit den zwei namen."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md"]
 ---
 
-- [ ] t-20261120-r28-valkey-dashboard-unavailable-only · Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable #task #release/v0-4-28 #status/active #view/active #kind/bug
+- [ ] t-20261120-r28-valkey-dashboard-unavailable-only · Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable #task #release/v0-4-28 #status/wait #view/wait #kind/bug
     <!-- generated:card -->
     **Owner:** w183-0428-183-valkeyfix  
     **PR:** [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714)  
+    **Waiting:** Inhalt ist geliefert und belegbar: candidate 5159192dadeec8335eb401c90fca6614e29048b0 auf PR \#1714, branch == refs/pull/1714/head gemessen, akte evidence/r28-welle4-2026-11-20/valkey-dashboard-gate/round-4.md auf main (112 zeilen, 0 checkb…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w183-0428-183-valkeyfix  
