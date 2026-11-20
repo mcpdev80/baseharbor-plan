@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: coord
-kanban_status: planned
-kanban_lane: ready
+owner: w091-pr0428-091-tempo-source
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Provision selected authorized Tempo datasource via supported Perses plugin, scoped and verified."
 kanban_title: 0428-091 · Connect Perses Tempo
 priority: normal
@@ -23,19 +23,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-tempo-source · Connect Perses Tempo #task #release/v0-4-28 #status/planned #view/ready #area/observability #kind/task
+- [ ] t-20261114-r28-perses-tempo-source · Connect Perses Tempo #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** coord · **Priority:** normal  
+    **Owner:** w091-pr0428-091-tempo-source · **Priority:** normal  
     **PR:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645)  
-    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
 **Required by:** [t-20261114-r28-perses-log-trace-dash](t-20261114-r28-perses-log-trace-dash.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** coord  
+**Owner:** w091-pr0428-091-tempo-source  
 **Priority:** normal  
 **PRs:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645)  
 **Source:** 
@@ -79,3 +78,5 @@ Supersedes [t-20261113-r28-grafana-tempo-source](t-20261113-r28-grafana-tempo-so
 luna-r1 REQUEST_CHANGES (bdafd838) — korrekturrunde laeuft
 
 BOARD-KORREKTUR: der eingetragene #1610 ist closed-ohne-merge (d57ab5275, 2026-11-16T12:58Z), der einzige offene traeger ist #1645 — und der ist DRAFT. Ein draft ist kein kandidat (§5.2, meine eigene regel den lanen), deshalb darf die karte nicht auf review stehen. Zustand planned; der weg zur abnahme: draft #1645 auf non-draft + hopf + exaktkopf-lauf
+
+dep-frei nach plan.py show (contract-seam, runtime, signal-inventory accepted). basis develop, NICHT der lane-branch von 0428-083, weil 083 auf 0428-174 haelt. write-set: perses-datasource-pfade; anweisung enthaelt die Konfliktfelder zu 168 (registry/migration) und 078 (app_status_result, perses_identity)
