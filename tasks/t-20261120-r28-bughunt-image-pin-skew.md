@@ -12,27 +12,28 @@ parent: ""
 depends_on: []
 blocked_by: []
 superseded_by: []
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w172-pr0428-172-imageskew
+kanban_status: active
+kanban_lane: active
 blocker: ""
 resolution: ""
 evidence: []
 prs: []
 created: 2026-11-20
+wait_reason: ""
+
 ---
 
-- [ ] t-20261120-r28-bughunt-image-pin-skew · audit image pins and version skew #task #release/v0-4-28 #status/planned #view/ready #area/release #area/runtime #kind/review
+- [ ] t-20261120-r28-bughunt-image-pin-skew · audit image pins and version skew #task #release/v0-4-28 #status/active #view/active #area/release #area/runtime #kind/review
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w172-pr0428-172-imageskew  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w172-pr0428-172-imageskew  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
