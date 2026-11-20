@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w068-pr0428-068-context-shell
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Terminal-scoped context and completion. Follow the owner working brief, command mapping and code entry index; revalidate current…"
 kanban_title: 0428-068 · Terminal-scoped context and
 priority: high
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44695244800", "https://github.com/mcpdev80/baseharbor/actions/runs/44696968212", "https://github.com/mcpdev80/baseharbor/actions/runs/44699230683", "https://github.com/mcpdev80/baseharbor/actions/runs/44700679422", "https://github.com/mcpdev80/baseharbor/pull/1710"]
 ---
 
-- [ ] t-20261114-r28-cli2-context-shell · CLI redesign: Terminal-scoped context and completion #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-context-shell · CLI redesign: Terminal-scoped context and completion #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** w068-pr0428-068-context-shell · **Priority:** high  
     **PR:** [baseharbor#1710](https://github.com/mcpdev80/baseharbor/pull/1710)  
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44695244800", "h
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md), [t-20261114-r28-cli2-uid-target](t-20261114-r28-cli2-uid-target.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
@@ -100,3 +100,5 @@ PR #1710 advanced to `95d18748e0cf6de0e96a73b4286088985ff086bc`; exact run [4469
 ## New exact-head terminal audit — 2026-11-20 08:06 UTC
 
 PR #1710 advanced to `b1fea4df37b3b7327c63b94b6cdb81c1ac4d3473`; exact run [44699230683](https://github.com/mcpdev80/baseharbor/actions/runs/44699230683) completed FAILURE (39 jobs: 18 success, 20 skipped, 2 failure). `PR · Validation · documentation-audit` reports four missing literals in `reference/cli-machine-coverage.md`: `baha context`, `baha context clear`, `baha context show`, and `baha context use`; `PR Selected Checks` fails because `pr_validations` failed. The remaining executed Go/build/vet checks passed. Independent diff/test review also finds the explicit acceptance incomplete: it requires four precedence levels (flag > command-set env > terminal env > default) and one test per level. Current code/tests show only flag → `BASEHARBOR_TARGET` shell env → configured default; they do not distinguish/test command-set env separately from terminal env. PR remains OPEN, non-draft, merge-blocked; keep 0428-068 Active.
+
+nachlieferung ist erfolgt, damit ist die karte abnahmefaehig: akte evidence/r28-welle4-2026-11-20/cli2-context-shell/round-1.md liegt auf origin/main @ c0d065b3, mit '## PLAN' (nummeriert, 0 checkboxen), '## Remote witnesses' (ls-remote + merge-base-zeilen), '## Precedenz' mit test pro stufe, '## Repo-rule compliance', '## Outcome' (run-id 44700679422). head unveraendert eingefroren: PR #1710 = branch b-068-cli2-context-shell = eff023c07810, upd 08:12:14Z, base.sha = develop-spitze, draft=false, mergeable=clean, 40/40 checks, 0 failure. CODEX-REVIEW ist bestellT (session 95971e0a, rolle REVIEW, akte 1710-0428-068.md) und laeuft NACH dem laufenden #1709-review, weil zwei bewegliche heads die abnahme brechen — das ist der grund, warum ich es in die warteschlange der reviewer-session gestellt habe statt parallel
