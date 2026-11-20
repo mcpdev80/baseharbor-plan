@@ -33,6 +33,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
+**Required by:** [t-20261121-static-gate-registration](t-20261121-static-gate-registration.md)  
 **Owner:** w220-0428-205-catalog  
 **Priority:** normal  
 **PRs:** none  
