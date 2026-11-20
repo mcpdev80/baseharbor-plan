@@ -9,11 +9,11 @@ version: ""
 parent: ""
 owner: ""
 kanban_status: planned
-kanban_lane: ready
+kanban_lane: planned
 kanban_summary: ""
 kanban_title: 0428-181 · identity catalog consumer
 priority: ""
-depends_on: []
+depends_on: [t-20261114-r28-perses-datasources]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -23,17 +23,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r7.md"]
 ---
 
-- [ ] t-20261120-r28-identity-dashboard-catalog-consumer · Identity dashboard catalog has zero production consumers (P4 of review 1650) #task #release/v0-4-28 #status/planned #view/ready #kind/bug
+- [ ] t-20261120-r28-identity-dashboard-catalog-consumer · Identity dashboard catalog has zero production consumers (P4 of review 1650) #task #release/v0-4-28 #status/planned #view/waiting #board/planned #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r7.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** none  
+**Depends on:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  
@@ -53,3 +54,21 @@ CODEX-REVIEW of PR #1650 (evidence/r28-welle4-2026-11-20/codex-review-wave/1650-
 ## Boundaries
 
 internal/metrics/** plus the one call site in internal/application/perses_runtime.go or internal/capability/perses_selection.go needed to attach it. SEQUENCING: wait until 0428-083 (#1684) is merged, because it writes the same file; if it is still open, this card stays blocked - owner ruling 2026-11-20.
+
+## Premise corrected by the coordinator (2026-11-20, measured, status unchanged)
+
+The card text says the catalog "exists but is unwired". Measured on develop `f5ce95afce1c` both files are ABSENT:
+
+```
+git cat-file -e refs/heads/tmp-dev3:internal/metrics/perses_identity_dashboards.go  -> FEHLT
+git cat-file -e refs/heads/tmp-dev3:internal/metrics/perses_identity_witness.go      -> FEHLT
+```
+
+They are absent because the owner's 0428-078 takeover removed the zero-consumer catalog from PR #1650 (the witness stayed,
+with its consumer at `cmd/baha/app_status_result.go:343`), and #1650 is not merged. Acceptance item 3 ("remove it from the
+tree") is therefore already satisfied and is NOT the work. The work is item 1 in its full form: add the catalog AND its
+consumer in one card, so the tree never again carries a dashboard file that nothing calls.
+
+Declared dependency `t-20261114-r28-perses-datasources` (#1684): that PR is open and its lane is writing
+`internal/application/perses_runtime.go` - the file this card's call-site work would also touch. Start here only after #1684
+lands, or report the conflict instead of editing the same file twice (AGENTS 4.3).
