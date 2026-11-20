@@ -17,7 +17,7 @@ kanban_status: closed
 kanban_lane: closed
 blocker: ""
 resolution: accepted
-evidence: ["https://github.com/marcel"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/bughunt-connector-handshake/round-1.md"]
 prs: []
 created: 2026-11-20
 wait_reason: ""
@@ -27,7 +27,7 @@ wait_reason: ""
 - [x] t-20261120-r28-bughunt-connector-handshake-timeouts · audit handshake timeout and retry paths #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/capability #area/observability #kind/review
     <!-- generated:card -->
     **Owner:** w173-pr0428-173-handshake  
-    **Evidence:** [proof 1](https://github.com/marcel)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/bughunt-connector-handshake/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
