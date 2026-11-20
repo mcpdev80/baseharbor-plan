@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 13 |
+| active | 14 |
 | review | 0 |
 | wait | 17 |
 | blocked | 3 |
-| ready | 4 |
+| ready | 3 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
@@ -37,6 +37,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-r28-window-integrity-verify](../tasks/t-20261119-r28-window-integrity-verify.md) | fensterstand gegen abnahmebelege pruefen | active | not set | w150-pr0428-150-windowverify | — | — |
 | [t-20261120-coord-publish-integrity-gaps](../tasks/t-20261120-coord-publish-integrity-gaps.md) | Coordinator tooling: card-status.py bypasses the payload integrity gates; watch.py rm signature unusable | active | not set | w175-pr0428-175-publish-gate | — | — |
 | [t-20261120-perses-tmpfs-mountpoint](../tasks/t-20261120-perses-tmpfs-mountpoint.md) | Perses runtime smoke cannot mount tmpfs at /etc/perses/database on hosted runners | active | not set | 0428-083- | — | — |
+| [t-20261120-r28-stale-draft-pr-1665-closeout](../tasks/t-20261120-r28-stale-draft-pr-1665-closeout.md) | Stale draft PR #1665 on parked card 0428-082: restack with evidence or close after ancestry proof | active | not set | w176-pr1665-1665-closeout | — | — |
 
 ## Ready for review
 
@@ -79,7 +80,6 @@ None.
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261117-hunt-signals-103](../tasks/t-20261117-hunt-signals-103.md) | postgres-/valkey-Adapter ohne Plan | ready | not set | — | [t-20261117-hunt-signals-101](../tasks/t-20261117-hunt-signals-101.md), [t-20261117-hunt-signals-102](../tasks/t-20261117-hunt-signals-102.md) | — |
 | [t-20261117-hunt-signals-104](../tasks/t-20261117-hunt-signals-104.md) | Drei Quellen ohne Destroy-Cleanup | ready | not set | — | [t-20261117-hunt-signals-101](../tasks/t-20261117-hunt-signals-101.md), [t-20261117-hunt-signals-102](../tasks/t-20261117-hunt-signals-102.md) | — |
-| [t-20261120-r28-stale-draft-pr-1665-closeout](../tasks/t-20261120-r28-stale-draft-pr-1665-closeout.md) | Stale draft PR #1665 on parked card 0428-082: restack with evidence or close after ancestry proof | ready | not set | — | — | — |
 
 ## By release
 
