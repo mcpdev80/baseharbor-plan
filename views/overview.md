@@ -10,7 +10,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 15 |
+| active | 14 |
 | review | 0 |
 | wait | 17 |
 | blocked | 3 |
@@ -18,7 +18,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
-| closed | 370 |
+| closed | 371 |
 
 ## Active
 
@@ -37,7 +37,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-r28-window-integrity-verify](../tasks/t-20261119-r28-window-integrity-verify.md) | fensterstand gegen abnahmebelege pruefen | active | not set | w150-pr0428-150-windowverify | — | — |
 | [t-20261120-coord-publish-integrity-gaps](../tasks/t-20261120-coord-publish-integrity-gaps.md) | Coordinator tooling: card-status.py bypasses the payload integrity gates; watch.py rm signature unusable | active | not set | w175-pr0428-175-publish-gate | — | — |
 | [t-20261120-perses-tmpfs-mountpoint](../tasks/t-20261120-perses-tmpfs-mountpoint.md) | Perses runtime smoke cannot mount tmpfs at /etc/perses/database on hosted runners | active | not set | 0428-083- | — | — |
-| [t-20261120-r28-signal-id-normalization-collision](../tasks/t-20261120-r28-signal-id-normalization-collision.md) | collide project names by token fold | active | not set | 0428-166- | [t-20261120-r28-keycloak-signal-id-migration-gap](../tasks/t-20261120-r28-keycloak-signal-id-migration-gap.md) | [baseharbor#1712](https://github.com/mcpdev80/baseharbor/pull/1712) |
 | [t-20261120-r28-stale-draft-pr-1665-closeout](../tasks/t-20261120-r28-stale-draft-pr-1665-closeout.md) | Stale draft PR #1665 on parked card 0428-082: restack with evidence or close after ancestry proof | active | not set | w176-pr1665-1665-closeout | — | — |
 
 ## Ready for review
@@ -86,7 +85,7 @@ None.
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 6 open, 163 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 53 open, 139 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 52 open, 140 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
