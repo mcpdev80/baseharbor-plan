@@ -17,8 +17,8 @@ depends_on: [t-20261114-r28-perses-alerts, t-20261114-r28-perses-secure-access]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: "Owner-Entscheidung 2026-11-20 (queue-124 geschlossen): Routing ausschließlich opt-in; ohne konfigurierte Route verlässt keine Benachrichtigung das System."
-wait_reason: "Implementierung wartet auf 0428-073; die Prüfung, ob eine kompatible Alertmanager-Integration existiert, kann parallel erfolgen."
+blocker: ""
+wait_reason: "Owner-Entscheidung 2026-11-20 (queue-124 geschlossen): Routing ausschließlich opt-in; ohne konfigurierte Route verlässt keine Benachrichtigung das System. Implementierung wartet auf 0428-073; Alertmanager-Kompatibilitätsprüfung darf parallel erfolgen."
 resolution: ""
 evidence: []
 ---
@@ -26,8 +26,7 @@ evidence: []
 - [ ] t-20261114-r28-perses-contact-routing · Define alert notification routing #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** coord · **Priority:** normal  
-    **Blocker:** Owner-Entscheidung 2026-11-20 (queue-124 geschlossen): Routing ausschließlich opt-in; ohne konfigurierte Route verlässt keine Benachrichtigung das System.  
-    **Waiting:** Implementierung wartet auf 0428-073; die Prüfung, ob eine kompatible Alertmanager-Integration existiert, kann parallel erfolgen.  
+    **Waiting:** Owner-Entscheidung 2026-11-20 (queue-124 geschlossen): Routing ausschließlich opt-in; ohne konfigurierte Route verlässt keine Benachrichtigung das System. Implementierung wartet auf 0428-073; Alertmanager-Kompatibilitätsprüfung darf parall…  
     **Needs:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md)  
     <!-- /generated:card -->
 
