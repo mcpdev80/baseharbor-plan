@@ -15,9 +15,9 @@ kanban_title: 0428-184 · shared destroy skips registry
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["1715"]
 sources: []
-blocker: ""
+blocker: "wartet auf karte 0428-187 (podman data-capabilities consent-gate stall, run 44743111417 job 136312259900) - ohne die_loesung ist der selected-aggregate am exakten head rot, gleich gueltig ihr diff ist"
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md"]
@@ -60,3 +60,5 @@ gelingt danach; regression in beide richtungen PLUS der fall 'fremder owner-eint
 wipe). vorgeschaltet ist lesend die pruefung der HEUTE gemergten 0428-166-stellen (internal/observability/provider_registration.go
 und migration.go) mit der zeile 'welche zeile ich NICHT antaste' in der akte. grenzen: KEIN .github/**, KEINE aenderung an
 internal/application/perses_runtime.go (dort arbeitet 0428-083), stopp + meldung bei drohender §4.3-kollision.
+
+PR #1715 head c1485721f130, run 44743111417 TERMINAL FAILURE: 'PR · Selected Runtime (atomic/podman/data-capabilities' + 'PR Selected Checks' rot, 16 success/16 skipped. die rote zelle ist NICHT ihr defect: sie hat weder wizard noch consent geaendert, die ursache liegt auf karte 0428-187 (consent-gate-stall, log-beleg dort). unabhaengig davon die abnahme: mutationstest umgeht die owner-guard in RegisterProviderSignals, valkey-regression fehlt, akte fehlte auf main. korrektur ist zugestellt; ihr PR bleibt BIS 187 geloest in 'blocked' gefuehrt, nicht als review-wait.

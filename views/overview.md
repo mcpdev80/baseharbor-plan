@@ -14,7 +14,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | review | 0 |
 | wait | 17 |
 | blocked | 5 |
-| ready | 6 |
+| ready | 7 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
@@ -85,13 +85,14 @@ None.
 | [t-20261120-r28-identity-dashboard-catalog-consumer](../tasks/t-20261120-r28-identity-dashboard-catalog-consumer.md) | Identity dashboard catalog has zero production consumers (P4 of review 1650) | ready | not set | — | — | — |
 | [t-20261120-r28-keycloak-producer-target-mismatch](../tasks/t-20261120-r28-keycloak-producer-target-mismatch.md) | Keycloak producer registers ID/target the identity witness can never match | ready | not set | — | — | — |
 | [t-20261120-r28-perses-status-never-verified](../tasks/t-20261120-r28-perses-status-never-verified.md) | No source API yields verified: status --json can never report true | ready | not set | — | — | — |
+| [t-20261120-r28-podman-consent-gate-stall](../tasks/t-20261120-r28-podman-consent-gate-stall.md) | The podman data-capabilities cell stalls the guided wizard at the candidate-consent step | ready | not set | — | — | — |
 | [t-20261120-r28-shell-wrapper-tests-not-skippable](../tasks/t-20261120-r28-shell-wrapper-tests-not-skippable.md) | CI intake: zsh/fish wrapper tests skip silently when the shell is not installed | ready | not set | — | — | — |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 6 open, 163 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 58 open, 143 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 59 open, 143 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
