@@ -225,3 +225,9 @@ cleanliness: no containers/volumes/networks/state dirs created by this lane; wor
 ## END
 
 END_DONE x-123h2: hopf2 head 6d7ea080c59f1a6c3d368da54904bc7cd5ef7a4b contains develop tip b7cbc00f; internal/metrics diff empty vs 270a0de6 and vs 93eea4954; CI run 44651446678 completed/success at exactly this head; PR #1693 mergeStateStatus=CLEAN.
+
+```
+$ git ls-remote origin refs/heads/main   # baseharbor-plan, run from /var/tmp/123-plan-clone
+63e5e260cc19ec98b7214fa2772d59d67f0b4b36	refs/heads/main
+```
+Evidence path on origin/main: evidence/r28-welle4-2026-11-19/regvisibility-r9-hopf2/fix-1.md (commit 63e5e260, pushed before this END post).
