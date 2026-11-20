@@ -22,7 +22,7 @@ prs: []
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-r28-keycloak-signal-id-migration-gap · migrate un-prefixed keycloak registrations #bug #release/v0-4-28 #status/planned #view/ready #area/capability #area/observability #kind/bug
+- [ ] t-20261120-r28-keycloak-signal-id-migration-gap · migrate un-prefixed keycloak registrations #task #release/v0-4-28 #status/planned #view/ready #area/capability #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned  
     **Ready to assign** · prerequisites accepted  

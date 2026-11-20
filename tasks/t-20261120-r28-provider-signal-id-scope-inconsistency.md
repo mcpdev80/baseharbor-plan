@@ -22,7 +22,7 @@ prs: []
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-r28-provider-signal-id-scope-inconsistency · scope signal ids uniformly per project #bug #release/v0-4-28 #status/planned #view/ready #area/capability #area/observability #kind/bug
+- [ ] t-20261120-r28-provider-signal-id-scope-inconsistency · scope signal ids uniformly per project #task #release/v0-4-28 #status/planned #view/ready #area/capability #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned  
     **Ready to assign** · prerequisites accepted  
