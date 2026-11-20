@@ -17,8 +17,8 @@ depends_on: [t-20261114-r28-perses-alerts, t-20261114-r28-perses-secure-access]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: ""
-wait_reason: "Owner-Entscheidung queue-124 umgesetzt und geschlossen: opt-in-Routing ohne externe Benachrichtigung per Default. Begonnener Entwurf wartet auf die Abnahme von 0428-073; die Kompatibilitätsprüfung des vorhandenen Alertmanager kann parallel erfolgen."
+blocker: "Owner-Entscheidung 2026-11-20 (queue-124 geschlossen): Routing ausschließlich opt-in; ohne konfigurierte Route verlässt keine Benachrichtigung das System."
+wait_reason: "Implementierung wartet auf 0428-073; die Prüfung, ob eine kompatible Alertmanager-Integration existiert, kann parallel erfolgen."
 resolution: ""
 evidence: []
 ---
@@ -26,7 +26,8 @@ evidence: []
 - [ ] t-20261114-r28-perses-contact-routing · Define alert notification routing #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** coord · **Priority:** normal  
-    **Waiting:** Owner-Entscheidung queue-124 umgesetzt und geschlossen: opt-in-Routing ohne externe Benachrichtigung per Default. Begonnener Entwurf wartet auf die Abnahme von 0428-073; die Kompatibilitätsprüfung des vorhandenen Alertmanager kann parallel…  
+    **Blocker:** Owner-Entscheidung 2026-11-20 (queue-124 geschlossen): Routing ausschließlich opt-in; ohne konfigurierte Route verlässt keine Benachrichtigung das System.  
+    **Waiting:** Implementierung wartet auf 0428-073; die Prüfung, ob eine kompatible Alertmanager-Integration existiert, kann parallel erfolgen.  
     **Needs:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md)  
     <!-- /generated:card -->
 
@@ -43,7 +44,7 @@ evidence: []
 
 ## Goal
 
-Implement opt-in alert notification routing. No route configured means no external notification leaves the system. First evaluate whether the existing Alertmanager integration is compatible; do not assume Alertmanager is present or add infrastructure by default. The routing contract is independent of operator access.
+Implement opt-in alert notification routing. No route configured means no external notification leaves the system. First evaluate whether the existing Alertmanager integration is compatible; do not assume Alertmanager is present or add infrastructure by default. Use existing Service-Access and TLS contracts. Credentials must follow the Identity-Secrets contract; never put credentials in names or environment variables.
 
 ## Scope and file ownership
 
@@ -57,7 +58,7 @@ All referenced paths exist at Core `cd77e20e`; fetch actual current `develop` an
 - [internal/openbao/application_scope.go](https://github.com/mcpdev80/baseharbor/blob/cd77e20e107d7f29020c167ae143eaf1e6598b40/internal/openbao/application_scope.go)
 - [internal/metrics/prometheus_render.go](https://github.com/mcpdev80/baseharbor/blob/cd77e20e107d7f29020c167ae143eaf1e6598b40/internal/metrics/prometheus_render.go)
 
-Inspect the current Core and Prometheus integration for an existing compatible Alertmanager. If present, use it with explicit opt-in routing and existing authorization, secret-reference, TLS and lifecycle rules. If absent or incompatible, do not add a service: keep outbound delivery disabled and report the precise missing contract. Verify configured delivery with a bounded test receiver; never configure an external route by default.
+First inspect the existing Core/Prometheus integration for a compatible Alertmanager; use it if present. Do not assume it exists, build a router, or introduce new infrastructure. Destinations are configured explicitly; with no configured route, no notification leaves the system. Routes follow existing Service-Access, TLS and Secrets contracts. Credentials use the Identity-Secrets contract, never names or environment variables. Verify delivery with a bounded test receiver.
 
 ## Acceptance
 
@@ -72,7 +73,7 @@ Record exact candidate SHA and focused tests by name. Route every changed test t
 
 ## Owner decision — queue-124 (2026-11-20)
 
-Resolved: routing is opt-in; no configured route means nothing leaves the system. First inspect the existing Alertmanager integration for compatibility; do not assume it exists or introduce it as new infrastructure. Design may proceed in parallel, while implementation waits for 0428-073.
+Resolved and closed: queue-124 selected explicitly configured opt-in destinations only. Without a configured route, no notification leaves the system. Evaluate and use an existing compatible Alertmanager if available; do not assume it exists or build a router. Follow existing Service-Access, TLS and Secrets contracts; credentials belong to Identity-Secrets and never to names or environment variables. Design/compatibility inspection may proceed in parallel; implementation waits for 0428-073.
 
 ## Dependencies and handoff
 
