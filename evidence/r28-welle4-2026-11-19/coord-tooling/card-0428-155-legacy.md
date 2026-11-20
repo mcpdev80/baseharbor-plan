@@ -1,3 +1,5 @@
+<!-- LEGACY (Owner-Entscheidung 2026-11-20): diese Karte fuehrt das Produkt-Release-Board v0.4.28 nicht mehr. Coordinator-Tooling liegt in https://github.com/mcpdev80/codeman-coordinator-tooling; Werkzeug-Details laufen dort, nicht als Produktkarten. Der Inhalt bleibt unveraendert als Verlaufstraeger erhalten. -->
+
 ---
 id: t-20261119-coord-tooling-defects
 kanban_title: 0428-155 · coordinator script defects
@@ -5,7 +7,7 @@ card_number: "0428-155"
 card_short_title: "coordinator script defects"
 type: task
 areas: [coordination, ci, tooling]
-release: ""
+release: v0.4.28
 version: ""
 parent: ""
 owner: w155-pr0428-155-waitfix
