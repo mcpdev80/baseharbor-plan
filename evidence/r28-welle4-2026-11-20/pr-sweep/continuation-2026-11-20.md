@@ -236,3 +236,22 @@ A fresh read-only Codeman observer succeeded at `2026-11-20 06:01:04 UTC`:
 - `pool-reconcile.py status --json`: Coordinator busy, workers 5/5 (Ornith 2/2, Laptop 2/2, Flash 1/1), no holds or open seats.
 
 The empty lane map conflicts with the five busy worker sessions; keep both observations. Queue/tick/reminder/owner-report flags were observed only; no Codeman messages, acknowledgments, writes, or dispatches were made. This entry starts from clean plan main `eb34784503499c15c8c910f935c963c3781d0788`; the overall sweep remains active.
+
+## Fresh PR and Codeman revalidation after df527665 — 2026-11-20 06:04 UTC
+
+Two exact-repository agent audits rechecked all 19 open PRs; GitHub search and Codeman `coord-state` both list the same 19 IDs and unchanged heads. There are no new formal reviews or author replies, and no PR is eligible for Review, merge, or closure. #1594 remains Blocked by five failed Draft Go shards; #1614/#1615/#1620/#1623 remain Blocked; the other Draft candidates remain Wait; #1650/#1684/#1702/#1704/#1709 remain held by their recorded code/runtime/acceptance findings.
+
+**#1650 takeover clarification.** Concurrent plan main now marks card 0428-078 Active and records a takeover lane. Direct GitHub reads confirm PR #1650 itself is still OPEN/Ready at exact head `ac2a5450379492d410a379469e9845b2ce21190d`, base `develop@36d075fa`, no formal review, and issue-comment `7031412203` remains the latest maintainer finding with no author response. Exact run `44680875974` has 34 jobs: 13 succeeded and 21 skipped. `PR Selected Checks` and `PR · Native gate plan` succeeded; `PR · Selected Runtime`, Native Keycloak/Core, HA, release, candidate/consumer and public-contract jobs were skipped. Thus the takeover makes task progress visible but does not resolve the two review findings or promote the PR. Round-3 evidence is still pending on the task card.
+
+Fresh read-only Codeman observer at `2026-11-20 06:04:16 UTC`:
+
+- `basics-check.py --json`: board currency `ok`, inflight, ahead 0 / behind 1 / dirty 0; roles Coordinator 1/1, reviewers/mergers 2/1, workers 5/5. Flags report one unread reminder, 19 open PRs, two `bh-*` containers, one queued mission with no free capacity, and END pending for already-accepted PR #1419. The tick flag says due since `06:04:02Z` but age `1798s` at this snapshot; the fields appear inconsistent, so no elapsed-time claim is inferred.
+- `watch.py list`: coordinator `9142ab1f`, two role=None sessions, and five workers (`da056a3d`, `9856a435`, `f9443826`, `d8ba077c`, `7578ff5b`) last busy.
+- `coord-state.py --json`: lane and mission maps empty; candidate list shows the 19 open PRs and current heads.
+- `pool-reconcile.py status --json`: Coordinator busy; workers 5/5 (Ornith 2/2, Laptop 2/2, Flash 1/1), no holds or open seats.
+
+The empty lane map again conflicts with the five busy worker sessions; preserve both views. The queue, pending END, reminder, and overdue-tick flags were observed only. No Codeman messages, acknowledgments, writes, or dispatches were made.
+
+Before this sweep-note append, shared `baseharbor-plan/main` had advanced to `f336ca594e9e21f49ed0cca30e3e10157d72fe4f` via coordinator updates: card 0428-078 Active, card 0428-174 Active, and card 0428-155 intake. Those commits were fast-forwarded locally and preserved. The overall PR sweep remains active.
+
+**Concurrent plan update while publishing:** `main` advanced from `f336ca59` to `e5b3d3f3`. The coordinator removed the temporary 0428-155 intake and created ready/unassigned card 0428-175 for the publish-integrity findings. I fast-forwarded and preserved those changes; no claim was taken on that unrelated ready card. The current sweep-note publication will therefore be based on `e5b3d3f3`, not the prior `f336ca59` snapshot.
