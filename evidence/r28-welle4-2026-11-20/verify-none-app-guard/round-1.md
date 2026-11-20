@@ -72,17 +72,38 @@ is not removed.
 - Status: **OPEN**, file:line `internal/metrics/prometheus_files.go:146-147`
   (write loop) + `:122-144` (sweep condition). Per fund->karten-pflicht this
   stays with the coordinator (owner casts the card); not built here.
+- Contract-site cross-reference: `internal/capability/integration_contract.go:242`
+  is the only contract site validating verification modes (provider signals only);
+  the uniform `Verification=none` semantics I state here is not contradicted
+  elsewhere. My regression file:line:
+  `internal/metrics/prometheus_verify_workload_only_test.go`
+  (`TestVerifyApplicationSourceVerificationNoneIsSkipped`).
 
 ## CI — exact head, own terminal observation (4.6)
 
 - PR: #1729, branch `lane-0428-143-verify-none`, head `809a8196e1cf8b29d410c6a9bd07114d99c2dc10`, base `develop` (40cb28c758b0).
-- GitHub Actions run #6818 (event `pull_request`), conclusion: **failure**.
-- The failure is NOT my change. Two independent pre-existing failures:
-  1. `PR · Go unit · cli-0/1/2/3` shards — `cmd/baha`: `--- FAIL: TestAppCreateListShowPlan` etc., root cause `main_test.go:60: create failed: Managed-environment machine operations require an authenticated BaseHarbor operator.` — the field-gate 198/202 failure (authenticated-operator on a managed Target), locked to lane 0428-198.
-  2. `PR · Go unit · packages` shard — `--- FAIL: TestPersesLokiDatasourceMultiSourceQueryOneSelectorPerSource` (and sibling Loki tests) in `internal/logs`: `load Loki service access identity: stat .../service-access/pki/client-cert.pem: no such file or directory`. Confirmed fails identically on unmodified develop (40cb28c758b0); unrelated to this card.
-- **My packages ARE green in CI.** `internal/metrics` (regression) and `internal/capability` (contract): `ok  github.com/mcpdev80/baseharbor/internal/metrics  0.434s`, `ok  github.com/mcpdev80/baseharbor/internal/capability  0.018s`. The regression `TestVerifyApplicationSourceVerificationNoneIsSkipped` was auto-discovered by the packages shard (draft Go package selection lists both packages). RED on original code, GREEN after the guard, verified locally and in CI.
-- go-build: SUCCESS, go-vet: SUCCESS, Source format: SUCCESS, Workflow policy: SUCCESS, Trusted Plan: SUCCESS.
+- GitHub Actions run **44805066271** (event `pull_request`), conclusion: **failure**.
+- `PR Selected Checks` aggregate: **FAILURE**.
+
+### Per-cell conclusions (run 44805066271)
+
+- `PR · Go unit · owner`: SUCCESS. `go-build`: SUCCESS, `go-vet`: SUCCESS, Source format: SUCCESS, Workflow policy: SUCCESS, Trusted Plan: SUCCESS.
+- `PR · Go unit · cli-0/1/2/3`: **FAILURE**, field-gate 0428-198 (locked to lane 0428-198, out of this card's write-set). Root cause, literal line from the cli-0 job (136526893221) at line 272:
+  `main_test.go:60: create failed: Managed-environment machine operations require an authenticated BaseHarbor operator.` — the authenticated-operator-on-managed-Target gate, pre-existing (fails identically on unmodified develop).
+- `PR · Go unit · packages`: **FAILURE**, not my change. The only three failing tests are in `internal/logs`:
+  - `TestPersesLokiDatasourceMultiSourceQueryOneSelectorPerSource` (loki_test.go:522),
+  - `TestPersesLokiDatasourceMultiSourcePartialMatchability` (loki_test.go:586),
+  - `TestPersesLokiDatasourceMultiSourceNoneMatchFailsClosed` (loki_test.go:633)
+  all failing with: `load Loki service access identity: stat .../providers/loki/shared/service-access/pki/client-cert.pem: no such file or directory`. These are **0428-202** (Loki multi-source-consumer, root `2af892e4e` in `internal/serviceaccess/policy.go`); zero operator-auth lines in this job, so the cause is external. Confirmed pre-existing (fails identically on unmodified develop).
+- **My tests pass in CI.** `internal/metrics`: `ok  github.com/mcpdev80/baseharbor/internal/metrics  0.434s`; `internal/capability`: `ok  github.com/mcpdev80/baseharbor/internal/capability  0.018s`. The regression `TestVerifyApplicationSourceVerificationNoneIsSkipped` was auto-discovered by the packages shard. RED on original code, GREEN after the guard.
+- The packages cell is **red** (job 136526893242 in run 44805066271 at head 809a8196e) due to the foreign 0428-202 cause above; my metrics/capability tests pass. A green state that is not present is not claimed, in whole or as partial proof (5.4).
+
+## cleanliness:
+
+- No docker/podman compose project started this session (in-process `go test` only).
+- `docker ps -a`: empty (before and after); `docker volume ls`: no `0428-143`/`lane-0428-143` volumes; no state dirs created under my worktree.
+- `ambient-core/` foreign-cart images untouched. Broom-clean.
 
 ## END
 
-END_DONE w203-0428-143-vernone: head=809a8196e1cf8b29d410c6a9bd07114d99c2dc10 pr=1729 run=6818 conclusion=failure(pre-existing cmd/baha field-gate 198 + internal/logs PKI; my packages metrics+capability GREEN) evidence=publishing
+END_DONE w203-0428-143-vernone: head=809a8196e1cf8b29d410c6a9bd07114d99c2dc10 pr=1729 run=44805066271 conclusion=failure (field-gate 0428-198 cli-0..3 + field-gate 0428-202 internal/logs, both external/locked; my metrics+capability tests pass) evidence=origin/main 8641f09e
