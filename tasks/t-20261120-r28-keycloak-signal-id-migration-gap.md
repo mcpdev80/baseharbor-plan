@@ -13,26 +13,26 @@ depends_on: []
 blocked_by: []
 superseded_by: []
 owner: w168-pr0428-168-signal-mig-r3
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 blocker: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44692628196", "https://github.com/mcpdev80/baseharbor/actions/runs/44699615600", "https://github.com/mcpdev80/baseharbor/actions/runs/44700696085", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1709-0428-168-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1709-0428-168-r3.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44692628196", "https://github.com/mcpdev80/baseharbor/actions/runs/44699615600", "https://github.com/mcpdev80/baseharbor/actions/runs/44700696085", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1709-0428-168-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1709-0428-168-r3.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md", "https://github.com/mcpdev80/baseharbor/pull/1709"]
 prs: [mcpdev80/baseharbor#1709]
 created: 2026-11-20
 wait_reason: ""
 
 ---
 
-- [ ] t-20261120-r28-keycloak-signal-id-migration-gap · migrate un-prefixed keycloak registrations #task #release/v0-4-28 #status/review #view/review #area/capability #area/observability #kind/bug
+- [x] t-20261120-r28-keycloak-signal-id-migration-gap · migrate un-prefixed keycloak registrations #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/capability #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** w168-pr0428-168-signal-mig-r3  
     **PR:** [baseharbor#1709](https://github.com/mcpdev80/baseharbor/pull/1709)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44692628196), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44699615600), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44700696085), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1709-0428-168-r2.md), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1709-0428-168-r3.md), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44692628196), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44699615600), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44700696085), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1709-0428-168-r2.md), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1709-0428-168-r3.md), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md), [proof 8](https://github.com/mcpdev80/baseharbor/pull/1709)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261120-r28-provider-signal-id-scope-inconsistency](t-20261120-r28-provider-signal-id-scope-inconsistency.md), [t-20261120-r28-signal-id-normalization-collision](t-20261120-r28-signal-id-normalization-collision.md)  
@@ -96,3 +96,5 @@ abnahme bestellt, weil alle drei bedingungen der einfrier-regel erfuellt sind: (
 verdict r3 am eingefrorenen head liegt vor und ist gueltig (akte 1709-0428-168-r3.md: 'PR head before review' = 'PR head after review' = 1fa78df421e5, von mir nachgemessen: branch = refs/pull/1709/head, mergeable=clean). resultat: REQUEST CHANGES, ein blockierender befund (P1-restfall). stelle am eingefrorenen head: internal/identityprovider/keycloak_realization.go, ownerProjectMaps ab :220, :235 ListKeycloakOwnerProjects, :237 'return nil, err', :239-240 nur bei len(recorded)>0. fehlender fall: owner-VERZEICHNIS fehlt (os.ErrNotExist), der abgeleitete scan findet mindestens einen anderen besitzer -> maps werden verworfen. der echte scan-fehler muss weiter abbrechen (ihr r3-pfad, unangetastet). P2 (internal/observability/keycloak_legacy_migration_test.go:138-205) und P4 sind ADRESSED, keine nacharbeit (§5.4). reviewer bestaetigt aus dem log von run 44700696085: packages-shard faehrt TestStandaloneSharedPostgresUsesPhysicalOwnerAcrossAppAndRecoveryLifecycle ohne filter. korrekturauftrag zugestellt (9d1d1205 busy): not-exist vs echter fehler trennen, abgeleitete besitzer weiterreichen, zwei tests mit mutationsbeweis. 0428-166: nichts genehmigt, RebookLegacySignals nur 'interface planning only', finalsignatur folgt aus der r4-akte
 
 r4 am eingefrorenen head, alle drei bedingungen von mir nachgemessen: (1) head 489e4e66a2b1 = branch = refs/pull/1709/head, kein weiterer push; (2) run 44704834012 completed/success am exakten head, base.sha = develop-spitze 36d075fad77f, draft=false, mergeable=clean, 8 dateien, merge-base --is-ancestor = JA; (3) akte keycloak-signal-migration/round-4.md (228 zeilen) auf main @ 6c6748c74a3b. inhalt der runde: union des abgeleiteten legacy-owner-maps mit dem aufgezeichneten map bei nicht-leerem recorded, ListAll-fehler wird weitergereicht statt umgewandelt, fail-closed abort; der echte scan-error-pfad aus r3 bleibt unangetastet (mutationsbeweis D gilt weiter), neuer beweis E in der akte. CODEX-REVIEW r4 am eingefrorenen head bestellt (session 95971e0a, rolle REVIEW, akte 1709-0428-168-r4.md), auftrag enthaelt die bitte, bei APPROVE die signaturen RebookLegacySignals und MigrateScopedMany woertlich aus dem code zu bestaetigen - damit kann folgekarte 0428-166 ohne raten anfangen
+
+MERGE FERN BESTAETIGT: gh api pulls/1709 -> state=closed, merged=true, merge_commit_sha=681700ca66f3, closed 09:02:27Z; develop-spitze 681700ca66f3. ablauf: CODEX-REVIEW am EINFRORENEN head 489e4e66a2b1 -> verdict APPROVE, 'PR head before review' = 'PR head after review' = 489e4e66a2b1 (akte codex-review-wave/1709-0428-168-r4.md). der merge stammt vom OWNER (owner-direktmerge), nicht von einer CODEX-MERGE-session. MERKWUERDIG, DAMIT ICH ES NICHT VERLIESE: der owner merge, BEVOR ich die abnahme-publication durchfuehren konnte - karte stand auf review, verdict APPROVE, develop 681700ca66f3. folgekarte 0428-166 (t-20261120-r28-signal-id-normalization-collision) ist FREI, reviewer liefert die zwei signaturen woertlich: func RebookLegacySignals(r LegacyReconciliation, sources []SignalSource, registrationID string) []SignalSource; func (l LegacySource) MigrateScopedMany(project string, sourceProjects ...map[string]string) (migrated bool, err error); produktionsstelle internal/observability/migration.go:277-286
