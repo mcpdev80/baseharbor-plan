@@ -58,7 +58,25 @@ Lane: w202-0428-076-dbpanels · Card: 0428-076 · PR: baseharbor#1597 · Model: 
 
 ## Scope decision requested (QUESTION to Owner)
 
+- PR #1597 head 540ed13cec36 is a STACKED chain: lane `perses-dashboard-databases-lane` = 075(seam) + 080(selection) + 076(dashboards). My card 0428-076 is the TOP, so its diff over develop legitimately includes 075/080 Perses work (that is expected for a stacked lane).
+- BUT the lane also absorbed ~15 non-Perses r27 pre-release commits (keycloak database reload, podman quadlet, openbao bootstrap auth, workspace wizard, mcp lifecycle, valkey HA, deployment local-owner, coreinstallation locks, telemetry otlp, traces credential rotation, scripts/pr-gate-*, etc.) — OUTSIDE card 0428-076's write-set and outside the Perses chain. This is the contamination.
+- Card 0428-076's OWN write-set (isolated in commits 2e5f8703, 7c4db737, 540ed13c) is exactly 6 Go files + 5 testdata json:
+  - cmd/baha/app_perses_cli_test.go (added DatabaseDashboards face + TestBahaStatusDatabaseDashboardsExposesUnavailableDatabases)
+  - cmd/baha/app_status_result.go (added DatabaseDashboards field + wiring)
+  - internal/metrics/perses_dashboards.go (catalog: prometheus/loki/tempo panels + PG/Mongo unavailable)
+  - internal/metrics/perses_dashboards_helpers.go
+  - internal/metrics/perses_dashboards_promql_test.go
+  - internal/metrics/perses_dashboards_test.go
+  - internal/metrics/testdata/perses-dashboards/{loki-logs,mongodb-targets,postgresql-targets,prometheus-targets,tempo-traces}.json
+- The scope decision (requested via QUESTION): does the Owner want PR #1597 kept as the full stacked chain (075+080+076 + carried r27, as-is) or trimmed to only 076's 6 files? Dropping other lanes' carried work from a shared PR branch would harm those lanes; a clean rebase that keeps only my 6 files would drop 075/080 that the lane depends on. This is an Owner call.
+
+## Scope decision requested (QUESTION to Owner)
+
 The lane branch `perses-dashboard-databases-lane` is contaminated with ~20 other cards' commits (419-file diff). Cleaning it to a card-076-only candidate while keeping the same PR #1597 would either (a) drop other lanes' carried work from that PR branch or (b) require touching files outside card 0428-076's write-set. This is an Owner scope decision. Options being requested in the QUESTION are listed there.
+
+## END
+
+END_BLOCKED w202-0428-076-dbpanels: awaiting Owner scope decision on PR #1597 branch contamination (QUESTION posted to coordinator, run id 9142ab1f-c464-4f2f-abc8-d6997d8655ae). Card 0428-076 own write-set isolated and measured (6 files); branch also carries ~15 non-Perses r27 commits that are outside card 076's write-set. No product change, no push, no .github edit.
 
 ## repo-rule compliance
 
