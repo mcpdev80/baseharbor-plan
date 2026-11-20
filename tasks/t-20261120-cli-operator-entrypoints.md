@@ -33,6 +33,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
+**Required by:** [t-20261120-other-domain-test-split](t-20261120-other-domain-test-split.md)  
 **Owner:** w216-0428-204-entrypoints  
 **Priority:** high  
 **PRs:** none  
