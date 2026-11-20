@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w187-0428-187-consentgate
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-187 · consent gate stalls cell
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-r28-podman-consent-gate-stall · The podman data-capabilities cell stalls the guided wizard at the candidate-consent step #task #release/v0-4-28 #status/planned #view/ready #kind/bug
+- [ ] t-20261120-r28-podman-consent-gate-stall · The podman data-capabilities cell stalls the guided wizard at the candidate-consent step #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w187-0428-187-consentgate  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w187-0428-187-consentgate  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -78,3 +77,5 @@ and the identity witness of 0428-078 are NOT part of this card. No .github/** (o
 consent env, report the needed change as a finding with file:line instead of editing it (AGENTS 5.3).
 
 gefunden im PR #1715, run 44743111417 job 136312259900: 'Existing consent authority requires 2 confirmation(s)' -> 'Error: wizard cancelled without changes' -> 'candidate submission requires an explicit operator' -> 'new-edit-new-sql-remove exceeded no-output timeout: elapsed=241s no-output=180' -> demo-data-capabilities FAIL. base-drift ist NICHT bewiesen: der job erscheint nur in PR-selected-laeufen, kein develop-push traegt ihn (gemessen runs 44728573148 / 44726527868 ohne diesen job).
+
+ARBEITET JETZT: session 425eb851 (ornith-kanal, model worker-ornith1.5, spawn verifiziert), worktree aus develop f5ce95afce1c. auftrag: scenario new-edit-new-sql-remove in der podman data-capabilities-zelle reproduzieren, dann ENTSCHEIDEN welche seite fixt (fixture liefert die zweite bestaetigung ODER produkt verlangt nicht twice), kein auto-approve im runner (§3.8), dentro 180s no-output. schreibfeld: scripts/ci-greenfield-apply.py + guided-wizard in cmd/baha + fixture; die dateien von 0428-184 (#1715) und 0428-183 (#1714) sind in der mission ausdruecklich verschlossen.
