@@ -10,7 +10,7 @@ parent: ""
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: "Destroying a shared resource leaves its observability registry entries behind, so later registrations see stale owners."
+kanban_summary: ""
 kanban_title: 0428-184 · shared destroy skips registry
 priority: ""
 depends_on: []
@@ -23,10 +23,22 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md"]
 ---
 
-- [ ] t-20261120-r28-shared-destroy-no-registry-cleanup · Shared destroy does not clean the signal registry (stale owners survive) #task #release/v0-4-28 #status/planned
+- [ ] t-20261120-r28-shared-destroy-no-registry-cleanup · Shared destroy does not clean the signal registry (stale owners survive) #task #release/v0-4-28 #status/planned #view/ready #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned  
+    **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md)  
     <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** ready  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** none  
+**Owner:** unassigned  
+**Priority:** not set  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Found by bug hunt H-103 (funded from card t-20261117-hunt-signals-103, AGENTS 3.3.5 finding-to-card duty)
 

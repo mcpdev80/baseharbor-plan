@@ -10,7 +10,7 @@ parent: ""
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: "A metrics source is created with RequiresAdapter but no adapter/exporter or compose wiring exists, so its metrics can never be collected."
+kanban_summary: ""
 kanban_title: 0428-182 · metrics adapter has no exporter
 priority: ""
 depends_on: []
@@ -23,10 +23,22 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md"]
 ---
 
-- [ ] t-20261120-r28-metrics-adapter-without-exporter · Metrics: RequiresAdapter source has no exporter or compose wiring (never collectable) #task #release/v0-4-28 #status/planned
+- [ ] t-20261120-r28-metrics-adapter-without-exporter · Metrics: RequiresAdapter source has no exporter or compose wiring (never collectable) #task #release/v0-4-28 #status/planned #view/ready #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned  
+    **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md)  
     <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** ready  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** none  
+**Owner:** unassigned  
+**Priority:** not set  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Found by bug hunt H-103 (funded from card t-20261117-hunt-signals-103, AGENTS 3.3.5 finding-to-card duty)
 
