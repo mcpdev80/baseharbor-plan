@@ -82,6 +82,18 @@ Base-SHA of #1650 = `f61ef0f4991c`; `f61ef0f4991c` IS an ancestor of develop (ve
 - Took over from lane `w078-…-r2`. Reason: that lane reported the round-2 commit as 'pushed' twice, but `ls-remote` stayed unchanged at `b6dab95a8d73` on both the branch and `refs/pull/1650/head`. The commit existed in the shared object store of this host but never reached GitHub. Root cause measured by the coordinator: a `origin` in the toolchain that pointed at a local filesystem path, so `git push origin …` reached 'Everything up-to-date' against a local ref and never hit GitHub.
 - No reimplementation. The target commit `16d3430234d2` was carried onto `origin/develop` by a clean `git rebase origin/develop` (no conflicts) into the delivered head `ac2a5450379492d410a379469e9845b2ce21190d`, then `--force-with-lease`-pushed to the real GitHub remote. Verified by `ls-remote` that both the branch and `refs/pull/1650/head` now carry `ac2a54503`. One CI run (44680875974) observed to terminal: success.
 
+## origin/main witness (second-to-last action)
+
+`git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan log origin/main --oneline -5`:
+```
+47823030 evidence(0428-078): round-3 takeover akte — deliver commit to GitHub, CI success
+33093a83 evidence(0428-091): round-1 perses-tempo-source — draft-blocker finding (c781eb86, CI 43874313785)
+820c094a docs: record current PR sweep and 1665 audit
+427cb1fd card 0428-176: stale draft PR #1665 on parked card 0428-082 needs restack-or-close with witness
+88963a6a docs: record independent PR sweep audit
+```
+Evidence path `evidence/r28-welle4-2026-11-20/appstatus-integration/round-3.md` is on origin/main (commit 47823030).
+
 ## Cleanup
 
 - No containers / compose projects / networks / volumes created. No VM network used as a test carrier.
