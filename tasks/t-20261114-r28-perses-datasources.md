@@ -39,7 +39,7 @@ Owner decision (2026-11-17): Unblock. Reopen PR #1608 if it remains suitable, ot
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md), [t-20261120-r28-develop-runtime-integration-red](t-20261120-r28-develop-runtime-integration-red.md)  
-**Required by:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-dashboards](t-20261114-r28-perses-dashboards.md)  
+**Required by:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-dashboards](t-20261114-r28-perses-dashboards.md), [t-20261120-r28-identity-dashboard-catalog-consumer](t-20261120-r28-identity-dashboard-catalog-consumer.md)  
 **Owner:** 0428-083-  
 **Priority:** normal  
 **PRs:** [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684)  
