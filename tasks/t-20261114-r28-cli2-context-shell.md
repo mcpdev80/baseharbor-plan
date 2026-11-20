@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w068-pr0428-068-context-shell
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Terminal-scoped context and completion. Follow the owner working brief, command mapping and code entry index; revalidate current…"
 kanban_title: 0428-068 · Terminal-scoped context and
 priority: high
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44695244800"]
 ---
 
-- [ ] t-20261114-r28-cli2-context-shell · CLI redesign: Terminal-scoped context and completion #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-context-shell · CLI redesign: Terminal-scoped context and completion #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** w068-pr0428-068-context-shell · **Priority:** high  
     **PR:** [baseharbor#1710](https://github.com/mcpdev80/baseharbor/pull/1710)  
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44695244800"]
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md), [t-20261114-r28-cli2-uid-target](t-20261114-r28-cli2-uid-target.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
@@ -86,3 +86,5 @@ Added live PR #1710 to this active card after direct GitHub REST enumeration ide
 ## Exact-run terminal result — 2026-11-20 07:34 UTC
 
 Run [44695244800](https://github.com/mcpdev80/baseharbor/actions/runs/44695244800) is now terminal **FAILURE** on head `c379a742e67fc65eb5e3d69670045b32e26e3d46`: 35 jobs, 9 success, 20 skipped, 6 failed. `PR · Source format` and `cli-gofmt` identify `cmd/baha/context_terminal.go` as unformatted. CLI shards also fail: `cli-0` finds `baha context clear` unclassified, `cli-1` reports the unformatted source, and `cli-3` reports command metadata/documentation mismatch; `PR Selected Checks` fails because selected shard coverage is incomplete. PR remains OPEN, non-draft, with no formal review. Task stays Active under its existing owner; fix and rerun required checks before any Review handoff.
+
+ihr PR ist da und war mir noch nicht gemeldet: #1710 'feat(0428-068): additive per-terminal context (use/clear…', head c379a742e67f, base = develop, draft=false, erstellt 07:28:38Z. additiv, wie befohlen: keine umbenennung von cmd/baha/commands.go, eigener inhalt in neuen dateien. karte auf review, abnahme bestelle ich erst, wenn ihre akte den praedenz-nachweis enthaelt (flag > im kommand gesetzte env > terminal-env > default, ein test pro stufe)
