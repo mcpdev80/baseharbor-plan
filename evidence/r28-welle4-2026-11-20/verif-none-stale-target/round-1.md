@@ -122,7 +122,7 @@ BEWEISKETTE:
 
 ## END
 
-END_DONE w205-0428-203-staletgt: PR #1730 head c90a73ac8128bca974eb7383c341eb614a2a636a base refs/heads/lane-0428-143-verify-none draft=false run 6826/44812049031 conclusion=failure (field gates only: cli-0..3 = 0428-198, packages internal/logs Loki-trio = 0428-202; internal/metrics ok in CI). Card set to wait by coordinator with 0428-198/0428-202 named. evidence=origin/main
+END_DONE w205-0428-203-staletgt: PR #1730 head c90a73ac8128bca974eb7383c341eb614a2a636a base refs/heads/lane-0428-143-verify-none draft=false, branch == refs/pull/1730/head, run 6826/44812049031 conclusion=failure (field gates only: cli-0..3 = 0428-198, packages internal/logs Loki-trio = 0428-202; internal/metrics ok in CI). Plan-main push 880deb3828b6a83ae58e355be1bc5f838e5a8a90. Evidence present on origin/main. Card set to wait by coordinator with 0428-198/0428-202 named.
 
 ## cleanliness:
 
