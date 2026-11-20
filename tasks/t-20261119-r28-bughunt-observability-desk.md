@@ -7,11 +7,11 @@ areas: [observability, qa]
 release: v0.4.28
 version: ""
 parent: ""
-owner: Coordinator 9142ab1f (hunt-observability-desk)
-kanban_status: wait
-kanban_lane: wait
+owner: w147-0428-147-huntobs
+kanban_status: active
+kanban_lane: active
 blocker: ""
-wait_reason: "hunt ohne live session: die funde sind in karten gegossen (0428-182 gemergt, 0428-183 in korrektur, 0428-184 aktiv). der naechste schnitt H-V17 liegt als mission bereit."
+wait_reason: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
 evidence:
@@ -21,18 +21,17 @@ created: 2026-11-19
 card_short_title: "hunt observability desk"
 ---
 
-- [ ] t-20261119-r28-bughunt-observability-desk · hunt observability desk #task #release/v0-4-28 #status/wait #view/wait #area/observability #area/qa #kind/task
+- [ ] t-20261119-r28-bughunt-observability-desk · hunt observability desk #task #release/v0-4-28 #status/active #view/active #area/observability #area/qa #kind/task
     <!-- generated:card -->
-    **Owner:** Coordinator 9142ab1f (hunt-observability-desk)  
-    **Waiting:** hunt ohne live session: die funde sind in karten gegossen (0428-182 gemergt, 0428-183 in korrektur, 0428-184 aktiv). der naechste schnitt H-V17 liegt als mission bereit.  
+    **Owner:** w147-0428-147-huntobs  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/c296086ca1e35ef3212d293afc94d7bebcd1690f)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** Coordinator 9142ab1f (hunt-observability-desk)  
+**Owner:** w147-0428-147-huntobs  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -64,3 +63,5 @@ Keine produkt-aenderungen, keine PRs, keine aenderungen an `.github/**` oder `sc
 Runtime-zelle nicht erreichbar oder vm-lock streitig → STOP + Meldung, nicht improvisieren. Funde werden NICHT in dieser Karte_behoben; jeder fund wird in eine eigene bug-karte gegossen (intake-akte oder Coordinator schreibt die karte).
 
 reine befundung, keine produktarbeit; die karte war nie jetzt arbeitend, der sitz war nie leer.
+
+ARBEITET JETZT, kante gegen session gemessen (f4cd0c46-de15-4b69-827c-88930f5f2ffb, laptop): hunt-schnitt H-V19 'beobachtungs-desk nach den metrik-karten' - (1) wird ObservabilityUnsupported (0428-182/#1716) an consumption-stellen wie sammelbar behandelt (git grep auf beide felder, eine seite die nur EINES prueft ist ein fund), (2) gilt die valkey-gatter-regel (perses_dashboards_valkey.go:246) auch fuer loki/tempo/postgres oder liefern die dashboards ohne datenbasis, (3) LOG-writer class application (fac01c772/0428-122) auf klartext-sekrete + ob die zelle dafuer von der CI ausgewaehlt wird. reine befundung; #1650/#1615/#1715 nur lesen.
