@@ -15,17 +15,19 @@ kanban_title: 0428-068 · Terminal-scoped context and
 priority: high
 depends_on: [t-20261114-r28-cli2-contract, t-20261114-r28-cli2-env-registry, t-20261114-r28-cli2-uid-target]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1710]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44695244800"]
 ---
 
 - [ ] t-20261114-r28-cli2-context-shell · CLI redesign: Terminal-scoped context and completion #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** w068-pr0428-068-context-shell · **Priority:** high  
+    **PR:** [baseharbor#1710](https://github.com/mcpdev80/baseharbor/pull/1710)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44695244800)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +37,7 @@ evidence: []
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
 **Owner:** w068-pr0428-068-context-shell  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1710](https://github.com/mcpdev80/baseharbor/pull/1710)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -68,10 +70,15 @@ Independent simultaneous terminals, explicit flags precedence, shell absent fall
 
 ## Handoff
 
-Planned and unassigned. No product implementation or acceptance yet.
+Active owner branch and PR: #1710 at `c379a742e67fc65eb5e3d69670045b32e26e3d46`, based on `develop`. Exact run `44695244800` remains in progress overall at the latest 07:32 UTC poll: 34 jobs, 8 success, 20 skipped, 5 failures and 1 job still running. `PR · Source format`, `cli-gofmt`, Go unit shards `cli-0`, `cli-1` and `cli-3` failed; `cli-2` remained in progress. Workflow policy, Trusted Plan, Native gate plan, focused Python and other completed selected checks passed. Native/runtime, release and contract jobs are skipped. This is not acceptance.
 
 dep-frei nach plan.py show (contract, env-registry, uid-target accepted). Auftragetraegerin muss zuerst das owner-working-brief cli-redesign-20261114/brief.md lesen ( Teil des vertrags ). write-set CLI; app_status_result.go und die perses-pfade sind gesperrt, weil dort 078 und 083/174 schreiben
 
 entscheidung auf ihren befind: KEIN rename von cmd/baha/commands.go (301 zeilen, rootCommand/versionCommand/configuredApplicationCommand + noArgs/noArgsCtx/usageError, zuletzt 1019190d8 durch 0428-084 = zentraler registrierungspunkt mehrerer karten). erlaubt ist nur additive registration in rootCommand(); ihr neuer inhalt kommt in eigene dateien (context_terminal.go, completion_setup.go). verlangt das owner-working-brief den rename, ist das ein contract-befund an mich, kein eigenmachtiger PR
 
 design-entscheidung auf ihre frage: mechanisme = source-barer snippet + einmaliger shell-hook, der das eval selbst aufruft; KEINE marker-datei. grund gemessen: die einzige terminal-identitaet, die ein hook ohne protokoll kennt, ist PID-artig, und PID-reuse laesst ein neues terminal das ziel eines gestorbenen erben = fail-open. zusaetzlich messung ihrer praemisse: cmd/baha/completion.go (250 zeilen, zuletzt 1019190d8/0428-084) hat KEIN export/hook/BASEHARBOR-treffer, BASEHARBOR_TARGET erscheint auf develop fast nur in tests, und in app_context*.go gibt es keine use/clear-subcommands — der kartenteil fehlt also wirklich
+
+
+## Open-PR sweep reconciliation — 2026-11-20 07:30 UTC
+
+Added live PR #1710 to this active card after direct GitHub REST enumeration identified it as a new open PR. The PR is OPEN and non-draft at exact head `c379a742e67fc65eb5e3d69670045b32e26e3d46` on `develop`, with no formal reviews and no review decision. Exact run [44695244800](https://github.com/mcpdev80/baseharbor/actions/runs/44695244800) is still in progress overall: `PR · Source format` and `PR · Validation · cli-gofmt` failed; `PR · Focused Python`, Workflow policy, Trusted Plan and Native gate plan passed; Go unit shards, go-build and go-vet remained in progress; native/runtime, contract and release gates were skipped. The source-format failure log was not yet available while the run remained active. Keep the task Active under its existing owner; no acceptance or Review transition is established.

@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44688554297", "https://github.com/mcpdev80/baseharbor/actions/runs/44689126814"]
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44688554297", "https://github.com/mcpdev80/baseharbor/actions/runs/44689126814", "https://github.com/mcpdev80/baseharbor/actions/runs/44695439903"]
 ---
 
 - [ ] t-20261114-r28-perses-tempo-source · Connect Perses Tempo #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w091-pr0428-091-tempo-source · **Priority:** normal  
     **PR:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44688554297), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44689126814)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44688554297), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44689126814), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44695439903)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -98,3 +98,8 @@ The owner advanced #1645 to `6a7e462cc0bc10fb8fe55e2746efb6a3e03e73a2` (Ready, b
 hop geliefert: head 6a7e462cc0bc, draft=false, develop 36d075fad77f ist ahne des heads (merge-base --is-ancestor JA). der exakte head ist ROT: 37/37 checks fertig, 8 failure = PR Selected Checks, PR Validation go-vet, PR Go unit owner/packages/cli-0/cli-1/cli-2/cli-3. alle unit-shards plus vet gleichzeitig zeigt einen kompilierfehler im gefuehrten stand, nicht das produktverhalten. auftrag: log-failed woertlich, go build und go vet im worktree, konfliktloesung gegen develop-stand pruefen, dann EIN run. vergleich: develop-push ist auf 36d075fad77f success (run 44669117744 und 44669117784, 0 failure)
 
 ihre sandbox-these GEMESSEN WIDERLEGT, ursache ist ihr hop. CI-run 44689126814 log-failed: 5x 'undefined: capability.PersesConfiguredStatusNow', 4x 'cannot use files.ResourceProject', 12x 'no such file or directory', FAIL in cmd/baha (4x) + internal/capability + internal/application. diese symptome sind kompilierfehler, und die symbole EXISTIEREN auf develop: internal/capability/perses.go:268 definiert PersesConfiguredStatusNow, ResourceProject ist auf develop vorhanden; ihr head BENUTZT beide (cmd/baha/app_perses_access_cli_test.go:136, internal/capability/perses_security_test.go:292/297/302) => die konfliktloesung des rebase hat develop's perses.go zurueckgesetzt. baseline gegen 'die shards laufen nie': run 44669117744/44669117784 sind develop-push-runs, und 44667933981 zeigt 'Go unit owner/packages/cli-0..3' + go-vet/go-build ALLE success. ihr lokaler vergleichs-run lief auf dem coordinator-host (/home/marcel/.config existiert dort, nicht auf einem runner) und beweist nichts ueber CI. befehl: git diff lane-origin/develop...HEAD -- internal/capability/perses.go, dann 'git checkout lane-origin/develop -- <die datei>', dann 'go build ./…' + 'go vet ./…' VOR jedem push, dann EIN run
+
+
+## 2026-11-20 candidate refresh after owner push
+
+PR #1645 advanced to exact head `0449f06587c849f598447094428d2f7296ed1f5b`, still OPEN, Ready/non-draft, based on `develop`, mergeStateStatus `BLOCKED`, and without formal reviews. Exact run [44695439903](https://github.com/mcpdev80/baseharbor/actions/runs/44695439903) is still in progress: 35 jobs, 10 success, 20 skipped and 5 Go unit shards in progress at the latest poll. Build, vet, authority-package tests, OpenBao-package tests, source format, workflow policy, Trusted Plan and focused Python have passed so far. Native Keycloak/Core, selected runtime, public contracts, and release gates are skipped. Keep this card Active; do not treat the partial green set as Review or merge acceptance.
