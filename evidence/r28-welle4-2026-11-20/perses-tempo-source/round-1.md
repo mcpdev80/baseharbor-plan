@@ -97,6 +97,10 @@ comparison rule forbids. The three luna-r1 recipes are still present in the new 
 fail-closed, builder selection/authorization, native witness) and my new tests pass; the recipe
 verification is deferred to a green CI run.
 
+CI red run witness: run 44689126814 at head 6a7e462c → FAILURE (8 GO-unit/go-vet fail jobs).
+CI develop baseline: runs 44669117744 and 44669117784 → 0 failure (narrow unit scope, no
+owner/packages shards).
+
 ## repo-rule compliance
 
 - No product file written in a product repo; the corrected head is built in a clean clone
