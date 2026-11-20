@@ -17,19 +17,19 @@ depends_on: [t-20261114-r28-cli2-env-policy, t-20261114-r28-cli2-env-registry]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1615]
 sources: []
-blocker: "Owner-Aktion erforderlich: PR #1615 erhaelt keine exact-head CI, weil der Workflow auf dem BASIS-ast 'cli2-env-policy-head' (5ef9c329b) PR-CI nur fuer base develop/main/'lane-*' oeffnet — .github/workflows/ci.yml zeilen 14-18 'pull_request: branches: [develop, main, lane-*]' und die job-bedingungen zeilen 428/478/515 (auf develop analog 514/1137/1160) "github.base_ref == 'develop' || startsWith(github.base_ref, 'lane-')'. beleg der lane: check-suite 120471174270 haengt seit 10:27:37Z auf 'queued', actions/runs?head_sha=f93564a0d… total_count=0 (abfrage 11:21:44Z), kein zweiter push und kein self-trigger. inhaltlich ist der kandidat fertig: head f93564a0d707983bfe6a8b59375c1c1c914d7827, monoton (ancestor rc=0), merge-tree gegen develop 0 konflikte, PR draft=false/ready. naechster trigger: owner wendet die workflow-erweiterung an (oder zieht den ketten-ast auf 'lane-*'-praefix um), danach ein normaler PR-lauf auf diesem kopf"
+blocker: "Der Trigger-Blocker ist behoben, aber der exakte PR-Head-Lauf 44735405029 auf ca930ce63c4ff080a736c6e3439dc1d87d017e0c ist rot: vier CLI-Go-Shards und ausgewählte/native Jobs scheitern am fehlenden Trusted-Local authority proof bzw. unkonfigurierten Runtime-Fixtures. Der Parent #1594 ist Draft und stale/conflicted; erst 0428-053 sicher end-to-end korrigieren, Parent aktualisieren, diesen Stack synchronisieren und neue exakte CI + Review bestehen lassen. Kein Promote/Merge vor grünen Checks."
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-identity-secrets/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98d/evidence/r28-welle4-2026-11-19/identity-secrets-hopf/fix-1.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-identity-secrets/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98d/evidence/r28-welle4-2026-11-19/identity-secrets-hopf/fix-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44735405029"]
 ---
 
 - [ ] t-20261114-r28-cli2-identity-secrets · CLI redesign: Separate human/runtime secret authority #task #release/v0-4-28 #status/blocked #view/blocked #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** 0428-057 (codeman 01b370c0, END\_BLOCKED, sitz wird entlassen) · **Priority:** high  
     **PR:** [baseharbor#1615](https://github.com/mcpdev80/baseharbor/pull/1615)  
-    **Blocker:** Owner-Aktion erforderlich: PR \#1615 erhaelt keine exact-head CI, weil der Workflow auf dem BASIS-ast 'cli2-env-policy-head' (5ef9c329b) PR-CI nur fuer base develop/main/'lane-\*' oeffnet — .github/workflows/ci.yml zeilen 14-18 'pull\_request…  
+    **Blocker:** Der Trigger-Blocker ist behoben, aber der exakte PR-Head-Lauf 44735405029 auf ca930ce63c4ff080a736c6e3439dc1d87d017e0c ist rot: vier CLI-Go-Shards und ausgewählte/native Jobs scheitern am fehlenden Trusted-Local authority proof bzw. unkonf…  
     **Needs:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-identity-secrets/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98d/evidence/r28-welle4-2026-11-19/identity-secrets-hopf/fix-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-identity-secrets/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98d/evidence/r28-welle4-2026-11-19/identity-secrets-hopf/fix-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44735405029)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

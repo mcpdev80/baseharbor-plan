@@ -16,10 +16,10 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 113/199 · **Blocked:** 4 · **Waiting:** 21  
-    **Blocker:** [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) — Owner-Aktion erforderlich: PR \#1615 erhaelt keine exact-head CI, weil der Workflow auf dem BASIS-ast 'cli2-env-policy-head' (5ef9c329b) PR-CI nur fuer base dev…  
-    **Blocker:** [t-20261114-r28-cli2-wizard-platform](../tasks/t-20261114-r28-cli2-wizard-platform.md) — Exact PR checks are unroutable while base is cli2-env-policy-head; PR remains Draft. CI owner/coordinator must provide an approved qualifying stack base, then…  
-    Plus 2 further blockers in the task list.  
+    **Accepted tasks:** 113/199 · **Blocked:** 5 · **Waiting:** 21  
+    **Blocker:** [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) — Exact stacked CI is now routed; PR \#1615 exact head ca930ce63c4ff080a736c6e3439dc1d87d017e0c ran via 44735405029 and failed at the fail-closed operator-auth bo…  
+    **Blocker:** [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) — Der Trigger-Blocker ist behoben, aber der exakte PR-Head-Lauf 44735405029 auf ca930ce63c4ff080a736c6e3439dc1d87d017e0c ist rot: vier CLI-Go-Shards und ausgewäh…  
+    Plus 3 further blockers in the task list.  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next
