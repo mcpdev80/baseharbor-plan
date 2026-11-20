@@ -10,10 +10,10 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 7 |
+| active | 6 |
 | review | 0 |
 | wait | 28 |
-| blocked | 2 |
+| blocked | 3 |
 | ready | 5 |
 | queued | 25 |
 | waiting | 184 |
@@ -29,7 +29,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | Connect Perses Tempo | active | normal | 0428-091- | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645) |
 | [t-20261120-perses-tmpfs-mountpoint](../tasks/t-20261120-perses-tmpfs-mountpoint.md) | Perses runtime smoke cannot mount tmpfs at /etc/perses/database on hosted runners | active | not set | 0428-083- | — | — |
 | [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) | cli shards need operator env | active | not set | w198-0428-198-cligate | — | — |
-| [t-20261120-r28-packages-shard-develop-regression](../tasks/t-20261120-r28-packages-shard-develop-regression.md) | packages shard red on develop | active | not set | w202-0428-202-pkgshard | — | — |
 | [t-20261120-workload-port-flag-ignored-locally](../tasks/t-20261120-workload-port-flag-ignored-locally.md) | workload-port ignored locally | active | not set | w199-0428-199-workloadport | — | — |
 
 ## Ready for review
@@ -74,6 +73,7 @@ None.
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261120-r28-cli2-context-precedence-evidence](../tasks/t-20261120-r28-cli2-context-precedence-evidence.md) | CLI2: persisted-over-default precedence is not asserted through baha context show | blocked | not set | w178-0428-178-contextshow | — | [baseharbor#1718](https://github.com/mcpdev80/baseharbor/pull/1718) |
+| [t-20261120-r28-packages-shard-develop-regression](../tasks/t-20261120-r28-packages-shard-develop-regression.md) | packages shard red on develop | blocked | not set | w202-0428-202-pkgshard | — | — |
 | [t-20261120-r28-shell-wrapper-tests-not-skippable](../tasks/t-20261120-r28-shell-wrapper-tests-not-skippable.md) | CI intake: zsh/fish wrapper tests skip silently when the shell is not installed | blocked | not set | w179-0428-179-shells | — | — |
 
 ## Ready to assign
