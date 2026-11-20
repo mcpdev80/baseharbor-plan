@@ -10,13 +10,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 7 |
+| active | 8 |
 | review | 0 |
 | wait | 35 |
 | blocked | 1 |
 | ready | 4 |
 | queued | 25 |
-| waiting | 186 |
+| waiting | 185 |
 | backlog | 7 |
 | closed | 383 |
 
@@ -31,6 +31,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-r28-perses-status-backend-witness](../tasks/t-20261119-r28-perses-status-backend-witness.md) | CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben | active | not set | w222-0428-142-witness | — | [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702) |
 | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | 0428-204 · CLI operator seam: MCP handlers and direct Run entry points | active | high | w216-0428-204-entrypoints | [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) (open) | — |
 | [t-20261120-workload-port-flag-ignored-locally](../tasks/t-20261120-workload-port-flag-ignored-locally.md) | workload-port ignored locally | active | not set | Codex (Owner-directed full wait-card closeout, 2026-11-21) | — | [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723) |
+| [t-20261121-app-edit-core-activation](../tasks/t-20261121-app-edit-core-activation.md) | 0428-207 App Edit Core activation fails without protected Core network | active | high | w223-0428-207-appedit-repro | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) (open) | — |
 
 ## Ready for review
 

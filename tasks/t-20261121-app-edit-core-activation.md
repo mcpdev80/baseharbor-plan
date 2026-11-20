@@ -7,9 +7,9 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: planned
+owner: w223-0428-207-appedit-repro
+kanban_status: active
+kanban_lane: active
 kanban_summary: "App Edit activation against a real isolated Core stops failing with start real isolated Core for App Edit: existing native…"
 kanban_title: 0428-207 · 0428-207 App Edit Core
 priority: high
@@ -23,18 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-app-edit-core-activation · 0428-207 App Edit Core activation fails without protected Core network #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/cli #kind/bug
+- [ ] t-20261121-app-edit-core-activation · 0428-207 App Edit Core activation fails without protected Core network #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Waiting for prerequisites**  
+    **Owner:** w223-0428-207-appedit-repro · **Priority:** high  
     **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** unassigned  
+**Owner:** w223-0428-207-appedit-repro  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -96,3 +95,5 @@ Forbidden:
 
 - Candidate branch, PR, exact head SHA and the terminal hosted run id recorded here.
 - Evidence: `evidence/r28-welle4-2026-11-20/app-edit-core-activation/round-1.md`.
+
+READ-ONLY ROUND STARTED (implementation still waits on 0428-204): w223 reproduces group 8 at develop 40cb28c758b0 and answers rubric (b) vs (c). I denied running the lifecycle test on the coordinator host (three other lanes, 96 percent disk pressure) and steered it to the named test host baha-docker with before/after container lists, plus a Go-unit probe of inspectCoreDefaultNetworkBinding whose limits must be stated as 'what this does not prove'. Evidence: evidence/r28-welle4-2026-11-20/app-edit-core-activation/round-1.md.
