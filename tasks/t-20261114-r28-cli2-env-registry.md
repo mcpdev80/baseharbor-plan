@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1591", "https://github.com/mcpdev80/baseharbor/actions/runs/44650304561"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1591", "https://github.com/mcpdev80/baseharbor/actions/runs/44652673886"]
 ---
 
 - [ ] t-20261114-r28-cli2-env-registry · CLI redesign: Implement environment registry #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** codex-open-pr-sweep-054 · **Priority:** high  
     **PR:** [baseharbor#1591](https://github.com/mcpdev80/baseharbor/pull/1591)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1591), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44650304561)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1591), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44652673886)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -80,3 +80,11 @@ Create/select/list/update shared environment, app association, multiple nodes, d
 - Ready-run native/runtime, release, and unrelated integration jobs were skipped by the impact plan; `PR · Native gate plan` and `PR Selected Checks` passed. The selector-path validation is a filesystem-input safety fix with no runtime lifecycle change, so no native runtime witness was selected. No Codeman worker overlapped the files at pre-edit check (host reported zero active sessions); no Codeman configuration/session was changed.
 - Dependency path: both card dependencies 0428-051/#1578 and 0428-052/#1580 are accepted; #1578 is merged. Downstream #1594 is OPEN Draft at head `5ef9c329b84c52a242b17a9b3d3a63c9d3c314c3`, based on `lane-0428-env-registry` (now bb5ea39); it needs its own monotone hop and exact checks after this card is accepted. #1615 remains OPEN Ready at `f93564a0d707983bfe6a8b59375c1c1c914d7827`, based on `cli2-env-policy-head`; it then needs a hop after #1594. Neither downstream PR was edited.
 - Review decision is still blank; no merge was performed by this task. Hand off for Maintainer review/acceptance, then sequence #1594's monotone hop and exact checks before #1615's refresh. A successful #1591 run does not itself accept its dependents.
+
+## Follow-up review fixes and current exact-head evidence (2026-11-20)
+
+- Independent review of `bb5ea39` found that `RenameEnvironment` dropped `Associations`, and that a crash after destination installation left a stale source that same-identity retry did not remove. Fixed both, merging source/destination memberships on retry and retaining the canonical identity. Regressions `TestRenamePreservesEnvironmentAssociations` and `TestRenameRetryCleansSourceAfterInterruptedInstall` reproduce the prior failures and now pass.
+- Follow-up review caught `RenameEnvironment` exceeding the 200-line source-readability limit; extracted install/reconciliation into `installRenamedEnvironmentIdentity`. A further race audit found a mismatched destination binding could otherwise reach `os.Rename`; the helper now fails closed and `TestInstallRenameRefusesMismatchedDestination` verifies foreign destination bytes and the source are preserved.
+- Current exact candidate is PR #1591 head `2922f5ed9c411eec28bbfe2ea90f2b27c8f3055e`, based on develop `6b8188df26a1e263750379a8c5e8255ee4ef740c` after a monotone merge of #1693's develop advance. PR remains OPEN + Ready, CLEAN, and has no review decision; no merge was performed. The PR diff now also carries the develop merge's metrics changes, which were not edited in this task.
+- Test -> check -> trigger -> result: the three rename regressions plus `go test ./internal/deployment ./internal/environment -count=1`, `go vet ./internal/deployment ./internal/environment`, `git diff --check`, and `bash scripts/source-readability-audit.sh` passed locally. Exact Ready run [44652673886](https://github.com/mcpdev80/baseharbor/actions/runs/44652673886) passed workflow policy, source format/readability, native gate plan, Trusted Plan, focused Python, go-build, go-vet, deployment-package-tests, PR Selected Checks, and Go unit shards (owner, packages, cli-0..3). Native/runtime, release, and unrelated integration jobs were impact-skipped by the trusted plan.
+- Codeman was freshly checked read-only before the develop hop: no active sessions; worker file changes were inspected read-only and did not overlap the environment identity files. No Codeman changes were made. Keep this card in `review`; Maintainer acceptance is still required.
