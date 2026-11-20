@@ -12,28 +12,29 @@ parent: ""
 depends_on: []
 blocked_by: []
 superseded_by: []
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w169-pr0428-169-closeout
+kanban_status: active
+kanban_lane: active
 blocker: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/pr-inventory-audit/round-1.md"]
 prs: []
 created: 2026-11-20
+wait_reason: ""
+
 ---
 
-- [ ] t-20261120-r28-superseded-pr-closeout · close superseded PRs with ancestry proof #task #release/v0-4-28 #status/planned #view/ready #area/release #kind/maintenance
+- [ ] t-20261120-r28-superseded-pr-closeout · close superseded PRs with ancestry proof #task #release/v0-4-28 #status/active #view/active #area/release #kind/maintenance
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w169-pr0428-169-closeout  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/pr-inventory-audit/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w169-pr0428-169-closeout  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
