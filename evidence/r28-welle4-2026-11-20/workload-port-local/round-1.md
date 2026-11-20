@@ -28,6 +28,9 @@ Dokumentierter `--workload-port NAME=PORT` soll auf dem LOKALEN apply/up-Pfad da
 
 Beide Fehler mit lokalem Target (`--target local`) reproduziert; Texte stimmen mit Hunt-Akte ueberein.
 
+- CI (run-id 44788134959, PR #1723): the Go-unit cli-0 shard (owns cmd/baha) EXECUTED at my exact head 26755fc1e. 98 distinct failures, ALL the pre-existing 0428-198 operator/OIDC gate: `main_test.go:60: create failed: Managed-environment machine operations require an authenticated BaseHarbor operator` / `operator authentication needs interactive setup` / `operator OIDC configuration`. NONE are workload-port tests. My 7 workload-port regression tests all PASS (absent from the fail list), including the two command-surface regression tests `TestAppApplyRunAcceptsWorkloadPort` and `TestUpRunAcceptsWorkloadPort`. go-vet/gofmt/go-build/validation all success. This shard fails identically on the clean develop 40cb28c baseline (verified by stashing my edits): the gate defect is 0428-198 (other lane), not my change.
+- GATE-FAIL 0428-198: the cli-1/2/3 shards also fail on the same operator/OIDC message. Per card acceptance item 3, the run failing with the operator/OIDC message IS the gate defect 0428-198; it is recorded here with run-id 44788134959 and the failing log line, and reported. My own failing-test evidence comes from the smallest matching gate (the local `go test ./cmd/baha/ -run WorkloadPort` run above), not a full matrix.
+
 ## repo-rule compliance
 
 - Erlaubtes Write-Set: cmd/baha/app_apply.go, cmd/baha/runtime.go, cmd/baha/app_input_resolver.go (nur der lokale --workload-port Parse + context-set, nicht die resolver-Logik), cmd/baha/app_workload_ports.go (nur die geteilte option-parade: extractLocalWorkloadPorts), plus neue Testdatei cmd/baha/workload_port_local_regression_test.go.
