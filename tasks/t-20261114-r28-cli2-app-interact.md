@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: coord
-kanban_status: blocked
-kanban_lane: blocked
+owner: Codex
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Guide app logs exec and urls. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-063 · Guide app logs exec and urls
 priority: high
@@ -17,26 +17,25 @@ depends_on: [t-20261114-r28-cli2-contract, t-20261114-r28-cli2-identity-secrets,
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1623]
 sources: []
-blocker: "drei CLI-defekte: logs -c selector wirkungslos, exec ohne shell-parse, kind-exit-code unbelegt; base cli2-identity-secrets-head -> kein exaktkopf-lauf (ci.yml:14-18)"
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-app-interact · CLI redesign: Guide app logs exec and urls #task #release/v0-4-28 #status/blocked #view/blocked #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-app-interact · CLI redesign: Guide app logs exec and urls #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** coord · **Priority:** high  
+    **Owner:** Codex · **Priority:** high  
     **PR:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623)  
-    **Blocker:** drei CLI-defekte: logs -c selector wirkungslos, exec ohne shell-parse, kind-exit-code unbelegt; base cli2-identity-secrets-head -\> kein exaktkopf-lauf (ci.yml:14-18)  
     **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** coord  
+**Owner:** Codex  
 **Priority:** high  
 **PRs:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623)  
 **Source:** 
