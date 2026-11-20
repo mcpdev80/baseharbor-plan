@@ -18,7 +18,6 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1665]
 sources: []
 blocker: "write-set collision mit #1684 (management_ui.go, perses_runtime.go) + perses-runtime-smoke rot ohne 0428-177; trigger: #1684 gemergt oder 0428-177 landet"
-(rev-list e580d324..develop), merge-tree konflikt ist die erwartbare signatur des refactor-on-top. draft #1665 bleibt
 wait_reason: ""
 resolution: ""
 evidence: []
