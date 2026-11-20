@@ -78,3 +78,10 @@ The field gate 0428-202 is a broken state on develop (the tip itself is red), no
 
 END_DONE w210-0428-202-basetip: claim VERIFIED at bare tip 40cb28c75 — loki MultiSource (3 cells, `client-cert.pem: no such file or directory`) red WITHOUT any PR content, green at 96f2ae11a, localized to #1594's serviceaccess/policy.go vs the pinned loki fixture; "valkey cells" not a tip regression; 0428-202 is a broken develop state, lokifix stays in the test fixture. No product commit (read-only mission); candidate = plan evidence commit 69c5886aca2d53275052f23d3915cef902f187e1 on baseharbor-plan origin/main (`git ls-remote origin refs/heads/main` witness; `git ls-tree -r --name-only origin/main | grep bare-develop-gate` → evidence/r28-welle4-2026-11-20/bare-develop-gate/round-1.md).
 
+## Addendum (note-210-retract, same shift)
+
+The follow-up order note-207-tipwitness.txt (gate w207's fixture diff on top of bare tip 40cb28c75) was addressed to me by mistake per the retraction note (/var/tmp/note-210-retract.txt: misdelivery to two wrong seats; my reading task was already DONE and accepted at plan SHA 446e5f29). What had already happened on my side when the retraction arrived: I read the note and refreshed the board file only. NOTHING ELSE was triggered — no new worktree was created, no foreign diff was applied anywhere, no product change, no test-fix, no PR. The work tree is untouched. Per the retraction: no further action taken; mission closed.
+
+END_DONE w210-0428-202-basetip: reading task complete and accepted (evidence on baseharbor-plan origin/main, tip witness 446e5f29c8aa28fe5367be005fee4331100296f4); the misdirected follow-up (note-207-tipwitness) was retracted (note-210-retract) and produced NO action beyond the board-file refresh; no product change, no PR.
+
+
