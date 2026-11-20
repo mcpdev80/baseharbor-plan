@@ -50,8 +50,7 @@ exception to AGENTS 4.5 ("workflow files belong to the Owner") for exactly the f
 
 ## Measurement at develop 96f2ae11a25a (coordinator, this tick)
 
-The pull_request FILTER is already wide — .github/workflows/ci.yml lines 14-22: develop, main, 'lane-*', 'cli2-*', 'w0*'.
-The JOB CONDITIONS were never widened, they still test only develop/lane-*:
+Historical baseline at develop 96f2ae11: the pull_request filter already listed develop, main, lane-*, cli2-* and w0*, while only develop/lane-* job conditions were present. The PR branches below now carry the widened routing; see the current run evidence appended below.
 
 - ci.yml:431, :481, :517 (gate plan / selected checks / source-quality family)
 - ci.yml:714 (aggregate), :976, :1000, :1032, :1075 (native and runtime cell families)
@@ -74,10 +73,11 @@ So the workflow starts on these PRs but the check graph conditions evaluate fals
    or reusable condition so future stacks cannot silently miss a job again. Main-only conditions (ci.yml:557, :606, :630,
    :655) stay untouched.
 2. PROOF, not assertion: one stacked PR whose base is a `cli2-*-head` (use #1615 or #1623) shows `PR Selected Checks`,
-   `PR · Go unit · packages` and the gate-plan aggregate completed with a headSha equal to the PR head. Record run id,
+   the four `PR · Go unit · cli-*` shards and `PR · Native gate plan` completed with a headSha equal to the PR head. Record run id,
    head sha, job names, executed-vs-skipped in the evidence file (AGENTS 5.3).
 3. A second proof point: one PR based on a `w0*` branch (e.g. #1665 base) shows the same, or the card documents why a
    `w0*` base cannot be covered without a separate change.
+   Current limitation: #1665 is the only open w0-based PR; it is Draft/parked and draft guards intentionally skip the selected-check and Go-unit graph. A complete second proof needs an eligible w0 PR or an explicit owner state transition; this sweep preserves the current owner state.
 4. gofmt/readability of any touched script helpers; the existing workflow-lint/self-test cell must be green.
 
 ## Boundaries
