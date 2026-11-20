@@ -12,29 +12,30 @@ parent: ""
 depends_on: [t-20261120-r28-keycloak-signal-id-migration-gap]
 blocked_by: []
 superseded_by: []
-owner: ""
-kanban_status: planned
-kanban_lane: planned
+owner: w167-pr0428-167-loki-scope
+kanban_status: active
+kanban_lane: active
 blocker: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md"]
 prs: []
 created: 2026-11-20
+wait_reason: ""
+
 ---
 
-- [ ] t-20261120-r28-provider-signal-id-scope-inconsistency · scope signal ids uniformly per project #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/capability #area/observability #kind/bug
+- [ ] t-20261120-r28-provider-signal-id-scope-inconsistency · scope signal ids uniformly per project #task #release/v0-4-28 #status/active #view/active #area/capability #area/observability #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Waiting for prerequisites**  
+    **Owner:** w167-pr0428-167-loki-scope  
     **Needs:** [t-20261120-r28-keycloak-signal-id-migration-gap](t-20261120-r28-keycloak-signal-id-migration-gap.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-r28-keycloak-signal-id-migration-gap](t-20261120-r28-keycloak-signal-id-migration-gap.md)  
-**Owner:** unassigned  
+**Owner:** w167-pr0428-167-loki-scope  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

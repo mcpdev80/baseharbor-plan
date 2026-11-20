@@ -10,13 +10,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 11 |
+| active | 12 |
 | review | 1 |
 | wait | 17 |
 | blocked | 4 |
 | ready | 5 |
 | queued | 25 |
-| waiting | 179 |
+| waiting | 178 |
 | backlog | 7 |
 | closed | 359 |
 
@@ -35,6 +35,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-r28-bughunt-lifecycle-consent-desk](../tasks/t-20261119-r28-bughunt-lifecycle-consent-desk.md) | hunt lifecycle/consent desk | active | not set | Coordinator 9142ab1f (bahn: hunt-lane auf ornith:2, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/) | — | — |
 | [t-20261119-r28-bughunt-observability-desk](../tasks/t-20261119-r28-bughunt-observability-desk.md) | hunt observability desk | active | not set | Coordinator 9142ab1f (bahn: hunt-lane auf ornith:1, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/) | — | — |
 | [t-20261119-r28-window-integrity-verify](../tasks/t-20261119-r28-window-integrity-verify.md) | fensterstand gegen abnahmebelege pruefen | active | not set | w150-pr0428-150-windowverify | — | — |
+| [t-20261120-r28-provider-signal-id-scope-inconsistency](../tasks/t-20261120-r28-provider-signal-id-scope-inconsistency.md) | scope signal ids uniformly per project | active | not set | w167-pr0428-167-loki-scope | [t-20261120-r28-keycloak-signal-id-migration-gap](../tasks/t-20261120-r28-keycloak-signal-id-migration-gap.md) (open) | — |
 
 ## Ready for review
 
