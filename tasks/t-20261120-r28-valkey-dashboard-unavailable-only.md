@@ -46,7 +46,7 @@ F2 of hunt round-1, measured at develop 96f2ae11a25a: internal/metrics/valkey.go
 ## Acceptance
 
 1. An availability path that returns a real dashboard (not DashboardUnavailable) when the backend signal is configured AND verified, mirroring the identity-dashboard predicate that 0428-078 hardened.
-2. Tests for all three states (not_configured, configured_unverified, verified) on the DB and Valkey faces; configured_unverified must be false.
+2. Tests for all three states (not_configured, configured_unverified, verified) on the Valkey face named by the finding (internal/metrics/valkey.go:187/195/226/265); configured_unverified must be false.
 3. Mutation both directions (predicate reverted, availability branch forced) with separate isolated tests, and the CI job name in the evidence.
 
 ## Boundaries
@@ -54,3 +54,12 @@ F2 of hunt round-1, measured at develop 96f2ae11a25a: internal/metrics/valkey.go
 internal/metrics/** plus the dashboard catalog. No .github/**, no gate changes. Coordinate with 0428-078 (identity dashboard) so the same availability semantics are not implemented twice differently.
 
 hunt-fund F2 (akte hunt-signals-103/round-1.md) auf freiem sitz besetzt: valkey.go:187/195/226/265 liefert nur DashboardUnavailable, eine gesunde deployment-umgebung erreicht die dashboards nie. akzeptanz: echter verfuegbarkeits-pfad bei konfiguriert UND verifiziert (dieselbe verified-only-semantik wie 0428-078), tests fuer alle drei zustaende auf DB- und Valkey-seite, mutationen als ISOLIERTE tests, CI-jobname in der akte. SCHREIBFELD-ABGRENZUNG: perses_prometheus_datasource.go und perses_datasource_lifecycle.go (#1684) sowie perses_tempo_* / internal/capability/perses.go (#1645) sind ausdruecklich verschlossen, meldung statt doppelter schreiber (§4.3).
+
+## Acceptance wording corrected by the coordinator (2026-11-20)
+
+Item 2 originally said 'the DB and Valkey faces'. That wording came from my hunt summary, not from the finding: the
+finding's only root location is internal/metrics/valkey.go. No DB dashboard catalog exists in internal/metrics at
+develop 96f2ae11a25a, and the postgresql/mongodb keys live in internal/capability/perses_selection.go, which the owner
+ruled closed for this card. Creating a new postgres catalog here would be new scope no contract asks for (§4.2), so the
+card is limited to the Valkey face. If a DB dashboard availability path is genuinely wanted, it needs its own finding
+and its own card, which the coordinator would found - not this lane as a side effect.
