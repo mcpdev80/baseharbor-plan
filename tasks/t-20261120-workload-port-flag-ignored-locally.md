@@ -7,9 +7,9 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w199-0428-199-workloadport
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-199 · workload-port ignored locally
 priority: ""
@@ -24,17 +24,16 @@ evidence: []
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-workload-port-flag-ignored-locally · workload-port ignored locally #task #release/v0-4-28 #status/planned #view/ready #area/cli #kind/bug
+- [ ] t-20261120-workload-port-flag-ignored-locally · workload-port ignored locally #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w199-0428-199-workloadport  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w199-0428-199-workloadport  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -79,3 +78,5 @@ So a documented option is either rejected or silently unread on the path most us
   `internal/operatorauth/**` (#1650, owner), `internal/machine/**` (#1594/#1615 owner stack).
   Needing one of them: stop and report the single line (AGENTS 4.3).
 - No subagents (AGENTS 4.8), no `git add -A`, no merge, no force-push on develop/main.
+
+ARBEITET JETZT, kante gegen session gemessen (w199-0428-199-workloadport, ornith, worktree aus develop 40cb28c758b0): der dokumentierte '--workload-port NAME=PORT' soll auf dem LOKALEN apply/up-pfad dasselbe tun wie auf dem remote-pfad, oder die dokumentation darf ihn nicht mehr versprechen - stiller verlust ist in beide richtungen der fehler. regression pro kommando durch die echte kommando-oberflaeche. der beweis kommt durch das kleinste passende gate, weil die cli-shards seit #1594 am kaputten pruefeingang haengen (0428-198, andere lane).
