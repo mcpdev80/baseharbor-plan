@@ -101,6 +101,59 @@ CI red run witness: run 44689126814 at head 6a7e462c → FAILURE (8 GO-unit/go-v
 CI develop baseline: runs 44669117744 and 44669117784 → 0 failure (narrow unit scope, no
 owner/packages shards).
 
+## hop-verlust und wiederherstellung
+
+Owner measured the true root cause (2026-11-20): the red was NOT a sandbox artifact. The failing
+symbols (PersesConfiguredStatusNow, ResolveHostDashboardSignalStatus, hostProviderMetricsNativeVerified,
+and the app_perses_cli_test.go RuntimeComposeYAMLForProject(RuntimeFiles) signature) EXIST on
+develop but were LOST from my branch's perses.go / app_perses_cli_test.go by the hop — my cherry-pick
+of the 6 tempo commits onto develop, then restoring app_status_result.go, clobbered management_ui.go
+and left perses.go in the pre-hop state. The compiler stops early, so the first 'undefined:' hid the
+cascade.
+
+EVIDENCE (wörtlich):
+- 'git diff lane-origin/develop HEAD -- internal/capability/perses.go' shows develop HAS
+  PersesConfiguredStatusNow (perses.go:268), hostProviderMetricsNativeVerified(),
+  ResolveHostDashboardSignalStatus() and my branch loses them.
+- go vet ./... on the buggy head (6a7e462c):
+    vet: internal/capability/perses_security_test.go:292:15: undefined: PersesConfiguredStatusNow
+    vet: cmd/baha/app_perses_access_cli_test.go:136:24: undefined: capability.PersesConfiguredStatusNow
+    go build ./... EXIT 0 (build does not compile _test.go; fast-check.sh therefore passed while the
+    owner/packages shards could not)
+- go vet ./... on the corrected head: clean.
+- Root of the perses_runtime failure: my branch's management_ui.go had lost the
+  EnsurePersesManagementUI call (management_ui.go:170) that writes gateway-plan.json;
+  ensure-runtime read then failed closed. Restored from develop.
+
+FIX (mechanisch, per Owner directive):
+1. git checkout lane-origin/develop -- internal/capability/perses.go  (3 functions restored)
+2. git checkout lane-origin/develop -- cmd/baha/app_perses_cli_test.go  (RuntimeFiles signature)
+3. git checkout lane-origin/develop -- cmd/baha/app_status_result.go  (HostContainersDashboards)
+4. git checkout lane-origin/develop -- internal/application/management_ui.go  (EnsurePersesManagementUI)
+5. go build ./... EXIT 0; go vet ./... clean; gofmt clean on all four files.
+
+COMPARISON (nach wiederherstellung, die maßgebliche Regel):
+- Full ./internal/... failing-set on corrected head (0449f065) vs clean develop (36d075fa):
+  IDENTICAL, 26 tests, all pre-existing CI-infrastructure failures (untrusted
+  /home/marcel/.config + shared-HA tests needing CI isolated PostgreSQL). ZERO new failures.
+- My tempo packages green: go test ./internal/metrics/ ./internal/capability/ -> ok;
+  go test ./cmd/baha/ -run 'Perses|Status' -> ok; owner mandatory tests -> ok.
+- Three luna-r1 recipes verified line-by-line on 0449f065:
+    recipe1 health fail-closed: internal/metrics/perses_tempo_datasource.go:599
+      VerifyPersesTempoDatasourceHealth -> TempoHealthUnverifiedError:629
+    recipe2 builder selection/authorization: perses_tempo_datasource.go:320
+      TempoSurfaceNotSelectedError / :325 TempoNotSelectedError / :332 TempoAuthorizationError
+    recipe3 native witness: perses_tempo_datasource.go:661 ValidatePersesTempoResource / :700
+      ValidatePersesTempoTraceQuery
+
+GREEN CI RUN (time-critical, Owner): run 44695439903 at head 0449f06587c849f598447094428d2f7296ed1f5b
+→ SUCCESS, 15 success / 0 failure / 15 skipped. Required shards all green:
+  PR · Go unit · owner / packages / cli-0 / cli-1 / cli-2 / cli-3, PR · Validation · go-build,
+  PR · Validation · go-vet.
+NEW lane head (ls-remote witness): w091-tempo-r5-fix -> 0449f06587c849f598447094428d2f7296ed1f5b
+= refs/pull/1645/head. develop (36d075f) confirmed ancestor of 0449f065.
+merge-base(w091-tempo-r5-fix, develop)==develop.
+
 ## repo-rule compliance
 
 - No product file written in a product repo; the corrected head is built in a clean clone
