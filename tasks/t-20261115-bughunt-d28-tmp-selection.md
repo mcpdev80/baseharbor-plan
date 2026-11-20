@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: codex-open-pr-sweep-190 (audit_perses_blocked)
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "BF-03 (daemon security): persisted target selection lives in a world-writable /tmp/baha-test- path. Found on develop 0e9ccb582…"
 kanban_title: 0427-190 · bf03 private selection store
 priority: ""
@@ -19,19 +19,19 @@ prs: ["mcpdev80/baseharbor#1582"]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1582", "https://github.com/mcpdev80/baseharbor/actions/runs/44662787996", "https://github.com/mcpdev80/baseharbor/actions/runs/44663383369", "https://github.com/mcpdev80/baseharbor/commit/f61ef0f4991cae88727c02b731d862bf395d8984"]
 ---
 
-- [ ] t-20261115-bughunt-d28-tmp-selection · BF-03 persisted target selection in world-writable /tmp path #task #release/v0-4-27 #status/active #view/active #kind/task
+- [x] t-20261115-bughunt-d28-tmp-selection · BF-03 persisted target selection in world-writable /tmp path #task #release/v0-4-27 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** codex-open-pr-sweep-190 (audit\_perses\_blocked)  
     **PR:** [baseharbor#1582](https://github.com/mcpdev80/baseharbor/pull/1582)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1582), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44662787996), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44663383369), [proof 4](https://github.com/mcpdev80/baseharbor/commit/f61ef0f4991cae88727c02b731d862bf395d8984)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** codex-open-pr-sweep-190 (audit_perses_blocked)  
@@ -79,3 +79,11 @@ BF-03 (daemon security): persisted target selection lives in a world-writable /t
 - Regression coverage: `TestWorldWritableMigrationRejectsForeignOwnedRegularFile` uses synthetic foreign UID metadata on a real regular 0600 file, avoiding privileged `chown`; `TestWorldWritableMigrationRejectsUntrustedDirectoryAncestor` proves fail-closed behavior without source mutation. Existing migration, symlink, frozen-source and source/target-removal tests cover legitimate selection and once-only behavior.
 - Local checks on candidate: `go test ./internal/orgconfig -count=1` PASS; `go test -race ./internal/orgconfig -count=1` PASS; `go vet ./internal/orgconfig` PASS; `git diff --check` PASS; Windows test binary cross-compilation PASS. No remote Actions run exists for candidate because it is not pushed. On Draft PRs targeting `develop`, `.github/workflows/ci.yml` selects `PR · Draft Go · packages` and runs the auto-discovered changed Go package; trigger an exact-head run only after parent accepts the review/CI route.
 - Review finding: [#4637011921](https://github.com/mcpdev80/baseharbor/pull/1582#discussion_r4637011921).
+
+
+## Maintainer closeout (2026-11-20 ~02:55 UTC)
+
+- PR #1582 merged to `develop` as `f61ef0f4991cae88727c02b731d862bf395d8984` from exact candidate head `f21bc6f35eac792386a9d708234609ca6a7f7060`; base was current develop `ec02d5faad2499c8bf5ed08ce2ae1f5aac25d80f`. Live open-PR count dropped from 21 to 20.
+- Security fix: require current effective-UID ownership and safe mode on the legacy regular file; validate all ancestor directories, allow writable ancestors only with sticky semantics, reject symlink/non-directory ancestry, and verify the opened file matches the validated inode before reading.
+- Regression tests `TestWorldWritableMigrationRejectsForeignOwnedRegularFile` and `TestWorldWritableMigrationRejectsUntrustedDirectoryAncestor` are auto-discovered in `internal/orgconfig`. Exact Draft CI #44662787996 passed source/routing and all five Draft Go shards. Exact Ready CI #44663383369 passed source format, workflow policy, Trusted Plan, native gate plan, focused Python, Go build/vet/gofmt validation, `internal/orgconfig` package and all CLI Go shards, and `PR Selected Checks`. No native/runtime gate was selected for these package-unit changes.
+- Local exact-tree checks passed: `go test ./internal/orgconfig -count=1`, `go test -race ./internal/orgconfig -count=1`, `go vet ./internal/orgconfig`, `git diff --check`, and Windows test-binary cross-compilation. Independent review accepted the fix; review thread #4637011921 was resolved after confirming owner/ancestor checks and regression coverage.
