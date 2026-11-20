@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: Codex (owner takeover, pr-sweep)
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
 kanban_title: 0428-078 · Perses identity dashboard
 priority: normal
@@ -18,20 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1606, mcpdev80/baseharbor#1650]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "PR #1650 exact head 7e185c80d1b66cd86e1a1e7daf0bdfbb21b2a109, run 44833386349, terminal FAILURE. cli-0..3 fail across existing CLI tests with 'Managed-environment machine operations require an authenticated BaseHarbor operator' (operator-context entrypoints tracked by 0428-198/#1726 and 0428-204); packages fails three existing Loki multi-source tests because fixture client-cert.pem/client-key.pem are missing (0428-202/#1732). Selected Docker identity runtime job fails before acceptance with target 'atomic-docker-identity' not configured. No PR-specific witness/dashboard test failure observed. Resume after shared operator-auth, Loki fixture, and selected-runtime target setup gates have exact green runs; refresh onto current develop and rerun all required checks, then obtain fresh review."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** Codex (owner takeover, pr-sweep) · **Priority:** normal  
     **PR:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
+    **Waiting:** PR \#1650 exact head 7e185c80d1b66cd86e1a1e7daf0bdfbb21b2a109, run 44833386349, terminal FAILURE. cli-0..3 fail across existing CLI tests with 'Managed-environment machine operations require an authenticated BaseHarbor operator' (operator-c…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md), [t-20261120-r28-prune-key-too-coarse](t-20261120-r28-prune-key-too-coarse.md), [t-20261120-r28-registerprovider-signal-failclosed](t-20261120-r28-registerprovider-signal-failclosed.md), [t-20261120-r28-restart-persist-signal-dump](t-20261120-r28-restart-persist-signal-dump.md), [t-20261120-r28-runtimetarget-failclosed](t-20261120-r28-runtimetarget-failclosed.md), [t-20261120-r28-signal-one-active-write-path](t-20261120-r28-signal-one-active-write-path.md), [t-20261120-r28-signalregistry-race](t-20261120-r28-signalregistry-race.md)  
@@ -210,4 +211,4 @@ The latest exact-head review recorded REQUEST CHANGES on PR #1650. The Codeman l
 - Reopened for the explicitly assigned Codex correction after the exact-head r8 REQUEST CHANGES review. PR #1650 candidate `7e185c80d1b66cd86e1a1e7daf0bdfbb21b2a109` binds the Keycloak signal to the canonical Target state root and namespace via the registration ID derived by the Keycloak runtime; endpoint values are not treated as tenant IDs. Mismatched roots, missing target identity, legacy signal IDs, wrong owner, wrong mode, wrong verification, and a path that differs from the current Keycloak descriptor fail closed.
 - The public status result now shares one setter for local and remote faces. The remote regression drives `appStatusCommand(...).Run(..., []string{name, "--json"}, ...)`, which reaches the production `writeJSON` encoder. `PersesStatusNow` remains fail-closed and does not synthesize `verified`; its positive serialized result test supplies `verified` at the result boundary plus a real target-bound witness.
 - Local focused checks pass: `go test ./internal/metrics -run '^TestIdentityWitness' -count=1` and `go test ./cmd/baha -run '^TestIdentityDashboard' -count=1`. Target-binding mutation fails `TestIdentityWitnessIsolatedToConcreteTarget`; discarded-witness mutation fails `TestIdentityDashboardVerifiedStatusResultSerializesPositive`; unverified-accepted mutation fails `TestIdentityDashboardEligibleRequiresConfiguredVerifiedPerses`.
-- The earlier run [44833030423](https://github.com/mcpdev80/baseharbor/actions/runs/44833030423) on `3aff73c48e25cd230b72fef86199c68492c858da` was cancelled after the stricter descriptor-path check was added. Exact hosted PR run [44833386349](https://github.com/mcpdev80/baseharbor/actions/runs/44833386349) is running on `7e185c80d1b66cd86e1a1e7daf0bdfbb21b2a109`. Do not accept or merge until its required checks finish and the exact-head review is renewed.
+- The earlier run [44833030423](https://github.com/mcpdev80/baseharbor/actions/runs/44833030423) on `3aff73c48e25cd230b72fef86199c68492c858da` was cancelled after the stricter descriptor-path check was added. Exact hosted PR run [44833386349](https://github.com/mcpdev80/baseharbor/actions/runs/44833386349) completed FAILURE on `7e185c80d1b66cd86e1a1e7daf0bdfbb21b2a109`: CLI shards fail on missing authenticated operator context, `internal/logs` package tests fail because Loki mTLS fixture files are absent, and the selected Docker identity runtime job cannot configure `atomic-docker-identity`. Focused identity witness/dashboard tests do not appear among the failing tests. The shared CLI-entrypoint, Loki-fixture, and runtime-target gates overlap active/waiting cards 0428-198/#1726, 0428-204, and 0428-202/#1732. The card is paused in `wait` until those exact shared gates are resolved, then #1650 must refresh against current `develop`, rerun exact CI, and receive a fresh review.
