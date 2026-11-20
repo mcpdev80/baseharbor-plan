@@ -3,7 +3,7 @@ id: t-20261118-ownership-stale-consent-hardening
 release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
-owner: w119-pr0428-119-pr1690-hopf
+owner: w119-pr0428-119-pr1690-hopf2
 kanban_status: active
 card_number: 0428-119
 card_short_title: harden Prov ownership chain vs
@@ -18,7 +18,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44464033443", "h
 
 - [ ] t-20261118-ownership-stale-consent-hardening · harden provider ownership chain vs stale-impact-consent #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w119-pr0428-119-pr1690-hopf  
+    **Owner:** w119-pr0428-119-pr1690-hopf2  
     **PR:** [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44464033443), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44464060182)  
     <!-- /generated:card -->
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44464033443", "h
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w119-pr0428-119-pr1690-hopf  
+**Owner:** w119-pr0428-119-pr1690-hopf2  
 **Priority:** not set  
 **PRs:** [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690)  
 **Source:** 
