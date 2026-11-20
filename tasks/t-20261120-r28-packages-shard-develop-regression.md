@@ -27,7 +27,7 @@ created: 2026-11-20
 - [ ] t-20261120-r28-packages-shard-develop-regression · packages shard red on develop #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** w202-0428-202-pkgshard  
-wait_reason: "Waiting for prerequisite 0428-057 / PR #1615 to merge with exact required CI green. Its current exact run 44815738274 is pending on head 80bea2a73dabcd8f37e046cc9dcf3c190665afb0; packages passed on its prior head, but must re-run on the final exact head. Once #1615 merges, hop #1714 onto current develop and rerun its exact packages shard to confirm Loki multi-source behavior. The earlier bisect finding remains recorded below; this card is waiting for the owner rail's CI fix, not technically blocked."
+    **Waiting:** Waiting for prerequisite 0428-057 / PR \#1615 to merge with exact required CI green. Its current exact run 44815738274 is pending on head 80bea2a73dabcd8f37e046cc9dcf3c190665afb0; packages passed on its prior head, but must re-run on the fi…  
     **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
     <!-- /generated:card -->
 
