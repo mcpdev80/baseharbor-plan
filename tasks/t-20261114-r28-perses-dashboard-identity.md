@@ -7,7 +7,7 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w078-pr0428-078-appstatus-r2
+owner: w078-pr0428-078-appstatus-r3
 kanban_status: active
 kanban_lane: active
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 - [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** w078-pr0428-078-appstatus-r2 · **Priority:** normal  
+    **Owner:** w078-pr0428-078-appstatus-r3 · **Priority:** normal  
     **PR:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** w078-pr0428-078-appstatus-r2  
+**Owner:** w078-pr0428-078-appstatus-r3  
 **Priority:** normal  
 **PRs:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
 **Source:** 
@@ -92,3 +92,5 @@ The previous two-PR integration blocker is resolved: #1606 is closed unmerged an
 Maintainer review remains **REQUEST CHANGES / blocked**. The independent review record is [1650-0428-078-r1.md](../evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r1.md). It verifies that the candidate lacks the card-owned Perses identity dashboard realization/panels and focused schema/panel tests that were present in the closed #1606 tree. It also confirms that `IdentityDashboardEligible` is calculated without gating on Perses selection/current status. A separate agent audit confirms two further authorization defects: `IdentitySelectionWitnessAt` ignores its target data directory/namespace inputs while querying the global registry, so another target's signal may satisfy this target; and any matching provider/ID registry source is accepted without checking native mode or verification (the positive test uses a legacy source with empty mode).
 
 Posted these blockers on [PR #1650](https://github.com/mcpdev80/baseharbor/pull/1650#issuecomment-7029379566), including requested panel assets, Perses status gating, target-scoped native/current source validation, and negative regressions. No approval or merge. Resume only when the surviving PR carries the missing dashboard implementation/tests and fixes the selection, target-authorization and signal-verification gaps, with exact-head required checks executed.
+
+uebergabe dokumentiert (§3.6): die bisherige session w078-…-r2 ist entlassen, ihr zustand war drei commits, die durch einen dateisystem-remote ('origin' = lokaler pfad) NIE bei github ankamen (gh api: No commit found fuer 23a9f656b, 7820a9325, 16d343023). neue lane uebernimmt: push ueber lane-origin, rebase auf develop, EIN run am neuen head
