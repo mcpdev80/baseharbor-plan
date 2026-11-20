@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0428-057 (codeman 01b370c0, END_BLOCKED, sitz wird entlassen)
-kanban_status: wait
-kanban_lane: wait
+owner: Owner (marcel, direkt)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Separate human/runtime secret authority. Follow the owner working brief, command mapping and code entry index; revalidate…"
 kanban_title: 0428-057 · Separate human/runtime secret
 priority: high
@@ -18,26 +18,25 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1615]
 sources: []
 blocker: ""
-wait_reason: "Waiting for #1594 to integrate the merged 0428-188 grant and pass exact-head CI. Then hop #1615 to the resulting stack and run its exact CI; its current base is already included by the pull_request.branches workflow rule."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-identity-secrets/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98d/evidence/r28-welle4-2026-11-19/identity-secrets-hopf/fix-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44735405029"]
 ---
 
-- [ ] t-20261114-r28-cli2-identity-secrets · CLI redesign: Separate human/runtime secret authority #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-identity-secrets · CLI redesign: Separate human/runtime secret authority #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-057 (codeman 01b370c0, END\_BLOCKED, sitz wird entlassen) · **Priority:** high  
+    **Owner:** Owner (marcel, direkt) · **Priority:** high  
     **PR:** [baseharbor#1615](https://github.com/mcpdev80/baseharbor/pull/1615)  
-    **Waiting:** Waiting for \#1594 to integrate the merged 0428-188 grant and pass exact-head CI. Then hop \#1615 to the resulting stack and run its exact CI; its current base is already included by the pull\_request.branches workflow rule.  
     **Needs:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-identity-secrets/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98d/evidence/r28-welle4-2026-11-19/identity-secrets-hopf/fix-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44735405029)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md), [t-20261120-trusted-local-operation-grant](t-20261120-trusted-local-operation-grant.md)  
 **Required by:** [t-20261114-r28-cli2-app-data](t-20261114-r28-cli2-app-data.md), [t-20261114-r28-cli2-app-export](t-20261114-r28-cli2-app-export.md), [t-20261114-r28-cli2-app-interact](t-20261114-r28-cli2-app-interact.md), [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md)  
-**Owner:** 0428-057 (codeman 01b370c0, END_BLOCKED, sitz wird entlassen)  
+**Owner:** Owner (marcel, direkt)  
 **Priority:** high  
 **PRs:** [baseharbor#1615](https://github.com/mcpdev80/baseharbor/pull/1615)  
 **Source:** 
@@ -87,3 +86,5 @@ hopf delivered, von mir gegen den gepushten kopf geprueft: branch cli2-identity-
 WURZELFUNDE, warum auf head f93564a0d KEIN lauf erscheint (suite 'queued', 38 minuten, 'actions/runs?head_sha=' leer): PR #1615 hat base_ref 'cli2-env-policy-head' (5ef9c329b), und ci.yml auf DIESEM ast laesst PR-CI nur fuer develop/main/'lane-*' — zeuge zeilen 14-18 'pull_request.branches: [develop, main, lane-*]' sowie die job-bedingungen zeilen 428/478/515 "github.base_ref == 'develop' || startsWith(github.base_ref, 'lane-')". ein ketten-ast ohne 'lane-'-praefix erhaelt damit NIE required-CI, draft oder nicht. daserklaert auch die sechs draft-zeilen der zulassungs-pruefung (#1627/#1625/#1623/#1620 basen ebenso auf cli2-*-head). DER BETROFFENE FALL IST NICHT DIE LANE: ein 'gh pr ready' allein macht hier nichts. MASSNAHME: neuer draht-PUNKT (f) fuer 0428-114, owner-entscheidung — entweder die bedingung auf beliebige base_ref erweitern (sauberste: 'github.event_name == "pull_request" && github.event.pull_request.draft == false') oder die ketten-aeste auf 'lane-*' umziehen (rename ist zerstoerlich, PR-basen mitsammenziehen)
 
 END_BLOCKED akzeptiert: die lane hat RICHTIG gehandelt — kein zweiter push, kein selbst-gesetzter pruefeingang (§3.8), stattdessen befund mit datei:zeile. sie bestaetigt damit meine eigene wurzelfunde unabhaengig (queue500): ketten-aeste ohne 'lane-'-praefix bekommen niemals required-CI. akte identity-secrets-hopf/fix-1.md nennt jetzt den 40er-head und die promotion
+
+OWNER UEBERNIMMT DIREKT (Ausdrueckliche Anweisung 2026-11-20): karte ist aktiv unter owner-hand, kein codeman-sitz mehr dahinter. gemessen: PR #1615 head 8a4490ca034d, branch refs/heads/cli2-identity-secrets-head == refs/pull/1615/head (ls-remote), base develop, draft=false, ancestry auf develop-spitze 40cb28c758b0 = JA. exakter run 44796477628 am head, stand meiner aufnahme: 27 success / 11 in_progress / 5 failure / 57 skipped. DIE FUER FINF ROTEN SIND NICHT IHR DIFF: 'PR · Selected Runtime' (atomic/docker/observability, atomic/docker/guided, atomic/podman/lifecycle, atomic/docker/lifecycle, atomic/docker/backup-restore) scheitern an DERSELBEN feld-weilen operator-meldung ('authenticated BaseHarbor operator', zweimal in job 136498326500, run 44796477628) = karten 0428-198 (sammelstelle, lane arbeitet) und 0428-202 (blocked an ihrem eigenen #1594/0428-053-rail, policy.go 2af892e4e). FOLGERUNG FUER IHREN PLAN 'bei gruenem Required-CI merge ich #1615': das required-cI KANN NICHT GRUEN werden, bevor 198/202 geloest sind - auch ihr eigener PR liegt in der schusslinie. der alte owner-string (codeman 01b370c0, END_BLOCKED) ist damit ersetzt; der sitz ist laengst entlassen. INHALTLICH NOTIERT: 'baha plan' erhaelt denselben lokalen laufzeit-autorisierungsscope wie 'app plan' - das ist genau die identitaets-luecke, die bei 0428-198 als test-seitiges muster gefragt ist (27 test-dateien nutzen operatorauth.WithVerifiedPrincipal bereits, cmd/baha/app_input_resolver_first_run_test.go:21-27); ihr fix beruehrt internal/identityprovider/** und damit die grenze, die sie fuer lanes gesetzt haben - fuer SIE gilt die grenze naturgemaes nicht, fuer lanes bleibt sie zu.
