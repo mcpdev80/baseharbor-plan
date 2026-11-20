@@ -148,6 +148,32 @@ matrix run is warranted — the CLI failure is unchanged from develop and out of
 
 ## Cleanliness
 
+## W210 correction re-verified on the exact develop tip (note-207-tipwitness.txt)
+
+The w210 read-only lane (bare-develop-gate/round-1.md) verified the loki MultiSource battery is
+RED at the bare develop tip `40cb28c758b02960356434b630086a341ebe1738` with the verbatim
+`stat .../service-access/pki/client-cert.pem: no such file or directory` signature, and GREEN at
+`96f2ae11a` (PR #1645 base). This lane re-ran the gate the w210 correction demands: my fixture fix
+must make the battery green AT the develop tip, not just pass on my own branch tip.
+
+Verification worktree: `git worktree add /var/tmp/w207-verify-develop origin/develop` ->
+`40cb28c75` (exact, `git rev-parse` = `40cb28c75`), pristine (`git status --porcelain` empty).
+Applied my exact committed diff (`git show bddb27e62 -- internal/logs/loki_test.go | git apply`) on
+top of pristine develop.
+
+Three witness lines:
+1. Narrow gate at tip with my diff:
+   `go test ./internal/logs/ -run TestPersesLokiDatasourceMultiSource -count=1` ->
+   `ok  	github.com/mcpdev80/baseharbor/internal/logs	0.014s`  (GREEN at tip 40cb28c75)
+2. `git status --porcelain` of /var/tmp/w207-verify-develop -> ` M internal/logs/loki_test.go`
+   (only the fixture changed; no other tracked file, no go.mod/go.sum).
+3. Full battery at tip with my diff:
+   `go test ./internal/logs/ -count=1` -> `ok  	.../internal/logs	0.052s`.
+
+So the packages-shard regression is a broken develop state, fixable entirely within the
+`internal/logs/loki_test.go` test fixture (in this card's write-set); the policy side
+(`internal/serviceaccess/policy.go`, #1594/#1594 owner rail) stays locked and untouched. No
+second PR, no re-cut needed — PR #1732 stands.
 - No docker/podman compose projects, containers, networks or volumes started. State under `/tmp/w207-lokifix-wt/` only (git worktree, no containers).
 - before: `/tmp/w207-lokifix-wt/` — clean develop worktree. after: same worktree with one committed change + a `/tmp/cli0.log` CI-log capture.
 - cleanliness: clean — no container/network/volume/state-dir artifacts; ambient-core images of foreign carts untouched.
