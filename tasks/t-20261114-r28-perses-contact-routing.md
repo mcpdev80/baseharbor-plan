@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: coord
-kanban_status: wait
-kanban_lane: wait
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "Design opt-in notification routing, evaluate existing compatible Alertmanager integration first; preserve authorization and…"
 kanban_title: 0428-074 · Define alert notification
 priority: normal
@@ -17,21 +17,21 @@ depends_on: [t-20261114-r28-perses-alerts, t-20261114-r28-perses-secure-access]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: ""
-wait_reason: "batch17 APPROVE CONTENT (design-akte, kein PR-objekt); offen: owner-entscheidung queue-124"
+blocker: "Owner decision queue-124 is still open: choose the notification-routing contract/scope before implementation can proceed."
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-contact-routing · Define alert notification routing #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
+- [ ] t-20261114-r28-perses-contact-routing · Define alert notification routing #task #release/v0-4-28 #status/blocked #view/blocked #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** coord · **Priority:** normal  
-    **Waiting:** batch17 APPROVE CONTENT (design-akte, kein PR-objekt); offen: owner-entscheidung queue-124  
+    **Blocker:** Owner decision queue-124 is still open: choose the notification-routing contract/scope before implementation can proceed.  
     **Needs:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  

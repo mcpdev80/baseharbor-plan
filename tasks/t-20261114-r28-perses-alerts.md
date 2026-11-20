@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w073-0428-073-pr1704-persesalerts-r3
-kanban_status: wait
-kanban_lane: wait
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: Define actual alert rule evaluation and persistence using supported existing Prometheus contract or an Owner-approved…
 kanban_title: 0428-073 · Define and provision alert
 priority: normal
@@ -17,23 +17,23 @@ depends_on: [t-20261114-r28-perses-datasources]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1613, mcpdev80/baseharbor#1704]
 sources: []
-blocker: ""
-wait_reason: "review HOLD (owner-verdict 2026-11-20): PR #1704 ist am exakten head green, aber karte 0428-073 verlangt einen echten "
+blocker: "Owner decision required: either approve reducing scope to the current fail-closed unavailable contract, or require implementation of a real alert evaluator and notification owner. PR #1704 is green but does not meet the current acceptance contract."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-alerts-hopf/fix-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1613-alert-contract-review.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1613-0428-073.md"]
 ---
 
-- [ ] t-20261114-r28-perses-alerts · Define and provision alert rules #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
+- [ ] t-20261114-r28-perses-alerts · Define and provision alert rules #task #release/v0-4-28 #status/blocked #view/blocked #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w073-0428-073-pr1704-persesalerts-r3 · **Priority:** normal  
     **PR:** [baseharbor#1613](https://github.com/mcpdev80/baseharbor/pull/1613), [baseharbor#1704](https://github.com/mcpdev80/baseharbor/pull/1704)  
-    **Waiting:** review HOLD (owner-verdict 2026-11-20): PR \#1704 ist am exakten head green, aber karte 0428-073 verlangt einen echten  
+    **Blocker:** Owner decision required: either approve reducing scope to the current fail-closed unavailable contract, or require implementation of a real alert evaluator and notification owner. PR \#1704 is green but does not meet the current acceptance…  
     **Needs:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-alerts-hopf/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1613-alert-contract-review.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1613-0428-073.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
 **Required by:** [t-20261114-r28-perses-contact-routing](t-20261114-r28-perses-contact-routing.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md), [t-20261117-alert-evaluator-persistence-missing](t-20261117-alert-evaluator-persistence-missing.md), [t-20261117-hunt-signals-105](t-20261117-hunt-signals-105.md)  

@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w175-pr0428-175-publish-gate
-kanban_status: wait
-kanban_lane: wait
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "Every published planning text passes the same integrity gates a dispatched payload passes, and the watch registry can be cleaned…"
 kanban_title: 0428-175 · card-status.py bypasses the
 priority: ""
@@ -17,20 +17,20 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: ""
-wait_reason: "werkzeug ist geliefert (payload-gate in dispatch-lane.sh, plan-publish.sh mit preflight, card-status-regeln), aber die abnahmestufe fuer coordinator/-werkzeug steht aus. keine live session."
+blocker: "Owner decision required: decide whether the coordinator-only tooling branch/evidence is eligible for product-equivalent acceptance. The coordinator repository has no remote/PR; implementation and local evidence are in the isolated branch, so it cannot be accepted or reviewed through the current PR-only path."
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-coord-publish-integrity-gaps · Coordinator tooling: card-status.py bypasses the payload integrity gates; watch.py rm signature unusable #task #release/v0-4-28 #status/wait #view/wait #kind/maintenance
+- [ ] t-20261120-coord-publish-integrity-gaps · Coordinator tooling: card-status.py bypasses the payload integrity gates; watch.py rm signature unusable #task #release/v0-4-28 #status/blocked #view/blocked #kind/maintenance
     <!-- generated:card -->
     **Owner:** w175-pr0428-175-publish-gate  
-    **Waiting:** werkzeug ist geliefert (payload-gate in dispatch-lane.sh, plan-publish.sh mit preflight, card-status-regeln), aber die abnahmestufe fuer coordinator/-werkzeug steht aus. keine live session.  
+    **Blocker:** Owner decision required: decide whether the coordinator-only tooling branch/evidence is eligible for product-equivalent acceptance. The coordinator repository has no remote/PR; implementation and local evidence are in the isolated branch,…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w175-pr0428-175-publish-gate  

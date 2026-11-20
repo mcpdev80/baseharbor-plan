@@ -16,9 +16,10 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 114/203 · **Blocked:** 2 · **Waiting:** 21  
+    **Accepted tasks:** 114/203 · **Blocked:** 5 · **Waiting:** 21  
     **Blocker:** [t-20261114-r28-cli2-wizard-platform](../tasks/t-20261114-r28-cli2-wizard-platform.md) — Exact PR checks are unroutable while base is cli2-env-policy-head; PR remains Draft. CI owner/coordinator must provide an approved qualifying stack base, then…  
-    **Blocker:** [t-20261120-r28-stale-draft-pr-1665-closeout](../tasks/t-20261120-r28-stale-draft-pr-1665-closeout.md) — restack nicht konfliktfrei: \#1665-diff und der offene PR \#1684 (0428-083) teilen sich internal/application/management\_ui.go; perses-runtime-smoke bleibt rot bi…  
+    **Blocker:** [t-20261114-r28-perses-alerts](../tasks/t-20261114-r28-perses-alerts.md) — Owner decision required: either approve reducing scope to the current fail-closed unavailable contract, or require implementation of a real alert evaluator and…  
+    Plus 3 further blockers in the task list.  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next

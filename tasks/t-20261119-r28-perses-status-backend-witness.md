@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1702]
 sources: []
 blocker: ""
-wait_reason: "review HOLD (owner-verdict 2026-11-20): PR #1702 ist am exakten head green, aber karte 0428-142 verlangt echte erreich"
+wait_reason: "Started work is paused pending a worker seat: #1702 still needs the concrete Codex review corrections and a fresh exact-head run. The former Owner-decision blocker was resolved by 0428-143; no Owner decision is currently pending."
 resolution: ""
 evidence: []
 ---
@@ -35,7 +35,7 @@ a fresh exact-head run; it is not ready to merge.
     <!-- generated:card -->
     **Owner:** w142-pr1702-statuswit-r5  
     **PR:** [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702)  
-    **Waiting:** review HOLD (owner-verdict 2026-11-20): PR \#1702 ist am exakten head green, aber karte 0428-142 verlangt echte erreich  
+    **Waiting:** Started work is paused pending a worker seat: \#1702 still needs the concrete Codex review corrections and a fresh exact-head run. The former Owner-decision blocker was resolved by 0428-143; no Owner decision is currently pending.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
