@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: coord
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Every published planning text passes the same integrity gates a dispatched payload passes, and the watch registry can be cleaned…"
 kanban_title: 0428-175 · card-status.py bypasses the
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-coord-publish-integrity-gaps · Coordinator tooling: card-status.py bypasses the payload integrity gates; watch.py rm signature unusable #task #release/v0-4-28 #status/planned #view/ready #kind/maintenance
+- [ ] t-20261120-coord-publish-integrity-gaps · Coordinator tooling: card-status.py bypasses the payload integrity gates; watch.py rm signature unusable #task #release/v0-4-28 #status/active #view/active #kind/maintenance
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** coord  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** coord  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -67,3 +66,5 @@ Every published planning text passes the same integrity gates a dispatched paylo
 ## Handoff
 
 - Opened by the Coordinator on 2026-11-20 from two self-measured incidents: a CJK garble (`ein nicht-lateinisches Zeichen`) published into card t-20261120-r28-develop-runtime-integration-red because `card-status.py` does not call the payload sanitizer, and an unusable `watch.py rm` call for released lane fd49077a.
+
+second live instance measured 2026-11-20, by me: a non-latin token entered the note of card t-20261114-r28-perses-tempo-source through card-status.py and reached origin/main while plan.py check reported 0 errors. the token was stripped and republished (board-sha 232ff2cbfb1c). additionally the same call printed NOTHING and did not publish once, then published silently on retry with a token of the same class: the failure mode is inconsistent and must be pinned. implementation of both fixes is coordinator tooling (coordinator/scripts), not product code, and runs after the merge window clears unless a free seat appears first
