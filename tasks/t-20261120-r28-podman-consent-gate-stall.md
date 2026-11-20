@@ -76,3 +76,5 @@ scripts/ci-greenfield-apply.py, the guided-wizard command path in cmd/baha and t
 destroy-side files of 0428-184 (internal/application/shared_backends_resources_runtime.go, internal/observability/registry.go)
 and the identity witness of 0428-078 are NOT part of this card. No .github/** (owner scope): if the workflow needs a
 consent env, report the needed change as a finding with file:line instead of editing it (AGENTS 5.3).
+
+gefunden im PR #1715, run 44743111417 job 136312259900: 'Existing consent authority requires 2 confirmation(s)' -> 'Error: wizard cancelled without changes' -> 'candidate submission requires an explicit operator' -> 'new-edit-new-sql-remove exceeded no-output timeout: elapsed=241s no-output=180' -> demo-data-capabilities FAIL. base-drift ist NICHT bewiesen: der job erscheint nur in PR-selected-laeufen, kein develop-push traegt ihn (gemessen runs 44728573148 / 44726527868 ohne diesen job).

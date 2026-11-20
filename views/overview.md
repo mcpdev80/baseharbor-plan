@@ -36,9 +36,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-r28-window-integrity-verify](../tasks/t-20261119-r28-window-integrity-verify.md) | fensterstand gegen abnahmebelege pruefen | active | not set | w150-pr0428-150-windowverify | — | — |
 | [t-20261120-coord-publish-integrity-gaps](../tasks/t-20261120-coord-publish-integrity-gaps.md) | Coordinator tooling: card-status.py bypasses the payload integrity gates; watch.py rm signature unusable | active | not set | w175-pr0428-175-publish-gate | — | — |
 | [t-20261120-perses-tmpfs-mountpoint](../tasks/t-20261120-perses-tmpfs-mountpoint.md) | Perses runtime smoke cannot mount tmpfs at /etc/perses/database on hosted runners | active | not set | 0428-083- | — | — |
-| [t-20261120-r28-metrics-adapter-without-exporter](../tasks/t-20261120-r28-metrics-adapter-without-exporter.md) | Metrics: RequiresAdapter source has no exporter or compose wiring (never collectable) | active | not set | w182-0428-182-metricsadapter | — | — |
-| [t-20261120-r28-shared-destroy-no-registry-cleanup](../tasks/t-20261120-r28-shared-destroy-no-registry-cleanup.md) | Shared destroy does not clean the signal registry (stale owners survive) | active | not set | w184-0428-184-shareddestroy | — | — |
-| [t-20261120-r28-valkey-dashboard-unavailable-only](../tasks/t-20261120-r28-valkey-dashboard-unavailable-only.md) | Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable | active | not set | w183-0428-183-valkeygate | — | — |
+| [t-20261120-r28-metrics-adapter-without-exporter](../tasks/t-20261120-r28-metrics-adapter-without-exporter.md) | Metrics: RequiresAdapter source has no exporter or compose wiring (never collectable) | active | not set | w182-0428-182-metricsadapter | — | [baseharbor#1716](https://github.com/mcpdev80/baseharbor/pull/1716) |
+| [t-20261120-r28-shared-destroy-no-registry-cleanup](../tasks/t-20261120-r28-shared-destroy-no-registry-cleanup.md) | Shared destroy does not clean the signal registry (stale owners survive) | active | not set | w184-0428-184-shareddestroy | — | [baseharbor#1715](https://github.com/mcpdev80/baseharbor/pull/1715) |
+| [t-20261120-r28-valkey-dashboard-unavailable-only](../tasks/t-20261120-r28-valkey-dashboard-unavailable-only.md) | Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable | active | not set | w183-0428-183-valkeygate | — | [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714) |
 
 ## Ready for review
 

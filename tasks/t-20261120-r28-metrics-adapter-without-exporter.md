@@ -15,7 +15,7 @@ kanban_title: 0428-182 · adapter without exporter
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1716]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,6 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 - [ ] t-20261120-r28-metrics-adapter-without-exporter · Metrics: RequiresAdapter source has no exporter or compose wiring (never collectable) #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
     **Owner:** w182-0428-182-metricsadapter  
+    **PR:** [baseharbor#1716](https://github.com/mcpdev80/baseharbor/pull/1716)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md)  
     <!-- /generated:card -->
 
@@ -35,7 +36,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **Depends on:** none  
 **Owner:** w182-0428-182-metricsadapter  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1716](https://github.com/mcpdev80/baseharbor/pull/1716)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -54,3 +55,5 @@ F1 of hunt round-1: the source declares RequiresAdapter, but no exporter path an
 internal/metrics/** plus the compose/runtime wiring the adapter needs. If the fix must reach internal/application/perses_runtime.go, check first whether 0428-083 (#1684) is still open there and stop with a file:line report if it is.
 
 hunt-fund F1 (hunt-signals-103/round-1.md) auf dem freigabenen sitz von 078: quelle erklaert RequiresAdapter, aber exporter/producer fehlt, metrik ist strukturell nicht sammelbar. akzeptanz: verdrahten ODER RequiresAdapter entfernen (begruendet), regression fail-closed, CI-jobname in der akte. SCHREIBFELDER disjunkt gewaehlt: die dateien von #1684, #1645, 0428-183 (valkey.go) und internal/observability/** (0428-184) sind in der mission ausdruecklich verschlossen, meldung statt doppelschreiber (§4.3).
+
+PR #1716 head 1a67bd27d157, run TERMINAL GRUEN am exakten head (14 success / 20 skipped / 0 failure). unabhaengige abnahme meldet akzeptanz-2-defekt: TestRequiresAdapterMetricsSourceWithoutProducerFailsCatalog ist ein pauschalverbot gegen jede RequiresAdapter-metrik, auch mit vorhandenem producer - die karte verlangt die BEDINGUNG, nicht das verbot. korrektur zugestellt (guard conditional oder producer-kopplung direkt nachweisen).

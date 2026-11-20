@@ -15,9 +15,9 @@ kanban_title: 0428-184 · shared destroy skips registry
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: ["1715"]
+prs: [mcpdev80/baseharbor#1715]
 sources: []
-blocker: "wartet auf karte 0428-187 (podman data-capabilities consent-gate stall, run 44743111417 job 136312259900) - ohne die_loesung ist der selected-aggregate am exakten head rot, gleich gueltig ihr diff ist"
+blocker: "wartet auf karte 0428-187: die podman data-capabilities-zelle stirbt am candidaten-consent-pfad (run 44743111417, job 136312259900), ihr diff hat weder wizard noch consent geaendert"
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md"]
@@ -26,6 +26,8 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 - [ ] t-20261120-r28-shared-destroy-no-registry-cleanup · Shared destroy does not clean the signal registry (stale owners survive) #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
     **Owner:** w184-0428-184-shareddestroy  
+    **PR:** [baseharbor#1715](https://github.com/mcpdev80/baseharbor/pull/1715)  
+    **Blocker:** wartet auf karte 0428-187: die podman data-capabilities-zelle stirbt am candidaten-consent-pfad (run 44743111417, job 136312259900), ihr diff hat weder wizard noch consent geaendert  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md)  
     <!-- /generated:card -->
 
@@ -35,7 +37,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **Depends on:** none  
 **Owner:** w184-0428-184-shareddestroy  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1715](https://github.com/mcpdev80/baseharbor/pull/1715)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -62,3 +64,5 @@ und migration.go) mit der zeile 'welche zeile ich NICHT antaste' in der akte. gr
 internal/application/perses_runtime.go (dort arbeitet 0428-083), stopp + meldung bei drohender §4.3-kollision.
 
 PR #1715 head c1485721f130, run 44743111417 TERMINAL FAILURE: 'PR · Selected Runtime (atomic/podman/data-capabilities' + 'PR Selected Checks' rot, 16 success/16 skipped. die rote zelle ist NICHT ihr defect: sie hat weder wizard noch consent geaendert, die ursache liegt auf karte 0428-187 (consent-gate-stall, log-beleg dort). unabhaengig davon die abnahme: mutationstest umgeht die owner-guard in RegisterProviderSignals, valkey-regression fehlt, akte fehlte auf main. korrektur ist zugestellt; ihr PR bleibt BIS 187 geloest in 'blocked' gefuehrt, nicht als review-wait.
+
+PR #1715 head c1485721f130, run 44743111417 TERMINAL FAILURE: 'PR · Selected Runtime (atomic/podman/data-capabilities' und 'PR Selected Checks' rot, 16 success / 16 skipped, alle go-unit-shards gruen. unabhaengig von der zelle die abnahme: mutationstest umgeht die owner-guard in RegisterProviderSignals, valkey-regression fehlt, akte fehlte auf main (korrektur zugestellt). registry.go +29/-0, nur die neue function PruneOwnedPlatformSources - registryPath bleibt ungebaut, die schema-entscheidung liegt beim owner.
