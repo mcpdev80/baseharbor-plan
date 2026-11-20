@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44688554297", "https://github.com/mcpdev80/baseharbor/actions/runs/44689126814", "https://github.com/mcpdev80/baseharbor/actions/runs/44695439903"]
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44688554297", "https://github.com/mcpdev80/baseharbor/actions/runs/44689126814", "https://github.com/mcpdev80/baseharbor/actions/runs/44695439903", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md"]
 ---
 
 - [ ] t-20261114-r28-perses-tempo-source · Connect Perses Tempo #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w091-pr0428-091-tempo-source · **Priority:** normal  
     **PR:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44688554297), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44689126814), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44695439903)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44688554297), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44689126814), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44695439903), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -110,3 +110,8 @@ kandidat ist nach meiner messung currency-faehig und gruen: head 0449f06587c849f
 ## Sweep correction — 2026-11-20 ~07:50 UTC
 
 A concurrent plan update moved this card to Review after run `44695439903` succeeded. Reverted it to Active after rechecking task acceptance: that run passed selected checks but skipped the Selected Runtime / Tempo runtime gate, and the existing acceptance note explicitly requires passing exact-head checks plus Tempo runtime acceptance before Review. The PR remains OPEN+Ready at `0449f06587c849f598447094428d2f7296ed1f5b`, with `mergeStateStatus=CLEAN`, no formal GitHub review, and no runtime acceptance evidence. Independent Wait/Review audit agrees there is no justified Review handoff.
+
+
+## Independent CODEX-REVIEW result — 2026-11-20 07:51 UTC
+
+The exact-head review in [1645-0428-091.md](../evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md) returned **REQUEST CHANGES** on head `0449f06587c849f598447094428d2f7296ed1f5b`. It identifies: (P1) no pinned Perses runtime proof that the Tempo datasource plugin can reach the managed Tempo service-access endpoint from the Perses network namespace; current `localhost` rewrite does not prove routability; (P2) `tempoProviderHTTPClient` disables `AuthenticationRequired`, allowing required mTLS identity to be omitted; (P3) the candidate removed two fail-closed host-dashboard regression tests without replacements. The exact Actions run `44695439903` succeeded but skipped native/runtime jobs, so it cannot discharge P1. Direct GitHub PR reviews API remains empty; this is an internal Codex review artifact, not a submitted GitHub review. Card stays Active pending corrections and exact acceptance.
