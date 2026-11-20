@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w068-pr0428-068-context-shell
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Terminal-scoped context and completion. Follow the owner working brief, command mapping and code entry index; revalidate current…"
 kanban_title: 0428-068 · Terminal-scoped context and
 priority: high
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44695244800", "https://github.com/mcpdev80/baseharbor/actions/runs/44696968212", "https://github.com/mcpdev80/baseharbor/actions/runs/44699230683", "https://github.com/mcpdev80/baseharbor/actions/runs/44700679422", "https://github.com/mcpdev80/baseharbor/pull/1710", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md"]
 ---
 
-- [ ] t-20261114-r28-cli2-context-shell · CLI redesign: Terminal-scoped context and completion #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-context-shell · CLI redesign: Terminal-scoped context and completion #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** w068-pr0428-068-context-shell · **Priority:** high  
     **PR:** [baseharbor#1710](https://github.com/mcpdev80/baseharbor/pull/1710)  
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44695244800", "h
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md), [t-20261114-r28-cli2-uid-target](t-20261114-r28-cli2-uid-target.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
@@ -104,3 +104,5 @@ PR #1710 advanced to `b1fea4df37b3b7327c63b94b6cdb81c1ac4d3473`; exact run [4469
 nachlieferung ist erfolgt, damit ist die karte abnahmefaehig: akte evidence/r28-welle4-2026-11-20/cli2-context-shell/round-1.md liegt auf origin/main @ c0d065b3, mit '## PLAN' (nummeriert, 0 checkboxen), '## Remote witnesses' (ls-remote + merge-base-zeilen), '## Precedenz' mit test pro stufe, '## Repo-rule compliance', '## Outcome' (run-id 44700679422). head unveraendert eingefroren: PR #1710 = branch b-068-cli2-context-shell = eff023c07810, upd 08:12:14Z, base.sha = develop-spitze, draft=false, mergeable=clean, 40/40 checks, 0 failure. CODEX-REVIEW ist bestellT (session 95971e0a, rolle REVIEW, akte 1710-0428-068.md) und laeuft NACH dem laufenden #1709-review, weil zwei bewegliche heads die abnahme brechen — das ist der grund, warum ich es in die warteschlange der reviewer-session gestellt habe statt parallel
 
 verdict am eingefrorenen head liegt vor und ist gueltig (akte 1710-0428-068.md: 'PR head before review' = 'PR head after review' = eff023c07810). resultat: REQUEST CHANGES, drei blockierende befehle, ein scope-punkt MET. MET: 'cmd/baha/commands.go traegt genau eine zusaetzliche zeile in rootCommand(): contextCommand() bei :148, sonst unveraendert' - meine grenze (kein rename, nur additive registration) ist erfuellt. BLOCKER 1 prozessgrenze: runContextUse schreibt nur kommentar + activationSnippet, 'context clear' ruft os.Unsetenv im baha-kind-prozess auf (cmd/baha/context_terminal.go:153-163) und kann das interaktive shell nicht beeinflussen; erwartet der freigegebene mechanismus: source-bares snippet + EINMALIGER shell-hook, der das eval im shell-prozess selbst ausfuehrt, keine marker-datei. BLOCKER 2 shell-angepasst: activationPrefix nutzt denselben Bash-PROMPT_COMMAND-string fuer Bash UND Zsh (cmd/baha/completion_setup.go:53-70), Zsh-precmd und Fish fehlen; native prompt-mechanik je shell in completion_setup.go und den ausgaben in cmd/baha/completion.go:203-270, ohne die bestehende completion (karte 0428-084) zu brechen und ohne nicht-interaktive ausfuehrung zu stoeren. BLOCKER 3 praedenz: effectiveContextOrigin kennt nur expliziten override > BASEHARBOR_TARGET > konfigurierter default (cmd/baha/context_terminal.go:187-213), der fallback durch den bestehenden user-/system-selection-vertrag fehlt - 'context show' kann darum ein nicht gesetztes ziel anzeigen. WICHTIGSTER BEFUND: ihre praedenz-tests rufen effectiveContextOrigin direkt auf (cmd/baha/context_terminal_test.go:70-105), ohne echtes kommando und ohne shell-hook = dasselbe fail-open-muster, das wir an karte 078 zweimal korrigiert haben. korrekturauftrag zugestellt (7578ff5b busy), einfrier-regel fuer r2 gilt
+
+abnahme bestellt, vier bedingungen gemessen: (1) head bf923b52ba43 eingefroren, branch = refs/pull/1710/head, kein weiterer push; (2) base = develop-spitze dbe7fbc3905b, merge-base --is-ancestor = JA; (3) run 44715140090 completed/success am exakten head, cli-0 bis cli-3 und cli-gofmt AUSGEFUEHRT (nicht skipped) - das war eine ihrer r1-luecken; (4) akte cli2-context-shell/round-1.md traegt '## The 4 blockers (r2)', '## Mutant proofs (blocker 4), live, one at a time' und '## CI run observing (r2)', nennt aber noch den alten head d1ec4b72. DENN TROTZDEM BESTELLT, und der beleg ist meiner: 'git range-diff 36d075fad77f..d1ec4b725c1d dbe7fbc3905b..bf923b52ba43' = vier zeilen, alle mit '=' - der rebase war inhaltsleer, die akte gilt woertlich fuer den jetzigen head. der diff d1ec4b72..bf923b52 (9 dateien, +1682) ist IRRFUEHREND, er zeigt die develop-bewegung der merges 0428-168 und 0428-174; gegen develop traegt ihr PR 10 dateien +790/-3. nachlieferung von round-2.md mit den drei zeilen '## Rebase witness' ist als nachforderung an die lane gestellt (commit ohne PR-bewegung). SPRUCH IHRE OFFENEN FRAGE: der wrapper bleibt in cmd/baha/completion_setup.go, KEIN umzug nach context_hook.go - kosmetik, neuer head, volle CI-matrix (§5.4), und keine akzeptanzstelle nennt datei-aufteilung;gemessen ist der mechanismus korrekt (guard :121, fish-wrapper :75, rekursionsschutz :17/:83/:102)
