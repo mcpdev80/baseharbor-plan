@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: coord
-kanban_status: wait
-kanban_lane: wait
+owner: w078-pr0428-078-identity-hopf
+kanban_status: active
+kanban_lane: active
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
 kanban_title: 0428-078 · Perses identity dashboard
 priority: normal
@@ -18,25 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1606, mcpdev80/baseharbor#1650]
 sources: []
 blocker: ""
-wait_reason: "sitzwaend (kein freier platz, pool 5/5). Der bisherige blocker ist WIDERLEGT, nicht bestaetigt: 'PR · Focused Python' ist auf den drei aktuellen kandidaten #1693/#1702/#1684 = success, die behauptung 'failt identisch auf develop selbst' traegt also nicht. #1650 base ist 907f16713 = 53 develop-koepfe alt (2026-11-17). NAechste aktion: monotoner hopf + EIN exact-head-lauf, dann urteilen. ZWEITE HAElfte ('ci-executor-tests failt auf develop') ist UNBELEGT: der job laeuft auf den drei vergleichs-koepfen gar nicht, ein gegenbeweis ist dort nicht fuehrbar — wenn er auf #1650 weiter failt, ist es der PR selbst."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** coord · **Priority:** normal  
+    **Owner:** w078-pr0428-078-identity-hopf · **Priority:** normal  
     **PR:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
-    **Waiting:** sitzwaend (kein freier platz, pool 5/5). Der bisherige blocker ist WIDERLEGT, nicht bestaetigt: 'PR · Focused Python' ist auf den drei aktuellen kandidaten \#1693/\#1702/\#1684 = success, die behauptung 'failt identisch auf develop selbst' tr…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** coord  
+**Owner:** w078-pr0428-078-identity-hopf  
 **Priority:** normal  
 **PRs:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
 **Source:** 
