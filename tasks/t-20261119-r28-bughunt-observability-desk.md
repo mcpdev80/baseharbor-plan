@@ -7,11 +7,11 @@ areas: [observability, qa]
 release: v0.4.28
 version: ""
 parent: ""
-owner: "Coordinator 9142ab1f (bahn: hunt-lane auf ornith:1, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/)"
-kanban_status: active
-kanban_lane: active
+owner: Coordinator 9142ab1f (hunt-observability-desk)
+kanban_status: wait
+kanban_lane: wait
 blocker: ""
-wait_reason: ""
+wait_reason: "hunt ohne live session: die funde sind in karten gegossen (0428-182 gemergt, 0428-183 in korrektur, 0428-184 aktiv). der naechste schnitt H-V17 liegt als mission bereit."
 depends_on: []
 repos: [mcpdev80/baseharbor]
 evidence:
@@ -21,17 +21,18 @@ created: 2026-11-19
 card_short_title: "hunt observability desk"
 ---
 
-- [ ] t-20261119-r28-bughunt-observability-desk · hunt observability desk #task #release/v0-4-28 #status/active #view/active #area/observability #area/qa #kind/task
+- [ ] t-20261119-r28-bughunt-observability-desk · hunt observability desk #task #release/v0-4-28 #status/wait #view/wait #area/observability #area/qa #kind/task
     <!-- generated:card -->
-    **Owner:** Coordinator 9142ab1f (bahn: hunt-lane auf ornith:1, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/)  
+    **Owner:** Coordinator 9142ab1f (hunt-observability-desk)  
+    **Waiting:** hunt ohne live session: die funde sind in karten gegossen (0428-182 gemergt, 0428-183 in korrektur, 0428-184 aktiv). der naechste schnitt H-V17 liegt als mission bereit.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/c296086ca1e35ef3212d293afc94d7bebcd1690f)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** Coordinator 9142ab1f (bahn: hunt-lane auf ornith:1, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/)  
+**Owner:** Coordinator 9142ab1f (hunt-observability-desk)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -61,3 +62,5 @@ Keine produkt-aenderungen, keine PRs, keine aenderungen an `.github/**` oder `sc
 ## Stop criteria
 
 Runtime-zelle nicht erreichbar oder vm-lock streitig → STOP + Meldung, nicht improvisieren. Funde werden NICHT in dieser Karte_behoben; jeder fund wird in eine eigene bug-karte gegossen (intake-akte oder Coordinator schreibt die karte).
+
+reine befundung, keine produktarbeit; die karte war nie jetzt arbeitend, der sitz war nie leer.
