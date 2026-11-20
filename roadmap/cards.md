@@ -16,10 +16,8 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 116/209 · **Blocked:** 4 · **Waiting:** 28  
-    **Blocker:** [t-20261114-r28-perses-alerts](../tasks/t-20261114-r28-perses-alerts.md) — Owner decision required: either approve reducing scope to the current fail-closed unavailable contract, or require implementation of a real alert evaluator and…  
-    **Blocker:** [t-20261114-r28-perses-contact-routing](../tasks/t-20261114-r28-perses-contact-routing.md) — Owner decision queue-124 is still open: choose the notification-routing contract/scope before implementation can proceed.  
-    Plus 2 further blockers in the task list.  
+    **Accepted tasks:** 116/209 · **Blocked:** 1 · **Waiting:** 28  
+    **Blocker:** [t-20261120-r28-shell-wrapper-tests-not-skippable](../tasks/t-20261120-r28-shell-wrapper-tests-not-skippable.md) — ECHTER EXTERNER BLOCKER, OWNER-ENTSCHEID NÖTIG: der Kandidat 0eeda344 (base 3653369a4d83, 2 dateien: cmd/baha/context\_terminal\_test.go fail-loud + .github/work…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next

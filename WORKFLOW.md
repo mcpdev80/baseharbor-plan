@@ -121,6 +121,10 @@ A local `owner` field is not a lock: it only works when published before impleme
 
 Preserve other people's commits. **No force-push** on this repository.
 
+## Coordinator and lane tooling boundary
+
+The planning vault contains only BaseHarbor product and planning cards. Coordinator orchestration scripts, worker tooling and lane operations belong in the separate [Codeman Coordinator Tooling repository](https://github.com/mcpdev80/codeman-coordinator-tooling), with its own issues, pull requests, CI and review. Never add these topics as `release: v0.4.x` cards or reference product repositories for tooling work. Before merging any new card, verify that it is within BaseHarbor product/planning scope.
+
 ## Planning repository vs product repositories
 
 This is a live shared planning repository. All authorized planning updates go directly to `main`; do not create a branch or PR unless the Maintainer explicitly requests one. That includes claims, status, evidence, handoffs and coordinated shared planning changes. Keep commits coherent and small.

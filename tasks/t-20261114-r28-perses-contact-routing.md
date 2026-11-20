@@ -8,30 +8,30 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: coord
-kanban_status: blocked
-kanban_lane: blocked
-kanban_summary: "Design opt-in notification routing, evaluate existing compatible Alertmanager integration first; preserve authorization and…"
+kanban_status: wait
+kanban_lane: wait
+kanban_summary: Implement opt-in alert notification routing. No route configured means no external notification leaves the system. First…
 kanban_title: 0428-074 · Define alert notification
 priority: normal
 depends_on: [t-20261114-r28-perses-alerts, t-20261114-r28-perses-secure-access]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: "Owner decision queue-124 is still open: choose the notification-routing contract/scope before implementation can proceed."
-wait_reason: ""
+blocker: ""
+wait_reason: "Owner-Entscheidung queue-124 umgesetzt und geschlossen: opt-in-Routing ohne externe Benachrichtigung per Default. Begonnener Entwurf wartet auf die Abnahme von 0428-073; die Kompatibilitätsprüfung des vorhandenen Alertmanager kann parallel erfolgen."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-contact-routing · Define alert notification routing #task #release/v0-4-28 #status/blocked #view/blocked #area/observability #kind/task
+- [ ] t-20261114-r28-perses-contact-routing · Define alert notification routing #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** coord · **Priority:** normal  
-    **Blocker:** Owner decision queue-124 is still open: choose the notification-routing contract/scope before implementation can proceed.  
+    **Waiting:** Owner-Entscheidung queue-124 umgesetzt und geschlossen: opt-in-Routing ohne externe Benachrichtigung per Default. Begonnener Entwurf wartet auf die Abnahme von 0428-073; die Kompatibilitätsprüfung des vorhandenen Alertmanager kann parallel…  
     **Needs:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
@@ -43,7 +43,7 @@ evidence: []
 
 ## Goal
 
-Design opt-in notification routing, evaluate existing compatible Alertmanager integration first; preserve authorization and secret-safe configuration.
+Implement opt-in alert notification routing. No route configured means no external notification leaves the system. First evaluate whether the existing Alertmanager integration is compatible; do not assume Alertmanager is present or add infrastructure by default. The routing contract is independent of operator access.
 
 ## Scope and file ownership
 
@@ -57,7 +57,7 @@ All referenced paths exist at Core `cd77e20e`; fetch actual current `develop` an
 - [internal/openbao/application_scope.go](https://github.com/mcpdev80/baseharbor/blob/cd77e20e107d7f29020c167ae143eaf1e6598b40/internal/openbao/application_scope.go)
 - [internal/metrics/prometheus_render.go](https://github.com/mcpdev80/baseharbor/blob/cd77e20e107d7f29020c167ae143eaf1e6598b40/internal/metrics/prometheus_render.go)
 
-Assess an existing Alertmanager if one actually exists; otherwise obtain approved design before introducing a service. Implement opt-in routes and secret references without cleartext, real delivery verification via bounded test receiver, no default external endpoint.
+Inspect the current Core and Prometheus integration for an existing compatible Alertmanager. If present, use it with explicit opt-in routing and existing authorization, secret-reference, TLS and lifecycle rules. If absent or incompatible, do not add a service: keep outbound delivery disabled and report the precise missing contract. Verify configured delivery with a bounded test receiver; never configure an external route by default.
 
 ## Acceptance
 
@@ -69,6 +69,10 @@ Assess an existing Alertmanager if one actually exists; otherwise obtain approve
 ## Required checks
 
 Record exact candidate SHA and focused tests by name. Route every changed test through an existing CI check/native gate with trigger and actual execution; no skipped/faked native proof. Require isolated Docker and rootless Podman only when runtime risk requires them; no blanket full matrix. Produce deterministic negative/authorization/ownership tests as appropriate.
+
+## Owner decision — queue-124 (2026-11-20)
+
+Resolved: routing is opt-in; no configured route means nothing leaves the system. First inspect the existing Alertmanager integration for compatibility; do not assume it exists or introduce it as new infrastructure. Design may proceed in parallel, while implementation waits for 0428-073.
 
 ## Dependencies and handoff
 

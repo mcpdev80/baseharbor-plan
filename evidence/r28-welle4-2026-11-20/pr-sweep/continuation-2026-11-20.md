@@ -254,7 +254,7 @@ The empty lane map again conflicts with the five busy worker sessions; preserve 
 
 Before this sweep-note append, shared `baseharbor-plan/main` had advanced to `f336ca594e9e21f49ed0cca30e3e10157d72fe4f` via coordinator updates: card 0428-078 Active, card 0428-174 Active, and card 0428-155 intake. Those commits were fast-forwarded locally and preserved. The overall PR sweep remains active.
 
-**Concurrent plan update while publishing:** `main` advanced from `f336ca59` to `e5b3d3f3`. The coordinator removed the temporary 0428-155 intake and created ready/unassigned card 0428-175 for the publish-integrity findings. I fast-forwarded and preserved those changes; no claim was taken on that unrelated ready card. The current sweep-note publication will therefore be based on `e5b3d3f3`, not the prior `f336ca59` snapshot.
+**Concurrent plan update while publishing:** `main` advanced from `f336ca59` to `e5b3d3f3`. The coordinator removed the temporary tooling intake; coordinator-tooling findings now live in the separate tooling repository. I fast-forwarded and preserved those changes; no claim was taken on that unrelated ready card. The current sweep-note publication will therefore be based on `e5b3d3f3`, not the prior `f336ca59` snapshot.
 
 ## Independent agent revalidation — 2026-11-20 06:12 UTC
 

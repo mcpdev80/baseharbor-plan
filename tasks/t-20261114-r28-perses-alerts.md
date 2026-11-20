@@ -8,32 +8,32 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w073-0428-073-pr1704-persesalerts-r3
-kanban_status: blocked
-kanban_lane: blocked
-kanban_summary: Define actual alert rule evaluation and persistence using supported existing Prometheus contract or an Owner-approved…
+kanban_status: wait
+kanban_lane: wait
+kanban_summary: "Implement real alert-rule provisioning and evaluation through the already-supported Prometheus contract, and persist alert state…"
 kanban_title: 0428-073 · Define and provision alert
 priority: normal
 depends_on: [t-20261114-r28-perses-datasources]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1613, mcpdev80/baseharbor#1704]
 sources: []
-blocker: "Owner decision required: either approve reducing scope to the current fail-closed unavailable contract, or require implementation of a real alert evaluator and notification owner. PR #1704 is green but does not meet the current acceptance contract."
-wait_reason: ""
+blocker: ""
+wait_reason: "Owner-Entscheidung umgesetzt: echter Evaluator mit persistierter Zustandshistorie ist gefordert. Die begonnene Korrektur wartet auf die akzeptierte Prometheus-Datasource-Voraussetzung 0428-083; PR #1704 ist kein akzeptabler Abschluss und muss dafür umgebaut oder ersetzt werden."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-alerts-hopf/fix-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1613-alert-contract-review.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1613-0428-073.md"]
 ---
 
-- [ ] t-20261114-r28-perses-alerts · Define and provision alert rules #task #release/v0-4-28 #status/blocked #view/blocked #area/observability #kind/task
+- [ ] t-20261114-r28-perses-alerts · Define and provision alert rules #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w073-0428-073-pr1704-persesalerts-r3 · **Priority:** normal  
     **PR:** [baseharbor#1613](https://github.com/mcpdev80/baseharbor/pull/1613), [baseharbor#1704](https://github.com/mcpdev80/baseharbor/pull/1704)  
-    **Blocker:** Owner decision required: either approve reducing scope to the current fail-closed unavailable contract, or require implementation of a real alert evaluator and notification owner. PR \#1704 is green but does not meet the current acceptance…  
+    **Waiting:** Owner-Entscheidung umgesetzt: echter Evaluator mit persistierter Zustandshistorie ist gefordert. Die begonnene Korrektur wartet auf die akzeptierte Prometheus-Datasource-Voraussetzung 0428-083; PR \#1704 ist kein akzeptabler Abschluss und m…  
     **Needs:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-alerts-hopf/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1613-alert-contract-review.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1613-0428-073.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
 **Required by:** [t-20261114-r28-perses-contact-routing](t-20261114-r28-perses-contact-routing.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md), [t-20261117-alert-evaluator-persistence-missing](t-20261117-alert-evaluator-persistence-missing.md), [t-20261117-hunt-signals-105](t-20261117-hunt-signals-105.md)  
@@ -45,7 +45,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 ## Goal
 
-Define actual alert rule evaluation and persistence using supported existing Prometheus contract or an Owner-approved alternative; Perses UI is not assumed to be the evaluator.
+Implement real alert-rule provisioning and evaluation through the already-supported Prometheus contract, and persist alert state history. With no evaluator configured, fail closed: evaluate and report nothing. PR #1704 does not satisfy this scope and must be reworked or replaced.
 
 ## Scope and file ownership
 
@@ -59,14 +59,14 @@ All referenced paths exist at Core `cd77e20e`; fetch actual current `develop` an
 - [internal/metrics/prometheus_files.go](https://github.com/mcpdev80/baseharbor/blob/cd77e20e107d7f29020c167ae143eaf1e6598b40/internal/metrics/prometheus_files.go)
 - [internal/metrics/prometheus_verify.go](https://github.com/mcpdev80/baseharbor/blob/cd77e20e107d7f29020c167ae143eaf1e6598b40/internal/metrics/prometheus_verify.go)
 
-Determine whether current Prometheus configuration has an accepted rule/evaluator integration; extend only via a reviewed minimal contract. Build one real rule from confirmed existing metrics with execution and negative tests; no invented Perses-native evaluator.
+Use the existing supported Prometheus rule/evaluation contract. Provision and evaluate alert rules through that contract; persist state history using the existing persistence/lifecycle contracts. Confirm the integration in current Core source before implementation. No standalone evaluator, new infrastructure, or invented Perses-native evaluator. No evaluator configured means no evaluation or notification (fail closed).
 
 ## Acceptance
 
 - Use a verified, pinned Perses release and native plugin/format where applicable; do not assume Grafana UI APIs or dashboard JSON are Perses-compatible. Verify real provider signals and mark missing/unsupported coverage explicitly.
 - Scope all access by actual Target/tenant permissions, fail closed on unknown ownership or missing authorization, and keep secrets out of logs, manifests and audit. Optional visualization must not force new application capabilities or mandatory services.
 - Preserve independent Prometheus, Loki and Tempo backend ownership; remove only owned resources. Define actual alert rule evaluation and persistence using supported existing Prometheus contract or an Owner-approved alternative; Perses UI is not assumed to be the evaluator.
-- For alerting, define the real rule evaluator and notification owner in the approved contract. Do not claim native Perses alerting/routing parity without evidence, nor enable external notifications by default.
+- Demonstrate provisioned rules being evaluated by the supported Prometheus contract and state history persisting across the supported lifecycle. The default with no configured evaluator is fail-closed and produces no evaluation or report. External notification routing is owned by 0428-074 and must remain opt-in.
 
 ## Required checks
 
@@ -98,4 +98,4 @@ CODEX 1704 REQUEST CHANGES, ein blocker P1 (gemessen bestaetigbar im urteilstext
 
 r3 VON MIR GEMESSEN: head f5dcf12885, base 28fb427f = aktuelle spitze, hopf ist ein ECHTER merge (vater 5763eb7fb mit zwei eltern), fix-commit darueber; ancestry 0, merge-tree konfliktfrei, draft=false; CI run 44621875256 event=pull_request completed success am exakten kopf. DER P1-BLOCKER IST HEILT: prometheus_alerts.go:221 traegt 'the alerting contract is unavailable (owner-gated evaluator contract)', test :365-367 asserts ihn UND :363-364 verbietet '(not_enabled)' ausdbruecklich; stub bleibt false. Offener punkt: unselected-zweig :202-204 sagt 'is not selected ...' statt 'not configured' — das urteil muss sagen, ob die acceptance das wort verlangt. Lane eskaliert correct: null production callers -> karte 0428-152 (angelegt, haengt an 0428-142, deren PR app_status_collect.go aendert)
 
-review HOLD (owner-verdict 2026-11-20): PR #1704 ist am exakten head green, aber karte 0428-073 verlangt einen echten alert-evaluator und einen notification-owner ODER eine ausdrueckliche owner-reduktion; der stand liefert ein constant false ohne produktiven aufrufer, und der branch ist BEHIND develop. nicht als freigebbare review-arbeit zaehlen. naechster schritt: owner-entscheidung 'reduzieren oder evaluator nachziehen', danach rebasen.
+Owner decision (2026-11-20): scope reduction is rejected. Implement real rule provisioning/evaluation through the supported Prometheus contract and persist state history; no standalone evaluator/new infrastructure; no evaluator configured means fail-closed. PR #1704 is not acceptable and must be reworked or replaced. External routing remains opt-in under 0428-074.
