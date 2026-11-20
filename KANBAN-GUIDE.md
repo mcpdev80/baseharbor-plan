@@ -11,7 +11,7 @@
 | **Ready** (abgeleitet) | Planned, alle Abhängigkeiten akzeptiert, Release aktiv oder `early: true`. Noch nicht zugewiesen/gestartet. |
 | **Active** (`active`) | Wird **jetzt gerade** von der zugeordneten, aktuell beschäftigten Worker- oder Codex-Session bearbeitet. Eine bloße Zuweisung oder ein alter Claim reicht nicht. `owner` muss zur Live-Session passen. |
 | **Wait** (`wait`) | **Bereits begonnene** Arbeit pausiert: wartet auf andere Karte, Runner, Worker, Ressource oder Rückmeldung. `owner` und `wait_reason` Pflicht. |
-| **Review** (`review`) | Umsetzung fertig, Abnahme/Review offen. `owner` und mindestens ein `prs`-Eintrag Pflicht. |
+| **Review** (review) | Umsetzung übergeben; Codex-Review und/oder der bereits konfigurierte Exact-Head-CI-Lauf steht aus. Fehlende Gate-Verdrahtung ist noch Umsetzung und gehört in dieselbe Karte/PR. Owner und mindestens ein PR-Eintrag sind Pflicht. |
 | **Blocked** (`blocked`) | **Alarm:** Owner-Entscheidung erforderlich oder Umsetzung derzeit technisch unmöglich. `blocker` mit genauer Ursache/Entscheidungsbedarf Pflicht. Nicht für normale Wartezeiten! |
 | **Closed** (`closed`) | Nach tatsächlicher Abnahme. `resolution` und HTTPS-`evidence` Pflicht. Ein grüner PR allein reicht nicht. |
 

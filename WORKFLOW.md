@@ -81,7 +81,7 @@ For **previously accepted** cards, an acceptance record remains historical, but 
 | `[ ]` `#status/planned` | Scheduled. Derived: **waiting** (a dependency is not accepted), **queued** (dependencies accepted, release not yet `active`), **ready** (dependencies accepted and release `active`, or `early: true`) | — |
 | `[ ]` `#status/active` | Work is being performed now by the named, currently busy worker/Codex session; a claim alone is not active | `owner` matched to the live session |
 | `[ ]` `#status/blocked` | Cannot proceed | `blocker` text |
-| `[ ]` `#status/review` | Implementation ready for review | `owner`, at least one PR |
+| [ ] #status/review | Implementation handed off; Codex review and/or configured exact-head CI is pending. Any missing gate wiring belongs in the same implementation card before handoff. | owner, at least one PR |
 | `[x]` `#status/closed` | Closed (checked ⇔ closed) | `resolution` and `evidence` |
 
 - **Ready for review ≠ accepted ≠ release qualified.** A task is accepted only when the Maintainer has accepted the result and the required evidence is linked; a merged PR or an agent's summary alone is not acceptance. A release is qualified only when its release note says `status: qualified` with evidence — never because all its cards are checked.
@@ -115,7 +115,7 @@ A local `owner` field is not a lock: it only works when published before impleme
 4. If the push is rejected: `git pull` (merge, no rebase of published commits), re-read the task. If someone else claimed it meanwhile, stop and resolve with them or the Maintainer before working. Never overwrite another claim.
 5. Only after the claim is on `main`, start the product work (branch/PR in the product repository per its guidelines).
 6. Keep planning edits to your task's file. Shared files (release notes, epics, roadmap) change in separate small commits after coordination.
-7. Handoff: update the task's **Handoff** section (newest first: branch, PR, evidence, open points), set `#status/review` with the PR in `prs`, commit and push. Then **stop**; do not start another task on your own. Report blockers instead of switching tasks (`#status/blocked` + `blocker`).
+7. Handoff: update the task Handoff section (newest first: branch, PR, evidence, open points), ensure required test-to-gate routing is implemented in this same card and PR, set #status/review with the PR in prs, commit and push. Review means the implementation is handed off and Codex review and/or its configured exact-head CI result is pending; do not hand off a card whose required gate wiring is still missing. Then stop; do not start another task on your own. Report blockers instead of switching tasks (#status/blocked + blocker).
 8. The Maintainer accepts: check the box, set the tag to `#status/closed`, set `resolution: accepted` and `evidence`, run `render` and `check`, commit. Product merge completion includes publishing this accepted task state and refreshed generated Obsidian/CardBoard views to planning `main`; do not report the task fully complete while that closeout is missing. If acceptance is still pending, publish the actual review state instead.
 
 
