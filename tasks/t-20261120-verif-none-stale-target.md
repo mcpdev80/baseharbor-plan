@@ -15,7 +15,7 @@ kanban_title: 0428-203 · Stale target on none switch
 priority: normal
 depends_on: [t-20261119-r28-app-source-verification-none-ignored]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1730]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,6 +26,7 @@ evidence: []
 - [ ] t-20261120-verif-none-stale-target · Stale emitted target after Verification=none switch #task #release/v0-4-28 #status/active #view/active #area/metrics #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** w205-0428-203-staletgt · **Priority:** normal  
+    **PR:** [baseharbor#1730](https://github.com/mcpdev80/baseharbor/pull/1730)  
     **Needs:** [t-20261119-r28-app-source-verification-none-ignored](t-20261119-r28-app-source-verification-none-ignored.md)  
     <!-- /generated:card -->
 
@@ -35,7 +36,7 @@ evidence: []
 **Depends on:** [t-20261119-r28-app-source-verification-none-ignored](t-20261119-r28-app-source-verification-none-ignored.md)  
 **Owner:** w205-0428-203-staletgt  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1730](https://github.com/mcpdev80/baseharbor/pull/1730)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -101,3 +102,5 @@ decision of 0428-143; its lane must not re-litigate that decision, and the lane 
 rather than waiting for a merge (one PR per card, stacks branch off the base lane's head).
 
 ARBEITET JETZT, kante gegen session gemessen (w205-0428-203-staletgt, ornith, worktree aus dem KOEPF DER BASIS-LANE 0428-143 = refs/heads/lane-0428-143-verify-none head 809a8196e1cf, gemessen draft=false + ancestry auf develop 40cb28c758b0 JA). KARTE IST MEINE EIGENE ARBEIT AUS DER FUND->PFLICHT: der zweite befund von 0428-143 ('quelle wechselt bei gleicher id auf Verification=none, der zuvor emittierte target bleibt in der exportierten oberflaeche') hat jetzt goal, zeugen (review zu #1693 + integration_contract.go:242 prueft nur provider-signal-liveness), write-set, akzeptanz und stop-regeln - 0428-203, planned->active, damit der fund nicht verlorene arbeit bleibt (§3.3.5). STAPELREGEL, ausdrucklich im auftrag: PR-BASIS = refs/heads/lane-0428-143-verify-none, nicht develop, nicht ein paralleler nachfolger; gewartet wird auf inhalte, nie auf merges. ERSTE PFLICHT DER LANE: den fall REPRODUZIEREN bevor aenderung; ist er auf dem aktuellen stand schon vom vorlauf erledigt, meldet sie 'befund covered' mit beleg statt code zu aendern (§4.2). gateway-faelle: cli-0..3 + Selected Checks = 0428-198, packages = internal/logs Loki-trio = 0428-202 - benennen, nicht richten.
+
+ARBEITET, PR SCHON DA - MESSEN UND NOTIERT: #1730 head c90a73ac8128, BASE refs/heads/lane-0428-143-verify-none (der stapel sitzt also korrekt auf der basis-lane, nicht auf develop und nicht auf einem parallelen nachfolger, §3.3.8), draft=false, 2 dateien: internal/capability/integration_contract.go + internal/metrics/prometheus_verify_workload_only_test.go. IHR BEFUND IST 'COVERED, NICHT UMGBAUT': die akte/der patch sagen, ein target mit fester id hoert nach dem wechsel auf Verification=none beim naechsten export AB (verwiesen wird auf internal/metrics/prometheus_files.go als ausfuehrende stelle), und die neue regression TestVerifyApplicationSourceVerificationNoneRetiresPreviouslyEmitted assertiert das ueber das ECHTE TargetsDir, nicht ueber eine interne hilfsfunktion; die wart-semantics aus 0428-143 bleiben ausdruecklich ungeaendert. checks am head: 4 success / 6 queued / 3 in_progress / 20 skipped - also noch kein terminalergebnis, karte bleibt active bis der run durch ist und die akte (evidence/r28-welle4-2026-11-20/verif-none-stale-target/round-1.md) run-id + conclusion traegt. wenn die required-zellen am feld-gate 0428-198 scheitern: wie in den anderen faellen 'GATE-FAIL 0428-198' + state-zeile, und der beweis aus dem kleinsten passenden gate (§5.4).
