@@ -83,16 +83,3 @@ inhaber -> `active` muss durchgehen; karte ohne inhaber-zeile -> muss brechen; k
 `owner: ""` -> muss brechen.
 
 SIEBEN werkzeug-defekte meiner skripte geheilt, gemessen am coordinator-HEAD 646198ae: beide gate-zeilen (131 active, 133 wait) testen jetzt vorhaenden statt leer (git show HEAD:scripts/card-status.py). regressionen 11 gruen (e52d87af), py_compile/bash -n sauber, akte fix-2.md 6673 bytes auf main 7bad75ef, checkboxen NULL (die formatregel aus meinem eigenen fehler in fix-1.md ist umgesetzt). VON MIR AKTIV BENUTZT: die letzten sechs zustandswechsel dieses fensters sind durch das geaenderte skript gegangen, keiner zurueckgesetzt. VORBEHALT: das coordinator-repo hat KEINEN remote, also gibt es hier keinen gehosteten lauf und kein pr-ref — die annahme folgt aus den lokalen regressionen und den sechs echten verwendungen, nicht aus einer CI.
-
-## Coordinator intake 2026-11-20 (two new defects in this card's family, found by measurement)
-
-- `coordinator/scripts/card-status.py` publishes card metadata changes without the character/language gate that
-  `/var/tmp/sanitize.py` applies to payloads. Result measured 2026-11-20: a Coordinator note landed on `main`
-  containing a CJK garble (`环境voraussetzung`) inside card 0428-174; `plan.py check` passed it because it validates
-  schema, not character integrity. Required: run the same charset/word check inside `card-status.py` before
-  commit+publish and fail closed (`exit 2`) on a hit.
-- `coordinator/scripts/watch.py rm <sid>` rejects a plain session-id argument (`error: argument c: invalid`), so a
-  watch entry for an already released session cannot be deleted with the documented call. Required: accept the short
-  session id, or state the real signature in `--help`. Precedent witness: released lane `fd49077a` left an entry behind.
-
-Both are coordinator-tooling only, no product write-set, no CI impact.
