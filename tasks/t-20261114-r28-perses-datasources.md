@@ -16,9 +16,9 @@ priority: normal
 depends_on: [t-20261114-r28-perses-contract-seam, t-20261114-r28-perses-runtime, t-20261114-r28-perses-signal-inventory]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1608, mcpdev80/baseharbor#1684]
-sources: []
-blocker: ""
-wait_reason: ""
+sources: ["evidence/x-083h5/fix-9.md"]
+blocker: "native/docker/perses-runtime-smoke CI gate fails on a Docker rootless-overlayfs tmpfs regression (identical on hosted + local runners) — NOT a card defect; Owner to fix runner image/tmpfs or waive the gate for this card"
+wait_reason: "native docker smoke gate awaiting Owner infra action"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md", "https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44573407736", "https://github.com/mcpdev80/baseharbor/actions/runs/44577713744"]
 ---
