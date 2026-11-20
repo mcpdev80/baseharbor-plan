@@ -9,9 +9,9 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: ""
-kanban_status: blocked
-kanban_lane: blocked
-blocker: "write-set-kollision mit 0428-142: muss cmd/baha/app_status_collect.go aendern (gemessen ~:401 AddObservation 'management-ui/perses...'), und genau diese datei liegt im offenen PR #1702 (r4-review REQUEST CHANGES, korrektur laeuft). NAECHSTER TRIGGER: #1702 gemergt + develop neu. CODEX bestaetigt die reihenfolge in 1704-0428-073-r3.md rezept-punkt 3 woertlich: '0428-152 is separately owned and blocked on 0428-142 cmd/baha/app_status_collect.go write-set'."
+kanban_status: planned
+kanban_lane: planned
+blocker: ""
 wait_reason: ""
 depends_on: [t-20261119-r28-perses-status-backend-witness]
 repos: [mcpdev80/baseharbor]
@@ -24,16 +24,16 @@ resolution: ""
 created: 2026-11-19
 ---
 
-- [ ] t-20261119-r28-perses-alert-verifier-caller-wiring · alert-verifier haengt in der luft #task #release/v0-4-28 #status/blocked #view/blocked #area/cli #area/metrics #area/observability #kind/task
+- [ ] t-20261119-r28-perses-alert-verifier-caller-wiring · alert-verifier haengt in der luft #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/cli #area/metrics #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Blocker:** write-set-kollision mit 0428-142: muss cmd/baha/app\_status\_collect.go aendern (gemessen ~:401 AddObservation 'management-ui/perses...'), und genau diese datei liegt im offenen PR \#1702 (r4-review REQUEST CHANGES, korrektur laeuft). NAECHST…  
+    **Waiting for prerequisites**  
     **Needs:** [t-20261119-r28-perses-status-backend-witness](t-20261119-r28-perses-status-backend-witness.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-review-wave/1704-0428-073.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261119-r28-perses-status-backend-witness](t-20261119-r28-perses-status-backend-witness.md)  
 **Owner:** unassigned  
@@ -64,3 +64,9 @@ Der Perses-alert-evaluator-verifier (internal/metrics/perses_prometheus_alerts.g
 
 - **Modified features:** go test ./cmd/baha -count=1 -run '^Test(Perses|AppStatus|Observability)' und go test ./internal/metrics -count=1 -run '^TestPersesAlert'; neue tests muessen vom 'PR · Go unit'-shard ausgefuehrt werden (CI-aufnahmepflicht §5.3), job + workflow-zeile in der akte nennen.
 - **CI integration:** ein pull_request-lauf am exakten kopf bis terminal; die runtime-zellen duerfen wegen der fehlenden ORAS-installation im PR-job (owner-draht 114(a)) skipped bleiben, dann die skip-zeile wORTLICH in die akte — SKIPPED ist nicht pass (§5.4).
+
+## Scheduling
+
+Unstarted and unassigned; scheduled behind 0428-142/#1702 because both need
+`cmd/baha/app_status_collect.go`. This is ordinary prerequisite sequencing, so
+the card remains planned and renders as waiting until 0428-142 is accepted.
