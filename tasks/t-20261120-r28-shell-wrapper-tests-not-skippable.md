@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1731]
 sources: []
 blocker: ""
-wait_reason: "PR #1731 run 44812248904 fails cli-0..3 on managed-operator test-context failures addressed by prerequisite 0428-057 / PR #1615. Its cli-3 job installed zsh and fish. The latest #1615 head is fc6fe96a0ce058765ef08b8acc37f9e9c18806fa; exact run 44821862388 is in progress. Wait for that run to pass and #1615 to merge; then hop #1731 onto current develop and rerun exact CI, verifying the wrapper test executes."
+wait_reason: "PR #1731 run 44812248904 fails cli-0..3 on managed-operator test-context failures addressed by prerequisite 0428-057 / PR #1615. Its cli-3 job installed zsh and fish. Latest #1615 head 90af401c55236d9df085c1fddbf4011660914973 is running exact CI 44823129405. Wait for it to pass and #1615 to merge; then hop #1731 onto current develop and rerun exact CI, verifying the wrapper test executes."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1731", "https://github.com/mcpdev80/baseharbor/actions/runs/44812248904"]
 ---
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1731", "https://github.c
     <!-- generated:card -->
     **Owner:** Owner (marcel, direkt)  
     **PR:** [baseharbor#1731](https://github.com/mcpdev80/baseharbor/pull/1731)  
-    **Waiting:** PR \#1731 run 44812248904 fails cli-0..3 on managed-operator test-context failures addressed by prerequisite 0428-057 / PR \#1615. Its cli-3 job installed zsh and fish. The latest \#1615 head is fc6fe96a0ce058765ef08b8acc37f9e9c18806fa; exact…  
+    **Waiting:** PR \#1731 run 44812248904 fails cli-0..3 on managed-operator test-context failures addressed by prerequisite 0428-057 / PR \#1615. Its cli-3 job installed zsh and fish. Latest \#1615 head 90af401c55236d9df085c1fddbf4011660914973 is running ex…  
     **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1731), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44812248904)  
     <!-- /generated:card -->
