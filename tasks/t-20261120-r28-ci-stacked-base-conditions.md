@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: Codex (baseharbor-pr-sweep-fortsetzen)
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-180 · CI on real stacked bases
 priority: ""
@@ -19,11 +19,11 @@ prs: ["mcpdev80/baseharbor#1594", "mcpdev80/baseharbor#1615"]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44735405029"]
 ---
 
-- [ ] t-20261120-r28-ci-stacked-base-conditions · CI: stacked PRs on cli2-*/w0* base branches get no exact-head checks #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261120-r28-ci-stacked-base-conditions · CI: stacked PRs on cli2-*/w0* base branches get no exact-head checks #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** Codex (baseharbor-pr-sweep-fortsetzen)  
     **PR:** [baseharbor#1594](https://github.com/mcpdev80/baseharbor/pull/1594), [baseharbor#1615](https://github.com/mcpdev80/baseharbor/pull/1615)  
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44735405029"]
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** Codex (baseharbor-pr-sweep-fortsetzen)  
@@ -67,18 +67,14 @@ So the workflow starts on these PRs but the check graph conditions evaluate fals
 
 ## Acceptance
 
-1. One edit in .github/workflows/ci.yml: replace the repeated `base_ref == 'develop' || startsWith(base_ref,'lane-')`
-   condition at the eight lines above with a single documented expression that also covers the stacked bases in use
-   (`startsWith(github.base_ref,'cli2-')` and `startsWith(github.base_ref,'w0')`), preferably via one workflow-level env
-   or reusable condition so future stacks cannot silently miss a job again. Main-only conditions (ci.yml:557, :606, :630,
-   :655) stay untouched.
-2. PROOF, not assertion: one stacked PR whose base is a `cli2-*-head` (use #1615 or #1623) shows `PR Selected Checks`,
-   the four `PR · Go unit · cli-*` shards and `PR · Native gate plan` completed with a headSha equal to the PR head. Record run id,
-   head sha, job names, executed-vs-skipped in the evidence file (AGENTS 5.3).
-3. A second proof point: one PR based on a `w0*` branch (e.g. #1665 base) shows the same, or the card documents why a
-   `w0*` base cannot be covered without a separate change.
-   Current limitation: #1665 is the only open w0-based PR; it is Draft/parked and draft guards intentionally skip the selected-check and Go-unit graph. A complete second proof needs an eligible w0 PR or an explicit owner state transition; this sweep preserves the current owner state.
-4. gofmt/readability of any touched script helpers; the existing workflow-lint/self-test cell must be green.
+1. Keep the real PR base names. Extend the existing workflow branch trigger and every non-main job guard on both stack branches to cover the bases actually in use (`cli2-*`, `w0*`), preserving `develop` and `lane-*`. Main-only release guards stay unchanged. The parent branch has 17 non-main guards; the newer child has 18 because it includes the integration-gate family.
+2. Exact-hosted proof on stacked PR #1615: the exact head `ca930ce63c4ff080a736c6e3439dc1d87d017e0c` and base `cli2-env-policy-head` at `bfa7d80fafc71f9b4d773dbbcb0cd043239da9e1` ran workflow [44735405029](https://github.com/mcpdev80/baseharbor/actions/runs/44735405029). `PR · Native gate plan`, `PR Selected Checks`, and all four `PR · Go unit · cli-0/1/2/3` completed on this exact head; the latter five required checks failed. This proves trigger/guard routing only, not feature acceptance.
+3. The workflow guards include `w0*`. The only open w0-based PR, #1665 on `w083-perses-datasources`, remains Draft/parked; draft guards intentionally skip selected checks and Go shards. No second hosted w0 proof is available without a separate eligible PR or owner state transition, so preserve that limitation.
+4. Existing workflow-policy validation passed on both branches. No product behavior, branch name, gate, or runner was changed.
+
+## Resolution
+
+The branch routing defect is verified fixed: a real stacked CLI PR now executes its exact-head check graph instead of silently skipping it. The exact graph is red for separate product/runtime-fixture failures, so #1615 is not accepted and no PR is merged by this CI-only resolution. Per the Owner decision, every other stacked PR without its own exact-head CI remains unaccepted. The `w0*` source routing is in place, with the Draft-only hosted-proof limitation recorded above.
 
 ## Boundaries
 
