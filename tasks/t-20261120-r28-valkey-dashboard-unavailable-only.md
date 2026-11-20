@@ -16,11 +16,11 @@ priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
-sources: [evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md]
+sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md"]
 ---
 
 - [ ] t-20261120-r28-valkey-dashboard-unavailable-only · Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable #task #release/v0-4-28 #status/planned

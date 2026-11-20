@@ -16,11 +16,11 @@ priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
-sources: [evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md]
+sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md"]
 ---
 
 - [ ] t-20261120-r28-metrics-adapter-without-exporter · Metrics: RequiresAdapter source has no exporter or compose wiring (never collectable) #task #release/v0-4-28 #status/planned
