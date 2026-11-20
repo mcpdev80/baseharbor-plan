@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w091-pr0428-091-tempo-source
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Provision selected authorized Tempo datasource via supported Perses plugin, scoped and verified."
 kanban_title: 0428-091 · Connect Perses Tempo
 priority: normal
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44688554297", "https://github.com/mcpdev80/baseharbor/actions/runs/44689126814", "https://github.com/mcpdev80/baseharbor/actions/runs/44695439903"]
 ---
 
-- [ ] t-20261114-r28-perses-tempo-source · Connect Perses Tempo #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-tempo-source · Connect Perses Tempo #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w091-pr0428-091-tempo-source · **Priority:** normal  
     **PR:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645)  
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44688554297", "h
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
 **Required by:** [t-20261114-r28-perses-log-trace-dash](t-20261114-r28-perses-log-trace-dash.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
@@ -103,3 +103,5 @@ ihre sandbox-these GEMESSEN WIDERLEGT, ursache ist ihr hop. CI-run 44689126814 l
 ## 2026-11-20 candidate refresh after owner push
 
 PR #1645 advanced to exact head `0449f06587c849f598447094428d2f7296ed1f5b`, still OPEN, Ready/non-draft, based on `develop`, mergeStateStatus `BLOCKED`, and without formal reviews. Exact run [44695439903](https://github.com/mcpdev80/baseharbor/actions/runs/44695439903) is still in progress: 35 jobs, 10 success, 20 skipped and 5 Go unit shards in progress at the latest poll. Build, vet, authority-package tests, OpenBao-package tests, source format, workflow policy, Trusted Plan and focused Python have passed so far. Native Keycloak/Core, selected runtime, public contracts, and release gates are skipped. Keep this card Active; do not treat the partial green set as Review or merge acceptance.
+
+kandidat ist nach meiner messung currency-faehig und gruen: head 0449f06587c849f598447094428d2f7296ed1f5b, base.sha = develop-spitze 36d075fad77f, draft=false, mergeable=clean, run 44695439903 completed/success, 36/36 checks fertig, 0 failure. ahnen-pruefung erst FALSE dann KORRIGIERT gemessen: mein erster 'merge-base --is-ancestor' lief gegen ein in meinem objektbaum FEHLENDES objekt (leerer merge-base = technical nein, kein historisches). nach 'git fetch lane-origin refs/pull/1645/head' ist develop 36d075fad77f der merge-base = JA. diff gegen develop: 25 dateien, ohne app_status_result.go, perses_datasources*, observability/* = write-sets der laufenden karten frei. CODEX-REVIEW ist bestellt (session 95971e0a, rolle REVIEW, akte 1645-0428-091.md); der Auftrag enthaelt meine eigene widerlegung ihrer sandbox-these und den nachweis, dass der erste hop-head 6a7e462cc0bc durch verlorene develop-symbole rot war
