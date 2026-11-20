@@ -10,9 +10,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 7 |
+| active | 6 |
 | review | 0 |
-| wait | 29 |
+| wait | 30 |
 | blocked | 3 |
 | ready | 3 |
 | queued | 25 |
@@ -30,7 +30,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | Connect Perses Tempo | active | normal | 0428-091- | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645) |
 | [t-20261120-deployment-version-mismatch-masked](../tasks/t-20261120-deployment-version-mismatch-masked.md) | record version mismatch masked | active | not set | w200-0428-200-verrmask | — | — |
 | [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) | cli shards need operator env | active | not set | w198-0428-198-cligate | — | — |
-| [t-20261120-shared-backend-state-version-message](../tasks/t-20261120-shared-backend-state-version-message.md) | shared state version message | active | not set | w201-0428-201-statever | — | [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725) |
 
 ## Ready for review
 
@@ -68,6 +67,7 @@ None.
 | [t-20261120-perses-tmpfs-mountpoint](../tasks/t-20261120-perses-tmpfs-mountpoint.md) | Perses runtime smoke cannot mount tmpfs at /etc/perses/database on hosted runners | wait | not set | 0428-083- | — | [baseharbor#1724](https://github.com/mcpdev80/baseharbor/pull/1724) |
 | [t-20261120-r28-stale-draft-pr-1665-closeout](../tasks/t-20261120-r28-stale-draft-pr-1665-closeout.md) | Stale draft PR #1665 on parked card 0428-082: restack with evidence or close | wait | not set | w176-pr1665-1665-closeout | — | [baseharbor#1665](https://github.com/mcpdev80/baseharbor/pull/1665) |
 | [t-20261120-r28-valkey-dashboard-unavailable-only](../tasks/t-20261120-r28-valkey-dashboard-unavailable-only.md) | Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable | wait | not set | w183-0428-183-valkeyfix | — | [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714) |
+| [t-20261120-shared-backend-state-version-message](../tasks/t-20261120-shared-backend-state-version-message.md) | shared state version message | wait | not set | w201-0428-201-statever | — | [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725) |
 | [t-20261120-workload-port-flag-ignored-locally](../tasks/t-20261120-workload-port-flag-ignored-locally.md) | workload-port ignored locally | wait | not set | w199-0428-199-workloadport | — | [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723) |
 
 ## Blocked

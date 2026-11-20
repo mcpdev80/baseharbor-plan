@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w201-0428-201-statever
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: ""
 kanban_title: 0428-201 · shared state version message
 priority: ""
@@ -18,20 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1725]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "HANDOFF VOLLSTAENDIG, ABER DER PFLICHTCHECK KANN NICHT DURCHLAUFEN - DARUM wait, nicht review (dasselbe muster wie 0428-177, 0428-199, 0428-183, damit ein zustand nicht zwei arten bekommt §3.7). gemessen: PR #1725 head 9bf4a72f742b == refs/pull/1725/head == branch refs/heads/w201-0428-201-statever, base develop, draft=false, 3 dateien, 'git merge-base --is-ancestor 40cb28c758b0 <head>' = JA. checks am EXAKTEN head: 11 success / 7 failure / 16 skipped, run 44795772617 - die sieben roten sind cli-0..3 + packages + Selected Checks + Selected Runtime (atomic/podman/data-capabilities) = der feld-weite gate (0428-198, wurzel 2af892e4e in internal/serviceaccess/policy.go, bei mir blocked an 0428-202/owner-rail #1594/0428-053), NICHT ihr diff. INHALT: eigene fehlerklasse 'SharedBackendStateVersionMismatch{Found,Expected}' in internal/application/shared_backends.go + decodeSharedBackendState, fail-closed byte-identisch, regression ueber den echten load-pfad. AKTE NACHGELIEFERT UND GELESEN (plan main 169073cc96c5): 72 zeilen, run-id zweimal, '## GATE-FAIL 0428-198 (STATE only, not fought)' mit vier STATE-zeilen, 0 checkboxen (die vier checkbox-zeilen, die das board eingefroren hatten, sind weg), cleanliness zweimal. EIGENANTEILE DER KORREKTUR: die run-zeile fehlte in der ersten fassung (§4.6) - nach meiner forderung geliefert; und die erste fassung der akte blockierte die publikation des GANZEN boards, das habe ich mechanisch behoben. TRIGGER FUER DIE naechste KANTE: der pflicht-check gruen durchlaeuft am exakten head, nachdem 198/202 geloest sind; dann review, dann CODEX. sitz ist freigegeben; der pool haelt einen platz mit NO_ELIGIBLE_WORK (candidate-count=0), weil im fenster kein konfliktfreier, gate-unabhaengiger kandidat mehr existiert - die hunt-rotation ist geschlossen, ein sechstes hunt-desk waere ein Scheinauftrag (§3.3.5)."
 resolution: ""
 evidence: []
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-shared-backend-state-version-message · shared state version message #task #release/v0-4-28 #status/active #view/active #area/lifecycle #kind/bug
+- [ ] t-20261120-shared-backend-state-version-message · shared state version message #task #release/v0-4-28 #status/wait #view/wait #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** w201-0428-201-statever  
     **PR:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725)  
+    **Waiting:** HANDOFF VOLLSTAENDIG, ABER DER PFLICHTCHECK KANN NICHT DURCHLAUFEN - DARUM wait, nicht review (dasselbe muster wie 0428-177, 0428-199, 0428-183, damit ein zustand nicht zwei arten bekommt §3.7). gemessen: PR \#1725 head 9bf4a72f742b == refs…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w201-0428-201-statever  
