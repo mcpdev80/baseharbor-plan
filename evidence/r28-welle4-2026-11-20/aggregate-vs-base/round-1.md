@@ -138,7 +138,7 @@ entire cmd/baha shard set; #1732 unblocks the loki field (202) for #1645/#1597/#
 5. Symbol tests per mission (loki_test, testOperatorContext) — done
 6. Per-PR verdict sentences + rebase-only list — done
 7. Evidence act committed and pushed to baseharbor-plan origin/main — done (see below)
-8. END post to coordinator — done (last action)
+8. END post to coordinator — QUESTION posted (triage verdict), END_DONE to follow after coordinator ack
 
 ## repo-rule compliance
 
@@ -161,3 +161,5 @@ entire cmd/baha shard set; #1732 unblocks the loki field (202) for #1645/#1597/#
 lane; worktree zone /tmp/opencode holds read-only measurement logs only (safe to delete).
 
 END_DONE w215-0428-198-aggregate: all 15 aggregate-red PRs triaged — ZERO are rebase-only-green; 14 red from field-gate 198 (#1726 seam) incl. 4 also waiting on #1732 merge (202), #1665/#1726 have extra causes (gate catalog / base-chain / seam gaps) — candidate: this evidence commit on baseharbor-plan origin/main.
+
+(QUESTION was posted first per mission rule on scope-relevant findings: #1731 needs its .github hunk dropped — Owner scope; that one item is the coordinator's call, everything else above is measured truth.)
