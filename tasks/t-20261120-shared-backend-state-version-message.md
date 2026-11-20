@@ -7,9 +7,9 @@ areas: [lifecycle]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w201-0428-201-statever
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-201 · shared state version message
 priority: ""
@@ -24,17 +24,16 @@ evidence: []
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-shared-backend-state-version-message · shared state version message #task #release/v0-4-28 #status/planned #view/ready #area/lifecycle #kind/bug
+- [ ] t-20261120-shared-backend-state-version-message · shared state version message #task #release/v0-4-28 #status/active #view/active #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w201-0428-201-statever  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w201-0428-201-statever  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -74,3 +73,5 @@ record where the message is not just generic but actively false.
   `internal/metrics/**` (#1714), `cmd/baha/context_terminal*.go` (#1718).
 - Do not add a migration path without a card and an owner decision.
 - No subagents (AGENTS 4.8), no `git add -A`, no merge, no force-push on develop/main.
+
+ARBEITET JETZT, kante gegen session gemessen (w201-0428-201-statever, ornith, worktree aus develop 40cb28c758b0): die version-ablehnung von shared-backends state (shared_backends.go:17 = 3, decodeSharedBackendState shared_backends_state.go:31-32) bekommt gefundene version, erwartete version und den naechsten schritt in die human-meldung, unterscheidbar von corruption-/lesefehler - die fail-closed ENTSCHEIDUNG bleibt byte-identisch, sie wird nicht angefasst. meldungsform wird MIT der schwesterkarte 0428-200 abgestimmt (die repariert dieselbe klasse beim deployment-record), damit nicht zweimal verschieden erfunden wird. gateway-meldung waehrend des runs ist 0428-198/202, nicht ihr diff.
