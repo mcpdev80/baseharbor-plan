@@ -35,7 +35,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-r28-bughunt-lifecycle-consent-desk](../tasks/t-20261119-r28-bughunt-lifecycle-consent-desk.md) | hunt lifecycle/consent desk | active | not set | Coordinator 9142ab1f (bahn: hunt-lane auf ornith:2, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/) | — | — |
 | [t-20261119-r28-bughunt-observability-desk](../tasks/t-20261119-r28-bughunt-observability-desk.md) | hunt observability desk | active | not set | Coordinator 9142ab1f (bahn: hunt-lane auf ornith:1, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/) | — | — |
 | [t-20261119-r28-window-integrity-verify](../tasks/t-20261119-r28-window-integrity-verify.md) | fensterstand gegen abnahmebelege pruefen | active | not set | w150-pr0428-150-windowverify | — | — |
-| [t-20261120-r28-bughunt-target-uid-migration](../tasks/t-20261120-r28-bughunt-target-uid-migration.md) | target-uid-migration gegen idempotenz pruefen | active | not set | w161-pr0428-163-tuidhunt | — | — |
+| [t-20261120-r28-bughunt-target-uid-migration](../tasks/t-20261120-r28-bughunt-target-uid-migration.md) | target-uid-migration gegen idempotenz pruefen | active | not set | w161-pr0428-161-tuidhunt | — | — |
 | [t-20261120-r28-pr-inventory-audit](../tasks/t-20261120-r28-pr-inventory-audit.md) | offene pull-requests des fensters inventurieren | active | not set | w160-pr0428-160-prinv | — | — |
 
 ## Ready for review
