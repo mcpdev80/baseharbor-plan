@@ -1,7 +1,7 @@
 ---
 id: t-20261120-r28-metrics-adapter-without-exporter
 card_number: "0428-182"
-card_short_title: "metrics adapter has no exporter"
+card_short_title: "adapter without exporter"
 type: bug
 areas: []
 release: v0.4.28
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: ""
-kanban_title: 0428-182 · metrics adapter has no exporter
+kanban_title: 0428-182 · adapter without exporter
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]

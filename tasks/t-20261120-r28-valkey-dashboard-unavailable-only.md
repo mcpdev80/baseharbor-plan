@@ -1,7 +1,7 @@
 ---
 id: t-20261120-r28-valkey-dashboard-unavailable-only
 card_number: "0428-183"
-card_short_title: "valkey dashboards unavailable only"
+card_short_title: "valkey dashboards gate"
 type: bug
 areas: []
 release: v0.4.28
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: ""
-kanban_title: 0428-183 · valkey dashboards unavailable only
+kanban_title: 0428-183 · valkey dashboards gate
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
