@@ -20,7 +20,7 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44788134959"]
 created: 2026-11-20
 ---
 
@@ -28,6 +28,7 @@ created: 2026-11-20
     <!-- generated:card -->
     **Owner:** Codex (Owner-directed full wait-card closeout, 2026-11-21)  
     **PR:** [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44788134959)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -81,3 +82,10 @@ So a documented option is either rejected or silently unread on the path most us
 - No subagents (AGENTS 4.8), no `git add -A`, no merge, no force-push on develop/main.
 
 ARBEITET JETZT, kante gegen session gemessen (w199-0428-199-workloadport, ornith, worktree aus develop 40cb28c758b0): der dokumentierte '--workload-port NAME=PORT' soll auf dem LOKALEN apply/up-pfad dasselbe tun wie auf dem remote-pfad, oder die dokumentation darf ihn nicht mehr versprechen - stiller verlust ist in beide richtungen der fehler. regression pro kommando durch die echte kommando-oberflaeche. der beweis kommt durch das kleinste passende gate, weil die cli-shards seit #1594 am kaputten pruefeingang haengen (0428-198, andere lane).
+
+
+## Codex closeout continuation — 2026-11-21
+
+- Took over this started wait card under the Owner's instruction to complete every wait card except #1615. PR #1723 remains OPEN, non-draft, based on `develop`, exact head `26755fc1edfbde534986b501197a92f38842a0c1`; the current `develop` head is `40cb28c758b02960356434b630086a341ebe1738` and is an ancestor of the PR head.
+- On that exact PR head, `go test ./cmd/baha -run '^(TestParseRuntimeUpOptions|TestExtractLocalWorkloadPorts|TestAppApplyRunAcceptsWorkloadPort|TestUpRunAcceptsWorkloadPort)$' -count=1` passed (`ok .../cmd/baha 0.009s`). The two distinct command-surface regressions are present and executed: `TestAppApplyRunAcceptsWorkloadPort` and `TestUpRunAcceptsWorkloadPort`. Source trace confirms `app apply` and `up` attach the parsed map to context and the existing deployment path persists and applies it.
+- The exact hosted run [44788134959](https://github.com/mcpdev80/baseharbor/actions/runs/44788134959) is terminal FAILURE on the same head. All four owning CLI shards executed and failed on the shared operator gate; the verbatim representative failure is `main_test.go:60: create failed: Managed-environment machine operations require an authenticated BaseHarbor operator.` The card's own regressions pass locally; exact hosted success, fresh current-head CI, and merge remain outstanding behind 0428-198/#1726 and its active 0428-204 entry-point prerequisite. No PR base or other owner's work was changed.
