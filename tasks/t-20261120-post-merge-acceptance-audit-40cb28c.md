@@ -7,9 +7,9 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w197-0428-197-postmerge
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Reine Befundung (kein Produktwechsel): Abnahme des ERGEBNISSES von fuenf heutigen develop-Merges - hat jede Akzeptanzzeile eine…"
 kanban_title: 0428-197 · post-merge acceptance audit
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-post-merge-acceptance-audit-40cb28c · post-merge acceptance audit #task #release/v0-4-28 #status/planned #view/ready #area/ci #kind/task
+- [ ] t-20261120-post-merge-acceptance-audit-40cb28c · post-merge acceptance audit #task #release/v0-4-28 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w197-0428-197-postmerge  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w197-0428-197-postmerge  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -70,3 +69,5 @@ Reine Befundung (kein Produktwechsel): Abnahme des ERGEBNISSES von fuenf heutige
 
 - Fund ohne `FUND-FUER-KARTE`-Zeile, Akte ohne `cleanliness`-Zeile, oder ein Versuch, Produktcode zu aendern.
 - Ausloeser fuer sofortige Stop-with-Meldefrist: eine dep-freie, konfliktfreie Produktkarte wird frei (§3.3.5).
+
+ARBEITET JETZT, kante gegen session gemessen (b5342068, laptop): POST-MERGE-ABNAHME der fuenf heutigen merges (#1715/184, #1716/182, #1717/188, #1721 ci-planner, #1722 ci-routing) auf develop 40cb28c: pro merge akzeptanzzeile -> fundstelle im diff (datei:zeile) -> eigener gegentest oder echter aufruf -> verdict ERFUELLET/TEILWEISE/NICHT. zusatz: treffen die zwei neuen CI-auswahlregeln #1714/#1718/#1684/#1645 noch richtig (eine strecke, die durch die regel ganz herausfaellt, ist ein fund). derselbe abnahme-typ, der heute 0428-179 erzeugt hat (befund B2 auf 96f2ae11).
