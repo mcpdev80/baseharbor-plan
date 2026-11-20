@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1615]
 sources: []
 blocker: ""
-wait_reason: "Waiting for 0428-188's typed local operation grant, then for #1594 to integrate that grant and pass exact-head CI. After #1594 is updated and verified, hop #1615 to the resulting stack and run its exact CI; also confirm its actual base is included by the pull_request.branches workflow rule."
+wait_reason: "Waiting for #1594 to integrate the merged 0428-188 grant and pass exact-head CI. Then hop #1615 to the resulting stack and run its exact CI; its current base is already included by the pull_request.branches workflow rule."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-identity-secrets/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98d/evidence/r28-welle4-2026-11-19/identity-secrets-hopf/fix-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44735405029"]
 ---
@@ -27,8 +27,8 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
     <!-- generated:card -->
     **Owner:** 0428-057 (codeman 01b370c0, END\_BLOCKED, sitz wird entlassen) · **Priority:** high  
     **PR:** [baseharbor#1615](https://github.com/mcpdev80/baseharbor/pull/1615)  
-    **Waiting:** Waiting for 0428-188's typed local operation grant, then for \#1594 to integrate that grant and pass exact-head CI. After \#1594 is updated and verified, hop \#1615 to the resulting stack and run its exact CI; also confirm its actual base is…  
-    **Needs:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261120-trusted-local-operation-grant](t-20261120-trusted-local-operation-grant.md)  
+    **Waiting:** Waiting for \#1594 to integrate the merged 0428-188 grant and pass exact-head CI. Then hop \#1615 to the resulting stack and run its exact CI; its current base is already included by the pull\_request.branches workflow rule.  
+    **Needs:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-identity-secrets/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98d/evidence/r28-welle4-2026-11-19/identity-secrets-hopf/fix-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44735405029)  
     <!-- /generated:card -->
 

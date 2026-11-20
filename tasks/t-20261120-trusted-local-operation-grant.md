@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: Codex (Marcel assigned)
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Bind existing local runtime authorization to exactly one typed CLI operation, application/environment identity, and policy check…"
 kanban_title: 0428-188 · Bind local operation grants to
 priority: high
@@ -19,19 +19,19 @@ prs: [mcpdev80/baseharbor#1717]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1717", "https://github.com/mcpdev80/baseharbor/actions/runs/44758114769"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1717", "https://github.com/mcpdev80/baseharbor/actions/runs/44758114769", "https://github.com/mcpdev80/baseharbor/commit/3653369a4d832e16a427ebf862e959dcccb882b1"]
 ---
 
-- [ ] t-20261120-trusted-local-operation-grant · CLI security: Bind local operation grants to calls #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #area/security #kind/task
+- [x] t-20261120-trusted-local-operation-grant · CLI security: Bind local operation grants to calls #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/architecture #area/cli #area/security #kind/task
     <!-- generated:card -->
     **Owner:** Codex (Marcel assigned) · **Priority:** high  
     **PR:** [baseharbor#1717](https://github.com/mcpdev80/baseharbor/pull/1717)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1717), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44758114769)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1717), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44758114769), [proof 3](https://github.com/mcpdev80/baseharbor/commit/3653369a4d832e16a427ebf862e959dcccb882b1)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-uid-environment](t-20261114-r28-cli2-uid-environment.md)  
 **Required by:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
@@ -87,4 +87,4 @@ Bind existing local runtime authorization to exactly one typed CLI operation, ap
 
 ## Handoff
 
-- Owner directed an in-process opaque grant: no HMAC, TTL, Unix-socket IPC or `SO_PEERCRED`. It protects against accidental internal misuse, not a hostile local OS user. PR #1717 exact head is `4b51ce350e171e28b432b75408be4206c0896722` (base `develop`). Exact run https://github.com/mcpdev80/baseharbor/actions/runs/44758114769 attempt 2 succeeded on that SHA; attempt 1 failed only because the hosted Go proxy reset an HTTP/2 download, and the failed planner job alone was rerun. Test-to-gate evidence: `TestLocalRuntimeGrantIsOperationTargetEnvironmentBoundAndSingleUse` — valid case, `/operation`, `/target`, `/environment`, `/missing`, replay — and `TestCheckLocalRuntimeGrantFailsClosedAndUsesMonotonicNonce` — invalid UID, runtime-check failure, missing check, monotonic nonce — all run in `authority-package-tests`; `test_operatorauth_source_and_tests_select_real_package_runner` proves both source and test select that gate. The exact CI trigger was PR synchronize; all required exact-head jobs passed, including authority package tests, four CLI shards, CLI package runner, Docker and Podman Keycloak, planner, build, vet, source format and workflow policy. Local package/CLI regression tests, vet, build, selector test, authority package runner and diff check passed. #1615 actual base `cli2-env-policy-head` is admitted by its current `pull_request.branches: cli2-*` rule. Next: merge #1717, update and validate #1594 first, then update #1615 to the resulting head and run its exact CI.
+- Owner directed an in-process opaque grant: no HMAC, TTL, Unix-socket IPC or `SO_PEERCRED`. It protects against accidental internal misuse, not a hostile local OS user. PR #1717 exact head was `4b51ce350e171e28b432b75408be4206c0896722` (base `develop`), merged at `3653369a4d832e16a427ebf862e959dcccb882b1`. Exact run https://github.com/mcpdev80/baseharbor/actions/runs/44758114769 attempt 2 succeeded on that SHA; attempt 1 failed only because the hosted Go proxy reset an HTTP/2 download, and the failed planner job alone was rerun. Test-to-gate evidence: `TestLocalRuntimeGrantIsOperationTargetEnvironmentBoundAndSingleUse` — valid case, `/operation`, `/target`, `/environment`, `/missing`, replay — and `TestCheckLocalRuntimeGrantFailsClosedAndUsesMonotonicNonce` — invalid UID, runtime-check failure, missing check, monotonic nonce — all run in `authority-package-tests`; `test_operatorauth_source_and_tests_select_real_package_runner` proves both source and test select that gate. The exact CI trigger was PR synchronize; all required exact-head jobs passed, including authority package tests, four CLI shards, CLI package runner, Docker and Podman Keycloak, planner, build, vet, source format and workflow policy. Local package/CLI regression tests, vet, build, selector test, authority package runner and diff check passed. #1615 actual base `cli2-env-policy-head` is admitted by its current `pull_request.branches: cli2-*` rule. 0428-188 accepted; #1594 is now the active next step, then update #1615 to the resulting head and run its exact CI.
