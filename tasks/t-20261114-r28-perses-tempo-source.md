@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w091-pr0428-091-tempo-source
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Provision selected authorized Tempo datasource via supported Perses plugin, scoped and verified."
 kanban_title: 0428-091 · Connect Perses Tempo
 priority: normal
@@ -18,20 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1610, mcpdev80/baseharbor#1645]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "CODEX-REVIEW r1 am exakten head 0449f06587c8 = REQUEST CHANGES, vier funde P1-P4 (akte codex-review-wave/1645-0428-091.md): host-loopback-endpoint internal/traces/tempo.go:511-523; verlorene host-dashboard-regressionstests in internal/capability/perses_test.go; die resolvede authorisierung wird im http-client nicht weitergereicht (internal/metrics/perses_tempo_datasource.go:482-496); die drei luna-r1-rezepte nur teilweise erfuellt (594-631, 312-335). lane entlassen, weil ihr END_DONE berechtigt war (36/36 checks, 0 failure, akte @ 802cefb1); kein freier sitz fuer eine korrekturrunde (5/5 besetzt). naechster ausloeser: erster freier sitz im pool. NEUER ZEUGE FUER 0428-175: der payload-gate von card-status.py hat meinen ersten textfuersatz abgelehnt, weil beim tippen ein nicht-lateinisches token entstanden war - dieselbe fehlerklasse, die die karte schliessen will"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44688554297", "https://github.com/mcpdev80/baseharbor/actions/runs/44689126814", "https://github.com/mcpdev80/baseharbor/actions/runs/44695439903", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md"]
 ---
 
-- [ ] t-20261114-r28-perses-tempo-source · Connect Perses Tempo #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-tempo-source · Connect Perses Tempo #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w091-pr0428-091-tempo-source · **Priority:** normal  
     **PR:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645)  
+    **Waiting:** CODEX-REVIEW r1 am exakten head 0449f06587c8 = REQUEST CHANGES, vier funde P1-P4 (akte codex-review-wave/1645-0428-091.md): host-loopback-endpoint internal/traces/tempo.go:511-523; verlorene host-dashboard-regressionstests in internal/capa…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44688554297), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44689126814), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44695439903), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
 **Required by:** [t-20261114-r28-perses-log-trace-dash](t-20261114-r28-perses-log-trace-dash.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
