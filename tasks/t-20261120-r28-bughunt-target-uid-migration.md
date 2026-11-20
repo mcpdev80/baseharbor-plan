@@ -1,7 +1,7 @@
 ---
 id: t-20261120-r28-bughunt-target-uid-migration
-kanban_title: 0428-161 · bughunt target uid migration
-card_number: "0428-161"
+kanban_title: 0428-163 · bughunt target uid migration
+card_number: "0428-163"
 card_short_title: "bughunt target uid migration"
 type: task
 areas: [capability, cli]
@@ -12,27 +12,28 @@ parent: ""
 depends_on: []
 blocked_by: []
 superseded_by: []
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w161-pr0428-163-tuidhunt
+kanban_status: active
+kanban_lane: active
 blocker: ""
 resolution: ""
 evidence: []
 prs: []
 created: 2026-11-20
+wait_reason: ""
+
 ---
 
-- [ ] t-20261120-r28-bughunt-target-uid-migration · target-uid-migration gegen idempotenz pruefen #task #release/v0-4-28 #status/planned #view/ready #area/capability #area/cli #kind/task
+- [ ] t-20261120-r28-bughunt-target-uid-migration · target-uid-migration gegen idempotenz pruefen #task #release/v0-4-28 #status/active #view/active #area/capability #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w161-pr0428-163-tuidhunt  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w161-pr0428-163-tuidhunt  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
