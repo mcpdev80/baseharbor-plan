@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w068-pr0428-068-context-shell
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Terminal-scoped context and completion. Follow the owner working brief, command mapping and code entry index; revalidate current…"
 kanban_title: 0428-068 · Terminal-scoped context and
 priority: high
@@ -23,18 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-context-shell · CLI redesign: Terminal-scoped context and completion #task #release/v0-4-28 #status/planned #view/ready #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-context-shell · CLI redesign: Terminal-scoped context and completion #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w068-pr0428-068-context-shell · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md), [t-20261114-r28-cli2-uid-target](t-20261114-r28-cli2-uid-target.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** unassigned  
+**Owner:** w068-pr0428-068-context-shell  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -70,3 +69,5 @@ Independent simultaneous terminals, explicit flags precedence, shell absent fall
 ## Handoff
 
 Planned and unassigned. No product implementation or acceptance yet.
+
+dep-frei nach plan.py show (contract, env-registry, uid-target accepted). Auftragetraegerin muss zuerst das owner-working-brief cli-redesign-20261114/brief.md lesen ( Teil des vertrags ). write-set CLI; app_status_result.go und die perses-pfade sind gesperrt, weil dort 078 und 083/174 schreiben
