@@ -438,3 +438,14 @@ Independent Wait/Review audit on plan main `2561618b` confirms no Review tasks a
 #1645 exact run `44695439903` reached terminal SUCCESS on `0449f06587c849f598447094428d2f7296ed1f5b`: 36 jobs, 16 success, 20 skipped, zero failures. Selected Checks, Go shards, build, vet and package checks pass. Native Keycloak/Core, Selected Runtime, Public Contracts, HA and release gates were skipped. Direct PR view shows OPEN+Ready, mergeStateStatus CLEAN, no formal review. Card 0428-091 remains Active because its required Tempo runtime acceptance was not exercised; no Review or merge transition is supported.
 
 The current GitHub REST open count remains 20. Current plan main has 3 Blocked, 18 Wait and 0 Review; independent Blocked/Wait audits still show no lane transition.
+
+
+## Agent audit and latest exact-head sweep — 2026-11-20 ~07:50 UTC
+
+Two independent agents audited #1709 at exact head `85bb4b4a4cb84707cb15eedbe94dfb0b7fadc9a2`; both recommend keeping card 0428-168 Active. Exact run [44696406664](https://github.com/mcpdev80/baseharbor/actions/runs/44696406664) completed SUCCESS (35 jobs: 19 success, 16 skipped, 0 failure), including selected Docker identity runtime. The maintainer findings remain open: `TestReadSignalsForTestSortsStably` is still in `internal/observability/read_signals_test_helper.go`, not a discoverable `_test.go`; the new integration coverage asserts migrated ID/owner/list/remove but not preservation of the requested metadata fields. The implementation also rewrites `Target` via `stampLegacyTarget`, so target is not preserved verbatim. Green selected CI does not discharge those source/test requirements.
+
+#1710 advanced to exact head `95d18748e0cf6de0e96a73b4286088985ff086bc`; run [44696968212](https://github.com/mcpdev80/baseharbor/actions/runs/44696968212) is terminal FAILURE (35 jobs: 13 success, 20 skipped, 2 failures). `cli-3` reports stale generated command metadata in `docs/cli/command-index.md` and `docs/reference/cli-machine-coverage.md`; `PR Selected Checks` fails accordingly. PR remains OPEN, non-draft, mergeStateStatus BLOCKED, with no formal review; 0428-068 stays Active.
+
+#1645 remains OPEN+Ready at `0449f06587c849f598447094428d2f7296ed1f5b`; exact run [44695439903](https://github.com/mcpdev80/baseharbor/actions/runs/44695439903) is SUCCESS with 16 passing and 20 skipped jobs. Native/Core, Selected Runtime (Tempo), Public Contracts, HA and release gates were skipped. After a concurrent update moved 0428-091 to Review, it was returned to Active because the card explicitly requires exact-head checks plus Tempo runtime acceptance before Review. Independent Wait/Review agent audit agrees no Review/closure transition is supported.
+
+The Blocked audit still finds #1615/#1620/#1623 without justified transitions. Latest GitHub enumeration previously returned 20 OPEN PRs; no closure or merge candidate identified. Codeman access remains read-only.

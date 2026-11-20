@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44695244800"]
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44695244800", "https://github.com/mcpdev80/baseharbor/actions/runs/44696968212"]
 ---
 
 - [ ] t-20261114-r28-cli2-context-shell · CLI redesign: Terminal-scoped context and completion #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** w068-pr0428-068-context-shell · **Priority:** high  
     **PR:** [baseharbor#1710](https://github.com/mcpdev80/baseharbor/pull/1710)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44695244800)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44695244800), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44696968212)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -90,3 +90,8 @@ Run [44695244800](https://github.com/mcpdev80/baseharbor/actions/runs/4469524480
 ihr PR ist da und war mir noch nicht gemeldet: #1710 'feat(0428-068): additive per-terminal context (use/clear…', head c379a742e67f, base = develop, draft=false, erstellt 07:28:38Z. additiv, wie befohlen: keine umbenennung von cmd/baha/commands.go, eigener inhalt in neuen dateien. karte auf review, abnahme bestelle ich erst, wenn ihre akte den praedenz-nachweis enthaelt (flag > im kommand gesetzte env > terminal-env > default, ein test pro stufe)
 
 ZUSTANDSKORREKTUR AN MIR SELBST: ich hatte die karte kurz auf review gestellt, aber der kandidat ist ROT und damit nicht abnahmefaehig — review war ein fehler von mir, karte zurueck auf active. messung an head c379a742e67f: 35/35 checks fertig, 6 failure = 'PR Selected Checks' (aggregat), 'PR · Go unit · cli-0', '· cli-1', '· cli-3'; develop ist ahne des heads (JA), base = develop, draft=false. ihr write-set ist sauber gehalten (5 dateien: commands.go, completion.go, completion_setup.go, context_terminal.go, context_terminal_test.go) — also ist das rot inhalt, nicht form.
+
+
+## Exact-run terminal refresh — 2026-11-20 ~07:48 UTC
+
+PR #1710 advanced to `95d18748e0cf6de0e96a73b4286088985ff086bc`; exact run [44696968212](https://github.com/mcpdev80/baseharbor/actions/runs/44696968212) completed FAILURE (35 jobs: 13 success, 20 skipped, 2 failure). `PR · Go unit · cli-3` fails `TestHumanCommandIndexTracksExactCommandMetadata` and `TestMachineDocumentationTracksRegistryAndCommandTree` due to generated CLI documentation drift in `docs/cli/command-index.md` and `docs/reference/cli-machine-coverage.md`; `PR Selected Checks` fails because the selected Go unit result is failure. PR remains OPEN, non-draft, merge-blocked, with no formal review. Keep Active under its owner; the separate precedence-proof acceptance remains outstanding.
