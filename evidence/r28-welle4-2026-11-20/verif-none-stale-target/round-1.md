@@ -114,6 +114,11 @@ BEWEISKETTE:
 ## EVIDENCE PUBLICATION
 
 - Pre-push origin/main check: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep verif-none-stale-target`:
+  ```
+  evidence/r28-welle4-2026-11-20/verif-none-stale-target/round-1.md
+  tasks/t-20261120-verif-none-stale-target.md
+  ```
+- Local commit 8115903e pushed; origin/main head 9f959f61 (planning-refresh commits, do not touch this akte).
 
 ## END
 
