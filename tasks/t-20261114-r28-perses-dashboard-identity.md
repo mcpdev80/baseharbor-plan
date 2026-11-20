@@ -185,3 +185,18 @@ selbst, wenn alle erforderlichen checks und der verdict gruen sind. SCHREIBGRENZ
 internal/capability/perses_selection.go bleibt verschlossen (owner-anweisung von heute vormittag), und
 internal/application/perses_runtime.go wird von #1684 (0428-083) geschrieben - die karte 0428-181 haengt an derselben
 sequenz. ihr eigener abnehmer-katalog liegt auf 0428-181, damit aus dieser uebergabe kein zweiter toter baum wird.
+
+ZWEI UNABHAENGIGE VERDICTS AM SELBEN eingefrorenen head 9add5e8a2122, und sie DECKEN SICH - dokumentiert, damit der
+uebernehmer nicht zwei mal suchen muss: (1) sein uva review, akte pr-sweep/review-1650-2026-11-20.md: REQUEST CHANGES, punkte
+'kein dashboard-delivery/produktintegration im diff', 'witness-isolation nach echtem target/tenant/state-root nicht belegt',
+'positiver verified-weg nicht ueber die oeffentliche status-JSON-ausgabe nachgewiesen'; run 44737589479 gruen, aber kein
+abnahmenachweis. (2) MEIN CODEX-REVIEW, akte codex-review-wave/1650-0428-078-r8.md (66 zeilen, ROLLE-Label, 'PR head
+before/after review = 9add5e8a…/9add5e8a…', also gueltig): REQUEST CHANGES mit derselben richtung - P1 predicate korrekt,
+aber serialisiertes positives resultat fehlt; P2 der oeffentliche remote-serializer wird nicht durchfahren (rezept:
+remote-fixture durch das produktive status-command + writeJSON, felder decodieren); P3 BLOCKER 'actual Target/tenant binding
+and unresolved mapping'; P5 mutations noch nicht vollstaendig isoliert ('same test identity'). STRUKTURELL BESTAETIGT von
+beiden seiten: P4 'catalog removed; witness has a production call site' = PASS, P6 geschuetzte dateien = PASS
+(perses_selection.go unbewegt), P7 exact-head CI + skipped cells = PASS.
+LANE: haelt weiter an (handoff-akte + END angefordert, kein push, head bleibt liegen). SITZ: bleibt belegt bis ihre
+uebergabe-akte auf main ist; danach freigabe und der sitz geht an 0428-182 (die naechste datei-disjunkte karte).
+HERRIN DER KARTE ist jetzt ihr sweep - ich bestelle keine dritte runde und schreibe keinen fremden claim um.
