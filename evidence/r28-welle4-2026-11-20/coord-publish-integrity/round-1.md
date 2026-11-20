@@ -79,7 +79,9 @@ sanitize.py CJK ranges = U+0400-04FF (kirillisch), U+0300-036F (kombinierte diak
 
 ## evidence on origin/main
 
-- (command: git ls-remote origin/main result pasted before END)
+- command: `git ls-remote origin refs/heads/main`
+- result: `7252d620fef140ffc5a81c827555784ef77d9fc3  refs/heads/main`
+- my evidence file round-1.md verified present at origin/main HEAD (commit c11b0d4c): `git show origin/main:evidence/r28-welle4-2026-11-20/coord-publish-integrity/round-1.md` -> starts `# coord-publish-integrity round-1 (0428-175)`.
 
 ## main-tree restore handoff (Owner action)
 
