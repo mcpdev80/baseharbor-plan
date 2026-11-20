@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: coord
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: Coordinate both v0.4.28 CLI redesign and Perses as one owner-requested programme with at most five implementation/audit workers…
 kanban_title: 0428-072 · coordinate five workers
 priority: high
@@ -18,18 +18,19 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "koordinationskarte ohne eigene produktarbeit: sie wird nur aktiv, wenn ein CLI2-dispatch laeuft. im moment arbeitet keine session an der kette."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-coordination · CLI redesign: coordinate five workers #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-coordination · CLI redesign: coordinate five workers #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** coord · **Priority:** high  
+    **Waiting:** koordinationskarte ohne eigene produktarbeit: sie wird nur aktiv, wenn ein CLI2-dispatch laeuft. im moment arbeitet keine session an der kette.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** coord  
@@ -68,3 +69,5 @@ The same single coordinator schedules the Perses cards and CLI cards under one g
 ## Parallel planning boundary — 2026-11-14
 
 This bounded audit/coordination may proceed while v0.4.27 remains unreleased. Preserve active work and file ownership. Implementation tasks may proceed when their actual technical prerequisites are accepted; coordinate shared files and preserve active work. Release stages retain their own prerequisites.
+
+karte haelt den vertrag der CLI2-familie; der zustand der kette steht auf 0428-057 (#1615).
