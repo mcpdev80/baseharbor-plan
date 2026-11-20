@@ -1,5 +1,5 @@
 ---
-id: 2026-11-20-coordinator-tooling-separate-repo
+id: 2026-11-20-coordinator-tooling-out-of-vault
 status: accepted
 sources: []
 ---
