@@ -7,9 +7,9 @@ areas: [cli, security]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: planned
+owner: w216-0428-204-entrypoints
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-204 · CLI operator entry points
 priority: high
@@ -23,18 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-cli-operator-entrypoints · 0428-204 · CLI operator seam: MCP handlers and direct Run entry points #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/cli #area/security #kind/bug
+- [ ] t-20261120-cli-operator-entrypoints · 0428-204 · CLI operator seam: MCP handlers and direct Run entry points #task #release/v0-4-28 #status/active #view/active #area/cli #area/security #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Waiting for prerequisites**  
+    **Owner:** w216-0428-204-entrypoints · **Priority:** high  
     **Needs:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
-**Owner:** unassigned  
+**Owner:** w216-0428-204-entrypoints  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -101,3 +100,5 @@ message in `PR · Go unit · cli-0..3`.
 - `PR · Go unit · cli-0`, `cli-1`, `cli-2`, `cli-3` pass at the exact head with no operator message in their logs.
 - `internal/operatorauth/**` decision logic untouched (no `policy.go`, no `authorization.go` edits).
 - One evidence table line per entry-point class: class, file:line, before (failing test), after (passing test).
+
+KARTE AUS DIESEM TICK GECASTET (fund->karte, §3.3.5): der befund von w198 lautet, der seam erreicht MCP-handler (server.Connect / client.Connect / CallTool mit eigenen kontexten) und direkte .Run(ctx)/Execute(ctx)-aufrufe NICHT. sitz w216-0428-204-entrypoints (laptop) UEBERNIMMT den stand refs/heads/lane-0428-198-cli-shard-operator-env head 7546b1806aac (PR #1726, seam auf dem runWithIO-pfad bewiesen, [w198-seam]-print in akte round-3.md) und liefert: auflistung pro eintrittsklasse mit zaehl-befehl, eine stelle pro klasse, kleiner gate go test ./cmd/baha/ -count=1 vorher/nachher, und eine assertion, dass der seam ausserhalb von tests nil bleibt. rail-dateien verschlossen; ein zwang zu internal/serviceaccess/** = STOP + MELDEN.
