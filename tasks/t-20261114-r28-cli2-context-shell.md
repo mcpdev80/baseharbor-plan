@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44695244800", "https://github.com/mcpdev80/baseharbor/actions/runs/44696968212"]
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44695244800", "https://github.com/mcpdev80/baseharbor/actions/runs/44696968212", "https://github.com/mcpdev80/baseharbor/actions/runs/44699230683"]
 ---
 
 - [ ] t-20261114-r28-cli2-context-shell · CLI redesign: Terminal-scoped context and completion #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** w068-pr0428-068-context-shell · **Priority:** high  
     **PR:** [baseharbor#1710](https://github.com/mcpdev80/baseharbor/pull/1710)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44695244800), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44696968212)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44695244800), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44696968212), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44699230683)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -95,3 +95,8 @@ ZUSTANDSKORREKTUR AN MIR SELBST: ich hatte die karte kurz auf review gestellt, a
 ## Exact-run terminal refresh — 2026-11-20 ~07:48 UTC
 
 PR #1710 advanced to `95d18748e0cf6de0e96a73b4286088985ff086bc`; exact run [44696968212](https://github.com/mcpdev80/baseharbor/actions/runs/44696968212) completed FAILURE (35 jobs: 13 success, 20 skipped, 2 failure). `PR · Go unit · cli-3` fails `TestHumanCommandIndexTracksExactCommandMetadata` and `TestMachineDocumentationTracksRegistryAndCommandTree` due to generated CLI documentation drift in `docs/cli/command-index.md` and `docs/reference/cli-machine-coverage.md`; `PR Selected Checks` fails because the selected Go unit result is failure. PR remains OPEN, non-draft, merge-blocked, with no formal review. Keep Active under its owner; the separate precedence-proof acceptance remains outstanding.
+
+
+## New exact-head terminal audit — 2026-11-20 08:06 UTC
+
+PR #1710 advanced to `b1fea4df37b3b7327c63b94b6cdb81c1ac4d3473`; exact run [44699230683](https://github.com/mcpdev80/baseharbor/actions/runs/44699230683) completed FAILURE (39 jobs: 18 success, 20 skipped, 2 failure). `PR · Validation · documentation-audit` reports four missing literals in `reference/cli-machine-coverage.md`: `baha context`, `baha context clear`, `baha context show`, and `baha context use`; `PR Selected Checks` fails because `pr_validations` failed. The remaining executed Go/build/vet checks passed. Independent diff/test review also finds the explicit acceptance incomplete: it requires four precedence levels (flag > command-set env > terminal env > default) and one test per level. Current code/tests show only flag → `BASEHARBOR_TARGET` shell env → configured default; they do not distinguish/test command-set env separately from terminal env. PR remains OPEN, non-draft, merge-blocked; keep 0428-068 Active.
