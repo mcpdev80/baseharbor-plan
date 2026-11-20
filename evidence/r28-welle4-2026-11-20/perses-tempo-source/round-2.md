@@ -1,0 +1,92 @@
+# t-20261114-r28-perses-tempo-source (0428-091) — Round 2
+
+Owner: `x-m091` · Card `0428-091` · Task `t-20261114-r28-perses-tempo-source` · PR mcpdev80/baseharbor#1645
+
+Review dossier answered: `evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md` (verdict REQUEST CHANGES on head `0449f06587c8`).
+
+## PLAN
+
+1. Read the review dossier and the card; set up the worktree from PR head `0449f06587c8`.
+2. Record baseline witnesses (`git remote -v`, `ls-remote` for develop/branch/PR head, base-ancestry check).
+3. P3: restore the two deleted fail-closed host-dashboard regression tests; add the witness-authority cell.
+4. P1: render the datasource endpoint as the managed gateway's backend-network alias (routable from Perses' namespace), mint/register the alias in the gateway spec and compose, mount the gateway material into the Perses service; fail closed on endpoint/compose drift.
+5. P2: keep the resolved `AuthenticationRequired` policy in the client path (raised to the boundary's mTLS posture, never lowered); read the gateway's reconciled runtime projection; make `EnsureHTTPGateway` enroll the client pair wherever the gateway verifies clients; red/green strict-policy cells.
+6. P4: pin builder gate order; witness the materialized gateway compose against the datasource URL; name the pinned Perses v0.55.1 upstream witness; record the native runtime-gate routing as a STATE finding.
+7. Mutation sondes for P1, P2, P3 (each fix turns its cells red when reverted).
+8. Consolidate the second line (`w091-0428-091`) onto the PR branch per coordinator order; delete the stray branch with ls-remote witnesses.
+9. Rebase onto current develop, one final commit, `push --force-with-lease` to `w091-tempo-r5-fix`; prove with ls-remote.
+10. Watch own CI run to terminal state; write this evidence; cleanliness; END.
+
+## Formatting repair (coordinator note, 11:5xZ)
+
+The first r2 candidate `d0c140c5153f` failed `PR · Source format`: not a gofmt
+issue (`gofmt -l .` is empty on the tree, measured) but the readability gate in
+the same job — `internal/metrics/perses_tempo_datasource.go` (928 lines) and
+`internal/serviceaccess/http_gateway.go` (888 lines) exceeded the 800-line limit
+(`bash scripts/source-readability-audit.sh` names them). Fixed inside the same
+final commit by splitting, content unchanged: `perses_tempo_verify.go` (query +
+validators), `gateway_reader.go` (reader material + alias dial hook), and the
+test file split `perses_tempo_golden_test.go` / `perses_tempo_source_test.go`.
+`scripts/source-readability-audit.sh` now reports Go file size / function span /
+regression ratchet all PASS; `gofmt -l internal/ cmd/` empty.
+
+## remote witnesses
+
+- `git remote -v` (shared checkout `/home/marcel/dev/baseharbor-ecosystem/baseharbor`, first git action): `lane-origin`, `origin`, `upstream` all = `https://github.com/mcpdev80/baseharbor.git`. Pushed to `lane-origin` only.
+- Baseline: `git ls-remote lane-origin refs/heads/develop refs/heads/w091-tempo-r5-fix refs/pull/1645/head` → `681700ca66f3619998e24bbfd71bc86912cf38ec`, `0449f06587c849f598447094428d2f7296ed1f5b`, `0449f06587c849f598447094428d2f7296ed1f5b`. Base `36d075fad77fa61ac8c153e979855546589b32c2` confirmed `merge-base --is-ancestor` of the head: YES.
+- Consolidation order (coordinator, 11:4xZ):
+  - `git log --oneline 0449f06587c8..d57ab5275240` →
+    `d57ab5275 metrics: validate the Perses Tempo resources against the pinned upstream model`
+  - `git diff 0449f06587c8...d57ab5275240 --stat` → `fatal: 0449f06587c8...d57ab5275240: no merge base` (the stray branch is grafted onto old `main` history, not onto develop; its card-091 content equals commits `2a9f6eb11`/`539080b56`, which ARE ancestors of the PR head — verified by `git merge-base --is-ancestor 539080b56 d0c140c51` = YES and by the two-dot file diff showing only the later `.go.txt`-rename and gofmt refinements that the PR head already carries).
+  - Deletion witnesses, before: `git ls-remote lane-origin refs/heads/w091-0428-091` → `d57ab527524048bddc0af7bb08009edbb4d32033	refs/heads/w091-0428-091`; command: `git push lane-origin --delete refs/heads/w091-0428-091` → `- [deleted] w091-0428-091`; after: `git ls-remote lane-origin refs/heads/w091-0428-091` → (empty).
+- Content-preservation proof (coordinator rock, 12:0xZ): `git diff 0449f06587c849f598447094428d2f7296ed1f5b 6fd78a898a64 --stat` → 24 files, +3,240/−508. Every path in that diff is either (a) this card's round-2 behavior and split files (`internal/metrics/perses_tempo_*`, `internal/capability/perses*.go`, `internal/serviceaccess/*`, `internal/traces/*`), or (b) a develop-side path whose FINAL content I verified byte-identical to develop `dbe7fbc39` by per-file sha256 (`git show dbe7fbc39:<f> | sha256sum` == `git show 6fd78a898:<f> | sha256sum` for all 8 foreign paths: `internal/identityprovider/keycloak_legacy_migration_integration_test.go`, `keycloak_realization.go`, `internal/observability/environment.go`, `keycloak_legacy_migration_test.go`, `migration.go`, `read_signals_test.go`, `read_signals_test_helper.go`, `registry.go`). The "foreign" lines are the r5 line RE-ADDING #1709's content, which `0449f06587c8` (cut from `36d075fad77f`, #1709's base) never contained. `git diff --name-only dbe7fbc39 6fd78a898` contains none of those paths and none of the Owner-scope files (`cmd/baha/app_status_result.go`, `internal/application/perses_datasources*`, `internal/observability/**`) — the final tree changes exactly the card's surface.
+- Delivery (final candidate): `git ls-remote lane-origin refs/heads/w091-tempo-r5-fix refs/pull/1645/head` → `6fd78a898a64302d429a90454c36cbdc469467fe` on BOTH refs (single squashed candidate commit on develop `dbe7fbc39`; the intermediate linear heads `0449f0658..d0c140c51` were consolidated into it per §3.8 one-candidate rule — full history preserved in the session worktree branch `x-m091-t1645-rework`).
+- Fresh base: `git merge-base --is-ancestor dbe7fbc3905b4330acdcfbf3bfb5f4f3af34d0d2 6fd78a898a64302d429a90454c36cbdc469467fe` → YES.
+- CI: run `44724977218` (CI · Source & Quality) on the exact head `6fd78a898` — conclusion recorded below at END. Prior run `44722334613` on `d0c140c51` failed `PR · Source format` (readability, see section above) and is superseded by this head.
+
+## P1 — datasource endpoint routable from Perses' real namespace, mTLS intact
+
+Recipe applied (dossier P1): `internal/metrics/perses_tempo_datasource.go` no longer rewrites the host-loopback endpoint to `localhost`. It renders the managed tempo-access gateway's backend-network alias:
+
+- `tempoProviderAccessURL` (:perses_tempo_datasource.go, "rendered" block) emits `https://tempo-access.access.baseharbor.internal:<published-port>`; the alias comes from `traces.ManagedAccessAliases("tempo-access")` (`internal/traces/tempo.go`, new exported helper) and the port from the materialized endpoint.
+- The alias is real, not invented: `tempoAccessSpec()` (`internal/traces/tempo.go:560`) gained `CertificateNames`/`NetworkAliases` = `ManagedAccessAliases("tempo-access")`, so the gateway certificate carries the alias and the compose service registers it; the HA form extends the same aliases (`internal/traces/tempo_ha.go:287`).
+- The Perses service mounts the gateway's runtime material (`internal/serviceaccess/perses_compose_realization.go`, `PersesServiceMounts()` + `TempoAccessRuntimeComposeBind`/`PersesTempoAccessMountDir`), so the pinned Perses instance — which runs in the management gateway's namespace — can address and verify the boundary from its own namespace.
+- Fail-closed on drift: `tempoProviderPublishedPort` checks the materialized compose really maps `${BASEHARBOR_TEMPO_PORT}` onto the gateway access port; a drifted env/compose pair fails the build instead of pointing Perses at a dead port. A non-https endpoint fails closed too.
+- Tests: `TestPersesTempoDatasourceEndpointIsGatewayAliasRoutable` (host is the alias, never an IP literal or `localhost`; the upstream default deny set still refuses the loopback form), `TestPersesTempoDatasourceEndpointAgreesWithMaterializedGatewayMapping` (drift + restore probe), `TestPersesTempoDatasourceAliasIsMaterializedGatewayIdentity` (spec aliases + certificate names + rendered compose registration), `TestPersesTempoDatasourceMatchesMaterializedGatewayCompose` (datasource port = published gateway port).
+- Mutation sonde: reverting the URL rendering to the `localhost` rewrite turns `TestPersesTempoDatasourceGoldenFiles`, `TestPersesTempoDatasourceEndpointIsGatewayAliasRoutable` and `TestPersesTempoDatasourceEndpointAgreesWithMaterializedGatewayMapping` RED (measured 11:3xZ; restored = green).
+
+## P2 — AuthenticationRequired preserved, no policy downgrade
+
+Recipe applied (dossier P2, `perses_tempo_datasource.go:482-496`): the forced `clientPolicy.AuthenticationRequired = false` is gone.
+
+- `tempoProviderHTTPClient` carries the resolved policy through material loading and client construction unchanged, and RAISES it to the boundary's posture: the tempo-access gateway verifies client certificates in every environment (`RequireClient: true`), so `policy.AuthenticationRequired = true` / `policy.Authentication = mTLS` are set from the boundary's spec, never from the environment default (comment block "Fail-closed (P2)"). A missing enrolled identity then fails closed at `NewHTTPClientForPolicy` → `TempoAuthorizationError`.
+- The identity reference is the gateway itself: new `serviceaccess.GatewayReaderTLSMaterial` reads the reconciled runtime projection (state.json posture + projected pairs); a provider whose gateway was never reconciled fails closed (`ErrGatewayMaterialNotReconciled`), never resurrecting a stale pki/ source-tree pair. `ExistingTLSMaterial` gained the same projection-aware resolution (`internal/serviceaccess/pki.go`).
+- `EnsureHTTPGateway` now raises `AuthenticationRequired` when `spec.RequireClient` && mTLS (`internal/serviceaccess/http_gateway.go`), so the managed-local gateway mints and projects the enrolled client pair that both the gateway (RequireAndVerifyClientCert) and this datasource client use. The former "gateway enforces mTLS but nobody enrolls a client" gap is closed at the reconciler, not papered over by a fixture.
+- Tests: red `TestPersesTempoDatasourceStrictPolicyFailClosedWithoutIdentity` (stage policy, client pair removed from provider state → build and health fail closed); green `TestPersesTempoDatasourcePresentsClientIdentityUnderStrictPolicy` (enrolled pair → real TraceQL query observed at a RequireAndVerifyClientCert listener); `TestPersesTempoDatasourcePolicyFlagDecidesClientRequirement` (policy flag alone decides client material at the serviceaccess layer); the whole gateway-fixture set now runs on the managed-local policy — the BYOC stand-in `useTempoBYOCServerTrust` is retired.
+- Mutation sonde: flipping the raise back to a downgrade turns 6 cells RED (measured: NativeResourceShape, VerifiedOnlyByRealQuery, VerifyUsesTheAuthorizedBoundary, PresentsClientIdentityUnderStrictPolicy, MatchesMaterializedGatewayCompose, EndpointAgreesWithMaterializedGatewayMapping; restored = green).
+
+## P3 — deleted host-dashboard tests restored
+
+- `internal/capability/perses_test.go`: `TestResolveHostDashboardSignalStatusFailClosed` and `TestResolveHostDashboardSignalStatusRequiresNativeSignalWitness` restored verbatim from develop (`36d075fad:internal/capability/perses_test.go:176-219`), passing.
+- Addition (CI-routed, mutation-sensitive): `TestResolveHostDashboardSignalStatusWitnessIsAuthoritative` pins witness non-forgetability at a resolver seam (`resolveHostDashboardSignalStatusWith` in `internal/capability/perses.go`; the public resolver passes the shipped catalog's `hostProviderMetricsNativeVerified`, behavior identical). Sonde: making the seam ignore the witness probe turns this cell RED (measured; restored = green). The bare restore alone was shown sonde-insensitive, which is why the seam cell exists.
+
+## P4 — three "partially present, not accepted" points
+
+1. Health real-query path: `VerifyPersesTempoDatasourceHealth` now probes over the P1/P2-corrected authorized path (alias URL, gateway-projected mTLS identity); the verify cells observe the real TraceQL expression at the gateway stand-in (`TestPersesTempoDatasourceVerifyUsesTheAuthorizedBoundary`, `TestPersesTempoDatasourcePresentsClientIdentityUnderStrictPolicy`).
+2. Builder selection + authz gate: `TestPersesTempoDatasourceBuilderGatesPinAndSelection` pins the gate order — unpinned release, deselected surface, unselected Traces signal, disabled collection policy each fail closed before any endpoint/client resolution, over materialized authorized Tempo state.
+3. Pinned plugin + real trace path: the pinned upstream witness (Perses v0.55.1 @ `34599751521f`, spec v0.3.0 @ `88c10b39b8`, embedded SHA-256-pinned in `internal/metrics/perses_tempo_contract.go` + `testdata/perses-tempo-datasource/upstream/`) validates BOTH emitted resources on the production path; the compose-side witness (`AliasIsMaterializedGatewayIdentity`, `MatchesMaterializedGatewayCompose`) proves the datasource names the listener the pinned runtime's gateway actually serves. Native runtime qualification at the pinned image: STATE, below.
+
+## STATE findings
+
+1. Native Perses-runtime plugin-load test: the recipe's "CI-routed native integration test using the pinned Perses image" cannot be routed by this lane without Owner-scope edits. The existing gate `native/docker/perses-runtime-smoke` runs `TestPersesRuntimeSmokeDockerIsolated` (`internal/application/perses_runtime_test.go:349`), selected only for paths `internal/application/perses_runtime{,_test}.go` (`scripts/pr-gate-plan.py:1430-1436`, `scripts/ci-native-pr-gate.sh:72`). This card's datasource build is not yet wired into `cmd/baha` status (no production caller; the adapter is exercised through its Go contract), so a runtime cell asserting "Perses loads the TempoDatasource plugin and queries Tempo" needs that wiring (Owner scope: `cmd/baha/app_status_result.go`, `internal/application/perses_datasources*`) plus workflow routing. Needed trigger change, file:line: extend the gate's source_components in `scripts/pr-gate-plan.py:1430-1436` and `scripts/pr-gate-coverage.json` (id `native/docker/perses-runtime-smoke`, source components at :2739-2740) to include `internal/metrics/perses_tempo_datasource*.go` and `internal/traces/tempo.go`, or commission the plugin-load cell under the existing two-file mapping. The in-process evidence closes the behavior; the runtime cell is the remaining qualification step for acceptance.
+2. Pre-existing environment-sensitive failures on this session host: `TestProviderIntentMatchesNativeHAAndRejectsUnsupportedMemberOverrides`, the provider-registry/external-placement family AND the shared-backend/valkey runtime cells (e.g. `TestSharedValkeyRegistersCacheAndDurableInstances` — "service TLS server key: open …/service-access/runtime/server-key.pem: no such file") reproduce IDENTICALLY on the clean base worktree at `36d075fad77f` (`/tmp/x-m091-baseline`, measured 12:0xZ). They are ambient on this host, not caused by this change; CI (which provisions an isolated PostgreSQL and clean state) is the authority. The baseline host run fails 37 cells; the candidate's CI witness follows below.
+3. CI red on run `44722334613` (head `d0c140c51`) had one diagnosed cause: `PR · Source format` = the 800-line readability gate naming `perses_tempo_datasource.go` (928) and `http_gateway.go` (888) — repaired by the content-preserving split above (gofmt itself was clean; measured `gofmt -l .` empty). The `Go unit` jobs of that run failed only in the cell families that also fail on the untouched base (STATE 2), i.e. ambient host state leaking through the runner's shared temp paths — re-observed on the new head below.
+
+## repo-rule compliance
+
+- One candidate per chain: all work landed on the branch PR #1645 pulls (`w091-tempo-r5-fix`), one final commit `d0c140c51` atop a clean rebase onto develop `dbe7fbc3905b`; stray branch `w091-0428-091` deleted with before/after witnesses (consolidation order executed; its card content was already contained in the head's history — proof above).
+- Scope: the FINAL commit's tree changes, computed against its own base `git diff --name-only dbe7fbc3905b 6fd78a898`, contains no Owner-scope file — no `cmd/baha/**`, no `internal/application/perses_datasources*`, no `internal/observability/**`, no `.github/**`, no `scripts/**`. (The earlier linear candidate chain, cut from base `36d075fad77f`, showed develop-side observability/identityprovider paths in its head-vs-develop stat; after the refresh onto `dbe7fbc39` those are identical to develop and left untouched. The PR body text describes the old chain's rename commit and should be updated at review time — the lane cannot edit it without Owner scope.)
+- plan → preflight → apply → verify semantics, fail-closed contracts, secret protection preserved (no private key in any rendered configuration; material referenced by projected file paths only).
+- New tests run in CI: all new/changed tests live in `internal/metrics`, `internal/capability`, `internal/serviceaccess`, `internal/traces` — executed by the `PR · Go unit · packages` shard (`scripts/pr-go-unit-shard.py:118-135` selects all non-CLI packages), the job that ran green on the prior head.
+
+cleanliness: no compose project, network, volume or container was started by this lane (all cells are in-process Go tests; one throwaway git worktree used for the base-parity check).
