@@ -12,9 +12,9 @@ parent: ""
 depends_on: []
 blocked_by: []
 superseded_by: []
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w165-pr0428-165-kchunt
+kanban_status: active
+kanban_lane: active
 blocker: ""
 resolution: ""
 evidence: []
@@ -23,17 +23,16 @@ created: 2026-11-20
 wait_reason: ""
 
 ---
-- [ ] t-20261120-r28-bughunt-keycloak-signal-scope · projekt-enthalzung der signal-ids befunden #task #release/v0-4-28 #status/planned #view/ready #area/capability #area/cli #kind/task
+- [ ] t-20261120-r28-bughunt-keycloak-signal-scope · projekt-enthalzung der signal-ids befunden #task #release/v0-4-28 #status/active #view/active #area/capability #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w165-pr0428-165-kchunt  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w165-pr0428-165-kchunt  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
