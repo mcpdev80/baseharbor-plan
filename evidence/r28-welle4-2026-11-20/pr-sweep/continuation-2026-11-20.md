@@ -215,3 +215,11 @@ Two agents re-audited all 19 PRs on exactly `mcpdev80/baseharbor`; final GitHub 
 A fresh documented read-only Codeman retry (`ssh -o ConnectTimeout=8 codeman /home/marcel/dev/baseharbor-ecosystem/coordinator/scripts/basics-check.py --json`) again timed out during SSH banner exchange to `192.168.6.119:22` and exited 255. No Codeman snapshot was obtained; no writes/messages/dispatches occurred.
 
 This note-only update starts from clean plan main `a5cd8ac7c6866236cedb4377c444fc0c51e86327`. Continue the sweep when author, exact-head CI, runtime, base, or owner evidence changes; overall goal remains active.
+
+## Reaudit after 32ee20bb — 2026-11-20 05:59 UTC
+
+Two fresh agents rechecked the full 19-PR set against exact repository `mcpdev80/baseharbor`. All remain open at the same heads and bases; formal review lists remain empty and no author reply or qualifying CI/runtime evidence appeared. #1585/#1587/#1588/#1596/#1597 stay Wait; #1594/#1614/#1615/#1620/#1623 stay Blocked; #1625/#1627/#1645/#1665 stay Wait; #1650/#1684/#1702/#1704/#1709 remain held on recorded findings/acceptance gaps. #1615's latest maintainer update reiterates open/unmerged and no exact CI; it does not clear its blocker.
+
+**#1665 exact-head CI clarification:** GitHub Actions `GET /repos/mcpdev80/baseharbor/actions/runs?head_sha=e580d32414565442376f23ace9a4a2dd7ed03838` returns exactly run `43999100666`, event `workflow_dispatch`, conclusion failure, with PR #1665 listed against the exact head. Its `validate` check (`133758414246`) failed and the Selected/Runtime checks were skipped. This is a manual exact-head dispatch, not PR-triggered CI, so it does not alter #1665's Wait state or establish acceptance.
+
+The documented Codeman basics observer was retried this turn with an 8-second connection timeout and again timed out during SSH banner exchange to `192.168.6.119:22` (exit 255). No Codeman snapshot or mutation occurred. A live open-PR query continues to return 19 IDs. This entry was prepared from clean plan main `32ee20bb0716b4b47732109c8dbdc331d1f31beb`; goal remains active.
