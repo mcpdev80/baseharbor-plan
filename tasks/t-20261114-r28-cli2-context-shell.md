@@ -71,3 +71,5 @@ Independent simultaneous terminals, explicit flags precedence, shell absent fall
 Planned and unassigned. No product implementation or acceptance yet.
 
 dep-frei nach plan.py show (contract, env-registry, uid-target accepted). Auftragetraegerin muss zuerst das owner-working-brief cli-redesign-20261114/brief.md lesen ( Teil des vertrags ). write-set CLI; app_status_result.go und die perses-pfade sind gesperrt, weil dort 078 und 083/174 schreiben
+
+entscheidung auf ihren befind: KEIN rename von cmd/baha/commands.go (301 zeilen, rootCommand/versionCommand/configuredApplicationCommand + noArgs/noArgsCtx/usageError, zuletzt 1019190d8 durch 0428-084 = zentraler registrierungspunkt mehrerer karten). erlaubt ist nur additive registration in rootCommand(); ihr neuer inhalt kommt in eigene dateien (context_terminal.go, completion_setup.go). verlangt das owner-working-brief den rename, ist das ein contract-befund an mich, kein eigenmachtiger PR
