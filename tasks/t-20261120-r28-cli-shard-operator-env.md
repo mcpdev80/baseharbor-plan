@@ -15,7 +15,7 @@ kanban_title: 0428-198 · cli shards need operator env
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1726]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -27,6 +27,7 @@ created: 2026-11-20
 - [ ] t-20261120-r28-cli-shard-operator-env · cli shards need operator env #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** w198-0428-198-cligate  
+    **PR:** [baseharbor#1726](https://github.com/mcpdev80/baseharbor/pull/1726)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +36,7 @@ created: 2026-11-20
 **Depends on:** none  
 **Owner:** w198-0428-198-cligate  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1726](https://github.com/mcpdev80/baseharbor/pull/1726)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -85,3 +86,5 @@ ZEugen erweitert (16:5x-17:0xZ, develop noch 40cb28c758b0), damit der Befund nic
 GROESSER ALS ANFANGS VERMUTET: die gate-map 1 (evidence/r28-welle4-2026-11-20/cli-shard-operator-env/gate-map-1.md) zaehlt 14+ BRUCHSTELLEN ueber cli-0..3 UND packages, alle mit derselben meldung 'Managed-environment machine operations require an authenticated BaseHarbor operator' (plus 'operator OIDC configuration' in app_secrets_shared_runtime_test.go:44). Ancestry ist sauber (PR #1723 head 26755fc1edfb, parent EXAKT 40cb28c758b0, branch == refs/pull/1723/head) - also KEIN basis-drift und kein diff von uns. die lane arbeitet mit dieser karte: gesucht wird der EINE test-seitige weg, eine operator-identitaet in den kontext zu bringen (ihre eigene beobachtung: identity.Principal{Issuer:..., Subject:synthetic-operator} und die operatorauth.WithInteractive-naht), nicht 14 einzeln richtungen. ist die stelle durch die #1594-entscheidung WIRKSAM abgeschaltet (test kann die identitaet nicht mehr erlangen, ohne die sicherheitsentscheidung zu umgehen), lautet ihr auftrag: STOPP + MELDEN, sofort. querverweise: #1718 (APPROVED) faellt an cli-0..3, #1714 an cli + packages, #1645 an internal/identityprovider (#1650), ihre #1615 an runtime- UND cli-zellen; develop-push faehrt diese shards nicht (nur Runtime docker/podman, runs 44769994971/44769994909).
 
 ENTSCHEIDENDER BEFUND VON MIR SELBST GEMESSEN (read-only, develop 40cb28c758b0), an die lane uebergeben - der offene owner-punkt fuer DIESEN teil ERLEDIGT sich damit: die test-seitige Betreiber-Identitaet existiert bereits als MUSTER, kein ENV und kein neuer mechanismus noetig. (1) HELFER internal/operatorauth/context.go:54 'func WithVerifiedPrincipal(ctx, principal *identity.Principal) context.Context'. (2) VERBREITUNG: git grep -l operatorauth. -- '*_test.go' = 27 test-dateien nutzen ihn schon (15x Login, 14x WithVerifiedPrincipal, 11x EnvIssuer, 10x WithEnforcement, 9x WithMembershipProvider). (3) KANONISCHES BEISPIEL cmd/baha/app_input_resolver_first_run_test.go:21-27 (principal Subject 'authenticated-fixture', Issuer https://issuer.example, IssuerVerified true, Groups [editor], dann WithVerifiedPrincipal + WithMembershipProvider). (4) BRUCHSTELLE cmd/baha/adoption_bug_regression_test.go:42/65/91/107/167 rufen 'runWithIO(context.Background(), ...)' - der context traegt KEINE principal; seit 2af892e4e (policy.go:47-48 TLSRequired/AuthenticationRequired, :64/:68 environment/provider is required) ist das genau die meldung aus internal/operatorauth/authorization.go:285. AUFTRAG: eine sammelstelle (ihre cmd/baha/operator_test_fixture_test.go) nach diesem muster, die 14+ stellen aus gate-map-1 rufen sie an; was test-seitig NICHT geht (internal/logs Loki-multi-source = karte 0428-202, policy-seite, owner-rail) aussenpunkten + file:line melden, kein test faellt weg (§5.4). ZUSATZ: todo-datei haengt bei 2/6 seit 80 min (AGENTS 4.4), nach jedem schritt neu schreiben.
+
+PR EXISTIERT, ABER DER GATE IST NICHT ZU - MESSEN, DARUM BLEIBT active UND SITZ IST ANGEBHALTEN. #1726 head 8b2cb2a97cab, base develop, draft=false, 5 dateien, ancestry auf develop JA. run 44796949092 am exakten head: 9 success / 8 failure / 19 skipped - rot: cli-0..3, packages, 'PR Selected Checks', 'PR · Native Keycloak/Core · docker' UND 'podman'. cli-0 job 136499688758: 63x 'authenticated BaseHarbor operator.', 15x 'operator OIDC configuration is required for managed envir...', fehlende falling laut log-zaehler: TestMCPGenericClientDiscoversCompleteSemanticSurfaceAndExercisesReadOnlyTools (15), TestPersesLifecycleTransportActionMatrix (13), TestRestoreBindsOriginalExternalIdentityAndProtectedDestination (9), TestRestoreBindsCurrentExternalReceiverAndAuthorization (6), TestGuidedRepositoryRuntimeFixtureRegressionSuite (6). ANSATZ, aus dem patch gelesen: test-seam im produkt-code cmd/baha/main.go (+9: 'if testOperatorContext != nil { ctx = testOperatorContext(ctx) }', in produktion nil) + cmd/baha/operator_test_fixture_test.go (+59) + main_test.go / app_secrets_shared_runtime_test.go (+4 je) + app_init_wizard.go (+7). ICH HABE DEN PRODUKT-EINGRIFF AKZEPTIERT, UNTER DER AUFLAGEDASS die akte ihn ausdruecklich als test-seam nennt mit der belege-zeile (§4.2: dokumentiert = loesung, verschwiegen = verstoss). DREI FORDERUNGEN AN DIE LANE (kurz, ohne neuen matrix-run, §5.4): (1) wirkt der seam GLOBAL (ein shared helper/TestMain in cmd/baha) oder stellenweise, und wie viele der 14+ bruchstellen aus gate-map-1 damit verdrahtet SIND; (2) warum fallen die zwei 'Native Keycloak/Core'-zellen aus - das sind keine cli-unit-zellen, wenn dort eine andere ursache spricht, wird daraus eine eigne karte; (3) was liegt ausserhalb ihres write-sets. ZUSAETZLICH ANGEBOten als entscheidungshilfe: das muster, das ES AUF develop schon gibt - 't.Setenv(operatorauth.EnvIssuer / EnvClientID)' + 'operatorauth.WithVerifiedPrincipal' + 'WithMembershipProvider', so wie cmd/baha/app_input_resolver_first_run_test.go:21-27 es zeigt und 27 test-dateien es nutzen; ein einziger shared helper in cmd/baha ersetzt ZAHLREICHE einzeln verdrahtete falling. PFLICHTVERSTOESE DER LANE, von mir angehalten: todo-datei 104 minuten nicht beruehrt (AGENTS 4.4) und KEIN AKTEN-COMMIT unter evidence/r28-welle4-2026-11-20/cli-shard-operator-env/ seit 19:08 ('git log -- <pfad>'), waehrend der PR laeuft - ein PR ohne aktenstand ist halbe arbeit (§5.3). wenn die naechste runde wieder ohne zeugen endet, ist das ein fall fuer §3.6 (strategiewechsel, nicht ausdauer).
