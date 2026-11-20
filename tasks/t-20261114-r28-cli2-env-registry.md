@@ -19,7 +19,7 @@ prs: [mcpdev80/baseharbor#1591]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: "accepted"
+resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1591", "https://github.com/mcpdev80/baseharbor/actions/runs/44652673886", "https://github.com/mcpdev80/baseharbor/commit/83b19dce24eed2f837dd2dda7d56222d20a7da32"]
 ---
 
@@ -93,3 +93,5 @@ Create/select/list/update shared environment, app association, multiple nodes, d
 
 - Owner-delegated Maintainer acceptance: PR #1591 merged to `develop` at `83b19dce24eed2f837dd2dda7d56222d20a7da32` after exact Ready run [44652673886](https://github.com/mcpdev80/baseharbor/actions/runs/44652673886) passed and the exact head received a clean code review. Rename now preserves associations, retries reconcile interrupted installation, and mismatched destination bindings fail closed.
 - The registry persistence test reloads the JSON through the storage API in the same process; it does not restart a Core process. CLI/HTTP integration is explicitly coordinated with 0428-053. This merge accepts the bounded registry/storage slice; do not represent this as full process-restart or CLI/HTTP evidence. Those integration checks remain required in the downstream lane.
+
+gemergt, von mir gemessen: PR #1591 merged=true, merged_at 2026-11-20T02:29:42+01, merge-commit 83b19dce24ee = JETZIGE develop-spitze (eltern 6b8188df26a1 + head 2922f5ed9c41). Inhaltstreue ammerged sha, datei fuer datei verglichen: internal/deployment/{environment_association,environment_identity}.go und ihre zwei tests — 'git diff 83b19dce24ee origin/develop -- <datei>' ist fuer alle vier LEER, der stand des merges ist also unveraendert auf develop. Warnung an mich selbst, die ich hier ausdrocklich zuruecknehme: ich hatte 83b19dce zuerst als 'nicht ahne von develop' gelesen, das war ein veralteter fetch in MEINEM checkout — derselbe fehler, an dem heute nacht eine Lane als 'develop force-push' gemeldet hat. Nach 'git fetch origin develop' sind alle sieben anker dieses shifts ahnen (6b8188df, b7cbc00f, bbc937c8, 15727ca88, 97abbe157, d5c11753, 28fb427f)
