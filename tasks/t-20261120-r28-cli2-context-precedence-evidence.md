@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w178-0428-178-contextshow
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-178 · context show precedence
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-r28-cli2-context-precedence-evidence · CLI2: persisted-over-default precedence is not asserted through baha context show #task #release/v0-4-28 #status/planned #view/ready #kind/bug
+- [ ] t-20261120-r28-cli2-context-precedence-evidence · CLI2: persisted-over-default precedence is not asserted through baha context show #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w178-0428-178-contextshow  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w178-0428-178-contextshow  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -62,3 +61,5 @@ configured-default stage (context_terminal_test.go:156-163).
 Tests plus, if unavoidable, the precedence function in cmd/baha/context_terminal.go. No .github/** (report a needed
 workflow change to the coordinator instead). One PR for this card.
 
+
+ARBEITET JETZT: session , worktree aus develop f5ce95afce1c. auftrag: EINE regression, die die echte 'baha context show'-kette durchfaehrt (default A, persistierte auswahl B, kein env) und MUTATION IN BEIDEN RICHTUNGEN beweist; ci-jobname in der akte; Write-Set disjunkt zu 0428-187 (app_edit_apply_result.go / ci-greenfield-apply.py), 0428-184 (#1715), 0428-183 (#1714), 0428-083 (#1684).
