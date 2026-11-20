@@ -102,6 +102,27 @@ No docker/podman compose project started this round. pre/post list: none. `clean
 
 `{"baseRefName":"lane-0428-083-datasources-r2","headRefOid":"db27880c108a84c6c11bcb5a02484d3da00244bd","isDraft":false,"state":"OPEN"}`
 
+## CI hosted run on exact head db27880c1 (STATE, not a pass)
+
+Run 44820434283 (CI · PR #1665, pull_request, base lane-0428-083-datasources-r2, head db27880c1) TERMINAL.
+Required check `PR · Trusted Plan` = FAILURE. Root: the base-resolution step failed, cascading a required-gate fail.
+Failing log line (job 136579771958):
+```
+python3 scripts/pr-diff-base.py --target-base "$effective_base" --head "$HEAD_SHA" --integration "$INTEGRATION_SHA" > "$RUNNER_TEMP/pr-diff.json"
+##[error]Process completed with exit code 1.   (2026-11-20T21:29:43.1203975Z)
+```
+Code context at the step: `# Resolver independently checks exact parents, clean tree and diff.`
+Downstream effect: `PR Selected Checks` = FAILURE via `NATIVE_REQUIRED: true` but `NATIVE_RESULT: failure` (native gate job SKIPPED), `Workflow policy` = FAILURE. `PR · Go unit · ${{ matrix.shard }}` and `PR · Validation` were SKIPPED (required checks did not execute).
+Interpretation: this is a base-resolution / trusted-planner failure on the base, NOT a Go test failure. The `mark_ready` POST returns 404 through gh and curl; the PR is draft=false only because the base_ref became a `lane-` branch (some org draft policy). The required Go-unit receipt has NOT executed on db27880c1, so per the proof rule (success only for executed required jobs) this head is NOT yet green.
+
+Root cause of base rejection: base b71c6da27 (lane-0428-083-datasources-r2) is NOT an ancestor of develop (40cb28c758). `git merge-base --is-ancestor b71c6da27 develop` -> exit 1. b71c6da27 carries ~20+ divergent commits not in develop (cli2 policy routing #1594/#1720/#1721/#1722, serviceaccess gateway, 0428-184/166/068, 0428-177). The resolver checks "exact parents, clean tree and diff" and rejects a base that is not a develop-ancestor. The 082 content itself is a clean 14-file write-set addition on top of that base.
+
+Action boundary: the failing step is the CI base-resolution planner, which lives under .github/** (Owner scope). Per scope split I do NOT edit .github/** and do NOT trigger reruns/workflow_dispatch. STATE recorded here for the Owner; next needed step is an Owner/coordinator decision on the base resolution (e.g. land 083 into a develop that the planner accepts, or a coordinator fix to the base resolver) before this PR can pass its required checks.
+
+## END status: END_BLOCKED
+
+Candidate db27880c1 is correct (clean hop, 14-file write-set, all 13 082 tests pass locally, build+vet clean). Blocked on an Owner/coordinator base-resolution decision (083 lane not merged to develop; CI base-resolution planner rejects it). No further push on #1665.
+
 ## REPRODUCTION COMMAND (for CI run)
 
 `go test ./internal/metrics/ -count=1` and `go build ./...` in repo `mcpdev80/baseharbor` at candidate head.
