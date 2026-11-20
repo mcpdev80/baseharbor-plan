@@ -48,4 +48,4 @@ Beide Fehler mit lokalem Target (`--target local`) reproduziert; Texte stimmen m
 
 ## END
 
-END_DONE w199-0428-199-workloadport (0428-199 workload-port ignored locally). Fix am lokalen apply/up-Pfad + regression tests. candidate SHA: <to be recorded at push>; evidence: evidence/r28-welle4-2026-11-20/workload-port-local/round-1.md.
+END_DONE w199-0428-199-workloadport (0428-199 workload-port ignored locally). Fix am lokalen apply/up-Pfad (app_apply.go, runtime.go, app_workload_ports.go) + regression tests (workload_port_local_regression_test.go). candidate SHA: 26755fc1edfbde534986b501197a92f38842a0c1; PR #1723 (base develop); evidence: evidence/r28-welle4-2026-11-20/workload-port-local/round-1.md (auf origin/main). GATE-FAIL 0428-198: CLI-shard-Fehler alle 0428-198 operator/OIDC-Gate (run-id 44788134959), nicht meine Aenderung.
