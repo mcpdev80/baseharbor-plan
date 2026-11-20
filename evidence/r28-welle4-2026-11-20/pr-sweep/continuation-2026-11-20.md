@@ -637,7 +637,7 @@ PR #1684 exact head remains `43d3a8dc0c6c50f044d533fd15b83a086edce6b9` on develo
 
 Independent exact-head audit of #1623 / 0428-063 at `8014d71eaac422ed44c8fcf2c28a784c0cb0a044` confirms three material defects: `parseLogsOptions` stores `-c` but `appLogsCommand` never consumes the component list; `--cmd` is appended as one executable argument without shell interpretation; and child `exec.ExitError` is converted to presented text, while `cli.ExitCode` only returns 0/1/2, so child status 7 becomes process exit 1. Existing tests check parsed fields/message text but not actual command execution, component filtering, or `cli.ExitCode` preservation. Exact-head runs/status are still absent, base is stacked on #1615, and the branch is behind develop; no safe lane transition. Codeman pool is full; inspect ownership before any overlapping `cmd/baha/app_access.go` or `app_interact_test.go` implementation. No changes made.
 
-## #1623 repair update — 2026-11-20 ~12:00 UTC
+## #1623 repair update — 2026-11-20 ~10:45 UTC
 
 The local repair for task 0428-063 is now published to existing PR #1623. Commit `accd46da1` implements actual `-c` component routing/validation, shell execution for `app exec --cmd`, preserves child exit codes through the CLI error contract, rejects unsupported `app shell --cmd`, corrects managed-log guidance/JSON, adds regression tests, and updates EN/DE docs. A second commit `4cbf92960` closes an independent-review edge case: explicit component filters now fail closed when the application declares no workload components. These are Codex-authored commits on the PR branch; Codeman state was not touched.
 
@@ -647,16 +647,24 @@ Live PR #1623 is OPEN+DRAFT at exact head `4cbf92960cb5d97077370b7da052d45523ce0
 
 Current transition: implementation defect fixed and independently reviewed; task/PR remains held before Review because dependency and exact hosted CI gates are unsatisfied. Continue the full Blocked → Wait → Review sweep. Codeman at 192.168.6.119 remains read-only.
 
-## #1615 / #1594 follow-up — ~12:05 UTC
+## #1615 / #1594 follow-up — ~10:48 UTC
 
 Independent audit confirms #1615 remains OPEN/non-draft at `f93564a0d707983bfe6a8b59375c1c1c914d7827`, base `cli2-env-policy-head`, with no exact statuses or Actions run. The current `ci.yml` PR base filter excludes `cli2-*`, matching the blocker recorded on task 0428-057. A separate scope issue is visible in `internal/machine/contract.go` and `operatorauth`: `secret.reveal` is marked `PolicyRequired`, but the human-operator authorization decision does not carry target/application/environment scope; `authorizeHumanReveal` currently drops those arguments. Task acceptance includes target isolation. This requires a clear policy contract and tests before promoting #1615. It shares `cmd/baha/app_access.go` with the #1623 work, so do not perform a parallel overlapping patch without checking/rebasing ownership.
 
 #1594 remains the upstream blocker: latest exact draft run `44653386231` failed all five Go shards. Independent audit attributes the broad failures to Trusted-Local policy not explicitly propagated from real callers (rather than safely reverting to environment-name heuristics), plus three Loki fixture tests missing a client certificate. PR #1594's Trusted-Local authority contract and caller wiring must be resolved before #1615/#1623 can be safely rebased and qualified. #1580, a separate env-registry lineage dependency in an older plan note, is already MERGED according to fresh live audit; update stale dependency evidence when reconciling task 0428-057.
 
-## Fresh sweep delta — ~12:15 UTC
+## Fresh sweep delta — ~10:52 UTC
 
 Open PR inventory remains 20; #1709 has closed/merged, while new #1712 is open. Independent audit confirms #1709 merged at `681700ca66f3619998e24bbfd71bc86912cf38ec`; exact run `44704834012` passed all required selected checks, and its plan card is closed/accepted with review evidence. This is a completed Review→Closed sweep item.
 
 PR #1712 is OPEN, non-draft, clean at exact head `5b016319731f3305702cac10d3933734a537aeb6`; run `44719507275` is SUCCESS. The plan card requires a golden test that freezes pre-existing signal IDs. Current test compares two IDs computed by the same code under test and has no literal expected ID, so it cannot protect compatibility against formula changes. Agent is implementing a focused golden-test correction locally; no PR mutation yet.
 
-Strict read-only Codeman snapshot at ~12:12 UTC: board currency ok, inflight=true, ahead 0 / behind 1 / dirty 0; worker pool 5/5 with no open seats; coordinator idle by pool status; watcher shows four busy workers, one idle worker and two role=None sessions. 20 open PRs; owner report is due and unrelated pending END events remain. No Codeman sessions, worktrees, workers, files, or messages were changed.
+Strict read-only Codeman snapshot at ~10:50 UTC: board currency ok, inflight=true, ahead 0 / behind 1 / dirty 0; worker pool 5/5 with no open seats; coordinator idle by pool status; watcher shows four busy workers, one idle worker and two role=None sessions. 20 open PRs; owner report is due and unrelated pending END events remain. No Codeman sessions, worktrees, workers, files, or messages were changed.
+
+### 10:55 UTC progress
+
+PR #1623 exact head `4cbf92960cb5d97077370b7da052d45523ce0043` received an independent final read-only review after the empty-contract fix; reviewer found no remaining functional blocker in the cumulative diff or added tests. Local targeted `Test(Guided|AppLogs)`, CLI package tests, vet and diff checks had passed. Hosted status remains empty because the PR's `cli2-*` base is outside the workflow trigger. Keep OPEN+DRAFT pending dependency resolution and eligible exact CI.
+
+The #1712 golden correction is now pushed as `9207a1f08931f13ee460644224b4f225e06d0617`. Exact PR run [44722570222](https://github.com/mcpdev80/baseharbor/actions/runs/44722570222) is active. Workflow policy, Trusted Plan, source format, Go build/vet, identity-provider package tests, and the owner Go shard are SUCCESS; the selected Docker identity runtime gate is still running. No merge until the run is terminal and task evidence is refreshed.
+
+For #1710, a separate agent reports the local patch now addresses stale-target `context use`, Fish wrapper recursion, selected-target fallback, clear failures and exit statuses; Bash/Zsh/Fish end-to-end cases and vet are in progress. It is not pushed; an independent reviewer is checking the patch after tests. No PR state changed.
