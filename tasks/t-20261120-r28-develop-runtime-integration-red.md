@@ -7,9 +7,9 @@ areas: [ci, runtime]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w083-pr0428-083-datasources-hopf5
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Make the native runtime integration path green on develop again. The job docker-runtime, step \"Run runtime integration tests…"
 kanban_title: 0428-174 · runtime Integr tests fail
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-r28-develop-runtime-integration-red · Develop: runtime integration tests fail serially in docker-runtime (base defect) #task #release/v0-4-28 #status/planned #view/ready #area/ci #area/runtime #kind/bug
+- [ ] t-20261120-r28-develop-runtime-integration-red · Develop: runtime integration tests fail serially in docker-runtime (base defect) #task #release/v0-4-28 #status/active #view/active #area/ci #area/runtime #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w083-pr0428-083-datasources-hopf5  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w083-pr0428-083-datasources-hopf5  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -77,3 +76,5 @@ Make the native runtime integration path green on `develop` again. The job `dock
 ## Handoff
 
 - Opened by the Coordinator from the w083 finding on PR #1684 (card t-20261114-r28-perses-datasources): that candidate cannot reach a green required gate while this base defect stands. Newest first.
+
+base-defekt, gemessen an zwei gehosteten zeugen: run 44661597243 (workflow 'Runtime · Docker Core', workflow_dispatch, head ec02d5faad24 = nacktes develop) job 'docker-runtime' step 'Run runtime integration tests serially' = failure; dieselbe workflow auf develop-push (f61ef0f4991c, 36d075fad77f) = success. mission liegt bei der lane, die den fallback lokal schon reproduziert hat (§5.3: neutraler produktionspfad, nicht reviewer-sandbox)
