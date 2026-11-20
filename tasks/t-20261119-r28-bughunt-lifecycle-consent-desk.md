@@ -7,11 +7,11 @@ areas: [runtime, ownership, qa]
 release: v0.4.28
 version: ""
 parent: ""
-owner: Coordinator 9142ab1f (hunt-lifecycle-consent)
-kanban_status: wait
-kanban_lane: wait
+owner: w146-0428-146-huntlifecycle
+kanban_status: active
+kanban_lane: active
 blocker: ""
-wait_reason: "hunt ohne live session: der produktfund aus diesem schnitt liegt jetzt auf karte 0428-187 (consent-gate stall, run 44743111417 job 136312259900). die jagd selbst wird bei freiem sitz neu dispatcht."
+wait_reason: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
 evidence:
@@ -22,18 +22,17 @@ created: 2026-11-19
 card_short_title: "hunt lifecycle/consent desk"
 ---
 
-- [ ] t-20261119-r28-bughunt-lifecycle-consent-desk · hunt lifecycle/consent desk #task #release/v0-4-28 #status/wait #view/wait #area/ownership #area/qa #area/runtime #kind/task
+- [ ] t-20261119-r28-bughunt-lifecycle-consent-desk · hunt lifecycle/consent desk #task #release/v0-4-28 #status/active #view/active #area/ownership #area/qa #area/runtime #kind/task
     <!-- generated:card -->
-    **Owner:** Coordinator 9142ab1f (hunt-lifecycle-consent)  
-    **Waiting:** hunt ohne live session: der produktfund aus diesem schnitt liegt jetzt auf karte 0428-187 (consent-gate stall, run 44743111417 job 136312259900). die jagd selbst wird bei freiem sitz neu dispatcht.  
+    **Owner:** w146-0428-146-huntlifecycle  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/1019190d8dc0ecac7693f3461153e76be0e2cb8a), [proof 2](https://github.com/mcpdev80/baseharbor/commit/8dccd4fe1)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** Coordinator 9142ab1f (hunt-lifecycle-consent)  
+**Owner:** w146-0428-146-huntlifecycle  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -66,3 +65,5 @@ Keine produkt-aenderungen, keine PRs, keine aenderungen an `.github/**` oder `sc
 podman-zelle nicht erreichbar, linger/netns-haenger (exit 126, 'Cannot assign requested address') nicht loesbar, oder vm-lock streitig → STOP + Meldung an den Coordinator. Funde werden in DIESER karte nicht behoben, sondern in eigene bug-karten gegossen.
 
 fund-zu-karte-pflicht erfuellt: 0428-187 traegt den fund; die hunt-akten hunt-signals-103/-104 sind geschlossen.
+
+ARBEITET JETZT, kante gegen session gemessen (8f3509c0, laptop): hunt-schnitt H-V18 'aenderungs-desk der heutigen merges' - (1) grant-bindung aus #1717/0428-188: haelt der grant genau EINE operation (apply nach check, destroy nach check, zweiter aufruf pro invocation), (2) consent-stufen: gibt es einen pfad, der eine antwort als beide wertet, oder text-abweichung gegen provider_change_consent.go:37, (3) upgrade/rollback: neuer code auf altem state-file (0428-168, #1711, #1713). reine befundung, keine produktaenderung, FUND-FUER-KARTE-zeile pro fund; die registry.go-funde von heute (189-194) sind als bereits-karten ausgeschlossen.
