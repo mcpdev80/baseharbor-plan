@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w176-pr1665-1665-closeout
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: ""
 kanban_title: 0428-176 · restack with evidence or close
 priority: ""
@@ -17,21 +17,21 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1665]
 sources: []
-blocker: "write-set collision mit #1684 (management_ui.go, perses_runtime.go) + perses-runtime-smoke rot ohne 0428-177; trigger: #1684 gemergt oder 0428-177 landet"
+blocker: "restack nicht konfliktfrei: #1665-diff und der offene PR #1684 (0428-083) teilen sich internal/application/management_ui.go; perses-runtime-smoke bleibt rot bis 0428-177 landet. CLOSE abgelehnt, echter 0428-082 inhalt (perses_infra_dashboards.go und perses_prometheus_datasource.go fehlen auf develop). TRIGGER: #1684 gemergt ODER 0428-177 gelandet, dann restack auf develop-spitze in eigener lane."
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-r28-stale-draft-pr-1665-closeout · Stale draft PR #1665 on parked card 0428-082: restack with evidence or close #task #release/v0-4-28 #status/active #view/active #kind/maintenance
+- [ ] t-20261120-r28-stale-draft-pr-1665-closeout · Stale draft PR #1665 on parked card 0428-082: restack with evidence or close #task #release/v0-4-28 #status/blocked #view/blocked #kind/maintenance
     <!-- generated:card -->
     **Owner:** w176-pr1665-1665-closeout  
     **PR:** [baseharbor#1665](https://github.com/mcpdev80/baseharbor/pull/1665)  
-    **Blocker:** write-set collision mit \#1684 (management\_ui.go, perses\_runtime.go) + perses-runtime-smoke rot ohne 0428-177; trigger: \#1684 gemergt oder 0428-177 landet  
+    **Blocker:** restack nicht konfliktfrei: \#1665-diff und der offene PR \#1684 (0428-083) teilen sich internal/application/management\_ui.go; perses-runtime-smoke bleibt rot bis 0428-177 landet. CLOSE abgelehnt, echter 0428-082 inhalt (perses\_infra\_dashboa…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w176-pr1665-1665-closeout  
