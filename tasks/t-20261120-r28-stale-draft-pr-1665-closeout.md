@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: coord
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Decide and execute the fate of draft PR mcpdev80/baseharbor#1665 so that the board shows one truthful state: either a restacked,…"
 kanban_title: 0428-176 · restack with evidence or close
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-r28-stale-draft-pr-1665-closeout · Stale draft PR #1665 on parked card 0428-082: restack with evidence or close after ancestry proof #task #release/v0-4-28 #status/planned #view/ready #kind/maintenance
+- [ ] t-20261120-r28-stale-draft-pr-1665-closeout · Stale draft PR #1665 on parked card 0428-082: restack with evidence or close after ancestry proof #task #release/v0-4-28 #status/active #view/active #kind/maintenance
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** coord  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** coord  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
