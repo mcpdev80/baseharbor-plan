@@ -10,10 +10,10 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 15 |
+| active | 14 |
 | review | 0 |
 | wait | 17 |
-| blocked | 5 |
+| blocked | 6 |
 | ready | 7 |
 | queued | 25 |
 | waiting | 177 |
@@ -37,7 +37,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261120-coord-publish-integrity-gaps](../tasks/t-20261120-coord-publish-integrity-gaps.md) | Coordinator tooling: card-status.py bypasses the payload integrity gates; watch.py rm signature unusable | active | not set | w175-pr0428-175-publish-gate | — | — |
 | [t-20261120-perses-tmpfs-mountpoint](../tasks/t-20261120-perses-tmpfs-mountpoint.md) | Perses runtime smoke cannot mount tmpfs at /etc/perses/database on hosted runners | active | not set | 0428-083- | — | — |
 | [t-20261120-r28-metrics-adapter-without-exporter](../tasks/t-20261120-r28-metrics-adapter-without-exporter.md) | Metrics: RequiresAdapter source has no exporter or compose wiring (never collectable) | active | not set | w182-0428-182-metricsadapter | — | [baseharbor#1716](https://github.com/mcpdev80/baseharbor/pull/1716) |
-| [t-20261120-r28-shared-destroy-no-registry-cleanup](../tasks/t-20261120-r28-shared-destroy-no-registry-cleanup.md) | Shared destroy does not clean the signal registry (stale owners survive) | active | not set | w184-0428-184-shareddestroy | — | [baseharbor#1715](https://github.com/mcpdev80/baseharbor/pull/1715) |
 | [t-20261120-r28-valkey-dashboard-unavailable-only](../tasks/t-20261120-r28-valkey-dashboard-unavailable-only.md) | Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable | active | not set | w183-0428-183-valkeygate | — | [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714) |
 
 ## Ready for review
@@ -74,6 +73,7 @@ None.
 | [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) | CLI redesign: Separate human/runtime secret authority | blocked | high | 0428-057 (codeman 01b370c0, END_BLOCKED, sitz wird entlassen) | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) (open), [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) | [baseharbor#1615](https://github.com/mcpdev80/baseharbor/pull/1615) |
 | [t-20261114-r28-cli2-wizard-platform](../tasks/t-20261114-r28-cli2-wizard-platform.md) | CLI redesign: Platform and access wizards | blocked | high | codex-open-pr-sweep-067 | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) (open) | [baseharbor#1620](https://github.com/mcpdev80/baseharbor/pull/1620) |
 | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | Connect Perses Prometheus | blocked | normal | 0428-083- | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md), [t-20261120-r28-develop-runtime-integration-red](../tasks/t-20261120-r28-develop-runtime-integration-red.md) | [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684) |
+| [t-20261120-r28-shared-destroy-no-registry-cleanup](../tasks/t-20261120-r28-shared-destroy-no-registry-cleanup.md) | Shared destroy does not clean the signal registry (stale owners survive) | blocked | not set | w142-0428-184-shareddestroy | — | [baseharbor#1715](https://github.com/mcpdev80/baseharbor/pull/1715) |
 | [t-20261120-r28-stale-draft-pr-1665-closeout](../tasks/t-20261120-r28-stale-draft-pr-1665-closeout.md) | Stale draft PR #1665 on parked card 0428-082: restack with evidence or close | blocked | not set | w176-pr1665-1665-closeout | — | [baseharbor#1665](https://github.com/mcpdev80/baseharbor/pull/1665) |
 
 ## Ready to assign

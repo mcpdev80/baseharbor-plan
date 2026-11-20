@@ -9,14 +9,14 @@
 
 ## PLAN
 
-- [ ] Read task card, hunt akte 103 F3 + 104 F1, baseharbor/AGENTS.md; verify planning repo remote + develop HEAD
-- [ ] Read 0428-166 hardening sites (`registry.go` collision guard, `provider_registration.go` guard, `runtime_observability.go:98`) and record the lines NOT touched
-- [ ] Locate shared-destroy path `application.DestroyAllSharedBackendsAt` and confirm missing observability cleanup (the existing `PruneOwnedProviderInstances` filters by OwnerApplication, but platform-scoped shared sources key their lifecycle on the SharingBoundary)
-- [ ] Add boundary-scoped `PruneOwnedPlatformSources` to `registry.go` (new function only; `registryPath` and `RegisterProviderSignals` guard untouched) and call it for postgres + valkey in the destroy path
-- [ ] Regression via the productive `RegisterProviderSignals` path (real provider-kind, real `environment:<env>` boundary) for BOTH providers; owned removed + re-registration succeeds; foreign (other-env) preserved
-- [ ] Verify both directions (RED without fix, GREEN with fix), gofmt, full `go build`/`go vet`, pre-existing suite unchanged
-- [ ] Push PR #1715 (base develop 96f2ae11), run CI, capture run-id + terminal conclusion
-- [ ] Write this evidence akte on baseharbor-plan main (0 checkboxes), post END
+1. Read task card, hunt akte 103 F3 + 104 F1, baseharbor/AGENTS.md; verify planning repo remote + develop HEAD
+2. Read 0428-166 hardening sites (`registry.go` collision guard, `provider_registration.go` guard, `runtime_observability.go:98`) and record the lines NOT touched
+3. Locate shared-destroy path `application.DestroyAllSharedBackendsAt` and confirm missing observability cleanup (the existing `PruneOwnedProviderInstances` filters by OwnerApplication, but platform-scoped shared sources key their lifecycle on the SharingBoundary)
+4. Add boundary-scoped `PruneOwnedPlatformSources` to `registry.go` (new function only; `registryPath` and `RegisterProviderSignals` guard untouched) and call it for postgres + valkey in the destroy path
+5. Regression via the productive `RegisterProviderSignals` path (real provider-kind, real `environment:<env>` boundary) for BOTH providers; owned removed + re-registration succeeds; foreign (other-env) preserved
+6. Verify both directions (RED without fix, GREEN with fix), gofmt, full `go build`/`go vet`, pre-existing suite unchanged
+7. Push PR #1715 (base develop 96f2ae11), run CI, capture run-id + terminal conclusion
+8. Write this evidence akte on baseharbor-plan main (0 checkboxes), post END
 
 ## Fix
 
