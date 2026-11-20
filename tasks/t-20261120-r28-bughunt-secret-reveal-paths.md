@@ -13,24 +13,25 @@ depends_on: []
 blocked_by: []
 superseded_by: []
 owner: w171-pr0428-171-revealhunt
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/bughunt-secret-reveal-paths/round-1.md"]
 prs: []
 created: 2026-11-20
 wait_reason: ""
 
 ---
 
-- [ ] t-20261120-r28-bughunt-secret-reveal-paths · audit where secrets land in clear text #task #release/v0-4-28 #status/active #view/active #area/runtime #area/security #kind/review
+- [x] t-20261120-r28-bughunt-secret-reveal-paths · audit where secrets land in clear text #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/runtime #area/security #kind/review
     <!-- generated:card -->
     **Owner:** w171-pr0428-171-revealhunt  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/bughunt-secret-reveal-paths/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w171-pr0428-171-revealhunt  
@@ -68,3 +69,5 @@ Keine Produktänderung, keine Kartenentscheidung. Akte mit datei:zeile je Aussag
 vorher/nachher-liste container/netzwerke/volumes + 'cleanliness:'-zeile. Gefundene
 Secret-dateien nur als METADATUM festhalten (pfad, eigentümer, modus, alter) — inhalt
 NICHT lesen, nicht kopieren (§5.6), sofort an den coordinator melden.
+
+jagd H-V14 BEFUNDLOS fuer die vier schnitte (human/runtime reveal, aufhebung, zugriffspruefung, invalid input) — alle vier 'VERHALTEN KORREKT' mit pruefweg, build/vet/293 tests clean. ihre erste END war zurueckgewiesen (gemeldeter stand 0000...0000, kein branch, keine akte auf main); die nachlieferung ist echt: akte 11492 bytes @ fbac5cff, checkboxen null, cleanliness-zeile vorhanden. SICHERHEITSBEFUND (§5.6), als metadatum, inhalt nie gelesen: /home/marcel/.codex/auth.json, eigentümer marcel:marcel, modus 600, mtime 2026-11-18 09:14:31 — das ist die anmeldedatei des localen Codex-CLI (nicht aus unserem oekosystem), und sie erklaert die Codeman-installation auf diesem rechner. rotation/entwertung entscheidet der owner; ich habe die lane angewiesen, datei unangetastet zu lassen (kein lesen/kopieren/verschieben/loeschen). weiterfuehrende karte: keine aus diesem schnitt
