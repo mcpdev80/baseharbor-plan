@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: codex-open-pr-sweep-054
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Implement environment registry. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-054 · Implement Env registry
 priority: high
@@ -18,19 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1591]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "Candidate defect fix is pushed and Draft Go CI passed, but the PR remains Draft: Ready/Selected checks and native/runtime/release gates were skipped. Keep the merge frost; hand off for exact Ready gates/review, then sequence the dependent #1594 hop and #1615 refresh."
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1591", "https://github.com/mcpdev80/baseharbor/actions/runs/44649695031"]
 ---
 
-- [ ] t-20261114-r28-cli2-env-registry · CLI redesign: Implement environment registry #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-env-registry · CLI redesign: Implement environment registry #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** codex-open-pr-sweep-054 · **Priority:** high  
     **PR:** [baseharbor#1591](https://github.com/mcpdev80/baseharbor/pull/1591)  
+    **Waiting:** Candidate defect fix is pushed and Draft Go CI passed, but the PR remains Draft: Ready/Selected checks and native/runtime/release gates were skipped. Keep the merge frost; hand off for exact Ready gates/review, then sequence the dependent…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1591), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44649695031)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-uid-environment](t-20261114-r28-cli2-uid-environment.md), [t-20261114-r28-cli2-uid-target](t-20261114-r28-cli2-uid-target.md)  
 **Required by:** [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-context-shell](t-20261114-r28-cli2-context-shell.md), [t-20261114-r28-cli2-env-delete](t-20261114-r28-cli2-env-delete.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md), [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md)  
@@ -71,6 +73,11 @@ Create/select/list/update shared environment, app association, multiple nodes, d
 - Map every added/changed test to an existing CI check or native gate and its trigger. If routing is missing, coordinate with the CI owner and block acceptance until actual execution is proven. No parallel CI framework or indiscriminate full matrix.
 - Handoff exact branch/PR/commit, tests → check/gate → trigger → actual result, remaining gaps, dependencies and shared-file conflicts. Codex/Owner-delegated Maintainer reviews and merges only after actual checks; never claim an independent review that did not occur. No release/tag authorized.
 
-## Handoff
+## Handoff (2026-11-20)
 
-Planned and unassigned. No product implementation or acceptance yet.
+- Candidate: PR #1591, branch `lane-0428-env-registry`, exact head `bb5ea39fab4523bf876342764fb8f5d22fce30ff`, base `develop` at `b7cbc00f0adfa36945d6f7af8098d88096276c4f`; PR remains OPEN + Draft. The branch was advanced monotonically from verified old head `08fc5ad310e181394f6cef51d91ba8df42b2b446` and includes current develop as a merge parent. PR diff stays scoped to the three registry files.
+- Reproduced defect on old exact head `08fc5ad3`: `TestDeregisterEnvironmentAssociationRejectsEnvironmentPathTraversal` failed because calling `DeregistrationEnvironmentAssociation("target-a", "other/../prod", AssociationKindApp, "app-1")` removed the real `prod` binding. Fix: validate the logical environment name via the existing `environment.ValidateName` before resolving the state path. Regression passes and invalid path selectors now fail before touching sibling records.
+- Test -> check -> trigger -> result: `TestDeregisterEnvironmentAssociationRejectsEnvironmentPathTraversal` and package coverage in `go test ./internal/deployment ./internal/environment -count=1` -> normal Go package test discovery -> PR synchronize workflow -> exact Draft run [44649695031](https://github.com/mcpdev80/baseharbor/actions/runs/44649695031) SUCCESS; Draft `packages` and all four CLI shards plus source/routing passed. `go vet ./internal/deployment ./internal/environment` and `git diff --check` also PASS locally at `bb5ea39`.
+- PR workflow policy, PR Selected Checks, native/runtime, release and Trusted Plan were skipped by Draft gating; this is not Ready/acceptance evidence. Keep Draft and wait for review and the existing exact-head Ready gates. No runtime witness was required for this path-validation change. No Codeman worker overlapped the files at pre-edit check (host reported zero active sessions); no Codeman configuration/session was changed.
+- Dependency path: both card dependencies 0428-051/#1578 and 0428-052/#1580 are accepted; #1578 is merged. Downstream #1594 is OPEN Draft at head `5ef9c329b84c52a242b17a9b3d3a63c9d3c314c3`, based on `lane-0428-env-registry` (now bb5ea39); it needs its own monotone hop and exact checks after this card is accepted. #1615 remains OPEN Ready at `f93564a0d707983bfe6a8b59375c1c1c914d7827`, based on `cli2-env-policy-head`; it then needs a hop after #1594. Neither downstream PR was edited.
+- Do not merge or promote Draft. Handoff is waiting for exact Ready gates/review and parent stack sequencing.
