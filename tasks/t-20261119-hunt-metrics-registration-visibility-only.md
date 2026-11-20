@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w123-pr0428-123-pr1693-hopf2
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-123 · registry-Eintrag ohne
 priority: ""
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44557894265", "https://github.com/mcpdev80/baseharbor/actions/runs/44578337221"]
 ---
 
-- [ ] t-20261119-hunt-metrics-registration-visibility-only · Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261119-hunt-metrics-registration-visibility-only · Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** w123-pr0428-123-pr1693-hopf2  
     **PR:** [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693)  
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44557894265", "h
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w123-pr0428-123-pr1693-hopf2  
@@ -108,3 +108,5 @@ r6 VON MIR GEMESSEN, der merge-hopf ist diesmal WIRKLICH einer: 'git log -1 --fo
 CODEX-URTEIL am exakten kopf: 'APPROVE CONTENT — HOP REQUIRED BEFORE MERGE' (1693-0428-123-r7.md, 5902 bytes auf main). Inhalt ist angenommen, null produkt-aenderungen offen. FEHLT NUR NOCH: ein monotoper merge-hopf auf develop d5c11753ea43 (PR-base 28fb427f0574 ist drei hops zurueck), dann EIN terminaler pull_request-lauf, dann CODEX-MERGE. Warteraum: kein freier sitz, die jagd 158 wird mit meldefrist gestoppt und ihr sitz geht an diese bahn (AGENTS 3.3 punkt 5). Nachgemessen: lauf 44621387502 (pull_request, completed/success am kopf 93eea4954) zaehlt nach der basis-distanz-regel, weil 28fb427f..develop keine geschuetzte datei beruehrt; die akten-zeile 'PR base now 15727ca88' war eine kategorien-fehler der bahn (base.sha ist eine speicherung am PR-objekt), ohne folge fuer den kandidat
 
 HOPF GELIEFERT UND VON MIR NACHGEMESSEN: kopf 270a0de64ddab, zwei eltern 93eea4954 + d5c11753e, der zweite elter IST die damalige develop-spitze (formaler beweis des monotopen hopfs, kein rebase). INTERNE IDENTITAET: 'git diff --name-only 93eea4954..270a0de64 -- internal/metrics/' = LEER (0 dateien), der gesamte diff gegen den ersten elter sind 28 dateien = reiner develop-inhalt. Damit ist das angenommene urteil am inhalt unveraendert. LAEUFE: 44641386977 pull_request completed/success am exakten kopf 270a0de64 (23:57:59Z), zellen 14 success / 20 skipped / 0 fail. DIE 20 SKIPPED SIND DURCH DIE BASIS-DISTANZ-REGEL GEKLAERT, nicht durch eine luecke: develop ist seither zweimal weiter (d5c11753e -> bbc937c8f1, #1580 uid-target), und die distanz d5c11753e..bbc937c8f1 beruehrt 12 dateien, DARUNTER KEINE geschuetzte (test auf ci.yml/pr-gate-plan.py/plan.py/test_pr_*/test_ci_* = leer). mergeable_state=behind ist HIER KEIN BLOCKER, gemessen: develop hat KEINEN brancheschutz (API 'Branch not protected'), und die precedent-merges #1705/#1578/#1580 gingen alle als zwei-eltern merges. AKTE regvisibility-r8-hopf/fix-1.md (7219 bytes, main 3e4c1ae3), checkboxen null. NAechster schritt: CODEX-MERGE
+
+ZWEITER HOPF ERFUELLT DIE BEDINGUNG des verdicts, von MIR gemessen (nicht von der Lane): head 6d7ea080c59f, parents 270a0de64 + b7cbc00f0 = develop-spitze, 'merge-base --is-ancestor origin/develop <head>' JA, 'git diff --name-only 93eea4954..<head> -- internal/metrics/' = 0 dateien (inhalt unveraendert gegen den angenommenen stand). RUN 44651446678 pull_request completed/success am exakten head (01:13:42Z); PR draft=false, mergeable_state=CLEAN. CODEX-MERGE in diesem zug angefordert (zustellung accepted). VORBEHALT, den ich nicht vergesse: die 20 SKIPPED-zellen sind nach der basis-distanz-regel erklaert, aber der exact-head Docker-zeuge fehlt — fuer DIESE karte hat CODEX den runtime-zeug im r6/r7-urteil nicht als bedingung genannt, anders als bei 0428-119
