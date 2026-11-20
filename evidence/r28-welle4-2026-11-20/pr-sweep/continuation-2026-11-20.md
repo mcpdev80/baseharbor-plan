@@ -39,3 +39,14 @@ Point-in-time maintainer-directed continuation. This note records current eviden
 ## Next step
 
 Re-run the open-PR query and recheck changed heads, owner handoffs, and exact checks before acting. Continue Blocked → Wait → Review. Do not close a PR with unique task-owned content or merge any candidate without its stated acceptance evidence. This record is not a completion receipt: 19 PRs remain open.
+
+## Follow-up audit — 2026-11-20
+
+Rechecked current GitHub state after publication: 19 PRs remain open (same IDs as the snapshot above). Independent read-only agent audits found:
+
+- **#1585 — Wait.** Still Draft at `55a8c0f3`, mergeable=false, 9 commits ahead / 292 behind current develop `36d075fa`. Exact run `43793695751` passed Draft source/routing and five Go shards; Ready/native/release/HA were skipped. Target-selection code and regression test remain absent from develop. Card 0427-189's approval is for older head `13e096fc`; no formal review objects exist on current PR. Keep open for owner reconciliation, conflict resolution, and acceptance gates.
+- **#1587 — Wait.** Still Draft at `20e0537c`, base develop `0e9ccb58`, behind current develop. The exact run `43709246427` only passed Draft source/routing and five Go checks; Ready/docs/native/Core/release/HA gates skipped. Documentation checks and route review exist, but acceptance still requires real-Core installation and physical smoke for the documented configuration/TLS/OIDC/startup claims. No new evidence or author response; keep open.
+
+Fresh read-only Codeman snapshot: board currency ok, inflight, ahead/behind 0, dirty 0; Coordinator 1/1, reviewers/mergers 2/1, workers 3/5 (Ornith 0/2, Laptop 2/2, Flash 1/1); no mapped lanes. Both Ornith seats remain held `NO_ELIGIBLE_WORK`; flags include 19 open PRs, two `bh-*` containers, and owner report due (7 watcher events). Watch shows coordinator `9142ab1f`, two role=None sessions, workers `da056a3d`, `9856a435`, `c73c869e` busy. Observation only; no Codeman writes or messages.
+
+No PR was merged or closed. Neither #1585 nor #1587 has a safe close, merge, or review transition.
