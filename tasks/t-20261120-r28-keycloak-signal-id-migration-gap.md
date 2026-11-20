@@ -67,3 +67,5 @@ Diese Karte blockiert 0428-166 und 0428-167 (jede weitere ID-Änderung vertieft 
 ## Akte
 
 https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md
+
+loop-abbruch angeordnet (§3.6): gemessen 861 FAIL-zeilen, 234 paketlaeufe, ein test 177x rot. der wichtige unterschied: ihr NEUER test und ReconcileLegacySignals existieren NICHT auf develop (git grep leer), aber TestStandaloneSharedPostgresUsesPhysicalOwnerAcrossAppAndRecoveryLifecycle EXISTIERT dort (internal/application/shared_postgres_runtime_owner_test.go) und laeuft dort gruen (develop-push 44669117744/44669117784 success, packages-shard ohne namenfilter) — bei ihnen rot. das ist inhalt, nicht umfeld. befehl: zuerst WIP-stand ausliefern (vier stunden arbeit existieren nur auf diesemrechner = derselbe risikotyp wie bei karte 078), dann nur noch isolierte -run-laeufe mit den beiden FAIL-Blocken woertlich in die akte. DECKEL: scheitert ein weiterer anlauf an demselben existierenden test, rotation auf frische Lane
