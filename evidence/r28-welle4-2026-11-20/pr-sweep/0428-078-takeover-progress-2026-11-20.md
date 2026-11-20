@@ -26,3 +26,8 @@
 - #1715 run `44743111417` had all visible jobs green but was still in progress at review time. Independent review requested changes: tests use `UpdateSignal` rather than the guarded producer registration path, omit Valkey cases, and the PR body lacks a concrete evidence link.
 - #1684 still has a failed native Perses runtime smoke; #1645 has a failing Go packages shard; #1615's exact stacked-base checks ran but 17 checks failed. None of these is merge-ready.
 - Coordinator received these review outcomes and was asked to map all five worker seats to current missions, blockers, next actions, and release conditions. No GitHub review or merge was submitted for the reviewed PRs.
+
+## 13:37 UTC delta — #1715 exact run failed
+
+- Run `44743111417` is now terminal `FAILURE` at head `c1485721f1305fe4f3b5ef3984df15fe53e937a4`. Its Podman `data-capabilities` selected runtime failed because candidate submission lacked explicit operator/automation consent (`--confirm-candidate`); the wizard cancelled without changes, then `new-edit-new-sql-remove` exceeded the 180-second no-output timeout at 241 seconds. `PR Selected Checks` failed because selected runtime did not succeed.
+- The Coordinator was told to track this as an active CI blocker and route the consent fixture/flow plus timeout reproduction to the existing owner. This supersedes the earlier review-time note that the workflow was still in progress.
