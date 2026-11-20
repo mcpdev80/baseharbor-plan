@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w195-0428-195-huntsilent
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Reine Befundung (kein Produktwechsel) des Musters \"stillen Erfolgs\" in der gesamten Repository: Stellen, an denen ein Test oder…"
 kanban_title: 0428-195 · hunt silent-success desk
 priority: ""
@@ -19,18 +19,19 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: dropped
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/bughunt-hv20-silent-success/round-1.md"]
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-bughunt-silent-success-desk · hunt silent-success desk #task #release/v0-4-28 #status/active #view/active #area/ci #kind/task
+- [x] t-20261120-bughunt-silent-success-desk · hunt silent-success desk #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** w195-0428-195-huntsilent  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/bughunt-hv20-silent-success/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w195-0428-195-huntsilent  
@@ -81,3 +82,5 @@ sucht die übrigen Stellen desselben Musters.
 - Auslöser für sofortige Stop-with-Meldefrist: eine dep-freie, konfliktfreie Produktkarte wird frei (§3.3.5).
 
 ARBEITET JETZT (cf1df7a0, ornith desktop, develop-Anker 2f81fa21dc77): Hunt-Schnitt H-V20 ueber die ganze Repository - t.Skip/LookPath-Guards in Tests, command -v/-x/docker-info-Guards in Workflows und Helpers, die einen Schritt ueberspringen statt scheitern zu lassen, und Testpakete, die kein CI-Job auswaehlt (AGENTS 5.3 Aufnahmepflicht). Reine Befundung, FUND-FUER-KARTE-Zeile pro Fund, Doppelungsausschluss gegen 0428-179, 0428-189..194, H-V18 (0428-146) und H-V19 (0428-147). Fuellt den frei gewordenen ornith-Sitz nach 0428-179s END_BLOCKED; der Konfliktfeld-Scan ergab konfliktfreie Produktkarten = 0.
+
+H-V20 befundlos: 126 t.Skip/LookPath-stellen, 22 workflow-/script-guards, 103 testpakete gegen die job-auswahl - 0 funde, keine neuen karten (akte 87 zeilen). sitz freigegeben; die suche nach muster-funden ist damit fuer diese rotation erfuellt - die naechsten beiden schnitte sind ANDERE desk-typen (0428-196 verhalten, 0428-197 post-merge-abnahme).
