@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: codex-open-pr-sweep-054
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Implement environment registry. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-054 · Implement Env registry
 priority: high
@@ -19,19 +19,19 @@ prs: [mcpdev80/baseharbor#1591]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1591", "https://github.com/mcpdev80/baseharbor/actions/runs/44652673886"]
+resolution: "accepted"
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1591", "https://github.com/mcpdev80/baseharbor/actions/runs/44652673886", "https://github.com/mcpdev80/baseharbor/commit/83b19dce24eed2f837dd2dda7d56222d20a7da32"]
 ---
 
-- [ ] t-20261114-r28-cli2-env-registry · CLI redesign: Implement environment registry #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
+- [x] t-20261114-r28-cli2-env-registry · CLI redesign: Implement environment registry #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** codex-open-pr-sweep-054 · **Priority:** high  
     **PR:** [baseharbor#1591](https://github.com/mcpdev80/baseharbor/pull/1591)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1591), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44652673886)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1591), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44652673886), [proof 3](https://github.com/mcpdev80/baseharbor/commit/83b19dce24eed2f837dd2dda7d56222d20a7da32)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-uid-environment](t-20261114-r28-cli2-uid-environment.md), [t-20261114-r28-cli2-uid-target](t-20261114-r28-cli2-uid-target.md)  
 **Required by:** [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-context-shell](t-20261114-r28-cli2-context-shell.md), [t-20261114-r28-cli2-env-delete](t-20261114-r28-cli2-env-delete.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md), [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md)  
@@ -79,12 +79,17 @@ Create/select/list/update shared environment, app association, multiple nodes, d
 - Test -> check -> trigger -> result: `TestDeregisterEnvironmentAssociationRejectsEnvironmentPathTraversal` and package coverage in `go test ./internal/deployment ./internal/environment -count=1` -> normal Go package test discovery -> PR synchronize and `ready_for_review` workflows -> Draft run [44649695031](https://github.com/mcpdev80/baseharbor/actions/runs/44649695031) SUCCESS for source/routing and Draft Go, followed by Ready exact-head run [44650304561](https://github.com/mcpdev80/baseharbor/actions/runs/44650304561) SUCCESS. Ready run passed workflow policy, Trusted Plan, source format, native gate plan, focused Python, go-vet, go-build, deployment-package-tests, PR Selected Checks, all Go unit shards (owner, packages, cli-0..3). `go vet ./internal/deployment ./internal/environment` and `git diff --check` also PASS locally at `bb5ea39`.
 - Ready-run native/runtime, release, and unrelated integration jobs were skipped by the impact plan; `PR · Native gate plan` and `PR Selected Checks` passed. The selector-path validation is a filesystem-input safety fix with no runtime lifecycle change, so no native runtime witness was selected. No Codeman worker overlapped the files at pre-edit check (host reported zero active sessions); no Codeman configuration/session was changed.
 - Dependency path: both card dependencies 0428-051/#1578 and 0428-052/#1580 are accepted; #1578 is merged. Downstream #1594 is OPEN Draft at head `5ef9c329b84c52a242b17a9b3d3a63c9d3c314c3`, based on `lane-0428-env-registry` (now bb5ea39); it needs its own monotone hop and exact checks after this card is accepted. #1615 remains OPEN Ready at `f93564a0d707983bfe6a8b59375c1c1c914d7827`, based on `cli2-env-policy-head`; it then needs a hop after #1594. Neither downstream PR was edited.
-- Review decision is still blank; no merge was performed by this task. Hand off for Maintainer review/acceptance, then sequence #1594's monotone hop and exact checks before #1615's refresh. A successful #1591 run does not itself accept its dependents.
+- At this handoff point, review decision was blank and no merge had been performed; this was superseded by the Owner acceptance below. Sequence #1594's exact checks before #1615's refresh; a successful #1591 run does not itself accept its dependents.
 
 ## Follow-up review fixes and current exact-head evidence (2026-11-20)
 
 - Independent review of `bb5ea39` found that `RenameEnvironment` dropped `Associations`, and that a crash after destination installation left a stale source that same-identity retry did not remove. Fixed both, merging source/destination memberships on retry and retaining the canonical identity. Regressions `TestRenamePreservesEnvironmentAssociations` and `TestRenameRetryCleansSourceAfterInterruptedInstall` reproduce the prior failures and now pass.
 - Follow-up review caught `RenameEnvironment` exceeding the 200-line source-readability limit; extracted install/reconciliation into `installRenamedEnvironmentIdentity`. A further race audit found a mismatched destination binding could otherwise reach `os.Rename`; the helper now fails closed and `TestInstallRenameRefusesMismatchedDestination` verifies foreign destination bytes and the source are preserved.
-- Current exact candidate is PR #1591 head `2922f5ed9c411eec28bbfe2ea90f2b27c8f3055e`, based on develop `6b8188df26a1e263750379a8c5e8255ee4ef740c` after a monotone merge of #1693's develop advance. PR remains OPEN + Ready, CLEAN, and has no review decision; no merge was performed. The PR diff now also carries the develop merge's metrics changes, which were not edited in this task.
+- At the time of this evidence update, PR #1591 head was `2922f5ed9c411eec28bbfe2ea90f2b27c8f3055e`, based on develop `6b8188df26a1e263750379a8c5e8255ee4ef740c` after a monotone merge of #1693's develop advance. It was OPEN + Ready and CLEAN; it has since merged as recorded below. The PR diff also carried the develop merge's metrics changes, which were not edited in this task.
 - Test -> check -> trigger -> result: the three rename regressions plus `go test ./internal/deployment ./internal/environment -count=1`, `go vet ./internal/deployment ./internal/environment`, `git diff --check`, and `bash scripts/source-readability-audit.sh` passed locally. Exact Ready run [44652673886](https://github.com/mcpdev80/baseharbor/actions/runs/44652673886) passed workflow policy, source format/readability, native gate plan, Trusted Plan, focused Python, go-build, go-vet, deployment-package-tests, PR Selected Checks, and Go unit shards (owner, packages, cli-0..3). Native/runtime, release, and unrelated integration jobs were impact-skipped by the trusted plan.
-- Codeman was freshly checked read-only before the develop hop: no active sessions; worker file changes were inspected read-only and did not overlap the environment identity files. No Codeman changes were made. Keep this card in `review`; Maintainer acceptance is still required.
+- Codeman was freshly checked read-only before the develop hop: no active sessions; worker file changes were inspected read-only and did not overlap the environment identity files. No Codeman changes were made.
+
+## Owner acceptance and merge (2026-11-20)
+
+- Owner-delegated Maintainer acceptance: PR #1591 merged to `develop` at `83b19dce24eed2f837dd2dda7d56222d20a7da32` after exact Ready run [44652673886](https://github.com/mcpdev80/baseharbor/actions/runs/44652673886) passed and the exact head received a clean code review. Rename now preserves associations, retries reconcile interrupted installation, and mismatched destination bindings fail closed.
+- The registry persistence test reloads the JSON through the storage API in the same process; it does not restart a Core process. CLI/HTTP integration is explicitly coordinated with 0428-053. This merge accepts the bounded registry/storage slice; do not represent this as full process-restart or CLI/HTTP evidence. Those integration checks remain required in the downstream lane.
