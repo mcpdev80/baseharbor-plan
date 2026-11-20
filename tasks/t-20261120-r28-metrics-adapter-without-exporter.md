@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w182-0428-182-metricsadapter
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-182 · adapter without exporter
 priority: ""
@@ -19,19 +19,19 @@ prs: [mcpdev80/baseharbor#1716]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md", "https://github.com/mcpdev80/baseharbor/pull/1716"]
 ---
 
-- [ ] t-20261120-r28-metrics-adapter-without-exporter · Metrics: RequiresAdapter source has no exporter or compose wiring (never collectable) #task #release/v0-4-28 #status/active #view/active #kind/bug
+- [x] t-20261120-r28-metrics-adapter-without-exporter · Metrics: RequiresAdapter source has no exporter or compose wiring (never collectable) #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/bug
     <!-- generated:card -->
     **Owner:** w182-0428-182-metricsadapter  
     **PR:** [baseharbor#1716](https://github.com/mcpdev80/baseharbor/pull/1716)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1716)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w182-0428-182-metricsadapter  
@@ -57,3 +57,5 @@ internal/metrics/** plus the compose/runtime wiring the adapter needs. If the fi
 hunt-fund F1 (hunt-signals-103/round-1.md) auf dem freigabenen sitz von 078: quelle erklaert RequiresAdapter, aber exporter/producer fehlt, metrik ist strukturell nicht sammelbar. akzeptanz: verdrahten ODER RequiresAdapter entfernen (begruendet), regression fail-closed, CI-jobname in der akte. SCHREIBFELDER disjunkt gewaehlt: die dateien von #1684, #1645, 0428-183 (valkey.go) und internal/observability/** (0428-184) sind in der mission ausdruecklich verschlossen, meldung statt doppelschreiber (§4.3).
 
 PR #1716 head 1a67bd27d157, run TERMINAL GRUEN am exakten head (14 success / 20 skipped / 0 failure). unabhaengige abnahme meldet akzeptanz-2-defekt: TestRequiresAdapterMetricsSourceWithoutProducerFailsCatalog ist ein pauschalverbot gegen jede RequiresAdapter-metrik, auch mit vorhandenem producer - die karte verlangt die BEDINGUNG, nicht das verbot. korrektur zugestellt (guard conditional oder producer-kopplung direkt nachweisen).
+
+MERGED: PR #1716 wurde vom owner um 13:58Z squash-merged; develop tip f5ce95afce1c ist genau dieser merge (gemessen: ls-remote develop = merge_commit_sha von #1716). inhalt: postgres-/valkey-metrik auf ObservabilityUnsupported statt RequiresAdapter, regression auf die zwei quellen beschraenkt (commit 3a8f058b 'scope no-producer regression to postgres and valkey'). akten round-1 und round-2 im evidence-verzeichnis, 0 checkboxen.
