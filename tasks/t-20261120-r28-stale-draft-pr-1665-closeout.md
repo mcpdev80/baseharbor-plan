@@ -8,16 +8,26 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w176-pr1665-1665-closeout
-kanban_status: active
+kanban_status: blocked
 kanban_lane: active
 kanban_summary: "Decide and execute the fate of draft PR mcpdev80/baseharbor#1665 so that the board shows one truthful state: either a restacked,…"
 kanban_title: 0428-176 · restack with evidence or close
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1665]
 sources: []
-blocker: ""
+blocker: "write-set collision mit #1684 (management_ui.go, perses_runtime.go) + perses-runtime-smoke rot ohne 0428-177; trigger: #1684 gemergt oder 0428-177 landet"
+perses_prometheus_datasource.go fehlen auf develop, dashboard-commits 3a4599539/47d4ff298/081dc926d/dda073da4 nicht
+gemergt - echter 0428-082 inhalt). RESTACK (option a) ist aber jetzt NICHT KONFLIKTFREI: der diff von #1665 greift
+internal/application/management_ui.go, cmd/baha/app_status_result.go und docs/spec/*. - und genau diese dateien traegt auch
+der OFFENE PR #1684 der karte 0428-083 (gh api pulls/1684/files: management_ui.go, perses_runtime.go,
+perses_datasource_lifecycle.go, app_apply_lifecycle.go). §4.3 verbietet paralleles schreiben in dieselben dateien ohne
+integrationsplan; dazu bleibt der perses-runtime-smoke ohne 0428-177 rot. basis des drafts ist 195 commits hinterher
+(rev-list e580d324..develop), merge-tree konflikt ist die erwartbare signatur des refactor-on-top. draft #1665 bleibt
+unveraendert offen liegen, kein dritter push. TRIGGER FUER WIEDERAUFNAHME: #1684 gemergt ODER 0428-177 gelandet, dann
+restack auf develop-spitze aus 96f2ae11a25a in eigener lane. karte 0428-082 (owner coord) fuehre ich nach, kein
+besitzwechsel."
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -88,3 +98,18 @@ branch, base-retarget auf develop, 0428-075-inhalt NICHT mitnehmen (eigene karte
 drei beweisszeilen. in beiden faellen akte evidence/r28-welle4-2026-11-20/stale-draft-pr-1665/round-1.md + '## decision'
 in einem satz + cleanliness-zeile. STOPP + MELDUNG statt eigener entscheidung, wenn 082 eine eigene neue karte brauchte
 oder das schliessen fremde, kartenlose arbeit unberuehrt liesse.
+
+## closeout decision 2026-11-20 (coordinator, aus w176-pr1665-1665-closeout round-1.md)
+
+- CLOSE abgelehnt: perses_infra_dashboards.go und perses_prometheus_datasource.go fehlen auf develop (ls-tree leer),
+  dashboard-commits 3a4599539 / 47d4ff298 / 081dc926d / dda073da4 sind nicht gemergt - echter 0428-082 inhalt.
+- RESTACK (option a) ist jetzt nicht konfliktfrei: der #1665-diff traegt internal/application/management_ui.go,
+  cmd/baha/app_status_result.go und docs/spec/*. und #1684 (0428-083) traegt management_ui.go, perses_runtime.go,
+  perses_datasource_lifecycle.go, app_apply_lifecycle.go - paralleles schreiben in dieselben dateien ist §4.3
+  verboten, solange kein integrationsplan publiziert ist.
+- basis des drafts: 195 commits hinter develop (git rev-list --count e580d3241456..develop); merge-tree-konflikt ist
+  die erwartbare signatur des refactor-on-top (delete perses_runtime/security, add provider_registration/migration).
+- draft #1665 bleibt unveraendert offen liegen, kein dritter push darauf. karte 0428-082 (owner coord, wait, prs
+  [#1665]) bleibt unveraendert, ICH fuehre dort den blockerverweis nach. WIEDERAUFNAHME: restack in eigener lane auf
+  develop-spitze (aktuell 96f2ae11a25a), sobald #1684 gemergt oder 0428-177 gelandet ist.
+
