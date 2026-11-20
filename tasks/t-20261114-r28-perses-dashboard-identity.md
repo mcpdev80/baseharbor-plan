@@ -17,7 +17,7 @@ depends_on: [t-20261114-r28-perses-dashboard-selection]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1606, mcpdev80/baseharbor#1650]
 sources: []
-blocker: "echter inhaltlicher konflikt ZWISCHEN DEN ZWEI EIGENEN PRS DER KARTE, nicht mit develop: cmd/baha/app_status_result.go blob 4052832c2d (#1606) vs 21d96642fc (#1650), datei:zeilen #1650 :25-37 und :150-165; zusaetzlich internal/capability/perses_selection_test.go mit unterschiedlichem zuschnitt (gemessen: #1650 TestEligibleForPerBackendGate, #1606 TestDashboardNotEligibleForUnknownKey). von mir NACHGEMESSEN, damit es keine behauptung einer seite bleibt: git diff <head1606> <head1650> -- cmd/baha/app_status_result.go zeigt ein index 4052832c2..21d96642f mit +7 zeilen ab :36. entscheidung needed: welcher PR traegt die karte (bahn meldet #1650, CODEX-APPROVED, batch13/batch16 zeuge) und ob #1606 geschlossen wird — schliessen ist MEINE aktion nach blob-nachweis, nicht der bahnen."
+blocker: "integrations-fall zwischen den zwei eigenen PRs der karte (#1650 lebt, #1606 draft) mit echter blob-divergenz in cmd/baha/app_status_result.go — bahn w078-pr0428-078-appstatus-int arbeitet genau daran (entscheidung mit blob-beweis, verlierenden PR schliessen, gewinnenden hopfen). Vorheriger blocker-text war eine behauptung, kein zustand"
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md"]
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
     <!-- generated:card -->
     **Owner:** w078-pr0428-078-identity-hopf (codeman 9c6ca183, ornith) · **Priority:** normal  
     **PR:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
-    **Blocker:** echter inhaltlicher konflikt ZWISCHEN DEN ZWEI EIGENEN PRS DER KARTE, nicht mit develop: cmd/baha/app\_status\_result.go blob 4052832c2d (\#1606) vs 21d96642fc (\#1650), datei:zeilen \#1650 :25-37 und :150-165; zusaetzlich internal/capability/p…  
+    **Blocker:** integrations-fall zwischen den zwei eigenen PRs der karte (\#1650 lebt, \#1606 draft) mit echter blob-divergenz in cmd/baha/app\_status\_result.go — bahn w078-pr0428-078-appstatus-int arbeitet genau daran (entscheidung mit blob-beweis, verlier…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md)  
     <!-- /generated:card -->
 
