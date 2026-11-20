@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w207-0428-202-lokifix
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-202 · packages shard red on develop
 priority: ""
@@ -24,7 +24,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-r28-packages-shard-develop-regression · packages shard red on develop #task #release/v0-4-28 #status/review #view/review #area/ci #area/observability #kind/bug
+- [ ] t-20261120-r28-packages-shard-develop-regression · packages shard red on develop #task #release/v0-4-28 #status/active #view/active #area/ci #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** w207-0428-202-lokifix  
     **PR:** [baseharbor#1732](https://github.com/mcpdev80/baseharbor/pull/1732)  
@@ -32,7 +32,7 @@ created: 2026-11-20
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
 **Required by:** [t-20261120-r28-valkey-dashboard-unavailable-only](t-20261120-r28-valkey-dashboard-unavailable-only.md)  
@@ -101,3 +101,5 @@ ARBEITET JETZT, kante gegen session gemessen (w202-0428-202-pkgshard, laptop): u
 DISPOSITION NACH MESSEN: die lane tat genau das richtige - im verschlossenen feld gestoppt + gemeldet statt still repariert. ihre zuordnung an #1684 habe ich NICHT uebernommen, weil die dateienliste von #1684 policy.go nicht fuehrt und der git-log 2af892e4e -> 018b4e58a zeigt, dass die stelle zum #1594/0428-053-rail des owners gehoert. sitz freigegeben, neu besetzt mit 0428-200 (konfliktfrei, andere dateien).
 
 URSACHE GEFUNDEN, UND SIE IST NICHT DER OWNER-RAIL: DIE packages-ZELLE FAELLT, WEIL EIN TEST-FIXTURE DAS CLIENT-PAR NICHT SCHREIBT. MESSEN (read-only, develop 40cb28c758b0 + job 136526893242 des runs 44805066271): woertlich 'load Loki service access identity: stat /tmp/<test>/001/providers/loki/shared/service-access/pki/client-cert.pem: no such file or directory', an genau drei tests (internal/logs/loki_test.go:522 / 586 / 633, familie TestPersesLokiDatasourceMultiSource). der helper materializeLokiServiceAccessPKI (internal/logs/loki_test.go:434) schreibt ca.pem + server-cert.pem + server-key.pem, ABER KEIN client-cert.pem; die consumer-seite lokiDatasourceHTTPClient (internal/logs/loki_datasource.go:394-401) verlangt ueber serviceaccess.ExistingTLSMaterial genau diese datei, und das producer-layout internal/serviceaccess/pki.go:485 benennt 'client-cert.pem'. serviceaccess.Resolve laeuft durch (sonst kaeme ein anderer fehler) - also ist 2af892e4e ('fail closed without explicit environment policy') HIER NICHT die ursache, und die owner-entscheidung, die ich als blocker bat, ist NICHT noetig. SITZ: w207-0428-202-lokifix (ornith), schreib-umfang internal/logs/*_test.go, internal/serviceaccess/** verschlossen. beweis-pflicht: kleinster gate 'go test ./internal/logs/ -run TestPersesLokiDatasourceMultiSource' vorher/nachher + ein terminaler hosted run am exakten head.
+
+TIP-BELEG VON SITZ w210 (read-only, akte evidence/r28-welle4-2026-11-20/bare-develop-gate/round-1.md, plan-main 446e5f29): am nackten develop 40cb28c758b02960356434b630086a341ebe1738 sind die Loki-MultiSource-zellen ROT, woertlich 'stat .../service-access/pki/client-cert.pem: no such file or directory' (internal/logs/loki_test.go:522/:586); am stand 96f2ae11a sind sie GRUEN; valkey-/tempo-zellen sind KEINE tip-regression. LESART: der fixture half bisher, weil die consumer-seite das client-material nicht verlangte; seit #1594/policy.go (2af892e4e) verlangt sie es. DARUM bleibt die entscheidungsfrage am owner, aber der einzige weg innerhalb eines erlaubten write-sets ist der test-seitige. AUFTRAG AN w207: ihren helper-diff AUF DEN TIP setzen (worktree auf 40cb28c758b0 + diff on top) und den kleinen gate dort fahren: gruen = kandidat, rot = STOP + MELDEN (policy-seite = owner-rail, kein griff). SITZ w210 ist nach akzeptierter akte freigegeben (cleanup hielt, weil ihr status beim freigabe-versuch noch busy war - naechster tick).
