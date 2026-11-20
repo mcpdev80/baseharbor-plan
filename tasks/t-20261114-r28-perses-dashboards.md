@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: coord
-kanban_status: wait
-kanban_lane: wait
+owner: w208-0428-082-dashboards
+kanban_status: active
+kanban_lane: active
 kanban_summary: Create native Perses infrastructure dashboards with verified metrics and explicit missing-signal behavior.
 kanban_title: 0428-082 · Perses Infra dashboards
 priority: normal
@@ -18,25 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1665]
 sources: []
 blocker: ""
-wait_reason: "PR #1665 ist ein DRAFT (draft=true gemessen) und damit KEIN kandidat (§5.2: drafts sind keine kandidaten) — der review-spalteneintrag war ein brett-feehler von mir. Basis-Rueckstand gemessen: 74 develop-koepfe hinter der heutigen develop-spitze ab77e29d7; PR-head ist KEIN ahne von develop, merge-tree zeigt KONFLIKT gegen develop. NAechster sinnvoller schritt: ein hopf auf develop + draft raus + ein terminaler exact-head-lauf, dafuer braucht die karte einen arbeiter-sitz (pool 5/5 belegt). Ein PR-lauf am kopf existiert aus altem stand (1665: letzter pull_request success), der zaehlt nicht fuer den heutigen kopf."
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-dashboards · Perses infrastructure dashboards #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboards · Perses infrastructure dashboards #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** coord · **Priority:** normal  
+    **Owner:** w208-0428-082-dashboards · **Priority:** normal  
     **PR:** [baseharbor#1665](https://github.com/mcpdev80/baseharbor/pull/1665)  
-    **Waiting:** PR \#1665 ist ein DRAFT (draft=true gemessen) und damit KEIN kandidat (§5.2: drafts sind keine kandidaten) — der review-spalteneintrag war ein brett-feehler von mir. Basis-Rueckstand gemessen: 74 develop-koepfe hinter der heutigen develop-s…  
     **Needs:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md), [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** coord  
+**Owner:** w208-0428-082-dashboards  
 **Priority:** normal  
 **PRs:** [baseharbor#1665](https://github.com/mcpdev80/baseharbor/pull/1665)  
 **Source:** 
@@ -81,3 +80,5 @@ Supersedes [t-20261113-r28-grafana-dashboards](t-20261113-r28-grafana-dashboards
 Proceed directly after the 083-ready decision: once 083+080 are in develop, rebase #1665 onto active develop, prove Security/Authorization and exact-head checks, independent review; continue only on green + acceptance evidence. No release-gate shortening.
 
 Independent read-only review of PR #1665 / 0428-082 (2026-11-19): draft, no exact-head CI, stacked on old #1684 branch and includes shared datasource files. Dashboard labels host resource panels while queries return scrape statistics; probe calls discard context. See [review evidence](../evidence/r28-welle4-2026-11-19/codex-review-wave/1665-0428-082-independent-review.md).
+
+SITZ W208 AUF IHRER KARTE - ZWEI PFLICHTSCHRITTE, BEIDE VON MIR VORGEBEREITET: (1) #1665 ist draft=true (gemessen), und ein draft hat KEINE required-zellen; undraft geht NUR mit 'gh api -X POST repos/mcpdev80/baseharbor/pulls/1665/mark_ready' (mein altes PATCH -f draft=false-rezept war unwirksam, tooling-issue #12 offen). (2) ihre basis-lane ist weitergelaufen: refs/pull/1684/head = b71c6da27e8b, und #1684 sitzt auf #1724 (408b18d2dc7b) - sie stapeln damit auf der kette 177 -> 083 -> 082, genau wie §3.3.8 (warten auf INHALTE, nie auf merges). branch auf refs/pull/1684/head rebasieren, ancestry-beweis in die akte; PR-base bleibt refs/heads/w083-perses-datasources. write-set bleibt internal/metrics/prometheus*.go; die 076-da-teien (internal/metrics/perses_dashboards*.go + testdata/perses-dashboards/) sind fertig in #1597 und dort nur lesbar; internal/logs/** ist gerade 0428-202 (sitz w207). cli-zellen rot = 0428-198, packages-zelle rot = 0428-202 (neu: fehlendes client-cert.pem im fixture, KEINE owner-entscheidung) - beide nur benennen, nicht nachstellen.
