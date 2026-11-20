@@ -295,6 +295,32 @@ conclusion of every selected check are recorded below under §4.6).
   branch was created or deleted.
 - Evidence lives only in baseharbor-plan (this file); product repo untouched.
 
+## CI terminal witness (§4.6, watched by this lane)
+
+Run 44700696085, `pull_request`, exact head 1fa78df421e521ab7aeaec05a58d6cf646ddf971:
+
+```
+{"conclusion":"success","headSha":"1fa78df421e521ab7aeaec05a58d6cf646ddf971","status":"completed","url":"https://github.com/mcpdev80/baseharbor/actions/runs/44700696085"}
+```
+
+Check-runs on the exact head (`gh api .../commits/1fa78df42/check-runs?per_page=100`,
+total / not-completed / failures):
+
+```
+35	0	0
+```
+
+Both former failures are closed at this head: `PR · Source format` and
+`PR Selected Checks` completed success. Notable executed jobs (from the watched
+run log): `PR · Go unit · packages` (includes internal/observability and
+internal/identityprovider, no name filter — the new tests run), `PR · Go unit ·
+cli-0/cli-2` success, `PR · Selected Runtime (atomic/docker/identity, docker,
+identity) / Executed docker · identity` success (candidate SHA resolution,
+rootless runtime prep, gate execution, cleanup all ✓), `PR Selected Checks`
+success including "Require complete selected Go shard coverage". The 16 skipped
+cells (native matrix, Targeted HA, release, draft jobs) are skipped by
+selection and are NOT reported as passes.
+
 ## cleanup / cleanliness
 
 `docker ps` on this host: no containers started or stopped by this lane (the
@@ -308,4 +334,4 @@ cleanliness: this lane leaves the machine as it found it plus the two
 
 ## END
 
-END_DONE x-168r3: takeover complete — style/surfacing fixes + P1/P2/P4 coverage with mutation proofs, candidate 380c66c49218a3f8c18d04412536acbc6a2c3a6d on PR #1709, CI run watched to terminal (result below).
+END_DONE x-168r3: takeover complete — r2 blocker fixed, P1/P2/P4 coverage with mutation proofs A-D, FROZEN candidate 1fa78df421e521ab7aeaec05a58d6cf646ddf971 on PR #1709, run 44700696085 completed SUCCESS at exact head (35 checks, 0 open, 0 failure). No further pushes until acceptance is ordered.
