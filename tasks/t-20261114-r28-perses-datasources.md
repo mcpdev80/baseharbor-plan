@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w083-pr0428-083-datasources-hopf5
-kanban_status: wait
-kanban_lane: wait
+owner: 0428-083-
+kanban_status: active
+kanban_lane: active
 kanban_summary: Provision authorized existing Prometheus datasource in Perses using supported pinned native plugin and proxy/TLS contract.
 kanban_title: 0428-083 · Connect Perses Prometheus
 priority: normal
@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1608, mcpdev80/baseharbor#1684]
 sources: []
 blocker: ""
-wait_reason: "Started #1684 work is temporarily paused while the same assigned owner completes active card 0428-174 to restore the selected Docker runtime gate; exact-head run 44671189705 fails before Perses assertions. Resume with a monotonic hop of #1684 to the fixed develop base and one exact-head run after 0428-174 acceptance."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md", "https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44573407736", "https://github.com/mcpdev80/baseharbor/actions/runs/44577713744", "https://github.com/mcpdev80/baseharbor-plan/blob/3d071fa2/tasks/t-20261114-r28-perses-datasources.md#fix-9", "https://github.com/mcpdev80/baseharbor/actions/runs/44671189705", "https://github.com/mcpdev80/baseharbor-plan/blob/main/tasks/t-20261120-r28-develop-runtime-integration-red.md"]
 ---
@@ -27,21 +27,20 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9
 
 Owner decision (2026-11-17): Unblock. Reopen PR #1608 if it remains suitable, otherwise create a superseding PR on develop. Restore the Prometheus datasource integration and rebase PR #1665 onto an actively CI-covered base. Run the applicable exact-head CI and security/authorization checks before review and merge. No merge is authorized solely by this decision.
 
-- [ ] t-20261114-r28-perses-datasources · Connect Perses Prometheus #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
+- [ ] t-20261114-r28-perses-datasources · Connect Perses Prometheus #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** w083-pr0428-083-datasources-hopf5 · **Priority:** normal  
+    **Owner:** 0428-083- · **Priority:** normal  
     **PR:** [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684)  
-    **Waiting:** Started \#1684 work is temporarily paused while the same assigned owner completes active card 0428-174 to restore the selected Docker runtime gate; exact-head run 44671189705 fails before Perses assertions. Resume with a monotonic hop of \#1…  
     **Needs:** [t-20261120-r28-develop-runtime-integration-red](t-20261120-r28-develop-runtime-integration-red.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44573407736), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44577713744), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/3d071fa2/tasks/t-20261114-r28-perses-datasources.md#fix-9), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44671189705), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/tasks/t-20261120-r28-develop-runtime-integration-red.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md), [t-20261120-r28-develop-runtime-integration-red](t-20261120-r28-develop-runtime-integration-red.md)  
 **Required by:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-dashboards](t-20261114-r28-perses-dashboards.md)  
-**Owner:** w083-pr0428-083-datasources-hopf5  
+**Owner:** 0428-083-  
 **Priority:** normal  
 **PRs:** [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684)  
 **Source:** 
@@ -128,3 +127,5 @@ Evidence: evidence/x-083h5/fix-9.md. Owner to fix the runner tmpfs regression or
 ## 2026-11-20 pause pending 0428-174 runtime gate repair
 
 Moved 0428-083 from Blocked to Wait. Its #1684 work has started and is temporarily paused behind 0428-174, an active task assigned to the same owner, which is restoring the selected Docker runtime gate. Exact-head run [44671189705](https://github.com/mcpdev80/baseharbor/actions/runs/44671189705) fails in `native/docker/perses-runtime-smoke` before Perses assertions. The acceptance order is now explicit in `depends_on`: complete 0428-174, then hop #1684 to the fixed develop base and run exact-head acceptance. This is a temporary technical pause, not an Owner decision or acceptance.
+
+BLOCKER FORT: die vierte vorbedingung t-20261120-r28-develop-runtime-integration-red ist GEMERGT (#1711, develop dbe7fbc3905b), die drei anderen waren laengst geschlossen - die karte ist damit durchgehend erfuellt und vom zustand 'wait' abgeholt. gemessen an ihrem PR: #1684 head 1c0e33ad864e, base 36d075fad77f, mergeable=behind, draft=false, upd 04:13:58Z; die zwei roten zellen ('PR Selected Checks' und 'PR · Native · native/docker/perses-runtime-smoke') waren folge der basisstoerung, nicht ihres diffs. neue frische lane '0428-083-' (sid 473e54be, ornith-kanal 2/2, parent-link verified) mit auftrag: rebase auf dbe7fbc3905b + 'git push --force-with-lease' auf den ungeschuetzten branch, ein PR (§3.8, kein zweiter), run am neuen head bis terminal, die beiden zellen als bestaetigt fuehren, drei einfrier-beweisszeilen, akte perses-prometheus-datasource/round-2.md, dann END. bleibt eine der zellen ROT, ist die ursache NICHT die basisstoerung: dann stoppen und QUESTION mit fehlerauszug, keine dritte identische korrektur (§3.6). alte lane w083-…-hopf5 war nach dem vierten idle ohne END freigegeben worden; PR #1684 und ihre akten bleiben auf github erhalten
