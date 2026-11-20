@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w078-pr0428-078-appstatus-r3
-kanban_status: wait
-kanban_lane: wait
+kanban_status: active
+kanban_lane: active
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
 kanban_title: 0428-078 · Perses identity dashboard
 priority: normal
@@ -18,21 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1606, mcpdev80/baseharbor#1650]
 sources: []
 blocker: ""
-wait_reason: "CODEX-REVIEW r2 requested changes at ac2a5450; waiting for worker capacity to enforce verified-only Perses eligibility and add local/remote status-seam regressions (pool 5/5 at 06:28Z)."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w078-pr0428-078-appstatus-r3 · **Priority:** normal  
     **PR:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
-    **Waiting:** CODEX-REVIEW r2 requested changes at ac2a5450; waiting for worker capacity to enforce verified-only Perses eligibility and add local/remote status-seam regressions (pool 5/5 at 06:28Z).  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
@@ -103,3 +102,5 @@ kandidat zugestellt und abnahme bereit: head ac2a54503794 (draft=false, mergeabl
 ## CODEX review round 2 — 2026-11-20
 
 Review r2 returned **REQUEST CHANGES** on exact head `ac2a5450379492d410a379469e9845b2ce21190d`; see [review evidence](../evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md). The maintainer's exact-head note also requires `IdentityDashboardEligible` to remain false for `ConfiguredUnverified` and a regression through the real local and remote status outputs for selected/unselected Perses. Run `44680875974` is CI success, but 20 of 34 jobs were skipped, including runtime-related gates; no formal GitHub review or approval exists. Returned the card from Review to Wait while the worker pool is full (5/5, no open seats at the 06:28 UTC observation). Resume the owner-assigned card when capacity is available; do not treat the internal review as acceptance or merge approval.
+
+CODEX-REVIEW am exakten head ac2a54503794 = REQUEST CHANGES (akte codex-review-wave/1650-0428-078-r2.md). rezept 1 (karten-assets) und rezept 3 (CI-aufnahme der metrics-tests ueber pr-go-unit-shard.py:118-135) ERFUELLT; rezept 2 offen: der neue TestIdentityAvailabilityRequiresVerifiedPerses (internal/metrics/perses_identity_witness_test.go:164-191) prueft nur capability.PersesStatusNow-rueckgaben, nie den echten applicationStatusResult-pfad und nie IdentityDashboardEligible in lokaler (269-287) noch ferner (173-181) JSON-ausgabe. korrektur = EIN CLI-regressionstest in cmd/baha/ plus mutationsbeweis (gate in app_status_result.go:167-168 raus -> test MUSS rot). befehl hinaus, karte zurueck auf active
