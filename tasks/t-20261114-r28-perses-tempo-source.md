@@ -20,13 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44688554297"]
 ---
 
 - [ ] t-20261114-r28-perses-tempo-source · Connect Perses Tempo #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w091-pr0428-091-tempo-source · **Priority:** normal  
     **PR:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44688554297)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -82,3 +83,8 @@ BOARD-KORREKTUR: der eingetragene #1610 ist closed-ohne-merge (d57ab5275, 2026-1
 dep-frei nach plan.py show (contract-seam, runtime, signal-inventory accepted). basis develop, NICHT der lane-branch von 0428-083, weil 083 auf 0428-174 haelt. write-set: perses-datasource-pfade; anweisung enthaelt die Konfliktfelder zu 168 (registry/migration) und 078 (app_status_result, perses_identity)
 
 entscheidung auf ihre frage: KEIN owner-scope noetig. ihr gruen-beleg run 44665488793/43874313785 ist vom 16.11. an head c781eb86 und damit nach der gate-logik-aenderung durch #1708 wertlos (§5.4); develop ist nicht ahne des heads (merge-base 14d8f17d, 20 commits voraus), also ist der hop pflicht. befehl: rebase auf develop, push --force-with-lease auf den unprotected lane-branch w091-tempo-r5-fix, 'gh pr ready 1645' (mechanisch, lane-seitig), EIN run am neuen head bis terminal. grenze: cmd/baha/app_status_result.go = develop-stand ubernehmen, sonst STOP mit datei:zeile, weil dort 078 schreibt
+
+
+## 2026-11-20 exact-head CI recheck
+
+PR #1645 is now Ready (not Draft) at `253883eb96fd4d1765397028f67b4409fa9c7371`, based on `develop@36d075fad77fa61ac8c153e979855546589b32c2`. Exact PR run [44688554297](https://github.com/mcpdev80/baseharbor/actions/runs/44688554297) completed with overall conclusion `cancelled`; `go-vet` and the `packages` shard fail to compile because `internal/metrics/perses_tempo_fixture_test.go:95` calls missing `serviceissuer.Issuer.CertificateFor`. The PR Selected Checks job fails because selected Go shard coverage is incomplete. Runtime/native and release gates were skipped. Earlier exact-head run 44688531802 was also cancelled. Keep this task Active for its owner to repair the candidate and obtain a terminal passing exact-head run; do not move to Review based on Ready metadata alone.
