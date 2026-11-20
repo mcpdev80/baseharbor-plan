@@ -12,15 +12,9 @@ parent: ""
 depends_on: [t-20261120-r28-keycloak-signal-id-migration-gap]
 blocked_by: []
 superseded_by: []
-<<<<<<< HEAD
 owner: 0428-166-
 kanban_status: closed
 kanban_lane: closed
-=======
-owner: x-m166
-kanban_status: active
-kanban_lane: active
->>>>>>> 6e1fca76 (card(0428-166): set owner x-m166 (round-2 correction))
 blocker: ""
 resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44727442216", "https://github.com/mcpdev80/baseharbor/pull/1712", "https://github.com/mcpdev80/baseharbor/commit/96f2ae11a25a508998c44a9854ef17f8fa15c112", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md"]
