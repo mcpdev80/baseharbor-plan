@@ -149,6 +149,14 @@ Candidate SHA (frozen): `489e4e66a2b11f32bad63719adc2a3b885579db7`
 no force-push over unseen work: the frozen head was ancestry-verified and
 develop was unchanged).
 
+Self-verification note: an intermediate working-tree draft had the
+fail-closed seam as `if err != nil || len(unresolved) > 0 { return nil, err }`
+— which returns a NIL error on the unresolved path (a silent no-abort). That
+draft was NOT committed: `git show HEAD:...keycloak_realization.go` (lines
+260-269) carries the correct explicit form (`if err != nil { return nil, err }`
+then `if len(unresolved) > 0 { return nil, fmt.Errorf(...) }`). The
+commit-content check is this note's witness; no push was needed for it.
+
 ## announcement for 0428-166 (interface planning only)
 
 As directed: the production callback `RebookLegacySignals(LegacyReconciliation,
