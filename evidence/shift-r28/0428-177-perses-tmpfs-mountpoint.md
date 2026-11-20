@@ -77,6 +77,26 @@ CI run on the corrected head `408b18d2dc7b` — run id `44793908238` (gh run 680
 
 No collision and no Owner decision were ever required. `gh pr list --head perses-tmpfs-mountpoint-wt` was empty while the branch was un-PR'd; the earlier "GitHub auto-assigned the pushed branch the number 1684" line was a false reading of a message that referred to another branch. PR #1684 carries `refs/heads/lane-0428-083-datasources-r2` (head `43d3a8dc0c6c`), card 0428-083 "Connect Perses Prometheus datasource". `git merge-base --is-ancestor 03b66ceca 43d3a8dc0c6c` = NEIN: my work was never in #1684 and #1684 is never in mine. GitHub does not assign PR numbers per branch; the real PR for this card is the fresh PR #1724 above.
 
+## hop executed + measured (measured, exact head b71c6da27)
+
+Rebase done: `lane-0428-083-datasources-r2` moved `43d3a8dc0 -> b71c6da27e8bbf180d26762eb9bfb101ec5a7bbe`, stacked on #1724 head. `git merge-base --is-ancestor 40cb28c758b0 b71c6da27` = JA; `git merge-base --is-ancestor 408b18d2d b71c6da27` = YES (stack correct); `git log --oneline origin/develop..b71c6da27` lists the single #1684 commit on top of my two. `go build ./...`, `go vet ./internal/serviceaccess/ ./internal/application/ ./internal/metrics/` clean; `gofmt -l` empty on all changed files. `policy.go` NOT in the diff (locked; only the #1724 mount files layer in via rebase).
+
+Retarget: PR #1684 base -> `perses-tmpfs-mountpoint-wt` (head_sha `b71c6da27`), body: "Stack: base #1724 (0428-177, head 408b18d2dc7b) — smoke cell needs the tmpfs-mount fix...".
+
+CI run `44798687502` (gh run 6811, `CI · PR #1684`, status completed, conclusion failure, head `b71c6da27`):
+- `native/docker/perses-runtime-smoke` → **SUCCESS** (was `--- FAIL: TestPersesRuntimeSmokeDockerIsolated` on the old develop head — the smoke cell turned green once the #1724 mount fix is in the ancestry). This is the proof the stack works.
+- `PR · Source format` SUCCESS. `go-build`/`go-vet`/`owner`/all validations SUCCESS.
+- RED: `cli-0/1/2/3`, `packages` (unchanged field-gate 0428-198). Verbatim (`job 136504939799`, "Execute selected Go tests with isolated PostgreSQL"): `main_test.go:60: create failed: Managed-environment machine operations require an authenticated BaseHarbor operator.` and `app_repository_workflow_test.go:115: ...require an authenticated BaseHarbor operator.`
+
+PR #1684 still OPEN (merged=false) — #1724 has not been merged, so no auto-merge. Card 0428-083 was on `wait` ("wartet auf den Inhalt von 0428-177"); per mission the Owner will flip it to `active` once the stack exists, needing this session's push witness.
+
+## witnesses for card activation
+
+- `git ls-remote origin refs/heads/lane-0428-083-datasources-r2` -> `b71c6da27e8bbf180d26762eb9bfb101ec5a7bbe`
+- `git ls-remote origin refs/pull/1684/head` == `b71c6da27` (PR head witness)
+- `git merge-base --is-ancestor 40cb28c758b0 b71c6da27` = JA (develop head ancestor)
+- smoke run `44798687502` terminal SUCCESS at exact head `b71c6da27`
+
 ## cleanliness
 
 before: docker ps -aq --filter name=perses = none; docker volume ls | grep perses = none.
