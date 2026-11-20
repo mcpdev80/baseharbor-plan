@@ -7,7 +7,7 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w068-pr068-pr0428-068-context-shell
+owner: w068-pr0428-068-context-shell
 kanban_status: active
 kanban_lane: active
 kanban_summary: "Terminal-scoped context and completion. Follow the owner working brief, command mapping and code entry index; revalidate current…"
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44695244800", "h
 
 - [ ] t-20261114-r28-cli2-context-shell · CLI redesign: Terminal-scoped context and completion #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** w068-pr068-pr0428-068-context-shell · **Priority:** high  
+    **Owner:** w068-pr0428-068-context-shell · **Priority:** high  
     **PR:** [baseharbor#1710](https://github.com/mcpdev80/baseharbor/pull/1710)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44695244800), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44696968212), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44699230683), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44700679422), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1710), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44695244800", "h
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md), [t-20261114-r28-cli2-uid-target](t-20261114-r28-cli2-uid-target.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** w068-pr068-pr0428-068-context-shell  
+**Owner:** w068-pr0428-068-context-shell  
 **Priority:** high  
 **PRs:** [baseharbor#1710](https://github.com/mcpdev80/baseharbor/pull/1710)  
 **Source:** 
@@ -108,3 +108,5 @@ verdict am eingefrorenen head liegt vor und ist gueltig (akte 1710-0428-068.md: 
 abnahme bestellt, vier bedingungen gemessen: (1) head bf923b52ba43 eingefroren, branch = refs/pull/1710/head, kein weiterer push; (2) base = develop-spitze dbe7fbc3905b, merge-base --is-ancestor = JA; (3) run 44715140090 completed/success am exakten head, cli-0 bis cli-3 und cli-gofmt AUSGEFUEHRT (nicht skipped) - das war eine ihrer r1-luecken; (4) akte cli2-context-shell/round-1.md traegt '## The 4 blockers (r2)', '## Mutant proofs (blocker 4), live, one at a time' und '## CI run observing (r2)', nennt aber noch den alten head d1ec4b72. DENN TROTZDEM BESTELLT, und der beleg ist meiner: 'git range-diff 36d075fad77f..d1ec4b725c1d dbe7fbc3905b..bf923b52ba43' = vier zeilen, alle mit '=' - der rebase war inhaltsleer, die akte gilt woertlich fuer den jetzigen head. der diff d1ec4b72..bf923b52 (9 dateien, +1682) ist IRRFUEHREND, er zeigt die develop-bewegung der merges 0428-168 und 0428-174; gegen develop traegt ihr PR 10 dateien +790/-3. nachlieferung von round-2.md mit den drei zeilen '## Rebase witness' ist als nachforderung an die lane gestellt (commit ohne PR-bewegung). SPRUCH IHRE OFFENEN FRAGE: der wrapper bleibt in cmd/baha/completion_setup.go, KEIN umzug nach context_hook.go - kosmetik, neuer head, volle CI-matrix (§5.4), und keine akzeptanzstelle nennt datei-aufteilung;gemessen ist der mechanismus korrekt (guard :121, fish-wrapper :75, rekursionsschutz :17/:83/:102)
 
 test
+
+korrekturrunde r3 laeuft (session 7578ff5b busy): CODEX-REVIEW am eingefrorenen head bf923b52ba43 ist gueltig ('PR head before/after review' = derselbe SHA, vierter gueltiger anlauf unter der einfrier-regel) und bringt VIER blockierende punkte: B1 'context use TARGET' uebernimmt das angeforderte ziel nicht, wenn schon ein kontext gesetzt ist (cmd/baha/completion_setup.go:83-90, der wrapper verwirft den ersten output und ruft erneut); B2 fish-wrapper rekursiert (registriert :75-76, interner aufruf :68) und hat keinen eigenen shell-test; B3 praedenz-/fallback-kette nicht an den bestehenden user-/system-selection-vertrag angebunden (cmd/baha/context_terminal.go:187-208); B4 IHRE MUTATIONSSONDEN A UND C SIND NICHT UNABHAENGIG - beide loesen denselben end-to-end-test aus (mutant-proofs.md:5-21, round-2.md:37-39). B4 ist die folge meines ausdruecklichen hinweises an den reviewer, die mutationen auf unabhaengigkeit zu pruefen: der hinweis hat also einen echten befund erzeugt, keine dekorative nachfrage. ERLEICHTERUNGEN bestaetigt: prozessgrenze fuer bash, beide shell-guards (:111-117, :119-124), completion heil, KEIN marker-file, scope = 10 dateien, commands.go bei einer additiven zeile. MEIN EIGENER FEHLER IN DIESEM TICK, dokumentiert: ich habe die karte zunaechst mit einem verschriebenen owner-wert ('w068-pr068-pr0428-068-context-shell') UND dem platzhalternotiztext 'test' publiziert - ein rest einer probe, die ich zum testen des pfads abgesetzt hatte. korrigiert auf 'w068-pr0428-068-context-shell' mit dieser notiz. falls ihr reviewer in der zwischenzeit die karte las, war der zustand nicht vertrauenswuerdig; dafuer uebernehme ich die verantwortung, nicht die lane
