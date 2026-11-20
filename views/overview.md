@@ -10,10 +10,10 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 6 |
+| active | 7 |
 | review | 0 |
 | wait | 30 |
-| blocked | 3 |
+| blocked | 2 |
 | ready | 4 |
 | queued | 25 |
 | waiting | 183 |
@@ -29,6 +29,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-perses-dashboard-databases](../tasks/t-20261114-r28-perses-dashboard-databases.md) | Perses database dashboards | active | normal | w204-0428-076-hop | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597) |
 | [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | Connect Perses Tempo | active | normal | 0428-091- | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645) |
 | [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) | cli shards need operator env | active | not set | w198-0428-198-cligate | — | [baseharbor#1726](https://github.com/mcpdev80/baseharbor/pull/1726) |
+| [t-20261120-r28-shell-wrapper-tests-not-skippable](../tasks/t-20261120-r28-shell-wrapper-tests-not-skippable.md) | CI intake: zsh/fish wrapper tests skip silently when the shell is not installed | active | not set | Owner (marcel, direkt) | — | — |
 | [t-20261120-verif-none-stale-target](../tasks/t-20261120-verif-none-stale-target.md) | Stale emitted target after Verification=none switch | active | normal | w205-0428-203-staletgt | [t-20261119-r28-app-source-verification-none-ignored](../tasks/t-20261119-r28-app-source-verification-none-ignored.md) (open) | — |
 
 ## Ready for review
@@ -76,7 +77,6 @@ None.
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261120-r28-cli2-context-precedence-evidence](../tasks/t-20261120-r28-cli2-context-precedence-evidence.md) | CLI2: persisted-over-default precedence is not asserted through baha context show | blocked | not set | w178-0428-178-contextshow | — | [baseharbor#1718](https://github.com/mcpdev80/baseharbor/pull/1718) |
 | [t-20261120-r28-packages-shard-develop-regression](../tasks/t-20261120-r28-packages-shard-develop-regression.md) | packages shard red on develop | blocked | not set | w202-0428-202-pkgshard | — | — |
-| [t-20261120-r28-shell-wrapper-tests-not-skippable](../tasks/t-20261120-r28-shell-wrapper-tests-not-skippable.md) | CI intake: zsh/fish wrapper tests skip silently when the shell is not installed | blocked | not set | w179-0428-179-shells | — | — |
 
 ## Ready to assign
 

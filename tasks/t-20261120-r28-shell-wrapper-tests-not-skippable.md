@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w179-0428-179-shells
-kanban_status: blocked
-kanban_lane: blocked
+owner: "Owner (marcel, direkt)"
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-179 · shell wrapper cells must run
 priority: ""
@@ -17,23 +17,22 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: "ECHTER EXTERNER BLOCKER, OWNER-ENTSCHEID NÖTIG: der Kandidat 0eeda344 (base 3653369a4d83, 2 dateien: cmd/baha/context_terminal_test.go fail-loud + .github/workflows/ci.yml +18 zeilen 'Install interactive shells' in der ci-shard) lässt sich nicht pushen - das einzige verfügbare GitHub-Token hat scopes gist/read:org/repo, NICHT 'workflow', und GitHub's OAuth-App workflow-scope protection lehnt pushes ab, die .github/** ändern. Die lane hat korrekt NICHT erzwungen und NICHT umgangen (AGENTS 3.8 letzter absatz: tokens kommen vom system/owner, nie von der lane; 5.6). Arbeit ist nicht verloren: format-patch + akte landen in evidence/r28-welle4-2026-11-20/shell-wrapper-cells/ auf plan main. NÄCHSTER TRIGGER (einer davon): (a) owner vergibt ein workflow-scope token bzw. ergänzt 'workflow' an der OAuth-App, dann push + PR (base develop) + hosted run in derselben lane; (b) owner legt den patch selbst auf einen branch und nennt die PR-nummer; (c) owner entscheidet, dass die gate-route NICHT in diesem PR gehören darf (widerspricht dann ihrer anweisung 51d95b99 - bitte ausdruecklich)."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-r28-shell-wrapper-tests-not-skippable · CI intake: zsh/fish wrapper tests skip silently when the shell is not installed #task #release/v0-4-28 #status/blocked #view/blocked #kind/bug
+- [ ] t-20261120-r28-shell-wrapper-tests-not-skippable · CI intake: zsh/fish wrapper tests skip silently when the shell is not installed #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
-    **Owner:** w179-0428-179-shells  
-    **Blocker:** ECHTER EXTERNER BLOCKER, OWNER-ENTSCHEID NÖTIG: der Kandidat 0eeda344 (base 3653369a4d83, 2 dateien: cmd/baha/context\_terminal\_test.go fail-loud + .github/workflows/ci.yml +18 zeilen 'Install interactive shells' in der ci-shard) lässt sich…  
+    **Owner:** Owner (marcel, direkt)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w179-0428-179-shells  
+**Owner:** Owner (marcel, direkt)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
