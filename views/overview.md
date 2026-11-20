@@ -10,9 +10,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 11 |
+| active | 12 |
 | review | 1 |
-| wait | 20 |
+| wait | 19 |
 | blocked | 3 |
 | ready | 4 |
 | queued | 25 |
@@ -35,6 +35,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-r28-window-integrity-verify](../tasks/t-20261119-r28-window-integrity-verify.md) | fensterstand gegen abnahmebelege pruefen | active | not set | w150-pr0428-150-windowverify | — | — |
 | [t-20261120-coord-publish-integrity-gaps](../tasks/t-20261120-coord-publish-integrity-gaps.md) | Coordinator tooling: card-status.py bypasses the payload integrity gates; watch.py rm signature unusable | active | not set | w175-pr0428-175-publish-gate | — | — |
 | [t-20261120-r28-develop-runtime-integration-red](../tasks/t-20261120-r28-develop-runtime-integration-red.md) | Develop: runtime integration tests fail serially in docker-runtime (base defect) | active | not set | w083-pr0428-083-datasources-hopf5 | — | — |
+| [t-20261120-r28-keycloak-signal-id-migration-gap](../tasks/t-20261120-r28-keycloak-signal-id-migration-gap.md) | migrate un-prefixed keycloak registrations | active | not set | w168-pr0428-168-signal-mig-r3 | — | [baseharbor#1709](https://github.com/mcpdev80/baseharbor/pull/1709) |
 
 ## Ready for review
 
@@ -65,7 +66,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | wait | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) (open) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
 | [t-20261119-r28-app-source-verification-none-ignored](../tasks/t-20261119-r28-app-source-verification-none-ignored.md) | Verifier: Verification=none is ignored for application-class metrics sources | wait | not set | codex-open-pr-sweep-0428-143 | — | — |
 | [t-20261119-r28-perses-status-backend-witness](../tasks/t-20261119-r28-perses-status-backend-witness.md) | CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben | wait | not set | w142-pr1702-statuswit-r5 | — | [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702) |
-| [t-20261120-r28-keycloak-signal-id-migration-gap](../tasks/t-20261120-r28-keycloak-signal-id-migration-gap.md) | migrate un-prefixed keycloak registrations | wait | not set | w168-pr0428-168-signal-mig-r3 | — | [baseharbor#1709](https://github.com/mcpdev80/baseharbor/pull/1709) |
 
 ## Blocked
 

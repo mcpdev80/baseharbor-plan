@@ -13,27 +13,26 @@ depends_on: []
 blocked_by: []
 superseded_by: []
 owner: w168-pr0428-168-signal-mig-r3
-kanban_status: wait
-kanban_lane: wait
+kanban_status: active
+kanban_lane: active
 blocker: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44692628196", "https://github.com/mcpdev80/baseharbor/actions/runs/44699615600", "https://github.com/mcpdev80/baseharbor/actions/runs/44700696085", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1709-0428-168-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1709-0428-168-r3.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md"]
 prs: [mcpdev80/baseharbor#1709]
 created: 2026-11-20
-wait_reason: "CODEX-REVIEW r3 returned REQUEST CHANGES: mixed owner state can omit a legacy owner when another owner has state, then fall back to the registering project's identity; ListAll errors also need fail-closed propagation. Resume when the first Codeman worker seat opens to add the real-registration missing-owner regression and reverify."
+wait_reason: ""
 
 ---
 
-- [ ] t-20261120-r28-keycloak-signal-id-migration-gap · migrate un-prefixed keycloak registrations #task #release/v0-4-28 #status/wait #view/wait #area/capability #area/observability #kind/bug
+- [ ] t-20261120-r28-keycloak-signal-id-migration-gap · migrate un-prefixed keycloak registrations #task #release/v0-4-28 #status/active #view/active #area/capability #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** w168-pr0428-168-signal-mig-r3  
     **PR:** [baseharbor#1709](https://github.com/mcpdev80/baseharbor/pull/1709)  
-    **Waiting:** CODEX-REVIEW r3 returned REQUEST CHANGES: mixed owner state can omit a legacy owner when another owner has state, then fall back to the registering project's identity; ListAll errors also need fail-closed propagation. Resume when the first…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44692628196), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44699615600), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44700696085), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1709-0428-168-r2.md), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1709-0428-168-r3.md), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261120-r28-provider-signal-id-scope-inconsistency](t-20261120-r28-provider-signal-id-scope-inconsistency.md), [t-20261120-r28-signal-id-normalization-collision](t-20261120-r28-signal-id-normalization-collision.md)  
@@ -93,3 +92,5 @@ EINFRIEREN VON MIR VERIFIZIERT (unabhaengig von ihrer meldung, 10:0xZ): ls-remot
 PR #1709 advanced during CODEX-REVIEW r2 to `380c66c49218a3f8c18d04412536acbc6a2c3a6d`, so the r2 artifact's final verdict is **BLOCKED / stale candidate**, not a verdict on this SHA. Exact run [44699615600](https://github.com/mcpdev80/baseharbor/actions/runs/44699615600) is still in progress; all Go shards/build/vet and package tests have passed, with the selected Docker identity runtime job remaining. Independent exact-head review confirms the stable-sort test is now discoverable in `read_signals_test.go`, but the required migration assertions for source metadata (including Target/Network/Path/Scheme/Descriptor/Enabled) remain absent; `stampLegacyTarget` rewrites Target. Owner-state discovery still swallows `ListKeycloakOwnerProjects`/per-owner `ReadDir` errors instead of failing closed before migration. GitHub reports PR OPEN/non-draft, mergeStateStatus BLOCKED, zero formal reviews. The owner is advancing the candidate; move 0428-168 back to Active while these current-head blockers and the runtime result are resolved. Do not apply run `44696406664` or review r2 as evidence for this newer SHA.
 
 abnahme bestellt, weil alle drei bedingungen der einfrier-regel erfuellt sind: (1) head 1fa78df421e521ab7aeaec05a58d6cf646ddf971 eingefroren, branch = refs/pull/1709/head, kein weiterer push; (2) run 44700696085 am exakten head completed/success, 35/35 checks, 0 failure, auch 'PR · Source format' und 'PR Selected Checks' gruen; (3) akte evidence/r28-welle4-2026-11-20/keycloak-signal-migration/round-3.md auf origin/main (plan head c2e062cf) mit ls-remote-, merge-base- und mutationsbeweis-zeilen. waehrung unabhaengig gemessen: develop 36d075fad77f ist ahne, base.sha = develop-spitze, draft=false, mergeable=clean, 6 eigene commits. CODEX-REVIEW r3 am eingefrorenen head unterwegs (session 95971e0a, rolle REVIEW, akte 1709-0428-168-r3.md), mit bitte, bei APPROVE signatur + rueckgabe des helpers fuer folgekarte 0428-166 anzugeben. reinlichkeit gemeldet: keine container/compose gestartet, /tmp-worktrees entfernt
+
+verdict r3 am eingefrorenen head liegt vor und ist gueltig (akte 1709-0428-168-r3.md: 'PR head before review' = 'PR head after review' = 1fa78df421e5, von mir nachgemessen: branch = refs/pull/1709/head, mergeable=clean). resultat: REQUEST CHANGES, ein blockierender befund (P1-restfall). stelle am eingefrorenen head: internal/identityprovider/keycloak_realization.go, ownerProjectMaps ab :220, :235 ListKeycloakOwnerProjects, :237 'return nil, err', :239-240 nur bei len(recorded)>0. fehlender fall: owner-VERZEICHNIS fehlt (os.ErrNotExist), der abgeleitete scan findet mindestens einen anderen besitzer -> maps werden verworfen. der echte scan-fehler muss weiter abbrechen (ihr r3-pfad, unangetastet). P2 (internal/observability/keycloak_legacy_migration_test.go:138-205) und P4 sind ADRESSED, keine nacharbeit (§5.4). reviewer bestaetigt aus dem log von run 44700696085: packages-shard faehrt TestStandaloneSharedPostgresUsesPhysicalOwnerAcrossAppAndRecoveryLifecycle ohne filter. korrekturauftrag zugestellt (9d1d1205 busy): not-exist vs echter fehler trennen, abgeleitete besitzer weiterreichen, zwei tests mit mutationsbeweis. 0428-166: nichts genehmigt, RebookLegacySignals nur 'interface planning only', finalsignatur folgt aus der r4-akte
