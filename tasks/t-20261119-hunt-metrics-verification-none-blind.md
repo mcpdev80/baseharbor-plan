@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-124 r2 (codeman 7110b25d, entlassen) — r3 wartet auf freien sitz
-kanban_status: blocked
-kanban_lane: blocked
+owner: w124-pr0428-124-metrval-hopf
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-124 · none Metriken erzeugen weder
 priority: ""
@@ -17,26 +17,25 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1695]
 sources: []
-blocker: "wartet auf #1705 (0428-144): die pfad-ableitung fuer docs/internal/**/*.json und docs/example YAML liegt in scripts/pr-gate-plan.py, und die sagt #1697 (0428-131) zu, dass sein docs/internal JSON-pfad gar nicht auditieren kann, solange :1195 nur .md/.rst abbildet. NAECHSTER TRIGGER: #1705 gemergt + develop neu -> dann hop auf develop und ein terminaler exact-head-lauf. Stand gemessen: #1695 head 4f0d5e9f7 base da76c5cf9 (alt), PR-lauf 44478473607 success am kopf, merge-tree gegen develop konfliktfrei"
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verification-none/fix-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1695.md"]
 - https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verification-none/fix-1.md
 ---
 
-- [ ] t-20261119-hunt-metrics-verification-none-blind · verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261119-hunt-metrics-verification-none-blind · verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-124 r2 (codeman 7110b25d, entlassen) — r3 wartet auf freien sitz  
+    **Owner:** w124-pr0428-124-metrval-hopf  
     **PR:** [baseharbor#1695](https://github.com/mcpdev80/baseharbor/pull/1695)  
-    **Blocker:** wartet auf \#1705 (0428-144): die pfad-ableitung fuer docs/internal/\*\*/\*.json und docs/example YAML liegt in scripts/pr-gate-plan.py, und die sagt \#1697 (0428-131) zu, dass sein docs/internal JSON-pfad gar nicht auditieren kann, solange :11…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verification-none/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1695.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verification-none/fix-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0428-124 r2 (codeman 7110b25d, entlassen) — r3 wartet auf freien sitz  
+**Owner:** w124-pr0428-124-metrval-hopf  
 **Priority:** not set  
 **PRs:** [baseharbor#1695](https://github.com/mcpdev80/baseharbor/pull/1695)  
 **Source:** 
