@@ -92,6 +92,12 @@ The `PR · Go unit · packages` failure is a PRE-EXISTING ENVIRONMENT FAILURE, n
 - My card's shard, `internal/metrics`, passes both locally and would pass in the CI `packages` shard (CI runs `python3 scripts/pr-go-unit-shard.py --mode packages`, which includes `internal/metrics`). The P2 regression (`TestPersesValkeyDashboardVerifiedRealizesRealPanel` query assertions) is executed by that shard.
 - Note: a real hosted `PR · Go unit · packages` pass with actually-executed required jobs is still pending on a clean base; the local mirror confirms the card's own tests pass. No CI workflow file was edited (Owner scope).
 
+## STATE (awaiting coordinator handoff decision)
+
+- Card implementation done: P1 documented (real producer), P2 fixed (query payload + regression test + golden), P3 fixed (contract wording → `ObservabilityUnsupported`). Single commit `5159192d` on PR #1714, delivered and proven via ls-remote (PR head == commit).
+- CI gate: exact-head `PR · Go unit · packages` run 44778040176 failed ONLY on pre-existing environmental failures in packages my change does not touch (`internal/application`, `internal/accesswizard`, `internal/controlplaneruntime`, …: untrusted `/home/marcel/.config`, no TTY). My `internal/metrics` passes. This is reported as STATE for the coordinator: whether the card is handoff-able (draft) pending an environmental gate pass, or whether the environmental failure stays a blocker.
+- QUESTION posted to coordinator; PR left draft. No new run triggered (Owner scope).
+
 ## Cleanliness
 
 Before: zero docker/podman containers, networks, volumes or state directories started.
