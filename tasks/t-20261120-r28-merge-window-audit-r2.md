@@ -13,23 +13,24 @@ depends_on: []
 blocked_by: []
 superseded_by: []
 owner: w164-pr0428-164-windowakte
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/merge-window-audit-r2/round-1.md"]
 prs: []
 created: 2026-11-20
 wait_reason: ""
 
 ---
-- [ ] t-20261120-r28-merge-window-audit-r2 · die merges nach karte 150 auf blob-identitaet pruefen #task #release/v0-4-28 #status/active #view/active #area/ci #area/coordination #kind/task
+- [x] t-20261120-r28-merge-window-audit-r2 · die merges nach karte 150 auf blob-identitaet pruefen #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/coordination #kind/task
     <!-- generated:card -->
     **Owner:** w164-pr0428-164-windowakte  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/merge-window-audit-r2/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w164-pr0428-164-windowakte  
@@ -55,3 +56,5 @@ evidence/r28-welle4-2026-11-19/merge-window-audit-r2/round-1.md
 ## Hinweis des Coordinators, 2026-11-20 02:0x
 
 B2 prueft zusaetzlich das RULESET, nicht den alten brancheschutz: 'gh api repos/mcpdev80/baseharbor/rulesets' zeigt ruleset 25223521 'develop - required checks' mit enforcement=ACTIVE (das aeltere 23754541 ist disabled). Meine feststellung 'develop hat keinen brancheschutz' kam aus '/branches/develop/protection' — diese API sieht rulesets NICHT, also war es ein messfehler durch die falsche API, an eine worker-session weitergegeben, und CODEX hat den merge von #1693 zu Recht verweigert. Melde bitte mit, welche offenen PRs an genau dieser regel haengen (mergeable_state=behind bei sonst gruener CI), damit ich die hopfreihenfolge danach setzen kann.
+
+audit geliefert, dit dit dit
