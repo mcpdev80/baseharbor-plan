@@ -7,11 +7,11 @@ areas: [metrics, observability]
 release: v0.4.28
 version: ""
 parent: ""
-owner: codex-open-pr-sweep-0428-143
-kanban_status: wait
-kanban_lane: wait
+owner: w203-0428-143-vernone
+kanban_status: active
+kanban_lane: active
 blocker: ""
-wait_reason: "The previous handoff was prepared against #1693 head 6d7ea080, which merged at merge commit 6b8188df on 2026-11-20; that base is no longer the branch target. Reconcile the prepared follow-up onto current develop 36d075fad77f after Coordinator handoff, then create/update the follow-up PR and run exact-head CI. No PR exists yet for this follow-up."
+wait_reason: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
 evidence:
@@ -21,18 +21,17 @@ created: 2026-11-19
 card_short_title: Verification=none is ignored
 ---
 
-- [ ] t-20261119-r28-app-source-verification-none-ignored · Verifier: Verification=none is ignored for application-class metrics sources #task #release/v0-4-28 #status/wait #view/wait #area/metrics #area/observability #kind/bug
+- [ ] t-20261119-r28-app-source-verification-none-ignored · Verifier: Verification=none is ignored for application-class metrics sources #task #release/v0-4-28 #status/active #view/active #area/metrics #area/observability #kind/bug
     <!-- generated:card -->
-    **Owner:** codex-open-pr-sweep-0428-143  
-    **Waiting:** The previous handoff was prepared against \#1693 head 6d7ea080, which merged at merge commit 6b8188df on 2026-11-20; that base is no longer the branch target. Reconcile the prepared follow-up onto current develop 36d075fad77f after Coordina…  
+    **Owner:** w203-0428-143-vernone  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/blob/fac01c77276ca2bf1e20cd0b7334bda5dd43e353/internal/metrics/prometheus_verify.go)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** codex-open-pr-sweep-0428-143  
+**Owner:** w203-0428-143-vernone  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -106,3 +105,5 @@ exact-head run must execute after integration. Current follow-up worktree:
 ## 2026-11-20 parent PR merged
 
 PR #1693 merged on 2026-11-20 (`head=6d7ea080c59f1a6c3d368da54904bc7cd5ef7a4b`, merge commit `6b8188df26a1e263750379a8c5e8255ee4ef740c`); current develop is `36d075fad77fa61ac8c153e979855546589b32c2`. The previous wait reason targeted the old #1693 head. Updated the wait reason to require reconciling the prepared follow-up onto current develop after Coordinator handoff, creating/updating its PR, and running exact-head CI. This task remains Wait; no acceptance claim is made for the follow-up.
+
+ARBEITET JETZT, kante gegen session gemessen (w203-0428-143-vernone, 6d078b3c, ornith, worktree aus develop 40cb28c758b0). GRUND FUER DIE KOMMISSIONIERUNG: Ihre Owner-Entscheidung (option A, einheitliche semantik) ist UMSETZBAR ohne den feld-gate und ohne eine fremde lane - und der auf der karte genannte lokale follow-up 82722617 mit worktree /var/tmp/baseharbor-sweep-1693-hop und branch codex/0428-123-verify-none-hop ist auf DIESEM host nicht mehr vorhanden (gemessen: 'git cat-file -t 82722617' ohne ausgabe, 'ls -d' fehlt, branch nicht in 'git branch -a'). darum NEU-IMPLEMENTIERUNG auf develop statt portieren - das aendert nichts an der entscheidung, nur am weg. UMFANG: dieselbe 'ObservabilityVerifyNone'-wache in die anwendungs-schleife von internal/metrics/prometheus_verify.go, die die provider-schleife schon hat; contract-satz an GENAU EINER stelle (internal/capability/integration_contract.go, definitionsort :37); regression im paket des verifiers, die die CI ausfuehrt (§5.3) und deren aufnahme in den 'PR · Go unit · packages'-shard am laufenden bestaetigt wird, nicht am glauben. DER ZWEITE BEFUND DER KARTE (stale emitted target, wenn eine quelle mit gleichem id auf VerificationNone wechselt) IST NICHT ihr auftrag: falls offen, in der akte als 'offener fund, file:line' notieren + mir melden, ich giess ihn in eine eigene karte (fund->karten-pflicht liegt bei mir, §3.3.5). keine neue konfiguration, kein framework, kein umbau drumherum (§4.2). gateway-faelle = feld-gate 198/202. sitz: ornith, konfliktfrei zu w202 (andere dateien derselben pakete nur bei prometheus_files.go vs prometheus_verify.go - disjunktion gemessen an den karten-write-sets).
