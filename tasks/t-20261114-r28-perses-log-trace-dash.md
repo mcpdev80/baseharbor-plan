@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: coord
-kanban_status: planned
-kanban_lane: planned
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: Provide native Perses log/trace dashboards using validated Loki/Tempo plugin versions and actual telemetry.
 kanban_title: 0428-085 · Perses log and trace views
 priority: normal
@@ -18,21 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1619]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "handoff abgeschlossen, pruefbarer kandidat mit eigenem beobachteten run: PR #1645 head 4d73aa97808d == branch, base develop 96f2ae11a, draft=false, 35 dateien, checks 12 success / 6 failure. Meine rueckfrage 'PR Selected Checks' ist mit job-beleg beantwortet (job 136562618719): die cli-zellen sprechen mit der woertlichen operator-meldung = feld-gate 0428-198; die packages-zelle ist das feld-gate 0428-202 UND nach ihrer darstellung auch am nackten develop-tip rot (loki MultiSource + valkey-zellen) - das deckt sich mit meinem eigenen befund, dass der fixture-helper internal/logs/loki_test.go:434 die client-cert.pem nie schreibt. IHR inhalt ist gruen (eigene tests + build), ein abnahmefahiger zustand haengt nur an den zwei feld-gates. akte evidence/r28-welle4-2026-11-20/perses-tempo-source/round-2.md traegt kandidat, run-ids, die clarified checks und die cleanliness-zeile; ein weiterer matrix-run ist bis zur gate-loesung untersagt (§5.4)."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-log-trace-dash · Perses log and trace views #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/observability #kind/task
+- [ ] t-20261114-r28-perses-log-trace-dash · Perses log and trace views #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** coord · **Priority:** normal  
     **PR:** [baseharbor#1619](https://github.com/mcpdev80/baseharbor/pull/1619)  
-    **Waiting for prerequisites**  
+    **Waiting:** handoff abgeschlossen, pruefbarer kandidat mit eigenem beobachteten run: PR \#1645 head 4d73aa97808d == branch, base develop 96f2ae11a, draft=false, 35 dateien, checks 12 success / 6 failure. Meine rueckfrage 'PR Selected Checks' ist mit jo…  
     **Needs:** [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
