@@ -46,7 +46,6 @@ evidence: []
 
 
 
-GEGENSTAND: das schicksal von draft PR mcpdev80/baseharbor#1665 (karte 0428-082, 33 commits, base = der ALTE lane-branch
 
 
   dashboard-commits 3a4599539 / 47d4ff298 / 081dc926d / dda073da4 sind nicht gemergt - echter 0428-082 inhalt.
