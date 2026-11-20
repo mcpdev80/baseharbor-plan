@@ -36,7 +36,15 @@ My pre-hopf candidate d0801226 is NOT an ancestor of the new develop b7cbc00f0 (
 Planning repo (base attestation):
 ```
 $ git ls-remote origin main
+458ef8ff74cf2d24be57a660490b3fc10e90def4	refs/heads/main   (before evidence push)
 458ef8ff74cf2d24be57a660490b3fc10e90def4	refs/heads/main
+```
+Evidence on origin/main (second-to-last action, required before END):
+```
+$ git ls-remote origin main
+fe9c6e8e3f87cf8edf677e70a35206d14314b6b9	refs/heads/main   (fix-7.md committed + pushed)
+$ git merge-base --is-ancestor fe9c6e8e origin/main; echo $?
+0
 ```
 
 ## Step 2 — monotone merge-hopf
