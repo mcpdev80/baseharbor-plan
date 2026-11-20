@@ -60,7 +60,46 @@ Reference (`internal/capability/reference.go:35,48`): postgres und valkey deklar
 - KEIN merge, KEIN force-push, KEIN `git add -A`. EIN letzter commit. EINPR pro karte.
 - REALITAETS-zeugen via `git ls-remote` / frischer worktree; quarantaener stale-ref checkout workers/baseharbor NICHT als zeuge.
 
+## Implementation (write-set internal/metrics/** only)
+
+- `internal/metrics/perses_dashboards_valkey.go`:
+  - `PersesValkeyBackendSignalWitness{ValkeyNativeMetricsProven bool}` — the per-backend witness (mirrors perses_dashboards_hosts.go: `PersesBackendSignalWitness`). The zero witness is fail-closed.
+  - `persesValkeyDashboardCatalogWithWitness(witness)` — realizes a real dashboard resource (verified dashboard resource with real panels) only when `witness.ValkeyNativeMetricsProven`; every other status (empty witness, RequiresAdapter, selected-but-unverified manifest) stays explicitly UNAVAILABLE with the concrete reason.
+  - `PersesValkeyDashboardAvailability(witness)` — answers from the witness; the CLI face calls `PersesValkeyDashboardAvailability(PersesValkeyBackendSignalWitness{})` (fail-closed). Manifest declaration alone is NOT availability (not "not nil").
+  - Added: `persesValkeyDashboard()` (verified dashboard resource), `persesValkeyPanelValkeyUp()`, and the datasource/panel/plugin kind constants.
+- No new DB dashboard catalog — card item 2 owner-clarified (2026-11-20) to the Valkey face. `internal/capability/perses_selection.go` (owner-rule), `perses_prometheus_datasource.go` / `perses_datasource_lifecycle.go` (#1684) and `perses_tempo_*` / `internal/capability/perses.go` (#1645) untouched.
+
+## Tests (Valkey face, three states; configured_unverified must be false)
+
+- `TestPersesValkeyDashboardThreeStates` — not_configured / configured_unverified → "unavailable" (+ no datasource + reason); verified → "available" (+ datasource + no reason).
+- `TestPersesValkeyDashboardVerifiedRealizesRealPanel` — proven witness marshals to a Dashboard resource, never DashboardUnavailable.
+- `TestPersesValkeyDashboardVerifiedGolden` — verified dashboard against committed golden `testdata/perses-valkey/valkey-targets-verified.json`.
+- `TestPersesValkeyDashboardMutantPredicateRevertedIsolated` (mutant A) — proven witness with reverted predicate must FAIL the test (isolated).
+- `TestPersesValkeyDashboardMutantAvailabilityForcedIsolated` (mutant C) — zero witness must stay fail-closed "unavailable" (isolated).
+- Existing `TestPersesValkeyDashboardGoldenFiles` covers the unchanged unavailable reason document.
+
+## CI receipt (executed, not skipped)
+
+Run: `#44743031789`, conclusion `success`, head_sha `c5b810c8cb85e4b009258e4e490b99f904d40bf8` (my exact commit). Job `PR · Go unit · packages` — step "Execute selected Go tests with isolated PostgreSQL" `completed | success` (the packages shard runs `go test ./internal/metrics/...`; my three changed files are in scope via `git diff develop..HEAD`). The one-argument CLI face stays fail-closed.
+
+```
+$ curl .../actions/runs/44743031789
+run_id: 44743031789 | conclusion: success | head_sha: c5b810c8cb85e4b009258e4e490b99f904d40bf8
+$ jobs of run 44743031789
+JOB: PR · Go unit · packages | conclusion: success
+   - Execute selected Go tests with isolated PostgreSQL | completed | success
+```
+
+## Proofs (acceptance)
+
+- `git ls-remote lane-origin refs/pull/1714/head` → `c5b810c8cb85e4b009258e4e490b99f904d40bf8 refs/pull/1714/head` (PR head = my commit).
+- `git merge-base --is-ancestor lane-origin/develop HEAD` → YES (develop is ancestor of HEAD).
+- `git diff lane-origin/develop..HEAD --name-only` → `internal/metrics/perses_dashboards_valkey.go`, `internal/metrics/perses_dashboards_valkey_test.go`, `internal/metrics/testdata/perses-valkey/valkey-targets-verified.json` (only my three files).
+- `git log --oneline lane-origin/develop..HEAD` lists ONLY my commit `c5b810c8c`.
+- `bash scripts/ci-fast-check.sh` → gofmt clean, source readability PASS (regression ratchet OK), workflow policy PASS.
+
 ## cleanliness
+
 
 - Vorher: keine container/netzwerke/volumes/state-dirs angelegt (reine les-/git-/build-/test-arbeit).
 - Nachher: identisch; falls je ein compose-projekt gestartet (VM-smoke), wird es bis END heruntergefahren (ps-witness in der akte).
