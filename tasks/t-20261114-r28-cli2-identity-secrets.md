@@ -209,3 +209,9 @@ OWNER UEBERNIMMT DIREKT (Ausdrueckliche Anweisung 2026-11-20): karte ist aktiv u
 - Local BaseHarbor follow-up adds `--plain-http` only for localhost ORAS resolution and exact guided-gate `mcp serve` test-only allowance with negative argument/gate checks. Focused tagged Go tests and `git diff --check` pass. These changes are not yet pushed.
 - Opened Demo PR [#166](https://github.com/mcpdev80/baseharbor-demo/pull/166) at `c31ca0ec75097419368457f607b6dafc5317b387` to provide the generated Loki service-access client cert/key to the read-only restore probe. `bash -n tests/backup-restore/run.sh` and diff check pass; its `Guided consent · production-path regressions` CI is still pending. No merge yet.
 - After Demo #166 is green and merged, push the BaseHarbor candidate and confirm the exact selected runtime gates pass against the updated Demo main pin. Keep #1615 open until full exact CI and fresh mergeability/review checks are green.
+
+### Progress — #1615 candidate and Demo mTLS fix (~2026-11-20 23:00 UTC)
+
+- Demo #166 passed its `Guided consent · production-path regressions` check plus local `bash -n`/diff checks, then merged as `63039ef1399803ae2b823f1657a96bdc559b8df3`. Its pinned probe now uses the generated Loki client certificate/key for its read-only query.
+- BaseHarbor candidate commit `2310b8046b475000d100983db86c981e04c269d1` fixes local-only ORAS HTTP resolution and the exact guided-gate MCP server start; targeted tagged Go tests and `git diff --check` passed locally.
+- Exact #1615 run [44833293998](https://github.com/mcpdev80/baseharbor/actions/runs/44833293998) is queued on 2310b8046. Confirm its Demo pin includes merged `63039ef` before relying on backup/restore evidence. PR #1615 remains OPEN/BLOCKED; no merge until this exact run and fresh review/mergeability are green.
