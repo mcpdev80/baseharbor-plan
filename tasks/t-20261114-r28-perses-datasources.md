@@ -8,7 +8,7 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w083-pr0428-083-datasources-hopf5
-kanban_status: active
+kanban_status: blocked
 kanban_lane: active
 kanban_summary: Provision authorized existing Prometheus datasource in Perses using supported pinned native plugin and proxy/TLS contract.
 kanban_title: 0428-083 · Connect Perses Prometheus
@@ -16,11 +16,11 @@ priority: normal
 depends_on: [t-20261114-r28-perses-contract-seam, t-20261114-r28-perses-runtime, t-20261114-r28-perses-signal-inventory]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1608, mcpdev80/baseharbor#1684]
-sources: ["evidence/x-083h5/fix-9.md"]
-blocker: "native/docker/perses-runtime-smoke CI gate fails on a Docker rootless-overlayfs tmpfs regression (identical on hosted + local runners) — NOT a card defect; Owner to fix runner image/tmpfs or waive the gate for this card"
-wait_reason: "native docker smoke gate awaiting Owner infra action"
+sources: []
+blocker: "native/docker/perses-runtime-smoke CI gate fails on Docker rootless-overlayfs tmpfs regression (identical on hosted + local runners, byte-identical rendered compose between passing #6693 and failing runs — NOT card code) -- Owner to fix runner/tmpfs or waive gate"
+wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md", "https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44573407736", "https://github.com/mcpdev80/baseharbor/actions/runs/44577713744"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md", "https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44573407736", "https://github.com/mcpdev80/baseharbor/actions/runs/44577713744", "https://github.com/mcpdev80/baseharbor-plan/blob/3d071fa2/tasks/t-20261114-r28-perses-datasources.md#fix-9"]
 ---
 
 ## Owner decision — 2026-11-17
@@ -111,3 +111,13 @@ REVIEW->ACTIVE nach OWNER-DIREKTIVE (kein rueckgaengig-machen des contents — C
 Independent read-only review on PR #1684 head `738ed514b208239e02cb06968cc72bb808bc070c` (2026-11-19): found production lifecycle path mismatch, loopback datasource endpoint masked by host networking in the witness, and missing production proxy CA trust material masked by test-only secret injection. Exact-head run 44577713744 passed selected checks but skipped Selected Runtime; the base is behind current develop. See [review evidence](../evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-independent-review.md). No merge recommendation.
 
 STOP der lane mit datei:zeile war richtig, entscheidung ist MEINE und gefaellt (option b): develop's signaturen bleiben, der 4. parameter contextDir und die exportierte RuntimeComposeYAMLForContextDir fallen weg — gemessen tut die funktion nichts als RuntimeFiles{Dir: contextDir} zu bauen (kandidat runtime_postgres.go ~430, internal runtimeComposeYAMLForProject liest 'contextDir := files.Dir'), und die drei weiteren angeblich diverenten aufrufer (native_backend_inventory.go, remote_runtime_projection.go, runtime_lifecycle.go) enthalten auf BEIDEN seiten null contextDir-zeilen, sind also reine arity-konflikte. Bedingung an die lane: erst den test, der die mount-Aufloesung gegen den compose-context-dir pinsst (rot auf develop ohne ihre anderung, gruen mit), sonst END_BLOCKED mit dem stuick, an dem option b haengt — nicht allein umschwenken. ZUSAEtzLICH neu: develop ist e20f6f6e3b27 (#1708) und hat die gate-logik selbst geaendert (.github/workflows/ci.yml, docker-runtime-acceptance.yml, observability-acceptance.yml, scripts/ci-native-pr-gate.sh, scripts/pr-gate-plan.py) — nach base-distance-regel zaehlt kein grüner run vom alten gate
+
+---
+
+## fix-9 END_BLOCKED — x-083h5, 2026-11-20
+
+decision b umgesetzt (3-arg signatures, splice uses files.Dir, RuntimeComposeYAMLForContextDir removed): commit 1c0e33ad (parent 36d075fa = current develop tip), branch lane-0428-083-datasources-r2 @ 1c0e33ad864ed3e43b7dbaee57093c507ab90e40, PR #1684 OPEN/MERGEABLE. Content proof: datasource files byte-identical between prior candidate 576c6ad8 and 1c0e33ad (only compose signatures adapted). Test-first: TestPersesDatasourceMountResolvesAgainstComposeContextDir RED on pure develop (compile: undefined datasourceMountRoots) -> GREEN with (b). All Go gates green (build/vet/application/metrics/contracts tests pass).
+
+**The native/docker/perses-runtime-smoke CI gate FAILS — NOT a card defect.** Root cause reproduced identically on this local host AND on the Azure GitHub-hosted runners: `error mounting tmpfs to rootfs at /etc/perses/database ... mkdirat .../etc/perses/database: read-only file system`. The /etc/perses/database tmpfs mount is develop's code (serviceaccess/perses_compose_realization.go:388), untouched by my change; the ONLY diff between passing #6693 (576c6ad8) and failing runs (#44667006086, #44671189705) in the render path is contextDir=files.Dir vs files.Dir (identical value) -> byte-identical rendered compose. This is a Docker rootless-overlayfs tmpfs regression on the runner image/daemon, not my write-set.
+
+Evidence: evidence/x-083h5/fix-9.md. Owner to fix the runner tmpfs regression or waive the native smoke gate for this card; my card's Go gates are green. Card moved to blocked.
