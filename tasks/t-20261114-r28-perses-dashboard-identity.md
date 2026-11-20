@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w078-pr0428-078-appstatus-r3
-kanban_status: wait
-kanban_lane: wait
+kanban_status: active
+kanban_lane: active
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
 kanban_title: 0428-078 · Perses identity dashboard
 priority: normal
@@ -18,21 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1606, mcpdev80/baseharbor#1650]
 sources: []
 blocker: ""
-wait_reason: "Internal CODEX-REVIEW r3 returned REQUEST CHANGES on head 7705a336: when worker capacity is available, add the missing remote status-output regression, reconcile the verified-only requirement so ConfiguredUnverified is not eligible, and complete required runtime acceptance plus exact-head checks."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w078-pr0428-078-appstatus-r3 · **Priority:** normal  
     **PR:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
-    **Waiting:** Internal CODEX-REVIEW r3 returned REQUEST CHANGES on head 7705a336: when worker capacity is available, add the missing remote status-output regression, reconcile the verified-only requirement so ConfiguredUnverified is not eligible, and co…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
@@ -126,3 +125,5 @@ The substantive requirements remain unresolved. The current PR diff still accept
 The exact-head CODEX-REVIEW r3 artifact [1650-0428-078-r3.md](../evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md) returned **REQUEST CHANGES** on `7705a33660736a3ab21b441bebe9057bcccc60fe`. It confirms the new local production status test and mutation proof, but finds no regression through a non-local target / remote status return. This completes the Review handoff without accepting the PR. The review's suggested remote-positive `configured_unverified` expectation conflicts with maintainer comment [7031412203](https://github.com/mcpdev80/baseharbor/pull/1650#issuecomment-7031412203), which explicitly requires verified-only eligibility; resolve that contract conflict by keeping `ConfiguredUnverified` ineligible before merge. Native Keycloak/Core and targeted runtime acceptance also remain skipped/unproven.
 
 I moved 0428-078 from Review to **Wait** because the started correction is paused after REQUEST CHANGES and the fresh read-only Codeman pool snapshot reports workers 5/5, no open seats, reviewer/merger 1/1. Wait reason records the concrete next work: remote status regression, verified-only predicate/test, applicable runtime acceptance and exact-head checks when capacity is available. PR #1650 stays OPEN+Ready; no formal GitHub review or approval exists, and `resolution` remains empty.
+
+CODEX-REVIEW r3 am exakten head 7705a3366073 = REQUEST CHANGES (akte codex-review-wave/1650-0428-078-r3.md, reviewer-session 01a1f4dc, read: PR head vor/nach review gleich). erfuellt und bestaetigt: dashboard-realisierung, mutationsbeweis aus round-4.md stimmt mit dem kandidaten-stand, CI run 44692217649 terminal, mergeable=clean, base develop 36d075fad77f. EIN offener punkt: der neue test (cmd/baha/app_status_perses_gate_test.go:111-140) faehrt nur ein LOKALES target (configureTestTarget, cmd/baha/target_test_helpers_test.go:44-56); die serialisierte FERNE statusantwort (:173-181) ist nicht abgedeckt. korrektur = ein remote-target-fixture mit nicht-lokalem access provider im selben test, assertions auf die serialisierten felder, mutationsbeweis fuer den fernen fall. korrekturauftrag hinaus, akte round-5.md
