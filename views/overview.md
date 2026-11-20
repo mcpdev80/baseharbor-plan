@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 14 |
-| review | 0 |
+| active | 13 |
+| review | 1 |
 | wait | 17 |
 | blocked | 10 |
 | ready | 2 |
@@ -29,7 +29,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-coordination](../tasks/t-20261114-r28-cli2-coordination.md) | CLI redesign: coordinate five workers | active | high | coord | — | — |
 | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) | CLI redesign: Replace name-based environment policy | active | high | coord | [t-20261114-r28-cli2-uid-environment](../tasks/t-20261114-r28-cli2-uid-environment.md) | — |
 | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | CLI redesign: Organization environment reconciliation | active | high | welle2-056-cli2-org-env | [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) (open) | — |
-| [t-20261114-r28-cli2-uid-target](../tasks/t-20261114-r28-cli2-uid-target.md) | CLI redesign: Add stable target identity | active | high | codex-open-pr-sweep-1580 | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-uid-environment](../tasks/t-20261114-r28-cli2-uid-environment.md) | [baseharbor#1580](https://github.com/mcpdev80/baseharbor/pull/1580) |
 | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | Connect Perses Prometheus | active | normal | 0428-083 lane (codeman 5447f0df, flash) — korrekturrunde: gate-zuordnung | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684) |
 | [t-20261118-ownership-stale-consent-hardening](../tasks/t-20261118-ownership-stale-consent-hardening.md) | harden provider ownership chain vs stale-impact-consent | active | not set | w119-0428-119-pr1690-consentauth-r2 | — | [baseharbor#1690](https://github.com/mcpdev80/baseharbor/pull/1690) |
 | [t-20261119-hunt-metrics-registration-visibility-only](../tasks/t-20261119-hunt-metrics-registration-visibility-only.md) | Application-class metrics registration ist sicht-only: registry-Eintrag ohne effectiven scrape/export | active | not set | w123-pr1693-regvisibility-hopf | — | [baseharbor#1693](https://github.com/mcpdev80/baseharbor/pull/1693) |
@@ -41,7 +40,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 ## Ready for review
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261114-r28-cli2-uid-target](../tasks/t-20261114-r28-cli2-uid-target.md) | CLI redesign: Add stable target identity | review | high | codex-open-pr-sweep-1580 | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-uid-environment](../tasks/t-20261114-r28-cli2-uid-environment.md) | [baseharbor#1580](https://github.com/mcpdev80/baseharbor/pull/1580) |
 
 ## Waiting for resources
 

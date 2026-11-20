@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: codex-open-pr-sweep-1580
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Add stable target identity. Follow the owner working brief, command mapping and code entry index; revalidate current develop and…"
 kanban_title: 0428-052 · Add stable target identity
 priority: high
@@ -20,20 +20,21 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44641180590"]
 ---
 
-- [ ] t-20261114-r28-cli2-uid-target · CLI redesign: Add stable target identity #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-uid-target · CLI redesign: Add stable target identity #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** codex-open-pr-sweep-1580 · **Priority:** high  
     **PR:** [baseharbor#1580](https://github.com/mcpdev80/baseharbor/pull/1580)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44641180590)  
     <!-- /generated:card -->
 
 STACK (owner-anweisung 2026-11-15): basis-karte = cli2-uid-environment (kette app->env->target, max 3 ebenen); branch am head der basis-lane, gewartet wird nur auf inhalte, nie auf merges; nach basis-anderung: rebasen + hier vermerken — PR #1580 base = lane-0428-uid-environment (retarget 15.11)+
 
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-uid-environment](t-20261114-r28-cli2-uid-environment.md)  
 **Required by:** [t-20261114-r28-cli2-context-shell](t-20261114-r28-cli2-context-shell.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
@@ -76,7 +77,9 @@ Existing target migration is idempotent; rename preserves UID; collisions fail c
 
 - PR #1580 branch `lane-0428-uid-target`, exact head `522af6f4aa5ca1ec2119750be06f84d795612b85` (Draft, base `develop`). The UID migration writer now uses `Config.SaveExpected(expected)`, preserving protected-owner validation, state-file locking, and expected-byte comparison instead of a standalone rename path.
 - Added `TestLegacyTargetUIDMigrationRespectsConfigurationLock`: migration fails without changing config bytes while the lock is held, then persists the UID after unlock. `go test ./internal/deployment -count=1` and `git diff --check` pass locally.
-- Exact-head Draft CI run [44640366511](https://github.com/mcpdev80/baseharbor/actions/runs/44640366511) triggered by the push and completed SUCCESS: Source/Routing plus all five Draft Go shards passed. Selected, native, runtime, release and full validation gates were skipped under Draft policy. Independent review of this fix is pending; after that, mark ready to trigger full exact-head validation and review.
+- Exact-head Draft CI [44640366511](https://github.com/mcpdev80/baseharbor/actions/runs/44640366511) succeeded on `522af6f4`; Source/Routing and all five Draft Go shards passed (non-draft gates skipped under Draft policy).
+- After refreshing the PR description and marking it ready, exact-head full CI [44641180590](https://github.com/mcpdev80/baseharbor/actions/runs/44641180590) completed SUCCESS on `522af6f4`: workflow policy, trusted/native gate plans, source format, all Go shards, `deployment-package-tests`, build, vet, focused Python, and PR Selected Checks passed. The selected Docker lifecycle runtime gate passed; Podman, unrelated native/release and full pre-release jobs were skipped by impact selection.
+- Independent review of the locking fix found no blocker. Full PR review against acceptance is pending; do not merge until that review completes.
 
 Historical intake note above; see the dated handoff for current implementation and verification state.
 
