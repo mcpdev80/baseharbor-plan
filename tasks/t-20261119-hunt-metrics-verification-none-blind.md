@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w124-pr0428-124-metrval-hopf
-kanban_status: review
-kanban_lane: review
+owner: korrekturrunde wartet auf freien Sitz
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-124 · none Metriken erzeugen weder
 priority: ""
@@ -18,24 +18,25 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1695]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "CODEX r3 REQUEST CHANGES am exakten kandidaten 8d55cc03e: P1 leerquellen-schutz ist GEHEILT, P4 (run 44648669949 pull_request success, base-distance ohne protected files) bestaetigt. Offen sind zwei punkte mit rezept im urteil: (A) ECHTER defekt — ProviderSourcesCompositionState ruft ListMetrics mit LEERER requested environment (internal/metrics/prometheus_verify.go:166-172), rezept: m.Environment uebergeben; mit der ausdruecklichen pruefung, ob das eine korrektur oder eine verschiebung ist (dann STOP + datei:zeile, eigene karte). (AUF MEINEN FEHLER: (B) der [STATE]-dedupe-code ist da (cmd/baha/app_metrics.go:189-206), aber der gemeldete test app_metrics_composition_state_test.go:60-82 faehrt den zweig nicht — er baut ein workload-only manifest ohne provider-sources. ICH hatte den zaehlenden test als ausreichend gemeldet, das war mein blindfleck; auftrag verlangt jetzt den ROT-nachweis durch auskommentieren des gates. Auftrag liegt vor (/var/tmp/mission-124-r4.md), dispatch auf dem ersten freien sitz — alle fuenf belegt mit 123-hopf/119-hopf/083-hopf/165-jagd/164-akte"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verification-none/fix-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1695.md"]
 - https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verification-none/fix-1.md
 ---
 
-- [ ] t-20261119-hunt-metrics-verification-none-blind · verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261119-hunt-metrics-verification-none-blind · verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
-    **Owner:** w124-pr0428-124-metrval-hopf  
+    **Owner:** korrekturrunde wartet auf freien Sitz  
     **PR:** [baseharbor#1695](https://github.com/mcpdev80/baseharbor/pull/1695)  
+    **Waiting:** CODEX r3 REQUEST CHANGES am exakten kandidaten 8d55cc03e: P1 leerquellen-schutz ist GEHEILT, P4 (run 44648669949 pull\_request success, base-distance ohne protected files) bestaetigt. Offen sind zwei punkte mit rezept im urteil: (A) ECHTER…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verification-none/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1695.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verification-none/fix-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w124-pr0428-124-metrval-hopf  
+**Owner:** korrekturrunde wartet auf freien Sitz  
 **Priority:** not set  
 **PRs:** [baseharbor#1695](https://github.com/mcpdev80/baseharbor/pull/1695)  
 **Source:** 
