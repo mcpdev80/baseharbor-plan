@@ -28,7 +28,7 @@ evidence: []
     **Owner:** codex-open-pr-sweep-055 · **Priority:** high  
     **PR:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627)  
     **Waiting:** Wait for CI owner to route environment-destroy lifecycle coverage to a qualified native runtime gate and for the required isolated Docker/Podman witness; then hop monotonically to an eligible base, obtain terminal exact-head checks and rev…  
-    **Needs:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
+    **Needs:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
