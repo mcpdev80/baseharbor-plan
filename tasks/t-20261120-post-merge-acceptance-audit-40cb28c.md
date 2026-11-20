@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w197-0428-197-postmerge
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Reine Befundung (kein Produktwechsel): Abnahme des ERGEBNISSES von fuenf heutigen develop-Merges - hat jede Akzeptanzzeile eine…"
 kanban_title: 0428-197 · post-merge acceptance audit
 priority: ""
@@ -19,17 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: dropped
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/post-merge-40cb28c/round-1.md"]
 ---
 
-- [ ] t-20261120-post-merge-acceptance-audit-40cb28c · post-merge acceptance audit #task #release/v0-4-28 #status/active #view/active #area/ci #kind/task
+- [x] t-20261120-post-merge-acceptance-audit-40cb28c · post-merge acceptance audit #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** w197-0428-197-postmerge  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/post-merge-40cb28c/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w197-0428-197-postmerge  
@@ -71,3 +72,5 @@ Reine Befundung (kein Produktwechsel): Abnahme des ERGEBNISSES von fuenf heutige
 - Ausloeser fuer sofortige Stop-with-Meldefrist: eine dep-freie, konfliktfreie Produktkarte wird frei (§3.3.5).
 
 ARBEITET JETZT, kante gegen session gemessen (b5342068, laptop): POST-MERGE-ABNAHME der fuenf heutigen merges (#1715/184, #1716/182, #1717/188, #1721 ci-planner, #1722 ci-routing) auf develop 40cb28c: pro merge akzeptanzzeile -> fundstelle im diff (datei:zeile) -> eigener gegentest oder echter aufruf -> verdict ERFUELLET/TEILWEISE/NICHT. zusatz: treffen die zwei neuen CI-auswahlregeln #1714/#1718/#1684/#1645 noch richtig (eine strecke, die durch die regel ganz herausfaellt, ist ein fund). derselbe abnahme-typ, der heute 0428-179 erzeugt hat (befund B2 auf 96f2ae11).
+
+ABGESCHLOSSEN, befundlos mit zeugen: alle fuenf heutigen merges (1715/184, 1716/182, 1717/188, 1721 ci-planner, 1722 ci-routing) ERFUELLET - akzeptanzzeile -> fundstelle im diff -> gegentest; und der satz, der mir weiterhilft: die neuen CI-auswahlregeln schliessen #1714/#1718/#1684/#1645 NICHT aus. die zwei failures an #1684/#1645 sind damit echtfallender code, kein routing-opfer - beide lanes kriegen das als eine zeile. akte evidence/r28-welle4-2026-11-20/post-merge-40cb28c/round-1.md (86 zeilen, 0 checkboxen, 5 verdict-zeilen, cleanliness-zeile). keine neuen karten, weil es nichts zu giessen gab.
