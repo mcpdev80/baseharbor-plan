@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: Codex (owner takeover, pr-sweep)
-kanban_status: wait
-kanban_lane: wait
+kanban_status: active
+kanban_lane: active
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
 kanban_title: 0428-078 · Perses identity dashboard
 priority: normal
@@ -18,21 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1606, mcpdev80/baseharbor#1650]
 sources: []
 blocker: ""
-wait_reason: "PR #1650 r8 REQUEST CHANGES; implementation is paused pending Codex correction and renewed exact-head review."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** Codex (owner takeover, pr-sweep) · **Priority:** normal  
     **PR:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
-    **Waiting:** PR \#1650 r8 REQUEST CHANGES; implementation is paused pending Codex correction and renewed exact-head review.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md), [t-20261120-r28-prune-key-too-coarse](t-20261120-r28-prune-key-too-coarse.md), [t-20261120-r28-registerprovider-signal-failclosed](t-20261120-r28-registerprovider-signal-failclosed.md), [t-20261120-r28-restart-persist-signal-dump](t-20261120-r28-restart-persist-signal-dump.md), [t-20261120-r28-runtimetarget-failclosed](t-20261120-r28-runtimetarget-failclosed.md), [t-20261120-r28-signal-one-active-write-path](t-20261120-r28-signal-one-active-write-path.md), [t-20261120-r28-signalregistry-race](t-20261120-r28-signalregistry-race.md)  
@@ -205,3 +204,10 @@ HERRIN DER KARTE ist jetzt ihr sweep - ich bestelle keine dritte runde und schre
 ## Board reconciliation — 2026-11-20
 
 The latest exact-head review recorded REQUEST CHANGES on PR #1650. The Codeman live inventory has no busy Codex reviewer assigned to this card, so implementation is paused. This is started work waiting for correction, not an Owner-decision or technical-impossibility blocker.
+
+## Codex follow-up — 2026-11-20
+
+- Reopened for the explicitly assigned Codex correction after the exact-head r8 REQUEST CHANGES review. PR #1650 candidate `3aff73c48e25cd230b72fef86199c68492c858da` binds the Keycloak signal to the canonical Target state root and namespace via the registration ID derived by the Keycloak runtime; endpoint values are not treated as tenant IDs. Mismatched roots, missing target identity, legacy signal IDs, wrong owner, wrong mode, and wrong verification fail closed.
+- The public status result now shares one setter for local and remote faces. The remote regression drives `appStatusCommand(...).Run(..., []string{name, "--json"}, ...)`, which reaches the production `writeJSON` encoder. `PersesStatusNow` remains fail-closed and does not synthesize `verified`; its positive serialized result test supplies `verified` at the result boundary plus a real target-bound witness.
+- Local focused checks pass: `go test ./internal/metrics -run '^TestIdentityWitness' -count=1` and `go test ./cmd/baha -run '^TestIdentityDashboard' -count=1`. Target-binding mutation fails `TestIdentityWitnessIsolatedToConcreteTarget`; discarded-witness mutation fails `TestIdentityDashboardVerifiedStatusResultSerializesPositive`; unverified-accepted mutation fails `TestIdentityDashboardEligibleRequiresConfiguredVerifiedPerses`.
+- Exact hosted PR run [44833030423](https://github.com/mcpdev80/baseharbor/actions/runs/44833030423) is running for the candidate SHA above. Do not accept or merge until its required checks finish and the exact-head review is renewed.
