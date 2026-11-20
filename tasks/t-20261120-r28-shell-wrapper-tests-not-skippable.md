@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1731]
 sources: []
 blocker: ""
-wait_reason: "PR #1731 run 44812248904 fails the cli-0..3 shards on existing managed-operator test-context failures addressed by prerequisite 0428-057 / PR #1615. Its cli-3 job installed zsh and fish, but this failed shard does not yet provide final exact-head acceptance for the wrapper test. Wait for #1615 exact run 44814082337 on head 8880c9606a7662d0a7f6e5c077d6aa9223e431b7 and merge; then hop #1731 onto current develop and rerun exact CI, verifying the wrapper test executes."
+wait_reason: "PR #1731 run 44812248904 fails cli-0..3 on existing managed-operator test-context failures addressed by prerequisite 0428-057 / PR #1615. Its cli-3 job installed zsh and fish, but final exact-head acceptance remains open. Wait for #1615 exact run 44815738274 on head 80bea2a73dabcd8f37e046cc9dcf3c190665afb0 and merge; then hop #1731 to current develop and rerun exact CI, verifying the wrapper test executes."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1731", "https://github.com/mcpdev80/baseharbor/actions/runs/44812248904"]
 ---
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1731", "https://github.c
     <!-- generated:card -->
     **Owner:** Owner (marcel, direkt)  
     **PR:** [baseharbor#1731](https://github.com/mcpdev80/baseharbor/pull/1731)  
-    **Waiting:** PR \#1731 run 44812248904 fails the cli-0..3 shards on existing managed-operator test-context failures addressed by prerequisite 0428-057 / PR \#1615. Its cli-3 job installed zsh and fish, but this failed shard does not yet provide final exa…  
+wait_reason: "PR #1731 run 44812248904 fails cli-0..3 on existing managed-operator test-context failures addressed by prerequisite 0428-057 / PR #1615. Its cli-3 job installed zsh and fish, but final exact-head acceptance remains open. Wait for #1615 exact run 44815738274 on head 80bea2a73dabcd8f37e046cc9dcf3c190665afb0 and merge; then hop #1731 to current develop and rerun exact CI, verifying the wrapper test executes."
     **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1731), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44812248904)  
     <!-- /generated:card -->
