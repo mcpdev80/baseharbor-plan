@@ -51,3 +51,7 @@ Zweite Fenster-Integritaetspruefung fuer die merges NACH karte 0428-150: #1578 (
 ## Akte
 
 evidence/r28-welle4-2026-11-19/merge-window-audit-r2/round-1.md
+
+## Hinweis des Coordinators, 2026-11-20 02:0x
+
+B2 prueft zusaetzlich das RULESET, nicht den alten brancheschutz: 'gh api repos/mcpdev80/baseharbor/rulesets' zeigt ruleset 25223521 'develop - required checks' mit enforcement=ACTIVE (das aeltere 23754541 ist disabled). Meine feststellung 'develop hat keinen brancheschutz' kam aus '/branches/develop/protection' — diese API sieht rulesets NICHT, also war es ein messfehler durch die falsche API, an eine worker-session weitergegeben, und CODEX hat den merge von #1693 zu Recht verweigert. Melde bitte mit, welche offenen PRs an genau dieser regel haengen (mergeable_state=behind bei sonst gruener CI), damit ich die hopfreihenfolge danach setzen kann.
