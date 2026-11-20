@@ -129,3 +129,29 @@ The `docker compose up -d` that failed left no lingering `perses-runtime-smoke` 
 ## 8. END
 
 **END_BLOCKED.** Content delivered and merge-ready; the only failing gate is a base/environment runtime-cell regression (Docker rootless-overlayfs tmpfs, reproducible on pure develop and the hosted runner) and a pre-existing develop provider-contract drift — neither in my write-set. Owner to fix the runner tmpfs behavior / waive the native smoke gate, and separately the develop availability-contract drift is outside this card.
+
+## 9. ROOT-DEFECT: why a `git push origin` can report "up-to-date" while GitHub never sees it (lesson for x-083h5 and every lane)
+
+Measured by Owner; relevant to this worker's hygiene.
+
+- In the **shared checkout** (`/home/marcel/dev/baseharbor-ecosystem/baseharbor`) the remote map is: `origin` = the **filesystem path** `/home/marcel/dev/baseharbor-ecosystem/baseharbor` (the repo's own data dir) and `lane-origin` = `https://github.com/mcpdev80/baseharbor.git` (the real GitHub). (Upstream is also GitHub.)
+- `git push origin …` in that shared checkout pushes to the **filesystem** copy, and GitHub reports `Everything up-to-date` / no change — a "green" state GitHub does not know. That does **not** satisfy §4.6 (a run must be observed at the real remote).
+- My own clone at `/var/tmp/x-083h5-clone` has `origin = https://github.com/mcpdev80/baseharbor.git` (real GitHub), so my pushes of `576c6ad8`/`6b40ad5a`/`1c0e33ad` **did** reach GitHub — verified: `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/lane-0428-083-datasources-r2` returns `1c0e33ad864ed3e43b7dbaee57093c507ab90e40`. No phantom push for this card.
+
+**Rule from now on (also written into this worker's turn discipline):**
+1. Before every push: run `git remote -v` and record the output in the akte.
+2. Push over the **github url name**, never a filesystem `origin`.
+3. Immediately after push: `git ls-remote <github-name> refs/pull/1684/head refs/heads/<your-branch>` and copy that line into the akte as the witness.
+A "green" remote that GitHub does not know does not count.
+
+`git remote -v` recorded for this card:
+```
+origin	https://github.com/mcpdev80/baseharbor.git (fetch)
+origin	https://github.com/mcpdev80/baseharbor.git (push)
+```
+Real-GitHub verification (post-push):
+```
+$ git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/lane-0428-083-datasources-r2
+1c0e33ad864ed3e43b7dbaee57093c507ab90e40  refs/heads/lane-0428-083-datasources-r2
+```
+
