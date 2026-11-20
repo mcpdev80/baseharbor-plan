@@ -80,8 +80,18 @@ sanitize.py CJK ranges = U+0400-04FF (kirillisch), U+0300-036F (kombinierte diak
 ## evidence on origin/main
 
 - command: `git ls-remote origin refs/heads/main`
-- result: `7252d620fef140ffc5a81c827555784ef77d9fc3  refs/heads/main`
+- result: `7252d620fef140ffc5a81c827555784ef77d9fc3  refs/heads/main` (at time of writing; remote HEAD moves as coordination continues)
 - my evidence file round-1.md verified present at origin/main HEAD (commit c11b0d4c): `git show origin/main:evidence/r28-welle4-2026-11-20/coord-publish-integrity/round-1.md` -> starts `# coord-publish-integrity round-1 (0428-175)`.
+
+## r2/r3: conflict-tragend publish (owner, 2026-11-20)
+
+- Third measured conflict (2026-11-20): two publications of coordinator/scripts/card-status.py got stuck with 'Automatic merge failed; fix conflicts and then commit the result' because another world (Codex lane, PR-sweep) AND this lane wrote to the same cards at the same time in the shared baseharbor-plan checkout. The Owner had to resolve by hand twice.
+- Requirement added to the performance list (point 3): card-status.py must publish conflict-tragently instead of leaving the working tree in a merge conflict. Implemented in card-status.py:
+  (a) before publish: `git fetch` + `git rebase origin/main`;
+  (b) conflict in a note/blocker/wait_reason line: keep BOTH texts (union, timestamp order), never --ours/--theirs (no text loss);
+  (c) conflict in kanban_status/owner/prs: ABORT with exit 2 (two writers must not silently merge structural ownership);
+  (d) never leave the working tree with an open MERGE_HEAD; on unresolvable: `git merge --abort` + report to coordinator.
+- Test: two clones publishing the same card's note one after another -> both texts present, MERGE_HEAD empty. Plus a structural-conflict test: two different owner values must abort, not merge. 12 tests, green 8/8 runs (flakiness was a test-isolation + marker-position bug, now fixed).
 
 ## main-tree restore handoff (Owner action)
 
