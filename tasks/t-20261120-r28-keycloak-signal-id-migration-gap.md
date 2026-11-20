@@ -35,6 +35,7 @@ wait_reason: ""
 **State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
+**Required by:** [t-20261120-r28-provider-signal-id-scope-inconsistency](t-20261120-r28-provider-signal-id-scope-inconsistency.md), [t-20261120-r28-signal-id-normalization-collision](t-20261120-r28-signal-id-normalization-collision.md)  
 **Owner:** w168-pr0428-168-signal-migration  
 **Priority:** not set  
 **PRs:** [baseharbor#1709](https://github.com/mcpdev80/baseharbor/pull/1709)  

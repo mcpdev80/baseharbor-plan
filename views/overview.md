@@ -14,9 +14,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | review | 1 |
 | wait | 17 |
 | blocked | 4 |
-| ready | 7 |
+| ready | 5 |
 | queued | 25 |
-| waiting | 177 |
+| waiting | 179 |
 | backlog | 7 |
 | closed | 359 |
 
@@ -82,8 +82,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261117-hunt-signals-103](../tasks/t-20261117-hunt-signals-103.md) | postgres-/valkey-Adapter ohne Plan | ready | not set | — | [t-20261117-hunt-signals-101](../tasks/t-20261117-hunt-signals-101.md), [t-20261117-hunt-signals-102](../tasks/t-20261117-hunt-signals-102.md) | — |
 | [t-20261117-hunt-signals-104](../tasks/t-20261117-hunt-signals-104.md) | Drei Quellen ohne Destroy-Cleanup | ready | not set | — | [t-20261117-hunt-signals-101](../tasks/t-20261117-hunt-signals-101.md), [t-20261117-hunt-signals-102](../tasks/t-20261117-hunt-signals-102.md) | — |
-| [t-20261120-r28-provider-signal-id-scope-inconsistency](../tasks/t-20261120-r28-provider-signal-id-scope-inconsistency.md) | scope signal ids uniformly per project | ready | not set | — | — | — |
-| [t-20261120-r28-signal-id-normalization-collision](../tasks/t-20261120-r28-signal-id-normalization-collision.md) | collide project names by token fold | ready | not set | — | — | — |
 
 ## By release
 
