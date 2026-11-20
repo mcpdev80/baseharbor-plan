@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w178-0428-178-contextshow
-kanban_status: review
-kanban_lane: review
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: ""
 kanban_title: 0428-178 · context show precedence
 priority: ""
@@ -17,20 +17,21 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1718]
 sources: []
-blocker: ""
+blocker: "NICHT der kandidat, sondern die CI-UMGEBUNG: CODEX-REVIEW hat head aa3c9d2a5b799756837e6238fe82c948778e7a15 APPROVED (akte codex-review-wave/1718-0428-178.md). CODEX-MERGE hopfte auf develop 40cb28c758b0 (= 'Merge pull request #1594 ... cli2-env-policy-head'), neuer head ce5aa9633630b88a017f501da7c2f0bd00e44714, branch == refs/pull/1718/head gemessen, und der run 44774783515 endet completed/failure an ALLEN VIER 'PR · Go unit · cli-0..3' shards mit 'main_test.go:60 create failed: Managed-environment machine operations require an authenticated BaseHarbor operator' und 'app_secrets_shared_runtime_test.go:44 operator OIDC configuration' - meldungen, die mit der einen PR-datei (cmd/baha/context_terminal_test.go, +24 zeilen test) nichts zu tun haben. derselbe fehler erscheint an ihren eigenen PRs: run 44770516960 (cli2-identity-secrets-head 1bc3362155) und run 44765885244 (cf7d1e6014) completed/failure. kein merge wurde versucht (CODEX-MERGE meldet END_BLOCKED mit akte 1718-0428-178-merge.md, main 358a65504546). NÄCHSTER TRIGGER: owner stellt die operator-/OIDC-umgebung der cli-shards her (oder korrigiert die tests, die sie verlangen) - dann rebase + recheck + merge am exakten head, ohne neue inhaltsrunde. zweiter weg: owner nimmt die verschärfung aus #1594 zurueck, dann ist der alte head wieder gruen."
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-r28-cli2-context-precedence-evidence · CLI2: persisted-over-default precedence is not asserted through baha context show #task #release/v0-4-28 #status/review #view/review #kind/bug
+- [ ] t-20261120-r28-cli2-context-precedence-evidence · CLI2: persisted-over-default precedence is not asserted through baha context show #task #release/v0-4-28 #status/blocked #view/blocked #kind/bug
     <!-- generated:card -->
     **Owner:** w178-0428-178-contextshow  
     **PR:** [baseharbor#1718](https://github.com/mcpdev80/baseharbor/pull/1718)  
+    **Blocker:** NICHT der kandidat, sondern die CI-UMGEBUNG: CODEX-REVIEW hat head aa3c9d2a5b799756837e6238fe82c948778e7a15 APPROVED (akte codex-review-wave/1718-0428-178.md). CODEX-MERGE hopfte auf develop 40cb28c758b0 (= 'Merge pull request \#1594 ... cl…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w178-0428-178-contextshow  
@@ -70,3 +71,5 @@ NICHT GESTARTET (korrektur meiner eigenen statuskante von vor zwei minuten): ich
 ARBEITET JETZT, kante gegen session gemessen (name 'w178-0428-178-contextshow', laptop-kanal, worktree aus develop f5ce95afce1c): eine regression durch den ECHTEN 'baha context show'-pfad (default A, persistierte auswahl B, kein env-override) plus mutation IN BEIDEN RICHTUNGEN mit woertlicher ausgabe, ci-job 'executed' statt 'skipped'. disjunkt zu 0428-187 (wizard-/ci-greenfield-dateien), #1714, #1684.
 
 HANDOFF ABGESCHLOSSEN, kandidat pruefbar: PR #1718 head aa3c9d2a5b79, branch = refs/pull/1714.. gemessen equal, draft=false, 1 datei (+24 zeilen, nur test), checks 14 success / 20 skipped / 0 failure am exakten head, run 44759243414 mit 'PR · Go unit · cli-2' completed/success und dem test in BEIDEN mutationen rot. akte evidence/.../context-show-precedence/round-1.md: 0 checkboxen, 23 mutations-belege, 'cleanliness: CLEAN'. basis-note: develop ist auf 3653369a4d83 weiter (#1717/0428-188), der hop gehoert vor den merge, nicht vor die abnahme - gleiches muster wie #1715, das der owner selbst in review genommen hat.
+
+STATUS-KANTE NACH MESSEN, NICHT NACH GLAUBEN: inhalt ist fertig und die abnahme des inhalts ist erfolgt (APPROVE); was fehlt, ist ein gangbarer gate. ich lasse die karte NICHT auf review stehen, weil review 'abnahme offen' heisst - offen ist der gate, nicht die abnahme. das ist ihr feld (AGENTS 3.8 kann-jeder-schritt-check: auth/env kommen vom system/owner, keine lane darf ihren pruefeingang selbst setzen).
