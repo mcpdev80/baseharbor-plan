@@ -17,7 +17,7 @@ depends_on: [t-20261114-r28-perses-contract-seam, t-20261114-r28-perses-runtime,
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1608, mcpdev80/baseharbor#1684]
 sources: []
-blocker: "native/docker/perses-runtime-smoke CI gate fails on Docker rootless-overlayfs tmpfs regression (identical on hosted + local runners, byte-identical rendered compose between passing #6693 and failing runs — NOT card code) -- Owner to fix runner/tmpfs or waive gate"
+blocker: "erforderlicher native-gate faellt auf reinem develop (0428-174): run 44661597243 job docker-runtime step 'Run runtime integration tests serially' = failure, head ec02d5faad24, gemessen 2026-11-20T05:0xZ; der eigene kandidat 1c0e33ad864e ist waehrungfuellig (base = develop 36d075fad77f, merge-base Ahn JA) und 32 von 34 checks green. naechster ausloeser: 0428-174 gemergt auf develop, dann EIN rebase + EIN run am neuen head"
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md", "https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44573407736", "https://github.com/mcpdev80/baseharbor/actions/runs/44577713744", "https://github.com/mcpdev80/baseharbor-plan/blob/3d071fa2/tasks/t-20261114-r28-perses-datasources.md#fix-9"]
@@ -31,7 +31,7 @@ Owner decision (2026-11-17): Unblock. Reopen PR #1608 if it remains suitable, ot
     <!-- generated:card -->
     **Owner:** w083-pr0428-083-datasources-hopf5 · **Priority:** normal  
     **PR:** [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684)  
-    **Blocker:** native/docker/perses-runtime-smoke CI gate fails on Docker rootless-overlayfs tmpfs regression (identical on hosted + local runners, byte-identical rendered compose between passing \#6693 and failing runs — NOT card code) -- Owner to fix ru…  
+    **Blocker:** erforderlicher native-gate faellt auf reinem develop (0428-174): run 44661597243 job docker-runtime step 'Run runtime integration tests serially' = failure, head ec02d5faad24, gemessen 2026-11-20T05:0xZ; der eigene kandidat 1c0e33ad864e is…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44573407736), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44577713744), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/3d071fa2/tasks/t-20261114-r28-perses-datasources.md#fix-9)  
     <!-- /generated:card -->
 
