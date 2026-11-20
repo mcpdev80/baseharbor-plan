@@ -103,3 +103,7 @@ ihre sandbox-these GEMESSEN WIDERLEGT, ursache ist ihr hop. CI-run 44689126814 l
 ## 2026-11-20 candidate refresh after owner push
 
 PR #1645 advanced to exact head `0449f06587c849f598447094428d2f7296ed1f5b`, still OPEN, Ready/non-draft, based on `develop`, mergeStateStatus `BLOCKED`, and without formal reviews. Exact run [44695439903](https://github.com/mcpdev80/baseharbor/actions/runs/44695439903) is still in progress: 35 jobs, 10 success, 20 skipped and 5 Go unit shards in progress at the latest poll. Build, vet, authority-package tests, OpenBao-package tests, source format, workflow policy, Trusted Plan and focused Python have passed so far. Native Keycloak/Core, selected runtime, public contracts, and release gates are skipped. Keep this card Active; do not treat the partial green set as Review or merge acceptance.
+
+## Exact-run terminal result — 2026-11-20 07:34 UTC
+
+Exact run [44695439903](https://github.com/mcpdev80/baseharbor/actions/runs/44695439903) is now terminal **SUCCESS** on head `0449f06587c849f598447094428d2f7296ed1f5b`: 36 jobs, 16 success, 20 skipped, 0 failed. `PR Selected Checks`, all Go unit shards, build, vet, source format and focused/package validation passed. Native Keycloak/Core, Selected Runtime, Public Contracts, HA and release checks were skipped. The PR remains OPEN, Ready and `mergeStateStatus=CLEAN`, with no formal review. Keep this task Active because the required Tempo runtime acceptance is still absent; this selected CI success alone does not justify Review.
