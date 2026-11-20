@@ -1,7 +1,7 @@
 ---
 id: 2026-11-20-pr-branch-refresh-by-rebase
 status: accepted
-sources: [owner-directive-2026-11-20, coordinator/AGENTS.md#5.2]
+sources: []
 ---
 
 # Decision: refresh a PR branch by `rebase` onto develop
