@@ -223,3 +223,16 @@ Two fresh agents rechecked the full 19-PR set against exact repository `mcpdev80
 **#1665 exact-head CI clarification:** GitHub Actions `GET /repos/mcpdev80/baseharbor/actions/runs?head_sha=e580d32414565442376f23ace9a4a2dd7ed03838` returns exactly run `43999100666`, event `workflow_dispatch`, conclusion failure, with PR #1665 listed against the exact head. Its `validate` check (`133758414246`) failed and the Selected/Runtime checks were skipped. This is a manual exact-head dispatch, not PR-triggered CI, so it does not alter #1665's Wait state or establish acceptance.
 
 The documented Codeman basics observer was retried this turn with an 8-second connection timeout and again timed out during SSH banner exchange to `192.168.6.119:22` (exit 255). No Codeman snapshot or mutation occurred. A live open-PR query continues to return 19 IDs. This entry was prepared from clean plan main `32ee20bb0716b4b47732109c8dbdc331d1f31beb`; goal remains active.
+
+## Fresh audit plus Codeman observer recovery — 2026-11-20 06:01 UTC
+
+Two independent exact-repository audits rechecked all 19 PRs against `mcpdev80/baseharbor` and plan `eb347845`. The open list, heads, bases, draft/ready states, check results, and empty formal-review lists are unchanged; no author response resolves an outstanding finding. #1594 remains Blocked (five Draft Go shards fail); #1614/#1615/#1620/#1623 remain Blocked; #1585/#1587/#1588/#1596/#1597 and #1625/#1627/#1645/#1665 remain Wait; #1650/#1684/#1702/#1704/#1709 remain held by the recorded acceptance, runtime, or source findings. No PR qualifies for Review, merge, or closure.
+
+A fresh read-only Codeman observer succeeded at `2026-11-20 06:01:04 UTC`:
+
+- `basics-check.py --json`: board currency `ok`, inflight, ahead/behind/dirty all zero; roles show Coordinator 1/1, reviewers/mergers 2/1, Workers 5/5; flags include 19 open PRs, one unread reminder, two `bh-*` containers, one queued mission with no free capacity, and an Owner report due (7 watcher events). It also flags a due tick with timestamp/age values that appear inconsistent (`since=06:00:01Z`, `age=1558s` at a 06:01:04Z snapshot); preserve that discrepancy rather than infer timing.
+- `watch.py list`: coordinator `9142ab1f`; two role=None sessions; all five worker sessions (`da056a3d`, `9856a435`, `f9443826`, `d8ba077c`, `7578ff5b`) last busy.
+- `coord-state.py --json`: no mapped lanes or missions; candidate list has the same 19 PRs and current heads, including #1709 `0d1568ec`, #1684 `1c0e33ad`, #1650 `ac2a5450`, and #1665 `e580d324`.
+- `pool-reconcile.py status --json`: Coordinator busy, workers 5/5 (Ornith 2/2, Laptop 2/2, Flash 1/1), no holds or open seats.
+
+The empty lane map conflicts with the five busy worker sessions; keep both observations. Queue/tick/reminder/owner-report flags were observed only; no Codeman messages, acknowledgments, writes, or dispatches were made. This entry starts from clean plan main `eb34784503499c15c8c910f935c963c3781d0788`; the overall sweep remains active.
