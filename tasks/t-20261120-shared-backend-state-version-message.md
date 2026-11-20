@@ -15,7 +15,7 @@ kanban_title: 0428-201 · shared state version message
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1725]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -27,6 +27,7 @@ created: 2026-11-20
 - [ ] t-20261120-shared-backend-state-version-message · shared state version message #task #release/v0-4-28 #status/active #view/active #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** w201-0428-201-statever  
+    **PR:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +36,7 @@ created: 2026-11-20
 **Depends on:** none  
 **Owner:** w201-0428-201-statever  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -75,3 +76,5 @@ record where the message is not just generic but actively false.
 - No subagents (AGENTS 4.8), no `git add -A`, no merge, no force-push on develop/main.
 
 ARBEITET JETZT, kante gegen session gemessen (w201-0428-201-statever, ornith, worktree aus develop 40cb28c758b0): die version-ablehnung von shared-backends state (shared_backends.go:17 = 3, decodeSharedBackendState shared_backends_state.go:31-32) bekommt gefundene version, erwartete version und den naechsten schritt in die human-meldung, unterscheidbar von corruption-/lesefehler - die fail-closed ENTSCHEIDUNG bleibt byte-identisch, sie wird nicht angefasst. meldungsform wird MIT der schwesterkarte 0428-200 abgestimmt (die repariert dieselbe klasse beim deployment-record), damit nicht zweimal verschieden erfunden wird. gateway-meldung waehrend des runs ist 0428-198/202, nicht ihr diff.
+
+HANDOFF NAHE, EINE BELEGZEILE FEHLT - DARUM BLEIBT active (nicht wait, nicht review): inhalt ist durch, von mir gemessen: PR #1725 head 9bf4a72f742b == refs/pull/1725/head == branch, base develop, draft=FALSE (die lane schrieb 'draft PR', ist aber draft=false gemessen), 3 dateien, ancestry auf develop 40cb28c758b0 = JA. checks am head: 11 success / 7 failure / 16 skipped, run 44795772617; die sieben roten sind cli-0..3 + packages + Selected Checks + Selected Runtime (atomic/podman/data-capabilities) = der feld-weite gate 0428-198/0428-202, nicht ihr diff. AKTE nennt PR (3x) und 0428-198 (5x), 0 checkboxen, cleanliness - aber KEINEN EINZIGEN RUN-ID (§4.6): genau eine zeile fehlt, angefordert; KEIN neuer matrix-run dafuer (§5.4). ZWISCHENFUND, von MIR BEHOBEN: ihre akte hatte vier zeilen '- [ ] 1.' - eine checkbox AUSSERHALB von tasks/ legt den plan-checker flach ('would become a CardBoard card') und BLOCKIERTE DIE PUBLIKATION DES GANZEN BOARDS; mechanisch auf nummerierte zeilen gesetzt (text gleich, 71 zeilen vorher/nachher), sweep ueber alle 79 akten der heutigen welle: keine weitere checkbox-datei. board wieder 0 errors (000f3ed7f42b). Trigger: ihre nachgelieferte run-zeile -> dann wait mit den namen 0428-198/0428-202, muster wie 177 und 199.
