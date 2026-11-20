@@ -10,7 +10,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 9 |
+| active | 8 |
 | review | 2 |
 | wait | 27 |
 | blocked | 1 |
@@ -18,7 +18,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | queued | 25 |
 | waiting | 184 |
 | backlog | 7 |
-| closed | 377 |
+| closed | 378 |
 
 ## Active
 
@@ -27,7 +27,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | active | normal | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) | CLI redesign: Replace name-based environment policy | active | high | Codex (Marcel assigned) | [t-20261114-r28-cli2-uid-environment](../tasks/t-20261114-r28-cli2-uid-environment.md), [t-20261120-trusted-local-operation-grant](../tasks/t-20261120-trusted-local-operation-grant.md) | [baseharbor#1594](https://github.com/mcpdev80/baseharbor/pull/1594) |
 | [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | Connect Perses Tempo | active | normal | 0428-091- | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645) |
-| [t-20261119-r28-bughunt-lifecycle-consent-desk](../tasks/t-20261119-r28-bughunt-lifecycle-consent-desk.md) | hunt lifecycle/consent desk | active | not set | w146-0428-146-huntlifecycle | — | — |
 | [t-20261119-r28-bughunt-observability-desk](../tasks/t-20261119-r28-bughunt-observability-desk.md) | hunt observability desk | active | not set | w147-0428-147-huntobs | — | — |
 | [t-20261120-bughunt-shipped-surface-desk](../tasks/t-20261120-bughunt-shipped-surface-desk.md) | hunt shipped-surface desk | active | not set | w196-0428-196-huntswt | — | — |
 | [t-20261120-bughunt-silent-success-desk](../tasks/t-20261120-bughunt-silent-success-desk.md) | hunt silent-success desk | active | not set | w195-0428-195-huntsilent | — | — |
@@ -91,7 +90,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 6 open, 163 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 64 open, 146 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 63 open, 147 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))

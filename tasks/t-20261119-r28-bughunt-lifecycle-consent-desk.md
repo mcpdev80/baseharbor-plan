@@ -8,28 +8,28 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w146-0428-146-huntlifecycle
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 blocker: ""
 wait_reason: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-evidence:
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/1019190d8dc0ecac7693f3461153e76be0e2cb8a", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/bughunt-hv18-grant-consent-desk/round-1.md"]
   - "https://github.com/mcpdev80/baseharbor/commit/1019190d8dc0ecac7693f3461153e76be0e2cb8a"
   - "https://github.com/mcpdev80/baseharbor/commit/8dccd4fe1"
-resolution: ""
+resolution: dropped
 created: 2026-11-19
 card_short_title: "hunt lifecycle/consent desk"
 ---
 
-- [ ] t-20261119-r28-bughunt-lifecycle-consent-desk · hunt lifecycle/consent desk #task #release/v0-4-28 #status/active #view/active #area/ownership #area/qa #area/runtime #kind/task
+- [x] t-20261119-r28-bughunt-lifecycle-consent-desk · hunt lifecycle/consent desk #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ownership #area/qa #area/runtime #kind/task
     <!-- generated:card -->
     **Owner:** w146-0428-146-huntlifecycle  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/1019190d8dc0ecac7693f3461153e76be0e2cb8a), [proof 2](https://github.com/mcpdev80/baseharbor/commit/8dccd4fe1)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/1019190d8dc0ecac7693f3461153e76be0e2cb8a), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/bughunt-hv18-grant-consent-desk/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/commit/1019190d8dc0ecac7693f3461153e76be0e2cb8a), [proof 4](https://github.com/mcpdev80/baseharbor/commit/8dccd4fe1)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w146-0428-146-huntlifecycle  
@@ -67,3 +67,5 @@ podman-zelle nicht erreichbar, linger/netns-haenger (exit 126, 'Cannot assign re
 fund-zu-karte-pflicht erfuellt: 0428-187 traegt den fund; die hunt-akten hunt-signals-103/-104 sind geschlossen.
 
 ARBEITET JETZT, kante gegen session gemessen (8f3509c0, laptop): hunt-schnitt H-V18 'aenderungs-desk der heutigen merges' - (1) grant-bindung aus #1717/0428-188: haelt der grant genau EINE operation (apply nach check, destroy nach check, zweiter aufruf pro invocation), (2) consent-stufen: gibt es einen pfad, der eine antwort als beide wertet, oder text-abweichung gegen provider_change_consent.go:37, (3) upgrade/rollback: neuer code auf altem state-file (0428-168, #1711, #1713). reine befundung, keine produktaenderung, FUND-FUER-KARTE-zeile pro fund; die registry.go-funde von heute (189-194) sind als bereits-karten ausgeschlossen.
+
+H-V18 befundlos: grant single-use pro operation, consent zweistufig fail-closed, state-loader fail-closed bei version-mismatch - alle drei schnitte mit zeugen, 0 funde, keine neuen karten (akte 109 zeilen). sitz freigegeben; die suche nach muster-funden ist damit fuer diese rotation erfuellt - die naechsten beiden schnitte sind ANDERE desk-typen (0428-196 verhalten, 0428-197 post-merge-abnahme).
