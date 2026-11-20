@@ -142,4 +142,7 @@ cleanliness: `/tmp/pkgcheck` + `/tmp/ancestry_probe` + `/tmp/*.py` `/tmp/*.pkl` 
 
 ## END
 
-END_DONE w213-0428-177-gaterecheck: read-only gate re-check nach #1732 abgerundet; alle 19 offenen Nicht-Draft-PRs klassifiziert, BASE-DRIFT empirisch bewiesen, merge-order lesend entschieden; evidence auf baseharbor-plan origin/main publiziert. SHA des plan-main-push: <push-sha-in-diesem-bereich-nach-dem-push>.
+END_DONE w213-0428-177-gaterecheck: read-only gate re-check nach #1732 abgerundet; alle 19 offenen Nicht-Draft-PRs klassifiziert, BASE-DRIFT empirisch bewiesen, merge-order lesend entschieden; evidence auf baseharbor-plan origin/main publiziert. plan-main-push SHA: da3e20f79ae87cfdd229bf63a99c9a8de2c32f43.
+
+evidence-origin-main (via `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep gate-recheck-after-1732`):
+evidence/r28-welle4-2026-11-20/gate-recheck-after-1732/round-1.md
