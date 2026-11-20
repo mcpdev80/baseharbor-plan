@@ -23,7 +23,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-other-domain-test-split · Cause split for the 89 other-domain cmd/baha failures #task #release/v0.4.28 #status/planned #view/waiting #board/planned #area/ci #area/cli #kind/bug
+- [ ] t-20261120-other-domain-test-split · Cause split for the 89 other-domain cmd/baha failures #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/ci #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **Waiting for prerequisites**  
