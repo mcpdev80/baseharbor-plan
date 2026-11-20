@@ -7,35 +7,36 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: Codex (baseharbor-pr-sweep-fortsetzen)
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-180 · CI on real stacked bases
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1594", "mcpdev80/baseharbor#1615"]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44735405029"]
 ---
 
-- [ ] t-20261120-r28-ci-stacked-base-conditions · CI: stacked PRs on cli2-*/w0* base branches get no exact-head checks #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261120-r28-ci-stacked-base-conditions · CI: stacked PRs on cli2-*/w0* base branches get no exact-head checks #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** Codex (baseharbor-pr-sweep-fortsetzen)  
+    **PR:** [baseharbor#1594](https://github.com/mcpdev80/baseharbor/pull/1594), [baseharbor#1615](https://github.com/mcpdev80/baseharbor/pull/1615)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44735405029)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** Codex (baseharbor-pr-sweep-fortsetzen)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1594](https://github.com/mcpdev80/baseharbor/pull/1594), [baseharbor#1615](https://github.com/mcpdev80/baseharbor/pull/1615)  
 **Source:** 
 <!-- /generated:links -->
 

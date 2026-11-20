@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 15 |
+| active | 16 |
 | review | 0 |
 | wait | 17 |
 | blocked | 4 |
-| ready | 8 |
+| ready | 7 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
@@ -39,6 +39,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-r28-window-integrity-verify](../tasks/t-20261119-r28-window-integrity-verify.md) | fensterstand gegen abnahmebelege pruefen | active | not set | w150-pr0428-150-windowverify | — | — |
 | [t-20261120-coord-publish-integrity-gaps](../tasks/t-20261120-coord-publish-integrity-gaps.md) | Coordinator tooling: card-status.py bypasses the payload integrity gates; watch.py rm signature unusable | active | not set | w175-pr0428-175-publish-gate | — | — |
 | [t-20261120-perses-tmpfs-mountpoint](../tasks/t-20261120-perses-tmpfs-mountpoint.md) | Perses runtime smoke cannot mount tmpfs at /etc/perses/database on hosted runners | active | not set | 0428-083- | — | — |
+| [t-20261120-r28-ci-stacked-base-conditions](../tasks/t-20261120-r28-ci-stacked-base-conditions.md) | CI: stacked PRs on cli2-*/w0* base branches get no exact-head checks | active | not set | Codex (baseharbor-pr-sweep-fortsetzen) | — | [baseharbor#1594](https://github.com/mcpdev80/baseharbor/pull/1594), [baseharbor#1615](https://github.com/mcpdev80/baseharbor/pull/1615) |
 
 ## Ready for review
 
@@ -80,7 +81,6 @@ None.
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261120-r28-ci-stacked-base-conditions](../tasks/t-20261120-r28-ci-stacked-base-conditions.md) | CI: stacked PRs on cli2-*/w0* base branches get no exact-head checks | ready | not set | — | — | — |
 | [t-20261120-r28-cli2-context-precedence-evidence](../tasks/t-20261120-r28-cli2-context-precedence-evidence.md) | CLI2: persisted-over-default precedence is not asserted through baha context show | ready | not set | — | — | — |
 | [t-20261120-r28-identity-dashboard-catalog-consumer](../tasks/t-20261120-r28-identity-dashboard-catalog-consumer.md) | Identity dashboard catalog has zero production consumers (P4 of review 1650) | ready | not set | — | — | — |
 | [t-20261120-r28-metrics-adapter-without-exporter](../tasks/t-20261120-r28-metrics-adapter-without-exporter.md) | Metrics: RequiresAdapter source has no exporter or compose wiring (never collectable) | ready | not set | — | — | — |
