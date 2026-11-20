@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w078-pr0428-078-identity-hopf
-kanban_status: active
-kanban_lane: active
+owner: w078-pr0428-078-identity-hopf (codeman 9c6ca183, ornith)
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
 kanban_title: 0428-078 · Perses identity dashboard
 priority: normal
@@ -17,25 +17,26 @@ depends_on: [t-20261114-r28-perses-dashboard-selection]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1606, mcpdev80/baseharbor#1650]
 sources: []
-blocker: ""
+blocker: "echter inhaltlicher konflikt ZWISCHEN DEN ZWEI EIGENEN PRS DER KARTE, nicht mit develop: cmd/baha/app_status_result.go blob 4052832c2d (#1606) vs 21d96642fc (#1650), datei:zeilen #1650 :25-37 und :150-165; zusaetzlich internal/capability/perses_selection_test.go mit unterschiedlichem zuschnitt (gemessen: #1650 TestEligibleForPerBackendGate, #1606 TestDashboardNotEligibleForUnknownKey). von mir NACHGEMESSEN, damit es keine behauptung einer seite bleibt: git diff <head1606> <head1650> -- cmd/baha/app_status_result.go zeigt ein index 4052832c2..21d96642f mit +7 zeilen ab :36. entscheidung needed: welcher PR traegt die karte (bahn meldet #1650, CODEX-APPROVED, batch13/batch16 zeuge) und ob #1606 geschlossen wird — schliessen ist MEINE aktion nach blob-nachweis, nicht der bahnen."
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/blocked #view/blocked #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** w078-pr0428-078-identity-hopf · **Priority:** normal  
+    **Owner:** w078-pr0428-078-identity-hopf (codeman 9c6ca183, ornith) · **Priority:** normal  
     **PR:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
+    **Blocker:** echter inhaltlicher konflikt ZWISCHEN DEN ZWEI EIGENEN PRS DER KARTE, nicht mit develop: cmd/baha/app\_status\_result.go blob 4052832c2d (\#1606) vs 21d96642fc (\#1650), datei:zeilen \#1650 :25-37 und :150-165; zusaetzlich internal/capability/p…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** w078-pr0428-078-identity-hopf  
+**Owner:** w078-pr0428-078-identity-hopf (codeman 9c6ca183, ornith)  
 **Priority:** normal  
 **PRs:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
 **Source:** 
