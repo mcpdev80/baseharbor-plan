@@ -1,6 +1,6 @@
 <!-- LEGACY (Owner-Entscheidung 2026-11-20): diese Karte fuehrt das Produkt-Release-Board v0.4.28 nicht mehr. Coordinator-Tooling liegt in https://github.com/mcpdev80/codeman-coordinator-tooling; Werkzeug-Details laufen dort, nicht als Produktkarten. Der Inhalt bleibt unveraendert als Verlaufstraeger erhalten. -->
 
-Siehe auch: [decisions/2026-11-20-coordinator-tooling-out-of-vault.md]../../../decisions/2026-11-20-coordinator-tooling-out-of-vault.md) (Plan-main, commit 5e063f1f) und das Tooling-Repository https://github.com/mcpdev80/codeman-coordinator-tooling (Issues #1-#11, PR #3).
+Siehe auch: [Coordinator tooling lives in its own repository](../../../decisions/2026-11-20-coordinator-tooling-out-of-vault.md) (Plan-main, commit 5e063f1f) und das Tooling-Repository https://github.com/mcpdev80/codeman-coordinator-tooling (Issues #1-#11, PR #3).
 
 ---
 id: t-20261119-coord-tooling-defects
