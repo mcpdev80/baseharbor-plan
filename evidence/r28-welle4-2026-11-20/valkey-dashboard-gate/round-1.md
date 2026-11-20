@@ -98,6 +98,15 @@ JOB: PR · Go unit · packages | conclusion: success
 - `git log --oneline lane-origin/develop..HEAD` lists ONLY my commit `c5b810c8c`.
 - `bash scripts/ci-fast-check.sh` → gofmt clean, source readability PASS (regression ratchet OK), workflow policy PASS.
 
+## Evidence path on origin/main (mission 2026-11-05)
+
+```
+$ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep valkey-dashboard-gate
+evidence/r28-welle4-2026-11-20/valkey-dashboard-gate/round-1.md
+```
+
+The akte path is present on origin/main before the END post.
+
 ## cleanliness
 
 
