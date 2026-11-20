@@ -13,26 +13,30 @@ depends_on: [t-20261120-r28-keycloak-signal-id-migration-gap]
 blocked_by: []
 superseded_by: []
 owner: 0428-166-
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 blocker: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44727442216", "https://github.com/mcpdev80/baseharbor/pull/1712", "https://github.com/mcpdev80/baseharbor/commit/96f2ae11a25a508998c44a9854ef17f8fa15c112", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md"]
 prs: [mcpdev80/baseharbor#1712]
 created: 2026-11-20
 wait_reason: ""
 
 ---
 
-- [ ] t-20261120-r28-signal-id-normalization-collision · collide project names by token fold #task #release/v0-4-28 #status/active #view/active #area/capability #area/observability #kind/bug
+- [x] t-20261120-r28-signal-id-normalization-collision · collide project names by token fold #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/capability #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** 0428-166-  
     **PR:** [baseharbor#1712](https://github.com/mcpdev80/baseharbor/pull/1712)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/bughunt-keycloak-signal-scope/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44727442216), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1712), [proof 4](https://github.com/mcpdev80/baseharbor/commit/96f2ae11a25a508998c44a9854ef17f8fa15c112), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md)  
     <!-- /generated:card -->
 
+## Accepted — 2026-11-20
+
+PR #1712 was fixed and merged. The collision boundary now preserves an existing owner and legacy signal source, the golden test pins literal legacy IDs, and provider registration was extracted from the over-limit registry source file. Exact final PR head `a83fcc707f814e8d62db2e528d28816196f3e841` passed all required jobs, including Docker identity runtime, in run [44727442216](https://github.com/mcpdev80/baseharbor/actions/runs/44727442216). Independent final review found no blocker. PR #1712 merged at 11:33:24 UTC as `96f2ae11a25a508998c44a9854ef17f8fa15c112`.
+
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-r28-keycloak-signal-id-migration-gap](t-20261120-r28-keycloak-signal-id-migration-gap.md)  
 **Owner:** 0428-166-  
