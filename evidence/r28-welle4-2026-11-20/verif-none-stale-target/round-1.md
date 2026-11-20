@@ -75,23 +75,41 @@ Per the card acceptance field (authoritative scope) the lane still ships the add
 
 ## CI — exact head, own terminal observation (4.6)
 
-- PR: #NNNN (base refs/heads/lane-0428-143-verify-none), head <sha>
-- GitHub Actions run <run-id> (event pull_request / workflow_dispatch), conclusion: <status>
-- Per-cell run-id + conclusion recorded below.
+- Run: GitHub Actions run #6826 (databaseId), URL https://github.com/mcpdev80/baseharbor/actions/runs/44812049031 (event `pull_request`).
+- Head at run: `c90a73ac8128bca974eb7383c341eb614a2a636a` (verified via `gh run list --branch lane-0428-203-stale-target`).
+- Run conclusion: **failure** (observed to terminal state, own terminal observation, AGENTS 4.6).
+- `PR Selected Checks`: **failure** — aggregate of the field-wide gates below; not my diff.
 
-GATE-FAIL 0428-198 (expected, field-wide, out of this card write-set): `PR · Go unit · cli-0..3` and `PR Selected Checks` fail with `Managed-environment machine operations require an authenticated BaseHarbor operator` (root 2af892e4e in internal/serviceaccess/policy.go). Recorded run-id + verbatim line.
+### Per-cell run-id + conclusion (run 6826 / 44812049031)
 
-0428-202 (expected, field-wide, out of this card write-set): `packages` cell fails on the internal/logs Loki-trio `TestPersesLokiDatasourceMultiSource*` (job 136526893242, run 44805066271) — named, not fixed.
+- `PR · Go unit · owner` (job 136551273575): SUCCESS.
+- `PR · Validation · go-vet` (job 136551273396): SUCCESS; `PR · Validation · go-build` (job 136551272950): SUCCESS.
+- `PR · Focused Python` (job 136551272894): SUCCESS; Workflow policy / Trusted Plan / Source format / Native gate plan: SUCCESS.
+- `PR · Go unit · cli-0` (job 136551272955), `cli-1` (136551272991), `cli-2` (136551272990), `cli-3` (136551273050): **failure**, field-gate 0428-198 (locked to lane 0428-198, out of this card write-set). Root cause, literal line from cli-0 (job 136551272955):
+  `main_test.go:60: create failed: Managed-environment machine operations require an authenticated BaseHarbor operator.` — the authenticated-operator-on-managed-Target gate, pre-existing (fails identically on unmodified develop).
+- `PR · Go unit · packages` (job 136551273116): **failure**, not my change. `internal/metrics` passes: `ok  github.com/mcpdev80/baseharbor/internal/metrics  1.604s` — my regression `TestVerifyApplicationSourceVerificationNoneRetiresPreviouslyEmitted` was auto-discovered by the packages shard and passes. The only three failing tests are `internal/logs`:
+  - `TestPersesLokiDatasourceMultiSourceQueryOneSelectorPerSource` (loki_test.go:522),
+  - `TestPersesLokiDatasourceMultiSourcePartialMatchability` (loki_test.go:586),
+  - `TestPersesLokiDatasourceMultiSourceNoneMatchFailsClosed` (loki_test.go:633)
+  all failing with: `load Loki service access identity: stat .../providers/loki/shared/service-access/pki/client-cert.pem: no such file or directory`. These are **0428-202** (Loki multi-source-consumer, root `2af892e4e` in `internal/serviceaccess/policy.go`); zero operator-auth lines in this job, so the cause is external. Confirmed pre-existing.
 
-My regression test discovered by the `packages` shard.
+GATE-FAIL 0428-198 (field-wide, out of write-set): cli-0..3 + PR Selected Checks fail with `Managed-environment machine operations require an authenticated BaseHarbor operator` (root 2af892e4e in internal/serviceaccess/policy.go). Recorded run-id 6826 / run 44812049031, jobs 136551272955/136551272991/136551272990/136551273050.
 
-## BEWEISKETTE
+0428-202 (field-wide, out of write-set): packages cell fails on the internal/logs Loki-trio — `TestPersesLokiDatasourceMultiSource*` (loki_test.go:522/586/633), job 136551273116, run 44812049031 — `client-cert.pem: no such file or directory`. Named, not fixed (locked internal/serviceaccess/**).
 
-- `git ls-remote <github-remote> refs/pull/<n>/head == <head-sha>` (delivery witness)
-- `git merge-base --is-ancestor 809a8196e1cf <head>` = YES (stack sits on the base lane)
-- `git merge-base --is-ancestor 40cb28c758b0 <head>` = YES (over the base lane)
-- `git diff origin/<base>...HEAD --name-only` lists only card write-set files
-- run-id + conclusion at exact head
+My regression test discovered by the `packages` shard (scripts/pr-go-unit-shard.py --mode packages runs `go test ./...` over every non-CLI package), ran and passed: `ok github.com/mcpdev80/baseharbor/internal/metrics 1.604s`.
+
+BEWEISKETTE:
+- `git ls-remote lane-origin refs/pull/1730/head` -> c90a73ac8128bca974eb7383c341eb614a2a636a (== head, delivery witness)
+- `git ls-remote lane-origin refs/heads/lane-0428-203-stale-target` -> c90a73ac8128bca974eb7383c341eb614a2a636a
+- `git merge-base --is-ancestor 809a8196e1cf c90a73ac8` = YES (stack on base lane)
+- `git merge-base --is-ancestor 40cb28c758b0 c90a73ac8` = YES (over base lane)
+- `git diff origin/lane-0428-143-verify-none...HEAD --name-only`:
+  ```
+  internal/capability/integration_contract.go
+  internal/metrics/prometheus_verify_workload_only_test.go
+  ```
+- run-id 6826 / run 44812049031, head c90a73ac8, conclusion failure (field gates only).
 
 ## EVIDENCE PUBLICATION
 
