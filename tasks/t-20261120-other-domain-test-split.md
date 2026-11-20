@@ -7,9 +7,9 @@ areas: [cli, ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: planned
+owner: w221-0428-206-split
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-206 · Other-domain test split
 priority: high
@@ -23,18 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-other-domain-test-split · Cause split for the 89 other-domain cmd/baha failures #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/ci #area/cli #kind/bug
+- [ ] t-20261120-other-domain-test-split · Cause split for the 89 other-domain cmd/baha failures #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Waiting for prerequisites**  
+    **Owner:** w221-0428-206-split · **Priority:** high  
     **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** unassigned  
+**Owner:** w221-0428-206-split  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -61,3 +60,5 @@ stay unsplit, 0428-204 grows past one card (AGENTS 4.2 forbids that) or real def
 - Evidence-only: no product file changes, no PR required.
 - All 89 appear in exactly one group; every group carries a rubric and a witness.
 - Groups judged (b) are turned into cards by the coordinator in the same turn (fund-to-card duty, AGENTS 3.3.5).
+
+Karte aus w217s zahlung gegossen (fund->karte, §3.3.5): 206 fehlende tests in ./cmd/baha/ am exakten develop 40cb28c758, davon 89 in ANDEREN domänen als dem operator-seam. sitz w221 (ornith) gruppiert nach der ERSTEN fehlenden produkt-datei und rubriziert: (a) schon von einer karte gedeckt, (b) neuer defekt (karten-text wird hier vorformuliert), (c) folge von commit 3653369a4 (#1717: internal/operatorauth/authorization.go + cmd/baha/local_workload_authority.go + cmd/baha/mcp.go). KEIN produktgriff, KEIN PR; die 0428-204-Klassen (runWithIO=82, MCP=10) bleiben bei w216, damit keine karte aufbläht (§4.2).
