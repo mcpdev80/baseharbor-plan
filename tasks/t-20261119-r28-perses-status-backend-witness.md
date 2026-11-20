@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w142-pr1702-statuswit-r5
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "'baha perses status' nennt pro observability-signal eine ECHTE backend-witness (erreicht / gematcht / nicht erreichbar) statt…"
 kanban_title: 0428-142 · echte backend-witness fuer
 priority: ""
@@ -17,21 +17,29 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1702]
 sources: []
-blocker: "lane w142-pr1702-statuswit-r5 hat korrekt MIT STOP GEARBEITET statt erfunden (END_BLOCKED, akte fix-3.md auf main c95cc44e): persesBackendSignalWitnessFromManifest (cmd/baha/app_status_result.go:76-139) emittiert 'configured' ALLEIN aus manifest-flags, und persesBackendUnreachable (:64-65) hat KEINEN emittierungs-pfad. Genau das verlangt CODEX r4 als blocker P2/P4, aber der weg nach vorne ist die owner-entscheidung 0428-143 (was bedeutet 'none' = keine verification, provider/app-Asymmetrie). NAechster trigger: owner-entscheidung 0428-143, dann hopf (kopf 6740299f9, develop 4b3a3559) + korrekturen P1/P2/P3/P7. Ich habe keinen schein-auftrag gegeben und die lane nicht rotiert"
-wait_reason: ""
+blocker: ""
+wait_reason: "Owner decision 0428-143 is now recorded as uniform semantics on baseharbor-plan main cdc6246d. The assigned 0428-142 lane has stopped pending worker capacity; resume the requested #1702 corrections, hop to current develop and run exact-head CI."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+## Current handoff
+
+The former owner-decision blocker is resolved by 0428-143: `Verification=none`
+means no verification assertion for every source class, and metrics exporters
+omit those sources from scrape targets. This assigned, started lane is parked
+pending worker capacity. #1702 still needs the concrete review corrections and
+a fresh exact-head run; it is not ready to merge.
+
+- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** w142-pr1702-statuswit-r5  
     **PR:** [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702)  
-    **Blocker:** lane w142-pr1702-statuswit-r5 hat korrekt MIT STOP GEARBEITET statt erfunden (END\_BLOCKED, akte fix-3.md auf main c95cc44e): persesBackendSignalWitnessFromManifest (cmd/baha/app\_status\_result.go:76-139) emittiert 'configured' ALLEIN aus ma…  
+    **Waiting:** Owner decision 0428-143 is now recorded as uniform semantics on baseharbor-plan main cdc6246d. The assigned 0428-142 lane has stopped pending worker capacity; resume the requested \#1702 corrections, hop to current develop and run exact-hea…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261119-r28-perses-alert-verifier-caller-wiring](t-20261119-r28-perses-alert-verifier-caller-wiring.md)  
