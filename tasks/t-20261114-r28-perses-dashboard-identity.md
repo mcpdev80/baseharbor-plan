@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w078-pr0428-078-appstatus-r3
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
 kanban_title: 0428-078 · Perses identity dashboard
 priority: normal
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w078-pr0428-078-appstatus-r3 · **Priority:** normal  
     **PR:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
@@ -135,3 +135,5 @@ abnahme bestellt, alle drei bedingungen der einfrier-regel von mir gemessen: (1)
 test nur: verdict am eingefrorenen head cb985bdeb50e, ein punkt app_status_result.go:163-167
 
 verdict am eingefrorenen head liegt vor (akte codex-review-wave/1650-0428-078-r4.md, PR head before/after review = cb985bdeb50e/cb985bdeb50e - dritte gueltige abnahme in folge). resultat REQUEST CHANGES, EIN punkt: die eignungsformel in cmd/baha/app_status_result.go:163-167 laesst PersesStatusConfiguredUnverified weiterhin durch; erwartet wird verified plus echter Keycloak-nachweis, fail-closed fuer not_configured UND configured_unverified, auf BEIDEN oberflaechen, gegen den fortgeltenden maintainer-akzeptanzkommentar 7031412203. ERLEDTIGT bestaetigt: reihenfolge-loesung (remote-branch vor collectApplicationStatus, :179-199), der r5-fehler ist weg, mutation ueber IdentitySelectionWitness.NonForgeableAvailable() an internal/capability/perses_selection.go:109-110 faellt den fernen test; P6/P7 sauber (ein branch = PR-head, kein .github/, kein scripts/, keine capability-beruehrung). GRENZERWEITERUNG VON MIR, begruendet: der write-set in app_status_result.go war auf die REIHENFOLGE beschraenkt; fuer :163-167 erweitere ich ausdruecklich auf die eignungsformel, weil der reviewer dort das wartende akzeptanzkriterium sieht. verboten bleiben internal/capability/perses_selection.go (:109-110 und :436-442), .github/, scripts/ - muessten sie die capability-datei antasten, ist das QUESTION an mich. BELEGTE KORREKTUR AN MIR: meine referenz perses_selection.go:439 war an diesem head falsch (dort sitzt DashboardEligibility.Status, :436-442; nachweisstelle ist :109-110). develop ist auf dbe7fbc3905b weiter (0428-174 gemergt), daher rebase als letzter freeze-schritt
+
+abnahme bestellt, alle drei einfrier-bedingungen gemessen: (1) head 0baeaf555010 eingefroren, branch lane-0428-078-perses-identity-on-resolver = refs/pull/1650/head = derselbe SHA, draft=false, mergeable=clean, updated_at 10:37:26Z (kein push nach dem einfrieren); (2) base = develop-spitze dbe7fbc3905b, merge-base --is-ancestor = JA; (3) run 44720819476 completed/success am exakten head; (4) akte appstatus-integration/round-7.md auf main @ 81370cda, 145 zeilen, nennt den head sieben mal, 0 checkboxen, mutationsbeweis ueber perses_selection.go:109-110. inhalt nach owner-anweisung: EIGNUNGSFORMEL in cmd/baha/app_status_result.go:163-167 auf 'verified only' - beide nicht-verifizierten zustaende duerfen nicht mehr durchgehen; perses_selection.go bleibt verschlossen. ihre END-meldung fehlte (vierte lane dieser schicht, die korrekt liefert und dann schweigt); zustellung war vollstaendig, die karte steht trotzdem erst jetzt auf review, weil ich vorher nichts behaupten will
