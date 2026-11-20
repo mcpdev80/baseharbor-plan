@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: codex-open-pr-sweep-055
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Environment deletion lifecycle. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-055 · Env deletion lifecycle
 priority: high
@@ -18,20 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1627]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "Wait for CI owner to route environment-destroy lifecycle coverage to a qualified native runtime gate and for the required isolated Docker/Podman witness; then hop monotonically to an eligible base, obtain terminal exact-head checks and review."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** codex-open-pr-sweep-055 · **Priority:** high  
     **PR:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627)  
+    **Waiting:** Wait for CI owner to route environment-destroy lifecycle coverage to a qualified native runtime gate and for the required isolated Docker/Podman witness; then hop monotonically to an eligible base, obtain terminal exact-head checks and rev…  
     **Needs:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
 **Required by:** [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md)  
@@ -72,9 +73,13 @@ Test shared app cross-env protection, ownership unknown fail-closed, recoverabil
 
 Read-only findings: [PR evidence](../evidence/r28-welle4-2026-11-19/codex-review-wave/1627-0428-055-independent-review.md). Draft #1627 `49e164cc` has no exact-head checks and overstates destroy: identity-only deletion leaves deployments/runtime/data in place; `--delete-data` does not delete data.
 
-## Handoff
+## Handoff (2026-11-20)
 
-Planned and unassigned. No product implementation or acceptance yet.
+- Candidate: PR #1627, branch `cli2-env-delete`, exact head `96deb1f1597d0d4a10d54421acc973053d27224a`, based on `cli2-env-policy-head`; PR is OPEN + Draft. The push was fast-forward from the verified previous remote head `49e164ccbd6552a98854ceceaabfafa748775ed1`.
+- Scope changed only `cmd/baha/env_destroy.go` and `cmd/baha/env_destroy_integration_test.go`. KEEP stops only scoped deployments and retains persistent data/recovery/canonical UUID ownership. DELETE fully destroys each scoped deployment and removes environment identity only after successful verification. Failures retain environment identity for retry; sibling/shared resources are preserved; noninteractive DELETE requires separate `--confirm-delete-data` consent.
+- Tests -> existing check -> trigger -> result at candidate source: `go test ./cmd/baha -run 'TestCLIEnvDestroy|TestEnvironmentDestroy' -count=1` -> normal Go package test discovery -> Go source PR workflow -> PASS locally. `go test ./internal/deployment -count=1` -> normal Go package test discovery -> Go source PR workflow -> PASS locally. `go vet ./cmd/baha ./internal/deployment` -> Go vet workflow -> Go source PR workflow -> PASS locally. `git diff --check` -> whitespace validation -> local candidate validation -> PASS. The broader `go test ./cmd/baha -count=1` was cancelled after an unrelated idle test hung for over four minutes; it is not a pass.
+- Required gate mapping is incomplete: `scripts/pr-gate-plan.py` selects `cli-unresolved-runtime-impact` for `cmd/baha/env_destroy.go`, so there is no qualified native lifecycle check selected. No isolated Docker/Podman witness has run. This needs CI-owner routing and native runtime evidence before promotion or acceptance. Stacked base `cli2-env-policy-head` also is outside current workflow PR base filters, so exact-head required CI cannot currently trigger; hop only after the dependency/base and CI route are resolved.
+- Keep Draft and task in `wait`. No merge or acceptance. Next safe step is CI-owner/native-gate resolution, then monotone base hop and exact-head checks/review.
 
 BOARD-KORREKTUR nach unabhaengiger GEGENLESE (akte evidence/r28-welle4-2026-11-19/codex-review-wave/board-sweep-gegenlese-1.md, haupt e86d817d): der PR dieses fachers ist draft=true. Ein draft ist KEIN kanditat (§5.2), also war der zustand 'review' zu gut — er versprach einen pruefbaren kanditaten, den es nicht gibt. FEHLENDE STUFE, klar benannt: draft auf non-draft, EIN monotoner hopf auf den aktuellen develop, EIN exact-head-lauf bis terminal; die arbeit im zweig ist vorhanden. Rueckstandiger zustand, kein inhaltlicher rueckstand
 
