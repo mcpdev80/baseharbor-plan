@@ -45,6 +45,7 @@
 - #1597 (0428-076, open, draft, head 540ed13cec36) -> Perses DATABASE dashboards (perses_dashboards*.go + testdata), a DIFFERENT file set from #1665's infra dashboards. Not a deckening card for #1665.
 - #1645 (open, draft=false) -> rename .go witnesses to .go.txt (CI package-selection fix). Not dashboards.
 - No other open PR carries `perses_infra_dashboards.go`.
+- **Write-set overlap with open PR #1684 (0428-083) — Owner special finding (2026-11-20):** `gh api pulls/1684/files` names `internal/application/management_ui.go`, `internal/application/perses_runtime.go`, `internal/metrics/perses_datasource_lifecycle.go`, `cmd/baha/app_apply_lifecycle.go`. #1665's diff also owns `internal/application/management_ui.go`, `cmd/baha/app_status_result.go`, `docs/spec/*` — the two write-sets would collide in a rebase (§4.3: no parallel writes to the same files without integration plan). Restack is therefore NOT conflict-free right now, independent of the tmpfs gate.
 
 ## CARD 0428-082 (the home of #1665)
 
@@ -64,6 +65,8 @@ This is NOT a silent close. Per mission STOPP + MELDUNG, I report the two owner 
 
 ## ACTION TAKEN THIS SESSION
 
+- 0428-176 -> **BLOCKED**: blocker-text with the two triggers (#1684 merged OR 0428-177 tmpfs gate lands, then restack on develop head 96f2ae11a25a with own branch out of 96f2ae11a25a).
+- 0428-082 left as-is (owner: coord, kanban_status wait, prs [#1665]); Owner carries the blockerverweis there — no ownership change, #1665 stays open, no third push.
 - No product files edited (no write outside baseharbor-plan).
 - No `.github/**` touched.
 - No PR closed, no rerun triggered, no subagents.
