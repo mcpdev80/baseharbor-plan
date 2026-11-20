@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: "Owner-Ausfuehrung (.github/scripts); umfang vom Coordinator erweitert 2026-11-19 (beleg: 0428-128 probe-1.md 57ffc7c6)"
-kanban_status: wait
-kanban_lane: wait
+owner: codex-open-pr-sweep-114
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Make the existing observability runtime acceptance runnable and selectable for application observability changes, so the Loki…"
 kanban_title: 0428-114 · Run observability Accept with
 priority: ""
@@ -18,23 +18,22 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "Owner-Aktion: sechs drahte in EINER .github-aenderung anwenden (a-f, vollständige liste im notizfeld); naechster trigger = angewandter patch + ein lauf auf develop"
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261117-observability-native-gate-bootstrap · CI: Run observability acceptance with verified ORAS bootstrap #task #release/v0-4-28 #status/wait #view/wait #kind/task
+- [ ] t-20261117-observability-native-gate-bootstrap · CI: Run observability acceptance with verified ORAS bootstrap #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** Owner-Ausfuehrung (.github/scripts); umfang vom Coordinator erweitert 2026-11-19 (beleg: 0428-128 probe-1.md 57ffc7c6)  
-    **Waiting:** Owner-Aktion: sechs drahte in EINER .github-aenderung anwenden (a-f, vollständige liste im notizfeld); naechster trigger = angewandter patch + ein lauf auf develop  
+    **Owner:** codex-open-pr-sweep-114  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261117-docker-loki-ingestion-timeout](t-20261117-docker-loki-ingestion-timeout.md)  
-**Owner:** Owner-Ausfuehrung (.github/scripts); umfang vom Coordinator erweitert 2026-11-19 (beleg: 0428-128 probe-1.md 57ffc7c6)  
+**Owner:** codex-open-pr-sweep-114  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
