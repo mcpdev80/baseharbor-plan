@@ -1,0 +1,90 @@
+From 0eeda34426547941f0050c7bef2670fbe7560162 Mon Sep 17 00:00:00 2001
+From: lv4-verify <worker@baseharbor.local>
+Date: Fri, 20 Nov 2026 16:33:15 +0100
+Subject: [PATCH] test(0428-179): fail-loud on missing zsh/fish wrapper shell
+ and install them in the ci-3 shard
+
+TestEndToEndInstalledZshAndFishWrappers drove zsh/fish only when the
+binary was present and otherwise continued, so a runner without those
+shells reported success without executing either path (silent success).
+Make the shell path mandatory: the test now fails loud when zsh or fish
+is absent, and the cli-3 unit shard installs both so the zsh and fish
+wrapper paths actually execute. Same PR as the gate wiring (51d95b99).
+---
+ .github/workflows/ci.yml          | 18 ++++++++++++++++++
+ cmd/baha/context_terminal_test.go | 16 ++++++++++------
+ 2 files changed, 28 insertions(+), 6 deletions(-)
+
+diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml
+index 1c7c05e0..c4913be8 100644
+--- a/.github/workflows/ci.yml
++++ b/.github/workflows/ci.yml
+@@ -301,6 +301,15 @@ jobs:
+       - name: Prepare verified rootless runtime
+         run: bash scripts/ci-core-rootless-runtime.sh
+ 
++      - name: Install interactive shells for the shell-wrapper path
++        shell: bash
++        run: |
++          set -euo pipefail
++          sudo apt-get update
++          sudo apt-get install -y zsh fish
++          echo "zsh: $(command -v zsh)"
++          echo "fish: $(command -v fish)"
++
+       - name: Reset persistent runner state
+         id: reset
+         shell: bash
+@@ -1201,6 +1210,15 @@ jobs:
+         with:
+           go-version-file: go.mod
+           cache: false
++      - name: Install interactive shells for the shell-wrapper path
++        if: matrix.shard == 'cli-3'
++        shell: bash
++        run: |
++          set -euo pipefail
++          sudo apt-get update
++          sudo apt-get install -y zsh fish
++          echo "zsh: $(command -v zsh)"
++          echo "fish: $(command -v fish)"
+       - name: Execute selected Go tests with isolated PostgreSQL
+         shell: bash
+         run: bash scripts/pr-unit-database.sh "${{ matrix.shard }}"
+diff --git a/cmd/baha/context_terminal_test.go b/cmd/baha/context_terminal_test.go
+index c8be5c82..747bb633 100644
+--- a/cmd/baha/context_terminal_test.go
++++ b/cmd/baha/context_terminal_test.go
+@@ -321,10 +321,10 @@ func TestInteractiveGuardPresent(t *testing.T) {
+ //
+ // These drive the actual `baha` binary through a real interactive shell that
+ // sources the generated wrapper, proving the parent shell applies
+-// 'context use'/'context clear' in its own process (no marker file). Where a
+-// shell is installed in CI (bash on ubuntu-latest), the shell is exercised;
+-// where it is absent, the test is skipped and the gap is reported to the owner
+-// as an owner-scope (workflow) point, not this lane's decision.
++// 'context use'/'context clear' in its own process (no marker file). Both shells
++// are mandatory here: the test fails loud when a shell is missing so the CI
++// shard cannot pass while skipping the zsh or fish path. The owning CI cell
++// installs zsh and fish so both paths actually execute.
+ 
+ // MUTANT PROOFS (blocker 4), one per stage, applied individually and recorded
+ // verbatim here. Each proof asserts that removing a single piece of the wrapper
+@@ -435,8 +435,12 @@ func TestEndToEndInstalledZshAndFishWrappers(t *testing.T) {
+ 	for _, shell := range []string{"zsh", "fish"} {
+ 		shellPath, err := exec.LookPath(shell)
+ 		if err != nil {
+-			t.Logf("%s is not installed; generated wrapper remains covered structurally", shell)
+-			continue
++			// Fail loud: the wrapper for this shell must actually execute on the
++			// runner. A silent skip here (the pre-existing behaviour) lets the CI
++			// shard pass while NEITHER the zsh NOR the fish path runs, which is not
++			// durable evidence for the fish recursion guard. The owning CI cell
++			// installs zsh and fish so both paths run.
++			t.Fatalf("%s is required to run this wrapper path; install %s in the owning CI cell: %v", shell, shell, err)
+ 		}
+ 		bin, cleanup := buildBahaBin(t)
+ 		cfg := configureTestTarget(t)
+-- 
+2.53.0
+
