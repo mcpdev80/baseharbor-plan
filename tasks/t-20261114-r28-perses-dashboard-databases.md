@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w204-0428-076-hop
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: Deliver PostgreSQL/MongoDB panels only when verified compatible metrics and permissions exist.
 kanban_title: 0428-076 · Perses database dashboards
 priority: normal
@@ -18,19 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1597]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "handoff abgeschlossen, exact-head-run terminal beobachtet: PR #1597 head 90063f6ec66c, draft=false (von mir gemessen), base develop, 4 commits/13 dateien, ancestry auf develop 40cb28c758b0 = JA, go.mod/go.sum belegt (direct-dependency fuer internal/metrics/perses_dashboards_promql_test.go:17). run 44812791612 = FAILURE an den feld-gates: cli-0..3 = 0428-198 (woertlich 'Managed-environment machine operations require an authenticated BaseHarbor operator', internal/operatorauth/authorization.go:285, auf develop vorbestehend), packages = 0428-202. gofmt/vet/build gruen. INHALT IST PRUEFBAR, NUR DAS GATE FEHLT - kein weiterer matrix-run, bis 0428-198 und 0428-202 gruen sind."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-databases · Perses database dashboards #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-databases · Perses database dashboards #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w204-0428-076-hop · **Priority:** normal  
     **PR:** [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597)  
+    **Waiting:** handoff abgeschlossen, exact-head-run terminal beobachtet: PR \#1597 head 90063f6ec66c, draft=false (von mir gemessen), base develop, 4 commits/13 dateien, ancestry auf develop 40cb28c758b0 = JA, go.mod/go.sum belegt (direct-dependency fuer…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
