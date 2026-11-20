@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w198-0428-198-cligate
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Jeder Pull Request, der auf develop 40cb28c758b0 (Merge von #1594, cli2-env-policy-head) gehopft wird, verliert die vier shards…"
 kanban_title: 0428-198 · cli shards need operator env
 priority: ""
@@ -18,20 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1726]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "SEIT DIESEM TICK ZWEI GRUENDE, NICHT MEHR EINS: (1) die systematischen eintrittsstellen sind von der karte 0428-204 uebernommen (MCP-handler + direkte .Run(ctx)/Execute(ctx)-pfade bekommen kein WithEnforcement; sitz w216-0428-204-entrypoints arbeitet auf ihrem branch bei 7546b1806aac weiter), (2) die packages-zelle haengt an einem MERGE von #1732, nicht an ihrem kopf. IHR STAND, VON MIR GEMESSEN: PR #1726 head 7546b1806aac, 8 dateien, base develop 40cb28c758b0, draft=false, checks 9 success / 8 failure (cli-0..3 + packages + Native Keycloak/Core docker+podman). der in-test seam IST gelivt und BEWIESEN (runWithIO -> rootCommand().Execute(ctx), '[w198-seam]'-print, akte round-3.md) - die karte ist also NICHT stillgestanden, sie war zu KLEIN GESCHNITTEN, und das war mein Fehler in der vertragsschneide, nicht die schuld der lane. DARUM wait statt blocked: der naechste zeuge ist der exakt-head-run von 0428-204, danach ist dieser kandidat mit #1732 zusammen gruen."
 resolution: ""
 evidence: []
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-r28-cli-shard-operator-env · cli shards need operator env #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
+- [ ] t-20261120-r28-cli-shard-operator-env · cli shards need operator env #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** w198-0428-198-cligate  
     **PR:** [baseharbor#1726](https://github.com/mcpdev80/baseharbor/pull/1726)  
+    **Waiting:** SEIT DIESEM TICK ZWEI GRUENDE, NICHT MEHR EINS: (1) die systematischen eintrittsstellen sind von der karte 0428-204 uebernommen (MCP-handler + direkte .Run(ctx)/Execute(ctx)-pfade bekommen kein WithEnforcement; sitz w216-0428-204-entrypoin…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md), [t-20261120-r28-valkey-dashboard-unavailable-only](t-20261120-r28-valkey-dashboard-unavailable-only.md)  
