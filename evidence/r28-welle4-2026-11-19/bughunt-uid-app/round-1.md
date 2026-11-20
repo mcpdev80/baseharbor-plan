@@ -69,5 +69,8 @@
 
 ## git push to origin/main
 
-- git ls-remote origin/main: e2e93c23c43b372d25ca945dcfec56bca7aeaddf
-- evidence committed and pushed to baseharbor-plan origin/main.
+- git ls-remote origin/main (before): e2e93c23c43b372d25ca945dcfec56bca7aeaddf (local stale ref); real GitHub main now at 2a7ca114 (other lanes added commits after mine).
+- fresh clone https://github.com/mcpdev80/baseharbor-plan.git: `git merge-base --is-ancestor 4717cf1e main` -> exit 0 (my evidence IS on the real origin/main). `git log --oneline 4717cf1e..main` shows only 2a7ca114 / 747cc12e (other lanes' commits AFTER mine, not mine).
+- commit 4717cf1e diff --stat: 1 file changed, 73 insertions; only evidence/r28-welle4-2026-11-19/bughunt-uid-app/round-1.md (no foreign commit carried on top of mine).
+- file on origin/main contains 5 "VERHALTEN KORREKT" lines across the 4 units.
+- local main reset to origin/main so no foreign commit is ever pushed from this lane; working tree clean.
