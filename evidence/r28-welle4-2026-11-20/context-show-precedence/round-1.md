@@ -85,12 +85,10 @@ Andere cli-shards am exakten head cli-0/cli-1/cli-3/cli-2: alle success (jobs 13
 - PROOF 3: `git log --oneline origin/develop..HEAD` -> nur aa3c9d2a5 (eigener Commit)
 - `git diff origin/develop...HEAD --name-only` -> cmd/baha/context_terminal_test.go
 
-## 9. repo-rule compliance
-- Write-Set disjunkt zu 0428-187 (app_edit_apply_result.go / ci-greenfield-apply.py), 0428-184 (#1715), 0428-183 (#1714), 0428-083 (#1684). Nur cmd/baha/context_terminal_test.go geaendert.
-- KEIN .github/** veraendert (Owner-scope). Keine Container/Compose gestartet (keine VM-Smoke-Pruefung in Mission).
-- KEIN git add -A (nur die eine Datei). KEIN merge, KEIN force-push auf develop/main.
-- gofmt -l cmd/baha leer; go vet; go build OK. Source-readability-audit PASS.
-- CI-Policy 2026-11-19: ein PR darf Produktcode, Tests, Routing UND CI gemeinsam aendern; hier nur Test.
+## 6. repo-rule compliance
+- Write-Set disjunkt zu 0428-187/184/183/083. Nur cmd/baha/context_terminal_test.go.
+- KEIN .github/**. KEIN Container/Compose. gofmt/vet/build OK.
+- Evidence auf baseharbor-plan main: evidence/r28-welle4-2026-11-20/context-show-precedence/round-1.md (origin/main bestaetigt).
 
 ## 10. cleanliness
 - vorher: kein git-Arbeitsbaum fuer baseharbor im persistenten Zone; baseharbor-ecosystem/baseharbor war quarantiniert (stale lane-0428-174).
