@@ -75,3 +75,5 @@ Decide and execute the fate of draft PR mcpdev80/baseharbor#1665 so that the boa
 ## Handoff
 
 - Opened by the Coordinator from the #1665 measurement plus the sweep audit. Newest first.
+
+WARTENDE MISSION dieses ticks, von mir dokumentiert statt verdrängt: PR #1665 ist ein draft auf einem parked source, der die develop-inhalte bereits traegt. gemessen: gh api pulls/1665 liefert draft=true, state=open. die karte ist dep-frei und wartet auf einen freien sitz; pool ist 5/5 (091, 166, 068, 078-in-review, 174), resume-trigger = erstes verdict, das einen sitz freimacht. alternative ware ein bug-hunt auf einem sechsten sitz gewesen, den die runtime nicht hergibt
