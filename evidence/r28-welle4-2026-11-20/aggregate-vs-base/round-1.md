@@ -116,7 +116,69 @@ candidate — the honest answer to the underlying question is: field-gate 198 (P
 entire cmd/baha shard set; #1732 unblocks the loki field (202) for #1645/#1597/#1714/#1684; and
 #1665 has a separate gate-catalog + stacked-base problem.
 
-## Witness list (commands, this lane)
+## Round-2 follow-up (coordinator answer note, 2026-11-20): #1731 "Workflow policy" evidence
+
+Correction to my round-1 side-note: at head `f90b3f448caf6441acfb3007deb2338308b400d9` the
+`Workflow policy` job is NOT failed — it is **success**. Measured truth:
+
+- Job: run 44812248904, job id 136551503837, conclusion `completed/success`; steps all success
+  (`Set up job`, `Checkout`, `Set up Go`, `Enforce fixed workflow surface`, `Validate workflow syntax`).
+- Woertliche log-Zeilen am head f90b3f44 (job log actions/jobs/136551503837/logs):
+
+```
+Workflow policy PASS: 20 approved workflow files.
+Gate catalog consistency PASS: no check-file or gate-ID additions/removals.
+```
+
+- The #1731 red is only in the 4 `Go unit · cli-*` shards and `Validation · pr-planner-tests`
+  (`TestMCPRegistrationCIInProcessDiscoverAndInvoke` -> `registration_ci_readiness_test.go:118`
+  `authentication_failed`) — field-gate 198, no policy problem. The `.github/workflows/ci.yml`
+  edit in this PR passed the Workflow policy untouched, because …
+
+## Was "Workflow policy" durchsetzt (datei:zeile, develop 40cb28c758b0)
+
+- Enforcement-Routine: `scripts/ci-workflow-policy.sh` Zeilen 4-27 (`expected=(…)` allowlist der
+  20 dateinamen), Zeile 34 (`diff -u wanted vs actual`), Zeilen 36-38 (fehlermeldung "GitHub Actions
+  workflow policy violation. BaseHarbor uses a fixed workflow surface. Do not add issue-, retry-,
+  debug-, proof-, or release-specific workflow YAML files."), plus Zeilen 44+ (gate-catalog
+  consistency: new/removed check files must land with a same-change update to scripts/release-requirements.json).
+- Aufgerufen als step "Enforce fixed workflow surface" in `.github/workflows/ci.yml` Zeilen 31-32
+  (job `workflow_policy` ab Zeile 1).
+
+## Verdict: zaehlt "owner-authored .github aenderung im PR" als workflow-policy-fehler?
+
+NEIN, generisch nicht. Die policy prueft ausschliesslich die DATEINAMEN-INVENTAR der
+`.github/workflows/`-Dateien gegen die allowlist (Zeile 34) plus die gate-catalog-Konsistenz —
+sie prueft weder den content von ci.yml, noch den diff, noch den author. Eine .github/**-Aenderung in
+einem PR ist therefore policy-seitig erlaubt und geht durch das gate, solange keine workflow-Datei
+hinzukommt/entfaellt und neue check-Dateien mit scripts/release-requirements.json verkabelt werden.
+#1731 ist genau dieser fall: owner-authored ci.yml-Edit im PR, Workflow policy = success, PR is
+blocked only by content. Der Owner kann #1731 also ohne policy-risiko so lassen; das eigentliche rot
+hebt sich erst wenn #1726 (198) gemerged ist — dann faellt der auth-only-test in
+`TestMCPRegistrationCIInProcessDiscoverAndInvoke` weg und die zsh/fish-pfade laufen wie vermerkt
+uber den develop-seitig installierten Shells. (Grenze dieser Aussage: ich kenne keine weitere policy,
+die .github/**-autorschaft prueft; die Owner-Regel ".github belongs to the Owner" ist ein
+Prozess-, kein CI-gate — in CI gibt dafuer nichts rot.)
+
+## Zeugen (round-2)
+
+- `gh api repos/mcpdev80/baseharbor/commits/f90b3f44…/check-runs` -> "Workflow policy completed/success", details_url job 136551503837
+- `gh api repos/mcpdev80/baseharbor/actions/jobs/136551503837/logs` -> die PASS-zeilen oben
+- `git show 40cb28c758b0:scripts/ci-workflow-policy.sh` (lines 4-27, 34-40, 44+)
+- `git show 40cb28c758b0:.github/workflows/ci.yml` (lines 31-32, step "Enforce fixed workflow surface")
+- Der exakte Vergleich, warum #1665 in derselben Zelle FAILT und #1731 nicht: am head db27880c (run
+  44820434283, job 136579771965) laeuft derselbe step `bash scripts/ci-workflow-policy.sh`, dort woertlich:
+  `Gate catalog consistency violation: new/removed validation surface lacks same-change updates to: scripts/release-requirements.json` +
+  `Affected check files: A scripts/ci-fast-check.sh` + `Affected registrations: (none)` -> exit 1.
+  Ursache ist die von #1665 (mit)gebrachte NEUE check-datei scripts/ci-fast-check.sh ohne
+  release-requirements.json-paar, nicht ".github im PR". (Genau vermessen: base_sha des #1665-PRs ist
+  b71c6da2 = #1684-head, dessen Vorfahr 408b18d2 = #1724-head auf ed55d8933 (= alter develop) sitzt;
+  scripts/ci-fast-check.sh fehlt in ed55d8933 und ist erst spaeter auf develop gelandet. Da die
+  policy-compare gegen den PR-base-Rechner laeuft, gilt das A-Flag "neu" im Vergleich — das ist der
+  gestapelte-Basis-Nebeneffekt bei #1665, nicht seine eigene .github-Aenderung.)
+- Note: this host hit "disk quota exceeded" mid-round; round-2 downloads went to /var/tmp/w215 and
+  the big round-1 transcript logs were pruned. No repo data affected.
+
 
 - `gh api repos/mcpdev80/baseharbor/rulesets` / `.../rulesets/25223521` (attestation above)
 - `git ls-remote https://github.com/mcpdev80/baseharbor refs/heads/develop` => 40cb28c758b0…
@@ -138,7 +200,8 @@ entire cmd/baha shard set; #1732 unblocks the loki field (202) for #1645/#1597/#
 5. Symbol tests per mission (loki_test, testOperatorContext) — done
 6. Per-PR verdict sentences + rebase-only list — done
 7. Evidence act committed and pushed to baseharbor-plan origin/main — done (see below)
-8. END post to coordinator — QUESTION posted (triage verdict), END_DONE to follow after coordinator ack
+8. Round-2 follow-up: Workflow policy verbatim line at f90b3f44 + enforcing file:line + owner-authored-.github verdict — done
+9. Round-2: push amended act to baseharbor-plan origin/main, verify on origin/main, END_DONE post — pending
 
 ## repo-rule compliance
 
