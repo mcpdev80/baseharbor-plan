@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w124-pr0428-124-metrval-final
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-124 · none Metriken erzeugen weder
 priority: ""
@@ -19,20 +19,20 @@ prs: [mcpdev80/baseharbor#1695]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verification-none/fix-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1695.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verification-none/fix-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1695.md", "https://github.com/mcpdev80/baseharbor/pull/1695"]
 - https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verification-none/fix-1.md
 ---
 
-- [ ] t-20261119-hunt-metrics-verification-none-blind · verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe #task #release/v0-4-28 #status/review #view/review #kind/task
+- [x] t-20261119-hunt-metrics-verification-none-blind · verification:none Metriken erzeugen weder scrape-target noch assertion — composition ohne gegenprobe #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** w124-pr0428-124-metrval-final  
     **PR:** [baseharbor#1695](https://github.com/mcpdev80/baseharbor/pull/1695)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verification-none/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1695.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verification-none/fix-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verification-none/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1695.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1695), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/verification-none/fix-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w124-pr0428-124-metrval-final  
@@ -95,3 +95,5 @@ abnahme REQUEST_CHANGES auf exaktem head 4f0d5e9f70 (PR-kommentar 7002942896; fo
 Independent read-only review of PR #1695 / 0428-124 (2026-11-19): empty provider-source lists are incorrectly reported as all Verification=none, which can show a false null-target status for apps without provider sources; all-none status also prints twice. Exact-head run 44478473607 is green for unit/build/vet, but the PR has diverged from current develop 558dc42d and needs refresh/retest. See [review evidence](../evidence/r28-welle4-2026-11-19/codex-review-wave/1695-0428-124-independent-review.md).
 
 PRUEFBAR GELIEFERT, von MIR AM KOPF 8d55cc03e nachgemessen. Fund 1 (empty-source guard): internal/metrics/prometheus_files.go — vier treffende zeilen (len(sources)==0-pfad), die provider-dateien werden nicht mehr fuer eine quelle ohne verifikation geschrieben. Fund 2 ([STATE]-dedupe): cmd/baha/app_metrics.go, mit zahlendem test — strings.Count(out,'[STATE] metrics') != 1 -> t.Fatal, dazu TestVerifyManagedMetricsDedupesProviderCompositionState. HOPF-FORM: der kopf selbst hat EINEN eltern (0a64a2edf), dessen ELTERN sind e288df146 + bbc937c8f — develop bbc937c8 ist also durch den grossvater gebracht, der hopf ist echt (vierte variante desselben musters heute, ich messe es jetzt systematisch statt zu glauben). LAEUFE: 44648669949 pull_request completed/success am exakten kopf (00:51:57Z), zellen 15 erfolg / 20 skipped / 0 fail. AKTE verification-none-r3/fix-1.md 14034 bytes, checkboxen null. OFFEN: mergeable_state=behind, develop ist b7cbc00f0adf (#1707) — letzter hopf vor dem merge, dieselbe lage wie bei 123 und 119
+
+GEMERGT, von mir gemessen: PR #1695 state=closed merged=true, merge-commit 36d075fad77f = JETZIGE develop-spitze. Verdict am merged SHA vorhanden: evidence/r28-welle4-2026-11-20/codex-review-wave/1695-0428-124-merge.md 'Verdict: MERGED 36d075fad77fa61ac8c153e979855546589b32c2' — zweiter merge des fensters mit dieser deckung (nach #1690). Weg bis hier: r3 request changes (nachbar-defekt + belegloch) -> r4 approve content mit waehrungs-auflage -> rebase auf f61ef0f4991c, inhaltsbeweis 'git diff --name-only 643c4983497d <head>' = leer fuer alle 9 PR-dateien, run 44667933981 'CI · PR #1695' completed/success am exakten head, 35/35 checks 0 failure, mergeable=clean, dann CODEX-MERGE. akten verification-none-r4/fix-1.md (14922 bytes) + fix-2.md (4166 bytes), checkboxen null
