@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 107/191 · **Blocked:** 3 · **Waiting:** 21  
+    **Accepted tasks:** 108/191 · **Blocked:** 3 · **Waiting:** 21  
     **Blocker:** [t-20261114-r28-cli2-app-interact](../tasks/t-20261114-r28-cli2-app-interact.md) — drei CLI-defekte: logs -c selector wirkungslos, exec ohne shell-parse, kind-exit-code unbelegt; base cli2-identity-secrets-head -\> kein exaktkopf-lauf (ci.yml:…  
     **Blocker:** [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) — Owner-Aktion erforderlich: PR \#1615 erhaelt keine exact-head CI, weil der Workflow auf dem BASIS-ast 'cli2-env-policy-head' (5ef9c329b) PR-CI nur fuer base dev…  
     Plus 1 further blockers in the task list.  

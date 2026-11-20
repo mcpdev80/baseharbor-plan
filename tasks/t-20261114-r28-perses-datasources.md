@@ -31,7 +31,6 @@ Owner decision (2026-11-17): Unblock. Reopen PR #1608 if it remains suitable, ot
     <!-- generated:card -->
     **Owner:** 0428-083- · **Priority:** normal  
     **PR:** [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684)  
-    **Needs:** [t-20261120-r28-develop-runtime-integration-red](t-20261120-r28-develop-runtime-integration-red.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44573407736), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44577713744), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/3d071fa2/tasks/t-20261114-r28-perses-datasources.md#fix-9), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44671189705), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/tasks/t-20261120-r28-develop-runtime-integration-red.md)  
     <!-- /generated:card -->
 

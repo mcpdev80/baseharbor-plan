@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w174-pr0428-174-runtime-red
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Make the native runtime integration path green on develop again. The job docker-runtime, step \"Run runtime integration tests…"
 kanban_title: 0428-174 · runtime Integr tests fail
 priority: ""
@@ -19,18 +19,19 @@ prs: [mcpdev80/baseharbor#1711]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1711"]
 ---
 
-- [ ] t-20261120-r28-develop-runtime-integration-red · Develop: runtime integration tests fail serially in docker-runtime (base defect) #task #release/v0-4-28 #status/review #view/review #area/ci #area/runtime #kind/bug
+- [x] t-20261120-r28-develop-runtime-integration-red · Develop: runtime integration tests fail serially in docker-runtime (base defect) #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/runtime #kind/bug
     <!-- generated:card -->
     **Owner:** w174-pr0428-174-runtime-red  
     **PR:** [baseharbor#1711](https://github.com/mcpdev80/baseharbor/pull/1711)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1711)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
@@ -84,3 +85,5 @@ base-defekt, gemessen an zwei gehosteten zeugen: run 44661597243 (workflow 'Runt
 wurzelgrund UNABHAENGIG belegt durch die read-only PR-sweep-Lane der anderen welt (evidence/r28-welle4-2026-11-20/pr-sweep/continuation-2026-11-20.md): 'required native Perses smoke failed BEFORE ASSERTIONS because Docker could not create /etc/perses/database on the image's read-only root' —environment-voraussetzung, keine produktbehauptung; erklaert success auf develop-push vs. failure im selectierten dispatch-pfad. korrekturmaßstab: kleinste aenderung am tmpfs-mount des tests; waere nur .github/** behebbar, STOP mit datei:zeile an den coordinator (owner-scope)
 
 abnahme ANGEDEUTET und in der reviewer-warteschlange hinter #1650, damit nicht zwei kanditaten gleichzeitig geprueft werden. gemessen: head 0a3805fb = refs/pull/1711/head (ls-remote), base auf develop-spitze 681700ca66f3 gebracht durch rebase + 'git push --force-with-lease' auf den ungeschuetzten branch (decision 2026-11-20-pr-branch-refresh-by-rebase.md), merge-base --is-ancestor 681700ca66f3 <head> = JA, run 44708908050 completed/success 0 failure, die docker-lifecycle-zelle laeuft ('Executed docker · lifecycle'). akte develop-runtime-red/round-2.md auf origin/main @ 91e79c2a. reinlichkeit gemeldet: keine baseharbor-eigenen container/volumes/netzwerke auf ihrer zelle. inhalt: postgres faellt per gosu auf uid70 zurueck, der pruef-code las ein leeres Config.User - behoben am test-seitigen eingang (AllowRootEntrypoint + /proc-Kapazitaetspruefung) in runtime_multi_integration_test.go. DIESE KARTE IST DER SCHLUESSEL fuer 0428-083 (#1684 blockiert auf derselben stoerung) und fuer die smoke-pfade aller folgenden karten
+
+MERGE FERN BESTAETIGT: gh api pulls/1711 -> state=closed merged=true merge_commit=dbe7fbc3905b, closed 09:50:01Z; develop-spitze dbe7fbc3905b. der merge stammt vom OWNER. KLARSTELLUNG ZU IHRE MELDUNG: sie schreiben, der zweite commit ccb630681 habe den head NACH dem merge bewegt; gemessen traegt ccb630681 die zeit 10:39:07+01:00 und der merge-commit dbe7fbc39 die zeit 10:50:00+01:00, also liegt der zweite commit VOR dem merge. ihr kern stimmt trotzdem: der head bewegte sich nach ihrer ersten einfrier-meldung (0a3805fb) und ein zweiter stand war noetig, den sie selbst abgefangen haben. ihr run 44712547340 am exakten head ccb630681 = success, docker-lifecycle-zelle laeuft (nicht skipped), zelle clean, akte develop-runtime-red/round-3.md auf main @ 48ec31fe. FOLGE: die develop-smoke-stoerung (tmpfs an /etc/perses/database auf read-only root, praedenzlauf 44661597243) ist behoben; karte 0428-083 (#1684) ist wieder arbeitbar und auf ihren frei gewordenen sitz gelegt (lane 473e54be, ornith)
