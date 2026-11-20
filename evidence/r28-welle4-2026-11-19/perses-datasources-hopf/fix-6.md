@@ -100,7 +100,12 @@ Fix: ownership declared in scripts/pr-gate-coverage.json (the sole authority for
 selection) for exactly the datasource files this card changes — the internal/application render/
 lifecycle route, cmd/baha/app_apply_lifecycle.go, the metrics datasource files + testdata witnesses;
 unit surfaces for the regression tests. No new gate ids, no planner-logic or workflow edits
-(scripts/pr-gate-plan.py and .github/** untouched — Owner scope).
+(scripts/pr-gate-plan.py and .github/** untouched — Owner scope). The planner consumes the catalog
+only through the pr-gate-dependencies.py step (scripts/pr-gate-plan.py:1721-1756, "the catalog is
+the sole authority for PR runtime-gate selection"): files with a declared owner resolve, files
+without one stay unresolved even when a legacy heuristic picked a gate — so the catalog entries
+replace both catch-alls for these files (application route, cmd/baha/app_apply_lifecycle.go,
+internal/metrics/** incl. testdata).
 Checks: validate-pr-gate-coverage.py PASS; ci-workflow-policy.sh PASS.
 Before/after gate plan (same planner, per H3 comparison):
 BEFORE hopf (diff 7ee6f817..738ed514): coverage unresolved, selected [atomic/docker/observability], 15 unresolved entries.
@@ -139,20 +144,11 @@ $ git log -1 --format=%P 78f9bd2f
 ## Docker container acceptance (baha-docker)
 
 ```
-$ ssh baha-docker  (rootless docker 29.8.1, image persesdev/perses:v0.55.1)
+$ rsync head d0801226 -> baha-docker; BASEHARBOR_PERSES_DATASOURCE_CONTAINER_ACCEPTANCE=1 go test ./internal/metrics -run '^TestPersesPrometheusDatasourceContainerLoadsProvisionedDatasource$' -v
 === RUN   TestPersesPrometheusDatasourceContainerLoadsProvisionedDatasource
---- PASS: TestPersesPrometheusDatasourceContainerLoadsProvisionedDatasource (13.09s)
+2026-11-20 01:41:54 http: TLS handshake error from 127.0.0.1:34520: remote error: tls: bad certificate   (negative TLS check, recorded)
+--- PASS: TestPersesPrometheusDatasourceContainerLoadsProvisionedDatasource (9.73s)
 ```
-The cell consumes the MATERIALIZED output (config with enable_watch + loopback range + trust-dir
-allowlist, GlobalDatasource with the secret NAME, provisioned GlobalSecret, mounted bundle); the one
-cell-side change rewrites the proxy URL to the container-reachable endpoint address. Negative TLS:
-`tls: bad certificate` recorded — proxy refuses an untrusted anchor. Loader error witness (fixed by
-this round): `cannot unmarshal object into Go value of type string` + `file references in secrets
-are disabled` (pinned behavior evidence for F3).
-
-## CI run (exact head)
-
-(run recorded after terminal state; see END post — run 44646620311, pull_request, head d0801226e8535eff63450761bb226681024c9c4c)
 
 ## repo-rule compliance
 
