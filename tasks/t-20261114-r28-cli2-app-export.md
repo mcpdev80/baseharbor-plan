@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: codex-open-pr-sweep-065
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "App export and recovery UX. Follow the owner working brief, command mapping and code entry index; revalidate current develop and…"
 kanban_title: 0428-065 · App export and recovery UX
 priority: high
@@ -18,20 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1625]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "Implementation is pushed at #1625 head 010db47dae0e0425f948914b3febc1ba86f41edc. PR remains Draft and targets cli2-identity-secrets-head, which does not match the current CI pull_request base allowlist (develop/main/lane-*), so there is no exact-head run. Wait for prerequisite #1615/0428-057 to resolve, then monotonically hop this branch to an eligible base, keep Draft until the exact-head ready gates pass, and record the hosted run."
 resolution: ""
-evidence: []
+evidence:
+  - "https://github.com/mcpdev80/baseharbor/commit/010db47dae0e0425f948914b3febc1ba86f41edc"
 ---
 
-- [ ] t-20261114-r28-cli2-app-export · CLI redesign: App export and recovery UX #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-app-export · CLI redesign: App export and recovery UX #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** codex-open-pr-sweep-065 · **Priority:** high  
     **PR:** [baseharbor#1625](https://github.com/mcpdev80/baseharbor/pull/1625)  
+    **Waiting:** Implementation is pushed at \#1625 head 010db47dae0e0425f948914b3febc1ba86f41edc. PR remains Draft and targets cli2-identity-secrets-head, which does not match the current CI pull\_request base allowlist (develop/main/lane-\*), so there is no…  
     **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/010db47dae0e0425f948914b3febc1ba86f41edc)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
@@ -74,7 +77,14 @@ Read-only findings: [PR #1625 / 0428-065](../evidence/r28-welle4-2026-11-19/code
 
 ## Handoff
 
-Planned and unassigned. No product implementation or acceptance yet.
+2026-11-20 — implementation complete on the existing PR branch; no acceptance/merge yet.
+
+- PR #1625 remains OPEN+DRAFT, based on `cli2-identity-secrets-head`. Remote branch advanced monotonically from exact reviewed head `da7a4e62cda17bcc167cd659c24f81bdff9f0d15` to `010db47dae0e0425f948914b3febc1ba86f41edc`; no force update. The live Codeman snapshot had no #1625 worker before the fast-forward.
+- In `cmd/baha/app_export.go`, managed-secret discovery now authorizes `secret.list` and inspects metadata through the app's managed secret service; selected values use `GetMany` only after explicit `--include secrets/openbao` consent or interactive selection plus `RequireHumanOperator`. List/read backend details are redacted, and temporary value buffers are cleared after encryption or error.
+- Tests added in `cmd/baha/app_export_command_test.go`: `TestAppExportManagedSecretsAuthorizedSelectionProducesEncryptedEntry` proves a verified operator can export/decrypt the selected managed secret while output and ciphertext do not expose it; `TestAppExportManagedSecretBackendErrorsAreRedacted` covers both list and read errors. Existing `TestAppExportManagedSecretWithoutOperatorFailsClosed` continues to prove denial.
+- Exact candidate `010db47dae0e0425f948914b3febc1ba86f41edc`: `go test ./cmd/baha -run '^TestAppExport' -count=1` PASS; `go vet ./cmd/baha` PASS; `git diff --check` PASS. Test binding: normal package discovery; hosted trigger is the selected `PR · Go unit · cli-*` shard for `cmd/baha`, on a non-draft PR whose base is `develop` or `lane-*`.
+- `go test ./cmd/baha -count=1` did not pass as a whole (510.671s). Reported failures included unrelated test setup/runtime cases such as a tight-host-memory preflight and tests resolving missing `dev-docker-1`; no failure named the app-export tests. This broad run is not acceptance evidence.
+- `gh run list --commit 010db47dae0e0425f948914b3febc1ba86f41edc` returned no workflow runs. The current PR base `cli2-identity-secrets-head` is outside `.github/workflows/ci.yml`'s `pull_request.branches` allowlist (`develop`, `main`, `lane-*`); do not mark Ready or merge. Wait for #1615/0428-057, then hop onto an eligible base and require a fresh exact-head run.
 
 BOARD-KORREKTUR nach unabhaengiger GEGENLESE (akte evidence/r28-welle4-2026-11-19/codex-review-wave/board-sweep-gegenlese-1.md, haupt e86d817d): der PR dieses fachers ist draft=true. Ein draft ist KEIN kanditat (§5.2), also war der zustand 'review' zu gut — er versprach einen pruefbaren kanditaten, den es nicht gibt. FEHLENDE STUFE, klar benannt: draft auf non-draft, EIN monotoner hopf auf den aktuellen develop, EIN exact-head-lauf bis terminal; die arbeit im zweig ist vorhanden. Rueckstandiger zustand, kein inhaltlicher rueckstand
 
@@ -82,3 +92,7 @@ BOARD-KORREKTUR nach unabhaengiger GEGENLESE (akte evidence/r28-welle4-2026-11-1
 
 - Befund (independent review 1625): cmd/baha/app_export.go:273-275 'managedSecretScopePresent' ist HARDCODED (false, nil), collectExportEntries (:279-298) behandelt den fall als leer — der ANGEKUENDIGTE managed-secret export ist nie verfuegbar. Entweder implementieren (mit positivem authorized-path-test) oder aus dem vertrag entfernen.
 - Nachweis-Voraussetzung: ein exaktkopf-lauf mit dem geforderten gate; ueber den gestapelten base-ref ist der derzeit nicht ausloesbar (owner-draht ci.yml:14-18, derselbe grund wie #1615).
+
+## Implementation follow-up 2026-11-20
+
+The managed-secret path is implemented and locally verified at commit [`010db47`](https://github.com/mcpdev80/baseharbor/commit/010db47dae0e0425f948914b3febc1ba86f41edc). Exact focused tests, package vet and diff check pass. The card is `wait` while #1615 remains blocked and the stacked base cannot trigger the required PR workflow; #1625 stays Draft. See the Handoff above for exact results and next trigger.
