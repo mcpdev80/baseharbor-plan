@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w142-0428-184-shareddestroy
+owner: w184-0428-184-shareddestroy
 kanban_status: blocked
 kanban_lane: blocked
 kanban_summary: ""
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 - [ ] t-20261120-r28-shared-destroy-no-registry-cleanup · Shared destroy does not clean the signal registry (stale owners survive) #task #release/v0-4-28 #status/blocked #view/blocked #kind/bug
     <!-- generated:card -->
-    **Owner:** w142-0428-184-shareddestroy  
+    **Owner:** w184-0428-184-shareddestroy  
     **PR:** [baseharbor#1715](https://github.com/mcpdev80/baseharbor/pull/1715)  
     **Blocker:** externe ursache: karte 0428-187 (podman data-capabilities-zelle stirbt am candidaten-consent-pfad, run 44743111417 job 136312259900) - ohne deren loesung bleibt 'PR Selected Checks' am exakten head rot, gleich gueltig ihr diff ist  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md)  
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w142-0428-184-shareddestroy  
+**Owner:** w184-0428-184-shareddestroy  
 **Priority:** not set  
 **PRs:** [baseharbor#1715](https://github.com/mcpdev80/baseharbor/pull/1715)  
 **Source:** 
