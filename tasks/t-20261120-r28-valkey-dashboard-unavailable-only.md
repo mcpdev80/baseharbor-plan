@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w183-0428-183-valkeygate
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-183 · valkey dashboards gate
 priority: ""
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md"]
 ---
 
-- [ ] t-20261120-r28-valkey-dashboard-unavailable-only · Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable #task #release/v0-4-28 #status/active #view/active #kind/bug
+- [ ] t-20261120-r28-valkey-dashboard-unavailable-only · Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable #task #release/v0-4-28 #status/review #view/review #kind/bug
     <!-- generated:card -->
     **Owner:** w183-0428-183-valkeygate  
     **PR:** [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714)  
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w183-0428-183-valkeygate  
@@ -66,3 +66,5 @@ card is limited to the Valkey face. If a DB dashboard availability path is genui
 and its own card, which the coordinator would found - not this lane as a side effect.
 
 PR #1714 head c5b810c8cb85, 14 success / 20 skipped / 0 failure am exakten head. unabhaengige abnahme: REQUEST CHANGES - die valkey-verfuegbarkeit ist ein vom aufrufer gesetztes bool, es gibt keinen echten producer, das query spec ist leer, und der PR fuehrte titel/body 'x' (titel habe ich per REST PATCH gesetzt, head unbewegt: c5b810c8cb85 vorher = nachher). korrektur zugestellt.
+
+HANDOFF ABGESCHLOSSEN (dritte runde war ein basis-drift, kein rueckfall): rebase auf develop f5ce95af, damit der 182-contract (RequiresAdapter -> Unsupported) drin ist; der stale test in perses_dashboards_valkey_test.go:178 UND der falsche kommentar in perses_dashboards_valkey.go:33-35 sind berichtigt. PR #1714 head 18e84809634e, branch = refs/pull/1714/head (dieselbe sha gemessen), draft=false, 3 dateien, checks 14 success / 20 skipped / 0 failure, run 44755545566, 'PR · Go unit · packages' completed/success (executed, nicht skipped). akte valkey-dashboard-gate/round-3.md auf main: 0 checkboxen, head 4x, run-id 4x, drift-beleg 6x. hintergrund gegen develop 3653369a4d83 = behind_by 1 (#1717/0428-188), hop vor dem merge, nicht vor der abnahme.
