@@ -7,9 +7,9 @@ areas: [ci, observability]
 release: v0.4.28
 version: ""
 parent: ""
-owner: w202-0428-202-pkgshard
-kanban_status: wait
-kanban_lane: wait
+owner: w207-0428-202-lokifix
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-202 · packages shard red on develop
 priority: ""
@@ -18,24 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "Waiting for prerequisite 0428-057 / PR #1615 to merge with exact required CI green. Its current exact run 44815738274 is pending on head 80bea2a73dabcd8f37e046cc9dcf3c190665afb0; packages passed on its prior head, but must re-run on the final exact head. Once #1615 merges, hop #1714 onto current develop and rerun its exact packages shard to confirm Loki multi-source behavior. The earlier bisect finding remains recorded below; this card is waiting for the owner rail's CI fix, not technically blocked."
+wait_reason: ""
 resolution: ""
 evidence: []
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-r28-packages-shard-develop-regression · packages shard red on develop #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/observability #kind/bug
+- [ ] t-20261120-r28-packages-shard-develop-regression · packages shard red on develop #task #release/v0-4-28 #status/active #view/active #area/ci #area/observability #kind/bug
     <!-- generated:card -->
-    **Owner:** w202-0428-202-pkgshard  
-    **Waiting:** Waiting for prerequisite 0428-057 / PR \#1615 to merge with exact required CI green. Its current exact run 44815738274 is pending on head 80bea2a73dabcd8f37e046cc9dcf3c190665afb0; packages passed on its prior head, but must re-run on the fi…  
+    **Owner:** w207-0428-202-lokifix  
     **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
-**Owner:** w202-0428-202-pkgshard  
+**Owner:** w207-0428-202-lokifix  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -98,3 +97,5 @@ package is **not** the PR's own code:
 ARBEITET JETZT, kante gegen session gemessen (w202-0428-202-pkgshard, laptop): ursache zuerst (bisect f5ce95afce1c -> 40cb28c758b0 mit 'go test ./internal/logs/ -run TestPersesLokiDatasourceMultiSource' an beiden enden), dann der kleinste fix am VERHALTEN, dann ein hosted run am exakten head mit 'PR · Go unit · packages' executed/success. die zwei nachmessungen, die den weg weisen: #1714 war am alten base f5ce95af GRUEN in diesem shard (run 44755545566), am neuen 40cb28c ROT an internal/logs (job 136433151042), und ein fremder PR (#1645, run 44731562217) faellt im selben shard an internal/identityprovider - das ist #1650/owner-feld, fuer diese karte nur zu benennen. develop-push faehrt das shard nicht (nur Runtime docker/podman, runs 44769994971/44769994909) - deshalb war der defekt unsichtbar.
 
 DISPOSITION NACH MESSEN: die lane tat genau das richtige - im verschlossenen feld gestoppt + gemeldet statt still repariert. ihre zuordnung an #1684 habe ich NICHT uebernommen, weil die dateienliste von #1684 policy.go nicht fuehrt und der git-log 2af892e4e -> 018b4e58a zeigt, dass die stelle zum #1594/0428-053-rail des owners gehoert. sitz freigegeben, neu besetzt mit 0428-200 (konfliktfrei, andere dateien).
+
+URSACHE GEFUNDEN, UND SIE IST NICHT DER OWNER-RAIL: DIE packages-ZELLE FAELLT, WEIL EIN TEST-FIXTURE DAS CLIENT-PAR NICHT SCHREIBT. MESSEN (read-only, develop 40cb28c758b0 + job 136526893242 des runs 44805066271): woertlich 'load Loki service access identity: stat /tmp/<test>/001/providers/loki/shared/service-access/pki/client-cert.pem: no such file or directory', an genau drei tests (internal/logs/loki_test.go:522 / 586 / 633, familie TestPersesLokiDatasourceMultiSource). der helper materializeLokiServiceAccessPKI (internal/logs/loki_test.go:434) schreibt ca.pem + server-cert.pem + server-key.pem, ABER KEIN client-cert.pem; die consumer-seite lokiDatasourceHTTPClient (internal/logs/loki_datasource.go:394-401) verlangt ueber serviceaccess.ExistingTLSMaterial genau diese datei, und das producer-layout internal/serviceaccess/pki.go:485 benennt 'client-cert.pem'. serviceaccess.Resolve laeuft durch (sonst kaeme ein anderer fehler) - also ist 2af892e4e ('fail closed without explicit environment policy') HIER NICHT die ursache, und die owner-entscheidung, die ich als blocker bat, ist NICHT noetig. SITZ: w207-0428-202-lokifix (ornith), schreib-umfang internal/logs/*_test.go, internal/serviceaccess/** verschlossen. beweis-pflicht: kleinster gate 'go test ./internal/logs/ -run TestPersesLokiDatasourceMultiSource' vorher/nachher + ein terminaler hosted run am exakten head.
