@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w091-pr0428-091-tempo-source
-kanban_status: wait
-kanban_lane: wait
+owner: 0428-091-
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Provision selected authorized Tempo datasource via supported Perses plugin, scoped and verified."
 kanban_title: 0428-091 · Connect Perses Tempo
 priority: normal
@@ -18,25 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1610, mcpdev80/baseharbor#1645]
 sources: []
 blocker: ""
-wait_reason: "CODEX-REVIEW r2 on exact head 0449f065 returned REQUEST CHANGES: runtime endpoint reachability from Perses, preserving required mTLS, and two removed fail-closed host-dashboard tests remain unresolved (see evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md). Codeman currently reports 5/5 workers occupied and no open seat. Resume correction work when the first seat opens, then produce exact-head runtime/acceptance evidence."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44688554297", "https://github.com/mcpdev80/baseharbor/actions/runs/44689126814", "https://github.com/mcpdev80/baseharbor/actions/runs/44695439903", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md"]
 ---
 
-- [ ] t-20261114-r28-perses-tempo-source · Connect Perses Tempo #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
+- [ ] t-20261114-r28-perses-tempo-source · Connect Perses Tempo #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** w091-pr0428-091-tempo-source · **Priority:** normal  
+    **Owner:** 0428-091- · **Priority:** normal  
     **PR:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645)  
-    **Waiting:** CODEX-REVIEW r2 on exact head 0449f065 returned REQUEST CHANGES: runtime endpoint reachability from Perses, preserving required mTLS, and two removed fail-closed host-dashboard tests remain unresolved (see evidence/r28-welle4-2026-11-20/co…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44688554297), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44689126814), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44695439903), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
 **Required by:** [t-20261114-r28-perses-log-trace-dash](t-20261114-r28-perses-log-trace-dash.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** w091-pr0428-091-tempo-source  
+**Owner:** 0428-091-  
 **Priority:** normal  
 **PRs:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645)  
 **Source:** 
@@ -121,3 +120,5 @@ The exact-head review in [1645-0428-091.md](../evidence/r28-welle4-2026-11-20/co
 ## Wait-reason correction — 2026-11-20 08:09 UTC
 
 The current Wait status is supported by the owner pause and the latest Codeman pool snapshot (5/5 seats, no open seat), but the prior `wait_reason` incorrectly emphasized the earlier green run and did not reflect the later CODEX-REVIEW r2 REQUEST CHANGES. The reason now records the outstanding Perses runtime endpoint, mTLS policy, and host-dashboard regression findings and sets the concrete resume trigger: first open worker seat, followed by corrections and exact-head acceptance. PR #1645 remains OPEN+Ready at `0449f065`; no closure transition is supported.
+
+SITZ FREI GEWORDEN DURCH DEN MERGE VON #1709 (develop 681700ca66f3) -> diese karte nimmt ihn, die warteschlange ist damit geloest. neue frische lane 0428-091- (sid 0ee3dfb3, flash-kanal, model worker-flash ueber agentgateway, readiness von spawn-lane.sh verifiziert). gemessener ausgang: #1645 head 0449f06587c8, base 36d075fad77f, draft=false, mergeable=clean, 25 dateien, develop-ahn JA, run 44695439903 completed/success 36/36 - der gruene stand ersetzt NICHT das verdict (§5.4), das verdict ist REQUEST CHANGES (akte codex-review-wave/1645-0428-091.md, vier punkte P1-P4). auftrag: endpoint-routbarkeit aus dem echten netzwerk-namespace von Perses ohne verlust der AuthenticationRequired-policy (perses_tempo_datasource.go:482-496, :467-470, internal/traces/tempo.go:511-523), rueckgabe der ZWEI geloeschten fail-closed host-dashboard regressionstests in internal/capability/perses_test.go, und die drei 'partially present, not accepted'-punkte auf accepted fuehren. WEITERER FUND AN MEINEM EIGENEN WERKZEUG, den ich hier festhalte: coordinator/scripts/dispatch-lane.sh baute seinen praesel in einer doppelt quotierten zuweisung MIT BACKTICKS - bash fuehrte die klauseln beim dispatch AUS statt sie zu uebergeben (meldungen 'base: No such file or directory', 'real-url', 'syntax error near git ls-remote <rea'), die lane bekam einen lueckenhaften auftrag und wurde sofort idle. behoben (backticks maskiert, bash -n fehlerfrei, gegentest LEN=8656 mit merge-base- und ls-remote-klausel verbatim), coordinator commit 98bc25e7, sicherungskopie /var/tmp/dispatch-lane.sh.bak-0428-175. zustellung danach erfolgreich, lane busy. LANENAMENS-ABWEICHUNG: spawn-lane.sh setzte den namen '0428-091-' statt wNNN-pr1645-<kurztitel> (owner-direktive 2026-11-07) - nachtrag fuer karte 0428-175, weil der name im board die kartennummer zeigen muss
