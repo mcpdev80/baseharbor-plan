@@ -160,6 +160,15 @@ uber den develop-seitig installierten Shells. (Grenze dieser Aussage: ich kenne 
 die .github/**-autorschaft prueft; die Owner-Regel ".github belongs to the Owner" ist ein
 Prozess-, kein CI-gate — in CI gibt dafuer nichts rot.)
 
+## origin/main delivery witness (round-2, second-to-last action)
+
+```
+$ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep aggregate-vs-base
+evidence/r28-welle4-2026-11-20/aggregate-vs-base/round-1.md
+$ git ls-remote origin refs/heads/main
+594e157eb70aed47478fd04d79b05bcfac482403	refs/heads/main   (w215 round-2 evidence commit, final; earlier chain drafts 10cbcaf8/e8991ec2/2360042e were this lane's own, consolidated by amend+force-with-lease)
+```
+
 ## Zeugen (round-2)
 
 - `gh api repos/mcpdev80/baseharbor/commits/f90b3f44…/check-runs` -> "Workflow policy completed/success", details_url job 136551503837
@@ -201,7 +210,7 @@ Prozess-, kein CI-gate — in CI gibt dafuer nichts rot.)
 6. Per-PR verdict sentences + rebase-only list — done
 7. Evidence act committed and pushed to baseharbor-plan origin/main — done (see below)
 8. Round-2 follow-up: Workflow policy verbatim line at f90b3f44 + enforcing file:line + owner-authored-.github verdict — done
-9. Round-2: push amended act to baseharbor-plan origin/main, verify on origin/main, END_DONE post — pending
+9. Round-2: push amended act to baseharbor-plan origin/main, verify on origin/main, END_DONE post — done
 
 ## repo-rule compliance
 
@@ -225,4 +234,6 @@ lane; worktree zone /tmp/opencode holds read-only measurement logs only (safe to
 
 END_DONE w215-0428-198-aggregate: all 15 aggregate-red PRs triaged — ZERO are rebase-only-green; 14 red from field-gate 198 (#1726 seam) incl. 4 also waiting on #1732 merge (202), #1665/#1726 have extra causes (gate catalog / base-chain / seam gaps) — candidate: this evidence commit on baseharbor-plan origin/main.
 
-(QUESTION was posted first per mission rule on scope-relevant findings: #1731 needs its .github hunk dropped — Owner scope; that one item is the coordinator's call, everything else above is measured truth.)
+(QUESTION was posted first per mission rule on scope-relevant findings; round-2 correction below supersedes the #1731 note: its Workflow policy is SUCCESS at f90b3f44 — see "Round-2 follow-up".)
+
+END_DONE w215-0428-198-aggregate: round-2 delivered — Workflow policy verbatim at f90b3f44 = "Workflow policy PASS: 20 approved workflow files." / "Gate catalog consistency PASS" (job 136551503837, success); enforcing rule at scripts/ci-workflow-policy.sh:34-40 called from .github/workflows/ci.yml:31-32; owner-authored .github change in a PR does NOT count as workflow-policy error — candidate: this act (see delivery witness above) on baseharbor-plan origin/main.
