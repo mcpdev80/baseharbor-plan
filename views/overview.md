@@ -38,7 +38,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261120-coord-publish-integrity-gaps](../tasks/t-20261120-coord-publish-integrity-gaps.md) | Coordinator tooling: card-status.py bypasses the payload integrity gates; watch.py rm signature unusable | active | not set | w175-pr0428-175-publish-gate | — | — |
 | [t-20261120-perses-tmpfs-mountpoint](../tasks/t-20261120-perses-tmpfs-mountpoint.md) | Perses runtime smoke cannot mount tmpfs at /etc/perses/database on hosted runners | active | not set | 0428-083- | — | — |
 | [t-20261120-r28-signal-id-normalization-collision](../tasks/t-20261120-r28-signal-id-normalization-collision.md) | collide project names by token fold | active | not set | 0428-166- | [t-20261120-r28-keycloak-signal-id-migration-gap](../tasks/t-20261120-r28-keycloak-signal-id-migration-gap.md) | [baseharbor#1712](https://github.com/mcpdev80/baseharbor/pull/1712) |
-| [t-20261120-r28-stale-draft-pr-1665-closeout](../tasks/t-20261120-r28-stale-draft-pr-1665-closeout.md) | Stale draft PR #1665 on parked card 0428-082: restack with evidence or close after ancestry proof | active | not set | coord | — | — |
+| [t-20261120-r28-stale-draft-pr-1665-closeout](../tasks/t-20261120-r28-stale-draft-pr-1665-closeout.md) | Stale draft PR #1665 on parked card 0428-082: restack with evidence or close after ancestry proof | active | not set | w176-pr1665-1665-closeout | — | — |
 
 ## Ready for review
 

@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: coord
+owner: w176-pr1665-1665-closeout
 kanban_status: active
 kanban_lane: active
 kanban_summary: "Decide and execute the fate of draft PR mcpdev80/baseharbor#1665 so that the board shows one truthful state: either a restacked,…"
@@ -25,14 +25,14 @@ evidence: []
 
 - [ ] t-20261120-r28-stale-draft-pr-1665-closeout · Stale draft PR #1665 on parked card 0428-082: restack with evidence or close after ancestry proof #task #release/v0-4-28 #status/active #view/active #kind/maintenance
     <!-- generated:card -->
-    **Owner:** coord  
+    **Owner:** w176-pr1665-1665-closeout  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** coord  
+**Owner:** w176-pr1665-1665-closeout  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -76,3 +76,15 @@ Decide and execute the fate of draft PR mcpdev80/baseharbor#1665 so that the boa
 - Opened by the Coordinator from the #1665 measurement plus the sweep audit. Newest first.
 
 WARTENDE MISSION dieses ticks, von mir dokumentiert statt verdrängt: PR #1665 ist ein draft auf einem parked source, der die develop-inhalte bereits traegt. gemessen: gh api pulls/1665 liefert draft=true, state=open. die karte ist dep-frei und wartet auf einen freien sitz; pool ist 5/5 (091, 166, 068, 078-in-review, 174), resume-trigger = erstes verdict, das einen sitz freimacht. alternative ware ein bug-hunt auf einem sechsten sitz gewesen, den die runtime nicht hergibt
+
+lane beauftragt auf dem freien sitz (laptop 2/2), mission zugestellt um 13:3xZ und als busy bestaetigt.
+GEGENSTAND: das schicksal von draft PR mcpdev80/baseharbor#1665 (karte 0428-082, 33 commits, base = der ALTE lane-branch
+w083-perses-datasources @ ed55d893374b, mergeable=dirty, updated 2026-11-17T07:43:39Z). gemessen von mir:
+'merge-base --is-ancestor e580d3241456 e3b4300f3f2c' = NEIN, der inhalt wartet also nicht schon in develop; und der branch
+traegt ZUGLEICH commits fuer karte 0428-075, deren PR #1575 CLOSED ist - ein PR pro Karte (§3.8) ist hier verletzt.
+KRITERIUM, das ich ihr mitgegeben habe: (a) SCHLIESSEN mit benennung der deckenden PRs, wenn der eindeutige inhalt nichts
+leistet, was nicht schon gemergt oder auf einer offenen karte steht; (b) RESTACKEN auf develop e3b4300f3f2c mit eigenem
+branch, base-retarget auf develop, 0428-075-inhalt NICHT mitnehmen (eigene karte, meldung an mich), dann kandit mit den
+drei beweisszeilen. in beiden faellen akte evidence/r28-welle4-2026-11-20/stale-draft-pr-1665/round-1.md + '## decision'
+in einem satz + cleanliness-zeile. STOPP + MELDUNG statt eigener entscheidung, wenn 082 eine eigene neue karte brauchte
+oder das schliessen fremde, kartenlose arbeit unberuehrt liesse.
