@@ -12,7 +12,7 @@ parent: ""
 depends_on: []
 blocked_by: []
 superseded_by: []
-owner: w164-pr0428-164-windowaudit
+owner: w164-pr0428-164-windowakte
 kanban_status: active
 kanban_lane: active
 blocker: ""
@@ -25,14 +25,14 @@ wait_reason: ""
 ---
 - [ ] t-20261120-r28-merge-window-audit-r2 · die merges nach karte 150 auf blob-identitaet pruefen #task #release/v0-4-28 #status/active #view/active #area/ci #area/coordination #kind/task
     <!-- generated:card -->
-    **Owner:** w164-pr0428-164-windowaudit  
+    **Owner:** w164-pr0428-164-windowakte  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w164-pr0428-164-windowaudit  
+**Owner:** w164-pr0428-164-windowakte  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

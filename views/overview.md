@@ -39,7 +39,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-r28-bughunt-observability-desk](../tasks/t-20261119-r28-bughunt-observability-desk.md) | hunt observability desk | active | not set | Coordinator 9142ab1f (bahn: hunt-lane auf ornith:1, akte unter evidence/r28-welle4-2026-11-19/vm-bughunt/) | — | — |
 | [t-20261119-r28-window-integrity-verify](../tasks/t-20261119-r28-window-integrity-verify.md) | fensterstand gegen abnahmebelege pruefen | active | not set | w150-pr0428-150-windowverify | — | — |
 | [t-20261120-r28-bughunt-keycloak-signal-scope](../tasks/t-20261120-r28-bughunt-keycloak-signal-scope.md) | projekt-enthalzung der signal-ids befunden | active | not set | w165-pr0428-165-kchunt | — | — |
-| [t-20261120-r28-merge-window-audit-r2](../tasks/t-20261120-r28-merge-window-audit-r2.md) | die merges nach karte 150 auf blob-identitaet pruefen | active | not set | w164-pr0428-164-windowaudit | — | — |
+| [t-20261120-r28-merge-window-audit-r2](../tasks/t-20261120-r28-merge-window-audit-r2.md) | die merges nach karte 150 auf blob-identitaet pruefen | active | not set | w164-pr0428-164-windowakte | — | — |
 
 ## Ready for review
 
