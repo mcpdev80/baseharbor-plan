@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w078-pr0428-078-appstatus-r3
-kanban_status: review
-kanban_lane: review
+owner: Codex (owner takeover, pr-sweep)
+kanban_status: active
+kanban_lane: active
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
 kanban_title: 0428-078 · Perses identity dashboard
 priority: normal
@@ -23,19 +23,19 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** w078-pr0428-078-appstatus-r3 · **Priority:** normal  
+    **Owner:** Codex (owner takeover, pr-sweep) · **Priority:** normal  
     **PR:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** w078-pr0428-078-appstatus-r3  
+**Owner:** Codex (owner takeover, pr-sweep)  
 **Priority:** normal  
 **PRs:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
 **Source:** 
@@ -171,3 +171,17 @@ fehlte zum vierten und dann auch beim shrink, und die akte round-8.md war im ers
 trigger war bei mir 'terminaler run ODER akte', jetzt beides da. HALTEN SIE STILL: kein push, kein rebase, kein dritter
 commit, solange die abnahme laeuft (§3.3 regel 8, ein bewegter head macht das verdict wertlos). wenn ein befall kommt, hole
 ich sie zurueck.
+
+UEBERGABE AN DEN OWNER / CODEX, von mir angeordnet nach seiner anweisung dieses augenblicks: 'ich uebernehme ab jetzt
+karte 0428-078 / PR 1650 zur fertigstellung ... bitte die bestehende w078-lane sauber freigeben und 0428-078 an mich/Codex
+uebergeben'. sein uva review am eingefrorenen head 9add5e8a2122 lautet REQUEST CHANGES (akte
+evidence/r28-welle4-2026-11-20/pr-sweep/review-1650-2026-11-20.md), drei punkte: kein dashboard-delivery/produktintegration
+im diff, witness-isolation nach echtem target/tenant/state-root nicht belegt, positiver verified-weg nicht ueber die
+oeffentliche status-JSON-ausgabe nachgewiesen; run 44737589479 ist gruen, aber kein abnahmenachweis dafuer.
+LANE: angehalten (kein edit, kein commit, kein push, head bleibt liegen), liefert eine handoff-akte
+appstatus-integration/handoff-078.md und dann END; sitz wird danach freigegeben. MEIN LAUFENDER REVIEW: darf zu ende
+gehen und sein verdict dokumentieren, danach KEINE dritte runde von mir - der owner aktualisiert exakt-head CI und merged
+selbst, wenn alle erforderlichen checks und der verdict gruen sind. SCHREIBGRENZEN, die ich ihm ausdruecklich mitgebe:
+internal/capability/perses_selection.go bleibt verschlossen (owner-anweisung von heute vormittag), und
+internal/application/perses_runtime.go wird von #1684 (0428-083) geschrieben - die karte 0428-181 haengt an derselben
+sequenz. ihr eigener abnehmer-katalog liegt auf 0428-181, damit aus dieser uebergabe kein zweiter toter baum wird.
