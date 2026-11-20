@@ -13,25 +13,25 @@ depends_on: []
 blocked_by: []
 superseded_by: []
 owner: w169-pr0428-169-closeout
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 blocker: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/pr-inventory-audit/round-1.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/pr-inventory-audit/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/superseded-pr-closeout/round-2.md"]
 prs: []
 created: 2026-11-20
 wait_reason: ""
 
 ---
 
-- [ ] t-20261120-r28-superseded-pr-closeout · close superseded PRs with ancestry proof #task #release/v0-4-28 #status/active #view/active #area/release #kind/maintenance
+- [x] t-20261120-r28-superseded-pr-closeout · close superseded PRs with ancestry proof #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/release #kind/maintenance
     <!-- generated:card -->
     **Owner:** w169-pr0428-169-closeout  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/pr-inventory-audit/round-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/pr-inventory-audit/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/superseded-pr-closeout/round-2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w169-pr0428-169-closeout  
@@ -75,3 +75,5 @@ solche Fälle sind ein Hinweis, dass das Inventory von 2026-11-19 zu alt ist —
 ## Akte
 
 https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/pr-inventory-audit/round-1.md
+
+geliefert, und das ERGEBNIS IST EINE KERREKTUR MEINES EIGENEN inventory-befunds (0428-160): von den 11 PRs, die ich dort als SUPERSEDED/TODC klassifizierte, ist GENAU EINER wirklich ersetzt (#1582, 'git merge-base --is-ancestor' auf develop = JA, inzwischen von der anderen welt gemergt). die uebrigen NEUN tragen inhalt, der auf develop NICHT existiert und ANDEREN KARTEN gehoert — gemessen an den task-dateien: 1627=0428-055 (wait), 1620=0428-067 (blocked), 1665=perses-infra (wait), 1645=perses-tempo (planned), 1597=perses-docs (22/33 dateien nicht gedeckt), 1594=workload_security/policy (10 dateien neu), dazu 1588/1587/1585. kein PR wurde geschlossen; haette die lane meine liste abgearbeitet, waeren neun PRs mit lebendem inhalt verschwunden. akte 14873 bytes, checkboxen 0, tabelle (c)/(d) in der datei. FOLGE, die ich ziehe: (1) die 0428-160-klassifikation war zu grob — ihre pruefung verglich nur gegen develop, nicht gegen die offene kandidat-menge UND die karten-ownership; (2) ich pruefe jetzt die prs-felder der betroffenen karten auf wahrheit (1627 auf 055, 1620 auf 067); (3) die liste 'offene PRs ohne karten-zuordnung' geht in die naechste inventory-runde
