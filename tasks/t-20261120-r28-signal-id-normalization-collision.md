@@ -12,7 +12,7 @@ parent: ""
 depends_on: [t-20261120-r28-keycloak-signal-id-migration-gap]
 blocked_by: []
 superseded_by: []
-owner: 0428-166-
+owner: x-m166
 kanban_status: active
 kanban_lane: active
 blocker: ""
