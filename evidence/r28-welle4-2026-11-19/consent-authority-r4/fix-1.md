@@ -81,9 +81,19 @@ broad_required=true confirms the Go-only diff selects normal broad unit/vet/buil
 - This is owner-scope (.github/**). I did not edit any workflow line, did not trigger workflow_dispatch/rerun, and did not green-compute a SKIP.
 - Resolution route per mission: after the hopf, re-check whether the new run executes the runtime cells. If still skipped, report the exact skip reason from the gate-plan and the owner-wire 114(a) finding (ORAS install missing in PR job) as a legal external blocker; mark the card blocked rather than letting it circle in review.
 
-## run witness
+## run witness (my own observed CI, §4.6)
 
-- My own observed exact-head CI run id: (recorded here after hopf and push; §4.6 self-run duty).
+- CI run id **44647040369** (run_number 6683), event `pull_request`, head_branch `lane-0428-119-consent-hard`, head_sha `ff9c5978585f480b802d9dc8f073c4a69dcf21a7`, status `completed`, conclusion `success`, created 2026-11-20T00:35:11Z, updated 2026-11-20T00:39:44Z. gh API: `gh api repos/mcpdev80/baseharbor/actions/runs/44647040369`.
+- 30 jobs: 14 success, 16 skipped. No failed job.
+- Required Go/unit/vet/build gates that cover my changed paths, on my exact head:
+  - PR · Validation · go-build : success
+  - PR · Validation · cli-gofmt : success
+  - PR · Validation · go-vet : success
+  - PR · Go unit · packages : success  (covers internal/application comparator test)
+  - PR · Go unit · cli-1 : success    (covers cmd/baha request-path test)
+  - PR · Go unit · cli-2 : success
+  - PR · Go unit · cli-3 : success
+- The 16 skipped jobs are runtime/release gates: Targeted HA · docker, Targeted HA · podman, PR · Exact Candidate, PR · Draft source and routing, PR · Draft Go · ${{matrix.shard}}, PR · Main release source, PR · Main release Go · ${{matrix.shard}}, Native, Native Keycloak/Core, Consumer Pins, Demo Pin, Runner Interface, Release Source Preflight, PR · Exact full Pre-Release, validate, Candidate-added checks (advisory). These are gated by the ORAS install that exists in the workflow_dispatch path (.github/workflows/docker-runtime-acceptance.yml:127-128) but is missing in the PR path (:174-330) — owner-scope 114(a). This Go-only diff selects no runtime gate per pr-gate-plan; the Docker cells are out of scope, not a logic failure. The r4 card P4 resolution route (mission) applies: the runtime cells remain skipped at this head, so the owner-wire finding stands as a documented external blocker, not a green-computed pass.
 
 ## cleanliness
 
