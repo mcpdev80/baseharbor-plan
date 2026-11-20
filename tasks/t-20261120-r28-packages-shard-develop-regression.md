@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "Waiting for prerequisite 0428-057 / PR #1615 to merge with its exact required CI green. That branch's current exact run has already passed PR · Go unit · packages on SHA 66b437c2092ab9edb5f405285492b4f355679c35, run 44812831798; once #1615 is merged, hop #1714 onto current develop and rerun its exact packages shard to confirm the Loki multi-source behavior on the new base. The earlier bisect finding remains recorded below; this card is waiting for the owner rail's CI fix, not technically blocked."
+wait_reason: "Waiting for prerequisite 0428-057 / PR #1615 to merge with exact required CI green. The packages shard passed on its previous #1615 head, but the latest fix is now on 8880c9606a7662d0a7f6e5c077d6aa9223e431b7 and exact run 44814082337 is pending. Once #1615 is merged, hop #1714 onto current develop and rerun its exact packages shard to confirm Loki multi-source behavior on the new base. The earlier bisect finding remains recorded below; this is waiting for the owner rail's CI fix, not technically blocked."
 resolution: ""
 evidence: []
 created: 2026-11-20
@@ -27,7 +27,7 @@ created: 2026-11-20
 - [ ] t-20261120-r28-packages-shard-develop-regression · packages shard red on develop #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** w202-0428-202-pkgshard  
-    **Waiting:** Waiting for prerequisite 0428-057 / PR \#1615 to merge with its exact required CI green. That branch's current exact run has already passed PR · Go unit · packages on SHA 66b437c2092ab9edb5f405285492b4f355679c35, run 44812831798; once \#1615…  
+    **Waiting:** Waiting for prerequisite 0428-057 / PR \#1615 to merge with exact required CI green. The packages shard passed on its previous \#1615 head, but the latest fix is now on 8880c9606a7662d0a7f6e5c077d6aa9223e431b7 and exact run 44814082337 is pe…  
     **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
     <!-- /generated:card -->
 

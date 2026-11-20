@@ -8,32 +8,34 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: "Owner (marcel, direkt)"
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: ""
 kanban_title: 0428-179 · shell wrapper cells must run
 priority: ""
-depends_on: []
+depends_on: [t-20261114-r28-cli2-identity-secrets]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1731]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "PR #1731 run 44812248904 fails the cli-0..3 shards on existing managed-operator test-context failures addressed by prerequisite 0428-057 / PR #1615. Its cli-3 job installed zsh and fish, but this failed shard does not yet provide final exact-head acceptance for the wrapper test. Wait for #1615 exact run 44814082337 on head 8880c9606a7662d0a7f6e5c077d6aa9223e431b7 and merge; then hop #1731 onto current develop and rerun exact CI, verifying the wrapper test executes."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1731", "https://github.com/mcpdev80/baseharbor/actions/runs/44812248904"]
 ---
 
-- [ ] t-20261120-r28-shell-wrapper-tests-not-skippable · CI intake: zsh/fish wrapper tests skip silently when the shell is not installed #task #release/v0-4-28 #status/active #view/active #kind/bug
+- [ ] t-20261120-r28-shell-wrapper-tests-not-skippable · CI intake: zsh/fish wrapper tests skip silently when the shell is not installed #task #release/v0-4-28 #status/wait #view/wait #kind/bug
     <!-- generated:card -->
     **Owner:** Owner (marcel, direkt)  
     **PR:** [baseharbor#1731](https://github.com/mcpdev80/baseharbor/pull/1731)  
+    **Waiting:** PR \#1731 run 44812248904 fails the cli-0..3 shards on existing managed-operator test-context failures addressed by prerequisite 0428-057 / PR \#1615. Its cli-3 job installed zsh and fish, but this failed shard does not yet provide final exa…  
+    **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1731), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44812248904)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** none  
+**Depends on:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
 **Owner:** Owner (marcel, direkt)  
 **Priority:** not set  
 **PRs:** [baseharbor#1731](https://github.com/mcpdev80/baseharbor/pull/1731)  
