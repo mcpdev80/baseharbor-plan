@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: coord
-kanban_status: blocked
-kanban_lane: blocked
+owner: codex-open-pr-sweep-065
+kanban_status: active
+kanban_lane: active
 kanban_summary: "App export and recovery UX. Follow the owner working brief, command mapping and code entry index; revalidate current develop and…"
 kanban_title: 0428-065 · App export and recovery UX
 priority: high
@@ -17,26 +17,25 @@ depends_on: [t-20261114-r28-cli2-contract, t-20261114-r28-cli2-identity-secrets]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1625]
 sources: []
-blocker: "managedSecretScopePresent hardcoded (false,nil), cmd/baha/app_export.go:273-275 — angekündigter managed-secret export nie verfuegbar; base cli2-identity-secrets-head -> kein exaktkopf-lauf (ci.yml:14-18)"
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-app-export · CLI redesign: App export and recovery UX #task #release/v0-4-28 #status/blocked #view/blocked #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-app-export · CLI redesign: App export and recovery UX #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** coord · **Priority:** high  
+    **Owner:** codex-open-pr-sweep-065 · **Priority:** high  
     **PR:** [baseharbor#1625](https://github.com/mcpdev80/baseharbor/pull/1625)  
-    **Blocker:** managedSecretScopePresent hardcoded (false,nil), cmd/baha/app\_export.go:273-275 — angekündigter managed-secret export nie verfuegbar; base cli2-identity-secrets-head -\> kein exaktkopf-lauf (ci.yml:14-18)  
     **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** coord  
+**Owner:** codex-open-pr-sweep-065  
 **Priority:** high  
 **PRs:** [baseharbor#1625](https://github.com/mcpdev80/baseharbor/pull/1625)  
 **Source:** 
