@@ -45,3 +45,12 @@ Verdict: REQUEST CHANGES
 ## END codex-rev-1747 BLOCKED
 
 #1596 remains REQUEST CHANGES on identity policy, so the required review sequence has not reached #1588 or #1749.
+
+## Planning publication witness
+
+- Initial evidence commit: `e146f444712f78a612ca4888247c878ab5792d84`; delivered to `https://github.com/mcpdev80/baseharbor-plan.git` `refs/heads/main`.
+- Exact output of `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle4-2026-11-21/org-env-reconciliation/review-1-headc2715856.md`:
+
+```text
+evidence/r28-welle4-2026-11-21/org-env-reconciliation/review-1-headc2715856.md
+```
