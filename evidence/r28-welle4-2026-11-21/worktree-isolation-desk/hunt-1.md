@@ -2,6 +2,7 @@
 
 ROLLE: Worker (BUG-HUNT, reine Befundung). KEINE Produkt-aenderung, KEIN commit an baseharbor, keine PR-aktion, keine subagenten (§4.8).
 LANE: 0428-076-huntiso (session 5a3b1749). DATE: 2026-11-21. Fenster: r28-welle4.
+AKTEN-HISTORIE: die akte existierte bereits auf origin/main (commit 860aa6d5d, autor coordinator, 21.11. 15:56 — zeitgleich mit meinem ersten write-versuch; mein write hat die vorhandene datei UBERSCHRIEBEN). Die hiesige fassung fuehrt den coordinators-text fort und ergaenzt die eigenständig gemessenen tabellen (section 1/1b/1c/3, summen, funddetails 4-7). Ursprung des overlapping-hunt dokumentiert, nicht bereinigt.
 MELDEFRIST: /var/tmp/stop-iso.md empfangen (echte Kartenarbeit fuer diesen Sitz) — diese Akte liefert ab, es wurde nichts Neues gestartet.
 Fund→Karte: die Befunde gehoeren zu t-20261121-base-branch-provenance-loss (0428-221) und tooling-issue #24; Vorlaeufer-Akten: evidence/r28-welle4-2026-11-21/lane-authorship-desk/hunt-1.md und .../stale-worktree-inventory/hunt-1.md.
 
