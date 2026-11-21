@@ -3,7 +3,7 @@
 ROLLE: REVIEW
 Karte: `t-20261121-git-credential-fill-bootstrap-hang` (0428-217)
 Zeit: 2026-11-21 12:42 UTC
-Backend/Modell: Codex via OpenAI AgentGateway, GPT-6.2
+Backend/Modell: Codex via OpenAI AgentGateway; exact model ID is not exposed in this session.
 Kandidat: `20ad0713e9892492204cf88910ee926ee20d1461`
 
 ## PLAN
