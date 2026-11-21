@@ -39,11 +39,21 @@
 
 ## END
 
-END_BLOCKED codex-rev-1747: #1751 head bdc7c1a9e6e is blocked; run 44952645994 failed before Static mcp (job 136993835355 skipped); receipt: owner-scope open item; Planning SHA pending.
+END_BLOCKED codex-rev-1747: #1751 head bdc7c1a9e6e is blocked; run 44952645994 failed before Static mcp (job 136993835355 skipped); receipt: owner-scope open item; Planning SHA 95235073456c5d68582f199c5c1b6e441c871498.
 
 ## Evidence publication
 
 - Initial evidence commit `5e7c0c5514205fc25f741360f0671e826f4891b0` was pushed to Planning `origin/main`; `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main` returned `5e7c0c5514205fc25f741360f0671e826f4891b0 refs/heads/main`.
+
+## Planning main path witness
+
+Exact output of `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle4-2026-11-21/mcp-perses-tool-drift/review-1-headbdc7c1a9.md` before final evidence push:
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle4-2026-11-21/mcp-perses-tool-drift/review-1-headbdc7c1a9.md
+```
 
 ## Planning remote
 `git -C /home/marcel/dev/baseharbor-ecosystem/workers/codex-rev-1747-plan-wt remote -v`:
