@@ -68,6 +68,11 @@ Allowed write-set (to be confirmed by the implementing lane before the first edi
 must be reported here if they are not under `cmd/baha/`):
 
 - `cmd/baha/app_inspect_remote.go`
+- `cmd/baha/app_update.go` — **added by Coordinator amendment 2026-11-21 07:5xZ after CODEX-REVIEW
+  `evidence/r28-welle4-2026-11-21/git-credential-fill/review-1.md` Finding 2.** The lane found the same
+  prompt-hang class in the update path (`gitOutput`, `gitIsAncestor` invoke `git` directly), so the two
+  `cmd.Stdin = strings.NewReader("")` assignments are in scope from now on. The amendment is conditional:
+  acceptance criterion 6 below must be satisfied in the same PR, otherwise the two lines are removed.
 - the Git host/credential helper files reached from it (`host.go`, `gitcredential.go`), **excluding** any path under
   `internal/operatorauth/**`, `internal/identityprovider/**`, `internal/serviceaccess/**` (Owner rails).
 
@@ -85,6 +90,10 @@ stack `#1615`/`#1625`/`#1623` (branch `cli2-identity-secrets-head`), `#1650`/`#1
 3. The existing hosted cells that currently need `GIT_TERMINAL_PROMPT=0 GIT_ASKPASS=/bin/true SSH_ASKPASS=/bin/true` as a
    workaround keep passing; the workaround is documented as no longer required in the akte, and any place that still
    requires it is named with file:line.
+
+4. (`Coordinator amendment`) The `cmd/baha/app_update.go` writes are covered by a focused regression that
+   exercises `gitOutput`/`gitIsAncestor` through the production update path with no controlling terminal and
+   asserts a bounded failure instead of a hang. Without that regression, criterion 1's PR must drop the file.
 
 ## Test binding
 
@@ -104,3 +113,17 @@ Lane '0428-217-credfill' auf laptop:2 begonnen; write-set BESTAETIGUNG ist schri
 PR #1742 eroeffnet (head 0df7efc00bb3, base develop) aber DRAFT = keine required checks, deshalb formal 'review' mit meinem hinweis an die lane: undraften + gehosteten durchgang selbst beobachten (§4.6). write-set ueber der karte: 'cmd/baha/app_update.go' + drei dateien unter 'internal/credential/native/' (erlaubt, aber meldepflichtig laut karte — von ihr im PR-body gemeldet, fehlt noch in der AKTE). Kein tabu-pfad beruehrt (kein '.github/**', kein 'internal/operatorauth/**'). Gemessene datei-liste: app_inspect_remote.go, app_update.go, credfill_noninteractive_test.go, gitcredential.go, host.go.
 
 END_DONE abgenommen, und ihr 'geerbt'-satz ist von MIR DURCHGEZOEHLT statt Etikettiert (buchfuehrungs-regel aus #1738/#1737): protokoll-vergleich der eindeutigen first-level-namen — durchgang 44863102857 (develop-basis, PR #1739) = **196**, ihr durchgang 44874605168 = **197**; der EINEE namliche neue name ist 'TestAppListAllTargetsWorksAfterInstallationDestroy' = fall von 0428-210/#1739 (scheitert ebenfalls auf develop, NICHT ihrer), und ES ist nichts weggefallen; gate-text-zeilen = 0 in beiden. heisst: ihr kandidat bringt KEINEN neuen fall, und die rote 'PR Selected Checks' ist an dieser basis der develop-zustand OHNE #1615 — beleg fuer die KLASSE (run 44854729670 cli-0..3 SUCCESS am #1615-head), nicht fuer ihren kandidat. PR #1742 draft=false (von ihr selbst undrafted), base develop, head 0df7efc00bb3, write-set = 5 dateien mit je EINER zeile begruendung in der akte (plan a233bc16): 'cmd/baha/app_inspect_remote.go', 'cmd/baha/app_update.go' (ausdtruecklich 'NOT named in the card', nur non-TTY stdin — karte war zu eng, ich ziehe nach), 'internal/credential/native/{gitcredential.go:38, host.go, credfill_noninteractive_test.go}'. OFFENER ZEUGE fuer die abnahme: ich finde im packages-shard-protokoll KEINE 'internal/credential'-paketzeile (meine grep-treffer waren checkout-plumbing) — ihre meldung 'internal/credential/native ok in CI' braucht die zelle, die den test laeuft.
+
+### Coordinator scope amendment (2026-11-21, after CODEX-REVIEW review-1.md)
+
+- Finding 2 is resolved by widening the write-set (above) rather than by shrinking the PR, because the
+  `app_update.go` hang is the same class the card names in its title ("first target create hangs on git
+  credential fill"): `gitOutput`/`gitIsAncestor` run `git` during `baha update` and inherit any prompt.
+- Finding 1 stands as the correction requirement: the regression must reproduce Git's own prompt/askpass
+  path under a bounded deadline (explicit PTY or `GIT_ASKPASS`/`SSH_ASKPASS` + `GIT_TERMINAL_PROMPT=0`),
+  not a `/dev/tty` helper that a CI runner can satisfy without exercising the production behaviour.
+- Bookkeeping correction by the Coordinator: the earlier "196 vs 197" comparison used the aggregated
+  `gh run view --log`, which omits whole job sections; counts must be taken per job (`--job <id> --log`).
+  Re-measured per job: PR #1742 head `0df7efc00bb3` = 197 distinct first-level FAIL names, PR #1702 head
+  `b2f2fd3ac172` = 194, and the only names that differ between them are the three
+  `TestPersesLifecycle*` cases that card 0428-142 fixes.
