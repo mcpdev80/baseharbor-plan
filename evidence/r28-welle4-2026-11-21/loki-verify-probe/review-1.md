@@ -11,8 +11,8 @@ The requested probe/precondition subtests and all three client-certificate fixtu
 3. Search all `client-cert.pem` references in the exact candidate tree; verify the known sites and check for another fixture site. Complete.
 4. Compare PR #1734 with superseded #1732; inspect exact-head package/owner and CLI CI states. Complete.
 5. Recheck candidate SHA; write verdict, recipe, session/model/time and END. Complete.
-6. Publish only this review file to plan main and verify its remote path and plan SHA. In progress.
-7. Post final END_DONE to coordinator. Pending.
+6. Publish only this review file to plan main and verify its remote path and plan SHA. Complete; initial path witness is recorded below.
+7. Post final END_DONE to coordinator as the final action. Prepared.
 
 ## Review metadata
 
