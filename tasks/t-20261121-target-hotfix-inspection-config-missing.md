@@ -24,7 +24,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
   - https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md
 created: "2026-11-21T06:52:00Z"
 updated: "2026-11-21T06:52:00Z"
-superseded_by: ""  <!-- zurueckgenommen 2026-11-21: 0428-204 ist accepted, aber PR #1726 wurde ohne merge geschlossen; 46017060d ist NICHT ancestor von develop e6c199e7b7d (gemessen) -->
+superseded_by: ""
 
 ---
 
@@ -89,7 +89,11 @@ Forbidden:
   - 0428-210 is already merged when this lane starts: re-check against develop first, the failure may be gone.
   - Hosted logs unavailable: report the three commands with byte counts, do not substitute a local run.
 
-## Handoff
+## Note
+
+  - Supersede zurueckgenommen (coordinator, 2026-11-21, gemessen): 0428-204 ist 'closed/accepted', aber PR #1726 wurde ohne merge geschlossen ('refs/pull/1726/head' = e45430f2f1b = lane-0428-198-cli-shard-operator-env) und 'git merge-base --is-ancestor 46017060d develop' = NEIN an develop e6c199e7b7dd. Der fix existiert nur auf dem 198-branch; diese karte bleibt offen und portiert ihn. Der verlust selbst ist ein fund fuer 0428-221.
+
+  ## Handoff
 
 Evidence: `evidence/r28-welle4-2026-11-21/target-hotfix-inspection/round-1.md`. Base: develop if this card fixes it, or
 `lane-0428-198-cli-shard-operator-env` if it stacks behind 0428-204 - the lane states its choice with a `merge-base` witness.
