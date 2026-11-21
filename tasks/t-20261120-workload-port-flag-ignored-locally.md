@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w1625-pr1723-0428-199-workloadport
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-199 · workload-port ignored locally
 priority: ""
@@ -24,7 +24,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44788134959"]
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-workload-port-flag-ignored-locally · workload-port ignored locally #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
+- [ ] t-20261120-workload-port-flag-ignored-locally · workload-port ignored locally #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** w1625-pr1723-0428-199-workloadport  
     **PR:** [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723)  
@@ -32,7 +32,7 @@ created: 2026-11-20
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w1625-pr1723-0428-199-workloadport  
@@ -93,3 +93,5 @@ ARBEITET JETZT, kante gegen session gemessen (w199-0428-199-workloadport, ornith
 222
 
 ab heute von einer FRISCHEN Lane uebernommen (sitz ornith 2/2, session ffe7611b, lane-name-Regel erfuellt; die alte Lane pr1625-0428-065-export ist nach gelieferter H-V21-Akte und abgelieferter PR-census-triage freigegeben). Grund fuer die Lane: das census-triage hat gezeigt, dass PR #1723 nicht in develop enthalten ist (back=21 front=2, mergeable=MERGEABLE, mergeStateStatus=BEHIND) - kein superseded-Fall, also hop-noetig und danach ordinary merge. Auftrag erteilt (mission sha256 6c9d783517f7): fetch + reset --hard FETCH_HEAD vor jeder Aenderung (Lehre aus dem heutigen false-contamination-Befund), additiver merge-commit hop auf develop 42da7128e72, rev-list --count HEAD..42da7128e72 = 0, author==committer==0428-199-workloadport, dann der exakte head run selbst bis terminal plus der NAME des CI-jobs, der cmd/baha/workload_port_local_regression_test.go ausfuehrt (nicht skipped); findet sich kein job, ist das ein Befund mit file:line an mich, .github/scripts bleiben gesperrt. Akte: evidence/r28-welle5-2026-11-22/workload-port-hop/hop-develop-42da7128.md.
+
+kandidat ist EXAKT und VOLLSTAENDIG GEGENUEBER develop: head 5c063c7f278 (additiver merge-commit hop, parents 71ac9ba51b7 + 42da7128e72, back=0 gemessen, akte evidence/r28-welle5-2026-11-22/workload-port-hop/hop-develop-42da7128.md). der exakte run 44961493271 ist completed/failure, und die zwei failed jobs sind NICHT der inhalt dieser karte: job 137021826770 'PR · Selected Runtime (atomic/docker/data-capabilities) / Executed docker · data-capabilities' bricht mit '::error::candidate ref is not a branch/tag; resolve to a ref or a full commit SHA before the gate checkout' plus 'Error: record deployment before mutation: candidate submission requires an explicit operator/automation consent (--confirm-candidate…)', job 137023663943 'PR Selected Checks' faellt daraufhin. VON MIR GEGENPRUEFT als VORBESTEHEND: der alte run 44934975722 auf 71ac9ba51b7 faellt auf denselben jobs 136939892711 und 136941785609 mit derselben ::error-zeile (18:21Z) - der hop hat nichts veraendert, und das diff-touches-liste dieser karte beruehrt die consent-/footprint-pfade nicht. IHR EIGENER NACHWEIS: die cli-3-shard hat workload_port_local_regression_test.go ausgefuehrt (CI-Aufnahmepflicht erfuellt), go unit/build/vet/gofmt gruen. DER AEUSSERE DEFEKT ist auf karte 0428-226 (t-20261122-impact-consent-after-preview-contract) gegossen, zusammen mit dem consent-falle aus #1627; .github/scripts bleiben owner-scope, keine ausnahme erteilt.
