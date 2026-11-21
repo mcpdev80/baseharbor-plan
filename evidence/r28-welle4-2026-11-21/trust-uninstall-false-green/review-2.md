@@ -94,3 +94,11 @@ END REVIEW DONE — candidate SHA 3010b212c8afdd5aba454852e8443486224df541.
 ## Planning remote
 
 Before the evidence commit, `git -C baseharbor-plan remote -v` showed `origin https://github.com/mcpdev80/baseharbor-plan.git` for fetch and push.
+
+## origin/main publication witness
+
+Exact output of `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep '^evidence/r28-welle4-2026-11-21/trust-uninstall-false-green/review-2.md$'`:
+
+```text
+evidence/r28-welle4-2026-11-21/trust-uninstall-false-green/review-2.md
+```
