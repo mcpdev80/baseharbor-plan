@@ -92,8 +92,8 @@ Apply at every pin-needing site:
 - `go build ./...` exit 0; `go vet ./...` exit 0.
 - Regression per fixed site runs in repo (hosted CI): etcd `TestPinnedEnvDropsInheritedKeys` / `TestChildProcessEnvShowsPinNotInherited`, coreupdate `TestDCSBootProbePinsOverrideInherited` (sets inherited ETCDCTL_CACERT/CERT/KEY/API and proves child sees pin, one case per pinned key), stableid `TestProbeEnvDropsInheritedPATH`.
 - PR #1749 head: `4465cb29f66ed00804cab0ddea10309af2d9aac3` (fast-forward rc2 `3df3cb8` -> rc3 `4465cb29f`), verified via `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/pull/1749/head`. Single author AND committer on the rc3 commit: `0428-222-childenv`.
-- Hosted CI run 44943806186 (run id per GitHub), conclusion `success`, 36 jobs: all executed required jobs PASS, zero failures. Per-job logs confirm actual execution (not skipped): go-build PASS, go-vet PASS, authority-package-tests PASS, Go unit owner/cli-0/cli-1/cli-2/cli-3/packages PASS, Focused Python PASS, Source format PASS, PR Selected Checks PASS. Native/runtime/release gates skipped (Owner-gated, not required for this write-set).
-- Evidence committed to baseharbor-plan origin/main.
+- Hosted CI run 44945219794 (run id per GitHub), conclusion `success`, 36 jobs: all executed required jobs PASS, zero failures. Per-job logs confirm actual execution (not skipped): go-build PASS, go-vet PASS, authority-package-tests PASS, Go unit owner/cli-0/cli-1/cli-2/cli-3/packages PASS, Focused Python PASS, Source format PASS, PR Selected Checks PASS. Native/runtime/release gates skipped (Owner-gated, not required for this write-set).
+- Single author AND committer on final PR head `a3129b5809d15464a8a1ceeef0b356b7ca225698`: `0428-222-childenv`.
 
 ## 0428-222-hopdev END DONE
 
