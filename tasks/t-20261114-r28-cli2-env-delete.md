@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: Codex owner (combined validation ref)
-kanban_status: wait
-kanban_lane: wait
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Environment deletion lifecycle. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-055 · Env deletion lifecycle
 priority: high
@@ -18,21 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1627, mcpdev80/baseharbor#1736]
 sources: []
 blocker: ""
-wait_reason: "VIERTE RUNDE AN DERSELBEN STELLE, jetzt gemeldet und retireiert (01:1xZ gemessen): refs/pull/1627/head = b3b0c2c9efc, base develop 42da7128e72, der massgebliche run ist 44961334018 (in_progress, 42 jobs). die kette: 8de37f58caa (fixture ohne operator-context) -> 62dd38f9b6d (hop) -> ac05cc4efbc (testOperatorContext in cmd/baha/test_operator_context_test.go:18-29) -> 38be89aa4a0 (stop mode im consent) -> b3b0c2c9efc (newApplicationDestroyExecution mit identischem --uuid/--yes, consent aus dem aufgeloesten object), weil das env destroy die UUID neu aufgeloest hatte. die laeufe 44958801932 (ac05cc4efbc), 44960199639 (38be89aa4a0), 44958293233 und 44957245330 sind completed/CANCELLED und zaehlen nicht; die akte review-1627-postfix-ac05cc4efbc.md erhaelt von der review-session eine SUPERSEDED-zeile (mission sha256 retire). NEUER SACHVERHALT, von mir gemessen: 'git merge-base --is-ancestor refs/pull/1736/head refs/pull/1627/head' = NEIN - 4c919fd61f3 ist nach seinem eigenen hop KEIN ancestor mehr von b3b0c2c9efc, #1736 faellt damit aus dem #1627-validation-stack heraus und braucht eigenen exact-head run plus eigenen merge (oder #1627 wird auf #1736s branch neu gehoppt). WARTEGRUND: terminaler gruen-exakter run 44961334018, dann verdict auf b3b0c2c9efc; #1736 parallel auf 4c919fd61f3 (run 44960494316 in_progress, 0 failures)."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1627", "https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677", "https://github.com/mcpdev80/baseharbor/actions/runs/44852435311", "https://github.com/mcpdev80/baseharbor/pull/1615", "https://github.com/mcpdev80/baseharbor/pull/1736", "https://github.com/mcpdev80/baseharbor/actions/runs/44859609354"]
 ---
 
-- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** Codex owner (combined validation ref) · **Priority:** high  
     **PR:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627), [baseharbor#1736](https://github.com/mcpdev80/baseharbor/pull/1736)  
-    **Waiting:** VIERTE RUNDE AN DERSELBEN STELLE, jetzt gemeldet und retireiert (01:1xZ gemessen): refs/pull/1627/head = b3b0c2c9efc, base develop 42da7128e72, der massgebliche run ist 44961334018 (in\_progress, 42 jobs). die kette: 8de37f58caa (fixture oh…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1627), [proof 2](https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44852435311), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1615), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1736), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44859609354)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
 **Required by:** [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md)  
@@ -117,3 +116,5 @@ Owner-Direktive 00:3xZ: review paralell zum laufenden exakten hosted run, nicht 
 Owner-Direktive 00:3xZ: review parallel zum laufenden exakten hosted run, nicht dahinter warten. exakter kandidat ist 38be89aa4a0 (refs/heads/cli2-env-delete = refs/pull/1627/head, author==committer==Owner, additiv auf develop 42da7128e72, rev-list --count 38be89aa4a0..42da7128e72 = 0, 20 front; mergeable=MERGEABLE, mergeStateStatus=BLOCKED durch die laufenden checks). die kette der drei fixes, die das verdict benennen muss: 8de37f58caa (fixture ohne operator-context -> 'prepare native workload deployment inputs requires authenticated BaseHarbor operator'), ac05cc4efbc (testOperatorContext in cmd/baha/test_operator_context_test.go:18-29 fuer lifecycle UND cleanup), 38be89aa4a0 (impact-consent mit demselben stop mode / applicationStopModeKey, input und target context wie die produktion KEEP - das env destroy verweigerte ein stale consent KORREKTERWEISE). die review-session fecbada9 hat den auftrag erhalten (mission sha256 93471f103181), akte evidence/r28-welle5-2026-11-22/env-destroy-gate/review-postfix-head38be89aa.md. VORBEHALT: acceptance erst mit terminalem gruen-exakten run 44960199639 (aktuell in_progress, 106 jobs); die abgebrochenen 44958801932/44958293233/44957245330 zaehlen nicht. danach ordinary merge durch die merge-rolle, anschiessend #1736 revalidieren/reviewen/mergen, falls noch offen (1e2ba9d5786 ist ancestor von 38be89aa4a0).
 
 ABHAENGIGKEITS-KOERPER (inhaltlich), von mir gemessen und bisher falsch beschrieben: 'git merge-base --is-ancestor refs/pull/1736/head refs/pull/1627/head' = NEIN (4c919fd61f3 gegen b3b0c2c9efc, 01:1xZ). die karte fuehrt beide PRs, aber #1736 ist durch seinen eigenen develop-hop aus dem #1627-validation-stack herausgefallen: es braucht EITHER einen eigenen exact-head run plus eigenen merge in abhaengigkeits-reihenfolge ODER einen neuen hop von #1627 auf des #1736 branch, damit der inhalt wieder ancestor ist. der ownersatz 'die beiden coreless lifecycle cases sind im trusted plan von #1627 ausgewaehlt' gilt fuer die FRUEHEREN heads, fuer b3b0c2c9efc muss die review-session das erneut messen (mission sha256 retire). mein vorrang fur den owner: die erste variante, weil beide PRs schon eigene gruenen runs haben koennen.
+
+MERGE-REIHENFOLGE, Owner-Anweisung 01:2xZ, bindig: #1627 zuerst ordinary merge, DANN #1736 als 'inhaltlich enthalten' schliessen (superseded), falls GitHub es nicht automatisch schliesst. #1736 darf VOR #1627 NICHT unabhaengig gemergt werden. VON MIR KORRIGIERT, WEIL ICH ZUERST 'nicht enthalten' GEMESSEN HATTE: 'git cherry -v refs/pull/1627/head refs/pull/1736/head' = '-' fuer alle drei commits 8f11a34da52 (route), 6af74ddf477 (register), 31d8e5e0e82 (defer) - patch-aequivalent schon in #1627, und 1e2ba9d5786 ist ancestor von b3b0c2c9efc. der ancestor-test auf 4c919fd61f3 sagt NEIN, aber das ist nur der develop-merge-wrapper des hops, nicht der inhalt. inhaltlich ist die abhaengigkeit also ERFUELLT. #1736 exakter run 44960494316 ist completed/SUCCESS auf 4c919fd61f3 (docker UND podman coreless-lifecycle ausgefuehrt, PR Selected Checks gruen, mergeStateStatus=CLEAN); das verdict wird von der review-session auf diesen head verlaengert mit der premerge-auflage 'nicht vor #1627 mergen'. #1627 exakter run 44961334018 auf b3b0c2c9efc ist in_progress (25 success, 0 failure).
