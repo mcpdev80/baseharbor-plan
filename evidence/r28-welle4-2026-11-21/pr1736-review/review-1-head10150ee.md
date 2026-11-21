@@ -53,3 +53,9 @@ END codex-rev-1747 DONE — REQUEST CHANGES; head `10150ee7164bbc8767136e540eb96
 ## Planning remote
 
 Output of `git -C /home/marcel/dev/baseharbor-ecosystem/workers/codex-rev-1747-plan-wt remote -v | head -n 1` before this evidence commit: `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)`.
+
+## Published path witness
+
+Exact output of `git -C /home/marcel/dev/baseharbor-ecosystem/workers/codex-rev-1747-plan-wt ls-tree -r --name-only origin/main | grep 'evidence/r28-welle4-2026-11-21/pr1736-review/review-1-head10150ee.md'` after fetching origin/main:
+
+evidence/r28-welle4-2026-11-21/pr1736-review/review-1-head10150ee.md
