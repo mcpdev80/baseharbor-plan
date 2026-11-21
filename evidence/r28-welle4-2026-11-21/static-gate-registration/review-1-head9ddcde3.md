@@ -27,3 +27,7 @@ END_BLOCKED codex-rev-1747: prerequisite #1702 lacks terminal END; #1746 candida
 Exact output of `git -C /home/marcel/dev/baseharbor-ecosystem/workers/codex-rev-1747-plan-wt ls-tree -r --name-only origin/main | grep 'evidence/r28-welle4-2026-11-21/static-gate-registration/review-1-head9ddcde3.md'` after fetching origin/main:
 
 evidence/r28-welle4-2026-11-21/static-gate-registration/review-1-head9ddcde3.md
+
+## Cleanliness
+
+`docker ps -a --no-trunc` before, shell pid 3231736: eight existing `bh-itest-*` containers, all exited. After, shell pid 3231793: same eight container IDs and statuses, all exited. This review started no containers or compose projects.
