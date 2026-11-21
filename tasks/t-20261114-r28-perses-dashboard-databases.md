@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: coordinator
-kanban_status: review
-kanban_lane: review
+owner: 0428-076-nativeshape
+kanban_status: active
+kanban_lane: active
 kanban_summary: Deliver PostgreSQL/MongoDB panels only when verified compatible metrics and permissions exist.
 kanban_title: 0428-076 · Perses database dashboards
 priority: normal
@@ -23,18 +23,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-databases · Perses database dashboards #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-databases · Perses database dashboards #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** coordinator · **Priority:** normal  
+    **Owner:** 0428-076-nativeshape · **Priority:** normal  
     **PR:** [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** coordinator  
+**Owner:** 0428-076-nativeshape  
 **Priority:** normal  
 **PRs:** [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597)  
 **Source:** 
@@ -96,3 +96,5 @@ DER UN-DRAFT-PUNKT IST JETZT ERLEDIGT, VON MIR GEMESSEN: 'gh api pulls/1597' dra
 hop fertig, von MIR nachgemessen: PR #1597 state OPEN, draft=false, base develop, head 12a6e7a46, mergeable MERGEABLE, 'PR Selected Checks' success, 'merge-base --is-ancestor develop head' JA. Damit ist der alte wartegrund (ueberholter base-stich) entfallen; die karte geht ins review auf den exakten kandidaten.
 
 hop fertig, von MIR nachgemessen: PR #1597 state OPEN, draft=false, base develop, head 12a6e7a46e85, mergeable MERGEABLE, 'merge-base --is-ancestor develop head' JA, 'rev-list --count develop..head' = 1, 'PR Selected Checks' pass, 'Trusted Plan' pass. Damit ist der alte wartegrund (ueberholter base-stich) entfallen; abnahme-sitzung arbeitet das verdict am exakten head. Nebenbei geheilt: das prs-feld trug zusaetzlich eine URL-form ohne '#', was 'plan.py short_ref' zum crash brachte (tooling-issue).
+
+CODEX-REVIEW perses-dashboard-databases/review-1.md am exakten head 12a6e7a46e85 = REQUEST CHANGES. Befund 1 hart, wortlich: 'the native-format acceptance is not met' — die tests marshalen die VOM KANDIDATEN SELBST definierten structs und unmarshalen zurueck; 'emitted resources do not match Perses v0.55.1 native shape' in 'internal/metrics/perses_dashboards.go'. Ein round-trip gegen eigene types ist KEIN beleg fuer das native format. Meine vorige meldung 'erster merge-kandidat' war damit FALSCH — der 'PR Selected Checks'-aggregate galt einem ueberholten inhaltsstand, nicht der nativen form. Lane 0428-076-nativeshape arbeitet: nativereferenz als quelle, mutation in beide richtungen, STOP wenn die Perses-version nicht eindeutig ist. Zeugen: head 12a6e7a46e85, ancestry JA, selected pass, mergeable MERGEABLE; desk H-V46 (akte verdict-queue-desk/hunt-1.md, plan fde64c51).
