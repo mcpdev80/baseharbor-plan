@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: Codex team (current thread)
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "controlplanesinglenativecitest.go stops failing with prepare BaseHarbor integration trust plane: because the native-cell test…"
 kanban_title: 0428-209 · 0428-209 native cell seam
 priority: high
@@ -20,18 +20,21 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence:
+  - "https://github.com/mcpdev80/baseharbor/pull/1740"
+  - "https://github.com/mcpdev80/baseharbor/actions/runs/44868911131"
 ---
 
-- [ ] t-20261121-native-cell-operator-seam · 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
+- [ ] t-20261121-native-cell-operator-seam · 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam #task #release/v0-4-28 #status/review #view/review #area/ci #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** Codex team (current thread) · **Priority:** high  
     **PR:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740)  
     **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44868911131)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Owner:** Codex team (current thread)  
@@ -96,4 +99,4 @@ Owner decision, not a test fix.
 
 ## Handoff
 
-Current branch `lane-0428-209-native-cell-operator-seam`, PR [#1740](https://github.com/mcpdev80/baseharbor/pull/1740), exact head `8082766293bd807b1a5cd4f3dc34fd6723ab9ed5`. Added a regression assertion in `TestControlPlaneSingleDefaultNativeRuntimeInCI` that the trust-plane bootstrap Target is registered and resolves to the selected Docker/Podman runtime. The focused package command passes locally. Exact PR run [44868123470](https://github.com/mcpdev80/baseharbor/actions/runs/44868123470) is queued; it has not produced a terminal native-cell result. The previous run at `6f0fe16f` skipped the native matrix and does not satisfy acceptance. Final evidence will be recorded at `evidence/r28-welle4-2026-11-21/native-cell-operator-seam/round-1.md` after the exact native cell runs.
+Current branch `lane-0428-209-native-cell-operator-seam`, PR [#1740](https://github.com/mcpdev80/baseharbor/pull/1740), exact head `0ffe093357d9f7fb52f5e7542f4ade41e48fab1b`. The exact test `cmd/baha::TestControlPlaneSingleDefaultNativeRuntimeInCI` passed in both `PR · Native Keycloak/Core · docker` (job 136738825463) and `PR · Native Keycloak/Core · podman` (job 136738825465), run [44868911131](https://github.com/mcpdev80/baseharbor/actions/runs/44868911131), triggered by the `pull_request` update to #1740. Focused local package invocation also passes (skips without native runtime opt-in). The full stacked PR run is not green: `PR · Go unit · cli-0` fails only on `TestAppListAllTargetsWorksAfterInstallationDestroy`, owned by 0428-210; `PR Selected Checks` consequently fails. This is handed off for independent review; do not mark accepted or merge #1740 until the stack's required checks are resolved.
