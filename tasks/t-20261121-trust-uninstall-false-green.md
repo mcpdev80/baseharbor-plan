@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: "TestTrustUninstallPromptEOFRejects, TestTrustUninstallPromptUnterminatedAffirmativeEOFRejects and…"
 kanban_title: 0428-213 · 0428-213 trust-uninstall EOF
 priority: high
@@ -23,7 +23,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-trust-uninstall-false-green · trust-uninstall EOF tests are green on the auth gate error #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
+- [ ] t-20261121-trust-uninstall-false-green · trust-uninstall EOF tests are green on the auth gate error #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737)  
@@ -31,7 +31,7 @@ evidence: []
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Owner:** coordinator  
@@ -103,3 +103,5 @@ CODEX-REVIEW 'Verdict: REQUEST CHANGES' (plan d96fb84f) an head 5be4f003aa1b: P2
 inhalt OK, BASIS NICHT: sie liefert den bidirektionalen gate-beweis in 'cmd/baha/trust_uninstall_test.go' (ihr eigenes write-set) und meldet 'full-package 0 failures, zero new vs base' — das glaube ich ihr, weil der reviewer dieselbe erbschaft an #1737/#1741 einzeln protokoliert hat (cli-0 'TestAppListAllTargetsWorksAfterInstallationDestroy' = 0428-210/#1739, packages 'providers/loki/shared/service-access/pki/client-cert.pem' fehlt = owner-schlen #1615). ABER: ihr push head 8b38c4f88f3e ist gegen 'e45430f2f1b7' IMMER NOCH KEIN nachkomme (abzweigung bei c2f9f2f32fd, 2 commits, 25 dateien staleness, davon ein owner-commit d0399968c 04:24) — der rebase-schritt ist also nicht angekommen, obwohl gepusht wurde. Gemessen: 8 success / 8 failure / 19 skipped, 'PR Selected Checks' failure. Kein exakter-head-kandidat, daher zurueck auf 'active' mit rebase-auftrag (neue Lane, identitaet + nachkommen-nachweis VOR push).
 
 rebase ANGEKOMMEN, von mir am remote nachgemessen (nicht aus ihrer meldung): head 3010b212c8af, 'merge-base --is-ancestor e45430f2f1b7 <head>' = 0, 'rev-list --count' = 1, 'diff --name-only' = genau 'cmd/baha/trust_uninstall_test.go', 'log -1 --format=%an' = '0428-213-rebase1737' — der fremde owner-commit d0399968c ist raus aus dem PR (vorher stand er drin, issue #24). GEHOSTET am neuen head: durchgang 44883097577, 8 success / 6 failure / 20 skipped, 'PR Selected Checks' failure; ihre gleichheits-proof: die roten cli-0..3 + cli-vet sind IDENTISCH zu durchgang 44878429408 am alten head 8b38c4f88 = erbschaft, nicht ihr rebase. NEUE LAGE, die diese karte HEILT: der owner hat #1615 um 08:08 gemergt (develop = 9bd76324ec6d, 'Merge pull request #1615 from mcpdev80/cli2-identity-secrets-*'); die gate-klasse 'Managed-environment machine operations require an authenticated BaseHarbor operator' verschwindet damit aus den cli-zellen, sobald die lane auf den neuen develop hoppt. Fuer #1737 (basis = lane e45430f2f1b7) gilt das erst nach dem naechsten basis-hop.
+
+CODEX-REVIEW r2 'review-2.md' (plan 3cdd3f07 + 24179731) = 'Verdikt: REQUEST CHANGES'; ihre rebase-arbeit ist PASS (single commit ueber der deklarierten basis, nur kartendatei), aber ES GIBT KEINEN AUSGEFUEHRTEN TESTKOERPER: 'PR · Validation · cli-vet' failure + ALLE vier cli-shards failure wegen REDECLARATION — sie deklarieren 'withoutOperatorAuthTestContext' in 'cmd/baha/trust_uninstall_test.go:42' ERNEUT, obwohl 'cmd/baha/app_init_wizard.go:29-31' den echten opt-out schon hat; ihre variante ist ein 'return ctx' und opted damit NICHT aus, der anonyme kontext bleibt also gestempelt = der beweis ist nichts wert. Befund 2: 'trust_uninstall_test.go:175' prueft per 'strings.Contains' und laesst den endpunkt der produktquelle weg -> text-mutation bleibt gruen. Mission liegt fertig in coordinator/missions/0428-213-r3-compile-and-verbatim.md (payload-gate 0) und geht auf den ersten freien sitz. WICHTIG FUER DAS GANZE FENSTER (antwort auf meine eigene frage an den reviewer): die loki-pakete-roete 'providers/loki/shared/service-access/pki/client-cert.pem' ist auf dem GEMERGTEN baum GRUEN — #1615 wurde 08:08 zu develop 9bd76324ec6d gemergt, merge-commit und PR-head teilen den tree 'f5…'; ein hop der stapel-basis loescht diese rote zeile, loest aber IHRE compile-kollision nicht (dafuer keine recipe an #1615).
