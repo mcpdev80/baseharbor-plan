@@ -41,6 +41,10 @@
 
 END_BLOCKED codex-rev-1747: #1751 head bdc7c1a9e6e is blocked; run 44952645994 failed before Static mcp (job 136993835355 skipped); receipt: owner-scope open item; Planning SHA pending.
 
+## Evidence publication
+
+- Initial evidence commit `5e7c0c5514205fc25f741360f0671e826f4891b0` was pushed to Planning `origin/main`; `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main` returned `5e7c0c5514205fc25f741360f0671e826f4891b0 refs/heads/main`.
+
 ## Planning remote
 `git -C /home/marcel/dev/baseharbor-ecosystem/workers/codex-rev-1747-plan-wt remote -v`:
 ```text
