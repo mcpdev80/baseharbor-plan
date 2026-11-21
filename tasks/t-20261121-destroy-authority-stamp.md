@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "TestCoreBootstrapFixtureCleanupContextIsBoundToItsLocalTarget shows which authority mode admitted installation.destroy, instead…"
 kanban_title: 0428-214 · 0428-214 destroy stamp
 priority: high
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1738"]
 ---
 
-- [ ] t-20261121-destroy-authority-stamp · installation.destroy authorization assertion runs on a stamped context #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
+- [ ] t-20261121-destroy-authority-stamp · installation.destroy authorization assertion runs on a stamped context #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
@@ -32,7 +32,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1738"]
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Owner:** coordinator  
@@ -112,3 +112,5 @@ CODEX-REVIEW 'Verdict: REQUEST CHANGES' (destroy-authority-stamp/review-1.md, or
 korrektur-lane '0428-214-stampfix' (2dfa5466, ornith) dispatcht; ihr auftrag fuehrt das rezept des reviewers wortlich (trennung von fixture-teardown-kontext und authority-assertion, ':274-306' und ':309-346'), dazu der reichweiten-beweis in beide richtungen als vorbild aus #1741 und die rot-zuerst-pflicht mit STOP-kriterium.
 
 meine entscheidung UBER den gemeldeten blocker der lane (END_BLOCKED, und sie hatte recht): das rezept des reviewers zielt auf einen ast, den es am ziel nicht geben kann. gemessen: 'coreBootstrapFixtureCleanupContext' ('cmd/baha/core_installation_runtime_test.go:274-300') ist ausdruecklich test-only teardown MIT synthetischem editor-principal (kommentar ':297-299': 'production auth and local-runtime authorization paths remain unchanged'; ':279-281' verbieten wiederverwendung eines unrelated principal), und 'installation.destroy' fehlt in 'operatorauth.LocalWorkloadOperation' — darum liefert 'verifiedLocalWorkloadAuthority' ('cmd/baha/local_workload_authority.go:41-59') 'local=false'. DIE gesuchte authority lebt und ist getesteT: 'application_destroy_authorization.go:29-38' (operation='installation.destroy' nur mit 'installationApplicationScope'-proof) -> 'installation_application_scopes.go:23-45' (gerufen in 'runtime_destroy_all.go:103', 'management_remote_installation_destroy.go:80'), unit-abgedeckt in 'installation_application_scopes_test.go:23/:27/:58' + 'installation_sibling_scope_test.go:42/:77/:82'. Auftrag an die lane: assertion auf DEN mechanismus verlagern (positive + negative richtung), teardown-stempel bleibt unangetastet. Karte bleibt 'active', ein PR (#1738).
+
+korrektur delivered, abnehmbar, ABER ohne PR-Selected-Checks-Quittung: head a25a74c23c23 (branch == PR-head, gemessen), base e45430f2f1b7 unveraendert, draft=false. inhalt: 'TestCoreBootstrapFixtureDestroyRunsThroughInstallationApplicationScope' in 'cmd/baha/core_installation_runtime_test.go' (+50 zeilen, einzige erlaubte datei), positiver ast durch den 'installationApplicationScope'-naht des destruction-planners, negativer ast OHNE consent failt closed mit 'impact-confirmation-required'; der synthetische teardown-stempel ist UNANGETASTET (wie sein eigener kommentar verlangt). GEHOSTET: run 44875783227 — 'Workflow policy'/'Native gate plan'/'Source format' success, 'PR · Trusted Plan' FAILS (schritt 'Resolve exact immutable PR inputs using trusted base policy', 'python3 $RUNNER_TEMP/pr-gate-plan.py --diff …' exit 1 nach 0.2 s), DARAUFHIN sind 'PR · Go unit · shards', 'Selected Core-less', 'Selected Runtime' = skipping und 'PR Selected Checks' failt nach 8 s. Das erklaert auch die 20 skipped checks an #1737: der gate-planner verweigert die basis/head-paarung, nicht den test. DIagnose-lane laeuft (issuefamilie 0428-208/'ci.yml:1301').
