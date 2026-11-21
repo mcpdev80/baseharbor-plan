@@ -270,3 +270,12 @@ cleanliness: clean — 0 container vorher, 0 container nachher, keine test-eigen
 - WORKER-RULES aus dem dispatch: kein nacktes go test ./... (gar kein go test), kein git add -A (nur gezielte dateien), kein git stash, kein codeman agent post in andere sessions (nur der eine END-post an den coordinator 9142ab1f), keine test-VM, keine runner-Aktionen, .github/** nicht angefasst.
 - REALITY WITNESSES: remote-wahrheit ausschliesslich via ls-remote auf echten URLs gemessen; /home/marcel/dev/baseharbor-ecosystem/workers/baseharbor (quarantined) wurde nur als objekt-lokalQuelle fr commits gelesen und als store-B in section 1b ausgewiesen — nicht als remote-zeugnis.
 - PLAN-SICHTBARKEIT (§4.4): board-file workers/todos/0428-076-huntiso.json + ## PLAN oben; diese session exponiert kein natives todowrite-tool, daher leg (0) uebersprungen (dispatch: "if unsure, skip leg (0)").
+
+## delivery witness + END
+
+- `git -C baseharbor-plan fetch origin main` + `git ls-tree -r --name-only origin/main | grep evidence/r28-welle4-2026-11-21/worktree-isolation-desk` (output, gemessen 16:0x CET):
+  `evidence/r28-welle4-2026-11-21/worktree-isolation-desk/hunt-1.md`
+- `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main`: `861b97afca24034ef3ae3eceedfc8b0c79991e10  refs/heads/main` — plan-sha des END.
+- base-attestation: geschnitten auf 5066fad34b98f21b3c523d19e967b0dda86b8e1e (origin/main, ls-remote-attested); `git merge-base --is-ancestor 5066fad34 HEAD` = 0; `git log --oneline origin/main..HEAD` zeigte ausschliesslich meine commits (bfa73046d, 861b97afc).
+
+END 0428-076-huntiso DONE — akte auf origin/main (plan-sha 861b97afca24034ef3ae3eceedfc8b0c79991e10); product-repo baseharbor unveraendert (BUG-HUNT); 0 container.
