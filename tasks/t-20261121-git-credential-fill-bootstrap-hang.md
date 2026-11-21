@@ -10,8 +10,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "The first authenticated Git operation inside a test or a first-time target bootstrap never returns a clean failure: it invokes…"
 kanban_title: 0428-217 · 0428-217 credential-fill hang
 priority: high
@@ -23,14 +23,14 @@ blocker: ""
 
 ---
 
-- [ ] t-20261121-git-credential-fill-bootstrap-hang · 0428-217 git credential fill must not block in test or first-run paths #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
+- [ ] t-20261121-git-credential-fill-bootstrap-hang · 0428-217 git credential fill must not block in test or first-run paths #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1742](https://github.com/mcpdev80/baseharbor/pull/1742)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** coordinator  
@@ -131,3 +131,7 @@ END_DONE abgenommen, und ihr 'geerbt'-satz ist von MIR DURCHGEZOEHLT statt Etike
 CODEX-REVIEW review-1.md = 'Verdict: REQUEST CHANGES' (plan c5ee4b5c/23b49a46). Befund 1: 'internal/credential/native/credfill_noninteractive_test.go:57-60' benutzt '/dev/tty' statt echtes git-prompt-/askpass-verhalten mit deadline; der production-seam ('gitcredential.go:41-60' -> 'host.go:32-40') wird gerufen, aber der beweis haengt an einem helper, den der runner fuellen kann. Befund 2: write-set-verletzung in 'cmd/baha/app_update.go:456' + ':515' (nicht kartiert) — ICH ENTSSCHEIDE: karte ist ausdruecklich erweitert (plan-Commit dieses Arbeitsgangs) plus akzeptanzkriterium 6 (fokussierte regression fuer den update-pfad), sonst sind die zwei zeilen zu entfernen. URTEIL plus mein rechenfehler: die 196-vs-197-rechnung, die ich dem reviewer mitgab, stammte aus dem AGGREGIERTEN log; per-job gemessen ist die korrektur in der karte dokumentiert.
 
 CODEX-REVIEW (akte review-1.md, plan c5ee4b5c + 23b49a46) = 'Verdict: REQUEST CHANGES'. Befund 1: 'internal/credential/native/credfill_noninteractive_test.go:45-82' ruft den echten seam ('gitcredential.go:41-60' -> 'host.go:32-40'), aber der helper Zeile 57-60 liest '/dev/tty' statt echtes git-prompt-/askpass-verhalten; beweis waere auch ohne fix gruen. Befund 2: 'cmd/baha/app_update.go:456' + ':515' waren nicht im write-set — ICH ERWEITERTE DIE KARTE ausdtruecklich (plan f52d8949) plus akzeptanzkriterium 4 (fokussierte regression ueber den update-pfad ohne kontrollierendes terminal, bounded failure statt hang); bleibt die regression aus, sind die zwei zeilen zu entfernen. ZUSATZ: mein 196/197-war aus dem aggregierten log; per-job nachgemessen 197 (#1742) gegen 194 (#1702) — in der karte dokumentiert, damit der reviewer nicht mit meinen alten zahelen urteilt.
+
+korrekturrunde 2 geliefert und von mir am head 719d28a888ab nachgemessen: draft=false, mergeable MERGEABLE, base develop. ALLE vier cli-shards pass, 'PR Selected Checks' pass, 'PR · Trusted Plan' pass. Delta gegen merge-base = 8 dateien, und JEDE davon steht im erlaubten schreib-set der karte (zeilen 69-77: cmd/baha/app_inspect_remote.go als erster punkt, cmd/baha/app_update.go durch meine amendment, dazu die git host/credential helper dateien). Mein amendment-punkt ist erfuellt: kriterium 4 (update-pfad regression) mit mutation belegt (akte round-2-promptproof.md). Inhalt, von mir gelesen: 'cmd.Stdin = os.Stdin' wird 'cmd.Stdin = strings.NewReader("")'' und 'GIT_TERMINAL_PROMPT=0' wird VOR den native-pfad gehoben, damit ein fehlendes nativ credential fail-closed statt am prompt zu haengen. Offen: develop ist weitergezogen (77c1e60f51b9), head ist kein nachkomme, also letzter hop wie bei #1739.
+
+korrekturrunde 2 geliefert und von mir am head 719d28a888ab nachgemessen: draft=false, mergeable MERGEABLE, base develop. ALLE vier cli-shards pass, 'PR Selected Checks' pass, 'PR - Trusted Plan' pass. Delta gegen merge-base = 8 dateien, und JEDE davon steht im erlaubten schreib-set der karte (zeilen 69-77: cmd/baha/app_inspect_remote.go als erster punkt, cmd/baha/app_update.go durch meine amendment, dazu die git host/credential helper dateien). Mein amendment-punkt ist erfuellt: kriterium 4 (update-pfad regression) mit mutation belegt (akte round-2-promptproof.md). Inhalt, von mir gelesen: cmd.Stdin = os.Stdin wird durch eine leser-zeichenkette ersetzt, und GIT_TERMINAL_PROMPT=0 wird VOR den native-pfad gehoben, damit ein fehlendes nativ credential fail-closed statt am prompt zu haengen. Offen: develop ist weitergezogen (77c1e60f51b9), head ist kein nachkomme, also letzter hop wie bei 1739.
