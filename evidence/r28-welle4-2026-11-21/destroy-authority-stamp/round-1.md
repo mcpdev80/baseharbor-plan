@@ -146,6 +146,14 @@ WHICH case built the lifecycle container `bh-docker-dev-edit-runtime-integration
 host. It is NOT a production cause: it is a test-run artifact, and the container is already Exited. Per the
 owner's request this lane limits all further local runs to the two named `-run` cases of the card.
 
+FINAL `docker ps -a` (coordinator host, at END of this lane):
+```
+CONTAINER ID   IMAGE         COMMAND       CREATED         STATUS                      PORTS     NAMES
+de40a6c61cef   alpine:3.22   "sleep 300"   23 minutes ago  Exited (0) 18 minutes ago             bh-docker-dev-edit-runtime-integration-dev-api-1
+```
+No container of this lane's name is running. This container was built by the pre-existing `TestAppEditCommandCompleteProviderEditRunsRealLifecycle`
+(the bulk `go test ./cmd/baha/` trigger), not by this card's named test; it is Exited.
+
 This lane started no container, compose project, network or state directory of its own in this round.
 
 ## origin/main witness (evidence delivery) — PENDING at END
@@ -156,4 +164,4 @@ $ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r 
 
 ## END
 
-END_DONE 0428-214-destroystamp: <one line + candidate SHA>
+END_DONE 0428-214-destroystamp: Variante 1 chosen — assertion runs through ensureOperatorAuthForBoundary (operator_auth_boundary.go:55) and names admitted mode via AuthorizationDecisionFromContext; PR #1738 @ ebc6ac9c on lane-0428-214-destroystamp (base lane-0428-198-cli-shard-operator-env @ 7db142852d22); test passes in all hosted cli/package shards; run 44861212250; evidence on origin/main; no container of mine running.
