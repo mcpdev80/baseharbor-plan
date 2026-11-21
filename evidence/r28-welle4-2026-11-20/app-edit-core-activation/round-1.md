@@ -204,6 +204,15 @@ this round's host-internal state was verified clean (0 containers) — no third 
 
 `workers/todos/w223-0428-207-appedit-repro.json` written this shift (7 numbered steps, ticked as worked).
 
+## evidence delivery (origin/main witness)
+
+```
+$ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep app-edit-core-activation
+evidence/r28-welle4-2026-11-20/app-edit-core-activation/round-1.md
+```
+
+baseharbor-plan HEAD at delivery: `6df04fea87b97e81d22eede66e389880e37431ae`.
+
 ## END
 
 END w223-0428-207-appedit-repro DONE — line-1253 failure reproduced on develop head 40cb28c758b0; root cause = a
