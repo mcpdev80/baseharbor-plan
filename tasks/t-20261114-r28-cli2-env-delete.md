@@ -15,19 +15,19 @@ kanban_title: 0428-055 · Env deletion lifecycle
 priority: high
 depends_on: [t-20261114-r28-cli2-env-policy, t-20261114-r28-cli2-env-registry]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1627]
+prs: [mcpdev80/baseharbor#1627, mcpdev80/baseharbor#1736]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1627", "https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677", "https://github.com/mcpdev80/baseharbor/actions/runs/44852435311", "https://github.com/mcpdev80/baseharbor/pull/1615"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1627", "https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677", "https://github.com/mcpdev80/baseharbor/actions/runs/44852435311", "https://github.com/mcpdev80/baseharbor/pull/1615", "https://github.com/mcpdev80/baseharbor/pull/1736", "https://github.com/mcpdev80/baseharbor/actions/runs/44859609354"]
 ---
 
 - [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** Codex (Marcel, active wait sweep 2026-11-21) · **Priority:** high  
-    **PR:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1627), [proof 2](https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44852435311), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1615)  
+    **PR:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627), [baseharbor#1736](https://github.com/mcpdev80/baseharbor/pull/1736)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1627), [proof 2](https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44852435311), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1615), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1736), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44859609354)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -37,7 +37,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1627", "https://github.c
 **Required by:** [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md)  
 **Owner:** Codex (Marcel, active wait sweep 2026-11-21)  
 **Priority:** high  
-**PRs:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627)  
+**PRs:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627), [baseharbor#1736](https://github.com/mcpdev80/baseharbor/pull/1736)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -93,3 +93,12 @@ BOARD-KORREKTUR nach unabhaengiger GEGENLESE (akte evidence/r28-welle4-2026-11-1
 - Fixed confirmed JSON behavior: confirmed `baha env destroy --json` now emits one result object instead of concatenating preview and result JSON; added a focused regression. Local `go test ./cmd/baha -run 'TestCLIEnvDestroy|TestEnvironmentDestroy' -count=1`, `go test ./internal/deployment -run 'TestCollectEnvironmentDestroyScope|TestDestroyEnvironmentIdentity' -count=1`, `go vet ./cmd/baha ./internal/deployment`, and `git diff --check` pass on the final source tree.
 - Local native Docker attempt was stopped by the existing `Managed-environment machine operations require an authenticated BaseHarbor operator` failure during the shared setup, before the environment-destroy call. The same active PR #1615 edits `cmd/baha/app_identity_selective_runtime_test.go` and `.github/workflows/pre-release-runtime-suite.yml`; my temporary overlapping test edit was reverted in `202b984e` and is absent from the final tree. Do not edit #1615 or its current shared files.
 - Exact Draft run [44852435311](https://github.com/mcpdev80/baseharbor/actions/runs/44852435311) is running reduced Draft checks only. Exact current-head `pr-gate-plan.py` is `coverage_status=unresolved`: `commands.go`/`machine_coverage.go` need bounded registration coverage, `env_destroy.go` needs qualified native coverage, and catalog components do not yet own the changed paths. Continue with disjoint planner/catalog paths while #1615 owns the runtime workflow; no Ready promotion or merge.
+
+
+## Wait-sweep progress — 2026-11-21 (trusted gate route)
+
+- Revalidated that 0428-053/#1594 and 0428-054/#1591 are closed and #1627 is based on current develop `40cb28c758b02960356434b630086a341ebe1738`. Kept #1615 untouched.
+- The trusted PR planner loads its gate policy from the PR base, so mappings added only inside #1627 cannot select its native runtime tests. Split the small trusted policy change into Draft PR #1736, head `8f11a34da52f7a7f81a48eaf8df75da6f0fc3f12`, to bind the implementation and exact test `TestEnvironmentDestroyNativeLifecycle` to existing Docker and Podman coreless lifecycle gates. Individual `commands.go`/`machine_coverage.go` changes remain unresolved without the companion implementation and native test.
+- PR #1736 exact Draft run [44859609354](https://github.com/mcpdev80/baseharbor/actions/runs/44859609354) passed its Draft source/routing and Go-shard jobs; Ready-only planner, validation, and native jobs were skipped, so this is not full CI acceptance. Focused mapping suite (37 coverage tests), the two new planner cases, coverage catalog validation, Go unit/vet and generated CLI documentation checks pass locally.
+- `TestEnvironmentDestroyNativeLifecycle` is registered in the existing Docker and Podman coreless gates and application shard. No local native runtime was run because the shared Docker host has active unrelated containers and Podman is unavailable. #1627 remains Draft and its implementation/test/docs changes remain local until the trusted mapping can be used.
+- The full planner suite still reproduces the inherited operator-auth failure in `TestMCPRegistrationCIInProcessDiscoverAndInvoke` on current develop. Exact #1615 run `44858521941` was still in progress at last check; it remains owned by the other session.
