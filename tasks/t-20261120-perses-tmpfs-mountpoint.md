@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: 0428-083-
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-177 · Perses runtime smoke cannot
 priority: ""
@@ -18,20 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1724]
 sources: []
 blocker: ""
-wait_reason: "INHALT + HANDOFF SIND VOLLSTAENDIG, und die plichtcheck-kante kann nicht durchlaufen - darum wait, nicht review (dasselbe muster wie 0428-199 und 0428-183, damit ein zustand nicht zwei arten bekommt): PR #1724 head 408b18d2dc7b, branch == refs/pull/1724/head == remote-head gemessen, base develop, draft=false; 'PR · Source format' = success am EXAKTEN head (mein gofmt-befehl von der korrekturrunde ist ausgefuehrt, die datei ist jetzt fest), 'PR · Native · native/docker/perses-runtime-smoke' = success; die sieben roten zellen sind cli-0..3 + packages + Selected Runtime/Checks = der feld-weite gate (0428-198, wurzel 2af892e4e in internal/serviceaccess/policy.go, bei 0428-202 blocked an den #1594/0428-053-rail des owners). AKTE IST NACHGELIEFERT und von mir gelesen: evidence/shift-r28/0428-177-perses-tmpfs-mountpoint.md, 84 zeilen, 0 checkboxen, cleanliness-zeile, PR-nummer 4 NENNUNGEN, run 44793908238 = 2 NENNUNGEN, 0428-198 = 2 NENNUNGEN, und die falsche kollissions-behauptung steht jetzt ausdruecklich als '(corrected; was misreported as a collision)' mit dem messbaren grund. TRIGGER FÜR DIE NÄCHSTE KANTE: grüner prüflauf am exakten head, nachdem 198/202 gelöst sind; dann review, dann CODEX. Der sitz arbeitet an #1684 (karte 0428-083) weiter, diese karte ist damit nicht mehr arbeitsgrund."
-resolution: ""
-evidence: []
+wait_reason: ""
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44888485898", "https://github.com/mcpdev80/baseharbor/pull/1724", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/perses-tmpfs-mountpoint/round-2.md"]
 ---
 
-- [ ] t-20261120-perses-tmpfs-mountpoint · Perses runtime smoke cannot mount tmpfs at /etc/perses/database on hosted runners #task #release/v0-4-28 #status/wait #view/wait #kind/task
+- [x] t-20261120-perses-tmpfs-mountpoint · Perses runtime smoke cannot mount tmpfs at /etc/perses/database on hosted runners #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** 0428-083-  
     **PR:** [baseharbor#1724](https://github.com/mcpdev80/baseharbor/pull/1724)  
-    **Waiting:** INHALT + HANDOFF SIND VOLLSTAENDIG, und die plichtcheck-kante kann nicht durchlaufen - darum wait, nicht review (dasselbe muster wie 0428-199 und 0428-183, damit ein zustand nicht zwei arten bekommt): PR \#1724 head 408b18d2dc7b, branch ==…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44888485898), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1724), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/perses-tmpfs-mountpoint/round-2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** 0428-083-  
