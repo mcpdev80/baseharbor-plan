@@ -7,9 +7,9 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: "Codex (Marcel, active wait sweep 2026-11-21)"
-kanban_status: active
-kanban_lane: active
+owner: w228-0428-207-appedit-fix
+kanban_status: review
+kanban_lane: review
 kanban_summary: "App Edit activation against a real isolated Core stops failing with start real isolated Core for App Edit: existing native…"
 kanban_title: 0428-207 · 0428-207 App Edit Core
 priority: high
@@ -23,18 +23,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-app-edit-core-activation · 0428-207 App Edit Core activation fails without protected Core network #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
+- [ ] t-20261121-app-edit-core-activation · 0428-207 App Edit Core activation fails without protected Core network #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** Codex (Marcel, active wait sweep 2026-11-21) · **Priority:** high  
+    **Owner:** w228-0428-207-appedit-fix · **Priority:** high  
     **PR:** [baseharbor#1735](https://github.com/mcpdev80/baseharbor/pull/1735)  
     **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** Codex (Marcel, active wait sweep 2026-11-21)  
+**Owner:** w228-0428-207-appedit-fix  
 **Priority:** high  
 **PRs:** [baseharbor#1735](https://github.com/mcpdev80/baseharbor/pull/1735)  
 **Source:** 
@@ -108,3 +108,5 @@ CORRECTED MY OWN MEASUREMENT: PR #1735 exists since 01:16 (head 09cf55bbaa41, ba
 HANDOFF COMPLETE: PR #1735 (head 09cf55bbaa41, base develop 40cb28c758b0, draft=false after my mark-ready via graphql) and akte evidence/r28-welle4-2026-11-21/app-edit-core-activation/round-1.md on plan main (bce75e66 + merge 0dd45072). Measured by coordinator: guard refusal kept (core_network_binding.go +15/-1), new test file core_network_binding_actionability_test.go (+82/-0) asserts the message CONTENT, develop is an ancestor of the head, and the lane watched its own run 44849220708 to terminal state and labelled the four red cli shards as the inherited 0428-204 gate instead of chasing them (§5.4). This is the second clean handoff of the night and the first one that names the owner central helper correctly: the denial convention 'runWithIO directly for unauthenticated cases' is what the reviewer will check against #1615's test_operator_context_test.go.
 
 CODEX-REVIEW REQUEST CHANGES an head 09cf55bbaa41 (plan 5fa43643, path witness 838aec5b): (2) blocking - der neue missing-inventory-test erreicht den ENOENT-ast in core_network_binding.go:69-74 nicht, weil der renderer direkt aufgerufen wird; (3) der aktivierungs-pfad inspectCoreDefaultNetworkBinding bleibt ohne regressionstest, akzeptanz-kriterium 2 offen. korrektur im Anlauf auf freien sitz.
+
+korrektur geliefert: PR #1735 head 213331217024 (draft=false, develop IST ancestor, von mir gemessen), dateien genau core_network_binding.go + core_network_binding_actionability_test.go. gehosteter durchgang 44859099909 am exakten head: Workflow policy / Trusted Plan / Native gate plan / go-vet / go-build / cli-gofmt / Focused Python = SUCCESS, cli-0..3 = failure (geerbt, auf sauberm base 09cf55b gegentestet). akte round-2.md 11455 bytes, plan main 45f444f1. re-review eingereiht (reviewer haelt gerade #1702).
