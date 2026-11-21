@@ -8,7 +8,7 @@ Backend/Modell: OpenAI Codex / GPT-6.2
 2. Verify PR #1597, its exact head, remote refs, changed paths, commit authors, ancestry, and check state. Done.
 3. Inspect database capability/signal selection, positive and negative paths, dashboard goldens, and exact-head mutation evidence. Done.
 4. Record a SHA-specific verdict and actionable findings in this review file only. Done.
-5. Publish only this file to planning origin/main and verify its remote presence. In progress.
+5. Publish only this file to planning origin/main and verify its remote presence. Done.
 
 ## Verdict
 
@@ -102,7 +102,15 @@ d7ba821c0e08   haproxy:3.2.23-alpine   "docker-entrypoint.s…"   8 minutes ago 
 
 ## Evidence publication
 
-Only `evidence/r28-welle4-2026-11-21/perses-dashboard-databases/review-2.md` is to be published for this verdict.
+Only `evidence/r28-welle4-2026-11-21/perses-dashboard-databases/review-2.md` was published for this verdict. Initial planning commit `61f8e885a7ed112879b2b80c3fb4eb3f813422fc` added this file to origin/main.
+
+Required tree-presence witness, exact output from `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle4-2026-11-21/perses-dashboard-databases/review-2.md`:
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle4-2026-11-21/perses-dashboard-databases/review-2.md
+```
 
 ## END
 
