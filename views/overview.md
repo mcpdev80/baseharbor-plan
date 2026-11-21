@@ -31,7 +31,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-base-branch-provenance-loss](../tasks/t-20261121-base-branch-provenance-loss.md) | 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened | active | high | coordinator | — | — |
 | [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md) | CI: full-suite unit tests are red on develop and no merge gate runs them | active | not set | 0428-223-testctx | — | [baseharbor#1750](https://github.com/mcpdev80/baseharbor/pull/1750) |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
-| [t-20261122-impact-consent-after-preview-contract](../tasks/t-20261122-impact-consent-after-preview-contract.md) | Env destroy: impact consent validated after preview is structurally stale (five fixture rounds) | active | not set | w226-pr1627-0428-226-consent (Codeman worker seat) | — | — |
+| [t-20261122-impact-consent-after-preview-contract](../tasks/t-20261122-impact-consent-after-preview-contract.md) | Env destroy: impact consent validated after preview is structurally stale (five fixture rounds) | active | not set | w21-pr1702-0428-142-compat | — | — |
 
 ## Ready for review
 

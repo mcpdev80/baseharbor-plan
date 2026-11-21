@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w226-pr1627-0428-226-consent (Codeman worker seat)
+owner: w21-pr1702-0428-142-compat
 kanban_status: active
 kanban_lane: active
 kanban_summary: Define and enforce one consent contract for env destroy so that an impact consent produced by a preview is still authoritative…
@@ -25,14 +25,14 @@ evidence: []
 
 - [ ] t-20261122-impact-consent-after-preview-contract · Env destroy: impact consent validated after preview is structurally stale (five fixture rounds) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w226-pr1627-0428-226-consent (Codeman worker seat)  
+    **Owner:** w21-pr1702-0428-142-compat  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w226-pr1627-0428-226-consent (Codeman worker seat)  
+**Owner:** w21-pr1702-0428-142-compat  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -94,3 +94,5 @@ preview consent and the destroy-time authorization fails, and the native test
   `prod/docker-dev` and the target deployment.
 - Current state: PR #1627 (`0428-055`) is held from review and merge; a read-only diagnosis of the preview-to-apply
   consent path is dispatched and its artefact will be linked here.
+
+STELLE BESATZT, coordinator-auftrag 02:5xZ. grund fuer den namen: die FRISCHE Lane w226-pr1627-0428-226-consent konnte nicht gestartet werden, weil 'worker-cleanup.sh w21-pr1702-…' mit PARTIAL 'session/OpenCode release incomplete' endete (tooling issue #6) und spawn-lane.sh deshalb ADMISSION-HOLD 'POOL-UNKNOWN: live worker without pool reservation' meldet. der sitz 0847d100 (w21) fuehrt diese karte daher in derselben session weiter - AGENTS 3.6 erlaubt das ausdruecklich als explizite uebergabe, und dieselbe session hat die diagnose bereits geliefert. PR-FELD bleibt leer, bis die lane ihren eigenen branch/PR eroffnet; integration in #1627 erfolgt erst, wenn der fix mit dem dann exakten develop 7d4351c6d64 bereit ist.
