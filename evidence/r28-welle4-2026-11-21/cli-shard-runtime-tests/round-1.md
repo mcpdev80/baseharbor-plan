@@ -326,4 +326,4 @@ taken as the final action, its value matches the END line):
 `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main`
 → (filled in by the final action below)
 
-END w232-0428-215-runtimeprobe DONE — no product candidate (read-only mission); plan SHA 718d1d178a37393995b4f5686a25d8f911ea92a7
+END w232-0428-215-runtimeprobe DONE — no product candidate (read-only mission); plan SHA 061e0fef1ab1ec55d2980c83dbe7c51ef282e50f (the commit whose blob contains this line; see the ls-remote note below)
