@@ -23,7 +23,11 @@ resolution: ""
 evidence: []
 ---
 
-1. t-20261121-child-env-inheritance · child process environment replaced instead of inherited in corebackup/coreupdate etcd probes #task #release/v0-4-28 #status/planned
+- [ ] t-20261121-child-env-inheritance · 0428-222 child process environment replaced instead of inherited in corebackup/coreupdate etcd probes #task #release/v0-4-28 #status/planned #view/ready #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned  
+    **Ready to assign** · prerequisites accepted  
+    <!-- /generated:card -->
 
 ## Goal
 
@@ -63,11 +67,6 @@ One or two sentences: the observable outcome.
 
 - Current state, branch, PR and evidence links. Newest first.
 
-- [ ] t-20261121-child-env-inheritance · 0428-222 child process environment replaced instead of inherited in corebackup/coreupdate etcd probes #task #release/v0-4-28 #status/planned #view/ready #kind/task
-    <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
-    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** ready  
