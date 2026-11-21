@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: 0428-060-rev2
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-222 · child process Env replaced
 priority: ""
@@ -23,10 +23,9 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-child-env-inheritance · 0428-222 child process environment replaced instead of inherited in corebackup/coreupdate etcd probes #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261121-child-env-inheritance · 0428-222 child process environment replaced instead of inherited in corebackup/coreupdate etcd probes #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** 0428-060-rev2  
     <!-- /generated:card -->
 
 ## Goal
@@ -69,10 +68,10 @@ One or two sentences: the observable outcome.
 
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** 0428-060-rev2  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -129,3 +128,5 @@ requires a file outside the write-set, stop and report `file:line`.
 `baseharbor-plan/evidence/r28-welle4-2026-11-21/child-env-inheritance/round-1.md` with the numbered
 `## PLAN` list (no `- [ ]` checkboxes), per-site decision, hosted run id and per-job byte counts,
 `## repo-rule compliance`, `## cleanliness`.
+
+fund->karte-pflicht erfuellt: die K2-befunde aus desk H-V47 (akte child-env-desk/hunt-1.md, plan f1281821ac0) sind jetzt vertrag. Zeugen, von MIR nachgemessen: develop ddfa80f7202a; 'internal/corebackup/etcd/etcdctl.go:95/:114/:156', 'internal/corebackup/etcd/etcdutl.go:95', 'internal/coreupdate/dcs_boot_probe.go:59' bauen die kinder-umgebung als literalliste OHNE os.Environ() — dieselbe klasse, die heute #1742 eine korrektur-runde kostete. prove-or-fix: stelle 4 heisst 'Isolated' und darf bleiben, wenn die isolation belegt ist. ABWEICHUNG, die ich offen buche: die arbeitende session heisst '0428-060-rev2' (id 47e440e7) — ich hatte sie zuerst fuer eine abnahme angesetzt und dann auf diese karte umgeleitet; der name traegt deshalb die falsche kartennummer. Inhalt und write-set sind korrekt, nur die naming-regel (lane-name traegt die kartennummer) ist von MIR verletzt; beim naechsten freien sitz ersetze ich die benennung.
