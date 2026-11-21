@@ -73,8 +73,56 @@ Result: `ok    github.com/mcpdev80/baseharbor/cmd/baha    0.034s`
 Delivery proof:
 `git ls-remote origin refs/pull/1723/head` -> `5c063c7f278bfd92dcef9a0fabd3b6e6d1ddbe42`
 
-## CI (step 6) -- PENDING
+## CLEANLINESS
 
-Awaiting terminal CI run on new head 5c063c7f278; need run-id, terminal status,
-and the NAME of the job that actually runs workload_port_local_regression_test.go
-(not skipped).
+No docker/podman compose projects started on this host. No containers spawned by this lane.
+docker/podman not run here as a test host. (Banned test-gate failure is GitHub-hosted only.)
+
+## END SUMMARY
+
+- new head-sha: 5c063c7f278bfd92dcef9a0fabd3b6e6d1ddbe42
+- back=0: 0 (git rev-list --count HEAD..origin/develop)
+- PR head confirmed at 5c063c7f278 via git ls-remote
+- regression test runs in: PR · Go unit · cli-3 (job 137021225665, success)
+- terminal CI run: 44961493271, conclusion=failure; failing check = PR · Selected Runtime · data-capabilities (docker) (job 137021826770), STATE: shared-prerequisite operator-consent failure outside write-set, pre-existing on run 44934975722
+- akte-pfad: evidence/r28-welle5-2026-11-22/workload-port-hop/hop-develop-42da7128.md
+- Need Owner scope decision on the CI-owner-wait (data-capabilities gate)
+
+## CI (step 6) -- RUN TERMINAL, one required check FAILED on a shared prerequisite outside the write-set
+
+Run-id: `44961493271` (CI · PR #1723 #7139, triggered via PR synchronize).
+Terminal status: run conclusion = `failure` (run status = completed).
+
+Regression test execution (required, NOT skipped):
+- `workload_port_local_regression_test.go` is in `cmd/baha/` and its source
+  filename hashes to CLI shard 3 (`sha256("workload_port_local_regression_test.go") % 4 == 3`),
+  so it runs in **PR · Go unit · cli-3** (job 137021225665), conclusion = success.
+- All 6 Go unit shards (cli-0..cli-3, packages, owner): success.
+- PR · Validation · go-build, go-vet, cli-gofmt: success.
+
+Failing required check (STATE):
+- Job: **PR · Selected Runtime (atomic/docker/data-capabilities, docker, data-capabilities)**
+  / Executed docker · data-capabilities (job 137021826770), conclusion = failure.
+- Failing step: "Run runtime gate" (exit code 1).
+- Failing assertion log line (verbatim, run 44961493271):
+  `Error: record deployment before mutation: candidate submission requires an explicit
+   operator/automation consent (--confirm-candidate); refusing to record deployment state`
+  followed by
+  `subprocess.CalledProcessError: Command '[.../baha, app, footprint, show, -o, json] returned
+   non-zero exit status 2.`
+  and
+  `{"contract_version":"v1","error":{"code":"validation_failed","message":"operator
+   authentication needs interactive setup but input is not a terminal",...}}`
+- Root cause: the managed-local footprint path refuses `baha app footprint show`
+  without `--confirm-candidate` (operator/automation consent), and the data-capabilities
+  demo test drives it on piped (non-tty) input. This is a shared gate prerequisite,
+  NOT a change in this card's write-set.
+- Pre-existing (not caused by this hop): the same failure is recorded on the earlier
+  hosted run `44934975722` (PR #1723 comment: "one selected Docker data-capabilities
+  runtime failure"). The hop only carried develop forward; `cmd/baha/app_machine_adapters.go`
+  (the data-capabilities gate trigger) is unchanged by this hop.
+
+Scope decision required (GATE RULE / Owner scope): fixing this needs a change under
+`.github/**`, the demo test, or the release/gate manifest -- none of which is this
+card's write-set and none of which I may edit (Owner-scope .github/** rule). Reporting
+as STATE and stopping for the Owner, per the mission.
