@@ -7,7 +7,7 @@ areas: [cli, ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: "Codex (current thread; wait sweep 2026-11-21)"
+owner: coordinator
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261120-other-domain-test-split · Cause split for the 89 other-domain cmd/baha failures #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** Codex (current thread; wait sweep 2026-11-21) · **Priority:** high  
+    **Owner:** coordinator · **Priority:** high  
     **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** Codex (current thread; wait sweep 2026-11-21)  
+**Owner:** coordinator  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -74,3 +74,5 @@ HANDOFF COMPLETE (read-only classification, no PR): akte other-domain-test-split
 ## Wait-sweep continuation — 2026-11-21
 
 - Codex review r2 rejected the round-1 classification for inconsistent sums and missing complete source rows. The task is active under the wait-sweep owner while the complete row-level classification is rebuilt. No product files or PRs changed.
+
+CODEX verwarf round-1 (8a086890, codex-review-r2.md): summen 38 statt 89, gruppe 12=9 statt 8, '/tmp/w217-classified.tsv' nie publiziert, gruppe 8 falsche datei. zeilenweise neuberechnung ueber den neutralen produktionspfad (artefakte der gehosteten cli-zellen) in frischer lane ca3a71d0.
