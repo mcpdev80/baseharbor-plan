@@ -6,6 +6,16 @@
 - PR: #1739, branch `0428-210-alltargets`, base `develop`, draft=false, open
 - Korrekundrunde nach CODEX-REVIEW review-1.md ('Verdikt: REQUEST CHANGES')
 
+## PLAN
+
+1. eigenen baum + identitaet im baum (commit-author = 0428-210-authzkeep) -- erfuellt
+2. develop-auth-block wiederhergestellt (authorizeMCPOperation dev fuer --all-targets; authorizeCurrentMCPContext fuer selected) -- erfuellt
+3. ErrConfigMissing nur NACH autorisierung am inventar-lese-pfad toleriert (nur cmd/baha/app_commands.go, write-set eingehalten) -- erfuellt
+4. gruen: app_list_all_targets_test.go (installiert + zerstoert) bleibt gruen -- erfuellt
+5. negativer fall beweist abweisung mit operator-auth-fehler (literal 'Managed-environment machine operations require an authenticated BaseHarbor operator'), keine config-bypass -- erfuellt
+6. push zum PR-kandidaten 0428-210-alltargets + delivery-witness via ls-remote -- IN ARBEIT
+7. CI bis terminal am exact-current-base (cli-0) + akte + docker ps -a cleanliness + evidence auf origin/main -- OFFEN
+
 ## Was ist falsch gelaufen (der Befund)
 
 Die Candidate-Head `6442955f4cf06e09583634eb90410d5fedf83b85` ersetzt am `--all-targets`-Pfad

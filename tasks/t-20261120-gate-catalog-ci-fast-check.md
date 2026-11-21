@@ -34,7 +34,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44867225115", "h
 **State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
-**Required by:** [t-20261121-static-gate-registration](t-20261121-static-gate-registration.md)  
 **Owner:** Codex (Owner-directed, 2026-11-21)  
 **Priority:** normal  
 **PRs:** none  

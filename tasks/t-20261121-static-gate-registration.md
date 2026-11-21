@@ -8,97 +8,78 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: "Codex (Owner-directed, 2026-11-21)"
-kanban_status: active
-kanban_lane: active
-kanban_summary: "atomic/static/ci-fast-check exists in the gate catalog AND in every consumer that validates catalog consistency, so the Workflow…"
+kanban_status: blocked
+kanban_lane: blocked
+kanban_summary: Run the existing scripts/ci-fast-check.sh as its own static gate in the v0.4.28 Pre-Release Suite. Preserve every existing…
 kanban_title: 0428-208 · 0428-208 static gate
 priority: high
-depends_on: [t-20261120-gate-catalog-ci-fast-check]
+depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1746"]
 sources: []
-blocker: ""
+blocker: "Owner 2026-11-21: zweckgebundene Freigabe für pre-release-runtime-suite.yml und seine Dispatch-Verkabelung für 0428-205. Alle anderen .github-Änderungen bleiben gesperrt und dürfen nur über eine neue Owner-Freigabe erfolgen. Hosted positive proof is blocked because docs/releases/v0.4.28.demo-ref is absent on develop; do not substitute the v0.4.27 pin."
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-static-gate-registration · 0428-208 register the static ci-fast-check gate across planner, runner and pre-release plan #task #release/v0-4-28 #status/active #view/active #area/ci #kind/task
+- [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** Codex (Owner-directed, 2026-11-21) · **Priority:** high  
-    **Needs:** [t-20261120-gate-catalog-ci-fast-check](t-20261120-gate-catalog-ci-fast-check.md)  
+    **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
+    **Blocker:** Owner 2026-11-21: zweckgebundene Freigabe für pre-release-runtime-suite.yml und seine Dispatch-Verkabelung für 0428-205. Alle anderen .github-Änderungen bleiben gesperrt und dürfen nur über eine neue Owner-Freigabe erfolgen. Hosted positiv…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261120-gate-catalog-ci-fast-check](t-20261120-gate-catalog-ci-fast-check.md)  
+**Depends on:** none  
 **Owner:** Codex (Owner-directed, 2026-11-21)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
 **Source:** 
 <!-- /generated:links -->
 
 ## Goal
 
-`atomic/static/ci-fast-check` exists in the gate catalog AND in every consumer that validates catalog consistency, so the
-`Workflow policy` cell on `mcpdev80/baseharbor#1665` passes without the pairing trick that 0428-205 proved impossible.
+Run the existing `scripts/ci-fast-check.sh` as its own static gate in the v0.4.28 Pre-Release Suite. Preserve every existing Release Suite gate selection, keep the normal CI workflow unchanged, and make an uncatalogued gate fail with its exact ID and one clear repair action.
 
-## Why
+## Owner scope authorization
 
-w220 measured three candidate shapes (akte
-`evidence/r28-welle4-2026-11-20/gate-catalog-ci-fast-check/round-1.md`, FINDING 3, replay runs R1a-R1f): rule
-`scripts/ci-workflow-policy.sh:184-187` only accepts the pairing **inside the compared diff**, so no develop-side
-pairing can green the #1665 cell, and rule `scripts/ci-workflow-policy.sh:197-201` is inventory-based — any new
-`.gates[].id` trips it unless the planner and the runners know the gate. A content-neutral `scripts/pr-gate-plan.py`
-edit does not exist (the file carries no `atomic`/`static` literals at all). 0428-205 was therefore cut too narrow;
-its lane is blocked on an Owner decision instead of expanding silently.
+Owner 2026-11-21: zweckgebundene Freigabe für pre-release-runtime-suite.yml und seine Dispatch-Verkabelung für 0428-205. Alle anderen .github-Änderungen bleiben gesperrt und dürfen nur über eine neue Owner-Freigabe erfolgen.
 
 ## Scope
 
-Allowed write-set:
+- In scope: the `atomic/static/ci-fast-check` catalog entry; planner selection and static executor dispatch; the `pre-release-runtime-suite.yml` setup, catalog validation and dispatch case; reuse fingerprint mapping for the gate's source and selector tests; focused regression coverage.
+- Out of scope: every other `.github` file, especially `.github/workflows/ci.yml`; any new PR-CI route or second test list; unrelated gate or release changes.
+- `ci-fast-check` executes `scripts/ci-fast-check.sh` directly. Its existing test command remains the only list of checks for this gate.
 
-- `scripts/pr-gate-plan.py` (register the gate id, its job and its dependencies)
-- `scripts/pre-release-check-plan.py` (STATIC section)
-- `scripts/pr-check-runner.py` (dispatch case for the gate)
-- `scripts/release-requirements.json` (`.gates[]` entry, form V2: `id`, `schema`, `required_for: []`,
-  `jobs: ["static_gates"]`, `dependencies: ["core", "demo"]`)
-- the tests that already cover those four files
+## Acceptance
 
-Forbidden:
-
-- `scripts/ci-workflow-policy.sh` (the rules are deliberately hard)
-- `.github/workflows/ci.yml` — the case arm at `.github/workflows/ci.yml:1301` is **Owner scope** and is a
-  prerequisite of this card, see Dependencies.
-
-## Acceptance criteria
-
-1. `bash scripts/ci-workflow-policy.sh` prints both `Workflow policy PASS: N approved workflow files.` and
-   `Gate catalog consistency PASS` at the exact candidate head, with `BASE`/`HEAD` comparisons for develop and for
-   the #1665 head `db27880c108a`.
-2. `python3 scripts/test_ci_v0427_contract.py` (and the other gate-catalog suites w220 names in the akte) pass.
-3. The gate is selectable in CI: the card states test -> check/gate -> trigger -> result for the new catalog entry.
+1. One PR contains the catalog, dispatch and two proofs. The Coordinator and Release Owner confirm the bounded scope and results in that PR.
+2. Positive proof: the existing static Release Suite jobs and the new standalone gate run on the same exact candidate; all selected jobs pass and the previous matrix selection remains intact.
+3. Negative proof: an intentionally uncatalogued static gate exits nonzero, identifies its exact catalog ID, and gives the direct registration action.
+4. The new gate is selected only by the Release Suite. `.github/workflows/ci.yml` is unchanged, and feature PRs do not execute `ci-fast-check` through the normal CI path.
+5. 0428-205 stays blocked until the two proofs are demonstrated live. Do not mark it accepted from catalog or card state alone.
 
 ## Test binding
 
 | Attribute | Value |
 | --- | --- |
-| Required check(s) | `Workflow policy` cell of PR Selected Checks |
-| Test identifier | `atomic/static/ci-fast-check` |
-| Route | `new gate in catalog + planner + runner (this card)` |
-
-## Dependencies
-
-The Owner must set the case arm at `.github/workflows/ci.yml:1301` (or decide that `static_gates` needs no arm and
-relax the inventory rule instead). Until that decision is recorded here, this card cannot produce a green candidate
-and must not be commissioned — a red PR for a known owner-scope gap wastes the matrix (§5.4).
+| Gate | `atomic/static/ci-fast-check` |
+| Executed source | `bash scripts/ci-fast-check.sh` |
+| Trigger | v0.4.28 Pre-Release Suite static gate matrix |
+| Negative case | `atomic/static/test-uncatalogued` in an isolated catalog fixture; selection exits nonzero with actionable ID |
 
 ## Stop and report
 
-- If the registration requires any `.github/**` line beyond the arm named above, stop and report file:line.
-- If the Owner chooses route B (relax the inventory rule), this card is superseded by that decision.
+- Do not change `.github/workflows/ci.yml` or any other `.github` file.
+- Do not merge unless both requested proofs and both PR confirmations are present.
+- 0428-205 remains blocked pending the live gate demonstration.
 
 ## Handoff
 
-- Candidate branch, PR, exact head SHA, terminal hosted run id, and the two `ci-workflow-policy.sh` comparison outputs.
-- Evidence: `evidence/r28-welle4-2026-11-20/static-gate-registration/round-1.md`.
+- Candidate branch: `lane-0428-208-static-release-gate`; PR [#1746](https://github.com/mcpdev80/baseharbor/pull/1746).
+- Candidate commit: `a1e95e7ebc5d092f0f1dc7f59405e2687661063b`.
+- Local exact workflow-policy comparison passed; `bash scripts/ci-fast-check.sh` passed (307 tests); uncatalogued-gate negative case exits nonzero and prints its ID plus the repair action.
+- Hosted positive Release Suite proof and Coordinator/Release Owner confirmations are pending. The exact v0.4.28 Demo pin file is absent on current `develop`; no older pin was substituted.
