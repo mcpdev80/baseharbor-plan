@@ -108,3 +108,11 @@ Stop criterion: then-current develop is an ancestor of the candidate, the PR is 
 Read-only review of GitHub refs, API source, and the planning task/evidence. No product changes, PR mutation, merge, workflow rerun, local Go test, container, or subagent. The only publication from this review is this file in the verified planning repository. This file contains no Markdown checkbox lines.
 
 END REVIEW DONE
+
+## origin/main evidence-path witness
+
+Exact output from `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 'evidence/r28-welle4-2026-11-21/perses-status-backend-witness/review-5.md'` after fetching origin main:
+
+```text
+evidence/r28-welle4-2026-11-21/perses-status-backend-witness/review-5.md
+```
