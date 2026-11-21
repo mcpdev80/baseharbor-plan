@@ -7,7 +7,7 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: w223-0428-207-appedit-repro
+owner: w228-0428-207-appedit-fix
 kanban_status: active
 kanban_lane: active
 kanban_summary: "App Edit activation against a real isolated Core stops failing with start real isolated Core for App Edit: existing native…"
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261121-app-edit-core-activation · 0428-207 App Edit Core activation fails without protected Core network #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** w223-0428-207-appedit-repro · **Priority:** high  
+    **Owner:** w228-0428-207-appedit-fix · **Priority:** high  
     **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** w223-0428-207-appedit-repro  
+**Owner:** w228-0428-207-appedit-fix  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -99,3 +99,5 @@ Forbidden:
 - Evidence: `evidence/r28-welle4-2026-11-20/app-edit-core-activation/round-1.md`.
 
 READ-ONLY ROUND STARTED (implementation still waits on 0428-204): w223 reproduces group 8 at develop 40cb28c758b0 and answers rubric (b) vs (c). I denied running the lifecycle test on the coordinator host (three other lanes, 96 percent disk pressure) and steered it to the named test host baha-docker with before/after container lists, plus a Go-unit probe of inspectCoreDefaultNetworkBinding whose limits must be stated as 'what this does not prove'. Evidence: evidence/r28-welle4-2026-11-20/app-edit-core-activation/round-1.md.
+
+IMPLEMENTATION ROUND COMMISSIONED after w223s read-only round: the guard in cmd/baha/core_network_binding.go:52-58 keeps its refusal, the change is the actionable reason. Stacked onto the 204 branch if it must touch app_edit_apply_test.go (w216 owns the stamping there).
