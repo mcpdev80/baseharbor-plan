@@ -8,14 +8,14 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: 0428-076-nativeshape
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: Deliver PostgreSQL/MongoDB panels only when verified compatible metrics and permissions exist.
 kanban_title: 0428-076 · Perses database dashboards
 priority: normal
 depends_on: [t-20261114-r28-perses-dashboard-selection]
 repos: [mcpdev80/baseharbor]
-prs: ['mcpdev80/baseharbor#1597']
+prs: [mcpdev80/baseharbor#1597]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,14 +23,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-databases · Perses database dashboards #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-databases · Perses database dashboards #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** 0428-076-nativeshape · **Priority:** normal  
     **PR:** [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
@@ -100,3 +100,5 @@ hop fertig, von MIR nachgemessen: PR #1597 state OPEN, draft=false, base develop
 CODEX-REVIEW perses-dashboard-databases/review-1.md am exakten head 12a6e7a46e85 = REQUEST CHANGES. Befund 1 hart, wortlich: 'the native-format acceptance is not met' — die tests marshalen die VOM KANDIDATEN SELBST definierten structs und unmarshalen zurueck; 'emitted resources do not match Perses v0.55.1 native shape' in 'internal/metrics/perses_dashboards.go'. Ein round-trip gegen eigene types ist KEIN beleg fuer das native format. Meine vorige meldung 'erster merge-kandidat' war damit FALSCH — der 'PR Selected Checks'-aggregate galt einem ueberholten inhaltsstand, nicht der nativen form. Lane 0428-076-nativeshape arbeitet: nativereferenz als quelle, mutation in beide richtungen, STOP wenn die Perses-version nicht eindeutig ist. Zeugen: head 12a6e7a46e85, ancestry JA, selected pass, mergeable MERGEABLE; desk H-V46 (akte verdict-queue-desk/hunt-1.md, plan fde64c51).
 
 END zurueckgewiesen, gemessen: kandidat 8225f3e6f0bc liegt auf einem NEUEN branch 'lane-0428-076-hop2' ('git ls-remote refs/heads/lane-0428-076-hop2'), waehrend PR #1597 weiter auf seinem eigenen branch 'perses-dashboard-databases-lane' haengt — 'refs/pull/1597/head' = 12a6e7a46e85, 50 commits hinter develop. Der als 'base-head CI SUCCESS' zitierte run 44900492916 traegt headSha 12a6e7a46e8 = der ALTE kandidat: ererbtes gruen, kein beweis fuer ihre arbeit. Die karte bleibt 'active' bei der lane; sie soll auf den PR-eigenen branch pushen und ERST dann den terminalen beleg am exakten head liefern. 'Owner scope' war hier falsch: ein push auf den PR-branch ist lane-scope.
+
+PR-head = branch-head = 37d3960001dc (ls-remote), eigener run 44914907130 completed/success am exakten head, 15 checks pass. Zurueckweisung behoben. Offen: base 54 commits hinter develop, hop vor dem merge. Befund: der kandidat aendert auch cmd/baha/app_status_result.go, dieselbe datei wie PR #1702.
