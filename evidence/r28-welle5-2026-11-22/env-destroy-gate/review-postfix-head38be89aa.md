@@ -1,3 +1,5 @@
+SUPERSEDED — this conditional APPROVE concerns head 38be89aa4a034add6338cfbd3185e24bb72893a2 and run 44960199639; Docker application job 137020935578 failed with `TestEnvironmentDestroyNativeLifecycle` / `provider change: stale-impact-consent`. Successor head b3b0c2c9efc43e9696c5eeda2a7164c88889e188, run 44961334018, also has Docker and Podman application job failures. Do not use this record as acceptance evidence; no #1627 verdict is current.
+
 # CODEX-REVIEW — PR #1627 / card 0428-055 / exact head 38be89aa4a034add6338cfbd3185e24bb72893a2
 
 ## PLAN
