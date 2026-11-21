@@ -117,3 +117,5 @@ The planned `ci.yml:1301` arm is the `ci-policy` validation dispatch. The actual
 STOP pending Owner direction: authorize the corrected `.github/workflows/pre-release-runtime-suite.yml` dispatch and update 0428-208 scope, or drop the now-unneeded gate registration and close this finding based on the exact current #1665 comparison.
 
 END_BLOCKED accepted: the card was cut too narrow BY MY HAND and the lane is correct. Measured consequence: this card cannot produce a green candidate without an Owner-scope line, so it goes to blocked (not wait) because it needs an Owner decision, which is the blocked semantics. 0428-208 is poured for the develop-side registration part and stays planned until the decision is recorded.
+
+Hosted-Positivnachweis blockiert: docs/releases/v0.4.28.demo-ref fehlt auf develop (develop traegt nur bis v0.4.27.demo-ref; consumer pre-release.yml:175 liest docs/releases/<tag>.demo-ref). Kein v0.4.27-pin einsetzen. Freigabe-punkt ist der exakte v0.4.28 demo-sha/pin vom release owner oder eine in-scope release-suite-trigger-loesung. Naechster ausloeser: owner-entscheidung.

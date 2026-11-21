@@ -16,9 +16,8 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 133/234 · **Blocked:** 2 · **Waiting:** 27  
+    **Accepted tasks:** 133/234 · **Blocked:** 1 · **Waiting:** 27  
     **Blocker:** [t-20261120-gate-catalog-ci-fast-check](../tasks/t-20261120-gate-catalog-ci-fast-check.md) — Owner decision needed on corrected scope after Option A (2026-11-21): exact current \#1665 base/head b71c6da27e8b/db27880c108a passes both Workflow policy and G…  
-    **Blocker:** [t-20261121-static-gate-registration](../tasks/t-20261121-static-gate-registration.md) — Owner 2026-11-21: zweckgebundene Freigabe für pre-release-runtime-suite.yml und seine Dispatch-Verkabelung für 0428-205. Alle anderen .github-Änderungen bleibe…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next

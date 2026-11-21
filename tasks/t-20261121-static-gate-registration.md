@@ -7,34 +7,33 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: "Codex (Owner-directed, 2026-11-21)"
-kanban_status: blocked
-kanban_lane: blocked
+owner: coordinator
+kanban_status: review
+kanban_lane: review
 kanban_summary: Run the existing scripts/ci-fast-check.sh as its own static gate in the v0.4.28 Pre-Release Suite. Preserve every existing…
 kanban_title: 0428-208 · 0428-208 static gate
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#1746"]
+prs: [mcpdev80/baseharbor#1746]
 sources: []
-blocker: "Owner 2026-11-21: zweckgebundene Freigabe für pre-release-runtime-suite.yml und seine Dispatch-Verkabelung für 0428-205. Alle anderen .github-Änderungen bleiben gesperrt und dürfen nur über eine neue Owner-Freigabe erfolgen. Hosted positive proof is blocked because docs/releases/v0.4.28.demo-ref is absent on develop; do not substitute the v0.4.27 pin."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #kind/task
+- [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** Codex (Owner-directed, 2026-11-21) · **Priority:** high  
+    **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
-    **Blocker:** Owner 2026-11-21: zweckgebundene Freigabe für pre-release-runtime-suite.yml und seine Dispatch-Verkabelung für 0428-205. Alle anderen .github-Änderungen bleiben gesperrt und dürfen nur über eine neue Owner-Freigabe erfolgen. Hosted positiv…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** Codex (Owner-directed, 2026-11-21)  
+**Owner:** coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
 **Source:** 
@@ -80,6 +79,8 @@ Owner 2026-11-21: zweckgebundene Freigabe für pre-release-runtime-suite.yml und
 ## Handoff
 
 - Candidate branch: `lane-0428-208-static-release-gate`; PR [#1746](https://github.com/mcpdev80/baseharbor/pull/1746).
-- Candidate commit: `a1e95e7ebc5d092f0f1dc7f59405e2687661063b`.
+- Candidate head after hop to current develop: `0a710235a4134ed45b53303a8faad44cbf4119d5`.
 - Local exact workflow-policy comparison passed; `bash scripts/ci-fast-check.sh` passed (307 tests); uncatalogued-gate negative case exits nonzero and prints its ID plus the repair action.
-- Hosted positive Release Suite proof and Coordinator/Release Owner confirmations are pending. The exact v0.4.28 Demo pin file is absent on current `develop`; no older pin was substituted.
+- Coordinator scope confirmation is recorded in [PR comment](https://github.com/mcpdev80/baseharbor/pull/1746#issuecomment-7060850641). Exact-head PR run `44891832834` is pending. Hosted positive Release Suite proof and Release Owner confirmation remain pending. The exact v0.4.28 Demo pin file is absent on current `develop`; no older pin was substituted.
+
+Owner hat 0428-208 selbst umgesetzt als PR #1746 (head a1e95e7ebc5d, base develop, 9 dateien, ci.yml NICHT im diff). Von mir gemessen am head: release-requirements.json traegt genau eine zeile atomic/static/ci-fast-check mit required_for v0.4.28, jobs static_gates, dependencies core, und die releases-liste enthaelt v0.4.28. Der withdrawn kandidat fab709a45 (required_for leer) bleibt unveroeffentlicht. Scope- und plan-bestaetigung als kommentar auf dem PR hinterlegt. Offen: head ist kein nachkomme von develop, der exakt-current-base aggregate braucht einen hop.
