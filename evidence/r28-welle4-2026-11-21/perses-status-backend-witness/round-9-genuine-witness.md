@@ -142,6 +142,11 @@ CI was NOT scheduled against `37e1fd8a` after ~10 minutes of polling (checked ev
 - Evidence written only to `baseharbor-plan` (origin/main), never in a product repo.
 - Markdown checkboxes: none anywhere in this akte.
 
+## cleanliness
+
+before: `docker ps -a` returned an empty container list (0 rows).
+after: `docker ps -a` returned an empty container list (0 rows); `docker compose ls` returned no projects. No containers, networks, volumes, or worktree-local caches (.tmp-0428-r2, .go-buildcache-0428-r2) left in a shared location; caches live under the lane worktree only. No orphaned perses/matrix/compose projects (pid 4029412).
+
 ## END
 
-END_BLOCKED 0428-142-genuine: blocker #1704 seam RESOLVED on new develop `dea88c8f2` (candidate `6d1d56bd6`), witness suite green, hop witnesses clean. Still blocked on ONE open item: CI was not scheduled against the exact new-base head after polling; a terminal CI run with the four new r9 tests executed at the exact head is required before handoff to review. Evidence on planning origin/main.
+END_BLOCKED 0428-142-genuine: blocker #1704 seam RESOLVED and hopped to current develop `22fc68ebc` (candidate `6d1d56bd6`), witness suite green (13/13), hop witnesses clean (rev-list=3 mine, %an=0428-142-genuine, diff=5 files, no tabu), candidate pushed to PR #1702 (verified via ls-remote: PR head == branch == 6d1d56bd6), evidence on planning origin/main. Still blocked on ONE open item: CI was not scheduled against the exact new-base head after polling; the check-runs/runs REST endpoints return HTTP 404 repo-wide (rulesets disabled during CI repair, per AGENTS.md) — a terminal CI run with the four new r9 tests executed at the exact head is required before handoff to review.
