@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: "Owner (marcel, direkt)"
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-179 · shell wrapper cells must run
 priority: ""
@@ -18,21 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1731]
 sources: []
 blocker: ""
-wait_reason: "PR #1731 exact head b67c3427dd8106d15082fff34187b9761161a10a run 44881683635 is terminal failure. cli-3 installed /usr/bin/zsh and /usr/bin/fish and executed the selected Go test step; TestEndToEndInstalledZshAndFishWrappers maps deterministically to cli-3. All four CLI shards and PR Selected Checks fail on the shared managed-operator authentication prerequisite 0428-057 / PR #1615; pr-planner-tests fails TestMCPRegistrationCIInProcessDiscoverAndInvoke at the same boundary. The shell test is not listed among failed tests, but the runner only reports failing test details, so no hosted per-test PASS is claimed. Exact evidence: evidence/r28-welle4-2026-11-21/shell-wrapper/round-2.md. #1615 remains owned by the other session and untouched; rerun/merge #1731 after its gate is resolved."
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1731", "https://github.com/mcpdev80/baseharbor/actions/runs/44812248904", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/shell-wrapper/round-2.md"]
+wait_reason: ""
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1731", "https://github.com/mcpdev80/baseharbor/actions/runs/44886665489", "https://github.com/mcpdev80/baseharbor/commit/c2c94ad115ffa33e91efcd1be1fae6fc2bba7046", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/shell-wrapper/round-3.md"]
 ---
 
-- [ ] t-20261120-r28-shell-wrapper-tests-not-skippable · CI intake: zsh/fish wrapper tests skip silently when the shell is not installed #task #release/v0-4-28 #status/wait #view/wait #kind/bug
+- [x] t-20261120-r28-shell-wrapper-tests-not-skippable · CI intake: zsh/fish wrapper tests skip silently when the shell is not installed #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/bug
     <!-- generated:card -->
     **Owner:** Owner (marcel, direkt)  
     **PR:** [baseharbor#1731](https://github.com/mcpdev80/baseharbor/pull/1731)  
-    **Waiting:** PR \#1731 exact head b67c3427dd8106d15082fff34187b9761161a10a run 44881683635 is terminal failure. cli-3 installed /usr/bin/zsh and /usr/bin/fish and executed the selected Go test step; TestEndToEndInstalledZshAndFishWrappers maps determini…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1731), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44812248904), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/shell-wrapper/round-2.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1731), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44886665489), [proof 3](https://github.com/mcpdev80/baseharbor/commit/c2c94ad115ffa33e91efcd1be1fae6fc2bba7046), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/shell-wrapper/round-3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
 **Owner:** Owner (marcel, direkt)  
@@ -40,6 +39,10 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1731", "https://github.c
 **PRs:** [baseharbor#1731](https://github.com/mcpdev80/baseharbor/pull/1731)  
 **Source:** 
 <!-- /generated:links -->
+
+## Acceptance closure — 2026-11-21
+
+At source SHA `db3f6927fee1a1831de9820a51f5e0264e59f184`, test `TestEndToEndInstalledZshAndFishWrappers` maps deterministically to `cli-3` (SHA-256 first eight bytes modulo four = 3). Exact run [44886665489](https://github.com/mcpdev80/baseharbor/actions/runs/44886665489) executed and passed `PR · Go unit · cli-3` (job `136793350734`); that workflow installs both `/usr/bin/zsh` and `/usr/bin/fish` before the Go suite. The full required PR matrix and `PR Selected Checks` passed. PR #1731 merged normally as `c2c94ad115ffa33e91efcd1be1fae6fc2bba7046`. The SHA -> test -> gate -> run proof is in [round-3](../evidence/r28-welle4-2026-11-21/shell-wrapper/round-3.md).
 
 ## Why this card exists (finding -> card duty, AGENTS 3.3.5 / 5.3)
 
