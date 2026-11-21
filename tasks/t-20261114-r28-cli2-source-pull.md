@@ -7,7 +7,7 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w27-pr1627-0428-061-pull
+owner: Codex owner (isolated worktree, follow-up)
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: "Implement guided source pull. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
@@ -18,16 +18,16 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1752]
 sources: []
 blocker: ""
-wait_reason: "waartet auf einen freien build-platz auf dem host der lane: END_BLOCKED meldet '/' bei 100% (~1.2 G frei) und tmpfs-quota 12 MB/ordner, das blockt das finale cmd/baha-link, den cold-cache vet und damit das CI-gate; die implementation + tests sind geschrieben und waren PASS bei warmer build-cache, draft PR #1752 steht gegen develop auf head 4bae3194fa7, evidence ist auf baseharbor-plan origin/main. keine scratch-dateien anderer lanen wurden entfernt. naechster trigger: platz auf dem laptop-host (der coordinator-host hat seit 01:1xZ wieder 7.8 G frei, der laptop-host ist es nicht) oder ein freier build-rechner; danach exact hosted CI + unverified-capability positive/negative verification."
+wait_reason: "waartet auf den follow-up des owner-codex in einem isolierten worktree: (1) AGENTS.md wird aus develop wiederhergestellt - der aktuelle kandidat 4bae3194fa71327cdf2a67e64c9a11c91d0f5972 loescht AGENTS.md mit +0 -125 zeilen (von mir gemessen mit 'git diff --numstat develop..refs/pull/1752/head -- AGENTS.md'), das entfernt die beitrags- und sicherheitsanweisungen des repos ohne jeden bezug zur funktion; (2) 'baha app pull' fehlt die machine_coverage-klassifikation - exakter hosted run 44955232402 = completed/failure, required 'PR Draft Go · cli-0', cmd/baha TestMachineCoverageCIRealTreeAndJSONClassification, registration_ci_readiness_test.go:82 meldet 'unclassified command: baha app pull'; (3) die generierten EN/DE-coverage-zeilen dazu; (4) hop auf develop 513488eeb6d, PR bleibt draft, nur gehostete CI als beweis. die lane w27 ist vom branch abgezogen (standdown sha256 im ledger), ihre original-commits bleiben erhalten."
 resolution: ""
 evidence: []
 ---
 
 - [ ] t-20261114-r28-cli2-source-pull · CLI redesign: Implement guided source pull #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** w27-pr1627-0428-061-pull · **Priority:** high  
+    **Owner:** Codex owner (isolated worktree, follow-up) · **Priority:** high  
     **PR:** [baseharbor#1752](https://github.com/mcpdev80/baseharbor/pull/1752)  
-    **Waiting:** waartet auf einen freien build-platz auf dem host der lane: END\_BLOCKED meldet '/' bei 100% (~1.2 G frei) und tmpfs-quota 12 MB/ordner, das blockt das finale cmd/baha-link, den cold-cache vet und damit das CI-gate; die implementation + tes…  
+    **Waiting:** waartet auf den follow-up des owner-codex in einem isolierten worktree: (1) AGENTS.md wird aus develop wiederhergestellt - der aktuelle kandidat 4bae3194fa71327cdf2a67e64c9a11c91d0f5972 loescht AGENTS.md mit +0 -125 zeilen (von mir gemesse…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +35,7 @@ evidence: []
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-app-lifecycle](t-20261114-r28-cli2-app-lifecycle.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** w27-pr1627-0428-061-pull  
+**Owner:** Codex owner (isolated worktree, follow-up)  
 **Priority:** high  
 **PRs:** [baseharbor#1752](https://github.com/mcpdev80/baseharbor/pull/1752)  
 **Source:** 
