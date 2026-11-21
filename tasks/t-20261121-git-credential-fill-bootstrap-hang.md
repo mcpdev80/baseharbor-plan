@@ -9,28 +9,30 @@ repos: [mcpdev80/baseharbor]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: coordinator
+kanban_status: active
+kanban_lane: active
 kanban_summary: "The first authenticated Git operation inside a test or a first-time target bootstrap never returns a clean failure: it invokes…"
 kanban_title: 0428-217 · 0428-217 credential-fill hang
 priority: high
 depends_on: []
 blocked_by: []
 prs: []
+wait_reason: ""
+blocker: ""
+
 ---
 
-- [ ] t-20261121-git-credential-fill-bootstrap-hang · 0428-217 git credential fill must not block in test or first-run paths #task #release/v0-4-28 #status/planned #view/ready #area/cli #kind/bug
+- [ ] t-20261121-git-credential-fill-bootstrap-hang · 0428-217 git credential fill must not block in test or first-run paths #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** coordinator · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** coordinator  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -95,3 +97,5 @@ stack `#1615`/`#1625`/`#1623` (branch `cli2-identity-secrets-head`), `#1650`/`#1
 - Derived from a diagnosis card, not from a hunt matrix slice; the two witnesses above are the full provenance.
 - This card is currently **read-only for the queue**: it is not commissioned until 0428-204 (`#1726`) or `#1615` is merged,
   because both touch the CLI Git paths. Commissioning is a Coordinator action with a stated reason.
+
+Lane '0428-217-credfill' auf laptop:2 begonnen; write-set BESTAETIGUNG ist schritt 1 der mission (die karte erlaubt verschiebungen ausserhalb der zwei dateien, meldung an mich vor dem ersten write ausserhalb von cmd/baha/). Kein besetzter pfad: app_commands.go haelt 0428-210/#1739, mcp.go + MCP-tests haelt 0428-218/#-neu.

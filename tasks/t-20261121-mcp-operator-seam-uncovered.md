@@ -24,7 +24,7 @@ created: "2026-11-21T05:55:00Z"
 updated: "2026-11-21T05:55:00Z"
 ---
 
-- [ ] t-20261121-mcp-operator-seam-uncovered · 0428-218 make the MCP operator seam reachable from MCP tests #task #release/v0.4.28 #status/planned #view/waiting #board/planned #area/cli #area/observability #kind/bug
+- [ ] t-20261121-mcp-operator-seam-uncovered · 0428-218 make the MCP operator seam reachable from MCP tests #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/cli #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** normal  
     **Waiting for prerequisites**  
