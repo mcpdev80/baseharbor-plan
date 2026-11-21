@@ -128,5 +128,30 @@ the live server surface to `internal/machine/contract.go` line-by-line.
   `bdc7c1a9 test(0428-225): pin perses tools on live MCP surface (fail-first regression)`
 - Commit (candidate SHA): `bdc7c1a9e6e6b1de29afb916d28712eba95dff56`
 - author == committer == `w26-pr1588-0428-225-mcpcontract <w26-pr1588-0428-225@baseharbor.local>`
-- PR: (open, below)
+- PR #1751 (non-draft, base develop, head bdc7c1a9). Delivery witness
+  `git ls-remote ... refs/pull/1751/head refs/heads/w26-pr1588-0428-225-mcpcontract-wt`:
+  both point at bdc7c1a9e6e6b1de29afb916d28712eba95dff56.
+- Evidence published: `git ls-tree -r --name-only origin/main | grep mcp-perses-tool-drift/round-1`
+  -> `evidence/r28-welle4-2026-11-21/mcp-perses-tool-drift/round-1-contract.md`.
 - decision: surface-aufgenommen
+
+## CI run: STATE (blocker, not a fix)
+
+- Acceptance (card) requires a hosted `workflow_dispatch` / `CI · PR #1751` run
+  proving `Static · mcp` green. This session has NO GitHub auth: every
+  `gh api`/`gh pr` call returns null, so I cannot trigger or observe the hosted
+  run myself (AGENTS 4.6: a "DONE" without a witnessed own run is incomplete).
+- Local proof IS complete and is the fail-first route into CI: the new
+  `cmd/baha` unit test auto-discovers in the existing `cmd/baha` CI group.
+  `bash scripts/ci-fast-check.sh` -> PASS. `go test ./cmd/baha/ ...` (named
+  skip form) -> 295/295 OK. The surface-vs-contract check fails first if the
+  four perses tools are stripped from the contract (registration panic).
+- `Static · mcp` is the hosted release static gate (Owner workflow scope,
+  `.github/**`); no `.github/**` edit. The gate derives its expected list from
+  `machine.Operations()`, which now carries the four perses tools, so the PR is
+  green-by-construction pending the hosted run.
+
+## Action pending Owner / coordinator
+
+- Post a QUESTION: trigger the hosted CI run via a worker lane with GitHub auth,
+  or approve handoff on the local fail-first proof. Do NOT abort on this STATE.
