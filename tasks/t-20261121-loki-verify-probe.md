@@ -84,3 +84,5 @@ If the probe cannot be reached without changing `internal/serviceaccess/**`, sto
 
 Branch, PR, exact head SHA, terminal hosted run id, evidence
 `evidence/r28-welle4-2026-11-21/loki-verify-probe/round-1.md`.
+
+COMMISSIONED from hunt H-V23 Karte E: split internal/logs/loki_test.go into (a) materialized PKI + unreachable endpoint asserting the PROBE refusal and (b) an explicit unmaterialized-PKI precondition case. Told to stay off internal/logs/loki_datasource.go (0428-204 named it once) and to stack onto the 204 branch instead of touching the seam.
