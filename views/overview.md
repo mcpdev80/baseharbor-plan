@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 10 |
-| review | 4 |
+| active | 9 |
+| review | 5 |
 | wait | 33 |
 | blocked | 1 |
-| ready | 4 |
+| ready | 5 |
 | queued | 25 |
 | waiting | 185 |
 | backlog | 7 |
@@ -32,7 +32,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261120-other-domain-test-split](../tasks/t-20261120-other-domain-test-split.md) | Cause split for the 89 other-domain cmd/baha failures | active | high | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) (open) | — |
 | [t-20261120-workload-port-flag-ignored-locally](../tasks/t-20261120-workload-port-flag-ignored-locally.md) | workload-port ignored locally | active | not set | Codex (Owner-directed full wait-card closeout, 2026-11-21) | — | [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723) |
 | [t-20261121-all-targets-config-loss](../tasks/t-20261121-all-targets-config-loss.md) | 0428-210 all-targets inventory depends on a deleted Target config | active | normal | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) (open) | — |
-| [t-20261121-destroy-authority-stamp](../tasks/t-20261121-destroy-authority-stamp.md) | installation.destroy authorization assertion runs on a stamped context | active | high | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) (open) | — |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
 
 ## Ready for review
@@ -41,6 +40,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | 0428-204 · CLI operator seam: MCP handlers and direct Run entry points | review | high | w216-0428-204-entrypoints | [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) (open) | [baseharbor#1726](https://github.com/mcpdev80/baseharbor/pull/1726) |
 | [t-20261121-app-edit-core-activation](../tasks/t-20261121-app-edit-core-activation.md) | 0428-207 App Edit Core activation fails without protected Core network | review | high | Codex (Marcel, active wait sweep 2026-11-21) | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) (open) | [baseharbor#1735](https://github.com/mcpdev80/baseharbor/pull/1735) |
+| [t-20261121-destroy-authority-stamp](../tasks/t-20261121-destroy-authority-stamp.md) | installation.destroy authorization assertion runs on a stamped context | review | high | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) (open) | [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738) |
 | [t-20261121-loki-verify-probe](../tasks/t-20261121-loki-verify-probe.md) | loki health verify must reach the probe, not a missing-file exit | review | high | w235-0428-212-lokifix2 | — | [baseharbor#1734](https://github.com/mcpdev80/baseharbor/pull/1734) |
 | [t-20261121-perses-denial-actionability](../tasks/t-20261121-perses-denial-actionability.md) | Perses anonymous denial must name the next command | review | normal | w226-0428-211-persesmsg | — | [baseharbor#1733](https://github.com/mcpdev80/baseharbor/pull/1733) |
 
@@ -96,12 +96,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261120-r28-keycloak-producer-target-mismatch](../tasks/t-20261120-r28-keycloak-producer-target-mismatch.md) | Keycloak producer registers ID/target the identity witness can never match | ready | not set | — | — | — |
 | [t-20261120-r28-perses-status-never-verified](../tasks/t-20261120-r28-perses-status-never-verified.md) | No source API yields verified: status --json can never report true | ready | not set | — | — | — |
+| [t-20261121-git-credential-fill-bootstrap-hang](../tasks/t-20261121-git-credential-fill-bootstrap-hang.md) | 0428-217 git credential fill must not block in test or first-run paths | ready | high | — | — | — |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 6 open, 163 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 75 open, 154 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 76 open, 154 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))

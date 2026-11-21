@@ -15,7 +15,7 @@ kanban_title: 0428-214 · 0428-214 destroy stamp
 priority: high
 depends_on: [t-20261120-cli-operator-entrypoints]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1738]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,19 +23,20 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-destroy-authority-stamp · installation.destroy authorization assertion runs on a stamped context #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
+- [ ] t-20261121-destroy-authority-stamp · installation.destroy authorization assertion runs on a stamped context #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
+    **PR:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
     **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Owner:** coordinator  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -98,3 +99,5 @@ Evidence:
 `evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-1.md`.
 
 kommissioniert auf dem freien ornith-sitz: branch vom head der basis-lane 0428-204 (7db142852d22), base-ref des PRs auf den lane-branch 'lane-0428-204-cli-operator-entrypoints'. write-set genau eine datei: cmd/baha/core_installation_runtime_test.go. konfliktfrei gegen 213 und 207. lane 5b17f066, modell verifiziert.
+
+214-lane nannte PR #1738 im feld 'PR', aber 'prs:' war leer; prs gefuellt. gemessen: refs/heads/lane-0428-214-destroystamp = ebc6ac9c3a30, merge-base --is-ancestor 7db142852d22 <head> = 0, eine eigene datei, base-ref = lane-0428-198-cli-shard-operator-env.
