@@ -56,3 +56,12 @@ Verdict: REQUEST CHANGES
 Review completed. Verdict remains REQUEST CHANGES because the candidate overstates Core provenance and approval, leaves branch-restricted presets without verified branch evidence, and has no stale-policy race guard/test.
 
 approval: self-satisfying | core-verified
+
+## Planning publication witness
+
+- Review evidence commit `246616fa71db3694793383f3cc9bda9cf89b276f` was delivered to `https://github.com/mcpdev80/baseharbor-plan.git` `refs/heads/main`.
+- Exact output of `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle4-2026-11-21/r27-target-policy-presets/review-1-head28842990.md`:
+
+```text
+evidence/r28-welle4-2026-11-21/r27-target-policy-presets/review-1-head28842990.md
+```
