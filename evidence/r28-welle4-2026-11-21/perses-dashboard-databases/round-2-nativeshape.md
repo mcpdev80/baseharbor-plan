@@ -173,6 +173,98 @@ Both red proves the validator is fail-closed, not vacuously green.
 - docker ps -a after: (empty)
 - No containers, networks or volumes started by this round.
 
+## RETRY (PR head was 12a6e7a46e85, work hung on lane-0428-076-hop2)
+
+RUECKWEISUNG 2026-11-21 (dev46-notice): candidate 8225f3e6f0bc was on a NEW
+branch 'lane-0428-076-hop2' (git ls-remote refs/heads/lane-0428-076-hop2 =
+8225f3e6), but PR #1597 points at its OWN branch
+'perses-dashboard-databases-lane' (git ls-remote refs/pull/1597/head =
+12a6e7a46e85, 50 commits behind develop). The cited 'base-head CI aggregate
+44900492916 SUCCESS' was inherited green from the OLD head 12a6e7a46e85 —
+erubtes Gruen, exactly the class the return-to-sender rejected. 'No rerun =
+Owner scope' was WRONG: pushing to the PR's own branch is LANE scope.
+
+Corrected path (no second PR, PR keeps exactly one branch):
+
+### ls-remote BEFORE / AFTER (PR head + PR's own branch)
+
+BEFORE (PR head):
+git ls-remote https://github.com/mcpdev80/baseharbor.git refs/pull/1597/head -> 12a6e7a46e85cc5ab3b3464fe24dddf08e1807e7
+git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/perses-dashboard-databases-lane -> 12a6e7a46e85cc5ab3b3464fe24dddf08e1807e7
+
+BEFORE (PR's own branch head):
+git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/perses-dashboard-databases-lane -> 12a6e7a46e85cc5ab3b3464fe24dddf08e1807e7
+
+AFTER (PR head):
+git ls-remote https://github.com/mcpdev80/baseharbor.git refs/pull/1597/head -> 37d3960001dc704e87909159dc8a5b829a01b2dc
+AFTER (PR's own branch):
+git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/perses-dashboard-databases-lane -> 37d3960001dc704e87909159dc8a5b829a01b2dc
+
+### What was pushed
+
+New commit 37d3960001dc704e87909159dc8a5b829a01b2dc ('0428-076: emit Perses
+v0.55.1 native dashboard shape with canonical validator (PR-branch-only
+write-set)'), author 0428-076-nativeshape, cut from the PR branch HEAD
+12a6e7a46e85 and carrying ONLY the 0428-076 write-set:
+  internal/metrics/perses_dashboards.go
+  internal/metrics/perses_dashboards_test.go
+  internal/metrics/perses_dashboards_0428-076_native_test.go
+  internal/metrics/testdata/perses-dashboards/{loki-logs,prometheus-targets,tempo-traces}.json
+  internal/metrics/testdata/perses-native/v0.55.1/{loki-app-errors,prometheus-app-up,tempo-app-traces}.json
+No 0428-217 (internal/credential/native/**), no cmd/baha, no go.mod/go.sum.
+Pushed with:
+  git push https://github.com/mcpdev80/baseharbor.git 37d396000...:refs/heads/perses-dashboard-databases-lane
+
+Hop witnesses (base = PR branch HEAD 12a6e7a46e85):
+  git merge-base --is-ancestor 12a6e7a46e85cc5ab3b3464fe24dddf08e1807e7 37d396000... -> exit 0 (ANCESTRY YES)
+  git rev-list --count 12a6e7a46e85..37d396000 -> 1
+  git diff 12a6e7a46e85..37d396000 --name-only -> the 0428-076 write-set only
+  git log --format=%an -1 37d396000 -> 0428-076-nativeshape
+
+Pre-push verification against base 12a6e7a46e85 (TMPDIR=/dev/shm):
+  go build ./internal/metrics/ -> OK
+  go test -vet=off ./internal/metrics/ -count=1 -> ok (all green on 0428-080 catalog already on PR branch)
+  go vet ./internal/metrics/ -> clean
+  go build -o /dev/shm/baha076 ./cmd/baha -> 57MB, OK
+
+### Retest (both mutation directions)
+
+Go test form: go test -vet=off ./internal/metrics/ -run '<Name>' -count=1 (TMPDIR=/dev/shm; no bare go test ./...)
+Both native tests green on the restored original:
+  TestPersesNativeShapeCanonicalValidator/prometheus,loki,tempo -> PASS
+  TestPersesNativeShapeMalformedRejected -> PASS
+
+M1 (flip canonical-equality to assert MISMATCH): TestPersesNativeShapeCanonicalValidator -> FAILS RED
+M2 (force validatePersesNativeShape to always true): TestPersesNativeShapeMalformedRejected -> FAILS RED
+Both directions red => validator is fail-closed and the positive test is load-bearing.
+
+### CI: fresh hosted run to terminal on the exact new head
+
+Run 44914907130, event=pull_request, headSha=37d3960001dc704e87909159dc8a5b829a01b2dc,
+head_branch=perses-dashboard-databases-lane, createdAt 2026-11-21T14:37:40Z,
+completed 14:40:45Z, conclusion SUCCESS. 36 jobs total: 15 success, 21 skipped
+(all runtime/native/release gates skipped on a metrics-only PR), 0 failure.
+Per-cell (from gh run view 44914907130 --json jobs):
+  PR · Native gate plan, PR · Trusted Plan, Workflow policy, PR · Source format,
+  PR · Validation · go-build, PR · Go unit · packages, PR · Go unit · cli-0/1/2/3,
+  PR · Focused Python, PR · Validation · cli-gofmt, PR · Validation · go-vet,
+  PR · Go unit · owner, PR Selected Checks -> all SUCCESS.
+  Targeted HA · docker / podman, Native · matrix, release/draft/exact gates -> skipped (not applicable).
+packages job 136878372778: step 'Execute selected Go tests with isolated PostgreSQL' -> success;
+  go test -> ok github.com/mcpdev80/baseharbor/internal/metrics 0.435s (my native tests live in this package, executed here).
+
+Run witness (three byte-counts per protocol, per-job logs):
+  --log (packages job 136878372778): 33411 bytes
+  --log-failed: 0 (run fully green, no failed jobs)
+  --job 136878372778 --log: 33411 bytes (identical to --log; both are the same job log)
+No old run-id reused; this is a fresh pull_request run on the new head.
+
+### Old branch (coordinator cleanup)
+
+Old branch lane-0428-076-hop2 (head 8225f3e6f0bc) is left in place for the
+coordinator to treat as a stale lane cadaver — not self-deleted (removing
+another ref is not this lane's job).
+
 ## END
 
-END_DONE 0428-076-nativeshape: 8225f3e6f0bc39e49922ebf2ab5224ddedff3ab0 (delivered; CI base-head aggregate passed, PR-head ref propagation pending on GitHub — no rerun executed, Owner scope)
+END_DONE 0428-076-nativeshape: 37d3960001dc704e87909159dc8a5b829a01b2dc (delivered to PR #1597 own branch perses-dashboard-databases-lane; fresh CI run 44914907130 pull_request head 37d396000 SUCCESS — 15 required checks pass, internal/metrics ok 0.435s; PR head synced via ls-remote + gh pr view)
