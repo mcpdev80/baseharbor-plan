@@ -7,9 +7,9 @@ areas: [cli, security]
 release: v0.4.28
 version: ""
 parent: ""
-owner: w216-0428-204-entrypoints
-kanban_status: review
-kanban_lane: review
+owner: coordinator
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-204 · CLI operator entry points
 priority: high
@@ -18,24 +18,25 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1726]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "CODEX-REVIEW = 'Verdict: BLOCKED' (review-1.md, plan f6c58529): der angeforderte kandidat-sha 7db142852d22 hat sich bewegt, GitHub-API und ls-remote zeigen 4719434dc0d9. gemessen: der owner selbst hat den branch 'lane-0428-198-cli-shard-operator-env' vorgeschritten (0906b043d 04:49, 221b6f437 04:58, 4719434dc 05:05; 12 dateien +77/-32; 'merge-base --is-ancestor 7db142852d22 <neu>' = 0, also kein verlust). abnahme neu angeregt mit gefrorenem sha; die zwei gestapelten kandidaten #1737/#1738 ziehen nach (auftrag an frische lane 0428-204-chainrebase)."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-cli-operator-entrypoints · 0428-204 · CLI operator seam: MCP handlers and direct Run entry points #task #release/v0-4-28 #status/review #view/review #area/cli #area/security #kind/bug
+- [ ] t-20261120-cli-operator-entrypoints · 0428-204 · CLI operator seam: MCP handlers and direct Run entry points #task #release/v0-4-28 #status/wait #view/wait #area/cli #area/security #kind/bug
     <!-- generated:card -->
-    **Owner:** w216-0428-204-entrypoints · **Priority:** high  
+    **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1726](https://github.com/mcpdev80/baseharbor/pull/1726)  
+    **Waiting:** CODEX-REVIEW = 'Verdict: BLOCKED' (review-1.md, plan f6c58529): der angeforderte kandidat-sha 7db142852d22 hat sich bewegt, GitHub-API und ls-remote zeigen 4719434dc0d9. gemessen: der owner selbst hat den branch 'lane-0428-198-cli-shard-op…  
     **Needs:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
 **Required by:** [t-20261120-other-domain-test-split](t-20261120-other-domain-test-split.md), [t-20261121-all-targets-config-loss](t-20261121-all-targets-config-loss.md), [t-20261121-app-edit-core-activation](t-20261121-app-edit-core-activation.md), [t-20261121-destroy-authority-stamp](t-20261121-destroy-authority-stamp.md), [t-20261121-native-cell-operator-seam](t-20261121-native-cell-operator-seam.md), [t-20261121-trust-uninstall-false-green](t-20261121-trust-uninstall-false-green.md)  
-**Owner:** w216-0428-204-entrypoints  
+**Owner:** coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1726](https://github.com/mcpdev80/baseharbor/pull/1726)  
 **Source:** 
