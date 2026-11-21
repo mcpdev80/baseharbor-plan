@@ -101,6 +101,8 @@ No stop-and-report needed: none of the four sites required `loki_datasource.go` 
 
       75770bd2d0434bfed11d7c1b106064a5a08d5a51	refs/heads/lane-0428-212-loki-verify-probe
       75770bd2d0434bfed11d7c1b106064a5a08d5a51	refs/pull/1734/head
+      (also observed mid-lane: branch ref at 0dc299ccb and 430e2722c, each pushed through the
+      github URL resolved by `git remote -v`; `git push` never answered "Everything up-to-date")
 
 - Runs (all observed by this lane to terminal state, 4.6):
   - 44844750668 (head 0dc299ccb): cancelled by supersession when the next head pushed.
@@ -122,6 +124,13 @@ No stop-and-report needed: none of the four sites required `loki_datasource.go` 
 
   These are `cmd/baha/**` tests owned by card 0428-204 (lane w216); the mission explicitly allows
   cli cells to stay red. Recorded as STATE; no second probe (5.4), no change in that write-set.
+  The same four cli cells fail red at the final head 75770bd2d in run 44845451055 with this family
+  of failures (`TestAppCreateListShowPlan`, `TestAppInitCreatesCommitFriendlyRepositoryManifest`,
+  `TestAppInitSupportsDeterministicWorkloadSelection`, `TestAppListAllTargetsWorksAfterInstallationDestroy`,
+  `TestAppPruneJSONOnlyValid`, …) — develop-inherited, not caused by this diff (this diff touches
+  one file in `internal/logs/` only). Card 0428-211's handoff records the same develop-inherited
+  cli redness, and the local reproduction of `TestMCPRegistrationCIInProcessDiscoverAndInvoke` on
+  the pristine base shows the same `authentication_failed` signature on this host.
 
 ## How many of the three does this head heal
 
@@ -177,3 +186,4 @@ On this coordinator host the fast check shows one environmental Go failure unrel
   (`TestAppCreateListShowPlan`, `TestAppInitCreatesCommitFriendlyRepositoryManifest`, …) — same
   environmental signature as the local failure above. GATE-FAIL 0428-204: recorded as STATE, no
   second probe (5.4), no change under `cmd/baha/**` (0428-204 write-set).
+END w227-0428-212-lokiprobe DONE

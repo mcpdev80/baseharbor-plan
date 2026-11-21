@@ -8,14 +8,14 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w227-0428-212-lokiprobe
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "TestPersesLokiDatasourceVerifyNeverReportsHealthy proves the health path rejects an unreachable Loki, not merely a missing…"
 kanban_title: 0428-212 · 0428-212 loki health
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1734]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,18 +23,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-loki-verify-probe · loki health verify must reach the probe, not a missing-file exit #task #release/v0-4-28 #status/active #view/active #area/observability #kind/bug
+- [ ] t-20261121-loki-verify-probe · loki health verify must reach the probe, not a missing-file exit #task #release/v0-4-28 #status/review #view/review #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** w227-0428-212-lokiprobe · **Priority:** high  
+    **PR:** [baseharbor#1734](https://github.com/mcpdev80/baseharbor/pull/1734)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w227-0428-212-lokiprobe  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1734](https://github.com/mcpdev80/baseharbor/pull/1734)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -86,3 +87,5 @@ Branch, PR, exact head SHA, terminal hosted run id, evidence
 `evidence/r28-welle4-2026-11-21/loki-verify-probe/round-1.md`.
 
 COMMISSIONED from hunt H-V23 Karte E: split internal/logs/loki_test.go into (a) materialized PKI + unreachable endpoint asserting the PROBE refusal and (b) an explicit unmaterialized-PKI precondition case. Told to stay off internal/logs/loki_datasource.go (0428-204 named it once) and to stack onto the 204 branch instead of touching the seam.
+
+HANDOFF (w227-0428-212-lokiprobe, newest first): candidate published as PR https://github.com/mcpdev80/baseharbor/pull/1734 (head 75770bd2d0434bfed11d7c1b106064a5a08d5a51, base develop 40cb28c758b02960356434b630086a341ebe1738, draft=false) plus akte evidence/r28-welle4-2026-11-21/loki-verify-probe/round-1.md. Terminal hosted run 44845451055 observed to completion: `PR · Go unit · packages` SUCCESS at the exact head (the required shard), `owner`/plan/format/vet/build/Python success; `cli-0..3` red with the develop-inherited cmd/baha failures — GATE-FAIL 0428-204, allowed per mission. All THREE client-cert.pem fixture failures named in the owner addendum heal at this head (3/3), plus the card's own vacuous witness split into two named subtests. Open points: none for this card; #1732 (0428-202) overlaps content-side in the same fixture helper and resolves at merge time on whichever lands first.

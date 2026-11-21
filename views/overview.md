@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 11 |
-| review | 1 |
+| active | 10 |
+| review | 2 |
 | wait | 32 |
 | blocked | 1 |
 | ready | 5 |
@@ -34,12 +34,12 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | 0428-204 · CLI operator seam: MCP handlers and direct Run entry points | active | high | w216-0428-204-entrypoints | [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) (open) | — |
 | [t-20261120-workload-port-flag-ignored-locally](../tasks/t-20261120-workload-port-flag-ignored-locally.md) | workload-port ignored locally | active | not set | Codex (Owner-directed full wait-card closeout, 2026-11-21) | — | [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723) |
 | [t-20261121-app-edit-core-activation](../tasks/t-20261121-app-edit-core-activation.md) | 0428-207 App Edit Core activation fails without protected Core network | active | high | w228-0428-207-appedit-fix | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) (open) | — |
-| [t-20261121-loki-verify-probe](../tasks/t-20261121-loki-verify-probe.md) | loki health verify must reach the probe, not a missing-file exit | active | high | w227-0428-212-lokiprobe | — | — |
 
 ## Ready for review
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [t-20261121-loki-verify-probe](../tasks/t-20261121-loki-verify-probe.md) | loki health verify must reach the probe, not a missing-file exit | review | high | w227-0428-212-lokiprobe | — | [baseharbor#1734](https://github.com/mcpdev80/baseharbor/pull/1734) |
 | [t-20261121-perses-denial-actionability](../tasks/t-20261121-perses-denial-actionability.md) | Perses anonymous denial must name the next command | review | normal | w226-0428-211-persesmsg | — | [baseharbor#1733](https://github.com/mcpdev80/baseharbor/pull/1733) |
 
 ## Waiting for resources
