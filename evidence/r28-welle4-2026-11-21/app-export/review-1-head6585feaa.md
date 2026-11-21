@@ -57,3 +57,15 @@ END_DONE codex-rev-1747: APPROVE PR #1625 at `6585feaac37c8d634f6de6be1079a17caf
 
 
 END_DONE codex-rev-1747: APPROVE PR #1625; exact candidate 6585feaac37c8d634f6de6be1079a17caf89d107; run 44952948703 completed/success; receipt remains owner-scope open item and non-blocking.
+
+## Exact origin/main evidence-path witness
+
+Command: `git fetch origin main && git ls-tree -r --name-only origin/main | grep -E '^(evidence/r28-welle4-2026-11-21/app-export/review-1-head6585feaa.md|evidence/r28-welle4-2026-11-21/pr1749-review/review-3-head23feeefee.md|evidence/r28-welle4-2026-11-21/pr1736-review/review-3-head1e2ba9d5.md)$'`
+
+Exact output:
+
+```text
+evidence/r28-welle4-2026-11-21/app-export/review-1-head6585feaa.md
+evidence/r28-welle4-2026-11-21/pr1736-review/review-3-head1e2ba9d5.md
+evidence/r28-welle4-2026-11-21/pr1749-review/review-3-head23feeefee.md
+```
