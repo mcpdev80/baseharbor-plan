@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0428-060-downroute
-kanban_status: active
-kanban_lane: active
+owner: coordinator
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Unify up and down semantics. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-060 · Unify up and down semantics
 priority: high
@@ -23,18 +23,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-app-lifecycle · CLI redesign: Unify up and down semantics #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-app-lifecycle · CLI redesign: Unify up and down semantics #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-060-downroute · **Priority:** high  
+    **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1747](https://github.com/mcpdev80/baseharbor/pull/1747)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
 **Required by:** [t-20261114-r28-cli2-source-pull](t-20261114-r28-cli2-source-pull.md)  
-**Owner:** 0428-060-downroute  
+**Owner:** coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1747](https://github.com/mcpdev80/baseharbor/pull/1747)  
 **Source:** 
@@ -78,3 +78,5 @@ ERSTER EIGENER PR DER KARTE: #1747 (head 8103f0065098, base develop, draft=false
 CODEX-REVIEW 0428-060-review-1.md = REQUEST CHANGES am exakten head 8103f0065098, von MIR nachgemessen: die ROUTE ist richtig verdrahtet ('appDownCommand' 'cmd/baha/app_lifecycle.go:21-31' delegiert an 'appStopCommand' und der consent-seam wird in ':127' befragt), ABER der test 'app_lifecycle_down_convergence_test.go:15' ruft die boolean hilfsfunktion DIREKT — die mutation 'seam-aufruf entfernen' laesst ihn GRUEN, also ist kriterium 2/3 unbewiesen. Lane 0428-060-downroute arbeitet die route-echen faelle (ohne/mit --yes, beide richtungen, fuer down UND stop) plus mutationen und hop auf develop 97b2ba5543f0.
 
 CODEX-REVIEW 'evidence/cli-redesign-20261114/0428-060/review-2.md' = REQUEST CHANGES am kandidaten 2d848f4469cfc. Der inhalt ist laut abnahme RICHTIG ('the new command-route tests materially address' den alten befund), der BLOCKER ist ein roter gehosteter check: 'PR · Go unit · cli-3' = FAIL (job 136858546552, schritt 'Execute selected Go tests with isolated runtime state', annotation 'exit code 1'), und 'PR Selected Checks' faellt an 'Require complete selected Go shard coverage' — von mir gegen gemessen: selected=fail, cli-3=fail, mergeable=MERGEABLE, head 2d848f4469cf, ancestry FRISCH. Zweiter offener punkt: die reviewerin fand ihre MUTATION-akte nicht ('rg --files evidence' ohne treffer fuer round-2/downroute) — die akte muss unter dem vereinbarten namen '0428-060-round-2-downroute.md' auf origin/main stehen. Lane erhaelt den job-id + die anweisung, den fehlertest aus dem per-job-protokoll zu holen und NUR das zu fixen.
+
+korrektur IST GEKOMMEN, von MIR gemessen: PR #1747 head fb841c2c27c, 'rev-list --count head..develop' = 0 (FRISCH auf dea88c8f2caa), 'PR Selected Checks' PASS — der cli-3-fehler aus review-2.md (job 136858546552, schritt 'Execute selected Go tests with isolated runtime state') ist damit behoben, und der Re-Hop nach dem 46-commits-sprung ist drin. Die karte war 'active' mit owner 0428-060-downroute; ich stelle sie auf 'review', weil ein pruefbarer kandidat mit veroeffentlichter evidence vorliegt. Offener punkt fuer die abnahme: die mutations-akte unter dem vereinbarten pfad 'evidence/cli-redesign-20261114/0428-060-round-2-downroute.md' — die abnahme-sitzung fand sie vorher nicht.
