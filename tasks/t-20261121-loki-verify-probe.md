@@ -9,9 +9,9 @@ version: ""
 parent: ""
 owner: ""
 kanban_status: planned
-kanban_lane: planned
-kanban_summary: ""
-kanban_title: "0428-212 loki health verify must reach the probe, not a missing-file exit"
+kanban_lane: ready
+kanban_summary: "TestPersesLokiDatasourceVerifyNeverReportsHealthy proves the health path rejects an unreachable Loki, not merely a missing…"
+kanban_title: 0428-212 · 0428-212 loki health
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
@@ -22,6 +22,22 @@ wait_reason: ""
 resolution: ""
 evidence: []
 ---
+
+- [ ] t-20261121-loki-verify-probe · loki health verify must reach the probe, not a missing-file exit #task #release/v0-4-28 #status/planned #view/ready #area/observability #kind/bug
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** high  
+    **Ready to assign** · prerequisites accepted  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** ready  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** none  
+**Owner:** unassigned  
+**Priority:** high  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 

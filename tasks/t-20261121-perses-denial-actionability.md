@@ -9,9 +9,9 @@ version: ""
 parent: ""
 owner: ""
 kanban_status: planned
-kanban_lane: planned
-kanban_summary: ""
-kanban_title: "0428-211 Perses anonymous denial must name the next command"
+kanban_lane: ready
+kanban_summary: "The anonymous Perses operator-access denial says which precondition is missing and which command to run next, so an operator…"
+kanban_title: 0428-211 · 0428-211 Perses anonymous
 priority: normal
 depends_on: []
 repos: [mcpdev80/baseharbor]
@@ -22,6 +22,22 @@ wait_reason: ""
 resolution: ""
 evidence: []
 ---
+
+- [ ] t-20261121-perses-denial-actionability · Perses anonymous denial must name the next command #task #release/v0-4-28 #status/planned #view/ready #area/application #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** normal  
+    **Ready to assign** · prerequisites accepted  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** ready  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** none  
+**Owner:** unassigned  
+**Priority:** normal  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 
