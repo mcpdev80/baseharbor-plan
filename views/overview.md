@@ -10,13 +10,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 9 |
+| active | 10 |
 | review | 6 |
 | wait | 33 |
 | blocked | 1 |
 | ready | 5 |
 | queued | 25 |
-| waiting | 184 |
+| waiting | 183 |
 | backlog | 7 |
 | closed | 385 |
 
@@ -32,6 +32,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-r28-perses-status-backend-witness](../tasks/t-20261119-r28-perses-status-backend-witness.md) | CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben | active | not set | coordinator | — | [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702) |
 | [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) | cli shards need operator env | active | not set | Codex (Marcel, full wait sweep 2026-11-21) | — | [baseharbor#1726](https://github.com/mcpdev80/baseharbor/pull/1726) |
 | [t-20261120-workload-port-flag-ignored-locally](../tasks/t-20261120-workload-port-flag-ignored-locally.md) | workload-port ignored locally | active | not set | Codex (Owner-directed full wait-card closeout, 2026-11-21) | — | [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723) |
+| [t-20261121-native-cell-operator-seam](../tasks/t-20261121-native-cell-operator-seam.md) | 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam | active | high | Codex team (current thread) | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) (open) | [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740) |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
 
 ## Ready for review
