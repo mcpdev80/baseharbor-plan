@@ -7,9 +7,9 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: planned
+owner: coordinator
+kanban_status: active
+kanban_lane: active
 kanban_summary: "TestAppListAllTargetsWorksAfterInstallationDestroy passes: after an installed-to-destroyed transition the all-targets inventory…"
 kanban_title: 0428-210 · 0428-210 all-targets config
 priority: normal
@@ -23,18 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-all-targets-config-loss · 0428-210 all-targets inventory depends on a deleted Target config #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/cli #kind/bug
+- [ ] t-20261121-all-targets-config-loss · 0428-210 all-targets inventory depends on a deleted Target config #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
+    **Owner:** coordinator · **Priority:** normal  
     **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** unassigned  
+**Owner:** coordinator  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
@@ -88,3 +87,5 @@ Owner rail, stop and report file:line.
 
 Branch, PR, exact head SHA, terminal hosted run id, evidence
 `evidence/r28-welle4-2026-11-21/all-targets-config-loss/round-1.md`.
+
+kommissioniert auf dem zweiten laptop-sitz als folge-lane der kette 0428-204: branch vom head 7db142852d22, base-ref des PRs auf den lane-branch der basis-lane. write-set cmd/baha/app_commands.go und cmd/baha/app_list_all_targets_test.go, konfliktfrei gegen 213/214/207. vorgeschaltete meldepflicht:  overlap mit #1615 (head 5466a87bffe1) in denselben dateien wird vor dem ersten schreiben geklaert, weil #1615s versuch 44854729670 44854729670 die cli-shards bereits gruen macht.
