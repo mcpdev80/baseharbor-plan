@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: ""
 kanban_title: 0428-206 · Other-domain test split
 priority: high
@@ -18,19 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "inventur publiziert (evidence/r28-welle4-2026-11-21/other-domain-test-split/round-2.md, plan 6391293a, body 76ad1764): 117/117 faelle zeilenweise, summenprobe 97 GATE + 7 GATE-subtest + 9 anderer grund + 1 singleton + 3 ohne nachweis = 117; abzug gegen die deckungskarte A14/B76/C14/D10/D?3; heil-stempel 115/117 gegen den #1615-head (zwei ausnahmen benannt); die 89 sind mit drei beweisen zurueckgezogen. diagnosis-karte, kein kandidat: abnahme durch CODEX offen."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-other-domain-test-split · Cause split for the 89 other-domain cmd/baha failures #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
+- [ ] t-20261120-other-domain-test-split · Cause split for the 89 other-domain cmd/baha failures #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
+    **Waiting:** inventur publiziert (evidence/r28-welle4-2026-11-21/other-domain-test-split/round-2.md, plan 6391293a, body 76ad1764): 117/117 faelle zeilenweise, summenprobe 97 GATE + 7 GATE-subtest + 9 anderer grund + 1 singleton + 3 ohne nachweis = 117…  
     **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Owner:** coordinator  
