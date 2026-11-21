@@ -102,7 +102,11 @@ Stopped while the required aggregate (run 44882418434) is FAILURE from inherited
   ```
   header only, no containers.
 - After mutation work (throwaway worktree removed, `git worktree prune`): no containers created by this lane.
-- End: PID to be recorded before END. `docker ps -a` must still be header-only; orphans of dead lanes exhaust the daemon address pools and block later gates.
+- End: PID 3987647. `docker ps -a`:
+  ```
+  CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+  ```
+  header only, no containers before or after this lane. No containers or compose projects started by this lane.
 
 ## END
 
