@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1597]
 sources: []
 blocker: ""
-wait_reason: "handoff abgeschlossen, exact-head-run terminal beobachtet: PR #1597 head 90063f6ec66c, draft=false (von mir gemessen), base develop, 4 commits/13 dateien, ancestry auf develop 40cb28c758b0 = JA, go.mod/go.sum belegt (direct-dependency fuer internal/metrics/perses_dashboards_promql_test.go:17). run 44812791612 = FAILURE an den feld-gates: cli-0..3 = 0428-198 (woertlich 'Managed-environment machine operations require an authenticated BaseHarbor operator', internal/operatorauth/authorization.go:285, auf develop vorbestehend), packages = 0428-202. gofmt/vet/build gruen. INHALT IST PRUEFBAR, NUR DAS GATE FEHLT - kein weiterer matrix-run, bis 0428-198 und 0428-202 gruen sind."
+wait_reason: "hop auf den aktuellen develop faellig (klasse b, ueberholter base-stich); lane 0428-076-hop2 arbeitet daran"
 resolution: ""
 evidence: []
 ---
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w204-0428-076-hop · **Priority:** normal  
     **PR:** [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597)  
-    **Waiting:** handoff abgeschlossen, exact-head-run terminal beobachtet: PR \#1597 head 90063f6ec66c, draft=false (von mir gemessen), base develop, 4 commits/13 dateien, ancestry auf develop 40cb28c758b0 = JA, go.mod/go.sum belegt (direct-dependency fuer…  
+    **Waiting:** hop auf den aktuellen develop faellig (klasse b, ueberholter base-stich); lane 0428-076-hop2 arbeitet daran  
     <!-- /generated:card -->
 
 <!-- generated:links -->
