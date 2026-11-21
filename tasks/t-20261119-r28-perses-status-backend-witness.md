@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: "'baha perses status' nennt pro observability-signal eine ECHTE backend-witness (erreicht / gematcht / nicht erreichbar) statt…"
 kanban_title: 0428-142 · echte backend-witness fuer
 priority: ""
@@ -31,14 +31,14 @@ omit those sources from scrape targets. This assigned, started lane is parked
 pending worker capacity. #1702 still needs the concrete review corrections and
 a fresh exact-head run; it is not ready to merge.
 
-- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** coordinator  
     **PR:** [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261119-r28-perses-alert-verifier-caller-wiring](t-20261119-r28-perses-alert-verifier-caller-wiring.md)  
@@ -119,3 +119,5 @@ inhalt der korrektur ist jetzt AM PR, nicht nur auf einem neben-branch: gemessen
 CODEX-REVIEW 'Verdict: REQUEST CHANGES' (review-3.md, plan 97763de0) an head 2b1fdcc06d9e: P1 = die wiederangelegerte 'renderPersesBackendWitness'-zeile ist produktions-erreichbar ('perses_lifecycle.go:92-94'), aber der neue test 'TestPersesStatusWitnessHumanFaceRendersBackendWitness' faellt an der operator-auth, BEVOR der renderer getroffen wird — rezept: den vorhandenen test-operator-auth-fixture fuer die CLI-aufrufe konfigurieren. P3 (eigentueterschaft 'cmd/baha/app_status_result.go') habe ich GELOEST: die karte nennt die datei ausdtruecklich in ihrem scope; 'gh pr view 1702 --json commits' = 3 commits, 'git show 2b1fdcc --stat' = nur +64 test / +1 renderer — das feld stammt aus den beiden aelteren commits desselben PRs, und KEINE der PR-dateilisten #1615/#1625/#1623/#1650/#1606/#1614/#1731/#1704 nennt 'app_status*'. Kein zurueckbau, nur P1. Korrektur auf frischer Lane '0428-142-authfixture' (d9a13f6c, flash), gleicher PR #1702, zweiter PR verboten.
 
 END_DONE abgenommen, mit MENGENRECHNUNG aus PER-JOB-protokollen (korrektur meiner eigenen rechnung: das aggregierte gh run view --log laesst ganze jobs weg, zaehlen muss man ueber '--job <id> --log'): durchgang 44875647949 am head b2f2fd3ac1729 = 194 eindeutige first-level '--- FAIL: Test'-namen; vergleichsdurchgang 44874605168 (PR #1742, gleiche basis develop, head 0df7efc00bb3) = 197. DIE DIFFERENZ IST IHR ERFOLG: entfallen genau TestPersesLifecycleTransportActionMatrix, TestPersesLifecycleMCPSharedSeamRunsApplyLifecycle, TestPersesLifecycleHumanNoticeForEveryDeferredAction; KEIN neuer name. Sechs witness-zellen verdrahtet, reachability per M1/M2-mutation. PR #1702 base develop draft=false mergeStateStatus BLOCKED; 'PR · Trusted Plan' laeuft hier (head ist nachkomme von develop), die roten cli-0..3 + packages sind die #1615-klasse — gate-text wortlich in cli-0 (main_test.go:60).
+
+CODEX-REVIEW review-4.md (plan 80c0bc52 + 605e6e9d) = 'Verdict: REQUEST CHANGES' an head b2f2fd3ac172. P1 BESTAETIGT ihren fortschritt: der positive pfad geht durch die echte status-command ('cmd/baha/perses_lifecycle.go:80-94' -> reportPersesSurfaceStatus autorisiert :226-227, baut :231-236, ruft renderPersesBackendWitness), fixture sitzt nach den produkt-defaults ('perses_lifecycle_transport_test.go:371-401', enforcement :390, membership :392-394, principal :395, consent :396, transport/workload :397-400), M1/M2 durch akte + quelltext belegt. P2 FEHLT: keine perses-status-invoke unter 'withoutOperatorAuthTestContext' — die negative richtung fehlt in den geaenderten tests. P3 IST DER EIGENTLICHE SCHADEN: alle produkt-callsites uebergeben ein LEERES 'metricsprovider.PersesBackendSignalWitness{}', die positiven Loki/Tempo-aste in 'cmd/baha/app_status_result.go:135,162' sind daher unerreichbar — der beweis ist helper-only. P4: meine per-job-zaehlung (194 vs 197) wurde vom reviewer uebernommen und die 'geerbt'-buchung als gerechtfertigt bestaetigt, TROTZDEM gilt der durchgang als failure zu buchen. P5 write-set/cleanliness in ordnung. KORREKTRAUFTRAG: beide richtungen + echte provenanz-verkabelung in 'perses_lifecycle.go' UND 'app_status_result.go' (lokaler + ferner status); kann der upstream-vertrag (0428-143, 'Verification=none') die provenanz nicht liefern, soll die Lane das als owner-aktion mit datei:zeile melden statt zu erfinden.
