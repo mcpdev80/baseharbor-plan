@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w205-0428-203-staletgt
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "When an already-verified metrics source switches its Verification mode to none while keeping the same source ID, the emitted…"
 kanban_title: 0428-203 · Stale target on none switch
 priority: normal
@@ -18,21 +18,22 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1730]
 sources: []
 blocker: ""
-wait_reason: "handoff abgeschlossen: PR #1730 head c90a73ac8128 == refs/pull/1730/head, base refs/heads/lane-0428-143-verify-none (stapel korrekt auf der basis-lane), draft=false, 2 dateien (internal/capability/integration_contract.go + internal/metrics/prometheus_verify_workload_only_test.go). run 44812049031 terminal = 8 success / 6 failure, an eigenem inhalt fehlerfrei: cli-0..3 = feld-gate 0428-198, packages (Loki-trio) = feld-gate 0428-202. befund war 'covered', abgeliefert als eine contract-zeile + eine regression ueber das echte TargetsDir, wart-semantics aus 0428-143 unveraendert. akte traegt PR-num-mer, head, base, run-id, conclusion je zelle + cleanliness-zeile."
-resolution: ""
-evidence: []
+wait_reason: ""
+resolution: accepted
+evidence:
+  - "https://github.com/mcpdev80/baseharbor/actions/runs/44892032852"
+  - "https://github.com/mcpdev80/baseharbor/commit/b09e4a0a66a1f4160adf5162db3cfd839e483e18"
 ---
 
-- [ ] t-20261120-verif-none-stale-target · Stale emitted target after Verification=none switch #task #release/v0-4-28 #status/wait #view/wait #area/metrics #area/observability #kind/bug
+- [x] t-20261120-verif-none-stale-target · Stale emitted target after Verification=none switch #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/metrics #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** w205-0428-203-staletgt · **Priority:** normal  
     **PR:** [baseharbor#1730](https://github.com/mcpdev80/baseharbor/pull/1730)  
-    **Waiting:** handoff abgeschlossen: PR \#1730 head c90a73ac8128 == refs/pull/1730/head, base refs/heads/lane-0428-143-verify-none (stapel korrekt auf der basis-lane), draft=false, 2 dateien (internal/capability/integration\_contract.go + internal/metrics…  
-    **Needs:** [t-20261119-r28-app-source-verification-none-ignored](t-20261119-r28-app-source-verification-none-ignored.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44892032852), [proof 2](https://github.com/mcpdev80/baseharbor/commit/b09e4a0a66a1f4160adf5162db3cfd839e483e18)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261119-r28-app-source-verification-none-ignored](t-20261119-r28-app-source-verification-none-ignored.md)  
 **Owner:** w205-0428-203-staletgt  
@@ -40,6 +41,12 @@ evidence: []
 **PRs:** [baseharbor#1730](https://github.com/mcpdev80/baseharbor/pull/1730)  
 **Source:** 
 <!-- /generated:links -->
+
+## Closeout — 2026-11-21
+
+PR #1730 merged into `develop` at `b09e4a0a66a1f4160adf5162db3cfd839e483e18`.
+Exact PR head `a9062120e3779bf8d26e3a00080567a1bcefba3a` passed run [44892032852](https://github.com/mcpdev80/baseharbor/actions/runs/44892032852).
+`TestVerifyApplicationSourceVerificationNoneRetiresPreviouslyEmitted` passed in the `PR · Go unit · packages` gate (job 136809806816); `PR Selected Checks` passed (job 136809925458).
 
 
 ## Goal
