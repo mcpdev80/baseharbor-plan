@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: Codex (Marcel, active wait sweep 2026-11-21)
-kanban_status: wait
-kanban_lane: wait
+owner: w21-pr1702-0428-142-compat
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Environment deletion lifecycle. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-055 · Env deletion lifecycle
 priority: high
@@ -18,25 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1627, mcpdev80/baseharbor#1736]
 sources: []
 blocker: ""
-wait_reason: "waartet auf den exakten gehosteten lauf 44952497719 auf head 1e2ba9d57868778d7c74ef68882f61bd1b01bb33 (hop-merge-commit, parent1 = der approvede 10150ee7164, parent2 = develop 513488eeb6, tree d119e323f490). wenn der lauf terminal green ist, geht ein FRISCHES review-only verdict auf diesen kopf; die approve von 10150ee gilt nicht mehr als aktuell (owner-feststellung 23:5xZ), der ordinary merge folgt danach durch die merge-rolle."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1627", "https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677", "https://github.com/mcpdev80/baseharbor/actions/runs/44852435311", "https://github.com/mcpdev80/baseharbor/pull/1615", "https://github.com/mcpdev80/baseharbor/pull/1736", "https://github.com/mcpdev80/baseharbor/actions/runs/44859609354"]
 ---
 
-- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** Codex (Marcel, active wait sweep 2026-11-21) · **Priority:** high  
+    **Owner:** w21-pr1702-0428-142-compat · **Priority:** high  
     **PR:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627), [baseharbor#1736](https://github.com/mcpdev80/baseharbor/pull/1736)  
-    **Waiting:** waartet auf den exakten gehosteten lauf 44952497719 auf head 1e2ba9d57868778d7c74ef68882f61bd1b01bb33 (hop-merge-commit, parent1 = der approvede 10150ee7164, parent2 = develop 513488eeb6, tree d119e323f490). wenn der lauf terminal green is…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1627), [proof 2](https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44852435311), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1615), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1736), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44859609354)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
 **Required by:** [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md)  
-**Owner:** Codex (Marcel, active wait sweep 2026-11-21)  
+**Owner:** w21-pr1702-0428-142-compat  
 **Priority:** high  
 **PRs:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627), [baseharbor#1736](https://github.com/mcpdev80/baseharbor/pull/1736)  
 **Source:** 
@@ -109,3 +108,5 @@ review -> wait: RC besteht nur aus dem owner-scope receipt-punkt; branch bleibt 
 wait -> review: der einzige RC-punkt war der per-case-CI-receipt, der nach der loop-guard-regel als 'open item, owner-scope receipt-tooling' gefuehrt wird und den kandidaten nicht blockiert (rev-1736-r1). der owner hat 22:0xZ eine eigene source spot-check ohne substantiellen routing-befund geliefert (docker UND podman coreless gates fuer env destroy, full-bundle gating mit bewusst offenen registration-only-paden, native test in genau einer application-shard). zweiter durchgang ist dem reviewer zugestellt (sha256 33619fcda7c6, prioritaet 1).
 
 APPROVE stands at head 10150ee7164 (akte 04eef2798 + e2f2aaf36, run 44940073029 = 22 success / 73 skipped). develop moved to 513488eeb6d, so the candidate is BEHIND and cannot merge on that head. Independent check by coordinator 23:4xZ: 'git worktree list' contains NO worktree for branch codex/env-destroy-gate-routing and no live session owns it, so the Owner performs a normal merge-commit hop of develop 513488eeb6d into the PR branch. After the hop: exact hosted CI must be green at the new head and a fresh independent review is required before the ordinary merge. Card stays review; nothing is accepted yet.
+
+abhaengigkeit ausdrtuecklich festgehalten (korrektur der abnahme 00:3xZ): #1736 (head 1e2ba9d5786, exact CI run 44952497719 completed/success, 22 success / 73 skipped / 0 failed) ist NICHT mergebar, bevor #1627 mit named test registration und BOTH runtime-gate executions (docker UND podman) gelandet ist. #1627 head e24bd481 ist noch auf e6c199 aufgesetzt und sein bisheriger hosted run hat failures - die bedingung ist also NICHT erfuellt, die frische review an #1736 bleibt zurueckgehalten. w21 hoppt #1627 auf develop 513488eeb6d und nimmt den draft raus. die approve von 04eef2798 gilt nur auf dem ALTEN head 10150ee7164.
