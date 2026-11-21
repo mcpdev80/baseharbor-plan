@@ -108,6 +108,12 @@ After fetching `origin main`, `git log --oneline origin/main -5` showed:
 
 I attempted `git rebase origin/main`; Git could not write `.git/rebase-merge/git-rebase-todo.backup` and returned `Disk quota exceeded`. The verdict file was therefore published as a single-file GitHub Contents commit against the current `main` after verifying the path was absent. This records the publication method exception rather than claiming a successful local rebase/push. No shared checkout, product repository, PR, workflow, or other planning file was written.
 
+Remote path witness captured after fetch, before final evidence update:
+
+```text
+evidence/r28-welle4-2026-11-21/app-edit-core-activation/review-1.md
+```
+
 ## END
 
 END DONE codex-rev-cli2b: PR #1735 reviewed as REQUEST CHANGES at unchanged head `09cf55bbaa41c921f72681ef4ee4500d9083f807`.
