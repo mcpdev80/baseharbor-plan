@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "TestAppListAllTargetsWorksAfterInstallationDestroy passes: after an installed-to-destroyed transition the all-targets inventory…"
 kanban_title: 0428-210 · 0428-210 all-targets config
 priority: normal
@@ -19,18 +19,19 @@ prs: [mcpdev80/baseharbor#1739]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1739"]
 ---
 
-- [ ] t-20261121-all-targets-config-loss · 0428-210 all-targets inventory depends on a deleted Target config #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
+- [x] t-20261121-all-targets-config-loss · 0428-210 all-targets inventory depends on a deleted Target config #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** normal  
     **PR:** [baseharbor#1739](https://github.com/mcpdev80/baseharbor/pull/1739)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1739)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Required by:** [t-20261121-target-hotfix-inspection-config-missing](t-20261121-target-hotfix-inspection-config-missing.md)  
@@ -116,3 +117,5 @@ korrekturrunde 5 geliefert und von mir am head 52866ae38f97 nachgelesen: app_com
 CODEX-REVIEW review-2.md (plan eaac03dc, ROLLE: REVIEW, 2026-11-21 10:27 UTC, backend Codex API) = APPROVE CONTENT. Befund 2 ist am head 52866ae38f97 von der reviewerin selbst am quelltext belegt: app_commands.go:131-137 ruft authorizeMCPOperation mit app.list und managed dev fuer allTargets, die einzige errors.Is(err, deployment.ErrConfigMissing) sitzt in :205 NACH der authorisierung, und app_list_all_targets_test.go:35-64 prueft den anonymen fall mit strings.EqualFold inkl. endpunkt; der diff beruehrt nur die zwei erlaubten dateien. MERGE-BEDINGUNG: ein letzter hop auf den dann gemessenen develop plus ein successful exact-head required run. Dafuer setze ich jetzt eine hop-lane, keine produkt-aenderung.
 
 CODEX-REVIEW 'review-3.md' (plan a7ed911d und 588e5f4c, ROLLE: REVIEW) = 'APPROVE CONTENT - exact candidate bb98e22599ab1f77edc056de73c682fdfdedd88a'. Von mir am remote nachgelesen: 'no remaining findings in the reviewed diff', 'Merge PR #1739 first in this window: its base is develop and no stack depends on it'. Zeugen im dokument: develop 77c1e60f51b91003ac3ddc391008c15e4a713a5c, PR API state=open draft=false mergeable=true mergeable_state=clean, compare status=ahead mit den zwei commits ba46249f007a (post-auth toleranz + anonymer regression) und bb98e22599ab (final hop). Ich habe daraufhin die CODEX-MERGE-rolle beauftragt (andere rolle, ausdruecklich als ROLLE: MERGE gekennzeichnet). Bemerkung am rande, die ich nicht unterschlage: die verdict-dateien im plan-repo tragen den auteur '0428-210-authzkeep' — eine von mir freigegebene lane — der vierte live-beweis fuer tooling-issue #24 (geteilte checkout-identitaet, nicht die session).
+
+PR #1739 ist MERGED (mergedAt 2026-11-21T11:29:00Z, mergeCommit 97b2ba5543f0). Von mir nachgerechnet: 'merge-base --is-ancestor bb98e22599ab <develop>' = JA gegen develop-head 97b2ba5543f0, also ist der abgenommene kandidat inhaltlich auf develop. Verdikts-kette dieses falls (vollstaendig belegt im plan-repo): review-1.md = REQUEST CHANGES (befund 1 base-stich veraltet, befund 2 sicherheitsrelevant: develop-form der authorisierungverschwand + ErrConfigMissing vor der authorisierung) -> round-4-developauthz.md -> round-5-verbatim-hop.md (EqualFold + mutation) -> review-2.md = APPROVE CONTENT am sha 52866ae38f97 mit hop-bedingung -> final hop durch lane 0428-210-finalhop (bb98e22599ab) -> review-3.md = APPROVE CONTENT am exakten kandidaten plus merge-anweisung 'merge PR #1739 first in this window' -> merge-1.md (CODEX-MERGE). ERSTE KARTENLANDUNG DES 0.4.28-FENSTERS ueber einen meiner lanen. FOLGE FUER ANDERE KARTEN: 'cmd/baha/app_commands.go' hat sich auf develop geaendert, alle lanen und PRs, die die datei anfassen, muessen auf den neuen develop (97b2ba5543f0) rebasen: #1747 (app_lifecycle.go, kein overlap), #1745 ist MERGED, die 198-stapel (#1737 #1738 #1740 #1741) warten weiter auf ihre basis-entscheidung.

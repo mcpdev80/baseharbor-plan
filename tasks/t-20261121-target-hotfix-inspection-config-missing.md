@@ -9,7 +9,7 @@ version: ""
 parent: ""
 owner: coordinator
 kanban_status: planned
-kanban_lane: planned
+kanban_lane: ready
 kanban_summary: "collectTargetInspection after the hotfix command path returns the configured target instead of failing with target \"edge-a\" is…"
 kanban_title: 0428-220 · 0428-220 hotfix inspect
 priority: normal
@@ -28,16 +28,15 @@ superseded_by: t-20261120-cli-operator-entrypoints
 
 ---
 
-- [ ] t-20261121-target-hotfix-inspection-config-missing · 0428-220 target hotfix inspection reports the target as unconfigured in CI #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/cli #kind/bug
+- [ ] t-20261121-target-hotfix-inspection-config-missing · 0428-220 target hotfix inspection reports the target as unconfigured in CI #task #release/v0-4-28 #status/planned #view/ready #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** normal  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261121-all-targets-config-loss](t-20261121-all-targets-config-loss.md)  
+    **Ready to assign** · prerequisites accepted  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/target-hotfix-inspection/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-all-targets-config-loss](t-20261121-all-targets-config-loss.md)  
 **Owner:** coordinator  
