@@ -71,4 +71,4 @@ END_DONE — round-2 akte (CI-bedarf for `core_network_binding.go:55-57`) commit
 
 ## cleanliness
 
-- No docker/podman compose project started. `docker ps -a` BEFORE (own pid `<pid>`): read-only `docker network ls` (only pre-existing `baseharbor-*` projects). No containers created. After: none.
+- No docker/podman compose project started. `docker ps -a` BEFORE (own pid 2543420): empty table (only pre-existing `baseharbor-*` network projects referenced, no containers). No containers created. After: `docker ps -a` (pid 2543420) empty. Clean handoff.
