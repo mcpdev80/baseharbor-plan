@@ -10,31 +10,32 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "The first authenticated Git operation inside a test or a first-time target bootstrap never returns a clean failure: it invokes…"
 kanban_title: 0428-217 · 0428-217 credential-fill hang
 priority: high
 depends_on: []
 blocked_by: []
-prs: []
+prs: [mcpdev80/baseharbor#1742]
 wait_reason: ""
 blocker: ""
 
 ---
 
-- [ ] t-20261121-git-credential-fill-bootstrap-hang · 0428-217 git credential fill must not block in test or first-run paths #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
+- [ ] t-20261121-git-credential-fill-bootstrap-hang · 0428-217 git credential fill must not block in test or first-run paths #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
+    **PR:** [baseharbor#1742](https://github.com/mcpdev80/baseharbor/pull/1742)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** coordinator  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1742](https://github.com/mcpdev80/baseharbor/pull/1742)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -99,3 +100,5 @@ stack `#1615`/`#1625`/`#1623` (branch `cli2-identity-secrets-head`), `#1650`/`#1
   because both touch the CLI Git paths. Commissioning is a Coordinator action with a stated reason.
 
 Lane '0428-217-credfill' auf laptop:2 begonnen; write-set BESTAETIGUNG ist schritt 1 der mission (die karte erlaubt verschiebungen ausserhalb der zwei dateien, meldung an mich vor dem ersten write ausserhalb von cmd/baha/). Kein besetzter pfad: app_commands.go haelt 0428-210/#1739, mcp.go + MCP-tests haelt 0428-218/#-neu.
+
+PR #1742 eroeffnet (head 0df7efc00bb3, base develop) aber DRAFT = keine required checks, deshalb formal 'review' mit meinem hinweis an die lane: undraften + gehosteten durchgang selbst beobachten (§4.6). write-set ueber der karte: 'cmd/baha/app_update.go' + drei dateien unter 'internal/credential/native/' (erlaubt, aber meldepflichtig laut karte — von ihr im PR-body gemeldet, fehlt noch in der AKTE). Kein tabu-pfad beruehrt (kein '.github/**', kein 'internal/operatorauth/**'). Gemessene datei-liste: app_inspect_remote.go, app_update.go, credfill_noninteractive_test.go, gitcredential.go, host.go.

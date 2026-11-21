@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: "TestTrustUninstallPromptEOFRejects, TestTrustUninstallPromptUnterminatedAffirmativeEOFRejects and…"
 kanban_title: 0428-213 · 0428-213 trust-uninstall EOF
 priority: high
@@ -23,7 +23,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-trust-uninstall-false-green · trust-uninstall EOF tests are green on the auth gate error #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
+- [ ] t-20261121-trust-uninstall-false-green · trust-uninstall EOF tests are green on the auth gate error #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737)  
@@ -31,7 +31,7 @@ evidence: []
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Owner:** coordinator  
@@ -97,3 +97,5 @@ kette nachgezogen, von mir gemessen: head 5be4f003aa1b, base 'lane-0428-198-cli-
 kette nachgezogen, von mir gemessen: head 5be4f003aa1b, base lane-0428-198-cli-shard-operator-env (basis-head beim rebase c2f9f2f32fd6, seitdem e45430f2f1b7 = fuenfter owner-push), merge-base = 0, draft=false; eigener durchgang terminal run 44867291850 completed/failure, cli-shards geerbt. FUER DIE ABNAHME: PR Selected Checks faehrt einen pr_merge-commit (85ae26150145 = 'Merge <head> into <base>'), 'exact-head' heisst bei gestapelten PRs der merge, nicht der branch allein. Akte round-3-chainrebase.md (plan 38b79bce).
 
 kette nachgezogen, gemessen: head 5be4f003aa1b auf base 'lane-0428-198-cli-shard-operator-env' (basis beim rebase c2f9f2f32fd6, seitdem e45430f2f1b7 = fuenfter owner-push), merge-base = 0, draft=false, eigener durchgang terminal run 44867291850 completed/failure (cli-shards geerbt, inhalt #1615). FUER DIE ABNAHME: PR Selected Checks faehrt einen pr_merge (85ae26150145 = 'Merge <head> into <base>'), 'exact-head' heisst hier der merge, nicht der branch allein. Akte round-3-chainrebase.md.
+
+CODEX-REVIEW 'Verdict: REQUEST CHANGES' (plan d96fb84f) an head 5be4f003aa1b: P2 = 'trust_uninstall_test.go:15-29' route durch 'operatorAuthFixtureContext' STEMPelt verified principal + editor — der fixture ist eine POSITIVE vorbedingung, nicht die getestete verweigerung; die verweigerung selbst ('trust_uninstall_test.go:87-106', JSON/no-approval) braucht guidance + owner-pruefung und wird vom stempel nicht erreicht. P1 haelt dagegen: die EOF-regressionen sind echt, und die cite 'base 7db142852d22' zeigt rot auf dem unerreichbaren prompt-pfad — der rot-zuerst-beleg ist also DA, aber an der falschen stelle. P3: durchgang 44867291850 pruefte den SYNTHETISCHEN merge 48b7ccdfa242 (eltern 80dc4987993b + 5be4f003aa1b), und der kandidat-punkt ist 48b7ccdfa242 vs 'current base e45430f2f1b7...candid…' — d.h. die kette haengt an der ALTERN basis c2f9f2f32fd6 und ist nachzuziehen. P4 = meine buchfuehrung: 'classify every failing test, do not call them inherited'.

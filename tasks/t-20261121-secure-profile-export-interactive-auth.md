@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: planned
-kanban_lane: planned
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "TestSecureProfileExportCommandPathAssemblesProductionWiring passes in the hosted PR · Go unit · cli-0 shard, so the command tree…"
 kanban_title: 0428-219 · 0428-219 export auth
 priority: normal
@@ -19,23 +19,24 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence:
+resolution: superseded
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md", "https://github.com/mcpdev80/baseharbor/commit/e45430f2f1b7a76ee3743919a4559a4e1d1ff6c4"]
   - https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md
 created: "2026-11-21T06:50:00Z"
 updated: "2026-11-21T06:50:00Z"
+superseded_by: t-20261120-cli-operator-entrypoints
+
 ---
 
-- [ ] t-20261121-secure-profile-export-interactive-auth · 0428-219 secure-profile export command path refuses with interactive setup in CI #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/cli #kind/bug
+- [x] t-20261121-secure-profile-export-interactive-auth · 0428-219 secure-profile export command path refuses with interactive setup in CI #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** normal  
-    **Waiting for prerequisites**  
     **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/commit/e45430f2f1b7a76ee3743919a4559a4e1d1ff6c4), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** superseded  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Owner:** coordinator  
@@ -98,3 +99,5 @@ Forbidden:
 Evidence: `evidence/r28-welle4-2026-11-21/secure-profile-export-interactive-auth/round-1.md`. Base: stacked on
 `lane-0428-198-cli-shard-operator-env` (card 0428-204) per the stacking rule - content dependency, not merge dependency. Count
 by distinct first-level `--- FAIL: Test` names, not gate lines (H-V26 law, plan `571364e4`).
+
+DUPLITAT, von der lane gemeldet und von MIR NACHGEMESSEN (END_BLOCKED, keine produkt-aenderung, kein PR — genau der weg, den ich als ersten schritt verlangt hatte). Elter = 46017060d 'test(0428-198): register target before selecting it' (05:43), basis-head = e45430f2f 'test(0428-204): authenticate secure export command path' (05:46). gemessener unterschied GENAU eine zeile in 'cmd/baha/secure_profile_export_command_test.go': '- withLocalInvocation(operatorauth.WithEnforcement(context.Background()), "cli")' -> '+ operatorAuthTestContext(t, withLocalInvocation(operatorauth.WithEnforcement(context.Background()), "cli"))'. damit ist der fall an der basis geheilt, und die karte 0428-219 war ein fund-ohne-karte-fall, der durch die owner-pushes auf der basis-lane bereits beantwortet war — die kartennummer bleibt als zeuge bestehen (regel: kartenlose funde sind verlorene arbeit), aber ohne eigenen PR.
