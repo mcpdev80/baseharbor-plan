@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: Codex owner (isolated worktree, follow-up)
-kanban_status: wait
-kanban_lane: wait
+owner: w27-pr1627-0428-061-pull
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Implement guided source pull. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-061 · Implement guided source pull
 priority: high
@@ -18,24 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1752]
 sources: []
 blocker: ""
-wait_reason: "waartet auf den follow-up des owner-codex in einem isolierten worktree: (1) AGENTS.md wird aus develop wiederhergestellt - der aktuelle kandidat 4bae3194fa71327cdf2a67e64c9a11c91d0f5972 loescht AGENTS.md mit +0 -125 zeilen (von mir gemessen mit 'git diff --numstat develop..refs/pull/1752/head -- AGENTS.md'), das entfernt die beitrags- und sicherheitsanweisungen des repos ohne jeden bezug zur funktion; (2) 'baha app pull' fehlt die machine_coverage-klassifikation - exakter hosted run 44955232402 = completed/failure, required 'PR Draft Go · cli-0', cmd/baha TestMachineCoverageCIRealTreeAndJSONClassification, registration_ci_readiness_test.go:82 meldet 'unclassified command: baha app pull'; (3) die generierten EN/DE-coverage-zeilen dazu; (4) hop auf develop 513488eeb6d, PR bleibt draft, nur gehostete CI als beweis. die lane w27 ist vom branch abgezogen (standdown sha256 im ledger), ihre original-commits bleiben erhalten."
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-source-pull · CLI redesign: Implement guided source pull #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-source-pull · CLI redesign: Implement guided source pull #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** Codex owner (isolated worktree, follow-up) · **Priority:** high  
+    **Owner:** w27-pr1627-0428-061-pull · **Priority:** high  
     **PR:** [baseharbor#1752](https://github.com/mcpdev80/baseharbor/pull/1752)  
-    **Waiting:** waartet auf den follow-up des owner-codex in einem isolierten worktree: (1) AGENTS.md wird aus develop wiederhergestellt - der aktuelle kandidat 4bae3194fa71327cdf2a67e64c9a11c91d0f5972 loescht AGENTS.md mit +0 -125 zeilen (von mir gemesse…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-app-lifecycle](t-20261114-r28-cli2-app-lifecycle.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** Codex owner (isolated worktree, follow-up)  
+**Owner:** w27-pr1627-0428-061-pull  
 **Priority:** high  
 **PRs:** [baseharbor#1752](https://github.com/mcpdev80/baseharbor/pull/1752)  
 **Source:** 
@@ -75,3 +74,5 @@ Planned and unassigned. No product implementation or acceptance yet.
 beide basis-karten geschlossen (0428-059 gemergt, 0428-060 als PR #1747 mergeCommit e6c199e7b7dd). Lane arbeitet auf develop-exakter base, ein PR 'lane-0428-061-sourcepull'; akzeptanz-kriterien einzeln belegt (dirty/diverged/no-git/partial/consent/--up erst nach erfolg/unverified explizit).
 
 active again: previous lane (0428-216-sourcepull) was a documented lane loss; fresh laptop lane dispatched with the card mission (base corrected to develop d1acf3f31a36). Dependencies 0428-059 and 0428-060 are closed/merged, so the card is dep-free.
+
+RUECKGANG MEINER STAND-DOWN: der owner hat ausdrtuecklich klargestellt, dass er #1752 NICHT uebernimmt ('I have made no edits', 'I will not write reserved files without your assignment') und dass die karte w27-pr1627-0428-061-pull als inhaber traegt, waehrend commands.go, die machine registry, .github und die generierten indexes bei den jeweiligen integration-/CI-inhabern bleiben - gemeinsame writes laufen ueber mich. ALSO: w27 arbeitet weiter, in zwei schritten. (1) AGENTS.md wiederherstellen: der +0 -125-fall ist real gegen merge-base d1acf3f31a36 (von mir gemessen, 'git diff --numstat develop..refs/pull/1752/head -- AGENTS.md'), die datein gehoert der lane. (2) die BEIDEN restlichen punkte sind reservierte dateien und werden von mir separat vergeben: die machine_coverage-klassifikation fuer 'baha app pull' (exakter hosted run 44955232402 = completed/failure, required 'PR Draft Go · cli-0', cmd/baha TestMachineCoverageCIRealTreeAndJSONClassification, registration_ci_readiness_test.go:82, 'unclassified command: baha app pull') und die generierten EN/DE-indexzeilen. PR bleibt draft, back=4 gegen develop 513488eeb6d, hop folgt.
