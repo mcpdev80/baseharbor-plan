@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: "TestCoreBootstrapFixtureCleanupContextIsBoundToItsLocalTarget shows which authority mode admitted installation.destroy, instead…"
 kanban_title: 0428-214 · 0428-214 destroy stamp
 priority: high
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1738"]
 ---
 
-- [ ] t-20261121-destroy-authority-stamp · installation.destroy authorization assertion runs on a stamped context #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
+- [ ] t-20261121-destroy-authority-stamp · installation.destroy authorization assertion runs on a stamped context #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
@@ -32,7 +32,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1738"]
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Owner:** coordinator  
@@ -106,3 +106,5 @@ kommissioniert auf dem freien ornith-sitz: branch vom head der basis-lane 0428-2
 kandidat vollstaendig und gemessen: head ebc6ac9c3a30, base-ref 'lane-0428-198-cli-shard-operator-env' @ 7db142852d22 (ketten-regel), draft=false. der ECHTE durchgang 44862425216 (von MIR per undraft ausgeloest) ist terminal: policy/Trusted Plan/Native gate plan/Source format/Focused Python/cli-vet/cli-build/cli-gofmt/source-contracts = SUCCESS, 'PR · Go unit · cli-0..3' = failure (geerbte operator-auth-klasse; scheitert ebenso an der basis #1726). mein eigener grep am protokoll: '--- FAIL: TestCoreBootstrapFixtureCleanupContextIsBoundToItsLocalTarget' = 0 zeilen, der karten-fall scheitert also in KEINEM ausgefuehrten shard. reichbarkeits-beleg der lane: 'authorization.go:235' (claim-membership-ast) nur mit verified principal + provider. PROTOKOLL-VERSTOSS FESTGEHALTEN: die lane hat ihre END-zeile per 'codeman agent post 9142ab1f-…' an mich gepostet — genau das ist verboten (AGENTS 3.3.4, die meldung laeuft ueber den watch-pfad, nicht ueber post an eine fremde session). folge: sitz wird freigegeben (rotation), arbeit bleibt gutgeschrieben.
 
 kette nachgezogen, von mir gemessen: head bdc3fcb63912, base 'lane-0428-198-cli-shard-operator-env' (basis-head beim rebase c2f9f2f32fd6, seitdem e45430f2f1b7 — fuenfter owner-push), 'merge-base --is-ancestor' = 0, draft=false; eigener durchgang terminal: run 44867291850 / 44867319394 completed/failure, cli-shards geerbt. WICHTIG FUER DIE ABNAHME: PR Selected Checks faehrt einen pr_merge-commit (85ae26150145 = 'Merge <head> into <base>'), 'exact-head' heisst bei gestapelten PRs der merge, nicht der branch allein. Akte round-3-chainrebase.md (plan 38b79bce).
+
+CODEX-REVIEW 'Verdict: REQUEST CHANGES' (destroy-authority-stamp/review-1.md, origin/main b3816e18/b33d3e3f) an head bdc3fcb63912: P1 = die behauptete RUECKNAHME des eigen-stempels ist im kandidat NICHT enthalten — 'cmd/baha/core_installation_runtime_test.go:294-306' reicht den bereits gestempelten kontext weiter, die neue assertion ':332-346' ruft zwar die produktions-grenze, nutzt aber denselben kontext. Rezept des reviewers: teardown-only fixture-kontext und authority-assertion trennen (':274-306', ':309-346'). P2 zaehlt GENAU DREI erste-level-FAIL-zeilen am durchgang 44867319394 (log 903158 bytes, log-failed 16321) und sagt ausdtruecklich: 'not to be booked as a generic inherited gate class — the exact gate text is absent'. Die drei: (1) 'app_list_all_targets_test.go:26' = karte 0428-210/#1739; (2) 'secure_profile_export_command_test.go:125' 'operator authentication needs interactive setup' (textquelle 'cmd/baha/operator_auth_boundary.go:117'); (3) 'target_hotfix_test.go:201' 'target "edge-a" is not configured'. IHR eigenen fall scheint im protokoll NICHT als fail — was der reviewer als P2-notiz festhaelt, und der grund, warum ich sie zurueck auf 'active' setze statt auf 'review'.
