@@ -222,9 +222,9 @@ Mechanik gemessen: der plan-store traegt user.name = Zuletzt-Schreiber (jetzt 04
 
 Vier minimal-schritte (Reihenfolge egal, keiner braucht .github/**):
 
-1. spawn-lane.sh (coordinator/scripts): beim start jeder lane `git -C <wt> config user.name <lane>` UND `git -C <wt> config user.email <lane>@baseharbor.local` setzen (beide felder — das halbvoll-setzen ist fund 6). Betrifft die 63 bestehenden worktrees beim naechsten dispatch.
-2. dispatch-lane.sh (coordinator/scripts): im auftragstext eine zeile "BEFORE your first commit run `git config user.name <lane> && git config user.email <lane>@baseharbor.local` IN YOUR WORKTREE and verify `git config --get user.name` echoes your lane; if the checkout reports another lane's name, the checkout is SHARED — post QUESTION, do not commit". Damit faellt jede fehlbeschriftung VOR dem commit auf, nicht im ls-remote danach.
-3. worker-cleanup.sh (coordinator/scripts): vor der freigabe eines lanes den checkout auf eine neutrale identitaet zuruecksetzen (`git config user.name coord-reset <lane>` statt wert-loeschen, damit die last-writer-spur sichtbar bleibt). Damit hat die naechste lane einen faelschbaren, aber nicht-verfuehrerischen wert.
+1. spawn-lane.sh (coordinator/scripts): beim start jeder lane `git -C <wt> config user.name <lane>` UND `git -C <wt> config user.email <lane>@baseharbor.local` setzen (beide felder — das halbvoll-setzen ist fund 6). Betrifft die 63 bestehenden worktrees beim naechsten dispatch. Der nachlauf: `scripts/`-aenderung, laeuft ohne CI-Workflow-anderung; wenn die lane-schreib-pruefung (scripts/source-readability-audit.sh) anlaeuft, ist die ak auf die datei beschraenkt.
+2. dispatch-lane.sh (coordinator/scripts): im auftragstext eine zeile "BEFORE your first commit, run `git config --get user.name` in your worktree; if it is not your lane name, the checkout is SHARED with another lane's leftovers — set it to your lane name (user.name AND user.email) and say so in your evidence, do not commit under a foreign name". Damit faellt jede fehlbeschriftung VOR dem commit auf, nicht im ls-remote danach.
+3. worker-cleanup.sh (coordinator/scripts): vor der freigabe eines lanes den checkout auf eine neutrale identitaet zuruecksetzen (`git config user.name coord-reset-<lane>` statt wert-loeschen, damit die last-writer-spur sichtbar bleibt und kein naechster name geerbt wird). Damit hat die naechste lane einen faelschbaren, aber nicht-verfuehrerischen wert.
 4. Karten-nummer: die Funde sind werkzeug-seitig und gehoeren in das vorhandene tooling-issue #24 (baseharbor-plan), das die identitaets-spur bereits traegt; parallel dokumentiert t-20261121-base-branch-provenance-loss (0428-221) dieselbe lane-autheurs-reihe. Empfehlung: punkt 1-3 als PR in baseharbor-plan unter referenz auf issue #24.
 
 Kein bedarf an: git worktree prune, container,VM, CI-Workflow-aenderung, baseharbor-commit.
@@ -250,9 +250,8 @@ Kein bedarf an: git worktree prune, container,VM, CI-Workflow-aenderung, basehar
 - Nicht geschafft: die zuordnung der 10 ~/.local/share/horde/worktrees des plan-stores zu lanen (fremder manager ausserhalb des oekosystems; nur inventarisiert, nicht zugeordnet).
 - Nicht geschafft: du-/stat-belege je worktree-groesse (H-V44 hat das bereits gemessen; hier nicht wiederholt).
 
-## cleanliness
+## cleanliness (besenrein — ihr nachfolger sitzt auf demselben rechner)
 
-besenrein — ihr nachfolger sitzt auf demselben rechner.
 
 - vorher (`date; docker ps -a`, 15:37 CET): CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES — TABELLE LEER (0 container, 0 eigene compose-projekte, pid 3959711).
 - diese lane hat nichts gestartet: kein container, kein netzwerk, kein volume, kein state-verzeichnis, kein compose-projekt. Keine produktdatei geaendert, kein git worktree angelegt/entfernt, kein commit an baseharbor, keine PR-aktion, kein stash, kein go test.
