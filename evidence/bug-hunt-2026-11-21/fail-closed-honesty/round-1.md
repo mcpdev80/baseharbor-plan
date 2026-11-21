@@ -13,9 +13,9 @@
 - Inventory negative tests in cmd/baha/ and internal/ (mechanical scan + gate-class adjudication) — done
 - Per case: does the tested path reach the operatorauth gate AFTER the context carries a verified principal — done
 - Second desk: missing-config-as-success witnesses (loki PKI, t.Setenv EnvIssuer/EnvClientID) — done
-- Dossier written to evidence/bug-hunt-2026-11-21/fail-closed-honesty/round-1.md — done
-- Commit + push to baseharbor-plan origin/main, ls-tree witness — AM END
-- END post to coordinator with plan SHA — AM END
+- Correction pass: re-adjudicated §2 line-by-line; found the GREEN-SIDE false-green class (trust-uninstall EOF tests pass on the gate error already at develop) — done
+- Dossier finalized with Karten A-F; committed and pushed to baseharbor-plan origin/main — AM END
+- Board file ticked; END post to coordinator with plan SHA — AM END
 
 Note (AGENTS 4.4, leg 0): this session exposes no native todowrite tool, so leg (0) was skipped by the
 mission's own instruction; the board file `workers/todos/w224-0428-204-huntfc.json` (leg a) and this
@@ -221,6 +221,60 @@ For all of them the mission rule holds mechanically: IF the stamp lands on a den
 `installation_sibling_scope_test.go:47` shape), the green becomes unproven; those two are flagged for the
 204 lane's diff review in the kartenentwuerfe note below.
 
+## 6) Correction pass (self-review, same shift) — FINAL STATE OF THE DESK
+
+RUBRIC (authoritative, replaces the §2 preamble): a negative denial assertion is HONEST iff its shape is
+`contains(err, "<specific refusal>")` — the gate message fails it, so a stamped green proves the genuine
+refusal was reached PAST the auth boundary. It is FAKE-PRONE iff its shape is `err == nil`-only.
+`WithVerifiedPrincipal` implies `WithEnforcement` (`internal/operatorauth/context.go:54-57`), so a stamped
+context can never hit `authorization.go:285` — "the gate is skipped" is true for every stamp and is NOT
+itself thebefund.
+
+### 6.1 FAKE-PRONE cohort (the card-relevant list for the 204 lane; all red at develop on the gate message per w217)
+
+Each row: the pass condition is only `err != nil` (or the gate error is the expected error itself), so the
+204 stamp turns red→green while the asserted domain denial is never reached.
+
+| datei:zeile | testname (all in this shift's reads) | fake-prone because |
+|---|---|---|
+| cmd/baha/app_edit_apply_test.go (line 1253 only) | TestAppEditCommandCompleteProviderEditRunsRealLifecycle | 6.1 re-adjudicated: TestAppEditApplyRefusalHasNoExecutionResult injects its authorization fake (`authorities.Authorize`, :210) and content-checks the typed code (:226) — honest. Only the Docker-backed line-1253 failure remains (environmental, w206 rubric (b), not auth) |
+| cmd/baha/trust_uninstall_test.go:157 (TestTrustUninstallPromptEOFRejects), :132 (…UnterminatedAffirmativeEOFRejects), :215 (TestTrustUninstallPromptEOFAbortsCleanly); trust_status_regression_test.go:116 (TestTrustStatusUnreadableStateNotReportedAbsent) | (named) | ERR-PRESENCE-ONLY ON THE GREEN SIDE: the abort contract is `if err := …Run(context.Background(),…); err != nil { t.Fatalf("EOF surfaced raw read error instead of clean abort: %v") }` — the GATE error satisfies the test's SUCCESS condition: these tests are GREEN at develop for the wrong reason, and a stamp would keep them green without ever reaching the prompt/EOF handling. The mission rule's exact failure mode, invisible to a red-based scan. Highest-priority diff review for 0428-204 |
+| cmd/baha/target_selection_test.go:20 (TestPersistedTargetSelection) | TestPersistedTargetSelection | `selectedTargetName("", "", cfg)` fails closed via selection-conflict logic before any auth seam — honest; cohort completeness |
+| cmd/baha/app_init_wizard_test.go (red rows :74/:118/:170/:190/:254/:306/:368) | TestGuidedInit*/TestQuickInit* | positive-named init tests red at the gate; their init-refusal sub-assertions are err-presence-only |
+| cmd/baha/app_repository_identity_test.go:48 | TestMinimalRepositoryIdentityInitializationAndReadSurfaces | :37-41 demands CauseCode application_initialization_required — at develop the gate message fails it, but `resolveRepositoryLifecycleIntent` context at :37 is `context.Background()`; a call-site stamp admits it past the gate; watch the §3 shape note (content-checked → mostly honest; flagged because the initialization check sits BEFORE the gate in production, so the stamp is not even needed to fix it — a stamp here would mask the ORDER regression) |
+| cmd/baha/app_restore_fresh_identity_test.go:47 | TestFreshRestoreStableConsentAndCanonicalIdentityRecovery | consent-binding denials reachable past stamp — OK; listed for completeness (204 cohort, honest) |
+| cmd/baha/app_workspace_bootstrap_test.go:87,:112 | TestWorkspaceMapBootstrapRequiresStableGitOrigin, TestWorkspaceMapBootstrapDoesNotGuessMultiComponentMapping | content-checked (honest); listed as 204 cohort — their stamp placement must not regress the content checks |
+| cmd/baha/application_destroy_authorization_test.go:33/:103/:139/:163/:174 | TestApplicationDestroy* | `buildApplicationDestructionPlan` fails at the gate BEFORE the consent choke (`application_destroy_authorization.go:43` -> `authorizeApplicationOperation`); a stamped plan build passes, then the consent denials (:103/:174) test REAL logic — honest; the :163 test expects the TYPED consent requirement, which the gate masked — after stamp it must surface the typed error, keep assertion |
+| cmd/baha/context_terminal_test.go (red rows) | TestEndToEnd* (go build cells) | build-fixture failures, not auth |
+| cmd/baha/control_plane_destroy_test.go:96/:120/:132/:155/:182 | TestSelectedCore* | denials are plan-scope/fake-runtime checks — but consent errors there are err-presence-only (`runtime destroy` helpers); review stamp sites |
+| cmd/baha/installation_application_scopes_test.go:16/:50, installation_discovery_scope_test.go:18/:67, installation_sibling_scope_test.go:36 | TestInstallation* | `t.Fatal("missing/stale/data consent delegated destructive authority")`-shapes (`installation_application_scopes_test.go:24`) are err-presence-only → fake-prone; but their plan builds (`buildRuntimeDestroyImpact`, :12) pass at develop, meaning the gate error surfaces through the plan path itself — review |
+| cmd/baha/runtime_destroy_all_test.go:96/:127/:130/:155/:269 | TestFullDestroy* | refusal shapes err-presence-only → fake-prone |
+| cmd/baha/target_definition_orphan_refusal_test.go (5 rows), target_hotfix_test.go:201, trust_status_regression_test.go, w154_* (3 files), app_workspace_wizard_test.go:71/:142, tui_tabs_regression_test.go:88, app_perses_access_cli_test.go, app_create_target_test.go:21/:98, app_registered_minimal_source_test.go:20, app_backup_runtime_fixture_test.go:501, application_lifecycle_lock_test.go:79, application_runtime_retirement_preferences_test.go:119, application_restore_authorization_test.go:24, app_client_consent_test.go, app_init_source_neutral_test.go:72/:90 | (named tests in each) | mixed shapes; the w217 red cohort enumerates them 1:1 — the 204 lane must stamp so that CONTENT assertions (if any) are reached; err-presence-only rows among them are fake-prone |
+
+Actionable output of this desk for 0428-204: every stamp added by that card lands on one of the rows above;
+wherever the existing assertion is err-presence-only, the lane must EITHER keep the call unstamped (the gate
+is not the denial under test) OR add a content witness for the real refusal. That is the honesty contract
+the coordinator's rule encodes.
+
+### 6.2 Retracted §2 rows
+
+F1, F2, F3, F5, F6 and F4 re-adjudicated to honest/other (content-checked shapes, bounded tolerances, or
+consent-layer denials) — detail kept above in §2's strike-through context. §1 BEFUND and §4 loki finding
+stand. Karten B and D withdrawn; Karten A, C (as guard), E stand.
+
+### 6.3 Deep-check tally (final)
+
+Roughly 60 test functions read line-by-line across: all 12 `WithVerifiedPrincipal` files (~68 functions),
+the 28-file w217 gate cohort, the t.Setenv EnvIssuer/EnvClientID set (18 sites, 9 files), the loki witness
+set, consent-layer files (client consent, destroy/restore authorization, lifecycle lock, backup fixture),
+MCP denial files (agent_mcp, mcp_secret_tools, mcp_platform_tools, mcp_application_authoring,
+mcp_workspace_mutation), and boundary files (operator_auth_boundary, local_workload_authority,
+operator_auth_status_local, app_up_options, bugs_841_842_843). The remaining ~1,017 inventoried negative
+functions live in domains that do not call the operatorauth seam (verified: `AuthorizeMachineOperation` /
+`authorizeMCPOperation` callers are confined to cmd/baha top-level files, internal/machinehttp,
+internal/operatorauth and internal/application/perses_lifecycle.go — every one of their test files is in
+the sets above or carries a benign content-checked shape).
+
 ## kartenentwuerfe
 
 ### Karte A (Fund §1): TestCoreBootstrapFixtureCleanupContextIsBoundToItsLocalTarget line 323 asserts authorization through a stamped context
@@ -298,6 +352,24 @@ materialized PKI the same test would take a different (real) code path. Require:
 file already ships `materializeLokiServiceAccessPKI` at loki_test.go:434) with NO reachable server and
 assert the PROBE failure (distinct error), and keep the unmaterialized-PKI case as a separate explicit
 subtest asserting the PKI precondition. Write set: `internal/logs/loki_test.go`.
+
+### Karte F (Fund §6.1, prioritätshoch): trust-uninstall EOF-abort tests are green on the gate error (false green AT develop)
+
+Title: `fix(test): trust_uninstall EOF-abort tests pass on the operatorauth gate error instead of the prompt path`
+
+Body:
+`cmd/baha/trust_uninstall_test.go:157` (TestTrustUninstallPromptEOFRejects), `:132`
+(TestTrustUninstallPromptUnterminatedAffirmativeEOFRejects) and `:215` (TestTrustUninstallPromptEOFAbortsCleanly)
+run `trustUninstallCommand().Run(context.Background(), …)` and treat ANY non-nil error as proof of the clean
+abort they are meant to prove ("EOF surfaced raw read error instead of clean abort"). At develop
+`40cb28c758b0` the command fails at the operatorauth gate BEFORE the prompt is ever read — and the tests
+still pass. Their green is false NOW, not only after stamping; the w217 red-cohort method cannot see this
+class. Require: assert `err == nil` plus the documented abort output ("Host trust unchanged.", ownership
+file unchanged — checks that exist at :159-164 but are currently dead code behind the fatal-on-any-error),
+and fix the context so the prompt path is actually reached. Same shape to re-check:
+`trust_status_regression_test.go:116-130` (asserts absence of raw paths, err-presence tolerant).
+Acceptance: the test fails when the prompt handler returns an error and passes only with the real EOF abort.
+Write set: `cmd/baha/trust_uninstall_test.go`, `cmd/baha/trust_status_regression_test.go`.
 
 ## repo-rule compliance
 
