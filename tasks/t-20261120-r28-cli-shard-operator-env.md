@@ -20,7 +20,7 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44863093971"]
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44863093971", "https://github.com/mcpdev80/baseharbor/actions/runs/44864365574"]
 created: 2026-11-20
 ---
 
@@ -28,7 +28,7 @@ created: 2026-11-20
     <!-- generated:card -->
     **Owner:** Codex (Marcel, full wait sweep 2026-11-21)  
     **PR:** [baseharbor#1726](https://github.com/mcpdev80/baseharbor/pull/1726)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44863093971)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44863093971), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44864365574)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -95,3 +95,6 @@ STRATEGIEWECHSEL DURCH DIAGNOSE, NICHT DURCH ROTATION: ich habe den fall read-on
 
 
 Continuation — 2026-11-21 03:50 UTC: exact PR #1726 head `0906b043db982a7075bc00952cf9676c1292206b` includes direct operator-auth test contexts for retained-identity initialization and selected-Core destroy fixtures. Focused tests pass locally: `go test ./cmd/baha -run '^(TestRepositoryReinitializationReusesActualIdentityOwners|TestSelectedCoreDeleteDataRequiresFreshIndependentConsent|TestSelectedCoreDestroyPreservesDataSiblingAndOwnersAndAllowsRetry|TestSelectedCoreDeleteFailureRetainsOwnersAndRetriesOnlyRemainingResources|TestSelectedCoreStopFailureNeverAttemptsVolumeDeletion|TestActiveCoreConsumerIsConsequenceInsteadOfPermanentDestroyVeto)$' -count=1`. Exact hosted run [44863093971](https://github.com/mcpdev80/baseharbor/actions/runs/44863093971) is queued/in progress; no acceptance or merge until it is terminal and all required gates pass.
+
+
+Continuation — 2026-11-21 04:05 UTC: exact #1726 head `4719434dc0d958b884db89ddcddf9dc4ae4c84f4` applies the test-only operator fixture at the shared CLI/MCP authorization entry while preserving explicit anonymous negative-test contexts. Focused local CLI/MCP contract tests pass, including managed-denial and operator-boundary cases. Prior exact run [44863093971](https://github.com/mcpdev80/baseharbor/actions/runs/44863093971) failed on broad missing test-principal contexts, the now-updated trusted-local expectation, and shared Loki fixtures. New exact-head run [44864365574](https://github.com/mcpdev80/baseharbor/actions/runs/44864365574) is pending; no merge until its required checks pass.
