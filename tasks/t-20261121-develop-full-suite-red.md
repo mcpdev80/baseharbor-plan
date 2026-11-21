@@ -15,7 +15,7 @@ kanban_title: 0428-223 · full-suite unit tests are red
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1750]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,6 +26,7 @@ evidence: []
 - [ ] t-20261121-develop-full-suite-red · CI: full-suite unit tests are red on develop and no merge gate runs them #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** 0428-223-testctx  
+    **PR:** [baseharbor#1750](https://github.com/mcpdev80/baseharbor/pull/1750)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -34,7 +35,7 @@ evidence: []
 **Depends on:** none  
 **Owner:** 0428-223-testctx  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1750](https://github.com/mcpdev80/baseharbor/pull/1750)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -77,3 +78,5 @@ The whole-package Go unit suite (`go test ./...`) is **red on develop** and **no
 - Current state, branch, PR and evidence links. Newest first.
 
 H-V50 shows the 14 red cases are an environment gap: probe application resolves target 'company-dev' which no test configures since 80961866f. The fix lane proves it with a CI workflow_dispatch on its own branch, where the validate cell actually runs.
+
+QUERBEZUG vom coordinator: die operator-auth-/test-context-vorbedingung dieser karte blockiert messbar eine ZWEITE karte. der combined validation run 44957245330 fuer PR #1627 (karte 0428-055) fiel in BEIDEN coreless-lifecycle-shards (docker UND podman) mit 'prepare native workload deployment inputs requires authenticated BaseHarbor operator' und einem cleanup ohne verifizierten operator context - derselbe grundtyp wie bei #1746s static suite (akte static-gate-registration/finding-1746-static-suite-failure.md). PR #1750 / karte 0428-223 ist damit der schluessel fuer die 0428-055-abnahme: wer immer diese karte abschliesst, muss danach 0428-055 neu validieren (exakter hosted run mit docker UND podman lifecycle-ausfuehrung).
