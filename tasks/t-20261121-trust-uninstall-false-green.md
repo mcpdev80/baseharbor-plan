@@ -7,15 +7,15 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: planned
+owner: coordinator
+kanban_status: review
+kanban_lane: review
 kanban_summary: "TestTrustUninstallPromptEOFRejects, TestTrustUninstallPromptUnterminatedAffirmativeEOFRejects and…"
 kanban_title: 0428-213 · 0428-213 trust-uninstall EOF
 priority: high
 depends_on: [t-20261120-cli-operator-entrypoints]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1737]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,20 +23,20 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-trust-uninstall-false-green · trust-uninstall EOF tests are green on the auth gate error #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/cli #kind/bug
+- [ ] t-20261121-trust-uninstall-false-green · trust-uninstall EOF tests are green on the auth gate error #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Waiting for prerequisites**  
+    **Owner:** coordinator · **Priority:** high  
+    **PR:** [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737)  
     **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** unassigned  
+**Owner:** coordinator  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -89,3 +89,5 @@ If the fix requires `ensureOperatorAuthForBoundary` (`cmd/baha/operator_auth_bou
 
 Branch, PR, exact head SHA, terminal hosted run id, evidence
 `evidence/r28-welle4-2026-11-21/trust-uninstall-false-green/round-1.md`.
+
+kandidat vollstaendig: head d0399968c47f, base-ref 'lane-0428-198-cli-shard-operator-env' @ 7db142852d22 (ketten-regel, gemessen), draft=false (gemessen, die lane meldete 'draft'). durchgang 44861150777 terminal: draft-zellen skipped, 'PR · Go unit · cli-0..3' failure = geerbte operator-auth-klasse (128 gate-zeilen, 108 first-level namen), 'Workflow policy'/'Trusted Plan'/cli-vet/cli-build/cli-gofmt success. zwei faelle mit 'Trust' im namen gehoeren zu ANDEREN dateien (operator_auth_boundary / mcp_platform_*), die karten-eigenen faelle sind damit nicht gemeint — korrektur der akten-formulierung befohlen.
