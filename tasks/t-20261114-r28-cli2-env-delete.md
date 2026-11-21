@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: "Codex (Marcel assigned, wait sweep 2026-11-21)"
-kanban_status: wait
-kanban_lane: wait
+owner: "Codex (Marcel, active wait sweep 2026-11-21)"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Environment deletion lifecycle. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-055 · Env deletion lifecycle
 priority: high
@@ -18,25 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1627]
 sources: []
 blocker: ""
-wait_reason: "Focused environment-destroy Go tests and vet pass on PR head 202b984e; exact-head Draft run 44852435311 completed FAILURE (CLI shards failed; native and selected checks were skipped because the PR is Draft). pr-gate-plan reports unresolved runtime/registration coverage. The native Docker attempt stopped at the existing missing-operator-auth gate before Environment-Destroy ran. #1615 is actively editing the exact selective-runtime test and shared pre-release runtime workflow needed for the native route; preserve that ownership. Resume after #1615’s shared auth/workflow change lands, then add/route the native assertion on disjoint files and run full exact-head CI."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1627", "https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677", "https://github.com/mcpdev80/baseharbor/actions/runs/44852435311", "https://github.com/mcpdev80/baseharbor/pull/1615"]
 ---
 
-- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** Codex (Marcel assigned, wait sweep 2026-11-21) · **Priority:** high  
+    **Owner:** Codex (Marcel, active wait sweep 2026-11-21) · **Priority:** high  
     **PR:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627)  
-    **Waiting:** Focused environment-destroy Go tests and vet pass on PR head 202b984e; exact-head Draft run 44852435311 completed FAILURE (CLI shards failed; native and selected checks were skipped because the PR is Draft). pr-gate-plan reports unresolved…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1627), [proof 2](https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44852435311), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1615)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
 **Required by:** [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md)  
-**Owner:** Codex (Marcel assigned, wait sweep 2026-11-21)  
+**Owner:** Codex (Marcel, active wait sweep 2026-11-21)  
 **Priority:** high  
 **PRs:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627)  
 **Source:** 
