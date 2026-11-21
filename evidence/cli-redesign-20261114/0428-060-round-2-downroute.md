@@ -163,13 +163,18 @@ engine mutations, no retirement banner, byte-identical record/store.
 
 ## cleanliness
 
+- Evidence presence witness (`git -C baseharbor-plan fetch origin main &&
+  git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 0428-060-round-2-downroute`):
+  `evidence/cli-redesign-20261114/0428-060-round-2-downroute.md` (plan push
+  `769fc2cb5..003b20c8f` → main).
 - Before: `docker ps -a` (pid 3720973) → empty listing (header only).
   File: worktree `.cache/docker-before-hop.txt`. Earlier witness pid 3370865,
   also empty.
 - No containers, compose projects, networks or volumes were started by this
   lane; the route tests use PATH-stubbed docker only (exit 97 on any
   mutation call).
-- After: `docker ps -a` witness recorded just before END (below), plus own pid.
+- After: `docker ps -a` (pid 3812927) → empty listing (header only); no test
+  container survived this lane; nothing to bring down.
 
 END 0428-060-downroute DONE — candidate `fb841c2c27c90c6aa2c7b9ee9559da912ac64c2a`
 on `lane-0428-060-updown`, base `dea88c8f2caa`, hosted run 44912542526 terminal
