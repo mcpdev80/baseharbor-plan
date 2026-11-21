@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: wait
-kanban_lane: wait
+kanban_status: active
+kanban_lane: active
 kanban_summary: "TestTrustUninstallPromptEOFRejects, TestTrustUninstallPromptUnterminatedAffirmativeEOFRejects and…"
 kanban_title: 0428-213 · 0428-213 trust-uninstall EOF
 priority: high
@@ -18,21 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1737]
 sources: []
 blocker: ""
-wait_reason: "arbeit ist definiert und die mission liegt fertig im coordinator/missions/0428-213-r3-compile-and-verbatim.md (payload-gate 0): duplizierte 'withoutOperatorAuthTestContext'-deklaration in 'cmd/baha/trust_uninstall_test.go:32-44' RAUS (der echte opt-out ist 'cmd/baha/app_init_wizard.go:29-31'), und 'strings.Contains' in ':175' durch wortvergleich inkl. endpunkt ersetzen — CODEX-REVIEW r2 zaehlt die cli-shards als compile-abruf, NICHT als erbschaft. Kein sitz frei (5/5 belegt), daher 'wait' und NICHT 'active': es gibt gerade KEINE lebende session an dieser karte. Naechster trigger: erster freier worker-sitz ODER der basis-hop von lane-0428-198 auf develop e43e7ffea95f (dann #1615/#1734 in der basis, gate- und loki-roete weg)."
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-trust-uninstall-false-green · trust-uninstall EOF tests are green on the auth gate error #task #release/v0-4-28 #status/wait #view/wait #area/cli #kind/bug
+- [ ] t-20261121-trust-uninstall-false-green · trust-uninstall EOF tests are green on the auth gate error #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737)  
-    **Waiting:** arbeit ist definiert und die mission liegt fertig im coordinator/missions/0428-213-r3-compile-and-verbatim.md (payload-gate 0): duplizierte 'withoutOperatorAuthTestContext'-deklaration in 'cmd/baha/trust\_uninstall\_test.go:32-44' RAUS (der…  
     **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Owner:** coordinator  
@@ -106,3 +105,5 @@ inhalt OK, BASIS NICHT: sie liefert den bidirektionalen gate-beweis in 'cmd/baha
 rebase ANGEKOMMEN, von mir am remote nachgemessen (nicht aus ihrer meldung): head 3010b212c8af, 'merge-base --is-ancestor e45430f2f1b7 <head>' = 0, 'rev-list --count' = 1, 'diff --name-only' = genau 'cmd/baha/trust_uninstall_test.go', 'log -1 --format=%an' = '0428-213-rebase1737' — der fremde owner-commit d0399968c ist raus aus dem PR (vorher stand er drin, issue #24). GEHOSTET am neuen head: durchgang 44883097577, 8 success / 6 failure / 20 skipped, 'PR Selected Checks' failure; ihre gleichheits-proof: die roten cli-0..3 + cli-vet sind IDENTISCH zu durchgang 44878429408 am alten head 8b38c4f88 = erbschaft, nicht ihr rebase. NEUE LAGE, die diese karte HEILT: der owner hat #1615 um 08:08 gemergt (develop = 9bd76324ec6d, 'Merge pull request #1615 from mcpdev80/cli2-identity-secrets-*'); die gate-klasse 'Managed-environment machine operations require an authenticated BaseHarbor operator' verschwindet damit aus den cli-zellen, sobald die lane auf den neuen develop hoppt. Fuer #1737 (basis = lane e45430f2f1b7) gilt das erst nach dem naechsten basis-hop.
 
 CODEX-REVIEW r2 'review-2.md' (plan 3cdd3f07 + 24179731) = 'Verdikt: REQUEST CHANGES'; ihre rebase-arbeit ist PASS (single commit ueber der deklarierten basis, nur kartendatei), aber ES GIBT KEINEN AUSGEFUEHRTEN TESTKOERPER: 'PR · Validation · cli-vet' failure + ALLE vier cli-shards failure wegen REDECLARATION — sie deklarieren 'withoutOperatorAuthTestContext' in 'cmd/baha/trust_uninstall_test.go:42' ERNEUT, obwohl 'cmd/baha/app_init_wizard.go:29-31' den echten opt-out schon hat; ihre variante ist ein 'return ctx' und opted damit NICHT aus, der anonyme kontext bleibt also gestempelt = der beweis ist nichts wert. Befund 2: 'trust_uninstall_test.go:175' prueft per 'strings.Contains' und laesst den endpunkt der produktquelle weg -> text-mutation bleibt gruen. Mission liegt fertig in coordinator/missions/0428-213-r3-compile-and-verbatim.md (payload-gate 0) und geht auf den ersten freien sitz. WICHTIG FUER DAS GANZE FENSTER (antwort auf meine eigene frage an den reviewer): die loki-pakete-roete 'providers/loki/shared/service-access/pki/client-cert.pem' ist auf dem GEMERGTEN baum GRUEN — #1615 wurde 08:08 zu develop 9bd76324ec6d gemergt, merge-commit und PR-head teilen den tree 'f5…'; ein hop der stapel-basis loescht diese rote zeile, loest aber IHRE compile-kollision nicht (dafuer keine recipe an #1615).
+
+sitz frei geworden (0428-210-hopfix4 uebergeben), daher geht die wartende mission SOFORT raus: lane 0428-213-compilefix (3f536e2e, ornith) arbeitet 'coordinator/missions/0428-213-r3-compile-and-verbatim.md'. Auftrag nach CODEX-REVIEW r2: (1) die duplizierte 'withoutOperatorAuthTestContext'-deklaration in 'cmd/baha/trust_uninstall_test.go:32-44' RAUS und den echten opt-out aus 'cmd/baha/app_init_wizard.go:29-31' aufrufen (heute zaehlen die vier cli-shards als COMPILE-fehler, nicht als erbschaft — redeclaration in 'PR · Validation · cli-vet'), (2) 'strings.Contains' in ':175' durch wortvergleich inkl. endpunkt ersetzen, mit mutations-paar (text angehaengt = rot, zurueck = gruen). NEUER RUECKENWIND, von mir gemessen: #1739 zeigt am gehopften develop ein KOMPLETT gruenes required-aggregat (durchgang 44885264462, cli-0..3/packages/owner success, 0 failure) — dieselbe heilung erreichen sie an dieser karte nur ueber den basis-hop der stapel-lane (owner-aktion, row 877). Sollte ihre korrektur am basis-head GRUEN werden, melden sie das mit den byte-zahlen der per-job-logs.
