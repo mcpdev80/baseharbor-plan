@@ -36,3 +36,15 @@
     }
   ]
 }
+
+## Origin publication witness
+
+Command: `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep '^evidence/r28-welle4-2026-11-21/rev-1585/review.md$'`
+
+Exact output:
+
+```
+evidence/r28-welle4-2026-11-21/rev-1585/review.md
+```
+
+Initial evidence commit published: `16bc206eedf1f6be4302996125dc194a38048dcc`.
