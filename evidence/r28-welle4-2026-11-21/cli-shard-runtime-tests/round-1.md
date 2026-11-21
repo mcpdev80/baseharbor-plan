@@ -299,4 +299,10 @@ plan SHA carrying this evidence: 99946368ff4f153800990dd6fa51701e3a28302b
 block above was added by the follow-up commit and then amended into this final
 SHA, so the published blob is the one verified on origin/main)
 
+Self-containment correction: the amended-and-force-pushed final commit is
+8b42b4f4e97c4c5472a12c46e593baec8b131b70 (verified: `git rev-parse origin/main`
+after this commit's push). The SHA written above (9994636) is the immediately
+prior commit and existed only transiently, so the END line reports 8b42b4f4 as
+the authoritative plan SHA.
+
 END w232-0428-215-runtimeprobe DONE
