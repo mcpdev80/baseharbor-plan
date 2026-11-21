@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-206 · Other-domain test split
 priority: high
@@ -18,20 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "inventur publiziert (evidence/r28-welle4-2026-11-21/other-domain-test-split/round-2.md, plan 6391293a, body 76ad1764): 117/117 faelle zeilenweise, summenprobe 97 GATE + 7 GATE-subtest + 9 anderer grund + 1 singleton + 3 ohne nachweis = 117; abzug gegen die deckungskarte A14/B76/C14/D10/D?3; heil-stempel 115/117 gegen den #1615-head (zwei ausnahmen benannt); die 89 sind mit drei beweisen zurueckgezogen. diagnosis-karte, kein kandidat: abnahme durch CODEX offen."
-resolution: ""
-evidence: []
+wait_reason: ""
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/other-domain-test-split/round-2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/other-domain-test-split/codex-review-r3.md"]
 ---
 
-- [ ] t-20261120-other-domain-test-split · Cause split for the 89 other-domain cmd/baha failures #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/cli #kind/bug
+- [x] t-20261120-other-domain-test-split · Cause split for cmd/baha failures after neutral-path recount #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
-    **Waiting:** inventur publiziert (evidence/r28-welle4-2026-11-21/other-domain-test-split/round-2.md, plan 6391293a, body 76ad1764): 117/117 faelle zeilenweise, summenprobe 97 GATE + 7 GATE-subtest + 9 anderer grund + 1 singleton + 3 ohne nachweis = 117…  
     **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/other-domain-test-split/round-2.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/other-domain-test-split/codex-review-r3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Owner:** coordinator  
@@ -40,9 +40,14 @@ evidence: []
 **Source:** 
 <!-- /generated:links -->
 
-## Current review state
+## Accepted scope correction and review
 
-Round 1 is rejected as incomplete: its twelve group counts total 38, group 12 subgroups total 9 while the group says 8, and the referenced raw classification files are absent. A prompt-disabled run at exact base `40cb28c758b02960356434b630086a341ebe1738` completed with 203 distinct failed top-level tests; the old 89-case cohort is not yet reconciled against it. See [independent review r2](../evidence/r28-welle4-2026-11-21/other-domain-test-split/codex-review-r2.md). Reconstruct the exact target cohort and row-level groups before acceptance.
+The original 89-case cohort was not reproducible from its source evidence. The neutral hosted CLI path supplies the auditable cohort: 117 distinct first-level failures. Round 2 lists every case exactly once, assigns its rubric and witness, and explicitly preserves the three rows whose hosted artifacts contain no failure block as evidence gaps. It reconciles why the former 89 count cannot be used as the acceptance denominator. Independent review is recorded in `codex-review-r3.md`.
+
+## Prior review state
+
+Round 1 was rejected as incomplete. Round 2 supersedes it with the neutral hosted cohort and complete row-level classification.
+
 
 ## Why
 
@@ -63,7 +68,8 @@ stay unsplit, 0428-204 grows past one card (AGENTS 4.2 forbids that) or real def
 ## Acceptance
 
 - Evidence-only: no product file changes, no PR required.
-- All 89 appear in exactly one group; every group carries a rubric and a witness.
+- Reconcile the unsupported historical 89 count against the neutral hosted cohort; do not preserve it as a denominator without source rows.
+- Every distinct first-level failure in the neutral cohort appears exactly once with a rubric and witness; explicitly retain rows whose hosted artifact has no failure block as evidence gaps.
 - Groups judged (b) are turned into cards by the coordinator in the same turn (fund-to-card duty, AGENTS 3.3.5).
 
 Karte aus w217s zahlung gegossen (fund->karte, §3.3.5): 206 fehlende tests in ./cmd/baha/ am exakten develop 40cb28c758, davon 89 in ANDEREN domänen als dem operator-seam. sitz w221 (ornith) gruppiert nach der ERSTEN fehlenden produkt-datei und rubriziert: (a) schon von einer karte gedeckt, (b) neuer defekt (karten-text wird hier vorformuliert), (c) folge von commit 3653369a4 (#1717: internal/operatorauth/authorization.go + cmd/baha/local_workload_authority.go + cmd/baha/mcp.go). KEIN produktgriff, KEIN PR; die 0428-204-Klassen (runWithIO=82, MCP=10) bleiben bei w216, damit keine karte aufbläht (§4.2).
@@ -79,3 +85,5 @@ HANDOFF COMPLETE (read-only classification, no PR): akte other-domain-test-split
 CODEX verwarf round-1 (8a086890, codex-review-r2.md): summen 38 statt 89, gruppe 12=9 statt 8, '/tmp/w217-classified.tsv' nie publiziert, gruppe 8 falsche datei. zeilenweise neuberechnung ueber den neutralen produktionspfad (artefakte der gehosteten cli-zellen) in frischer lane ca3a71d0.
 
 KOHORTEN-KLARSTELLUNG aus der lane (flash, ca3a71d0): '89' war eine TEILKLASSE am zustand MIT ambient-stack (runWithIO 82 / MCP 10 / other 89), der neutrale produktionspfad (run 44850031032, cli-0..3-artefakte) zaehlt 117 first-level-faelle. gefordert sind beide: 89-zeilentabelle plus 117-zeilige summenprobe, kohorten-definition in max 10 zeilen. mein fehler in der kartenformulierung, nicht der lane.
+
+resolution: accepted — the neutral hosted cohort is fully classified, the historical 89-count discrepancy is reconciled, and three missing log witnesses remain explicit evidence gaps. No product defect claim is inferred from those rows.
