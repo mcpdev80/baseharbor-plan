@@ -7,7 +7,7 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0428-216-sourcepull
+owner: w27-pr1627-0428-061-pull
 kanban_status: active
 kanban_lane: active
 kanban_summary: "Implement guided source pull. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261114-r28-cli2-source-pull · CLI redesign: Implement guided source pull #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-216-sourcepull · **Priority:** high  
+    **Owner:** w27-pr1627-0428-061-pull · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -33,7 +33,7 @@ evidence: []
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-app-lifecycle](t-20261114-r28-cli2-app-lifecycle.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** 0428-216-sourcepull  
+**Owner:** w27-pr1627-0428-061-pull  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -71,3 +71,5 @@ Dirty/diverged refs, same repo across components/apps, no-git, partial failures 
 Planned and unassigned. No product implementation or acceptance yet.
 
 beide basis-karten geschlossen (0428-059 gemergt, 0428-060 als PR #1747 mergeCommit e6c199e7b7dd). Lane arbeitet auf develop-exakter base, ein PR 'lane-0428-061-sourcepull'; akzeptanz-kriterien einzeln belegt (dirty/diverged/no-git/partial/consent/--up erst nach erfolg/unverified explizit).
+
+active again: previous lane (0428-216-sourcepull) was a documented lane loss; fresh laptop lane dispatched with the card mission (base corrected to develop d1acf3f31a36). Dependencies 0428-059 and 0428-060 are closed/merged, so the card is dep-free.
