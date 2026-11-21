@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "TestCoreBootstrapFixtureCleanupContextIsBoundToItsLocalTarget shows which authority mode admitted installation.destroy, instead…"
 kanban_title: 0428-214 · 0428-214 destroy stamp
 priority: high
@@ -20,19 +20,19 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1738"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1738", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-5-rebase.md"]
 ---
 
-- [ ] t-20261121-destroy-authority-stamp · installation.destroy authorization assertion runs on a stamped context #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
+- [ ] t-20261121-destroy-authority-stamp · installation.destroy authorization assertion runs on a stamped context #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
     **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1738)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1738), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-5-rebase.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Owner:** coordinator  
@@ -93,11 +93,12 @@ If the mode cannot be observed without touching `internal/operatorauth/**`, stop
 
 ## Handoff
 
-Branch: `lane-0428-214-destroystamp` @ `ebc6ac9c3a3032a65256d285aeb510341820e218`
-PR: #1738, base `lane-0428-198-cli-shard-operator-env` @ `7db142852d22` (chain rule 3.3.8, content wait on #1726)
-Terminal hosted run: 44861212250 (PR Selected Checks aggregate SKIPPED — see evidence; per-shard Go unit runs executed my test, all pass)
+Branch: `lane-0428-214-destroystamp` @ `a8079303acaaba860ae444eec684ff9625551f82` (rebased onto current base; round-5 akte)
+PR: #1738, base `lane-0428-198-cli-shard-operator-env` (chain rule 3.3.8, content wait on #1726)
+Base head: `7546b1806aac9a0055a647e20f2843564eb3c1ce` (base lane #198 was rebased since round-4 old pointer c2f9f2f32fd; DRIFT recorded in round-5)
+Terminal hosted run: 44878737065 (PR Selected Checks aggregate FAILURE; PR · Trusted Plan now SUCCESS after rebase; 3 inherited CLI-shard failures cli-0/native — out of this card's write-set, owned by #198; my test in cli-2 435-passing set)
 Evidence:
-`evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-1.md`.
+`evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-5-rebase.md`.
 
 kommissioniert auf dem freien ornith-sitz: branch vom head der basis-lane 0428-204 (7db142852d22), base-ref des PRs auf den lane-branch 'lane-0428-204-cli-operator-entrypoints'. write-set genau eine datei: cmd/baha/core_installation_runtime_test.go. konfliktfrei gegen 213 und 207. lane 5b17f066, modell verifiziert.
 

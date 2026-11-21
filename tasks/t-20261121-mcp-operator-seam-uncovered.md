@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: Every MCP mutation path whose test expects the verbatim gate message Managed-environment machine operations require an…
 kanban_title: 0428-218 · 0428-218 mcp operator seam
 priority: normal
@@ -24,7 +24,7 @@ created: "2026-11-21T05:55:00Z"
 updated: "2026-11-21T05:55:00Z"
 ---
 
-- [ ] t-20261121-mcp-operator-seam-uncovered · 0428-218 make the MCP operator seam reachable from MCP tests #task #release/v0-4-28 #status/review #view/review #area/cli #area/observability #kind/bug
+- [ ] t-20261121-mcp-operator-seam-uncovered · 0428-218 make the MCP operator seam reachable from MCP tests #task #release/v0-4-28 #status/active #view/active #area/cli #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** normal  
     **PR:** [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741)  
@@ -32,7 +32,7 @@ updated: "2026-11-21T05:55:00Z"
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Owner:** coordinator  
@@ -102,3 +102,9 @@ Evidence: `evidence/r28-welle4-2026-11-21/mcp-operator-seam/round-1.md`. Base la
 `evidence/bug-hunt-2026-11-21/numbers-forensics/round-1.md`.
 
 delivered, abnehmbar: PR #1741 head de4a45ec5ca6, base 'lane-0428-198-cli-shard-operator-env', von MIR undrafted (draft=false gemessen nach GraphQL markPullRequestReadyForReview — ein draft hat keine required checks), der vorherige durchgang 44871830116 am selben head war 'failure', jetzt laeuft 44873244947 (in_progress, 'pull_request'): workflow-policy / native gate plan / Trusted Plan / Source format / Focused Python / go-build / go-vet / 'Go unit · owner' SUCCESS, cli-0/1/3 in arbeit. write-set = GENAU 'cmd/baha/mcp_operator_seam_test.go' (diff gegen e45430f2f1b7 gemessen), stack-beleg 'merge-base --is-ancestor e45430f2f1b7 de4a45ec5ca6' = 0. AKTE '…/mcp-operator-seam/round-1.md' (plaene 0c1f22dd, b4ff4638) haelt die eintragstabelle je MCP-aufrufstelle + 'withoutOperatorAuthTestContext'-befund, und sie hat meinen fehler zwei MAL korrigiert: ihr reichweiten-beweis war es, der meine karte 0428-218 auf den echten kern schmaelte ('der seam fehlt' war falsch, 'die faelle stempeln statt zu markieren' ist wahr). BEFUND, der an die abnahme geht: die commits am PR tragen 'Worker w206 <w206@baseharbor.local>' — ein toter baum wurde wiederverwendet (werkzeug-issue #23), die autorschaft ist also nicht ihr zeuge, ihr session-zeuge steht in der akte.
+
+CODEX-REVIEW 'review-1.md' (plan 9ac0a0cd + 577bd6a8) = 'Verdikt: REQUEST CHANGES', ein einziger inhaltlicher befund. Richtig ist dran: reichbarkeit PASS (echter 'workspaceMutationClientWithContext'-ueber 'CallTool'), BEIDE richtungen PASS (gestempelt = erfolg, anonym = 'authentication_failed'), CI-ROUTING PASS — der fall haelt per 'scripts/pr-go-unit-shard.py' auf cli-3 und ist am head ausgefuehrt (durchgang 44873244947, job 136752270714 success). BEFUND: 'cmd/baha/mcp_operator_seam_test.go:78-87' dekodiert nur 'error.code', die EXAKTE gate-zeile fehlt — der produkt-text kann sich aendern, der fall bleibt gruen. Rezept an die Lane (6c…neue lane 0428-218-msgassert): 'Message string' in die dekodierte form + exakte gleichheit im anonymen request, mutation ROT bei text-aenderung, und — weil zwei kolleginnen heute genau dort gescheitert sind (issue #24) — basis-nachzug MIT 'merge-base --is-ancestor'-beleg VOR dem push. ERBSCHAFT, vom reviewer mit gleichem basis-durchgang 44867737078 belegt: cli-0 = 'TestAppListAllTargetsWorksAfterInstallationDestroy' (0428-210/#1739), packages = 'TestPersesLokiDatasourceMultiSource*' wegen fehlendem 'providers/loki/shared/service-access/pki/client-cert.pem' (owner-stapel #1615). Aggregate bleibt failure bis 'PR Selected Checks' success.
+
+test 218
+
+probe
