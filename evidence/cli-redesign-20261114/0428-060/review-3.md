@@ -6,7 +6,7 @@ ROLLE: REVIEW
 2. Read the round-2 correction and mutation evidence at the agreed planning path. Done.
 3. Check exact-head selected checks and classify review findings. Done.
 4. Verify recent commit authorship and changed paths; record any identity finding separately from content. Done.
-5. Publish this verdict to planning evidence. In progress.
+5. Publish this verdict to planning evidence. Done.
 
 ## Candidate and evidence
 
@@ -35,3 +35,11 @@ Read-only review. No product files, PR comments, hosted checks, or workflows wer
 The mandated local `bash scripts/ci-fast-check.sh` was attempted before evidence publication. It passed source-readability and workflow-policy stages, then emitted an unittest error marker and exited 1 without a terminal test summary; a direct unittest process entered a kernel I/O wait and then disappeared without reporting a named failing test. No repository workflow was rerun. This local validation limitation is distinct from PR #1747's exact-head hosted run 44912542526, whose selected aggregate and required Go jobs passed.
 
 END codex-rev-1747 DONE: APPROVE CONTENT at fb841c2c27c90c6aa2c7b9ee9559da912ac64c2a.
+
+## origin/main path witness
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+evidence/cli-redesign-20261114/0428-060/review-3.md
+```
