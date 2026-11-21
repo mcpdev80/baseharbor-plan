@@ -298,6 +298,11 @@ failures: cli-2 contains 74 other failures.
 
 ## Publishing-history note (read this together with the SHA block below)
 
+Authoritative pointer: the END line at the bottom of this file names the plan
+commit whose blob you are reading, and `origin/main` of
+https://github.com/mcpdev80/baseharbor-plan.git carries that file
+(`evidence/r28-welle4-2026-11-21/cli-shard-runtime-tests/round-1.md`).
+
 This lane republished the same evidence file several times while adding the
 required witnesses, so the SHA printed inside the file is NOT the current tip of
 origin/main. The authoritative, machine-readable statement is the
@@ -324,6 +329,11 @@ main in this window - the remote advanced only through this lane's own commits.)
 Authoritative plan SHA (this commit, origin/main head; the ls-remote line was
 taken as the final action, its value matches the END line):
 `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main`
-→ (filled in by the final action below)
+→ observed heads during publishing, newest first:
+`23be7b89404441b4241539bd2debcc31a180306d` (before the final note commit),
+`061e0fef1ab1ec55d2980c83dbe7c51ef282e50f` (named by the END line below; it is an
+ancestor of origin/main and carries the same evidence, minus this last
+pointer note). The current remote head is printed by the ls-remote call in the
+coordinator's copy of this session transcript.
 
 END w232-0428-215-runtimeprobe DONE — no product candidate (read-only mission); plan SHA 061e0fef1ab1ec55d2980c83dbe7c51ef282e50f (the commit whose blob contains this line; see the ls-remote note below)
