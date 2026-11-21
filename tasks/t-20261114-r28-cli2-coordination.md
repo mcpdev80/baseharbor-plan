@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: coord
-kanban_status: wait
-kanban_lane: wait
+kanban_status: planned
+kanban_lane: ready
 kanban_summary: Coordinate both v0.4.28 CLI redesign and Perses as one owner-requested programme with at most five implementation/audit workers…
 kanban_title: 0428-072 · coordinate five workers
 priority: high
@@ -18,19 +18,19 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "koordinationskarte ohne eigene produktarbeit: sie wird nur aktiv, wenn ein CLI2-dispatch laeuft. im moment arbeitet keine session an der kette."
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-coordination · CLI redesign: coordinate five workers #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-coordination · CLI redesign: coordinate five workers #task #release/v0-4-28 #status/planned #view/ready #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** coord · **Priority:** high  
-    **Waiting:** koordinationskarte ohne eigene produktarbeit: sie wird nur aktiv, wenn ein CLI2-dispatch laeuft. im moment arbeitet keine session an der kette.  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** coord  
@@ -60,7 +60,7 @@ Coordinate both v0.4.28 CLI redesign and Perses as one owner-requested programme
 
 ## Handoff
 
-Planned, unassigned. No workers dispatched, implementation, product merge or release has occurred.
+Planned and unassigned: this coordination card only starts when a CLI2 dispatch is actually made. No workers are dispatched now, so it was incorrectly parked in Wait. No implementation, product merge or release has occurred.
 
 ## Perses coordination expansion (2026-11-14)
 
