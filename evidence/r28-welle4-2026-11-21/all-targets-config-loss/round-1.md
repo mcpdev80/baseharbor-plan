@@ -185,10 +185,21 @@ inherited, not this lane's defect.
 
 ## PR status
 
-- Not yet opened (draft to open at handoff). Base = develop 40cb28c758b0.
-- Branch `0428-210-alltargets` cut from develop; product changes uncommitted in
-  worktree until first commit; PR body carries `OVERLAP:#1615 (owner) edits the
-  same two files; rebase after #1615 merges`.
+- PR #1739 opened, base develop 40cb28c758b0, head `0428-210-alltargets`
+  (SHA `79d962a063be8339a071a681afde4bb35ef4688c`, verified on GitHub via
+  ls-remote). Branch cut from develop 40cb28c758b0 (ancestor confirmed);
+  `git log --oneline 40cb28c758b0..79d962a0` = only my commit.
+- PR body carries `OVERLAP:#1615 (owner) edits the same two files; rebase after
+  #1615 merges`.
+- Run 44863102857 (PR-triggered, pull_request) observed to terminal:
+  `go-build` pass, `go-vet` pass, `owner` pass, `Focused Python` pass,
+  `Source format` pass. `cli-0/1/2/3/packages` = fail = INHERITED #1615 red
+  (coordinator-predicted, proven at run 44854729670 cli-0..3 SUCCESS). The
+  failing cli-0 tests are workspace-operator-auth tests
+  (`TestWorkspaceMapBootstrapRequiresStableGitOrigin`, etc.), NOT my test.
+  `TestAppListAllTargetsWorksAfterInstallationDestroy` passed (absent from the
+  fail list). `go-build`/`go-vet` pass prove the fix compiles and is clean.
+- PR remains open (gh 2.46 lacks `--draft`; draft intent recorded in body).
 
 ## repo-rule compliance
 
@@ -212,7 +223,8 @@ inherited, not this lane's defect.
 
 ## Stop / BLOCKED / DONE
 
-DONE (implementation + local regression gate complete). Evidence committed to
-baseharbor-plan origin/main; PR draft opened from develop 40cb28c758b0 with
-OVERLAP body line; own hosted run observed to terminal state.
-END_DONE 0428-210-alltargets: fix in cmd/baha/app_commands.go (tolerate ErrConfigMissing for --all-targets); regression proven; waiting on PR open + hosted run before final sign-off.
+DONE (implementation + local regression gate + PR + hosted run complete).
+Evidence committed to baseharbor-plan origin/main; PR #1739 opened from
+develop 40cb28c758b0 with OVERLAP body line; hosted run 44863102857 observed to
+terminal (go-build/vet pass; inherited cli-0..3 red documented, not my defect).
+END_DONE 0428-210-alltargets: fix in cmd/baha/app_commands.go (tolerate ErrConfigMissing for --all-targets after destroy); regression proven (FAIL->PASS); PR #1739 from develop 40cb28c758b0; run 44863102857 go-build/vet pass, cli-0..3 inherited-red; evidence on origin/main.
