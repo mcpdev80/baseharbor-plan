@@ -58,6 +58,12 @@ No remaining findings in the reviewed diff. Merge PR #1739 first in this window:
 
 Read-only product review; no product files, workflows, or PR state were changed. Only this review evidence file is to be published. No stash was used. Evidence is in the actual planning repository, whose verified remote is recorded above.
 
+Origin publication path witness, from `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 'evidence/r28-welle4-2026-11-21/all-targets-config-loss/review-3.md'`:
+
+```text
+evidence/r28-welle4-2026-11-21/all-targets-config-loss/review-3.md
+```
+
 ## cleanliness
 
 Before review, PID 2131643 recorded `docker ps -a` at 2026-11-21 11:13:49 UTC; output contained only the table header and no containers. After review, PID 2161545 recorded `docker ps -a` at 2026-11-21 11:20:41 UTC; output contained only the table header and no containers. No containers or compose projects were started for this review.
