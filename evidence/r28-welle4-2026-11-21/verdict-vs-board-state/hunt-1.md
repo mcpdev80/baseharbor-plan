@@ -124,7 +124,7 @@ Evidence delivery proof (second-to-last action):
     $ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep verdict-vs-board-state
     evidence/r28-welle4-2026-11-21/verdict-vs-board-state/hunt-1.md
 
-Evidence commit: 945c2e19 (tip at final push) on baseharbor-plan main; base at first evidence cut: 0e70d7cf, which already contained the concurrent review-3 publication for #1739. No product-repo commit, no PR action, no card change.
+Evidence commit: 872a24ec (tip at final push) on baseharbor-plan main; base at first evidence cut: 0e70d7cf, which already contained the concurrent review-3 publication for #1739. No product-repo commit, no PR action, no card change.
 
 ## repo-rule compliance
 
@@ -143,7 +143,7 @@ Evidence commit: 945c2e19 (tip at final push) on baseharbor-plan main; base at f
 - Evidence lives only in baseharbor-plan evidence/r28-welle4-2026-11-21/verdict-vs-board-state/ (no checkboxes anywhere in this file).
 - Window note: card 0428-221 (this hunt's parent card `base-branch-provenance-loss`) references the same rewritten-history phenomenon the Fund-1/4/5/6 class-(a) rows independently confirm.
 
-END_DONE 0428-221-huntverd: verdict-vs-board desk complete — 18 Funde: class (a) stale-sha verdicts on 6 open PRs (#1739 #1742 #1702 #1650 #1645 #1738, several verdict objects unreachable after hop rewrites) + 3 merged read-backs (#1733 #1734 #1691); class (b) APPROVE without card change: #1740/0428-209 (wait) + verdictless closed #1613; class (c): 0 accepted-unmerged outcomes, 3 accepted cards cite CLOSED PRs (#1684/#1608/#1726, successors merged); class (d) RC without correction round: 7 (#1704, #1596 x2 cards, #1714, #1737, #1741, #1627/#1736). Live-window movement observed during the hunt: 0428-210 went review→closed/accepted (#1739 merged) after review-3 approved exact head bb98e22599ab1f77edc056de73c682fdfdedd88a. Evidence commit 0ad68b15 on baseharbor-plan main.
+END_DONE 0428-221-huntverd: verdict-vs-board desk complete — 18 Funde: class (a) stale-sha verdicts on 6 open PRs (#1739 #1742 #1702 #1650 #1645 #1738, several verdict objects unreachable after hop rewrites) + 3 merged read-backs (#1733 #1734 #1691); class (b) APPROVE without card change: #1740/0428-209 (wait) + verdictless closed #1613; class (c): 0 accepted-unmerged outcomes, 3 accepted cards cite CLOSED PRs (#1684/#1608/#1726, successors merged); class (d) RC without correction round: 7 (#1704, #1596 x2 cards, #1714, #1737, #1741, #1627/#1736). Live-window movement observed during the hunt: 0428-210 went review→closed/accepted (#1739 merged) after review-3 approved exact head bb98e22599ab1f77edc056de73c682fdfdedd88a. Evidence commit 872a24ec on baseharbor-plan main.
 
 ## Late-window state changes (measured during writing, 21.11.)
 
