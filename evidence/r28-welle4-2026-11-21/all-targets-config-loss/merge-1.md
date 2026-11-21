@@ -90,4 +90,10 @@ origin https://github.com/mcpdev80/baseharbor-plan.git (push)
 
 No squash or protection bypass was used. No other PR was merged and no Planning card was closed.
 
+Origin publication path witness from `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 'evidence/r28-welle4-2026-11-21/all-targets-config-loss/merge-1.md'`:
+
+```text
+evidence/r28-welle4-2026-11-21/all-targets-config-loss/merge-1.md
+```
+
 END MERGE DONE
