@@ -111,6 +111,21 @@ cleanliness: docker ps -a before = 0 rows, after = 0 rows (coordinator host; amb
     $ docker ps -a --format '{{.ID}} {{.Names}} {{.Status}}'  # after
     (no rows)
 
+## Remote and delivery witnesses
+
+Planning repo remote (verified before first evidence commit, per workspace rule):
+
+    $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v
+    origin  https://github.com/mcpdev80/baseharbor-plan.git (fetch)
+    origin  https://github.com/mcpdev80/baseharbor-plan.git (push)
+
+Evidence delivery proof (second-to-last action):
+
+    $ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep verdict-vs-board-state
+    evidence/r28-welle4-2026-11-21/verdict-vs-board-state/hunt-1.md
+
+Evidence commit: 945c2e19 (tip at final push) on baseharbor-plan main; base at first evidence cut: 0e70d7cf, which already contained the concurrent review-3 publication for #1739. No product-repo commit, no PR action, no card change.
+
 ## repo-rule compliance
 
 - ROLLE respected: reine Befundung; keine Produktdatei geändert, kein commit an baseharbor, keine PR-Aktion, keine Karten-Änderung (board fixes are the coordinator's work per mission GRENZEN).
@@ -135,3 +150,4 @@ END_DONE 0428-221-huntverd: verdict-vs-board desk complete — 18 Funde: class (
 - Card 0428-210 (#1739): moved review -> closed/accepted while this desk ran; #1739 merged. Its review-3 APPROVE binds the exact final head bb98e22599ab1f77edc056de73c682fdfdedd88a (fresh, not stale), so the Fund-1 class-(a) row applies only to review-1/2 documents.
 - Card 0428-220 (#1732-class lineage check): `target-hotfix-inspection/round-1.md` carries a "Verdict"-word token only, no review verdict; card 0428-220 is `planned`, prs empty; its round-1 diagnosis concludes the bug no longer reproduces on current base and the card is stale. Excluded from the inventory as verdictless (task evidence, not a review akte).
 - PR #1739 head re-verified by fresh `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/pull/1739/head` = bb98e22599ab1f77edc056de73c682fdfdedd88a.
+- Closing remote snapshot (final `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1738/head`): develop 97b2ba5543f07b820b5c18a688058fd932c4516f (advanced again after the earlier 77c1e60f measurements), #1738 head 7e6792939c552f89c66a53958c8eb7bcd255a1b3 unchanged. All class-(a) ancestor counts above were computed against develop 77c1e60f and remain valid for the verdict-sha-versus-head relation (head values did not move).
