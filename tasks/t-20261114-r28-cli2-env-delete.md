@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: Codex owner (combined validation ref)
-kanban_status: review
-kanban_lane: review
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Environment deletion lifecycle. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-055 · Env deletion lifecycle
 priority: high
@@ -18,20 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1627, mcpdev80/baseharbor#1736]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "VIERTE RUNDE AN DERSELBEN STELLE, jetzt gemeldet und retireiert (01:1xZ gemessen): refs/pull/1627/head = b3b0c2c9efc, base develop 42da7128e72, der massgebliche run ist 44961334018 (in_progress, 42 jobs). die kette: 8de37f58caa (fixture ohne operator-context) -> 62dd38f9b6d (hop) -> ac05cc4efbc (testOperatorContext in cmd/baha/test_operator_context_test.go:18-29) -> 38be89aa4a0 (stop mode im consent) -> b3b0c2c9efc (newApplicationDestroyExecution mit identischem --uuid/--yes, consent aus dem aufgeloesten object), weil das env destroy die UUID neu aufgeloest hatte. die laeufe 44958801932 (ac05cc4efbc), 44960199639 (38be89aa4a0), 44958293233 und 44957245330 sind completed/CANCELLED und zaehlen nicht; die akte review-1627-postfix-ac05cc4efbc.md erhaelt von der review-session eine SUPERSEDED-zeile (mission sha256 retire). NEUER SACHVERHALT, von mir gemessen: 'git merge-base --is-ancestor refs/pull/1736/head refs/pull/1627/head' = NEIN - 4c919fd61f3 ist nach seinem eigenen hop KEIN ancestor mehr von b3b0c2c9efc, #1736 faellt damit aus dem #1627-validation-stack heraus und braucht eigenen exact-head run plus eigenen merge (oder #1627 wird auf #1736s branch neu gehoppt). WARTEGRUND: terminaler gruen-exakter run 44961334018, dann verdict auf b3b0c2c9efc; #1736 parallel auf 4c919fd61f3 (run 44960494316 in_progress, 0 failures)."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1627", "https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677", "https://github.com/mcpdev80/baseharbor/actions/runs/44852435311", "https://github.com/mcpdev80/baseharbor/pull/1615", "https://github.com/mcpdev80/baseharbor/pull/1736", "https://github.com/mcpdev80/baseharbor/actions/runs/44859609354"]
 ---
 
-- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** Codex owner (combined validation ref) · **Priority:** high  
     **PR:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627), [baseharbor#1736](https://github.com/mcpdev80/baseharbor/pull/1736)  
+    **Waiting:** VIERTE RUNDE AN DERSELBEN STELLE, jetzt gemeldet und retireiert (01:1xZ gemessen): refs/pull/1627/head = b3b0c2c9efc, base develop 42da7128e72, der massgebliche run ist 44961334018 (in\_progress, 42 jobs). die kette: 8de37f58caa (fixture oh…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1627), [proof 2](https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44852435311), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1615), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1736), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44859609354)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
 **Required by:** [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md)  
