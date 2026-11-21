@@ -108,6 +108,28 @@ docker ps -a AFTER:
 - kein Container/compose gestartet -> Host ist clean.
 - Baum `.w230-oldbase` unangetastet (status --porcelain = 0).
 
+## STATE (retry)
+
+Owner nachmessen: die drei rulesets ('develop - integration branch', 'develop - required checks', 'main - released source') tragen enforcement=disabled; die Ablehnung kommt also NICHT von einem Ruleset-Muster. Alle drei Push-Versuche scheitern an GitHub OAuth App 'workflow' scope: 3f7600ded erreicht in seiner Geschichte den commit e3b4300f3, der .github/workflows/ci.yml trägt (e3b4300f3 ist bereits Vorfahre von develop, also tragt develop jene Datei ebenfalls; ein NEUER branch, dessen Geschichte e3b4300f3 erreicht, loest die OAuth-App-scope-pruefung aus, weil der token den 'workflow' scope fehlt). Die superseded-refs (52866ae38/6442955f4) erreichen denselben commit und wurden akzeptiert; nur 3f7600ded laeuft in die pruefung. Kein code-pfad um den fehlenden workflow-scope heraus.
+
+pruefung refs/heads/preserve/ (git -C baseharbor for-each-ref refs/heads/preserve/): LEER (lokaler branch nicht mehr vorhanden).
+
+versuch (a): git -C baseharbor push lane-origin 3f7600ded0d98902ec689543fa29ad4fdc0d3e6e:refs/heads/preserve/230-oldbase
+  ! [remote rejected]  3f7600ded0d98902ec689543fa29ad4fdc0d3e6e -> preserve/230-oldbase (refusing to allow an OAuth App to create or update workflow `.github/workflows/ci.yml` without `workflow` scope)
+  exit=1
+
+versuch (b): git -C baseharbor push lane-origin 3f7600ded0d98902ec689543fa29ad4fdc0d3e6e:refs/heads/lane-0428-142-preserve
+  ! [remote rejected]  3f7600ded0d98902ec689543fa29ad4fdc0d3e6e -> lane-0428-142-preserve (refusing to allow an OAuth App to create or update workflow `.github/workflows/ci.yml` without `workflow` scope)
+  exit=1
+
+versuch (c): git -C baseharbor push https://github.com/mcpdev80/baseharbor.git 3f7600ded0d98902ec689543fa29ad4fdc0d3e6e:refs/heads/preserve/230-oldbase
+  ! [remote rejected]  3f7600ded0d98902ec689543fa29ad4fdc0d3e6e -> preserve/230-oldbase (refusing to allow an OAuth App to create or update workflow `.github/workflows/ci.yml` without `workflow` scope)
+  exit=1
+
+alle drei versuche: identische ablehnung, KEIN durchgang. lokaler branch preserve-142-01 (auf 3f7600ded) nach den versuchen mit 'git branch -D' geloescht; kein stray branch mehr auf lane-origin fuer 3f7600ded.
+
+einziger halteort fuer 3f7600ded ist der worktree workers/.w230-oldbase (detached head 3f7600ded0d98902ec689543fa29ad4fdc0d3e6e, status --porcelain = 0, unangetastet). Kein 'git stash', keine subagenten (§4.8).
+
 ## END
 
 END_BLOCKED 0428-142-preserve: superseded 52866ae38/6442955f4 preserved as branches on lane-origin; owner decision (a)/(b) documented above (fund: option (a)). candidate SHA 3f7600ded0d98902ec689543fa29ad4fdc0d3e6e is RETRIEVABLE via the .w230-oldbase detached head and the product repo but CANNOT be pushed to lane-origin: GitHub OAuth App rejects refs/heads/preserve/0428-142-w230-oldbase with "refusing to allow an OAuth App to create or update workflow .github/workflows/ci.yml without workflow scope" (its history reaches e3b4300f3, an ancestor of develop which carries that workflow). No code path around an OAuth App lacking the workflow scope. Worktree .w230-oldbase untouched (status --porcelain = 0). Requires owner (workflow-scope token, or a branch cut that does not reach e3b4300f3) to finalize the remote witness.
