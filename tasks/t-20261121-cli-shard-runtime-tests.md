@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1743]
 sources: []
 blocker: ""
-wait_reason: "PR #1743 exact run 44877364076 at c506624d14e3 failed Podman: direct native inspect confirms the exact expected network name and both Compose labels, but prepareCoreDefaultNetworkBinding returns nil; Docker ran the new test and passed, then failed later in an unrelated existing native test. Diagnostic head 2281886ef45ff1628d5e6f0778b2da3c9527e460 adds the provider InspectProjectResources result/error to the failure output; exact run 44877777956 is queued. Keep this in Wait until both Docker and Podman tests pass without skip and required checks are terminal."
+wait_reason: "PR #1743 run 44878287581 at fc79b746 confirms Podman direct inspect and network ls see the expected network, while provider InspectProjectResources returns []: the test fixture inherited runner XDG_CONFIG_HOME/XDG_DATA_HOME but BaseHarbor intentionally strips both for Podman, so the fixture was in a different store. Head 57e7941772ce85dbc60bad7faddd3613c3191c4c now uses the established Podman test environment that unsets those variables for fixture create/inspect/list/cleanup. Exact run 44878727267 is queued. Keep waiting for both native tests to PASS without skips and required checks to become terminal."
 resolution: ""
 evidence:
   - "https://github.com/mcpdev80/baseharbor/pull/1743"
@@ -28,14 +28,16 @@ evidence:
   - "https://github.com/mcpdev80/baseharbor/actions/runs/44876725420"
   - "https://github.com/mcpdev80/baseharbor/actions/runs/44877364076"
   - "https://github.com/mcpdev80/baseharbor/actions/runs/44877777956"
+  - "https://github.com/mcpdev80/baseharbor/actions/runs/44878287581"
+  - "https://github.com/mcpdev80/baseharbor/actions/runs/44878727267"
 ---
 
 - [ ] t-20261121-cli-shard-runtime-tests · 0428-215 Go-unit cli shards run tests that need a real runtime #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1743](https://github.com/mcpdev80/baseharbor/pull/1743)  
-    **Waiting:** PR \#1743 exact run 44877364076 at c506624d14e3 failed Podman: direct native inspect confirms the exact expected network name and both Compose labels, but prepareCoreDefaultNetworkBinding returns nil; Docker ran the new test and passed, the…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1743), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44875389702), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44875693455), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44876072403), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44876725420), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44877364076), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44877777956)  
+    **Waiting:** PR \#1743 run 44878287581 at fc79b746 confirms Podman direct inspect and network ls see the expected network, while provider InspectProjectResources returns \[\]: the test fixture inherited runner XDG\_CONFIG\_HOME/XDG\_DATA\_HOME but BaseHarbor…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1743), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44875389702), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44875693455), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44876072403), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44876725420), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44877364076), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44877777956), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/44878287581), [proof 9](https://github.com/mcpdev80/baseharbor/actions/runs/44878727267)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -122,7 +124,7 @@ add a new job or workflow, or turn a daemon-dependent assertion into a skip.
 
 ## Handoff
 
-Branch `codex/0428-215-native-network`, PR #1743. Run 44877364076 at `c506624d14e3c6939c204da12926cd0416daf3ca` proves Docker PASS and Podman FAIL despite direct inspect confirming the expected network name and both Compose labels; see evidence round-6. Latest diagnostic head is `2281886ef45ff1628d5e6f0778b2da3c9527e460`; exact run 44877777956 is queued. Closeout requires both native tests to PASS without skips and required checks to be terminal.
+Branch `codex/0428-215-native-network`, PR #1743. Run 44877364076 at `c506624d14e3c6939c204da12926cd0416daf3ca` proves Docker PASS and Podman FAIL despite direct inspect confirming the expected network name and both Compose labels; see evidence round-6. Run 44878287581 at `fc79b74627d12fd7c5096621069480861069797e` diagnosed the Podman fixture XDG-store mismatch; evidence is in round-7. Latest candidate head `57e7941772ce85dbc60bad7faddd3613c3191c4c` aligns direct fixture commands with BaseHarbor’s existing Podman environment, and exact run 44878727267 is queued. Closeout requires both native tests to PASS without skips and required checks to be terminal.
 
 2026-11-21 owner reassignment: the coordinator's round-2 evidence identified a real missing native assertion and exact
 existing gate. Per the Maintainer's Wait-sweep directive, this lane owns only the required test in that existing gate; it
@@ -144,3 +146,6 @@ Mein CI-bedarf war richtig adressiert, der owner war schneller als die Lanes. 'w
 
 
 Continuation 2026-11-21: after the corrected two-label fixture still failed only in Podman, the native test now captures direct runtime labels and, on refusal failure, the actual provider `InspectProjectResources` result/error. This makes the next native run diagnostic without changing product code or CI routing.
+
+
+Continuation 2026-11-21: Podman direct inspect and `network ls` saw the fixture while the provider inventory did not. The test had inherited XDG isolation that the production Podman subprocess contract deliberately removes. The fixture now mirrors existing native Podman test helpers by unsetting those two variables for all direct runtime operations; see evidence round-7.
