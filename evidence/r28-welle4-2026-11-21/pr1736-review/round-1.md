@@ -9,7 +9,7 @@ Base: `develop` at `e6c199e7b7dd7d076a776d11c3ba16f25e59c254`
 2. Verify remote PR heads, exact base ancestry, diff, commit authors, and dependent PR #1627. Done.
 3. Trace trusted coverage mapping, lifecycle gate selection and shards, fallback, and CI test routing. Done.
 4. Observe the exact-head hosted run to terminal, count per-job log bytes, and decide verdict. Done.
-5. Publish only this evidence file, verify origin/main tree presence, and post END. In progress.
+5. Publish only this evidence file, verify origin/main tree presence, and post END. Done.
 
 ## Candidate and dependency witnesses
 
@@ -96,6 +96,12 @@ No test, container, or compose project was started. Initial Docker witness, PID 
 
 ## END
 
-END_DONE codex-rev-1747: APPROVE CONTENT with pre-merge condition; keep #1736 draft until #1627 lands with the lifecycle test registered and executed on both runtimes; candidate a595472b77fb3620fac1dd457448211a86e3be24; plan SHA pending.
+END_DONE codex-rev-1747: APPROVE CONTENT with pre-merge condition; keep #1736 draft until #1627 lands with lifecycle test registration and both runtime executions; candidate a595472b77fb3620fac1dd457448211a86e3be24. Initial evidence publication SHA: 4966913b4.
 
 Planning validation in the clean planning worktree: `python3 scripts/plan.py render && python3 scripts/plan.py check` completed with 0 errors and 11 existing dependency warnings. `git diff --check` passed and no checkbox syntax is present in this evidence. This planning-only publication uses the plan repository's validator; product `scripts/ci-fast-check.sh` is not part of this evidence-only change.
+
+Required origin/main tree witness, exact command output after fetch:
+
+```text
+evidence/r28-welle4-2026-11-21/pr1736-review/round-1.md
+```
