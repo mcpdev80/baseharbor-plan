@@ -8,34 +8,36 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w27-pr1627-0428-061-pull
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Implement guided source pull. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-061 · Implement guided source pull
 priority: high
 depends_on: [t-20261114-r28-cli2-app-lifecycle, t-20261114-r28-cli2-source-model]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1752]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "waartet auf einen freien build-platz auf dem host der lane: END_BLOCKED meldet '/' bei 100% (~1.2 G frei) und tmpfs-quota 12 MB/ordner, das blockt das finale cmd/baha-link, den cold-cache vet und damit das CI-gate; die implementation + tests sind geschrieben und waren PASS bei warmer build-cache, draft PR #1752 steht gegen develop auf head 4bae3194fa7, evidence ist auf baseharbor-plan origin/main. keine scratch-dateien anderer lanen wurden entfernt. naechster trigger: platz auf dem laptop-host (der coordinator-host hat seit 01:1xZ wieder 7.8 G frei, der laptop-host ist es nicht) oder ein freier build-rechner; danach exact hosted CI + unverified-capability positive/negative verification."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-source-pull · CLI redesign: Implement guided source pull #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-source-pull · CLI redesign: Implement guided source pull #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** w27-pr1627-0428-061-pull · **Priority:** high  
+    **PR:** [baseharbor#1752](https://github.com/mcpdev80/baseharbor/pull/1752)  
+    **Waiting:** waartet auf einen freien build-platz auf dem host der lane: END\_BLOCKED meldet '/' bei 100% (~1.2 G frei) und tmpfs-quota 12 MB/ordner, das blockt das finale cmd/baha-link, den cold-cache vet und damit das CI-gate; die implementation + tes…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-app-lifecycle](t-20261114-r28-cli2-app-lifecycle.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
 **Owner:** w27-pr1627-0428-061-pull  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1752](https://github.com/mcpdev80/baseharbor/pull/1752)  
 **Source:** 
 <!-- /generated:links -->
 
