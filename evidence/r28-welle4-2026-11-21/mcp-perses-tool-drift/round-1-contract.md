@@ -169,3 +169,20 @@ the live server surface to `internal/machine/contract.go` line-by-line.
 
 - Post a QUESTION: trigger the hosted CI run via a worker lane with GitHub auth,
   or approve handoff on the local fail-first proof. Do NOT abort on this STATE.
+
+## CLEAN
+
+- Worktree: `workers/w26-pr1588-0428-225-mcpcontract-wt` (shared, beside working dir; no clone under /tmp).
+- No containers/compose/projects started; nothing to bring down.
+- Go build cache cleared (`go clean -cache`) and stray `/tmp/go-build*` temp dirs
+  removed to reclaim tmpfs bytes.
+- No stray files created in the ecosystem root beyond this evidence file (planning)
+  and the board todo (bookkeeping).
+- Only `cmd/baha/agent_mcp_test.go` changed in the product.
+
+## END
+
+END w26-pr1588-0428-225-mcpcontract DONE
+candidate SHA: bdc7c1a9e6e6b1de29afb916d28712eba95dff56
+PR: #1751 (base develop, non-draft, head bdc7c1a9)
+decision: surface-aufgenommen
