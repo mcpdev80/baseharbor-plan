@@ -3,7 +3,7 @@
 ## Lane / Mission
 - Lane: 0428-216-supersession (session 46c171ac), slice H-V28, pure findings + proposals. No product change, no PR close/comment/ready/retarget, no card-status change — decisions stay with the coordinator.
 - Mission: `/var/tmp/h28.txt`. Base akte: `evidence/r28-welle4-2026-11-21/stale-pr-hop-and-baserefs/round-2.md` (plan 40b670a4).
-- Worktree: `/tmp/opencode/0428-216-supersession-wt` (detached at develop, read-only analysis; no branch was created because nothing is pushed to baseharbor).
+- Worktree: `/tmp/opencode/0428-216-supersession-wt` (detached at develop 40cb28c758b0, read-only analysis; no branch was created because nothing is pushed to baseharbor). Removed as the lane's last action (`git worktree remove`); the shared checkout's worktree list is unchanged otherwise.
 - Planning repo remote witness (`git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v`): `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)` — correct planning repo, not workers/.
 - Baseharbor remotes (`git remote -v` in /home/marcel/dev/baseharbor-ecosystem/baseharbor): `lane-origin`, `origin`, `upstream` all resolve to `https://github.com/mcpdev80/baseharbor.git`; every fetch/measure was issued explicitly against `lane-origin`.
 - Base attestation: `git ls-remote lane-origin refs/heads/develop` => `40cb28c758b02960356434b630086a341ebe1738 refs/heads/develop` (same as round 2's measurement; all analysis is against this develop and freshly fetched `refs/pull/<n>/head`).
