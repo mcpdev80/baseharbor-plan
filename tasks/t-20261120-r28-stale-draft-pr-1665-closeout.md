@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w176-pr1665-1665-closeout
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-176 · restack with evidence or close
 priority: ""
@@ -18,20 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1665]
 sources: []
 blocker: ""
-wait_reason: "Started closeout/restack work is paused on overlapping work in #1684 (0428-083) and the 0428-177 runtime prerequisite. The shared file cannot be safely restacked while that work is active and the required runtime smoke is red. Resume when #1684 is merged or 0428-177 lands; then reconcile each file and either close with supersession evidence or restack and run exact-head CI."
-resolution: ""
-evidence: []
+wait_reason: ""
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44895755773", "https://github.com/mcpdev80/baseharbor/pull/1665"]
 ---
 
-- [ ] t-20261120-r28-stale-draft-pr-1665-closeout · Stale draft PR #1665 on parked card 0428-082: restack with evidence or close #task #release/v0-4-28 #status/wait #view/wait #kind/maintenance
+- [x] t-20261120-r28-stale-draft-pr-1665-closeout · Stale draft PR #1665 on parked card 0428-082: restack with evidence or close #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/maintenance
     <!-- generated:card -->
     **Owner:** w176-pr1665-1665-closeout  
     **PR:** [baseharbor#1665](https://github.com/mcpdev80/baseharbor/pull/1665)  
-    **Waiting:** Started closeout/restack work is paused on overlapping work in \#1684 (0428-083) and the 0428-177 runtime prerequisite. The shared file cannot be safely restacked while that work is active and the required runtime smoke is red. Resume when…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44895755773), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1665)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w176-pr1665-1665-closeout  
@@ -71,3 +71,8 @@ evidence: []
 
 
 ---
+
+
+## Completion — 2026-11-21
+
+Restacked #1665 onto develop, marked ready, passed exact-head pull_request run 44895755773 at e84e434bc1b49ce43a1c48041312242c8a56a981, then merged as 77c1e60f51b91003ac3ddc391008c15e4a713a5c. Full test-to-gate evidence: [closeout record](../evidence/closeouts/0428-082-176-2026-11-21.md).

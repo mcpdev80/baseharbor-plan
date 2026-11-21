@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w208-0428-082-dashboards
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: Create native Perses infrastructure dashboards with verified metrics and explicit missing-signal behavior.
 kanban_title: 0428-082 · Perses Infra dashboards
 priority: normal
@@ -18,20 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1665]
 sources: []
 blocker: ""
-wait_reason: "handoff abgeschlossen, ABER DIE PLATTFORM SAGT NEIN ZU NICHT-entwick-basen: #1665 hat jetzt base refs/heads/lane-0428-083-datasources-r2 und 14 dateien (der 333-dateien-zustand ist WEG, mein retarget hat also gewirkt), 13 tests bestehen lokal. die required-zellen koennen auf dieser base NICHT laufen: gemessen am head db27880c108a = 3 success / 7 failure / 48 skipped / 2 cancelled, und die fehlgeschlagenen namen sind 'PR · Draft Go · cli-0/1/3', 'Workflow policy', 'PR Trusted Plan', 'PR Selected Checks' - das workflow-triggerschluesselwort haengt am base-ref, nicht am draft-flag (der PR ist draft=false, gemessen). DARUM wait statt review: die karte wartet auf den MERGE ihrer basis-lane (#1724 -> #1684), nicht auf inhaltlichen vorgaengern. TRIGGER FUER DIE NAechSTE KANTE: #1684 ist auf develop, dann base zurueck auf develop, ein exact-head-CI, dann abnahme. KEIN rerun von der lane aus (§3.8). ZWISCHENZEIT wird eine neue regeskarte daraus, ob gestapelte PRs im fenster ueberhaupt required-zellen bekommen duerfen - das ist ein .github/**-thema beim owner."
-resolution: ""
-evidence: []
+wait_reason: ""
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44895755773", "https://github.com/mcpdev80/baseharbor/pull/1665"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboards · Perses infrastructure dashboards #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
+- [x] t-20261114-r28-perses-dashboards · Perses infrastructure dashboards #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w208-0428-082-dashboards · **Priority:** normal  
     **PR:** [baseharbor#1665](https://github.com/mcpdev80/baseharbor/pull/1665)  
-    **Waiting:** handoff abgeschlossen, ABER DIE PLATTFORM SAGT NEIN ZU NICHT-entwick-basen: \#1665 hat jetzt base refs/heads/lane-0428-083-datasources-r2 und 14 dateien (der 333-dateien-zustand ist WEG, mein retarget hat also gewirkt), 13 tests bestehen lo…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44895755773), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1665)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md), [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
@@ -86,3 +86,8 @@ SITZ W208 AUF IHRER KARTE - ZWEI PFLICHTSCHRITTE, BEIDE VON MIR VORGEBEREITET: (
 BASIS-ARTEFAKT GEMESSEN, NICHT SCOPE-FEHLER DER LANE: #1665 zeigt 333 dateien inkl. gesperrter rails (internal/capability/perses_selection.go, internal/identityprovider/**, 5 dateien unter .github/workflows/), WEIL die PR-base auf refs/heads/w083-perses-datasources = ed55d893374b zeigt, die 083-lane aber auf refs/heads/lane-0428-083-datasources-r2 = b71c6da27e8b veroeffentlicht. Ihr head db27880c108a sitzt sauber auf 408b18d2 (177) -> b71c6da2 (083). w208 hat den retarget-befehl ('gh api -X PATCH .../pulls/1665 -f base=lane-0428-083-datasources-r2') + die auflage, rail-freiheit der dateiliste VOR dem undraft selbst zu belegen; die draft-sweep-aussage 'undraft-faehig NEIN wegen rail-beruehrung' ist damit fuer #1665 ueberholt.
 
 handoff abgeschlossen, ABER DIE PLATTFORM SAGT NEIN ZU NICHT-entwick-basen: #1665 hat jetzt base refs/heads/lane-0428-083-datasources-r2 und 14 dateien (der 333-dateien-zustand ist WEG, mein retarget hat also gewirkt), 13 tests bestehen lokal. die required-zellen koennen auf dieser base NICHT laufen: gemessen am head db27880c108a = 3 success / 7 failure / 48 skipped / 2 cancelled, und die fehlgeschlagenen namen sind 'PR · Draft Go · cli-0/1/3', 'Workflow policy', 'PR Trusted Plan', 'PR Selected Checks' - das workflow-triggerschluesselwort haengt am base-ref, nicht am draft-flag (der PR ist draft=false, gemessen). DARUM wait statt review: die karte wartet auf den MERGE ihrer basis-lane (#1724 -> #1684), nicht auf inhaltlichen vorgaengern. TRIGGER FUER DIE NAechSTE KANTE: #1684 ist auf develop, dann base zurueck auf develop, ein exact-head-CI, dann abnahme. KEIN rerun von der lane aus (§3.8). ZWISCHENZEIT wird eine neue regeskarte daraus, ob gestapelte PRs im fenster ueberhaupt required-zellen bekommen duerfen - das ist ein .github/**-thema beim owner.
+
+
+## Completion — 2026-11-21
+
+Implemented via #1665 at e84e434bc1b49ce43a1c48041312242c8a56a981; exact PR run 44895755773 passed, merge commit 77c1e60f51b91003ac3ddc391008c15e4a713a5c. Full test-to-gate evidence: [closeout record](../evidence/closeouts/0428-082-176-2026-11-21.md).

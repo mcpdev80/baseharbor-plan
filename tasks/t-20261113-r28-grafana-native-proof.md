@@ -27,7 +27,7 @@ early: true
 - [x] t-20261113-r28-grafana-native-proof · Prove Grafana native monitoring #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/acceptance #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-grafana-alerts](t-20261113-r28-grafana-alerts.md), [t-20261113-r28-grafana-contact-routing](t-20261113-r28-grafana-contact-routing.md), [t-20261113-r28-grafana-dashboard-databases](t-20261113-r28-grafana-dashboard-databases.md), [t-20261113-r28-grafana-dashboards](t-20261113-r28-grafana-dashboards.md), [t-20261113-r28-grafana-log-trace-dash](t-20261113-r28-grafana-log-trace-dash.md)  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-grafana-alerts](t-20261113-r28-grafana-alerts.md), [t-20261113-r28-grafana-contact-routing](t-20261113-r28-grafana-contact-routing.md), [t-20261113-r28-grafana-dashboard-databases](t-20261113-r28-grafana-dashboard-databases.md), [t-20261113-r28-grafana-log-trace-dash](t-20261113-r28-grafana-log-trace-dash.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-perses-replaces-grafana-v0428.md)  
     <!-- /generated:card -->
 
