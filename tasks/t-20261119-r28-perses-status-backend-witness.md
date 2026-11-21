@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w230-0428-142-hop
-kanban_status: review
-kanban_lane: review
+owner: coordinator
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "'baha perses status' nennt pro observability-signal eine ECHTE backend-witness (erreicht / gematcht / nicht erreichbar) statt…"
 kanban_title: 0428-142 · echte backend-witness fuer
 priority: ""
@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1702]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "CODEX-REVIEW REQUEST CHANGES (review-2.md, plan 6eb9ff25): der hop nahm den inhalt von 3f7600ded0d9 nicht mit (kommentar 'configured' -> 'configured_unverified' + lifecycle-help-text fehlen). korrektur-auftrag liegt fertig und gated in 'coordinator/scripts/pending-mission-142fix.txt'; dispatch auf den ersten freien sitz (ornith derzeit 2/2 belegt, 'ADMISSION-HOLD [POOL-FULL ornith 2/2'])."
 resolution: ""
 evidence: []
 ---
@@ -31,18 +31,19 @@ omit those sources from scrape targets. This assigned, started lane is parked
 pending worker capacity. #1702 still needs the concrete review corrections and
 a fresh exact-head run; it is not ready to merge.
 
-- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
-    **Owner:** w230-0428-142-hop  
+    **Owner:** coordinator  
     **PR:** [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702)  
+    **Waiting:** CODEX-REVIEW REQUEST CHANGES (review-2.md, plan 6eb9ff25): der hop nahm den inhalt von 3f7600ded0d9 nicht mit (kommentar 'configured' -\> 'configured\_unverified' + lifecycle-help-text fehlen). korrektur-auftrag liegt fertig und gated in 'co…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261119-r28-perses-alert-verifier-caller-wiring](t-20261119-r28-perses-alert-verifier-caller-wiring.md)  
-**Owner:** w230-0428-142-hop  
+**Owner:** coordinator  
 **Priority:** not set  
 **PRs:** [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702)  
 **Source:** 
