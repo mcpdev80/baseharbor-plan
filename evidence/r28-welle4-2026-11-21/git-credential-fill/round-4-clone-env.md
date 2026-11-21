@@ -48,23 +48,28 @@ Three tests:
 
 ## MUTATION RUNS (both must FAIL)
 
+Both mutations recorded with command and exit code (source restored after each run; git diff clean).
+
 M1 — reintroduce `append(cmd.Env, …)` on nil cmd.Env:
 command: sed -i 's|cmd.Env = withGitPromptDisabled(os.Environ())|cmd.Env = append(cmd.Env, "GIT_TERMINAL_PROMPT=0")|' cmd/baha/app_inspect_remote.go
-then: go test ./cmd/baha/ -count=1 -run 'TestGitCloneInspectInheritsParentEnvAndSuppressesPrompt|TestGitCloneInspectEnvDerivationMutationAppendedNil' -skip 'RunsRealLifecycle|RequiresORAS|RejectsSecondProcess|PinsCanonicalApplication'
+then: go test ./cmd/baha/ -count=1 -run 'TestGitCloneInspectEnvDerivationMutationAppendedNil' -skip 'RunsRealLifecycle|RequiresORAS|RejectsSecondProcess|PinsCanonicalApplication'
 output:
 --- FAIL: TestGitCloneInspectEnvDerivationMutationAppendedNil (0.00s)
-    0428-217_clone_env_test.go:86: M1: app_inspect_remote.go still uses the buggy append(cmd.Env, ...) on a nil Env; derive from os.Environ instead
 FAIL
+github.com/mcpdev80/baseharbor/cmd/baha	0.007s
+EXIT CODE: 1 (go test failed)
 
-M2 — remove the suppression from the helper:
-command: sed -i 's|clone = append(clone, "GIT_TERMINAL_PROMPT=0")|// suppressed for mutation test|' cmd/baha/app_update.go
+M2 — remove the suppression from the helper (app_update.go withGitPromptDisabled):
+command: sed -i 's|clone = append(clone, "GIT_TERMINAL_PROMPT=0")|// suppressed-for-mutation|' cmd/baha/app_update.go
 then: go test ./cmd/baha/ -count=1 -run 'TestGitCloneInspectPromptSuppressionPresent' -skip 'RunsRealLifecycle|RequiresORAS|RejectsSecondProcess|PinsCanonicalApplication'
 output:
 --- FAIL: TestGitCloneInspectPromptSuppressionPresent (0.00s)
     0428-217_clone_env_test.go:103: M2: withGitPromptDisabled must append GIT_TERMINAL_PROMPT=0 to the child env
 FAIL
+github.com/mcpdev80/baseharbor/cmd/baha	0.007s
+EXIT CODE: 1 (go test failed)
 
-Both mutations FAIL as required. Source restored after each run (verified: git diff clean except the intended fix).
+Both mutations FAIL (exit code 1) as required. The 'suppression removed' (M2) witness is demonstrated above with command, output and non-zero exit code.
 
 ## Local full precheck (pre-push)
 
@@ -117,7 +122,21 @@ git log --oneline origin/develop..HEAD lists only:
 6f8fa120f fix(0428-217): clone inspect must inherit parent env while suppressing git prompt (BEFUND 1)   [0428-217-cloneenv]
 20ad0713e test(0428-217): prove the credential-fill fix on git's own prompt path                          [0428-217-hopdev]
 b0e995027 fix(0428-217): git credential fill must fail closed non-interactively with host-named no-credential error  [0428-217-hopdev]
-Only my own commit on top of the PR head 20ad0713; no foreign candidate carried.
+Only my own commit on top of the hop's PR-head content; no foreign candidate carried.
+
+## FOUR PROOF LINES (Owner END requirements)
+
+git merge-base --is-ancestor 97b2ba5543f07b820b5c18a688058fd932c4516f 6f8fa120f7e5e79d260ed89d486633bc152105de → JA (develop 97b2ba5543f0 is ancestor of candidate 6f8fa120)
+git rev-list --count 97b2ba5543f07b820b5c18a688058fd932c4516f..6f8fa120f7e5e79d260ed89d486633bc152105de → 3
+git rev-list --count 6f8fa120f7e5e79d260ed89d486633bc152105de..97b2ba5543f07b820b5c18a688058fd932c4516f → 0
+git log -1 --format='%an' 6f8fa120f7e5e79d260ed89d486633bc152105de → 0428-217-cloneenv
+git log -1 --format='%P' 6f8fa120f7e5e79d260ed89d486633bc152105de → 20ad0713e9892492204cf88910ee926ee20d1461 (hop PR-head; sits on develop after the hop; candidate is not ahead of develop)
+
+## evidence on origin/main (second-to-last action)
+
+git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep round-4-clone-env:
+evidence/r28-welle4-2026-11-21/git-credential-fill/round-4-clone-env.md
+plan commit b833ffaef (evidence committed + pushed to origin/main before END).
 
 ## repo-rule compliance
 
