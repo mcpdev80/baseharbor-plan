@@ -53,3 +53,12 @@ No merge performed.
 ## END codex-rev-1747 DONE
 
 #1702 approved at exact head `5761ebe6914abab0817b8f5f7a68fba64d0069b1`; run `44946315002` completed successfully with 15 jobs successful, 21 skipped, and 0 failures; plan-sha `038404ec4bd611aba8eb71ad56f949f14dd929e041e09e3feb3c8ce8be5b5094`; fail-first and identity corrections confirmed.
+
+## Planning publication witness
+
+- Evidence commit `e0273b919` was pushed to Planning `origin/main`; `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main` returned `e0273b919198a7ad6d292a5ce2656b821e7d6e4b refs/heads/main`.
+- Exact output of `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle4-2026-11-21/trust-status-backend-witness/review-2-head5761ebe6.md`:
+
+```text
+evidence/r28-welle4-2026-11-21/trust-status-backend-witness/review-2-head5761ebe6.md
+```
