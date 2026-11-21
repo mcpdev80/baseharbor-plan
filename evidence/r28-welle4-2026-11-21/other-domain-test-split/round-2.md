@@ -348,7 +348,22 @@ per QUESTION. Diese Lane hat null container gestartet (§10).
 - cleanliness: besenrein — kein eigener compose-project, keine hinterlassenen prozesse, scratch nur
   unter /tmp/opencode/w206r2 und /tmp/opencode/w206-0428-206-split-wt.
 
+## Publishing witness
+
+```
+$ git -C baseharbor-plan add evidence/r28-welle4-2026-11-21/other-domain-test-split/round-2.md   (kein git add -A)
+$ git -C baseharbor-plan commit  -> 76ad176457c0b48b955dec6e6ec24cfabc1bd58e
+$ git -C baseharbor-plan push origin main
+$ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main \
+    | grep evidence/r28-welle4-2026-11-21/other-domain-test-split/round-2
+evidence/r28-welle4-2026-11-21/other-domain-test-split/round-2.md
+$ git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main
+76ad176457c0b48b955dec6e6ec24cfabc1bd58e  refs/heads/main
+```
+
+The witness block itself rides commit 2 on top (origin/main moves accordingly); commit 1 `76ad1764…`
+is the inventory body.
+
 ## END
 
-END_DONE 0428-206-testsplit-recount: inventur 117/117 zeilenweise publiziert, summenprobe 97+7+9+1+3=117,
-kein kandidat (diagnosis-karte) — plan sha in der END-Meldung; coordinator bucht die karte auf wait.
+END_DONE 0428-206-testsplit-recount: inventur 117/117 zeilenweise publiziert (evidence/r28-welle4-2026-11-21/other-domain-test-split/round-2.md), summenprobe 97+7+9+1+3=117, abzug A14/B76/C14/D10/D?3, heil-stempel 115/117 gegen #1615-head, kein kandidat (diagnosis-karte) — plan sha siehe ls-remote oben; coordinator bucht die karte auf wait.
