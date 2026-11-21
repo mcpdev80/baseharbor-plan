@@ -395,6 +395,15 @@ After: this lane started NOTHING (no test executed, no compose project, no state
 `cleanliness:` no container/network/volume/state directory created by w224; scratch limited to the
 /tmp/w224-* files listed above; worktree reused read-only at base SHA.
 
+## origin/main witness (evidence delivery)
+
+```
+$ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/bug-hunt-2026-11-21/fail-closed-honesty
+evidence/bug-hunt-2026-11-21/fail-closed-honesty/round-1.md
+```
+
+Plan head carrying this dossier at END: `2f1223c100ba22e8552a3ab32c760a558e083688` (origin/main).
+
 ## END
 
 END_DONE w224-0428-204-huntfc: H-V23 fail-closed-honesty desk complete — 1 BEFUND (core_installation_runtime_test.go:323
