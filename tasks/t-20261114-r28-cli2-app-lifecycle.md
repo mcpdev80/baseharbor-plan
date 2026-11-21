@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: coordinator
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Unify up and down semantics. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-060 · Unify up and down semantics
 priority: high
@@ -19,18 +19,19 @@ prs: [mcpdev80/baseharbor#1747]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/e6c199e7b7dd7d076a776d11c3ba16f25e59c254"]
 ---
 
-- [ ] t-20261114-r28-cli2-app-lifecycle · CLI redesign: Unify up and down semantics #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
+- [x] t-20261114-r28-cli2-app-lifecycle · CLI redesign: Unify up and down semantics #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1747](https://github.com/mcpdev80/baseharbor/pull/1747)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/e6c199e7b7dd7d076a776d11c3ba16f25e59c254)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
 **Required by:** [t-20261114-r28-cli2-source-pull](t-20261114-r28-cli2-source-pull.md)  
