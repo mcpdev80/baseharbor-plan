@@ -131,3 +131,11 @@ Planning evidence belongs to `baseharbor-plan` only. The isolated plan clone rem
 ## END
 
 END_DONE codex-rev-cli2b: REQUEST CHANGES; two Loki verifier refusal tests remain error-only; candidate 75770bd2d0434bfed11d7c1b106064a5a08d5a51.
+
+Remote evidence-path witness from the GitHub tree API (mode/type/blob/path, equivalent to the requested `ls-tree` line):
+
+```text
+100644 blob 65c50beb7d9417d8b84088e4d75360b35e655d5b	evidence/r28-welle4-2026-11-21/loki-verify-probe/review-1.md
+```
+
+The file was present on plan `main` at blob `65c50beb7d9417d8b84088e4d75360b35e655d5b`; initial evidence commit: `cb2bf7fe6afc21ff40e7f8d0493d1d7da65cba98`.
