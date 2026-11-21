@@ -15,7 +15,7 @@ Gemessene develop-Basis: 97b2ba5543f07b820b5c18a688058fd932c4516f
 2. Verify GitHub remotes, develop and PR refs, exact ancestry, changed paths, and commit count. Done.
 3. Review card acceptance criteria against source and tests; inspect exact-head required check logs. Done.
 4. Write exact-SHA review verdict and actionable recipes if any in review-1.md. Done.
-5. Publish only review-1.md and verify its presence on planning origin/main. In progress.
+5. Publish only review-1.md and verify its presence on planning origin/main. Done.
 
 ## Scope and exact-head witnesses
 
@@ -78,6 +78,12 @@ Reviewer PIDs: 2489482 (before) and 2494611 (after).
 
 ## Evidence publication
 
-This file is the only file to publish for this review. After push, record the exact `origin/main` tree witness here.
+This file is the only file published for this review. Targeted commit and push only; no stash was used.
+
+Exact tree witness from `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep 'evidence/r28-welle4-2026-11-21/perses-dashboard-databases/review-1.md'`:
+`evidence/r28-welle4-2026-11-21/perses-dashboard-databases/review-1.md`
+
+Remote planning head from `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main`:
+`f46008c01ef0e19aaab1b4c1136ef4ed5e0ae2da refs/heads/main`
 
 END REVIEW DONE — REQUEST CHANGES for 12a6e7a46e85cc5ab3b3464fe24dddf08e1807e7.
