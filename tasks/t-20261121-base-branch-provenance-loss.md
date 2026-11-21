@@ -9,9 +9,9 @@ version: ""
 parent: ""
 owner: coordinator
 kanban_status: planned
-kanban_lane: planned
-kanban_summary: "closed-unmerged lane branches lost content while cards recorded accepted; recover the content and add an ancestry witness"
-kanban_title: 0428-221 · base provenance loss
+kanban_lane: ready
+kanban_summary: ""
+kanban_title: 0428-221 · 0428-221 base provenance loss
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
@@ -23,7 +23,21 @@ created: "2026-11-21T09:35:37Z"
 updated: "2026-11-21T09:35:37Z"
 ---
 
-- [ ] t-20261121-base-branch-provenance-loss · 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened, and the loss must be prevented by an ancestry check
+- [ ] t-20261121-base-branch-provenance-loss · 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened #task #release/v0-4-28 #status/planned #view/ready #area/ci #area/cli #kind/bug
+    <!-- generated:card -->
+    **Owner:** coordinator · **Priority:** high  
+    **Ready to assign** · prerequisites accepted  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** ready  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** none  
+**Owner:** coordinator  
+**Priority:** high  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Found by the coordinator (2026-11-21, finding-to-card duty AGENTS 3.3.5)
 
