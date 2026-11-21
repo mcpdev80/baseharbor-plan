@@ -28,7 +28,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
     **Owner:** w073-0428-073-pr1704-persesalerts-r3 · **Priority:** normal  
     **PR:** [baseharbor#1613](https://github.com/mcpdev80/baseharbor/pull/1613), [baseharbor#1704](https://github.com/mcpdev80/baseharbor/pull/1704)  
     **Waiting:** Owner-Entscheidung 2026-11-20: echter Prometheus-Evaluator gefordert; PR \#1704 zurückgewiesen als unzureichend; Karte wartet auf Umsetzung. Die Umsetzung wartet auf die akzeptierte Prometheus-Datasource-Voraussetzung 0428-083.  
-    **Needs:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-alerts-hopf/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1613-alert-contract-review.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1613-0428-073.md)  
     <!-- /generated:card -->
 

@@ -8,41 +8,40 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: 0428-083-
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: Provision authorized existing Prometheus datasource in Perses using supported pinned native plugin and proxy/TLS contract.
 kanban_title: 0428-083 · Connect Perses Prometheus
 priority: normal
 depends_on: [t-20261114-r28-perses-contract-seam, t-20261114-r28-perses-runtime, t-20261114-r28-perses-signal-inventory, t-20261120-r28-develop-runtime-integration-red]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1608, mcpdev80/baseharbor#1684]
+prs: [mcpdev80/baseharbor#1608, mcpdev80/baseharbor#1684, mcpdev80/baseharbor#1745]
 sources: []
 blocker: ""
-wait_reason: "HOP IST GELIEFERT UND MEINE ABHAENGIGKEITS-ANNAHME IST BESTAETIGT: #1684 war nicht am eigenen diff schief, sondern an dem mount-fehler, den 0428-177 behebt. gemessen: branch refs/heads/lane-0428-083-datasources-r2 == refs/pull/1684/head == b71c6da27e8b, PR-base retargeted auf refs/heads/perses-tmpfs-mountpoint-wt (408b18d2dc7b), 'git merge-base --is-ancestor 408b18d2dc7b b71c6da27e8b' = JA, draft=false, merged=false. run 44798687502 am EXAKTEN head: 'PR · Native · native/docker/perses-runtime-smoke' = SUCCESS (vorher FAIL: TestPersesRuntimeSmokeDockerIsolated, runc mount, run 44717007640/job 136222941263), 'PR · Source format' = success, 13 success / 7 failure / 15 skipped; die sieben roten sind ausschliesslich cli-0..3 + packages + Selected Checks + Selected Runtime (docker/observability) = der feld-weite gate 0428-198/0428-202, nicht ihr diff. policy.go nicht angefasst, .github nicht angefasst, kein test entfernt (ihre meldung, von mir an der dateienliste des PR gegengeprueft). akte auf plan main 52eadbbea46c. WARUM wait statt review (§3.7, muster wie 177/199/201): der plichtcheck kann nicht durchlaufen, und zusaetzlich haengt die abnahme an einer MERGE-REIHENFOLGE, die ich neu festgestellt habe - #1724 ZUERST gemergt werden, dann rebasiert diese lane auf develop und haengt die PR-base zurueck (GitHub retargetet beim merge automatisch, pruefen bleibt pflicht). TRIGGER: (a) gruenes feld-gate, (b) merge von #1724. sitz ist freigegeben; der ornith-platz laeuft weiter mit karte 0428-076 (hop + non-draft des bestehenden PR #1597), die ich in diesem arbeitsgang comissione - kein scheinauftrag, kein sechstes hunt-desk."
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md", "https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44573407736", "https://github.com/mcpdev80/baseharbor/actions/runs/44577713744", "https://github.com/mcpdev80/baseharbor-plan/blob/3d071fa2/tasks/t-20261114-r28-perses-datasources.md#fix-9", "https://github.com/mcpdev80/baseharbor/actions/runs/44671189705", "https://github.com/mcpdev80/baseharbor-plan/blob/main/tasks/t-20261120-r28-develop-runtime-integration-red.md"]
+wait_reason: ""
+resolution: "accepted"
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44894143942", "https://github.com/mcpdev80/baseharbor/pull/1745", "https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md", "https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44573407736", "https://github.com/mcpdev80/baseharbor/actions/runs/44577713744", "https://github.com/mcpdev80/baseharbor-plan/blob/3d071fa2/tasks/t-20261114-r28-perses-datasources.md#fix-9", "https://github.com/mcpdev80/baseharbor/actions/runs/44671189705", "https://github.com/mcpdev80/baseharbor-plan/blob/main/tasks/t-20261120-r28-develop-runtime-integration-red.md"]
 ---
 
 ## Owner decision — 2026-11-17
 
 Owner decision (2026-11-17): Unblock. Reopen PR #1608 if it remains suitable, otherwise create a superseding PR on develop. Restore the Prometheus datasource integration and rebase PR #1665 onto an actively CI-covered base. Run the applicable exact-head CI and security/authorization checks before review and merge. No merge is authorized solely by this decision.
 
-- [ ] t-20261114-r28-perses-datasources · Connect Perses Prometheus #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
+- [x] t-20261114-r28-perses-datasources · Connect Perses Prometheus #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** 0428-083- · **Priority:** normal  
-    **PR:** [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684)  
-    **Waiting:** HOP IST GELIEFERT UND MEINE ABHAENGIGKEITS-ANNAHME IST BESTAETIGT: \#1684 war nicht am eigenen diff schief, sondern an dem mount-fehler, den 0428-177 behebt. gemessen: branch refs/heads/lane-0428-083-datasources-r2 == refs/pull/1684/head ==…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44573407736), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44577713744), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/3d071fa2/tasks/t-20261114-r28-perses-datasources.md#fix-9), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44671189705), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/tasks/t-20261120-r28-develop-runtime-integration-red.md)  
+    **PR:** [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684), [baseharbor#1745](https://github.com/mcpdev80/baseharbor/pull/1745)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44894143942), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1745), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/5010af27b84c1542be14022823cfaa3a645ac4d3/evidence/r28-welle4-2026-11-19/codex-review-wave/1684-0428-083-r2.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44573407736), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44577713744), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/3d071fa2/tasks/t-20261114-r28-perses-datasources.md#fix-9), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/44671189705), [proof 9](https://github.com/mcpdev80/baseharbor-plan/blob/main/tasks/t-20261120-r28-develop-runtime-integration-red.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md), [t-20261120-r28-develop-runtime-integration-red](t-20261120-r28-develop-runtime-integration-red.md)  
 **Required by:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-dashboards](t-20261114-r28-perses-dashboards.md), [t-20261120-r28-identity-dashboard-catalog-consumer](t-20261120-r28-identity-dashboard-catalog-consumer.md)  
 **Owner:** 0428-083-  
 **Priority:** normal  
-**PRs:** [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684)  
+**PRs:** [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684), [baseharbor#1745](https://github.com/mcpdev80/baseharbor/pull/1745)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -131,3 +130,8 @@ Moved 0428-083 from Blocked to Wait. Its #1684 work has started and is temporari
 BLOCKER FORT: die vierte vorbedingung t-20261120-r28-develop-runtime-integration-red ist GEMERGT (#1711, develop dbe7fbc3905b), die drei anderen waren laengst geschlossen - die karte ist damit durchgehend erfuellt und vom zustand 'wait' abgeholt. gemessen an ihrem PR: #1684 head 1c0e33ad864e, base 36d075fad77f, mergeable=behind, draft=false, upd 04:13:58Z; die zwei roten zellen ('PR Selected Checks' und 'PR · Native · native/docker/perses-runtime-smoke') waren folge der basisstoerung, nicht ihres diffs. neue frische lane '0428-083-' (sid 473e54be, ornith-kanal 2/2, parent-link verified) mit auftrag: rebase auf dbe7fbc3905b + 'git push --force-with-lease' auf den ungeschuetzten branch, ein PR (§3.8, kein zweiter), run am neuen head bis terminal, die beiden zellen als bestaetigt fuehren, drei einfrier-beweisszeilen, akte perses-prometheus-datasource/round-2.md, dann END. bleibt eine der zellen ROT, ist die ursache NICHT die basisstoerung: dann stoppen und QUESTION mit fehlerauszug, keine dritte identische korrektur (§3.6). alte lane w083-…-hopf5 war nach dem vierten idle ohne END freigegeben worden; PR #1684 und ihre akten bleiben auf github erhalten
 
 der bisherige blocker-text war eine zu enge etikette fuer eine reine praedezenz: #1608 braucht den mountpoint-fix, vorher ist jede native-zelle an dieser karte rot.
+
+
+## Completion — 2026-11-21
+
+Implemented on the superseding PR #1745, merged to develop at `57d2f2751086b8c918a5a460aa87eb5db002335a`. Exact-head SHA, passing CI gates, runtime execution, security-negative tests, and test-to-gate mapping are recorded in [closeout evidence](../evidence/closeouts/0428-083-2026-11-21.md).

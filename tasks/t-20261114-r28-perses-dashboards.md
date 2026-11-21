@@ -28,7 +28,6 @@ evidence: []
     **Owner:** w208-0428-082-dashboards · **Priority:** normal  
     **PR:** [baseharbor#1665](https://github.com/mcpdev80/baseharbor/pull/1665)  
     **Waiting:** handoff abgeschlossen, ABER DIE PLATTFORM SAGT NEIN ZU NICHT-entwick-basen: \#1665 hat jetzt base refs/heads/lane-0428-083-datasources-r2 und 14 dateien (der 333-dateien-zustand ist WEG, mein retarget hat also gewirkt), 13 tests bestehen lo…  
-    **Needs:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
