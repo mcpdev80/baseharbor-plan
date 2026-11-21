@@ -18,17 +18,18 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1726]
 sources: []
 blocker: ""
-wait_reason: "CODEX-REVIEW = 'Verdict: BLOCKED' (review-1.md, plan f6c58529): der angeforderte kandidat-sha 7db142852d22 hat sich bewegt, GitHub-API und ls-remote zeigen 4719434dc0d9. gemessen: der owner selbst hat den branch 'lane-0428-198-cli-shard-operator-env' vorgeschritten (0906b043d 04:49, 221b6f437 04:58, 4719434dc 05:05; 12 dateien +77/-32; 'merge-base --is-ancestor 7db142852d22 <neu>' = 0, also kein verlust). abnahme neu angeregt mit gefrorenem sha; die zwei gestapelten kandidaten #1737/#1738 ziehen nach (auftrag an frische lane 0428-204-chainrebase)."
+wait_reason: "#1726 exact head e45430f2f1b7a76ee3743919a4559a4e1d1ff6c4, run 44867737078, remains red: cli-0 fails TestAppListAllTargetsWorksAfterInstallationDestroy (separate 0428-210/#1739); packages fails the Loki trio (0428-212/#1734); Native Keycloak/Core Docker/Podman and selected Docker Guided still fail before 0428-209's fix is included. The direct root.Execute secure-profile fixture was corrected on this exact head and its focused test passes, but card acceptance requires all four CLI shards green. 0428-209's later stacked run 44868911131 proves the native bootstrap fix, not the #1726 base PR. Resume after 0428-210/#1739, 0428-212/#1734, and 0428-209 are integrated in dependency order; #1615 remains another session's work."
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1726", "https://github.com/mcpdev80/baseharbor/actions/runs/44867737078", "https://github.com/mcpdev80/baseharbor/pull/1739", "https://github.com/mcpdev80/baseharbor/pull/1734"]
 ---
 
 - [ ] t-20261120-cli-operator-entrypoints · 0428-204 · CLI operator seam: MCP handlers and direct Run entry points #task #release/v0-4-28 #status/wait #view/wait #area/cli #area/security #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1726](https://github.com/mcpdev80/baseharbor/pull/1726)  
-    **Waiting:** CODEX-REVIEW = 'Verdict: BLOCKED' (review-1.md, plan f6c58529): der angeforderte kandidat-sha 7db142852d22 hat sich bewegt, GitHub-API und ls-remote zeigen 4719434dc0d9. gemessen: der owner selbst hat den branch 'lane-0428-198-cli-shard-op…  
+    **Waiting:** \#1726 exact head e45430f2f1b7a76ee3743919a4559a4e1d1ff6c4, run 44867737078, remains red: cli-0 fails TestAppListAllTargetsWorksAfterInstallationDestroy (separate 0428-210/\#1739); packages fails the Loki trio (0428-212/\#1734); Native Keyclo…  
     **Needs:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1726), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44867737078), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1739), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1734)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
