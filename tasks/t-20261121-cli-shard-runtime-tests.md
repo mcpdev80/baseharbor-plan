@@ -7,9 +7,9 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: coordinator
-kanban_status: wait
-kanban_lane: wait
+owner: "Codex (Marcel, Wait sweep excluding #1615)"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "The PR · Go unit · cli- shards contain no test whose pass condition requires a container runtime, ORAS, or memory that the…"
 kanban_title: 0428-215 · 0428-215 cli runtime tests
 priority: high
@@ -18,22 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "rest: 'CI-bedarf' ist owner-scope (scripts/.github), in der akte round-2.md begruendet — die zwei runtime-pflichtigen faelle sind an der basis geheilt (cli-2 SUCCESS, run 44868911131, zuordnung 'scripts/pr-go-unit-shard.py'), assertionen unberoehrt, kein lokaler skip. Offen bleibt nur die native zelle fuer 'core_network_binding.go:55-57' (ENOENT-ast, daemon-pflichtig): 'PR · Native Keycloak/Core · docker|podman' sind an #1740 gemessen gruen, die aufnahme-regel fehlt dort."
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-cli-shard-runtime-tests · 0428-215 Go-unit cli shards run tests that need a real runtime #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/cli #kind/bug
+- [ ] t-20261121-cli-shard-runtime-tests · 0428-215 Go-unit cli shards run tests that need a real runtime #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** coordinator · **Priority:** high  
-    **Waiting:** rest: 'CI-bedarf' ist owner-scope (scripts/.github), in der akte round-2.md begruendet — die zwei runtime-pflichtigen faelle sind an der basis geheilt (cli-2 SUCCESS, run 44868911131, zuordnung 'scripts/pr-go-unit-shard.py'), assertionen u…  
+    **Owner:** Codex (Marcel, Wait sweep excluding \#1615) · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** coordinator  
+**Owner:** Codex (Marcel, Wait sweep excluding #1615)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
