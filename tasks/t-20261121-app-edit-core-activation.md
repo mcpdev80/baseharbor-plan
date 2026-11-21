@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w228-0428-207-appedit-fix
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "App Edit activation against a real isolated Core stops failing with start real isolated Core for App Edit: existing native…"
 kanban_title: 0428-207 · 0428-207 App Edit Core
 priority: high
@@ -23,7 +23,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-app-edit-core-activation · 0428-207 App Edit Core activation fails without protected Core network #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
+- [ ] t-20261121-app-edit-core-activation · 0428-207 App Edit Core activation fails without protected Core network #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** w228-0428-207-appedit-fix · **Priority:** high  
     **PR:** [baseharbor#1735](https://github.com/mcpdev80/baseharbor/pull/1735)  
@@ -31,7 +31,7 @@ evidence: []
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Owner:** w228-0428-207-appedit-fix  
@@ -104,3 +104,5 @@ READ-ONLY ROUND STARTED (implementation still waits on 0428-204): w223 reproduce
 IMPLEMENTATION ROUND COMMISSIONED after w223s read-only round: the guard in cmd/baha/core_network_binding.go:52-58 keeps its refusal, the change is the actionable reason. Stacked onto the 204 branch if it must touch app_edit_apply_test.go (w216 owns the stamping there).
 
 CORRECTED MY OWN MEASUREMENT: PR #1735 exists since 01:16 (head 09cf55bbaa41, base develop, develop is ancestor), files exactly cmd/baha/core_network_binding.go (+15/-1) and core_network_binding_actionability_test.go (+82/-0) - allowed write-set, guard kept. It was created as a DRAFT, which is why my required-check field looked empty; I moved it to ready with gh api -X POST pulls/1735/mark_ready so a required run exists at all. Card stays active: the akte is not on plan main and no terminal hosted run has been witnessed by the lane yet (§5.3/§4.6). Both demanded in one short note.
+
+HANDOFF COMPLETE: PR #1735 (head 09cf55bbaa41, base develop 40cb28c758b0, draft=false after my mark-ready via graphql) and akte evidence/r28-welle4-2026-11-21/app-edit-core-activation/round-1.md on plan main (bce75e66 + merge 0dd45072). Measured by coordinator: guard refusal kept (core_network_binding.go +15/-1), new test file core_network_binding_actionability_test.go (+82/-0) asserts the message CONTENT, develop is an ancestor of the head, and the lane watched its own run 44849220708 to terminal state and labelled the four red cli shards as the inherited 0428-204 gate instead of chasing them (§5.4). This is the second clean handoff of the night and the first one that names the owner central helper correctly: the denial convention 'runWithIO directly for unauthenticated cases' is what the reviewer will check against #1615's test_operator_context_test.go.
