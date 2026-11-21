@@ -6,15 +6,15 @@ Date: 2026-11-21
 
 ## PLAN
 
-- [x] Read mission + card; task already active; cut isolated worktree from develop head d1acf3f3 (rebased onto newer 1080986f)
-- [x] Reality check: base remote = github mcpdev80/baseharbor (via ls-remote); develop head confirmed; PR #1746 head 9ddcde35 branches off develop head
-- [x] Root-cause: four perses tools added in ONE commit 1019190d to `internal/machine/contract.go:205-208`, `contracts/machine/v1/control.golden.json` and `cmd/baha/mcp_lifecycle_extra.go:61-77`; `git log -S` confirms single source of truth
-- [x] Decision documented: `surface-aufgenommen` — contract is correct, perses intended; no golden/contract edit needed (golden derives from `machine.Operations()`)
-- [x] Regression: added fail-first check in `cmd/baha/agent_mcp_test.go` pinning the four perses tools to the live surface; proved it FAILS (registration panic) when stripped, PASSES when restored
-- [x] Local verification: `go vet` clean; `TestMCPGenericClientDiscoversCompleteSemanticSurfaceAndExercisesReadOnlyTools`, `TestAgentDescribeJSON`, `TestMCPRegistrationCIInProcess`, golden-consistency all pass
-- [ ] Commit to own branch (author==cmitter), rebase onto latest develop, push, open non-draft PR against develop
-- [ ] Hosted run: own workflow_dispatch / CI run to terminal state; record run-id + per-job conclusion
-- [ ] Publish evidence to origin/main (fetch + grep witness), update Planning status, run worker-cleanup, post END line
+- Read mission + card; task already active; cut isolated worktree from develop head d1acf3f3 (rebased onto newer 1080986f)
+- Reality check: base remote = github mcpdev80/baseharbor (via ls-remote); develop head confirmed; PR #1746 head 9ddcde35 branches off develop head
+- Root-cause: four perses tools added in ONE commit 1019190d to `internal/machine/contract.go:205-208`, `contracts/machine/v1/control.golden.json` and `cmd/baha/mcp_lifecycle_extra.go:61-77`; `git log -S` confirms single source of truth
+- Decision documented: `surface-aufgenommen` — contract is correct, perses intended; no golden/contract edit needed (golden derives from `machine.Operations()`)
+- Regression: added fail-first check in `cmd/baha/agent_mcp_test.go` pinning the four perses tools to the live surface; proved it FAILS (registration panic) when stripped, PASSES when restored
+- Local verification: `go vet` clean; `TestMCPGenericClientDiscoversCompleteSemanticSurfaceAndExercisesReadOnlyTools`, `TestAgentDescribeJSON`, `TestMCPRegistrationCIInProcess`, golden-consistency all pass
+- Commit to own branch (author==cmitter), rebase onto latest develop, push, open non-draft PR against develop
+- Hosted run: own workflow_dispatch / CI run to terminal state; record run-id + per-job conclusion
+- Publish evidence to origin/main (fetch + grep witness), update Planning status, run worker-cleanup, post END line
 
 ## Decision
 
