@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "App Edit activation against a real isolated Core stops failing with start real isolated Core for App Edit: existing native…"
 kanban_title: 0428-207 · 0428-207 App Edit Core
 priority: high
@@ -18,21 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1735]
 sources: []
 blocker: ""
-wait_reason: "arbeit ist begonnen und liegt beim OWNER: ihr fix 213331217 ist ahne von PR #1735 head b10dc56b (von mir nachgemessen: merge-base --is-ancestor = 0), der owner hat in b10dc56b selbst +61 zeilen am test ergaenzt und nichts zurueckgerollt. Die karte ist owner-owned (plan 7e84a220), daher Fuehrt keine meiner Lanes weitere aenderungen aus — naechster trigger ist #1735 exact-head mit gruener 'PR Selected Checks'."
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/commit/b10dc56b785cc3ff75d054fa3d867254b6e7d286", "https://github.com/mcpdev80/baseharbor/actions/runs/44861290062"]
+wait_reason: ""
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44890430911", "https://github.com/mcpdev80/baseharbor/pull/1735", "https://github.com/mcpdev80/baseharbor/commit/72ebc9d10ec247f24853af579655fd95c387214b", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/app-edit-core-activation/round-2.md"]
 ---
 
-- [ ] t-20261121-app-edit-core-activation · 0428-207 App Edit Core activation fails without protected Core network #task #release/v0-4-28 #status/wait #view/wait #area/cli #kind/bug
+- [x] t-20261121-app-edit-core-activation · 0428-207 App Edit Core activation fails without protected Core network #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1735](https://github.com/mcpdev80/baseharbor/pull/1735)  
-    **Waiting:** arbeit ist begonnen und liegt beim OWNER: ihr fix 213331217 ist ahne von PR \#1735 head b10dc56b (von mir nachgemessen: merge-base --is-ancestor = 0), der owner hat in b10dc56b selbst +61 zeilen am test ergaenzt und nichts zurueckgerollt. D…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/b10dc56b785cc3ff75d054fa3d867254b6e7d286), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44861290062)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44890430911), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1735), [proof 3](https://github.com/mcpdev80/baseharbor/commit/72ebc9d10ec247f24853af579655fd95c387214b), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/app-edit-core-activation/round-2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Owner:** coordinator  
