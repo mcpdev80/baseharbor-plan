@@ -18,18 +18,18 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1731]
 sources: []
 blocker: ""
-wait_reason: "PR #1731 run 44812248904 fails cli-0..3 on managed-operator test-context failures addressed by prerequisite 0428-057 / PR #1615. Its cli-3 job installed zsh and fish. Latest #1615 head 5d5cfdf1b3edefabfdcafb154d711d61dad74ed8 is running exact CI 44828743735 after exact cleanup-preview and guided wizard test-gate fixes. Wait for it to pass and #1615 to merge; then hop #1731 onto current develop and rerun exact CI, verifying the wrapper test executes."
+wait_reason: "PR #1731 exact head b67c3427dd8106d15082fff34187b9761161a10a run 44881683635 is terminal failure. cli-3 installed /usr/bin/zsh and /usr/bin/fish and executed the selected Go test step; TestEndToEndInstalledZshAndFishWrappers maps deterministically to cli-3. All four CLI shards and PR Selected Checks fail on the shared managed-operator authentication prerequisite 0428-057 / PR #1615; pr-planner-tests fails TestMCPRegistrationCIInProcessDiscoverAndInvoke at the same boundary. The shell test is not listed among failed tests, but the runner only reports failing test details, so no hosted per-test PASS is claimed. Exact evidence: evidence/r28-welle4-2026-11-21/shell-wrapper/round-2.md. #1615 remains owned by the other session and untouched; rerun/merge #1731 after its gate is resolved."
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1731", "https://github.com/mcpdev80/baseharbor/actions/runs/44812248904"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1731", "https://github.com/mcpdev80/baseharbor/actions/runs/44812248904", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/shell-wrapper/round-2.md"]
 ---
 
 - [ ] t-20261120-r28-shell-wrapper-tests-not-skippable · CI intake: zsh/fish wrapper tests skip silently when the shell is not installed #task #release/v0-4-28 #status/wait #view/wait #kind/bug
     <!-- generated:card -->
     **Owner:** Owner (marcel, direkt)  
     **PR:** [baseharbor#1731](https://github.com/mcpdev80/baseharbor/pull/1731)  
-    **Waiting:** PR \#1731 run 44812248904 fails cli-0..3 on managed-operator test-context failures addressed by prerequisite 0428-057 / PR \#1615. Its cli-3 job installed zsh and fish. Latest \#1615 head 5d5cfdf1b3edefabfdcafb154d711d61dad74ed8 is running ex…  
+    **Waiting:** PR \#1731 exact head b67c3427dd8106d15082fff34187b9761161a10a run 44881683635 is terminal failure. cli-3 installed /usr/bin/zsh and /usr/bin/fish and executed the selected Go test step; TestEndToEndInstalledZshAndFishWrappers maps determini…  
     **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1731), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44812248904)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1731), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44812248904), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/shell-wrapper/round-2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
