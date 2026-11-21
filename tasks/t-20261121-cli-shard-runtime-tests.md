@@ -15,17 +15,21 @@ kanban_title: 0428-215 · 0428-215 cli runtime tests
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1743]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence:
+  - "https://github.com/mcpdev80/baseharbor/pull/1743"
+  - "https://github.com/mcpdev80/baseharbor/actions/runs/44875389702"
 ---
 
 - [ ] t-20261121-cli-shard-runtime-tests · 0428-215 Go-unit cli shards run tests that need a real runtime #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** Codex (Marcel, Wait sweep excluding \#1615) · **Priority:** high  
+    **PR:** [baseharbor#1743](https://github.com/mcpdev80/baseharbor/pull/1743)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1743), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44875389702)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -34,7 +38,7 @@ evidence: []
 **Depends on:** none  
 **Owner:** Codex (Marcel, Wait sweep excluding #1615)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1743](https://github.com/mcpdev80/baseharbor/pull/1743)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -71,10 +75,9 @@ existing native-cell selector only.
 
 Allowed write-set:
 
-- `cmd/baha/core_network_binding_native_test.go`: add one opt-in native regression for the foreign same-name network
-  branch at `core_network_binding.go:55-57`.
+- `cmd/baha/operator_core_network_binding_native_test.go`: add one opt-in native regression for the foreign same-name network
+  branch at `core_network_binding.go:55-57`; the `operator_` filename uses the existing base-branch owner/node selector.
 - `scripts/ci-owner-node-native.sh`: require the new test on both existing Docker and Podman native cells.
-- `.github/workflows/ci.yml`: include the test file in the existing exact owner/node native-cell selector.
 - This task note and its evidence.
 
 No other workflow, runner, framework, or runtime infrastructure changes. Do not modify `internal/operatorauth/**`,
@@ -87,7 +90,7 @@ new regression. Do not add local skip behavior or weaken a test to make a Go sha
 2. Every skipped case prints a skip witness naming the missing capability, and the akte states which native gate covers it.
 3. `TestCoreDefaultNetworkBindingRejectsUnownedNativeNetwork` executes, with skips rejected, in both existing
    `PR · Native Keycloak/Core · docker` and `PR · Native Keycloak/Core · podman` cells at the exact candidate SHA.
-4. The exact file selection in `.github/workflows/ci.yml` routes the new test to those cells, and
+4. The existing base-branch `operator_` path selection routes the test to those cells, and
    `scripts/ci-owner-node-native.sh` checks the exact test ID on both runtimes. The planner and workflow policy checks
    pass at the exact candidate SHA.
 5. Before/after job conclusions with run ids are quoted from two different PRs (one of them #1733 or #1734, whose only red is
@@ -113,12 +116,19 @@ add a new job or workflow, or turn a daemon-dependent assertion into a skip.
 
 ## Handoff
 
-Branch, PR, exact head SHA, two run ids with per-shard conclusions, evidence
-`evidence/r28-welle4-2026-11-21/cli-shard-runtime-tests/round-1.md`.
+Branch `codex/0428-215-native-network`, PR #1743, exact head `47549ca1451e4f913ea0961ff9712cb1e03193a0`. Run 44875389702 is pending; record Docker/Podman and required selected-check conclusions here before closeout. Evidence: `evidence/r28-welle4-2026-11-21/cli-shard-runtime-tests/round-3.md`.
 
 2026-11-21 owner reassignment: the coordinator's round-2 evidence identified a real missing native assertion and exact
-existing gate. Per the Maintainer's Wait-sweep directive, this lane now owns only the selector and required test in that
-existing gate; it does not add CI infrastructure. The candidate will be a small PR against current `develop`.
+existing gate. Per the Maintainer's Wait-sweep directive, this lane owns only the required test in that existing gate; it
+does not add CI infrastructure. The test filename uses the already-present `operator_` selector in the base workflow, so no
+workflow edit is needed for the candidate to be selected.
+
+2026-11-21 implementation: added `cmd/baha/operator_core_network_binding_native_test.go`, which creates a same-name native
+network with only a forgeable Compose owner label, calls `prepareCoreDefaultNetworkBinding`, and asserts refusal without
+external adoption. `scripts/ci-owner-node-native.sh` now requires that exact test on both existing Docker and Podman cells;
+`scripts/test_ci_keycloak_single_route.py` verifies the base-workflow selector matches the new `operator_` filename and the
+native script requires the exact test. Local selector suite: 6/6 PASS. Focused Go invocation compiles and reports the expected
+opt-in SKIP because this workstation has no isolated native acceptance daemon; hosted Docker and Podman cells remain required.
 
 kommissioniert, weil der wart-grund weg ist: #1740 zeigt am gestapelten head (run 44868911131, protokoll 900721 bytes) cli-1/2/3 SUCCESS und genau EINE erste-level-fail-zeile, die zu 0428-210/#1739 gehoert — die container-/ORAS-pflichtigen faelle ihrer karte sind an dieser basis also bereits geheilt. Lane '0428-215-cli215' (4359f0e8, laptop:2), base = 'lane-0428-198-cli-shard-operator-env' (zuletzt e45430f2f1b7, bewegt sich), gestapelt auf #1726.
 
