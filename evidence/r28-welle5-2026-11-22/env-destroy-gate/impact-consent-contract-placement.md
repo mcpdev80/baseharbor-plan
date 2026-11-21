@@ -30,6 +30,13 @@ Read-only review of the owner-authorized 0428-226 question. No product edits, te
 
 ## cleanliness
 
-Shell PID `1205853`: `docker ps -a` before and after showed the same pre-existing exited containers; no container or compose project was started or changed.
+Shell PID `1209996`: `docker ps -a` before and after returned the same eight pre-existing exited containers, with IDs `268b7d8b4612`, `34cf9576dc2b`, `e88b00795b5c`, `1451a7b5b3c6`, `d7ba821c0e08`, `957a80e73b57`, `45bddf32278e`, and `9d3f1a2b1e0e`. No container or compose project was started or changed.
 
 END_DONE codex-rev-1747: read-only 0428-226 placement recommendation published; provider semantic compare is application_provider_authorization.go:70-76 and preview bind belongs at application_stop_impact.go:210-215 with full authority retained.
+
+
+## Planning remote tree witness
+
+After `git -C baseharbor-plan fetch origin main`, `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 'evidence/r28-welle5-2026-11-22/env-destroy-gate/impact-consent-contract-placement.md'` returned exactly:
+
+`evidence/r28-welle5-2026-11-22/env-destroy-gate/impact-consent-contract-placement.md`
