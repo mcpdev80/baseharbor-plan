@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w235-0428-212-lokifix2
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "TestPersesLokiDatasourceVerifyNeverReportsHealthy proves the health path rejects an unreachable Loki, not merely a missing…"
 kanban_title: 0428-212 · 0428-212 loki health
 priority: high
@@ -23,14 +23,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-loki-verify-probe · loki health verify must reach the probe, not a missing-file exit #task #release/v0-4-28 #status/active #view/active #area/observability #kind/bug
+- [ ] t-20261121-loki-verify-probe · loki health verify must reach the probe, not a missing-file exit #task #release/v0-4-28 #status/review #view/review #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** w235-0428-212-lokifix2 · **Priority:** high  
     **PR:** [baseharbor#1734](https://github.com/mcpdev80/baseharbor/pull/1734)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w235-0428-212-lokifix2  
@@ -95,3 +95,5 @@ HANDOFF COMPLETE: PR #1734 (head 75770bd2d043, base develop 40cb28c758b0, draft=
 CODEX-REVIEW REQUEST CHANGES at 75770bd2 (review-1.md, ROLLE REVIEW, head unchanged before/after): the new subtests are content/type bound, but two existing refusals in the same Loki health family still pass on ANY error - loki_test.go:343-350 (err != nil only) and :466-481 (PKI left unmaterialized). That is the honesty rubric of this day catching a real case. Correction round commissioned in a fresh lane on branch from the exact candidate head; the reviewer states explicitly that the red CLI cells are NOT this card content problem (GATE-FAIL 0428-204 acknowledged).
 
 review to active after CODEX REQUEST CHANGES (2599561f): two existing Loki refusals check only err != nil at loki_test.go:343-350 and :466-481. correction in w235 (89245a26); r2 head 45d181ab4089 is a descendant of 75770bd2d043, so a fast-forward push to the original lane branch keeps PR 1734 as the single PR for this card.
+
+korrektur geliefert: w235 fast-forwardete den ursprünglichen branch auf 45d181ab4089 (nachkomme von 75770bd2d043, gemessen merge-base --is-ancestor = 0), PR-head bewegt, develop ancestor. re-review angestossen in derselben reviewer-session.
