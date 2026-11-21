@@ -1,4 +1,4 @@
-
+---
 id: t-20261121-base-branch-provenance-loss
 card_number: "0428-221"
 card_short_title: "0428-221 base provenance loss"
@@ -19,9 +19,8 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-created: "2026-11-21T09:34:20Z"
-updated: "2026-11-21T09:34:20Z"
-
+created: "2026-11-21T09:35:37Z"
+updated: "2026-11-21T09:35:37Z"
 ---
 
 - [ ] t-20261121-base-branch-provenance-loss · 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened, and the loss must be prevented by an ancestry check
