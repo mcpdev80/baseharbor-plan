@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w200-0428-200-verrmask
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-200 · record version mismatch masked
 priority: ""
@@ -18,21 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1728]
 sources: []
 blocker: ""
-wait_reason: "HANDOFF VOLLSTAENDIG, PFLICHTCHECK KANN NICHT GRUEN WERDEN - DARUM wait, muster wie 177/199/201/083/143 (§3.7). EIN PR PRO KARTE JETZT WIEDER HERGESTELLT: #1728 (head 6e3122344f87, branch w200-0428-200-verrmask-2 == refs/pull/1728/head gemessen, base develop, draft=FALSE, 5 dateien, ancestry auf develop 40cb28c758b0 = JA). der DUPLIKAT-FALL: #1727 blieb draft, weil mein eigener auftragstext das falsche werkzeug nannte - 'gh api -X PATCH pulls/<n> -f draft=false' ignoriert GitHub; undraft ist 'POST /pulls/<n>/mark_ready'. die lane legte deshalb dieselbe aenderung als zweiten PR an, statt einen unueberpruefbaren kandidaten liegen zu lassen - inhaltlich richtig, formal ein verstoss, den ICH verursacht habe. Aequivalenzbeweis vor dem schliessen: 'git patch-id of develop..776812c21be0' == 'git patch-id of develop..6e3122344f87' == c0253bdb2b1a9383, identische 5 dateien, 260 diff-zeilen. #1727 ist damit geschlossen, mit kommentar und diesem beleg (https://github.com/mcpdev80/baseharbor/pull/1727#issuecomment-7049...), und das werkzeug-wissen ist als issue mcpdev80/codeman-coordinator-tooling#12 festgehalten (inkl. 'gh pr view --json isDraft' als selbst-beleg für lanes). RUN AM EXAKTEN HEAD (44804472715): go-build, go-vet, gofmt, deployment-package-tests, owner = success; cli-0..3 + packages + 'Selected Runtime' = der feld-gate 0428-198 mit der woertlichen operator-zeile; die packages-zeile traegt zusaetzlich das internal/logs Loki-trio = 0428-202. INHALT: version-1-record einer EXISTIERENDEN deployment.json nennt jetzt gefundene version + erwartete version + naechsten schritt (typ DeploymentRecordVersionMismatch, 2 treffer gemessen) statt 'no registered deployment'; fail-closed byte-identisch; regression ueber status/destroy/list durch die echte kommando-oberflaeche, eine datei pro oberflaeche gemeldet. AKTE 71 zeilen, 0 checkboxen, cleanliness zweimal, gate dreimal, beide PR-nummern genannt (1727 einmal als der geschlossene). TRIGGER FUER DIE NAechSTE KANTE: der pflichtcheck laeuft, sobald 0428-198 die sammelstelle liefert und 0428-202 entschieden ist; dann review (CODEX), dann merge in kettenordnung. sitz freigegeben."
-resolution: ""
-evidence: []
+wait_reason: ""
+resolution: accepted
+evidence:
+  - "https://github.com/mcpdev80/baseharbor/actions/runs/44892854823"
+  - "https://github.com/mcpdev80/baseharbor/commit/4fa5293a49b7a6cd74c6513cf329dec15d08cfa9"
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-deployment-version-mismatch-masked · record version mismatch masked #task #release/v0-4-28 #status/wait #view/wait #area/cli #area/lifecycle #kind/bug
+- [x] t-20261120-deployment-version-mismatch-masked · record version mismatch masked #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/cli #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** w200-0428-200-verrmask  
     **PR:** [baseharbor#1728](https://github.com/mcpdev80/baseharbor/pull/1728)  
-    **Waiting:** HANDOFF VOLLSTAENDIG, PFLICHTCHECK KANN NICHT GRUEN WERDEN - DARUM wait, muster wie 177/199/201/083/143 (§3.7). EIN PR PRO KARTE JETZT WIEDER HERGESTELLT: \#1728 (head 6e3122344f87, branch w200-0428-200-verrmask-2 == refs/pull/1728/head gem…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44892854823), [proof 2](https://github.com/mcpdev80/baseharbor/commit/4fa5293a49b7a6cd74c6513cf329dec15d08cfa9)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w200-0428-200-verrmask  
@@ -40,6 +42,12 @@ created: 2026-11-20
 **PRs:** [baseharbor#1728](https://github.com/mcpdev80/baseharbor/pull/1728)  
 **Source:** 
 <!-- /generated:links -->
+
+## Closeout — 2026-11-21
+
+PR #1728 merged into `develop` at `4fa5293a49b7a6cd74c6513cf329dec15d08cfa9`.
+Exact head `22f6b47b4780f2fc100ad35c132b5536797aa22c` passed run [44892854823](https://github.com/mcpdev80/baseharbor/actions/runs/44892854823).
+`TestAppStatusReportsVersionMismatchNotNotRegistered` and `TestAppDestroyReportsVersionMismatchNotNotRegistered` passed in `PR · Go unit · cli-2` (job 136812257421); `TestListDeploymentsForDisplaySurfacesVersionMismatch` passed in `PR · Go unit · packages` (job 136812257414). The selected Docker lifecycle gate (job 136812618616) and `PR Selected Checks` (job 136814620975) passed.
 
 ## Found by bug hunt H-V21 (2026-11-20, develop `40cb28c758b0`)
 
