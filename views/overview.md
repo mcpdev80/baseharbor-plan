@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 12 |
-| review | 4 |
+| active | 11 |
+| review | 5 |
 | wait | 18 |
 | blocked | 1 |
 | ready | 6 |
@@ -30,7 +30,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-env-delete](../tasks/t-20261114-r28-cli2-env-delete.md) | CLI redesign: Environment deletion lifecycle | active | high | Codex (Marcel, active wait sweep 2026-11-21) | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) | [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627), [baseharbor#1736](https://github.com/mcpdev80/baseharbor/pull/1736) |
 | [t-20261114-r28-cli2-source-pull](../tasks/t-20261114-r28-cli2-source-pull.md) | CLI redesign: Implement guided source pull | active | high | 0428-216-sourcepull | [t-20261114-r28-cli2-app-lifecycle](../tasks/t-20261114-r28-cli2-app-lifecycle.md), [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) | — |
 | [t-20261114-r28-perses-dashboard-databases](../tasks/t-20261114-r28-perses-dashboard-databases.md) | Perses database dashboards | active | normal | 0428-076-nativeshape | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597) |
-| [t-20261115-bughunt-d28-state-dir-target](../tasks/t-20261115-bughunt-d28-state-dir-target.md) | BF-01 target selection ignores BASEHARBOR_STATE_DIR (reads foreign registrations) | active | not set | Codex (Owner-directed wait-card closeout, 2026-11-21) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1585](https://github.com/mcpdev80/baseharbor/pull/1585) |
 | [t-20261120-r28-valkey-dashboard-unavailable-only](../tasks/t-20261120-r28-valkey-dashboard-unavailable-only.md) | Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable | active | not set | w23-pr1714-0428-183-r3 | [t-20261121-loki-verify-probe](../tasks/t-20261121-loki-verify-probe.md), [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) | [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714) |
 | [t-20261120-workload-port-flag-ignored-locally](../tasks/t-20261120-workload-port-flag-ignored-locally.md) | workload-port ignored locally | active | not set | Codex (Owner-directed full wait-card closeout, 2026-11-21) | — | [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723) |
 | [t-20261121-base-branch-provenance-loss](../tasks/t-20261121-base-branch-provenance-loss.md) | 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened | active | high | coordinator | — | — |
@@ -41,6 +40,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [t-20261115-bughunt-d28-state-dir-target](../tasks/t-20261115-bughunt-d28-state-dir-target.md) | BF-01 target selection ignores BASEHARBOR_STATE_DIR (reads foreign registrations) | review | not set | Codex (Owner-directed wait-card closeout, 2026-11-21) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1585](https://github.com/mcpdev80/baseharbor/pull/1585) |
 | [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | review | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) (open) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
 | [t-20261119-r28-perses-status-backend-witness](../tasks/t-20261119-r28-perses-status-backend-witness.md) | CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben | review | not set | w21-pr1702-0428-142-compat | — | [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702) |
 | [t-20261121-child-env-inheritance](../tasks/t-20261121-child-env-inheritance.md) | 0428-222 child process environment replaced instead of inherited in corebackup/coreupdate etcd probes | review | not set | 0428-060-rev2 | — | [baseharbor#1749](https://github.com/mcpdev80/baseharbor/pull/1749) |
