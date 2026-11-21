@@ -76,3 +76,5 @@ HANDOFF COMPLETE (read-only classification, no PR): akte other-domain-test-split
 - Codex review r2 rejected the round-1 classification for inconsistent sums and missing complete source rows. The task is active under the wait-sweep owner while the complete row-level classification is rebuilt. No product files or PRs changed.
 
 CODEX verwarf round-1 (8a086890, codex-review-r2.md): summen 38 statt 89, gruppe 12=9 statt 8, '/tmp/w217-classified.tsv' nie publiziert, gruppe 8 falsche datei. zeilenweise neuberechnung ueber den neutralen produktionspfad (artefakte der gehosteten cli-zellen) in frischer lane ca3a71d0.
+
+KOHORTEN-KLARSTELLUNG aus der lane (flash, ca3a71d0): '89' war eine TEILKLASSE am zustand MIT ambient-stack (runWithIO 82 / MCP 10 / other 89), der neutrale produktionspfad (run 44850031032, cli-0..3-artefakte) zaehlt 117 first-level-faelle. gefordert sind beide: 89-zeilentabelle plus 117-zeilige summenprobe, kohorten-definition in max 10 zeilen. mein fehler in der kartenformulierung, nicht der lane.
