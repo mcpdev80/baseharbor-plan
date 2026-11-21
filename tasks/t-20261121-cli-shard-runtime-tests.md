@@ -7,9 +7,9 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: "Codex (Marcel, Wait sweep excluding #1615)"
-kanban_status: active
-kanban_lane: active
+owner: coordinator
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "The PR · Go unit · cli- shards contain no test whose pass condition requires a container runtime, ORAS, or memory that the…"
 kanban_title: 0428-215 · 0428-215 cli runtime tests
 priority: high
@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1743]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "COUNTERSTAND zu meinem CI-bedarf aus row 865/866: der owner hat die luecke am 21.11 ab 07:24 selbst geschlossen, PR #1743 (base develop, draft=false, head a131256c28; commits 47549ca145 07:24, 1e43e254d2 07:28, a131256c28 07:32). write-set gemessen: cmd/baha/operator_core_network_binding_native_test.go (neuer docker/podman-native regression: ein gleichnamiges netzwerk mit nur forgebarem compose-owner-label wird abgelehnt) + scripts/ci-owner-node-native.sh + scripts/test_ci_keycloak_single_route.py = die aufnahme-regel, die ich verlangte. PR-body: der 'operator'-dateiname waehlt das gate, und der exakte PR-durchgang muss beweisen, dass Docker- und Podman-zelle den test ohne skip ausfuehren. Karte bleibt wait, bis am gehosteten durchgang beide nativen zellen den fall ausgefuehrt haben (nicht skipped) — dann closed."
 resolution: ""
 evidence:
   - "https://github.com/mcpdev80/baseharbor/pull/1743"
@@ -27,18 +27,19 @@ evidence:
   - "https://github.com/mcpdev80/baseharbor/actions/runs/44876072403"
 ---
 
-- [ ] t-20261121-cli-shard-runtime-tests · 0428-215 Go-unit cli shards run tests that need a real runtime #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
+- [ ] t-20261121-cli-shard-runtime-tests · 0428-215 Go-unit cli shards run tests that need a real runtime #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** Codex (Marcel, Wait sweep excluding \#1615) · **Priority:** high  
+    **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1743](https://github.com/mcpdev80/baseharbor/pull/1743)  
+    **Waiting:** COUNTERSTAND zu meinem CI-bedarf aus row 865/866: der owner hat die luecke am 21.11 ab 07:24 selbst geschlossen, PR \#1743 (base develop, draft=false, head a131256c28; commits 47549ca145 07:24, 1e43e254d2 07:28, a131256c28 07:32). write-set…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1743), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44875389702), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44875693455), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44876072403)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** Codex (Marcel, Wait sweep excluding #1615)  
+**Owner:** coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1743](https://github.com/mcpdev80/baseharbor/pull/1743)  
 **Source:** 
@@ -135,3 +136,5 @@ opt-in SKIP because this workstation has no isolated native acceptance daemon; h
 kommissioniert, weil der wart-grund weg ist: #1740 zeigt am gestapelten head (run 44868911131, protokoll 900721 bytes) cli-1/2/3 SUCCESS und genau EINE erste-level-fail-zeile, die zu 0428-210/#1739 gehoert — die container-/ORAS-pflichtigen faelle ihrer karte sind an dieser basis also bereits geheilt. Lane '0428-215-cli215' (4359f0e8, laptop:2), base = 'lane-0428-198-cli-shard-operator-env' (zuletzt e45430f2f1b7, bewegt sich), gestapelt auf #1726.
 
 round-2 delivered (plan ed88dda9/188ac1fd), red-first in benannter runner-form, keine produkt-aenderung, kein PR — diagnose as ordered.
+
+Mein CI-bedarf war richtig adressiert, der owner war schneller als die Lanes. 'wait' ist hier ehrlich, NICHT 'blocked': kein Owner-entscheid noetig, nur ein laufender Beleg. AGENTS 5.3: skipped/queued/absent receipts sind kein pass.
