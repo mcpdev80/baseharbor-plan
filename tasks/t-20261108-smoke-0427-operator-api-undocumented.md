@@ -20,7 +20,7 @@ prs: ["mcpdev80/baseharbor#1587", "mcpdev80/baseharbor#1748"]
 sources: []
 blocker: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/operator-api-smoke.md", "https://github.com/mcpdev80/baseharbor/pull/1587", "https://github.com/mcpdev80/baseharbor/actions/runs/44885697655", "https://github.com/mcpdev80/baseharbor/actions/runs/44873370844"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/operator-api-smoke.md", "https://github.com/mcpdev80/baseharbor/pull/1587", "https://github.com/mcpdev80/baseharbor/pull/1748", "https://github.com/mcpdev80/baseharbor/actions/runs/44885697655", "https://github.com/mcpdev80/baseharbor/actions/runs/44912559586", "https://github.com/mcpdev80/baseharbor/actions/runs/44913139742", "https://github.com/mcpdev80/baseharbor/actions/runs/44873370844"]
 early: true
 ---
 
@@ -28,7 +28,7 @@ early: true
     <!-- generated:card -->
     **Owner:** Codex (Marcel, Wait sweep excluding \#1615) · **Priority:** normal  
     **PR:** [baseharbor#1587](https://github.com/mcpdev80/baseharbor/pull/1587), [baseharbor#1748](https://github.com/mcpdev80/baseharbor/pull/1748)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/operator-api-smoke.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1587), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44885697655), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44873370844)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/operator-api-smoke.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1587), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1748), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44885697655), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44912559586), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44913139742), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44873370844)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -68,7 +68,8 @@ A developer can start and use the Core operator API from documentation alone.
 
 ## Acceptance
 
-- A docs page (how-to/tutorial) states: required env/config, TLS and OIDC prerequisites, the exact start command, and the CLI-side connection steps; each claim exercised by a test or manual acceptance run on a real Core install.
+- A docs page (how-to/tutorial) states: required env/config, TLS and OIDC prerequisites, the exact start command, and the CLI-side connection steps; each claim is exercised by a test or a Docker/Podman native CI acceptance run against an isolated Core.
+- Docker and Podman native CI gates on the exact source head prove the workstation invitation, fresh workstation import, authenticated remote CLI use, and owned workload cleanup. A physical VM smoke is optional for short diagnostics, not an acceptance prerequisite.
 - `baha serve --help` references the doc or lists the mandatory env variables.
 
 ## Dependencies and file ownership
@@ -81,9 +82,10 @@ A developer can start and use the Core operator API from documentation alone.
 ### 2026-11-21 — CI-based workstation acceptance
 
 - The Owner clarified that tests and acceptance should run in CI; the test VM may be used for short smoke checks. The prior requirement for a physical workstation-to-Core run is superseded for this card.
-- Follow-up PR [#1748](https://github.com/mcpdev80/baseharbor/pull/1748), current candidate `fe2c070823ebf2e303236b40b3e3c558540b7198`, registers the existing full native onboarding test for both Docker and Podman and routes relevant runbook/contract changes to those gates. The operator API runbook now describes the CI acceptance path.
+- Follow-up PR [#1748](https://github.com/mcpdev80/baseharbor/pull/1748), current candidate `b7f4d396b05f2d6e088afc1f3bcf6b3fdb94534d`, registers the existing full native onboarding test for both Docker and Podman and routes relevant runbook/contract changes to those gates. The operator API runbook and onboarding contract now describe CI as the acceptance path; a physical VM run is optional diagnostic work.
 - Local verification passed: `scripts/ci-fast-check.sh` (295 checks), focused native selection/coverage tests (45), PR gate catalog validation, EN/DE documentation audit (172 paired pages), and `git diff --check`.
-- Exact candidate native run [44912116363](https://github.com/mcpdev80/baseharbor/actions/runs/44912116363) is executing Docker and Podman gates against `bac5d1ad3779decce4366458cacaf2fb19717242`. Its Workflow policy job failed because the first branch push provides an all-zero `before` SHA; native gate jobs remain in progress. The updated PR candidate `fe2c0708` must receive exact native CI evidence before acceptance. Keep this card active until both runtime gates pass.
+- Exact candidate run [44912559586](https://github.com/mcpdev80/baseharbor/actions/runs/44912559586) completed SUCCESS at `fe2c070823ebf2e303236b40b3e3c558540b7198`; the Docker and Podman onboarding gates, workflow policy and cleanup all passed. PR CI run [44912321050](https://github.com/mcpdev80/baseharbor/actions/runs/44912321050) passed the current-head source/validation checks; its native jobs were skipped because the trusted develop selector has not yet learned this change. The contract wording was then updated on `b7f4d396`. Exact native run [44913139742](https://github.com/mcpdev80/baseharbor/actions/runs/44913139742) and the regular PR run for this latest SHA are pending. Keep this card active until both pass.
+- The initial branch-creation run [44912116363](https://github.com/mcpdev80/baseharbor/actions/runs/44912116363) has green Docker and Podman gate steps, but overall failed at Workflow policy because the branch-creation event's previous SHA is all zeros; it is superseded by the successful `fe2c0708` run above.
 - #1615 remains untouched.
 
 ### 2026-11-21 — merged PR and real-Core read-only probes
@@ -102,7 +104,7 @@ The remote API runbook must be validated against a **working** developer-only CL
 
 ## Code-derived operator API inventory (unverified)
 
-The following is **source inspection only**, not a validated installation runbook. Keep this card in **Wait** until 0427-023/168 and a physical smoke pass.
+The following is **source inspection only**, not a validated production startup recipe. Some optional topology and provisioning claims remain unverified; they do not block the CI-proven authenticated workstation-to-Core acceptance path.
 
 - `baha serve` distinguishes per-application broker from Core operator API using `BASEHARBOR_RUNTIME_APP_NAME`; Core startup binds a verified management host and rejects foreign/competing state ownership.
 - Operator API config is loaded by `controlPlaneConfigFromEnv` from `cmd/baha/serve.go`: `BASEHARBOR_API_LISTEN_ADDR`, `BASEHARBOR_API_DATABASE_URL`, `BASEHARBOR_API_OIDC_ISSUER`, `BASEHARBOR_API_OIDC_AUDIENCES`, `BASEHARBOR_API_TLS_CERT_FILE`, `BASEHARBOR_API_TLS_KEY_FILE`, `BASEHARBOR_API_TLS_CLIENT_CA_FILE`. These are **recognized variable names**, not a verified minimal/mandatory set.
