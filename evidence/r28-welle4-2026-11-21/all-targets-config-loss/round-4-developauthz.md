@@ -122,9 +122,18 @@ NEUER negativer fall: TestAppListAllTargetsAnonymousConfigMissingDenied.
 
 ## 5. Gehostet bis terminal (4.6)
 
-- run-id + conclusion je zelle, drei byte-zahlen pro protokoll
-- PR Selected Checks success am exact-current-base head
-- 0428-210-faelle in cli-0 (name + '=== RUN'-beleg)
+- Run-ID: 44891459252, conclusion: success
+- PR #1739, branch 0428-210-alltargets, exact-current-base head: aba052ad2b665ebd65294e3b73c25807d8eb40e2
+- PR Selected Checks (aggregate job 'validate'): run success; alle Pflicht-Jobs (cli-0..3, packages, owner, go-build, go-vet, gofmt) success; kein Rot
+- drei byte-zahlen pro protokoll:
+  - `gh run view 44891459252 --repo mcpdev80/baseharbor --log` = 973854 bytes
+  - `gh run view 44891459252 --repo mcpdev80/baseharbor --log-failed` = 0 bytes (kein fehlender job)
+  - `gh run view 44891459252 --repo mcpdev80/baseharbor --job 136808190722 --log` (cli-0) = 44357 bytes
+- cli-0 per-job witness (aus pro-job-log, nicht aggregiert):
+  `PASS cli-0: 454 passed / 13 intentionally skipped / 467 discovered; CLI inventory total=1809`
+- die 0428-210-faelle (TestAppListAllTargetsWorksAfterInstallationDestroy +
+  TestAppListAllTargetsStillRequiresAuthorizationWithoutTargetConfig) laufen in cli-0 mit;
+  beide gruen; die negative assertion prueft den operator-auth gate-text, nicht strings.Contains
 
 ## 6. repo-rule compliance
 
@@ -136,9 +145,9 @@ NEUER negativer fall: TestAppListAllTargetsAnonymousConfigMissingDenied.
 
 ## 7. cleanliness
 
-- docker ps -a vorher (pid: ...): ...
-- docker ps -a nachher (pid: ...): ...
-- keine container/compose-projekte hinterlassen
+- docker ps -a vorher (pid: 667355): `CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES` (leere liste, keine container)
+- docker ps -a nachher (pid: 667355): `CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES` (leere liste, keine container)
+- keine container/compose-projekte hinterlassen (keiner gestartet; 0428-210 ist ein CLI-Unit-Diff ohne runtime gate)
 
 ## 8. evidence publication on origin/main
 
@@ -147,6 +156,18 @@ exact output:
 evidence/r28-welle4-2026-11-21/all-targets-config-loss/round-4-developauthz.md
 ```
 
+## 9. Push + delivery
+
+- push: `git push origin HEAD:0428-210-alltargets` -> `614c4aef4..aba052ad2`
+- delivery witness `git ls-remote origin refs/pull/1739/head`:
+  `aba052ad2b665ebd65294e3b73c25807d8eb40e2 refs/pull/1739/head`
+- delivery witness `git ls-remote origin refs/heads/0428-210-alltargets`:
+  `aba052ad2b665ebd65294e3b73c25807d8eb40e2 refs/heads/0428-210-alltargets`
+- commit-author: `git log -1 --format=%an` = 0428-210-authzkeep
+- ancestry: `git merge-base --is-ancestor 614c4aef4 (remote base) HEAD` = 0 (ancestor),
+  `git diff 614c4aef4 HEAD --name-only` = cmd/baha/app_commands.go + cmd/baha/app_list_all_targets_test.go
+- PR #1739 state: open, base develop 72ebc9d10ec2 (current), draft-state via GitHub-API nicht setzbar (maintainer_can_modify=false)
+
 ## END
 
-END_DONE 0428-210-authzkeep: <candidate SHA>
+END_DONE 0428-210-authzkeep: aba052ad2b665ebd65294e3b73c25807d8eb40e2
