@@ -7,9 +7,9 @@ areas: []
 release: v0.4.27
 version: ""
 parent: ""
-owner: lane-0428-fix-bf01 (flash)
-kanban_status: wait
-kanban_lane: wait
+owner: "Codex (Owner-directed wait-card closeout, 2026-11-21)"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "BF-01 (blocker): BASEHARBORSTATEDIR does not isolate target selection; target switch reads foreign registrations. Found on…"
 kanban_title: 0427-189 · bf01 state-dir isolation
 priority: ""
@@ -18,24 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1585]
 sources: []
 blocker: ""
-wait_reason: "approved on 13e096fc6 (act-1585-review-r3); cherry-pick in TRIAGE-QUEUE; merge frost-bis"
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-3.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-4.md"]
 ---
 
-- [ ] t-20261115-bughunt-d28-state-dir-target · BF-01 target selection ignores BASEHARBOR_STATE_DIR (reads foreign registrations) #task #release/v0-4-27 #status/wait #view/wait #kind/task
+- [ ] t-20261115-bughunt-d28-state-dir-target · BF-01 target selection ignores BASEHARBOR_STATE_DIR (reads foreign registrations) #task #release/v0-4-27 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** lane-0428-fix-bf01 (flash)  
+    **Owner:** Codex (Owner-directed wait-card closeout, 2026-11-21)  
     **PR:** [baseharbor#1585](https://github.com/mcpdev80/baseharbor/pull/1585)  
-    **Waiting:** approved on 13e096fc6 (act-1585-review-r3); cherry-pick in TRIAGE-QUEUE; merge frost-bis  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-2.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-3.md), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-4.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** lane-0428-fix-bf01 (flash)  
+**Owner:** Codex (Owner-directed wait-card closeout, 2026-11-21)  
 **Priority:** not set  
 **PRs:** [baseharbor#1585](https://github.com/mcpdev80/baseharbor/pull/1585)  
 **Source:** 
@@ -75,5 +74,11 @@ BF-01 (blocker): BASEHARBOR_STATE_DIR does not isolate target selection; target 
 **Zwischenstand 15.11.:** BF-01-Kandidat veroeffentlicht: Draft PR mcpdev80/baseharbor#1585 (Branch lane-0428-fix-bf01-v2, head 8041a9f0119e390e03533082da05f9d62bdcc7e1, base develop 0e9ccb582; Merge-Frost: Draft, kein Merge). Gehosteter run CI PR #1585, run 43684179345, terminal success. Evidenz: evidence/r28-welle1-2026-11-15/bf01/round-1.md (round-1, END-Zeile korrigiert) und round-2.md (Konsolidierung, Rot-Zustand ehrlich zurueckgenommen: Test ist auf base gruen, Kandidat haertet die Grenze strukturell). PR #1584 war dasselbe Material mit veralteter Historie und ist geschlossen.
 
 *__Ende*
+
+**Codex closeout continuation — 2026-11-21:**
+
+- Took over under the Owner instruction to close wait cards except #1615. PR #1585 remains Draft and open; exact updated head `b50bc6a8053d19438d87466079c7a1ec06abfcbc`, base `develop` at `40cb28c758b02960356434b630086a341ebe1738`, GitHub reports mergeable. Product diff remains exactly six BF-01 files.
+- Local checks on that head passed: `go test ./cmd/baha -run '^TestStateDirIsolatesTargetSelection$' -count=1` and `go test ./internal/orgconfig ./internal/deployment -count=1`; `git diff --check` passed.
+- Exact hosted Draft run [44842355914](https://github.com/mcpdev80/baseharbor/actions/runs/44842355914) is still in progress. Four Go shards are running; source/routing passed. Draft suppresses full PR selection. Await terminal results before changing PR readiness or declaring completion.
 
 **Zwischenstand 15.11. Runde 4 (Review-r1 abgearbeitet):** Kandidat head 13e096fc66d90e20b8f262b7f58024790c62b0e5 auf lane-0428-fix-bf01-v2 (Draft PR mcpdev80/baseharbor#1585, base develop 0e9ccb582; Merge-Frost). Regression rot auf reinem develop (isolation_test.go:105) und gruen auf dem Kandidaten; LV-02-Welt-schreibgeschuetzter Guard in ea3a0705e integriert; Throwaway-Merge-Zeugnis mit 756b2be7e: go vet + internal/orgconfig (42 Zellen) + TestWorld/TestStateDir + BF-01-Zelle gruen. Gehosteter run 43692224878 terminal completed/success. Evidenz: evidence/r28-welle1-2026-11-15/bf01/round-4.md.
