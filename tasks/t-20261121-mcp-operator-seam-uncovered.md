@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: Every MCP mutation path whose test expects the verbatim gate message Managed-environment machine operations require an…
 kanban_title: 0428-218 · 0428-218 mcp operator seam
 priority: normal
@@ -24,7 +24,7 @@ created: "2026-11-21T05:55:00Z"
 updated: "2026-11-21T05:55:00Z"
 ---
 
-- [ ] t-20261121-mcp-operator-seam-uncovered · 0428-218 make the MCP operator seam reachable from MCP tests #task #release/v0-4-28 #status/active #view/active #area/cli #area/observability #kind/bug
+- [ ] t-20261121-mcp-operator-seam-uncovered · 0428-218 make the MCP operator seam reachable from MCP tests #task #release/v0-4-28 #status/review #view/review #area/cli #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** normal  
     **PR:** [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741)  
@@ -32,7 +32,7 @@ updated: "2026-11-21T05:55:00Z"
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Owner:** coordinator  
@@ -112,3 +112,5 @@ probe
 CODEX-REVIEW 'review-1.md' (plan 9ac0a0cd + 577bd6a8) = REQUEST CHANGES, ein inhaltlicher befund. RICHTIG IST: reichbarkeit PASS (echter 'workspaceMutationClientWithContext' ueber 'CallTool'), BEIDE richtungen PASS (gestempelt = erfolg, anonym = 'authentication_failed'), CI-ROUTING PASS — der fall haelt per 'scripts/pr-go-unit-shard.py' auf cli-3 und wurde am head ausgefuehrt (durchgang 44873244947, job 136752270714 success). BEFUND: 'cmd/baha/mcp_operator_seam_test.go:78-87' dekodiert nur 'error.code'; die EXAKTE gate-zeile fehlt, der produkt-text kann sich aendern und der fall bleibt gruen. Lane 0428-218-msgassert (0e89ddd7, laptop) arbeitet: 'Message string' in die dekodierte form + exakte gleichheit im anonymen request + mutation-beleg (text rot, zurueck gruen). ZUSATZ-PFLICHT, weil zwei kolleginnen heute genau dort gescheitert sind (issue #24): basis-nachzug MIT 'merge-base --is-ancestor'-beleg VOR dem push. ERBSCHAFT vom reviewer mit gleichem basis-durchgang 44867737078 belegt: cli-0 = 'TestAppListAllTargetsWorksAfterInstallationDestroy' (0428-210/#1739), packages = 'TestPersesLokiDatasourceMultiSource*' wegen fehlendem 'providers/loki/shared/service-access/pki/client-cert.pem' (owner-stapel #1615). Der aggregate bleibt failure, bis 'PR Selected Checks' success zeigt.
 
 FORTLAUFEND, SHA-NACHTRAG (Pflicht 3.7): neuer head fb5a5deaf36b auf 'lane-0428-218-mcp-operator-seam' (08:54, author '0428-218-msgassert' = korrekte identitaet, issue #23 ist bei ihr aufgehoben), commit-Text 'test(0428-218): pin exact operator-auth denial…' = der eine reviewer-befund (exakte 'error.message'-gleichheit in 'cmd/baha/mcp_operator_seam_test.go:78-87'). GEHOSTET AM NEUEN head: 'PR · Trusted Plan' = SUCCESS, die sechs Go-unit-zellen (cli-0..3, packages, owner) = in_progress, 20 skipped (pfadfilter), 'PR Selected Checks' noch offen. Zwei commits seit der basis, beide ihrer karte. Ich buche auf 'review', sobald 'PR Selected Checks' terminal success ODER mit begruendeter erbschaft-buchung + meinem gruenen aggregate-nachweis appears.
+
+SHA-NACHTRAG + buchung: neuer head fb5a5deaf36b (08:54, author '0428-218-msgassert' = korrekte identitaet) enthaelt den einen reviewer-befund: 'error.message' wird dekodiert und EXAKT verglichen in 'cmd/baha/mcp_operator_seam_test.go'. GEHOSTET AM NEUEN head (von mir gemessen): 'PR · Trusted Plan' success; 'Go unit · cli-1/cli-2/cli-3/owner' success — der fall haelt auf cli-3 und ist dort GRUEN; 'cli-0' + 'packages' failure; 'PR Selected Checks' failure mit 20 skipped (pfadfilter). Die zwei roten zellen sind dieselbe erbschaft, die der reviewer selbst am gleich-basis-durchgang 44867737078 belegt hat (cli-0 = 0428-210/#1739, packages = loki pki 'service-access/client-cert.pem' owner-stapel #1615). Karte damit 'review': abnahme faehig am inhalt, aggregate abhaengig von #1739 und #1615.
