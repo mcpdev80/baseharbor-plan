@@ -35,7 +35,7 @@ evidence: []
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
-**Required by:** [t-20261120-other-domain-test-split](t-20261120-other-domain-test-split.md), [t-20261121-all-targets-config-loss](t-20261121-all-targets-config-loss.md), [t-20261121-app-edit-core-activation](t-20261121-app-edit-core-activation.md), [t-20261121-destroy-authority-stamp](t-20261121-destroy-authority-stamp.md), [t-20261121-native-cell-operator-seam](t-20261121-native-cell-operator-seam.md), [t-20261121-trust-uninstall-false-green](t-20261121-trust-uninstall-false-green.md)  
+**Required by:** [t-20261120-other-domain-test-split](t-20261120-other-domain-test-split.md), [t-20261121-all-targets-config-loss](t-20261121-all-targets-config-loss.md), [t-20261121-app-edit-core-activation](t-20261121-app-edit-core-activation.md), [t-20261121-destroy-authority-stamp](t-20261121-destroy-authority-stamp.md), [t-20261121-mcp-operator-seam-uncovered](t-20261121-mcp-operator-seam-uncovered.md), [t-20261121-native-cell-operator-seam](t-20261121-native-cell-operator-seam.md), [t-20261121-trust-uninstall-false-green](t-20261121-trust-uninstall-false-green.md)  
 **Owner:** coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1726](https://github.com/mcpdev80/baseharbor/pull/1726)  
