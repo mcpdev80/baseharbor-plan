@@ -195,6 +195,16 @@ new native cell) requires an Owner workflow line —
 and, if a shard must skip rather than run it, the selector `scripts/pr-go-unit-shard.py`
 (not `.github/**`, but shared tooling: report before editing).
 
+## Card correction the coordinator must publish
+
+The card text at `tasks/t-20261121-cli-shard-runtime-tests.md` (lines ~47-56,
+"## Why") states that all four named tests fail the cli shards. My measurement
+above disproves the premise for three of them (their bodies are never reached in
+any shard protocol of runs 44845451055, 44844936135, 44844576440, 44850031032),
+and shows that three of the four are already repaired by #1615 (K4). The card as
+written is not orderable at full size: it should be reduced to R2 plus the
+verification pass, with acceptance criterion 3 (K2/skip-witness logic) untouched.
+
 ## Implementation-round order I recommend (for the coordinator)
 
 - Wait for #1615 and #1726 to merge (they remove K4 cases 1-3 automatically).
