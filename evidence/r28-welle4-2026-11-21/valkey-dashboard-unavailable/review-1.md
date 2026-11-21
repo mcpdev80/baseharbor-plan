@@ -6,7 +6,7 @@ ROLLE: REVIEW
 2. Inspect the availability decision and both unavailable/verified test paths with file and line evidence. Done.
 3. Verify golden testdata provenance and query target labels; distinguish checked from not checked. Done.
 4. Compare both mutation-proof tests against exact candidate `0afcaf374225b206789770499a7aa3b55daf807d`. Done.
-5. Record exact-head checks, findings, verdict, and publish only this evidence file. In progress.
+5. Record exact-head checks, findings, verdict, and publish only this evidence file. Done.
 6. Post final status with review evidence commit SHA. Pending.
 
 Review time: 2026-11-21 14:59 UTC.
@@ -84,4 +84,12 @@ The required pre-push `bash scripts/ci-fast-check.sh` completed with local failu
 
 `python3 scripts/plan.py check` reported a separate existing error in an unrelated untracked file: `error: evidence/r28-welle4-2026-11-21/perses-status-backend-witness/round-9-genuine-witness.md: broken link 'docs/development/minimal-ci-receipts.md'`. That file is outside this review's write set and was not modified. The validator reported no error for this review file.
 
-END codex-rev-1747 DONE: REQUEST CHANGES at candidate 0afcaf374225b206789770499a7aa3b55daf807d; exact-head evidence publication pending.
+END codex-rev-1747 DONE: REQUEST CHANGES at candidate 0afcaf374225b206789770499a7aa3b55daf807d; exact-head evidence path witnessed on origin/main.
+
+## origin/main path witness
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle4-2026-11-21/valkey-dashboard-unavailable/review-1.md
+```
