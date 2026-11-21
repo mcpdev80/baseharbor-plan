@@ -36,3 +36,16 @@ Cross-reference requested: `fifth-round-child-read-diagnosis.md`. That filename 
 Read-only source inspection and hosted run observation only. No tests, containers, or compose projects were started.
 
 END_BLOCKED codex-rev-1747: #1627 remains no-verdict; both named lifecycle jobs failed with stale-impact-consent and the overall run is not terminal.
+
+
+## Origin-main tree witness before publication
+
+Command: `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep -E 'evidence/r28\-welle5\-2026\-11\-22/coreless\-validation/review\-1736\-head4c919fd6\.md|evidence/r28\-welle5\-2026\-11\-22/env\-destroy\-gate/fifth\-failure\-consent\-after\-preview\.md|evidence/r28\-welle5\-2026\-11\-22/env\-destroy\-gate/review\-postfix\-head38be89aa\.md|evidence/r28\-welle5\-2026\-11\-22/pr1749\-review/review\-5\-headded9741b9\.md'`
+
+Exact stdout follows:
+```text
+evidence/r28-welle5-2026-11-22/coreless-validation/review-1736-head4c919fd6.md
+evidence/r28-welle5-2026-11-22/env-destroy-gate/fifth-failure-consent-after-preview.md
+evidence/r28-welle5-2026-11-22/env-destroy-gate/review-postfix-head38be89aa.md
+evidence/r28-welle5-2026-11-22/pr1749-review/review-5-headded9741b9.md
+```

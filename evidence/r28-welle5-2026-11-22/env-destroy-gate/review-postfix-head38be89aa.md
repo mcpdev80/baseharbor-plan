@@ -75,3 +75,16 @@ The previous conditional verdict above concerns superseded head `38be89aa4a034ad
 Current #1736 head `4c919fd61f3214fe435bafdc6281bf4bcb300022` is not an ancestor of b3, but its feature commit `10150ee7164bbc8767136e540eb966c3baab930b` is an ancestor. #1736’s separate review is APPROVE for its exact head/run; do not merge it before the #1627 exact run passes `TestEnvironmentDestroyNativeLifecycle` on both engines and #1627 lands.
 
 END_BLOCKED codex-rev-1747: #1627 has no current verdict; exact run 44961334018 for b3b0c2c9efc43e9696c5eeda2a7164c88889e188 is still in progress.
+
+
+## Origin-main tree witness before publication
+
+Command: `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep -E 'evidence/r28\-welle5\-2026\-11\-22/coreless\-validation/review\-1736\-head4c919fd6\.md|evidence/r28\-welle5\-2026\-11\-22/env\-destroy\-gate/fifth\-failure\-consent\-after\-preview\.md|evidence/r28\-welle5\-2026\-11\-22/env\-destroy\-gate/review\-postfix\-head38be89aa\.md|evidence/r28\-welle5\-2026\-11\-22/pr1749\-review/review\-5\-headded9741b9\.md'`
+
+Exact stdout follows:
+```text
+evidence/r28-welle5-2026-11-22/coreless-validation/review-1736-head4c919fd6.md
+evidence/r28-welle5-2026-11-22/env-destroy-gate/fifth-failure-consent-after-preview.md
+evidence/r28-welle5-2026-11-22/env-destroy-gate/review-postfix-head38be89aa.md
+evidence/r28-welle5-2026-11-22/pr1749-review/review-5-headded9741b9.md
+```

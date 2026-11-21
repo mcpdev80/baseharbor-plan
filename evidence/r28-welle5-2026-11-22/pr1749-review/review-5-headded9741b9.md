@@ -33,3 +33,16 @@ Reviewer-only. No product edits, local test execution, workflow actions, PR comm
 Read-only source review; no containers or compose projects started.
 
 END_DONE codex-rev-1747: #1749 APPROVE for exact head ed9741b93c0395ec6d577d19f6531dc8cc964846/run 44961731917 terminal success; envpin covers all named production child starts and removes inherited unpinned ETCDCTL_ values.
+
+
+## Origin-main tree witness before publication
+
+Command: `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep -E 'evidence/r28\-welle5\-2026\-11\-22/coreless\-validation/review\-1736\-head4c919fd6\.md|evidence/r28\-welle5\-2026\-11\-22/env\-destroy\-gate/fifth\-failure\-consent\-after\-preview\.md|evidence/r28\-welle5\-2026\-11\-22/env\-destroy\-gate/review\-postfix\-head38be89aa\.md|evidence/r28\-welle5\-2026\-11\-22/pr1749\-review/review\-5\-headded9741b9\.md'`
+
+Exact stdout follows:
+```text
+evidence/r28-welle5-2026-11-22/coreless-validation/review-1736-head4c919fd6.md
+evidence/r28-welle5-2026-11-22/env-destroy-gate/fifth-failure-consent-after-preview.md
+evidence/r28-welle5-2026-11-22/env-destroy-gate/review-postfix-head38be89aa.md
+evidence/r28-welle5-2026-11-22/pr1749-review/review-5-headded9741b9.md
+```

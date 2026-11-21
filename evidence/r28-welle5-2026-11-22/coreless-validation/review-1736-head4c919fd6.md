@@ -91,3 +91,16 @@ Read-only review; no containers or compose projects were started. `docker ps -a`
 5. Publish the corrected evidence files to Planning origin/main and post one final END status.
 
 END_DONE codex-rev-1747: #1736 APPROVE for exact head 4c919fd61f3214fe435bafdc6281bf4bcb300022; run 44960494316 and Docker 137018079102/Podman 137018078936 are terminal success; no merge before #1627 lands.
+
+
+## Origin-main tree witness before publication
+
+Command: `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep -E 'evidence/r28\-welle5\-2026\-11\-22/coreless\-validation/review\-1736\-head4c919fd6\.md|evidence/r28\-welle5\-2026\-11\-22/env\-destroy\-gate/fifth\-failure\-consent\-after\-preview\.md|evidence/r28\-welle5\-2026\-11\-22/env\-destroy\-gate/review\-postfix\-head38be89aa\.md|evidence/r28\-welle5\-2026\-11\-22/pr1749\-review/review\-5\-headded9741b9\.md'`
+
+Exact stdout follows:
+```text
+evidence/r28-welle5-2026-11-22/coreless-validation/review-1736-head4c919fd6.md
+evidence/r28-welle5-2026-11-22/env-destroy-gate/fifth-failure-consent-after-preview.md
+evidence/r28-welle5-2026-11-22/env-destroy-gate/review-postfix-head38be89aa.md
+evidence/r28-welle5-2026-11-22/pr1749-review/review-5-headded9741b9.md
+```
