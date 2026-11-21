@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: "TestAppListAllTargetsWorksAfterInstallationDestroy passes: after an installed-to-destroyed transition the all-targets inventory…"
 kanban_title: 0428-210 · 0428-210 all-targets config
 priority: normal
@@ -23,7 +23,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-all-targets-config-loss · 0428-210 all-targets inventory depends on a deleted Target config #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
+- [ ] t-20261121-all-targets-config-loss · 0428-210 all-targets inventory depends on a deleted Target config #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** normal  
     **PR:** [baseharbor#1739](https://github.com/mcpdev80/baseharbor/pull/1739)  
@@ -31,7 +31,7 @@ evidence: []
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Owner:** coordinator  
@@ -94,3 +94,5 @@ kommissioniert auf dem zweiten laptop-sitz als folge-lane der kette 0428-204: br
 stacking-entscheid von mir, nach messung: PR-BASIS = develop 40cb28c758b0 (drei wege gemessen: ls-remote https, ls-remote lane-origin, gh api commits/develop = der #1594-merge vom 20.11. 16:06:23Z). NICHT hinter #1615 (owner-schiene, OPEN, head 231ebd269735, 'mergeable' ist deren PR nicht develop) und NICHT auf #1726 (geerbte gate-wand, andere dateien). grund: ihre lane hat den fall AM develop-head reproduziert, und 210 ist der PRODUKTIONS-fall der trennung GATE/BEWEIS/PRODUKTION. ueberschneidung mit #1615 in beiden dateien wird orthoogonal gehalten + 'OVERLAP'-zeile im PR-body fuer meine merge-reihenfolge.
 
 kandidat vollstaendig, gemessen: head 79d962a063be, base develop 40cb28c758b0, draft=false, write-set GENAU eine datei ('cmd/baha/app_commands.go': '--all-targets' toleriert 'deployment.ErrConfigMissing' aus 'authorizeCurrentMCPContext'). durchgang 44863102857 terminal: workflow-policy / Trusted Plan / Native gate plan / Source format / go-vet / go-build / Focused Python = SUCCESS, 'PR · Go unit · cli-0..3' + packages = failure (geerbt). MEIN GREP AM PROTOKOLL: '--- FAIL: TestAppListAllTargetsWorksAfterInstallationDestroy' = 0 zeilen -> der karten-fall scheitert im gehosteten shard NICHT. NEUE ZAHL FÜR H-V26: eindeutige first-level-namen an DIESEM kandidaten = 196, am gestapelten #1726-head 117. differenz 79 = genau die klassen-groesse A(80) der deckungskarte: der seam-inhalt nimmt 79 gate-faelle weg. das ist die erste zahl, die zwei methoden unabhaengig bestaetigen. hinweis in der akte: die regression wurde LOKAL proven (FAIL->PASS), weil auf diesem host der ambient stapel fehlt (MEIN fehler, 03:0xZ) — der gehostete belegtraeger ist der 0-FAIL-nachweis oben.
+
+CODEX-REVIEW an #1740 (native-cell-operator-seam/review-1.md, plan auf origin/main) spricht ES aus: 'Verdict: APPROVE CONTENT — PR Selected Checks remain failed on unrelated 0428-210 test' (P2, zeile 41-51). Von mir nachgemessen am protokoll 44868911131: die einzige erste-level-FAIL-zeile ist 'TestAppListAllTargetsWorksAfterInstallationDestroy' (cli-0, 'Exit: 1', ##[error]Process completed), gate-text-zeilen = 0 — also KEIN operator-auth-erbe, sondern IHR fall, auf dem gestapelten branch 'lane-0428-198-cli-shard-operator-env', wo Ihr fix ('cmd/baha/app_commands.go') nicht mitspielt. Karte zurueck auf 'active': naechster freier sitz klaert, ob (a) ihr tolerieren von deployment.ErrConfigMissing auf diesem branch einen ANDEREN fehlerpfad sieht oder (b) die regression auf develop doch nicht greift. STAND PR #1739: head 79d962a063be, base develop, draft=false, durchgang 44863102857 cli-0..3+packages failure.
