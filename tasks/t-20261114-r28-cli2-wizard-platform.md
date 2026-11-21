@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: codex-open-pr-sweep-067
-kanban_status: wait
-kanban_lane: wait
+owner: Codex (Marcel assigned)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Platform and access wizards. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-067 · Platform and access wizards
 priority: high
@@ -18,24 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1620]
 sources: []
 blocker: ""
-wait_reason: "Started implementation is paused on the unaccepted CLI2 environment-policy prerequisite (0428-053) and a qualifying exact-head run for #1620. The current branch is Draft. Resume on the accepted stack; if the base is not admitted by the existing PR trigger, include the required test-to-CI routing in this same card/PR and coordinate shared workflow edits with the CI owner. No separate CI-owner task is a prerequisite."
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-wizard-platform · CLI redesign: Platform and access wizards #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-wizard-platform · CLI redesign: Platform and access wizards #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** codex-open-pr-sweep-067 · **Priority:** high  
+    **Owner:** Codex (Marcel assigned) · **Priority:** high  
     **PR:** [baseharbor#1620](https://github.com/mcpdev80/baseharbor/pull/1620)  
-    **Waiting:** Started implementation is paused on the unaccepted CLI2 environment-policy prerequisite (0428-053) and a qualifying exact-head run for \#1620. The current branch is Draft. Resume on the accepted stack; if the base is not admitted by the exi…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** codex-open-pr-sweep-067  
+**Owner:** Codex (Marcel assigned)  
 **Priority:** high  
 **PRs:** [baseharbor#1620](https://github.com/mcpdev80/baseharbor/pull/1620)  
 **Source:** 
