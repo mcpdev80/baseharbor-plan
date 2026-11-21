@@ -136,3 +136,11 @@ A deepen/fetch attempt failed with `fatal: write error: Disk quota exceeded`. Th
 ## END
 
 END_DONE codex-rev-cli2b: approved card content; PR merge is blocked by failed required checks; candidate 3a8b4a8b11de07f05e0ae175ac7458837a4271c2.
+
+Remote plan-tree witness (GitHub API, `main`, equivalent mode/type/blob/path fields to the requested `ls-tree` entry):
+
+```text
+100644 blob f9ecb731ebb9caf18d30b8ca284fa631395b3b1d	evidence/r28-welle4-2026-11-21/perses-denial-actionability/review-1.md
+```
+
+GitHub contents API confirms the path on `main`, blob `f9ecb731ebb9caf18d30b8ca284fa631395b3b1d`, size 8545 bytes. Plan `main` at verification: `f0ee5a0d690940d08171cc1415f49008a3902df7`.
