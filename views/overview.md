@@ -10,9 +10,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 11 |
+| active | 12 |
 | review | 0 |
-| wait | 34 |
+| wait | 33 |
 | blocked | 1 |
 | ready | 4 |
 | queued | 25 |
@@ -30,6 +30,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | Connect Perses Tempo | active | normal | 0428-091- | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645) |
 | [t-20261115-bughunt-d28-state-dir-target](../tasks/t-20261115-bughunt-d28-state-dir-target.md) | BF-01 target selection ignores BASEHARBOR_STATE_DIR (reads foreign registrations) | active | not set | Codex (Owner-directed wait-card closeout, 2026-11-21) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1585](https://github.com/mcpdev80/baseharbor/pull/1585) |
 | [t-20261119-r28-perses-status-backend-witness](../tasks/t-20261119-r28-perses-status-backend-witness.md) | CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben | active | not set | w222-0428-142-witness | — | [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702) |
+| [t-20261119-r28-window-integrity-verify](../tasks/t-20261119-r28-window-integrity-verify.md) | fensterstand gegen abnahmebelege pruefen | active | not set | Codex (Owner-directed wait-card closeout, 2026-11-21) | — | — |
 | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | 0428-204 · CLI operator seam: MCP handlers and direct Run entry points | active | high | w216-0428-204-entrypoints | [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) (open) | — |
 | [t-20261120-workload-port-flag-ignored-locally](../tasks/t-20261120-workload-port-flag-ignored-locally.md) | workload-port ignored locally | active | not set | Codex (Owner-directed full wait-card closeout, 2026-11-21) | — | [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723) |
 | [t-20261121-app-edit-core-activation](../tasks/t-20261121-app-edit-core-activation.md) | 0428-207 App Edit Core activation fails without protected Core network | active | high | w228-0428-207-appedit-fix | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) (open) | — |
@@ -66,7 +67,6 @@ None.
 | [t-20261114-r28-perses-log-trace-dash](../tasks/t-20261114-r28-perses-log-trace-dash.md) | Perses log and trace views | wait | normal | coord | [t-20261114-r28-perses-loki-source](../tasks/t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) (open) | [baseharbor#1619](https://github.com/mcpdev80/baseharbor/pull/1619) |
 | [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | wait | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) (open) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
 | [t-20261119-r28-app-source-verification-none-ignored](../tasks/t-20261119-r28-app-source-verification-none-ignored.md) | Verifier: Verification=none is ignored for application-class metrics sources | wait | not set | w203-0428-143-vernone | — | [baseharbor#1729](https://github.com/mcpdev80/baseharbor/pull/1729) |
-| [t-20261119-r28-window-integrity-verify](../tasks/t-20261119-r28-window-integrity-verify.md) | fensterstand gegen abnahmebelege pruefen | wait | not set | w150-pr0428-150-windowverify | — | — |
 | [t-20261120-deployment-version-mismatch-masked](../tasks/t-20261120-deployment-version-mismatch-masked.md) | record version mismatch masked | wait | not set | w200-0428-200-verrmask | — | [baseharbor#1728](https://github.com/mcpdev80/baseharbor/pull/1728) |
 | [t-20261120-other-domain-test-split](../tasks/t-20261120-other-domain-test-split.md) | Cause split for the 89 other-domain cmd/baha failures | wait | high | w221-0428-206-split | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) (open) | — |
 | [t-20261120-perses-tmpfs-mountpoint](../tasks/t-20261120-perses-tmpfs-mountpoint.md) | Perses runtime smoke cannot mount tmpfs at /etc/perses/database on hosted runners | wait | not set | 0428-083- | — | [baseharbor#1724](https://github.com/mcpdev80/baseharbor/pull/1724) |

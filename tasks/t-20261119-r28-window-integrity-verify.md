@@ -8,11 +8,11 @@ areas: [coordination, ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: w150-pr0428-150-windowverify
-kanban_status: wait
-kanban_lane: wait
+owner: "Codex (Owner-directed wait-card closeout, 2026-11-21)"
+kanban_status: active
+kanban_lane: active
 blocker: ""
-wait_reason: "arbeit gestartet und pausiert: die fenster-integritaetspruefung braucht mehrere gemergte karten, um sinnvoll zu sein. keine live session, der sitz ist laengst frei."
+wait_reason: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -24,18 +24,17 @@ resolution: ""
 created: 2026-11-19
 ---
 
-- [ ] t-20261119-r28-window-integrity-verify · fensterstand gegen abnahmebelege pruefen #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/coordination #kind/task
+- [ ] t-20261119-r28-window-integrity-verify · fensterstand gegen abnahmebelege pruefen #task #release/v0-4-28 #status/active #view/active #area/ci #area/coordination #kind/task
     <!-- generated:card -->
-    **Owner:** w150-pr0428-150-windowverify  
-    **Waiting:** arbeit gestartet und pausiert: die fenster-integritaetspruefung braucht mehrere gemergte karten, um sinnvoll zu sein. keine live session, der sitz ist laengst frei.  
+    **Owner:** Codex (Owner-directed wait-card closeout, 2026-11-21)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/window-integrity/verify-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w150-pr0428-150-windowverify  
+**Owner:** Codex (Owner-directed wait-card closeout, 2026-11-21)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
