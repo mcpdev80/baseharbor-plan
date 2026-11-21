@@ -100,3 +100,9 @@ Coordinator correction at 23:0xZ makes this session reviewer-only. No `gh pr mer
 `docker ps -a --no-trunc` after review, shell PID 220112, is recorded at `/home/marcel/dev/baseharbor-ecosystem/workers/codex-rev-1747-plan-wt/docker-after-1702-review.txt`. It showed the same eight pre-existing `bh-itest-*` containers as the before snapshot, all exited. This reviewer started no containers or compose projects.
 
 END codex-rev-1747 DONE — CODEX-REVIEW APPROVE, exact head `be5e23079df36a81fe17fd89068853fa022240a2`, run `44949384417`, plan SHA-256 `b95c9337c85c994ee6ba12e920953a957bf4ce93582e8a7acb59ff6107d26b18`; merge-role handoff only.
+
+## Published path witness
+
+Exact output of `git -C workers/codex-rev-1747-plan-wt ls-tree -r --name-only origin/main | grep evidence/r28-welle4-2026-11-21/trust-status-backend-witness/review-3-headbe5e2307.md` after fetching origin/main:
+
+evidence/r28-welle4-2026-11-21/trust-status-backend-witness/review-3-headbe5e2307.md
