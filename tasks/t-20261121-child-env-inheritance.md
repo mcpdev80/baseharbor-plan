@@ -9,9 +9,9 @@ version: ""
 parent: ""
 owner: ""
 kanban_status: planned
-kanban_lane: planned
-kanban_summary: ""
-kanban_title: "child process environment replaced instead of inherited in corebackup/coreupdate etcd probes"
+kanban_lane: ready
+kanban_summary: "One or two sentences: the observable outcome."
+kanban_title: 0428-222 · child process Env replaced
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
@@ -62,6 +62,22 @@ One or two sentences: the observable outcome.
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+
+- [ ] t-20261121-child-env-inheritance · 0428-222 child process environment replaced instead of inherited in corebackup/coreupdate etcd probes #task #release/v0-4-28 #status/planned #view/ready #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned  
+    **Ready to assign** · prerequisites accepted  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** ready  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** none  
+**Owner:** unassigned  
+**Priority:** not set  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Problem
 
