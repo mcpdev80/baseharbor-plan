@@ -26,7 +26,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 - [x] t-20261120-other-domain-test-split · Cause split for cmd/baha failures after neutral-path recount #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
-    **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/other-domain-test-split/round-2.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/other-domain-test-split/codex-review-r3.md)  
     <!-- /generated:card -->
 

@@ -27,7 +27,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44867225115", "h
     <!-- generated:card -->
     **Owner:** Codex (Owner-directed, 2026-11-21) · **Priority:** normal  
     **Blocker:** Owner decision needed on corrected scope after Option A (2026-11-21): exact current \#1665 base/head b71c6da27e8b/db27880c108a passes both Workflow policy and Gate catalog consistency; hosted Workflow policy job 136733496977 passed on run 4…  
-    **Needs:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44867225115), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1665)  
     <!-- /generated:card -->
 

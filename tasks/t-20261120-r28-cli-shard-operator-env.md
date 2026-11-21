@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: "Codex (Marcel, full wait sweep 2026-11-21)"
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Jeder Pull Request, der auf develop 40cb28c758b0 (Merge von #1594, cli2-env-policy-head) gehopft wird, verliert die vier shards…"
 kanban_title: 0428-198 · cli shards need operator env
 priority: ""
@@ -19,20 +19,20 @@ prs: [mcpdev80/baseharbor#1726]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44863093971", "https://github.com/mcpdev80/baseharbor/actions/runs/44864365574", "https://github.com/mcpdev80/baseharbor/actions/runs/44864917700"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44864365574", "https://github.com/mcpdev80/baseharbor/actions/runs/44885697655", "https://github.com/mcpdev80/baseharbor/actions/runs/44887314441", "https://github.com/mcpdev80/baseharbor/pull/1726", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/cli-shard-operator-env/round-4.md"]
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-r28-cli-shard-operator-env · cli shards need operator env #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
+- [x] t-20261120-r28-cli-shard-operator-env · cli shards need operator env #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** Codex (Marcel, full wait sweep 2026-11-21)  
     **PR:** [baseharbor#1726](https://github.com/mcpdev80/baseharbor/pull/1726)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44863093971), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44864365574), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44864917700)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44864365574), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44885697655), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44887314441), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1726), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/cli-shard-operator-env/round-4.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md), [t-20261120-gate-catalog-ci-fast-check](t-20261120-gate-catalog-ci-fast-check.md), [t-20261120-r28-valkey-dashboard-unavailable-only](t-20261120-r28-valkey-dashboard-unavailable-only.md)  
@@ -101,3 +101,8 @@ Continuation — 2026-11-21 04:05 UTC: exact #1726 head `4719434dc0d958b884db89d
 
 
 Continuation — 2026-11-21 04:20 UTC: exact run [44864365574](https://github.com/mcpdev80/baseharbor/actions/runs/44864365574) failed on `cli-1` with three fixture issues: client-consent tests used an unauthenticated context despite now-managed environments; Core-stop denial cases now need an explicit anonymous context; and the MCP authoring denial test likewise needed an anonymous request. These are corrected without changing production authorization; targeted tests for all three pass locally. Commit `c2f9f2f32fd6bd27c0c0b4e269ad02fde6d643b5` is pushed; exact new run [44864917700](https://github.com/mcpdev80/baseharbor/actions/runs/44864917700) is in progress.
+
+
+## Acceptance closure — 2026-11-21
+
+The shared CLI gate defect is resolved in the current test harness: a test-only operator context is supplied by the tests, without worker-provided environment variables or changes to production authorization. PR #1726 was closed as superseded because the current base already passes the complete required CLI gate. The before witness is run [44864365574](https://github.com/mcpdev80/baseharbor/actions/runs/44864365574) (operator-auth failures); after witnesses are runs [44885697655](https://github.com/mcpdev80/baseharbor/actions/runs/44885697655) and [44887314441](https://github.com/mcpdev80/baseharbor/actions/runs/44887314441), each with all four CLI shards and `PR Selected Checks` passing. Exact mapping is in [round-4](../evidence/r28-welle4-2026-11-21/cli-shard-operator-env/round-4.md).

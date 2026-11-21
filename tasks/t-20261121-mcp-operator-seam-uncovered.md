@@ -28,7 +28,6 @@ updated: "2026-11-21T05:55:00Z"
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** normal  
     **PR:** [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741)  
-    **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

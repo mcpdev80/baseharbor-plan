@@ -28,7 +28,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/b10dc56b785cc3ff75d054
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1735](https://github.com/mcpdev80/baseharbor/pull/1735)  
     **Waiting:** arbeit ist begonnen und liegt beim OWNER: ihr fix 213331217 ist ahne von PR \#1735 head b10dc56b (von mir nachgemessen: merge-base --is-ancestor = 0), der owner hat in b10dc56b selbst +61 zeilen am test ergaenzt und nichts zurueckgerollt. D…  
-    **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/b10dc56b785cc3ff75d054fa3d867254b6e7d286), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44861290062)  
     <!-- /generated:card -->
 

@@ -31,7 +31,6 @@ superseded_by: t-20261120-cli-operator-entrypoints
 - [x] t-20261121-secure-profile-export-interactive-auth · 0428-219 secure-profile export command path refuses with interactive setup in CI #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** normal  
-    **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/commit/e45430f2f1b7a76ee3743919a4559a4e1d1ff6c4), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md)  
     <!-- /generated:card -->
 

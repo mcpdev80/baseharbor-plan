@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-204 · CLI operator entry points
 priority: high
@@ -18,22 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1726]
 sources: []
 blocker: ""
-wait_reason: "#1726 exact head e45430f2f1b7a76ee3743919a4559a4e1d1ff6c4, run 44867737078, remains red: cli-0 fails TestAppListAllTargetsWorksAfterInstallationDestroy (separate 0428-210/#1739); packages fails the Loki trio (0428-212/#1734); Native Keycloak/Core Docker/Podman and selected Docker Guided still fail before 0428-209's fix is included. The direct root.Execute secure-profile fixture was corrected on this exact head and its focused test passes, but card acceptance requires all four CLI shards green. 0428-209's later stacked run 44868911131 proves the native bootstrap fix, not the #1726 base PR. Resume after 0428-210/#1739, 0428-212/#1734, and 0428-209 are integrated in dependency order; #1615 remains another session's work."
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1726", "https://github.com/mcpdev80/baseharbor/actions/runs/44867737078", "https://github.com/mcpdev80/baseharbor/pull/1739", "https://github.com/mcpdev80/baseharbor/pull/1734"]
+wait_reason: ""
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1726", "https://github.com/mcpdev80/baseharbor/actions/runs/44864365574", "https://github.com/mcpdev80/baseharbor/actions/runs/44885697655", "https://github.com/mcpdev80/baseharbor/actions/runs/44887314441", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/cli-operator-entrypoints/round-1.md"]
 ---
 
-- [ ] t-20261120-cli-operator-entrypoints · 0428-204 · CLI operator seam: MCP handlers and direct Run entry points #task #release/v0-4-28 #status/wait #view/wait #area/cli #area/security #kind/bug
+- [x] t-20261120-cli-operator-entrypoints · 0428-204 · CLI operator seam: MCP handlers and direct Run entry points #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/cli #area/security #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1726](https://github.com/mcpdev80/baseharbor/pull/1726)  
-    **Waiting:** \#1726 exact head e45430f2f1b7a76ee3743919a4559a4e1d1ff6c4, run 44867737078, remains red: cli-0 fails TestAppListAllTargetsWorksAfterInstallationDestroy (separate 0428-210/\#1739); packages fails the Loki trio (0428-212/\#1734); Native Keyclo…  
-    **Needs:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1726), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44867737078), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1739), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1734)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1726), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44864365574), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44885697655), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44887314441), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/cli-operator-entrypoints/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
 **Required by:** [t-20261120-other-domain-test-split](t-20261120-other-domain-test-split.md), [t-20261121-all-targets-config-loss](t-20261121-all-targets-config-loss.md), [t-20261121-app-edit-core-activation](t-20261121-app-edit-core-activation.md), [t-20261121-destroy-authority-stamp](t-20261121-destroy-authority-stamp.md), [t-20261121-mcp-operator-seam-uncovered](t-20261121-mcp-operator-seam-uncovered.md), [t-20261121-native-cell-operator-seam](t-20261121-native-cell-operator-seam.md), [t-20261121-secure-profile-export-interactive-auth](t-20261121-secure-profile-export-interactive-auth.md), [t-20261121-trust-uninstall-false-green](t-20261121-trust-uninstall-false-green.md)  
@@ -114,3 +112,8 @@ w216 liefert die zwei zahlen, die der owner fragte: 29 operator-fehler auf devel
 RESIDUAL-KLARSTELLUNG NACH ZWEI METHODEN: die statische deckungskarte (b7dce1ee/c7d7076d, 206 FAIL-ZEILEN am develop-stand, A=80/B=81/C=10/D=10) und die log-basierte inventur (round-2 der 206-lane, 117 FIRST-LEVEL-NAMEN gegen den #1615-head, 115/117 transitiv gestempelt) sagen beide: der OPERATOR-AUTH-GATE heilt durch #1615. empirischer zeuge: run 44854729670 (#1615, head 7fae3a288f4a) zeigt cli-0..3 = SUCCESS, packages = SUCCESS, owner = SUCCESS. die klasse B(81) ist damit NICHT 'restarbeit nach #1615', sondern 'arbeit falls #1615 nicht kommt'. diese karte bleibt in 'review' mit #1726 als kandidat; ihre eigene korrektur ist die ruecknahme der zwei per-call-stamps (akte 15ea9228).
 
 Ergaenzung zu C8 aus dem supersession-desk (round-1.md, plan 88a6b2fb): die KETTE haengt an dieser karte, aber ihre PRS zeigen pro vertrag auf genau EINEN PR (#1726). Die nachfolger, die auf dem branch dieser karte stapeln: #1737 (0428-213, head 5be4f003aa1b) und #1738 (0428-214, head bdc3fcb63912) — merge-reihenfolge also #1726 -> #1738/#1737. Basis-head zuletzt 80dc4987993b (owner-push 05:36, vierter innerhalb von 47 minuten).
+
+
+## Acceptance closure — 2026-11-21
+
+The test-only helper `testOperatorContext` now covers the enforcement-relevant entry-point classes. It lives in `_test.go` files, so production behavior has no injected principal; the exact PR run also passed `PR · Validation · cli-build`. Local focused tests at `c43d816120651c33a7a9c02f6ee805ae78440602` passed for the four direct-context regressions. Hosted run [44887314441](https://github.com/mcpdev80/baseharbor/actions/runs/44887314441) then passed every CLI shard and aggregate `PR Selected Checks` at exact head `f0f25e49753ad6b06b490072739437eeec42de8a`. The class-by-class before/after table is in [round-1](../evidence/r28-welle4-2026-11-21/cli-operator-entrypoints/round-1.md).
