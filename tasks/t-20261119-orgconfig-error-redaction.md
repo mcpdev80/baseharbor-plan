@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: Codex team (current thread)
-kanban_status: wait
-kanban_lane: wait
+kanban_status: review
+kanban_lane: review
 kanban_summary: Reject secret-like organization environment references without copying their contents into validation errors. Keep error…
 kanban_title: 0428-149 · Redact secret-like
 priority: high
@@ -18,22 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1596]
 sources: []
 blocker: ""
-wait_reason: "At 2026-11-20 03:08 UTC, #1596 remains OPEN+DRAFT at exact head c90c3b89007e87a4bf277c8c9015fab3ac65728e, base develop@83b19dce24eed2f837dd2dda7d56222d20a7da32; current develop is f61ef0f4991cae88727c02b731d862bf395d8984. Draft run 44592530459 passed source/routing and all five Go shards on c90, but Ready-only selected checks were skipped. This task's clean additive redaction commit f113baf57aef9e24de5083740decdf84b361f8d8 is local on top of c90, with focused/full package tests and vet previously passing, but has no exact Actions run and is not integrated into #1596. Keep waiting until the parent PR owner hops/integrates the change, runs exact-head checks, and resolves the Draft review/acceptance route; do not treat c90's run as evidence for f113baf5."
+wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/commit/c90c3b89007e87a4bf277c8c9015fab3ac65728e", "https://github.com/mcpdev80/baseharbor/actions/runs/44592530459"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1596", "https://github.com/mcpdev80/baseharbor/actions/runs/44847161507"]
 ---
 
-- [ ] t-20261119-orgconfig-error-redaction · Redact secret-like organization references in validation errors #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/security #kind/task
+- [ ] t-20261119-orgconfig-error-redaction · Redact secret-like organization references in validation errors #task #release/v0-4-28 #status/review #view/review #area/architecture #area/security #kind/task
     <!-- generated:card -->
     **Owner:** Codex team (current thread) · **Priority:** high  
     **PR:** [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596)  
-    **Waiting:** At 2026-11-20 03:08 UTC, \#1596 remains OPEN+DRAFT at exact head c90c3b89007e87a4bf277c8c9015fab3ac65728e, base develop@83b19dce24eed2f837dd2dda7d56222d20a7da32; current develop is f61ef0f4991cae88727c02b731d862bf395d8984. Draft run 4459253…  
     **Needs:** [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/c90c3b89007e87a4bf277c8c9015fab3ac65728e), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44592530459)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1596), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44847161507)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md)  
 **Required by:** [t-20261120-redact-invalid-org-environment-key](t-20261120-redact-invalid-org-environment-key.md)  
@@ -87,3 +86,5 @@ Reject secret-like organization environment references without copying their con
 
 - Fix commit `c90c3b89007e87a4bf277c8c9015fab3ac65728e` is integrated by fast-forward into #1596 branch `cli2-org-env-reconcile`; the PR exact head is this commit, based on `lane-0428-env-registry` `4d14741ee9485b7e0c346fa873ed59f637e71b68`. The card specified a standalone commit for owner cherry-pick; this was integrated directly by fast-forward instead, preserving the exact prior parent and all existing commits. Focused `go test ./internal/orgconfig -run '^TestOrgEnvIdentitySecretMaterialRejected$' -count=1`, full `go test ./internal/orgconfig -count=1`, and `go vet ./internal/orgconfig` all pass at the exact commit. The focused regression is auto-discovered in `PR · Draft Go · packages`; exact run [44592530459](https://github.com/mcpdev80/baseharbor/actions/runs/44592530459) completed SUCCESS on this SHA: source/routing and all five Draft Go shards passed, including the packages shard executing `./internal/orgconfig`; non-draft release/runtime/native jobs were skipped because the PR is Draft and are not claimed as passed. The task is in review for the identity-reference fix; parent #1596 remains Draft and has separate integration/acceptance blockers before Ready/merge.
 - ZWEIFEL/follow-up: the separate invalid environment-map-key leak is tracked as planned card [0428-161](t-20261120-redact-invalid-org-environment-key.md). It depends on both #1596's introducing stack and this card; it is unassigned and cannot start until those prerequisites are accepted and the single-writer path is released.
+
+- Exact-head handoff refresh (2026-11-21): #1596 is OPEN/non-draft at `6135e73a6e2c36e09637856412b94133b3743119`, which contains `f113baf57aef9e24de5083740decdf84b361f8d8` (`git merge-base --is-ancestor` verified). Exact run [44847161507](https://github.com/mcpdev80/baseharbor/actions/runs/44847161507) executes `internal/orgconfig` successfully in `PR · Go unit · packages`; the same job is overall red only on the three Loki tests in `internal/logs`, and CLI shards fail on other shared gates. The redaction change is handed off for review; this is not a claim that #1596's full required CI is green or that the PR is mergeable.
