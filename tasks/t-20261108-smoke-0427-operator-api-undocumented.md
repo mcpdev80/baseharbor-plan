@@ -8,9 +8,9 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: "Codex (Marcel, Wait sweep excluding #1615)"
-kanban_status: wait
-kanban_lane: wait
-wait_reason: "PR #1587 is merged and its exact required run 44885697655 passed at head c43d816120651c33a7a9c02f6ee805ae78440602. Read-only strict-TLS probes against the running test-VM Core returned healthz 200, readyz 200, anonymous machine discovery 401, and plaintext healthz 400 (evidence: operator-api-smoke.md). The authenticated workstation-to-Core path is still unverified: the workstation has no baseharbor-core Target, and no enrollment/login or authenticated CLI request was performed. Do not close until the real workstation enrollment and authenticated path are exercised. #1615 remains untouched."
+kanban_status: active
+kanban_lane: active
+wait_reason: ""
 kanban_summary: A developer can start and use the Core operator API from documentation alone.
 kanban_title: 0427-169 · operator API runbook missing
 priority: normal
@@ -24,16 +24,15 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 early: true
 ---
 
-- [ ] t-20261108-smoke-0427-operator-api-undocumented · Remote Core: API route runbook missing #task #release/v0-4-28 #status/wait #view/wait #area/cli #area/docs #kind/bug
+- [ ] t-20261108-smoke-0427-operator-api-undocumented · Remote Core: API route runbook missing #task #release/v0-4-28 #status/active #view/active #area/cli #area/docs #kind/bug
     <!-- generated:card -->
     **Owner:** Codex (Marcel, Wait sweep excluding \#1615) · **Priority:** normal  
     **PR:** [baseharbor#1587](https://github.com/mcpdev80/baseharbor/pull/1587)  
-    **Waiting:** PR \#1587 is merged and its exact required run 44885697655 passed at head c43d816120651c33a7a9c02f6ee805ae78440602. Read-only strict-TLS probes against the running test-VM Core returned healthz 200, readyz 200, anonymous machine discovery 4…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/operator-api-smoke.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1587), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44885697655), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44873370844)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
 **Owner:** Codex (Marcel, Wait sweep excluding #1615)  
