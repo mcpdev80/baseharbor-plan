@@ -7,9 +7,9 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: coordinator
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "The PR · Go unit · cli- shards contain no test whose pass condition requires a container runtime, ORAS, or memory that the…"
 kanban_title: 0428-215 · 0428-215 cli runtime tests
 priority: high
@@ -18,22 +18,22 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "3 von 4 nameden faellen sind K4 (koerper laufen in keinem cli-shard, der zentrale helper aus #1615 macht sie gegenstandslos), 1 ist K3 (git-archive, gruen im hosted CI). wartet auf die merges von #1615 und #1726; rest = R2 plus verification pass. akte e8b389a4."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-cli-shard-runtime-tests · 0428-215 Go-unit cli shards run tests that need a real runtime #task #release/v0-4-28 #status/planned #view/ready #area/ci #area/cli #kind/bug
+- [ ] t-20261121-cli-shard-runtime-tests · 0428-215 Go-unit cli shards run tests that need a real runtime #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** coordinator · **Priority:** high  
+    **Waiting:** 3 von 4 nameden faellen sind K4 (koerper laufen in keinem cli-shard, der zentrale helper aus \#1615 macht sie gegenstandslos), 1 ist K3 (git-archive, gruen im hosted CI). wartet auf die merges von \#1615 und \#1726; rest = R2 plus verificatio…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** coordinator  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
