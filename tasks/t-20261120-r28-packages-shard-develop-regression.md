@@ -37,7 +37,6 @@ superseded_by: t-20261121-loki-verify-probe
 **State:** superseded  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
-**Required by:** [t-20261120-r28-valkey-dashboard-unavailable-only](t-20261120-r28-valkey-dashboard-unavailable-only.md)  
 **Owner:** w207-0428-202-lokifix  
 **Priority:** not set  
 **PRs:** [baseharbor#1732](https://github.com/mcpdev80/baseharbor/pull/1732)  
