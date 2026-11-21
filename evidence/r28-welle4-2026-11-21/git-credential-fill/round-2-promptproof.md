@@ -149,12 +149,25 @@ to the terminal state.
 
 ## cleanliness
 
+cleanliness: clean
+
+`docker ps -a` VORHER (vor allen Testläufen dieser Runde):
+`CONTAINER ID   IMAGE     COMMAND     CREATED     STATUS     PORTS     NAMES`
+— header only, 0 containers.
+
+`docker ps -a` NACHHER (finaler Pass vor END und erneut beim Coordinator-Vermerk):
+`CONTAINER ID   IMAGE     COMMAND     CREATED     STATUS     PORTS     NAMES`
+— header only, 0 containers.
+
 Before push and after all test runs on this host:
 `docker ps -a` → header only, zero containers (docker daemon reachable, none
 created; no test in this lane creates containers). No volumes/networks/state
 directories owned by this lane; every witness ran inside `t.TempDir()`.
 All files this lane's tests created lived under `t.TempDir()` (auto-removed),
-including the askpass/helper scripts.
+including the askpass/helper scripts. The nine untracked test-state directories
+an interrupted background sweep had left in `internal/application/` (never in
+any commit) were removed by this lane in the final pass; the worktree's
+`git status` is empty.
 
 Scope note (honest boundary): the all-of-`./internal/...` sweep started on this
 worktree was interrupted by this session's context compaction, so its totals
