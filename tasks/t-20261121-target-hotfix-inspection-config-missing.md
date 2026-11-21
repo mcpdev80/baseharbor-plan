@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: closed
-kanban_lane: closed
+kanban_status: planned
+kanban_lane: planned
 kanban_summary: "collectTargetInspection after the hotfix command path returns the configured target instead of failing with target \"edge-a\" is…"
 kanban_title: 0428-220 · 0428-220 hotfix inspect
 priority: normal
@@ -19,7 +19,7 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: superseded
+resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/target-hotfix-inspection/round-1.md"]
   - https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md
 created: "2026-11-21T06:52:00Z"
@@ -28,15 +28,16 @@ superseded_by: t-20261120-cli-operator-entrypoints
 
 ---
 
-- [x] t-20261121-target-hotfix-inspection-config-missing · 0428-220 target hotfix inspection reports the target as unconfigured in CI #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/cli #kind/bug
+- [ ] t-20261121-target-hotfix-inspection-config-missing · 0428-220 target hotfix inspection reports the target as unconfigured in CI #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** normal  
+    **Waiting for prerequisites**  
     **Needs:** [t-20261121-all-targets-config-loss](t-20261121-all-targets-config-loss.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/target-hotfix-inspection/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** superseded  
+**State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-all-targets-config-loss](t-20261121-all-targets-config-loss.md)  
 **Owner:** coordinator  
@@ -99,3 +100,5 @@ Counting law from H-V26: distinct first-level `--- FAIL: Test` names (plan `5713
 diagnose-lane (a1df027f, akte round-1.md plan cba364a2) und VON MIR NACHGEPRUEFT: der gemeldete fall ist an der AKTUELLEN basis nicht mehr rot; die korrektur 46017060d ('test(0428-198): register target before selecting', owner, 21.11 05:43) ist im head von PR #1726 enthalten - mein nachweis: merge-base --is-ancestor 46017060d #1726-head = 0, gemessen. KEINE gemeinsame ursache mit 0428-210: deren fix (#1739, 79d962a063be) toleriert deployment.ErrConfigMissing im arm '--all-targets' von cmd/baha/app_commands.go, der hotfix-pfad war eine andere stelle. Karte superseded durch 0428-204/#1726; kein eigener PR, keine duplicate.
 
 Diagnosis: reported failure not reproducible on current base. Commit 46017060d 'register target before selecting it' (present in PR#1726 head e45430f2f1b7) fixes the test ordering; the error was a ResolveTarget miss, not deployment.ErrConfigMissing. No product change or second PR needed. Card closed as already-resolved in base.
+
+zurueckgezogen: mein supersede-zeuge '46017060d' ist NICHT in develop. PR #1726 ist CLOSED ohne merge (closedAt 2026-11-21T09:09:20Z, mergedAt null, mergeable CONFLICTING); 'merge-base --is-ancestor' liefert fuer alle acht geprobten commits der basis-lane NEIN. inhaltlicher beleg: develop traegt 0 Vorkommen von 'withoutOperatorAuthTestContext' in cmd/baha/app_init_wizard.go, die basis-lane traegt zwei. Die hotfix-aenderung lebt also weiter.owner-entscheidung: basis-inhalt neu landen oder karte erneut schneiden
