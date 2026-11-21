@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: "TestAppListAllTargetsWorksAfterInstallationDestroy passes: after an installed-to-destroyed transition the all-targets inventory…"
 kanban_title: 0428-210 · 0428-210 all-targets config
 priority: normal
@@ -23,7 +23,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-all-targets-config-loss · 0428-210 all-targets inventory depends on a deleted Target config #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
+- [ ] t-20261121-all-targets-config-loss · 0428-210 all-targets inventory depends on a deleted Target config #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** normal  
     **PR:** [baseharbor#1739](https://github.com/mcpdev80/baseharbor/pull/1739)  
@@ -31,7 +31,7 @@ evidence: []
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Required by:** [t-20261121-target-hotfix-inspection-config-missing](t-20261121-target-hotfix-inspection-config-missing.md)  
@@ -103,3 +103,5 @@ probe
 Ursache des bildes an ihrem PR, von mir gemessen: develop ist weitergegangen (40cb28c758b0 nach d2d4ded3dedb, owner 21.11 08:17, 'docs: clarify app new create-only registration'); ihr head 79d962a063be hat 40cb28c758b0 als eltern, und 'gh pr view 1739 --json mergeStateStatus' sagt BEHIND. Am jetzigen head sind 46 fan-out-eingaenge skipped und 'PR · Trusted Plan' selbst skipped — es gibt ALSO keinen vollstaendigen required-durchgang an diesem kandidat (die zwei aelteren durchgaenge 44863102857 und 44863237535 liefen gegen den alten develop). Ihr commit traegt zusaetzlich den author 'lv4-verify' aus einem TOTEN working tree (issue #23/#24), deshalb neue lane mit identitaets- und symptom-test vor dem push. KRITISCHER PFAD: ihr fall 'TestAppListAllTargetsWorksAfterInstallationDestroy' ist die rot-zeile in cli-0 an #1738 UND #1741, die der reviewer als erbschaft bucht — heilt #1739, heilt diese zwei mit. Mission liegt fertig in coordinator/missions/0428-210-rebase-develop.md (payload-gate 0) und geht auf den ersten freien sitz vor 0428-214.
 
 HOP ANGEKOMMEN, UND ALS ERSTER KANDIDAT DIESES FENSTERS MIT VOLSTAENDIG GRUENEM REQUIRED-AGGREGAT (von mir gemessen): durchgang 44885264462 ('CI · Source & Quality') am head 6442955f4cf0 = completed/success; die zellen 'PR · Trusted Plan', 'PR · Native gate plan', 'Workflow policy', 'PR · Source format', 'PR · Focused Python', go-build, go-vet UND cli-0, cli-1, cli-2, cli-3, packages, owner = ALLE success; check-run-stand 14 success / 20 skipped / 0 failure. Damit ist der buchhaltungs-streit des abends ENTSCHEDEN: die cli-0-gate-klasse und die loki-pakete-roete waren ERBSCHAFT von #1615/#1734, und ein hop auf den #1615-haltigen develop laesst sie verschwinden, OHNE dass eine karte eine fremde datei anfasst. Konflikt loesste sie ausschliesslich in 'cmd/baha/app_commands.go', #1615-inhalt unangetastet, PR von CONFLICTING nach MERGEABLE. ZWEI einschaenkungen, von mir gemessen: (1) develop lief unter ihr weiter (jetzt 5b26be1ccfc5), merge-base ist 9bd76324ec6d — ein weiterer hop ist vor dem merge faellig, 'mergeable' meldet gerade UNKNOWN; (2) der commit-author ist '0428-210-hopfix3', obwohl die lane hopfix4 heisst (eine-ziffer identitaets-drift, familie issue #23).
+
+probe
