@@ -16,8 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 124/233 · **Blocked:** 2 · **Waiting:** 27  
-    **Blocker:** [t-20261119-r28-perses-status-backend-witness](../tasks/t-20261119-r28-perses-status-backend-witness.md) — Owner-entscheid noetig, nicht eine weitere korrekturrunde. Was erledigt ist: die negative richtung (P2) exists als 'TestPersesStatusWitnessUnauthenticatedDenie…  
+    **Accepted tasks:** 124/233 · **Blocked:** 1 · **Waiting:** 27  
     **Blocker:** [t-20261120-gate-catalog-ci-fast-check](../tasks/t-20261120-gate-catalog-ci-fast-check.md) — Owner decision needed: the route that greens the Workflow-policy cell on mcpdev80/baseharbor\#1665 needs the case arm at .github/workflows/ci.yml:1301 (Owner sc…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 

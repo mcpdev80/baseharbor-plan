@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: review
+kanban_lane: review
 kanban_summary: "'baha perses status' nennt pro observability-signal eine ECHTE backend-witness (erreicht / gematcht / nicht erreichbar) statt…"
 kanban_title: 0428-142 · echte backend-witness fuer
 priority: ""
@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1702]
 sources: []
-blocker: "Owner-entscheid noetig, nicht eine weitere korrekturrunde. Was erledigt ist: die negative richtung (P2) exists als 'TestPersesStatusWitnessUnauthenticatedDenied' + 'TestPersesStatusWitnessHumanFaceRendersBackendWitness' mit mutations-beleg (akte round-7-bothdirections.md, plan 1764e2b1). Was NICHT erfuellbar ist an diesem head: die positive Loki-/Tempo-zeile aus dem PRODUKT, denn nach erschoepfender suche setzt KEIN produkt-code 'LokiProven'/'TempoProven'/'PrometheusProven' (git grep nach feld-setzern = nichts ausserhalb von _test.go); alle produkt-callsites uebergeben ein LEERES witness: 'cmd/baha/perses_lifecycle.go:235', 'cmd/baha/app_status_result.go:296' (erner status), ':399' (lokaler status), dazu 'internal/metrics/perses_dashboards_hosts.go:338' und ':612'; 'internal/metrics' KONSUMIERT das witness nur ('persesHostDashboardCatalogWithWitness' :344, 'backendAvailableWithoutInference' :563, 'persesHostDashboardAvailabilityWitnessed' :618). ZWEI wege, bitte entscheiden: (a) 0428-143/'internal/metricsprovider' liefert ZUERST einen echten provenanz-konstrukteur, dann ist 0428-142's akzeptanz wie geschrieben erfuellbar; oder (b) ich formuliere die akzeptanz auf 'negative richtung + witness-kanal, ohne positive behauptung bei Verification=none' um (dann ist 0428-142 mit dem laufenden PR fertig). Nebenfaden, den ich selbst weiterfuehre: head 015ce675b2d5 hat noch KEINEN gehosteten lauf und ist kein nachkomme von develop 9bd76324ec6d (6 commits, merge-base 40cb28c758b0) — hop + exact-head-CI gehen als eigene mission raus."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -31,15 +31,14 @@ omit those sources from scrape targets. This assigned, started lane is parked
 pending worker capacity. #1702 still needs the concrete review corrections and
 a fresh exact-head run; it is not ready to merge.
 
-- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** coordinator  
     **PR:** [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702)  
-    **Blocker:** Owner-entscheid noetig, nicht eine weitere korrekturrunde. Was erledigt ist: die negative richtung (P2) exists als 'TestPersesStatusWitnessUnauthenticatedDenied' + 'TestPersesStatusWitnessHumanFaceRendersBackendWitness' mit mutations-beleg…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261119-r28-perses-alert-verifier-caller-wiring](t-20261119-r28-perses-alert-verifier-caller-wiring.md)  
@@ -122,3 +121,5 @@ CODEX-REVIEW 'Verdict: REQUEST CHANGES' (review-3.md, plan 97763de0) an head 2b1
 END_DONE abgenommen, mit MENGENRECHNUNG aus PER-JOB-protokollen (korrektur meiner eigenen rechnung: das aggregierte gh run view --log laesst ganze jobs weg, zaehlen muss man ueber '--job <id> --log'): durchgang 44875647949 am head b2f2fd3ac1729 = 194 eindeutige first-level '--- FAIL: Test'-namen; vergleichsdurchgang 44874605168 (PR #1742, gleiche basis develop, head 0df7efc00bb3) = 197. DIE DIFFERENZ IST IHR ERFOLG: entfallen genau TestPersesLifecycleTransportActionMatrix, TestPersesLifecycleMCPSharedSeamRunsApplyLifecycle, TestPersesLifecycleHumanNoticeForEveryDeferredAction; KEIN neuer name. Sechs witness-zellen verdrahtet, reachability per M1/M2-mutation. PR #1702 base develop draft=false mergeStateStatus BLOCKED; 'PR · Trusted Plan' laeuft hier (head ist nachkomme von develop), die roten cli-0..3 + packages sind die #1615-klasse — gate-text wortlich in cli-0 (main_test.go:60).
 
 CODEX-REVIEW review-4.md (plan 80c0bc52 + 605e6e9d) = 'Verdict: REQUEST CHANGES' an head b2f2fd3ac172. P1 BESTAETIGT ihren fortschritt: der positive pfad geht durch die echte status-command ('cmd/baha/perses_lifecycle.go:80-94' -> reportPersesSurfaceStatus autorisiert :226-227, baut :231-236, ruft renderPersesBackendWitness), fixture sitzt nach den produkt-defaults ('perses_lifecycle_transport_test.go:371-401', enforcement :390, membership :392-394, principal :395, consent :396, transport/workload :397-400), M1/M2 durch akte + quelltext belegt. P2 FEHLT: keine perses-status-invoke unter 'withoutOperatorAuthTestContext' — die negative richtung fehlt in den geaenderten tests. P3 IST DER EIGENTLICHE SCHADEN: alle produkt-callsites uebergeben ein LEERES 'metricsprovider.PersesBackendSignalWitness{}', die positiven Loki/Tempo-aste in 'cmd/baha/app_status_result.go:135,162' sind daher unerreichbar — der beweis ist helper-only. P4: meine per-job-zaehlung (194 vs 197) wurde vom reviewer uebernommen und die 'geerbt'-buchung als gerechtfertigt bestaetigt, TROTZDEM gilt der durchgang als failure zu buchen. P5 write-set/cleanliness in ordnung. KORREKTRAUFTRAG: beide richtungen + echte provenanz-verkabelung in 'perses_lifecycle.go' UND 'app_status_result.go' (lokaler + ferner status); kann der upstream-vertrag (0428-143, 'Verification=none') die provenanz nicht liefern, soll die Lane das als owner-aktion mit datei:zeile melden statt zu erfinden.
+
+HOP + GRUENER AGGREGAT-BELEG, daher formal 'review' (der offene inhaltliche punkt bleibt ihre (a)/(b)-entscheidung, row 879/882): head 015ce675b -> 2e4a570a7698 auf develop 5b26be1ccfc5, draft=false, durchgang 44886438604 'CI · Source & Quality' = completed/success, check-runs 15 success / 20 skipped / 0 failure — zweiter kandidat des fensters mit vollsstaendig gruenem required-aggregat, erreicht OHNE griff in fremde dateien (write-set bleibt die vier cmd/baha-dateien der karte). P2 ist geliefet (benannte faelle 'TestPersesStatusWitnessUnauthenticatedDenied' + '…HumanFaceRendersBackendWitness' + mutation). P3 UNVERAENDERT off en und KEINE weitere korrekturrunde: kein produkt-code setzt 'LokiProven'/'TempoProven'/'PrometheusProven' (leere witnesses an 'cmd/baha/perses_lifecycle.go:235', 'cmd/baha/app_status_result.go:296'/':399', 'internal/metrics/perses_dashboards_hosts.go:338'/':612'). ZWEITE einschaenkung, von mir gemessen: develop laeuft weiter (jetzt c2c94ad115ff, ihr merge-base 5b26be1ccfc5, 6 commits dazwischen) — vor dem merge ist ein weiterer hop faellig.
