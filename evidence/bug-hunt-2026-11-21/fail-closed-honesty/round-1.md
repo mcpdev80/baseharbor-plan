@@ -95,6 +95,7 @@ warning) — it was NOT used; all evidence commits live in `/home/marcel/dev/bas
 These tests were red at develop with the verbatim `:285` gate message (w217 cohort) and assert a denial on a
 path that, once 0428-204 stamps a verified principal, never reaches the gate; and the asserted denial is NOT
 enforced anywhere before the gate. After stamping, their green proves nothing about fail-closed behavior.
+SUPERSEDED by §6: after line-level re-adjudication only the shape notes below survive; read §6 first.
 
 | # | datei:zeile | testname | rubrik | beweis-zeile |
 |---|---|---|---|---|
@@ -163,6 +164,62 @@ Pure-coincidence missing-file tolerances (`strings.Contains(err,"no such file")`
   (TestMinimalRepositoryIdentityInitializationAndReadSurfaces, mixed positive/negative subtests),
   app_restore_fresh_identity_test.go:47 (TestFreshRestoreStableConsent… — denial IS reachable past the
   stamp, assessed korrekt). Manual read of these three found no §2-shape case.
+
+## 6) Correction pass (self-review, same shift)
+
+The §2 table overstated F1/F2/F3. Adjudication corrected here:
+
+- F1 (`app_workspace_bootstrap_test.go:87`) and F2 (`:112`): the negative assertion shape
+  `if err == nil || !strings.Contains(err.Error(), "<expected reason>") { t.Fatalf("expected … error, got %v", err) }`
+  is SELF-GUARDING: unstamped it FAILS loudly with the gate message inside its own failure text (exactly the
+  w217 red rows show); stamped, the gate error no longer matches the expected string, so it still fails
+  unless the genuine bootstrap denial is reached. A stamped green therefore DOES prove the asserted refusal
+  was reached past the gate. Rubric: korrekt-andere-verweigerung, NOT falschlich-authentifiziert. Retracted.
+- F3 (`:33`): a positive-path test (asserts successful bootstrap); it only joins the 204 stamp cohort
+  (red→green). Its weakness is assertion density (output-contains checks at :52/:63 exist), not a fake green.
+  Rubric: befundfrei (204 cohort member). Retracted as a §2 finding.
+- F5 (`app_perses_cli_test.go:60`): the tolerance IS bounded — `err != nil && !strings.Contains(err,"container
+  runtime orchestration not found")` fatals on any other error, so a gate error would fatal the helper;
+  stamped, the run must produce a parseable report. The helper additionally runs `resolveApplication(ctx,…)`
+  at `app_perses_cli_test.go:146` with `t.Fatal` on error, so stamping is required for the file to run at
+  all. Weakness reduced to: the helper also passes on the single whitelisted runtime-unavailable error
+  without any ownership witness. Downgrade: observation only, not falschlich-authentifiziert.
+- F6 (`app_perses_cli_test.go:320-368` TestBahaStatusPersesUnknownOwnerFailsClosedThroughCLI): RE-verified —
+  assertions demand error CONTENT (`"damaged deployment state"` at :353/:366) plus empty stdout (:346);
+  unstamped the gate message fails the content check; stamped green requires the real ownership refusal.
+  Rubric: korrekt-andere-verweigerung. Retracted from §2 (it remains a file that needs the 204 stamp,
+  listed in §7).
+
+What STANDS from §2: F4 (`target_definition_change_test.go:39-48`) — its CauseCode check
+(`target_definition_tenant_owner_unverifiable`) is reached only past the auth boundary, so it is
+self-guarding in the same shape as corrected-F1; RECLASSIFIED to korrekt-andere-verweigerung as well, with
+the §2 caveat kept: the fixture principal's tenancy must not pre-empt the ownership branch
+(tenant-permission denial would also pass `CauseCode` if 204 stamps a mismatched membership — guard per
+Karte C's last sentence). Karte C stays, Karte A, B, D and E: only Karte A (§1 BEFUND) and Karte E (§4 loki)
+survive re-verification as real work; Karten B and D are withdrawn with this correction.
+
+## 7) 204-cohort inventory (files that are RED at develop and need a call-site stamp; rubric for 204 itself)
+
+These are neither fake greens nor denials-in-auth-shape: they are positive-path fixtures red on the gate
+(e.g. `retainedNativeBackendFixture`'s unstamped `resolveApplication(context.Background(),…)` at
+`cmd/baha/application_native_backend_retirement_test.go:21`, `authorizeApplicationDestruction` callers at
+`application_destroy_authorization_test.go:31/:103/:138/:174` whose denials are consent-plan binding in
+`application_destroy_authorization.go:161-189`, reachable past the stamp). Deep-checked files in this class:
+app_init_wizard_test.go, app_init_source_neutral_test.go, application_destroy_authorization_test.go,
+app_client_consent_test.go (no stamp needed — direct helper calls, gate only in `requireManagedClientConsent`
+managed branch), app_restore_fresh_identity_test.go, application_restore_authorization_test.go,
+app_create_target_test.go, app_perses_access_cli_test.go, app_repository_identity_test.go,
+app_registered_minimal_source_test.go, application_lifecycle_lock_test.go,
+application_runtime_retirement_preferences_test.go, app_backup_runtime_fixture_test.go,
+app_workspace_bootstrap_test.go, app_workspace_wizard_test.go, tui_tabs_regression_test.go,
+context_terminal_test.go, trust_uninstall_test.go, control_plane_destroy_test.go,
+runtime_destroy_all_test.go, w138_destroy_never_delivered_test.go, installation_application_scopes_test.go,
+installation_discovery_scope_test.go, installation_sibling_scope_test.go, target_hotfix_test.go,
+target_definition_orphan_refusal_test.go, trust_status_regression_test.go, app_perses_cli_test.go.
+For all of them the mission rule holds mechanically: IF the stamp lands on a denial-shape call
+(`err == nil`-only assertions without content checks — the `runtime_destroy_all_test.go:130`,
+`installation_sibling_scope_test.go:47` shape), the green becomes unproven; those two are flagged for the
+204 lane's diff review in the kartenentwuerfe note below.
 
 ## kartenentwuerfe
 
@@ -269,7 +326,7 @@ After: this lane started NOTHING (no test executed, no compose project, no state
 ## END
 
 END_DONE w224-0428-204-huntfc: H-V23 fail-closed-honesty desk complete — 1 BEFUND (core_installation_runtime_test.go:323
-stamped authorization assertion inside a denial test), 6 findings classified falschlich-authentifiziert
-(bootstrap x3, target-definition-ownership, perses helper tolerance x2), loki verify missing-PKI-as-success
-reported; 62 negative tests deep-checked of 1,077 inventoried (bound + list of unchecked in §5); baseharbor
-develop anchor 40cb28c758b0 witnessed; SHA = baseharbor-plan origin/main head at commit time.
+stamped authorization assertion inside a denial test) + 1 second-desk finding (loki verify green rests on the
+missing PKI file, loki_test.go:355/loki_datasource.go:399); §2 shape candidates retracted after line-level
+self-review (§6); ~60 negative tests deep-checked of 1,077 inventoried (bound + unchecked list in §5/§7);
+baseharbor develop anchor 40cb28c758b0 witnessed; SHA = baseharbor-plan origin/main head at commit time.
