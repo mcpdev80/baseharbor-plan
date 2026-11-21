@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 11 |
-| review | 3 |
+| active | 10 |
+| review | 4 |
 | wait | 18 |
 | blocked | 2 |
 | ready | 5 |
@@ -26,7 +26,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | active | normal | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261018-r27-team-proof](../tasks/t-20261018-r27-team-proof.md) | Acceptance: prove two workstations share one authoritative deployment | active | normal | worker-059-teamproof | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-maintenance-client](../tasks/t-20261018-r27-maintenance-client.md), [t-20261018-r27-public-surfaces](../tasks/t-20261018-r27-public-surfaces.md), [t-20261018-r27-stage-versions](../tasks/t-20261018-r27-stage-versions.md), [t-20261018-r27-state-recovery](../tasks/t-20261018-r27-state-recovery.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
-| [t-20261114-r28-cli2-app-export](../tasks/t-20261114-r28-cli2-app-export.md) | CLI redesign: App export and recovery UX | active | high | pr1625-0428-065-export | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) | [baseharbor#1625](https://github.com/mcpdev80/baseharbor/pull/1625) |
 | [t-20261114-r28-cli2-source-pull](../tasks/t-20261114-r28-cli2-source-pull.md) | CLI redesign: Implement guided source pull | active | high | w27-pr1627-0428-061-pull | [t-20261114-r28-cli2-app-lifecycle](../tasks/t-20261114-r28-cli2-app-lifecycle.md), [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) | — |
 | [t-20261114-r28-perses-dashboard-databases](../tasks/t-20261114-r28-perses-dashboard-databases.md) | Perses database dashboards | active | normal | 0428-076-nativeshape | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597) |
 | [t-20261119-r28-perses-status-backend-witness](../tasks/t-20261119-r28-perses-status-backend-witness.md) | CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben | active | not set | w21-pr1702-0428-142-compat | — | [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702) |
@@ -40,6 +39,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [t-20261114-r28-cli2-app-export](../tasks/t-20261114-r28-cli2-app-export.md) | CLI redesign: App export and recovery UX | review | high | pr1625-0428-065-export (active) | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) | [baseharbor#1625](https://github.com/mcpdev80/baseharbor/pull/1625) |
 | [t-20261114-r28-cli2-env-delete](../tasks/t-20261114-r28-cli2-env-delete.md) | CLI redesign: Environment deletion lifecycle | review | high | Codex (Marcel, active wait sweep 2026-11-21) | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) | [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627), [baseharbor#1736](https://github.com/mcpdev80/baseharbor/pull/1736) |
 | [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | review | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
 | [t-20261121-child-env-inheritance](../tasks/t-20261121-child-env-inheritance.md) | 0428-222 child process environment replaced instead of inherited in corebackup/coreupdate etcd probes | review | not set | 0428-060-rev2 | — | [baseharbor#1749](https://github.com/mcpdev80/baseharbor/pull/1749) |

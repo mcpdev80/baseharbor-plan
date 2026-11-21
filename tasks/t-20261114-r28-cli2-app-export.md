@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: pr1625-0428-065-export
-kanban_status: active
-kanban_lane: active
+owner: pr1625-0428-065-export (active)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "App export and recovery UX. Follow the owner working brief, command mapping and code entry index; revalidate current develop and…"
 kanban_title: 0428-065 · App export and recovery UX
 priority: high
@@ -24,19 +24,19 @@ evidence:
   - "https://github.com/mcpdev80/baseharbor/commit/010db47dae0e0425f948914b3febc1ba86f41edc"
 ---
 
-- [ ] t-20261114-r28-cli2-app-export · CLI redesign: App export and recovery UX #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-app-export · CLI redesign: App export and recovery UX #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** pr1625-0428-065-export · **Priority:** high  
+    **Owner:** pr1625-0428-065-export (active) · **Priority:** high  
     **PR:** [baseharbor#1625](https://github.com/mcpdev80/baseharbor/pull/1625)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/010db47dae0e0425f948914b3febc1ba86f41edc)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** pr1625-0428-065-export  
+**Owner:** pr1625-0428-065-export (active)  
 **Priority:** high  
 **PRs:** [baseharbor#1625](https://github.com/mcpdev80/baseharbor/pull/1625)  
 **Source:** 
@@ -96,3 +96,5 @@ BOARD-KORREKTUR nach unabhaengiger GEGENLESE (akte evidence/r28-welle4-2026-11-1
 The managed-secret path is implemented and locally verified at commit [`010db47`](https://github.com/mcpdev80/baseharbor/commit/010db47dae0e0425f948914b3febc1ba86f41edc). Exact focused tests, package vet and diff check pass. The card is `wait` while #1615 remains blocked and the stacked base cannot trigger the required PR workflow; #1625 stays Draft. See the Handoff above for exact results and next trigger.
 
 review -> active: round-2 verdict REQUEST CHANGES at f063d9788ab (akte review-2-headf063d978.md, zeile 14) - candidate-owned regression gap: TestAppExportManagedSecretWithoutOperatorFailsClosed does not assert secret-safe output nor the operator-auth denial as failure cause. Correction dispatched to the same session (mission m065rc2). Receipt-tooling gap recorded as owner-scope open item, non-blocking.
+
+lane END delivered round 5: the managed-secret deny test now asserts the fixed operator-auth denial string plus secret-safe stdout/stderr and no artifact, with the fail-first proof recorded; exact CI run 44947499669 completed/success on head 01578b334fc. The second RC point (per-case CI receipt) stays an owner-scope open item and does not block the candidate (AGENTS 3.8). Next: hop onto develop 1080986fe73 (back=4), then full verdict on the hopped head, then ordinary merge.
