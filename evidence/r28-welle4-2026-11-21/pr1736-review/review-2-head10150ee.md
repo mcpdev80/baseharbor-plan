@@ -83,3 +83,9 @@ git ls-remote https://github.com/mcpdev80/baseharbor.git refs/pull/1736/head ref
 The exact run remains `completed/success` at that candidate: 95 jobs, 22 success, 73 skipped, zero failure/cancelled/incomplete. Docker after snapshot, shell PID 356073, is recorded at `/home/marcel/dev/baseharbor-ecosystem/workers/codex-rev-1747-plan-wt/docker-after-1736-review2.txt`; it has the same eight pre-existing `bh-itest-*` containers, all exited.
 
 END codex-rev-1747 DONE — CODEX-REVIEW APPROVE; head `10150ee7164bbc8767136e540eb966c3baab930b`; run `44940073029` (95 jobs: 22 success, 73 skipped, 0 failed); plan-sha `9b4a6fe5c488513d6f7abbfe4b1d39013de4065fad69be367201b33be37a7ab3`; receipt: owner-scope open item; merge: not performed (review-only).
+
+## Published path witness
+
+Exact output of `git -C workers/codex-rev-1747-plan-wt fetch origin main && git -C workers/codex-rev-1747-plan-wt ls-tree -r --name-only origin/main | grep evidence/r28-welle4-2026-11-21/pr1736-review/review-2-head10150ee.md`:
+
+evidence/r28-welle4-2026-11-21/pr1736-review/review-2-head10150ee.md
