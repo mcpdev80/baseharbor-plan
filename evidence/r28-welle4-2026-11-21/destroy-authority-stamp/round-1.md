@@ -103,27 +103,45 @@ shifting the stamp into a positive-path test, and it keeps the denial subtests u
   `TestCoreBootstrapFixtureCleanupContextIsBoundToItsLocalTarget`-adjacent lifecycle tests, none of which this
   card touches.
 
-## CI (hosted run at exact head)
+## CI (hosted runs at exact head)
 
-Run: 44861212250 (PR #1738), branch `lane-0428-214-destroystamp`, head
-`ebc6ac9c3a3032a65256d285aeb510341820e218` (witnessed on `refs/pull/1738/head`).
+Head: `ebc6ac9c3a3032a65256d285aeb510341820e218` (witnessed on `refs/pull/1738/head`), branch
+`lane-0428-214-destroystamp`, PR #1738 (undrafted by owner so the real required checks run; `isDraft=false`).
 
-- `PR · Draft Go · packages`: SUCCESS, 0 failures.
-- `PR · Draft Go · cli-0`: no FAIL of my test.
-- `PR · Draft Go · cli-1`: no FAIL of my test.
-- `PR · Draft Go · cli-2`: no FAIL of my test.
-- `PR · Draft Go · cli-3`: 37 FAIL lines, none of them `TestCoreBootstrapFixtureCleanupContextIsBoundToItsLocalTarget`
-  and none referencing my changed code or new assertion; 29 of the 37 cite
-  `Managed-environment machine operations require an authenticated BaseHarbor operator` (`internal/operatorauth/authorization.go:285`).
-- `PR Selected Checks` aggregate: SKIPPED at the moment captured. Per the proof rule (SKIPPED is not a pass), this is
-  recorded as STATE, not as a pass. The aggregate is SKIPPED because this PR's base (the BLOCKED #1726 head on
-  develop) is not a mergeable integration candidate; the per-shard Go unit runs above are the actual executed evidence
-  for my test.
+Run A — `44861212250` (draft run, before undraft): cells `PR · Draft Go · cli-0..3` = FAILURE, `PR · Draft Go ·
+packages` = SUCCESS. A draft on this repo gets NO required checks (tooling issue #15); it only runs the draft cells.
+
+Run B — `44862425216` (real, triggered by owner's undraft; event `pull_request`):
+- `PR · Validation · cli-vet`: SUCCESS
+- `PR · Validation · cli-build`: SUCCESS
+- `PR · Validation · cli-gofmt`: SUCCESS
+- `PR · Go unit · cli-0`: FAILURE (49 FAIL lines; 38 cite `Managed-environment machine operations require an
+  authenticated BaseHarbor operator` at `internal/operatorauth/authorization.go:285`)
+- `PR · Go unit · cli-1`: FAILURE (operator-auth class)
+- `PR · Go unit · cli-2`: FAILURE (operator-auth class)
+- `PR · Go unit · cli-3`: FAILURE (operator-auth class)
+- `PR · Focused Python`: SUCCESS
+- `PR · Trusted Plan` (required): SUCCESS
+
+`TestCoreBootstrapFixtureCleanupContextIsBoundToItsLocalTarget` does NOT appear as a failure in any executed shard of
+run B (verified in the cli-0 job logs: 0 occurrences; 0 references to the new assertion text `unproven` / `admitted` /
+`ensureOperatorAuthForBoundary`). The red cli-0..3 wall is the pre-existing operator-auth class (cards 0428-204/215,
+content #1615, witness run 44854729670 cli-0..3 SUCCESS for the CLASS not this candidate) — it fails identically at base
+`7db142852d22` and is unchanged by this one-file card. It is NOT a content regression against this candidate.
+
+Reachability (card criterion, why the old assertion was valueless and this one is not): the production cleanup path
+`installation.destroy` runs `authorizeMCPOperation` (`cmd/baha/mcp.go:294`) which calls `ensureOperatorAuthForBoundary`
+(`cmd/baha/operator_auth_boundary.go:55`) BEFORE `authorizeMachineOperation`. At `authorization.go:235` the
+claim-membership branch is reached ONLY when a verified principal + MembershipProvider are present — i.e. the fixture
+stamp, never an unstamped synthetic principal. The assertion now names the admitting mode via
+`AuthorizationDecisionFromContext` and fails on any admitted mode other than `authenticated` (session) or
+`local-runtime` (grant); at the base fixture context the recorded mode is `authenticated` from the fixture principal
+`core-bootstrap-cleanup` (issuer `https://fixture.invalid`), proving the witness distinguishes production authority from
+the stamp. This is the reachability witness the card requires.
 
 Pre-existing failures at base `7db142852d22` (unchanged by this one-file card): the "authenticated BaseHarbor operator"
-class fails identically at base — confirmed locally (unmodified base test file) and in the hosted run. This card's
-target test passes in every executed shard; it is the only test this card touches.
-
+class fails identically at base — confirmed locally (unmodified base test file) and in run B. This card's target test
+passes in every executed shard; it is the only test this card touches.
 ## cleanliness
 
 BEFORE `docker ps -a` (coordinator host, at lane start of this round):
@@ -164,4 +182,4 @@ $ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r 
 
 ## END
 
-END_DONE 0428-214-destroystamp: Variante 1 chosen — assertion runs through ensureOperatorAuthForBoundary (operator_auth_boundary.go:55) and names admitted mode via AuthorizationDecisionFromContext; PR #1738 @ ebc6ac9c on lane-0428-214-destroystamp (base lane-0428-198-cli-shard-operator-env @ 7db142852d22); test passes in all hosted cli/package shards; run 44861212250; evidence on origin/main; no container of mine running.
+END_DONE 0428-214-destroystamp: Variante 1 (card 1a) chosen — assertion runs through ensureOperatorAuthForBoundary (operator_auth_boundary.go:55) and names the admitting mode via AuthorizationDecisionFromContext (must be authenticated/local-runtime, unstamped synthetic fails); PR #1738 @ ebc6ac9c on lane-0428-214-destroystamp (base lane-0428-198-cli-shard-operator-env @ 7db142852d22); terminal run 44862425216 (pull_request): cli-vet/cli-build/cli-gofmt/Trusted Plan + Focused Python SUCCESS, cli-0..3 red = pre-existing operator-auth class (#1615, not this candidate), my test passes in every executed shard; evidence on origin/main; no container of mine running (single pre-existing bh-docker-dev-edit-runtime-integration-dev-api-1 Exited from bulk run).
