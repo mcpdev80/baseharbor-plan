@@ -147,11 +147,11 @@ cleanliness: clean — before == after, no artifacts left behind.
 - One integration candidate per chain honored: no second branch invented; nothing was pushed to baseharbor.
 
 ## PLAN (worker steps, §4.4)
-- [x] Inventar aller offenen PRs (gh pr list --state open --limit 60) — done above, 29 PRs.
-- [x] Klassierung je PR — done above table.
-- [x] Inhalts-Gegenprobe je verlorener lane — fund-1/2/3 above.
-- [x] Verlorene menge je lane — table in section 2.
-- [x] Akte geschrieben — this file.
+- Inventar aller offenen PRs (gh pr list --state open --limit 60) — done above, 29 PRs.
+- Klassierung je PR — done above table.
+- Inhalts-Gegenprobe je verlorener lane — fund-1/2/3 above.
+- Verlorene menge je lane — table in section 2.
+- Akte geschrieben — this file.
 
 ## END
 END 0428-221-basalive DONE. Findings feed card 0428-221; product recovery (re-land the 16 commits onto develop or reopen cards 0428-198/204/203/082/083 naming the lost commits) is a coordinator/merge action, out of this hunt write-set.
