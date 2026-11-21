@@ -90,3 +90,4 @@ Review remained read-only on the candidate, did not access the quarantined worke
 END codex-rev-cli2b BLOCKED — REQUEST CHANGES for PR #1742 at `0df7efc00bb3cfd784c988613a9ec5f8fb6215b4`; findings are the non-deterministic/non-proving prompt regression and unauthorized `cmd/baha/app_update.go` changes. Exact-head CI is also failed, with the inherited/parallel failure state recorded above.
 
 `docker ps -a` after review (PID 2970524) also returned an empty container list. Candidate remote/API after review both still report `0df7efc00bb3cfd784c988613a9ec5f8fb6215b4`.
+evidence/r28-welle4-2026-11-21/git-credential-fill/review-1.md
