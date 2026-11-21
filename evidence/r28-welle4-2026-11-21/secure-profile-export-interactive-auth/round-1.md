@@ -94,4 +94,4 @@ This is the outcome the mission flagged as most likely. No product write, no sec
 ## END
 
 END_BLOCKED 0428-219-exportauth: DUPLICATE — base lane e45430f2f already heals the failing cell; Owner to set superseded.
-Candidate SHA: none (no product change). Evidence path pending publish.
+Candidate SHA: none (no product change). Evidence published to baseharbor-plan origin/main 359052f6, path verified present.
