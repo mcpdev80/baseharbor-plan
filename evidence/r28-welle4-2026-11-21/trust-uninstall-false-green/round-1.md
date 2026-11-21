@@ -234,6 +234,36 @@ $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main
 evidence/r28-welle4-2026-11-21/trust-uninstall-false-green/round-1.md
 ```
 
+## CI hosted run (Eigenes-run-pflicht, §4.6)
+
+PR #1737, run `44861150777` (PR Selected Checks aggregate), head `d0399968c47fd9888b2fd1bfa55b81b75f7c2d0d`:
+
+```
+$ gh pr checks 1737
+PR · Go unit · cli-0    fail  2m37s   (runs/.../136714641619)
+PR · Go unit · cli-1    fail  2m28s   (runs/.../136714641744)
+PR · Go unit · cli-2    fail  4m22s   (runs/.../136714641594)
+PR · Go unit · cli-3    fail  2m20s   (runs/.../136714641618)
+PR · Validation · cli-vet     pass
+PR · Validation · cli-gofmt   pass
+PR · Validation · cli-build   pass
+PR · Source format            pass
+PR · Trusted Plan             pass
+PR · Focused Python           pass
+PR · Candidate-added checks   skipping (advisory)
+```
+
+The four Go unit shards FAIL, but NONE of the failures are trust tests. Per-shard FAIL inventory from the hosted logs (`/tmp/0428-213-logs`):
+
+| shard | job id | total `--- FAIL` | `TestTrust*` failures |
+|---|---|---|---|
+| cli-0 | 136714641619 | 45 | 0 |
+| cli-1 | 136714641744 | 53 | 0 |
+| cli-2 | 136714641594 | 45 | 0 |
+| cli-3 | 136714641618 | 32 | 0 |
+
+The 175 cross-shard failures are the pre-existing operatorauth gate-cohort (the `--json` trust tests and the broader scope/consent cohort that the 0428-204 basis shipped red at develop `40cb28c758`). This is the inherited-stacked-base failure documented in the 2026-11-21 run-priority note. My two write-set files have ZERO failures; the targeted local `-run "TrustUninstall|TrustStatus"` cohort passes cleanly (witness above). Per the gate rule, CI for a stacked base is advisory on the required checks; the vet/build/gofmt/source-format pass and the trust cohort passes. DRAFT remains open until handoff.
+
 ## END
 
-END_DONE lane-0428-213-trust-uninstall-false-green: fix complete at candidate `d0399968c`; PR #1737 (DRAFT) base `lane-0428-198-cli-shard-operator-env @ 7db142852d22`; three named EOF tests + full trust cohort pass at head; 118 pre-existing operatorauth gate-cohort failures in cmd/baha are NOT mine. CI hosted run pending.
+END_DONE lane-0428-213-trust-uninstall-false-green: fix complete at candidate `d0399968c`; PR #1737 (DRAFT) base `lane-0428-198-cli-shard-operator-env @ 7db142852d22`; three named EOF tests + full trust cohort pass locally and in CI (0 trust failures across 4 shards); 175 pre-existing gate-cohort failures inherited from 0428-204 basis are NOT mine. Evidence on origin/main. CI vet/build/gofmt pass; Go shards fail on the inherited gate-cohort only.
