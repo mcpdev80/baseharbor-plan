@@ -7,7 +7,6 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261114-r28-cli2-coordination](../tasks/t-20261114-r28-cli2-coordination.md) | CLI redesign: coordinate five workers | ready | high | coord | — | — |
-| [t-20261117-alert-evaluator-persistence-missing](../tasks/t-20261117-alert-evaluator-persistence-missing.md) | Alert rule evaluation and persistence missing | ready | not set | — | [t-20261114-r28-perses-alerts](../tasks/t-20261114-r28-perses-alerts.md) | — |
 | [t-20261117-hunt-signals-105](../tasks/t-20261117-hunt-signals-105.md) | Alert-Ebene develop-weit leer | ready | not set | — | [t-20261114-r28-perses-alerts](../tasks/t-20261114-r28-perses-alerts.md) | — |
 | [t-20261120-r28-identity-dashboard-catalog-consumer](../tasks/t-20261120-r28-identity-dashboard-catalog-consumer.md) | Identity dashboard catalog has zero production consumers (P4 of review 1650) | ready | not set | — | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | — |
 | [t-20261120-r28-keycloak-producer-target-mismatch](../tasks/t-20261120-r28-keycloak-producer-target-mismatch.md) | Keycloak producer registers ID/target the identity witness can never match | ready | not set | — | — | — |
