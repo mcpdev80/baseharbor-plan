@@ -94,6 +94,14 @@ Reviewer-only read. No local tests were run, no product files were changed, and 
 
 ## cleanliness
 
-Docker inspection before: shell PID `3153141`; `docker ps -a` listed these pre-existing exited containers: `bh-itest-1c3f4e6d-12470-edit-runtime-integration-dev-api-1`, `bh-itest-7daed22f-28345-shared-openbao-1`, `bh-itest-7daed22f-28345-shared-openbao-member-1-1`, `bh-itest-7daed22f-28345-shared-postgres-init-1`, `bh-itest-7daed22f-28345-shared-postgres-1`, `bh-itest-7daed22f-28345-shared-postgres-member-1-1`, `bh-itest-7daed22f-28345-shared-postgres-admin-1`, and `bh-itest-7daed22f-28345-shared-openbao-admin-1`. All were exited before this review. No containers or compose projects were started or changed by this review. A second `docker ps -a` will be recorded after evidence publication.
+Docker inspection before: shell PID `3153141`; `docker ps -a` listed these pre-existing exited containers: `bh-itest-1c3f4e6d-12470-edit-runtime-integration-dev-api-1`, `bh-itest-7daed22f-28345-shared-openbao-1`, `bh-itest-7daed22f-28345-shared-openbao-member-1-1`, `bh-itest-7daed22f-28345-shared-postgres-init-1`, `bh-itest-7daed22f-28345-shared-postgres-1`, `bh-itest-7daed22f-28345-shared-postgres-member-1-1`, `bh-itest-7daed22f-28345-shared-postgres-admin-1`, and `bh-itest-7daed22f-28345-shared-openbao-admin-1`. All were exited before this review. No containers or compose projects were started or changed by this review. Docker inspection after: shell PID `3159631`; `docker ps -a` showed the same eight `bh-itest-*` containers, all still exited. No container state changed during this review.
 
 END codex-rev-1747 BLOCKED — REQUEST CHANGES: author identity and per-case CI log proof remain outstanding; candidate `16242122dbd7eca0c1e073bd50872416d2d55152`.
+
+## Publication witness
+
+Exact output from `git ls-tree -r --name-only origin/main | grep 'evidence/r28-welle4-2026-11-21/pr1625-review/review-1-head16242122.md'` after fetching `origin main`:
+
+```text
+evidence/r28-welle4-2026-11-21/pr1625-review/review-1-head16242122.md
+```
