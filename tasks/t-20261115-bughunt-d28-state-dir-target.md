@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: "Codex (Owner-directed wait-card closeout, 2026-11-21)"
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "BF-01 (blocker): BASEHARBORSTATEDIR does not isolate target selection; target switch reads foreign registrations. Found on…"
 kanban_title: 0427-189 · bf01 state-dir isolation
 priority: ""
@@ -19,19 +19,19 @@ prs: [mcpdev80/baseharbor#1585]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-3.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-21/bf01/round-5.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44842355914"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-3.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-21/bf01/round-5.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44842355914", "https://github.com/mcpdev80/baseharbor/commit/d1acf3f31a360cd2a5e0ebaed1c70ccdd7957cf3", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/rev-1585/review.md"]
 ---
 
-- [ ] t-20261115-bughunt-d28-state-dir-target · BF-01 target selection ignores BASEHARBOR_STATE_DIR (reads foreign registrations) #task #release/v0-4-27 #status/review #view/review #kind/task
+- [x] t-20261115-bughunt-d28-state-dir-target · BF-01 target selection ignores BASEHARBOR_STATE_DIR (reads foreign registrations) #task #release/v0-4-27 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** Codex (Owner-directed wait-card closeout, 2026-11-21)  
     **PR:** [baseharbor#1585](https://github.com/mcpdev80/baseharbor/pull/1585)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-2.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-3.md), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-4.md), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-21/bf01/round-5.md), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44842355914)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-2.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-3.md), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-4.md), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-21/bf01/round-5.md), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44842355914), [proof 8](https://github.com/mcpdev80/baseharbor/commit/d1acf3f31a360cd2a5e0ebaed1c70ccdd7957cf3), [proof 9](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/rev-1585/review.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** Codex (Owner-directed wait-card closeout, 2026-11-21)  
@@ -86,3 +86,5 @@ BF-01 (blocker): BASEHARBOR_STATE_DIR does not isolate target selection; target 
 
 **Current exact-head gate (2026-11-21):** PR #1585 head `b50bc6a8053d19438d87466079c7a1ec06abfcbc` remains Draft on develop `40cb28c758b02960356434b630086a341ebe1738`. Run 44842355914 is terminal failure: CLI shards fail on the separate managed-operator auth fixtures; packages fails the Loki client-certificate fixtures, which are green on superseding #1734 run 44853938826. `TestStateDirIsolatesTargetSelection` is assigned to cli-2 by the existing SHA partition, but the compact hosted failure report is not an exact per-test PASS witness. Keep 0427-189 active; after shared gates clear, collect exact-head required CI and explicit test PASS evidence before merge/acceptance. #1615 untouched. Full current details: [round-5](../evidence/r28-welle1-2026-11-21/bf01/round-5.md).
 **Codex independent review (2026-11-21):** REQUEST CHANGES on exact head `70d39070f4ad2618b120e7a5438fdff7ed94f665` after successful exact-head CI run `44933797592`; the diff is six BF-01 files, but base-to-head history contains foreign-authored merge `55a8c0f`, so replay task-owned commits from current develop and rerun selected checks before acceptance.
+
+PR #1585 merged into develop as d1acf3f31a36 by the Owner after independent APPROVE at head bc936d24544 (exact run 44938228998 success, single-author provenance, tree c1ee02bb4c2 equal to the previously reviewed candidate). Verdict akte: evidence/r28-welle4-2026-11-21/rev-1585/review.md on plan main 10b237cbd95a.
