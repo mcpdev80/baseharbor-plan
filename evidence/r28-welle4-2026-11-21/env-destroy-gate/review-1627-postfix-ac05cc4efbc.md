@@ -1,5 +1,7 @@
 # CODEX-REVIEW — PR #1627 / card 0428-055, post-fix head
 
+SUPERSEDED - this record speaks about superseded head ac05cc4efbc and run 44958801932 (completed/CANCELLED). Do not use as acceptance evidence. Current candidate: b3b0c2c9efc, run 44961334018.
+
 ## PLAN
 
 1. Read the updated exact-head instruction and verify PR #1627, develop, and #1736 live refs.
