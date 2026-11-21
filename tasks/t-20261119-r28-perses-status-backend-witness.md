@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "'baha perses status' nennt pro observability-signal eine ECHTE backend-witness (erreicht / gematcht / nicht erreichbar) statt…"
 kanban_title: 0428-142 · echte backend-witness fuer
 priority: ""
@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1702]
 sources: []
-blocker: ""
+blocker: "Owner-entscheid noetig, nicht eine weitere korrekturrunde. Was erledigt ist: die negative richtung (P2) exists als 'TestPersesStatusWitnessUnauthenticatedDenied' + 'TestPersesStatusWitnessHumanFaceRendersBackendWitness' mit mutations-beleg (akte round-7-bothdirections.md, plan 1764e2b1). Was NICHT erfuellbar ist an diesem head: die positive Loki-/Tempo-zeile aus dem PRODUKT, denn nach erschoepfender suche setzt KEIN produkt-code 'LokiProven'/'TempoProven'/'PrometheusProven' (git grep nach feld-setzern = nichts ausserhalb von _test.go); alle produkt-callsites uebergeben ein LEERES witness: 'cmd/baha/perses_lifecycle.go:235', 'cmd/baha/app_status_result.go:296' (erner status), ':399' (lokaler status), dazu 'internal/metrics/perses_dashboards_hosts.go:338' und ':612'; 'internal/metrics' KONSUMIERT das witness nur ('persesHostDashboardCatalogWithWitness' :344, 'backendAvailableWithoutInference' :563, 'persesHostDashboardAvailabilityWitnessed' :618). ZWEI wege, bitte entscheiden: (a) 0428-143/'internal/metricsprovider' liefert ZUERST einen echten provenanz-konstrukteur, dann ist 0428-142's akzeptanz wie geschrieben erfuellbar; oder (b) ich formuliere die akzeptanz auf 'negative richtung + witness-kanal, ohne positive behauptung bei Verification=none' um (dann ist 0428-142 mit dem laufenden PR fertig). Nebenfaden, den ich selbst weiterfuehre: head 015ce675b2d5 hat noch KEINEN gehosteten lauf und ist kein nachkomme von develop 9bd76324ec6d (6 commits, merge-base 40cb28c758b0) — hop + exact-head-CI gehen als eigene mission raus."
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -31,14 +31,15 @@ omit those sources from scrape targets. This assigned, started lane is parked
 pending worker capacity. #1702 still needs the concrete review corrections and
 a fresh exact-head run; it is not ready to merge.
 
-- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
     **Owner:** coordinator  
     **PR:** [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702)  
+    **Blocker:** Owner-entscheid noetig, nicht eine weitere korrekturrunde. Was erledigt ist: die negative richtung (P2) exists als 'TestPersesStatusWitnessUnauthenticatedDenied' + 'TestPersesStatusWitnessHumanFaceRendersBackendWitness' mit mutations-beleg…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261119-r28-perses-alert-verifier-caller-wiring](t-20261119-r28-perses-alert-verifier-caller-wiring.md)  

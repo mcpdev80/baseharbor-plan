@@ -10,10 +10,10 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 14 |
+| active | 13 |
 | review | 4 |
 | wait | 30 |
-| blocked | 1 |
+| blocked | 2 |
 | ready | 4 |
 | queued | 25 |
 | waiting | 183 |
@@ -29,7 +29,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-env-delete](../tasks/t-20261114-r28-cli2-env-delete.md) | CLI redesign: Environment deletion lifecycle | active | high | Codex (Marcel, active wait sweep 2026-11-21) | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) | [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627), [baseharbor#1736](https://github.com/mcpdev80/baseharbor/pull/1736) |
 | [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | Connect Perses Tempo | active | normal | 0428-091- | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645) |
 | [t-20261115-bughunt-d28-state-dir-target](../tasks/t-20261115-bughunt-d28-state-dir-target.md) | BF-01 target selection ignores BASEHARBOR_STATE_DIR (reads foreign registrations) | active | not set | Codex (Owner-directed wait-card closeout, 2026-11-21) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1585](https://github.com/mcpdev80/baseharbor/pull/1585) |
-| [t-20261119-r28-perses-status-backend-witness](../tasks/t-20261119-r28-perses-status-backend-witness.md) | CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben | active | not set | coordinator | — | [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702) |
 | [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) | cli shards need operator env | active | not set | Codex (Marcel, full wait sweep 2026-11-21) | — | [baseharbor#1726](https://github.com/mcpdev80/baseharbor/pull/1726) |
 | [t-20261120-workload-port-flag-ignored-locally](../tasks/t-20261120-workload-port-flag-ignored-locally.md) | workload-port ignored locally | active | not set | Codex (Owner-directed full wait-card closeout, 2026-11-21) | — | [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723) |
 | [t-20261121-all-targets-config-loss](../tasks/t-20261121-all-targets-config-loss.md) | 0428-210 all-targets inventory depends on a deleted Target config | active | normal | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) (open) | [baseharbor#1739](https://github.com/mcpdev80/baseharbor/pull/1739) |
@@ -87,6 +86,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [t-20261119-r28-perses-status-backend-witness](../tasks/t-20261119-r28-perses-status-backend-witness.md) | CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben | blocked | not set | coordinator | — | [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702) |
 | [t-20261120-gate-catalog-ci-fast-check](../tasks/t-20261120-gate-catalog-ci-fast-check.md) | 0428-205 · Wire scripts/ci-fast-check.sh into the gate catalog | blocked | normal | w220-0428-205-catalog | [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) (open) | — |
 
 ## Ready to assign
