@@ -65,3 +65,10 @@ The renderer line is restored in a production-reachable command path, but the ex
 - `git ls-remote` before/after review had the same branch and PR-head SHA shown above.
 
 END_DONE: review completed; candidate unchanged; verdict and blockers recorded.
+
+## Planning publication witness
+
+Command: `git -C /tmp/opencode/codex-rev-cli2b-plan fetch origin main && git -C /tmp/opencode/codex-rev-cli2b-plan ls-tree -r --name-only origin/main | grep '^evidence/r28-welle4-2026-11-21/perses-status-backend-witness/review-3.md$'`
+
+Exact output:
+`evidence/r28-welle4-2026-11-21/perses-status-backend-witness/review-3.md`
