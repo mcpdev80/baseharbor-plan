@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: 0428-223-testctx
+kanban_status: active
+kanban_lane: active
 kanban_summary: "The whole-package Go unit suite (go test ./...) is red on develop and no merge gate runs it: make the suite pass on develop…"
 kanban_title: 0428-223 · full-suite unit tests are red
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-develop-full-suite-red · CI: full-suite unit tests are red on develop and no merge gate runs them #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261121-develop-full-suite-red · CI: full-suite unit tests are red on develop and no merge gate runs them #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** 0428-223-testctx  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** 0428-223-testctx  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -76,3 +75,5 @@ The whole-package Go unit suite (`go test ./...`) is **red on develop** and **no
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+
+H-V50 shows the 14 red cases are an environment gap: probe application resolves target 'company-dev' which no test configures since 80961866f. The fix lane proves it with a CI workflow_dispatch on its own branch, where the validate cell actually runs.
