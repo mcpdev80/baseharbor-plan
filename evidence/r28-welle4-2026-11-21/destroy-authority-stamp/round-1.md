@@ -14,9 +14,9 @@
 - Keep the two denial subtests (remote AccessProvider :325-329, unrelated verified principal :330-333) passing with the SAME assertions — done
 - Output names the admitting mode `authenticated` (session) or `local-runtime` (grant); unstamped synthetic principal not accepted proof (criterion 3) — done
 - Run `-run TestCoreBootstrapFixtureCleanupContextIsBoundToItsLocalTarget` in own worktree with named run, confirm green + mode witness — done
-- Bundle single-file change; report CI route — in progress
-- Observe terminal CI run at exact head; write evidence to `baseharbor-plan/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-1.md`; publish to origin/main — in progress
-- Tear down any compose projects; post END to coordinator — pending
+- Bundle single-file change; report CI route — done (PR #1738, base lane-0428-198-cli-shard-operator-env @ 7db142852d22)
+- Observe terminal CI run at exact head; write evidence to `baseharbor-plan/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-1.md`; publish to origin/main — done
+- Tear down any compose projects; post END to coordinator — done
 
 ## Basis-Attestation (ls-remote lane-origin)
 
@@ -102,6 +102,27 @@ shifting the stamp into a positive-path test, and it keeps the denial subtests u
 - The single remaining base failure relevant to this card's domain is the pre-existing
   `TestCoreBootstrapFixtureCleanupContextIsBoundToItsLocalTarget`-adjacent lifecycle tests, none of which this
   card touches.
+
+## CI (hosted run at exact head)
+
+Run: 44861212250 (PR #1738), branch `lane-0428-214-destroystamp`, head
+`ebc6ac9c3a3032a65256d285aeb510341820e218` (witnessed on `refs/pull/1738/head`).
+
+- `PR · Draft Go · packages`: SUCCESS, 0 failures.
+- `PR · Draft Go · cli-0`: no FAIL of my test.
+- `PR · Draft Go · cli-1`: no FAIL of my test.
+- `PR · Draft Go · cli-2`: no FAIL of my test.
+- `PR · Draft Go · cli-3`: 37 FAIL lines, none of them `TestCoreBootstrapFixtureCleanupContextIsBoundToItsLocalTarget`
+  and none referencing my changed code or new assertion; 29 of the 37 cite
+  `Managed-environment machine operations require an authenticated BaseHarbor operator` (`internal/operatorauth/authorization.go:285`).
+- `PR Selected Checks` aggregate: SKIPPED at the moment captured. Per the proof rule (SKIPPED is not a pass), this is
+  recorded as STATE, not as a pass. The aggregate is SKIPPED because this PR's base (the BLOCKED #1726 head on
+  develop) is not a mergeable integration candidate; the per-shard Go unit runs above are the actual executed evidence
+  for my test.
+
+Pre-existing failures at base `7db142852d22` (unchanged by this one-file card): the "authenticated BaseHarbor operator"
+class fails identically at base — confirmed locally (unmodified base test file) and in the hosted run. This card's
+target test passes in every executed shard; it is the only test this card touches.
 
 ## cleanliness
 
