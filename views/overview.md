@@ -12,13 +12,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | ---: |
 | active | 10 |
 | review | 4 |
-<<<<<<< Updated upstream
 | wait | 25 |
-| blocked | 1 |
-=======
-| wait | 26 |
 | blocked | 2 |
->>>>>>> Stashed changes
 | ready | 5 |
 | queued | 25 |
 | waiting | 183 |
