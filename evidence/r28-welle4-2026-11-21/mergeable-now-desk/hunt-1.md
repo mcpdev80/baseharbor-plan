@@ -133,6 +133,11 @@ Not merge-ready: 11 red (class c), 5 draft (class d), lane-base stack 1737-1741 
 - F-4 (fan-in): PR 1597 and 1650 both modify `cmd/baha/app_status_result.go` - merge friction expected; not a content duplicate.
 - F-5 (scope): 0.4.28 merge blocked until 0.4.27 tag (AGENTS 3.8 PR-disziplin). PR 1588 is a 0.4.27 release item and is the likely begin-marker.
 
+## EVIDENCE ON origin/main (verified)
+- `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep mergeable-now-desk/hunt-1.md`
+  - Output: `evidence/r28-welle4-2026-11-21/mergeable-now-desk/hunt-1.md`
+- Commit SHA: `2df60de8` (0428-221-huntcook), pushed main -> main (d0fdb424..2df60de8).
+
 ## cleanliness
 - Pure desk/read-only evidence. No docker/podman compose started.
 - docker ps -a before: (no run started)
