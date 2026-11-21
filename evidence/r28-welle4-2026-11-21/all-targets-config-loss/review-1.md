@@ -26,7 +26,7 @@ Review metadata: session ID not exposed by this interface; model GPT-6; backend 
 - PR head after review: 6442955f4cf06e09583634eb90410d5fedf83b85.
 - PR head before/after review = 6442955f4cf06e09583634eb90410d5fedf83b85/6442955f4cf06e09583634eb90410d5fedf83b85.
 - Initial compare `develop...6442955f4cf06e09583634eb90410d5fedf83b85`: `ahead_by=1`, `behind_by=15`, merge base `9bd76324ec6d1364f512d718cb82f1fffc9105a4`, status `diverged`. At final verification, develop had advanced again to `c2c94ad115ffa33e91efcd1be1fae6fc2bba7046` (merge of #1731, created 08:55:25Z); compare was `ahead_by=1`, `behind_by=20`, same merge base `9bd76324ec6d1364f512d718cb82f1fffc9105a4`, status `diverged`.
-- PR API at final verification reports `mergeable=null`, `mergeable_state=unknown`, `draft=false`, state open. The successful run ended at 08:35:58Z, before both the 5b26be1 commit (08:42:24Z) and the c2c94ad commit. The exact-head run was green when observed, but it is not evidence against the current develop tip.
+- An intermediate PR API sample at 08:57 returned `mergeable=null`, `mergeable_state=unknown`; the final sample at 08:59 returned `mergeable=true`, `mergeable_state=behind`, `draft=false`, state open. The successful run ended at 08:35:58Z, before both the 5b26be1 commit (08:42:24Z) and the c2c94ad commit. The exact-head run was green when observed, but it is not evidence against the current develop tip.
 - Exact PR diff: one changed file, `cmd/baha/app_commands.go`.
 - Read-only review. No product files changed.
 
