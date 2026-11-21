@@ -64,9 +64,15 @@ Form used (TEST RUNNER RULE, no bare package test):
 
 Removing `os.Environ()...` from `etcdctl.go` (site 1) makes `TestEtcdEnvInheritsParentEnv/snapshot-save` FAIL with "sentinel BASEHARBOR_0428_222_SENTINEL=1 not inherited by child". Verified the test goes red on the mutation, then restored the fix.
 
-## CI wiring
+## CI wiring (hosted run to terminal)
 
-New tests live in packages `internal/corebackup/etcd` and `internal/coreupdate`, both covered by the standard `go test ./...` group. They run under the CI group that runs the full Go build/test matrix (the repository's `go test ./...` invocation), triggered by the normal branch-push / PR selected-checks flow. Hosted run pending (see run section).
+New tests live in packages `internal/corebackup/etcd` and `internal/coreupdate`, covered by the standard `go test ./...` group.
+
+Hosted run: **run API ID `44920799944`**, PR #1749, branch `lane-0428-222-child-env`, head `a83e066ff160af6e390b26c9dc763dcae0a816d2` (contains both the fix commit `a513af08a` and the gofmt fix `a83e066ff`). Conclusion: **success** (run #7070 terminal).
+
+Required checks all success: `PR · Source format`, `PR · Validation · go-vet`, `PR · Validation · go-build`, `PR · Go unit · cli-0/1/2/3/owner/packages`, plus `Workflow policy`, `Trusted Plan`, `Native gate plan`, `Focused Python`. Every other listed job is `skipped` (release/matrix lanes not selected for this candidate). This is an actually-executed required-job pass on the exact tested head - not skipped, not queued.
+
+The earlier failure (run #44917046841) was only `PR · Source format`, caused by a struct-field alignment nuance in `internal/corebackup/etcd/child_env_inheritance_0428_222_test.go` that the host's gofmt (1.26.8) did not flag but CI's gofmt (1.26.9) did. Fixed locally with `gofmt -w` and re-verified green.
 
 ## Cleanliness
 
