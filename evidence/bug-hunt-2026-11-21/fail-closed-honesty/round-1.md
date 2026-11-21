@@ -402,7 +402,7 @@ $ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r 
 evidence/bug-hunt-2026-11-21/fail-closed-honesty/round-1.md
 ```
 
-Plan head carrying this dossier at END: `2f1223c100ba22e8552a3ab32c760a558e083688` (origin/main).
+Plan head carrying this dossier at END: `88f2737ed58e3a5ca0a5025ab76498620d218ba1` (origin/main).
 
 ## END
 
