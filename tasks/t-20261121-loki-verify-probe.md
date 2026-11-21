@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: ""
-owner: w235-0428-212-lokifix2
-kanban_status: review
-kanban_lane: review
+owner: coordinator
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "TestPersesLokiDatasourceVerifyNeverReportsHealthy proves the health path rejects an unreachable Loki, not merely a missing…"
 kanban_title: 0428-212 · 0428-212 loki health
 priority: high
@@ -19,23 +19,23 @@ prs: [mcpdev80/baseharbor#1734]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44882903559"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44882903559", "https://github.com/mcpdev80/baseharbor/pull/1734"]
 ---
 
-- [ ] t-20261121-loki-verify-probe · loki health verify must reach the probe, not a missing-file exit #task #release/v0-4-28 #status/review #view/review #area/observability #kind/bug
+- [x] t-20261121-loki-verify-probe · loki health verify must reach the probe, not a missing-file exit #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/observability #kind/bug
     <!-- generated:card -->
-    **Owner:** w235-0428-212-lokifix2 · **Priority:** high  
+    **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1734](https://github.com/mcpdev80/baseharbor/pull/1734)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44882903559)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44882903559), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1734)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261120-r28-valkey-dashboard-unavailable-only](t-20261120-r28-valkey-dashboard-unavailable-only.md)  
-**Owner:** w235-0428-212-lokifix2  
+**Owner:** coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1734](https://github.com/mcpdev80/baseharbor/pull/1734)  
 **Source:** 
@@ -111,3 +111,5 @@ CODEX-REVIEW runde 2 = APPROVE an head 45d181ab4089 (plan fd7b27ba, path witness
 - Focused local proof: `go test ./internal/logs -run '^TestPersesLokiDatasourceVerifyNeverReportsHealthy$' -count=1` passed.
 - Exact hosted run [44882903559](https://github.com/mcpdev80/baseharbor/actions/runs/44882903559) is terminal failure at that head. Required owner test route `PR · Go unit · packages` passed, as did `PR · Go unit · owner`; cli-0..3 failed with the already-documented managed-operator authentication boundary, and `PR Selected Checks` consequently failed. No Loki package test failed.
 - As Maintainer, I attempted the normal merge; GitHub refused because the base branch policy requires green checks. Repository Auto-Merge is disabled. No admin bypass was used; PR remains open/review and the #1615 owner lane was not inspected or changed. It can merge once the shared required check passes.
+
+MERGE BESTAETIGT, von mir am remote nachgemessen: PR #1734 (karte 0428-212) ist als commit 7fbb2d2c6c6 in develop 9bd76324ec6d enthalten ('git merge-base --is-ancestor 7fbb2d2c6c6 9bd76324ec6d' = 0), gemergt 08:25. CODEX-REVIEW lag bei 'APPROVE' (verdikt heute frueh consumed, row 874). WIRKUNG AUF DAS FENSTER: die packages-roete 'TestPersesLokiDatasourceMultiSource*' (fehlendes 'providers/loki/shared/service-access/pki/client-cert.pem'), die der reviewer an #1741 und #1702 als ERBSCHAFT gebucht hat, hat damit EINE ihrer ursachen verloren; der reviewer bestaetigt zusaetzlich, dass die pakete-loki-_route auf dem gemergten baum GRUEN ist ('…/trust-uninstall-false-green/review-2.md', abschnitt 'Develop hop and #1615 package route'). Kein weitererPR fuer diese karte.

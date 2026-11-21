@@ -28,7 +28,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
     **Owner:** w183-0428-183-valkeyfix  
     **PR:** [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714)  
     **Waiting:** PR \#1714 head 5159192dadeec8335eb401c90fca6614e29048b0 remains behind develop and its recorded run 44778040176 is red on the inherited CLI/operator gate and the Loki package fixture. The original prerequisite 0428-202 / PR \#1732 is CLOSED…  
-    **Needs:** [t-20261121-loki-verify-probe](t-20261121-loki-verify-probe.md), [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
+    **Needs:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1734), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44853938826)  
     <!-- /generated:card -->
 
