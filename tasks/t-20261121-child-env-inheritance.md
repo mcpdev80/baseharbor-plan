@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w21-pr1702-0428-142-compat
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-222 · child process Env replaced
 priority: ""
@@ -19,14 +19,15 @@ prs: [mcpdev80/baseharbor#1749]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1749", "https://github.com/mcpdev80/baseharbor/actions/runs/44961731917"]
 ---
 
-- [ ] t-20261121-child-env-inheritance · 0428-222 child process environment replaced instead of inherited in corebackup/coreupdate etcd probes #task #release/v0-4-28 #status/review #view/review #kind/task
+- [x] t-20261121-child-env-inheritance · 0428-222 child process environment replaced instead of inherited in corebackup/coreupdate etcd probes #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** w21-pr1702-0428-142-compat  
     **PR:** [baseharbor#1749](https://github.com/mcpdev80/baseharbor/pull/1749)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1749), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44961731917)  
     <!-- /generated:card -->
 
 ## Goal
@@ -69,7 +70,7 @@ One or two sentences: the observable outcome.
 
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w21-pr1702-0428-142-compat  
@@ -146,3 +147,5 @@ round-5 sicherheitskorrektur IST GELIEFERT und von mir gegengeprueft: head 10c7c
 sicherheits-fix ist GELANDET auf exaktem head ed9741b93c0395ec6d577d19f6531dc8cc964846 (hop als additiver merge-commit, base develop 42da7128e72, back=0 gemessen, mergeable=MERGEABLE, mergeStateStatus=CLEAN, draft=false); der exakte hosted run 44961731917 ist completed/SUCCESS mit 0 failed jobs. der filter entfernt jetzt die geerbten, nicht gepinnten ETCDCTL_-schluessel (interal/testsupport/envpin/pin.go) und erhaelt das uebrige env, mit direkten faellen fuer ETCDCTL_INSECURE_SKIP_TLS_VERIFY=true, USERNAME und PASSWORD - genau der punkt meines fruheren REQUEST CHANGES (9d3393e426bb auf 23feeefee58), das fuer diesen head nicht mehr gilt. unabhaengiges exact-head verdict ist beauftragt (mission sha256 im ledger, akte pr1749-review/review-5-headded9741b9.md). KEIN merge, KEIN close vor dem approval; die merge-rolle erhaelt den auftrag erst nach APPROVE auf genau dieser sha.
 
 sicherheits-fix ist GELANDET auf exaktem head ed9741b93c0395ec6d577d19f6531dc8cc964846 (hop als additiver merge-commit mit parents 10c7c64140b + 42da7128e72, base develop 42da7128e72, back=0 gemessen, front=7, mergeable=MERGEABLE, mergeStateStatus=CLEAN, draft=false); der exakte hosted run 44961731917 ist completed/SUCCESS mit 36 jobs und 0 failed jobs. der filter entfernt die geerbten, nicht gepinnten ETCDCTL_-schluessel in internal/testsupport/envpin/pin.go und erhaelt das uebrige env, mit direkten faellen fuer ETCDCTL_INSECURE_SKIP_TLS_VERIFY=true, USERNAME und PASSWORD - genau der punkt meines fruheren REQUEST CHANGES (9d3393e426bb auf 23feeefee58), das fuer diesen head nicht mehr gilt. diff-touches: internal/corebackup/etcd/{etcdctl.go,etcdutl.go,child_env_inheritance_0428_222_test.go}, internal/coreupdate/{dcs_boot_probe.go,child_env_inheritance_0428_222_test.go}, internal/stableid/lock_probe*.go, internal/testsupport/envpin/pin.go. unabhaengiges exact-head verdict ist beauftragt (mission sha256 eb75223a5bf3, akte pr1749-review/review-5-headded9741b9.md). KEIN merge, KEIN close vor dem approval; die merge-rolle erhaelt den auftrag erst nach APPROVE auf genau dieser sha - diese karte hat KEINE abhaengigkeit an #1627.
+
+GELOGDET: ordinary merge auf develop, merge-commit 7d4351c6d645353b6b96c8d320b4c832d55f9047, gemessen an refs/heads/develop. kandidat war exakt ed9741b93c0395ec6d577d19f6531dc8cc964846 (back=0 gegen develop 42da7128e72, base unveraendert), der exakte hosted run 44961731917 completed/SUCCESS (36 jobs, 0 failed), und das unabhaengige CODEX-REVIEW verdict APPROVE auf genau dieser sha liegt vor: evidence/r28-welle5-2026-11-22/pr1749-review/review-5-headded9741b9.md. kein squash, kein force, kein admin-bypass. der sicherheitsinhalt (filter fuer geerbte unpinned ETCDCTL_-schluessel in internal/testsupport/envpin/pin.go plus die beiden child_env_inheritance-regressionstests) ist damit in develop.
