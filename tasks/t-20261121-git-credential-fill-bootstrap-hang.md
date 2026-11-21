@@ -10,8 +10,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "The first authenticated Git operation inside a test or a first-time target bootstrap never returns a clean failure: it invokes…"
 kanban_title: 0428-217 · 0428-217 credential-fill hang
 priority: high
@@ -20,17 +20,20 @@ blocked_by: []
 prs: ['mcpdev80/baseharbor#1742']
 wait_reason: ""
 blocker: ""
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1742"]
 
 ---
 
-- [ ] t-20261121-git-credential-fill-bootstrap-hang · 0428-217 git credential fill must not block in test or first-run paths #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
+- [x] t-20261121-git-credential-fill-bootstrap-hang · 0428-217 git credential fill must not block in test or first-run paths #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1742](https://github.com/mcpdev80/baseharbor/pull/1742)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1742)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** coordinator  
@@ -143,3 +146,5 @@ CODEX-REVIEW review-4.md = 'Verdict: APPROVE CONTENT' am exakten kandidaten 6f8f
 CODEX-REVIEW review-4.md = 'Verdict: APPROVE CONTENT' am exakten kandidaten 6f8fa120f7e5e79d260ed89d486633bc152105de; die einzige vor-bedingung ('publish round-4-clone-env.md before merge') ist erfuellt (akte auf origin/main, plan b833ffaef). Zeugen, von mir gemessen: 'PR Selected Checks' pass, cli-0..3 pass, 'Trusted Plan' pass, draft=false, mergeable=MERGEABLE, ancestry develop->head JA. Befunde 1..3 aus review-2/review-3 sind abgeschlossen: 'cmd/baha/app_inspect_remote.go:74' erbt jetzt 'os.Environ()' (muster aus 'app_update.go:493'), regression mit eltern-sentinel im kind, mutationen M1 und M2 rot. CODEX-MERGE ist angesetzt (merge als merge-commit, KEIN squash — praegenz #1739, damit die sha-zeugen der karte bleiben).
 
 CODEX-REVIEW review-4.md = 'Verdict: APPROVE CONTENT' am exakten kandidaten 6f8fa120f7e5e79d260ed89d486633bc152105de; vor-bedingung (akte round-4-clone-env.md veröffentlichen) ist erfuellt (plan b833ffaef). Zeugen von mir: selected pass, cli-0..3 pass, Trusted Plan pass, draft=false, mergeable=MERGEABLE, ancestry JA. CODEX-MERGE angesetzt, merge als merge-commit ohne squash (praegenz #1739).
+
+CODEX-MERGE bestaetigt: PR #1742 state MERGED, mergedAt 2026-11-21T13:09:38Z, base develop. KANDIDAT war der exakte head 6f8fa120f7e5e79d260ed89d486633bc152105de (CODEX-REVIEW review-4.md 'APPROVE CONTENT', vor-bedingung round-4-akte erfuellt, run 44905476380 completed/success, selected + cli-0..3 + Trusted Plan pass, mutationen M1 und M2 rot). GemergeT ALS merge-commit ohne squash, damit die zwei commits der karte und ihre sha-zeugen bleiben. KLEINER korrekur-an-mir: die lane meldete 'rev-list develop..head = 3', ihre parent-zeile war 20ad0713e — nach dem merge zaehle ich die deltas selbst neu und belege sie in der akte des merges.
