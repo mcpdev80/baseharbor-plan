@@ -17,7 +17,7 @@ depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-connection-client
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1588]
 sources: []
-blocker: "Security merge blocker (self-satisfying approval evidence) found in PR #1588 at head 28842990d8f: internal/deployment/immutable_provenance.go:125-131 manufactures approval evidence from policy.RequireApproval instead of a Core-verified consent, so production policy can approve its own mutation. Exact CI is green and does not cover the semantic. Listed owner lane m186-policy-presets is not running and the card is v0.4.27-era, so per the Owner's two-worlds rule the fixer must be decided by the Owner; finding recorded in TRIAGE-QUEUE.md with ZWEIFEL. Next trigger: Owner assigns the fix (or frees a seat, tooling issue #6), then reviewer verdict + regression that is red today."
+blocker: "Four documented blockers in PR #1588 (akte evidence/r28-welle4-2026-11-21/r27-target-policy-edit/review-1-head28842990.md, findings lines 23-26): manufactured admission facts (internal/deployment/target_deployment_policy_admission.go:12-20), self-asserted approval (internal/deployment/immutable_provenance.go:125-133 via cmd/baha/deployment_record.go:414-418 and the remote apply path), unset ImmutableProvenance.Branch for branch-restricted presets (immutable_provenance.go:71-76), and a stale Target policy snapshot (cmd/baha/target_deployment_policy_edit.go:98-100,164-167). FIXER DECIDED BY OWNER 2026-11-21 22:4xZ: the Owner repairs all four in the existing worktree /var/tmp/baseharbor-1588-refresh on the exact PR branch, then pushes and requires exact hosted CI plus a fresh Codex-EAR review. No Codeman pool seat is used and no additional worker may be assigned to #1588. Next trigger: new exact head with green CI, then review."
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1514", "https://github.com/mcpdev80/baseharbor/actions/runs/42707150233", "https://github.com/mcpdev80/baseharbor/pull/1588", "https://github.com/mcpdev80/baseharbor/actions/runs/44895998000"]
@@ -28,7 +28,7 @@ early: true
     <!-- generated:card -->
     **Owner:** m186-policy-presets (0427-186 lane) · **Priority:** high  
     **PR:** [baseharbor#1588](https://github.com/mcpdev80/baseharbor/pull/1588)  
-    **Blocker:** Security merge blocker (self-satisfying approval evidence) found in PR \#1588 at head 28842990d8f: internal/deployment/immutable\_provenance.go:125-131 manufactures approval evidence from policy.RequireApproval instead of a Core-verified con…  
+    **Blocker:** Four documented blockers in PR \#1588 (akte evidence/r28-welle4-2026-11-21/r27-target-policy-edit/review-1-head28842990.md, findings lines 23-26): manufactured admission facts (internal/deployment/target\_deployment\_policy\_admission.go:12-20…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1514), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42707150233), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1588), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44895998000)  
     <!-- /generated:card -->
 
@@ -88,3 +88,5 @@ Preserve original card ID/number, prior PR and test history. This is a release-s
 The exact run is green, but the current candidate is not accepted. Its provenance helper asserts branch, clean-tree, commit, remote and approval facts without verifying them, does not bind the current candidate at the final mutation boundary, and treats a non-empty OCI digest as verified. See [security review evidence](../evidence/closeouts/0427-186-security-review-r1.md). The card is active for a fail-closed correction; do not merge the current head.
 
 active -> blocked: dead owner lane + cross-world security blocker, decision needed
+
+blocked bleibt: zuweisung an den owner (eigene worktree), keine lane, kein zweiter worker
