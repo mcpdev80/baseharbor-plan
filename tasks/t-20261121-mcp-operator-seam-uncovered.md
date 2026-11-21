@@ -24,7 +24,7 @@ created: "2026-11-21T05:55:00Z"
 updated: "2026-11-21T05:55:00Z"
 ---
 
-- [ ] t-20261121-mcp-operator-seam-uncovered · 0428-218 make the MCP operator seam reachable from MCP tests #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/cli #area/observability #kind/bug
+- [ ] t-20261121-mcp-operator-seam-uncovered · 0428-218 make the MCP operator seam reachable from MCP tests #task #release/v0.4.28 #status/planned #view/waiting #board/planned #area/cli #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** normal  
     **Waiting for prerequisites**  
@@ -93,17 +93,6 @@ Forbidden:
     finding for the Owner, not a test fix.
   - Hosted logs unavailable at the candidate head: report the three commands (`gh run view --log`, `--log-failed`,
     `--job <id> --log`) with their byte counts; do not substitute a local run.
-
-## Correction after commissioning (coordinator, same day)
-
-The lane measured the base-lane head `e45430f2f` while claiming this slot: #1726 DOES edit `cmd/baha/mcp.go` - it installs
-`testOperatorContext` inside `authorizeMCPOperation` when `operatorAuthTestContextAllowed(ctx)` and no principal is present,
-and documents the mechanism in the diff comment. `withoutOperatorAuthTestContext` / `operatorAuthTestContextAllowed` live in
-`cmd/baha/app_init_wizard.go:29` / `:33`, and `cmd/baha/agent_mcp_test.go:103` already uses them for the anonymous-denial case.
-So the gap is NOT a missing seam on the MCP arm: it is class-C cases that stamp a verified principal instead of marking the
-context anonymous, which makes their refusal assertion unreachable. This card therefore stacks ON the 0428-204 branch (content
-dependency, not merge dependency) and its write-set shrinks to the MCP test files; `cmd/baha/mcp.go` stays owned by 0428-204.
-Refusal semantics must not change.
 
 ## Handoff
 
