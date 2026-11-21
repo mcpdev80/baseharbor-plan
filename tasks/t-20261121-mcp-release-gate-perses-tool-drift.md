@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w26-pr1588-0428-225-mcpcontract
+kanban_status: active
+kanban_lane: active
 kanban_summary: The Pre-Release workflow reports unexpected MCP tools baseharbor.app.perses.disable/enable/remove/status while…
 kanban_title: 0428-225 · MCP release gate rejects the
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-mcp-release-gate-perses-tool-drift · MCP release gate rejects the app.perses.* tools the machine contract declares #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261121-mcp-release-gate-perses-tool-drift · MCP release gate rejects the app.perses.* tools the machine contract declares #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w26-pr1588-0428-225-mcpcontract  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w26-pr1588-0428-225-mcpcontract  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -132,3 +131,5 @@ escalated to the Owner in the coordination ledger (row 940); this card does not 
 
 
 - Current state, branch, PR and evidence links. Newest first.
+
+planned -> active: hosted proof from PR #1746 static gate (job 136970241277): 'MCP contract mismatch: missing=[] unexpected=[baseharbor.app.perses.disable,.enable,.remove,.status]'. Fresh laptop lane dispatched (mission coordinator/missions/0428-225-mcp-contract-drift.md). Scope per card: internal/machine/contract.go + contracts/machine/v1/control.golden.json; scripts/**, docs/releases/**, .github/** stay Owner scope.
