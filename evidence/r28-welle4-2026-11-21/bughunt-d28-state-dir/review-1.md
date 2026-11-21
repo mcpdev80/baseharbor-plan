@@ -65,4 +65,4 @@ REQUEST CHANGES for candidate provenance. The implementation and behavioral evid
 
 - No containers or compose projects were started. No Docker state was changed by this review.
 
-END BLOCKED: provenance finding blocks acceptance at candidate `70d39070f4ad2618b120e7a5438fdff7ed94f665`.
+END codex-rev-1747 BLOCKED: provenance finding blocks acceptance at candidate `70d39070f4ad2618b120e7a5438fdff7ed94f665`.
