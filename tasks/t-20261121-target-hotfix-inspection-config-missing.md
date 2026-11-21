@@ -24,7 +24,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
   - https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md
 created: "2026-11-21T06:52:00Z"
 updated: "2026-11-21T06:52:00Z"
-superseded_by: t-20261120-cli-operator-entrypoints
+superseded_by: ""  <!-- zurueckgenommen 2026-11-21: 0428-204 ist accepted, aber PR #1726 wurde ohne merge geschlossen; 46017060d ist NICHT ancestor von develop e6c199e7b7d (gemessen) -->
 
 ---
 
