@@ -6,7 +6,7 @@ ROLE: REVIEW
 2. Verify current base, exact diff, commit authorship, PR state, and task contract. Done.
 3. Inspect pinnedEnv call sites and all six inherited-environment regression cases. Done.
 4. Check public-surface diff, exact per-job hosted evidence, and merge readiness. Done.
-5. Publish review evidence and handoff note, verify origin/main, and report verdict. In progress.
+5. Publish review evidence and handoff note, verify origin/main, and report verdict. Done.
 
 ## Candidate and provenance
 
@@ -64,4 +64,14 @@ REQUEST CHANGES. The exact head still has a security-relevant pin-ordering defec
 - No containers or compose projects were started. `docker ps -a` before review, PID 2459391: container IDs `34cf9576dc2b`, `e88b00795b5c`, `1451a7b5b3c6`, `d7ba821c0e08`, `957a80e73b57`, `45bddf32278e`, `9d3f1a2b1e0e`; all were already exited and are unrelated ambient entries. They were not changed.
 - `docker ps -a` after review, PID 2483081: the same seven exited ambient IDs were present; no review-owned container or compose project exists.
 
-END codex-rev-1747 BLOCKED: remaining unsafe boot-probe environment ordering at candidate `3df3cb8be6372df630b880d369f3806b0a8fe214`.
+END codex-rev-1747 DONE: REQUEST CHANGES issued for unsafe boot-probe environment ordering at candidate `3df3cb8be6372df630b880d369f3806b0a8fe214`.
+
+## Origin publication witness
+
+Command: `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep '^evidence/r28-welle4-2026-11-21/child-env-inheritance/review-2-head3df3cb.md$'`
+
+Exact output:
+
+```
+evidence/r28-welle4-2026-11-21/child-env-inheritance/review-2-head3df3cb.md
+```
