@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: "Codex (Marcel, Wait sweep excluding #1615)"
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 wait_reason: ""
 kanban_summary: A developer can start and use the Core operator API from documentation alone.
 kanban_title: 0427-169 · operator API runbook missing
@@ -19,20 +19,20 @@ repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1587", "mcpdev80/baseharbor#1748"]
 sources: []
 blocker: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/operator-api-smoke.md", "https://github.com/mcpdev80/baseharbor/pull/1587", "https://github.com/mcpdev80/baseharbor/pull/1748", "https://github.com/mcpdev80/baseharbor/actions/runs/44885697655", "https://github.com/mcpdev80/baseharbor/actions/runs/44912559586", "https://github.com/mcpdev80/baseharbor/actions/runs/44913139742", "https://github.com/mcpdev80/baseharbor/actions/runs/44913141140", "https://github.com/mcpdev80/baseharbor/actions/runs/44873370844"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1748", "https://github.com/mcpdev80/baseharbor/actions/runs/44913139742", "https://github.com/mcpdev80/baseharbor/actions/runs/44913141140", "https://github.com/mcpdev80/baseharbor/commit/22fc68ebc0655874bc3f6aa886ff356dcad79624"]
 early: true
 ---
 
-- [ ] t-20261108-smoke-0427-operator-api-undocumented · Remote Core: API route runbook missing #task #release/v0-4-28 #status/active #view/active #area/cli #area/docs #kind/bug
+- [x] t-20261108-smoke-0427-operator-api-undocumented · Remote Core: API route runbook missing #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/cli #area/docs #kind/bug
     <!-- generated:card -->
     **Owner:** Codex (Marcel, Wait sweep excluding \#1615) · **Priority:** normal  
     **PR:** [baseharbor#1587](https://github.com/mcpdev80/baseharbor/pull/1587), [baseharbor#1748](https://github.com/mcpdev80/baseharbor/pull/1748)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/operator-api-smoke.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1587), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1748), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44885697655), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44912559586), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44913139742), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44913141140), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/44873370844)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1748), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44913139742), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44913141140), [proof 4](https://github.com/mcpdev80/baseharbor/commit/22fc68ebc0655874bc3f6aa886ff356dcad79624)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
 **Owner:** Codex (Marcel, Wait sweep excluding #1615)  
@@ -78,6 +78,14 @@ A developer can start and use the Core operator API from documentation alone.
 - Shared files: coordinate through the owning task.
 
 ## Handoff
+
+### 2026-11-21 — Owner-authorized acceptance
+
+- User instruction replaces the physical-workstation acceptance prerequisite: ordinary tests and end-to-end acceptance run in CI; the test VM is reserved for short optional diagnostics.
+- PR [#1748](https://github.com/mcpdev80/baseharbor/pull/1748) merged normally into `develop` at `22fc68ebc0655874bc3f6aa886ff356dcad79624`. Develop ancestry was verified.
+- Exact latest-head native CI [44913139742](https://github.com/mcpdev80/baseharbor/actions/runs/44913139742) passed Docker and Podman. Both exercised Core readiness, private invitation creation, fresh workstation enrollment/import, authenticated remote CLI operations, workload cleanup and runtime cleanup at candidate `b7f4d396b05f2d6e088afc1f3bcf6b3fdb94534d`.
+- Exact PR CI [44913141140](https://github.com/mcpdev80/baseharbor/actions/runs/44913141140) passed at the same head, including PR Selected Checks, docs, workflow policy, planner and CI executor checks. Local fast checks and the EN/DE docs audit also passed.
+- Owner-authorized acceptance. #1615 was not inspected or changed.
 
 ### 2026-11-21 — CI-based workstation acceptance
 
