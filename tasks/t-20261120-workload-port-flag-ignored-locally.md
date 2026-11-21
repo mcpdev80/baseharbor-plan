@@ -7,7 +7,7 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: "Codex (Owner-directed full wait-card closeout, 2026-11-21)"
+owner: w1625-pr1723-0428-199-workloadport
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -26,7 +26,7 @@ created: 2026-11-20
 
 - [ ] t-20261120-workload-port-flag-ignored-locally · workload-port ignored locally #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** Codex (Owner-directed full wait-card closeout, 2026-11-21)  
+    **Owner:** w1625-pr1723-0428-199-workloadport  
     **PR:** [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44788134959)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ created: 2026-11-20
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** Codex (Owner-directed full wait-card closeout, 2026-11-21)  
+**Owner:** w1625-pr1723-0428-199-workloadport  
 **Priority:** not set  
 **PRs:** [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723)  
 **Source:** 
@@ -89,3 +89,5 @@ ARBEITET JETZT, kante gegen session gemessen (w199-0428-199-workloadport, ornith
 - Took over this started wait card under the Owner's instruction to complete every wait card except #1615. PR #1723 remains OPEN, non-draft, based on `develop`, exact head `26755fc1edfbde534986b501197a92f38842a0c1`; the current `develop` head is `40cb28c758b02960356434b630086a341ebe1738` and is an ancestor of the PR head.
 - On that exact PR head, `go test ./cmd/baha -run '^(TestParseRuntimeUpOptions|TestExtractLocalWorkloadPorts|TestAppApplyRunAcceptsWorkloadPort|TestUpRunAcceptsWorkloadPort)$' -count=1` passed (`ok .../cmd/baha 0.009s`). The two distinct command-surface regressions are present and executed: `TestAppApplyRunAcceptsWorkloadPort` and `TestUpRunAcceptsWorkloadPort`. Source trace confirms `app apply` and `up` attach the parsed map to context and the existing deployment path persists and applies it.
 - The exact hosted run [44788134959](https://github.com/mcpdev80/baseharbor/actions/runs/44788134959) is terminal FAILURE on the same head. All four owning CLI shards executed and failed on the shared operator gate; the verbatim representative failure is `main_test.go:60: create failed: Managed-environment machine operations require an authenticated BaseHarbor operator.` The card's own regressions pass locally; exact hosted success, fresh current-head CI, and merge remain outstanding behind 0428-198/#1726 and its active 0428-204 entry-point prerequisite. No PR base or other owner's work was changed.
+
+222
