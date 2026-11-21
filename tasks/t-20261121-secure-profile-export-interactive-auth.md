@@ -1,7 +1,7 @@
 ---
 id: t-20261121-secure-profile-export-interactive-auth
 card_number: "0428-219"
-card_short_title: ": "0428-219 secure-profile exp"
+card_short_title: "0428-219 export auth"
 type: bug
 areas: [cli]
 release: v0.4.28
@@ -11,7 +11,7 @@ owner: coordinator
 kanban_status: planned
 kanban_lane: planned
 kanban_summary: "TestSecureProfileExportCommandPathAssemblesProductionWiring passes in the hosted PR · Go unit · cli-0 shard, so the command tree…"
-kanban_title: "0428-219 · : \"0428-219 secure-profile exp"
+kanban_title: 0428-219 · 0428-219 export auth
 priority: normal
 depends_on: [t-20261120-cli-operator-entrypoints]
 repos: [mcpdev80/baseharbor]
@@ -21,7 +21,7 @@ blocker: ""
 wait_reason: ""
 resolution: ""
 evidence:
-  - https://github.com/mcpdev80/baseharbor-plan/blob/main/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md
+  - https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md
 created: "2026-11-21T06:50:00Z"
 updated: "2026-11-21T06:50:00Z"
 ---
@@ -31,7 +31,7 @@ updated: "2026-11-21T06:50:00Z"
     **Owner:** coordinator · **Priority:** normal  
     **Waiting for prerequisites**  
     **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
