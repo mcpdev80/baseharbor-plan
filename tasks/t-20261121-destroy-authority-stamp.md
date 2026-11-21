@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "TestCoreBootstrapFixtureCleanupContextIsBoundToItsLocalTarget shows which authority mode admitted installation.destroy, instead…"
 kanban_title: 0428-214 · 0428-214 destroy stamp
 priority: high
@@ -91,7 +91,10 @@ If the mode cannot be observed without touching `internal/operatorauth/**`, stop
 
 ## Handoff
 
-Branch, PR, exact head SHA, terminal hosted run id, evidence
+Branch: `lane-0428-214-destroystamp` @ `ebc6ac9c3a3032a65256d285aeb510341820e218`
+PR: #1738, base `lane-0428-198-cli-shard-operator-env` @ `7db142852d22` (chain rule 3.3.8, content wait on #1726)
+Terminal hosted run: 44861212250 (PR Selected Checks aggregate SKIPPED — see evidence; per-shard Go unit runs executed my test, all pass)
+Evidence:
 `evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-1.md`.
 
 kommissioniert auf dem freien ornith-sitz: branch vom head der basis-lane 0428-204 (7db142852d22), base-ref des PRs auf den lane-branch 'lane-0428-204-cli-operator-entrypoints'. write-set genau eine datei: cmd/baha/core_installation_runtime_test.go. konfliktfrei gegen 213 und 207. lane 5b17f066, modell verifiziert.
