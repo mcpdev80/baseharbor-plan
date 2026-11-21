@@ -58,3 +58,15 @@ Shell PID 609042 ran `docker ps -a` before and after review. Both inventories sh
 ## END
 
 END_DONE codex-rev-1747: REQUEST CHANGES on PR #1749 security at exact candidate `23feeefee58c5438ccd37fe5c0edc674c5d0a79b`; run 44953630114 success; prior APPROVE HOP superseded.
+
+## Exact origin/main evidence-path witness
+
+First publication commit: `4231fed2b9e3e6a0b4e7dde559cc510c70587255`.
+
+Command: `git fetch origin main && git ls-tree -r --name-only origin/main | grep 'evidence/r28-welle4-2026-11-21/pr1749-review/review-4-security-head23feeefee.md'`
+
+Exact path output:
+
+```text
+evidence/r28-welle4-2026-11-21/pr1749-review/review-4-security-head23feeefee.md
+```
