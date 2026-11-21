@@ -6,8 +6,8 @@ ROLLE: REVIEW
 2. Compare old and hopped candidate file diffs and name-status lists. Done.
 3. Compare per-commit patch IDs and determine whether the product patch is identical. Done.
 4. Check current PR #1747 conclusions and inspect any pending job at per-job level. Done.
-5. Record the exact-head verdict and publish only this evidence file with origin/main path proof. In progress.
-6. Post final status with evidence commit SHA. Pending.
+5. Record the exact-head verdict and publish only this evidence file with origin/main path proof. Done.
+6. Post final status with evidence commit SHA. Done.
 
 ## Candidate refs
 
@@ -49,7 +49,7 @@ At the end-of-review `gh pr checks 1747`, run `44917442444` is completed/success
 
 ## Pre-push validation state
 
-The mandated local `bash scripts/ci-fast-check.sh` was run before evidence publication. Source readability and workflow policy passed; its Python tests ended with failures/errors caused by `/tmp` quota while creating temporary Git repositories. Representative exact output: `error: failed to write new configuration file /tmp/tmpc8ole0lz/.git/config.lock` and `fatal: could not set 'core.repositoryformatversion' to '0'`. No product code was changed and no new hosted run was triggered. This local validation state does not change the exact-head hosted conclusions above.
+The mandated local `bash scripts/ci-fast-check.sh` was run before both evidence pushes. Source readability and workflow policy passed; its Python fixture tests failed on `/tmp` quota. Latest exact output included `error: copy-fd: write returned: Disk quota exceeded`, `fatal: cannot copy ... pre-rebase.sample ... to /tmp/tmp2a6bb_p6/.git/hooks/pre-rebase.sample: Disk quota exceeded`, and `/tmp/tmpwj5ihleu/TestMultiInstanceComposeLifecycleInCI.log: Disk quota exceeded (os error 122)`. The trusted base plan remains the only merge requirement; no product code changed and no new hosted run was triggered. This local validation state does not change the exact-head hosted conclusions above.
 
 ## Verdict
 
@@ -64,4 +64,12 @@ After: `docker ps -a`, pid 4147062; output was header only: `CONTAINER ID IMAGE 
 
 Read-only identity and patch equivalence review. No product files, branches, PR comments, cards, workflows, or hosted checks were changed or triggered. No standalone product tests were run; the mandated local fast-check and its temporary Git fixture errors are recorded above. No subagents were used. Planning repository remote was verified before evidence commit: `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)`.
 
-END codex-rev-1747 DONE: APPROVE CONTENT at candidate 01b2a7ef826ce8fc090717126003ff8771dc2644; evidence path publication pending.
+END codex-rev-1747 DONE: APPROVE CONTENT at candidate 01b2a7ef826ce8fc090717126003ff8771dc2644; evidence path witnessed on origin/main.
+
+## origin/main path witness
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+evidence/cli-redesign-20261114/0428-060/review-4-hopverify.md
+```
