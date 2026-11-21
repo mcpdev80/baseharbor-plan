@@ -9,10 +9,10 @@ version: ""
 parent: v0.4.28
 priority: normal
 owner: worker-059-teamproof
-kanban_lane: closed
+kanban_lane: active
 wait_reason: ""
 kanban_summary: "Two isolated homes/checkouts attach one app on Docker VM; A changes, B sees same IDs and current revision. Race same…"
-kanban_status: closed
+kanban_status: active
 kanban_title: "0427-059 · prove two workstations share"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-maintenance-client, t-20261018-r27-public-surfaces, t-20261018-r27-stage-versions, t-20261018-r27-state-recovery, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor-demo]
@@ -21,18 +21,18 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: true
 blocker: ""
-resolution: accepted
+resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/team-proof/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/mission-rev-relay/act-059-review-r1.md"]
 ---
 
-- [x] t-20261018-r27-team-proof · Acceptance: prove two workstations share one authoritative deployment #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/acceptance #kind/acceptance
+- [ ] t-20261018-r27-team-proof · Acceptance: prove two workstations share one authoritative deployment #task #release/v0-4-28 #status/active #view/active #area/acceptance #kind/acceptance
     <!-- generated:card -->
     **Owner:** worker-059-teamproof · **Priority:** normal  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/team-proof/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/mission-rev-relay/act-059-review-r1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-maintenance-client](t-20261018-r27-maintenance-client.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261018-r27-state-recovery](t-20261018-r27-state-recovery.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [console-2](console-2-live-core-adapter-workflow-proofs.md), [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  
@@ -66,9 +66,9 @@ One bounded two-client Docker integration; API/filesystem negatives elsewhere re
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
 
-## Closure — 2026-11-21
+## Reopened for acceptance gap — 2026-11-21
 
-Accepted for v0.4.28 from the witnessed two-home Docker integration, isolated-home/fail-closed checks and Codex review. The review verified the five existing required client regressions and their hard-fail inclusion in `PR · Go unit` via `scripts/pr-go-unit-shard.py`; the test-to-gate mapping and Docker cleanup witness are in round-1 evidence. All six predecessor cards are closed. No product change was needed.
+The prior review accepted the two-home evidence, but the stated acceptance requires both homes to attach the same application and observe its current revision after a change. The current `TestClientCommandsTwoHomesSameDeploymentPrecedence` calls `app init` independently and explicitly only asserts that each home receives a server-assigned ID; it does not assert equal IDs or revision visibility. The Docker witness also records two distinct IDs and says there is no ID sharing. Therefore the old evidence does not establish this acceptance, and the prior closure is withdrawn pending a real shared-app attachment test and exact gate evidence.
 
 ## Release boundary decision — 2026-11-13
 
