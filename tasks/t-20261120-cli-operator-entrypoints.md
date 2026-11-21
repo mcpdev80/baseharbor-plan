@@ -8,14 +8,14 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w216-0428-204-entrypoints
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-204 · CLI operator entry points
 priority: high
 depends_on: [t-20261120-r28-cli-shard-operator-env]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1726]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,20 +23,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-cli-operator-entrypoints · 0428-204 · CLI operator seam: MCP handlers and direct Run entry points #task #release/v0-4-28 #status/active #view/active #area/cli #area/security #kind/bug
+- [ ] t-20261120-cli-operator-entrypoints · 0428-204 · CLI operator seam: MCP handlers and direct Run entry points #task #release/v0-4-28 #status/review #view/review #area/cli #area/security #kind/bug
     <!-- generated:card -->
     **Owner:** w216-0428-204-entrypoints · **Priority:** high  
+    **PR:** [baseharbor#1726](https://github.com/mcpdev80/baseharbor/pull/1726)  
     **Needs:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
 **Required by:** [t-20261120-other-domain-test-split](t-20261120-other-domain-test-split.md), [t-20261121-all-targets-config-loss](t-20261121-all-targets-config-loss.md), [t-20261121-app-edit-core-activation](t-20261121-app-edit-core-activation.md), [t-20261121-destroy-authority-stamp](t-20261121-destroy-authority-stamp.md), [t-20261121-native-cell-operator-seam](t-20261121-native-cell-operator-seam.md), [t-20261121-trust-uninstall-false-green](t-20261121-trust-uninstall-false-green.md)  
 **Owner:** w216-0428-204-entrypoints  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1726](https://github.com/mcpdev80/baseharbor/pull/1726)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -105,3 +106,5 @@ message in `PR · Go unit · cli-0..3`.
 KARTE AUS DIESEM TICK GECASTET (fund->karte, §3.3.5): der befund von w198 lautet, der seam erreicht MCP-handler (server.Connect / client.Connect / CallTool mit eigenen kontexten) und direkte .Run(ctx)/Execute(ctx)-aufrufe NICHT. sitz w216-0428-204-entrypoints (laptop) UEBERNIMMT den stand refs/heads/lane-0428-198-cli-shard-operator-env head 7546b1806aac (PR #1726, seam auf dem runWithIO-pfad bewiesen, [w198-seam]-print in akte round-3.md) und liefert: auflistung pro eintrittsklasse mit zaehl-befehl, eine stelle pro klasse, kleiner gate go test ./cmd/baha/ -count=1 vorher/nachher, und eine assertion, dass der seam ausserhalb von tests nil bleibt. rail-dateien verschlossen; ein zwang zu internal/serviceaccess/** = STOP + MELDEN.
 
 MEASURED PROGRESS, NO REMOTE WITNESS: the lane reports ./cmd/baha operator failures 206 -> 121 -> 42 from local runs, and answers the H-V23 rubrik question with '0 sites left unstamped, 0 new content witnesses, every stamp rides a pre-existing content assertion'. But 'git ls-remote lane-origin refs/heads/lane-0428-204-cli-operator-entrypoints' returns NOTHING and #1726 head is still bf6f10aff6fe: the work exists only in its working tree, and no akte exists on plan main. Card stays active (work IS happening) — I ordered a push first, then the akte, then the remaining 42 grouped by file with an explicit way-(a)/way-(b) decision per group, and I asked for the count of unstamped sites plus one probe file:line so the claim is checkable at review instead of taken on trust (§5.3). If the next report has no remote witness, I rotate the card to a fresh lane on the same branch with a documented handoff (§3.6).
+
+w216 liefert die zwei zahlen, die der owner fragte: 29 operator-fehler auf develop-head, 0 auf develop plus inhalt von #1615 (single-test-oracle; der volle check an #1615 scheiterte an meinem host (/tmp quota), nicht am inhalt). PR #1726 reduziert auf H-V23 core_installation_runtime_test.go:323 plus geteilte-session MCP-faelle durch den zentralen helper; die zwei eigenen per-call-stamps nimmt die lane zurueck. restarbeit = klasse B (81 direkte .Run/fixture-stellen aus der deckungskarte b7dce1ee), frische lane im anlauf.
