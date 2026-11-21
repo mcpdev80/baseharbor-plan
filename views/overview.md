@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 11 |
-| review | 7 |
+| active | 12 |
+| review | 6 |
 | wait | 17 |
 | blocked | 1 |
 | ready | 5 |
@@ -34,6 +34,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261120-workload-port-flag-ignored-locally](../tasks/t-20261120-workload-port-flag-ignored-locally.md) | workload-port ignored locally | active | not set | Codex (Owner-directed full wait-card closeout, 2026-11-21) | — | [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723) |
 | [t-20261121-base-branch-provenance-loss](../tasks/t-20261121-base-branch-provenance-loss.md) | 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened | active | high | coordinator | — | — |
 | [t-20261121-destroy-authority-stamp](../tasks/t-20261121-destroy-authority-stamp.md) | installation.destroy authorization assertion runs on a stamped context | active | high | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738) |
+| [t-20261121-git-credential-fill-bootstrap-hang](../tasks/t-20261121-git-credential-fill-bootstrap-hang.md) | 0428-217 git credential fill must not block in test or first-run paths | active | high | 0428-217-cloneenv | — | [baseharbor#1742](https://github.com/mcpdev80/baseharbor/pull/1742) |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
 
 ## Ready for review
@@ -43,7 +44,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-app-lifecycle](../tasks/t-20261114-r28-cli2-app-lifecycle.md) | CLI redesign: Unify up and down semantics | review | high | coordinator | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) | [baseharbor#1747](https://github.com/mcpdev80/baseharbor/pull/1747) |
 | [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | review | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) (open) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
 | [t-20261119-r28-perses-status-backend-witness](../tasks/t-20261119-r28-perses-status-backend-witness.md) | CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben | review | not set | coordinator | — | [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702) |
-| [t-20261121-git-credential-fill-bootstrap-hang](../tasks/t-20261121-git-credential-fill-bootstrap-hang.md) | 0428-217 git credential fill must not block in test or first-run paths | review | high | coordinator | — | [baseharbor#1742](https://github.com/mcpdev80/baseharbor/pull/1742) |
 | [t-20261121-mcp-operator-seam-uncovered](../tasks/t-20261121-mcp-operator-seam-uncovered.md) | 0428-218 make the MCP operator seam reachable from MCP tests | review | normal | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741), [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738) |
 | [t-20261121-static-gate-registration](../tasks/t-20261121-static-gate-registration.md) | 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate | review | high | coordinator | — | [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746) |
 | [t-20261121-trust-uninstall-false-green](../tasks/t-20261121-trust-uninstall-false-green.md) | trust-uninstall EOF tests are green on the auth gate error | review | high | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737) |

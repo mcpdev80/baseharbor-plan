@@ -9,9 +9,9 @@ repos: [mcpdev80/baseharbor]
 release: v0.4.28
 version: ""
 parent: ""
-owner: coordinator
-kanban_status: review
-kanban_lane: review
+owner: 0428-217-cloneenv
+kanban_status: active
+kanban_lane: active
 kanban_summary: "The first authenticated Git operation inside a test or a first-time target bootstrap never returns a clean failure: it invokes…"
 kanban_title: 0428-217 · 0428-217 credential-fill hang
 priority: high
@@ -23,17 +23,17 @@ blocker: ""
 
 ---
 
-- [ ] t-20261121-git-credential-fill-bootstrap-hang · 0428-217 git credential fill must not block in test or first-run paths #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
+- [ ] t-20261121-git-credential-fill-bootstrap-hang · 0428-217 git credential fill must not block in test or first-run paths #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** coordinator · **Priority:** high  
+    **Owner:** 0428-217-cloneenv · **Priority:** high  
     **PR:** [baseharbor#1742](https://github.com/mcpdev80/baseharbor/pull/1742)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** coordinator  
+**Owner:** 0428-217-cloneenv  
 **Priority:** high  
 **PRs:** [baseharbor#1742](https://github.com/mcpdev80/baseharbor/pull/1742)  
 **Source:** 
@@ -135,3 +135,5 @@ CODEX-REVIEW (akte review-1.md, plan c5ee4b5c + 23b49a46) = 'Verdict: REQUEST CH
 korrekturrunde 2 geliefert und von mir am head 719d28a888ab nachgemessen: draft=false, mergeable MERGEABLE, base develop. ALLE vier cli-shards pass, 'PR Selected Checks' pass, 'PR · Trusted Plan' pass. Delta gegen merge-base = 8 dateien, und JEDE davon steht im erlaubten schreib-set der karte (zeilen 69-77: cmd/baha/app_inspect_remote.go als erster punkt, cmd/baha/app_update.go durch meine amendment, dazu die git host/credential helper dateien). Mein amendment-punkt ist erfuellt: kriterium 4 (update-pfad regression) mit mutation belegt (akte round-2-promptproof.md). Inhalt, von mir gelesen: 'cmd.Stdin = os.Stdin' wird 'cmd.Stdin = strings.NewReader("")'' und 'GIT_TERMINAL_PROMPT=0' wird VOR den native-pfad gehoben, damit ein fehlendes nativ credential fail-closed statt am prompt zu haengen. Offen: develop ist weitergezogen (77c1e60f51b9), head ist kein nachkomme, also letzter hop wie bei #1739.
 
 korrekturrunde 2 geliefert und von mir am head 719d28a888ab nachgemessen: draft=false, mergeable MERGEABLE, base develop. ALLE vier cli-shards pass, 'PR Selected Checks' pass, 'PR - Trusted Plan' pass. Delta gegen merge-base = 8 dateien, und JEDE davon steht im erlaubten schreib-set der karte (zeilen 69-77: cmd/baha/app_inspect_remote.go als erster punkt, cmd/baha/app_update.go durch meine amendment, dazu die git host/credential helper dateien). Mein amendment-punkt ist erfuellt: kriterium 4 (update-pfad regression) mit mutation belegt (akte round-2-promptproof.md). Inhalt, von mir gelesen: cmd.Stdin = os.Stdin wird durch eine leser-zeichenkette ersetzt, und GIT_TERMINAL_PROMPT=0 wird VOR den native-pfad gehoben, damit ein fehlendes nativ credential fail-closed statt am prompt zu haengen. Offen: develop ist weitergezogen (77c1e60f51b9), head ist kein nachkomme, also letzter hop wie bei 1739.
+
+CODEX-REVIEW review-2.md am alten head 719d28a888ab = REQUEST CHANGES. Befund 3 (frische) ist erfuellt: die hop-lane hat heute auf develop 97b2ba5543f0 gesetzt, gemessen ancestry JA, rev-list develop..head = 2, run 44900657812 success. Befund 1 IST ECHT und durch den hop NICHT gefixt, von mir an beiden staenden gemessen: 'cmd/baha/app_inspect_remote.go:70' schreibt 'cmd.Env = append(cmd.Env, GIT_TERMINAL_PROMPT=0)' bei nil cmd.Env — das clone-kind erhaelt ein aussortiertes umfeld ohne PATH und HOME. Das korrekte muster liegt im selben PR an 'cmd/baha/app_update.go:493'. Befund 2 ist akten-pflicht (workaround closeout). Neue lane 0428-217-cloneenv arbeitet beide belege inkl. regression mit sentinel-umfeld und mutation in beide richtungen.
