@@ -82,3 +82,11 @@ No code-level finding remains against the submitted test change. The only blocke
 No local tests were run. No workflow was edited or dispatched. No PR comment, merge, force-push, or close action was taken. Session ID is not exposed by this interface.
 
 END REVIEW DONE — candidate SHA fb5a5deaf36ba160b527019a3ef4eea85060905d.
+
+## origin/main publication witness
+
+Exact output of `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep '^evidence/r28-welle4-2026-11-21/mcp-operator-seam/review-2.md$'`:
+
+```text
+evidence/r28-welle4-2026-11-21/mcp-operator-seam/review-2.md
+```
