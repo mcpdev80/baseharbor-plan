@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w222-0428-142-witness
+owner: w230-0428-142-hop
 kanban_status: active
 kanban_lane: active
 kanban_summary: "'baha perses status' nennt pro observability-signal eine ECHTE backend-witness (erreicht / gematcht / nicht erreichbar) statt…"
@@ -33,7 +33,7 @@ a fresh exact-head run; it is not ready to merge.
 
 - [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w222-0428-142-witness  
+    **Owner:** w230-0428-142-hop  
     **PR:** [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702)  
     <!-- /generated:card -->
 
@@ -42,7 +42,7 @@ a fresh exact-head run; it is not ready to merge.
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261119-r28-perses-alert-verifier-caller-wiring](t-20261119-r28-perses-alert-verifier-caller-wiring.md)  
-**Owner:** w222-0428-142-witness  
+**Owner:** w230-0428-142-hop  
 **Priority:** not set  
 **PRs:** [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702)  
 **Source:** 
@@ -109,3 +109,5 @@ handoff abgeschlossen und required-aggregat GRUEN am exakten head: PR #1702 head
 
 CODEX-REVIEW VERDICT REQUEST CHANGES am unveraenderten head 6740299f91c0 (required-aggregat war SUCCESS; der verdict haelt drei andere punkte fest). Korrekturarbeit aufgesetzt: sitz w222-0428-142-witness (ornith) mit dem dreiteiligen Rezept - (1) 'unreachable' als echter zustand im witness-Pfad statt allein aus manifest-flags, (2) die von der lane falsch belegte 'validate ...'-Zeile in der Akte berichtigen, (3) Wissensstand: der reviewer bestaetigt, dass nach einem merge auf develop 40cb28c die vier cli-shards rot bleiben, deshalb finger weg von cmd/baha/main.go und internal/operatorauth/** (das ist 0428-204). RANDBEFUND GEGEN DAS PROTOKOLL: die review-Akte lag nur lokal in der reviewer-sandbox; nachlieferung in baseharbor-plan main angefordert (§5.3: ein verdict ohne erreichbare datei ist wertlos).
 
+
+HANDOFF RECORDED (AGENTS 3.6): the previous lane (w222) delivered candidate 3f7600ded0d9 on #1702 with the P1 fix and an honest akte, then refused twice to hop onto current develop (ruleset 25223521 strict, merge-base --is-ancestor develop <head> = 1). The hop goes to a fresh lane with their candidate and evidence untouched; their END sentence (PR Selected Checks = SUCCESS) was disproved by the run job list and corrected here, not in their akte. Their work stands as delivered.
