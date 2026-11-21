@@ -82,3 +82,5 @@ If actionable wording requires changing enforcement rather than text, stop and r
 
 Branch, PR, exact head SHA, terminal hosted run id, evidence
 `evidence/r28-welle4-2026-11-21/perses-denial-actionability/round-1.md`.
+
+COMMISSIONED from hunt H-V24 (the one befund of that desk): message-only fix in internal/application/perses_management_ui.go:95-97 plus a content-bound assertion. Collision measured before dispatch: no open PR touches this file (gh pr view --json files over eleven PRs).
