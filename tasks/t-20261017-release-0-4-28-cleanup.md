@@ -19,7 +19,7 @@ repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "The previously accepted cleanup inventory (plan commit 2ab26e5f) is delivered. The 0.4.28 cleanup stage remains sequenced after 0427-010; that predecessor is still open pending adequate source binding in the signed runtime-image provenance: authenticated GHCR checks verify `0.4.27`, `0.4`, `latest`, and `sha-6c40fab` all point to the same multi-arch index, whose embedded `baha version` matches tag commit `6c40fab4`; the SLSA attestation source still names workflow-dispatch main commit `c000c5db`."
+wait_reason: "The previously accepted cleanup inventory (plan commit 2ab26e5f) is delivered. The 0.4.28 cleanup stage remains sequenced after 0427-010. Round-2 evidence resolves the actual BuildKit source binding but identifies a published OCI `org.opencontainers.image.revision` mismatch (workflow SHA c000c5db vs packaged source/tag SHA 6c40fab4); 0427-010 also remains gated by the active 0427-189 release-scope task. Do not rewrite immutable v0.4.27 tags."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/commit/2ab26e5f"]
 early: true
@@ -28,7 +28,7 @@ early: true
 - [ ] t-20261017-release-0-4-28-cleanup · v0.4.28 · Release start: reconcile old PRs, tasks and branches #task #release/v0-4-28 #status/wait #view/wait #area/release #kind/maintenance
     <!-- generated:card -->
     **Owner:** lane-0428-002-r28 · **Priority:** high  
-    **Waiting:** The previously accepted cleanup inventory (plan commit 2ab26e5f) is delivered. The 0.4.28 cleanup stage remains sequenced after 0427-010; that predecessor is still open pending adequate source binding in the signed runtime-image provenance…  
+    **Waiting:** The previously accepted cleanup inventory (plan commit 2ab26e5f) is delivered. The 0.4.28 cleanup stage remains sequenced after 0427-010. Round-2 evidence resolves the actual BuildKit source binding but identifies a published OCI \`org.open…  
     **Needs:** [t-20261017-release-0-4-27-verify](t-20261017-release-0-4-27-verify.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/commit/2ab26e5f)  
     <!-- /generated:card -->

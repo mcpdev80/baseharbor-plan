@@ -19,7 +19,7 @@ repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "The release was actually published at tag v0.4.27 on 6c40fab4 (run 43991839986 succeeded); the old #1574-conflict note is stale. Keep this stage in Wait because 0427-008 cannot yet be accepted: the validator sees outstanding v0.4.27-scope cards 0427-189 and 0427-191."
+wait_reason: "The release was actually published at tag v0.4.27 on 6c40fab4 (run 43991839986 succeeded); this historical event is not a license to bypass qualification. 0427-191 is accepted, but prerequisite 0427-008 remains unaccepted while 0427-006 and 0427-189 are open; 0427-010 also records a published OCI source-revision label mismatch. Preserve the immutable tag and complete the current reconciliation before accepting this stage."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/43991839986", "https://github.com/mcpdev80/baseharbor/releases/tag/v0.4.27", "https://github.com/mcpdev80/baseharbor/tree/v0.4.27"]
 ---
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/43991839986", "h
 - [ ] t-20261017-release-0-4-27-publish · v0.4.27 · Release: promote the validated candidate and deliver exact tagging commands #task #release/v0-4-27 #status/wait #view/wait #area/release #kind/acceptance
     <!-- generated:card -->
     **Owner:** mission-closeout27 · **Priority:** normal  
-    **Waiting:** The release was actually published at tag v0.4.27 on 6c40fab4 (run 43991839986 succeeded); the old \#1574-conflict note is stale. Keep this stage in Wait because 0427-008 cannot yet be accepted: the validator sees outstanding v0.4.27-scope…  
+    **Waiting:** The release was actually published at tag v0.4.27 on 6c40fab4 (run 43991839986 succeeded); this historical event is not a license to bypass qualification. 0427-191 is accepted, but prerequisite 0427-008 remains unaccepted while 0427-006 an…  
     **Needs:** [t-20261017-release-0-4-27-qualify](t-20261017-release-0-4-27-qualify.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/43991839986), [proof 2](https://github.com/mcpdev80/baseharbor/releases/tag/v0.4.27), [proof 3](https://github.com/mcpdev80/baseharbor/tree/v0.4.27)  
     <!-- /generated:card -->
@@ -72,4 +72,4 @@ Direct Git candidate/published-tree checks, normal required jobs and immutable m
 ## Release-state reconciliation — 2026-11-21
 
 - Published tag `v0.4.27` resolves to commit `6c40fab4de9a611bc8da2e834417427a83c01ca5`; Release workflow [43991839986](https://github.com/mcpdev80/baseharbor/actions/runs/43991839986) succeeded and the GitHub Release is live. Thus the prior “prepared only / #1574 conflicting” wait note is stale.
-- This card remains in Wait until the release-cycle validator accepts its qualification predecessor. It currently reports 0427-189 active and 0427-191 planned as unfinished tasks in the release scope.
+- This card remains in Wait until its qualification predecessor is accepted. 0427-191 has since been accepted; 0427-189 remains active and 0427-006 remains active. The runtime image’s OCI revision label mismatch is documented in the verification dossier. Do not treat the already-created tag as evidence that required stages can be skipped.

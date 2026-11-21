@@ -19,7 +19,7 @@ repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "v0.4.27 was in fact published: release run 43991839986 succeeded and the tag binary reports source 6c40fab4. The release-stage validator still finds 0427-189 active and 0427-191 planned in the v0.4.27 scope; reconcile those outstanding cards before marking qualification accepted."
+wait_reason: "v0.4.27 is already published (run 43991839986), but publication does not itself qualify the release. Card 0427-191 is now accepted; 0427-189 remains active, and prerequisite 0427-006 remains active. The published runtime image also has an OCI source-revision label mismatch documented in round-2 evidence. Resolve the release-scope prerequisite and artifact discrepancy before accepting qualification."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/43991839986", "https://github.com/mcpdev80/baseharbor/releases/tag/v0.4.27", "https://github.com/mcpdev80/baseharbor/actions/runs/43971466986"]
 ---
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/43991839986", "h
 - [ ] t-20261017-release-0-4-27-qualify · v0.4.27 · Pre-release: complete required candidate checks #task #release/v0-4-27 #status/wait #view/wait #area/release #kind/acceptance
     <!-- generated:card -->
     **Owner:** mission-closeout27 · **Priority:** normal  
-    **Waiting:** v0.4.27 was in fact published: release run 43991839986 succeeded and the tag binary reports source 6c40fab4. The release-stage validator still finds 0427-189 active and 0427-191 planned in the v0.4.27 scope; reconcile those outstanding car…  
+    **Waiting:** v0.4.27 is already published (run 43991839986), but publication does not itself qualify the release. Card 0427-191 is now accepted; 0427-189 remains active, and prerequisite 0427-006 remains active. The published runtime image also has an…  
     **Needs:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/43991839986), [proof 2](https://github.com/mcpdev80/baseharbor/releases/tag/v0.4.27), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/43971466986)  
     <!-- /generated:card -->
@@ -71,4 +71,4 @@ Normal required-job result checks and actual Docker/rootless Podman/consumer tes
 ## Release-state reconciliation — 2026-11-21
 
 - The prior wait note described an unpublished candidate and is stale. GitHub now has tag `v0.4.27` at commit `6c40fab4de9a611bc8da2e834417427a83c01ca5`; the release workflow [43991839986](https://github.com/mcpdev80/baseharbor/actions/runs/43991839986) completed successfully and the published `baha version --json` reports version `0.4.27` and that exact commit.
-- The planner still requires the outstanding v0.4.27-scope cards 0427-189 (active) and 0427-191 (planned) to be accepted before it allows qualification closeout. The release event does not erase those live scope records. No acceptance is claimed until their status is reconciled.
+- 0427-191 is accepted. The planner and release acceptance still require 0427-189 and preparation 0427-006 to be reconciled; 0427-189 has not passed its exact required CI. Round-2 provenance evidence resolves the prior source-binding question but exposes the image revision-label mismatch. No release qualification is claimed.
