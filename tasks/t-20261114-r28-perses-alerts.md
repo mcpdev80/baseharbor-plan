@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w073-0428-073-pr1704-persesalerts-r3
-kanban_status: wait
-kanban_lane: wait
+owner: Codex (Marcel Wait sweep 2026-11-21)
+kanban_status: active
+kanban_lane: active
 kanban_summary: Provision alert rules through the existing supported Prometheus contract and have Prometheus evaluate them; persist the alert…
 kanban_title: 0428-073 · Define and provision alert
 priority: normal
@@ -18,25 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1613, mcpdev80/baseharbor#1704]
 sources: []
 blocker: ""
-wait_reason: "Owner-Entscheidung 2026-11-20: echter Prometheus-Evaluator gefordert; PR #1704 zurückgewiesen als unzureichend; Karte wartet auf Umsetzung. Die Umsetzung wartet auf die akzeptierte Prometheus-Datasource-Voraussetzung 0428-083."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-alerts-hopf/fix-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1613-alert-contract-review.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1613-0428-073.md"]
 ---
 
-- [ ] t-20261114-r28-perses-alerts · Define and provision alert rules #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
+- [ ] t-20261114-r28-perses-alerts · Define and provision alert rules #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** w073-0428-073-pr1704-persesalerts-r3 · **Priority:** normal  
+    **Owner:** Codex (Marcel Wait sweep 2026-11-21) · **Priority:** normal  
     **PR:** [baseharbor#1613](https://github.com/mcpdev80/baseharbor/pull/1613), [baseharbor#1704](https://github.com/mcpdev80/baseharbor/pull/1704)  
-    **Waiting:** Owner-Entscheidung 2026-11-20: echter Prometheus-Evaluator gefordert; PR \#1704 zurückgewiesen als unzureichend; Karte wartet auf Umsetzung. Die Umsetzung wartet auf die akzeptierte Prometheus-Datasource-Voraussetzung 0428-083.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-alerts-hopf/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1613-alert-contract-review.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1613-0428-073.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
 **Required by:** [t-20261114-r28-perses-contact-routing](t-20261114-r28-perses-contact-routing.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md), [t-20261117-alert-evaluator-persistence-missing](t-20261117-alert-evaluator-persistence-missing.md), [t-20261117-hunt-signals-105](t-20261117-hunt-signals-105.md)  
-**Owner:** w073-0428-073-pr1704-persesalerts-r3  
+**Owner:** Codex (Marcel Wait sweep 2026-11-21)  
 **Priority:** normal  
 **PRs:** [baseharbor#1613](https://github.com/mcpdev80/baseharbor/pull/1613), [baseharbor#1704](https://github.com/mcpdev80/baseharbor/pull/1704)  
 **Source:** 
