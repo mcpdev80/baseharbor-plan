@@ -27,7 +27,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1596", "https://github.c
     <!-- generated:card -->
     **Owner:** Codex team (current thread) · **Priority:** high  
     **PR:** [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596)  
-    **Needs:** [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1596), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44847161507)  
     <!-- /generated:card -->
 

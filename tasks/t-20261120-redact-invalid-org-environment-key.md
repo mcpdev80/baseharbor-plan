@@ -26,7 +26,7 @@ kanban_title: 0428-162 · Redact env key errors
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md), [t-20261119-orgconfig-error-redaction](t-20261119-orgconfig-error-redaction.md)  
+    **Needs:** [t-20261119-orgconfig-error-redaction](t-20261119-orgconfig-error-redaction.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/blob/c90c3b89007e87a4bf277c8c9015fab3ac65728e/internal/orgconfig/model.go#L171-L174)  
     <!-- /generated:card -->
 
