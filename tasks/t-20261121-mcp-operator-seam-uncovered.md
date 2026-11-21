@@ -15,7 +15,7 @@ kanban_title: 0428-218 · 0428-218 mcp operator seam
 priority: normal
 depends_on: [t-20261120-cli-operator-entrypoints]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1741]
+prs: [mcpdev80/baseharbor#1741, mcpdev80/baseharbor#1738]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -27,7 +27,7 @@ updated: "2026-11-21T05:55:00Z"
 - [ ] t-20261121-mcp-operator-seam-uncovered · 0428-218 make the MCP operator seam reachable from MCP tests #task #release/v0-4-28 #status/review #view/review #area/cli #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** normal  
-    **PR:** [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741)  
+    **PR:** [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741), [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -36,7 +36,7 @@ updated: "2026-11-21T05:55:00Z"
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Owner:** coordinator  
 **Priority:** normal  
-**PRs:** [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741)  
+**PRs:** [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741), [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -117,3 +117,5 @@ SHA-NACHTRAG + buchung: neuer head fb5a5deaf36b (08:54, author '0428-218-msgasse
 r2 delivered, von mir am remote gemessen: head fb5a5deaf36b, nachkomme von e45430f2f1b7, 2 commits (beide ihrer karte), author '0428-218-msgassert' (KEIN toter name). Die exakte gate-zeile ist jetzt angehangen in 'cmd/baha/mcp_operator_seam_test.go' (ihr eigener befund 1 aus review-1.md). GEHOSTET: cli-1/cli-2/cli-3/owner success — ihr fall gruen in cli-3 (durchgang 44882418434); cli-0 + packages failure; 'PR Selected Checks' failure; 20 skipped (pfadfilter). Sie meldet 'BLOCKED for coordinator' statt fremde dateien anzufassen = richtige eskalationsform. WAS WIRKLICH BLOCKIERT (von mir benannt): die stapel-basis 'lane-0428-198-cli-shard-operator-env' = e45430f2f1b7 enthaelt #1615 NOCH NICHT; der owner hat #1615 um 08:08 in develop gemergt (9bd76324ec6d). Bis diese basis auf den neuen develop hoppt, bleibt die gate-klasse an allen stapel-kandidaten (#1737/#1738/#1741) rot — und kein meiner Lanes darf das selbst beheben, weil ein basis-hop owner-aktion ist. Review r2 laeuft bereits (95971e0a).
 
 CODEX-REVIEW r2 'review-2.md' (plan 14309cf0 + 2ca4c07b + f624354a) = 'Verdikt: REQUEST CHANGES', aber der einzige offen punkt ist NICHT ihr inhalt: anerkennungspunkte 1-4 sind PASS — reichbarkeit/beide richtungen PASS, EXAKTE nachricht PASS (dekodiertes 'Error.Message' gleich der produktquelle inkl. punkt am ende, 'authentication_failed' + fehlender principal behalten, befund 1 aus r1 DAMIT GESCHLOSSEN), mutation PASS (text geaendert = rot, zurueck = gruen), CI-ROUTING PASS (cli-3 job 136780430782 success, 'Trusted Plan' + 'Native gate plan' success). PUNKT 5 = 'Required checks: FAIL': durchgang 44882418434 terminal failure, 'PR Selected Checks' job 136781570119 failure, cli-0 job 136780430791 + packages job 136780430748 failure — und der reviewer selbst bucht das als SAME-BASE erbschaft. Byte-zahlen aus per-job-logs, wie verlangt (894134 / 35949 / 45764 / 66915 / 44206). Karte bleibt 'review' (inhalt abnahme-faehig), der weg zum gruenen aggregate fuehrt ueber den BASIS-HOP der lane-0428-198 auf develop 9bd76324ec6d (#1615 ist dort seit 08:08 gemergt), nicht ueber eine weitere korrekturrunde dieser lane.
+
+r5 plus rebase auf e45430f2 (delta eine datei, head 7e6792939c55). Der aufruf von authorizeMCPOperation mit installation.destroy steht im TEST, nicht im produktionspfad der bootstrap-aufraeum-route. cli-0 zeigt denselben einen fremden fallen wie 1737.
