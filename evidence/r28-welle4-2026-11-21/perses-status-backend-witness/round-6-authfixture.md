@@ -124,7 +124,7 @@ Selection witness on head b2f2fd3ac (scripts/pr-go-unit-shard.py hashes the -lis
 - Mutations: plan/preflight/apply not applicable (test-only); CI policy honored (ci-fast-check before push, terminal aggregate waited for per run).
 - No containers started on this coordinator host; no compose projects; no lifecycle cells executed (skip route per mission).
 - Evidence only in baseharbor-plan (this file); no .evidence/ in any product repo; no operational text in product files.
-- No subagents; END via idle + watcher (no codeman agent post into the coordinator session).
+- No subagents; END posted via 'codeman agent post 9142ab1f-... END_DONE 0428-142-authfixture: ... candidate b2f2fd3ac' as this session's last action (the t142 follow-up mission re-authorized the post and supersedes the earlier no-post note).
 
 ## cleanliness
 
