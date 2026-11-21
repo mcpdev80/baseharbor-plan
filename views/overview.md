@@ -11,8 +11,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 12 |
-| review | 6 |
-| wait | 32 |
+| review | 7 |
+| wait | 31 |
 | blocked | 1 |
 | ready | 4 |
 | queued | 25 |
@@ -41,6 +41,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | review | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) (open) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
 | [t-20261121-app-edit-core-activation](../tasks/t-20261121-app-edit-core-activation.md) | 0428-207 App Edit Core activation fails without protected Core network | review | high | Codex (Marcel, active wait sweep 2026-11-21) | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) (open) | [baseharbor#1735](https://github.com/mcpdev80/baseharbor/pull/1735) |
 | [t-20261121-destroy-authority-stamp](../tasks/t-20261121-destroy-authority-stamp.md) | installation.destroy authorization assertion runs on a stamped context | review | high | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) (open) | [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738) |
 | [t-20261121-loki-verify-probe](../tasks/t-20261121-loki-verify-probe.md) | loki health verify must reach the probe, not a missing-file exit | review | high | w235-0428-212-lokifix2 | — | [baseharbor#1734](https://github.com/mcpdev80/baseharbor/pull/1734) |
@@ -72,7 +73,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-perses-dashboards](../tasks/t-20261114-r28-perses-dashboards.md) | Perses infrastructure dashboards | wait | normal | w208-0428-082-dashboards | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md), [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) (open) | [baseharbor#1665](https://github.com/mcpdev80/baseharbor/pull/1665) |
 | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | Connect Perses Prometheus | wait | normal | 0428-083- | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md), [t-20261120-r28-develop-runtime-integration-red](../tasks/t-20261120-r28-develop-runtime-integration-red.md) | [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684) |
 | [t-20261114-r28-perses-log-trace-dash](../tasks/t-20261114-r28-perses-log-trace-dash.md) | Perses log and trace views | wait | normal | coord | [t-20261114-r28-perses-loki-source](../tasks/t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) (open) | [baseharbor#1619](https://github.com/mcpdev80/baseharbor/pull/1619) |
-| [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | wait | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) (open) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
 | [t-20261119-r28-app-source-verification-none-ignored](../tasks/t-20261119-r28-app-source-verification-none-ignored.md) | Verifier: Verification=none is ignored for application-class metrics sources | wait | not set | w203-0428-143-vernone | — | [baseharbor#1729](https://github.com/mcpdev80/baseharbor/pull/1729) |
 | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | 0428-204 · CLI operator seam: MCP handlers and direct Run entry points | wait | high | coordinator | [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) (open) | [baseharbor#1726](https://github.com/mcpdev80/baseharbor/pull/1726) |
 | [t-20261120-deployment-version-mismatch-masked](../tasks/t-20261120-deployment-version-mismatch-masked.md) | record version mismatch masked | wait | not set | w200-0428-200-verrmask | — | [baseharbor#1728](https://github.com/mcpdev80/baseharbor/pull/1728) |
