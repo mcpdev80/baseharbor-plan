@@ -164,4 +164,18 @@ This session performed only the authorized merge of PR #1742. The exact-head rev
 
 Before merge, `docker ps -a` at 2026-11-21 13:01 UTC (shell PID 2850483) returned only the header and zero containers; this session started no containers between that observation and merge. After merge, `docker ps -a` at 2026-11-21 13:10 UTC (shell PID 2954156) also returned only the header and zero containers. No compose project was started.
 
+## Evidence publication witness
+
+After `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main`, the exact path lookup returned:
+
+```text
+evidence/r28-welle4-2026-11-21/git-credential-fill/merge-1.md
+```
+
+`git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-remote origin refs/heads/main` returned:
+
+```text
+2d0246a6c63ef10451d12b57fc34987ee2a49f62 refs/heads/main
+```
+
 END MERGE DONE — PR #1742 merged as `ddfa80f7202a0aca3cf68c4542158132c0c2795b`; develop now points to that commit.
