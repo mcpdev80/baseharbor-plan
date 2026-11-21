@@ -9,15 +9,15 @@ repos: [mcpdev80/baseharbor]
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-217-cloneenv
-kanban_status: active
+owner: coordinator
+kanban_status: review
 kanban_lane: active
 kanban_summary: "The first authenticated Git operation inside a test or a first-time target bootstrap never returns a clean failure: it invokes…"
 kanban_title: 0428-217 · 0428-217 credential-fill hang
 priority: high
 depends_on: []
 blocked_by: []
-prs: [mcpdev80/baseharbor#1742]
+prs: ['mcpdev80/baseharbor#1742']
 wait_reason: ""
 blocker: ""
 
@@ -137,3 +137,5 @@ korrekturrunde 2 geliefert und von mir am head 719d28a888ab nachgemessen: draft=
 korrekturrunde 2 geliefert und von mir am head 719d28a888ab nachgemessen: draft=false, mergeable MERGEABLE, base develop. ALLE vier cli-shards pass, 'PR Selected Checks' pass, 'PR - Trusted Plan' pass. Delta gegen merge-base = 8 dateien, und JEDE davon steht im erlaubten schreib-set der karte (zeilen 69-77: cmd/baha/app_inspect_remote.go als erster punkt, cmd/baha/app_update.go durch meine amendment, dazu die git host/credential helper dateien). Mein amendment-punkt ist erfuellt: kriterium 4 (update-pfad regression) mit mutation belegt (akte round-2-promptproof.md). Inhalt, von mir gelesen: cmd.Stdin = os.Stdin wird durch eine leser-zeichenkette ersetzt, und GIT_TERMINAL_PROMPT=0 wird VOR den native-pfad gehoben, damit ein fehlendes nativ credential fail-closed statt am prompt zu haengen. Offen: develop ist weitergezogen (77c1e60f51b9), head ist kein nachkomme, also letzter hop wie bei 1739.
 
 CODEX-REVIEW review-2.md am alten head 719d28a888ab = REQUEST CHANGES. Befund 3 (frische) ist erfuellt: die hop-lane hat heute auf develop 97b2ba5543f0 gesetzt, gemessen ancestry JA, rev-list develop..head = 2, run 44900657812 success. Befund 1 IST ECHT und durch den hop NICHT gefixt, von mir an beiden staenden gemessen: 'cmd/baha/app_inspect_remote.go:70' schreibt 'cmd.Env = append(cmd.Env, GIT_TERMINAL_PROMPT=0)' bei nil cmd.Env — das clone-kind erhaelt ein aussortiertes umfeld ohne PATH und HOME. Das korrekte muster liegt im selben PR an 'cmd/baha/app_update.go:493'. Befund 2 ist akten-pflicht (workaround closeout). Neue lane 0428-217-cloneenv arbeitet beide belege inkl. regression mit sentinel-umfeld und mutation in beide richtungen.
+
+CODEX-REVIEW review-4.md = 'Verdict: APPROVE CONTENT' am exakten kandidaten 6f8fa120f7e5e79d260ed89d486633bc152105de, und die einzige vor-bedingung ('publish round-4-clone-env.md before merge') ist erfuellt (akte auf origin/main, plan b833ffaef). Zeugen, von mir gemessen: 'PR Selected Checks' pass, cli-0..3 pass, 'Trusted Plan' pass, draft=false, mergeable=MERGEABLE, ancestry develop->head JA. BEFUENDE 1..3 aus review-2/review-3 sind damit abgeschlossen: 'cmd/baha/app_inspect_remote.go:74' erbt jetzt 'os.Environ()' (muster aus 'app_update.go:493'), regression mit eltern-sentinel im kind, mutationen M1 und M2 rot. CODEX-MERGE ist angesetzt (merge als merge-commit, KEIN squash — praegenz #1739, damit die sha-zeugen der karte erhalten bleiben).
