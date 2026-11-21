@@ -25,13 +25,14 @@ evidence:
   - "https://github.com/mcpdev80/baseharbor/actions/runs/44875389702"
   - "https://github.com/mcpdev80/baseharbor/actions/runs/44875693455"
   - "https://github.com/mcpdev80/baseharbor/actions/runs/44876072403"
+  - "https://github.com/mcpdev80/baseharbor/actions/runs/44876725420"
 ---
 
 - [ ] t-20261121-cli-shard-runtime-tests · 0428-215 Go-unit cli shards run tests that need a real runtime #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** Codex (Marcel, Wait sweep excluding \#1615) · **Priority:** high  
     **PR:** [baseharbor#1743](https://github.com/mcpdev80/baseharbor/pull/1743)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1743), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44875389702), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44875693455), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44876072403)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1743), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44875389702), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44875693455), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44876072403), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44876725420)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -118,7 +119,7 @@ add a new job or workflow, or turn a daemon-dependent assertion into a skip.
 
 ## Handoff
 
-Branch `codex/0428-215-native-network`, PR #1743. Latest exact head `a131256c285e257837e402a9ba0fe037f0835bbe`; run 44876072403 is queued. Earlier candidate runs 44875389702 and 44875693455 are superseded for acceptance. Round 4 records the failure causes and current exact test-to-gate mapping; closeout requires both native tests to PASS without skips and all required checks terminal.
+Branch `codex/0428-215-native-network`, PR #1743. Latest exact head `9fad2086a53f2800ac1f40c1442295bde2ff3c35`; run 44876725420 is pending. Run 44876072403 proved the test PASSed in Docker but failed in Podman because the fixture omitted the Compose compatibility label that BaseHarbor itself writes. Round 5 records the corrected labels and exact mapping; closeout requires both native tests to PASS without skips and all required checks terminal.
 
 2026-11-21 owner reassignment: the coordinator's round-2 evidence identified a real missing native assertion and exact
 existing gate. Per the Maintainer's Wait-sweep directive, this lane owns only the required test in that existing gate; it
