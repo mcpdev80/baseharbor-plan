@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "The PR · Go unit · cli- shards contain no test whose pass condition requires a container runtime, ORAS, or memory that the…"
 kanban_title: 0428-215 · 0428-215 cli runtime tests
 priority: high
@@ -18,18 +18,19 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "rest: 'CI-bedarf' ist owner-scope (scripts/.github), in der akte round-2.md begruendet — die zwei runtime-pflichtigen faelle sind an der basis geheilt (cli-2 SUCCESS, run 44868911131, zuordnung 'scripts/pr-go-unit-shard.py'), assertionen unberoehrt, kein lokaler skip. Offen bleibt nur die native zelle fuer 'core_network_binding.go:55-57' (ENOENT-ast, daemon-pflichtig): 'PR · Native Keycloak/Core · docker|podman' sind an #1740 gemessen gruen, die aufnahme-regel fehlt dort."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-cli-shard-runtime-tests · 0428-215 Go-unit cli shards run tests that need a real runtime #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
+- [ ] t-20261121-cli-shard-runtime-tests · 0428-215 Go-unit cli shards run tests that need a real runtime #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
+    **Waiting:** rest: 'CI-bedarf' ist owner-scope (scripts/.github), in der akte round-2.md begruendet — die zwei runtime-pflichtigen faelle sind an der basis geheilt (cli-2 SUCCESS, run 44868911131, zuordnung 'scripts/pr-go-unit-shard.py'), assertionen u…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** coordinator  
@@ -107,3 +108,5 @@ Branch, PR, exact head SHA, two run ids with per-shard conclusions, evidence
 `evidence/r28-welle4-2026-11-21/cli-shard-runtime-tests/round-1.md`.
 
 kommissioniert, weil der wart-grund weg ist: #1740 zeigt am gestapelten head (run 44868911131, protokoll 900721 bytes) cli-1/2/3 SUCCESS und genau EINE erste-level-fail-zeile, die zu 0428-210/#1739 gehoert — die container-/ORAS-pflichtigen faelle ihrer karte sind an dieser basis also bereits geheilt. Lane '0428-215-cli215' (4359f0e8, laptop:2), base = 'lane-0428-198-cli-shard-operator-env' (zuletzt e45430f2f1b7, bewegt sich), gestapelt auf #1726.
+
+round-2 delivered (plan ed88dda9/188ac1fd), red-first in benannter runner-form, keine produkt-aenderung, kein PR — diagnose as ordered.
