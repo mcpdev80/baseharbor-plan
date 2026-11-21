@@ -28,7 +28,6 @@ evidence: []
     **Owner:** w205-0428-203-staletgt · **Priority:** normal  
     **PR:** [baseharbor#1730](https://github.com/mcpdev80/baseharbor/pull/1730)  
     **Waiting:** handoff abgeschlossen: PR \#1730 head c90a73ac8128 == refs/pull/1730/head, base refs/heads/lane-0428-143-verify-none (stapel korrekt auf der basis-lane), draft=false, 2 dateien (internal/capability/integration\_contract.go + internal/metrics…  
-    **Needs:** [t-20261119-r28-app-source-verification-none-ignored](t-20261119-r28-app-source-verification-none-ignored.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

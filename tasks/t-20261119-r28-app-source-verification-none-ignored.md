@@ -28,21 +28,20 @@ prs: [mcpdev80/baseharbor#1729]
 
 - [x] t-20261119-r28-app-source-verification-none-ignored · Verifier: Verification=none is ignored for application-class metrics sources #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/metrics #area/observability #kind/bug
     <!-- generated:card -->
-    **Owner:** w203-0428-143-vernone
-    **PR:** [baseharbor#1729](https://github.com/mcpdev80/baseharbor/pull/1729)
-    **Evidence:** [run 1](https://github.com/mcpdev80/baseharbor/actions/runs/44891055506), [PR](https://github.com/mcpdev80/baseharbor/pull/1729), [merge](https://github.com/mcpdev80/baseharbor/commit/53f16a81f23a366fff8305dfd7743e34ac3ef943), [round 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/verification-none-skip/round-2.md)
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/blob/fac01c77276ca2bf1e20cd0b7334bda5dd43e353/internal/metrics/prometheus_verify.go)
+    **Owner:** w203-0428-143-vernone  
+    **PR:** [baseharbor#1729](https://github.com/mcpdev80/baseharbor/pull/1729)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44891055506), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1729), [proof 3](https://github.com/mcpdev80/baseharbor/commit/53f16a81f23a366fff8305dfd7743e34ac3ef943), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/verification-none-skip/round-2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted
-**Release:** v0.4.28
-**Depends on:** none
-**Required by:** [t-20261120-verif-none-stale-target](t-20261120-verif-none-stale-target.md)
-**Owner:** w203-0428-143-vernone
-**Priority:** not set
-**PRs:** [baseharbor#1729](https://github.com/mcpdev80/baseharbor/pull/1729)
-**Source:**
+**State:** accepted  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** none  
+**Required by:** [t-20261120-verif-none-stale-target](t-20261120-verif-none-stale-target.md)  
+**Owner:** w203-0428-143-vernone  
+**Priority:** not set  
+**PRs:** [baseharbor#1729](https://github.com/mcpdev80/baseharbor/pull/1729)  
+**Source:** 
 <!-- /generated:links -->
 
 ## Why this exists

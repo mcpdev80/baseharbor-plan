@@ -12,13 +12,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | ---: |
 | active | 10 |
 | review | 5 |
-| wait | 25 |
+| wait | 24 |
 | blocked | 1 |
 | ready | 5 |
 | queued | 25 |
 | waiting | 183 |
 | backlog | 7 |
-| closed | 398 |
+| closed | 399 |
 
 ## Active
 
@@ -67,12 +67,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-perses-dashboards](../tasks/t-20261114-r28-perses-dashboards.md) | Perses infrastructure dashboards | wait | normal | w208-0428-082-dashboards | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md), [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) (open) | [baseharbor#1665](https://github.com/mcpdev80/baseharbor/pull/1665) |
 | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | Connect Perses Prometheus | wait | normal | 0428-083- | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md), [t-20261120-r28-develop-runtime-integration-red](../tasks/t-20261120-r28-develop-runtime-integration-red.md) | [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608), [baseharbor#1684](https://github.com/mcpdev80/baseharbor/pull/1684) |
 | [t-20261114-r28-perses-log-trace-dash](../tasks/t-20261114-r28-perses-log-trace-dash.md) | Perses log and trace views | wait | normal | coord | [t-20261114-r28-perses-loki-source](../tasks/t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) (open) | [baseharbor#1619](https://github.com/mcpdev80/baseharbor/pull/1619) |
-| [t-20261119-r28-app-source-verification-none-ignored](../tasks/t-20261119-r28-app-source-verification-none-ignored.md) | Verifier: Verification=none is ignored for application-class metrics sources | wait | not set | w203-0428-143-vernone | — | [baseharbor#1729](https://github.com/mcpdev80/baseharbor/pull/1729) |
 | [t-20261120-deployment-version-mismatch-masked](../tasks/t-20261120-deployment-version-mismatch-masked.md) | record version mismatch masked | wait | not set | w200-0428-200-verrmask | — | [baseharbor#1728](https://github.com/mcpdev80/baseharbor/pull/1728) |
 | [t-20261120-r28-stale-draft-pr-1665-closeout](../tasks/t-20261120-r28-stale-draft-pr-1665-closeout.md) | Stale draft PR #1665 on parked card 0428-082: restack with evidence or close | wait | not set | w176-pr1665-1665-closeout | — | [baseharbor#1665](https://github.com/mcpdev80/baseharbor/pull/1665) |
 | [t-20261120-r28-valkey-dashboard-unavailable-only](../tasks/t-20261120-r28-valkey-dashboard-unavailable-only.md) | Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable | wait | not set | w183-0428-183-valkeyfix | [t-20261121-loki-verify-probe](../tasks/t-20261121-loki-verify-probe.md), [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) | [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714) |
 | [t-20261120-shared-backend-state-version-message](../tasks/t-20261120-shared-backend-state-version-message.md) | shared state version message | wait | not set | w201-0428-201-statever | — | [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725) |
-| [t-20261120-verif-none-stale-target](../tasks/t-20261120-verif-none-stale-target.md) | Stale emitted target after Verification=none switch | wait | normal | w205-0428-203-staletgt | [t-20261119-r28-app-source-verification-none-ignored](../tasks/t-20261119-r28-app-source-verification-none-ignored.md) (open) | [baseharbor#1730](https://github.com/mcpdev80/baseharbor/pull/1730) |
+| [t-20261120-verif-none-stale-target](../tasks/t-20261120-verif-none-stale-target.md) | Stale emitted target after Verification=none switch | wait | normal | w205-0428-203-staletgt | [t-20261119-r28-app-source-verification-none-ignored](../tasks/t-20261119-r28-app-source-verification-none-ignored.md) | [baseharbor#1730](https://github.com/mcpdev80/baseharbor/pull/1730) |
 | [t-20261121-native-cell-operator-seam](../tasks/t-20261121-native-cell-operator-seam.md) | 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam | wait | high | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740) |
 
 ## Blocked
@@ -95,7 +94,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 5 open, 164 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 68 open, 166 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 67 open, 167 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
