@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: review
-kanban_lane: review
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: Every MCP mutation path whose test expects the verbatim gate message Managed-environment machine operations require an…
 kanban_title: 0428-218 · 0428-218 mcp operator seam
 priority: normal
@@ -18,20 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1741, mcpdev80/baseharbor#1738]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "shared 0428-198 base is unusable: prerequisite PR #1726 is CLOSED unmerged, the base branch sits 197 behind develop, and every head of this stack fails the same out-of-diff case TestAppListAllTargetsWorksAfterInstallationDestroy (runs 44887462636, 44886762103, 44868911131, 44882418434). Isolation onto current develop is decided but parked until 0428-223 lands the destroy fix; no leaf verdict before an isolated exact-develop head."
 resolution: ""
 created: "2026-11-21T05:55:00Z"
 updated: "2026-11-21T05:55:00Z"
 ---
 
-- [ ] t-20261121-mcp-operator-seam-uncovered · 0428-218 make the MCP operator seam reachable from MCP tests #task #release/v0-4-28 #status/review #view/review #area/cli #area/observability #kind/bug
+- [ ] t-20261121-mcp-operator-seam-uncovered · 0428-218 make the MCP operator seam reachable from MCP tests #task #release/v0-4-28 #status/wait #view/wait #area/cli #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** normal  
     **PR:** [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741), [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
+    **Waiting:** shared 0428-198 base is unusable: prerequisite PR \#1726 is CLOSED unmerged, the base branch sits 197 behind develop, and every head of this stack fails the same out-of-diff case TestAppListAllTargetsWorksAfterInstallationDestroy (runs 4488…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Owner:** coordinator  

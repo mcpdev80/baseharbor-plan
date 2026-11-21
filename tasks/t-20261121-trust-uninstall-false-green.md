@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: review
-kanban_lane: review
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "TestTrustUninstallPromptEOFRejects, TestTrustUninstallPromptUnterminatedAffirmativeEOFRejects and…"
 kanban_title: 0428-213 · 0428-213 trust-uninstall EOF
 priority: high
@@ -18,19 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1737]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "shared 0428-198 base is unusable: prerequisite PR #1726 is CLOSED unmerged, the base branch sits 197 behind develop, and every head of this stack fails the same out-of-diff case TestAppListAllTargetsWorksAfterInstallationDestroy (runs 44887462636, 44886762103, 44868911131, 44882418434). Isolation onto current develop is decided but parked until 0428-223 lands the destroy fix; no leaf verdict before an isolated exact-develop head."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-trust-uninstall-false-green · trust-uninstall EOF tests are green on the auth gate error #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
+- [ ] t-20261121-trust-uninstall-false-green · trust-uninstall EOF tests are green on the auth gate error #task #release/v0-4-28 #status/wait #view/wait #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737)  
+    **Waiting:** shared 0428-198 base is unusable: prerequisite PR \#1726 is CLOSED unmerged, the base branch sits 197 behind develop, and every head of this stack fails the same out-of-diff case TestAppListAllTargetsWorksAfterInstallationDestroy (runs 4488…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Owner:** coordinator  
