@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: 0428-060-updown
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Unify up and down semantics. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-060 · Unify up and down semantics
 priority: high
@@ -23,18 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-app-lifecycle · CLI redesign: Unify up and down semantics #task #release/v0-4-28 #status/planned #view/ready #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-app-lifecycle · CLI redesign: Unify up and down semantics #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** 0428-060-updown · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
 **Required by:** [t-20261114-r28-cli2-source-pull](t-20261114-r28-cli2-source-pull.md)  
-**Owner:** unassigned  
+**Owner:** 0428-060-updown  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -70,3 +69,5 @@ No success without verified readiness; component subset and shared effects, part
 ## Handoff
 
 Planned and unassigned. No product implementation or acceptance yet.
+
+END_BLOCKED war eine scope-frage, keine blockade. Arbeit: down-consent-gate in executeApplicationStop implementiert, baut gruen am develop 77c1e60f5, write-set sauber (app_update.go NICHT im diff, von mir nachgemessen). Frage: die echte down-autorisierung authorizeApplicationStop liegt in cmd/baha/application_stop_impact.go:177, die nicht in meinem mission-schreib-set stand. Gemessen und ERLAUBT, begrenzt: datei existiert auf develop, und kein anderer offener PR fasst sie an (#1739 delta 0 treffer, #1742 delta 0 treffer). Grenze 1: app_runtime_retirement.go:112 (nutzt dieselbe funktion) bleibt STOP-pflichtig, weil consent/retirement in 0428-209/0428-214 verhandelt wird. Grenze 2: keine autorisierung weicher fuer gruen, beide richtungen mit mutation belegt. Noch kein PR am remote (kein lane-0428-060* branch gemessen)
