@@ -8,9 +8,9 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: "Codex (Marcel, Wait sweep excluding #1615)"
-kanban_status: active
-kanban_lane: active
-wait_reason: ""
+kanban_status: wait
+kanban_lane: wait
+wait_reason: "PR #1587 is ready and restacked onto current develop without rewriting history. Exact run 44873370844 at 962d852fa42f69836bf618279cfbdfba674b5b21 failed PR Selected Checks: cli-0..3 hit the shared operator-auth failures owned by excluded #1615; packages hit the independent Loki fixture failures tracked by 0428-212/#1734. The runbook/documentation gates pass. Do not merge until those shared required gates pass; #1615 remains untouched."
 kanban_summary: A developer can start and use the Core operator API from documentation alone.
 kanban_title: 0427-169 · operator API runbook missing
 priority: normal
@@ -20,19 +20,20 @@ prs: ["mcpdev80/baseharbor#1587"]
 sources: []
 blocker: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/fe99e1298005246dfaa6e3986acde9d35d1ed389/evidence/r28-welle1-2026-11-15/operator-runbook/akte.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/fe99e1298005246dfaa6e3986acde9d35d1ed389/evidence/r28-welle1-2026-11-15/operator-runbook/akte.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44873370844"]
 early: true
 ---
 
-- [ ] t-20261108-smoke-0427-operator-api-undocumented · Remote Core: API route runbook missing #task #release/v0-4-28 #status/active #view/active #area/cli #area/docs #kind/bug
+- [ ] t-20261108-smoke-0427-operator-api-undocumented · Remote Core: API route runbook missing #task #release/v0-4-28 #status/wait #view/wait #area/cli #area/docs #kind/bug
     <!-- generated:card -->
     **Owner:** Codex (Marcel, Wait sweep excluding \#1615) · **Priority:** normal  
     **PR:** [baseharbor#1587](https://github.com/mcpdev80/baseharbor/pull/1587)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/fe99e1298005246dfaa6e3986acde9d35d1ed389/evidence/r28-welle1-2026-11-15/operator-runbook/akte.md)  
+    **Waiting:** PR \#1587 is ready and restacked onto current develop without rewriting history. Exact run 44873370844 at 962d852fa42f69836bf618279cfbdfba674b5b21 failed PR Selected Checks: cli-0..3 hit the shared operator-auth failures owned by excluded \#…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/fe99e1298005246dfaa6e3986acde9d35d1ed389/evidence/r28-welle1-2026-11-15/operator-runbook/akte.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44873370844)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
 **Owner:** Codex (Marcel, Wait sweep excluding #1615)  
@@ -78,6 +79,7 @@ A developer can start and use the Core operator API from documentation alone.
 
 ## Handoff
 
+- 2026-11-21 Codex Wait sweep: PR [#1587](https://github.com/mcpdev80/baseharbor/pull/1587) moved from Draft to ready; merge commit `962d852fa42f69836bf618279cfbdfba674b5b21` brought current develop `40cb28c758b02960356434b630086a341ebe1738` into the PR branch without rewriting history. The diff against current develop remains the same nine docs/help files. Exact required run [44873370844](https://github.com/mcpdev80/baseharbor/actions/runs/44873370844) is terminal FAILURE: source format, trusted plan, workflow policy, build, vet, English/German MkDocs, docs audit, pages build, focused Python, and owner shard pass; CLI-0..3 fail on the managed-operator-auth gate belonging to excluded #1615; packages fails the Loki fixture tests tracked by 0428-212/#1734; `PR Selected Checks` fails on incomplete required Go shard coverage. GitHub rejected merge before the current-base run because `PR Selected Checks` was absent; no bypass attempted. Do not close until these shared gates are green. #1615 was not read or modified.
 - 2026-11-15 lane flash (0427-169): runbook published as draft PR [#1587](https://github.com/mcpdev80/baseharbor/pull/1587) (docs-only candidate 20e0537cc3332c53500091ca1776fc6b408670d0, base develop 0e9ccb582f5bdcdc74049bbe3996263cdce6500c, ancestry verified; CI run 43709246427 completed/success observed). Scope kept to the supported authenticated workstation-to-Core path; unverified topology stays labeled spec-only per the 2026-11-14 clarification. Evidence file: [akte.md](https://github.com/mcpdev80/baseharbor-plan/blob/8a65515263b712bac757ac137e14f6265c518d61/evidence/r28-welle1-2026-11-15/operator-runbook/akte.md) (immutable at the review-publishing commit). Awaiting CODEX-REVIEW and merge; no product behavior change.
 - Found 2026-11-08 in E2E smoke-test (API route requirement confirmed with maintainer mid-run). Newest first.
 
