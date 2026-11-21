@@ -6,14 +6,14 @@ Keine Produkt-/CI-/Script-Änderung. Kein Push. Kein `go test ./cmd/baha/`.
 
 ## PLAN
 
-- [ ] Basis-fact: lane-origin refs + pr-gate-plan.py base-ref vs develop
-- [ ] Runner call lokal reproduziert (exit-code + stderr)
-- [ ] Hypothesen H1/H2/H3 geprüft
-- [ ] Entscheidungsvorlage (ursache/beleg/owner-aktion)
-- [ ] Evidence on origin/main verifiziert
-- [ ] cleanliness (docker ps -a)
+- Basis-fact: lane-origin refs + pr-gate-plan.py base-ref vs develop
+- Runner call lokal reproduziert (exit-code + stderr)
+- Hypothesen H1/H2/H3 geprüft
+- Entscheidungsvorlage (ursache/beleg/owner-aktion)
+- Evidence on origin/main verifiziert
+- cleanliness (docker ps -a)
 
-Hinweis: Markdown-Checkboxen sind hier im Evidence erlaubt (nicht in `todos/`); die Board-Datei enthält keine.
+Hinweis: Der Plan-Validator interprets Markdown-Checkboxen in Evidence als CardBoard-Karten. Diese Notizen stehen deshalb als einfache Bullet-Liste; die Board-Datei enthält keine zusätzlichen Karten.
 
 ## Basis-Fact
 

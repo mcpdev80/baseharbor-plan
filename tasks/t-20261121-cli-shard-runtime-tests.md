@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1743]
 sources: []
 blocker: ""
-wait_reason: "COUNTERSTAND zu meinem CI-bedarf aus row 865/866: der owner hat die luecke am 21.11 ab 07:24 selbst geschlossen, PR #1743 (base develop, draft=false, latest head 9fad2086a5; run 44876072403 proves the test PASSes in Docker and FAILs in Podman because the fixture had only one of BaseHarbor's two Compose labels; latest corrected head 9fad2086a5 is running exact run 44876725420). write-set gemessen: cmd/baha/operator_core_network_binding_native_test.go (neuer docker/podman-native regression: ein gleichnamiges netzwerk mit nur forgebarem compose-owner-label wird abgelehnt) + scripts/ci-owner-node-native.sh + scripts/test_ci_keycloak_single_route.py = die aufnahme-regel, die ich verlangte. PR-body: der 'operator'-dateiname waehlt das gate, und der exakte PR-durchgang muss beweisen, dass Docker- und Podman-zelle den test ohne skip ausfuehren. Karte bleibt wait, bis am gehosteten durchgang beide nativen zellen den fall ausgefuehrt haben (nicht skipped) — dann closed."
+wait_reason: "PR #1743 exact run 44877364076 at c506624d14e3 failed Podman: direct native inspect confirms the exact expected network name and both Compose labels, but prepareCoreDefaultNetworkBinding returns nil; Docker ran the new test and passed, then failed later in an unrelated existing native test. Diagnostic head 2281886ef45ff1628d5e6f0778b2da3c9527e460 adds the provider InspectProjectResources result/error to the failure output; exact run 44877777956 is queued. Keep this in Wait until both Docker and Podman tests pass without skip and required checks are terminal."
 resolution: ""
 evidence:
   - "https://github.com/mcpdev80/baseharbor/pull/1743"
@@ -26,14 +26,16 @@ evidence:
   - "https://github.com/mcpdev80/baseharbor/actions/runs/44875693455"
   - "https://github.com/mcpdev80/baseharbor/actions/runs/44876072403"
   - "https://github.com/mcpdev80/baseharbor/actions/runs/44876725420"
+  - "https://github.com/mcpdev80/baseharbor/actions/runs/44877364076"
+  - "https://github.com/mcpdev80/baseharbor/actions/runs/44877777956"
 ---
 
 - [ ] t-20261121-cli-shard-runtime-tests · 0428-215 Go-unit cli shards run tests that need a real runtime #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1743](https://github.com/mcpdev80/baseharbor/pull/1743)  
-    **Waiting:** COUNTERSTAND zu meinem CI-bedarf aus row 865/866: der owner hat die luecke am 21.11 ab 07:24 selbst geschlossen, PR \#1743 (base develop, draft=false, latest head 9fad2086a5; run 44876072403 proves the test PASSes in Docker and FAILs in Pod…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1743), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44875389702), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44875693455), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44876072403), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44876725420)  
+    **Waiting:** PR \#1743 exact run 44877364076 at c506624d14e3 failed Podman: direct native inspect confirms the exact expected network name and both Compose labels, but prepareCoreDefaultNetworkBinding returns nil; Docker ran the new test and passed, the…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1743), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44875389702), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44875693455), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44876072403), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44876725420), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44877364076), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44877777956)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -120,7 +122,7 @@ add a new job or workflow, or turn a daemon-dependent assertion into a skip.
 
 ## Handoff
 
-Branch `codex/0428-215-native-network`, PR #1743. Latest exact head `9fad2086a53f2800ac1f40c1442295bde2ff3c35`; run 44876725420 is pending. Run 44876072403 proved the test PASSed in Docker but failed in Podman because the fixture omitted BaseHarbor's Compose compatibility label. Round 5 records the corrected fixture and exact mapping; closeout requires both native tests to PASS without skips.
+Branch `codex/0428-215-native-network`, PR #1743. Run 44877364076 at `c506624d14e3c6939c204da12926cd0416daf3ca` proves Docker PASS and Podman FAIL despite direct inspect confirming the expected network name and both Compose labels; see evidence round-6. Latest diagnostic head is `2281886ef45ff1628d5e6f0778b2da3c9527e460`; exact run 44877777956 is queued. Closeout requires both native tests to PASS without skips and required checks to be terminal.
 
 2026-11-21 owner reassignment: the coordinator's round-2 evidence identified a real missing native assertion and exact
 existing gate. Per the Maintainer's Wait-sweep directive, this lane owns only the required test in that existing gate; it
@@ -139,3 +141,6 @@ kommissioniert, weil der wart-grund weg ist: #1740 zeigt am gestapelten head (ru
 round-2 delivered (plan ed88dda9/188ac1fd), red-first in benannter runner-form, keine produkt-aenderung, kein PR — diagnose as ordered.
 
 Mein CI-bedarf war richtig adressiert, der owner war schneller als die Lanes. 'wait' ist hier ehrlich, NICHT 'blocked': kein Owner-entscheid noetig, nur ein laufender Beleg. AGENTS 5.3: skipped/queued/absent receipts sind kein pass.
+
+
+Continuation 2026-11-21: after the corrected two-label fixture still failed only in Podman, the native test now captures direct runtime labels and, on refusal failure, the actual provider `InspectProjectResources` result/error. This makes the next native run diagnostic without changing product code or CI routing.
