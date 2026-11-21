@@ -106,3 +106,9 @@ END codex-rev-1747 DONE — CODEX-REVIEW APPROVE, exact head `be5e23079df36a81fe
 Exact output of `git -C workers/codex-rev-1747-plan-wt ls-tree -r --name-only origin/main | grep evidence/r28-welle4-2026-11-21/trust-status-backend-witness/review-3-headbe5e2307.md` after fetching origin/main:
 
 evidence/r28-welle4-2026-11-21/trust-status-backend-witness/review-3-headbe5e2307.md
+
+## Final origin/main path witness
+
+Exact output of `git -C workers/codex-rev-1747-plan-wt fetch origin main && git -C workers/codex-rev-1747-plan-wt ls-tree -r --name-only origin/main | grep evidence/r28-welle4-2026-11-21/trust-status-backend-witness/review-3-headbe5e2307.md`:
+
+evidence/r28-welle4-2026-11-21/trust-status-backend-witness/review-3-headbe5e2307.md
