@@ -286,4 +286,17 @@ failures: cli-2 contains 74 other failures.
 - cleanliness: no test-owned runtime state; ambient containers of other cards
   untouched.
 
+## Evidence publishing witness (second-to-last action)
+
+```
+$ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep cli-shard-runtime-tests
+evidence/r28-welle4-2026-11-21/cli-shard-runtime-tests/round-1.md
+tasks/t-20261121-cli-shard-runtime-tests.md
+```
+
+plan SHA carrying this evidence: 99946368ff4f153800990dd6fa51701e3a28302b
+(file first committed as c3448f39674c25cfe3a8c3de3ed0850dcff1c046; the witness
+block above was added by the follow-up commit and then amended into this final
+SHA, so the published blob is the one verified on origin/main)
+
 END w232-0428-215-runtimeprobe DONE
