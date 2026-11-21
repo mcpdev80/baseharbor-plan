@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: Codex owner (combined validation ref)
-kanban_status: wait
-kanban_lane: wait
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Environment deletion lifecycle. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-055 · Env deletion lifecycle
 priority: high
@@ -18,21 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1627, mcpdev80/baseharbor#1736]
 sources: []
 blocker: ""
-wait_reason: "DRITTER FEHLERZYGER, BENANNT UND BEHOBEN (00:2xZ gemessen): ac05cc4efbc fiel im exakten run 44958801932 erneut in BEIDEN coreless-lifecycle-shards (docker + podman), der Owner hat den run bewusst abgebrochen. grund: test-auth gelingt jetzt, aber env destroy verweigert korrekt ein stale-impact-consent, weil der test den application-stop-plan ohne applicationStopModeKey baute, waehrend die produktion KEEP mit stop mode anwendet und den plan an die runtime-retirement bindet. der neue commit 38be89aa4a0 (additiv auf develop 42da7128e72, base unveraendert) berechnet das consent mit demselben stop mode, input und target context. WARTEGRUND: terminaler gruen-run 44960199639 auf 38be89aa4a0 mit docker UND podman lifecycle-AUSFUEHRUNG im trusted plan, dann unabhaengiges verdict auf 38be89aa4a0 inklusive der abhaengigkeits-erfuellung fuer #1736 (1e2ba9d5786 ist ancestor, von der review-session mit merge-base belegt), dann ordinary merge in abhaengigkeits-reihenfolge. die drei abgebrochenen runs 44958801932/44958293233/44957245330 zaehlen nicht."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1627", "https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677", "https://github.com/mcpdev80/baseharbor/actions/runs/44852435311", "https://github.com/mcpdev80/baseharbor/pull/1615", "https://github.com/mcpdev80/baseharbor/pull/1736", "https://github.com/mcpdev80/baseharbor/actions/runs/44859609354"]
 ---
 
-- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** Codex owner (combined validation ref) · **Priority:** high  
     **PR:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627), [baseharbor#1736](https://github.com/mcpdev80/baseharbor/pull/1736)  
-    **Waiting:** DRITTER FEHLERZYGER, BENANNT UND BEHOBEN (00:2xZ gemessen): ac05cc4efbc fiel im exakten run 44958801932 erneut in BEIDEN coreless-lifecycle-shards (docker + podman), der Owner hat den run bewusst abgebrochen. grund: test-auth gelingt jetzt…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1627), [proof 2](https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44852435311), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1615), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1736), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44859609354)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
 **Required by:** [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md)  
@@ -111,3 +110,5 @@ wait -> review: der einzige RC-punkt war der per-case-CI-receipt, der nach der l
 APPROVE stands at head 10150ee7164 (akte 04eef2798 + e2f2aaf36, run 44940073029 = 22 success / 73 skipped). develop moved to 513488eeb6d, so the candidate is BEHIND and cannot merge on that head. Independent check by coordinator 23:4xZ: 'git worktree list' contains NO worktree for branch codex/env-destroy-gate-routing and no live session owns it, so the Owner performs a normal merge-commit hop of develop 513488eeb6d into the PR branch. After the hop: exact hosted CI must be green at the new head and a fresh independent review is required before the ordinary merge. Card stays review; nothing is accepted yet.
 
 abhaengigkeit ausdrtuecklich festgehalten (korrektur der abnahme 00:3xZ): #1736 (head 1e2ba9d5786, exact CI run 44952497719 completed/success, 22 success / 73 skipped / 0 failed) ist NICHT mergebar, bevor #1627 mit named test registration und BOTH runtime-gate executions (docker UND podman) gelandet ist. #1627 head e24bd481 ist noch auf e6c199 aufgesetzt und sein bisheriger hosted run hat failures - die bedingung ist also NICHT erfuellt, die frische review an #1736 bleibt zurueckgehalten. w21 hoppt #1627 auf develop 513488eeb6d und nimmt den draft raus. die approve von 04eef2798 gilt nur auf dem ALTEN head 10150ee7164.
+
+Owner-Direktive 00:3xZ: review paralell zum laufenden exakten hosted run, nicht dahinter warten. exakter kandidat ist 38be89aa4a0 (refs/heads/cli2-env-delete = refs/pull/1627/head, author==committer==Owner, additiv auf develop 42da7128e72, rev-list --count 38be89aa4a0..42da7128e72 = 0, 20 front; mergeable=MERGEABLE, mergeStateStatus=BLOCKED durch die laufenden checks). die kette der drei fixes, die das verdict benennen muss: 8de37f58caa (fixture ohne operator-context -> 'prepare native workload deployment inputs requires authenticated BaseHarbor operator'), ac05cc4efbc (testOperatorContext in cmd/baha/test_operator_context_test.go:18-29 fuer lifecycle UND cleanup), 38be89aa4a0 (impact-consent mit demselben stop mode / applicationStopModeKey, input und target context wie die produktion KEEP - das env destroy verweigerte ein stale consent KORREKTERWEISE). review-sessionfecbada9 hat den auftrag mit mission sha256, akte evidence/r28-welle5-2026-11-22/env-destroy-gate/review-postfix-head38be89aa.md. VORBEHALT: acceptance erst mit terminalem gruen-exakten run 44960199639 (aktuell in_progress, 106 jobs); die abgebrochenen 44958801932/44958293233/44957245330 zaehlen nicht. danach ordinary merge durch die merge-rolle, anschiessend #1736 revalidieren/reviewen/mergen, falls noch offen (1e2ba9d5786 ist ancestor von 38be89aa4a0).
