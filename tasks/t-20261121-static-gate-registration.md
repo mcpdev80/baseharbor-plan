@@ -80,6 +80,6 @@ Owner 2026-11-21: zweckgebundene Freigabe für pre-release-runtime-suite.yml und
 ## Handoff
 
 - Candidate branch: `lane-0428-208-static-release-gate`; PR [#1746](https://github.com/mcpdev80/baseharbor/pull/1746).
-- Candidate commit: `a1e95e7ebc5d092f0f1dc7f59405e2687661063b`.
+- Candidate head after hop to current develop: `0a710235a4134ed45b53303a8faad44cbf4119d5`.
 - Local exact workflow-policy comparison passed; `bash scripts/ci-fast-check.sh` passed (307 tests); uncatalogued-gate negative case exits nonzero and prints its ID plus the repair action.
-- Hosted positive Release Suite proof and Coordinator/Release Owner confirmations are pending. The exact v0.4.28 Demo pin file is absent on current `develop`; no older pin was substituted.
+- Coordinator scope confirmation is recorded in [PR comment](https://github.com/mcpdev80/baseharbor/pull/1746#issuecomment-7060850641). Exact-head PR run `44891832834` is pending. Hosted positive Release Suite proof and Release Owner confirmation remain pending. The exact v0.4.28 Demo pin file is absent on current `develop`; no older pin was substituted.
