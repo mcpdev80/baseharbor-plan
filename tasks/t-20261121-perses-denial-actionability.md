@@ -8,14 +8,14 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w226-0428-211-persesmsg
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "The anonymous Perses operator-access denial says which precondition is missing and which command to run next, so an operator…"
 kanban_title: 0428-211 · 0428-211 Perses anonymous
 priority: normal
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1733]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,18 +23,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-perses-denial-actionability · Perses anonymous denial must name the next command #task #release/v0-4-28 #status/active #view/active #area/application #kind/task
+- [ ] t-20261121-perses-denial-actionability · Perses anonymous denial must name the next command #task #release/v0-4-28 #status/review #view/review #area/application #kind/task
     <!-- generated:card -->
     **Owner:** w226-0428-211-persesmsg · **Priority:** normal  
+    **PR:** [baseharbor#1733](https://github.com/mcpdev80/baseharbor/pull/1733)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w226-0428-211-persesmsg  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1733](https://github.com/mcpdev80/baseharbor/pull/1733)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -84,3 +85,5 @@ Branch, PR, exact head SHA, terminal hosted run id, evidence
 `evidence/r28-welle4-2026-11-21/perses-denial-actionability/round-1.md`.
 
 COMMISSIONED from hunt H-V24 (the one befund of that desk): message-only fix in internal/application/perses_management_ui.go:95-97 plus a content-bound assertion. Collision measured before dispatch: no open PR touches this file (gh pr view --json files over eleven PRs).
+
+HANDOFF COMPLETE: candidate published as PR #1733 (head 3a8b4a8b11de, base develop 40cb28c758b0, single commit, draft=false) plus akte evidence/r28-welle4-2026-11-21/perses-denial-actionability/round-1.md on plan main. Measured by coordinator: 'Workflow policy' pass, 'PR Selected Checks' fail — the red is the develop-inherited Go-unit cli shards (card 0428-215 explains why: at develop push only Runtime Docker/Podman run, both success, runs 44769994971/44769994909). So this waits for CODEX-REVIEW and for the seam fix 0428-204; not mergeable on its own.
