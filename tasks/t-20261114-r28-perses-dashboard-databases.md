@@ -7,18 +7,18 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w204-0428-076-hop
-kanban_status: wait
+owner: coordinator
+kanban_status: review
 kanban_lane: wait
 kanban_summary: Deliver PostgreSQL/MongoDB panels only when verified compatible metrics and permissions exist.
 kanban_title: 0428-076 · Perses database dashboards
 priority: normal
 depends_on: [t-20261114-r28-perses-dashboard-selection]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1597]
+prs: ['mcpdev80/baseharbor#1597']
 sources: []
 blocker: ""
-wait_reason: "hop auf den aktuellen develop faellig (klasse b, ueberholter base-stich); lane 0428-076-hop2 arbeitet daran"
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
@@ -93,3 +93,5 @@ LANE ROTIERT (AGENTS 3.6: drei identische END_BLOCKED auf derselben frage = stra
 HOP IST AUSGEFUEHRT UND NACHGEMESSEN, DER PR IST ABER IMMER NOCH DRAFT - DARUM BLEIBT active. gut: branch perses-dashboard-databases-lane head 90063f6ec66c, 'git merge-base --is-ancestor 40cb28c758b0 <head>' = JA, 4 commits voraus (ihre drei + EIN eigener nachlauf 'fix(0428-076): reconcile perses catalogs with develop selection drift'), diff gegen develop = 13 dateien / 1132 diff-zeilen, ALLE in ihrem write-set (internal/metrics/perses_dashboards.go, _helpers.go, _test.go, _promql_test.go, testdata/perses-dashboards/{loki-logs,mongodb-targets,postgresql-targets,prometheus-targets,tempo-traces}.json, cmd/baha/app_perses_cli_test.go, cmd/baha/app_status_result.go) - KEIN FREMDER COMMIT MEHR DABEI (der 419-dateien-zustand ist weg, exakt wie befohlen). offen bleiben zwei dinge: (1) PR #1597 draft=TRUE gemessen, weil MEIN REZEPT UNWIRKSAM WAR ('gh api -X PATCH -f draft=false' ignoriert GitHub; undraft ist 'gh api -X POST repos/mcpdev80/baseharbor/pulls/1597/mark_ready') - befehl nachgeliefert, dazu selbst-beleg mit 'gh pr view 1597 --json isDraft,baseRefName,headRefOid' in die akte, und ERST DANN der run am exakten head (§4.6): bei draft=true standen die required-zellen auf skipped/queued (gemessen 25 skipped / 5 queued / 1 in_progress), das war kein ergebnis. (2) go.mod/go.sum sind gegen develop GEAENDERT - lautter indirect-require-ZEILEN (beorn7/perks, cespare/xxhash/v2 v2.3.0, dennwc/varint, go-kit/log, go-logfmt/logfmt, grafana/regexp, munnerz/goautoneg ...), also vermutlich ein neues DIRECT-dependency (prometheus-client-...?). meine anweisung war 'bezugspunkt develop, aenderung nur bei echtem bedarf': sie schulden in der akte die zeile 'welcher import in welcher datei:zeile' + den beleg, dass 'go go mod tidy' nichts weiter aendert. koennen sie das nicht belegen, geht die go.mod/go.sum-aenderung zurueck und sie pruefen ihre tests erneut. KEIN weiterer voller matrix-run (§5.4). TRIGGER FUER DIE KANTE: draft=false + required-zellen durchgelaufen + go.mod-begruendung in der akte; dann review (CODEX) oder wait mit den namen 0428-198/0428-202, je nachdem was die zellen zeigen.
 
 DER UN-DRAFT-PUNKT IST JETZT ERLEDIGT, VON MIR GEMESSEN: 'gh api pulls/1597' draft=FALSE, head 90063f6ec66c, base develop, state open. der hop bleibt BESTAETIGT gut: 4 commits voraus, 13 dateien, alle im write-set, ancestry auf develop 40cb28c758b0 = JA, kein fremder commit mehr. DAMIT KOENNEN DIE REQUIRED-ZELLEN UBERHAUPT ERST LAUFEN (vorher: 25 skipped / 5 queued / 1 in_progress - bei draft=true war 'gelb' kein ergebnis, das war meine schuld: PATCH -f draft=false ist unwirksam, undraft ist POST .../mark_ready, befehl nachgeliefert + als issue codeman-coordinator-tooling#12 festgehalten). ZWEI DINGE ERWARTET: (1) den terminalen zustand des runs am exakten head, von ihnen selbst beobachtet (§4.6), mit run-id + conclusion je zelle in der akte; die required-zellen werden an 0428-198 (cli-0..3) und an 0428-202 (packages, internal/logs Loki-trio) scheitern - woertliche operator-zeile + 'GATE-FAIL 0428-198' in die akte, beweis aus dem kleinsten passenden gate (§5.4). (2) DEN BELEG FUER go.mod/go.sum: welche datei:zeile braucht das neue direct-dependency (gemessen: eingebracht werden lauter indirect requires - beorn7/perks, cespare/xxhash/v2, dennwc/varint, go-kit/log, go-logfmt/logfmt, grafana/regexp, munnerz/goautoneg), + der nachweis, dass 'go mod tidy' nichts weiter aendert. koennen sie das nicht belegen, geht die go.mod/go.sum-aenderung zurueck. ihre todo-datei haengt bei 36 minuten (§4.4). TRIGGER FUER DIE KANTE: terminaler run + go.mod-beleg in der akte -> dann wait mit den namen 0428-198/0428-202, muster wie 083/143/177/199/200/201.
+
+hop fertig, von MIR nachgemessen: PR #1597 state OPEN, draft=false, base develop, head 12a6e7a46, mergeable MERGEABLE, 'PR Selected Checks' success, 'merge-base --is-ancestor develop head' JA. Damit ist der alte wartegrund (ueberholter base-stich) entfallen; die karte geht ins review auf den exakten kandidaten.
