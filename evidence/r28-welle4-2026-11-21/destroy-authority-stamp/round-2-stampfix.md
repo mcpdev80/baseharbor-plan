@@ -94,7 +94,7 @@ Red-first witness for the corrected test: the corrected assertion requires a REA
 
 ## CI (hosted runs at exact head)
 
-PENDING — terminal exact-head CI (PR Selected Checks) must be observed at the new head before handoff; PR #1738 currently draft=false so the real required checks run.
+N/A — no candidate change was made this round (the both-direction recipe cannot be satisfied on the teardown fixture; see block below). No PR/CI mutation performed.
 
 ## ## repo-rule compliance
 
@@ -128,9 +128,15 @@ No container of this lane's name is started or left running. This lane started n
 ## origin/main witness (evidence delivery)
 
 ```
-$ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep destroy-authority-stamp
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep destroy-authority-stamp
 ```
+
+Exact output:
+evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md
+evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-1.md
+evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-2-stampfix.md
+tasks/t-20261121-destroy-authority-stamp.md
 
 ## END
 
-END_BLOCKED 0428-214-destroystamp: red-first proof is blocked — the corrected positive assertion must run through the verified local-runtime grant seam (`authorizeMachineOperationWithLocalGrant`, `authorization.go:270-275`) which requires a canonical application UID resolved from the repository (`localApplicationIDKey{}` / `deployment.EnvironmentID`), and the teardown-only fixture context (`coreBootstrapFixtureCleanupContext`) is a bare local single-Target with no Core installation, no application repository, and no OIDC config, so `verifiedLocalWorkloadAuthority` (`local_workload_authority.go:45-143`) returns `local=false` at the Core-installation absence check (`:95-99`) and at the OIDC-config-absence check (`:65-69`). No real session or verified local-runtime grant exists in this fixture, so the positive admission branch cannot be exercised here; the only reachable admitted modes are `trusted-local` (unmanaged env) or the `authorization.go:285` gate. The reviewer's both-direction recipe cannot be satisfied on the existing teardown fixture without changing production auth, which is outside this card's write-set. Candidate + worktree + base attestation ready for a coordinator scope decision; no PR/CI mutation performed.
+END_BLOCKED 0428-214-destroystamp: red-first proof is blocked — the corrected positive assertion must run through the verified local-runtime grant seam (`authorizeMachineOperationWithLocalGrant`, `authorization.go:270-275`) which requires a canonical application UID resolved from the repository, and the teardown-only fixture context (`coreBootstrapFixtureCleanupContext` on `configureTestTargetEmpty`) is a bare local single-Target with no Core installation, no application repository, and no OIDC config, so `verifiedLocalWorkloadAuthority` (`local_workload_authority.go:45-143`) returns `local=false` (empirically confirmed: `local=false grant=<nil>`). The only reachable authority from this fixture is the synthetic fixture principal (round-1: `mode=authenticated issuer=https://fixture.invalid`) or the `authorization.go:285` gate — never a real session or verified local-runtime grant. The reviewer's both-direction recipe cannot be satisfied on the existing teardown fixture without changing production auth, outside this card's write-set. Both directions were probed on this candidate (stamped = boundary passes with self-built stamp; unstamped = exact gate denial) and recorded as witnesses. Candidate worktree @ ebc6ac9c3 + branch lane-0428-214-destroystamp + base attestation (base e45430f2f1b7 unchanged, round-1 candidate ebc6ac9c3) are ready for a coordinator scope decision; no PR/CI mutation performed; evidence published to origin/main; no container started.
