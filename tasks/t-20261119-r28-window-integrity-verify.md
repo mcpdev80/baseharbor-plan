@@ -9,8 +9,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: "Codex (Owner-directed wait-card closeout, 2026-11-21)"
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 blocker: ""
 wait_reason: ""
 depends_on: []
@@ -20,18 +20,19 @@ sources: []
 source_note: "coordination: merge-fenster vom 2026-11-19 (develop 223cb97a9d652a4672257cabbadf12e2b41ed9cd)"
 evidence:
   - "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/window-integrity/verify-1.md"
-resolution: ""
+  - "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/window-integrity/verify-2.md"
+resolution: accepted
 created: 2026-11-19
 ---
 
-- [ ] t-20261119-r28-window-integrity-verify · fensterstand gegen abnahmebelege pruefen #task #release/v0-4-28 #status/active #view/active #area/ci #area/coordination #kind/task
+- [x] t-20261119-r28-window-integrity-verify · fensterstand gegen abnahmebelege pruefen #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/coordination #kind/task
     <!-- generated:card -->
     **Owner:** Codex (Owner-directed wait-card closeout, 2026-11-21)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/window-integrity/verify-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/window-integrity/verify-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/window-integrity/verify-2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** Codex (Owner-directed wait-card closeout, 2026-11-21)  
@@ -63,6 +64,6 @@ Der develop-Stand des merge-fensters (223cb97a9) enthaelt heute gemergte karten 
 
 zurueckgesetzt auf planned: der einzige freie sitz (laptop:2) ging an die korrekturrunde 0428-142 (echte kartenarbeit vor verify-auftrag, §3.3#5 reihenfolge). karte bleibt als fenster-nachweis offen, naechster freier sitz.
 
-nachweis-pflichtig pro karte, nicht als lump. naechster trigger: der naechste merge im fenster (gerade: f5ce95af, #1716).
+Read-only closeout complete. Per-card exact PR head, merge blob, regression, selected gate and hosted run are in evidence/window-integrity/verify-2.md. Original broader findings and V4–V6 remain in verify-1.md. #1697 still has a review-verdict SHA gap; the old #1684 formatting failure was fixed, while its current failures are shared auth/Loki/native gates. Handoff to Maintainer review; no product change or merge.
 
 Werkzeug-Hinweis: die Ablaufe dieser Karte werden von Coordinator-Skripten getragen; Werkzeug-Details und -Fehler laufen im Tooling-Repo https://github.com/mcpdev80/codeman-coordinator-tooling, nicht als Produktkarten.
