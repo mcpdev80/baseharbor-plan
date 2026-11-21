@@ -93,7 +93,10 @@ Note on environment: the full `cmd/baha` package run was interrupted by disk-quo
 - `%an` of the develop..HEAD (and 2e4a570a..HEAD) range: `0428-142-genuine` (sole author).
 - Base attestation: `97b2ba5543f07b820b5c18a688058fd932c4516f` (fresh develop) and `2e4a570a` (PR head) are both ancestors of the first commit.
 
-## New develop hop + PR #1704 seam resolution (candidate `26a17d89cfa07545eedd6cfd56313e57ab874c1c`)
+## New develop hop + PR #1704 seam resolution (candidate `6d1d56bd6632290537c5d892e0618712682b9876`)
+
+**Current-develop hop (22fc68ebc):** the owner notice `dev46-notice.md` warned develop keeps jumping; by the time this candidate was finalized, develop moved from `dea88c8f2` to `22fc68ebc` (PR #1748 CI/0427-169 docs in the delta — all tabu `.github/**`, `scripts/**`, `docs/**`, none in the write-set). Rebased the 3-card commits onto `22fc68ebc` (conflict-free, develop-side kept, card fix layered above). Final provenance vs current develop `22fc68ebc`: `rev-list` = 3 (only my commits), `%an` = `0428-142-genuine`, `diff --name-only` = 5 write-set files. Final candidate `6d1d56bd6`: witness suite 13/13 PASS (named form), gofmt clean, go vet clean.
+
 
 Owner notice `dev46-notice.md`: develop jumped ~46 commits on PR #1704 (merged 14:37). New develop head (measured twice, equal): `dea88c8f2caa2db93c1216c619993e444080a9d2`.
 
@@ -113,7 +116,7 @@ Witness suite: 13/13 PASS on the new develop head (named form, no bulk `go test 
 
 Mutation property (both directions) re-proven on the new develop head: reverting the r9 fix (`witness.PrometheusProven` requirement) turns `TestPersesStatusWitnessNeverClaimsConfiguredFromEmptyWitness` red (Prometheus renders `configured` from the static catalog — the exact defect); fix restored immediately.
 
-## Four witnesses (new-base candidate `26a17d89cfa07545eedd6cfd56313e57ab874c1c`)
+## Four witnesses (new-base candidate `6d1d56bd6632290537c5d892e0618712682b9876`)
 
 - Ancestry `dea88c8f2` (new develop) -> HEAD: `git merge-base --is-ancestor dea88c8f2... HEAD` => YES.
 - `git rev-list --count dea88c8f2..HEAD` => 1 (single authored commit).
@@ -139,4 +142,4 @@ CI was NOT scheduled against `37e1fd8a` after ~10 minutes of polling (checked ev
 
 ## END
 
-END_BLOCKED 0428-142-genuine: blocker #1704 seam RESOLVED on new develop `dea88c8f2` (candidate `26a17d89c`), witness suite green, hop witnesses clean. Still blocked on ONE open item: CI was not scheduled against the exact new-base head after polling; a terminal CI run with the four new r9 tests executed at the exact head is required before handoff to review. Evidence on planning origin/main.
+END_BLOCKED 0428-142-genuine: blocker #1704 seam RESOLVED on new develop `dea88c8f2` (candidate `6d1d56bd6`), witness suite green, hop witnesses clean. Still blocked on ONE open item: CI was not scheduled against the exact new-base head after polling; a terminal CI run with the four new r9 tests executed at the exact head is required before handoff to review. Evidence on planning origin/main.
