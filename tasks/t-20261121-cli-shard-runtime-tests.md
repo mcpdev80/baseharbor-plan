@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "3 von 4 nameden faellen sind K4 (koerper laufen in keinem cli-shard, der zentrale helper aus #1615 macht sie gegenstandslos), 1 ist K3 (git-archive, gruen im hosted CI). wartet auf die merges von #1615 und #1726; rest = R2 plus verification pass. akte e8b389a4."
+wait_reason: "rest R2 (git-archive) plus verification pass. NEUER FUNDEINGANG aus der 207-lane (handoff, akte 6eca4053): der daemon-pflichtige ENOENT-ast in cmd/baha/core_network_binding.go:55-57 ist ohne test, weil lifecycle-faelle auf diesem host verboten sind (meine anweisung) - die deckungskarte b7dce1ee und die 117er-inventur fuehren ihn als lifecycle-klasse. wird hier mitvermessen, wenn #1615/#1726 gemergt sind."
 resolution: ""
 evidence: []
 ---
@@ -26,7 +26,7 @@ evidence: []
 - [ ] t-20261121-cli-shard-runtime-tests · 0428-215 Go-unit cli shards run tests that need a real runtime #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
-    **Waiting:** 3 von 4 nameden faellen sind K4 (koerper laufen in keinem cli-shard, der zentrale helper aus \#1615 macht sie gegenstandslos), 1 ist K3 (git-archive, gruen im hosted CI). wartet auf die merges von \#1615 und \#1726; rest = R2 plus verificatio…  
+    **Waiting:** rest R2 (git-archive) plus verification pass. NEUER FUNDEINGANG aus der 207-lane (handoff, akte 6eca4053): der daemon-pflichtige ENOENT-ast in cmd/baha/core\_network\_binding.go:55-57 ist ohne test, weil lifecycle-faelle auf diesem host verb…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
