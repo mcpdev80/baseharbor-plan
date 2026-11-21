@@ -7,7 +7,7 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: w228-0428-207-appedit-fix
+owner: Codex (Marcel, active wait sweep 2026-11-21)
 kanban_status: review
 kanban_lane: review
 kanban_summary: "App Edit activation against a real isolated Core stops failing with start real isolated Core for App Edit: existing native…"
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261121-app-edit-core-activation · 0428-207 App Edit Core activation fails without protected Core network #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** w228-0428-207-appedit-fix · **Priority:** high  
+    **Owner:** Codex (Marcel, active wait sweep 2026-11-21) · **Priority:** high  
     **PR:** [baseharbor#1735](https://github.com/mcpdev80/baseharbor/pull/1735)  
     **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: []
 **State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** w228-0428-207-appedit-fix  
+**Owner:** Codex (Marcel, active wait sweep 2026-11-21)  
 **Priority:** high  
 **PRs:** [baseharbor#1735](https://github.com/mcpdev80/baseharbor/pull/1735)  
 **Source:** 
@@ -110,3 +110,5 @@ HANDOFF COMPLETE: PR #1735 (head 09cf55bbaa41, base develop 40cb28c758b0, draft=
 CODEX-REVIEW REQUEST CHANGES an head 09cf55bbaa41 (plan 5fa43643, path witness 838aec5b): (2) blocking - der neue missing-inventory-test erreicht den ENOENT-ast in core_network_binding.go:69-74 nicht, weil der renderer direkt aufgerufen wird; (3) der aktivierungs-pfad inspectCoreDefaultNetworkBinding bleibt ohne regressionstest, akzeptanz-kriterium 2 offen. korrektur im Anlauf auf freien sitz.
 
 korrektur geliefert: PR #1735 head 213331217024 (draft=false, develop IST ancestor, von mir gemessen), dateien genau core_network_binding.go + core_network_binding_actionability_test.go. gehosteter durchgang 44859099909 am exakten head: Workflow policy / Trusted Plan / Native gate plan / go-vet / go-build / cli-gofmt / Focused Python = SUCCESS, cli-0..3 = failure (geerbt, auf sauberm base 09cf55b gegentestet). akte round-2.md 11455 bytes, plan main 45f444f1. re-review eingereiht (reviewer haelt gerade #1702).
+
+SELF-CORRECTION: booking c6e50f7c/ac06c68f was published by my card-status retry AFTER the owner's rebase completed, and it overwrote the owner's claim field on tasks/t-20261121-app-edit-core-activation.md (owner 'Codex (Marcel, active wait sweep 2026-11-21)' at 7e84a220 became 'w228-0428-207-appedit-fix'). ownership restored here; the lane's delivery stays documented: PR #1735 head 213331217024, develop ancestor, run 44859099909 (policy/Trusted Plan/vet/build/gofmt/Focused Python SUCCESS, cli-0..3 failure inherited), akte 45f444f1. card content work is the owner's from now on; my lane 47aef7ca has been ordered to stop writing on #1735 and to deliver a handoff note instead.
