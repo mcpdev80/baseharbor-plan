@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: ""
-owner: w227-0428-212-lokiprobe
-kanban_status: review
-kanban_lane: review
+owner: w235-0428-212-lokifix2
+kanban_status: active
+kanban_lane: active
 kanban_summary: "TestPersesLokiDatasourceVerifyNeverReportsHealthy proves the health path rejects an unreachable Loki, not merely a missing…"
 kanban_title: 0428-212 · 0428-212 loki health
 priority: high
@@ -23,17 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-loki-verify-probe · loki health verify must reach the probe, not a missing-file exit #task #release/v0-4-28 #status/review #view/review #area/observability #kind/bug
+- [ ] t-20261121-loki-verify-probe · loki health verify must reach the probe, not a missing-file exit #task #release/v0-4-28 #status/active #view/active #area/observability #kind/bug
     <!-- generated:card -->
-    **Owner:** w227-0428-212-lokiprobe · **Priority:** high  
+    **Owner:** w235-0428-212-lokifix2 · **Priority:** high  
     **PR:** [baseharbor#1734](https://github.com/mcpdev80/baseharbor/pull/1734)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w227-0428-212-lokiprobe  
+**Owner:** w235-0428-212-lokifix2  
 **Priority:** high  
 **PRs:** [baseharbor#1734](https://github.com/mcpdev80/baseharbor/pull/1734)  
 **Source:** 
@@ -91,3 +91,5 @@ COMMISSIONED from hunt H-V23 Karte E: split internal/logs/loki_test.go into (a) 
 HANDOFF (w227-0428-212-lokiprobe, newest first): candidate published as PR https://github.com/mcpdev80/baseharbor/pull/1734 (head 75770bd2d0434bfed11d7c1b106064a5a08d5a51, base develop 40cb28c758b02960356434b630086a341ebe1738, draft=false) plus akte evidence/r28-welle4-2026-11-21/loki-verify-probe/round-1.md. Terminal hosted run 44845451055 observed to completion: `PR · Go unit · packages` SUCCESS at the exact head (the required shard), `owner`/plan/format/vet/build/Python success; `cli-0..3` red with the develop-inherited cmd/baha failures — GATE-FAIL 0428-204, allowed per mission. All THREE client-cert.pem fixture failures named in the owner addendum heal at this head (3/3), plus the card's own vacuous witness split into two named subtests. Open points: none for this card; #1732 (0428-202) overlaps content-side in the same fixture helper and resolves at merge time on whichever lands first.
 
 HANDOFF COMPLETE: PR #1734 (head 75770bd2d043, base develop 40cb28c758b0, draft=false) + akte evidence/r28-welle4-2026-11-21/loki-verify-probe/round-1.md on plan main (plan-sha 04da627d). All three client-cert.pem fixture sites fixed and the card test split into probe-rejection vs precondition subtests, exactly the contract. Measured by coordinator on run 44845451055 (terminal): 'Go unit · packages' and 'Go unit · owner' GREEN at the exact head, cli-0..3 still red and correctly labelled by the lane as GATE-FAIL 0428-204 (develop-inherited), not as this card's failure. NEW CONSEQUENCE FOR THE WINDOW: packages green at this head means #1732 (0428-202) may be superseded in content - comparison commissioned, see card 0428-202.
+
+CODEX-REVIEW REQUEST CHANGES at 75770bd2 (review-1.md, ROLLE REVIEW, head unchanged before/after): the new subtests are content/type bound, but two existing refusals in the same Loki health family still pass on ANY error - loki_test.go:343-350 (err != nil only) and :466-481 (PKI left unmaterialized). That is the honesty rubric of this day catching a real case. Correction round commissioned in a fresh lane on branch from the exact candidate head; the reviewer states explicitly that the red CLI cells are NOT this card content problem (GATE-FAIL 0428-204 acknowledged).
