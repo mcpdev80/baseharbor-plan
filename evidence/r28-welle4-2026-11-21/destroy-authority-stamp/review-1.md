@@ -85,6 +85,13 @@ Required correction: remove the synthetic identity from the authority-proof path
 ## Head stability
 
 - PR head before review: bdc3fcb63912a7a9be69be7bc10149deef07b5cf.
-- PR head after review: pending final remote recheck before publication.
+- PR head after review: bdc3fcb63912a7a9be69be7bc10149deef07b5cf.
 
 END_DONE: review completed; REQUEST CHANGES recorded; no candidate or PR mutation performed.
+
+## Planning publication witness
+
+Command: git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep '^evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md$'
+
+Exact output:
+evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md
