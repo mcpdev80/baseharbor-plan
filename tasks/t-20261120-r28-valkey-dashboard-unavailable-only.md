@@ -78,3 +78,5 @@ hop IST angekommen, von MIR erneut gemessen (nach meiner zurueckweisung): PR #17
 hop angekommen: PR #1714 head d0ae338d7d4b, vater = 97b2ba5543f0 = der gemessene develop, ancestry JA, 'rev-list --count develop..head' = 1, 'rev-list --count head..develop' = 0, mergeable MERGEABLE. Meine fruhere meldung '73 commits hinter develop' galt dem alten head 52688ef4c958 (merge-base 7fbb2d2c6 = merge-commit #1734); die lane hatte 13:51 bereits round 2 geschoben. Der hostete run 44906881418 am neuen head ist in_progress; ist er rot, kommt die karte zurueck auf active.
 
 test hop
+
+hop round 2 war korrekt (parent 97b2ba5543f0, 'rev-list head..develop' = 0, run 44906881418 success). develop bewegt sich: 14:09:38Z landed #1742 als merge-commit ddfa80f7202a, also ist head d0ae338d7d4b wieder vier commits rueckstaendig ('merge-base --is-ancestor develop head' = NEIN, 'rev-list develop..head' = 1). Dieselbe lane erhaelt den zweiten re-hop auf den aktuellen develop, fetch ueber refs/temp/develop-now. karte bleibt active bis der run terminal ist. #1742 ist GEMERGT, karte 0428-217 closed/accepted (https://github.com/mcpdev80/baseharbor/pull/1742).
