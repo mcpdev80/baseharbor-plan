@@ -56,3 +56,13 @@ ROLLE: REVIEW
 - Stop criterion: exact candidate checks are terminal and required checks pass; the mission's mutation record is present and shows both guard-removal mutations are detected.
 
 END codex-rev-1747 DONE: review result persisted for candidate `2d848f4469cfc43130f956f5080e5d33cda15138`.
+
+## Origin main evidence-path witness
+
+Exact output from `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/cli-redesign-20261114/0428-060/review-2.md`:
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch            main       -> FETCH_HEAD
+evidence/cli-redesign-20261114/0428-060/review-2.md
+```
