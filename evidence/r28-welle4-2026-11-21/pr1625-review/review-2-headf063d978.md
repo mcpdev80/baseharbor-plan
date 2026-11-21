@@ -70,6 +70,7 @@ In `cmd/baha/app_export_command_test.go`, strengthen `TestAppExportManagedSecret
 - `python3 scripts/plan.py check`: 663 tasks, 7 epics, 13 releases, 24 decisions; 0 errors and 11 existing dependency warnings.
 - Evidence checkbox scan: clear.
 - Planning main ls-remote immediately after the first evidence push: `2286cb0975be878947a43fa2cd2245c139fc0cd5\trefs/heads/main`.
+- Planning main ls-remote after the path-witness push: `ba9d7dea4b7a2675d53addbea7640ab956b1e10a\trefs/heads/main`; the same check confirmed the evidence path was present in fetched `origin/main`.
 - Required `git fetch origin main && git ls-tree -r --name-only origin/main | grep 'evidence/r28-welle4-2026-11-21/pr1625-review/review-2-headf063d978.md'` output before the final evidence push:
 
   ```text
