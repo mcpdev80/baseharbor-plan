@@ -68,3 +68,13 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 As instructed before a push, ran `bash scripts/ci-fast-check.sh` in the shared product checkout. It exited 1 after 295 tests: 294 passed and `test_real_candidate_go_registration_families` errored because Go could not write `/tmp/args2730772513` (`disk quota exceeded`). This is local test-discovery evidence, not a hosted develop run; no workflow was dispatched. The required evidence publication changes only this Planning file.
 
 END codex-rev-1747 DONE: post-merge develop review recorded for `dea88c8f2caa2db93c1216c619993e444080a9d2`.
+
+The pre-push `bash scripts/ci-fast-check.sh` was repeated before this evidence update. It again exited 1 after 295 tests because `test_real_candidate_go_registration_families` could not write `/tmp/args2409111693` (`disk quota exceeded`); no product files were changed.
+
+Exact output from the required origin-main evidence-path witness:
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle4-2026-11-21/git-credential-fill/post-merge-develop-1.md
+```
