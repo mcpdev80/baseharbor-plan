@@ -107,3 +107,5 @@ HOP ANGEKOMMEN, UND ALS ERSTER KANDIDAT DIESES FENSTERS MIT VOLSTAENDIG GRUENEM 
 probe
 
 probe 2
+
+CODEX-REVIEW review-1.md = REQUEST CHANGES. Punkt 2 ist sicherheitsrelevant, von mir am quelltext gelesen: develop nutzt am all-targets-arm 'authorizeMCPOperation(ctx, app.list, dev)' (kommentar: authenticate the operator without requiring an effective Target that no longer exists); der head 6442955f4cf0 ersetzt das durch 'authorizeCurrentMCPContext' und verwirft 'deployment.ErrConfigMissing', damit kann die authorisierung am fehlenden target nicht entscheiden. Der gruene durchgang 44885264462 gilt einem ueberholten develop-stich (5b26be1ccfc5, jetzt c2c94ad115ff). Neue lane 0428-210-authzkeep (92fd9d3a, ornith): hop auf gemessenen develop, develop-seite der authorisierung behalten, ErrConfigMissing erst nach der authorisierung tolerieren, negativer anonym-fall mit exakter gate-zeile, mutation (unterschlagen vor authorisierung = rot). Empfehlung an den owner: #1739 nicht mergen bis der neue head den gruenen aggregate plus den negativen fall hat. Ausfuehrlich in coordinator/QUEUE.md row 882.
