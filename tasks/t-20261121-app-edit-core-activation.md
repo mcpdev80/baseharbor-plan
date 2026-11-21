@@ -49,15 +49,17 @@ The command either finds the protected Core / shared backend owner it needs, or 
 
 w221's read-only split of the 89 other-domain `./cmd/baha/` failures placed exactly one case under rubric (b):
 a real defect rather than the #1717 operator-auth fallout (rubric c) or the operator-seam class (rubric a, card
-0428-204). Witness: `cmd/baha/app_edit_apply_test.go:1253` fails at
-`cmd/baha/application_provider_impact.go:63`. Evidence file
+0428-204). Witness: `cmd/baha/app_edit_apply_test.go:1253`. **Site corrected by w223 (read-only round, akte
+`evidence/r28-welle4-2026-11-20/app-edit-core-activation/round-1.md`):** the message is produced by
+`inspectCoreDefaultNetworkBinding` in `cmd/baha/core_network_binding.go` (`:18`, raised at `:56`), **not** by
+`application_provider_impact.go:63` — that file has zero operatorauth references, so the defect is independent of #1717. Evidence file
 `evidence/r28-welle4-2026-11-20/other-domain-test-split/round-1.md`, group 8 detail.
 
 ## Scope
 
 Allowed write-set:
 
-- `cmd/baha/application_provider_impact.go`
+- `cmd/baha/core_network_binding.go` (the protected-Core / shared-backend-owner verification)
 - `cmd/baha/app_edit_apply_test.go`
 - new test file in `cmd/baha/` with a `0428-207` identifier
 
