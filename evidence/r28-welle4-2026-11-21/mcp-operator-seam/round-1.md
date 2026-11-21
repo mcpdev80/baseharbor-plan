@@ -108,6 +108,8 @@ test is red on the anonymous state, so it exercises the seam.
 - cmd/baha Go unit tests run in .github/workflows/ci.yml job pr_unit_shards (line ~1185): bash scripts/pr-unit-database.sh "${{ matrix.shard }}".
 - scripts/pr-go-unit-shard.py distributes EVERY Test* in cmd/baha across cli-0..cli-3 by sha256(name)[:8] % 4 (fail-closed: every selected test must pass). TestMCPOperatorSeamReachesGateBothDirections lands in cli-3. Auto-scheduled by CI under the existing PR trigger (draft=false). Durable CI-backed evidence (Owner directive 2026-11-07).
 - Local CI-equivalent run: bash scripts/pr-unit-database.sh cli-3 (run in session) -- results recorded in this round.
+- Live GitHub CI for PR #1741 (run 44871830116): `PR · Draft Go · cli-3` = SUCCESS (my test ran in the real CI shard and passed). `PR · Draft Go · cli-1/2/packages` = SUCCESS. `PR · Draft Go · cli-0` = FAILURE on `TestAppListAllTargetsWorksAfterInstallationDestroy` (cmd/baha/app_list_all_targets_test.go, a `RunsRealLifecycle` lifecycle test in the cli-0 shard) -- this is a pre-existing red-basis failure unrelated to this card's write-set; my change does not touch it and did not cause it. `PR Selected Checks` = skipping (PR is a draft; only draft checks run per CI policy).
+- ci-fast-check.sh: 295 tests OK, Go file-size/function-span/regression-ratchet/Workflow-policy all PASS.
 
 ## Cleanliness
 - No containers / compose projects started. No docker/podman state touched (the cli-3 CI fixture
