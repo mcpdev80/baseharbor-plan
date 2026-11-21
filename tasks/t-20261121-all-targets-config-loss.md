@@ -34,6 +34,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
+**Required by:** [t-20261121-target-hotfix-inspection-config-missing](t-20261121-target-hotfix-inspection-config-missing.md)  
 **Owner:** coordinator  
 **Priority:** normal  
 **PRs:** [baseharbor#1739](https://github.com/mcpdev80/baseharbor/pull/1739)  

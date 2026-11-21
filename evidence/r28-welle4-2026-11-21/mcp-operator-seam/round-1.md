@@ -30,6 +30,8 @@ Worker. One PR per card. Card born from hunt lane H-V29 (evidence/bug-hunt-2026-
   cmd/baha/mcp_operator_seam_test.go
 - Push delivered: `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/lane-0428-218-mcp-operator-seam` => de4a45ec5.
 - PR #1741 draft, head de4a45ec5, base lane-0428-198-cli-shard-operator-env. `git ls-remote ... refs/pull/1741/head` => de4a45ec5.
+- Evidence committed to baseharbor-plan main: `9711607f` (post rebase `0c1f22dd`), pushed `3f332ae8..0c1f22dd`. `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep mcp-operator-seam/round-1` returns:
+  `evidence/r28-welle4-2026-11-21/mcp-operator-seam/round-1.md`
 
 ## Scope decision (Owner clarification 2026-11-21)
 The seam mechanism already lives on the base-lane head: withoutOperatorAuthTestContext /
