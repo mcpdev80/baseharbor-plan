@@ -7,60 +7,59 @@ areas: []
 release: v0.4.27
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
-kanban_summary: "BF-02 (ux): baha app new writes no registration; only baha up / baha app apply create state. Found on develop 0e9ccb582 during…"
+owner: "Codex (Wait sweep; 2026-11-21)"
+kanban_status: closed
+kanban_lane: closed
+kanban_summary: "BF-02 (UX/documentation): explain that the default baha app new create-only path writes project files but does not register a…"
 kanban_title: 0427-191 · bf02 app new registration
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1744]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
+resolution: "accepted"
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-21/bf02-app-new-registration/round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44879306761"]
 ---
 
-- [ ] t-20261115-bughunt-d28-app-new-reg · BF-02 baha app new writes no registration (only up/apply create state) #task #release/v0-4-27 #status/planned #view/ready #kind/task
+- [x] t-20261115-bughunt-d28-app-new-reg · BF-02 baha app new writes no registration (only up/apply create state) #task #release/v0-4-27 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md)  
+    **Owner:** Codex (Wait sweep; 2026-11-21)  
+    **PR:** [baseharbor#1744](https://github.com/mcpdev80/baseharbor/pull/1744)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-21/bf02-app-new-registration/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44879306761)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** unassigned  
+**Owner:** Codex (Wait sweep; 2026-11-21)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1744](https://github.com/mcpdev80/baseharbor/pull/1744)  
 **Source:** 
 <!-- /generated:links -->
 
 ## Goal
 
-BF-02 (ux): baha app new writes no registration; only baha up / baha app apply create state. Found on develop 0e9ccb582 during H-D28.
+BF-02 (UX/documentation): explain that the default `baha app new` create-only path writes project files but does not register a deployment in the selected Target. Found during H-D28; reverified on current develop `40cb28c758b02960356434b630086a341ebe1738`.
 
 ## Scope
 
-- In scope:
-- Out of scope:
+- In scope: English and German application-command documentation. Explain the create-only/no-registration result, the meaning of the registered-deployment list, and exact next steps.
+- Out of scope: changing `app new`, registration, authorization, or deployment behavior; changing published v0.4.27 artifacts.
 
 ## Acceptance
 
-- Each criterion as a plain bullet. Do not use checkboxes here: only the card line above is a checkbox.
+- EN/DE docs explain create-only scaffolding does not register a deployment; choosing `run` is described separately.
+- Show the exact follow-up (`baha app init --quick`, then `baha up`) and explain operator sign-in when the selected Target requires it.
+- A current-source smoke confirms generated files and no `BASEHARBOR_STATE_DIR` after create-only. Avoid claiming `app list` can be read without operator authentication.
+- Strict EN/DE MkDocs, documentation audit, locale parity, and exact required PR checks pass; merge the docs PR before accepting.
 
 ## Required checks
 
-- **Test binding (select exactly one):** ☐ normal (auto-discovered) · ☐ contract → add to `REQUIRED_CLIENT_TESTS` or the package equivalent in the same PR · ☐ new check → update `scripts/pr-gate-plan.py` and `scripts/release-requirements.json` in the same PR.
-- Name every new or changed test (package, exact test ID, fixture/env and native runtime if applicable). Targeted checks for the changed area; broaden when impact is unknown.
-- Record the existing CI validation/check or Docker/Podman native gate that actually executes each test, and which PR paths, develop integration event or release candidate selection triggers it.
-- If coverage is absent, implement/register it in the owning CI lane before acceptance; prove positive selection for a relevant change and negative/non-selection for an unrelated change. Missing, skipped or failed mandatory execution is NOT PASS.
-- For Docker/Podman tests, prove native Docker and rootless Podman/Quadlet separately where required; unit fakes do not replace live runtime evidence. Cross-repo tests run through existing develop/release acceptance, not a blocking independent PR gate.
-- Handoff must identify exact source SHA, test -> CI gate -> trigger -> actual run/outcome, or mark explicit CI coverage debt as blocking. No new CI framework or full automatic PR matrix.
+- Documentation audit, locale parity, and both strict MkDocs builds are the focused local checks; hosted equivalents plus `PR Selected Checks` must be recorded at the exact PR SHA.
+- The behavior smoke is an explicit review witness, not a new test or CI gate.
 
 ## Dependencies and file ownership
 
@@ -69,4 +68,4 @@ BF-02 (ux): baha app new writes no registration; only baha up / baha app apply c
 
 ## Handoff
 
-- Current state, branch, PR and evidence links. Newest first.
+2026-11-21: PR #1744 merged after exact hosted run 44879306761; all selected docs/policy/source-format checks passed and no job failed or remained in progress. Merge commit `d2d4ded3dedbb6ef7efdd9dc6ba3c114c5e3a163`; exact PR head `1dcf8d29f02d3cab37653edbe0bda0bfccd6d831`, base `develop` `40cb28c758b02960356434b630086a341ebe1738`. Current-source create-only smoke, documentation audit, locale parity, both strict MkDocs builds, and diff check passed. Clarification is on current develop and is not part of the published v0.4.27 tag. Full evidence: [round-1](../evidence/r28-welle1-2026-11-21/bf02-app-new-registration/round-1.md).

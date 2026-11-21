@@ -14,11 +14,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | review | 6 |
 | wait | 31 |
 | blocked | 1 |
-| ready | 5 |
+| ready | 4 |
 | queued | 25 |
 | waiting | 183 |
 | backlog | 7 |
-| closed | 388 |
+| closed | 389 |
 
 ## Active
 
@@ -96,14 +96,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261114-r28-cli2-app-lifecycle](../tasks/t-20261114-r28-cli2-app-lifecycle.md) | CLI redesign: Unify up and down semantics | ready | high | — | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) | — |
 | [t-20261114-r28-cli2-coordination](../tasks/t-20261114-r28-cli2-coordination.md) | CLI redesign: coordinate five workers | ready | high | coord | — | — |
-| [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261120-r28-keycloak-producer-target-mismatch](../tasks/t-20261120-r28-keycloak-producer-target-mismatch.md) | Keycloak producer registers ID/target the identity witness can never match | ready | not set | — | — | — |
 | [t-20261120-r28-perses-status-never-verified](../tasks/t-20261120-r28-perses-status-never-verified.md) | No source API yields verified: status --json can never report true | ready | not set | — | — | — |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 6 open, 163 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 5 open, 164 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 76 open, 157 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
