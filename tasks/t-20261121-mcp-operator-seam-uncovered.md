@@ -8,14 +8,14 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: planned
-kanban_lane: planned
+kanban_status: review
+kanban_lane: review
 kanban_summary: Every MCP mutation path whose test expects the verbatim gate message Managed-environment machine operations require an…
 kanban_title: 0428-218 · 0428-218 mcp operator seam
 priority: normal
 depends_on: [t-20261120-cli-operator-entrypoints]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1741]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -24,20 +24,20 @@ created: "2026-11-21T05:55:00Z"
 updated: "2026-11-21T05:55:00Z"
 ---
 
-- [ ] t-20261121-mcp-operator-seam-uncovered · 0428-218 make the MCP operator seam reachable from MCP tests #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/cli #area/observability #kind/bug
+- [ ] t-20261121-mcp-operator-seam-uncovered · 0428-218 make the MCP operator seam reachable from MCP tests #task #release/v0-4-28 #status/review #view/review #area/cli #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** normal  
-    **Waiting for prerequisites**  
+    **PR:** [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741)  
     **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Owner:** coordinator  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -100,3 +100,5 @@ Evidence: `evidence/r28-welle4-2026-11-21/mcp-operator-seam/round-1.md`. Base la
 (card 0428-204) per the stacking rule - wait on content, never on merges. Counting law from H-V26: count distinct first-level
 `--- FAIL: Test` names (108), not gate-message lines (128); see
 `evidence/bug-hunt-2026-11-21/numbers-forensics/round-1.md`.
+
+delivered, abnehmbar: PR #1741 head de4a45ec5ca6, base 'lane-0428-198-cli-shard-operator-env', von MIR undrafted (draft=false gemessen nach GraphQL markPullRequestReadyForReview — ein draft hat keine required checks), der vorherige durchgang 44871830116 am selben head war 'failure', jetzt laeuft 44873244947 (in_progress, 'pull_request'): workflow-policy / native gate plan / Trusted Plan / Source format / Focused Python / go-build / go-vet / 'Go unit · owner' SUCCESS, cli-0/1/3 in arbeit. write-set = GENAU 'cmd/baha/mcp_operator_seam_test.go' (diff gegen e45430f2f1b7 gemessen), stack-beleg 'merge-base --is-ancestor e45430f2f1b7 de4a45ec5ca6' = 0. AKTE '…/mcp-operator-seam/round-1.md' (plaene 0c1f22dd, b4ff4638) haelt die eintragstabelle je MCP-aufrufstelle + 'withoutOperatorAuthTestContext'-befund, und sie hat meinen fehler zwei MAL korrigiert: ihr reichweiten-beweis war es, der meine karte 0428-218 auf den echten kern schmaelte ('der seam fehlt' war falsch, 'die faelle stempeln statt zu markieren' ist wahr). BEFUND, der an die abnahme geht: die commits am PR tragen 'Worker w206 <w206@baseharbor.local>' — ein toter baum wurde wiederverwendet (werkzeug-issue #23), die autorschaft ist also nicht ihr zeuge, ihr session-zeuge steht in der akte.
