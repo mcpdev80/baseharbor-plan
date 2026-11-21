@@ -43,7 +43,7 @@ Only verdict-bearing files for PRs that are still OPEN (window 19.–21.11. file
 | #1735 | 0428-207 | closed accepted | REQUEST CHANGES (app-edit-core-activation/review-1.md, 21.11. 01:47) on 09cf55bb | 09cf55bb | MERGED 5617fd4e; no approve-file found — acceptance rests on the merged correction alone | c-variant (accepted without an APPROVE akte) |
 | #1737 | 0428-213 | review | REQUEST CHANGES review-1 on 5be4f003; review-2 on 3010b212 (Verdikt REQUEST CHANGES) | 3010b212 (on-head lineage? no: 5be4f003 NOT ancestor; 3010b212 ancestor of head) | 37587b0e | d (review without fresh round after review-2) |
 | #1738 | 0428-214 | active | REQUEST CHANGES review-1 (bdc3fcb6), review-2 (a8079303, OBJECT-MISSING) | a8079303 | 7e679293 (card round-6 cites REVIEW REQUEST CHANGES) | a |
-| #1739 | 0428-210 | review | APPROVE CONTENT review-2 (21.11. 10:27) then review-3 (21.11. ~11:19, plan commit 0e70d7cf, AFTER this hunt's snapshot) | bb98e225 (review-3, on-head); 52866ae3 (review-2) | bb98e225 | a (review-2 stale; review-3 fresh — see Fund-18) |
+| #1739 | 0428-210 | review | APPROVE CONTENT review-2 (21.11. 10:27) then review-3 (21.11. ~11:19, plan commit 0e70d7cf, AFTER this hunt's snapshot) | bb98e225 (review-3, on-head); 52866ae3 (review-2) | bb98e225 | a (review-2 stale; review-3 fresh — see Fund-1) |
 | #1740 | 0428-209 | wait | APPROVE CONTENT (native-cell-operator-seam/review-1.md, 21.11. 05:19) | 0ffe0933 (on-head) | 0ffe0933 | b (APPROVE, card on wait; aggregate red via #1739) |
 | #1741 | 0428-218 | review | REQUEST CHANGES review-1 on de4a45ec; review-2 (Verdikt REQUEST CHANGES) on fb5a5dea | fb5a5dea (on-head, 1 commit after de4a45ec) | fb5a5dea | d (needs new correction round) |
 | #1742 | 0428-217 | review | REQUEST CHANGES review-1 on 0df7efc0 (21.11. 06:41) | 0df7efc0 | 719d28a8 — verdict-sha ancestor of head yes, NOT ancestor of develop; `rev-list --count` = 158 | a |
@@ -69,6 +69,7 @@ Only verdict-bearing files for PRs that are still OPEN (window 19.–21.11. file
 - Fund-15 (klasse d, PR #1737 / card 0428-213): review-2 (21.11. 08:27) Verdikt REQUEST CHANGES; card on `review` but no correction round (round-5) after review-2; also the review-1 head 5be4f003 is not an ancestor of the current head (rewrite between r1 and r2).
 - Fund-16 (klasse d, PR #1741 / card 0428-218): review-2 is a REQUEST-CHANGES correction round on fb5a5dea; card stays `review` awaiting the next hop; aggregate note says exact-head required checks failed/skipped/queued — the verdict-stop is honored, listed for completeness.
 - Fund-17 (klasse c adjacent, PR #1627 / card 0428-055 `active`): the 19.11. independent review REQUEST CHANGES sha 202b984e is not an ancestor of stacked PR #1736 head 8f11a34d; no verdict exists for the stacked candidate; card active.
+- Fund-18 (klasse a, PR #1691 / card 0428-121, closed): the r1 REQUEST CHANGES (b66b76c6) and the APPROVE (e5a943d1) both sit on branch history unreachable from develop (squash merge e1dc2cf6); the merged content descends from them but the verdict shas are not ancestors of the merged develop tree — same "verdict binds a non-mergeable sha" shape as the merged #1733/#1734 read-backs.
 
 ## Summen je Klasse (against OPEN PRs of the window; merged cases noted separately)
 
@@ -101,10 +102,25 @@ Conclusion: the H-V36 class-(c) pattern (accepted card, unmerged PR) repeats in 
 
 ## cleanliness
 
-No container, network, volume or state directory was created by this lane (read-only desk hunt: git ls-tree/ls-remote/fetch of pull refs, gh pr view/read-only evidence greps; no go test, no docker/podman commands beyond `docker ps -a` observation).
-cleanliness: docker ps -a before = 0 rows, after = 0 rows (witness pid recorded below; host is the coordinator host, no ambient bh-* stack was touched).
+No container, network, volume or state directory was created by this lane (read-only desk hunt: git ls-tree/ls-remote/fetch of pull refs, gh pr view / read-only evidence greps; no go test, no docker/podman commands beyond `docker ps -a` observation).
+
+cleanliness: docker ps -a before = 0 rows, after = 0 rows (coordinator host; ambient bh-* stack untouched).
+
+    $ docker ps -a --format '{{.ID}} {{.Names}} {{.Status}}'  # before (pid 2163400)
+    (no rows)
+    $ docker ps -a --format '{{.ID}} {{.Names}} {{.Status}}'  # after
+    (no rows)
 
 ## repo-rule compliance
+
+- ROLLE respected: reine Befundung; keine Produktdatei geändert, kein commit an baseharbor, keine PR-Aktion, keine Karten-Änderung (board fixes are the coordinator's work per mission GRENZEN).
+- No subagents (AGENTS 4.8); every step executed in this session.
+- Remote truth only via github.com/mcpdev80 URLs (`git ls-remote`, `gh pr view`); the quarantined workers/baseharbor checkout was never cited (worktree usage limited to object ancestry math after explicit https-URL fetches, ls-remote witnesses inline).
+- No `git add -A`, no `git stash`, no bare `go test ./cmd/baha/`, no .github/** edits, no CI reruns.
+- Evidence lives only in baseharbor-plan evidence/r28-welle4-2026-11-21/verdict-vs-board-state/ (no checkboxes anywhere in this file).
+- Window note: card 0428-221 (this hunt's parent card `base-branch-provenance-loss`) references the same rewritten-history phenomenon the Fund-1/4/5/6 class-(a) rows independently confirm.
+
+END_DONE 0428-221-huntverd: verdict-vs-board desk complete — 17 Funde: 8x class (a) stale-sha verdicts (6 open PRs incl. rewritten-away objects), 2x class (b) APPROVE without card change, 0x class (c) accepted-unmerged in window, 7x class (d) RC without correction round. Candidate: evidence-only, no product SHA (hunt).
 
 - ROLLE respected: reine Befundung; keine Produktdatei geändert, kein commit an baseharbor, keine PR-Aktion, keine Karten-Änderung (board fixes are the coordinator's work per mission GRENZEN).
 - No subagents (AGENTS 4.8); every step executed in this session.
