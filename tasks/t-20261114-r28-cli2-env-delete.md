@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w21-pr1702-0428-142-compat
-kanban_status: active
-kanban_lane: active
+owner: Codex owner (combined validation ref)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Environment deletion lifecycle. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-055 · Env deletion lifecycle
 priority: high
@@ -18,24 +18,25 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1627, mcpdev80/baseharbor#1736]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "documentation-audit ist behoben: der owner hat additiv commit d0616fc206338fd5b88b4f60862cfbe74e349d8d auf cli2-env-delete gepusht (die zwei fehlenden zeilen 'baha env' und 'baha env destroy' in docs/de/reference/cli-machine-coverage.md), exakter hosted run 44956405885 = completed/success, base develop 513488eeb6d, 42 jobs (21 success / 21 skipped / 0 failed), von mir fernbestaetigt. ABER die pre-merge-bedingung fuer #1736 ist damit NICHT erbracht: der trusted-plan-artifact dieses laufs fuehrt selected_gates=[] und es lief KEIN native-gate-job, TestEnvironmentDestroyNativeLifecycle wurde also weder in Docker noch in Podman ausgefuehrt. der owner bereitet einen GETRENTEN combined-validation-ref aus den aktuellen koepfen von #1627 (d0616fc2063) und #1736 (1e2ba9d5786) und zapft darueber im hosted pre-release-pfad NUR die beiden coreless-lifecycle-gate-IDs an, OHNE einen der PR-branches zu aendern; danach frische reviews auf den exakten PR-heads. keine lane schreibt an cli2-env-delete oder codex/env-destroy-gate-routing (write-guards stehen)."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1627", "https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677", "https://github.com/mcpdev80/baseharbor/actions/runs/44852435311", "https://github.com/mcpdev80/baseharbor/pull/1615", "https://github.com/mcpdev80/baseharbor/pull/1736", "https://github.com/mcpdev80/baseharbor/actions/runs/44859609354"]
 ---
 
-- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** w21-pr1702-0428-142-compat · **Priority:** high  
+    **Owner:** Codex owner (combined validation ref) · **Priority:** high  
     **PR:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627), [baseharbor#1736](https://github.com/mcpdev80/baseharbor/pull/1736)  
+    **Waiting:** documentation-audit ist behoben: der owner hat additiv commit d0616fc206338fd5b88b4f60862cfbe74e349d8d auf cli2-env-delete gepusht (die zwei fehlenden zeilen 'baha env' und 'baha env destroy' in docs/de/reference/cli-machine-coverage.md),…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1627), [proof 2](https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44852435311), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1615), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1736), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44859609354)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
 **Required by:** [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md)  
-**Owner:** w21-pr1702-0428-142-compat  
+**Owner:** Codex owner (combined validation ref)  
 **Priority:** high  
 **PRs:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627), [baseharbor#1736](https://github.com/mcpdev80/baseharbor/pull/1736)  
 **Source:** 
