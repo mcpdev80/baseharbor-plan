@@ -8,14 +8,14 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: 0428-060-rev2
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-222 · child process Env replaced
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1749]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,9 +23,10 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-child-env-inheritance · 0428-222 child process environment replaced instead of inherited in corebackup/coreupdate etcd probes #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261121-child-env-inheritance · 0428-222 child process environment replaced instead of inherited in corebackup/coreupdate etcd probes #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** 0428-060-rev2  
+    **PR:** [baseharbor#1749](https://github.com/mcpdev80/baseharbor/pull/1749)  
     <!-- /generated:card -->
 
 ## Goal
@@ -68,12 +69,12 @@ One or two sentences: the observable outcome.
 
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** 0428-060-rev2  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1749](https://github.com/mcpdev80/baseharbor/pull/1749)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -130,3 +131,5 @@ requires a file outside the write-set, stop and report `file:line`.
 `## repo-rule compliance`, `## cleanliness`.
 
 fund->karte-pflicht erfuellt: die K2-befunde aus desk H-V47 (akte child-env-desk/hunt-1.md, plan f1281821ac0) sind jetzt vertrag. Zeugen, von MIR nachgemessen: develop ddfa80f7202a; 'internal/corebackup/etcd/etcdctl.go:95/:114/:156', 'internal/corebackup/etcd/etcdutl.go:95', 'internal/coreupdate/dcs_boot_probe.go:59' bauen die kinder-umgebung als literalliste OHNE os.Environ() — dieselbe klasse, die heute #1742 eine korrektur-runde kostete. prove-or-fix: stelle 4 heisst 'Isolated' und darf bleiben, wenn die isolation belegt ist. ABWEICHUNG, die ich offen buche: die arbeitende session heisst '0428-060-rev2' (id 47e440e7) — ich hatte sie zuerst fuer eine abnahme angesetzt und dann auf diese karte umgeleitet; der name traegt deshalb die falsche kartennummer. Inhalt und write-set sind korrekt, nur die naming-regel (lane-name traegt die kartennummer) ist von MIR verletzt; beim naechsten freien sitz ersetze ich die benennung.
+
+fuenf K2-stellen (etcd/etcdutl/boot-probe) erben jetzt das eltern-umfeld; eigener run 44920799944 completed/success an head a83e066ff16, 14 checks pass / 0 fail. base 4 commits hinter develop e6c199e7b7dd -> hop vor dem merge.
