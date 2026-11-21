@@ -39,7 +39,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261114-r28-cli2-app-export](../tasks/t-20261114-r28-cli2-app-export.md) | CLI redesign: App export and recovery UX | review | high | pr1625-0428-065-export (active) | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) | [baseharbor#1625](https://github.com/mcpdev80/baseharbor/pull/1625) |
 | [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | review | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
-| [t-20261121-child-env-inheritance](../tasks/t-20261121-child-env-inheritance.md) | 0428-222 child process environment replaced instead of inherited in corebackup/coreupdate etcd probes | review | not set | 0428-060-rev2 | — | [baseharbor#1749](https://github.com/mcpdev80/baseharbor/pull/1749) |
+| [t-20261121-child-env-inheritance](../tasks/t-20261121-child-env-inheritance.md) | 0428-222 child process environment replaced instead of inherited in corebackup/coreupdate etcd probes | review | not set | w21-pr1702-0428-142-compat (hop #1749) | — | [baseharbor#1749](https://github.com/mcpdev80/baseharbor/pull/1749) |
 
 ## Waiting for resources
 

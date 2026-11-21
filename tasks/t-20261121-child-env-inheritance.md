@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-060-rev2
+owner: w21-pr1702-0428-142-compat (hop #1749)
 kanban_status: review
 kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261121-child-env-inheritance · 0428-222 child process environment replaced instead of inherited in corebackup/coreupdate etcd probes #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-060-rev2  
+    **Owner:** w21-pr1702-0428-142-compat (hop \#1749)  
     **PR:** [baseharbor#1749](https://github.com/mcpdev80/baseharbor/pull/1749)  
     <!-- /generated:card -->
 
@@ -72,7 +72,7 @@ One or two sentences: the observable outcome.
 **State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0428-060-rev2  
+**Owner:** w21-pr1702-0428-142-compat (hop #1749)  
 **Priority:** not set  
 **PRs:** [baseharbor#1749](https://github.com/mcpdev80/baseharbor/pull/1749)  
 **Source:** 
@@ -134,3 +134,5 @@ fund->karte-pflicht erfuellt: die K2-befunde aus desk H-V47 (akte child-env-desk
 
 fuenf K2-stellen (etcd/etcdutl/boot-probe) erben jetzt das eltern-umfeld; eigener run 44920799944 completed/success an head a83e066ff16, 14 checks pass / 0 fail. base 4 commits hinter develop e6c199e7b7dd -> hop vor dem merge.
 **Codex independent review (2026-11-21):** REQUEST CHANGES on exact head `3df3cb8be6372df630b880d369f3806b0a8fe214` despite successful run `44934281616`, because `internal/coreupdate/dcs_boot_probe.go:60-65` appends inherited values after pinned keys and its child-process test does not challenge those pins.
+
+hop gelandet (head 23feeefee58, base 513488eeb6d, run 44953630114 success) und die abnahme hatte APPROVE HOP gesagt (akte 471d6462c) - ABER der owner meldet einen sicherheitsbefund, den ich am head nachgelesen und in einem punkt verschaerft habe. (A) internal/corebackup/etcd/etcdctl.go:36-52 pinnedEnv entfernt nur die gepinnten keys aus os.Environ(); ETCDCTL_INSECURE_SKIP_TLS_VERIFY, ETCDCTL_USERNAME und ETCDCTL_PASSWORD bleiben geerbt (pins an etcdctl.go:137-145, :202-207, etcdutl.go:99, :158). (B) interner widerspruch: internal/coreupdate/dcs_boot_probe.go:60-64 setzt cmd.Env = append(pins, os.Environ()...) - pins vorn, parent danach; mit Go 1.26 dedup (last wins, exec.go:166 / dedupEnv:1251) kann der parent sogar CA/cert/key/API ueberschreiben, genau das will diese karte verhindern. die abnahme spricht ihr verdict neu (mission sha256 f7cafd0ccbc2): REQUEST CHANGES mit filter aller nicht freigegebenen ETCDCTL-werte plus korrekter pin-reihenfolge und fail-first-tests in der gehosteten CI. NICHT MERGEN bis das abgeschlossen ist.
