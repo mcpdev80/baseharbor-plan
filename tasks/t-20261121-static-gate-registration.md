@@ -7,9 +7,9 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: planned
+owner: "Codex (Owner-directed, 2026-11-21)"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "atomic/static/ci-fast-check exists in the gate catalog AND in every consumer that validates catalog consistency, so the Workflow…"
 kanban_title: 0428-208 · 0428-208 static gate
 priority: high
@@ -23,18 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-static-gate-registration · 0428-208 register the static ci-fast-check gate across planner, runner and pre-release plan #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/ci #kind/task
+- [ ] t-20261121-static-gate-registration · 0428-208 register the static ci-fast-check gate across planner, runner and pre-release plan #task #release/v0-4-28 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Waiting for prerequisites**  
+    **Owner:** Codex (Owner-directed, 2026-11-21) · **Priority:** high  
     **Needs:** [t-20261120-gate-catalog-ci-fast-check](t-20261120-gate-catalog-ci-fast-check.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-gate-catalog-ci-fast-check](t-20261120-gate-catalog-ci-fast-check.md)  
-**Owner:** unassigned  
+**Owner:** Codex (Owner-directed, 2026-11-21)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 

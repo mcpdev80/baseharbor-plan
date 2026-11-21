@@ -10,13 +10,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 12 |
+| active | 13 |
 | review | 3 |
 | wait | 27 |
 | blocked | 1 |
 | ready | 4 |
 | queued | 25 |
-| waiting | 184 |
+| waiting | 183 |
 | backlog | 7 |
 | closed | 395 |
 
@@ -35,6 +35,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-git-credential-fill-bootstrap-hang](../tasks/t-20261121-git-credential-fill-bootstrap-hang.md) | 0428-217 git credential fill must not block in test or first-run paths | active | high | coordinator | — | [baseharbor#1742](https://github.com/mcpdev80/baseharbor/pull/1742) |
 | [t-20261121-native-cell-operator-seam](../tasks/t-20261121-native-cell-operator-seam.md) | 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam | active | high | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740) |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
+| [t-20261121-static-gate-registration](../tasks/t-20261121-static-gate-registration.md) | 0428-208 register the static ci-fast-check gate across planner, runner and pre-release plan | active | high | Codex (Owner-directed, 2026-11-21) | [t-20261120-gate-catalog-ci-fast-check](../tasks/t-20261120-gate-catalog-ci-fast-check.md) (open) | — |
 | [t-20261121-trust-uninstall-false-green](../tasks/t-20261121-trust-uninstall-false-green.md) | trust-uninstall EOF tests are green on the auth gate error | active | high | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737) |
 
 ## Ready for review
