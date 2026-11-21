@@ -168,7 +168,15 @@ Checks)" in the card's test binding. No new test files and no route change were 
 
 Before: `docker ps` untouched (this lane ran no docker commands at any point).
 After: same.
-cleanliness: no containers, networks, volumes or state directories created or left by this lane; caches live under /tmp/opencode/w227-cache (lane-owned, disposable).
+cleanliness: no containers, networks, volumes or state directories created or left by this lane; caches live under /tmp/opencode/w227-cache and worktree scratch (.gocache/.gomodcache/.tmp) removed from the worktree before END.
+ps-witness before and after are identical (4 ambient containers, none lane-owned):
+
+    bc23a27cde84 bh-docker-dev-shared-postgres-1
+    e3a4feb678b9 bh-docker-dev-shared-postgres-member-1-1
+    c68981ab2616 bh-docker-dev-shared-postgres-admin-1
+    0e02158517c8 bh-docker-dev-shared-openbao-admin-1
+
+`docker network ls | grep -c w227` -> 0.
 
 ## Local pre-run failures of scripts/ci-fast-check.sh (host condition, STATE)
 
