@@ -7,34 +7,36 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w26-pr1588-0428-225-mcpcontract
-kanban_status: active
-kanban_lane: active
+owner: w26-pr1588-0428-225-mcpcontract (active)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: The Pre-Release workflow reports unexpected MCP tools baseharbor.app.perses.disable/enable/remove/status while…
 kanban_title: 0428-225 · MCP release gate rejects the
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1751]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "waartet auf die statik-zelle 'Static · mcp' auf exakt head bdc7c1a9e6e6b1de29afb916d28712eba95dff56. die zelle ist derzeit NICHT beibringbar: der freigegebene release-suite-pfad scheitert vorher, run 44952645994 = completed/failure, job 136993749322 'Source · Candidate and Gate Plan / Resolve release candidate' meldet 'fatal: couldn't find remote ref refs/heads/release/v0.4.28'; dadurch werden 'Source · Qualified' und alle 'Static · <gate>'-jobs skipped (job 136993835355 = skipped). owner-scope-punkt: die release-branch fehlt (oder der workflow muss den PR-dispatch ohne release-branch tolerieren). der inhalt des kandidaten ist davon unabhaengig; der reviewer prueft contract.go:205-208 und golden.json. naechster trigger: release-branch vorhanden bzw. gate-plan korrigiert, dann dispatch + gruener statik-lauf."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-mcp-release-gate-perses-tool-drift · MCP release gate rejects the app.perses.* tools the machine contract declares #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261121-mcp-release-gate-perses-tool-drift · MCP release gate rejects the app.perses.* tools the machine contract declares #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
-    **Owner:** w26-pr1588-0428-225-mcpcontract  
+    **Owner:** w26-pr1588-0428-225-mcpcontract (active)  
+    **PR:** [baseharbor#1751](https://github.com/mcpdev80/baseharbor/pull/1751)  
+    **Waiting:** waartet auf die statik-zelle 'Static · mcp' auf exakt head bdc7c1a9e6e6b1de29afb916d28712eba95dff56. die zelle ist derzeit NICHT beibringbar: der freigegebene release-suite-pfad scheitert vorher, run 44952645994 = completed/failure, job 13…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w26-pr1588-0428-225-mcpcontract  
+**Owner:** w26-pr1588-0428-225-mcpcontract (active)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1751](https://github.com/mcpdev80/baseharbor/pull/1751)  
 **Source:** 
 <!-- /generated:links -->
 
