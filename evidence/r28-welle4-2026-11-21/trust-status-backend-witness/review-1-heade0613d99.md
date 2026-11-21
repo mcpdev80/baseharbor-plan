@@ -89,3 +89,9 @@ Receipt recipe: the owner-scope runner output in `scripts/pr-go-unit-shard.py` m
 Output of `git -C /home/marcel/dev/baseharbor-ecosystem/workers/codex-rev-1747-plan-wt remote -v | head -n 1` before this evidence commit: `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)`.
 
 END codex-rev-1747 DONE — REQUEST CHANGES; head `e0613d9950a8caf3805c60c29b563ba8273230c5`; run `44941446100`; 36 jobs, 15 successful, 21 skipped, 0 failed; plan-sha `6eff61d9edf2d4442960d40973bf7662a5b031c9080989284af002e32587c18f`; identity: autoren=[0428-142-genuine, 0428-142-statuswitness].
+
+## Published path witness
+
+Exact output of `git -C /home/marcel/dev/baseharbor-ecosystem/workers/codex-rev-1747-plan-wt ls-tree -r --name-only origin/main | grep 'evidence/r28-welle4-2026-11-21/trust-status-backend-witness/review-1-heade0613d99.md'` after fetching origin/main:
+
+evidence/r28-welle4-2026-11-21/trust-status-backend-witness/review-1-heade0613d99.md
