@@ -57,5 +57,28 @@
 - Bullet `--force-with-lease` on my lane-branch is the normal PR-update-after-rebase path (AGENTS 5.2 forbids force-push on protected branches, not lane-branches).
 - Bullet No subagents. No evidence written into a product repo. No docker/podman compose started on this host.
 
+## Hosted PR-CI run (Owner boundary 2026-11-21: hosted only, no local tests)
+- Bullet RUN: `44934493729`, event `pull_request`, status `completed`, conclusion `success`.
+  - head_sha: `617d5a4f66c0706ab0e1010391756aaa7ac86a7e` (my exact pushed head)
+  - head_branch: `lane-0428-142-statuswitness`, event: `pull_request`
+  - created: `2026-11-21T18:15:13Z`, updated (completed): `2026-11-21T18:20:54Z`
+  - Source via GitHub API `GET /repos/mcpdev80/baseharbor/actions/runs/44934493729` (public repo, no token).
+- Bullet PER-JOB conclusion tally: SUCCESS=14 FAILURE=0 SKIPPED=16 OTHER=0 (30 jobs total).
+  - SKIPPED jobs are the release/matrix jobs not selected for this PR's exact-base scope (PR · Main release Go, Draft Go, Targeted HA · docker/podman, Release Source Preflight, Exact full Pre-Release, Candidate-added checks (advisory), etc.) — skipped is not a failure.
+  - Required Go unit shards that cover my path all ran and passed:
+    - `PR · Go unit · cli-2` = **success** (hosts `TestBahaStatusInfrastructureDashboardsExposesEveryPanel` + my new `TestBahaStatusBothWitnessAndInfraDashboardsFilledSimultaneously`)
+    - `PR · Go unit · cli-0`, `cli-1`, `cli-3` = success
+    - `PR · Go unit · packages` = success
+    - `PR · Go unit · owner` = success
+  - Validation: `PR · Validation · go-build` = success, `cli-gofmt` = success, `go-vet` = success.
+  - Governance: `PR · Native gate plan` = success, `PR · Source format` = success, `Workflow policy` = success (proves no `.github/**` violation), `PR · Trusted Plan` = success, `PR · Focused Python` = success.
+- Bullet FAIL-PLACE COUNT from per-job logs: 0 failures across 14 executed jobs; 0 skipped-as-failure.
+
+## Repo-rule compliance
+- Bullet Only static checks run locally: `gofmt -l` clean, `go vet ./cmd/baha/` exit 0. NO local `go test`, NO `scripts/ci-fast-check.sh`, NO VM-suite (Owner boundary 2026-11-21).
+- Bullet No `.github/**` edit, no `scripts/**` edit, no `internal/serviceaccess/**`, `internal/operatorauth/**`, `internal/observability/registry.go`, `internal/capability/perses_selection.go` edit. Workflow policy job (44934493729) = success confirms no workflow-surface violation.
+- Bullet `--force-with-lease` on my lane-branch is the normal PR-update-after-rebase path (AGENTS 5.2 forbids force-push on protected branches, not lane-branches).
+- Bullet No subagents. Evidence committed to baseharbor-plan main (commit `2c5ac5f98`, pushed; path verified on `origin/main`). No evidence written into a product repo. No docker/podman compose started on this host (workspace root clean).
+
 ## END
-END_PENDING w21-pr1702-0428-142-compat: pushed `617d5a4f6` (PR #1702 head `617d5a4f66c0706ab0e1010391756aaa7ac86a7e`, was `6d1d56bd663`). Awaiting hosted PR-CI run to terminal at head `617d5a4f6`. witness function (3 commits) and InfrastructureDashboards compat (commit `617d5a4f6`) both present, proven by co-fill test `TestBahaStatusBothWitnessAndInfraDashboardsFilledSimultaneously`.
+END_DONE w21-pr1702-0428-142-compat: candidate `617d5a4f6` pushed (PR #1702 head `617d5a4f66c0706ab0e1010391756aaa7ac86a7e`, was `6d1d56bd663`), hosted CI run `44934493729` = success at exact head. witness function (3 commits) and InfrastructureDashboards compat (commit `617d5a4f6`) both present, simultaneously filled, proven by co-fill test `TestBahaStatusBothWitnessAndInfraDashboardsFilledSimultaneously` running under `PR · Go unit · cli-2` (pull_request). Existing contract test `TestBahaStatusInfrastructureDashboardsExposesEveryPanel` (develop:86) left UNTOUCHED and green.
