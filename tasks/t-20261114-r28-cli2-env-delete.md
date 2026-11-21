@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: "Codex (Marcel, active wait sweep 2026-11-21)"
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Environment deletion lifecycle. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-055 · Env deletion lifecycle
 priority: high
@@ -18,20 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1627, mcpdev80/baseharbor#1736]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "Independent review returned REQUEST CHANGES at head 10150ee7164 (akte evidence/r28-welle4-2026-11-21/pr1736-review/review-1-head10150ee.md, verdict ab zeile 41): mapping and runtime routing are coherent, the optional test's absent/present behavior is covered and both existing Docker/Podman selected shard sets stayed unchanged - so no product defect is claimed. The open item is the per-case CI receipt: run 44940073029 publishes only per-shard aggregates, the five test_pr_diff_base methods (advanced-base, expected-integration-parents-modified-tree, head-missing-fail-closed, third-parent-fail-closed, unavailable-fetched-target-tip) are not named with their individual duration. That is a scripts/**-change (Owner-scope, AGENTS 3.8) and the same receipt class blocks #1625, #1702 and #1714. Next trigger: one owner change in the runner receipt path, then a rerun of the exact CLI shard and a renewed verdict. Owner holds the branch; no lane writes here."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1627", "https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677", "https://github.com/mcpdev80/baseharbor/actions/runs/44852435311", "https://github.com/mcpdev80/baseharbor/pull/1615", "https://github.com/mcpdev80/baseharbor/pull/1736", "https://github.com/mcpdev80/baseharbor/actions/runs/44859609354"]
 ---
 
-- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** Codex (Marcel, active wait sweep 2026-11-21) · **Priority:** high  
     **PR:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627), [baseharbor#1736](https://github.com/mcpdev80/baseharbor/pull/1736)  
+    **Waiting:** Independent review returned REQUEST CHANGES at head 10150ee7164 (akte evidence/r28-welle4-2026-11-21/pr1736-review/review-1-head10150ee.md, verdict ab zeile 41): mapping and runtime routing are coherent, the optional test's absent/present…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1627), [proof 2](https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44852435311), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1615), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1736), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44859609354)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
 **Required by:** [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md)  
@@ -102,3 +103,5 @@ BOARD-KORREKTUR nach unabhaengiger GEGENLESE (akte evidence/r28-welle4-2026-11-1
 - PR #1736 exact Draft run [44859609354](https://github.com/mcpdev80/baseharbor/actions/runs/44859609354) passed its Draft source/routing and Go-shard jobs; Ready-only planner, validation, and native jobs were skipped, so this is not full CI acceptance. Focused mapping suite (37 coverage tests), the two new planner cases, coverage catalog validation, Go unit/vet and generated CLI documentation checks pass locally.
 - Local feature commit `f564c580c516139558faebc1038fba05766c3351` adds `TestEnvironmentDestroyNativeLifecycle`, registers it in both existing Docker and Podman coreless gates and the application shard, and regenerates the command indexes. This commit is not pushed; #1627 stays on its last hosted head until the trusted policy can be used. No local native runtime was run because the shared Docker host has active unrelated containers and Podman is unavailable. #1627 remains Draft and its implementation/test/docs changes remain local until the trusted mapping can be used.
 - The full planner suite still reproduces the inherited operator-auth failure in `TestMCPRegistrationCIInProcessDiscoverAndInvoke` on current develop. Exact #1615 run `44858521941` was still in progress at last check; it remains owned by the other session.
+
+review -> wait: RC besteht nur aus dem owner-scope receipt-punkt; branch bleibt beim owner
