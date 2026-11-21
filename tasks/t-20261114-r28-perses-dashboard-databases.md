@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: 0428-076-nativeshape
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: Deliver PostgreSQL/MongoDB panels only when verified compatible metrics and permissions exist.
 kanban_title: 0428-076 · Perses database dashboards
 priority: normal
@@ -23,14 +23,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-databases · Perses database dashboards #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-databases · Perses database dashboards #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** 0428-076-nativeshape · **Priority:** normal  
     **PR:** [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
@@ -102,3 +102,5 @@ CODEX-REVIEW perses-dashboard-databases/review-1.md am exakten head 12a6e7a46e85
 END zurueckgewiesen, gemessen: kandidat 8225f3e6f0bc liegt auf einem NEUEN branch 'lane-0428-076-hop2' ('git ls-remote refs/heads/lane-0428-076-hop2'), waehrend PR #1597 weiter auf seinem eigenen branch 'perses-dashboard-databases-lane' haengt — 'refs/pull/1597/head' = 12a6e7a46e85, 50 commits hinter develop. Der als 'base-head CI SUCCESS' zitierte run 44900492916 traegt headSha 12a6e7a46e8 = der ALTE kandidat: ererbtes gruen, kein beweis fuer ihre arbeit. Die karte bleibt 'active' bei der lane; sie soll auf den PR-eigenen branch pushen und ERST dann den terminalen beleg am exakten head liefern. 'Owner scope' war hier falsch: ein push auf den PR-branch ist lane-scope.
 
 PR-head = branch-head = 37d3960001dc (ls-remote), eigener run 44914907130 completed/success am exakten head, 15 checks pass. Zurueckweisung behoben. Offen: base 54 commits hinter develop, hop vor dem merge. Befund: der kandidat aendert auch cmd/baha/app_status_result.go, dieselbe datei wie PR #1702.
+
+CODEX-REVIEW review-2.md = REQUEST CHANGES am exakten head 37d3960001dc: F1 database-verfuegbarkeit ignoriert den aufgeloesten target (perses_dashboards.go:348-377,431-445; app_perses_cli_test.go:493-527 testet die globale map), F2 goldene dateien mit unaufgeloesten placeholders (:173-180,:223-240). Korrektur laeuft auf 0428-076-nativeshape.
