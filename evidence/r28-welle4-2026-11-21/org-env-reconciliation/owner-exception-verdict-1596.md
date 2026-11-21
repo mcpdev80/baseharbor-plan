@@ -43,3 +43,12 @@ No merge is performed by this review. The merge belongs to CODEX-MERGE in a sepa
 #1596 approved at the exact candidate above. No merge performed.
 - After review, shell PID `3919755`; `docker ps -a` again showed the same eight pre-existing `bh-itest-*` containers, all exited. The before/after state matches.
 - Planning validation: `python3 scripts/plan.py render && python3 scripts/plan.py check` completed; check reported 663 tasks, 7 epics, 13 releases, 24 decisions, 0 errors, and 11 pre-existing dependency warnings.
+
+## Planning publication witness
+
+- Evidence commit `73e26d1bc` was pushed to Planning `origin/main` and verified at `https://github.com/mcpdev80/baseharbor-plan.git`.
+- Exact output of `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle4-2026-11-21/org-env-reconciliation/owner-exception-verdict-1596.md`:
+
+```text
+evidence/r28-welle4-2026-11-21/org-env-reconciliation/owner-exception-verdict-1596.md
+```
