@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-183-realpos
-kanban_status: review
-kanban_lane: review
+owner: 0428-183-r3res
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: ""
 kanban_title: 0428-183 · valkey dashboards gate
 priority: ""
@@ -18,23 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1714]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "zweite korrekturrunde ist geschnitten (mission 0428-183-r3-real-resolution.md), wartet auf einen freien worker-sitz; die abnahme-sitz darf nicht arbeiten (rollenregel §2)"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md", "https://github.com/mcpdev80/baseharbor/pull/1734", "https://github.com/mcpdev80/baseharbor/actions/runs/44853938826"]
 ---
 
-- [ ] t-20261120-r28-valkey-dashboard-unavailable-only · Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable #task #release/v0-4-28 #status/review #view/review #kind/bug
+- [ ] t-20261120-r28-valkey-dashboard-unavailable-only · Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable #task #release/v0-4-28 #status/wait #view/wait #kind/bug
     <!-- generated:card -->
-    **Owner:** 0428-183-realpos  
+    **Owner:** 0428-183-r3res  
     **PR:** [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714)  
+    **Waiting:** zweite korrekturrunde ist geschnitten (mission 0428-183-r3-real-resolution.md), wartet auf einen freien worker-sitz; die abnahme-sitz darf nicht arbeiten (rollenregel §2)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1734), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44853938826)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-loki-verify-probe](t-20261121-loki-verify-probe.md), [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
-**Owner:** 0428-183-realpos  
+**Owner:** 0428-183-r3res  
 **Priority:** not set  
 **PRs:** [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714)  
 **Source:** 
@@ -86,3 +87,5 @@ hop round 3 IST ANGEKOMMEN, von MIR gemessen: PR #1714 head 0afcaf374225, 'git l
 verdict am head 0afcaf374225: positiver fall synthetisch. Korrektur auf 0428-183-realpos.
 
 korrektur abgeliefert: head bf251b2b083d, PR-head = branch-head, head..develop = 0 (exakte base gegen develop e6c199e7b7dd), eigener run 44920689363 completed/success, 14 checks pass / 0 fail. Positiver fall laeuft jetzt ueber die injectierbare verification, der echte producer liefert auf develop 'unavailable'. Befund an die abnahme: zwei der drei commits tragen die generische 'worker'-identitaet (karte 0428-224).
+
+verdict REQUEST CHANGES (2) an bf251b2b083d: (1) positiver pfad bleibt synthetisch (valkey_test.go:308-312), (2) query up{job="baseharbor-providers", backend="valkey"} (valkey.go:269) traegt ein 'backend'-label, das der provider-target-writer nicht emittiert — belegt durch die korrigierten hosts-dashboards (perses_dashboards_hosts.go:234 nutzt 'up{job=...}' ohne backend-label, :249-251/:276-281 erklaeren genau dieses muster als 'could never resolve against emitted data'). akte review-2.md, plan-sha 7814f2e2d. mein fehler: die mission ging versehentlich an die abnahme-sitzung; ruecknahme zugestellt.
