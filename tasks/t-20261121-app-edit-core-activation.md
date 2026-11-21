@@ -7,9 +7,9 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: Codex (Marcel, active wait sweep 2026-11-21)
-kanban_status: review
-kanban_lane: review
+owner: coordinator
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "App Edit activation against a real isolated Core stops failing with start real isolated Core for App Edit: existing native…"
 kanban_title: 0428-207 · 0428-207 App Edit Core
 priority: high
@@ -18,24 +18,25 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1735]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "arbeit ist begonnen und liegt beim OWNER: ihr fix 213331217 ist ahne von PR #1735 head b10dc56b (von mir nachgemessen: merge-base --is-ancestor = 0), der owner hat in b10dc56b selbst +61 zeilen am test ergaenzt und nichts zurueckgerollt. Die karte ist owner-owned (plan 7e84a220), daher Fuehrt keine meiner Lanes weitere aenderungen aus — naechster trigger ist #1735 exact-head mit gruener 'PR Selected Checks'."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/commit/b10dc56b785cc3ff75d054fa3d867254b6e7d286", "https://github.com/mcpdev80/baseharbor/actions/runs/44861290062"]
 ---
 
-- [ ] t-20261121-app-edit-core-activation · 0428-207 App Edit Core activation fails without protected Core network #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
+- [ ] t-20261121-app-edit-core-activation · 0428-207 App Edit Core activation fails without protected Core network #task #release/v0-4-28 #status/wait #view/wait #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** Codex (Marcel, active wait sweep 2026-11-21) · **Priority:** high  
+    **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1735](https://github.com/mcpdev80/baseharbor/pull/1735)  
+    **Waiting:** arbeit ist begonnen und liegt beim OWNER: ihr fix 213331217 ist ahne von PR \#1735 head b10dc56b (von mir nachgemessen: merge-base --is-ancestor = 0), der owner hat in b10dc56b selbst +61 zeilen am test ergaenzt und nichts zurueckgerollt. D…  
     **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/b10dc56b785cc3ff75d054fa3d867254b6e7d286), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44861290062)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** Codex (Marcel, active wait sweep 2026-11-21)  
+**Owner:** coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1735](https://github.com/mcpdev80/baseharbor/pull/1735)  
 **Source:** 
@@ -115,3 +116,5 @@ CODEX-REVIEW REQUEST CHANGES an head 09cf55bbaa41 (plan 5fa43643, path witness 8
 korrektur geliefert: PR #1735 head 213331217024 (draft=false, develop IST ancestor, von mir gemessen), dateien genau core_network_binding.go + core_network_binding_actionability_test.go. gehosteter durchgang 44859099909 am exakten head: Workflow policy / Trusted Plan / Native gate plan / go-vet / go-build / cli-gofmt / Focused Python = SUCCESS, cli-0..3 = failure (geerbt, auf sauberm base 09cf55b gegentestet). akte round-2.md 11455 bytes, plan main 45f444f1. re-review eingereiht (reviewer haelt gerade #1702).
 
 SELF-CORRECTION: booking c6e50f7c/ac06c68f was published by my card-status retry AFTER the owner's rebase completed, and it overwrote the owner's claim field on tasks/t-20261121-app-edit-core-activation.md (owner 'Codex (Marcel, active wait sweep 2026-11-21)' at 7e84a220 became 'w228-0428-207-appedit-fix'). ownership restored here; the lane's delivery stays documented: PR #1735 head 213331217024, develop ancestor, run 44859099909 (policy/Trusted Plan/vet/build/gofmt/Focused Python SUCCESS, cli-0..3 failure inherited), akte 45f444f1. card content work is the owner's from now on; my lane 47aef7ca has been ordered to stop writing on #1735 and to deliver a handoff note instead.
+
+keine korrektur offen, kein PR von meiner Seite; akte END_BLOCKED auf origin/main (6eca4053).
