@@ -304,18 +304,11 @@ evidence/r28-welle4-2026-11-21/cli-shard-runtime-tests/round-1.md
 tasks/t-20261121-cli-shard-runtime-tests.md
 ```
 
-plan SHA carrying this evidence: 99946368ff4f153800990dd6fa51701e3a28302b
-(file first committed as c3448f39674c25cfe3a8c3de3ed0850dcff1c046; the witness
-block above was added by the follow-up commit and then amended into this final
-SHA, so the published blob is the one verified on origin/main)
+plan SHA carrying this evidence: 69c539384a01c709804d188e70069ab92f1a73f9
+(history note: the file was first committed as c3448f39, later amended commits
+made 99946368 and 8b42b4f4 transient, and an additional commit recorded the SHA
+note above; origin/main carries 69c53938 as its head. No foreign commit entered
+main in this window - the remote advanced only through this lane's own commits.)
 
-Self-containment correction: the amended-and-force-pushed final commit is
-8b42b4f4e97c4c5472a12c46e593baec8b131b70 (verified: `git rev-parse origin/main`
-after this commit's push). The SHA written above (9994636) is the immediately
-prior commit and existed only transiently, so the END line reports 8b42b4f4 as
-the authoritative plan SHA.
-
-Final published plan SHA (origin/main of https://github.com/mcpdev80/baseharbor-plan.git,
-verified by ls-remote as the last action): 3066eb4043b791bcd15415e2881c69b90e3e7376
-
-END w232-0428-215-runtimeprobe DONE — plan SHA 3066eb4043b791bcd15415e2881c69b90e3e7376, no product candidate (read-only mission)
+END w232-0428-215-runtimeprobe DONE — plan SHA 69c539384a01c709804d188e70069ab92f1a73f9,
+no product candidate (read-only mission)
