@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "'baha perses status' nennt pro observability-signal eine ECHTE backend-witness (erreicht / gematcht / nicht erreichbar) statt…"
 kanban_title: 0428-142 · echte backend-witness fuer
 priority: ""
@@ -31,14 +31,14 @@ omit those sources from scrape targets. This assigned, started lane is parked
 pending worker capacity. #1702 still needs the concrete review corrections and
 a fresh exact-head run; it is not ready to merge.
 
-- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** coordinator  
     **PR:** [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261119-r28-perses-alert-verifier-caller-wiring](t-20261119-r28-perses-alert-verifier-caller-wiring.md)  
@@ -117,3 +117,5 @@ hop delivered by w230: #1702 head e21b5c528923, 'merge-base --is-ancestor develo
 inhalt der korrektur ist jetzt AM PR, nicht nur auf einem neben-branch: gemessen refs/heads/lane-0428-142-statuswitness = 2b1fdcc06d9e ('hop(0428-142): restore renderPersesBackendWitness in perses status human face', 05:13), PR #1702 head folgt damit auf 2b1fdcc06d9e, base develop, draft=false, durchgang 44865751734 in_progress am neuen head. die lane hatte den commit zunaechst auf 'lane-0428-142-perses-status-backend-witness' gelegt (anderer branch, kein PR-branch) — von mir am remote gemessen und zurueckgewiesen; ein zweiter PR ist verboten (eine karte, ein PR). vier fokussierte tests build/vet/gofmt sauber laut lane; die vier CLI-invoking witness-faelle scheitern am UNVERAENDERTEN PR-head genauso = geerbte operator-auth-klasse (inhalt #1615; klassen-beleg run 44854729670 cli-0..3 SUCCESS, beleg fuer die KLASSE, nicht fuer diesen kandidat).
 
 CODEX-REVIEW 'Verdict: REQUEST CHANGES' (review-3.md, plan 97763de0) an head 2b1fdcc06d9e: P1 = die wiederangelegerte 'renderPersesBackendWitness'-zeile ist produktions-erreichbar ('perses_lifecycle.go:92-94'), aber der neue test 'TestPersesStatusWitnessHumanFaceRendersBackendWitness' faellt an der operator-auth, BEVOR der renderer getroffen wird — rezept: den vorhandenen test-operator-auth-fixture fuer die CLI-aufrufe konfigurieren. P3 (eigentueterschaft 'cmd/baha/app_status_result.go') habe ich GELOEST: die karte nennt die datei ausdtruecklich in ihrem scope; 'gh pr view 1702 --json commits' = 3 commits, 'git show 2b1fdcc --stat' = nur +64 test / +1 renderer — das feld stammt aus den beiden aelteren commits desselben PRs, und KEINE der PR-dateilisten #1615/#1625/#1623/#1650/#1606/#1614/#1731/#1704 nennt 'app_status*'. Kein zurueckbau, nur P1. Korrektur auf frischer Lane '0428-142-authfixture' (d9a13f6c, flash), gleicher PR #1702, zweiter PR verboten.
+
+END_DONE abgenommen, mit MENGENRECHNUNG aus PER-JOB-protokollen (korrektur meiner eigenen rechnung: das aggregierte gh run view --log laesst ganze jobs weg, zaehlen muss man ueber '--job <id> --log'): durchgang 44875647949 am head b2f2fd3ac1729 = 194 eindeutige first-level '--- FAIL: Test'-namen; vergleichsdurchgang 44874605168 (PR #1742, gleiche basis develop, head 0df7efc00bb3) = 197. DIE DIFFERENZ IST IHR ERFOLG: entfallen genau TestPersesLifecycleTransportActionMatrix, TestPersesLifecycleMCPSharedSeamRunsApplyLifecycle, TestPersesLifecycleHumanNoticeForEveryDeferredAction; KEIN neuer name. Sechs witness-zellen verdrahtet, reachability per M1/M2-mutation. PR #1702 base develop draft=false mergeStateStatus BLOCKED; 'PR · Trusted Plan' laeuft hier (head ist nachkomme von develop), die roten cli-0..3 + packages sind die #1615-klasse — gate-text wortlich in cli-0 (main_test.go:60).
