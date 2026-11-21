@@ -7,9 +7,9 @@ areas: [cli, ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: w221-0428-206-split
-kanban_status: wait
-kanban_lane: wait
+owner: "Codex (current thread; wait sweep 2026-11-21)"
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-206 · Other-domain test split
 priority: high
@@ -18,27 +18,30 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "CODEX-REVIEW of the 12-group rubric classification (no PR exists for this diagnosis card); implementation consequences are 0428-204 and the new 0428-207"
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-other-domain-test-split · Cause split for the 89 other-domain cmd/baha failures #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/cli #kind/bug
+- [ ] t-20261120-other-domain-test-split · Cause split for the 89 other-domain cmd/baha failures #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** w221-0428-206-split · **Priority:** high  
-    **Waiting:** CODEX-REVIEW of the 12-group rubric classification (no PR exists for this diagnosis card); implementation consequences are 0428-204 and the new 0428-207  
+    **Owner:** Codex (current thread; wait sweep 2026-11-21) · **Priority:** high  
     **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** w221-0428-206-split  
+**Owner:** Codex (current thread; wait sweep 2026-11-21)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
 <!-- /generated:links -->
+
+## Current review state
+
+Round 1 is rejected as incomplete: its twelve group counts total 38, group 12 subgroups total 9 while the group says 8, and the referenced raw classification files are absent. A prompt-disabled run at exact base `40cb28c758b02960356434b630086a341ebe1738` completed with 203 distinct failed top-level tests; the old 89-case cohort is not yet reconciled against it. See [independent review r2](../evidence/r28-welle4-2026-11-21/other-domain-test-split/codex-review-r2.md). Reconstruct the exact target cohort and row-level groups before acceptance.
 
 ## Why
 
@@ -67,3 +70,7 @@ Karte aus w217s zahlung gegossen (fund->karte, §3.3.5): 206 fehlende tests in .
 Karte aus w217s zahlung gegossen (fund->karte, §3.3.5): 206 fehlende tests in ./cmd/baha/ am exakten develop 40cb28c758, davon 89 in anderen domänen als dem operator-seam. sitz w221 (ornith) gruppiert nach der ersten fehlenden produkt-datei und rubriziert: (a) schon von einer karte gedeckt, (b) neuer defekt (karten-text wird vorgeformuliert), (c) folge von commit 3653369a4 (#1717). KEIN produktgriff, KEIN PR; die 0428-204-Klassen (runWithIO=82, MCP=10) bleiben bei w216, damit keine karte aufbläht (§4.2).
 
 HANDOFF COMPLETE (read-only classification, no PR): akte other-domain-test-split/round-1.md on baseharbor-plan main (78aa8733 delivered, 87caac0b current); 12 production-file groups, counts 9+5+3+3+2+2+2+1+1+1+1+8 = 89 tests, rubric (c) proved at internal/operatorauth/authorization.go:285 with the green/red pair f5ce95af -> 3653369a4 (#1717). CONSEQUENCES: 72 rubric-(c) rows are 0428-204's, rubric-(a) rows are inside 0428-204's scope, the single rubric-(b) row is poured as card 0428-207. COLUMN: 'review' is rejected by the validator because this card deliberately has no PR (diagnosis card), so the confirmed state is recorded as wait — work delivered, waiting on CODEX-REVIEW of the classification before the 90-site operator seam is trusted. Lane released, seat refilled.
+
+## Wait-sweep continuation — 2026-11-21
+
+- Codex review r2 rejected the round-1 classification for inconsistent sums and missing complete source rows. The task is active under the wait-sweep owner while the complete row-level classification is rebuilt. No product files or PRs changed.
