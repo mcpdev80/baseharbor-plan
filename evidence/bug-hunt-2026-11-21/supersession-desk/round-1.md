@@ -63,6 +63,8 @@ Vorschlagsliste für den coordinator (keine Kartenänderung durch mich):
 - Worktree note: `/tmp/opencode/0428-216-supersession-wt` is a read-only analysis worktree of the shared baseharbor checkout (detached, no writes; may be pruned by whoever prunes /tmp/opencode).
 
 ## Command witnesses
+- origin/main evidence delivery (second-to-last action): `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep supersession-desk` =>
+  `evidence/bug-hunt-2026-11-21/supersession-desk/round-1.md`, with `git ls-remote origin refs/heads/main` => `370ca8f75f1f0f88b74bf0e85a506c3e40fbfd73 refs/heads/main`.
 - `gh pr view <n> --repo mcpdev80/baseharbor --json state,isDraft,mergeStateStatus,headRefName,headRefOid` for all 34 open PRs (live values embedded above).
 - `git merge-base --is-ancestor 40cb28c758b0 refs/pull/<n>/head` per row (exits embedded).
 - `git fetch lane-origin '+refs/pull/*/head:refs/remotes/pullorigin/*'` for the per-file content diffs.
