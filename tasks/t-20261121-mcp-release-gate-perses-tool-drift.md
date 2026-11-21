@@ -122,7 +122,6 @@ escalated to the Owner in the coordination ledger (row 940); this card does not 
 - For Docker/Podman tests, prove native Docker and rootless Podman/Quadlet separately where required; unit fakes do not replace live runtime evidence. Cross-repo tests run through existing develop/release acceptance, not a blocking independent PR gate.
 - Handoff must identify exact source SHA, test -> CI gate -> trigger -> actual run/outcome, or mark explicit CI coverage debt as blocking. No new CI framework or full automatic PR matrix.
 
-## Dependencies an
 ## Dependencies and file ownership
 
   - Owned files or areas: none by this card while the catalog registration is missing.
