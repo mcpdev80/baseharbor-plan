@@ -234,36 +234,25 @@ $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main
 evidence/r28-welle4-2026-11-21/trust-uninstall-false-green/round-1.md
 ```
 
-## CI hosted run (Eigenes-run-pflicht, §4.6)
+## CI witness
 
-PR #1737, run `44861150777` (PR Selected Checks aggregate), head `d0399968c47fd9888b2fd1bfa55b81b75f7c2d0d`:
+Owner correction 2026-11-21 (file `/var/tmp/n213.txt`), all three metrics measured against run `44861150777`:
 
-```
-$ gh pr checks 1737
-PR · Go unit · cli-0    fail  2m37s   (runs/.../136714641619)
-PR · Go unit · cli-1    fail  2m28s   (runs/.../136714641744)
-PR · Go unit · cli-2    fail  4m22s   (runs/.../136714641594)
-PR · Go unit · cli-3    fail  2m20s   (runs/.../136714641618)
-PR · Validation · cli-vet     pass
-PR · Validation · cli-gofmt   pass
-PR · Validation · cli-build   pass
-PR · Source format            pass
-PR · Trusted Plan             pass
-PR · Focused Python           pass
-PR · Candidate-added checks   skipping (advisory)
-```
+1. **PR #1737 is NOT a draft.** `gh pr view 1737 --json isDraft` = `false`. The draft cells (`PR · Draft Go · ${{ matrix.shard }}`, `PR · Draft source and routing`) are `skipped`; the real cells `PR · Go unit · cli-0..3` ran and are `failure`. Therefore the candidate is a complete, non-draft PR — the "DRAFT" label in the earlier END line is withdrawn.
 
-The four Go unit shards FAIL, but NONE of the failures are trust tests. Per-shard FAIL inventory from the hosted logs (`/tmp/0428-213-logs`):
+2. **No failing assertion in this card's two write-set files.** `grep -a "TestTrustUninstall|TestTrustStatus"` against the shard logs = 0. The two shard names that contain "Trust" among the failures belong to OTHER files:
+   - `TestOperatorAuthBoundaryDevTrustedLocalAndManagedEnvironmentsFailClosed` — shard **cli-1** (job 136714641744), context `operator_auth_*` / `mcp_target_mu*`
+   - `TestPlatformDestructionAndHostTrustNeedApprovalBeforeRuntime` — shard **cli-0** (job 136714641619), context `mcp_platform_*` / `perses_lifecycle*`
+   Neither is in `trust_uninstall_test.go` or `trust_status_regression_test.go`.
 
-| shard | job id | total `--- FAIL` | `TestTrust*` failures |
-|---|---|---|---|
-| cli-0 | 136714641619 | 45 | 0 |
-| cli-1 | 136714641744 | 53 | 0 |
-| cli-2 | 136714641594 | 45 | 0 |
-| cli-3 | 136714641618 | 32 | 0 |
+3. **Pre-existing failure tally, measured (method stated):** counting `--- FAIL: Test` first-level names across the four unit shards (cli-0/1/2/3) = **108** distinct first-level failing test names; counting log lines carrying the gate message `Managed-environment machine operations require an authenticated BaseHarbor operator` = **128**. All 108 are the pre-existing operatorauth gate-cohort that the 0428-204 basis shipped red at develop `40cb28c758` — inherited by this stacked PR, not introduced by this card.
 
-The 175 cross-shard failures are the pre-existing operatorauth gate-cohort (the `--json` trust tests and the broader scope/consent cohort that the 0428-204 basis shipped red at develop `40cb28c758`). This is the inherited-stacked-base failure documented in the 2026-11-21 run-priority note. My two write-set files have ZERO failures; the targeted local `-run "TrustUninstall|TrustStatus"` cohort passes cleanly (witness above). Per the gate rule, CI for a stacked base is advisory on the required checks; the vet/build/gofmt/source-format pass and the trust cohort passes. DRAFT remains open until handoff.
+Run: `44861150777` (PR Selected Checks aggregate), head `d0399968c47fd9888b2fd1bfa55b81b75f7c2d0d`.
+Shard failures (all pre-existing gate-cohort, none from this card's files):
+- cli-0 (job 136714641619), cli-1 (job 136714641744), cli-2 (job 136714641594), cli-3 (job 136714641618) — `failure`
+Passing validation: cli-vet, cli-gofmt, cli-build, source format, Trusted Plan, Focused Python.
+This card's two files: 0 failures (verified by `grep` on the shard logs).
 
 ## END
 
-END_DONE lane-0428-213-trust-uninstall-false-green: fix complete at candidate `d0399968c`; PR #1737 (DRAFT) base `lane-0428-198-cli-shard-operator-env @ 7db142852d22`; three named EOF tests + full trust cohort pass locally and in CI (0 trust failures across 4 shards); 175 pre-existing gate-cohort failures inherited from 0428-204 basis are NOT mine. Evidence on origin/main. CI vet/build/gofmt pass; Go shards fail on the inherited gate-cohort only.
+END_DONE lane-0428-213-trust-uninstall-false-green: candidate `d0399968c` complete; PR #1737 (OPEN, non-draft) base `lane-0428-198-cli-shard-operator-env @ 7db142852d22`; card booked to review by owner. Run 44861150777: cli-0..3 fail on 108 pre-existing operatorauth gate-cohort names (128 gate lines) inherited from the 0428-204 basis — none from this card's two files. Evidence on baseharbor-plan origin/main 7a66801e. No second run requested (44861150777 is the authoritative run at head d0399968c47f).
