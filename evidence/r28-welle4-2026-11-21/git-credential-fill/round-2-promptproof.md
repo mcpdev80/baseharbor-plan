@@ -122,18 +122,30 @@ full Go-unit scope. The new tests need no workflow change: no `.github/**` or
 ## Hosted CI on the exact head (§4.6 own-run duty)
 
 Run `44895100181` ("CI · PR #1742" / Source & Quality), headSha
-`719d28a888abf9dc2c7715fb002f1aa77fdf9708`, observed by this lane from creation.
+`719d28a888abf9dc2c7715fb002f1aa77fdf9708`, observed by this lane from creation
+to the terminal state.
 
-(RESULT AND PER-JOB FAIL-NAME COUNTS APPENDED BELOW BY THE LANE AFTER TERMINAL STATE.)
-
-END-PENDING
+- Terminal: `status=completed conclusion=success`.
+- Executed and SUCCESS: Workflow policy, PR · Trusted Plan, PR · Native gate
+  plan, PR · Source format, PR · Focused Python, PR · Validation · go-vet,
+  PR · Validation · go-build, PR · Validation · cli-gofmt, PR · Go unit ·
+  packages, PR · Go unit · cli-0, cli-1, cli-2, cli-3, PR · Go unit · owner,
+  PR Selected Checks.
+- `PR · Go unit · packages` is the cell that ran
+  `github.com/mcpdev80/baseharbor/internal/credential/native` (selection rule:
+  `scripts/pr-go-unit-shard.py:117-134`, `go list ./...` minus `./cmd/baha`) —
+  the new credential-fill witnesses executed in CI on this head.
+- FAIL names: 0 (zero failing jobs; per-job scan via
+  `gh run view 44895100181 --json jobs` shows no `conclusion=failure` entry).
+- Skipped (not required for this PR class): native runtime cells, release
+  cells, draft cells, Demo Pin / Consumer Pins / Public Contracts.
 
 ## repo-rule compliance
 
 - Write-set honored: only `internal/credential/native/{host.go,gitcredential.go,credfill_noninteractive_test.go}` (+ two new witness helpers in the same package), `cmd/baha/{app_inspect_remote.go,app_update.go}` and the new `cmd/baha/app_update_gitstdin_test.go`; no `.github/**`, no `scripts/**`, no other repos.
 - `gofmt`/`go vet` clean; `bash scripts/ci-fast-check.sh` → 295 python tests OK, no candidate-added validation checks; `scripts/source-readability-audit.sh` all PASS; `scripts/documentation-audit.sh` PASS.
 - No subagents used; single lane session; scratch `zz_*_test.go` calibration files deleted before commit (`git status` clean at commit).
-- Named-form runs honored (`-skip "RunsRealLifecycle|RequiresORAS|RejectsSecondProcess|PinsCanonicalApplication"` for cmd/baha). The access-wizard failures observed at 0df7efc00 are PRE-EXISTING at base (verified: identical failures via `git stash` at develop content) and belong to the w200/0428-200 trust-regression class, not this change.
+- Named-form runs honored (`-skip "RunsRealLifecycle|RequiresORAS|RejectsSecondProcess|PinsCanonicalApplication"` for cmd/baha). Full `go test ./cmd/baha/` at the hopped candidate `719d28a88` (after the develop merge) is GREEN end-to-end (`ok ... 402.7s`): the access-wizard failures observed earlier at `0df7efc00` were PRE-EXISTING at the then-base (verified identical via `git stash`) and belong to the w200/0428-200 trust-regression class fixed on develop since; they are gone at this head.
 
 ## cleanliness
 
@@ -141,3 +153,22 @@ Before push and after all test runs on this host:
 `docker ps -a` → header only, zero containers (docker daemon reachable, none
 created; no test in this lane creates containers). No volumes/networks/state
 directories owned by this lane; every witness ran inside `t.TempDir()`.
+All files this lane's tests created lived under `t.TempDir()` (auto-removed),
+including the askpass/helper scripts.
+
+Scope note (honest boundary): the all-of-`./internal/...` sweep started on this
+worktree was interrupted by this session's context compaction, so its totals
+are not recorded here. The packages this change can affect —
+`internal/credential/native` (green, this session, post-compact re-run) and
+`cmd/baha` (green end-to-end pre-compact, 402.7s) — are covered above and by
+the fully green hosted CI. Pre-existing failures in unrelated packages
+(`internal/accesswizard`, provider-placement) exist identically at the merged
+develop content (2 FAIL lines reproduced via `git stash` at develop `4fa5293a4`
+this session) and are not caused by this change; they belong to their own
+cards' lanes.
+
+END: 0428-217 round-2 complete. Candidate `719d28a888abf9dc2c7715fb002f1aa77fdf9708`
+pushed to `w0428-217credfill` (PR #1742), hopped onto develop `4fa5293a4`, CI run
+44895100181 green to terminal, BEFUND 1 (M1 prompt-path witness via raw execve),
+BEFUND 2 (app_update stdin regression, mutation-verified) and the CI-pickup
+answer delivered above. Awaiting CODEX-REVIEW.
