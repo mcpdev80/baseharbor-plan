@@ -91,9 +91,9 @@ Apply at every pin-needing site:
 - gofmt clean on etcdctl.go, etcdutl.go, dcs_boot_probe.go, lock_probe.go, envpin/pin.go, and both test files.
 - `go build ./...` exit 0; `go vet ./...` exit 0.
 - Regression per fixed site runs in repo (hosted CI): etcd `TestPinnedEnvDropsInheritedKeys` / `TestChildProcessEnvShowsPinNotInherited`, coreupdate `TestDCSBootProbePinsOverrideInherited` (sets inherited ETCDCTL_CACERT/CERT/KEY/API and proves child sees pin, one case per pinned key), stableid `TestProbeEnvDropsInheritedPATH`.
-- Candidate head SHA: 342dd1e14a304085738c05256d6d4f44d26f5c84 (delivered to GitHub, verified via ls-remote).
-- Single author AND committer on the hop commit: 0428-222-childenv.
-- PR #1749 head via `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/pull/1749/head` == candidate head.
+- PR #1749 head: `4465cb29f66ed00804cab0ddea10309af2d9aac3` (fast-forward rc2 `3df3cb8` -> rc3 `4465cb29f`), verified via `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/pull/1749/head`. Single author AND committer on the rc3 commit: `0428-222-childenv`.
+- Hosted CI run 44943806186 (run id per GitHub), conclusion `success`, 36 jobs: all executed required jobs PASS, zero failures. Per-job logs confirm actual execution (not skipped): go-build PASS, go-vet PASS, authority-package-tests PASS, Go unit owner/cli-0/cli-1/cli-2/cli-3/packages PASS, Focused Python PASS, Source format PASS, PR Selected Checks PASS. Native/runtime/release gates skipped (Owner-gated, not required for this write-set).
+- Evidence committed to baseharbor-plan origin/main.
 
 ## 0428-222-hopdev END DONE
 
