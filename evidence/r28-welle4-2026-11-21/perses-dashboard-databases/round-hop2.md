@@ -59,7 +59,7 @@ Worker: 0428-076-hop2 (session laptop). One PR only, no content change. The prev
 - `gofmt -l cmd/baha/ internal/metrics/` => clean after -w
 - `go test ./internal/metrics/ -count=1 -run "Perses"` => ok 0.058s (all TestPerses* PASS, incl. VerifyRealQuerySuccess, GoldenFiles, FailClosed cases)
 - `go test ./cmd/baha/ -count=1 -run "Perses|ApplicationStatus|DatabaseBoard" -skip "RunsRealLifecycle|RequiresORAS|RejectsSecondProcess|PinsCanonicalApplication"` => ok 12.144s; named PASS lines incl. TestBahaStatusPersesConfiguredUnverifiedPositive, TestPersesLifecycleTransportActionMatrix, TestPersesLifecycleMCPSharedSeamRunsApplyLifecycle, TestPersesLifecycleGatePredicate.
-- CI exact-head / terminal aggregate: PENDING (required after push). Spun up after END_DONE gate.
+- CI exact-head / terminal aggregate (run after push): run **#7021** `CI · PR #1597`, event `pull_request`, **status completed, conclusion success**. PR check-runs for commit `12a6e7a46`: **PR Selected Checks: completed → success** (required aggregate); Go unit cli-0/1/2/3, owner, packages all **success**; validation cli-gofmt, go-vet, go-build all **success**; Focused Python **success**; all runtime/docker/podman/HA/selected-core/exact-full gates **skipped** (correct — hop touches no runtime path; gofmt/CI-format fix validated by cli-gofmt + go-build). Direct `gh run view 7021`/`actions/runs/7021/jobs` API 404s on this token; proof via `gh run list` + PR check-runs (authoritative, reachable).
 
 ## Push delivery
 
@@ -86,4 +86,4 @@ Worker: 0428-076-hop2 (session laptop). One PR only, no content change. The prev
 
 ## Status
 
-- LANE 0428-076-hop2: HOP APPLIED — PR #1597 retargeted to develop-anchored head `12a6e7a46`; four symptom proofs + build/vet/fmt/focused tests green; CI exact-head terminal aggregate PENDING.
+- LANE 0428-076-hop2: HOP COMPLETE — PR #1597 retargeted to develop-anchored head `12a6e7a46`; four symptom proofs + build/vet/fmt/focused tests green; CI #7021 PR Selected Checks success.
