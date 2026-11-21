@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: coordinator
-kanban_status: review
-kanban_lane: review
+owner: 0428-183-hopdev
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-183 · valkey dashboards gate
 priority: ""
@@ -23,18 +23,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md", "https://github.com/mcpdev80/baseharbor/pull/1734", "https://github.com/mcpdev80/baseharbor/actions/runs/44853938826"]
 ---
 
-- [ ] t-20261120-r28-valkey-dashboard-unavailable-only · Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable #task #release/v0-4-28 #status/review #view/review #kind/bug
+- [ ] t-20261120-r28-valkey-dashboard-unavailable-only · Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
-    **Owner:** coordinator  
+    **Owner:** 0428-183-hopdev  
     **PR:** [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1734), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44853938826)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-loki-verify-probe](t-20261121-loki-verify-probe.md), [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
-**Owner:** coordinator  
+**Owner:** 0428-183-hopdev  
 **Priority:** not set  
 **PRs:** [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714)  
 **Source:** 
@@ -76,3 +76,5 @@ hop NICHT angekommen, von MIR gemessen: 'merge-base develop head' = 7fbb2d2c6c64
 hop IST angekommen, von MIR erneut gemessen (nach meiner zurueckweisung): PR #1714 head d0ae338d7d4b, 'git log -1 --format=%P' = 97b2ba5543f0 = der gemessene develop, 'merge-base --is-ancestor develop head' = JA, 'rev-list --count develop..head' = 1, 'rev-list --count head..develop' = 0, mergeable=MERGEABLE. Meine vorige meldung '73 commits hinter develop' galt dem vorheren head 52688ef4c958 (merge-base 7fbb2d2c6 = merge-commit #1734); die lane hatte 13:51 bereits round 2 geschoben — mein lese-zugriff lief gegen den alten stand. Beide staende stehen in der akte, damit die folge nachvollziehbar bleibt. Die karte geht ins review; abnahme folgt in der abhaengigkeits-reihenfolge.
 
 hop angekommen: PR #1714 head d0ae338d7d4b, vater = 97b2ba5543f0 = der gemessene develop, ancestry JA, 'rev-list --count develop..head' = 1, 'rev-list --count head..develop' = 0, mergeable MERGEABLE. Meine fruhere meldung '73 commits hinter develop' galt dem alten head 52688ef4c958 (merge-base 7fbb2d2c6 = merge-commit #1734); die lane hatte 13:51 bereits round 2 geschoben. Der hostete run 44906881418 am neuen head ist in_progress; ist er rot, kommt die karte zurueck auf active.
+
+test hop
