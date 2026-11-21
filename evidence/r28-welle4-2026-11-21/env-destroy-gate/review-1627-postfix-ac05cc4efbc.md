@@ -71,3 +71,11 @@ END_BLOCKED codex-rev-1747: #1627 review remains held because exact-head CI run 
 ## Publication witness
 
 Pending publication to Planning origin/main.
+
+## Origin-main evidence path witness
+
+Exact output of `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle4-2026-11-21/env-destroy-gate/review-1627-postfix-ac05cc4efbc.md`:
+
+```text
+evidence/r28-welle4-2026-11-21/env-destroy-gate/review-1627-postfix-ac05cc4efbc.md
+```
