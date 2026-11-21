@@ -80,7 +80,9 @@ Worker: 0428-076-hop2 (session laptop). One PR only, no content change. The prev
 
 ## Evidence publish (origin/main)
 
-- ls-tree grep:
+- `git push origin main` => `f6286355..fcaf728d  main -> main`
+- `git ls-tree -r --name-only origin/main | grep perses-dashboard-databases/round-hop2`:
+  `evidence/r28-welle4-2026-11-21/perses-dashboard-databases/round-hop2.md`
 
 ## Status
 
