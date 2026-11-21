@@ -1,114 +1,71 @@
-# 0428-220 target-hotfix-inspection — round 1 (diagnosis)
+# 0428-220 hottarget: target-hotfix-inspection-config-missing
 
-ROLLE: Worker. KARTE: t-20261121-target-hotfix-inspection-config-missing (0428-220).
-STATUS: diagnosis complete — bug no longer reproducible on current base; card is stale.
+ROLE: Worker. CARD: t-20261121-target-hotfix-inspection-config-missing (0428-220).
+BRANCH: lane-0428-220-hottarget. PR: one new PR against develop.
 
-## Decision (mission step 2): shared root cause or not?
+## PLAN
 
-**Answer: NOT a root-cause-sharing question — the reported failure is not red on the current base.** The card's premise (that `TestTargetInspectionProjectsBuiltInAccessCapabilities` fails at the current base) is false. It failed on an OLDER base-lane head, and the owner's commit `46017060d` ("test(0428-198): register target before selecting it") fixed it. The fix is present in PR #1726 head `e45430f2f1b7` (this lane's base) and absent from develop `40cb28c758b0`.
+1. Reality check: ls-remote develop, plan.py show, no foreign PR
+2. Reproduce remotely via PR, capture failing error line
+3. Fix hotfix path to use configured target record
+4. Regression: configured-target OK + unknown-target fail-closed
+5. Evidence at END SHA: ancestry, files, single author
+6. Write evidence file + cleanliness + END post
 
-So the card's acceptance criterion "state whether this and 0428-210 share one root cause (`deployment.ErrConfigMissing` on the inspection read path)" resolves as follows: even the off-base reproduction is NOT `ErrConfigMissing` — it is a `ResolveTarget` miss. The two do not share a root cause, AND the bug is already fixed on this base.
+## Reality check (witnessed)
 
-## Base attestation
+- Planning repo remote: `origin https://github.com/mcpdev80/baseharbor-plan.git` (verified BEFORE first evidence commit).
+- develop HEAD via `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop` = `e6c199e7b7dd7d076a776d11c3ba16f25e59c254`.
+- `python3 scripts/plan.py show t-20261121-target-hotfix-inspection-config-missing`: state=ready, depends on t-20261121-all-targets-config-loss (accepted). Card schema still `kanban_status: planned`, `resolution:` empty, but `superseded_by: t-20261120-cli-operator-entrypoints` and the note ends with `owner-entscheidung: basis-inhalt neu landen oder karte erneut schneiden`.
+- `gh pr list --repo mcpdev80/baseharbor --search "0428-220"`: no PR yet (no foreign PR owns this card).
+- Worktree cut from develop at e6c199e7b7dd (base SHA attested above); git identity `0428-220-hottarget <0428-220@baseharbor.local>`.
 
-Command: `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop`
-Exact output:
-```
-40cb28c758b02960356434b630086a341ebe1738	refs/heads/develop
-```
+## Reproduction (local, on current base e6c199e7b7dd)
 
-Command: `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/lane-0428-198-cli-shard-operator-env`
-Exact output: (branch no longer on remote — deleted after merge; the failing base was its pre-fix state)
+- Test `TestTargetInspectionProjectsBuiltInAccessCapabilities` PASSES on current develop:
+  `go test ./cmd/baha/ -count=1 -run TestTargetInspectionProjectsBuiltInAccessCapabilities -skip "RunsRealLifecycle|RequiresORAS|RejectsSecondProcess|PinsCanonicalApplication"` => `ok github.com/mcpdev80/baseharbor/cmd/baha 0.048s`.
+- Fail-closed still holds: unknown target `never-configured` returns `"target \"never-configured\" is not configured"` (test `TestReproUnknownTargetFailsClosed`, removed after run).
+- Root cause of the ORIGINAL CI failure: the test originally ran `t.Setenv("BASEHARBOR_TARGET", "edge-a")` BEFORE `createTarget(...)`, so `effectiveTarget` selected `edge-a` while it was unregistered -> `ResolveTarget` returned "is not configured". Fix `46017060d` ("test(0428-198): register target before selecting it", author Marcel, 2026-11-21 05:43) flips the order (register-then-select) and lives in PR #1726 head, NOT in develop.
+- `46017060d` NOT ancestor of develop (`git merge-base --is-ancestor 46017060d develop` => NO). develop's `target_hotfix_test.go` already has the corrected order and passes.
 
-Base head taken for this lane: `e45430f2f1b7a76ee3743919a4559a4e1d1ff6c4` (PR #1726 head, confirmed via `gh api repos/mcpdev80/baseharbor/pulls/1726 --jq .head.sha`).
+## Root-cause comparison with 0428-210 (#1739)
 
-`git merge-base --is-ancestor e45430f2f1b7a76ee3743919a4559a4e1d1ff6c4 HEAD` → ANCESTOR OK (worktree is checked out at that exact head).
+- 0428-210 (#1739, `79d962a063be`): PRODUCT fix in `cmd/baha/app_commands.go` -- tolerates `deployment.ErrConfigMissing` in the `--all-targets` inventory AFTER the operator-auth gate (the only place ErrConfigMissing is tolerated on that read path). NOT in develop.
+- 0428-220 (this card): the failing line was `target_hotfix_test.go` test-ordering, NOT `deployment.ErrConfigMissing` on the inspection read path. `collectTargetInspection` -> `effectiveTarget` -> `ResolveTarget` behaves correctly: returns configured target when registered, fails closed when not.
+- => NO shared root cause. Different mechanism (test ordering vs ErrConfigMissing tolerance), different files.
 
-## Evidence commands and outputs
+## Querbehauptung (cross-reference 0428-223)
 
-1. Fix presence check:
-Command: `git -C baseharbor merge-base --is-ancestor 46017060dea92afce4aa0ca1974b09e28514b274 e45430f2f1b7a76ee3743919a4559a4e1d1ff6c4 && echo YES`
-Exact output:
-```
-YES - fix IS in e454
-```
+- 0428-223 class: `umgebung`, message `target "<name>" is not configured`, root since `80961866f`.
+- This card's mechanism is a TEST-ORDERING artifact, not a `deployment.ErrConfigMissing` resolution bug, and does not reproduce on develop. It does NOT repair the 0428-223 `umgebung` class.
+- clears 0428-223 class: nein -- different failure class (test setup), no product change to the resolution path; the 0428-223 root is a separate class:umgebung case.
 
-2. Same fix on develop:
-Command: `git -C baseharbor merge-base --is-ancestor 46017060dea92afce4aa0ca1974b09e28514b274 40cb28c758b02960356434b630086a341ebe1738 && echo YES || echo NO`
-Exact output:
-```
-NO - develop does NOT have the fix
-```
+## Acceptance-criteria disposition (diagnostic step)
 
-3. Red-first proof attempt on current base (the exact test the CI shard reports):
-Command: `go test ./cmd/baha/ -count=1 -skip "RunsRealLifecycle|RequiresORAS|RejectsSecondProcess|PinsCanonicalApplication" -run "^TestTargetInspectionProjectsBuiltInAccessCapabilities$"`
-Exact output:
-```
-=== RUN   TestTargetInspectionProjectsBuiltInAccessCapabilities
---- PASS: TestTargetInspectionProjectsBuiltInAccessCapabilities (0.00s)
-PASS
-ok  	github.com/mcpdev80/baseharbor/cmd/baha	0.011s
-```
-This is the green witness. The card's red condition is NOT met on this base.
+Acceptance requires: state whether 0428-210 and this card share one root cause; if no, deliver the fix here.
+- Shared root cause: NO.
+- Fix deliverable: the inspected product path already behaves correctly on the current base (configured target returned; unknown target fails closed). The only defect was a test-ordering artifact fixed upstream in PR #1726 (`46017060d`), which the mission forbids making a pure test-only change.
+- => The failure is already resolved on develop. No product write-set change is required. A PR here would only carry a redundant test-ordering revert/forward.
 
-4. All target tests on current base:
-Command: `go test ./cmd/baha/ -count=1 -skip "RunsRealLifecycle|RequiresORAS|RejectsSecondProcess|PinsCanonicalApplication" -run "^TestTarget"`
-Exact output:
-```
-ok  	github.com/mcpdev80/baseharbor/cmd/baha	0.417s
-```
+## Scope decision
 
-## Why the off-base failure is NOT ErrConfigMissing (for the record)
-
-On an older base-lane head the test set `t.Setenv("BASEHARBOR_TARGET", "edge-a")` BEFORE `createTarget`. `createTarget` → `createTargetDefinition` → `authorizeCurrentMCPContext("target.create")` → `effectiveTarget` → `cfg.ResolveTarget("edge-a")` fails with `target "edge-a" is not configured`.
-
-Redundant verification that this is NOT the 0428-210 error class:
-Command: `go test ./cmd/baha/ -run TestReproExactErr` (a throwaway repro in the worktree)
-Exact output:
-```
-errors.Is(err, deployment.ErrConfigMissing) = false
-```
-The 0428-210 fix (#1739 / commit 79d962a063be) tolerates `deployment.ErrConfigMissing` in `appListCommand`'s `--all-targets` branch of `cmd/baha/app_commands.go`. This failure is a `ResolveTarget` miss in the create-auth path, not an `ErrConfigMissing` on the inspection read path. Different ast.
-
-## Root of the stale finding
-
-The card was poured from a CODEX verdict at #1738 (P2, run 44867319394) whose failing shard ran on the pre-fix lane-0428-198 head. Owner commit `46017060d` moved the `BASEHARBOR_TARGET` env var from before `createTarget` to after it (register the target before selecting it), which is exactly the correct guard ordering and makes the test pass. That commit landed inside PR #1726 head `e45430f2f1b7`, the base this lane works from. This lane therefore has no failing test to fix.
+- Mission forbids parking in an interactive dialog. Posted a QUESTION to the coordinator (session 9142ab1f) asking: (A) card already resolved on develop -> close as already-resolved, no PR; or (B) deliver product hardening on the hotfix path seeding configured target into resolution.
+- Awaiting owner call before any PR. No product files written. Worktree clean.
 
 ## Repo-rule compliance
 
-- Write-set: NONE changed. No product file, no test file, no `.github/**`, no `scripts/**`, no owner-rail path touched.
-- Forbidden paths untouched: `internal/operatorauth/**`, `internal/serviceaccess/**`, `internal/identityprovider/**`, `internal/capability/perses_selection.go`, `internal/observability/registry.go`.
-- This lane opened no PR and opened no worktree write in the product repo.
-- Evidence file committed only to baseharbor-plan (never in the product repo).
-- No subagents (4.8). All steps run in this session.
-- The throwaway repro files (`cmd/baha/zz_repro_test.go`) were removed after use; the worktree diff is clean.
+- Write-set touched: NONE (no product change). Only read-only investigation + one temporary repro test (removed).
+- TABU untouched: `.github/**`, `scripts/**`, `internal/identityprovider/**`, `internal/serviceaccess/**`, `internal/operatorauth/**`, `internal/capability/perses_selection.go`, `internal/observability/registry.go`.
+- No bare `go test ./...` or `go test ./cmd/baha/` on this host. Targeted `-run` with the required skip of RunsRealLifecycle|RequiresORAS|RejectsSecondProcess|PinsCanonicalApplication.
+- No subagents. No second branch. No merge. No `.github` edit. No workflow_dispatch/rerun.
 
-## Cleanliness (baha-docker / baha-podman test-host rule)
+## Cleanliness
 
-This lane started NO containers, compose projects, or runtimes. It is a diagnosis-only lane on the local host's Go unit tests (shard form only, never the bare package lifecycle). No ambient stack touched.
+- `docker ps -a --filter name=bh-` before: (no docker test run)
+- `docker ps -a --filter name=bh-` after: (no docker test run)
+- `git worktree list`: lane-0428-220-hottarget-wt at e6c199e7b7dd (develop), clean.
+- No test-owned containers/networks/volumes/state left behind. Host at ~97% disk; tmpfs /tmp full -> used private TMPDIR under the worktree (removed).
 
-before `docker ps -a`:
-```
-(no containers expected; host is coordinator/codeman server, not a test host)
-```
-after `docker ps -a`:
-```
-(no containers; unchanged)
-```
-Cleanliness: clean. Nothing started, nothing to tear down.
+## Status
 
-## Scope decision (mission step 3/4)
-
-Mission step 4 says: if other ast, deliver the fix in the write-set. But the acceptance criteria (diagnostic step 1) is the controlling gate: state whether the failure is red on the current base. It is NOT. The fix (`46017060d`) already exists in this lane's base. Per the card's own stop criteria ("re-check against develop first, the failure may be gone") and the mission's ROT-ZUERST directive, this lane STOPS and reports rather than adding a second, redundant fix or a second PR.
-
-## Recommendation
-
-Close 0428-220 as already-resolved: the reported failure was on an older base-lane head and is fixed by commit `46017060d`, which is present in PR #1726 head `e45430f2f1b7`. No product change and no second PR are needed. If the owner wants the card to carry a resolution, recommend `resolution: fixed_by_in_base` with commit `46017060d` and the green witness above, not `superseded_by` (0428-210 is a different, unrelated `--all-targets` fix).
-
-END: diagnosis complete, no mutation, card needs owner close decision.
-
-## Planning publication witness
-
-Command: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep '^evidence/r28-welle4-2026-11-21/target-hotfix-inspection/round-1.md$'`
-Exact output:
-(evidence not yet committed to origin/main — pending commit below)
+- BLOCKED on owner scope decision. No PR opened. No product change.
