@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w228-0428-207-appedit-fix
-kanban_status: review
-kanban_lane: review
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "App Edit activation against a real isolated Core stops failing with start real isolated Core for App Edit: existing native…"
 kanban_title: 0428-207 · 0428-207 App Edit Core
 priority: high
@@ -18,20 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1735]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "CODEX-REVIEW REQUEST CHANGES (plan 5fa43643): ENOENT-ast nicht erreichbar + aktivierungs-pfad ohne regression. korrektur-lane wartet auf freien sitz im 5/5-pool; kandidat #1735 head 09cf55bbaa41 bleibt liegen."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-app-edit-core-activation · 0428-207 App Edit Core activation fails without protected Core network #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
+- [ ] t-20261121-app-edit-core-activation · 0428-207 App Edit Core activation fails without protected Core network #task #release/v0-4-28 #status/wait #view/wait #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** w228-0428-207-appedit-fix · **Priority:** high  
     **PR:** [baseharbor#1735](https://github.com/mcpdev80/baseharbor/pull/1735)  
+    **Waiting:** CODEX-REVIEW REQUEST CHANGES (plan 5fa43643): ENOENT-ast nicht erreichbar + aktivierungs-pfad ohne regression. korrektur-lane wartet auf freien sitz im 5/5-pool; kandidat \#1735 head 09cf55bbaa41 bleibt liegen.  
     **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Owner:** w228-0428-207-appedit-fix  

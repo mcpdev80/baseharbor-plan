@@ -11,8 +11,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 9 |
-| review | 2 |
-| wait | 33 |
+| review | 1 |
+| wait | 34 |
 | blocked | 1 |
 | ready | 5 |
 | queued | 25 |
@@ -38,7 +38,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261121-app-edit-core-activation](../tasks/t-20261121-app-edit-core-activation.md) | 0428-207 App Edit Core activation fails without protected Core network | review | high | w228-0428-207-appedit-fix | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) (open) | [baseharbor#1735](https://github.com/mcpdev80/baseharbor/pull/1735) |
 | [t-20261121-perses-denial-actionability](../tasks/t-20261121-perses-denial-actionability.md) | Perses anonymous denial must name the next command | review | normal | w226-0428-211-persesmsg | — | [baseharbor#1733](https://github.com/mcpdev80/baseharbor/pull/1733) |
 
 ## Waiting for resources
@@ -78,6 +77,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261120-r28-valkey-dashboard-unavailable-only](../tasks/t-20261120-r28-valkey-dashboard-unavailable-only.md) | Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable | wait | not set | w183-0428-183-valkeyfix | [t-20261120-r28-packages-shard-develop-regression](../tasks/t-20261120-r28-packages-shard-develop-regression.md) (open), [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) (open) | [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714) |
 | [t-20261120-shared-backend-state-version-message](../tasks/t-20261120-shared-backend-state-version-message.md) | shared state version message | wait | not set | w201-0428-201-statever | — | [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725) |
 | [t-20261120-verif-none-stale-target](../tasks/t-20261120-verif-none-stale-target.md) | Stale emitted target after Verification=none switch | wait | normal | w205-0428-203-staletgt | [t-20261119-r28-app-source-verification-none-ignored](../tasks/t-20261119-r28-app-source-verification-none-ignored.md) (open) | [baseharbor#1730](https://github.com/mcpdev80/baseharbor/pull/1730) |
+| [t-20261121-app-edit-core-activation](../tasks/t-20261121-app-edit-core-activation.md) | 0428-207 App Edit Core activation fails without protected Core network | wait | high | w228-0428-207-appedit-fix | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) (open) | [baseharbor#1735](https://github.com/mcpdev80/baseharbor/pull/1735) |
 
 ## Blocked
 
