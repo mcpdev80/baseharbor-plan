@@ -10,10 +10,10 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 12 |
+| active | 11 |
 | review | 3 |
 | wait | 19 |
-| blocked | 1 |
+| blocked | 2 |
 | ready | 5 |
 | queued | 25 |
 | waiting | 178 |
@@ -26,7 +26,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | active | normal | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261018-r27-team-proof](../tasks/t-20261018-r27-team-proof.md) | Acceptance: prove two workstations share one authoritative deployment | active | normal | worker-059-teamproof | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-maintenance-client](../tasks/t-20261018-r27-maintenance-client.md), [t-20261018-r27-public-surfaces](../tasks/t-20261018-r27-public-surfaces.md), [t-20261018-r27-stage-versions](../tasks/t-20261018-r27-stage-versions.md), [t-20261018-r27-state-recovery](../tasks/t-20261018-r27-state-recovery.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
-| [t-20261109-r27-target-policy-presets](../tasks/t-20261109-r27-target-policy-presets.md) | Target: editable best-practice deployment policy presets | active | high | m186-policy-presets (0427-186 lane) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) | [baseharbor#1588](https://github.com/mcpdev80/baseharbor/pull/1588) |
 | [t-20261114-r28-cli2-app-export](../tasks/t-20261114-r28-cli2-app-export.md) | CLI redesign: App export and recovery UX | active | high | pr1625-0428-065-export | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) | [baseharbor#1625](https://github.com/mcpdev80/baseharbor/pull/1625) |
 | [t-20261114-r28-cli2-source-pull](../tasks/t-20261114-r28-cli2-source-pull.md) | CLI redesign: Implement guided source pull | active | high | w27-pr1627-0428-061-pull | [t-20261114-r28-cli2-app-lifecycle](../tasks/t-20261114-r28-cli2-app-lifecycle.md), [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) | — |
 | [t-20261114-r28-perses-dashboard-databases](../tasks/t-20261114-r28-perses-dashboard-databases.md) | Perses database dashboards | active | normal | 0428-076-nativeshape | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597) |
@@ -73,6 +72,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [t-20261109-r27-target-policy-presets](../tasks/t-20261109-r27-target-policy-presets.md) | Target: editable best-practice deployment policy presets | blocked | high | m186-policy-presets (0427-186 lane) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) | [baseharbor#1588](https://github.com/mcpdev80/baseharbor/pull/1588) |
 | [t-20261120-gate-catalog-ci-fast-check](../tasks/t-20261120-gate-catalog-ci-fast-check.md) | 0428-205 · Wire scripts/ci-fast-check.sh into the gate catalog | blocked | normal | Codex (Owner-directed, 2026-11-21) | [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) | — |
 
 ## Ready to assign
