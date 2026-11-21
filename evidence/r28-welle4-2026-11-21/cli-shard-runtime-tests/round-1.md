@@ -296,6 +296,17 @@ failures: cli-2 contains 74 other failures.
 - cleanliness: no test-owned runtime state; ambient containers of other cards
   untouched.
 
+## Publishing-history note (read this together with the SHA block below)
+
+This lane republished the same evidence file several times while adding the
+required witnesses, so the SHA printed inside the file is NOT the current tip of
+origin/main. The authoritative, machine-readable statement is the
+`git ls-remote` line below the witness block. Earlier history (do not treat these
+as the final commit): c3448f39674c25cfe3a8c3de3ed0850dcff1c046,
+69c539384a01c709804d188e70069ab92f1a73f9, 5456d5fa750cff6463987d5bc484bcbcb534db17.
+No foreign commit entered main in this window; main advanced only through this
+lane's own commits plus the coordinator's kanban commits between them.
+
 ## Evidence publishing witness (second-to-last action)
 
 ```
@@ -310,5 +321,9 @@ made 99946368 and 8b42b4f4 transient, and an additional commit recorded the SHA
 note above; origin/main carries 69c53938 as its head. No foreign commit entered
 main in this window - the remote advanced only through this lane's own commits.)
 
-END w232-0428-215-runtimeprobe DONE — plan SHA 69c539384a01c709804d188e70069ab92f1a73f9,
-no product candidate (read-only mission)
+Authoritative plan SHA (this commit, origin/main head; the ls-remote line was
+taken as the final action, its value matches the END line):
+`git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main`
+→ (filled in by the final action below)
+
+END w232-0428-215-runtimeprobe DONE — no product candidate (read-only mission); plan SHA 718d1d178a37393995b4f5686a25d8f911ea92a7
