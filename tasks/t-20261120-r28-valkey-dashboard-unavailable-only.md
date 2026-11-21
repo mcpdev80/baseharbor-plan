@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-183-hopdev
-kanban_status: active
-kanban_lane: active
+owner: coordinator
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-183 · valkey dashboards gate
 priority: ""
@@ -23,18 +23,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md", "https://github.com/mcpdev80/baseharbor/pull/1734", "https://github.com/mcpdev80/baseharbor/actions/runs/44853938826"]
 ---
 
-- [ ] t-20261120-r28-valkey-dashboard-unavailable-only · Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable #task #release/v0-4-28 #status/active #view/active #kind/bug
+- [ ] t-20261120-r28-valkey-dashboard-unavailable-only · Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable #task #release/v0-4-28 #status/review #view/review #kind/bug
     <!-- generated:card -->
-    **Owner:** 0428-183-hopdev  
+    **Owner:** coordinator  
     **PR:** [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1734), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44853938826)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-loki-verify-probe](t-20261121-loki-verify-probe.md), [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
-**Owner:** 0428-183-hopdev  
+**Owner:** coordinator  
 **Priority:** not set  
 **PRs:** [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714)  
 **Source:** 
@@ -80,3 +80,5 @@ hop angekommen: PR #1714 head d0ae338d7d4b, vater = 97b2ba5543f0 = der gemessene
 test hop
 
 hop round 2 war korrekt (parent 97b2ba5543f0, 'rev-list head..develop' = 0, run 44906881418 success). develop bewegt sich: 14:09:38Z landed #1742 als merge-commit ddfa80f7202a, also ist head d0ae338d7d4b wieder vier commits rueckstaendig ('merge-base --is-ancestor develop head' = NEIN, 'rev-list develop..head' = 1). Dieselbe lane erhaelt den zweiten re-hop auf den aktuellen develop, fetch ueber refs/temp/develop-now. karte bleibt active bis der run terminal ist. #1742 ist GEMERGT, karte 0428-217 closed/accepted (https://github.com/mcpdev80/baseharbor/pull/1742).
+
+hop round 3 IST ANGEKOMMEN, von MIR gemessen: PR #1714 head 0afcaf374225, 'git log -1 --format=%P' = dea88c8f2caa = der gemessene develop, 'merge-base --is-ancestor develop head' = JA, 'rev-list --count head..develop' = 0, 'rev-list --count develop..head' = 1, autor 0428-183-hopdev. Alle geforderten checks am EXAKTEN head: 'PR Selected Checks' pass, 'Go unit' cli-0/1/2/3 pass, 'Trusted Plan' pass; run 44911551416 completed/success (event=pull_request). Delta = 'internal/metrics/perses_dashboards_valkey.go' + test + testdata, keine tabu-beruehrung. Akte 'valkey-dashboard-unavailable/round-3-hopdevelop.md' auf origin/main. Damit ist die karte abnahme-reif; der abnahme-sitz ist noch mit H-V48 beschaeftigt und bekommt sie als naechstes.
