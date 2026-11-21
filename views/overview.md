@@ -11,12 +11,12 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 13 |
-| review | 6 |
+| review | 7 |
 | wait | 29 |
 | blocked | 1 |
 | ready | 5 |
 | queued | 25 |
-| waiting | 186 |
+| waiting | 185 |
 | backlog | 7 |
 | closed | 386 |
 
@@ -45,6 +45,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | review | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) (open) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
 | [t-20261121-app-edit-core-activation](../tasks/t-20261121-app-edit-core-activation.md) | 0428-207 App Edit Core activation fails without protected Core network | review | high | Codex (Marcel, active wait sweep 2026-11-21) | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) (open) | [baseharbor#1735](https://github.com/mcpdev80/baseharbor/pull/1735) |
 | [t-20261121-loki-verify-probe](../tasks/t-20261121-loki-verify-probe.md) | loki health verify must reach the probe, not a missing-file exit | review | high | w235-0428-212-lokifix2 | — | [baseharbor#1734](https://github.com/mcpdev80/baseharbor/pull/1734) |
+| [t-20261121-mcp-operator-seam-uncovered](../tasks/t-20261121-mcp-operator-seam-uncovered.md) | 0428-218 make the MCP operator seam reachable from MCP tests | review | normal | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) (open) | [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741) |
 | [t-20261121-native-cell-operator-seam](../tasks/t-20261121-native-cell-operator-seam.md) | 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam | review | high | Codex team (current thread) | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) (open) | [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740) |
 | [t-20261121-perses-denial-actionability](../tasks/t-20261121-perses-denial-actionability.md) | Perses anonymous denial must name the next command | review | normal | w226-0428-211-persesmsg | — | [baseharbor#1733](https://github.com/mcpdev80/baseharbor/pull/1733) |
 | [t-20261121-trust-uninstall-false-green](../tasks/t-20261121-trust-uninstall-false-green.md) | trust-uninstall EOF tests are green on the auth gate error | review | high | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) (open) | [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737) |
