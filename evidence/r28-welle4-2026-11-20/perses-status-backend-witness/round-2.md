@@ -26,7 +26,7 @@ Korrekturrunde nach CODEX-REVIEW (note-142-fix.txt / review-1.md). PR #1702, hea
 
 ## Cleanliness
 
-- (to be filled at END with a ps-witness)
+- Host cleaned before END. My shift-started docker container `bh-docker-dev-edit-runtime-integration-dev-api-1` (up 17s, from the ORAS/runtime shard verification) was removed: `docker rm -f ...` -> `bh-docker-dev-edit-runtime-integration-dev-api-1`. Post-teardown ps-witness: only the 13-day pre-existing shared stack remains (`bh-docker-dev-shared-postgres-1`, `...-member-1-1`, `...-admin-1`, `bh-docker-dev-shared-openbao-admin-1`), none mine. No podman containers. No orphaned volumes of mine. No stray `baha` binary (git status clean).
 
 ## CI run watch (terminal, witnessed)
 
