@@ -7,9 +7,9 @@ areas: [ci, coordination]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w233-0428-216-prsweep
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Every open PR that belongs to a Codeman card is either a descendant of current develop, or carries the base ref its card…"
 kanban_title: 0428-216 · 0428-216 stale PR hops
 priority: normal
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-stale-pr-hop-and-baserefs · 0428-216 hop the stale PRs of our cards and fix their base refs #task #release/v0-4-28 #status/planned #view/ready #area/ci #area/coordination #kind/task
+- [ ] t-20261121-stale-pr-hop-and-baserefs · 0428-216 hop the stale PRs of our cards and fix their base refs #task #release/v0-4-28 #status/active #view/active #area/ci #area/coordination #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w233-0428-216-prsweep · **Priority:** normal  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w233-0428-216-prsweep  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
@@ -90,3 +89,5 @@ If a hop would require touching a file an Owner rail owns, stop at that PR, reco
 
 Evidence: `evidence/r28-welle4-2026-11-21/stale-pr-hop-and-baserefs/round-1.md`. No product commit by this card is
 expected; if one appears, the card was exceeded.
+
+COMMISSIONED from hunt H-V25: metadata + hop sweep over our own PRs, hard-bounded to PRs whose card has no live session (no force-push under a working lane).
