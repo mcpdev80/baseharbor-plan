@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: 0428-220-hottarget
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "collectTargetInspection after the hotfix command path returns the configured target instead of failing with target \"edge-a\" is…"
 kanban_title: 0428-220 · 0428-220 hotfix inspect
 priority: normal
@@ -19,8 +19,8 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/target-hotfix-inspection/round-1.md"]
+resolution: dropped
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/target-hotfix-inspection/round-1.md", "https://github.com/mcpdev80/baseharbor/commit/e6c199e7b7dd7d076a776d11c3ba16f25e59c254"]
   - https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md
 created: "2026-11-21T06:52:00Z"
 updated: "2026-11-21T06:52:00Z"
@@ -28,14 +28,14 @@ superseded_by: ""
 
 ---
 
-- [ ] t-20261121-target-hotfix-inspection-config-missing · 0428-220 target hotfix inspection reports the target as unconfigured in CI #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
+- [x] t-20261121-target-hotfix-inspection-config-missing · 0428-220 target hotfix inspection reports the target as unconfigured in CI #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** 0428-220-hottarget · **Priority:** normal  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/target-hotfix-inspection/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/target-hotfix-inspection/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/commit/e6c199e7b7dd7d076a776d11c3ba16f25e59c254), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-all-targets-config-loss](t-20261121-all-targets-config-loss.md)  
 **Owner:** 0428-220-hottarget  
@@ -106,3 +106,5 @@ Diagnosis: reported failure not reproducible on current base. Commit 46017060d '
 zurueckgezogen: mein supersede-zeuge '46017060d' ist NICHT in develop. PR #1726 ist CLOSED ohne merge (closedAt 2026-11-21T09:09:20Z, mergedAt null, mergeable CONFLICTING); 'merge-base --is-ancestor' liefert fuer alle acht geprobten commits der basis-lane NEIN. inhaltlicher beleg: develop traegt 0 Vorkommen von 'withoutOperatorAuthTestContext' in cmd/baha/app_init_wizard.go, die basis-lane traegt zwei. Die hotfix-aenderung lebt also weiter.owner-entscheidung: basis-inhalt neu landen oder karte erneut schneiden
 
 superseded_by 0428-204 ist UNWIRKSAM: PR #1726 ist geschlossen ohne merge (refs/pull/1726/head = e45430f2f1b = lane-0428-198-cli-shard-operator-env), und 'git merge-base --is-ancestor 46017060d develop' = NEIN. Der fix existiert nur auf dem 198-branch. Portierung auf develop ist jetzt die arbeit der lane. Der verlust selbst ist ein fund fuer karte 0428-221.
+
+develop-Zeile 203 ruft bereits 'collectTargetInspection(withTargetOverride(ctx, edge-a))' (git show e6c199e7b7dd); 46017060d setzt dagegen 't.Setenv BASEHARBOR_TARGET' (Zeile 16) und ist nicht ancestor von develop. Der geruegte fehler existiert am aktuellen develop nicht; der rote shard lief auf einem pre-fix head des 198-stapels (run 44867319394). Kein PR.
