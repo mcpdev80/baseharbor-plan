@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-identity-secrets/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98d/evidence/r28-welle4-2026-11-19/identity-secrets-hopf/fix-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44735405029"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-identity-secrets/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98d/evidence/r28-welle4-2026-11-19/identity-secrets-hopf/fix-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44735405029", "https://github.com/mcpdev80/baseharbor/actions/runs/44860390232"]
 ---
 
 - [ ] t-20261114-r28-cli2-identity-secrets · CLI redesign: Separate human/runtime secret authority #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** Owner (marcel, direkt) · **Priority:** high  
     **PR:** [baseharbor#1615](https://github.com/mcpdev80/baseharbor/pull/1615)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-identity-secrets/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98d/evidence/r28-welle4-2026-11-19/identity-secrets-hopf/fix-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44735405029)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-identity-secrets/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98d/evidence/r28-welle4-2026-11-19/identity-secrets-hopf/fix-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44735405029), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44860390232)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -281,3 +281,10 @@ OWNER UEBERNIMMT DIREKT (Ausdrueckliche Anweisung 2026-11-20): karte ist aktiv u
 - Published commit `5466a87bffe1edbef68b6b52777d12d773178b3d` with expected-head protection. PR #1615 remains OPEN/BLOCKED at that exact head. New exact run [44856918920](https://github.com/mcpdev80/baseharbor/actions/runs/44856918920) is in progress; Native gate plan, Source format, Trusted Plan, Demo Pin, Runner Interface and advisory Candidate checks are successful so far. Do not merge until the complete exact required run, final independent review, and fresh mergeability are clean.
 - Exact run 44856918920 then exposed the same missing `dev` policy in `TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI` (Docker and Podman lifecycle selection), not a production authorization defect. Added `configureRuntimeIntegrationTestOperatorAuth` for each shared-Core workload lifecycle test that calls `app doctor`; it restores the prior boundary. Local targeted Go checks pass. Published follow-up `a82ce82409219bce3f4a30dea91c97230bffd1de`; exact run `44858328354` was triggered for that head. The prior run was force-cancelled after confirming the missing-boundary failure and superseding it.
 - Correction: while publishing the long workload integration file at `a82ce824`, the connector blob was accidentally built from a truncated shell output; exact run 44858328354 failed immediately with `expected 'package', found Warning` and was cancelled after replacement. The full local file was republished and verified byte-for-byte by matching local Git blob SHA to GitHub's file blob SHA `8cf672f544517de82268371ffd9f59142c6e63e7`. Corrected head is `231ebd269735b18747ba38fab80c57e3523ab60f`; exact run 44858521941 is pending. Ignore/cancel the failed superseded head's evidence.
+
+
+## #1615 continuation — exact runtime fixture correction (2026-11-21)
+
+- Exact head `231ebd269735b18747ba38fab80c57e3523ab60f`, run `44858521941`, completed with 3/6 selected runtime gates red. Docker/Podman repository lifecycle and Docker backup-restore failed; CI evidence showed the backup test did not acknowledge the exact candidate hash, while lifecycle failures included a readiness issue and a retained-owner retirement assertion.
+- Published test-only follow-up `3ee114d824d12bf5f832b00700c861aed744435e`: backup fixture retries once with its exact emitted `--confirm-candidate` hash; repository-apply and retirement failures now print bounded diagnostics. Independent read-only delta review found no scope or consent bypass. `gofmt`, `git diff --check`, and focused `go test ./cmd/baha -run '^(TestRepositoryWorkflowRealLifecycle|TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI|TestAppBackupRestoreCLIRealDisasterRecovery)$' -count=1` passed locally (native opt-in acceptance is exercised by hosted selected gates).
+- New exact PR run `44860390232` started on the pushed head. At update time it is in progress, with no failed checks. Wait for terminal selected runtime logs; do not merge before all exact-head required checks pass and final mergeability is clean. Codeman remains read-only.
