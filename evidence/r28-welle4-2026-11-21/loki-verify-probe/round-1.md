@@ -91,6 +91,12 @@ No stop-and-report needed: none of the four sites required `loki_datasource.go` 
         --- PASS: .../UnmaterializedPKIFailsClosedAsPrecondition (0.00s)
     ok  	github.com/mcpdev80/baseharbor/internal/logs
 
+Hosted PASS witness, run 44845451055 job 136663987987 ('PR · Go unit · packages'), conclusion
+success. The per-subtest RUN/PASS lines above are reproduced from this lane's local run of the
+identical head (75770bd2d); the job-level conclusion for the exact head is the hosted witness:
+
+    Job 'PR · Go unit · packages': completed, conclusion = success
+
 ## PR, head, hosted runs
 
 - PR: https://github.com/mcpdev80/baseharbor/pull/1734 (base develop, draft=false)
@@ -180,8 +186,11 @@ On this coordinator host the fast check shows one environmental Go failure unrel
 
 ## Hosted run detail (44844936135, head 430e2722c)
 
-- `PR · Go unit · packages` SUCCESS — the card's required shard passed at head 430e2722c, i.e. the
-  three former client-cert.pem failures are healed and the new subtests run green in CI.
+- `PR · Go unit · packages` SUCCESS at head 430e2722c AND at the final head 75770bd2d (run
+  44845451055, job 136663987987): the three former client-cert.pem failures are healed and the new
+  subtests run green in the hosted required shard. The hosted job's raw text log is no longer
+  fetchable after the fact (`failed to get run log: zip: not a valid zip file`), so the job-level
+  conclusion is cited as the witness (5.4: no re-probing).
 - `PR · Go unit · cli-0/1/2/3` FAILURE at develop-based heads with `cmd/baha` failures
   (`TestAppCreateListShowPlan`, `TestAppInitCreatesCommitFriendlyRepositoryManifest`, …) — same
   environmental signature as the local failure above. GATE-FAIL 0428-204: recorded as STATE, no
