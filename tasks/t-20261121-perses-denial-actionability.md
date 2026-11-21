@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "The anonymous Perses operator-access denial says which precondition is missing and which command to run next, so an operator…"
 kanban_title: 0428-211 · 0428-211 Perses anonymous
 priority: normal
@@ -18,20 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1733]
 sources: []
 blocker: ""
-wait_reason: "PR #1733 ist nicht gemergt, aber develop ist an ihm vorbeigelaufen: head 3a8b4a8b11de ist kein nachkomme des aktuellen develop (9bd76324ec6d -> e43e7ffea95f), 'gh pr view 1733' = MERGEABLE/BEHIND, und der gehostete beleg gilt gegen den ALTen develop (6 failure / 8 success / 20 skipped). Mission liegt fertig in coordinator/missions/0428-211-hopdevelop.md (payload-gate 0) mit symptom-test und der erwartung, dass nach dem hop die gate-klasse WEG ist — siehe die frische messung an #1739: nach hop auf develop mit #1615 waren cli-0..3, packages, owner, go-build, cli-vet ALLE success, null FAIL (durchgang 44885264462). KEIN sitz frei (5/5), daher 'wait' und nicht 'active'. ZWEITER grund: der head traegt den author 'lv4-verify' aus einem TOTEN working tree (issue #23/#24)."
-resolution: ""
-evidence: []
+wait_reason: ""
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44889694969", "https://github.com/mcpdev80/baseharbor/pull/1733", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/perses-denial-actionability/round-2.md"]
 ---
 
-- [ ] t-20261121-perses-denial-actionability · Perses anonymous denial must name the next command #task #release/v0-4-28 #status/wait #view/wait #area/application #kind/task
+- [x] t-20261121-perses-denial-actionability · Perses anonymous denial must name the next command #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/application #kind/task
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** normal  
     **PR:** [baseharbor#1733](https://github.com/mcpdev80/baseharbor/pull/1733)  
-    **Waiting:** PR \#1733 ist nicht gemergt, aber develop ist an ihm vorbeigelaufen: head 3a8b4a8b11de ist kein nachkomme des aktuellen develop (9bd76324ec6d -\> e43e7ffea95f), 'gh pr view 1733' = MERGEABLE/BEHIND, und der gehostete beleg gilt gegen den ALT…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44889694969), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1733), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/perses-denial-actionability/round-2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** coordinator  
