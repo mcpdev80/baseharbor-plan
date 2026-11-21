@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w23-pr1714-0428-183-r3
-kanban_status: wait
-kanban_lane: wait
+owner: Codex (Marcel, active wait sweep 2026-11-21)
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-183 · valkey dashboards gate
 priority: ""
@@ -18,24 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1714]
 sources: []
 blocker: ""
-wait_reason: "Independent review returned REQUEST CHANGES at head ecff7e2f575 (akte evidence/r28-welle4-2026-11-21/valkey-dashboard-unavailable/review-1-head1ecff7e2.md, verdict line 76): (1) two author identities 0428-183-realpos and worker in the four-commit range, card 0428-224 requires one identity; (2) the exact-head package job passed but its hosted log names no per-case test/duration receipt. Semantics themselves are fail-closed and the emitted-label query matches the golden, so no functional rework is requested. Content dependency: a writer for branch lane-0428-183-valkey-dashboard-gate (hop was taken by the Owner, lane w23 was released) and one scripts-scope receipt change by the Owner (same class as the #1625 finding, scripts/pr-go-unit-shard.py:60-82)."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md", "https://github.com/mcpdev80/baseharbor/pull/1734", "https://github.com/mcpdev80/baseharbor/actions/runs/44853938826"]
 ---
 
-- [ ] t-20261120-r28-valkey-dashboard-unavailable-only · Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable #task #release/v0-4-28 #status/wait #view/wait #kind/bug
+- [ ] t-20261120-r28-valkey-dashboard-unavailable-only · Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable #task #release/v0-4-28 #status/review #view/review #kind/bug
     <!-- generated:card -->
-    **Owner:** w23-pr1714-0428-183-r3  
+    **Owner:** Codex (Marcel, active wait sweep 2026-11-21)  
     **PR:** [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714)  
-    **Waiting:** Independent review returned REQUEST CHANGES at head ecff7e2f575 (akte evidence/r28-welle4-2026-11-21/valkey-dashboard-unavailable/review-1-head1ecff7e2.md, verdict line 76): (1) two author identities 0428-183-realpos and worker in the four…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1734), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44853938826)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-loki-verify-probe](t-20261121-loki-verify-probe.md), [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
-**Owner:** w23-pr1714-0428-183-r3  
+**Owner:** Codex (Marcel, active wait sweep 2026-11-21)  
 **Priority:** not set  
 **PRs:** [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714)  
 **Source:** 
@@ -93,3 +92,5 @@ verdict REQUEST CHANGES (2) an bf251b2b083d: (1) positiver pfad bleibt synthetis
 Candidate at Owner's hop head ecff7e2f575fb991fbe5c3c1c5f6785569d70228 on develop d1acf3f31a36 (back=0), exact hosted run 44940738791 completed/success. Lane 47ffdde2 obeyed the stop order, pushed nothing (handoff evidence 6408d1301), so the lane is no longer active and the card moves to review. Content: valkey dashboard availability query label + honest unavailable/verified contract.
 
 review -> wait: verdict REQUEST CHANGES measured at ecff7e2f575, no live session can currently write the branch (spawn admission hold, tooling issue #6)
+
+REQUEST CHANGES der abnahme, ausschliesslich fuer die commit-identitaet (akte evidence/r28-welle4-2026-11-21/valkey-dashboard-unavailable/review-2-headecff7e2f.md): der kandidat traegt zwei autoren ('worker' und '0428-183-realpos') bei einem committer, karte 0428-224 verlangt genau eine identitaet. KEIN inhaltlicher befund: die valkey-verfuegbarkeits-semantik ('unavailable-only') ist geprueft und in ordnung, die vier commits sind linear. entscheidung noetig, wie bei #1596: dokumentierte owner-ausnahme (praedez: evidence/r28-welle4-2026-11-21/org-env-reconciliation/owner-exception-identity-1596.md) ODER history-normalisierung mit frischem exaktem hosted run. rueckstand: back=19 gegen develop 42da7128e72, der gehostete run 44940738791 war auf dem alten head. keine lane schreibt an diesem branch, die lane-sitzung ist freigegeben.
