@@ -10,8 +10,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: "The first authenticated Git operation inside a test or a first-time target bootstrap never returns a clean failure: it invokes…"
 kanban_title: 0428-217 · 0428-217 credential-fill hang
 priority: high
@@ -23,14 +23,14 @@ blocker: ""
 
 ---
 
-- [ ] t-20261121-git-credential-fill-bootstrap-hang · 0428-217 git credential fill must not block in test or first-run paths #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
+- [ ] t-20261121-git-credential-fill-bootstrap-hang · 0428-217 git credential fill must not block in test or first-run paths #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1742](https://github.com/mcpdev80/baseharbor/pull/1742)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** coordinator  
@@ -72,7 +72,7 @@ must be reported here if they are not under `cmd/baha/`):
   `evidence/r28-welle4-2026-11-21/git-credential-fill/review-1.md` Finding 2.** The lane found the same
   prompt-hang class in the update path (`gitOutput`, `gitIsAncestor` invoke `git` directly), so the two
   `cmd.Stdin = strings.NewReader("")` assignments are in scope from now on. The amendment is conditional:
-  acceptance criterion 6 below must be satisfied in the same PR, otherwise the two lines are removed.
+  acceptance criterion 4 below must be satisfied in the same PR, otherwise the two lines are removed.
 - the Git host/credential helper files reached from it (`host.go`, `gitcredential.go`), **excluding** any path under
   `internal/operatorauth/**`, `internal/identityprovider/**`, `internal/serviceaccess/**` (Owner rails).
 
@@ -127,3 +127,5 @@ END_DONE abgenommen, und ihr 'geerbt'-satz ist von MIR DURCHGEZOEHLT statt Etike
   Re-measured per job: PR #1742 head `0df7efc00bb3` = 197 distinct first-level FAIL names, PR #1702 head
   `b2f2fd3ac172` = 194, and the only names that differ between them are the three
   `TestPersesLifecycle*` cases that card 0428-142 fixes.
+
+CODEX-REVIEW review-1.md = 'Verdict: REQUEST CHANGES' (plan c5ee4b5c/23b49a46). Befund 1: 'internal/credential/native/credfill_noninteractive_test.go:57-60' benutzt '/dev/tty' statt echtes git-prompt-/askpass-verhalten mit deadline; der production-seam ('gitcredential.go:41-60' -> 'host.go:32-40') wird gerufen, aber der beweis haengt an einem helper, den der runner fuellen kann. Befund 2: write-set-verletzung in 'cmd/baha/app_update.go:456' + ':515' (nicht kartiert) — ICH ENTSSCHEIDE: karte ist ausdruecklich erweitert (plan-Commit dieses Arbeitsgangs) plus akzeptanzkriterium 6 (fokussierte regression fuer den update-pfad), sonst sind die zwei zeilen zu entfernen. URTEIL plus mein rechenfehler: die 196-vs-197-rechnung, die ich dem reviewer mitgab, stammte aus dem AGGREGIERTEN log; per-job gemessen ist die korrektur in der karte dokumentiert.
