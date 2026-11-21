@@ -112,3 +112,6 @@ fund-N datenfehler (x) = 0
 - planning-remote github.com/mcpdev80 verifiziert; keine phantom-commits.
 - evidence nur in baseharbor-plan, nie im produkt-repo.
 - PR-Basen der kette: keine kette angefasst.
+
+## END
+END_DONE 0428-221-huntwait: H-V45 wait-release-desk done — 17 wait-karten analysiert (1 f / 2 t / 13 b, 0 datenfehler); PR #1587已merged+ON_DEVELOP als einzige freigabefaehe, 2 hop-karten (#1714/#1597) identifiziert, 13 blocker an operator-auth/Loki feld-gate; evidence hunt-1 auf origin/main verifiziert. plan-sha 4fe3fb6b0.
