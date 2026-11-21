@@ -20,7 +20,7 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: superseded
-evidence:
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/target-hotfix-inspection/round-1.md"]
   - https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md
 created: "2026-11-21T06:52:00Z"
 updated: "2026-11-21T06:52:00Z"
@@ -32,7 +32,7 @@ superseded_by: t-20261120-cli-operator-entrypoints
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** normal  
     **Needs:** [t-20261121-all-targets-config-loss](t-20261121-all-targets-config-loss.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/target-hotfix-inspection/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -97,3 +97,5 @@ Evidence: `evidence/r28-welle4-2026-11-21/target-hotfix-inspection/round-1.md`. 
 Counting law from H-V26: distinct first-level `--- FAIL: Test` names (plan `571364e4`).
 
 diagnose-lane (a1df027f, akte round-1.md plan cba364a2) und VON MIR NACHGEPRUEFT: der gemeldete fall ist an der AKTUELLEN basis nicht mehr rot; die korrektur 46017060d ('test(0428-198): register target before selecting', owner, 21.11 05:43) ist im head von PR #1726 enthalten - mein nachweis: merge-base --is-ancestor 46017060d #1726-head = 0, gemessen. KEINE gemeinsame ursache mit 0428-210: deren fix (#1739, 79d962a063be) toleriert deployment.ErrConfigMissing im arm '--all-targets' von cmd/baha/app_commands.go, der hotfix-pfad war eine andere stelle. Karte superseded durch 0428-204/#1726; kein eigener PR, keine duplicate.
+
+Diagnosis: reported failure not reproducible on current base. Commit 46017060d 'register target before selecting it' (present in PR#1726 head e45430f2f1b7) fixes the test ordering; the error was a ResolveTarget miss, not deployment.ErrConfigMissing. No product change or second PR needed. Card closed as already-resolved in base.
