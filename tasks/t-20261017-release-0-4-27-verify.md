@@ -19,7 +19,7 @@ repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "The v0.4.27 release exists. SHA-256 checks for both published archives pass and the amd64 binary reports exact tag commit 6c40fab4; Pages run 43991826173 succeeded. Provenance remains unresolved: the cryptographically verified asset attestation binds workflow source to main c000c5db (workflow_dispatch), while the artifact binary is built from tag commit 6c40fab4. Anonymous GHCR manifest lookup and package API lookup were denied/not found; verify the exact image channels and source-to-artifact provenance before accepting."
+wait_reason: "The v0.4.27 release exists. SHA-256 checks for both published archives pass and the amd64 binary reports exact tag commit 6c40fab4; Pages run 43991826173 succeeded. Provenance remains unresolved: the cryptographically verified asset attestation binds workflow source to main c000c5db (workflow_dispatch), while the artifact binary is built from tag commit 6c40fab4. Authenticated GHCR read was attempted using the existing gh CLI session in a temporary /tmp Docker config; both `v0.4.27` and `latest` returned `manifest unknown`, and the authenticated organization package API returned 404. The temporary credential file was logged out and removed. Exact image channels are therefore absent/unverified, and tag-bound source-to-artifact provenance is still missing; do not accept."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/43991839986", "https://github.com/mcpdev80/baseharbor/releases/tag/v0.4.27", "https://github.com/mcpdev80/baseharbor/actions/runs/43991826173", "https://github.com/mcpdev80/baseharbor/tree/v0.4.27"]
 ---
@@ -73,3 +73,8 @@ Canonical audit sections 10–13 and existing release-only/artifact/checksum/pro
 - The tag and GitHub Release are live, contrary to the original handoff: `v0.4.27` tag commit `6c40fab4de9a611bc8da2e834417427a83c01ca5`; release run [43991839986](https://github.com/mcpdev80/baseharbor/actions/runs/43991839986) and Pages run [43991826173](https://github.com/mcpdev80/baseharbor/actions/runs/43991826173) succeeded. Downloaded amd64/arm64 archives both passed `sha256sum -c checksums.txt`; the amd64 binary reports `version=0.4.27` and `commit=6c40fab4de9a611bc8da2e834417427a83c01ca5`.
 - `gh attestation verify` successfully verifies the amd64 archive under the release workflow identity, but its SLSA statement source digest/ref are `c000c5db2560c471fe84842136e03d6e54d96779` / `refs/heads/main` (workflow dispatch), not the source commit embedded in the released binary. I will not describe this as a tag-bound provenance proof.
 - Anonymous GHCR manifest checks for `v0.4.27` and `latest` returned `denied`; the package versions API returned 404. Exact image channel/digest verification is still missing. No claim of complete release verification is made.
+
+
+## Authenticated registry recheck — 2026-11-21
+
+- Logged in to GHCR with the current GitHub CLI session using a temporary Docker config under `/tmp`; no credential was printed or retained. Both `docker manifest inspect ghcr.io/mcpdev80/baseharbor:v0.4.27` and `:latest` returned `manifest unknown`. The authenticated organization package versions endpoint also returned 404. Removed the temporary Docker config after logout. The registry channel gap is confirmed, not just an anonymous-read limitation.

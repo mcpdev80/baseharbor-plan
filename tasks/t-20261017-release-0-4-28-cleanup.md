@@ -19,7 +19,7 @@ repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "The previously accepted cleanup inventory (plan commit 2ab26e5f) is delivered. The 0.4.28 cleanup stage remains sequenced after 0427-010; that predecessor is still open pending tag-bound build provenance and GHCR channel verification for the already-published v0.4.27 release."
+wait_reason: "The previously accepted cleanup inventory (plan commit 2ab26e5f) is delivered. The 0.4.28 cleanup stage remains sequenced after 0427-010; that predecessor is still open pending tag-bound build provenance and GHCR channel verification; an authenticated read returned `manifest unknown` for both `v0.4.27` and `latest`."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/commit/2ab26e5f"]
 early: true
@@ -28,7 +28,7 @@ early: true
 - [ ] t-20261017-release-0-4-28-cleanup · v0.4.28 · Release start: reconcile old PRs, tasks and branches #task #release/v0-4-28 #status/wait #view/wait #area/release #kind/maintenance
     <!-- generated:card -->
     **Owner:** lane-0428-002-r28 · **Priority:** high  
-    **Waiting:** The previously accepted cleanup inventory (plan commit 2ab26e5f) is delivered. The 0.4.28 cleanup stage remains sequenced after 0427-010; that predecessor is still open pending tag-bound build provenance and GHCR channel verification for t…  
+    **Waiting:** The previously accepted cleanup inventory (plan commit 2ab26e5f) is delivered. The 0.4.28 cleanup stage remains sequenced after 0427-010; that predecessor is still open pending tag-bound build provenance and GHCR channel verification; an a…  
     **Needs:** [t-20261017-release-0-4-27-verify](t-20261017-release-0-4-27-verify.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/commit/2ab26e5f)  
     <!-- /generated:card -->
