@@ -1,7 +1,7 @@
 ---
 id: t-20261121-destroy-authority-stamp
 card_number: "0428-214"
-card_short_title: "0428-214 installation.destroy authorization"
+card_short_title: "0428-214 destroy stamp"
 type: bug
 areas: [cli]
 release: v0.4.28
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: planned
 kanban_summary: "TestCoreBootstrapFixtureCleanupContextIsBoundToItsLocalTarget shows which authority mode admitted installation.destroy, instead…"
-kanban_title: 0428-214 · 0428-214 installation.destroy authorization
+kanban_title: 0428-214 · 0428-214 destroy stamp
 priority: high
 depends_on: [t-20261120-cli-operator-entrypoints]
 repos: [mcpdev80/baseharbor]
