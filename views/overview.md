@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 13 |
-| review | 3 |
+| active | 12 |
+| review | 4 |
 | wait | 26 |
 | blocked | 1 |
 | ready | 4 |
@@ -36,7 +36,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-native-cell-operator-seam](../tasks/t-20261121-native-cell-operator-seam.md) | 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam | active | high | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740) |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
 | [t-20261121-static-gate-registration](../tasks/t-20261121-static-gate-registration.md) | 0428-208 register the static ci-fast-check gate across planner, runner and pre-release plan | active | high | Codex (Owner-directed, 2026-11-21) | [t-20261120-gate-catalog-ci-fast-check](../tasks/t-20261120-gate-catalog-ci-fast-check.md) (open) | — |
-| [t-20261121-trust-uninstall-false-green](../tasks/t-20261121-trust-uninstall-false-green.md) | trust-uninstall EOF tests are green on the auth gate error | active | high | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737) |
 
 ## Ready for review
 
@@ -45,6 +44,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | review | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) (open) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
 | [t-20261119-r28-perses-status-backend-witness](../tasks/t-20261119-r28-perses-status-backend-witness.md) | CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben | review | not set | coordinator | — | [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702) |
 | [t-20261121-mcp-operator-seam-uncovered](../tasks/t-20261121-mcp-operator-seam-uncovered.md) | 0428-218 make the MCP operator seam reachable from MCP tests | review | normal | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741) |
+| [t-20261121-trust-uninstall-false-green](../tasks/t-20261121-trust-uninstall-false-green.md) | trust-uninstall EOF tests are green on the auth gate error | review | high | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737) |
 
 ## Waiting for resources
 
