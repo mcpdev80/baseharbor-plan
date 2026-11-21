@@ -58,9 +58,16 @@ Board file `workers/todos/0428-215-cli215.json`:
 - Assertions untouched on all four runtime tests; no local skip guard added.
 - No bare `go test ./cmd/baha/`; no lifecycle containers started; no subagents; no second PR.
 
+## Evidence publish
+
+- baseharbor-plan commit: `ed88dda9` (main). Push `5ff50774..ed88dda9  main -> main`.
+- origin/main witness (`git ls-tree -r --name-only origin/main | grep cli-shard-runtime-tests`):
+  `evidence/r28-welle4-2026-11-21/cli-shard-runtime-tests/round-2.md`
+  `tasks/t-20261121-cli-shard-runtime-tests.md`
+
 ## END status
 
-END_BLOCKED — CI-bedarf documented; the actual coverage-gap implementation + CI route is owner-scope (workflow change), carried by coordinator. No product commit, no PR this round. Candidate SHA: none.
+END_DONE — round-2 akte (CI-bedarf for `core_network_binding.go:55-57`) committed to baseharbor-plan main (`ed88dda9`) and verified on origin/main. The actual coverage-gap implementation + CI route is owner-scope (workflow change under `scripts/**`/`.github/**`), carried to the owner by the coordinator. No product commit, no PR this round. Candidate SHA: none.
 
 ## cleanliness
 
