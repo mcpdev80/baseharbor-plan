@@ -3,7 +3,7 @@
 Card: t-20261121-child-env-inheritance (0428-222)
 Mission: coordinator/missions/0428-222-child-env-inherit.md
 Candidate branch: `lane-0428-222-child-env` base `develop`
-Base head attestation (git ls-remote): `ddfa80f7202a0aca3cf68c4542158132c0c2795b` refs/heads/develop
+Base head attestation (git ls-remote): `22fc68ebc0655874bc3f6aa886ff356dcad79624` refs/heads/develop (develop advanced from the dispatch value `ddfa80f7202a0aca3cf68c4542158132c0c2795b` mid-lane; re-based onto new head before commit, target files unchanged in the old->new diff)
 Real planning remote (git -C .../baseharbor-plan remote -v): `origin https://github.com/mcpdev80/baseharbor-plan.git`
 
 ## PLAN
@@ -36,19 +36,37 @@ No site performs secret scrubbing on the env list (grep for scrub/token/password
 
 `BASEHARBOR_0428_222_SENTINEL=1` (unique to this card, will not collide with real CI/parent env).
 
-## Implementation (applied, not yet committed)
+## Implementation (applied, committed)
 
-All five sites changed to `cmd.Env = append([]string{ ...pinned keys... }, os.Environ()...)` so the pinned etcdctl/etcdutl keys come first and os.Environ() is inherited after. (Exact diffs recorded in git after commit.)
+Commit `a513af08a` on branch `lane-0428-222-child-env`, author `0428-222-childenv`, base `22fc68ebc`. All five sites changed to `cmd.Env = append([]string{ ...pinned keys... }, os.Environ()...)` so the pinned etcdctl/etcdutl keys come first and os.Environ() is inherited after.
 
-## Regression tests (one per changed package)
+## Four witnesses at develop head
 
-`etcd` package: a new test builds `EtcdctlSource.Snapshot` / `attestEndpointStatus` with an env-capturing stub binary that writes its inherited env to a file, sets `os.Setenv("BASEHARBOR_0428_222_SENTINEL","1")` before the call, and asserts the child-side captured value. Mutation: removing the heredoc line makes the assertion fail (test goes red).
+- `git merge-base --is-ancestor lane-origin/develop HEAD` = JA (develop `22fc68ebc` is ancestor of `a513af08a`)
+- `git rev-list --count lane-origin/develop..HEAD` = 1 (only my commit)
+- `git rev-list --count HEAD..lane-origin/develop` = 0 (no foreign commits carried)
+- `git diff --name-only lane-origin/develop..HEAD`:
+  - `internal/corebackup/etcd/etcdctl.go`
+  - `internal/corebackup/etcd/etcdutl.go`
+  - `internal/coreupdate/dcs_boot_probe.go`
+  - `internal/corebackup/etcd/child_env_inheritance_0428_222_test.go`
+  - `internal/coreupdate/child_env_inheritance_0428_222_test.go`
+- `git log -1 --format=%an HEAD` = `0428-222-childenv`
 
-`coreupdate` package: a new test drives `EtcdBootProbe.Verify` with the same env-capturing stub and asserts the sentinel is inherited by the child. Mutation: removing the heredoc line makes the test fail (red).
+## Local test results (on develop `22fc68ebc`)
+
+Form used (TEST RUNNER RULE, no bare package test):
+`go test ./internal/corebackup/etcd/ -count=1 -skip "RunsRealLifecycle|RequiresORAS|RejectsSecondProcess|PinsCanonicalApplication"` -> `ok github.com/mcpdev80/baseharbor/internal/corebackup/etcd`
+`go test ./internal/coreupdate/ -count=1 -skip "RunsRealLifecycle|RequiresORAS|RejectsSecondProcess|PinsCanonicalApplication"` -> `ok github.com/mcpdev80/baseharbor/internal/coreupdate`
+`go vet ./internal/corebackup/etcd/` clean; `go build ./internal/corebackup/etcd/... ./internal/coreupdate/...` clean.
+
+## Mutation test (criterion 3)
+
+Removing `os.Environ()...` from `etcdctl.go` (site 1) makes `TestEtcdEnvInheritsParentEnv/snapshot-save` FAIL with "sentinel BASEHARBOR_0428_222_SENTINEL=1 not inherited by child". Verified the test goes red on the mutation, then restored the fix.
 
 ## CI wiring
 
-New tests live in packages `internal/corebackup/etcd` and `internal/coreupdate`, both of which are covered by the standard `go test ./...` group in GitHub CI. State in the run section which CI job runs them and under which trigger.
+New tests live in packages `internal/corebackup/etcd` and `internal/coreupdate`, both covered by the standard `go test ./...` group. They run under the CI group that runs the full Go build/test matrix (the repository's `go test ./...` invocation), triggered by the normal branch-push / PR selected-checks flow. Hosted run pending (see run section).
 
 ## Cleanliness
 
