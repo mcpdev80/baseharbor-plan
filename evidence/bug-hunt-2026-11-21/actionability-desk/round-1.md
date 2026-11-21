@@ -136,7 +136,31 @@ $ git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop
 
 ## END
 
-`END_DONE w225-0428-204-huntact: actionability-desk complete — 7 operator-auth refusal sites inventoried, 1 befund (perses_management_ui.go:96 missing next-command/path), 6 actionability-complete (incl. mcp.go:301 the most actionable). No product change, no PR, no matrix, no foreign-host test.`
+### Push / evidence witnesses (before END)
+
+```
+$ git add evidence/bug-hunt-2026-11-21/actionability-desk/round-1.md   (baseharbor-plan)
+$ git commit -m "evidence(H-V24): actionability-desk round-1 befund ..."
+[main dcf55a69] evidence(H-V24): actionability-desk round-1 befund ...
+1 file changed, 154 insertions(+)
+$ git push origin main
+To https://github.com/mcpdev80/baseharbor-plan.git
+   b493eec7..dcf55a69  main -> main
+$ git ls-tree -r --name-only origin/main | grep actionability-desk
+evidence/bug-hunt-2026-11-21/actionability-desk/round-1.md
+$ git -C baseharbor-plan rev-parse origin/main
+5ed2949db42613c5294f930a9ba6a4f99b0fae1c
+```
+
+### Cleanliness witness (before END)
+
+```
+$ git worktree remove /tmp/opencode/w225-actionability-desk-wt   (removed)
+$ docker ps --format '{{.Names}}' | grep -i 'w225\|actionability'
+(no lane-started containers/networks/volumes)
+```
+
+`END_DONE w225-0428-204-huntact: actionability-desk complete — 7 operator-auth refusal sites inventoried, 1 befund (perses_management_ui.go:96 missing next-command/path), 6 actionability-complete (incl. mcp.go:301 the most actionable). Evidence committed + pushed to baseharbor-plan origin/main (dcf55a69, ls-tree witness present). No product change, no PR, no matrix, no foreign-host test, no containers started. Plan main HEAD = 5ed2949db42613c5294f930a9ba6a4f99b0fae1c.`
 
 ## PLAN (nummeriert)
 
