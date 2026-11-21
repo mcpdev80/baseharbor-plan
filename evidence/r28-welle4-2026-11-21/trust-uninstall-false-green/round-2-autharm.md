@@ -66,12 +66,25 @@ Korrekturrunde nach CODEX-REVIEW REQUEST CHANGES (review-1.md).
   Result: ok github.com/mcpdev80/baseharbor/cmd/baha  (all TestTrustUninstall* pass, including the new bidirectional proof).
 - go test ./cmd/baha/ -count=1 -skip '...' -run 'TestTrustStatus'
   Result: ok github.com/mcpdev80/baseharbor/cmd/baha  (trust_status regressions pass).
+- Full package (all tests, the shape CI's required check actually runs):
+  go test ./cmd/baha/ -count=1 -skip 'RunsRealLifecycle|RequiresORAS|RejectsSecondProcess|PinsCanonicalApplication'
+  Result: PACKAGE pass, 0 failures. Every TestTrust* pass, including TestTrustUninstallGateReachableInBothDirections.
 - go vet ./cmd/baha/ clean.
+
+## Shard-failure finding (reported to coordinator, not fixed - outside write-set)
+
+- The CI `pr_unit_shards` job runs `scripts/pr-go-unit-shard.py --mode cli-0..3`, which compiles `go test ./cmd/baha -run "<hashed subset>"`. That isolated-subset invocation FAILS locally for 46 pre-existing tests with the exact text "Managed-environment machine operations require an authenticated BaseHarbor operator."
+- Root cause: those 46 tests drive the production command through a path that never receives the whole-package operator-auth seam (operator_test_fixture_test.go init installs testOperatorContext only on runWithIO; in-process MCP servers and direct .Run calls in these tests use a bare context). This is a whole-package, pre-existing state.
+- Red-first verification that it is NOT my change: I ran the identical shard on the PR base (5be4f003 trust files) and diffed the failure sets against mine -> byte-identical (46 == 46, no trust test in the failing set, no new failure introduced). My two write-set files add zero new failures and my proof test is green in both the full package and the shard.
+- Fixing the 46 would require edits outside this card's write-set (operator_test_fixture_test.go / mcp.go / other test files) and is therefore a coordinator action (reported here as STATE with file:line: operator_test_fixture_test.go:25 seam installed only on runWithIO; in-process MCP server in cmd/baha/mcp_workspace_mutation_test.go:27 connects a bare context). This is a CI-wide state that also fails on the base-lane; out of scope for 0428-213.
 
 ## Host CI run
 
-- gh pr create/gh pr was already open; pushed to my own branch. gh pr view 1737 --json state,isDraft,headRefOid recorded after push; run-id + conclusion recorded in this file once terminal.
-- CI selected checks: UNIT cli shard (run once it is terminal). Required CLI unit group must be green; the new proof test is in the selected cmd/baha inventory.
+- Pushed to my own branch (force-with-lease, same-named remote branch). gh pr view 1737 --json state,isDraft,headRefOid after push: OPEN, non-draft, 8b38c4f88f3e72ed69b41715e9bfb2ec03894108.
+- Delivery witness (own ls-remote): refs/heads/lane-0428-213-trust-uninstall-false-green == refs/pull/1737/head == 8b38c4f88f3e72ed69b41715e9bfb2ec03894108.
+- Branch ancestry vs base: `git merge-base --is-ancestor 40cb28c758 (develop) HEAD` = 0 (develop IS ancestor); my commits vs develop = 8b38c4f88 (own fix); no foreign commit on top.
+- The CI run I triggered scheduled against the exact-head integration model but the required-final gate requires EXPECTED_BASE == PLAN_BASE and EXPECTED_INTEGRATION == EXPECTED_HEAD; the run completed with the CLI-shard subset failing. Per the finding above those subset failures are pre-existing and base-identical; the required 'PR · Native gate plan' concluded success. The CLI-shard subset failures are reported as STATE to the coordinator (coordinator/CI scope), not as a defect of this card.
+- CI selected checks: UNIT cli shard. Required CLI unit group: the subset fails for 46 pre-existing tests (base-identical). Full-package = pass. My write-set green.
 
 ## repo-rule compliance
 
