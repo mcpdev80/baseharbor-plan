@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: Codex owner (combined validation ref)
-kanban_status: review
-kanban_lane: review
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Environment deletion lifecycle. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-055 · Env deletion lifecycle
 priority: high
@@ -18,20 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1627, mcpdev80/baseharbor#1736]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "FUENFTE RUNDE, GENU AN DER STELLE, VON MIR GESTOPPT (01:4xZ): der exakte run 44961334018 auf b3b0c2c9efc ist im Docker-application-job 137020935578 FEHLGESCHLAGEN; 'TestEnvironmentDestroyNativeLifecycle'faellt weiter mit stale impact consent AFTER PREVIEW an cmd/baha/env_destroy_integration_test.go:128 (log-zeilen 1178-1192, aufloesung prod/docker-dev und target deployment); podman 137020935792 ist noch aktiv. VERSUCHSKETTE: 8de37f58caa (fehlender operator-context) -> ac05cc4efbc (testOperatorContext) -> 38be89aa4a0 (stop mode im consent) -> b3b0c2c9efc (consent ueber newApplicationDestroyExecution mit identischem --uuid/--yes). VERBOT GEGEN MEINE EIGENE MERGE-ROLL: der kandidat wird NICHT gemergt, meine merge-mission (sha256 917fac06a59a) bleibt zurueckgehalten; acceptance verlangt einen terminelen gruuen-exakten run mit docker UND podman plus ein frisches approval auf dem dann exakten head. TRIGGER FUER MICH: terminaler stand 44961334018 und die diagnose-akte der lese-lane (mission sha256 im ledger, akte env-destroy-gate/fifth-round-child-read-diagnosis.md), die klaert, ob das fixture ein anderes object als die produktion vorlegt oder ob ein nach preview validiertes consent strukturell immer stale ist. #1736 bleibt hinter #1627, kein eigener merge."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1627", "https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677", "https://github.com/mcpdev80/baseharbor/actions/runs/44852435311", "https://github.com/mcpdev80/baseharbor/pull/1615", "https://github.com/mcpdev80/baseharbor/pull/1736", "https://github.com/mcpdev80/baseharbor/actions/runs/44859609354"]
 ---
 
-- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** Codex owner (combined validation ref) · **Priority:** high  
     **PR:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627), [baseharbor#1736](https://github.com/mcpdev80/baseharbor/pull/1736)  
+    **Waiting:** FUENFTE RUNDE, GENU AN DER STELLE, VON MIR GESTOPPT (01:4xZ): der exakte run 44961334018 auf b3b0c2c9efc ist im Docker-application-job 137020935578 FEHLGESCHLAGEN; 'TestEnvironmentDestroyNativeLifecycle'faellt weiter mit stale impact conse…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1627), [proof 2](https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44852435311), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1615), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1736), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44859609354)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
 **Required by:** [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md)  
