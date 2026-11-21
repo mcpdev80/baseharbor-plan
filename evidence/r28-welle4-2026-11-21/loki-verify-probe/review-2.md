@@ -128,6 +128,12 @@ bad8cff kanban: t-20261120-cli-operator-entrypoints -> review
 557d6b9 plan: record PR 1615 recovery gate pass
 ```
 
+After fetching origin main, the exact ls-tree path witness was:
+
+```text
+evidence/r28-welle4-2026-11-21/loki-verify-probe/review-2.md
+```
+
 The review was published as a single-file commit via the GitHub Contents API because the local plan clone could not create new worktree files under the session disk quota. This publication exception is recorded; no shared checkout, product repository, PR, workflow or other Planning file was written. Mission-specific instruction prohibits posting to another Codeman session; no codeman agent post was sent.
 
 ## END
