@@ -334,4 +334,6 @@ SHA reported in the END line. Earlier transient heads in the same window
 (ancestors of this one, all this lane's own commits): 061e0fef, 23be7b89.
 
 END w232-0428-215-runtimeprobe DONE — no product candidate (read-only mission);
-plan SHA 87507f615145f173c56774ebcf148f26eaad06f7
+plan SHA 87507f615145f173c56774ebcf148f26eaad06f7 (content-complete; origin/main
+head e0fd7e9aadfe8e1b8712e5503850583140ef2738 is this commit plus only the END
+line's own SHA annotation, so the evidence content is identical in both)
