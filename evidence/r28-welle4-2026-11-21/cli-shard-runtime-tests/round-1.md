@@ -315,4 +315,7 @@ after this commit's push). The SHA written above (9994636) is the immediately
 prior commit and existed only transiently, so the END line reports 8b42b4f4 as
 the authoritative plan SHA.
 
-END w232-0428-215-runtimeprobe DONE
+Final published plan SHA (origin/main of https://github.com/mcpdev80/baseharbor-plan.git,
+verified by ls-remote as the last action): 3066eb4043b791bcd15415e2881c69b90e3e7376
+
+END w232-0428-215-runtimeprobe DONE — plan SHA 3066eb4043b791bcd15415e2881c69b90e3e7376, no product candidate (read-only mission)
