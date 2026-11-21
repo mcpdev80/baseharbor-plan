@@ -2,7 +2,7 @@
 
 ## END
 
-END DONE 0428-207-appedit-fix2: round-2 fix pushed (51c6ccc90 + gofmt 213331217), CI 44859099909 at exact head shows only inherited operator-auth failures (pre-existing on clean base 09cf55b), 0428-207 tests pass. plan sha 645112b2.
+END DONE then END_BLOCKED 0428-207-appedit-fix2: round-2 fix delivered (51c6ccc90 + gofmt 213331217), PR #1735 head 213331217024 (develop-ancestor), CI 44859099909 at exact head shows only inherited operator-auth failures (pre-existing on clean base 09cf55b), 0428-207 tests pass; then STOPped per owner (stop207.txt) + publish hold (holdpub.txt) during owner's active 4-path rebase; committed nothing / pushed nothing more to plan repo; card owned by owner now. Awaiting release to commit this END_BLOCKED line.
 
 ## Scope
 
