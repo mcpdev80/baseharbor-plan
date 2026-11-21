@@ -97,3 +97,5 @@ CODEX-REVIEW REQUEST CHANGES at 75770bd2 (review-1.md, ROLLE REVIEW, head unchan
 review to active after CODEX REQUEST CHANGES (2599561f): two existing Loki refusals check only err != nil at loki_test.go:343-350 and :466-481. correction in w235 (89245a26); r2 head 45d181ab4089 is a descendant of 75770bd2d043, so a fast-forward push to the original lane branch keeps PR 1734 as the single PR for this card.
 
 korrektur geliefert: w235 fast-forwardete den ursprünglichen branch auf 45d181ab4089 (nachkomme von 75770bd2d043, gemessen merge-base --is-ancestor = 0), PR-head bewegt, develop ancestor. re-review angestossen in derselben reviewer-session.
+
+korrektur geliefert: w235 fast-forwardete den urspruenglichen lane-branch auf 45d181ab4089 (nachkomme von 75770bd2d043, von mir gemessen 'merge-base --is-ancestor' = 0), PR-head bewegt, develop ancestor. gehosteter versuch 44853938826 terminal: packages/build/vet/owner GREEN, cli-0..3 RED = geerbt (karten 0428-204/215), nicht inhalt. akte round-2.md plan main 4857b2a5. re-review angestossen.
