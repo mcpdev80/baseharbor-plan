@@ -106,4 +106,10 @@ Stopped while the required aggregate (run 44882418434) is FAILURE from inherited
 
 ## END
 
-END 0428-218-msgassert BLOCKED — fix committed fb5a5deaf, delivered, required cli-3 job passes; required aggregate failure is inherited base cli-0/packages defects outside write-set (reported as STATE). Needs coordinator to resolve base defects or approve a route to a required-passing aggregate. Evidence path pending origin/main publication.
+Evidence path verified on origin/main:
+```text
+evidence/r28-welle4-2026-11-21/mcp-operator-seam/round-2-exactmessage.md
+```
+(origin/main fc2913ed; commit 6400b372 rebased onto new origin/main, pushed)
+
+END 0428-218-msgassert BLOCKED — fix committed fb5a5deaf, delivered (origin lane-0428-218-mcp-operator-seam fb5a5deaf), required cli-3 job SUCCESS in run 44882418434; the exact gate message is now pinned and the mutation proof shows RED on product-text change / GREEN on restore. The required aggregate (run 44882418434) stays FAILURE from inherited base defects (cli-0 `TestAppListAllTargetsWorksAfterInstallationDestroy`; packages `TestPersesLokiDatasourceMultiSource*`), booked as STATE with failing lines — outside this write-set. Coordinator action to resolve base defects or approve a route to a required-passing aggregate.
