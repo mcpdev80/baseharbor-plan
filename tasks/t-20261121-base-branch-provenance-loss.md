@@ -8,8 +8,8 @@ release: "v0.4.28"
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: planned
-kanban_lane: ready
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-221 · 0428-221 base provenance loss
 priority: high
@@ -23,14 +23,13 @@ created: "2026-11-21T09:35:37Z"
 updated: "2026-11-21T09:35:37Z"
 ---
 
-- [ ] t-20261121-base-branch-provenance-loss · 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened #task #release/v0-4-28 #status/planned #view/ready #area/ci #area/cli #kind/bug
+- [ ] t-20261121-base-branch-provenance-loss · 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** coordinator  
@@ -56,3 +55,5 @@ Card fields in `baseharbor-plan/tasks/**` plus the checks in `baseharbor-plan/sc
 ## Verification
 
 `git merge-base --is-ancestor` and `gh pr view --json mergedAt,mergeable` per PR are the witnesses; the hunt aktes `evidence/r28-welle4-2026-11-21/base-branch-liveness/` and `.../closed-unmerged-content-loss/` carry the inventories.
+
+drei jaegte liefern die materiale: H-V36 (akte accepted-without-merge/hunt-1.md, plan 6d94c6a2) zaehlt 119 karten in v0.4.28 mit resolution accepted/closed und meldet fund-1 0428-049 (prs leer, accepted), fund-2 0428-044..048 (prs leer, accepted, sind integration-vorlaufer; 049 trug die landung), fund-3/4 0428-198 und 0428-204 (beide prs #1726, accepted, PR closed ohne merge). H-V31 und H-V30 dazu: genau EIN echter inhalt-verlust, naemlich #1726 mit 11 commits; die uebrigen 9 closed-unmerged PRs haben lebende folge-lanen. H-V33: tote oder fachfremde autoren in 21 von 22 offenen PRs — die identitaet, nicht die session-tabelle, ist undicht (tooling-issue #23/#24). Damit ist akzeptanz-punkt 1 dieser karte entscheidbar: wieder-offnen der 198/204-buchung ODER inhalt neu landen; punkt 2 (kein accepted ohne merge-zeugen) braucht den check im plan-repo, punkt 3 (base-ancestry je offenem PR) ist als report schon vorhanden.
