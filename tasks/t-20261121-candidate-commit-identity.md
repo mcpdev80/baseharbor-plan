@@ -76,3 +76,11 @@ Sweeps show that most open candidates carry commits whose `user.name` belongs to
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+
+## Recorded exception (coordinator, 2026-11-21)
+
+One documented exception exists so far: PR #1596 candidate
+`c27158567c0ebc370fc6c97390a561846305738f` (three authors from Owner-side hops, no content finding, exact run `44945468909`
+success). Witness and scope: `evidence/r28-welle4-2026-11-21/org-env-reconciliation/owner-exception-identity-1596.md`.
+The rule itself is unchanged: any other candidate with more than one author, or any candidate with a content finding,
+still needs history normalization plus a fresh exact-head run.
