@@ -23,13 +23,15 @@ resolution: ""
 evidence:
   - "https://github.com/mcpdev80/baseharbor/pull/1743"
   - "https://github.com/mcpdev80/baseharbor/actions/runs/44875389702"
+  - "https://github.com/mcpdev80/baseharbor/actions/runs/44875693455"
+  - "https://github.com/mcpdev80/baseharbor/actions/runs/44876072403"
 ---
 
 - [ ] t-20261121-cli-shard-runtime-tests · 0428-215 Go-unit cli shards run tests that need a real runtime #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** Codex (Marcel, Wait sweep excluding \#1615) · **Priority:** high  
     **PR:** [baseharbor#1743](https://github.com/mcpdev80/baseharbor/pull/1743)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1743), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44875389702)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1743), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44875389702), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44875693455), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44876072403)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -116,7 +118,7 @@ add a new job or workflow, or turn a daemon-dependent assertion into a skip.
 
 ## Handoff
 
-Branch `codex/0428-215-native-network`, PR #1743, exact head `47549ca1451e4f913ea0961ff9712cb1e03193a0`. Run 44875389702 is pending; record Docker/Podman and required selected-check conclusions here before closeout. Evidence: `evidence/r28-welle4-2026-11-21/cli-shard-runtime-tests/round-3.md`.
+Branch `codex/0428-215-native-network`, PR #1743. Latest exact head `a131256c285e257837e402a9ba0fe037f0835bbe`; run 44876072403 is queued. Earlier candidate runs 44875389702 and 44875693455 are superseded for acceptance. Round 4 records the failure causes and current exact test-to-gate mapping; closeout requires both native tests to PASS without skips and all required checks terminal.
 
 2026-11-21 owner reassignment: the coordinator's round-2 evidence identified a real missing native assertion and exact
 existing gate. Per the Maintainer's Wait-sweep directive, this lane owns only the required test in that existing gate; it
