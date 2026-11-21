@@ -144,8 +144,22 @@ the live server surface to `internal/machine/contract.go` line-by-line.
 - Local proof IS complete and is the fail-first route into CI: the new
   `cmd/baha` unit test auto-discovers in the existing `cmd/baha` CI group.
   `bash scripts/ci-fast-check.sh` -> PASS. `go test ./cmd/baha/ ...` (named
-  skip form) -> 295/295 OK. The surface-vs-contract check fails first if the
-  four perses tools are stripped from the contract (registration panic).
+  skip form) -> 295/295 OK (first run; the four perses tools present). The
+  surface-vs-contract check fails first if the four perses tools are stripped
+  from the contract (registration panic:
+  "BaseHarbor machine operation is not registered for MCP: app.perses.status").
+- Host disk condition observed on retry: a second `ci-fast-check` run failed
+  with `compile: writing output: write $WORK/...: disk quota exceeded` and
+  `write /tmp/go-build*/b001/_testmain.go: disk quota exceeded`. Root cause is
+  host-level, NOT my change:
+  - `/dev/sda1` (root) at 100% (1.2-4.4G free, fluctuating).
+  - `/tmp` tmpfs at 80% (11G used of 13G); even building the tiny
+    `internal/machine` package fails to write stdlib to `/tmp/go-build*`.
+  - I cleared `go clean -cache` and removed stray `/tmp/go-build*` temp dirs;
+    the failure persists because tmpfs bytes are the binding constraint.
+  - The FIRST ci-fast-check run already passed 295/295; disk filled on the
+    retry. This is a transient host-full condition affecting ALL Go builds on
+    this coordinator host right now, unrelated to this card's write-set.
 - `Static · mcp` is the hosted release static gate (Owner workflow scope,
   `.github/**`); no `.github/**` edit. The gate derives its expected list from
   `machine.Operations()`, which now carries the four perses tools, so the PR is
