@@ -104,3 +104,11 @@ Exact output of `git -C baseharbor-plan fetch origin main && git -C baseharbor-p
 ```text
 evidence/r28-welle4-2026-11-21/all-targets-config-loss/review-1.md
 ```
+
+## Final origin/main witness
+
+Exact output of `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep '^evidence/r28-welle4-2026-11-21/all-targets-config-loss/review-1.md$'`:
+
+```text
+evidence/r28-welle4-2026-11-21/all-targets-config-loss/review-1.md
+```
