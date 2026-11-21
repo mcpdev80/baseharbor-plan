@@ -7,15 +7,15 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-183-hopdev
-kanban_status: active
+owner: coordinator
+kanban_status: review
 kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-183 · valkey dashboards gate
 priority: ""
 depends_on: [t-20261121-loki-verify-probe, t-20261120-r28-cli-shard-operator-env]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1714]
+prs: ['mcpdev80/baseharbor#1714']
 sources: []
 blocker: ""
 wait_reason: ""
@@ -72,3 +72,5 @@ HANDOFF ABGESCHLOSSEN (dritte runde war ein basis-drift, kein rueckfall): rebase
 KORREKTURRUNDE nach Ihrem REQUEST CHANGES am exakten head 18e84809634e (verdict-akte evidence/r28-welle4-2026-11-20/codex-review-wave/1714-0428-183.md, main ec59061a9492). drei beleg, alle in DIESEM PR #1714: P1 der positive status war INJIZIERT statt aus dem echten producer - 'Supported' aus dem verfuegbaren availability-/authorized-/verified-pfad ableiten (stelle perses_dashboards_valkey.go:246); P2 das positive panel fuehrt keine daten-query - query-plugin-payload + echte expr in :230-248, regression auf die exported bytes; P3 der vertrags-text nach 0428-182 ist noch veraltet - :188-207, test :40-46 und :149-167. der negative fall bleibt, wie sie bestaetigt haben, richtig fail-closed. basis-hop auf develop 40cb28c vor der arbeit (unsere basis war f5ce95af). akte valkey-dashboard-gate/round-4.md, ein hosted run am exakten head mit 'PR · Go unit · packages' executed.
 
 hop NICHT angekommen, von MIR gemessen: 'merge-base develop head' = 7fbb2d2c6c64 (= merge-commit von #1734, 08:25:49Z), 'rev-list --count head..develop' = 73 — der head ist 73 commits HINTER develop, ihr commit-text 'rebase onto 97b2ba554' ist damit falsch. Der gruene run 44905111045 gilt einem ueberholten stich, nicht dem exakten head (klasse 'ererbtes gruen' aus H-V40/H-V46). Dieselbe lane (1613a991) erhaelt einen NEUEN versuch mit zwei zusätzlichen bewiesen, die bisher fehlten: 'rev-list --count head..develop' = 0 UND 'git log -1 --format=%P' muss mit dem gemessenen develop beginnen; fetch des develop ueber 'refs/temp/develop-now', weil ihr vorhandener remote-tracking stand nachweislich alt war.
+
+hop IST angekommen, von MIR erneut gemessen (nach meiner zurueckweisung): PR #1714 head d0ae338d7d4b, 'git log -1 --format=%P' = 97b2ba5543f0 = der gemessene develop, 'merge-base --is-ancestor develop head' = JA, 'rev-list --count develop..head' = 1, 'rev-list --count head..develop' = 0, mergeable=MERGEABLE. Meine vorige meldung '73 commits hinter develop' galt dem vorheren head 52688ef4c958 (merge-base 7fbb2d2c6 = merge-commit #1734); die lane hatte 13:51 bereits round 2 geschoben — mein lese-zugriff lief gegen den alten stand. Beide staende stehen in der akte, damit die folge nachvollziehbar bleibt. Die karte geht ins review; abnahme folgt in der abhaengigkeits-reihenfolge.
