@@ -16,7 +16,7 @@ kanban_title: 0427-169 · operator API runbook missing
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-connection-client]
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#1587"]
+prs: ["mcpdev80/baseharbor#1587", "mcpdev80/baseharbor#1748"]
 sources: []
 blocker: ""
 resolution: ""
@@ -27,7 +27,7 @@ early: true
 - [ ] t-20261108-smoke-0427-operator-api-undocumented · Remote Core: API route runbook missing #task #release/v0-4-28 #status/active #view/active #area/cli #area/docs #kind/bug
     <!-- generated:card -->
     **Owner:** Codex (Marcel, Wait sweep excluding \#1615) · **Priority:** normal  
-    **PR:** [baseharbor#1587](https://github.com/mcpdev80/baseharbor/pull/1587)  
+    **PR:** [baseharbor#1587](https://github.com/mcpdev80/baseharbor/pull/1587), [baseharbor#1748](https://github.com/mcpdev80/baseharbor/pull/1748)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/operator-api-smoke.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1587), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44885697655), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44873370844)  
     <!-- /generated:card -->
 
@@ -37,7 +37,7 @@ early: true
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
 **Owner:** Codex (Marcel, Wait sweep excluding #1615)  
 **Priority:** normal  
-**PRs:** [baseharbor#1587](https://github.com/mcpdev80/baseharbor/pull/1587)  
+**PRs:** [baseharbor#1587](https://github.com/mcpdev80/baseharbor/pull/1587), [baseharbor#1748](https://github.com/mcpdev80/baseharbor/pull/1748)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -77,6 +77,14 @@ A developer can start and use the Core operator API from documentation alone.
 - Shared files: coordinate through the owning task.
 
 ## Handoff
+
+### 2026-11-21 — CI-based workstation acceptance
+
+- The Owner clarified that tests and acceptance should run in CI; the test VM may be used for short smoke checks. The prior requirement for a physical workstation-to-Core run is superseded for this card.
+- Follow-up PR [#1748](https://github.com/mcpdev80/baseharbor/pull/1748), current candidate `fe2c070823ebf2e303236b40b3e3c558540b7198`, registers the existing full native onboarding test for both Docker and Podman and routes relevant runbook/contract changes to those gates. The operator API runbook now describes the CI acceptance path.
+- Local verification passed: `scripts/ci-fast-check.sh` (295 checks), focused native selection/coverage tests (45), PR gate catalog validation, EN/DE documentation audit (172 paired pages), and `git diff --check`.
+- Exact candidate native run [44912116363](https://github.com/mcpdev80/baseharbor/actions/runs/44912116363) is executing Docker and Podman gates against `bac5d1ad3779decce4366458cacaf2fb19717242`. Its Workflow policy job failed because the first branch push provides an all-zero `before` SHA; native gate jobs remain in progress. The updated PR candidate `fe2c0708` must receive exact native CI evidence before acceptance. Keep this card active until both runtime gates pass.
+- #1615 remains untouched.
 
 ### 2026-11-21 — merged PR and real-Core read-only probes
 
