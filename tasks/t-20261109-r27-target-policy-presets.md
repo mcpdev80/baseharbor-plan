@@ -17,7 +17,7 @@ depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-connection-client
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1588]
 sources: []
-blocker: "Four documented blockers in PR #1588 (akte evidence/r28-welle4-2026-11-21/r27-target-policy-edit/review-1-head28842990.md, findings lines 23-26): manufactured admission facts (internal/deployment/target_deployment_policy_admission.go:12-20), self-asserted approval (internal/deployment/immutable_provenance.go:125-133 via cmd/baha/deployment_record.go:414-418 and the remote apply path), unset ImmutableProvenance.Branch for branch-restricted presets (immutable_provenance.go:71-76), and a stale Target policy snapshot (cmd/baha/target_deployment_policy_edit.go:98-100,164-167). FIXER DECIDED BY OWNER 2026-11-21 22:4xZ: the Owner repairs all four in the existing worktree /var/tmp/baseharbor-1588-refresh on the exact PR branch, then pushes and requires exact hosted CI plus a fresh Codex-EAR review. No Codeman pool seat is used and no additional worker may be assigned to #1588. Next trigger: new exact head with green CI, then review."
+blocker: "DEFERRED SCOPE, PR CLOSED WITHOUT MERGE (Owner disposition 2026-11-21 20:58:18Z). PR #1588 = state CLOSED, mergeCommit=none, exact head 28842990d8fe86cc9090b1867c6b503b57adccdc preserved on branch lane/0427-186-target-policy-presets; reason recorded on the PR (https://github.com/mcpdev80/baseharbor/pull/1588#issuecomment-7069156506). The four blockers of the review (baseharbor-plan evidence/r28-welle4-2026-11-21/r27-target-policy-edit/review-1-head28842990.md, findings lines 23-26) are NOT repairable inside this seven-file slice: the apply path still calls EvaluateDeploymentAdmission(policy, nil) before branch-specific proof (cmd/baha/app_remote_lifecycle.go) and there is no current-candidate verifier for multi-repo branch / remote / image-digest facts, and no attestation seam exists. A safe implementation needs its own source-ingress and artifact-verification design, dispatched separately with its own contract. NOTHING in this card is accepted; the feature remains unimplemented. Next trigger: Owner authorizes the scoped design card, then a fresh branch and fresh candidate."
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1514", "https://github.com/mcpdev80/baseharbor/actions/runs/42707150233", "https://github.com/mcpdev80/baseharbor/pull/1588", "https://github.com/mcpdev80/baseharbor/actions/runs/44895998000"]
@@ -28,7 +28,7 @@ early: true
     <!-- generated:card -->
     **Owner:** m186-policy-presets (0427-186 lane) · **Priority:** high  
     **PR:** [baseharbor#1588](https://github.com/mcpdev80/baseharbor/pull/1588)  
-    **Blocker:** Four documented blockers in PR \#1588 (akte evidence/r28-welle4-2026-11-21/r27-target-policy-edit/review-1-head28842990.md, findings lines 23-26): manufactured admission facts (internal/deployment/target\_deployment\_policy\_admission.go:12-20…  
+    **Blocker:** DEFERRED SCOPE, PR CLOSED WITHOUT MERGE (Owner disposition 2026-11-21 20:58:18Z). PR \#1588 = state CLOSED, mergeCommit=none, exact head 28842990d8fe86cc9090b1867c6b503b57adccdc preserved on branch lane/0427-186-target-policy-presets; reaso…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1514), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42707150233), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1588), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44895998000)  
     <!-- /generated:card -->
 
@@ -90,3 +90,5 @@ The exact run is green, but the current candidate is not accepted. Its provenanc
 active -> blocked: dead owner lane + cross-world security blocker, decision needed
 
 blocked bleibt: zuweisung an den owner (eigene worktree), keine lane, kein zweiter worker
+
+closure disposition recorded after the Owner's own merge-free close; card stays blocked (not closed, not accepted), no worker assigned, no Codeman seat used.
