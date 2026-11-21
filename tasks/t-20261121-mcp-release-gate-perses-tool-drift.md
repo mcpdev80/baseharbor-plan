@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w26-pr1588-0428-225-mcpcontract (active)
-kanban_status: wait
-kanban_lane: wait
+owner: w26-pr1588-0428-225-mcpcontract
+kanban_status: active
+kanban_lane: active
 kanban_summary: The Pre-Release workflow reports unexpected MCP tools baseharbor.app.perses.disable/enable/remove/status while…
 kanban_title: 0428-225 · MCP release gate rejects the
 priority: ""
@@ -18,23 +18,22 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1751]
 sources: []
 blocker: ""
-wait_reason: "waartet auf die statik-zelle 'Static · mcp' auf exakt head bdc7c1a9e6e6b1de29afb916d28712eba95dff56. die zelle ist derzeit NICHT beibringbar: der freigegebene release-suite-pfad scheitert vorher, run 44952645994 = completed/failure, job 136993749322 'Source · Candidate and Gate Plan / Resolve release candidate' meldet 'fatal: couldn't find remote ref refs/heads/release/v0.4.28'; dadurch werden 'Source · Qualified' und alle 'Static · <gate>'-jobs skipped (job 136993835355 = skipped). owner-scope-punkt: die release-branch fehlt (oder der workflow muss den PR-dispatch ohne release-branch tolerieren). der inhalt des kandidaten ist davon unabhaengig; der reviewer prueft contract.go:205-208 und golden.json. naechster trigger: release-branch vorhanden bzw. gate-plan korrigiert, dann dispatch + gruener statik-lauf."
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-mcp-release-gate-perses-tool-drift · MCP release gate rejects the app.perses.* tools the machine contract declares #task #release/v0-4-28 #status/wait #view/wait #kind/task
+- [ ] t-20261121-mcp-release-gate-perses-tool-drift · MCP release gate rejects the app.perses.* tools the machine contract declares #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w26-pr1588-0428-225-mcpcontract (active)  
+    **Owner:** w26-pr1588-0428-225-mcpcontract  
     **PR:** [baseharbor#1751](https://github.com/mcpdev80/baseharbor/pull/1751)  
-    **Waiting:** waartet auf die statik-zelle 'Static · mcp' auf exakt head bdc7c1a9e6e6b1de29afb916d28712eba95dff56. die zelle ist derzeit NICHT beibringbar: der freigegebene release-suite-pfad scheitert vorher, run 44952645994 = completed/failure, job 13…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w26-pr1588-0428-225-mcpcontract (active)  
+**Owner:** w26-pr1588-0428-225-mcpcontract  
 **Priority:** not set  
 **PRs:** [baseharbor#1751](https://github.com/mcpdev80/baseharbor/pull/1751)  
 **Source:** 
@@ -135,3 +134,5 @@ escalated to the Owner in the coordination ledger (row 940); this card does not 
 - Current state, branch, PR and evidence links. Newest first.
 
 planned -> active: hosted proof from PR #1746 static gate (job 136970241277): 'MCP contract mismatch: missing=[] unexpected=[baseharbor.app.perses.disable,.enable,.remove,.status]'. Fresh laptop lane dispatched (mission coordinator/missions/0428-225-mcp-contract-drift.md). Scope per card: internal/machine/contract.go + contracts/machine/v1/control.golden.json; scripts/**, docs/releases/**, .github/** stay Owner scope.
+
+KORREKTUR NACH OWNER-AUFKLARUNG 00:5xZ, mein vorheriger wait-grund war teilweise FALSCH: der fehlgeschlagene run 44952645994 war ein MISPARAMETERIZETER 'Release Pre-Release Validation'-workflow_dispatch (tag/ref/demo_ref nicht gesetzt), NICHT ein fehlender refs/heads/release/v0.4.28. der gehoffte 'Static · mcp'-cell war deshalb nur skipped. Die eigentliche PR-CI 44951681560 ist completed/success auf head bdc7c1a9e6e (35 jobs, 14 success / 21 skipped, 0 failed); der trusted plan verlangt cli-build/gofmt/go test ./cmd/baha/vet/source-contracts, selected_gates ist leer, weil dieser PR nur cmd/baha/agent_mcp_test.go aendert - alle required checks sind gruen. OFFEN ist damit nur noch: der PR-base ist 1080986, develop ist 513488eeb6d (back=7) -> hop auf den aktuellen develop, dann exakter PR-CI-run, dann review. Keine lokalen tests als ersatz (owner-anweisung).
