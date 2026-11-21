@@ -17,7 +17,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
     **Accepted tasks:** 125/233 · **Blocked:** 1 · **Waiting:** 27  
-    **Blocker:** [t-20261120-gate-catalog-ci-fast-check](../tasks/t-20261120-gate-catalog-ci-fast-check.md) — Owner decision needed: the route that greens the Workflow-policy cell on mcpdev80/baseharbor\#1665 needs the case arm at .github/workflows/ci.yml:1301 (Owner sc…  
+    **Blocker:** [t-20261120-gate-catalog-ci-fast-check](../tasks/t-20261120-gate-catalog-ci-fast-check.md) — Owner decision needed on corrected scope after Option A (2026-11-21): exact current \#1665 base/head b71c6da27e8b/db27880c108a passes both Workflow policy and G…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next

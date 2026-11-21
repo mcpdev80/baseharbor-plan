@@ -7,7 +7,7 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: w220-0428-205-catalog
+owner: "Codex (Owner-directed, 2026-11-21)"
 kanban_status: blocked
 kanban_lane: blocked
 kanban_summary: "One or two sentences: the observable outcome."
@@ -17,17 +17,18 @@ depends_on: [t-20261120-r28-cli-shard-operator-env]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: "Owner decision needed: the route that greens the Workflow-policy cell on mcpdev80/baseharbor#1665 needs the case arm at .github/workflows/ci.yml:1301 (Owner scope). w220 measured three candidate forms (akte gate-catalog-ci-fast-check/round-1.md, FINDING 3, runs R1a-R1f): rule scripts/ci-workflow-policy.sh:184-187 only accepts the pairing inside the COMPARED diff, so no develop-side pairing greens #1665, and rule 197-201 is inventory-based, so any new .gates[].id trips it unless planner and runners register the gate. A content-neutral scripts/pr-gate-plan.py edit does not exist. Local candidate fab709a45 (V2 form, 1 file, +12) stays unpushed as material. Decision A/B/C is written in the akte: A = one combined follow-up PR carrying registration plus the Owner arm (poured as 0428-208, planned, needs the arm first); B = close this card as explanation and do the registration on 0428-208; C = fuse this card with the Owner-scope lines (needs Owner sign-off). Next trigger: Owner answer."
+blocker: "Owner decision needed on corrected scope after Option A (2026-11-21): exact current #1665 base/head b71c6da27e8b/db27880c108a passes both Workflow policy and Gate catalog consistency; hosted Workflow policy job 136733496977 passed on run 44867225115 (overall run cancelled; PR Selected Checks failed separately on native gates). The old failure no longer reproduces because scripts/ci-fast-check.sh is already present in the compared base. To add atomic/static/ci-fast-check as an actual pre-release gate, the dispatcher is .github/workflows/pre-release-runtime-suite.yml:264-270; .github/workflows/ci.yml:1301 dispatches ci-policy and is not that gate. This required workflow line is outside 0428-208 current write-set/stop boundary. Choose: authorize updating 0428-208 scope for the actual pre-release dispatcher and keep the full registration, or drop the no-longer-needed gate registration and close this finding. Candidate fab709a45 remains local/unpublished and is incomplete (catalog entry only)."
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44867225115", "https://github.com/mcpdev80/baseharbor/pull/1665"]
 ---
 
 - [ ] t-20261120-gate-catalog-ci-fast-check · 0428-205 · Wire scripts/ci-fast-check.sh into the gate catalog #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #kind/bug
     <!-- generated:card -->
-    **Owner:** w220-0428-205-catalog · **Priority:** normal  
-    **Blocker:** Owner decision needed: the route that greens the Workflow-policy cell on mcpdev80/baseharbor\#1665 needs the case arm at .github/workflows/ci.yml:1301 (Owner scope). w220 measured three candidate forms (akte gate-catalog-ci-fast-check/round…  
+    **Owner:** Codex (Owner-directed, 2026-11-21) · **Priority:** normal  
+    **Blocker:** Owner decision needed on corrected scope after Option A (2026-11-21): exact current \#1665 base/head b71c6da27e8b/db27880c108a passes both Workflow policy and Gate catalog consistency; hosted Workflow policy job 136733496977 passed on run 4…  
     **Needs:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44867225115), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1665)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +36,7 @@ evidence: []
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
 **Required by:** [t-20261121-static-gate-registration](t-20261121-static-gate-registration.md)  
-**Owner:** w220-0428-205-catalog  
+**Owner:** Codex (Owner-directed, 2026-11-21)  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
@@ -106,5 +107,15 @@ PR selection surface the policy script reads), so a PR whose base comparison see
 Karte aus w215s round-2-befund gegossen (fund->karte, §3.3.5): scripts/ci-fast-check.sh existiert auf develop, hat aber keine release-requirements.json-paarung, darumfaellt die zelle "Workflow policy" an PRs, deren base-vergleich die neue datei sieht (#1665 gemessen FAILURE, #1731 gemessen SUCCESS job 136551503837). sitz w220 (flash) ergaenzt NUR die paarung, beweis lokal ueber bash scripts/ci-workflow-policy.sh am exakten head + gegenprobe am #1665-head. allowlist-edit an scripts/ci-workflow-policy.sh oder .github/** = STOP + MELDEN (owner-scope).
 
 LANE-BEFUND KORRIGIERT MEINE KARTEN-SCHNEIDE (akte gate-catalog-ci-fast-check/round-1.md, plan-main 93bf3211): der #1665-fallerklaert sich NICHT allein durch die release-requirements.json-paarung - 'scripts/ci-workflow-policy.sh:178-195'verlangt, dass eine neue check-datei im selben wechsel beide 'scripts/pr-gate-plan.py' UND 'scripts/release-requirements.json'aendert. sitz w220 hat local einen kandidaten (branch lane-0428-205-gate-catalog-pairing, head 5e3fa3221b92, diff = nurrelease-requirements.json) und hat RICHTIGERWEISE gehalten statt still zu erweitern (4.2). ICH ERWEITERE DAS SCHREIB-UMFANG AUSDRUECKLICH AUF BEIDE DATEIEN (policy-skript und .github/** bleiben gesperrt) und verlange den beweis ueber'bash scripts/ci-workflow-policy.sh' am exakten head (beide PASS-zeilen), gegenprobe im scratch-worktree am #1665-headdb27880c108a. wenn das immer noch scheitert: STOP + MELDEN, dann ist es ein .github-inventar-thema bei ihnen. KARTE BLEIBTactive; kein zustand gewechselt, weil der kandidaten noch nicht veroeffentlicht ist.
+
+## Owner decision and implementation preflight — 2026-11-21
+
+Owner chose Option A: one combined PR for gate registration plus the Owner-scope dispatch. Codex was assigned to take the card through merge.
+
+The preflight corrected the original diagnosis. On the exact current PR #1665 pair (base `b71c6da27e8bbf180d26762eb9bfb101ec5a7bbe`, head `db27880c108a84c6c11bcb5a02484d3da00244bd`), a detached worktree run of `BASEHARBOR_POLICY_BASE_SHA=<base> BASEHARBOR_POLICY_HEAD_SHA=<head> bash scripts/ci-workflow-policy.sh` prints `Workflow policy PASS: 20 approved workflow files.` and `Gate catalog consistency PASS: no check-file or gate-ID additions/removals.` The script `scripts/ci-fast-check.sh` exists on both sides, so it is not a newly added check in this comparison. Hosted Workflow policy job 136733496977 also passed on run 44867225115; that overall workflow was cancelled and `PR Selected Checks` failed on separate native gates, so this is not a full CI pass.
+
+The planned `ci.yml:1301` arm is the `ci-policy` validation dispatch. The actual static release-gate switch is in `.github/workflows/pre-release-runtime-suite.yml:264-270`. A real static-gate registration requires that additional workflow path, which 0428-208 currently forbids. The existing local candidate fab709a45 only adds a catalog row with `required_for: []`; it is not executable or ready to publish. No product PR was opened and no product source was changed.
+
+STOP pending Owner direction: authorize the corrected `.github/workflows/pre-release-runtime-suite.yml` dispatch and update 0428-208 scope, or drop the now-unneeded gate registration and close this finding based on the exact current #1665 comparison.
 
 END_BLOCKED accepted: the card was cut too narrow BY MY HAND and the lane is correct. Measured consequence: this card cannot produce a green candidate without an Owner-scope line, so it goes to blocked (not wait) because it needs an Owner decision, which is the blocked semantics. 0428-208 is poured for the develop-side registration part and stays planned until the decision is recorded.
