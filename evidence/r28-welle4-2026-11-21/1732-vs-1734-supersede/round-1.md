@@ -162,4 +162,15 @@ ps-witness: only transient git/gh commands ran on this host; docker/podman were 
 
 Scratch: `/tmp/opencode/w231-diff-1732.patch` and `/tmp/opencode/w231-diff-1734.patch` (diff captures for the table above; under /tmp/opencode, deletable anytime). Note: the first write of this dossier disappeared between tool calls in this sandbox; it was rewritten in one pass and then committed — no content lost.
 
-END_DONE w231-0428-202-supersede: #1734 (75770bd2d) supersedes #1732 (bddb27e62) in content — decision (a); see this dossier, plan SHA on origin/main.
+Delivery witness (second-to-last action, per dispatch):
+
+```
+$ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 1732-vs-1734-supersede
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch              main       -> FETCH_HEAD
+evidence/r28-welle4-2026-11-21/1732-vs-1734-supersede/round-1.md
+```
+
+Plan SHA on origin/main at END: cce9d840 (this dossier's commit).
+
+END_DONE w231-0428-202-supersede: #1734 (75770bd2d) supersedes #1732 (bddb27e62) in content — decision (a); see this dossier, plan SHA cce9d840 on origin/main.
