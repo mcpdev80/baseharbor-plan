@@ -71,6 +71,9 @@ The actual remainder we both care about:
 - git worktree: lane-0428-220-hottarget-wt at develop e6c199e7b7dd.
 - No containers/networks/volumes left behind.
 
+## END lane-0428-220-hottarget DONE
+
 ## Status
 
-- READY to end. Disposition: card dropped by coordinator (read (a)). No PR, no product change, no merge. Evidence pending commit to origin/main.
+- DONE. Disposition: card dropped by coordinator (read (a) confirmed). No PR, no product change, no merge.
+- Evidence committed to baseharbor-plan origin/main as 407be025b (cherry-picked from local 0f699c0ec onto remote tip 9d561928 to bypass other lanes' rebase conflicts on card/view files). ls-tree on origin/main confirms both target-hotfix-inspection/round-1.md and round-2-port.md present.
