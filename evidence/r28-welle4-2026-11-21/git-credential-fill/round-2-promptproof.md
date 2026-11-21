@@ -151,6 +151,12 @@ to the terminal state.
 
 cleanliness: clean
 
+(Diese Zeile + vorher/nachher-`docker ps -a` nach Coordinator-Vermerk
+nachgereicht; commit `a9eec325e2f06942baeb33ea7f7d882673812352` auf main.
+Hinweis: ein konkurrierender Planning-Commit `0c384798` hatte meine Akte
+zwischenzeitlich ohne diese Zeile auf main gehoben; mein Nachreich-Commit
+darüber enthält sie, ls-remote bestaetigt.)
+
 `docker ps -a` VORHER (vor allen Testläufen dieser Runde):
 `CONTAINER ID   IMAGE     COMMAND     CREATED     STATUS     PORTS     NAMES`
 — header only, 0 containers.
