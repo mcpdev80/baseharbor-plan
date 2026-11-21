@@ -88,3 +88,11 @@ Reviewer-only. No local suite tests were run and no product files, workflows, sc
 Docker inspection before: shell PID `3217437`; the eight listed `bh-itest-*` containers were all exited. No containers or compose projects were started or changed by this review. Docker inspection after: shell PID `3222309`; the same eight `bh-itest-*` containers remained exited. No container or compose-project state changed during this review.
 
 END codex-rev-1747 DONE — REQUEST CHANGES: identity and per-case CI receipts remain outstanding; candidate `ecff7e2f575fb991fbe5c3c1c5f6785569d70228`.
+
+## Publication witness
+
+Exact output from `git ls-tree -r --name-only origin/main | grep 'evidence/r28-welle4-2026-11-21/valkey-dashboard-unavailable/review-1-head1ecff7e2.md'` after fetching `origin main`:
+
+```text
+evidence/r28-welle4-2026-11-21/valkey-dashboard-unavailable/review-1-head1ecff7e2.md
+```
