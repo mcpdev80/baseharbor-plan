@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w178-0428-178-contextshow
-kanban_status: wait
-kanban_lane: wait
+owner: coordinator
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-178 · context show precedence
 priority: ""
@@ -18,23 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1718]
 sources: []
 blocker: ""
-wait_reason: "Waiting for prerequisite 0428-057 / PR #1615 to merge with exact required CI green. Latest head 5d5cfdf1b3edefabfdcafb154d711d61dad74ed8 is running exact CI 44828743735 after exact cleanup-preview and guided wizard test-gate fixes. After it passes and #1615 merges, hop #1718 onto current develop and rerun exact CI."
-resolution: ""
-evidence: []
+wait_reason: ""
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1718"]
 ---
 
-- [ ] t-20261120-r28-cli2-context-precedence-evidence · CLI2: persisted-over-default precedence is not asserted through baha context show #task #release/v0-4-28 #status/wait #view/wait #kind/bug
+- [x] t-20261120-r28-cli2-context-precedence-evidence · CLI2: persisted-over-default precedence is not asserted through baha context show #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/bug
     <!-- generated:card -->
-    **Owner:** w178-0428-178-contextshow  
+    **Owner:** coordinator  
     **PR:** [baseharbor#1718](https://github.com/mcpdev80/baseharbor/pull/1718)  
-    **Waiting:** Waiting for prerequisite 0428-057 / PR \#1615 to merge with exact required CI green. Latest head 5d5cfdf1b3edefabfdcafb154d711d61dad74ed8 is running exact CI 44828743735 after exact cleanup-preview and guided wizard test-gate fixes. After i…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1718)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
-**Owner:** w178-0428-178-contextshow  
+**Owner:** coordinator  
 **Priority:** not set  
 **PRs:** [baseharbor#1718](https://github.com/mcpdev80/baseharbor/pull/1718)  
 **Source:** 
@@ -73,3 +73,5 @@ ARBEITET JETZT, kante gegen session gemessen (name 'w178-0428-178-contextshow', 
 HANDOFF ABGESCHLOSSEN, kandidat pruefbar: PR #1718 head aa3c9d2a5b79, branch = refs/pull/1714.. gemessen equal, draft=false, 1 datei (+24 zeilen, nur test), checks 14 success / 20 skipped / 0 failure am exakten head, run 44759243414 mit 'PR · Go unit · cli-2' completed/success und dem test in BEIDEN mutationen rot. akte evidence/.../context-show-precedence/round-1.md: 0 checkboxen, 23 mutations-belege, 'cleanliness: CLEAN'. basis-note: develop ist auf 3653369a4d83 weiter (#1717/0428-188), der hop gehoert vor den merge, nicht vor die abnahme - gleiches muster wie #1715, das der owner selbst in review genommen hat.
 
 STATUS-KANTE NACH MESSEN, NICHT NACH GLAUBEN: inhalt ist fertig und die abnahme des inhalts ist erfolgt (APPROVE); was fehlt, ist ein gangbarer gate. ich lasse die karte NICHT auf review stehen, weil review 'abnahme offen' heisst - offen ist der gate, nicht die abnahme. das ist ihr feld (AGENTS 3.8 kann-jeder-schritt-check: auth/env kommen vom system/owner, keine lane darf ihren pruefeingang selbst setzen).
+
+MERGE BESTAETIGT, am remote gemessen: PR #1718 ('fix(0428-178): prove context precedence through the real baha context show path', write-set 'cmd/baha/context_terminal_test.go') ist der AKTUELLE develop-head e43e7ffea95f ('Merge pull request #1718 from mcpdev80/lane-0428-178-cont…', 09:34); 'merge-base --is-ancestor e43e7ffea95 <develop>' = 0 gegen den JETZT gemessenen head (ls-remote). WICHTIG FUER MICH SELBST: develop ist innerhalb EINES ticks dreimal weitergelaufen (9bd76324ec6d -> 7fbb2d2c6c6 -> 922e3a84a -> e43e7ffea95f, dazu 2584cc81c) — jede meiner 'current base'-angaben altert in minuten, deshalb steht in allen neuen missionen 'ls-remote-zeile wortlich in die akte, kein wert aus dem gedachtnis' (issue #24). Kein weiterer PR fuer diese karte.
