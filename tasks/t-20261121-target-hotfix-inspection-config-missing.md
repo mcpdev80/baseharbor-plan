@@ -1,7 +1,7 @@
 ---
 id: t-20261121-target-hotfix-inspection-config-missing
 card_number: "0428-220"
-card_short_title: "0428-220 target hotfix inspection"
+card_short_title: ": "0428-220 target hotfix insp"
 type: bug
 areas: [cli]
 release: v0.4.28
@@ -11,7 +11,7 @@ owner: coordinator
 kanban_status: planned
 kanban_lane: planned
 kanban_summary: "collectTargetInspection after the hotfix command path returns the configured target instead of failing with target \"edge-a\" is…"
-kanban_title: 0428-220 · 0428-220 target hotfix inspection
+kanban_title: "0428-220 · : \"0428-220 target hotfix insp"
 priority: normal
 depends_on: [t-20261121-all-targets-config-loss]
 repos: [mcpdev80/baseharbor]
@@ -21,7 +21,7 @@ blocker: ""
 wait_reason: ""
 resolution: ""
 evidence:
-  - evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md
+  - https://github.com/mcpdev80/baseharbor-plan/blob/main/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md
 created: "2026-11-21T06:52:00Z"
 updated: "2026-11-21T06:52:00Z"
 ---
@@ -31,7 +31,7 @@ updated: "2026-11-21T06:52:00Z"
     **Owner:** coordinator · **Priority:** normal  
     **Waiting for prerequisites**  
     **Needs:** [t-20261121-all-targets-config-loss](t-20261121-all-targets-config-loss.md)  
-    **Evidence:** [proof 1](evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/r28-welle4-2026-11-21/destroy-authority-stamp/review-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
