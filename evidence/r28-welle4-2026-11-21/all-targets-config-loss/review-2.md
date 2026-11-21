@@ -105,3 +105,11 @@ The accompanying PR API recheck remained `state=open`, `draft=false`, `mergeable
 `evidence/r28-welle4-2026-11-21/all-targets-config-loss/review-2.md` records the SHA-specific review of PR #1739 at `52866ae38f97d940a93e5e6c88b24ab3255ed838`, run `44892971526`, and the final-hop-before-merge condition.
 
 END REVIEW DONE — candidate SHA 52866ae38f97d940a93e5e6c88b24ab3255ed838.
+
+## origin/main publication witness
+
+Exact output of `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 'evidence/r28-welle4-2026-11-21/all-targets-config-loss/review-2.md'` before this witness was appended:
+
+```text
+evidence/r28-welle4-2026-11-21/all-targets-config-loss/review-2.md
+```
