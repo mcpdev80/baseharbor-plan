@@ -88,3 +88,11 @@ Finding 3 — the exact-head required aggregate is red for inherited failures.
 Read-only review. No local tests were run; no workflow was changed or dispatched; no PR comment, merge, force-push, close, or candidate mutation was performed. The current task file retains older operator-auth acceptance wording; this review applies the current owner clarification in the mission as its controlling scope.
 
 END codex-rev-cli2b DONE — candidate SHA a8079303acaaba860ae444eec684ff9625551f82.
+
+## origin/main publication witness
+
+After fetching origin main, `git ls-tree -r --name-only origin/main | grep '^evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-2.md$'` returned exactly:
+
+```text
+evidence/r28-welle4-2026-11-21/destroy-authority-stamp/review-2.md
+```
