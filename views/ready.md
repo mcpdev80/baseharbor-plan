@@ -11,3 +11,4 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | [t-20261120-r28-keycloak-producer-target-mismatch](../tasks/t-20261120-r28-keycloak-producer-target-mismatch.md) | Keycloak producer registers ID/target the identity witness can never match | ready | not set | — | — | — |
 | [t-20261120-r28-perses-status-never-verified](../tasks/t-20261120-r28-perses-status-never-verified.md) | No source API yields verified: status --json can never report true | ready | not set | — | — | — |
 | [t-20261121-cli-shard-runtime-tests](../tasks/t-20261121-cli-shard-runtime-tests.md) | 0428-215 Go-unit cli shards run tests that need a real runtime | ready | high | — | — | — |
+| [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | ready | normal | — | — | — |
