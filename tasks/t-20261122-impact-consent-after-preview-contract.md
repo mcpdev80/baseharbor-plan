@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w226-pr1627-0428-226-consent (Codeman worker seat)
+kanban_status: active
+kanban_lane: active
 kanban_summary: Define and enforce one consent contract for env destroy so that an impact consent produced by a preview is still authoritative…
 kanban_title: 0428-226 · impact consent validated after
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-impact-consent-after-preview-contract · Env destroy: impact consent validated after preview is structurally stale (five fixture rounds) #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261122-impact-consent-after-preview-contract · Env destroy: impact consent validated after preview is structurally stale (five fixture rounds) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w226-pr1627-0428-226-consent (Codeman worker seat)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w226-pr1627-0428-226-consent (Codeman worker seat)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
