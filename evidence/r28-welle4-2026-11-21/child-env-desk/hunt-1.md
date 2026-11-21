@@ -150,5 +150,10 @@ No missing-suppression bug detected: the two git interactive paths that need it 
 - Real remote attested: `git ls-remote https://github.com/mcpdev80/baseharbor.git` (NOT the shared workers/baseharbor quarantine checkout).
 - Evidence path to be committed to baseharbor-plan: evidence/r28-welle4-2026-11-21/child-env-desk/hunt-1.md
 
+## REMOTE WITNESS (origin/main, before END)
+- `git fetch origin main` OK
+- `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep child-env-desk` => `evidence/r28-welle4-2026-11-21/child-env-desk/hunt-1.md`
+- commit: `f12821ac0` on main; push `e2bc1ca63..f12821ac0 main -> main`.
+
 ## HANDOFF / END
 END_DONE 0428-221-huntenv: child-env-desk sweep complete — 5 K2 cards need filing (etcd/etcdutl/etcdctl in corebackup + dcs_boot_probe in coreupdate, same #1742 defect class); full class K1/K3/K4 clean; no cmd.Env=nil wipe site; evidence at evidence/r28-welle4-2026-11-21/child-env-desk/hunt-1.md.
