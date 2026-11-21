@@ -28,7 +28,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1731", "https://github.c
     **Owner:** Owner (marcel, direkt)  
     **PR:** [baseharbor#1731](https://github.com/mcpdev80/baseharbor/pull/1731)  
     **Waiting:** PR \#1731 exact head b67c3427dd8106d15082fff34187b9761161a10a run 44881683635 is terminal failure. cli-3 installed /usr/bin/zsh and /usr/bin/fish and executed the selected Go test step; TestEndToEndInstalledZshAndFishWrappers maps determini…  
-    **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1731), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44812248904), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/shell-wrapper/round-2.md)  
     <!-- /generated:card -->
 

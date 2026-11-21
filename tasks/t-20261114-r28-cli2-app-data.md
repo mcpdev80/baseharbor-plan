@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
+    **Needs:** [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

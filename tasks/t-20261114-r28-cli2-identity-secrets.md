@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: Owner (marcel, direkt)
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Separate human/runtime secret authority. Follow the owner working brief, command mapping and code entry index; revalidate…"
 kanban_title: 0428-057 · Separate human/runtime secret
 priority: high
@@ -19,19 +19,19 @@ prs: [mcpdev80/baseharbor#1615]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-identity-secrets/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98d/evidence/r28-welle4-2026-11-19/identity-secrets-hopf/fix-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44735405029", "https://github.com/mcpdev80/baseharbor/actions/runs/44860390232"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-identity-secrets/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98d/evidence/r28-welle4-2026-11-19/identity-secrets-hopf/fix-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44735405029", "https://github.com/mcpdev80/baseharbor/actions/runs/44860390232", "https://github.com/mcpdev80/baseharbor/pull/1615", "https://github.com/mcpdev80/baseharbor/actions/runs/44881285907"]
 ---
 
-- [ ] t-20261114-r28-cli2-identity-secrets · CLI redesign: Separate human/runtime secret authority #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [x] t-20261114-r28-cli2-identity-secrets · CLI redesign: Separate human/runtime secret authority #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** Owner (marcel, direkt) · **Priority:** high  
     **PR:** [baseharbor#1615](https://github.com/mcpdev80/baseharbor/pull/1615)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-identity-secrets/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98d/evidence/r28-welle4-2026-11-19/identity-secrets-hopf/fix-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44735405029), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44860390232)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-identity-secrets/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/2fd8d98d/evidence/r28-welle4-2026-11-19/identity-secrets-hopf/fix-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44735405029), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44860390232), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1615), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44881285907)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md), [t-20261120-trusted-local-operation-grant](t-20261120-trusted-local-operation-grant.md)  
 **Required by:** [t-20261114-r28-cli2-app-data](t-20261114-r28-cli2-app-data.md), [t-20261114-r28-cli2-app-export](t-20261114-r28-cli2-app-export.md), [t-20261114-r28-cli2-app-interact](t-20261114-r28-cli2-app-interact.md), [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261120-r28-cli2-context-precedence-evidence](t-20261120-r28-cli2-context-precedence-evidence.md), [t-20261120-r28-shell-wrapper-tests-not-skippable](t-20261120-r28-shell-wrapper-tests-not-skippable.md)  
@@ -297,3 +297,11 @@ OWNER UEBERNIMMT DIREKT (Ausdrueckliche Anweisung 2026-11-20): karte ist aktiv u
 - Local `go test ./cmd/baha -run '^(TestReactivatedIntentReplacesRetiredOwnerAndArchivesPreviousIntent|TestRetiredPendingRetryNeverReplacesArchivedLiveOwnerWithEmptyIntent|TestGuidedBackupFixtureCandidateRetryKeepsProviderConsent|TestGuidedBackupFixtureProviderRetryKeepsCandidateConsent|TestGuidedBackupFixtureConsentPreservesUnrelatedFailures)$' -count=1` passed; the two native acceptance test names compile and skip locally without their Docker/Podman runtime opt-in. `git diff --check` passed.
 - Published `7f3c57e65b6692c1b2df0d32638f77536bb9f657` to `cli2-identity-secrets-head`. Exact run [44862928829](https://github.com/mcpdev80/baseharbor/actions/runs/44862928829) is now running on that exact head; PR #1615 is OPEN, non-draft, and currently MERGEABLE. Do not merge until the entire exact required run is green and fresh review/mergeability are clean.
 - Final review tightened the candidate challenge to an exact RE2-compatible token match and restored `--confirm-candidate <digest>` parsing in the Docker backup integration callback. Focused regression tests and `git diff --check` pass. Published follow-up `760bc0f55c6f00dfabcbd2724d42ccc447028766`; run 44862928829 is superseded, and only a new exact run on 760bc0f should count toward acceptance.
+
+## Completion record — 2026-11-21
+
+- Owner-directed takeover completed; PR #1615 merged by Owner-delegated Maintainer authority at `2026-11-21T08:08:08Z`. PR head `864c2da7319b0db9f8973f94cc690c9b87921660` was based on current `develop` `d2d4ded3dedbb6ef7efdd9dc6ba3c114c5e3a163`; merge commit is `9bd76324ec6d1364f512d718cb82f1fffc9105a4`.
+- The first exact-head run `44879321241` passed on the prior base but was not used for merge because `develop` had advanced. Current develop was integrated with a normal merge commit, with no conflict; only inherited changes were 15 documentation lines in `docs/cli/applications.md` and `docs/de/cli/applications.md`.
+- Test → check/gate → trigger → result: Go package tests (including `cmd/baha` CLI tests and package tests) → `PR · Go unit · cli-0..3`, `packages`, and `owner` → ready PR head push → all selected checks passed at `864c2da` in run `44881285907`. Runtime/native acceptance → selected Core-less Docker and Podman lifecycle, selected Docker `control-plane-recovery`, `guided`, `backup-restore`, `lifecycle`, `observability`, Podman `lifecycle`, native Docker `greenfield`/`onboarding`, native Podman `installation-destroy`/`second-target-conflict`, and native Keycloak/Core Docker+Podman → same PR event → all selected jobs and aggregate `PR Selected Checks` passed in `44881285907`; policy-unselected jobs remained skipped.
+- Focused local checks on `864c2da`: backup fixture scoped-consent regression tests and `TestRepositoryBuildWorkloadRebuildsSourceChangesInCI` passed; `git diff --check` passed. Final PR state is MERGED and `develop` points at `9bd76324`.
+- No release, tag or publication was performed. This closes 0428-057 only; other open PRs and Wait cards remain outside this card's acceptance.

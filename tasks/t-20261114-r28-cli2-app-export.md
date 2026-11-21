@@ -29,7 +29,6 @@ evidence:
     **Owner:** codex-open-pr-sweep-065 · **Priority:** high  
     **PR:** [baseharbor#1625](https://github.com/mcpdev80/baseharbor/pull/1625)  
     **Waiting:** Implementation is pushed at \#1625 head 010db47dae0e0425f948914b3febc1ba86f41edc. PR remains Draft and targets cli2-identity-secrets-head, which does not match the current CI pull\_request base allowlist (develop/main/lane-\*), so there is no…  
-    **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/010db47dae0e0425f948914b3febc1ba86f41edc)  
     <!-- /generated:card -->
 

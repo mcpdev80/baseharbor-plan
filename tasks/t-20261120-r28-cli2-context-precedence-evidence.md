@@ -28,7 +28,6 @@ evidence: []
     **Owner:** w178-0428-178-contextshow  
     **PR:** [baseharbor#1718](https://github.com/mcpdev80/baseharbor/pull/1718)  
     **Waiting:** Waiting for prerequisite 0428-057 / PR \#1615 to merge with exact required CI green. Latest head 5d5cfdf1b3edefabfdcafb154d711d61dad74ed8 is running exact CI 44828743735 after exact cleanup-preview and guided wizard test-gate fixes. After i…  
-    **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

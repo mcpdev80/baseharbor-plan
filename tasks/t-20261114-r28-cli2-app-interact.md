@@ -28,7 +28,6 @@ evidence: []
     **Owner:** Codex · **Priority:** high  
     **PR:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623)  
     **Waiting:** arbeit gestartet und pausiert: stack-base ist der branch von 0428-057, der run am exakten head ca930ce6 ist rot (17 failure bei 60 checks). gewartet wird auf inhalt von \#1615, nicht auf einen merge.  
-    **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
