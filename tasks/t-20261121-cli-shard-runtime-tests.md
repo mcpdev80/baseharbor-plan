@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "The PR · Go unit · cli- shards contain no test whose pass condition requires a container runtime, ORAS, or memory that the…"
 kanban_title: 0428-215 · 0428-215 cli runtime tests
 priority: high
@@ -18,8 +18,8 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1743]
 sources: []
 blocker: ""
-wait_reason: "Exact run 44878727267 at 57e7941772ce85dbc60bad7faddd3613c3191c4c is terminal. The new regression PASSes without skip in both existing Docker and Podman native cells. Both jobs then fail in a separate existing TestControlPlaneSingleDefaultNativeRuntimeInCI because its integration target is not configured; all four cli shards also fail inherited managed-operator-auth fixtures owned by the separate #1615 session, and the planner-tests validation fails. Required aggregate checks are red, so acceptance/closure is not truthful yet. Exact logs and test-to-gate mapping: ../evidence/r28-welle4-2026-11-21/cli-shard-runtime-tests/round-8.md."
-resolution: ""
+wait_reason: ""
+resolution: accepted
 evidence:
   - "https://github.com/mcpdev80/baseharbor/pull/1743"
   - "https://github.com/mcpdev80/baseharbor/actions/runs/44875389702"
@@ -30,19 +30,20 @@ evidence:
   - "https://github.com/mcpdev80/baseharbor/actions/runs/44877777956"
   - "https://github.com/mcpdev80/baseharbor/actions/runs/44878287581"
   - "https://github.com/mcpdev80/baseharbor/actions/runs/44878727267"
-  - "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/cli-shard-runtime-tests/round-8.md"
+  - "https://github.com/mcpdev80/baseharbor/actions/runs/44887314441"
+  - "https://github.com/mcpdev80/baseharbor/commit/4da7ce94b015d5bbd3a8006311785ade5f97b530"
+  - "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/cli-shard-runtime-tests/round-9.md"
 ---
 
-- [ ] t-20261121-cli-shard-runtime-tests · 0428-215 Go-unit cli shards run tests that need a real runtime #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/cli #kind/bug
+- [x] t-20261121-cli-shard-runtime-tests · 0428-215 Go-unit cli shards run tests that need a real runtime #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1743](https://github.com/mcpdev80/baseharbor/pull/1743)  
-    **Waiting:** Exact run 44878727267 at 57e7941772ce85dbc60bad7faddd3613c3191c4c is terminal. The new regression PASSes without skip in both existing Docker and Podman native cells. Both jobs then fail in a separate existing TestControlPlaneSingleDefault…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1743), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44875389702), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44875693455), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44876072403), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44876725420), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44877364076), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44877777956), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/44878287581), [proof 9](https://github.com/mcpdev80/baseharbor/actions/runs/44878727267), [proof 10](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/cli-shard-runtime-tests/round-8.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1743), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44875389702), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44875693455), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44876072403), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44876725420), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44877364076), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44877777956), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/44878287581), [proof 9](https://github.com/mcpdev80/baseharbor/actions/runs/44878727267), [proof 10](https://github.com/mcpdev80/baseharbor/actions/runs/44887314441), [proof 11](https://github.com/mcpdev80/baseharbor/commit/4da7ce94b015d5bbd3a8006311785ade5f97b530), [proof 12](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/cli-shard-runtime-tests/round-9.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** coordinator  
@@ -153,3 +154,8 @@ Continuation 2026-11-21: Podman direct inspect and `network ls` saw the fixture 
 
 
 Continuation 2026-11-21: exact run 44878727267 completed. `TestCoreDefaultNetworkBindingRejectsUnownedNativeNetwork` passes (no skip) in Docker and Podman. Each native cell then fails a separate existing integration-target setup test; cli-0..3 fail shared operator-auth fixtures, and planner-tests validation also fails. See evidence round-8. No #1615 files or state touched.
+
+
+## Acceptance closure — 2026-11-21
+
+The exact required run [44887314441](https://github.com/mcpdev80/baseharbor/actions/runs/44887314441) passed at `f0f25e49753ad6b06b490072739437eeec42de8a`, including `PR · Native Keycloak/Core · docker` and `... · podman`. Each native log records `TestCoreDefaultNetworkBindingRejectsUnownedNativeNetwork` as PASS without skip (Docker job `136795363531`, Podman `136795363590`). All four Go unit shards and aggregate `PR Selected Checks` also passed. PR #1743 merged normally as `4da7ce94b015d5bbd3a8006311785ade5f97b530`. Exact SHA → test → gate → run evidence is in [round-9](../evidence/r28-welle4-2026-11-21/cli-shard-runtime-tests/round-9.md).
