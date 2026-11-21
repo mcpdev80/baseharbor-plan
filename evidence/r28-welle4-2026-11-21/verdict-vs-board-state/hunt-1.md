@@ -120,7 +120,6 @@ cleanliness: docker ps -a before = 0 rows, after = 0 rows (coordinator host; amb
 - Evidence lives only in baseharbor-plan evidence/r28-welle4-2026-11-21/verdict-vs-board-state/ (no checkboxes anywhere in this file).
 - Window note: card 0428-221 (this hunt's parent card `base-branch-provenance-loss`) references the same rewritten-history phenomenon the Fund-1/4/5/6 class-(a) rows independently confirm.
 
-END_DONE 0428-221-huntverd: verdict-vs-board desk complete — 17 Funde: 8x class (a) stale-sha verdicts (6 open PRs incl. rewritten-away objects), 2x class (b) APPROVE without card change, 0x class (c) accepted-unmerged in window, 7x class (d) RC without correction round. Candidate: evidence-only, no product SHA (hunt).
 
 - ROLLE respected: reine Befundung; keine Produktdatei geändert, kein commit an baseharbor, keine PR-Aktion, keine Karten-Änderung (board fixes are the coordinator's work per mission GRENZEN).
 - No subagents (AGENTS 4.8); every step executed in this session.
@@ -129,4 +128,10 @@ END_DONE 0428-221-huntverd: verdict-vs-board desk complete — 17 Funde: 8x clas
 - Evidence lives only in baseharbor-plan evidence/r28-welle4-2026-11-21/verdict-vs-board-state/ (no checkboxes anywhere in this file).
 - Window note: card 0428-221 (this hunt's parent card `base-branch-provenance-loss`) references the same rewritten-history phenomenon the Fund-1/4/5/6 class-(a) rows independently confirm.
 
-END_DONE 0428-221-huntverd: verdict-vs-board desk complete — 17 Funde: 8x class (a) stale-sha verdicts (6 open PRs incl. rewritten-away objects), 2x class (b) APPROVE without card change, 0x class (c) accepted-unmerged in window, 7x class (d) RC without correction round. Candidate: evidence-only, no product SHA (hunt).
+END_DONE 0428-221-huntverd: verdict-vs-board desk complete — 18 Funde: class (a) stale-sha verdicts on 6 open PRs (#1739 #1742 #1702 #1650 #1645 #1738, several verdict objects unreachable after hop rewrites) + 3 merged read-backs (#1733 #1734 #1691); class (b) APPROVE without card change: #1740/0428-209 (wait) + verdictless closed #1613; class (c): 0 accepted-unmerged outcomes, 3 accepted cards cite CLOSED PRs (#1684/#1608/#1726, successors merged); class (d) RC without correction round: 7 (#1704, #1596 x2 cards, #1714, #1737, #1741, #1627/#1736). Live-window movement observed during the hunt: 0428-210 went review→closed/accepted (#1739 merged) after review-3 approved exact head bb98e22599ab1f77edc056de73c682fdfdedd88a. Evidence commit 0ad68b15 on baseharbor-plan main.
+
+## Late-window state changes (measured during writing, 21.11.)
+
+- Card 0428-210 (#1739): moved review -> closed/accepted while this desk ran; #1739 merged. Its review-3 APPROVE binds the exact final head bb98e22599ab1f77edc056de73c682fdfdedd88a (fresh, not stale), so the Fund-1 class-(a) row applies only to review-1/2 documents.
+- Card 0428-220 (#1732-class lineage check): `target-hotfix-inspection/round-1.md` carries a "Verdict"-word token only, no review verdict; card 0428-220 is `planned`, prs empty; its round-1 diagnosis concludes the bug no longer reproduces on current base and the card is stale. Excluded from the inventory as verdictless (task evidence, not a review akte).
+- PR #1739 head re-verified by fresh `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/pull/1739/head` = bb98e22599ab1f77edc056de73c682fdfdedd88a.
