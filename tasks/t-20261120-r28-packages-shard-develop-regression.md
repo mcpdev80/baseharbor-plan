@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w207-0428-202-lokifix
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-202 · packages shard red on develop
 priority: ""
@@ -18,22 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1732]
 sources: []
 blocker: ""
-wait_reason: "ABGELIEFERT UND VON MIR GEMESSEN: PR #1732 head bddb27e6251e, base develop 40cb28c758b0, draft=false, 1 datei (internal/logs/loki_test.go), branch == refs/pull/1732/head. 'PR · Go unit · packages' = SUCCESS am exakten head (job 136574098983, run 44818799733) - die Loki-MultiSource-zellen sind damit auch am develop-tip behoben, der fixture schreibt jetzt das fehlende mTLS client-paar. cli-0..3 bleiben failure = feld-gate 0428-198 (nicht ihr scope, rail ist verschlossen). DARUM wait statt review: eine required-zelle fehlt noch, und sie haengt an genau einem anderen fall. TRIGGER FUER DIE naechste KANTE: 0428-198 gruen im feld -> dann ist dieser kandidat mit einem laufenden exact-head-CI abnehmbar."
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/packages-shard-develop-regression/round-2.md"]
+wait_reason: ""
+resolution: superseded
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/packages-shard-develop-regression/round-2.md", "https://github.com/mcpdev80/baseharbor/pull/1734"]
 created: 2026-11-20
+superseded_by: t-20261121-loki-verify-probe
+
 ---
 
-- [ ] t-20261120-r28-packages-shard-develop-regression · packages shard red on develop #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/observability #kind/bug
+- [x] t-20261120-r28-packages-shard-develop-regression · packages shard red on develop #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** w207-0428-202-lokifix  
     **PR:** [baseharbor#1732](https://github.com/mcpdev80/baseharbor/pull/1732)  
-    **Waiting:** ABGELIEFERT UND VON MIR GEMESSEN: PR \#1732 head bddb27e6251e, base develop 40cb28c758b0, draft=false, 1 datei (internal/logs/loki\_test.go), branch == refs/pull/1732/head. 'PR · Go unit · packages' = SUCCESS am exakten head (job 13657409898…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/packages-shard-develop-regression/round-2.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/packages-shard-develop-regression/round-2.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1734)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** superseded  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
 **Required by:** [t-20261120-r28-valkey-dashboard-unavailable-only](t-20261120-r28-valkey-dashboard-unavailable-only.md)  
@@ -106,3 +107,5 @@ URSACHE GEFUNDEN, UND SIE IST NICHT DER OWNER-RAIL: DIE packages-ZELLE FAELLT, W
 TIP-BELEG VON SITZ w210 (read-only, akte evidence/r28-welle4-2026-11-20/bare-develop-gate/round-1.md, plan-main 446e5f29): am nackten develop 40cb28c758b02960356434b630086a341ebe1738 sind die Loki-MultiSource-zellen ROT, woertlich 'stat .../service-access/pki/client-cert.pem: no such file or directory' (internal/logs/loki_test.go:522/:586); am stand 96f2ae11a sind sie GRUEN; valkey-/tempo-zellen sind KEINE tip-regression. LESART: der fixture half bisher, weil die consumer-seite das client-material nicht verlangte; seit #1594/policy.go (2af892e4e) verlangt sie es. DARUM bleibt die entscheidungsfrage am owner, aber der einzige weg innerhalb eines erlaubten write-sets ist der test-seitige. AUFTRAG AN w207: ihren helper-diff AUF DEN TIP setzen (worktree auf 40cb28c758b0 + diff on top) und den kleinen gate dort fahren: gruen = kandidat, rot = STOP + MELDEN (policy-seite = owner-rail, kein griff). SITZ w210 ist nach akzeptierter akte freigegeben (cleanup hielt, weil ihr status beim freigabe-versuch noch busy war - naechster tick).
 
 ABGELIEFERT UND VON MIR GEMESSEN: PR #1732 head bddb27e6251e, base develop 40cb28c758b0, draft=false, 1 datei (internal/logs/loki_test.go), branch == refs/pull/1732/head. 'PR · Go unit · packages' = SUCCESS am exakten head (job 136574098983, run 44818799733) - die Loki-MultiSource-zellen sind damit auch am develop-tip behoben, der fixture schreibt jetzt das fehlende mTLS client-paar. cli-0..3 bleiben failure = feld-gate 0428-198 (nicht ihr scope, rail ist verschlossen). DARUM wait statt review: eine required-zelle fehlt noch, und sie haengt an genau einem anderen fall. TRIGGER FUER DIE naechste KANTE: 0428-198 gruen im feld -> dann ist dieser kandidat mit einem laufenden exact-head-CI abnehmbar.
+
+SUPERSEDED BY 0428-212 (read-only comparison by w231, akte evidence/r28-welle4-2026-11-21/1732-vs-1734-supersede/round-1.md, plan main be9321bf). MEASURED BY COORDINATOR, not only by the lane: both PRs touch exactly one file, internal/logs/loki_test.go (#1732 +32/-0, #1734 +299/-109); #1732 head bddb27e62 is NOT an ancestor of #1734 head 75770bd2d, so the supersession is content-based; the same three client-cert fixture sites appear in both (1732 :554/:621/:665 = 1734 :671/:751/:813) and #1734 carries materializeLokiServiceAccessPKI plus named subtests materializedPKIFailsClosed*; packages is green at both exact heads. No open PR bases on lane-0428-202-lokifix, so closing #1732 breaks no stack (Owner-Direktive 2026-10-28: superseded PR closed after proof, without merge). This card's analysis of which sites and which gate is what made #1734 possible.
