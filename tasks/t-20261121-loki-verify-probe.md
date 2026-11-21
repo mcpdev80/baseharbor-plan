@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w227-0428-212-lokiprobe
+kanban_status: active
+kanban_lane: active
 kanban_summary: "TestPersesLokiDatasourceVerifyNeverReportsHealthy proves the health path rejects an unreachable Loki, not merely a missing…"
 kanban_title: 0428-212 · 0428-212 loki health
 priority: high
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-loki-verify-probe · loki health verify must reach the probe, not a missing-file exit #task #release/v0-4-28 #status/planned #view/ready #area/observability #kind/bug
+- [ ] t-20261121-loki-verify-probe · loki health verify must reach the probe, not a missing-file exit #task #release/v0-4-28 #status/active #view/active #area/observability #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w227-0428-212-lokiprobe · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w227-0428-212-lokiprobe  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
