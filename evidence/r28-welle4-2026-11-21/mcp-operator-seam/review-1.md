@@ -75,3 +75,11 @@ Finding 2 — exact-head required aggregate is failed, with red cells inherited 
 The candidate was read only. No tests were run locally, no workflow was edited or dispatched, and no PR comment, merge, force-push, or close action was taken. Session ID is not exposed by this interface.
 
 END REVIEW DONE — candidate SHA de4a45ec5ca6e5c064d991420c796162ee6c1494.
+
+## origin/main publication witness
+
+Exact output from `git ls-tree -r --name-only origin/main | grep <evidence-path>` after fetching origin/main:
+
+```text
+evidence/r28-welle4-2026-11-21/mcp-operator-seam/review-1.md
+```
