@@ -33,6 +33,11 @@ changes, hosted CI to terminal, push to the same branch.
 7. END: `codeman agent post 9142ab1f-c464-4f2f-abc8-d6997d8655ae "END_DONE 0428-060-hop22: <line + candidate SHA>"`
    as last action (or END_BLOCKED/QUESTION when blocked); END line also in this file.
 
+Base sha: `22fc68ebc0655874bc3f6aa886ff356dcad79624` — that exact SHA is the parent of my first
+replayed commit `007de38bf7548e8959694c03efb541256e81fa08` (`git merge-base --is-ancestor` shown in step 4),
+and `git log --oneline 22fc68ebc..HEAD` lists only the three 0428-060 commits (no foreign commit).
+No branch was cut from any other PR head.
+
 ## Remote resolution (REMOTE GUARD)
 
 Worktree `workers/0428-060-hop22-wt` (fresh, detached from `workers/baseharbor`; no existing `*-wt` reused).
@@ -100,16 +105,78 @@ At candidate `01b2a7ef826ce8fc090717126003ff8771dc2644`, base `22fc68ebc0655874b
 
 ## CI run (step 5)
 
-Trigger push run: `CI · Source & Quality` run-id 44917442444 at head `01b2a7ef826ce8fc090717126003ff8771dc2644` — in progress; `gh run watch` to terminal, per-job conclusions and per-log byte counts recorded below when terminal.
+Run: `CI · Source & Quality` run-id **44917442444**, head `01b2a7ef826ce8fc090717126003ff8771dc2644`,
+base `22fc68ebc0655874bc3f6aa886ff356dcad79624` (BASE_SHA/HEAD_SHA echoed by the planner job).
+Observed by this session with `gh run watch` and a bounded terminal-state monitor to completion
+(self-run duty, AGENTS 4.6).
+
+Terminal state: **completed / success**.
+
+Per-job conclusions (36 jobs; 15 executed, all success; 21 skipped = release/main/draft/native-runtime
+groups not selected for this PR's paths):
+- success: PR · Native gate plan, PR · Trusted Plan, Workflow policy, PR · Source format,
+  PR · Focused Python, PR · Validation · go-build, PR · Validation · go-vet, PR · Validation · cli-gofmt,
+  PR · Go unit · cli-0/cli-1/cli-2/cli-3, PR · Go unit · packages, PR · Go unit · owner,
+  PR Selected Checks (aggregate prints `PR Selected Checks: PASS`).
+- skipped: Release Source Preflight, validate, Targeted HA · docker/podman, PR · Main release source,
+  PR · Main release Go shards, PR · Draft source and routing, PR · Exact full Pre-Release,
+  Targeted · Workstation onboarding, PR · Draft Go shards, PR · Consumer Pins, PR · Runner Interface,
+  PR · Native Keycloak/Core, PR · Selected Runtime, PR · Candidate-added checks (advisory),
+  PR · Selected Core-less, PR · Exact Candidate, PR · Demo Pin, PR · Public Contracts, PR · Native,
+  PR · Main release checks.
+
+Byte counts, three numbers per protocol:
+- `gh run view --log` (whole run, streamed): 81,920 bytes (body truncated by stream; no failure errors, stderr 0 bytes)
+- `gh run view --log-failed`: 0 bytes (stderr 0 bytes) — no failed job exists
+- per-job `--log` counts (job-id / bytes / name):
+  - 136885974279 70834 PR · Native gate plan
+  - 136885974534 122705 PR · Trusted Plan
+  - 136885974596 28396 Workflow policy
+  - 136885974620 89952 PR · Source format
+  - 136886027957 59408 PR · Focused Python
+  - 136886027975 66041 PR · Validation · go-build
+  - 136886028014 65262 PR · Validation · go-vet
+  - 136886028037 44207 PR · Go unit · cli-2
+  - 136886028050 65116 PR · Go unit · packages
+  - 136886028063 44207 PR · Go unit · cli-1
+  - 136886028072 60944 PR · Go unit · cli-3
+  - 136886028102 50648 PR · Go unit · owner
+  - 136886028127 44092 PR · Go unit · cli-0
+  - 136886028129 59424 PR · Validation · cli-gofmt
+  - 136887403096 104471 PR Selected Checks
+
+Gate-reachability check (GATE RULE): the card's new tests
+(`cmd/baha/app_lifecycle_down_route_0428_060_test.go`, `cmd/baha/app_lifecycle_down_convergence_test.go`)
+ran in CI on this head inside the `PR · Go unit · cli-*` shard jobs — no `.github/**` change needed.
+
+Comparison to old head fb841c2c (run 44912542526): also success; nothing regressed by the hop
+(no merge-induced finding).
+
+Final PR state: #1747 OPEN, non-draft, head `01b2a7ef826ce8fc090717126003ff8771dc2644`
+(verified via `gh pr view` and `git ls-remote refs/heads/lane-0428-060-updown`).
 
 ## repo-rule compliance
 
-Pending.
+- One candidate, one PR: all pushes went to `lane-0428-060-updown` / PR #1747; no second branch, no merge, no close, no comments.
+- No content changes: trees byte-identical to approved `fb841c2c` for `cmd/baha/` (diff empty); base hop only + author-metadata normalization per the review-3 identity-leak note.
+- No `.github/**` edits; no workflow_dispatch or rerun triggered (push-triggered CI only).
+- No `git stash`, no `git add -A` (evidence commit used targeted `git add <file>`); no bare `go test ./cmd/baha/` or `go test ./...` executed on this host (all Go tests ran in hosted CI).
+- No subagents used (4.8). No scratch outside `workers/0428-060-hop22-wt` and `/tmp/opencode/0428-060-hop22-logs`.
+- Shared baseharbor checkout untouched (only fetched `lane-origin` refs and added a worktree entry); quarantined `workers/baseharbor` never cited.
 
 ## cleanliness
 
-Pending. docker ps -a before/after will be recorded here.
+    $ docker ps -a   (before push)
+    CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS    NAMES
+    (header only — zero containers; pid 3904154 witness shell)
+    $ docker ps -a   (final action before END)
+    CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS   PORTS   NAMES
+    (header only — zero containers)
+
+No containers, compose projects, networks or volumes were created by this lane on any host;
+nothing to bring down. cleanliness: clean.
 
 ## END
 
-Pending.
+END_DONE 0428-060-hop22: hopped PR #1747 onto develop 22fc68eb, candidate 01b2a7ef826ce8fc090717126003ff8771dc2644, CI run 44917442444 completed/success at exact head.
+
