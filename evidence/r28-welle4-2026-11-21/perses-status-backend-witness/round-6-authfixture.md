@@ -138,3 +138,21 @@ cleanliness: no test-owned container/network/volume/state directory was created 
 ## END
 
 END_DONE 0428-142-authfixture: operator-auth fixture + coreless-grant path wired into all six witness cells; renderer reachability proven by M1/M2 mutations; candidate b2f2fd3ac pushed fast-forward; own runs 44872748611 (completed/failure: #1615 class + selection finding F5) and 44875647949 observed to terminal (state appended).
+
+## origin/main publish witness (second-to-last action)
+
+    $ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle4-2026-11-21/perses-status-backend-witness
+    evidence/r28-welle4-2026-11-21/perses-status-backend-witness/review-2.md
+    evidence/r28-welle4-2026-11-21/perses-status-backend-witness/review-3.md
+    evidence/r28-welle4-2026-11-21/perses-status-backend-witness/round-3-hop.md
+    evidence/r28-welle4-2026-11-21/perses-status-backend-witness/round-4-hop.md
+    evidence/r28-welle4-2026-11-21/perses-status-backend-witness/round-5-hop.md
+    evidence/r28-welle4-2026-11-21/perses-status-backend-witness/round-6-authfixture.md
+
+Planning-repo remote verified before the first evidence commit (mission WRONG-ZONE check):
+
+    $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v
+    origin  https://github.com/mcpdev80/baseharbor-plan.git (fetch)
+    origin  https://github.com/mcpdev80/baseharbor-plan.git (push)
+
+Evidence commit: 7940e5c7 on baseharbor-plan main (this file's presence in origin/main above is the witness).
