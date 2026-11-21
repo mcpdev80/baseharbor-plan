@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w21-pr1702-0428-142-compat
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: "'baha perses status' nennt pro observability-signal eine ECHTE backend-witness (erreicht / gematcht / nicht erreichbar) statt…"
 kanban_title: 0428-142 · echte backend-witness fuer
 priority: ""
@@ -31,14 +31,14 @@ omit those sources from scrape targets. This assigned, started lane is parked
 pending worker capacity. #1702 still needs the concrete review corrections and
 a fresh exact-head run; it is not ready to merge.
 
-- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** w21-pr1702-0428-142-compat  
     **PR:** [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261119-r28-perses-alert-verifier-caller-wiring](t-20261119-r28-perses-alert-verifier-caller-wiring.md)  
@@ -125,3 +125,5 @@ CODEX-REVIEW review-4.md (plan 80c0bc52 + 605e6e9d) = 'Verdict: REQUEST CHANGES'
 HOP + GRUENER AGGREGAT-BELEG, daher formal 'review' (der offene inhaltliche punkt bleibt ihre (a)/(b)-entscheidung, row 879/882): head 015ce675b -> 2e4a570a7698 auf develop 5b26be1ccfc5, draft=false, durchgang 44886438604 'CI · Source & Quality' = completed/success, check-runs 15 success / 20 skipped / 0 failure — zweiter kandidat des fensters mit vollsstaendig gruenem required-aggregat, erreicht OHNE griff in fremde dateien (write-set bleibt die vier cmd/baha-dateien der karte). P2 ist geliefet (benannte faelle 'TestPersesStatusWitnessUnauthenticatedDenied' + '…HumanFaceRendersBackendWitness' + mutation). P3 UNVERAENDERT off en und KEINE weitere korrekturrunde: kein produkt-code setzt 'LokiProven'/'TempoProven'/'PrometheusProven' (leere witnesses an 'cmd/baha/perses_lifecycle.go:235', 'cmd/baha/app_status_result.go:296'/':399', 'internal/metrics/perses_dashboards_hosts.go:338'/':612'). ZWEITE einschaenkung, von mir gemessen: develop laeuft weiter (jetzt c2c94ad115ff, ihr merge-base 5b26be1ccfc5, 6 commits dazwischen) — vor dem merge ist ein weiterer hop faellig.
 
 #1702 head 6d1d56bd6632 = PR-head = branch-head, rev-list develop..head = 3, %an = 0428-142-genuine (eigene identitaet), write-set 5 dateien (app_status_result*, perses_lifecycle.go), die 4 neuen r9-cases 13/13 PASS im eigenen run. Die rote zelle 'cli-2' ist GENAU der fall, den H-V50 dem trunk zugeordnet hat (app_perses_infra_dashboards_cli_test.go:88, 'target company-dev is not configured', karte 0428-223): #1702 aendert diese datei nicht, und in #1747's cli-2 (job 136886028037) wird der fall gar nicht ausgewaehlt. Diese karte wartet auf 0428-223.
+
+review -> active: verdict REQUEST CHANGES at e0613d9950a (akte review-1-heade0613d99.md zeile 77). In-scope defect: TestPersesStatusWitnessEmptyResolvedSignalNeverResolvedProves only logs a wrong Prometheus verdict and still passes (false green); recipe = require the verdict present and exactly 'unreachable', fail-first proof before fix. Plus single identity (two authors + committer 0428-222-hop220). Correction dispatched to the same session (mission 0428-142-pr1702-rc1-failfirst, sha256 ac389897e86b).
