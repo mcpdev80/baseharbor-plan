@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w21-pr1702-0428-142-compat
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "'baha perses status' nennt pro observability-signal eine ECHTE backend-witness (erreicht / gematcht / nicht erreichbar) statt…"
 kanban_title: 0428-142 · echte backend-witness fuer
 priority: ""
@@ -19,8 +19,8 @@ prs: [mcpdev80/baseharbor#1702]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/513488eeb6d788f0e5eec054be89807505f05e08"]
 ---
 
 ## Current handoff
@@ -31,14 +31,15 @@ omit those sources from scrape targets. This assigned, started lane is parked
 pending worker capacity. #1702 still needs the concrete review corrections and
 a fresh exact-head run; it is not ready to merge.
 
-- [ ] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261119-r28-perses-status-backend-witness · CLI-Gesicht: echte backend-witness fuer perses host-status (app_status_result.go), damit Loki/Tempo nicht dauerhaft 'unavailable' gemeldet bleiben #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** w21-pr1702-0428-142-compat  
     **PR:** [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/513488eeb6d788f0e5eec054be89807505f05e08)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261119-r28-perses-alert-verifier-caller-wiring](t-20261119-r28-perses-alert-verifier-caller-wiring.md)  
@@ -127,3 +128,9 @@ HOP + GRUENER AGGREGAT-BELEG, daher formal 'review' (der offene inhaltliche punk
 #1702 head 6d1d56bd6632 = PR-head = branch-head, rev-list develop..head = 3, %an = 0428-142-genuine (eigene identitaet), write-set 5 dateien (app_status_result*, perses_lifecycle.go), die 4 neuen r9-cases 13/13 PASS im eigenen run. Die rote zelle 'cli-2' ist GENAU der fall, den H-V50 dem trunk zugeordnet hat (app_perses_infra_dashboards_cli_test.go:88, 'target company-dev is not configured', karte 0428-223): #1702 aendert diese datei nicht, und in #1747's cli-2 (job 136886028037) wird der fall gar nicht ausgewaehlt. Diese karte wartet auf 0428-223.
 
 review -> active: verdict REQUEST CHANGES at e0613d9950a (akte review-1-heade0613d99.md zeile 77). In-scope defect: TestPersesStatusWitnessEmptyResolvedSignalNeverResolvedProves only logs a wrong Prometheus verdict and still passes (false green); recipe = require the verdict present and exactly 'unreachable', fail-first proof before fix. Plus single identity (two authors + committer 0428-222-hop220). Correction dispatched to the same session (mission 0428-142-pr1702-rc1-failfirst, sha256 ac389897e86b).
+
+CODEX-MERGE landed PR #1702 as merge-commit 513488eeb6d (develop tip). Reviewed candidate be5e23079df (hopped 5761ebe6914, which carries the approved fail-first witness fix) is an exact ancestor. Independent APPROVE: baseharbor-plan origin/main 9127752ec, evidence/r28-welle4-2026-11-21/trust-status-backend-witness/review-3-headbe5e2307.md. Exact hosted run 44949384417 completed/success (36 cells).
+
+CODEX-MERGE landed PR #1702 as merge-commit 513488eeb6d, new develop tip. Reviewed candidate be5e23079df is an exact ancestor of develop. Independent APPROVE akte lives at plan commit 9127752ec, evidence/r28-welle4-2026-11-21/trust-status-backend-witness/review-3-headbe5e2307.md. Exact hosted run 44949384417 completed/success, 36 cells. Card 0428-142 feature: per-signal backend witness for perses status is delivered.
+
+CODEX-MERGE landed PR #1702 as merge-commit 513488eeb6d, new develop tip. Reviewed candidate be5e23079df is an exact ancestor of develop. Independent APPROVE record at plan commit 9127752ec: evidence/r28-welle4-2026-11-21/trust-status-backend-witness/review-3-headbe5e2307.md. Exact hosted run 44949384417 completed/success, 36 cells. Card 0428-142 delivered: per-signal backend witness for perses status.
