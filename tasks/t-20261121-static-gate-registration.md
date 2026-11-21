@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: review
-kanban_lane: review
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: Run the existing scripts/ci-fast-check.sh as its own static gate in the v0.4.28 Pre-Release Suite. Preserve every existing…
 kanban_title: 0428-208 · 0428-208 static gate
 priority: high
@@ -18,19 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "PR #1746 is coherent on its own: the isolated gate run 44943804395 (atomic/static/ci-fast-check, demo pin 5d1cf312e18d) is completed/success at head 9ddcde356e9, and the PR CI run 44942308935 is terminal success (35 jobs). The full six-gate static run 44944570763 fails, but not because of this PR: init (job 136970241191) and shell-ux (job 136970241182) stop at 'authenticate the BaseHarbor operator / run baha login' - the same operator-auth prerequisite as card 0428-223 and PRs #1723/#1725 - and mcp (job 136970241277) reports 'MCP contract mismatch: missing=[] unexpected=[baseharbor.app.perses.disable, .enable, .remove, .status]', which is card 0428-225 contract drift in scripts/** (Owner scope). Witness akte: evidence/r28-welle4-2026-11-21/static-gate-registration/finding-1746-static-suite-failure.md. Next trigger: 0428-223 clears the auth context and the four MCP tools are registered, then the full static run is repeated and the independent review finishes. No merge before that plus the Coordinator/Release Owner approvals."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/review #view/review #area/ci #kind/task
+- [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/wait #view/wait #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
+    **Waiting:** PR \#1746 is coherent on its own: the isolated gate run 44943804395 (atomic/static/ci-fast-check, demo pin 5d1cf312e18d) is completed/success at head 9ddcde356e9, and the PR CI run 44942308935 is terminal success (35 jobs). The full six-gat…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** coordinator  
@@ -84,3 +85,5 @@ Owner 2026-11-21: zweckgebundene Freigabe für pre-release-runtime-suite.yml und
 - Coordinator scope confirmation is recorded in [PR comment](https://github.com/mcpdev80/baseharbor/pull/1746#issuecomment-7060850641). Exact-head PR run `44891832834` is pending. Hosted positive Release Suite proof and Release Owner confirmation remain pending. The exact v0.4.28 Demo pin file is absent on current `develop`; no older pin was substituted.
 
 Owner hat 0428-208 selbst umgesetzt als PR #1746 (head a1e95e7ebc5d, base develop, 9 dateien, ci.yml NICHT im diff). Von mir gemessen am head: release-requirements.json traegt genau eine zeile atomic/static/ci-fast-check mit required_for v0.4.28, jobs static_gates, dependencies core, und die releases-liste enthaelt v0.4.28. Der withdrawn kandidat fab709a45 (required_for leer) bleibt unveroeffentlicht. Scope- und plan-bestaetigung als kommentar auf dem PR hinterlegt. Offen: head ist kein nachkomme von develop, der exakt-current-base aggregate braucht einen hop.
+
+review -> wait: two foreign prerequisites (0428-223 operator-auth, 0428-225 mcp contract) proven from the failing run's own logs
