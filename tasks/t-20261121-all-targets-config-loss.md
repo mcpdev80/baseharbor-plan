@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "TestAppListAllTargetsWorksAfterInstallationDestroy passes: after an installed-to-destroyed transition the all-targets inventory…"
 kanban_title: 0428-210 · 0428-210 all-targets config
 priority: normal
@@ -23,14 +23,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-all-targets-config-loss · 0428-210 all-targets inventory depends on a deleted Target config #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
+- [ ] t-20261121-all-targets-config-loss · 0428-210 all-targets inventory depends on a deleted Target config #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** normal  
     **PR:** [baseharbor#1739](https://github.com/mcpdev80/baseharbor/pull/1739)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Required by:** [t-20261121-target-hotfix-inspection-config-missing](t-20261121-target-hotfix-inspection-config-missing.md)  
@@ -110,3 +110,5 @@ probe 2
 CODEX-REVIEW review-1.md = REQUEST CHANGES. Punkt 2 ist sicherheitsrelevant, von mir am quelltext gelesen: develop nutzt am all-targets-arm 'authorizeMCPOperation(ctx, app.list, dev)' (kommentar: authenticate the operator without requiring an effective Target that no longer exists); der head 6442955f4cf0 ersetzt das durch 'authorizeCurrentMCPContext' und verwirft 'deployment.ErrConfigMissing', damit kann die authorisierung am fehlenden target nicht entscheiden. Der gruene durchgang 44885264462 gilt einem ueberholten develop-stich (5b26be1ccfc5, jetzt c2c94ad115ff). Neue lane 0428-210-authzkeep (92fd9d3a, ornith): hop auf gemessenen develop, develop-seite der authorisierung behalten, ErrConfigMissing erst nach der authorisierung tolerieren, negativer anonym-fall mit exakter gate-zeile, mutation (unterschlagen vor authorisierung = rot). Empfehlung an den owner: #1739 nicht mergen bis der neue head den gruenen aggregate plus den negativen fall hat. Ausfuehrlich in coordinator/QUEUE.md row 882.
 
 korrekturrunde 5 auf derselben lane (92fd9d3a). Am head aba052ad2b66 gelesen: authorisierung ist develop-seitig wieder da (app_commands.go:131-137 mit dev-transport fuer allTargets), die einzige ErrConfigMissing-toleranz sitzt in zeile 205 NACH der authorisierung, delta gegen merge-base = genau zwei dateien. Run 44891459252 = 15 success / 20 skipped / 0 failure, cli-0..3 success, PR Selected Checks success. Zwei offen: (a) app_list_all_targets_test.go:58 prueft den gate-text mit strings.Contains statt wörtlich, (b) head ist kein descendant von develop 53f16a81f23a, also rebase plus new evidence
+
+korrekturrunde 5 geliefert und von mir am head 52866ae38f97 nachgelesen: app_commands.go:131-137 traegt wieder die develop-form (authorizeMCPOperation mit dev-transport fuer allTargets), die einzige ErrConfigMissing-toleranz in :205 NACH der authorisierung, delta gegen merge-base = genau zwei dateien. Teststelle :58 prueft jetzt strings.EqualFold mit dem wortlichen gate-text inkl. endpunkt, der negative anonym-fall TestAppListAllTargetsStillRequiresAuthorizationWithoutTargetConfig ist da (mutation ohne endpunkt = ROT belegt). Durchgang 44892971526 completed/success am genau diesem head (35 jobs, cli-0..3 success, PR Selected Checks success). develop laeuft weiter (53f16a81f23a -> 4fa5293a49b7), also gilt der aggregate nur im merge-fenster; letzter hop vor merge ist in der abnahme-bitte an codex ausdruecklich genannt.
