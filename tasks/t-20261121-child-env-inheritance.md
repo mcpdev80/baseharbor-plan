@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w21-pr1702-0428-142-compat
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-222 · child process Env replaced
 priority: ""
@@ -23,7 +23,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-child-env-inheritance · 0428-222 child process environment replaced instead of inherited in corebackup/coreupdate etcd probes #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261121-child-env-inheritance · 0428-222 child process environment replaced instead of inherited in corebackup/coreupdate etcd probes #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** w21-pr1702-0428-142-compat  
     **PR:** [baseharbor#1749](https://github.com/mcpdev80/baseharbor/pull/1749)  
@@ -69,7 +69,7 @@ One or two sentences: the observable outcome.
 
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w21-pr1702-0428-142-compat  
@@ -142,3 +142,5 @@ REQUEST CHANGES der abnahme (akte review-4-security-head23feeefee.md, plan 9d339
 round-5 sicherheitskorrektur IST GELIEFERT und von mir gegengeprueft: head 10c7c64140b (parent 23feeefee58, additiv, author==committer==0428-222-childenv, kein rebase/amend/force), envpin verwirft geerbte unpinned ETCDCTL_-schluessel, fail-first rot dann gruen, run 44959002335 success (PR Go unit packages), akte pr1749-review/round-5-etcdctl-filter.md mit plan 93acaa790. ABER: remote gemessen 42da7128e72...10c7c64140b = back=8 front=6, mergeStateStatus=BEHIND - der gruen-run liegt auf einem NICHT-exakten head und zaehlt damit nicht fuer die acceptance. Auftrag erteilt (mission sha256 1a8f89b6c698 + korrektur 1 zeile): additiver merge-commit hop auf develop 42da7128e72, dann exakter head run selbst bis terminal beobachten; erst danach routing an die review-session fuer das verdict auf dem dann exakten head.
 
 round-5 sicherheitskorrektur IST GELIEFERT und von mir gegengeprueft: head 10c7c64140b (parent 23feeefee58, additiv, author==committer==0428-222-childenv, kein rebase/amend/force), envpin verwirft geerbte unpinned ETCDCTL_-schluessel, fail-first rot dann gruen, run 44959002335 success (PR Go unit packages), akte pr1749-review/round-5-etcdctl-filter.md mit plan 93acaa790. ABER: remote gemessen 42da7128e72...10c7c64140b = back=8 front=6, mergeStateStatus=BEHIND - der gruen-run liegt auf einem NICHT-exakten head und zaehlt nicht fuer die acceptance. Auftrag erteilt (mission sha256 1a8f89b6c698): additiver merge-commit hop auf develop 42da7128e72, dann exakter head run selbst bis terminal beobachten; erst danach routing an die review-session.
+
+sicherheits-fix ist GELANDET auf exaktem head ed9741b93c0395ec6d577d19f6531dc8cc964846 (hop als additiver merge-commit, base develop 42da7128e72, back=0 gemessen, mergeable=MERGEABLE, mergeStateStatus=CLEAN, draft=false); der exakte hosted run 44961731917 ist completed/SUCCESS mit 0 failed jobs. der filter entfernt jetzt die geerbten, nicht gepinnten ETCDCTL_-schluessel (interal/testsupport/envpin/pin.go) und erhaelt das uebrige env, mit direkten faellen fuer ETCDCTL_INSECURE_SKIP_TLS_VERIFY=true, USERNAME und PASSWORD - genau der punkt meines fruheren REQUEST CHANGES (9d3393e426bb auf 23feeefee58), das fuer diesen head nicht mehr gilt. unabhaengiges exact-head verdict ist beauftragt (mission sha256 im ledger, akte pr1749-review/review-5-headded9741b9.md). KEIN merge, KEIN close vor dem approval; die merge-rolle erhaelt den auftrag erst nach APPROVE auf genau dieser sha.
