@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: "Codex (Marcel assigned, wait sweep 2026-11-21)"
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Environment deletion lifecycle. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-055 · Env deletion lifecycle
 priority: high
@@ -18,19 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1627]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "Focused environment-destroy Go tests and vet pass on PR head 202b984e; exact-head Draft run 44852435311 completed FAILURE (CLI shards failed; native and selected checks were skipped because the PR is Draft). pr-gate-plan reports unresolved runtime/registration coverage. The native Docker attempt stopped at the existing missing-operator-auth gate before Environment-Destroy ran. #1615 is actively editing the exact selective-runtime test and shared pre-release runtime workflow needed for the native route; preserve that ownership. Resume after #1615’s shared auth/workflow change lands, then add/route the native assertion on disjoint files and run full exact-head CI."
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1627", "https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677", "https://github.com/mcpdev80/baseharbor/actions/runs/44852435311", "https://github.com/mcpdev80/baseharbor/pull/1615"]
 ---
 
-- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** Codex (Marcel assigned, wait sweep 2026-11-21) · **Priority:** high  
     **PR:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627)  
+    **Waiting:** Focused environment-destroy Go tests and vet pass on PR head 202b984e; exact-head Draft run 44852435311 completed FAILURE (CLI shards failed; native and selected checks were skipped because the PR is Draft). pr-gate-plan reports unresolved…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1627), [proof 2](https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44852435311), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1615)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
 **Required by:** [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md)  
@@ -85,3 +87,10 @@ BOARD-KORREKTUR nach unabhaengiger GEGENLESE (akte evidence/r28-welle4-2026-11-1
 
 - Befund (independent review 1627): die destroy-PREVIEW kuendigt an, scoped deployments wuerden entfernt; der bestaetigte pfad ruft nur deployment.DestroyEnvironmentIdentity(...) auf und loescht das nicht. Lifecycle-correctness-blocker: nur melden, was der apply-pfad wirklich tut, oder die loesch-semantik implementieren UND verifizieren.
 - Nachweis-Voraussetzung: ein exaktkopf-lauf mit dem geforderten gate; ueber den gestapelten base-ref ist der derzeit nicht ausloesbar (owner-draht ci.yml:14-18, derselbe grund wie #1615).
+
+## Wait-sweep handoff — 2026-11-21
+
+- Resumed from the dormant Draft #1627 after predecessors 0428-053/#1594 and 0428-054/#1591 were already accepted; claimed through plan main `d4f2866d`. Merged current develop `40cb28c758b02960356434b630086a341ebe1738` monotonically and pushed the latest isolated head `202b984e2a103d713bb688eb0b8be52f1ddfa677`. PR remains Draft.
+- Fixed confirmed JSON behavior: confirmed `baha env destroy --json` now emits one result object instead of concatenating preview and result JSON; added a focused regression. Local `go test ./cmd/baha -run 'TestCLIEnvDestroy|TestEnvironmentDestroy' -count=1`, `go test ./internal/deployment -run 'TestCollectEnvironmentDestroyScope|TestDestroyEnvironmentIdentity' -count=1`, `go vet ./cmd/baha ./internal/deployment`, and `git diff --check` pass on the final source tree.
+- Local native Docker attempt was stopped by the existing `Managed-environment machine operations require an authenticated BaseHarbor operator` failure during the shared setup, before the environment-destroy call. The same active PR #1615 edits `cmd/baha/app_identity_selective_runtime_test.go` and `.github/workflows/pre-release-runtime-suite.yml`; my temporary overlapping test edit was reverted in `202b984e` and is absent from the final tree. Do not edit #1615 or its current shared files.
+- Exact Draft run [44852435311](https://github.com/mcpdev80/baseharbor/actions/runs/44852435311) is running reduced Draft checks only. Exact current-head `pr-gate-plan.py` is `coverage_status=unresolved`: `commands.go`/`machine_coverage.go` need bounded registration coverage, `env_destroy.go` needs qualified native coverage, and catalog components do not yet own the changed paths. Continue with disjoint planner/catalog paths while #1615 owns the runtime workflow; no Ready promotion or merge.

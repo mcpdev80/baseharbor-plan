@@ -19,16 +19,17 @@ repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "prepared only: #1574 CONFLICTING, main aff1532c nicht ahne von release-head 385b0410 — owner-decision noetig"
+wait_reason: "The release was actually published at tag v0.4.27 on 6c40fab4 (run 43991839986 succeeded); the old #1574-conflict note is stale. Keep this stage in Wait because 0427-008 cannot yet be accepted: the validator sees outstanding v0.4.27-scope cards 0427-189 and 0427-191."
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/43991839986", "https://github.com/mcpdev80/baseharbor/releases/tag/v0.4.27", "https://github.com/mcpdev80/baseharbor/tree/v0.4.27"]
 ---
 
 - [ ] t-20261017-release-0-4-27-publish · v0.4.27 · Release: promote the validated candidate and deliver exact tagging commands #task #release/v0-4-27 #status/wait #view/wait #area/release #kind/acceptance
     <!-- generated:card -->
     **Owner:** mission-closeout27 · **Priority:** normal  
-    **Waiting:** prepared only: \#1574 CONFLICTING, main aff1532c nicht ahne von release-head 385b0410 — owner-decision noetig  
+    **Waiting:** The release was actually published at tag v0.4.27 on 6c40fab4 (run 43991839986 succeeded); the old \#1574-conflict note is stale. Keep this stage in Wait because 0427-008 cannot yet be accepted: the validator sees outstanding v0.4.27-scope…  
     **Needs:** [t-20261017-release-0-4-27-qualify](t-20261017-release-0-4-27-qualify.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/43991839986), [proof 2](https://github.com/mcpdev80/baseharbor/releases/tag/v0.4.27), [proof 3](https://github.com/mcpdev80/baseharbor/tree/v0.4.27)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -67,3 +68,8 @@ Direct Git candidate/published-tree checks, normal required jobs and immutable m
 ## Handoff
 
 - 2026-11-14 (mission-closeout27, review-pending act): promotion not authorized and prerequisites unmet — PR #1574 is CONFLICTING against main (478 conflicted paths, all .github/** = Owner scope), validation missing, pinned Demo SHA unreachable. No tag/Release/publication executed (frozen scope). Ready-to-paste guards and the post-merge block recipe are in the dossier; the final actual-SHA block needs the authorized promotion merge first. Full dossier: [round-1](../evidence/r27-closeout-2026-11-14/round-1.md). Review state deferred: schema requires a card PR (plan.py:417); no admissible product PR exists for this acceptance card.
+
+## Release-state reconciliation — 2026-11-21
+
+- Published tag `v0.4.27` resolves to commit `6c40fab4de9a611bc8da2e834417427a83c01ca5`; Release workflow [43991839986](https://github.com/mcpdev80/baseharbor/actions/runs/43991839986) succeeded and the GitHub Release is live. Thus the prior “prepared only / #1574 conflicting” wait note is stale.
+- This card remains in Wait until the release-cycle validator accepts its qualification predecessor. It currently reports 0427-189 active and 0427-191 planned as unfinished tasks in the release scope.

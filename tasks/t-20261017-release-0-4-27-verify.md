@@ -19,16 +19,17 @@ repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "owner-punkt: v0.4.27 tag/release fehlt noch (closeout-dossier a9f5235c)"
+wait_reason: "The v0.4.27 release exists. SHA-256 checks for both published archives pass and the amd64 binary reports exact tag commit 6c40fab4; Pages run 43991826173 succeeded. Provenance remains unresolved: the cryptographically verified asset attestation binds workflow source to main c000c5db (workflow_dispatch), while the artifact binary is built from tag commit 6c40fab4. Anonymous GHCR manifest lookup and package API lookup were denied/not found; verify the exact image channels and source-to-artifact provenance before accepting."
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/43991839986", "https://github.com/mcpdev80/baseharbor/releases/tag/v0.4.27", "https://github.com/mcpdev80/baseharbor/actions/runs/43991826173", "https://github.com/mcpdev80/baseharbor/tree/v0.4.27"]
 ---
 
 - [ ] t-20261017-release-0-4-27-verify · v0.4.27 · Release: verify publication, artifacts, Pages and closeout #task #release/v0-4-27 #status/wait #view/wait #area/release #kind/acceptance
     <!-- generated:card -->
     **Owner:** mission-closeout27 · **Priority:** normal  
-    **Waiting:** owner-punkt: v0.4.27 tag/release fehlt noch (closeout-dossier a9f5235c)  
+    **Waiting:** The v0.4.27 release exists. SHA-256 checks for both published archives pass and the amd64 binary reports exact tag commit 6c40fab4; Pages run 43991826173 succeeded. Provenance remains unresolved: the cryptographically verified asset attest…  
     **Needs:** [t-20261017-release-0-4-27-publish](t-20261017-release-0-4-27-publish.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/43991839986), [proof 2](https://github.com/mcpdev80/baseharbor/releases/tag/v0.4.27), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/43991826173), [proof 4](https://github.com/mcpdev80/baseharbor/tree/v0.4.27)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -66,3 +67,9 @@ Canonical audit sections 10–13 and existing release-only/artifact/checksum/pro
 ## Handoff
 
 - 2026-11-14 (mission-closeout27, review-pending act): no v0.4.27 tag or GitHub Release exists (latest: v0.4.26), so publication verification is impossible and honestly unclaimed; CHANGELOG 0.4.27 section and docs/releases/v0.4.27.md already exist on develop/release branch as future witnesses. Full dossier with remote-truth witnesses: [round-1](../evidence/r27-closeout-2026-11-14/round-1.md). Review state deferred: schema requires a card PR (plan.py:417); no admissible product PR exists for this acceptance card.
+
+## Release-state reconciliation — 2026-11-21
+
+- The tag and GitHub Release are live, contrary to the original handoff: `v0.4.27` tag commit `6c40fab4de9a611bc8da2e834417427a83c01ca5`; release run [43991839986](https://github.com/mcpdev80/baseharbor/actions/runs/43991839986) and Pages run [43991826173](https://github.com/mcpdev80/baseharbor/actions/runs/43991826173) succeeded. Downloaded amd64/arm64 archives both passed `sha256sum -c checksums.txt`; the amd64 binary reports `version=0.4.27` and `commit=6c40fab4de9a611bc8da2e834417427a83c01ca5`.
+- `gh attestation verify` successfully verifies the amd64 archive under the release workflow identity, but its SLSA statement source digest/ref are `c000c5db2560c471fe84842136e03d6e54d96779` / `refs/heads/main` (workflow dispatch), not the source commit embedded in the released binary. I will not describe this as a tag-bound provenance proof.
+- Anonymous GHCR manifest checks for `v0.4.27` and `latest` returned `denied`; the package versions API returned 404. Exact image channel/digest verification is still missing. No claim of complete release verification is made.
