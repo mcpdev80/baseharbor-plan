@@ -76,7 +76,7 @@ END codex-rev-1747 DONE — REQUEST CHANGES for the two-author identity at candi
 
 ## Publication witness
 
-The first evidence commit was published as `2c9528566a73a73c9cc635c3c68a35e76eb73ff9`; `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main` returned `2c9528566a73a73c9cc635c3c68a35e76eb73ff9 refs/heads/main`. Exact output from `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 'evidence/r28-welle4-2026-11-21/valkey-dashboard-unavailable/review-2-headecff7e2f.md'` after fetching `origin main`:
+Evidence commits `2c9528566a73a73c9cc635c3c68a35e76eb73ff9` and `fcf3bfaabcba1427a81ed07d9fb8bd1696274afb` were pushed to Planning `main`; after the latest push, `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main` returned `fcf3bfaabcba1427a81ed07d9fb8bd1696274afb refs/heads/main`. Exact output from `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 'evidence/r28-welle4-2026-11-21/valkey-dashboard-unavailable/review-2-headecff7e2f.md'` after fetching `origin main`:
 
 ```text
 evidence/r28-welle4-2026-11-21/valkey-dashboard-unavailable/review-2-headecff7e2f.md
