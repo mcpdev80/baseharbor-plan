@@ -257,3 +257,22 @@ lane (none started); the scratch `.gocache-ci/` cache was `rm -rf`-removed;
 END: 0428-217 round-3 (hop onto current develop). Candidate `20ad0713e9892492204cf88910ee926ee20d1461`
 pushed to `w0428-217credfill` (PR #1742), hopped onto develop `97b2ba5543f0`, four
 symptom proofs pass, CI observed to terminal (see above). Awaiting CODEX-REVIEW.
+
+## Evidence-on-origin/main delivery proof
+
+    $ git -C baseharbor-plan fetch origin main
+    $ git -C baseharbor-plan ls-tree -r --name-only origin/main | grep git-credential-fill/round-3-hopdevelop.md
+    evidence/r28-welle4-2026-11-21/git-credential-fill/round-3-hopdevelop.md
+
+origin/main tip at this measurement: `6634bf7628e87d65a156fbaceafed38536fafab4`.
+`git remote -v` (planning repo, verified before the first evidence commit):
+`origin  https://github.com/mcpdev80/baseharbor-plan.git (fetch|push)`.
+
+## Evidence-on-origin/main delivery proof
+
+`git fetch origin main && git ls-tree -r --name-only origin/main | grep git-credential-fill/round-3-hopdevelop.md` returned:
+
+    evidence/r28-welle4-2026-11-21/git-credential-fill/round-3-hopdevelop.md
+
+`git remote -v` (planning repo, verified before the first evidence commit): `origin  https://github.com/mcpdev80/baseharbor-plan.git`.
+Note: this shared planning checkout is written concurrently by other lanes; the file content above is byte-identical to what this lane produced.
