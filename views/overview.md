@@ -10,15 +10,15 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 15 |
+| active | 14 |
 | review | 5 |
 | wait | 15 |
 | blocked | 1 |
-| ready | 5 |
+| ready | 7 |
 | queued | 25 |
-| waiting | 181 |
+| waiting | 179 |
 | backlog | 7 |
-| closed | 406 |
+| closed | 407 |
 
 ## Active
 
@@ -29,7 +29,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261109-r27-target-policy-presets](../tasks/t-20261109-r27-target-policy-presets.md) | Target: editable best-practice deployment policy presets | active | high | m186-policy-presets (0427-186 lane) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) | [baseharbor#1588](https://github.com/mcpdev80/baseharbor/pull/1588) |
 | [t-20261114-r28-cli2-app-lifecycle](../tasks/t-20261114-r28-cli2-app-lifecycle.md) | CLI redesign: Unify up and down semantics | active | high | 0428-060-downroute | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) | [baseharbor#1747](https://github.com/mcpdev80/baseharbor/pull/1747) |
 | [t-20261114-r28-cli2-env-delete](../tasks/t-20261114-r28-cli2-env-delete.md) | CLI redesign: Environment deletion lifecycle | active | high | Codex (Marcel, active wait sweep 2026-11-21) | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) | [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627), [baseharbor#1736](https://github.com/mcpdev80/baseharbor/pull/1736) |
-| [t-20261114-r28-perses-alerts](../tasks/t-20261114-r28-perses-alerts.md) | Define and provision alert rules | active | normal | Codex (Marcel Wait sweep 2026-11-21) | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | [baseharbor#1613](https://github.com/mcpdev80/baseharbor/pull/1613), [baseharbor#1704](https://github.com/mcpdev80/baseharbor/pull/1704) |
 | [t-20261114-r28-perses-dashboard-databases](../tasks/t-20261114-r28-perses-dashboard-databases.md) | Perses database dashboards | active | normal | 0428-076-nativeshape | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597) |
 | [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | Connect Perses Tempo | active | normal | 0428-091- | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645) |
 | [t-20261115-bughunt-d28-state-dir-target](../tasks/t-20261115-bughunt-d28-state-dir-target.md) | BF-01 target selection ignores BASEHARBOR_STATE_DIR (reads foreign registrations) | active | not set | Codex (Owner-directed wait-card closeout, 2026-11-21) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1585](https://github.com/mcpdev80/baseharbor/pull/1585) |
@@ -64,7 +63,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-app-status](../tasks/t-20261114-r28-cli2-app-status.md) | CLI redesign: Unify app status and versions | wait | high | Codex (owner-directive 2026-11-20) | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) | [baseharbor#1614](https://github.com/mcpdev80/baseharbor/pull/1614) |
 | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | CLI redesign: Organization environment reconciliation | wait | high | Codex (Marcel assigned) | [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
 | [t-20261114-r28-cli2-wizard-platform](../tasks/t-20261114-r28-cli2-wizard-platform.md) | CLI redesign: Platform and access wizards | wait | high | Codex (Marcel assigned) | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) | [baseharbor#1620](https://github.com/mcpdev80/baseharbor/pull/1620) |
-| [t-20261114-r28-perses-contact-routing](../tasks/t-20261114-r28-perses-contact-routing.md) | Define alert notification routing | wait | normal | coord | [t-20261114-r28-perses-alerts](../tasks/t-20261114-r28-perses-alerts.md) (open), [t-20261114-r28-perses-secure-access](../tasks/t-20261114-r28-perses-secure-access.md) | — |
+| [t-20261114-r28-perses-contact-routing](../tasks/t-20261114-r28-perses-contact-routing.md) | Define alert notification routing | wait | normal | coord | [t-20261114-r28-perses-alerts](../tasks/t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-secure-access](../tasks/t-20261114-r28-perses-secure-access.md) | — |
 | [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) | Perses identity dashboard | wait | normal | Codex (Marcel assignment 2026-11-21) | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650) |
 | [t-20261114-r28-perses-log-trace-dash](../tasks/t-20261114-r28-perses-log-trace-dash.md) | Perses log and trace views | wait | normal | coord | [t-20261114-r28-perses-loki-source](../tasks/t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) (open) | [baseharbor#1619](https://github.com/mcpdev80/baseharbor/pull/1619) |
 | [t-20261120-shared-backend-state-version-message](../tasks/t-20261120-shared-backend-state-version-message.md) | shared state version message | wait | not set | w201-0428-201-statever | — | [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725) |
@@ -81,6 +80,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261114-r28-cli2-coordination](../tasks/t-20261114-r28-cli2-coordination.md) | CLI redesign: coordinate five workers | ready | high | coord | — | — |
+| [t-20261117-alert-evaluator-persistence-missing](../tasks/t-20261117-alert-evaluator-persistence-missing.md) | Alert rule evaluation and persistence missing | ready | not set | — | [t-20261114-r28-perses-alerts](../tasks/t-20261114-r28-perses-alerts.md) | — |
+| [t-20261117-hunt-signals-105](../tasks/t-20261117-hunt-signals-105.md) | Alert-Ebene develop-weit leer | ready | not set | — | [t-20261114-r28-perses-alerts](../tasks/t-20261114-r28-perses-alerts.md) | — |
 | [t-20261120-r28-identity-dashboard-catalog-consumer](../tasks/t-20261120-r28-identity-dashboard-catalog-consumer.md) | Identity dashboard catalog has zero production consumers (P4 of review 1650) | ready | not set | — | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | — |
 | [t-20261120-r28-keycloak-producer-target-mismatch](../tasks/t-20261120-r28-keycloak-producer-target-mismatch.md) | Keycloak producer registers ID/target the identity witness can never match | ready | not set | — | — | — |
 | [t-20261120-r28-perses-status-never-verified](../tasks/t-20261120-r28-perses-status-never-verified.md) | No source API yields verified: status --json can never report true | ready | not set | — | — | — |
@@ -90,7 +91,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 5 open, 164 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 61 open, 174 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 60 open, 175 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))

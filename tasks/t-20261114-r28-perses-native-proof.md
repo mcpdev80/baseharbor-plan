@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-contact-routing](t-20261114-r28-perses-contact-routing.md), [t-20261114-r28-perses-dashboard-databases](t-20261114-r28-perses-dashboard-databases.md), [t-20261114-r28-perses-dashboard-identity](t-20261114-r28-perses-dashboard-identity.md), [t-20261114-r28-perses-log-trace-dash](t-20261114-r28-perses-log-trace-dash.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
+    **Needs:** [t-20261114-r28-perses-contact-routing](t-20261114-r28-perses-contact-routing.md), [t-20261114-r28-perses-dashboard-databases](t-20261114-r28-perses-dashboard-databases.md), [t-20261114-r28-perses-dashboard-identity](t-20261114-r28-perses-dashboard-identity.md), [t-20261114-r28-perses-log-trace-dash](t-20261114-r28-perses-log-trace-dash.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

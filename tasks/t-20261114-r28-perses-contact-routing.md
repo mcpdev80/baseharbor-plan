@@ -27,7 +27,6 @@ evidence: []
     <!-- generated:card -->
     **Owner:** coord · **Priority:** normal  
     **Waiting:** Owner-Entscheidung 2026-11-20 (queue-124 geschlossen): Routing ausschließlich opt-in; ohne konfigurierte Route verlässt keine Benachrichtigung das System. Implementierung wartet auf 0428-073; Alertmanager-Kompatibilitätsprüfung darf parall…  
-    **Needs:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

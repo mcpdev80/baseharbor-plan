@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: Codex (Marcel Wait sweep 2026-11-21)
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: Provision alert rules through the existing supported Prometheus contract and have Prometheus evaluate them; persist the alert…
 kanban_title: 0428-073 · Define and provision alert
 priority: normal
@@ -19,19 +19,24 @@ prs: [mcpdev80/baseharbor#1613, mcpdev80/baseharbor#1704]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-alerts-hopf/fix-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1613-alert-contract-review.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1613-0428-073.md"]
+resolution: accepted
+evidence:
+  - "https://github.com/mcpdev80/baseharbor/pull/1704"
+  - "https://github.com/mcpdev80/baseharbor/commit/dea88c8f2caa2db93c1216c619993e444080a9d2"
+  - "https://github.com/mcpdev80/baseharbor/actions/runs/44908265726"
+  - "https://github.com/mcpdev80/baseharbor/actions/runs/44908259476"
+  - "https://github.com/mcpdev80/baseharbor/actions/runs/44908259346"
 ---
 
-- [ ] t-20261114-r28-perses-alerts · Define and provision alert rules #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [x] t-20261114-r28-perses-alerts · Define and provision alert rules #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** Codex (Marcel Wait sweep 2026-11-21) · **Priority:** normal  
     **PR:** [baseharbor#1613](https://github.com/mcpdev80/baseharbor/pull/1613), [baseharbor#1704](https://github.com/mcpdev80/baseharbor/pull/1704)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/perses-alerts-hopf/fix-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-welle3-review/1613-alert-contract-review.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/6aaa17cc5f9291383d9891562e7788aba8c2f939/evidence/r28-welle4-2026-11-19/codex-review-wave/1613-0428-073.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1704), [proof 2](https://github.com/mcpdev80/baseharbor/commit/dea88c8f2caa2db93c1216c619993e444080a9d2), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44908265726), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44908259476), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44908259346)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
 **Required by:** [t-20261114-r28-perses-contact-routing](t-20261114-r28-perses-contact-routing.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md), [t-20261117-alert-evaluator-persistence-missing](t-20261117-alert-evaluator-persistence-missing.md), [t-20261117-hunt-signals-105](t-20261117-hunt-signals-105.md)  
@@ -43,7 +48,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 ## Goal
 
-Provision alert rules through the existing supported Prometheus contract and have Prometheus evaluate them; persist the alert state history. Fail closed: with no provision-capable backend or no configured rules, there is no alerting. Report undefined states as "unknown" and never silently as "ok". No standalone evaluator, new infrastructure, or new frameworks. PR #1704 is not accepted because CI green does not satisfy real evaluation and persistence.
+Provision alert rules through the existing supported Prometheus contract and have Prometheus evaluate them; persist the alert state history. Fail closed: with no provision-capable backend or no configured rules, there is no alerting. Report undefined states as "unknown" and never silently as "ok". No standalone evaluator, new infrastructure, or new frameworks. The former PR #1704 stub was not accepted because CI green did not satisfy real evaluation and persistence; the replacement implementation and runtime proof are recorded below.
 
 ## Scope and file ownership
 
@@ -73,7 +78,7 @@ Record exact candidate SHA and focused tests by name. Route every changed test t
 
 ## Dependencies and handoff
 
-Prerequisites are encoded in `depends_on`. One worker per card/branch/PR, no concurrent writes to shared files. Codex/Owner-delegated Maintainer reviews and merges only after real checks; no independent-review claim. Archive Console/Node Connector repos are excluded. No implementation or release has occurred.
+Prerequisites are encoded in `depends_on`. One worker per card/branch/PR, no concurrent writes to shared files. Codex/Owner-delegated Maintainer reviews and merges only after real checks; no independent-review claim. Archive Console/Node Connector repos are excluded. The rule-evaluation implementation was accepted and merged; this task does not authorize a release.
 
 Supersedes [t-20261113-r28-grafana-alerts](t-20261113-r28-grafana-alerts.md) under the [Owner decision](../decisions/2026-11-14-perses-replaces-grafana-v0428.md).
 
@@ -98,3 +103,14 @@ CODEX 1704 REQUEST CHANGES, ein blocker P1 (gemessen bestaetigbar im urteilstext
 r3 VON MIR GEMESSEN: head f5dcf12885, base 28fb427f = aktuelle spitze, hopf ist ein ECHTER merge (vater 5763eb7fb mit zwei eltern), fix-commit darueber; ancestry 0, merge-tree konfliktfrei, draft=false; CI run 44621875256 event=pull_request completed success am exakten kopf. DER P1-BLOCKER IST HEILT: prometheus_alerts.go:221 traegt 'the alerting contract is unavailable (owner-gated evaluator contract)', test :365-367 asserts ihn UND :363-364 verbietet '(not_enabled)' ausdbruecklich; stub bleibt false. Offener punkt: unselected-zweig :202-204 sagt 'is not selected ...' statt 'not configured' — das urteil muss sagen, ob die acceptance das wort verlangt. Lane eskaliert correct: null production callers -> karte 0428-152 (angelegt, haengt an 0428-142, deren PR app_status_collect.go aendert)
 
 Owner decision (2026-11-20): scope reduction is rejected. PR #1704 is not accepted: CI green does not meet the release contract; a fail-closed "unavailable" stub is a false capability without real rule evaluation or state persistence. Rework or replace it with rules provisioned through the supported Prometheus contract and evaluated by Prometheus, with persisted state history. No new evaluator, infrastructure, or frameworks. Missing backend/rules disables alerting; undefined state is reported as "unknown", never silently as "ok". External routing remains opt-in under 0428-074.
+
+
+## Closeout — 2026-11-21
+
+Accepted source: PR [#1704](https://github.com/mcpdev80/baseharbor/pull/1704), head `1bf24f8c9032af972202aa54b52faf4630f924a2`, based on current `develop` `ddfa80f7202a0aca3cf68c4542158132c0c2795b`. Merged normally at `dea88c8f2caa2db93c1216c619993e444080a9d2`. The implementation provisions the BaseHarbor-owned Prometheus rule only when an effective verified target exists, removes it when none remain, and has Prometheus evaluate it on both HA members. The acceptance test confirms a real alert, historical fixture samples at a fixed pre-outage instant after restart, a separate post-restart scrape, rule reload, TSDB persistence, and TLS rotation behavior. Notification routing remains separate and opt-in under 0428-074.
+
+Test-to-check evidence on the exact merged candidate:
+
+- `TestSyncPrometheusAlertRulesRequiresEffectiveTargetAndPrunesOwnedRule`, `TestSyncPrometheusAlertRulesSkipsUnverifiedTargets`, and `TestPrometheusConfigLoadsRulesAndEvaluatesAtScrapeInterval` ran through the package-discovered `PR · Go unit · packages` job in [PR run 44908265726](https://github.com/mcpdev80/baseharbor/actions/runs/44908265726/job/136858453807), triggered by the PR update.
+- `TestPrometheusHARuntimeFailoverAcceptanceInCI` ran and passed in [Docker native observability run 44908259476](https://github.com/mcpdev80/baseharbor/actions/runs/44908259476/job/136858375686) and [Podman native observability run 44908259346](https://github.com/mcpdev80/baseharbor/actions/runs/44908259346/job/136858375327), triggered by pushes to the existing runtime-validation refs. The full observability group passed on both providers.
+- The PR run also passed required Go shards, go-build, go-vet, focused Python, source format, workflow policy, native gate plan, and `PR Selected Checks`.
