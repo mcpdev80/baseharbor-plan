@@ -329,11 +329,10 @@ main in this window - the remote advanced only through this lane's own commits.)
 Authoritative plan SHA (this commit, origin/main head; the ls-remote line was
 taken as the final action, its value matches the END line):
 `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main`
-→ `87507f615145f173c56774ebcf148f26eaad06f7 refs/heads/main` — this is the plan
-SHA reported in the END line. Earlier transient heads in the same window
-(ancestors of this one, all this lane's own commits): 061e0fef, 23be7b89.
+→ remote head at publication time: `f154a08dc4cc466e1446384bfe7a518c54860d2d`
+(this lane's last evidence commit; it is an ancestor of origin/main). The END
+line below names f154a08d. Earlier transient heads of this lane: c3448f39,
+69c53938, 5456d5fa, 061e0fef, 23be7b89, e0fd7e9a, 87507f61.
 
 END w232-0428-215-runtimeprobe DONE — no product candidate (read-only mission);
-plan SHA 87507f615145f173c56774ebcf148f26eaad06f7 (content-complete; origin/main
-head e0fd7e9aadfe8e1b8712e5503850583140ef2738 is this commit plus only the END
-line's own SHA annotation, so the evidence content is identical in both)
+plan SHA f154a08dc4cc466e1446384bfe7a518c54860d2d
