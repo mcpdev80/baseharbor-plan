@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 13 |
-| review | 4 |
+| active | 12 |
+| review | 5 |
 | wait | 31 |
 | blocked | 1 |
 | ready | 4 |
@@ -36,7 +36,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-git-credential-fill-bootstrap-hang](../tasks/t-20261121-git-credential-fill-bootstrap-hang.md) | 0428-217 git credential fill must not block in test or first-run paths | active | high | coordinator | — | [baseharbor#1742](https://github.com/mcpdev80/baseharbor/pull/1742) |
 | [t-20261121-native-cell-operator-seam](../tasks/t-20261121-native-cell-operator-seam.md) | 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam | active | high | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) (open) | [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740) |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
-| [t-20261121-trust-uninstall-false-green](../tasks/t-20261121-trust-uninstall-false-green.md) | trust-uninstall EOF tests are green on the auth gate error | active | high | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) (open) | [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737) |
 
 ## Ready for review
 
@@ -46,6 +45,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-loki-verify-probe](../tasks/t-20261121-loki-verify-probe.md) | loki health verify must reach the probe, not a missing-file exit | review | high | w235-0428-212-lokifix2 | — | [baseharbor#1734](https://github.com/mcpdev80/baseharbor/pull/1734) |
 | [t-20261121-mcp-operator-seam-uncovered](../tasks/t-20261121-mcp-operator-seam-uncovered.md) | 0428-218 make the MCP operator seam reachable from MCP tests | review | normal | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) (open) | [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741) |
 | [t-20261121-perses-denial-actionability](../tasks/t-20261121-perses-denial-actionability.md) | Perses anonymous denial must name the next command | review | normal | w226-0428-211-persesmsg | — | [baseharbor#1733](https://github.com/mcpdev80/baseharbor/pull/1733) |
+| [t-20261121-trust-uninstall-false-green](../tasks/t-20261121-trust-uninstall-false-green.md) | trust-uninstall EOF tests are green on the auth gate error | review | high | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) (open) | [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737) |
 
 ## Waiting for resources
 
