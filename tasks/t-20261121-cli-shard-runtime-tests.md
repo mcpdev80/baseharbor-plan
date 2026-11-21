@@ -1,7 +1,7 @@
 ---
 id: t-20261121-cli-shard-runtime-tests
 card_number: "0428-215"
-card_short_title: "0428-215 runtime tests in cli shard"
+card_short_title: "0428-215 cli runtime tests"
 type: bug
 areas: [ci, cli]
 release: v0.4.28
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: "The PR · Go unit · cli- shards contain no test whose pass condition requires a container runtime, ORAS, or memory that the…"
-kanban_title: 0428-215 · 0428-215 runtime tests in cli shard
+kanban_title: 0428-215 · 0428-215 cli runtime tests
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
