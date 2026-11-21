@@ -6,7 +6,7 @@ ROLLE: MERGE
 2. Confirm candidate `01b2a7ef826ce8fc090717126003ff8771dc2644` is based on current develop and approval applies to the exact content. Done.
 3. If all merge gates and authority permit, perform the specified merge-commit operation and verify merge/head. Done.
 4. Close only card `t-20261114-r28-cli2-app-lifecycle` with accepted resolution and merge-commit HTTPS evidence; render, check, and publish. Done.
-5. Complete evidence, update the board, and post final status. In progress.
+5. Complete evidence, update the board, and post final status. Done.
 
 ## Pre-merge verification
 
@@ -51,8 +51,16 @@ Only PR #1747 was merged, and only its task was closed. No code, tests, workflow
 
 ## cleanliness
 
-Before merge, `docker ps -a` was run in this session (PID 4133987); it listed only the header and no containers. After planning closeout, `docker ps -a` returned exit 0 and listed only the header and no containers. No containers or compose projects were started.
+Before merge, `docker ps -a` was run in this session (PID 4133987); it listed only the header and no containers. After planning closeout, `docker ps -a` returned exit 0 and listed only the header and no containers. Final witness in this session (PID 10003) also listed only the header and no containers. No containers or compose projects were started.
 
 ## END
 
-END DONE codex-rev-1747: PR #1747 merged as `e6c199e7b7dd7d076a776d11c3ba16f25e59c254`; card accepted/closed. Evidence publication SHA pending.
+END DONE codex-rev-1747: PR #1747 merged as `e6c199e7b7dd7d076a776d11c3ba16f25e59c254`; card accepted/closed. Initial evidence publication witness: `ed3c320ddc1240d775a2a97121d596d0c0482afb`.
+
+Required pre-END evidence-tree witness, exact command output:
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle4-2026-11-21/merge-1747/merge-1.md
+```
