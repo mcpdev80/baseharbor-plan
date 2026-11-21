@@ -28,6 +28,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/b10dc56b785cc3ff75d054
     **Owner:** Codex (Marcel, active wait sweep 2026-11-21) · **Priority:** high  
     **PR:** [baseharbor#1735](https://github.com/mcpdev80/baseharbor/pull/1735)  
     **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/b10dc56b785cc3ff75d054fa3d867254b6e7d286), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44861290062)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
