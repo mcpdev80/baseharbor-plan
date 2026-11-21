@@ -20,13 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44882903559"]
 ---
 
 - [ ] t-20261121-loki-verify-probe · loki health verify must reach the probe, not a missing-file exit #task #release/v0-4-28 #status/review #view/review #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** w235-0428-212-lokifix2 · **Priority:** high  
     **PR:** [baseharbor#1734](https://github.com/mcpdev80/baseharbor/pull/1734)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44882903559)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -102,3 +103,11 @@ korrektur geliefert: w235 fast-forwardete den ursprünglichen branch auf 45d181a
 korrektur geliefert: w235 fast-forwardete den urspruenglichen lane-branch auf 45d181ab4089 (nachkomme von 75770bd2d043, von mir gemessen 'merge-base --is-ancestor' = 0), PR-head bewegt, develop ancestor. gehosteter versuch 44853938826 terminal: packages/build/vet/owner GREEN, cli-0..3 RED = geerbt (karten 0428-204/215), nicht inhalt. akte round-2.md plan main 4857b2a5. re-review angestossen.
 
 CODEX-REVIEW runde 2 = APPROVE an head 45d181ab4089 (plan fd7b27ba, path witness 6dc43162, review-2.md): beide verweigerungen nennen jetzt ihren grund, assertions sind produktions-erreichbar, nur die karten-eigene datei geaendert, vier commits als eine fast-forward-kette, kein zweiter PR. 'PR Selected Checks' bleibt rot an den geerbten cli-shards (main_test.go:60 'Managed-environment machine operations require an authenticated BaseHarbor operator') - der reviewer haelt das ausdruecklich fuer NICHT-inhalt dieser karte. die karte bleibt 'review' bis zum merge, weil das native schema kein 'accepted' als spalte kennt.
+
+
+## Exact current-base rerun — 2026-11-21
+
+- PR #1734 was advanced by a normal fast-forward branch update onto current `develop` (base `d2d4ded3dedbb6ef7efdd9dc6ba3c114c5e3a163`); the merged delta contains only the 15 documentation lines from #1744 in addition to the task's existing `internal/logs/loki_test.go` change. New exact head: `7bd8cc1d6bddab2a58d13569791a3af98a51f091`.
+- Focused local proof: `go test ./internal/logs -run '^TestPersesLokiDatasourceVerifyNeverReportsHealthy$' -count=1` passed.
+- Exact hosted run [44882903559](https://github.com/mcpdev80/baseharbor/actions/runs/44882903559) is terminal failure at that head. Required owner test route `PR · Go unit · packages` passed, as did `PR · Go unit · owner`; cli-0..3 failed with the already-documented managed-operator authentication boundary, and `PR Selected Checks` consequently failed. No Loki package test failed.
+- As Maintainer, I attempted the normal merge; GitHub refused because the base branch policy requires green checks. Repository Auto-Merge is disabled. No admin bypass was used; PR remains open/review and the #1615 owner lane was not inspected or changed. It can merge once the shared required check passes.
