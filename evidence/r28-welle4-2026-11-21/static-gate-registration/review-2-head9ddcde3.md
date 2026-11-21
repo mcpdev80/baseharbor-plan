@@ -39,6 +39,7 @@ The addendum records six zsh/fish installation lines in `.github/workflows/pre-r
 - `python3 scripts/plan.py check`: 663 tasks, 7 epics, 13 releases, 24 decisions; 0 errors and 11 dependency warnings.
 - Evidence checkbox scan: clear.
 - Planning main ls-remote after first evidence push: `75a7eda7e5b638447a21b4fafa038f1ccf54d56a\trefs/heads/main`.
+- Planning main ls-remote after path-witness push: `29d2d12da462ed63edd033a5c73db3b340210e4e\trefs/heads/main`; the same check confirmed this evidence path in fetched `origin/main`.
 - Required `git fetch origin main && git ls-tree -r --name-only origin/main | grep 'evidence/r28-welle4-2026-11-21/static-gate-registration/review-2-head9ddcde3.md'` output before the final evidence push:
 
   ```text
