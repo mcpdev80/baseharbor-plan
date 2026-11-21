@@ -21,3 +21,9 @@ The mission requires terminal END records for #1625, #1714, #1736, and #1702 bef
 BLOCKED before review: prerequisite #1702 has no terminal END in its evidence record. Resume only after its terminal record is published.
 
 END_BLOCKED codex-rev-1747: prerequisite #1702 lacks terminal END; #1746 candidate not reviewed, assigned SHA `9ddcde356e9ed452ddbf00440ab8189add586d3e`.
+
+## Published path witness
+
+Exact output of `git -C /home/marcel/dev/baseharbor-ecosystem/workers/codex-rev-1747-plan-wt ls-tree -r --name-only origin/main | grep 'evidence/r28-welle4-2026-11-21/static-gate-registration/review-1-head9ddcde3.md'` after fetching origin/main:
+
+evidence/r28-welle4-2026-11-21/static-gate-registration/review-1-head9ddcde3.md
