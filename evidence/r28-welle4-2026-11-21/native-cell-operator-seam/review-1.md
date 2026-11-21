@@ -67,6 +67,13 @@ The card's two-file change uses the shared test-only runWithIO operator seam, pr
 ## Head stability
 
 - PR head before review: 0ffe093357d9f7fb52f5e7542f4ade41e48fab1b.
-- PR head after review: pending final remote recheck before publication.
+- PR head after review: 0ffe093357d9f7fb52f5e7542f4ade41e48fab1b.
 
 END_DONE: review complete; content verdict recorded; no candidate, PR, workflow, or test changes made.
+
+## Planning publication witness
+
+Command: git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep '^evidence/r28-welle4-2026-11-21/native-cell-operator-seam/review-1.md$'
+
+Exact output:
+evidence/r28-welle4-2026-11-21/native-cell-operator-seam/review-1.md
