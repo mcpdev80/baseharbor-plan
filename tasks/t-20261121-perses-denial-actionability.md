@@ -7,9 +7,9 @@ areas: [application]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w226-0428-211-persesmsg
+kanban_status: active
+kanban_lane: active
 kanban_summary: "The anonymous Perses operator-access denial says which precondition is missing and which command to run next, so an operator…"
 kanban_title: 0428-211 · 0428-211 Perses anonymous
 priority: normal
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-perses-denial-actionability · Perses anonymous denial must name the next command #task #release/v0-4-28 #status/planned #view/ready #area/application #kind/task
+- [ ] t-20261121-perses-denial-actionability · Perses anonymous denial must name the next command #task #release/v0-4-28 #status/active #view/active #area/application #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w226-0428-211-persesmsg · **Priority:** normal  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w226-0428-211-persesmsg  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
