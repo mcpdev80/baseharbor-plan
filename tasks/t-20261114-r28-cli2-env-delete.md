@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: codex-open-pr-sweep-055
-kanban_status: wait
-kanban_lane: wait
+owner: "Codex (Marcel assigned, wait sweep 2026-11-21)"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Environment deletion lifecycle. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-055 · Env deletion lifecycle
 priority: high
@@ -18,24 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1627]
 sources: []
 blocker: ""
-wait_reason: "Arbeit ist begonnen und pausiert, bis 0428-053 und die Env-Registry-Voraussetzung akzeptiert sind. Beim Wiederaufnehmen gehoeren die korrekte Destroy-Semantik, die erforderliche Gate-Verdrahtung (falls sie fehlt), isolierte Docker/Podman-Nachweise und der exakte Head-Lauf zu dieser Karte; kein Warten auf einen separaten CI-Owner."
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** codex-open-pr-sweep-055 · **Priority:** high  
+    **Owner:** Codex (Marcel assigned, wait sweep 2026-11-21) · **Priority:** high  
     **PR:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627)  
-    **Waiting:** Arbeit ist begonnen und pausiert, bis 0428-053 und die Env-Registry-Voraussetzung akzeptiert sind. Beim Wiederaufnehmen gehoeren die korrekte Destroy-Semantik, die erforderliche Gate-Verdrahtung (falls sie fehlt), isolierte Docker/Podman-N…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
 **Required by:** [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md)  
-**Owner:** codex-open-pr-sweep-055  
+**Owner:** Codex (Marcel assigned, wait sweep 2026-11-21)  
 **Priority:** high  
 **PRs:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627)  
 **Source:** 
