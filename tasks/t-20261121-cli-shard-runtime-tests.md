@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: wait
-kanban_lane: wait
+kanban_status: active
+kanban_lane: active
 kanban_summary: "The PR · Go unit · cli- shards contain no test whose pass condition requires a container runtime, ORAS, or memory that the…"
 kanban_title: 0428-215 · 0428-215 cli runtime tests
 priority: high
@@ -18,19 +18,18 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "rest R2 (git-archive) plus verification pass. NEUER FUNDEINGANG aus der 207-lane (handoff, akte 6eca4053): der daemon-pflichtige ENOENT-ast in cmd/baha/core_network_binding.go:55-57 ist ohne test, weil lifecycle-faelle auf diesem host verboten sind (meine anweisung) - die deckungskarte b7dce1ee und die 117er-inventur fuehren ihn als lifecycle-klasse. wird hier mitvermessen, wenn #1615/#1726 gemergt sind."
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-cli-shard-runtime-tests · 0428-215 Go-unit cli shards run tests that need a real runtime #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/cli #kind/bug
+- [ ] t-20261121-cli-shard-runtime-tests · 0428-215 Go-unit cli shards run tests that need a real runtime #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
-    **Waiting:** rest R2 (git-archive) plus verification pass. NEUER FUNDEINGANG aus der 207-lane (handoff, akte 6eca4053): der daemon-pflichtige ENOENT-ast in cmd/baha/core\_network\_binding.go:55-57 ist ohne test, weil lifecycle-faelle auf diesem host verb…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** coordinator  
@@ -106,3 +105,5 @@ If a case can only be fixed by adding ORAS/runtime to the runner (workflow chang
 
 Branch, PR, exact head SHA, two run ids with per-shard conclusions, evidence
 `evidence/r28-welle4-2026-11-21/cli-shard-runtime-tests/round-1.md`.
+
+kommissioniert, weil der wart-grund weg ist: #1740 zeigt am gestapelten head (run 44868911131, protokoll 900721 bytes) cli-1/2/3 SUCCESS und genau EINE erste-level-fail-zeile, die zu 0428-210/#1739 gehoert — die container-/ORAS-pflichtigen faelle ihrer karte sind an dieser basis also bereits geheilt. Lane '0428-215-cli215' (4359f0e8, laptop:2), base = 'lane-0428-198-cli-shard-operator-env' (zuletzt e45430f2f1b7, bewegt sich), gestapelt auf #1726.
