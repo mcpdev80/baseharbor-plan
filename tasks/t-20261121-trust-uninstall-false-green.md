@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coordinator
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "TestTrustUninstallPromptEOFRejects, TestTrustUninstallPromptUnterminatedAffirmativeEOFRejects and…"
 kanban_title: 0428-213 · 0428-213 trust-uninstall EOF
 priority: high
@@ -18,20 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1737]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "arbeit ist definiert und die mission liegt fertig im coordinator/missions/0428-213-r3-compile-and-verbatim.md (payload-gate 0): duplizierte 'withoutOperatorAuthTestContext'-deklaration in 'cmd/baha/trust_uninstall_test.go:32-44' RAUS (der echte opt-out ist 'cmd/baha/app_init_wizard.go:29-31'), und 'strings.Contains' in ':175' durch wortvergleich inkl. endpunkt ersetzen — CODEX-REVIEW r2 zaehlt die cli-shards als compile-abruf, NICHT als erbschaft. Kein sitz frei (5/5 belegt), daher 'wait' und NICHT 'active': es gibt gerade KEINE lebende session an dieser karte. Naechster trigger: erster freier worker-sitz ODER der basis-hop von lane-0428-198 auf develop e43e7ffea95f (dann #1615/#1734 in der basis, gate- und loki-roete weg)."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-trust-uninstall-false-green · trust-uninstall EOF tests are green on the auth gate error #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
+- [ ] t-20261121-trust-uninstall-false-green · trust-uninstall EOF tests are green on the auth gate error #task #release/v0-4-28 #status/wait #view/wait #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737)  
+    **Waiting:** arbeit ist definiert und die mission liegt fertig im coordinator/missions/0428-213-r3-compile-and-verbatim.md (payload-gate 0): duplizierte 'withoutOperatorAuthTestContext'-deklaration in 'cmd/baha/trust\_uninstall\_test.go:32-44' RAUS (der…  
     **Needs:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
 **Owner:** coordinator  
