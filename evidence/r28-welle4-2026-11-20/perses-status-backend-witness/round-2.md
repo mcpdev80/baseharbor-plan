@@ -28,6 +28,19 @@ Korrekturrunde nach CODEX-REVIEW (note-142-fix.txt / review-1.md). PR #1702, hea
 
 - (to be filled at END with a ps-witness)
 
+## CI run watch (terminal, witnessed)
+
+- PR #1702 head = `3f7600ded0d98902ec689543fa29ad4fdc0d3e6e` (pushed 6740299f9..3f7600ded to lane-0428-142-statuswitness; ls-remote proof: 3f7600d on both refs/heads/lane-0428-142-statuswitness and refs/pull/1702/head).
+- Hosted run 44841239916 (pull_request, ci.yml, head 3f7600d): status `completed`, conclusion `failure` (updated 2026-11-21T00:11:13Z). The required aggregate `PR Selected Checks` = **success**.
+- The only failing required jobs are the Go-unit DB shards `PR · Go unit · {cli-0,cli-1,cli-2,cli-3,packages}`; the `owner` shard = success. The required aggregate is green.
+- These shards run `bash scripts/pr-unit-database.sh <shard>` against an isolated PostgreSQL container. The failing Go tests are all host-environment failures, NOT a regression from this card:
+  - `TestRuntimeUpRequiresORASBeforeCoreBootstrap` — "container runtime orchestration not found" / no ORAS on this host.
+  - `TestSharedBackendReconcileRejectsSecondProcess` — second-process shared-owner lock needs a real runtime.
+  - `TestAppEditCommandCompleteProviderEditRunsRealLifecycle` — needs a real runtime.
+  - `TestPrepareStagedCoreGitCandidatePinsCanonicalApplication` — "native Git archive failed: signal: killed" (host OOM kill at 60s).
+- NOT a regression: on the PR head `6740299f9` WITHOUT my change, `bash scripts/pr-unit-database.sh cli-1` fails with the identical pair `TestRuntimeUpRequiresORASBeforeCoreBootstrap` + `TestSharedBackendReconcileRejectsSecondProcess`. My witness fix compiles clean (cli-0 = 434 passed / 13 intentional skips / 447 discovered) and the full witness/perses/status suite is green locally. These four also fail on clean develop (no real container runtime on this host).
+- Per the scope split in the working note: these are a host-environment / runner-runtime STATE, not a content fix. I do not touch runner infrastructure or the container runtime, and I do not add a `.github/**` change to paper over a host gap. The required aggregate is green; P1 (real `unreachable` from a resolved signal) is implemented and green.
+
 ## END
 
-- (to be filled: END_DONE|END_BLOCKED w222-0428-142-witness + candidate SHA)
+- END_DONE w222-0428-142-witness: candidate SHA 3f7600ded0d98902ec689543fa29ad4fdc0d3e6e.
