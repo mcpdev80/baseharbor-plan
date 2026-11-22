@@ -41,8 +41,8 @@ Before publication: PID `2923735`; `docker ps -a` returned only its header and n
 
 ## Publication
 
-This evidence path was created on Planning `main` at commit `4b51a8911c37053266af3f3e94228028367028bf`. The completed evidence update is published to the same verified remote; the final `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main` output is recorded in the END.
+This evidence path was created on Planning `main` at commit `4b51a8911c37053266af3f3e94228028367028bf`. The completed evidence update was published and witnessed by `aab6640655572cd2c67649c3beafe01ae1b823ca refs/heads/main` from `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main`.
 
 ## END codex-rev2-1736 DONE
 
-merged: yes. New develop SHA `52a3c5446f41a1dd8678d99875e4cb1eee67874c`; normal merge commit parents are `c463edf87ee6f12c9da2ae2ee02ea6fe7c7ef0f9` and `ebb6c9434a6c1fddacbce487ceb6071f268d4709`. PR state closed/merged at `2026-11-22T06:29:02Z`. No merge command issued by this session.
+merged: yes. New develop SHA `52a3c5446f41a1dd8678d99875e4cb1eee67874c`; normal merge commit parents are `c463edf87ee6f12c9da2ae2ee02ea6fe7c7ef0f9` and `ebb6c9434a6c1fddacbce487ceb6071f268d4709`. PR state closed/merged at `2026-11-22T06:29:02Z`. No merge command issued by this session. Planning evidence publication witness: `aab6640655572cd2c67649c3beafe01ae1b823ca refs/heads/main`.
