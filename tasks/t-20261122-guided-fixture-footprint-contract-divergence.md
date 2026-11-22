@@ -7,7 +7,7 @@ areas: [testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: b90e4ba1 (#1783 8b99bdc3 app-new) / Owner (#1788 6c12225e app-edit stacked -> merge into parent) / Coordinator
+owner: b90e4ba1 (#1783 8b99bdc3 app-new) / Owner (#1788 app-edit) / fecbada9 CODEX-MERGE #1788->#1783 branch laeuft / Coordinator
 kanban_status: review
 kanban_lane: review
 kanban_summary: ""
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261122-guided-fixture-footprint-contract-divergence · Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 #task #release/v0-4-28 #status/review #view/review #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (\#1783 8b99bdc3 app-new) / Owner (\#1788 6c12225e app-edit stacked -\> merge into parent) / Coordinator · **Priority:** high  
+    **Owner:** b90e4ba1 (\#1783 8b99bdc3 app-new) / Owner (\#1788 app-edit) / fecbada9 CODEX-MERGE \#1788-\>\#1783 branch laeuft / Coordinator · **Priority:** high  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1787](https://github.com/mcpdev80/baseharbor/pull/1787), [baseharbor#1788](https://github.com/mcpdev80/baseharbor/pull/1788)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** b90e4ba1 (#1783 8b99bdc3 app-new) / Owner (#1788 6c12225e app-edit stacked -> merge into parent) / Coordinator  
+**Owner:** b90e4ba1 (#1783 8b99bdc3 app-new) / Owner (#1788 app-edit) / fecbada9 CODEX-MERGE #1788->#1783 branch laeuft / Coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1787](https://github.com/mcpdev80/baseharbor/pull/1787), [baseharbor#1788](https://github.com/mcpdev80/baseharbor/pull/1788)  
 **Source:** 
@@ -127,3 +127,5 @@ ENTSCHEID shared (owner+coordinator): #1783 selected timeout = getagtes TEST-FIX
 #1783 app-new seam TERMINAL selected GRUEN (8b99bdc3, run 45061359667). #1788 = OWNER gestapelter app-edit follow-up (base = #1783 branch lane-0428-241-optionA, head 6c12225e): exact data-gate app edit admission + Regression (docker/podman, noncanonical, other-gates DENIED), Produkt boundary intact. run 45062680796: Trusted Plan + Focused Python + Demo Pin PASS; native docker+podman pending = :edge = #1770 (NICHT #1788 defect) -> app-edit content nachweislich ok. SUPERSEDE: #1787 closed weil app-new concurrent in #1783 landete. SEQUENZ: #1788 CI terminal -> MERGE #1788 in PARENT #1783 (owner/Codex) -> FRISCHER #1783 exact selected run auf combined head (b90e) -> #1783 merge-ready develop. b90e #1771 hop laeuft. develop 978a0f90b. KEIN zweiter writer am fixture.
 
 #1788 app-edit fixture remote besttigt: run 45062680796 SELECTED docker+podman data-caps PASS (Docker 20m21s/Podman 25m11s) = Qualifying-Evidenz (app-new + app-edit admitted unter data-caps, consent intact). native docker fail/podman pending = :edge broker readiness deadline = SHARED #1770 (NICHT #1788 defect). #1783 8b99bdc3 selected noch fail (app-edit fehlt, lebt in #1788). GUIDANCE: (1) merge #1788 in parent #1783 jetzt (selected-green qualifying, native-red=#1770 kein blocker); (2) #1770 -> develop ZUERST (native-green qualifying) = Hebel der native fuer 1783/1761/1762/1763/1771 gruen macht; (3) dann b90e FRISCHER #1783 rerun auf develop+1770 -> vollstaendig gruen -> #1783 merge. develop 978a0f90b.
+
+#1788 final (owner failed-only rerun): SELECTED docker+podman data-caps PASS + focused seam + all static PASS = app-edit fixture QUALIFIZIERT gruen. native docker+podman FAIL = ExistingCore/secrets broker /health HTTP 503 not_ready FailingStreak 49 / Docker readiness context-deadline = DER geteilte :edge runtime-broker drift = AUSSCHLIESSLICH #1770 (exact-image pin), NICHT #1788/#1783 fixture. CODEX-MERGE dispatcht (fecbada9): #1788 -> base branch lane-0428-241-optionA (=#1783 head) gestapelt gemergt, KEIN develop-touch, STOP-fall falls required-native-check blockiert. Danach #1783 = app-new + app-edit selected vollstaendig gruen; native bleibt 503 bis #1770 in develop. develop 978a0f90b.
