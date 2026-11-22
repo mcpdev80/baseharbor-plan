@@ -76,3 +76,11 @@ cleanliness: `docker ps -a` BEFORE = 0 entries (pid 2376950), AFTER = 0 entries
 workers/0428-241-optawt 0 delta na de merge-push.
 
 END 0428-223-testctx DONE — 0428-241 stack ronde-1: combined #1783 head 62f4ab0d673757c0fc258f35dfb85d87e1fa467a (additieve merge --no-ff van #1770 tip 0da4a571 op branch lane-0428-241-optionA-operator-allowlist, beide ancestors gemeten, geen conflict/force), PR #1783 base = codex/0428-237-exact-native-runtime (gh API + view bewezen), EXACT hosted run 45068985009 completed/success failed=0: Trusted Plan GREEN: ja (137351956516), native GREEN: ja (docker 137351989582 + podman 137351989526), selected GREEN: ja (docker 137352342329 + podman 137352342084), PR Selected Checks 137357917308 success. Merge blijft bij Codex/Owner. cleanliness: besenrein
+
+## origin/main witness
+
+Exact: `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 1783-on-1770-stack` (plan main = 034bbb00184e6669c9e2a3ff512116b9901890ed):
+
+```
+evidence/r28-welle5-2026-11-22/guided-fixture-footprint-contract-divergence-0428-241/1783-on-1770-stack-round-1.md
+```
