@@ -7,7 +7,7 @@ areas: [testing, ci]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ffe7611b (242) / owner (hop) / coord
+owner: ffe7611b (1768) / coord
 kanban_status: closed
 kanban_lane: closed
 kanban_summary: "Make broker diagnostics provable in hosted CI: scripts/pr-gate-coverage.json carries 65 cmd/baha path entries but no entry…"
@@ -15,7 +15,7 @@ kanban_title: 0428-242 · app_broker not in gate catalog
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1763, mcpdev80/baseharbor#1768]
+prs: [mcpdev80/baseharbor#1763, mcpdev80/baseharbor#1768, mcpdev80/baseharbor#1774]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -25,8 +25,8 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45011815553", "h
 
 - [x] t-20261122-gate-catalog-missing-app-broker-component · Gate catalog: no coverage component for cmd/baha/app_broker.go #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** ffe7611b (242) / owner (hop) / coord · **Priority:** high  
-    **PR:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1768](https://github.com/mcpdev80/baseharbor/pull/1768)  
+    **Owner:** ffe7611b (1768) / coord · **Priority:** high  
+    **PR:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1768](https://github.com/mcpdev80/baseharbor/pull/1768), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45011815553), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1768)  
     <!-- /generated:card -->
 
@@ -34,10 +34,10 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45011815553", "h
 **State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Required by:** [t-20261121-static-gate-registration](t-20261121-static-gate-registration.md), [t-20261122-runtime-broker-health-unhealthy](t-20261122-runtime-broker-health-unhealthy.md)  
-**Owner:** ffe7611b (242) / owner (hop) / coord  
+**Required by:** [t-20261121-static-gate-registration](t-20261121-static-gate-registration.md), [t-20261122-gate-catalog-completion-ci-executor](t-20261122-gate-catalog-completion-ci-executor.md), [t-20261122-runtime-broker-health-unhealthy](t-20261122-runtime-broker-health-unhealthy.md)  
+**Owner:** ffe7611b (1768) / coord  
 **Priority:** high  
-**PRs:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1768](https://github.com/mcpdev80/baseharbor/pull/1768)  
+**PRs:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1768](https://github.com/mcpdev80/baseharbor/pull/1768), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -75,3 +75,5 @@ UMGESTELLT von 'blocked auf owner' auf 'active Codeman': der owner hat am 22.11 
 GEMERGED (exact current-develop hop 681fb7c0, hosted run 45027136067 SUCCESS; develop jetzt 676909a785c). 242-vertrag erfuellt: katalog app_broker.go + fail-loud guardian (nur unkatalogisierte PRODUKT-quellen abort). native matrix skipped = erwacht fuer catalog/validation-only PR, kein deficit. OFFENER FOLLOW-UP (237-routing): pr-gate-coverage.json hat KEIN scripts/ci-native-pr-gate.sh eintrag -> kleiner FOLGE-katalog-PR noetig damit #1770 native docker+podman selektiert werden. Nicht in diesem PR.
 
 GEMERGED (exact current-develop hop 681fb7c0, hosted run 45027136067 SUCCESS; develop jetzt 676909a785c). 242-vertrag erfuellt: katalog app_broker.go + fail-loud guardian. native matrix skipped = erwacht fuer catalog-only PR, kein deficit. FOLLOW-UP 237-routing: pr-gate-coverage.json hat KEIN scripts/ci-native-pr-gate.sh eintrag -> kleiner FOLGE-katalog-PR noetig damit #1770 native docker+podman selektiert. Nicht in 1768.
+
+#1768 merged (app_broker katalog + fail-loud guardian). KATALOG-NICHT-VOLLSTAENDIG -> FOLGE-KARTE 0428-248 / #1774 registriert die drei restlichen geaenderten pfade (ci-fast-check.sh, ci-native-pr-gate.sh, app_footprint_presenter.go). 242-contract fuer 1768 erfuellt; 248 fuehrt es zu ende. Guardian side-effect blockierte #1773 (documented auf 246/248).
