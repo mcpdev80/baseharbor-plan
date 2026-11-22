@@ -109,3 +109,11 @@ build-resten verwijderd; scratch /var/tmp/0428-223-fc-tg.log, -tp1771b.log,
 -np1771b.log vóór END verwijderd. Werktree 0 delta na commit.
 
 END 0428-223-testctx DONE — 0428-231 target.go provider-fix round-1 op #1771: NIEUWE HEAD b9dc3c31221b66038856a92f2c05225e0be53e83 (additive hop 02cf8eac op exact develop 484c95fc + fix-commit, ls-remote branch+pull bewezen), exact hosted rerun 45057170560 terminal; 'local-docker/local-podman grant accepted im probe: ja' (provider-reject tekst verdwenen uit de cellen; cel stopt nu bij de candidate-consent grens), 'remote/unknown fail-closed: ja' (9/9 asserts); Trusted Plan faalt uitsluitend omdat cmd/baha/target.go + de nieuwe test NIET in scripts/pr-gate-coverage.json staan en catalog-json hier verboden was — Coordinator-action buiten deze write-set (met data-capabilities muster). native :edge/#1770 en demo-consent/#1783 blijven gescheiden, alleen status gemeld. cleanliness: besenrein
+
+## origin/main witness
+
+Exacte uitvoer van `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 1771-target-go-provider` (plan main = 70ed50d7a65715aeb833bf8e2232506601e3aea9):
+
+```
+evidence/r28-welle5-2026-11-22/static-cells-operator-auth-0428-231/1771-target-go-provider-round-1.md
+```
