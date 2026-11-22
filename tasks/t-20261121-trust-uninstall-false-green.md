@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1737]
 sources: []
 blocker: ""
-wait_reason: "shared 0428-198 base is unusable: prerequisite PR #1726 is CLOSED unmerged, the base branch sits 197 behind develop, and every head of this stack fails the same out-of-diff case TestAppListAllTargetsWorksAfterInstallationDestroy (runs 44887462636, 44886762103, 44868911131, 44882418434). Isolation onto current develop is decided but parked until 0428-223 lands the destroy fix; no leaf verdict before an isolated exact-develop head."
+wait_reason: "base-Karte 0428-198 ist superseded und ihr PR 1726 nie gemergt; die geteilte Operator-Kontext-Mechanik kommt erst mit PR 1750. Danach wird diese Karte von develop aus neu angesetzt (Cherry-pick der eigenen Commits), siehe cli-shard-fanin/fanin-1726-disposition.md"
 resolution: ""
 evidence: []
 ---
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737)  
-    **Waiting:** shared 0428-198 base is unusable: prerequisite PR \#1726 is CLOSED unmerged, the base branch sits 197 behind develop, and every head of this stack fails the same out-of-diff case TestAppListAllTargetsWorksAfterInstallationDestroy (runs 4488…  
+    **Waiting:** base-Karte 0428-198 ist superseded und ihr PR 1726 nie gemergt; die geteilte Operator-Kontext-Mechanik kommt erst mit PR 1750. Danach wird diese Karte von develop aus neu angesetzt (Cherry-pick der eigenen Commits), siehe cli-shard-fanin/f…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
