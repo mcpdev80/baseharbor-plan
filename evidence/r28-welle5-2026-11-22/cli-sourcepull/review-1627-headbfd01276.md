@@ -76,7 +76,9 @@ origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)
 origin https://github.com/mcpdev80/baseharbor-plan.git (push)
 ```
 
-Planning origin/main before publication: 76edabee02acdb22f94196722f37a6b37f0fbd95.
+Planning origin/main before first publication: 76edabee02acdb22f94196722f37a6b37f0fbd95.
+First evidence publication commit: f8a7ac6f609aa57c1bc9c140ac35788ccba0f0d2.
+Exact tree witness after fetch: `evidence/r28-welle5-2026-11-22/cli-sourcepull/review-1627-headbfd01276.md` (output of `git -C baseharbor-plan ls-tree -r --name-only origin/main | rg '^evidence/r28-welle5-2026-11-22/cli-sourcepull/review-1627-headbfd01276\.md$'`).
 
 Coordinator-host container listing before review, shell PID 2986184: `docker ps -a` returned only the header and no containers.
 Coordinator-host container listing after review, shell PID 3012886: `docker ps -a` returned only the header and no containers.
