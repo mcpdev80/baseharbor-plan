@@ -108,3 +108,11 @@ verwijderd; GOCACHE /var/tmp/go-cache-0428-231 blijft (buiten deze missie).
 Werkboom workers/0428-248-catalogmap-wt houdt de kandidaat (0 delta na commit).
 
 END 0428-223-testctx DONE — 0428-248 mappings-pr: branch lane-0428-248-catalog-mappings, head d9c1b895bedc0f3ad1d0866445c7237e064951e8 (ONE commit op 3cbb2bac), PR https://github.com/mcpdev80/baseharbor/pull/1777 (DRAFT, ls-remote bewezen), run 45035001471 completed/success failed=0, entries A/C/243 dup-frei und guardian-intakt; cleanliness: besenrein
+
+## origin/main witness
+
+Exacte uitvoer van `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep gate-catalog-0428-248/mappings-pr` (plan main = 145efaa59e82d7a085a95951ef2e39f2ad6dbc49):
+
+```
+evidence/r28-welle5-2026-11-22/gate-catalog-0428-248/mappings-pr.md
+```
