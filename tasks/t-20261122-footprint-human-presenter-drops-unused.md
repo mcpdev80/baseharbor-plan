@@ -7,7 +7,7 @@ areas: [cli, testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0847d100
+owner: owner (patcht #1772) / 0847d100 (stand-down, kein 2. writer) / coord
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -15,7 +15,7 @@ kanban_title: 0428-245 · footprint Unused gap
 priority: normal
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1772]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -25,16 +25,17 @@ evidence: []
 
 - [ ] t-20261122-footprint-human-presenter-drops-unused · Human footprint presenter drops the Unused field present in JSON contract #task #release/v0-4-28 #status/active #view/active #area/cli #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** 0847d100 · **Priority:** normal  
+    **Owner:** owner (patcht \#1772) / 0847d100 (stand-down, kein 2. writer) / coord · **Priority:** normal  
+    **PR:** [baseharbor#1772](https://github.com/mcpdev80/baseharbor/pull/1772)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0847d100  
+**Owner:** owner (patcht #1772) / 0847d100 (stand-down, kein 2. writer) / coord  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1772](https://github.com/mcpdev80/baseharbor/pull/1772)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -51,3 +52,5 @@ output surfaces disagree for the same footprint. Recipe lives in evidence/r28-we
 ## Boundaries
 
 cmd/baha footprint presenter (human path) + its test only. NOT the consent guard (0428-236/227), NOT app_broker/237, NOT .github/scripts catalog (0428-242).
+
+Kandidat #1772 head ef11a301 run 45025176987 GREEN aber NICHT vollstndig: acceptance-luecke (owner-befund) = renderAppFootprint kehrt fuer Details VOR der per-instance Unused-schleife zurck, default human mode zeigt nur die Zahl, nicht die Unused-IDs. Karte bleibt ACTIVE (nicht review). OWNER patcht den branch selbst (per-instance rows vor den early-return + regression im default mode), ein schreiber pro branch; 0847d100 stand-down. Nach owner-push: exact-hosted neu + dann review/merge. Display-only, kein contract/model/.github.
