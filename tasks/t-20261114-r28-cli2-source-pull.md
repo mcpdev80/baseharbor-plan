@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w27-pr1627-0428-061-pull
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Implement guided source pull. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-061 · Implement guided source pull
 priority: high
@@ -23,14 +23,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-source-pull · CLI redesign: Implement guided source pull #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-source-pull · CLI redesign: Implement guided source pull #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** w27-pr1627-0428-061-pull · **Priority:** high  
     **PR:** [baseharbor#1752](https://github.com/mcpdev80/baseharbor/pull/1752)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-app-lifecycle](t-20261114-r28-cli2-app-lifecycle.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
@@ -82,3 +82,5 @@ lane hat geliefert: AGENTS.md wiederhergestellt (commit 16c120f1) und hop auf de
 fortschritt gemessen: die write-set-ausnahme wirkt - head ist 5cb139a6e4e, und die klassifikations-stelle 'unclassified command: baha app pull' (registration_ci_readiness_test.go:82) ist im neuen exakten run 44962445337 nicht mehr der fehler. zwei vertragstests ziehen jetzt nach, beide in cmd/baha: (a) job 137024002111 'PR · Draft Go · cli-0' FAIL TestMCPGenericClientDiscoversCompleteSemanticSurfaceAndExercisesReadOnlyTools (0.14 s) - das neue app-pull operation muss im semantic surface vollstaendig erscheinen (Operations(), MCPTool-name, cliSemanticModes zusammen), (b) job 137024002085 'PR · Draft Go · cli-3' FAIL TestEndToEndInstalledZshAndFishWrappers (0.00 s) - die installierten zsh/fish-wrapper kennen den unterbefehl noch nicht. ZUSAETZLICH ist develop auf 7d4351c6d645 gezogen (#1749 gemergt), also back=8 und ein NEUER hop ist Pflicht, bevor ein verdict oder merge in frage kommt (mission sha256 b65071f7cc3f + detail b0 …). PR bleibt draft=true bis der exakte run gruen ist. meine ausnahme gilt weiter NUR fuer die genannten dateien plus ggf. die completion-tabellen; .github/scripts bleiben gesperrt, und ein veto des owners gegen die ausnahme ist noch moeglich.
 
 exakter head 9140e0c8224, run 44968867153 SUCCESS (21 skipped = HA/release/draft-routing per PR-event), akte 8ce6104ec; unabhaengiges verdict bestellt
+
+independent review REQUEST CHANGES at exact head 9140e0c8224 (evidence 5406131d02, akte review-1752-head9140e0c8.md): F1 app_pull.go:156-167 JSON returns before result.Successful and opts.Up, F2 mcp_lifecycle_extra.go advertises up/component that machineApplicationInput (mcp.go:89-93) cannot carry, F3 source_pull_test.go:146-200 comment overstates partial-failure coverage; correction mission f6e8294fecda dispatched to w27, reviewer session kept for the fresh exact-head review
