@@ -5,7 +5,7 @@
 1. Refresh PR 1763 and run 45011815553 status against the exact current head. Complete: PR state and run head are unchanged at c698d1310ed5a2d5178affb956ba8af2051d0a5b.
 2. Reassess verdict and sufficiency option (a) or (b), including executed cli-0/cli-1 evidence. Complete: both unit shard jobs completed successfully; native remains unexecuted, so option (b).
 3. Write and validate the read-only review evidence without checkbox lines. Complete: check returned 0 errors and the file contains no checkbox markers.
-4. Publish the evidence to baseharbor-plan origin/main and verify the remote path. Pending.
+4. Publish the evidence to baseharbor-plan origin/main and verify the remote path. Complete after publishing this witness update.
 5. Post the required END status to coordinator. Pending.
 
 ## Scope
@@ -51,3 +51,11 @@ This is read-only CODEX-REVIEW. Only this Planning evidence and the live todo bo
 No container or compose project was started during this review. `docker ps -a` witnesses are recorded in the immediately preceding exact-head review; its before and after commands showed only the header and no containers.
 
 END_BLOCKED: REQUEST CHANGES, option (b); cli-0/cli-1 executed successfully but the native matrix was skipped and does not cover the real readiness-failure path. Candidate SHA c698d1310ed5a2d5178affb956ba8af2051d0a5b.
+
+## origin/main evidence path witness
+
+Exact output of `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-sufficiency-round-2.md`:
+
+```text
+evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-sufficiency-round-2.md
+```
