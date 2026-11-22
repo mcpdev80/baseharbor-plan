@@ -70,7 +70,7 @@ internal/deployment/environment_destroy_scope_test.go
 - `git diff 52a3c5446f41a1dd8678d99875e4cb1eee67874c...12a62523fc5f2259220aece4cc5619dcb8f4ae4d --name-only` is the 16-path list above.
 - Planning remote: `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch/push)`.
 - Prior duplicate-closure evidence was updated in the planning repository and appears in fetched `origin/main` at `evidence/r28-welle5-2026-11-22/stale-pr-census/duplicates-1760-1759.md`.
-- Review evidence will be published at `evidence/r28-welle5-2026-11-22/workload-port-0428-199/review-1723-head12a62523fc5.md` and verified on remote `main` before handoff.
+- Review evidence is published at `evidence/r28-welle5-2026-11-22/workload-port-0428-199/review-1723-head12a62523fc5.md`. The fetched `origin/main` tree witness is recorded below.
 
 ## repo-rule compliance
 
@@ -83,3 +83,11 @@ internal/deployment/environment_destroy_scope_test.go
 - `docker ps -a` before/after was not run: this review did not invoke Docker or Podman and the review host is not a test VM.
 
 END_BLOCKED codex-rev2-1736: REQUEST CHANGES for #1723 at 12a62523fc5f2259220aece4cc5619dcb8f4ae4d; six failed jobs are candidate/consent failures, not the 0428-237 broker 503; additivity fails due non-develop 0768274 and unresolved approved head 40444b1b49d.
+
+Exact output of `git fetch origin main && git ls-tree -r --name-only origin/main | grep 'evidence/r28-welle5-2026-11-22/workload-port-0428-199/review-1723-head12a62523fc5.md'`:
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle5-2026-11-22/workload-port-0428-199/review-1723-head12a62523fc5.md
+```
