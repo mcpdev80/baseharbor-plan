@@ -7,10 +7,10 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
+owner: b90e4ba1 (lane, STOP belegt)
 tags: [#task, #release/v0.4-28]
-kanban_status: planned
-kanban_lane: ready
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-236 · data-capabilities native gate
 priority: ""
@@ -20,21 +20,21 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: dropped
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/gate-admission-census/demo-consent-0428-236/round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44994268323"]
 ---
 
-- [ ] t-20261122-data-capabilities-gate-consent · demo: pass candidate consent in the data-capabilities native gate #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [x] t-20261122-data-capabilities-gate-consent · demo: pass candidate consent in the data-capabilities native gate #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** b90e4ba1 (lane, STOP belegt)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/gate-admission-census/demo-consent-0428-236/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** b90e4ba1 (lane, STOP belegt)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -104,3 +104,5 @@ parse the 64-hex digest from `Re-run with --confirm-candidate <digest>`, retry o
 `tests/guided/drive.py:37` does; assert the retry in the gate's own log so the evidence is machine-readable.
 Scope: `baseharbor-demo` only (lane-writable); no `cmd/baha` semantics change; the consent guard stays.
 Cards touched by the same guard elsewhere: 0428-061 (PR #1627) and 0428-232 (demo MCP golden list).
+
+STOP angenommen, karte ohne defekt: der consent-retry sitzt bereits auf dem apply-pfad des gates (ueber den PTY-weg), es gibt also LUECKE, die sich im demo-scope andocken liesse, ohne den core zu aendern. Die lane hat die pruefung mit datei:zeilen belegt (gate-admission-census/demo-consent-0428-236/round-1.md, plan main e516dcfd9). Damit ist mein zweiter fund aus dem 1753-log (die 'requires an explicit operator/automation consent'-zeile) erklaert: er war sekundaer und ist kein separater arbeitsbedarf. Der blockierer bleibt ausschliesslich der broker-readiness-pfad (karte 0428-237).
