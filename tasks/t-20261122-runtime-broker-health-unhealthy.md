@@ -8,7 +8,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: andere Codex-Session (#1770)
+owner: andere Codex-Session (#1770) / fecbada9 (review auf gruen)
 tags: [#task, #release/v0.4-28]
 kanban_status: active
 kanban_lane: active
@@ -26,7 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "h
 
 - [ ] t-20261122-runtime-broker-health-unhealthy · CI: data-capabilities native gate fails on secure runtime broker readiness #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** andere Codex-Session (\#1770)  
+    **Owner:** andere Codex-Session (\#1770) / fecbada9 (review auf gruen)  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998846458), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45008538769), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-3.md), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45011764715)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "h
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** andere Codex-Session (#1770)  
+**Owner:** andere Codex-Session (#1770) / fecbada9 (review auf gruen)  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770)  
 **Source:** 
@@ -142,3 +142,5 @@ FIX-ORT KORRIGIERT DURCH READ-ONLY-HUNT (akte hunt-develop-releasedesse-round-1.
 #1770 native matrix SKIPPED (wartet #1768 katalog). SEQUENZ WICHTIG: NACH #1768-LAND hoppt #1770 auf den neuen develop-head und MUSS exakte native data-capabilities docker+rootless-podman gaete AUSFUEHREN (nicht skipped) als runtime-beweis fuer 0428-237. Review dafuer gehalten bei fecbada9. Kein skip-als-gruen.
 
 #1770 additiv gehoppt auf develop 3cbb2bac (nach #1774-B-merge) -> head 2a4adca0, exact run 45030747445 queued. Weil B jetzt auf develop ist, SOLLTE der planner native/docker+podman/data-capabilities ECHT selektieren (nicht mehr skipped). Owner verifiziert die selected native gates vor merge; review fecbada9 danach. Wenn trotz B weiter skipped -> befund an coord (catalog-selectie pruefen).
+
+#1770 head 2a4adca0 auf develop 3cbb2bac (nach #1774-B-merge). UNLOCK BESTAETIGT: native docker+podman data-capabilities + selected runtime atomic/docker|podman laufen in Durchgang 45030747445 ECHT (in_progress, nicht skipped). fecbada9 prueft bei terminal + merged wenn gruen. #1753 haelt derweil am consent (236 owner-decision).
