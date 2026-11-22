@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1771]
 sources: []
 blocker: ""
-wait_reason: "Gehoppt auf develop 676909a7 (0428-242 gemerged) -> candidate head 887058a6, Demo pin c23bd9ac. Volle Pre-Release 45027607903 AKTIV. ABER verbleibender blocker NICHT nur #1771: der owner hat belegt dass #1746 static/mcp bei 'target create' managed-operator auth denial failt und cliLocalWorkloadOperation #1771 target.create NICHT mappt -> target.create auth-fixture mechanismus = separate owner/core-decision (aehnlich consent 236). Sequenz 242(merged)->232(fertig)->1746; merge erst nach target-create routing + sauberer pre-release qual."
+wait_reason: "Pre-release 45028181619 laeuft (korrekter ref). Inhalt-restblocker = target.create managed-operator auth = PRODUCT-SEMANTIK, karte 0428-247 (H-V27 datei:zeile: main.go:158-175 mappt target create nicht; mcp.go:300/314-323 operator_authentication_required; local_workload_authority.go:57 braucht LocalWorkloadOperation=true). KEIN 231/243 carve-out, KEIN auth-bypass. Owner/Core decision noetig (wie consent 236). Merge #1746 erst nach 0428-247 ruling + sauberem pre-release."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "https://github.com/mcpdev80/baseharbor/actions/runs/44944570763", "https://github.com/mcpdev80/baseharbor/pull/1746"]
 ---
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "h
     <!-- generated:card -->
     **Owner:** owner (dispatch) / coord · **Priority:** normal  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771)  
-    **Waiting:** Gehoppt auf develop 676909a7 (0428-242 gemerged) -\> candidate head 887058a6, Demo pin c23bd9ac. Volle Pre-Release 45027607903 AKTIV. ABER verbleibender blocker NICHT nur \#1771: der owner hat belegt dass \#1746 static/mcp bei 'target create'…  
+    **Waiting:** Pre-release 45028181619 laeuft (korrekter ref). Inhalt-restblocker = target.create managed-operator auth = PRODUCT-SEMANTIK, karte 0428-247 (H-V27 datei:zeile: main.go:158-175 mappt target create nicht; mcp.go:300/314-323 operator\_authenti…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44943804395), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44944570763), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1746)  
     <!-- /generated:card -->
 

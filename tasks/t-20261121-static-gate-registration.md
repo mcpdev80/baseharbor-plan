@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1771]
 sources: []
 blocker: ""
-wait_reason: "Pre-release ref-berichtigt: Durchgang 45027607903 failte cli-3 nur weil die WORKFLOW-definition von main (c000c5db) kam und der PR autorisierte zsh+fish-install-schritt fehlte (zsh executable absent) - KEIN #1746-inhaltsfehler. Korrekter dispatch --ref lane-0428-208-static-release-gate + candidate 887058a6 (workflow-head == 887058a6), demo c23bd9ac, develop_sha 676909a7 -> voller unfilterter Durchgang 45028181619 AKTIV. Separater offener blocker bleibt target.create auth-fixture (ffe7611b analyse). Sequenz 242(merged)->232(fertig)->1746; merge erst nach sauberem pre-release + target.create routing."
+wait_reason: "Pre-release 45028181619 laeuft (korrekter ref). Inhalt-restblocker = target.create managed-operator auth = PRODUCT-SEMANTIK, karte 0428-247 (H-V27 datei:zeile: main.go:158-175 mappt target create nicht; mcp.go:300/314-323 operator_authentication_required; local_workload_authority.go:57 braucht LocalWorkloadOperation=true). KEIN 231/243 carve-out, KEIN auth-bypass. Owner/Core decision noetig (wie consent 236). Merge #1746 erst nach 0428-247 ruling + sauberem pre-release."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md"]
 ---
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "h
     <!-- generated:card -->
     **Owner:** owner (workflow-dispatch) / coord · **Priority:** high  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771)  
-    **Waiting:** Pre-release ref-berichtigt: Durchgang 45027607903 failte cli-3 nur weil die WORKFLOW-definition von main (c000c5db) kam und der PR autorisierte zsh+fish-install-schritt fehlte (zsh executable absent) - KEIN \#1746-inhaltsfehler. Korrekter d…  
+    **Waiting:** Pre-release 45028181619 laeuft (korrekter ref). Inhalt-restblocker = target.create managed-operator auth = PRODUCT-SEMANTIK, karte 0428-247 (H-V27 datei:zeile: main.go:158-175 mappt target create nicht; mcp.go:300/314-323 operator\_authenti…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44997978036), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md)  
     <!-- /generated:card -->
 

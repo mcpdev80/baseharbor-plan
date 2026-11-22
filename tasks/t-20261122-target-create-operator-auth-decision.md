@@ -1,0 +1,58 @@
+---
+id: t-20261122-target-create-operator-auth-decision
+card_number: "0428-247"
+card_short_title: "target create opauth decision"
+type: task
+areas: [cli, security]
+release: v0.4.28
+version: ""
+parent: v0.4.28
+owner: "Owner / Core"
+kanban_status: wait
+kanban_lane: wait
+kanban_summary: ""
+kanban_title: 0428-247 · target create opauth decision
+priority: high
+depends_on: []
+repos: [mcpdev80/baseharbor]
+prs: []
+sources: []
+blocker: ""
+wait_reason: "Owner/Core decision on managed-operator auth for target create; not lane-implementable (no auth bypass). Blocks #1746 static/mcp Pre-Release."
+resolution: ""
+evidence: []
+---
+
+- [ ] t-20261122-target-create-operator-auth-decision · target create reaches the managed-operator auth boundary with no local-workload hook; owner decides the consent/auth path #task #release/v0-4-28 #status/wait #view/wait #area/cli #area/security #kind/task
+    <!-- generated:card -->
+    **Owner:** Owner / Core · **Priority:** high  
+    **Waiting:** Owner/Core decision on managed-operator auth for target create; not lane-implementable (no auth bypass). Blocks \#1746 static/mcp Pre-Release.  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** wait  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** none  
+**Owner:** Owner / Core  
+**Priority:** high  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
+
+## Found by H-V27 (f0f6c8b4) + owner Pre-Release evidence, develop 676909a7
+
+#1746 Pre-Release job 137212735131 runs `baha target create mcp-static --provider docker --access local-docker --reference local --scope default --default` and fails with managed-operator auth denial (`operator_authentication_required`). This is NOT a mapping carve-out #1771 can close and NOT a #1746 content defect; it is product auth semantics, the same class as consent 0428-236.
+
+Exact chain (file:line, read-only verified):
+- `cmd/baha/main.go:158-175` `cliLocalWorkloadOperation` maps only the `app` subcommands (plan/up); `target create` returns empty, so `main.go:153` sets no `localWorkloadScope`. App commands have a hook (`app_context.go:106,124`); target create has no analog.
+- Denial at `cmd/baha/mcp.go:300` + `314-323`; `ManagedEnvironment` for dev is true (`internal/operatorauth/config.go:89-93`); `verifiedLocalWorkloadAuthorityWithRuntime` needs `LocalWorkloadOperation=true` (`local_workload_authority.go:57`) which target create never sets.
+- `--access local-docker` resolves to `accessProvider=local` (`target.go:118-119`) only — satisfying the access condition, not the managed-operator boundary.
+- Path: `createTarget` target.go:286 → `createTargetDefinition` target_mutation.go:583 → `authorizeTargetCreation`:64 → `authorizeMCPOperation` mcp.go:419 → managed boundary.
+
+## Decision needed from Owner/Core (do NOT implement in a lane)
+
+Either rule the consent/auth mechanism for the static `target create` gate (Option B product path: e.g. add a `target` case at `main.go:158-175` returning `target.create` + an app_context-style local-workload hook on the target CLI path, if product-intended), or change the gate/test contract so target create is not exercised against the managed boundary in this lane. No auth bypass.
+
+## Boundaries
+
+Owner/Core decision record only. No lane edits to mcp.go / local_workload_authority.go / main.go guard logic. Blocks #1746 static/mcp acceptance until ruled.
