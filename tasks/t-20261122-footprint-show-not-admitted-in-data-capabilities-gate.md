@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0847d100 (lane, additiver hop + exact durchgang) / coord (zeugnis)
+owner: 0847d100 (lane, hop + durchgang) / fecbada9 (pruefung bereit)
 kanban_status: active
 kanban_lane: active
 kanban_summary: "The disposable acceptance gates that legitimately call baha app footprint show are admitted by the CI operator boundary, so the…"
@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44993125398", "https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44998829701"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44993125398", "https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44998829701", "https://github.com/mcpdev80/baseharbor/actions/runs/45008538769"]
 ---
 
 - [ ] t-20261122-footprint-show-not-admitted-in-data-capabilities-gate · Acceptance contract: baha app footprint show is admitted only for the guided gate #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** 0847d100 (lane, additiver hop + exact durchgang) / coord (zeugnis)  
+    **Owner:** 0847d100 (lane, hop + durchgang) / fecbada9 (pruefung bereit)  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44993125398), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998829701)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44993125398), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998829701), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45008538769)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](t-20261122-ci-integration-operator-seams-without-gate-admission.md)  
 **Required by:** [t-20261120-workload-port-flag-ignored-locally](t-20261120-workload-port-flag-ignored-locally.md)  
-**Owner:** 0847d100 (lane, additiver hop + exact durchgang) / coord (zeugnis)  
+**Owner:** 0847d100 (lane, hop + durchgang) / fecbada9 (pruefung bereit)  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
 **Source:** 
@@ -122,3 +122,9 @@ MESSE STATT MEINUNG, vier protokolle selbst gezogen (gh api job-logs, 72-257 KB)
 MESSE STATT MEINUNG, vier protokolle selbst gezogen (gh api job-logs, 72-257 KB): selected-docker 137139969524 (PR 1725) zeigt wortlich 'app footprint show -o json' plus 'operator/automation consent (--confirm-candidate); refusing to record deployment state'; selected-podman 137139969537 ebenso. In ALLEN vier gelesenen jobs (auch 137139636770 und 137139636747 von PR 1761) steht 'readiness timeout' NULL mal, 'not_ready' GENAU EIN mal (podman 137139636747). SHARED BLOCKER = die fussnoten-ZULASSUNG (karte 0428-227), NICHT die broker-chronologie 0428-237.
 
 MESSE STATT MEINUNG, vier protokolle selbst gezogen (gh api job-logs, 72-257 KB): selected-docker 137139969524 (PR 1725) zeigt wortlich 'app footprint show -o json' plus 'operator/automation consent (--confirm-candidate); refusing to record deployment state'; selected-podman 137139969537 ebenso. In ALLEN vier gelesenen jobs (auch 137139636770 und 137139636747 von PR 1761) steht 'readiness timeout' NULL mal, 'not_ready' GENAU EIN mal (podman 137139636747). SHARED BLOCKER = die fussnoten-ZULASSUNG (karte 0428-227), NICHT die broker-chronologie 0428-237.
+
+HOP IST GELANDET, drchung laeuft: branch lane-0428-227-footprint-gate-admission zeigt jetzt auf b86440c3 mit base develop 8629450ef3c, exact durchgang 45008538769 ist AKTIV auf beiden nativen UND beiden selected data-capabilities-reihen (docker + podman) - das ist der erste kandidat, bei dem die reihen wirklich AUSGEFUEHRT statt skipped laufen. Kein fehlerschlagender job bis zu dieser messe. Damit haingt alles folgende an diesem einen durchgang: gruen -> unabhaengige pruefung durch fecbada9, dann merge; rot -> die zwei job-ids sind der beweis fuer die zulassungs-ursache. ZEUGE GEGEN MEINE FRUEHERE THESE: 'readiness timeout' NULL mal in den vier gelesenen protokollen, 'not_ready' genau EIN mal (podman 137139636747 von PR 1761); shared blocker ist die fussnoten-ZULASSUNG, diese karte.
+
+HOP IST GELANDET, durchgang laeuft: branch lane-0428-227-footprint-gate-admission zeigt auf b86440c389b mit base develop 8629450ef3c; exact durchgang 45008538769 AKTIV auf beiden nativen (docker 137165488041, podman 137165488058) UND beiden selected data-capabilities-reihen (docker 137165839346, podman 137165839308), 'Selected Core-less' 137165589059 skipped - der erste kandidat, dessen matrix wirklich ausgefuehrt wird. Kein fehlgeschlagener job bis zu dieser messe. Zeuge gegen meine fruehere these: 'readiness timeout' NULL mal in den vier gelesenen protokollen, 'not_ready' genau EIN mal (podman 137139636747 von PR 1761) - shared blocker ist die fussnoten-ZULASSUNG, diese karte.
+
+HOP IST GELANDET, durchgang laeuft: branch lane-0428-227-footprint-gate-admission zeigt auf b86440c389b mit base develop 8629450ef3c; exact durchgang 45008538769 AKTIV auf beiden nativen (docker 137165488041, podman 137165488058) UND beiden selected data-capabilities-reihen (docker 137165839346, podman 137165839308); 'Selected Core-less' 137165589059 skipped. Der erste kandidat, dessen matrix wirklich ausgefuehrt wird - kein fehlgeschlagener job bis zu dieser messe. ZEUGE GEGEN MEINE FRUEHERE THESE: 'readiness timeout' NULL mal in den vier gelesenen protokollen, 'not_ready' genau EIN mal (podman 137139636747 von PR 1761) - shared blocker ist die fussnoten-ZULASSUNG, also diese karte.
