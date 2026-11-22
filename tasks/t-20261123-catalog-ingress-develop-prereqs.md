@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
+owner: Coordinator (naechster freier sitz fuehrt aus)
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: "One develop-only catalog PR registers the base rows that Trusted Plan needs to admit already-existing product sources in #1753…"
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261123-catalog-ingress-develop-prereqs · Catalog ingress: register existing-path sources in develop base catalog #task #release/v0-4-28 #status/planned #view/ready #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
+    **Owner:** Coordinator (naechster freier sitz fuehrt aus)  
     **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** Coordinator (naechster freier sitz fuehrt aus)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -46,6 +46,7 @@ One develop-only catalog PR registers the base rows that Trusted Plan needs to a
 ## Scope
 
 - In scope: scripts/pr-gate-coverage.json only; three component rows for paths that already exist at the base: internal/operatorauth/local_runtime.go, internal/operatorauth/local_runtime_test.go, cmd/baha/control_plane_single_native_ci_test.go. Row shape mirrors internal.operatorauth.test.operator.go (runtime_specific, both atomic docker+podman data-capabilities surfaces).
+- Narrowed by Owner decision 2026-11-23: no packages-root entry. #1725 relocates its regression test into the already-cataloged internal/application/shared_backends_test.go instead (existing gate ownership, no side effects).
 - Out of scope: any product code; any PR-branch edit; package-root ingress for not-yet-existing files (#1725 case is a separate policy question raised to Owner).
 
 ## Acceptance
@@ -77,3 +78,5 @@ One develop-only catalog PR registers the base rows that Trusted Plan needs to a
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+
+abhaengige: #1753 (227) und #1765 (209) blockiert auf diesen base-ingress. Row-form analog internal.operatorauth.test.operator.go.

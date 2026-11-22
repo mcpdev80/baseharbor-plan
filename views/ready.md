@@ -15,4 +15,4 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | [t-20261121-candidate-commit-identity](../tasks/t-20261121-candidate-commit-identity.md) | Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) | ready | not set | — | — | — |
 | [t-20261122-native-plan-self-selection](../tasks/t-20261122-native-plan-self-selection.md) | CI: catalog and planner self-change selects zero gates | ready | not set | — | — | — |
 | [t-20261122-static-cell-local-workload-grant-access](../tasks/t-20261122-static-cell-local-workload-grant-access.md) | Static cells: --access local-docker rejected at local_workload_authority.go:62 | ready | high | — | — | — |
-| [t-20261123-catalog-ingress-develop-prereqs](../tasks/t-20261123-catalog-ingress-develop-prereqs.md) | Catalog ingress: register existing-path sources in develop base catalog | ready | not set | — | — | — |
+| [t-20261123-catalog-ingress-develop-prereqs](../tasks/t-20261123-catalog-ingress-develop-prereqs.md) | Catalog ingress: register existing-path sources in develop base catalog | ready | not set | Coordinator (naechster freier sitz fuehrt aus) | — | — |
