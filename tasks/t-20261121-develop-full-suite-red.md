@@ -89,3 +89,5 @@ akte round-3-oras-provisioning.md auf origin/main; cleanliness gemeldet: keine e
 PR 1753 hopped to develop 8b9a8f50645 at head 91f4e38795a with exact CI green (run 44978381512, 0 failed); PR Selected Runtime still SKIPPED pending card 0428-228 path to gate mapping
 
 independent CODEX-REVIEW gives APPROVE at exact head 17f471cd3fe (required checks pass, job 137087212830); two follow-ups recorded: P3 temp-dir cleanup in cmd/baha/test_operator_context_test.go:112-121 and the skipped Selected Runtime/validate proof that depends on card 0428-228
+
+Hop ist gelandet: head 5d47569f337 (additiv, back=0, run 44986337450 SUCCESS, 0 failed jobs). Acceptance bleibt withheld: Selected Runtime ist an diesem head SKIPPED (job 137097672713), validate skipped (137097623509). Grund ist nicht der kandidaat, sondern die fehlenden catalog-zeilen in pr-gate-coverage.json - karte 0428-230, rezept native-checks-catalog-recipe.md. Der P2 hostConfigIsolationDir cleanup ist als 0428-233 eigenstaendig gefuehrt.
