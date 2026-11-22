@@ -7,7 +7,7 @@ areas: [testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ffe7611b (#1780 241; base 3939aa5 -> muss auf 6930872c gehoppt + rerun vor merge)
+owner: ffe7611b (#1780 241; test-only footprint-show read-allowlist, Option A)
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261122-guided-fixture-footprint-contract-divergence · Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 #task #release/v0-4-28 #status/active #view/active #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** ffe7611b (\#1780 241; base 3939aa5 -\> muss auf 6930872c gehoppt + rerun vor merge) · **Priority:** high  
+    **Owner:** ffe7611b (\#1780 241; test-only footprint-show read-allowlist, Option A) · **Priority:** high  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** ffe7611b (#1780 241; base 3939aa5 -> muss auf 6930872c gehoppt + rerun vor merge)  
+**Owner:** ffe7611b (#1780 241; test-only footprint-show read-allowlist, Option A)  
 **Priority:** high  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780)  
 **Source:** 
@@ -79,3 +79,5 @@ FEHL-SCOPE KORRIGIERT: frueher 'runner-bootstrap gate issue END_BLOCKED' war fal
 #1780 (241, branch lane-0428-241-footprint-consent head 78171ae9) run 45041991956 CANCELLED: ci-executor-tests 137268311074 failt 2 partition-tests weil FootprintShowDigestConsent in scripts/pre-release-integration.py NICHT registriert. ffe7611b fuegt die registration hinzu + rerun. Nicht merge-ready bis gruen. EIN 241-pr (#1780), f0f6c8b4s -harness-delivery NICHT als zweiter PR. Bei gruen: entblockt selected #1763/#1770/#1771/#1773/#1753. develop 6930872c.
 
 #1780 head c95c2377 run 45042733884 aktiv, base stale 3939aa5. Nach terminal: ffe7611b hoppt additiv auf 6930872c + exact CI NEU, DANN erst merge-ready (current-base proof). Registration-Fix (pre-release-integration.py) muss im neuen run die 2 partition-tests gruen bringen. Bei gruen: selected entblockt #1763/#1770/#1771/#1773/#1753. develop 6930872c.
+
+#1780 run 45042733884: registration-Fix OK (beide selected cells docker 137271327474 + podman 137271327467 identisch), NEUER rest=test-only CI-operator fixture (ci_integration_operator_enabled.go:115-140) laesst read 'app footprint show -o json' nicht durch managed-workload set (ciIntegrationGuidedFootprintShow :232-233 arg-form passt nicht fuer selected-pfad). BESCHLUSS OPTION A: read-only footprint-show in der TEST-ONLY fixture allowlist zulassen, record-deployment(write) braucht weiter digest (241-harness). Produkt fail-closed unveraendert (kein 247/owner). Danach hop 6930872 + rerun. native/coreless jobs noch aktiv, kein merge.
