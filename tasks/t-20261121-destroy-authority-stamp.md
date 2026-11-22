@@ -7,9 +7,9 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0847d100 (recut, rotiert von f0f6c8b4) / Coordinator
-kanban_status: active
-kanban_lane: active
+owner: Owner (recut 2ba70a58 done) / 0847d100 (read-only QA nur)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "TestCoreBootstrapFixtureCleanupContextIsBoundToItsLocalTarget shows which authority mode admitted installation.destroy, instead…"
 kanban_title: 0428-214 · 0428-214 destroy stamp
 priority: high
@@ -23,18 +23,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1738", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-5-rebase.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md"]
 ---
 
-- [ ] t-20261121-destroy-authority-stamp · installation.destroy authorization assertion runs on a stamped context #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
+- [ ] t-20261121-destroy-authority-stamp · installation.destroy authorization assertion runs on a stamped context #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** 0847d100 (recut, rotiert von f0f6c8b4) / Coordinator · **Priority:** high  
+    **Owner:** Owner (recut 2ba70a58 done) / 0847d100 (read-only QA nur) · **Priority:** high  
     **PR:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1738), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-5-rebase.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** 0847d100 (recut, rotiert von f0f6c8b4) / Coordinator  
+**Owner:** Owner (recut 2ba70a58 done) / 0847d100 (read-only QA nur)  
 **Priority:** high  
 **PRs:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
 **Source:** 
@@ -128,3 +128,5 @@ ROUTE NEU FESTGELEGT NACH CENSUS (akte operator-auth-helper/carrier-census-1737-
 RE-CUT BEAUFTRAGT, weil der census diesen kandidat als EINZIGEN der vier kinder OHNE carrier-abhaengigkeit ausweist (akte carrier-census-1737-1738-1740-1741.md, plan da2176f7f40): base retarget auf develop (eine einzige metadata-aenderung, ausdruecklich autorisiert), dann additiver hop auf 8629450ef3c, danach EIN durchgang mit den vier data-capabilities-job-ids als zeugen. rueckstand 275 commits, 30 dateien. Ausfuehrende lane ist f0f6c8b4 (frei nach der 237-rueckgabe). KONFLIKT-REGEL: wenn die erzeugten index-dateien im merge konfliktieren, gilt der generator-pfad, kein hand-edit; sollte dafuer .github/scripts betroffen sein, STOP mit datei:zeile an mich (reservierte gebiete).
 
 RECONCILED: stale mission '0428-214-r5-bothdirections' (rebase onto retired #1726 + no-merge) ist SUPERSEDED. card sagt develop retarget + re-cut after #1750 merged - #1750 IST GEMERGT (f6d3fc5c) -> precondition erfuellt. PR #1738 dirty auf 7e679293 (275 stale commits) -> NEUER recut-lane auf develop 31aededf, additiv. User verlangt MERGE wenn ready -> no-merge instruction aufgehoben. exact 4 data-caps jobs. 0847d100 drauf.
+
+STALE-MISSION REKONCILIIERT + KOLLISION VERHINDERT: '0428-214-r5-bothdirections' (rebase onto retired #1726 + no-merge) ist SUPERSEDED. Owner fuhr den recut SELBST: head 2ba70a58 = single-file cmd/baha/core_installation_runtime_test.go auf develop 31aededf, force-with-lease (gleicher PR, kein develop-descendant -> erlaubt unter close-all mandat), altes 7e679-stack entfernt. Coordinator-dispatch an 0847d100 auf #1738 zurueckgezogen (kein competing writer). review: exact hosted run auf 2ba70a58 beobachten, merge wenn aggregate gruen + review.
