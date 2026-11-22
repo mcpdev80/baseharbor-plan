@@ -2,6 +2,8 @@
 
 ## PLAN
 
+5. Read the #1763 review tail, confirm the requested decision, no-skipped-native statement, evidence path, and END contents; refresh publication and report status.
+
 1. Read the #1763 CODEX-REVIEW contract and record its exact candidate, acceptance criteria, evidence path, and read-only boundaries.
 2. Refresh PR #1763, develop, and exact-head CI receipts; inspect the two-file diff and diagnostics test read-only.
 3. Evaluate the native-gate selection against the trusted coverage catalog and determine whether a catalog mapping is required.
