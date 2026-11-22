@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1750]
 sources: []
 blocker: ""
-wait_reason: "head ist exakt (4bd779b1501, back=0, draft=true) und die validate-zelle ist groen belegt: run 44973644884 completed/success, job 137058691290, schritt 14 zeigt alle 14 mission-namen groen, schritt 16 das receipt 'PASS: all six native runtime tests and both package teardowns'; ORAS wird jetzt ueber den produktions-installer innerhalb des integration trust plane gepinnt (test-surface only, kein .github/scripts-eingriff, kein skip). das einzige verbleibende rot ist 'PR . Draft Go . cli-3' (job 137054968702 im lauf 44972447675) mit 'zsh: executable file not found in …' aus cmd/baha/context_terminal_test.go:467 - das ist karte 0428-229 / PR #1754, owner-scope. naechster ausloeser: merge von #1754, dann neuer exakter lauf auf dem dann aktuellen develop, dann verdict"
+wait_reason: "exact CI is green but PR Selected Runtime skips because its test-only paths have no gate entry; depends on card 0428-228 owner mapping"
 resolution: ""
 evidence: []
 ---
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** 0428-223-testctx  
     **PR:** [baseharbor#1750](https://github.com/mcpdev80/baseharbor/pull/1750)  
-    **Waiting:** head ist exakt (4bd779b1501, back=0, draft=true) und die validate-zelle ist groen belegt: run 44973644884 completed/success, job 137058691290, schritt 14 zeigt alle 14 mission-namen groen, schritt 16 das receipt 'PASS: all six native runti…  
+    **Waiting:** exact CI is green but PR Selected Runtime skips because its test-only paths have no gate entry; depends on card 0428-228 owner mapping  
     <!-- /generated:card -->
 
 <!-- generated:links -->
