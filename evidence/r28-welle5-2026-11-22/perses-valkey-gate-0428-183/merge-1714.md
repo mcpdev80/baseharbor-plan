@@ -68,3 +68,5 @@ Required fetched `origin/main` tree witness from `git -C baseharbor-plan fetch o
     evidence/r28-welle5-2026-11-22/valkey-gate-0428-183/review-1714-head277ff976395a.md
     evidence/r28-welle5-2026-11-22/workload-port-0428-199/review-1752-head34feb493480-contract061.md
     evidence/r28-welle5-2026-11-22/workload-port-0428-199/review-1752-head34feb493480.md
+
+After merge/evidence publication: PID `2502148`; `docker ps -a` returned no containers.
