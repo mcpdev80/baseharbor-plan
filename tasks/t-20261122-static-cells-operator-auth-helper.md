@@ -9,11 +9,11 @@ version: ""
 parent: ""
 owner: ""
 kanban_status: planned
-kanban_lane: ready
+kanban_lane: planned
 kanban_summary: ""
 kanban_title: 0428-231 · operator auth in static cells
 priority: ""
-depends_on: []
+depends_on: [t-20261121-develop-full-suite-red]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -23,16 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/planned #view/waiting #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** none  
+**Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  
@@ -41,6 +42,12 @@ evidence: []
 
 
 ## Why
+
+Measured by lane `b90e4ba1` (akte
+evidence/r28-welle5-2026-11-22/develop-full-suite-red/diagnose-1.md): the helper
+`testIsolatedSelectionContext` exists in 7 files at head f16cef27 of PR #1750 and in 0 files at develop 8b9a8f50645 -
+so most of these cells clear when #1750 merges. This card stays open only for the parts that survive that merge.
+
 
 At head `fec44963` of PR #1746 the full Pre-Release run `44980411417` fails in several cells with the same guard:
 `Static · init` job 137080600559, `Static · shell-ux` job 137080600541, `Static · config-matrix` job 137080600642,
