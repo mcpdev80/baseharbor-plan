@@ -91,6 +91,6 @@ Run 44973644884, `validate` job 137058691290 (log fetched via
 
 ## cleanliness
 
-- This lane created no containers/networks/volumes/compose projects on this host in rounds 2–3; `docker ps -a` shows only foreign `bh-itest-*` stacks (untouched); scratch confined to `/var/tmp/0428-223*`, deleted at END. `docker ps -a` witness with pid in the END turn.
+- This lane created no containers/networks/volumes/compose projects on this host in rounds 2–3. END-turn witness (`docker ps -a`, pid 1720099): only foreign stacks listed (`bh-itest-1c3f4e6d-…`, `bh-itest-7daed22f-…`, newest 2026-11-21 20:26 +0100), zero compose projects matching this lane; left untouched. Scratch confined to `/var/tmp/0428-223*`, deleted after this post.
 
 END 0428-223-testctx DONE — candidate 4bd779b1501db00049c353b3865bd3ba75704aef; validate job 137058691290 (run 44973644884) completed/success with all 14 names green and the six-test runtime receipt `PASS: all six native runtime tests and both package teardowns`; remaining cli-3 zsh failure is Owner-scope environment (0428-228).
