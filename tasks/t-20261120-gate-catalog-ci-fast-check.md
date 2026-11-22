@@ -7,7 +7,7 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: "Codex (Owner-directed, 2026-11-21)"
+owner: 0428-223-testctx
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: "Register scripts/ci-fast-check.sh as a real v0.4.28 Pre-Release static gate, with the full catalog/dispatcher wiring and…"
@@ -18,16 +18,16 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746]
 sources: []
 blocker: ""
-wait_reason: "Wartet auf PR #1746: auf dem exakten Kopf 9ddcde356e9ed452ddbf00440ab8189add586d3e ist der neue ci-fast-check-Gate-Lauf #44943804395 grün und PR-CI #44942308935 grün. Der vollständige Pre-Release-Lauf #44944570763 ist noch rot (bestehende statische Gates init, shell-ux, config-matrix und mcp); die beiden geforderten Nachweise sind daher noch nicht vollständig gemeinsam grün. Außerdem installiert der aktuelle pre-release.yml-Diff zsh und fish; die Verfügung autorisiert nur den zsh-Installationsschritt. Vor Merge ist diese Grenze zu bereinigen oder durch den Coordinator anhand der tatsächlich vorhandenen Runner-Voraussetzungen zu bestätigen."
+wait_reason: "kopf exakt (48f0cb1e44d, ahead=5 behind=0) und PR-CI 44973953752 completed/success. der vom PR-koerper verlangte zielgerichtete volle static-lauf ist angestossen: workflow_dispatch auf 'Release . Pre-Release Validation' (workflow 362658451), run 44975747939 in_progress am exakten head, only_gates = atomic/static/agent, atomic/static/ci-fast-check, atomic/static/config-matrix, atomic/static/init, atomic/static/lifecycle, atomic/static/mcp, atomic/static/shell-ux; tag=v0.4.28, ref=48f0cb1e44d…, demo_ref=5d1cf312e18d06915db35c340bebe4e3d4f39d45. der pin kommt aus docs/releases/v0.4.28.demo-ref DES kandidaten, die gate-ids aus scripts/release-requirements.json - keine lane hat ihren pruefeingang selbst gesetzt (AGENTS 3.8). vorher: 44944570763 war am ALTEN head 9ddcde356e9 rot. offen: terminales resultat von 44975747939, Release-Owner-Bestaetigung, unabhaengiges verdict"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "https://github.com/mcpdev80/baseharbor/actions/runs/44944570763", "https://github.com/mcpdev80/baseharbor/pull/1746"]
 ---
 
 - [ ] t-20261120-gate-catalog-ci-fast-check · 0428-205 · Wire ci-fast-check into the release gate catalog #task #release/v0-4-28 #status/wait #view/wait #area/ci #kind/bug
     <!-- generated:card -->
-    **Owner:** Codex (Owner-directed, 2026-11-21) · **Priority:** normal  
+    **Owner:** 0428-223-testctx · **Priority:** normal  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
-    **Waiting:** Wartet auf PR \#1746: auf dem exakten Kopf 9ddcde356e9ed452ddbf00440ab8189add586d3e ist der neue ci-fast-check-Gate-Lauf \#44943804395 grün und PR-CI \#44942308935 grün. Der vollständige Pre-Release-Lauf \#44944570763 ist noch rot (bestehende…  
+    **Waiting:** kopf exakt (48f0cb1e44d, ahead=5 behind=0) und PR-CI 44973953752 completed/success. der vom PR-koerper verlangte zielgerichtete volle static-lauf ist angestossen: workflow\_dispatch auf 'Release . Pre-Release Validation' (workflow 362658451…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44943804395), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44944570763), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1746)  
     <!-- /generated:card -->
 
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "h
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
-**Owner:** Codex (Owner-directed, 2026-11-21)  
+**Owner:** 0428-223-testctx  
 **Priority:** normal  
 **PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
 **Source:** 
