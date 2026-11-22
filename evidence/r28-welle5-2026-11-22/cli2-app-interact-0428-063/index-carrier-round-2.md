@@ -4,12 +4,12 @@ Sitz `w21-pr1702-0428-142-compat`. Integrationstraeger fuer karte 0428-063.
 
 ## PLAN
 
-- [x] Plan in board-file + ## PLAN in akte
-- [x] Analyse des fehlgeschlagenen durchgangs (leerer commit)
-- [x] generator AUSFUEHREN; ERZEUGTEN inhalt mit develop verglichen
-- [x] BEFUND: generator-ausgabe ist byte-identisch mit develop -> kein nicht-leerer commit moeglich
-- [x] akte round-2 mit befund
-- [ ] coordinator-post: befund melden (unmoegliche aufgabe)
+- Plan in board-file + ## PLAN in akte
+- Analyse des fehlgeschlagenen durchgangs (leerer commit)
+- generator AUSFUEHREN; ERZEUGTEN inhalt mit develop verglichen
+- BEFUND: generator-ausgabe ist byte-identisch mit develop -> kein nicht-leerer commit moeglich
+- akte round-2 mit befund
+- coordinator-post: befund melden (unmoegliche aufgabe)
 
 ## base
 

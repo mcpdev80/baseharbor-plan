@@ -4,14 +4,14 @@ Date: 2026-11-17. Role: WORKER, owner-authorized Codex lane. Candidate PR #1676,
 
 ## PLAN
 
- * [x] 1. Refresh PR #1676, remote branch, current develop, Planning task/claim and inspect repository rules.
- * [x] 2. Trace workload `RuntimeTarget(project, "workload")` through the actual Prometheus `provider-*.json` file_sd generation. It is copied verbatim and no Prometheus runtime-target resolver exists.
- * [x] 3. Resolve target contract with the coordinator: retain the symbolic runtime identity in the shared snapshot, without a scrape target; exclude it from Prometheus file_sd and do not weaken verification for real scrape sources.
- * [x] 4. Add integrated workload-only regression from deploy registration through `EnsureProviderFiles` snapshot and positive verification; add service-app compatibility via the real registration path.
- * [x] 5. Run gofmt, affected package tests, build, vet, and inspect the complete diff against #1665 scope.
- * [x] 6a. Merge current develop into the PR lane with an ordinary merge commit and push with explicit refspec (no force).
- * [x] 6b. Exact-head pull_request run 44018836577 completed successfully on `ecfccbb9bb897e3bcd1d4cad8f5559b3a6e23e6c`.
- * [x] 7. Independent REVIEW role checked the exact new head against batch21/r3 recipes; verdict CHANGES REQUESTED on the unmet scrapeable-target contract. No merge; see `review-1.md` and review END post.
+ - 1. Refresh PR #1676, remote branch, current develop, Planning task/claim and inspect repository rules.
+ - 2. Trace workload `RuntimeTarget(project, "workload")` through the actual Prometheus `provider-*.json` file_sd generation. It is copied verbatim and no Prometheus runtime-target resolver exists.
+ - 3. Resolve target contract with the coordinator: retain the symbolic runtime identity in the shared snapshot, without a scrape target; exclude it from Prometheus file_sd and do not weaken verification for real scrape sources.
+ - 4. Add integrated workload-only regression from deploy registration through `EnsureProviderFiles` snapshot and positive verification; add service-app compatibility via the real registration path.
+ - 5. Run gofmt, affected package tests, build, vet, and inspect the complete diff against #1665 scope.
+ - 6a. Merge current develop into the PR lane with an ordinary merge commit and push with explicit refspec (no force).
+ - 6b. Exact-head pull_request run 44018836577 completed successfully on `ecfccbb9bb897e3bcd1d4cad8f5559b3a6e23e6c`.
+ - 7. Independent REVIEW role checked the exact new head against batch21/r3 recipes; verdict CHANGES REQUESTED on the unmet scrapeable-target contract. No merge; see `review-1.md` and review END post.
 
 ## Ownership and baseline
 

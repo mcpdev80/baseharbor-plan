@@ -16,7 +16,7 @@ Confirmed by lineage: `git merge-base ab9086f5 70b7bfc8e == ab9086f5` — the cu
 
 ## PLAN
 
- * [x] Reality sync (first action): ls-remote develop + branch; rev-parse HEAD == origin branch == 70b7bfc8e.
+ - Reality sync (first action): ls-remote develop + branch; rev-parse HEAD == origin branch == 70b7bfc8e.
   - 0428-092-perses-boundary = 70b7bfc8e99c79cb20acc6974c67dcf2c037d446
   - develop = 8db0d9bdf8d9ae77db94c9ddce9c209001c4da54
   - Work at /var/tmp/1577-fix-wt (isolated worktree), aligned to remote head 70b7bfc8e.

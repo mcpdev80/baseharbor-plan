@@ -9,16 +9,16 @@
 
 ## PLAN
 
- * [ ] 0. Reality witnesses: demo origin HEAD via ls-remote, planning-repo verify, base attestation
- * [ ] 1. Inventory all demo sites that match/claim literal Achtung
- * [ ] 2. Scope decision: DUAL-MATCH alternation at match sites; JSON-contract {Achtung,Warning} accept; no hard switch
- * [ ] 3. Edit demo python match sites to alternation
- * [ ] 4. Dual-match contract accept; document golden/transcript artifact behavior
- * [ ] 5. German doc fragment: confirm none need both-variant note in this repo
- * [ ] 6. Run demo guided unit tests locally + py_compile; confirm green against both variants
- * [ ] 7. CI-aufnahmepflicht: confirm affected discovery test runs in demo CI; else finding file:line
- * [ ] 8. Push branch via refspec, draft PR develop, observe demo CI to terminal
- * [ ] 9. Evidence to origin/main, teardown compose/containers, END post
+ - 0. Reality witnesses: demo origin HEAD via ls-remote, planning-repo verify, base attestation
+ - 1. Inventory all demo sites that match/claim literal Achtung
+ - 2. Scope decision: DUAL-MATCH alternation at match sites; JSON-contract {Achtung,Warning} accept; no hard switch
+ - 3. Edit demo python match sites to alternation
+ - 4. Dual-match contract accept; document golden/transcript artifact behavior
+ - 5. German doc fragment: confirm none need both-variant note in this repo
+ - 6. Run demo guided unit tests locally + py_compile; confirm green against both variants
+ - 7. CI-aufnahmepflicht: confirm affected discovery test runs in demo CI; else finding file:line
+ - 8. Push branch via refspec, draft PR develop, observe demo CI to terminal
+ - 9. Evidence to origin/main, teardown compose/containers, END post
 
 ## Reality witnesses
 

@@ -9,15 +9,15 @@
 
 ## ## PLAN
 
- * [ ] 0. Reality witnesses: remote develop HEAD via ls-remote, planning-repo verify
- * [ ] 1. Confirm the 15 Germanism sites (grep -rn "Achtung", non-test) match the H-D28 finding
- * [ ] 2. Scope decision: user output "Achtung:" -> "Warning:" + contract marker value rename "Achtung" -> "Warning" + consumer/golden/docs consistency
- * [ ] 3. Edit the 15 product Go sites (9 user output + 3 contract setters + contract schema consts)
- * [ ] 4. Pull golden/testdata + demo golden rules + English docs consistent (German docs stay German)
- * [ ] 5. Regression test covering one output case + one JSON-contract case, wired into an existing CI group
- * [ ] 6. build / vet / gofmt
- * [ ] 7. Push via refspec (draft PR), run to terminal state
- * [ ] 8. Evidence to origin/main, teardown compose/containers, END post
+ - 0. Reality witnesses: remote develop HEAD via ls-remote, planning-repo verify
+ - 1. Confirm the 15 Germanism sites (grep -rn "Achtung", non-test) match the H-D28 finding
+ - 2. Scope decision: user output "Achtung:" -> "Warning:" + contract marker value rename "Achtung" -> "Warning" + consumer/golden/docs consistency
+ - 3. Edit the 15 product Go sites (9 user output + 3 contract setters + contract schema consts)
+ - 4. Pull golden/testdata + demo golden rules + English docs consistent (German docs stay German)
+ - 5. Regression test covering one output case + one JSON-contract case, wired into an existing CI group
+ - 6. build / vet / gofmt
+ - 7. Push via refspec (draft PR), run to terminal state
+ - 8. Evidence to origin/main, teardown compose/containers, END post
 
 ## Reality witnesses
 
