@@ -40,3 +40,27 @@ END_DONE codex-rev-1747: read-only 0428-226 placement recommendation published; 
 After `git -C baseharbor-plan fetch origin main`, `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 'evidence/r28-welle5-2026-11-22/env-destroy-gate/impact-consent-contract-placement.md'` returned exactly:
 
 `evidence/r28-welle5-2026-11-22/env-destroy-gate/impact-consent-contract-placement.md`
+
+
+## PLAN — hold instruction follow-up
+
+1. Read `/var/tmp/rev1723hold.g.md` and preserve its queue decision as the current instruction.
+2. Keep #1723 out of review until the new external gate card 0428-227 delivers; do not issue a verdict, merge, or close.
+3. Retain 0428-226 as the only permitted read-only fallback; its consent-placement analysis above is complete, with no additional product inspection or changes.
+4. Record the mission-provided CI state and this hold in Planning evidence, update the board, and verify publication.
+
+## Queue hold state
+
+Mission `/var/tmp/rev1723hold.g.md` (SHA-256 prefix supplied there: `460b0408f370`) removes #1723 from this review queue. Mission-provided status: exact head `b9c2e483f8b` run `44963676934` completed with FAILURE; Docker guided job `137028211092` succeeded, while data-capabilities job `137028211165` and aggregate `137030140112` failed. The mission attributes the defect to `cmd/baha/ci_integration_operator_enabled.go:135`, with predicate at `:232-233` and fail-closed behavior at `:180`; it identifies new dep-free card 0428-227 for the fix. These are recorded as the supplied state, not as an independently reviewed verdict.
+
+No action was taken on 0428-227. The only fallback task, 0428-226, remains a read-only placement recommendation above. No product source, tests, PR state, or CI were changed or triggered.
+
+## cleanliness — hold follow-up
+
+Shell PID `1243640`: `docker ps -a` before and after returned the same eight pre-existing exited containers (`268b7d8b4612`, `34cf9576dc2b`, `e88b00795b5c`, `1451a7b5b3c6`, `d7ba821c0e08`, `957a80e73b57`, `45bddf32278e`, `9d3f1a2b1e0e`). No container or compose project was started or changed.
+
+END_DONE codex-rev-1747: #1723 held outside review pending 0428-227; 0428-226 remains completed read-only analysis; no verdict, merge, close, product changes, or CI action.
+
+Final pre-push tree command output:
+
+evidence/r28-welle5-2026-11-22/env-destroy-gate/impact-consent-contract-placement.md
