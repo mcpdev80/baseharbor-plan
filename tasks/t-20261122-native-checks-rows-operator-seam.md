@@ -24,6 +24,8 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 superseded_by: t-20261122-native-gate-admission-rows
 ---
 
+- [ ] t-20261122-native-checks-rows-operator-seam · CI: give the operator seam and PR 1750 sources native_checks rows
+
 ## Why this card exists and why it is closed as superseded
 
 Measured at develop `1ff16925c4e141d732459a34ddf0b7f49128a214`: `PR · Selected Runtime` still skips at the hopped
