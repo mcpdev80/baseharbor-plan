@@ -1,7 +1,7 @@
 ---
 id: t-20261122-guided-fixture-footprint-contract-divergence
 card_number: "0428-241"
-card_short_title: "guided fixture footprint contract drift"
+card_short_title: "guided fixture drift"
 type: bug
 areas: [testing]
 release: v0.4.28
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: ""
-kanban_title: 0428-241 · guided fixture footprint contract drift
+kanban_title: 0428-241 · guided fixture drift
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
