@@ -89,3 +89,5 @@ Owner ordered the central zsh provisioning; mission b34f567c3cf2 adds the existi
 lane delivered PR #1754 (branch lane-0428-229-ci-draft-cell-shells, head acd8dd95e6a): adds the existing authorized step 'Install interactive shells for the shell-wrapper path' into pr_draft_go_shards; ORAS half stays with 0428-223's test-side route under review. exact-head CI and independent review pending
 
 Owner ordered exact-head read-only review by codex-rev-1747 (verdict only after terminal CI); run 44973717868 in_progress on acd8dd95e6a. After merge of #1754 every affected candidate PR must hop onto the new develop and re-run its exact hosted CI; coordinator books those hops
+
+proof closed: run 44974482264 (draft variant) completed/success with PR Draft Go cli-3 job 137061187025 EXECUTED; job log shows 'sudo apt-get install -y zsh fish', 'zsh: /usr/bin/zsh', 'fish: /usr/bin/fish' and zero occurrences of the fail message from context_terminal_test.go:467. earlier run 44973717868 skipped that cell and stays as an incomplete witness. Owner restores ready and merges after the verdict
