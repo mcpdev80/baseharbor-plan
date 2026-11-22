@@ -53,3 +53,9 @@
 APPROVE for PR #1774's scoped catalog entry B. The exact head is based on the expected develop SHA, changes only the catalog, routes `scripts/ci-native-pr-gate.sh` to both native data-capabilities runtimes, and has successful exact-head required CI. The PR was already merged remotely as `3cbb2bac39996391799d1c6460b230979ee34959`; that commit is now the develop SHA. The broader 0428-248 task remains active for entries A and C.
 
 END codex-rev2-1736 DONE: APPROVE PR #1774 exact head acd5782816f745de9751a0734a510ca51180e3b6; already merged as 3cbb2bac39996391799d1c6460b230979ee34959; develop is 3cbb2bac39996391799d1c6460b230979ee34959.
+
+## Published evidence path witness
+
+Exact output from `git ls-tree -r --name-only origin/main | grep -F evidence/r28-welle5-2026-11-22/gate-catalog-0428-248/review-1774-headacd57828.md` before this evidence update:
+
+    evidence/r28-welle5-2026-11-22/gate-catalog-0428-248/review-1774-headacd57828.md
