@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: f0f6c8b4 (#1785 surface-e catalog #1761 sources, checks green) / b90e (1761 re-hop nach merge; 1771 row nach rebase) / Owner (review+merge 1785) / Coordinator
+owner: f0f6c8b4 (#1785 MERGED 1253e8d0a) / b90e (#1761 hop + #1771 catalog-row auf 1253e8d0a) / Owner (review) / Coordinator
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.c
 
 - [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** f0f6c8b4 (\#1785 surface-e catalog \#1761 sources, checks green) / b90e (1761 re-hop nach merge; 1771 row nach rebase) / Owner (review+merge 1785) / Coordinator  
+    **Owner:** f0f6c8b4 (\#1785 MERGED 1253e8d0a) / b90e (\#1761 hop + \#1771 catalog-row auf 1253e8d0a) / Owner (review) / Coordinator  
     **PR:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1784](https://github.com/mcpdev80/baseharbor/pull/1784), [baseharbor#1785](https://github.com/mcpdev80/baseharbor/pull/1785)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1761), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44994765677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44998552411), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44999534797), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/hunt-operator-auth-static-cells-round-1.md)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.c
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
-**Owner:** f0f6c8b4 (#1785 surface-e catalog #1761 sources, checks green) / b90e (1761 re-hop nach merge; 1771 row nach rebase) / Owner (review+merge 1785) / Coordinator  
+**Owner:** f0f6c8b4 (#1785 MERGED 1253e8d0a) / b90e (#1761 hop + #1771 catalog-row auf 1253e8d0a) / Owner (review) / Coordinator  
 **Priority:** not set  
 **PRs:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1784](https://github.com/mcpdev80/baseharbor/pull/1784), [baseharbor#1785](https://github.com/mcpdev80/baseharbor/pull/1785)  
 **Source:** 
@@ -116,3 +116,5 @@ b90e hop-both clean. #1761 fcfe3f09 Trusted Plan fail = 4 neue uncataloged sourc
 STALL behoben: #1771 branch noch ebd01baa (target.go fix NICHT gepusht, b90e war idle). NEU DISCAPACHED an b90e: local-docker/local-podman als lokal + shared provider/runtime check fail-closed + regression + re-hop 484c95fca. #1761 branch fcfe3f09 wartet surface-e catalog-PR (f0f busy, branch noch nicht gepusht). #1597: owner hat obsolete run 45055436080 (1d1bdf) force-cancelled (golden newline mismatch gefixt in 993a57f2), current run 45056348316 queued (jobs unassigned, kein fail), 0847 observes + hop 484c95fca nach terminal. develop 484c95fca, 20 offen.
 
 CATALOG-Order bestaetigt: #1785 (f0f surface-e, diff nur pr-gate-coverage.json, die 4 #1761 sources app_env_test/app_export_command_test/target_definition_change_test/internal-operatorauth-test_operator -> surfaces, checks green) = intended. Nach #1785 merge -> b90e re-hops #1761 (fcfe3f09 bleibt bis dahin) -> Trusted Plan gruen. #1771 target.go fix landed b9dc3c31; seine neue target_runtime_access_provider_test.go catalog-row kommt NACH #1785-merge rebase-basiert (selbe JSON, beide rows) -> kein competing write. #1597 98620890 parallel naechster merge. develop 484c95fca.
+
+#1785 MERGED als 1253e8d0a (develop forward; catalog = mcp + 4 #1761 sources). #1761: b90e hoppt auf 1253e8d0a -> erbt catalog -> Trusted Plan gruen (war fcfe3f09 TP-red). #1771 b9dc3c31 TP-red wegen target_runtime_access_provider_test.go -> b90e setzt die row jetzt auf 1253e8d0a + re-hop, beide catalog-rows behalten (kein competing write mehr, #1785 drin). native data-caps = #1770 waiting. Dann 0428-231 gaetes -> #1746 static auth gates. #1597 re-hop 1253e8d0a (0847). develop 1253e8d0a, 20 offen (1785 raus).
