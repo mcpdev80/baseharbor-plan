@@ -60,4 +60,13 @@ origin	https://github.com/mcpdev80/baseharbor-plan.git (push)
 - `docker ps -a` before review recording, shell PID 3185223: header only; no containers listed.
 - `docker ps -a` after review recording, shell PID 3187140: output was the header only, no containers listed. No containers or compose projects were started or changed.
 
-END_DONE codex-rev2-1736: ancestry rule clarified with own-history #1627/076, foreign #1723-old-head 12a imported into independent #1725, and 076 later inherited from develop acc343; #1645 does not carry those refs. Planning publication pending.
+END_DONE codex-rev2-1736: ancestry rule clarified with own-history #1627/076, foreign #1723-old-head 12a imported into independent #1725, and 076 later inherited from develop acc343; #1645 does not carry those refs. Planning evidence published on origin/main.
+
+
+## origin/main tree witness
+
+Exact output of `git ls-tree -r --name-only origin/main | grep evidence/r28-welle5-2026-11-22/stale-pr-census/ancestry-rule-clarification.md` after fetching origin/main:
+
+```text
+evidence/r28-welle5-2026-11-22/stale-pr-census/ancestry-rule-clarification.md
+```
