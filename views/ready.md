@@ -14,4 +14,5 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | [t-20261121-candidate-commit-identity](../tasks/t-20261121-candidate-commit-identity.md) | Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) | ready | not set | — | — | — |
 | [t-20261122-data-capabilities-gate-consent](../tasks/t-20261122-data-capabilities-gate-consent.md) | demo: pass candidate consent in the data-capabilities native gate | ready | not set | — | — | — |
 | [t-20261122-env-destroy-native-assertion-contract](../tasks/t-20261122-env-destroy-native-assertion-contract.md) | test: align native env-destroy assertion with the app stop contract | ready | not set | f0f6c8b4 (lane, PR #1627 branch cli2-env-delete) | — | — |
+| [t-20261122-lane-branch-contamination](../tasks/t-20261122-lane-branch-contamination.md) | re-cut PR 1723 and PR 1725 without sibling PR content | ready | not set | — | — | — |
 | [t-20261122-native-plan-self-selection](../tasks/t-20261122-native-plan-self-selection.md) | CI: catalog and planner self-change selects zero gates | ready | not set | — | — | — |
