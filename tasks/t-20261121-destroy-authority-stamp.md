@@ -7,7 +7,7 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: f0f6c8b4 (#1738: class-C destroy auth-fixture + re-hop b27b2ebe; class-A erbt #1783; class-B=237)
+owner: f0f6c8b4 (#1738 head 1a1e5db4 auf b27b2ebe) / 1450c201 (independent review) / Coordinator
 kanban_status: active
 kanban_lane: active
 kanban_summary: "TestCoreBootstrapFixtureCleanupContextIsBoundToItsLocalTarget shows which authority mode admitted installation.destroy, instead…"
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1738", "https://github.c
 
 - [ ] t-20261121-destroy-authority-stamp · installation.destroy authorization assertion runs on a stamped context #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** f0f6c8b4 (\#1738: class-C destroy auth-fixture + re-hop b27b2ebe; class-A erbt \#1783; class-B=237) · **Priority:** high  
+    **Owner:** f0f6c8b4 (\#1738 head 1a1e5db4 auf b27b2ebe) / 1450c201 (independent review) / Coordinator · **Priority:** high  
     **PR:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738), [baseharbor#1781](https://github.com/mcpdev80/baseharbor/pull/1781), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1738), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-5-rebase.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1738", "https://github.c
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** f0f6c8b4 (#1738: class-C destroy auth-fixture + re-hop b27b2ebe; class-A erbt #1783; class-B=237)  
+**Owner:** f0f6c8b4 (#1738 head 1a1e5db4 auf b27b2ebe) / 1450c201 (independent review) / Coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738), [baseharbor#1781](https://github.com/mcpdev80/baseharbor/pull/1781), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
 **Source:** 
@@ -136,3 +136,5 @@ STALE-MISSION REKONCILIIERT + KOLLISION VERHINDERT: '0428-214-r5-bothdirections'
 run 45043343935 cli-2 137272473729 failt core_installation_runtime_test.go:375 'managed-environment machine ops require authenticated operator' = destroy braucht test-only synthetic-operator stamp (Option A fixture) ODER fail-closed assert. re-hop auf b27b2ebe (#1782) noetig (head f0adb35 stale 3939aa5). STOP-Fall: product-247. f0f6c8b4 geroestet.
 
 #1738 run 45044988050 terminal rot = 3 klassen: (A) selected footprint-show record-deployment-confirm = shared, loest PR #1783 (optionA). (B) native broker readiness 503 = 0428-237 andere session. (C) cli-2 destroy core_installation_runtime_test.go:375 braucht authenticated operator context = f0f own FIX (tagged test-only fixture stempelt destroy-pfad ODER fail-closed assert; STOP-Fall=247). Dazu re-hop e09ceb9a (stale base 3939aa5) -> b27b2ebe + exact hosted docker+podman. Kein merge vor exact run+current base.
+
+#1738 frischer additiver head 1a1e5db4 = EXAKT develop b27b2ebe (ancestry bestaetigt, kein recut-duplet von #1750). Hosted run 45047625743 AKTIV ohne fail; data-caps cells laufen (shared #1783/237 gate). Independent CODEX-REVIEW auf 1450c201 gepolst, verdict bei terminal. class-C destroy auth-context (:375) test-only im diff.
