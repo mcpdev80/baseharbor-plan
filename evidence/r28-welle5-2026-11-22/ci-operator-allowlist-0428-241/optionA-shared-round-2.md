@@ -116,7 +116,7 @@ other mcp tools denied: ja
 ## cleanliness
 
 cleanliness: `docker ps -a` BEFORE = 0 entries (pid 1590692), AFTER = 0 entries
-(END-shell pid). Geen compose/container gestart op deze host. Onbedoelde `baha`
+(pid 1923622). Geen compose/container gestart op deze host. Onbedoelde `baha`
 build-binary uit de werktree verwijderd vóór commit (git status was 0 na
 netjes `git add` van de 2 paden); scratch /var/tmp/0428-223-fc-r2.log en
 cel-logs worden vóór END verwijderd. Werkboom workers/0428-241-optawt houdt de
