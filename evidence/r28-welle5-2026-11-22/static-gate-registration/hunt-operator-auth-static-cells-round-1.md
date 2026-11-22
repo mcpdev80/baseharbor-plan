@@ -114,3 +114,11 @@ fund b helper=ci_integration_operator_enabled.go (tag+runtime-gate-poort sluiten
 test_operator.go (alleen Go-proces) — cel laden ze NIET; fund c volgende aktie: local-docker toelaten in
 local_workload_authority.go:62, regressie via cmd/baha shards zonder .github-wijziging; nevenbefund: kandidaat 3d927252 vs
 demo-pin 5d1cf312 MCP-contract mismatch (perses-tools) → Static·mcp rood in run 45015912507; cleanliness: besenrein)
+
+## origin/main witness
+
+Exact output of `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep hunt-operator-auth-static`:
+
+```
+evidence/r28-welle5-2026-11-22/static-gate-registration/hunt-operator-auth-static-cells-round-1.md
+```
