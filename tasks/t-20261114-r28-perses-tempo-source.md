@@ -7,7 +7,7 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0847d100 (lane, fix + hop)
+owner: 0847d100 (lane, fix + hop) / fecbada9 (unabhaengige abnahme)
 kanban_status: active
 kanban_lane: active
 kanban_summary: "Provision selected authorized Tempo datasource via supported Perses plugin, scoped and verified."
@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44688554297", "https://github.com/mcpdev80/baseharbor/actions/runs/44689126814", "https://github.com/mcpdev80/baseharbor/actions/runs/44695439903", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44996055999", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/stale-pr-census/review-1645-head326ca900526.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44688554297", "https://github.com/mcpdev80/baseharbor/actions/runs/44689126814", "https://github.com/mcpdev80/baseharbor/actions/runs/44695439903", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44996055999", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/stale-pr-census/review-1645-head326ca900526.md", "https://github.com/mcpdev80/baseharbor/pull/1645"]
 ---
 
 - [ ] t-20261114-r28-perses-tempo-source · Connect Perses Tempo #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0847d100 (lane, fix + hop) · **Priority:** normal  
+    **Owner:** 0847d100 (lane, fix + hop) / fecbada9 (unabhaengige abnahme) · **Priority:** normal  
     **PR:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44688554297), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44689126814), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44695439903), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44996055999), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/stale-pr-census/review-1645-head326ca900526.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44688554297), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44689126814), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44695439903), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44996055999), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/stale-pr-census/review-1645-head326ca900526.md), [proof 7](https://github.com/mcpdev80/baseharbor/pull/1645)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44688554297", "h
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
 **Required by:** [t-20261114-r28-perses-log-trace-dash](t-20261114-r28-perses-log-trace-dash.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** 0847d100 (lane, fix + hop)  
+**Owner:** 0847d100 (lane, fix + hop) / fecbada9 (unabhaengige abnahme)  
 **Priority:** normal  
 **PRs:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645)  
 **Source:** 
@@ -132,3 +132,5 @@ review REQUEST CHANGES am head 326ca900526 (run 44996055999, 2 failed jobs: 'PR 
 eigentum ist WIEDER BESETZT, und zwar durch eine ausfuehrende lane: die mission liegt auf 0847d100 (zuvor zweimal an 03c7350a zugestellt, dort ohne abgabe - keine branch, keine akte).stand des kandidaten: head 326ca900526 auf base 52a3c5446f4, develop ist acc34323968, also back=1; exact run 44996055999 war FAILURE mit 2 jobs ('PR . Go unit . packages' 137127343932, aggregate 137128679130), ursache EIGENER inhalt: internal/metrics/perses_tempo_source_test.go:419 TestPersesTempoDatasourceSharedBackendGatewayStaysPolicyNeutral. Der fehler ist UEBERHAUPT kein broker-fall und damit einer der wenigen kandidaten, die das merge-fenster OHNE den broker-fix passieren koennen. Bitte NICHT parallel hoepfen: die lane macht fix und hop in einem durch.
 
 EIGENTUM BESTAETIGT: die mission liegt auf der ausfuehrenden lane 0847d100, nicht mehr auf dem ausgefallenen 03c7350a, und der owner hat ausdruecklich KEINE writes an den branch gemacht - also kein paralleler hop noetig. Stand: head 326ca900526, base 52a3c5446f4, develop acc34323968, back=1; exact run 44996055999 FAILURE mit einem job: 'PR . Go unit . packages' 137127343932. NEUER detail-zeugnis vom owner: TestPersesTempoDatasourceSharedBackendGatewayStaysPolicyNeutral in internal/metrics/perses_tempo_source_test.go:419 meldet, dass ein dev non-RequireClient gateway ein client-pair eingetragen hat (cert-/key-pfade gefuellt). Der branch traegt ausserdem den echten 0428-091 adapter-commit 4d73aa97 - also substanz, nicht nur umbenennung.
+
+REPARATUR + ADDITIVER HOP SIND GELANDEN und fernbelegt: head 8bd165e1a00 auf w091-tempo-r5-fix; merge-commit 95ddbb1c3 mit eltern [326ca9005 (alter head), acc34323968 (develop)] = additiv, ohne rebase/amend/force. Inhalt ist die schmalste korrektur, wie der owner sie read-only vorgelegt hatte: eine zeile in internal/metrics/perses_tempo_source_test.go, Resolve -> ResolveWithPolicy(..., EnvironmentPolicy{TrustedLocal:true}); kein produkt-code geaendert. PRUEFPUNKT 1 bestaetigt: internal/serviceaccess/policy.go:75-77 (Resolve ohne policy-quelle = managed/fail-closed), :89-94 (TrustedLocal als ausdruckliche vertrauensquelle), :149-158 (einziger zuweisungszweig fuer AuthenticationRequired) - kein alternativpfad. Unabhaengige abnahme ist aktiv bei fecbada9 (akte perses-tempo-0428-091/review-1645-head8bd165e1a00.md); der terminal-status des gehosteten laufes am neuen head fehlt noch, darum bleibt die karte active und geht erst mit gruenem exact-beleg auf review.
