@@ -84,3 +84,5 @@ fortschritt gemessen: die write-set-ausnahme wirkt - head ist 5cb139a6e4e, und d
 exakter head 9140e0c8224, run 44968867153 SUCCESS (21 skipped = HA/release/draft-routing per PR-event), akte 8ce6104ec; unabhaengiges verdict bestellt
 
 independent review REQUEST CHANGES at exact head 9140e0c8224 (evidence 5406131d02, akte review-1752-head9140e0c8.md): F1 app_pull.go:156-167 JSON returns before result.Successful and opts.Up, F2 mcp_lifecycle_extra.go advertises up/component that machineApplicationInput (mcp.go:89-93) cannot carry, F3 source_pull_test.go:146-200 comment overstates partial-failure coverage; correction mission f6e8294fecda dispatched to w27, reviewer session kept for the fresh exact-head review
+
+correction missions to w27: F1/F2/F3 (f6e8294fecda), draft rule (33b8d6833a5b), F2b buffer split (931e8b531eec), F2c/F4 approval enforcement (5caf75836375); reviewer confirmed F4 at evidence d1f4a357ed and holds until the new exact head
