@@ -41,3 +41,34 @@ Merge: NO. New develop SHA: none; develop remains `1ff16925c4e141d732459a34ddf0b
 Exact output from `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 'evidence/r28-welle5-2026-11-22/testcontext-0428-223/merge-1750.md'`:
 
 `evidence/r28-welle5-2026-11-22/testcontext-0428-223/merge-1750.md`
+
+
+## 2026-11-22 refreshed merge result
+
+ROLLE: CODEX-MERGE
+
+The earlier DO NOT MERGE record above reflects the prior missing-review/cost-stop state. The explicit owner clarification dated 2026-11-22 in `/home/marcel/.config/baseharbor-coordinator/COST_CONTROL.md` resumes this bounded existing PR sweep and authorizes qualified merges.
+
+### Four merge prechecks
+
+1. Fresh refs before merge: `5ca8420c1814f25bea6404e55fd054c60746eae5 refs/heads/develop` and `f6d3fc5c23e4a3097d4d36130303338b0ff180bd refs/pull/1750/head`; PR #1750 was OPEN, `mergeStateStatus=CLEAN`, mergeable, base `develop`.
+2. Published independent verdict: `evidence/r28-welle5-2026-11-22/testcontext-0428-223/review-1750-headf6d3fc5c23.md` contains `VERDICT: APPROVE`, the exact head, and terminal CI status. Review publication commit: `c622d03765ed8824efe60f40d3cb790327833313`.
+3. Exact-head run `44990801974` completed SUCCESS at `f6d3fc5c23e4a3097d4d36130303338b0ff180bd`: 14 success, 0 failed, 21 skipped. Required `PR Selected Checks` job `137112288306` passed from integration `15368`. Expected native-selection skips before #1756 are documented in the review artifact.
+4. Effective rulesets were checked live. `develop - required checks` (`25223521`) is active and its required aggregate passed. `develop - integration branch` (`23754541`) is disabled. No bypass or force-push was used.
+
+### Merge and remote verification
+
+Executed once: `gh pr merge 1750 --repo mcpdev80/baseharbor --squash --match-head-commit f6d3fc5c23e4a3097d4d36130303338b0ff180bd`. PR state is `MERGED`, merge commit `c463edf87ee6f12c9da2ae2ee02ea6fe7c7ef0f9`, merged at `2026-11-22T05:59:48Z`. Fresh `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1750/head` returned:
+
+    c463edf87ee6f12c9da2ae2ee02ea6fe7c7ef0f9 refs/heads/develop
+    f6d3fc5c23e4a3097d4d36130303338b0ff180bd refs/pull/1750/head
+
+Review evidence remote line: `c622d03765ed8824efe60f40d3cb790327833313 refs/heads/main` in `baseharbor-plan`; merge evidence path is listed on current `main` and will be verified after this update. A later local `git fetch origin main` could not unpack objects because `/` had 0 bytes free (`fatal: unable to write loose object file: No space left on device`); GitHub contents API and `git ls-remote` are used for publication and remote verification.
+
+### Cleanliness
+
+Before merge: PID `2537271`; `docker ps -a` listed no containers. After merge: PID `2546246`; `docker ps -a` listed no containers. No containers or compose projects were started. No local tests, product changes, workflow dispatch, GitHub comment, force-push, or protection bypass occurred.
+
+## END codex-rev2-1736 DONE
+
+PR #1750 merged once at reviewed head `f6d3fc5c23e4a3097d4d36130303338b0ff180bd`; APPROVE; run `44990801974` terminal SUCCESS; merge commit and new develop SHA `c463edf87ee6f12c9da2ae2ee02ea6fe7c7ef0f9`.
