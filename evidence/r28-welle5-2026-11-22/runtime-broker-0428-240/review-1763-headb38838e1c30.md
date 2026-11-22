@@ -55,7 +55,7 @@ Exact output from `git ls-tree -r --name-only origin/main | grep evidence/r28-we
 
 `evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-headb38838e1c30.md`
 
-Final Planning publication witness: `ebb423c5a5efa57bcb3e438d4a6dd9145dfa6114 refs/heads/main` from `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main`.
+Final Planning publication witness: `6b72898afaeb5ae24b275859f61a803a40ec00e1 refs/heads/main` from `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main`.
 
 ## END_BLOCKED
 
