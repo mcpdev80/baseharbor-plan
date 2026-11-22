@@ -7,7 +7,7 @@ areas: [testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: b90e4ba1 (#1783 MCP-serve+restricted-toolset selected-gates fix) / Coordinator (merge AFTER #1770)
+owner: b90e4ba1 (#1783 round-2 MCP-serve fix NOCH NICHT gepusht - head 8f84fcbb alt, gekitzelt) / Coordinator (critical path)
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261122-guided-fixture-footprint-contract-divergence · Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 #task #release/v0-4-28 #status/active #view/active #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (\#1783 MCP-serve+restricted-toolset selected-gates fix) / Coordinator (merge AFTER \#1770) · **Priority:** high  
+    **Owner:** b90e4ba1 (\#1783 round-2 MCP-serve fix NOCH NICHT gepusht - head 8f84fcbb alt, gekitzelt) / Coordinator (critical path) · **Priority:** high  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** b90e4ba1 (#1783 MCP-serve+restricted-toolset selected-gates fix) / Coordinator (merge AFTER #1770)  
+**Owner:** b90e4ba1 (#1783 round-2 MCP-serve fix NOCH NICHT gepusht - head 8f84fcbb alt, gekitzelt) / Coordinator (critical path)  
 **Priority:** high  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
 **Source:** 
@@ -101,3 +101,5 @@ KORRIGIERT (owner exact test-source-read): das 'missing --confirm-candidate' = B
 #1780 ffe END_BLOCKED: NATIVE set -e bricht bei ExistingCore broker :91 (=0428-237, ausserhalb write-set) -> harness laeuft dort nie, HALTEN. SELECTED core-cap fails SIND feins write-set app_capability_runtime_test.go: :376 (podman provider override fehlt), :430 (digest nur aus err.Error(), hash im captured 'out'), :409 (cleanup nach fail). ffe fixt die 3 + hop b27b2ebe + rerun. #1783 (b90e) erweitert MCP-serve+restricted-toolset auf selected gates (parity). develop b27b2ebe.
 
 #1783 selected parity fix (MCP-serve admission+restricted-toolset auf data-caps/core-caps, one-tool baseharbor.app.footprint.show) geloest selected footprint cells fuer #1780/#1770/#1773/#1738. ABER #1783 EIGENE native cells :edge-red (pre-existing, braucht #1770 pin) -> #1783 kann native NICHT selbst gruen zeigen. MERGE-ORDER: NACH #1770 (pin in develop -> #1783 native gruen + selected gruen). b90e haelt #1783 ready, kein merge bis #1770 + own selected gruen.
+
+CRITICAL PATH: #1783 head haengt noch 8f84fcbb (run 45045885547 old fails: native :edge 137280389091/052 + selected docker 137280787736). b90e round-2 MCP-serve admission+restricted-toolset fix noch NICHT pushed -> gekitzelt, neuen head+run melden. native :edge red bis #1770 pin in develop. select data-caps werden mit fix gruen.
