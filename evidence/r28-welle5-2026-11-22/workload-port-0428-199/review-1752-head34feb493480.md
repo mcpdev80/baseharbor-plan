@@ -50,3 +50,9 @@ REQUEST CHANGES because F1 shows the exact candidate does not implement or test 
 ## END codex-rev-1747 BLOCKED
 
 Verdict REQUEST CHANGES for candidate `34feb493480ec3b2703681bf576ce41e3904995b`; Draft run `44987053069` terminal success. The core workload-port behavior is absent from this source-pull diff. Author identity mixture remains: `b010dabcb...`, `e7df5ab4a6c3219404de26846198d4f6e1b8fed0`, `7b3c658800aff87ce8298fe370c5bcd448942f83` are by `BaseHarbor Worker <worker@example.invalid>`.
+
+## Planning publication witness
+
+- First evidence commit `6ad989fdb0bc3694349e2f879b4473675d46c663` was pushed to Planning `origin/main`; push witness: `6ad989fdb0bc3694349e2f879b4473675d46c663 refs/heads/main`.
+- `git fetch origin main && git ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-22/workload-port-0428-199/review-1752-head34feb493480.md$'` exact output:
+  `evidence/r28-welle5-2026-11-22/workload-port-0428-199/review-1752-head34feb493480.md`
