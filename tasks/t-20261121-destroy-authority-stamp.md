@@ -7,9 +7,9 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: f0f6c8b4 (#1738 head 1a1e5db4 auf b27b2ebe) / 1450c201 (reviews OWN diff) / Coordinator
-kanban_status: active
-kanban_lane: active
+owner: f0f6c8b4 (#1738 own diff complete/correct) / Coordinator (wait prereq) / 1450c201 (reviewed own diff)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "TestCoreBootstrapFixtureCleanupContextIsBoundToItsLocalTarget shows which authority mode admitted installation.destroy, instead…"
 kanban_title: 0428-214 · 0428-214 destroy stamp
 priority: high
@@ -18,23 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1738, mcpdev80/baseharbor#1781, mcpdev80/baseharbor#1783]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "#1738 own change KOMPLETT+CORRECT: diff vs develop = ONLY core_installation_runtime_test.go, cli-2 gruen, base b27b2ebe. 5-fail run 45047625743 = 100% downstream: native docker+podman = pre-existing ExistingCore :edge broker (#1770 image-pin), selected docker+podman = demo footprint parity (#1783). KEIN #1738-defect. WAIT bis #1770+#1783 in develop -> dann rerun zeigt gruen -> merge. f0f Sitz frei (surface-d catalog)."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1738", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-5-rebase.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md"]
 ---
 
-- [ ] t-20261121-destroy-authority-stamp · installation.destroy authorization assertion runs on a stamped context #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
+- [ ] t-20261121-destroy-authority-stamp · installation.destroy authorization assertion runs on a stamped context #task #release/v0-4-28 #status/wait #view/wait #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** f0f6c8b4 (\#1738 head 1a1e5db4 auf b27b2ebe) / 1450c201 (reviews OWN diff) / Coordinator · **Priority:** high  
+    **Owner:** f0f6c8b4 (\#1738 own diff complete/correct) / Coordinator (wait prereq) / 1450c201 (reviewed own diff) · **Priority:** high  
     **PR:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738), [baseharbor#1781](https://github.com/mcpdev80/baseharbor/pull/1781), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
+    **Waiting:** \#1738 own change KOMPLETT+CORRECT: diff vs develop = ONLY core\_installation\_runtime\_test.go, cli-2 gruen, base b27b2ebe. 5-fail run 45047625743 = 100% downstream: native docker+podman = pre-existing ExistingCore :edge broker (\#1770 image-p…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1738), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-5-rebase.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** f0f6c8b4 (#1738 head 1a1e5db4 auf b27b2ebe) / 1450c201 (reviews OWN diff) / Coordinator  
+**Owner:** f0f6c8b4 (#1738 own diff complete/correct) / Coordinator (wait prereq) / 1450c201 (reviewed own diff)  
 **Priority:** high  
 **PRs:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738), [baseharbor#1781](https://github.com/mcpdev80/baseharbor/pull/1781), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
 **Source:** 

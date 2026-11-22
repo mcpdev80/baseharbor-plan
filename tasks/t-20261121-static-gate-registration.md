@@ -8,7 +8,7 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: Owner (zsh+fish .github scope + Release Suite + confirmations) / Coordinator (hop-track) / a lane (git hop b27b2ebe)
+owner: Owner (Release Suite + confirmations) / Coordinator (observe exact-hosted) / a lane
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: Run the existing scripts/ci-fast-check.sh as its own static gate in the v0.4.28 Pre-Release Suite. Preserve every existing…
@@ -18,16 +18,16 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1774, mcpdev80/baseharbor#1782]
 sources: []
 blocker: ""
-wait_reason: "OWNER SCOPE RECORDET: zsh UND fish autorisiert fuer #1746 Hosted CI source-test workflow; live head e29e5859 enthaelt beide apt-install in pre-release.yml. PREREQ ERFUELLT: #1782 stage-boundary merged b27b2ebe -> der trusted stage-boundary fail (run 45041976030, vor source tests) ist GEMACHT. NAechste: (1) additiver hop e29e5859 -> b27b2ebe (git merge --no-ff, beide shells bleiben im content, KEIN content-edit der shells), (2) EXACT hosted PR CI mit zsh+fish source tests, (3) required hosted RELEASE-SUITE proof (owner workflow_dispatch), (4) Coordinator + Release-Owner CONFIRMATIONEN. KEIN MERGE bis alle 4. Hop = GitHub-hosted, unabhaengig vom footprint #1783/#1770 gate -> wird auf naechstem freien Sitz gehoppt (oder owner-side). develop b27b2ebe."
+wait_reason: "#1746 gehoppt additiv -> head c41c2ca9 (b27b2ebe, zsh+fish BEHALTEN im content). Exact hosted run 45049165111 AKTIV: candidate-added + pages-candidate-build PASS, Go units pending, trusted plan/source laeuft (stage prereq #1782 wirkt). NAechste: terminal gruen + required full v0.4.28 SELECTED STATIC SUITE auf exact head + OWNER Release-Suite proof + Coordinator + Release-Owner CONFIRMATIONEN. KEIN merge bis alle. Coordinator beobachtet 45049165111."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md"]
 ---
 
 - [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/wait #view/wait #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** Owner (zsh+fish .github scope + Release Suite + confirmations) / Coordinator (hop-track) / a lane (git hop b27b2ebe) · **Priority:** high  
+    **Owner:** Owner (Release Suite + confirmations) / Coordinator (observe exact-hosted) / a lane · **Priority:** high  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782)  
-    **Waiting:** OWNER SCOPE RECORDET: zsh UND fish autorisiert fuer \#1746 Hosted CI source-test workflow; live head e29e5859 enthaelt beide apt-install in pre-release.yml. PREREQ ERFUELLT: \#1782 stage-boundary merged b27b2ebe -\> der trusted stage-boundary…  
+    **Waiting:** \#1746 gehoppt additiv -\> head c41c2ca9 (b27b2ebe, zsh+fish BEHALTEN im content). Exact hosted run 45049165111 AKTIV: candidate-added + pages-candidate-build PASS, Go units pending, trusted plan/source laeuft (stage prereq \#1782 wirkt). NAe…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44997978036), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md)  
     <!-- /generated:card -->
 
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "h
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** Owner (zsh+fish .github scope + Release Suite + confirmations) / Coordinator (hop-track) / a lane (git hop b27b2ebe)  
+**Owner:** Owner (Release Suite + confirmations) / Coordinator (observe exact-hosted) / a lane  
 **Priority:** high  
 **PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782)  
 **Source:** 
