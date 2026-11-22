@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1751]
 sources: []
 blocker: ""
-wait_reason: "HOP IST ERLEDIGT, VOM OWNER SELBST (03:3xZ gemeldet, von mir an den refs gegengeprueft, sobald sie da sind): additiver merge-commit 89253bd23d6a4c5f9006d624c3d78910c2eea68b, parents = bdc7c1a9e6e6b1de29afb916d28712eba95dff56 (alter PR-head) + 7d4351c6d645353b6b96c8d320b4c832d55f9047 (develop), kein konflikt, diff gegen develop bleibt exakt cmd/baha/agent_mcp_test.go +25, feature-commit erhalten. WARTEGRUND: der fast-forward-push auf den PR-branch und der terminale gruene exakte hosted run auf 89253bd23d6; danach unabhaengiges exact-head verdict, dann ordinary merge. DIE LANE 03c7350a hat keinen auftrag mehr an diesem PR (mission 1d00fc03f12e zurueckgenommen, stand-down sha256 im ledger), weil ein zweiter hop auf demselben PR mit der arbeit des owners kollidieren wuerde; sie liefert nur noch die zwei zeulen zustand/rettungsversuch fuer ihre beiden nicht abgelieferten missionen ab (tooling #35)."
+wait_reason: "HOP IST LIVE (03:4xZ von mir gemessen, nicht nur gemeldet): refs/pull/1751/head = 89253bd23d6a4c5f9006d624c3d78910c2eea68b, base develop 7d4351c6d645353b6b96c8d320b4c832d55f9047, 'git rev-list --count <head>..7d4351c6d645…' = 0 (back=0), zwei parents (bdc7c1a9e6e + 7d4351c6d645), additiver merge-commit, author == committer = owner, diff gegen develop bleibt exakt cmd/baha/agent_mcp_test.go +25, feature-commit erhalten. EXAKTER hosted PR run 44965123423 ist queued (00:07:59Z). WARTEGRUND: terminaler gruener exakter run 44965123423, dann FRISCHES unabhaengiges exact-head verdict auf 89253bd23d6 (dafuer ist die bestehende review-session vorgesehen, ich routee sie in dem augenblick, in dem der lauf terminal ist), dann ordinary merge durch den owner. kein merge, kein close, kein zweiter hop; die lane 03c7350a hat an diesem PR nichts mehr zu tun (stand-down sha256 963f9972d10b), ihre beiden nicht abgelieferten missionen bleiben als tooling #35 offen."
 resolution: ""
 evidence: []
 ---
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** Codex owner (authenticated base hop)  
     **PR:** [baseharbor#1751](https://github.com/mcpdev80/baseharbor/pull/1751)  
-    **Waiting:** HOP IST ERLEDIGT, VOM OWNER SELBST (03:3xZ gemeldet, von mir an den refs gegengeprueft, sobald sie da sind): additiver merge-commit 89253bd23d6a4c5f9006d624c3d78910c2eea68b, parents = bdc7c1a9e6e6b1de29afb916d28712eba95dff56 (alter PR-head…  
+    **Waiting:** HOP IST LIVE (03:4xZ von mir gemessen, nicht nur gemeldet): refs/pull/1751/head = 89253bd23d6a4c5f9006d624c3d78910c2eea68b, base develop 7d4351c6d645353b6b96c8d320b4c832d55f9047, 'git rev-list --count \<head\>..7d4351c6d645…' = 0 (back=0), z…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
