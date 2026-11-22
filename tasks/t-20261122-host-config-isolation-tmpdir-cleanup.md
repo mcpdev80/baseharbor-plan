@@ -1,5 +1,5 @@
 ---
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md", "https://github.com/mcpdev80/baseharbor/pull/1762", "https://github.com/mcpdev80/baseharbor/actions/runs/45001383922"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md", "https://github.com/mcpdev80/baseharbor/pull/1762", "https://github.com/mcpdev80/baseharbor/actions/runs/45001383922", "https://github.com/mcpdev80/baseharbor/commit/cace61802dcd34e59e4e7edebfd67f57dd3b07ad"]
 id: t-20261122-host-config-isolation-tmpdir-cleanup
 card_number: "0428-233"
 card_short_title: "host config isolation tmpdir"
@@ -8,10 +8,10 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ffe7611b (lane) / Owner (entscheid: beide commits bleiben)
+owner: Owner (#1762 owner-merge) / Coordinator
 tags: [#task, #release/v0.4-28]
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-233 · host config isolation tmpdir
 priority: ""
@@ -20,23 +20,22 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1725, mcpdev80/baseharbor#1762]
 sources: []
 blocker: ""
-wait_reason: "admission depends on PR 1753 (card 0428-227, canonical footprint show admission), which waits on card 0428-237; both commits kept by Owner decision, no rewrite"
-resolution: ""
+wait_reason: ""
+resolution: accepted
 ---
 
-- [ ] t-20261122-host-config-isolation-tmpdir-cleanup · CLI: release the per-test host config isolation directory #task #release/v0-4-28 #status/wait #view/wait #kind/task
+- [x] t-20261122-host-config-isolation-tmpdir-cleanup · CLI: release the per-test host config isolation directory #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
-    **Owner:** ffe7611b (lane) / Owner (entscheid: beide commits bleiben)  
+    **Owner:** Owner (\#1762 owner-merge) / Coordinator  
     **PR:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762)  
-    **Waiting:** admission depends on PR 1753 (card 0428-227, canonical footprint show admission), which waits on card 0428-237; both commits kept by Owner decision, no rewrite  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1762), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45001383922)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1762), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45001383922), [proof 4](https://github.com/mcpdev80/baseharbor/commit/cace61802dcd34e59e4e7edebfd67f57dd3b07ad)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** ffe7611b (lane) / Owner (entscheid: beide commits bleiben)  
+**Owner:** Owner (#1762 owner-merge) / Coordinator  
 **Priority:** not set  
 **PRs:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762)  
 **Source:** 
@@ -106,3 +105,5 @@ inhaltsteil ist auf der lane fertig gemeldet (tmpdir-freigabe im host-config-iso
 URSACHE KORRIGIERT, drei messungen statt einer vermutung: die nativen reihen in 45001383922 (docker 137144959891, podman 137144959836) scheitern an der ABWEISUNG von 'baha app footprint show -o json' (command-not-in-managed-workload-set / operator-auth-pfad); der 'missing --confirm-candidate'-verweis (cmd/baha/app_candidate_consent.go:148-158, errConsentRequiredForCandidateSubmission als *cli.UsageError, exit 2) erscheint nur DOWNSTREAM im halb abgebrochenen test. Meine broker-503-lesart fuer DIESEN kandidat war FALSCH und ist zurueckgezogen; fuer PR 1761 gilt sie weiter (von mir selbst gemessen: broker readiness timeout 2m03s in TestApplicationCapabilityLifecycleExistingCore/secrets). EIGENTUER-ENTSCHEID uebernommen: beide commits bleiben (adccce73 cleanup + 6937d060 assertion), endgueltiger diff = eine datei, kein rebase/amend/force. HALTEAUFTRAG an die lane: kein hop, kein durchgang bis 1753 gemergt ist; dann ein additiver hop auf die dann aktuelle develop-spitze und EIN durchgang mit den zwei nativen job-ids als zeugen. Erste/simple merge-ziel ist 1762 in genau dieser reihenfolge.
 
 URSACHE KORRIGIERT, drei messungen statt einer vermutung: die nativen reihen in 45001383922 (docker 137144959891, podman 137144959836) scheitern an der ABWEISUNG von 'baha app footprint show -o json' (command-not-in-managed-workload-set / operator-auth-pfad); der 'missing --confirm-candidate'-verweis (cmd/baha/app_candidate_consent.go:148-158, usageError exit 2) erscheint nur DOWNSTREAM im halb abgebrochenen test. Meine broker-503-lesart fuer DIESEN kandidat war falsch und ist zurueckgezogen; fuer PR 1761 gilt sie weiter (selbst gemessen: broker readiness timeout 2m03s in TestApplicationCapabilityLifecycleExistingCore/secrets). EIGENTUEMER-ENTSCHEID uebernommen: beide commits bleiben (adccce73 cleanup + 6937d060 assertion), endgueltiger diff eine datei, kein rebase/amend/force. HALTEAUFTRAG an die lane: kein hop, kein durchgang bis PR 1753 gemergt ist; dann ein additiver hop auf die dann aktuelle develop-spitze und EIN durchgang mit den zwei nativen job-ids als zeugen. 1762 ist damit das erste simple merge-ziel in genau dieser reihenfolge.
+
+0428-233 CLOSED: #1762 von owner gemergt als cace61802 ('test: prove host config tempdir cleanup'), exact-head run 45077628402 SUCCESS am head 3fe0754a5 (ls-remote+run fernbelegt; owner update-branch, gemergt 23:5x). Die im feld mitgefuehrte #1725 ist PR der karte 0428-201 (dort separat verfolgt, kein einfluss auf diesen abschluss). develop=cace61802.
