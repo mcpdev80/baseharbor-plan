@@ -7,37 +7,36 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: Owner (recut 2ba70a5) / b90e4ba1 (coreinst catalog) / Coordinator
-kanban_status: wait
-kanban_lane: wait
+owner: f0f6c8b4 (re-hop auf 6930872c) / Owner (recut 2ba70a5)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "TestCoreBootstrapFixtureCleanupContextIsBoundToItsLocalTarget shows which authority mode admitted installation.destroy, instead…"
 kanban_title: 0428-214 · 0428-214 destroy stamp
 priority: high
 depends_on: [t-20261120-cli-operator-entrypoints]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1738]
+prs: [mcpdev80/baseharbor#1738, mcpdev80/baseharbor#1781]
 sources: []
 blocker: ""
-wait_reason: "#1738 behind 3939aa5 + wartet NUR auf core_installation_runtime_test.go catalog (hits=0 auf 3939aa5, #1779 enthielt es NICHT) -> b90e4ba1 neuer mini catalog-pr. dann owner re-hopt + exact CI. develop 3939aa5."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1738", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-5-rebase.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md"]
 ---
 
-- [ ] t-20261121-destroy-authority-stamp · installation.destroy authorization assertion runs on a stamped context #task #release/v0-4-28 #status/wait #view/wait #area/cli #kind/bug
+- [ ] t-20261121-destroy-authority-stamp · installation.destroy authorization assertion runs on a stamped context #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** Owner (recut 2ba70a5) / b90e4ba1 (coreinst catalog) / Coordinator · **Priority:** high  
-    **PR:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
-    **Waiting:** \#1738 behind 3939aa5 + wartet NUR auf core\_installation\_runtime\_test.go catalog (hits=0 auf 3939aa5, \#1779 enthielt es NICHT) -\> b90e4ba1 neuer mini catalog-pr. dann owner re-hopt + exact CI. develop 3939aa5.  
+    **Owner:** f0f6c8b4 (re-hop auf 6930872c) / Owner (recut 2ba70a5) · **Priority:** high  
+    **PR:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738), [baseharbor#1781](https://github.com/mcpdev80/baseharbor/pull/1781)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1738), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-5-rebase.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** Owner (recut 2ba70a5) / b90e4ba1 (coreinst catalog) / Coordinator  
+**Owner:** f0f6c8b4 (re-hop auf 6930872c) / Owner (recut 2ba70a5)  
 **Priority:** high  
-**PRs:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
+**PRs:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738), [baseharbor#1781](https://github.com/mcpdev80/baseharbor/pull/1781)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -131,3 +130,5 @@ RE-CUT BEAUFTRAGT, weil der census diesen kandidat als EINZIGEN der vier kinder 
 RECONCILED: stale mission '0428-214-r5-bothdirections' (rebase onto retired #1726 + no-merge) ist SUPERSEDED. card sagt develop retarget + re-cut after #1750 merged - #1750 IST GEMERGT (f6d3fc5c) -> precondition erfuellt. PR #1738 dirty auf 7e679293 (275 stale commits) -> NEUER recut-lane auf develop 31aededf, additiv. User verlangt MERGE wenn ready -> no-merge instruction aufgehoben. exact 4 data-caps jobs. 0847d100 drauf.
 
 STALE-MISSION REKONCILIIERT + KOLLISION VERHINDERT: '0428-214-r5-bothdirections' (rebase onto retired #1726 + no-merge) ist SUPERSEDED. Owner fuhr den recut SELBST: head 2ba70a58 = single-file cmd/baha/core_installation_runtime_test.go auf develop 31aededf, force-with-lease (gleicher PR, kein develop-descendant -> erlaubt unter close-all mandat), altes 7e679-stack entfernt. Coordinator-dispatch an 0847d100 auf #1738 zurueckgezogen (kein competing writer). review: exact hosted run auf 2ba70a58 beobachten, merge wenn aggregate gruen + review.
+
+#1781 (coreinst catalog) GEMERGT 6930872c -> core_installation_runtime_test cataloged. #1738 recut (2ba70a5) additiv auf 6930872c gehoppt von f0f6c8b4 + exact hosted. Trusted Plan greift jetzt (catalog da). selected haengt ggf. an #1780(241). develop 6930872c.
