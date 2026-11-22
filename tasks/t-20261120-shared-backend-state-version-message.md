@@ -7,9 +7,9 @@ areas: [lifecycle]
 release: v0.4.28
 version: ""
 parent: ""
-owner: f0f6c8b4 (#1725 hop auf ef73b50b laeuft) / Coordinator
-kanban_status: active
-kanban_lane: active
+owner: Coordinator (policy-frage) / f0f6c8b4
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: ""
 kanban_title: 0428-201 · shared state version message
 priority: ""
@@ -17,25 +17,26 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1725]
 sources: []
-blocker: ""
+blocker: "source internal/application/shared_backends_state_version_test.go ist PR-NEU (nicht in develop) -> component-row im base nicht vorab moeglich (existenz-pruefung). Einzige documented ingress: package-root-entry internal/application wie bei contracts/identityprovider/runtimebroker/metrics-testdata  NEBENWIRKUNG: alle kinftigen internal/application-aenderungen werden oberflaechen-selektiert. Owner-decision erbeten: package-root ingress erlauben ODER TP-policy-aenderung (head-reading fuer neue files) ODER split-route. f0f hat keine edits gepusht (freeze)."
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pulls/1725", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44995066580", "https://github.com/mcpdev80/baseharbor/actions/runs/44998846458", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/stale-pr-census/ancestry-rule-clarification.md", "https://github.com/mcpdev80/baseharbor/pull/1725", "https://github.com/mcpdev80/baseharbor/actions/runs/45014090675"]
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-shared-backend-state-version-message · shared state version message #task #release/v0-4-28 #status/active #view/active #area/lifecycle #kind/bug
+- [ ] t-20261120-shared-backend-state-version-message · shared state version message #task #release/v0-4-28 #status/blocked #view/blocked #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** f0f6c8b4 (\#1725 hop auf ef73b50b laeuft) / Coordinator  
+    **Owner:** Coordinator (policy-frage) / f0f6c8b4  
     **PR:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725)  
+    **Blocker:** source internal/application/shared\_backends\_state\_version\_test.go ist PR-NEU (nicht in develop) -\> component-row im base nicht vorab moeglich (existenz-pruefung). Einzige documented ingress: package-root-entry internal/application wie bei…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pulls/1725), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44995066580), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44998846458), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/stale-pr-census/ancestry-rule-clarification.md), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1725), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/45014090675)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** f0f6c8b4 (#1725 hop auf ef73b50b laeuft) / Coordinator  
+**Owner:** Coordinator (policy-frage) / f0f6c8b4  
 **Priority:** not set  
 **PRs:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725)  
 **Source:** 

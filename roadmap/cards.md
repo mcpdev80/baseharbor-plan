@@ -16,10 +16,10 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 172/265 · **Blocked:** 4 · **Waiting:** 20  
+    **Accepted tasks:** 172/265 · **Blocked:** 5 · **Waiting:** 20  
+    **Blocker:** [t-20261120-shared-backend-state-version-message](../tasks/t-20261120-shared-backend-state-version-message.md) — source internal/application/shared\_backends\_state\_version\_test.go ist PR-NEU (nicht in develop) -\> component-row im base nicht vorab moeglich (existenz-pruefun…  
     **Blocker:** [t-20261121-native-cell-operator-seam](../tasks/t-20261121-native-cell-operator-seam.md) — dieselbe klasse: control\_plane\_single\_native\_ci\_test.go existiert bereits in develop, base-row fehlt. Trigger: merge der ingress-karte t-20261123-catalog-ingre…  
-    **Blocker:** [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](../tasks/t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md) — trusted-base catalog precedence ist TEST-ERZWUNGEN (test\_pr\_native\_gate\_plan.py asserted git show :katalog; owner-beweis 2026-11-23). Naechster Trigger: merge…  
-    Plus 2 further blockers in the task list.  
+    Plus 3 further blockers in the task list.  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next
