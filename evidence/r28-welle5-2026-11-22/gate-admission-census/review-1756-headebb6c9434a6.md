@@ -63,8 +63,8 @@ PID `2901769`; `docker ps -a` returned only its header and no containers. No con
 
 ## Publication
 
-Planning origin URL: `https://github.com/mcpdev80/baseharbor-plan.git`. The exact evidence path is published on `main`; GitHub Contents API returned this path at `ref=main`. `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main` is recorded after publication in the END. A local `git fetch origin main` attempt failed with `fatal: unable to write loose object file: No space left on device`; no product repository was written.
+Planning origin URL: `https://github.com/mcpdev80/baseharbor-plan.git`. The exact evidence path is published on `main`; GitHub Contents API returned this path at `ref=main`. The first verdict publication was witnessed by `8ff8276dfa92bc79ab404347d282e1d519ef0e88 refs/heads/main` from `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main`. A local `git fetch origin main` attempt failed with `fatal: unable to write loose object file: No space left on device`; no product repository was written.
 
 ## END codex-rev2-1736 DONE
 
-APPROVE PR #1756 at exact head `ebb6c9434a6c1fddacbce487ceb6071f268d4709`; hop diff has 12 develop-only files; planner job `137115616321` SUCCESS; native gate plan job `137115562373` SUCCESS with matrix length 0, bootstrap-empty; no runtime evidence; merge recommended only with normal gates.
+APPROVE PR #1756 at exact head `ebb6c9434a6c1fddacbce487ceb6071f268d4709`; hop diff has 12 develop-only files; planner job `137115616321` SUCCESS; native gate plan job `137115562373` SUCCESS with matrix length 0, bootstrap-empty; no runtime evidence; merge recommended only with normal gates. Planning publication witness at verdict commit: `8ff8276dfa92bc79ab404347d282e1d519ef0e88 refs/heads/main`.
