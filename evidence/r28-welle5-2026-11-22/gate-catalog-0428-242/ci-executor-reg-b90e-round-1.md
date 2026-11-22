@@ -88,3 +88,13 @@ host; GOCACHE /var/tmp/go-cache-0428-231) wordt vóór END verwijderd. Worktree
 workers/0428-242-catalogreg-wt blijft als kandidaat-werkboom (0 delta na commit).
 
 END 0428-223-testctx DONE — 0428-242 ci-executor-reg round-1: branch lane-0428-242-ci-executor-reg, head acd5782816f745de9751a0734a510ca51180e3b6 (ONE commit op develop 676909a785cc), PR https://github.com/mcpdev80/baseharbor/pull/1774 (draft), run 45029281024 completed/success (draft-groep; native/Validation skipped per draft-semantiek — planner-selectiebewijs in deze akte), planner-selektiert ci-native-pr-gate.sh: ja, cleanliness: besenrein
+
+## origin/main witness
+
+Exacte uitvoer van `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep gate-catalog-0428-242` (plan main = da372e5d75a35d7038094c07ecf3bf39caa22afb):
+
+```
+evidence/r28-welle5-2026-11-22/gate-catalog-0428-242/ci-executor-reg-b90e-round-1.md
+evidence/r28-welle5-2026-11-22/gate-catalog-0428-242/fix-on-develop-1768-round-1.md
+evidence/r28-welle5-2026-11-22/gate-catalog-0428-242/review-1768-head-hopcdca12b6.md
+```
