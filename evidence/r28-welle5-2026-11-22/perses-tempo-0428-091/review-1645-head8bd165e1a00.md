@@ -62,3 +62,18 @@ From https://github.com/mcpdev80/baseharbor-plan
  * branch                main       -> FETCH_HEAD
 evidence/r28-welle5-2026-11-22/perses-tempo-0428-091/review-1645-head8bd165e1a00.md
 ```
+
+## PLAN — final END continuation
+
+11. Re-read the #1645 review tail and capture the final END evidence requirements.
+12. Confirm the exact-head review evidence is present on Planning main and post the required END summary.
+
+## Final Planning path witness
+
+The final fetch and tree lookup returned exactly:
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle5-2026-11-22/perses-tempo-0428-091/review-1645-head8bd165e1a00.md
+```
