@@ -28,7 +28,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "h
     **Owner:** coord · **Priority:** high  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771)  
     **Waiting:** Schritt 3, gleiches 1746-paket. Freigabe erst wenn \#242 (katalog) + \#232 (demo, fertig) + \#1771 (231 operator-auth fixture/grant fuer mcp-static) auf develop + volstaendige release-qualifikation positiv+negativ am selben stand.  
-    **Needs:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44997978036), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md)  
     <!-- /generated:card -->
 

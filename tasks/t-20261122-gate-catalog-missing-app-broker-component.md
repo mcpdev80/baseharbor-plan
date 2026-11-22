@@ -7,37 +7,37 @@ areas: [testing, ci]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ffe7611b (Codeman lane, OWNER-FREIGABE scripts/** 22.11) / coord (zeugnis)
-kanban_status: active
-kanban_lane: active
+owner: ffe7611b (242) / owner (hop) / coord
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Make broker diagnostics provable in hosted CI: scripts/pr-gate-coverage.json carries 65 cmd/baha path entries but no entry…"
 kanban_title: 0428-242 · app_broker not in gate catalog
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1763]
+prs: [mcpdev80/baseharbor#1763, mcpdev80/baseharbor#1768]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45011815553"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45011815553", "https://github.com/mcpdev80/baseharbor/pull/1768"]
 ---
 
-- [ ] t-20261122-gate-catalog-missing-app-broker-component · Gate catalog: no coverage component for cmd/baha/app_broker.go #task #release/v0-4-28 #status/active #view/active #area/ci #area/testing #kind/bug
+- [x] t-20261122-gate-catalog-missing-app-broker-component · Gate catalog: no coverage component for cmd/baha/app_broker.go #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** ffe7611b (Codeman lane, OWNER-FREIGABE scripts/\*\* 22.11) / coord (zeugnis) · **Priority:** high  
-    **PR:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45011815553)  
+    **Owner:** ffe7611b (242) / owner (hop) / coord · **Priority:** high  
+    **PR:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1768](https://github.com/mcpdev80/baseharbor/pull/1768)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45011815553), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1768)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261121-static-gate-registration](t-20261121-static-gate-registration.md), [t-20261122-runtime-broker-health-unhealthy](t-20261122-runtime-broker-health-unhealthy.md)  
-**Owner:** ffe7611b (Codeman lane, OWNER-FREIGABE scripts/** 22.11) / coord (zeugnis)  
+**Owner:** ffe7611b (242) / owner (hop) / coord  
 **Priority:** high  
-**PRs:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763)  
+**PRs:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1768](https://github.com/mcpdev80/baseharbor/pull/1768)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -71,3 +71,7 @@ owner-scope stueck, damit #1763 runtime-beleg bekommt. Gemessen an head c698d131
 VON DER #1763-LANE BELEGT (head c698d1310, run 45011815553 SUCCESS, alle vier runtime-reihen SKIPPED). Die einzige loesung liegt in scripts/pr-gate-coverage.json: ein component analog cmd/baha/app_* (ab datei ~142) der app_broker.go auf die data-capabilities-native gaete mappt. File:line in akte runtime-broker-0428-240/ready-round-1.md. Owner-aktion, keine lane.
 
 UMGESTELLT von 'blocked auf owner' auf 'active Codeman': der owner hat am 22.11 scripts/** fuer die Codeman-front FREIGEGEBEN. Ein vorgang = (A) katalogeintrag cmd/baha/app_broker.go in pr-gate-coverage.json (muster: path+surfaces data.capabilities docker+podman) + (B) fail-loud-Waechter (validate-pr-gate-coverage.py / pr-native-gate-plan.py): geaenderte UNKATALOGISIerte datei => exit!=0 mit fehlender katalognummer + naechster handlung, NIE leere matrix=gruen. + (C) test-faelle katalogisiert vs unkatalogisiert. Bezug #1763 native matrix. KEINE broker-/runtime-/github-datei (Codex Runner domain).
+
+GEMERGED (exact current-develop hop 681fb7c0, hosted run 45027136067 SUCCESS; develop jetzt 676909a785c). 242-vertrag erfuellt: katalog app_broker.go + fail-loud guardian (nur unkatalogisierte PRODUKT-quellen abort). native matrix skipped = erwacht fuer catalog/validation-only PR, kein deficit. OFFENER FOLLOW-UP (237-routing): pr-gate-coverage.json hat KEIN scripts/ci-native-pr-gate.sh eintrag -> kleiner FOLGE-katalog-PR noetig damit #1770 native docker+podman selektiert werden. Nicht in diesem PR.
+
+GEMERGED (exact current-develop hop 681fb7c0, hosted run 45027136067 SUCCESS; develop jetzt 676909a785c). 242-vertrag erfuellt: katalog app_broker.go + fail-loud guardian. native matrix skipped = erwacht fuer catalog-only PR, kein deficit. FOLLOW-UP 237-routing: pr-gate-coverage.json hat KEIN scripts/ci-native-pr-gate.sh eintrag -> kleiner FOLGE-katalog-PR noetig damit #1770 native docker+podman selektiert. Nicht in 1768.
