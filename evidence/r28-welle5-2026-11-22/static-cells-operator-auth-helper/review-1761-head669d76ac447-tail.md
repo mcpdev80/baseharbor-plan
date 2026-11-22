@@ -53,3 +53,17 @@ origin https://github.com/mcpdev80/baseharbor-plan.git (push)
 - Only the Planning evidence addendum is being published. The existing exact-head evidence is preserved.
 
 END_BLOCKED codex-rev-1747: PR #1761 head 669d76ac447 code APPROVE; fan-out COMPLETE (provider grep: internal/operatorauth/test_operator.go:22, one definition); run 45000121766 terminal FAILURE; matrix unavailable after Native gate plan 137139601481 success; Planning origin https://github.com/mcpdev80/baseharbor-plan.git.
+
+## Origin/main witnesses
+
+First evidence push delivery:
+
+```text
+38547759609058b600de222401ba5977892c98ce	refs/heads/main
+```
+
+Exact output of the required fetched-origin tree lookup:
+
+```text
+evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447-tail.md
+```
