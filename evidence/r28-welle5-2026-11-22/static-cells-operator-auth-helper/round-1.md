@@ -46,3 +46,10 @@ De helper-roede is uitvoerbaar, maar ANDERS dan de mission beschrijft:
 - cleanliness: nothing started. Eigen pid 2903795; `docker ps -a` BEFORE/AFTER = 0 entries.
 
 END 0428-223-testctx BLOCKED (beslispunt bereikt; branch lane-0428-231-static-auth-helper = develop c463edf87ee, base-behind=0, geen PR nog, run-id n.v.t.)
+
+## publishing witness
+
+```
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep static-cells-operator-auth-helper/round-1
+evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/round-1.md
+```
