@@ -7,10 +7,10 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: Owner (additive hop #1763) / 1450c201 (independent exact-head review)
+owner: Owner (hop 1d661942) / Coordinator (trigger 241)
 tags: [#task, #release/v0.4-28]
-kanban_status: review
-kanban_lane: review
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-240 · broker readiness failure ships
 priority: ""
@@ -19,23 +19,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1763]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "#1763 head 1d661942 exact run 45038621419: Trusted Plan + source-format + python/validation + Go CLI shards PASS (katalog #1778 wirkt). Beide SELECTED data-capabilities cells failen an DERSSELBEN shared 0428-241 fixture: app footprint show -o json ohne exaktes --confirm-candidate digest (docker 137258330467, podman 137258330471). KEIN #1763 code-defect. bleibt wait bis 0428-241 (ffe7611b) merged, DANN refresh auf develop + exact run + independent review (1450c201)."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md", "https://github.com/mcpdev80/baseharbor/pull/1763", "https://github.com/mcpdev80/baseharbor/actions/runs/45005245380", "https://github.com/mcpdev80/baseharbor/actions/runs/45008350091", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/redaction-round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/45010884066", "https://github.com/mcpdev80/baseharbor/actions/runs/45010958948", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-headc698d1310.md", "https://github.com/mcpdev80/baseharbor/actions/runs/45011815553", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-sufficiency-round-2.md"]
 ---
 
-- [ ] t-20261122-broker-diagnostics-empty · CLI: name the failing dependency in broker readiness diagnostics #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261122-broker-diagnostics-empty · CLI: name the failing dependency in broker readiness diagnostics #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
-    **Owner:** Owner (additive hop \#1763) / 1450c201 (independent exact-head review)  
+    **Owner:** Owner (hop 1d661942) / Coordinator (trigger 241)  
     **PR:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763)  
+    **Waiting:** \#1763 head 1d661942 exact run 45038621419: Trusted Plan + source-format + python/validation + Go CLI shards PASS (katalog \#1778 wirkt). Beide SELECTED data-capabilities cells failen an DERSSELBEN shared 0428-241 fixture: app footprint show…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1763), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45005245380), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45008350091), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/redaction-round-1.md), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/45010884066), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45010958948), [proof 9](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-headc698d1310.md), [proof 10](https://github.com/mcpdev80/baseharbor/actions/runs/45011815553), [proof 11](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-sufficiency-round-2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** Owner (additive hop #1763) / 1450c201 (independent exact-head review)  
+**Owner:** Owner (hop 1d661942) / Coordinator (trigger 241)  
 **Priority:** not set  
 **PRs:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763)  
 **Source:** 

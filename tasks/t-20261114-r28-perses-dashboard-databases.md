@@ -7,7 +7,7 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0847d100 (hop 211a6d57 done) / Coordinator (perses-catalog follow-on)
+owner: Coordinator (perses-catalog #1779 b90e) + reconciliation-lane (offen)
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: Deliver PostgreSQL/MongoDB panels only when verified compatible metrics and permissions exist.
@@ -18,16 +18,16 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1597]
 sources: []
 blocker: ""
-wait_reason: "#1597 head 211a6d57 exact run 45037243487 = Trusted Plan FAIL: perses-cluster NICHT cataloged (app_perses_cli_test.go/app_status_result.go/internal/metrics/perses_dashboards*.go). #1778-merge enthielt KEINE perses-pfade (nur broker-diag+workload). follow-on katalog-pr noetig; 0847d100 zensus-tabelle (noch in arbeit) liefert die exakten perses surfaces -> dann neuer 0428-248-klasse PR. Kein re-hop bis perses cataloged. owner-field #1597 = 0847d100 (hop done, kein aktiver writer). develop 31aededf."
+wait_reason: "#1597 hat ZWEI ebene: (1) Trusted Plan uncataloged perses -> #1779 (b90e laeuft) loest das. (2) ECHTER validate-defekt: app_perses_cli_test.go:500 und :557 failen weil target 'company-dev' NICHT konfiguriert ist (+ weitere failures) = current-base reconciliation der perses-cli tests noetig, NICHT nur catalog. #1597 ist NICHT merge-ready bis beide eben geloenst. naechster trigger: #1779 merged + eine lane reconciled company-dev target-config in app_perses_cli_test.go auf develop 31aededf. Sitz dafuer: nach 241/#1779 (ffe/b90e werden frei)."
 resolution: ""
 evidence: []
 ---
 
 - [ ] t-20261114-r28-perses-dashboard-databases · Perses database dashboards #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0847d100 (hop 211a6d57 done) / Coordinator (perses-catalog follow-on) · **Priority:** normal  
+    **Owner:** Coordinator (perses-catalog \#1779 b90e) + reconciliation-lane (offen) · **Priority:** normal  
     **PR:** [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597)  
-    **Waiting:** \#1597 head 211a6d57 exact run 45037243487 = Trusted Plan FAIL: perses-cluster NICHT cataloged (app\_perses\_cli\_test.go/app\_status\_result.go/internal/metrics/perses\_dashboards\*.go). \#1778-merge enthielt KEINE perses-pfade (nur broker-diag+wo…  
+    **Waiting:** \#1597 hat ZWEI ebene: (1) Trusted Plan uncataloged perses -\> \#1779 (b90e laeuft) loest das. (2) ECHTER validate-defekt: app\_perses\_cli\_test.go:500 und :557 failen weil target 'company-dev' NICHT konfiguriert ist (+ weitere failures) = curr…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +35,7 @@ evidence: []
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** 0847d100 (hop 211a6d57 done) / Coordinator (perses-catalog follow-on)  
+**Owner:** Coordinator (perses-catalog #1779 b90e) + reconciliation-lane (offen)  
 **Priority:** normal  
 **PRs:** [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597)  
 **Source:** 
