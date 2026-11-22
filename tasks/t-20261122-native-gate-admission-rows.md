@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: Owner (scripts und pr-gate-coverage.json sind Owner-scope; ausfuehrende lane nur mit ausdruecklicher benutzer-beauftragung, derselbe fall wie 0428-228)
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-230 · native gate rows for
 priority: ""
@@ -20,20 +20,20 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/gate-admission-census/native-checks-catalog-recipe.md"]
 ---
 
-- [ ] t-20261122-native-gate-admission-rows · native gate rows for env-destroy #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261122-native-gate-admission-rows · native gate rows for env-destroy #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** Owner (scripts und pr-gate-coverage.json sind Owner-scope; ausfuehrende lane nur mit ausdruecklicher benutzer-beauftragung, derselbe fall wie 0428-228)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/gate-admission-census/native-checks-catalog-recipe.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** Owner (scripts und pr-gate-coverage.json sind Owner-scope; ausfuehrende lane nur mit ausdruecklicher benutzer-beauftragung, derselbe fall wie 0428-228)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -72,3 +72,5 @@ check row is therefore an admission gap, not an execution gap: the planner file 
 
 `scripts/**` is Owner-scope for lanes (AGENTS write bans): the edit is made by the Owner or by a lane explicitly
 commissioned for it; lanes only re-run and witness.
+
+Erweiterung des vertrags, gemessen an develop 1ff16925c4e: neben den acht bereits benannten komponenten fehlen auch die acht test-quellen von PR 1750 und die drei ci_integration_operator-quellen in den native_checks-zeilen - deshalb ist PR . Selected Runtime an den gehopften heads 5d47569f337 (#1750) und ce5cf8f3037 (#1753) weiterhin SKIPPED, obwohl PR 1755 gemergt ist. rezept und feldformen: evidence/r28-welle5-2026-11-22/gate-admission-census/native-checks-catalog-recipe.md. Karte 0428-234 ist als superseded in diese karte folded.

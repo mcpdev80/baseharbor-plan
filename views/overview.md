@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 8 |
+| active | 9 |
 | review | 4 |
 | wait | 19 |
 | blocked | 1 |
-| ready | 9 |
+| ready | 8 |
 | queued | 25 |
 | waiting | 179 |
 | backlog | 7 |
@@ -32,6 +32,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-base-branch-provenance-loss](../tasks/t-20261121-base-branch-provenance-loss.md) | 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened | active | high | coordinator | — | — |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
 | [t-20261122-impact-consent-after-preview-contract](../tasks/t-20261122-impact-consent-after-preview-contract.md) | Env destroy: impact consent validated after preview is structurally stale (five fixture rounds) | active | not set | w21-pr1702-0428-142-compat | — | — |
+| [t-20261122-native-gate-admission-rows](../tasks/t-20261122-native-gate-admission-rows.md) | native gate rows for env-destroy | active | not set | Owner (scripts und pr-gate-coverage.json sind Owner-scope; ausfuehrende lane nur mit ausdruecklicher benutzer-beauftragung, derselbe fall wie 0428-228) | — | — |
 
 ## Ready for review
 
@@ -84,7 +85,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-candidate-commit-identity](../tasks/t-20261121-candidate-commit-identity.md) | Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) | ready | not set | — | — | — |
 | [t-20261122-host-config-isolation-tmpdir-cleanup](../tasks/t-20261122-host-config-isolation-tmpdir-cleanup.md) | CLI: release the per-test host config isolation directory | ready | not set | — | — | — |
 | [t-20261122-mcp-contract-perses-demo-drift](../tasks/t-20261122-mcp-contract-perses-demo-drift.md) | perses MCP contract demo drift | ready | not set | — | — | — |
-| [t-20261122-native-gate-admission-rows](../tasks/t-20261122-native-gate-admission-rows.md) | native gate rows for env-destroy | ready | not set | — | — | — |
 
 ## By release
 

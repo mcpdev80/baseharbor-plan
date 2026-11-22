@@ -14,4 +14,3 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | [t-20261121-candidate-commit-identity](../tasks/t-20261121-candidate-commit-identity.md) | Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) | ready | not set | — | — | — |
 | [t-20261122-host-config-isolation-tmpdir-cleanup](../tasks/t-20261122-host-config-isolation-tmpdir-cleanup.md) | CLI: release the per-test host config isolation directory | ready | not set | — | — | — |
 | [t-20261122-mcp-contract-perses-demo-drift](../tasks/t-20261122-mcp-contract-perses-demo-drift.md) | perses MCP contract demo drift | ready | not set | — | — | — |
-| [t-20261122-native-gate-admission-rows](../tasks/t-20261122-native-gate-admission-rows.md) | native gate rows for env-destroy | ready | not set | — | — | — |
