@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: f0f6c8b4 (user-authorized CI coverage, product side internal/machine/contract.go)
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-232 · perses MCP contract demo drift
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-mcp-contract-perses-demo-drift · perses MCP contract demo drift #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261122-mcp-contract-perses-demo-drift · perses MCP contract demo drift #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** f0f6c8b4 (user-authorized CI coverage, product side internal/machine/contract.go)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** f0f6c8b4 (user-authorized CI coverage, product side internal/machine/contract.go)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -58,3 +57,5 @@ fixture side, not in #1746's diff.
   the four `app.perses.*` tools, or the Demo pin is moved to a reference that already agrees.
 - `Static · mcp` is green at one exact head of #1746; `missing=[]` alone is not enough - the unexpected list must be
   empty.
+
+Der drift ist nicht mehr nur behauptet, sondern von einem gehosteten statischen gate gemessen: job 137102052168 aus run 44987381250 meldet 'MCP contract mismatch: missing=[] unexpected=[baseharbor.app.perses.disable/enable/remove/status]'. Der eine freie sitz arbeitet daran (mission sha 04ab43ff7e73); falls contracts/** Owner-scope bleibt, liefert die lane das rezept mit datei:zeile und ich melde denbedarf.
