@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w26-pr1588-0428-225-mcpcontract
-kanban_status: blocked
-kanban_lane: blocked
+owner: Codex owner (authenticated base hop)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: The Pre-Release workflow reports unexpected MCP tools baseharbor.app.perses.disable/enable/remove/status while…
 kanban_title: 0428-225 · MCP release gate rejects the
 priority: ""
@@ -17,24 +17,24 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1751]
 sources: []
-blocker: "EXTERNER HOST-BLOCKER, eskaliert nach drei erfolglosen korrekturen desselben versuchs (AGENTS 3.6). PR #1751 steht unveraendert auf head bdc7c1a9e6e6b1de29afb916d28712eba95dff56 mit base 1080986fe73, develop ist 513488eeb6d788f0e5eec054be89807505f05e08 (back=7, mergeStateStatus=BEHIND). Die lane meldet wortlich: 'no gh auth for hosted run' + 'host disk full' - ihr hop wurde deshalb nie gepusht (von mir dreimal gemessen: refs/pull/1751/head = bdc7c1a9e6e, unveraendert). Inhaltlich ist die karte fertig: fail-first perses-regression ist ergänzt und bewiesen, author == committer == w26-pr1588-0428-225-mcpcontract, evidence auf origin/main, decision 'surface-aufgenommen'. PR-CI 44951681560 = completed/success (35 jobs, 14 success / 21 skipped, 0 failed), der fehlgeschlagene 44952645994 war ein misparametrisierter release-suite-dispatch (widerlegt, queue zeile 982). NAechSTER TRIGGER: owner oder eine authentifizierte sitzung hoppt den branch auf develop 513488eeb6d (reine git-aktion, kein build), oder behebt gh-auth + platz auf dem laptop-host. Danach: exakter PR-run + unabhaengiges verdict + ordinary merge."
-wait_reason: ""
+blocker: ""
+wait_reason: "HOP IST ERLEDIGT, VOM OWNER SELBST (03:3xZ gemeldet, von mir an den refs gegengeprueft, sobald sie da sind): additiver merge-commit 89253bd23d6a4c5f9006d624c3d78910c2eea68b, parents = bdc7c1a9e6e6b1de29afb916d28712eba95dff56 (alter PR-head) + 7d4351c6d645353b6b96c8d320b4c832d55f9047 (develop), kein konflikt, diff gegen develop bleibt exakt cmd/baha/agent_mcp_test.go +25, feature-commit erhalten. WARTEGRUND: der fast-forward-push auf den PR-branch und der terminale gruene exakte hosted run auf 89253bd23d6; danach unabhaengiges exact-head verdict, dann ordinary merge. DIE LANE 03c7350a hat keinen auftrag mehr an diesem PR (mission 1d00fc03f12e zurueckgenommen, stand-down sha256 im ledger), weil ein zweiter hop auf demselben PR mit der arbeit des owners kollidieren wuerde; sie liefert nur noch die zwei zeulen zustand/rettungsversuch fuer ihre beiden nicht abgelieferten missionen ab (tooling #35)."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-mcp-release-gate-perses-tool-drift · MCP release gate rejects the app.perses.* tools the machine contract declares #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261121-mcp-release-gate-perses-tool-drift · MCP release gate rejects the app.perses.* tools the machine contract declares #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
-    **Owner:** w26-pr1588-0428-225-mcpcontract  
+    **Owner:** Codex owner (authenticated base hop)  
     **PR:** [baseharbor#1751](https://github.com/mcpdev80/baseharbor/pull/1751)  
-    **Blocker:** EXTERNER HOST-BLOCKER, eskaliert nach drei erfolglosen korrekturen desselben versuchs (AGENTS 3.6). PR \#1751 steht unveraendert auf head bdc7c1a9e6e6b1de29afb916d28712eba95dff56 mit base 1080986fe73, develop ist 513488eeb6d788f0e5eec054be8…  
+    **Waiting:** HOP IST ERLEDIGT, VOM OWNER SELBST (03:3xZ gemeldet, von mir an den refs gegengeprueft, sobald sie da sind): additiver merge-commit 89253bd23d6a4c5f9006d624c3d78910c2eea68b, parents = bdc7c1a9e6e6b1de29afb916d28712eba95dff56 (alter PR-head…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w26-pr1588-0428-225-mcpcontract  
+**Owner:** Codex owner (authenticated base hop)  
 **Priority:** not set  
 **PRs:** [baseharbor#1751](https://github.com/mcpdev80/baseharbor/pull/1751)  
 **Source:** 
