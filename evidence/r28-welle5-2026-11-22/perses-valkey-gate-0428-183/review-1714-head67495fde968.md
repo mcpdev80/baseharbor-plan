@@ -43,3 +43,9 @@ Before review: PID `2484948`; `docker ps -a` returned no containers. No containe
 ## END codex-rev2-1736 DONE
 
 APPROVE at `67495fde96837846d9d2b26e8db5ad93b7b7c988`; additive hop contains only develop PR #1755 content. Exact CI run `44989324573` completed SUCCESS.
+
+Post-push path witness from `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 'evidence/r28-welle5-2026-11-22/perses-valkey-gate-0428-183/review-1714-head67495fde968.md'`:
+
+    evidence/r28-welle5-2026-11-22/perses-valkey-gate-0428-183/review-1714-head67495fde968.md
+
+After review: PID `2487722`; `docker ps -a` returned no containers.
