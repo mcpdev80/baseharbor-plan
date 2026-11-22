@@ -5,7 +5,7 @@
 1. Verify GitHub run 45011815553 terminal status and confirm its tested head. Complete: the run is completed and successful on the exact PR head.
 2. Inspect PR 1763 exact-head diff and sentinel-test coverage, including app_broker.go findings 1 and 2. Complete: the two-file diff and hosted test selection were reviewed.
 3. Decide APPROVE or REQUEST CHANGES and sentinel-YES or native-NEEDS-242 sufficiency. Complete: REQUEST CHANGES; sentinel coverage is sufficient for the redaction regression, while native runtime coverage still needs task 0428-242.
-4. Write and publish read-only review evidence on baseharbor-plan origin/main. Validation passed; publication in progress.
+4. Write and publish read-only review evidence on baseharbor-plan origin/main. Complete: validation passed and the evidence is published.
 5. Post the required END status to coordinator. Pending publication.
 
 ## Scope
@@ -58,3 +58,11 @@ This is a read-only CODEX-REVIEW. No product source, workflow, PR state, check r
 Before review, `docker ps -a` with shell PID 3747926 showed only the header and no containers. After review, `docker ps -a` with shell PID 3749053 showed only the header and no containers. This review started no container, compose project, network, or volume.
 
 END_BLOCKED: REQUEST CHANGES; sentinel test covers redaction, but the skipped native matrix is not evidence and native coverage remains assigned to 0428-242. Candidate SHA c698d1310ed5a2d5178affb956ba8af2051d0a5b.
+
+## origin/main evidence path witness
+
+Exact output from `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-headc698d1310.md`:
+
+```text
+evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-headc698d1310.md
+```
