@@ -48,6 +48,7 @@
 - Before review, `docker ps -a` under shell PID 4015113 showed only the header and no containers.
 - After review, `docker ps -a` under shell PID 4017808 showed only the header and no containers; no containers were started.
 - `python3 scripts/plan.py check`: 682 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 existing warnings.
+- `git diff --check` reported trailing whitespace in the unrelated, pre-existing modified `tasks/t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md` at lines 28 and 38. That task file and other pre-existing Planning changes were left untouched and unstaged.
 
 ## Verdict
 
