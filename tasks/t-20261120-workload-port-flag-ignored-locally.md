@@ -7,9 +7,9 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ffe7611b (lane)
-kanban_status: review
-kanban_lane: review
+owner: (lane, PR waits for hop)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: ""
 kanban_title: 0428-199 · workload-port ignored locally
 priority: ""
@@ -18,25 +18,26 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1723]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "awaiting additive hop onto develop acc34323968 (back=2)"
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44788134959", "https://github.com/mcpdev80/baseharbor/pulls/1723", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44788134959", "https://github.com/mcpdev80/baseharbor/pulls/1723", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44995050874"]
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-workload-port-flag-ignored-locally · workload-port ignored locally #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
+- [ ] t-20261120-workload-port-flag-ignored-locally · workload-port ignored locally #task #release/v0-4-28 #status/wait #view/wait #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** ffe7611b (lane)  
+    **Owner:** (lane, PR waits for hop)  
     **PR:** [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723)  
+    **Waiting:** awaiting additive hop onto develop acc34323968 (back=2)  
     **Needs:** [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44788134959), [proof 2](https://github.com/mcpdev80/baseharbor/pulls/1723), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44788134959), [proof 2](https://github.com/mcpdev80/baseharbor/pulls/1723), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44995050874)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-delete](t-20261114-r28-cli2-env-delete.md), [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md), [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md)  
-**Owner:** ffe7611b (lane)  
+**Owner:** (lane, PR waits for hop)  
 **Priority:** not set  
 **PRs:** [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723)  
 **Source:** 
@@ -98,3 +99,5 @@ ab heute von einer FRISCHEN Lane uebernommen (sitz ornith 2/2, session ffe7611b,
 kandidat ist EXAKT und VOLLSTAENDIG GEGENUEBER develop: head 5c063c7f278 (additiver merge-commit hop, parents 71ac9ba51b7 + 42da7128e72, back=0 gemessen, akte evidence/r28-welle5-2026-11-22/workload-port-hop/hop-develop-42da7128.md). der exakte run 44961493271 ist completed/failure, und die zwei failed jobs sind NICHT der inhalt dieser karte: job 137021826770 'PR · Selected Runtime (atomic/docker/data-capabilities) / Executed docker · data-capabilities' bricht mit '::error::candidate ref is not a branch/tag; resolve to a ref or a full commit SHA before the gate checkout' plus 'Error: record deployment before mutation: candidate submission requires an explicit operator/automation consent (--confirm-candidate…)', job 137023663943 'PR Selected Checks' faellt daraufhin. VON MIR GEGENPRUEFT als VORBESTEHEND: der alte run 44934975722 auf 71ac9ba51b7 faellt auf denselben jobs 136939892711 und 136941785609 mit derselben ::error-zeile (18:21Z) - der hop hat nichts veraendert, und das diff-touches-liste dieser karte beruehrt die consent-/footprint-pfade nicht. IHR EIGENER NACHWEIS: die cli-3-shard hat workload_port_local_regression_test.go ausgefuehrt (CI-Aufnahmepflicht erfuellt), go unit/build/vet/gofmt gruen. DER AEUSSERE DEFEKT ist auf karte 0428-226 (t-20261122-impact-consent-after-preview-contract) gegossen, zusammen mit dem consent-falle aus #1627; .github/scripts bleiben owner-scope, keine ausnahme erteilt.
 
 kandidat ist gehoepft bis develop 52a3c5446f4 (head 12a62523fc5, back=0). Am vorherigen head b2d9aeb446f (run 449937223) waren build, vet und die go-shards SUCCESS; der einzige fehler war das data-capabilities-gate, identisch zu karte 0428-237 (secure runtime broker 503 not_ready) - KEIN inhaltfehler dieses kandidaten. Am neuen head ist aktiv der run noch. Exaktes review folgt, sobald der run terminal ist und der broker-blocker gezinkt ist.
+
+wartet auf den hop auf develop acc34323968 (back=2). Kontext: das REQUEST CHANGES am head 12a62523fc5 war ein verfaelschungs-artefakt, der diff enthielt 1627-inhalt; seit dem 1627-merge sind es nur noch 4 dateien eigenen inhalts. Nach dem hop: neuer run, dann exact-head review.
