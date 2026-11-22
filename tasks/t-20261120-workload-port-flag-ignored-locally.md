@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w1625-pr1723-0428-199-workloadport
-kanban_status: review
-kanban_lane: review
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: ""
 kanban_title: 0428-199 · workload-port ignored locally
 priority: ""
@@ -18,21 +18,22 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1723]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "KANDIDAT IST EINWANDFREI, DIE PRUEFUNG NICHT: head b9c2e483f8b1538ff5b291f185c55303a6c27c43 ist exakt (back=0 gegen develop 7d4351c6d645, hop von der lane sauber gemessen), die feature-shards sind gruen, der docker guided job 137028211092 ist completed/SUCCESS. der exakte run 44963676934 ist completed/FAILURE mit genau zwei failed jobs: 137028211165 'Executed docker · data-capabilities' und der abgeleitete aggregat-job 137030140112 'PR Selected Checks'. DER FEHLER IST AEUSSERLICH UND VON MIR IN develop NACHGELESEN: cmd/baha/ci_integration_operator_enabled.go:135 laesst 'app footprint show -o json' nur fuer gate == 'guided' zu (predicate ciIntegrationGuidedFootprintShow, :232-233); im data-capabilities-gate faellt die pruefung auf :179-180 und liefert 'command-not-in-managed-workload-set: app footprint show …'. das kommando ist anderswo als read-only bekannt (machine_coverage.go:97 app.footprint.show, app_registration_921.go:40,43). die zweite diagnose 'operator authentication needs interactive setup but input is not a terminal' ist cmd/baha/operator_auth_boundary.go:117 und gehoert zu karte 0428-223. WARTEGRUND: karte 0428-227 (gate-zulassung fuer footprint show im data-capabilities-gate, neue karte, planned, dep-frei) UND karte 0428-223 (operator-auth). TRIGGER FUER MICH: eine davon gemergt -> neuer exakter run auf #1723 -> erst dann exact-head review, reihenfolge bleibt gewahrt (kein verdict auf einem kopf, dessen selected checks nicht terminal gruen sind)."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44788134959"]
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-workload-port-flag-ignored-locally · workload-port ignored locally #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
+- [ ] t-20261120-workload-port-flag-ignored-locally · workload-port ignored locally #task #release/v0-4-28 #status/wait #view/wait #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** w1625-pr1723-0428-199-workloadport  
     **PR:** [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723)  
+    **Waiting:** KANDIDAT IST EINWANDFREI, DIE PRUEFUNG NICHT: head b9c2e483f8b1538ff5b291f185c55303a6c27c43 ist exakt (back=0 gegen develop 7d4351c6d645, hop von der lane sauber gemessen), die feature-shards sind gruen, der docker guided job 137028211092…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44788134959)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w1625-pr1723-0428-199-workloadport  
