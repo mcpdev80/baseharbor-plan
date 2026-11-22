@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: Coordinator (perses-catalog #1779 b90e) + reconciliation-lane (offen)
-kanban_status: wait
-kanban_lane: wait
+owner: 0847d100 (#1597 hopped 09435191a @978a0f90b green) / 1450c201 (CODEX-REVIEW laeuft) / Owner/Codex-MERGE
+kanban_status: review
+kanban_lane: review
 kanban_summary: Deliver PostgreSQL/MongoDB panels only when verified compatible metrics and permissions exist.
 kanban_title: 0428-076 · Perses database dashboards
 priority: normal
@@ -18,24 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1597]
 sources: []
 blocker: ""
-wait_reason: "#1597 hat ZWEI ebene: (1) Trusted Plan uncataloged perses -> #1779 (b90e laeuft) loest das. (2) ECHTER validate-defekt: app_perses_cli_test.go:500 und :557 failen weil target 'company-dev' NICHT konfiguriert ist (+ weitere failures) = current-base reconciliation der perses-cli tests noetig, NICHT nur catalog. #1597 ist NICHT merge-ready bis beide eben geloenst. naechster trigger: #1779 merged + eine lane reconciled company-dev target-config in app_perses_cli_test.go auf develop 31aededf. Sitz dafuer: nach 241/#1779 (ffe/b90e werden frei)."
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-databases · Perses database dashboards #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-databases · Perses database dashboards #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** Coordinator (perses-catalog \#1779 b90e) + reconciliation-lane (offen) · **Priority:** normal  
+    **Owner:** 0847d100 (\#1597 hopped 09435191a @978a0f90b green) / 1450c201 (CODEX-REVIEW laeuft) / Owner/Codex-MERGE · **Priority:** normal  
     **PR:** [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597)  
-    **Waiting:** \#1597 hat ZWEI ebene: (1) Trusted Plan uncataloged perses -\> \#1779 (b90e laeuft) loest das. (2) ECHTER validate-defekt: app\_perses\_cli\_test.go:500 und :557 failen weil target 'company-dev' NICHT konfiguriert ist (+ weitere failures) = curr…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** Coordinator (perses-catalog #1779 b90e) + reconciliation-lane (offen)  
+**Owner:** 0847d100 (#1597 hopped 09435191a @978a0f90b green) / 1450c201 (CODEX-REVIEW laeuft) / Owner/Codex-MERGE  
 **Priority:** normal  
 **PRs:** [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597)  
 **Source:** 
@@ -107,3 +106,5 @@ PR-head = branch-head = 37d3960001dc (ls-remote), eigener run 44914907130 comple
 CODEX-REVIEW review-2.md = REQUEST CHANGES am exakten head 37d3960001dc: F1 database-verfuegbarkeit ignoriert den aufgeloesten target (perses_dashboards.go:348-377,431-445; app_perses_cli_test.go:493-527 testet die globale map), F2 goldene dateien mit unaufgeloesten placeholders (:173-180,:223-240). Korrektur laeuft auf 0428-076-nativeshape.
 
 CENSUS-KORREKTUR: das alte owner-field '0428-076-nativeshape' ist ein DEFEKTES alias, KEINE live lane. #1597 head 074678d ist seit 2026-11-21 17:48 unangetastet und CONFLICTING gegen develop 713aadd4; kein busy worker-sitz nennt #1597/076 (sie sind 248/250/241/247). 5 sitze belegt (4 produktiv + 03c7350a host-blocked), reviewer rollengetrennt -> hop queue't auf ersten freien sitz (b90e/248 oder f0f/241 zuerst). Additiver merge --no-ff auf develop-head, dann exact hosted. Kein konkurrierender write.
+
+#1597 head 09435191a auf develop 978a0f90b, mergeState CLEAN, run 45061740551 PR Selected Checks SUCCESS. CODEX-REVIEW dispatcht an 1450c201 (Verdict+Rezept gegen Task-Vertrag, SHA-genau 09435191a). INDEPENDENT von #1770/#1783 (observability-only). Nach Approve -> Owner/Codex-MERGE = erster konkreter Merge im Fenster. develop 978a0f90b.
