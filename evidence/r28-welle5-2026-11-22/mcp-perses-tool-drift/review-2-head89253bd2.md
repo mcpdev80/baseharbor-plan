@@ -39,7 +39,7 @@ Review only. No product edits, local tests, workflow edits, CI reruns, PR commen
 
 Shell PID `1299905`: `docker ps -a` before and after showed the same eight pre-existing exited containers (IDs `268b7d8b4612`, `34cf9576dc2b`, `e88b00795b5c`, `1451a7b5b3c6`, `d7ba821c0e08`, `957a80e73b57`, `45bddf32278e`, `9d3f1a2b1e0e`). No container or compose project was started or changed.
 
-END_DONE codex-rev-1747: APPROVE #1751 exact head 89253bd23d6a4c5f9006d624c3d78910c2eea68b; run 44965123423 and cli-0 job 137032347806 passed; Planning commit SHA pending.
+END_DONE codex-rev-1747: APPROVE #1751 exact head 89253bd23d6a4c5f9006d624c3d78910c2eea68b; run 44965123423 and cli-0 job 137032347806 passed; Evidence path verified on Planning origin/main before END.
 
 ## Planning remote witness
 
@@ -49,3 +49,10 @@ Verified before the evidence commit with `git -C baseharbor-plan remote -v`:
 origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)
 origin https://github.com/mcpdev80/baseharbor-plan.git (push)
 ```
+
+
+## Final pre-END origin/main path witness
+
+After `git -C baseharbor-plan fetch origin main`, `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 'evidence/r28-welle5-2026-11-22/mcp-perses-tool-drift/review-2-head89253bd2.md'` returned exactly:
+
+`evidence/r28-welle5-2026-11-22/mcp-perses-tool-drift/review-2-head89253bd2.md`
