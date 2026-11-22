@@ -7,37 +7,37 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: (offen, mission liegt bereit)
+owner: b90e4ba1 (lane)
 tags: [#task, #release/v0.4-28]
-kanban_status: wait
-kanban_lane: wait
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-240 · broker readiness failure ships
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1763]
 sources: []
 blocker: ""
-wait_reason: "kein ausfuehrender worker-sitz frei (03c7350a fuehrt missionen nicht aus, rotation braucht owner-directive)"
+wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md", "https://github.com/mcpdev80/baseharbor/pull/1763", "https://github.com/mcpdev80/baseharbor/actions/runs/45005245380"]
 ---
 
-- [ ] t-20261122-broker-diagnostics-empty · CLI: name the failing dependency in broker readiness diagnostics #task #release/v0-4-28 #status/wait #view/wait #kind/task
+- [ ] t-20261122-broker-diagnostics-empty · CLI: name the failing dependency in broker readiness diagnostics #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** (offen, mission liegt bereit)  
-    **Waiting:** kein ausfuehrender worker-sitz frei (03c7350a fuehrt missionen nicht aus, rotation braucht owner-directive)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md)  
+    **Owner:** b90e4ba1 (lane)  
+    **PR:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1763), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45005245380)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** (offen, mission liegt bereit)  
+**Owner:** b90e4ba1 (lane)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -103,3 +103,5 @@ No product semantics change, no new API, and do NOT touch `internal/observabilit
 dependency name.
 
 mission ist zweimal zugestellt und wurde NICHT ausgefuehrt: der sitz 03c7350a ging nach der zustellung sofort wieder idle, es gibt weder branch lane-0428-240-broker-diagnostics noch eine akte. Die karte bleibt darum auf wait und behauptet keine lebende lane. Naechster trigger: der erste freie AUSFUEHRENDE worker-sitz (b90e4ba1, 0847d100, f0f6c8b4 oder ffe7611b, sobald deren laufende hops/reviews endet sind) - die mission liegt fertig unter /var/tmp/m/fix240.md.g. Wenn die rotation von 03c7350a nicht kommt, ist das ihr einziger dauerhafter ausfallender platz: fuenf von sechs arbeitsplaetzen liefern, einer replayt alten kontext (zuletzt eine END-hinweis zu karte 0428-225 und PR 1751, die um 00:26:05Z gemergt wurden).
+
+ARBEIT ist aktiv NICHT MEHR OFFEN - PR EXISTIERT, SICHERHEITSBEFUND DARAUF: karte steht richtig auf active mit PR 1763 (draft, head 5d138ce2613, branch lane-0428-240-broker-diagnostics, base develop 8629450ef3c, rueckstand 5 commits, diff = cmd/baha/app_broker.go + cmd/baha/app_broker_diagnostics_test.go). ABERR: eine unabhaengige read-only-pruefung meldet einen SICHERHEITSBEFUND, den ich aus dem diff bestaetige - in app_broker.go steht 'return "readyz body is not valid JSON: " + truncateDiagnosticTail(out, 200)', bei einem nicht-JSON koerper landet ein ROHER koerperteil (bis 200 zeichen) im fehlertext, und der /readyz-pfad liegt am secure-runtime broker. Das verstoest gegen die regel, keine credentials in protokollierbaren werten. Auftrag an die lane: nie rohen inhalt ausgeben (feste texte + dependency-name, optional die laenge als zahl), dieselbe pruefung am container-log-tail, plus ein testfall mit einem ausgedachten wert-markierer, der in der ausgabe NICHT wieder appearing darf. IHR bisheriger durchgang 45005245380 ist KEIN beleg: nur 6 success / 27 skipped, die nativen reihen wurden nie ausgefuehrt. REIHENFOLGE: PR 1763 ist der schnellste weg zum dependency-NAMEN fuer 0428-237 - wenn 237 die korrekte chronologie nicht aus dem code allein schlieen kann, ist 1763 + ein ausgefuehrter nativer durchgang der beweis.
