@@ -2,6 +2,16 @@
 
 Read-only diagnosis dispatch. No product change, no branch push in this dispatch ("kein push erfolgt").
 
+## PLAN
+
+- (done) 1. STOP-melding plicht: wat deed ik op lane-0428-061-sourcepull (commit-sha + push ja/nee), met ls-remote/bewijs
+- (done) 1b. Hopzone opschonen: lokale merge ebd06386 never pushed, tijdelijke zone verwijderd + worktree prune, remote nog 0045bdcc
+- (done) 2. Hosted log van validate job 137076156327 (head 033365459e2) volledig lezen, byte-count; de 14 namen + 'No migration path exists' isoleren
+- (done) 3. Vergelijksbewijs: develop runs 44918870333/44916333992 (head 22fc68ebc06) status + job-ids + log
+- (done) 4. Diagnose per testgroep met file:line, scheiding (a) fixture/omgeving (b) produktfout (c) runner-prerequisite
+- (done) 5. Akte op baseharbor-plan origin/main publiceren + ls-tree-witness
+- (pending) 6. END post aan 9142ab1f met per-groep regel + 'kein push erfolgt'
+
 ## Remote/zone witnesses (measured)
 
 - Real URL resolution (first git action): `git -C /home/marcel/dev/baseharbor-ecosystem/workers/0428-223-testctx-wt remote -v`
