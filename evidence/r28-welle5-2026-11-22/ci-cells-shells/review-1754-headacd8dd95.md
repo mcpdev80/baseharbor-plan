@@ -42,3 +42,25 @@ Exact output of `git ls-tree -r --name-only origin/main | grep 'evidence/r28-wel
 ```text
 evidence/r28-welle5-2026-11-22/ci-cells-shells/review-1754-headacd8dd95.md
 ```
+
+## PLAN — rev1754c follow-up
+
+1. Read `/var/tmp/rev1754c.g.md`; capture the owner correction and scope boundary.
+2. Keep the #1754 verdict at REQUEST CHANGES and wait for a new exact head whose hosted cli-3 log shows the focused wrapper test executed.
+3. Record the owner-assigned CI-routing change as pending; make no workflow or product changes.
+4. Check the reported #1752 commit author metadata against the first five commits and record only verified identity evidence; do not issue a #1752 verdict.
+5. Publish this follow-up in Planning and send the current blocked state to the Coordinator; preserve the #1753 hold.
+
+## Owner correction and current hold
+
+The owner accepted the REQUEST CHANGES finding and corrected their earlier interpretation: the shell paths prove installation only; `No changed Go packages.` means the wrapper regression did not execute. Card 0428-229 returned to active. Owner-directed route is a dedicated step in `pr_draft_go_shards`, after shell installation, gated to cli-3 and focused on `TestEndToEndInstalledZshAndFishWrappers`. The owner owns `.github/**`; the prior one-step workflow exception does not authorize this reviewer to edit it. Do not inspect or issue another #1754 verdict until a new exact PR head has a hosted log showing the focused test name or the focused `ok /cmd/baha` result. #1753 remains separately held; its required selected runtime/data-capabilities evidence was skipped in run 44972857723.
+
+## Reported #1752 identity context
+
+The owner reports commits `b010dabcb` and `e7df5ab4a6c` on #1752 use author identity `BaseHarbor Worker`, unlike the first five commits attributed to `0428-061-sourcepull`. This is a provenance discrepancy requiring exact commit metadata and authorization context before any #1752 verdict. This follow-up does not adjudicate #1752 or extend the existing verdict across the differently attributed commits.
+
+## Follow-up status — rev1754c
+
+No further #1754 inspection is authorized until a new exact head shows `TestEndToEndInstalledZshAndFishWrappers` (or focused `ok /cmd/baha`) in the hosted cli-3 log. The current REQUEST CHANGES verdict remains in force. #1753 remains held independently.
+
+The new #1752 identity metadata reported in rev1754c is recorded separately at `evidence/r28-welle5-2026-11-22/sourcepull-0428-061/identity-followup-e7df5ab4.md`; it is not part of this #1754 verdict.
