@@ -11,8 +11,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 13 |
-| review | 2 |
-| wait | 18 |
+| review | 1 |
+| wait | 19 |
 | blocked | 2 |
 | ready | 7 |
 | queued | 25 |
@@ -32,7 +32,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-base-branch-provenance-loss](../tasks/t-20261121-base-branch-provenance-loss.md) | 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened | active | high | coordinator | — | — |
 | [t-20261121-destroy-authority-stamp](../tasks/t-20261121-destroy-authority-stamp.md) | installation.destroy authorization assertion runs on a stamped context | active | high | f0f6c8b4 (lane, retarget + hop + durchgang) | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738) |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
-| [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](../tasks/t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md) | Acceptance contract: baha app footprint show is admitted only for the guided gate | active | not set | 0847d100 (lane, mechanismus-auftrag) | [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](../tasks/t-20261122-ci-integration-operator-seams-without-gate-admission.md) | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753) |
+| [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](../tasks/t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md) | Acceptance contract: baha app footprint show is admitted only for the guided gate | active | not set | 0847d100 (lane, klassifizierung cmd/baha) / coord (zeugnis) | [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](../tasks/t-20261122-ci-integration-operator-seams-without-gate-admission.md) | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746) |
 | [t-20261122-gate-catalog-missing-app-broker-component](../tasks/t-20261122-gate-catalog-missing-app-broker-component.md) | Gate catalog: no coverage component for cmd/baha/app_broker.go | active | high | ffe7611b (Codeman lane, OWNER-FREIGABE scripts/** 22.11) / coord (zeugnis) | — | [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763) |
 | [t-20261122-guided-fixture-footprint-contract-divergence](../tasks/t-20261122-guided-fixture-footprint-contract-divergence.md) | Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 | active | high | f0f6c8b4 (lane, auftrag gestellt) | — | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753) |
 | [t-20261122-runtime-broker-health-unhealthy](../tasks/t-20261122-runtime-broker-health-unhealthy.md) | CI: data-capabilities native gate fails on secure runtime broker readiness | active | not set | 0847d100 (lane) | — | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761) |
@@ -42,7 +42,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261114-r28-cli2-app-interact](../tasks/t-20261114-r28-cli2-app-interact.md) | CLI redesign: Guide app logs exec and urls | review | high | owner (autorisierte zsh+fish) / 1450c201 (CODEX-REVIEW_assigned) / coord (bestaetigung+merge-route) | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md), [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) | [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746) |
 | [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | review | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
 
 ## Waiting for resources
@@ -53,6 +52,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261017-release-0-4-27-qualify](../tasks/t-20261017-release-0-4-27-qualify.md) | v0.4.27 · Pre-release: complete required candidate checks | wait | normal | mission-closeout27 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) (open) | — |
 | [t-20261017-release-0-4-27-verify](../tasks/t-20261017-release-0-4-27-verify.md) | v0.4.27 · Release: verify publication, artifacts, Pages and closeout | wait | normal | mission-closeout27 | [t-20261017-release-0-4-27-publish](../tasks/t-20261017-release-0-4-27-publish.md) (open) | — |
 | [t-20261017-release-0-4-28-cleanup](../tasks/t-20261017-release-0-4-28-cleanup.md) | v0.4.28 · Release start: reconcile old PRs, tasks and branches | wait | high | lane-0428-002-r28 | [t-20261017-release-0-4-27-verify](../tasks/t-20261017-release-0-4-27-verify.md) (open) | — |
+| [t-20261114-r28-cli2-app-interact](../tasks/t-20261114-r28-cli2-app-interact.md) | CLI redesign: Guide app logs exec and urls | wait | high | owner (autorisierte zsh+fish) / 1450c201 (CODEX-REVIEW_assigned) / coord (bestaetigung+merge-route) | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md), [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) | [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746) |
 | [t-20261114-r28-cli2-app-status](../tasks/t-20261114-r28-cli2-app-status.md) | CLI redesign: Unify app status and versions | wait | high | Codex (owner-directive 2026-11-20) | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) | [baseharbor#1614](https://github.com/mcpdev80/baseharbor/pull/1614) |
 | [t-20261114-r28-cli2-source-pull](../tasks/t-20261114-r28-cli2-source-pull.md) | CLI redesign: Implement guided source pull | wait | high | Owner (autoren-vertrag) / erster freier worker-sitz (hop) | [t-20261114-r28-cli2-app-lifecycle](../tasks/t-20261114-r28-cli2-app-lifecycle.md), [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) | [baseharbor#1752](https://github.com/mcpdev80/baseharbor/pull/1752) |
 | [t-20261114-r28-cli2-wizard-platform](../tasks/t-20261114-r28-cli2-wizard-platform.md) | CLI redesign: Platform and access wizards | wait | high | Codex (Marcel assigned) | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) | [baseharbor#1620](https://github.com/mcpdev80/baseharbor/pull/1620) |
@@ -73,7 +73,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261122-broker-diagnostics-empty](../tasks/t-20261122-broker-diagnostics-empty.md) | CLI: name the failing dependency in broker readiness diagnostics | blocked | not set | owner (katalog 0428-242) / coord (zeugnis) | — | [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763) |
-| [t-20261122-mcp-contract-perses-demo-drift](../tasks/t-20261122-mcp-contract-perses-demo-drift.md) | perses MCP contract demo drift | blocked | not set | f0f6c8b4 (diagnose geliefert), korrektur beim Owner im baseharbor-demo-repo | — | — |
+| [t-20261122-mcp-contract-perses-demo-drift](../tasks/t-20261122-mcp-contract-perses-demo-drift.md) | perses MCP contract demo drift | blocked | not set | coord (befund) / external demo owner (aktion) | — | — |
 
 ## Ready to assign
 
