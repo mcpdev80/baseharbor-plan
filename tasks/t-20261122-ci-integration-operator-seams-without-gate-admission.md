@@ -7,9 +7,9 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: Owner (scripts is Owner scope) - recipe change-recipe-0428-228.md, or a lane the Owner authorises for this write set
+kanban_status: active
+kanban_lane: active
 kanban_summary: A pull request that changes any cmd/baha/ciintegrationoperator.go seam selects an executed native gate in the required hosted…
 kanban_title: 0428-228 · Admit operator seams to a gate
 priority: high
@@ -23,18 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-ci-integration-operator-seams-without-gate-admission · 0428-228 · Admit operator seams to a gate #task #release/v0-4-28 #status/planned #view/ready #area/ci #area/cli #kind/task
+- [ ] t-20261122-ci-integration-operator-seams-without-gate-admission · 0428-228 · Admit operator seams to a gate #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** Owner (scripts is Owner scope) - recipe change-recipe-0428-228.md, or a lane the Owner authorises for this write set · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md)  
-**Owner:** unassigned  
+**Owner:** Owner (scripts is Owner scope) - recipe change-recipe-0428-228.md, or a lane the Owner authorises for this write set  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -81,3 +80,5 @@ the exact PR run can be green while the operator boundary is never executed.
   but must not edit these files.
 - Related open candidates that depend on this: 0428-227 (PR #1753, footprint show in the data-capabilities gate)
   and every later operator-boundary change.
+
+exact recipe written and published: pr-gate-plan.py entries plus pre-release-runtime-impact.json core entries for the ci_integration_operator sources, with a pairing assertion in test_pr_gate_plan.py and test_pre_release_runtime_reuse.py; 1753 acceptance waits on this merge
