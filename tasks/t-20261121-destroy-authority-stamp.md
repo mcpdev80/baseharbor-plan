@@ -7,7 +7,7 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: f0f6c8b4 (lane, retarget + hop + durchgang)
+owner: 0847d100 (recut, rotiert von f0f6c8b4) / Coordinator
 kanban_status: active
 kanban_lane: active
 kanban_summary: "TestCoreBootstrapFixtureCleanupContextIsBoundToItsLocalTarget shows which authority mode admitted installation.destroy, instead…"
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1738", "https://github.c
 
 - [ ] t-20261121-destroy-authority-stamp · installation.destroy authorization assertion runs on a stamped context #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** f0f6c8b4 (lane, retarget + hop + durchgang) · **Priority:** high  
+    **Owner:** 0847d100 (recut, rotiert von f0f6c8b4) / Coordinator · **Priority:** high  
     **PR:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1738), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-5-rebase.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1738", "https://github.c
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** f0f6c8b4 (lane, retarget + hop + durchgang)  
+**Owner:** 0847d100 (recut, rotiert von f0f6c8b4) / Coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
 **Source:** 
@@ -126,3 +126,5 @@ CODEX-REVIEW 'review-2.md' (plan ea196e46 + 04ae137d) = 'Verdict: REQUEST CHANGE
 ROUTE NEU FESTGELEGT NACH CENSUS (akte operator-auth-helper/carrier-census-1737-1738-1740-1741.md, plan commit da2176f7f40, von 1450c201 gemessen): PR 1726 wird NICHT wieder eroeffnet und es entsteht KEIN neuer traeger - #1750 ist gemergt, also wird der JEWEILIGE eigene delta des kandidaten auf develop 8629450ef3c neu geschnitten. Fernzeugnis der kinder: alle back=275, mergeStateStatus UNSTABLE, base zeigt auf die tote basis lane-0428-198-cli-shard-operator-env (spitze e45430f2f1b). Carrier-abhaengigkeit: nein. Ihr PR-head gemessen: 1738 siehe akte 'Child PR state and diff against the named carrier'. Naechster schritt: mission auf dem ersten freien arbeits-sitz (neu schneiden statt hoepfen; bei 'nein' reicht der additive hop), dann exact gehosteter durchgang + unabhaengige pruefung. Kein merge aus der alten basis heraus.
 
 RE-CUT BEAUFTRAGT, weil der census diesen kandidat als EINZIGEN der vier kinder OHNE carrier-abhaengigkeit ausweist (akte carrier-census-1737-1738-1740-1741.md, plan da2176f7f40): base retarget auf develop (eine einzige metadata-aenderung, ausdruecklich autorisiert), dann additiver hop auf 8629450ef3c, danach EIN durchgang mit den vier data-capabilities-job-ids als zeugen. rueckstand 275 commits, 30 dateien. Ausfuehrende lane ist f0f6c8b4 (frei nach der 237-rueckgabe). KONFLIKT-REGEL: wenn die erzeugten index-dateien im merge konfliktieren, gilt der generator-pfad, kein hand-edit; sollte dafuer .github/scripts betroffen sein, STOP mit datei:zeile an mich (reservierte gebiete).
+
+RECONCILED: stale mission '0428-214-r5-bothdirections' (rebase onto retired #1726 + no-merge) ist SUPERSEDED. card sagt develop retarget + re-cut after #1750 merged - #1750 IST GEMERGT (f6d3fc5c) -> precondition erfuellt. PR #1738 dirty auf 7e679293 (275 stale commits) -> NEUER recut-lane auf develop 31aededf, additiv. User verlangt MERGE wenn ready -> no-merge instruction aufgehoben. exact 4 data-caps jobs. 0847d100 drauf.
