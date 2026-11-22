@@ -7,9 +7,9 @@ areas: [ci, testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: b90e4ba1 (#1774) / owner (promote+merge) / coord
-kanban_status: wait
-kanban_lane: wait
+owner: 1450c201 (#1774 review+merge) / b90e4ba1 (A+C followup) / owner (akzeptanz)
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-248 · catalog completion #1774
 priority: high
@@ -18,23 +18,22 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1774]
 sources: []
 blocker: ""
-wait_reason: "#1774 promoted ready (draft run 45029281024 SUCCESS) aber diff=head acd57828 = NUR eintrag B. b90e4ba1 ergaenzt A (scripts/ci-fast-check.sh->atomic/static/ci-fast-check) + C (app_footprint_presenter.go) als zweiten additiven commit VOR merge, damit der eine merge #1770-native UND #1746-static(A) UND #1773(C) entblockt. Owner fuehrt native docker+podman evidence + review, merged selbst. Akzeptanz: alle drei planner-selektionen + validate-catalog + unittests gruen, native nicht skipped gebucht."
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-gate-catalog-completion-ci-executor · Complete the gate catalog by registering the three remaining changed paths in pr-gate-coverage.json so dependent gates execute #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/testing #kind/task
+- [ ] t-20261122-gate-catalog-completion-ci-executor · Complete the gate catalog by registering the three remaining changed paths in pr-gate-coverage.json so dependent gates execute #task #release/v0-4-28 #status/review #view/review #area/ci #area/testing #kind/task
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (\#1774) / owner (promote+merge) / coord · **Priority:** high  
+    **Owner:** 1450c201 (\#1774 review+merge) / b90e4ba1 (A+C followup) / owner (akzeptanz) · **Priority:** high  
     **PR:** [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774)  
-    **Waiting:** \#1774 promoted ready (draft run 45029281024 SUCCESS) aber diff=head acd57828 = NUR eintrag B. b90e4ba1 ergaenzt A (scripts/ci-fast-check.sh-\>atomic/static/ci-fast-check) + C (app\_footprint\_presenter.go) als zweiten additiven commit VOR mer…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** b90e4ba1 (#1774) / owner (promote+merge) / coord  
+**Owner:** 1450c201 (#1774 review+merge) / b90e4ba1 (A+C followup) / owner (akzeptanz)  
 **Priority:** high  
 **PRs:** [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774)  
 **Source:** 
@@ -57,3 +56,5 @@ PR #1768 merged the catalog with only `cmd/baha/app_broker.go`. Three changed pa
 ## Boundaries
 
 scripts/pr-gate-coverage.json + planner/guardian metadata only. Not the presenter/product code, not operatorauth, not .github workflows (pre-release.yml is owner scope).
+
+#1774 head acd57828 = NUR eintrag B, normal PR run 45030308249 TERMINAL SUCCESS, native skipped (katalog-only, korrekt). review+merge an 1450c201 geroutet (unlockt #1770 native bei merge). A (ci-fast-check.sh) + C (app_footprint_presenter.go) NICHT in diesem head -> FOLGE-katalog-PR (b90e4ba1, 248 bleibt offen bis A+C+ #1746-static + #1773 entblockt). Kein merged PR ueberschreibt den anderen: folge PR rebased nach #1774-merge.

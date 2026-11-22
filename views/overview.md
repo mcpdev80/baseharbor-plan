@@ -11,8 +11,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 11 |
-| review | 1 |
-| wait | 19 |
+| review | 2 |
+| wait | 18 |
 | blocked | 4 |
 | ready | 8 |
 | queued | 25 |
@@ -41,6 +41,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | review | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
+| [t-20261122-gate-catalog-completion-ci-executor](../tasks/t-20261122-gate-catalog-completion-ci-executor.md) | Complete the gate catalog by registering the three remaining changed paths in pr-gate-coverage.json so dependent gates execute | review | high | 1450c201 (#1774 review+merge) / b90e4ba1 (A+C followup) / owner (akzeptanz) | [t-20261122-gate-catalog-missing-app-broker-component](../tasks/t-20261122-gate-catalog-missing-app-broker-component.md) | [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774) |
 
 ## Waiting for resources
 
@@ -61,7 +62,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261120-workload-port-flag-ignored-locally](../tasks/t-20261120-workload-port-flag-ignored-locally.md) | workload-port ignored locally | wait | not set | f0f6c8b4 (lane) | [t-20261114-r28-cli2-env-delete](../tasks/t-20261114-r28-cli2-env-delete.md), [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md), [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](../tasks/t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md) (open) | [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723) |
 | [t-20261121-native-cell-operator-seam](../tasks/t-20261121-native-cell-operator-seam.md) | 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam | wait | high | coord (park) / owner (delta sauber) | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740), [baseharbor#1765](https://github.com/mcpdev80/baseharbor/pull/1765), [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766) |
 | [t-20261121-trust-uninstall-false-green](../tasks/t-20261121-trust-uninstall-false-green.md) | trust-uninstall EOF tests are green on the auth gate error | wait | high | coordinator (karte) / erster freier worker-sitz (ausfuehrung) | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737) |
-| [t-20261122-gate-catalog-completion-ci-executor](../tasks/t-20261122-gate-catalog-completion-ci-executor.md) | Complete the gate catalog by registering the three remaining changed paths in pr-gate-coverage.json so dependent gates execute | wait | high | b90e4ba1 (#1774) / owner (promote+merge) / coord | [t-20261122-gate-catalog-missing-app-broker-component](../tasks/t-20261122-gate-catalog-missing-app-broker-component.md) | [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774) |
 | [t-20261122-host-config-isolation-tmpdir-cleanup](../tasks/t-20261122-host-config-isolation-tmpdir-cleanup.md) | CLI: release the per-test host config isolation directory | wait | not set | ffe7611b (lane) / Owner (entscheid: beide commits bleiben) | — | [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762) |
 | [t-20261122-impact-consent-after-preview-contract](../tasks/t-20261122-impact-consent-after-preview-contract.md) | Env destroy: impact consent validated after preview is structurally stale (five fixture rounds) | wait | not set | w21-pr1702-0428-142-compat | — | [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627) |
 | [t-20261122-target-create-operator-auth-decision](../tasks/t-20261122-target-create-operator-auth-decision.md) | target create reaches the managed-operator auth boundary with no local-workload hook; owner decides the consent/auth path | wait | high | Owner / Core | — | — |
