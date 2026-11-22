@@ -137,3 +137,11 @@ END 0428-223-testctx DONE (0428-231 fix-round-1: defekt=bootstrap-grant-drop + j
 these gecorrigeerd; fix=additive local_access-vormen in local_workload_authority.go;
 tag-noetig: nee-voor-de-grant, wél-of-niet voor de cel via #1746-route — zie boven; PR
 <nummer>, head <sha>, run <id>)
+
+## origin/main witness
+
+Exact output of `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep operator-auth-static-cells-0428-231` (plan main = 361a9591ac4fb237c30354693f1cc82a16838f17):
+
+```
+evidence/r28-welle5-2026-11-22/operator-auth-static-cells-0428-231/fix-round-1.md
+```
