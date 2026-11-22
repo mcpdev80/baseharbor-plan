@@ -96,3 +96,4 @@ The guided source pull continues to select repository/local sources, fetch upstr
 REQUEST CHANGES for exact head `719242df4762b9cf13be113509291873d35413b3`. F1 remains blocking because JSON plus `--up` is not a single valid JSON document. F2 and the F4 implementation gap are addressed in code; F4 still lacks direct MCP approval regression coverage. F3 is represented accurately in implementation and a dedicated runtime partial-failure test, but that test did not compile. The exact hosted run failed in `packages` and `cli-3`, and `PR Selected Checks` was skipped. Do not treat this run as pass evidence. No product branch changes, merge, close, or comment.
 
 END codex-rev-1747 DONE — exact-head review requests changes; candidate 719242df4762b9cf13be113509291873d35413b3
+- First evidence push delivery witness: `ad9d58a2b8765cf79eee8315a5ae5aa3e5daabf0 refs/heads/main`.
