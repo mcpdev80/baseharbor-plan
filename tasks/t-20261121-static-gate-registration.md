@@ -7,7 +7,7 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ffe7611b (lane) / Owner (reservierte pfade)
+owner: ffe7611b (lane ueber 0428-205) / 1450c201 (zensus)
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: Run the existing scripts/ci-fast-check.sh as its own static gate in the v0.4.28 Pre-Release Suite. Preserve every existing…
@@ -18,16 +18,16 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746]
 sources: []
 blocker: ""
-wait_reason: "diff touches only reserved scopes (.github/workflows and scripts) plus CHANGELOG and docs/releases, so integration needs the Owner (or a named lane with exception); after that one additive hop onto develop 8629450ef3c and an exact hosted run finish it"
+wait_reason: "integration runs on card 0428-205 (lane ffe7611b) within that card authorization; this card keeps the gate-coverage census verdict (b) and closes when the hosted static jobs are seen executed"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md"]
 ---
 
 - [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/wait #view/wait #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** ffe7611b (lane) / Owner (reservierte pfade) · **Priority:** high  
+    **Owner:** ffe7611b (lane ueber 0428-205) / 1450c201 (zensus) · **Priority:** high  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
-    **Waiting:** diff touches only reserved scopes (.github/workflows and scripts) plus CHANGELOG and docs/releases, so integration needs the Owner (or a named lane with exception); after that one additive hop onto develop 8629450ef3c and an exact hosted r…  
+    **Waiting:** integration runs on card 0428-205 (lane ffe7611b) within that card authorization; this card keeps the gate-coverage census verdict (b) and closes when the hosted static jobs are seen executed  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44997978036), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md)  
     <!-- /generated:card -->
 
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "h
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** ffe7611b (lane) / Owner (reservierte pfade)  
+**Owner:** ffe7611b (lane ueber 0428-205) / 1450c201 (zensus)  
 **Priority:** high  
 **PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
 **Source:** 
@@ -98,3 +98,5 @@ hop ist gelandet und der exact run 44997978036 ist SUCCESS/0 failed (100 jobs, 3
 CENSUS IST DA und faellt in die mittelste kategori (b): die vier gates init/config-matrix/shell-ux/mcp sind WEITER HINTERLEGT - scripts/release-requirements.json :13-29 fuehrt sie, das gehostete job-muster 'Static . matrix.gate' existiert - aber sie liefen an diesem kandidat NICHT als exact-head-pruefung, und zwar aus zwei gruenden: (1) der diff traegt keine quelle, die auf einen der vier gates gemappt ist (kein source-component im diff), (2) der planned von seinem alt-base 52a3c5446f4, develop ist acc34323968 (0428-235). Damit ist meine vorige formulierung 'kein required check rot, alles gut' ZU LANG: die deckung ist echt, aber der exact-head-beleg fehlt, solange der base-zeiger nicht h uepft. Ein eigener befund im census: eine source-registration-luecke auf .github/workflows/pre-release.yml (owner-scope) - ich trage sie als zeile in 0428-235 nach. Naechster schritt: ein weiterer hop auf develop nach dem 1761-merge, dann sind die vier gates am exact head sichtbar.
 
 GRUND KORRIGIERT, MESSE STATT ERINNERUNG: mein bisheriger wart-grund ('wartet auf den helper aus PR 1761') ist WIDERLEGT - das diff von PR 1746 gegen develop 8629450ef3c beruehrt KEIN operatorauth-symbol (suche im diff: operatorauth / test_operator / RequireAuthenticatedOperator = keine treffer) und hat NULL pfade in cmd/baha, internal/capability oder internal/controlplaneruntime. Der diff besteht aus .github/workflows/pre-release.yml, .github/workflows/pre-release-runtime-suite.yml, CHANGELOG.md, docs/releases/v0.4.28.demo-ref und neun dateien in scripts/ (pr-gate-plan.py, pre-release-check-plan.py, pre-release-runtime-impact.json, release-requirements.json, ci-fast-check.sh, drei test_*.py). rueckstand nur 29 commits, 12 dateien. DAMIT: kein broker-bezug, kein helper-bezug - aber der diff liegtkomplett in RESERVIERTEN gebieten, die keine lane aendern darf. Abgabe-entscheidung ist ihre: entweder sie ziehen den hop selbst, oder sie geben eine benannte lane mit ausdruecklicher ausnahme fuers .github/-und scripts/-gebiet. Der previous exact durchgang 44997978036 war SUCCESS/0 failed am head e455302f1a8 (base damals 52a3c5446f4).
+
+ROLLE KLARGESTELLT: diese karte bleibt der ZENSUS-verweis auf die gate-deckung von PR 1746 (verdict (b), akte gate-census-1746.md, plan 03e506a81). INTEGRATION und hop laufen ueber karte 0428-205 auf der lane ffe7611b - beide eroeffnen denselben PR, aber nur 0428-205 fuehrt ihn. Mein bisheriger wart-grund 'wartet auf den helper aus PR 1761' ist WIDERLEGT: der diff hat keinen verweis auf operatorauth/test_operator und keine broker-pfade (gemessen). Neuer grund: reservierte gebiete (scripts/** und .github/**), deren korrektur innerhalb der 205-vollmacht ist aktiv, plus der fisch-einschraenkungs-punkt des eigentuemers.
