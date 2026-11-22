@@ -124,3 +124,4 @@ At exact head `9140e0c8224e2ed346e6971aa0b2f6266d9c88a5`, `internal/machine/cont
 Repair: add an explicit `approval` input and call `applicationlifecycle.RequireApproval("app.pull", input.Approval)` before entering `runAppPull`; add an MCP regression proving a missing approval is rejected without invoking Git fetch/pull, and approval allows the authorized operation. Keep the registry/golden confirmation requirement aligned with that enforced gate.
 
 F4 is a blocking REQUEST CHANGES finding alongside F1 and F2. The owner’s request to preserve explicit approval is consistent with this verified gap. Product branch remains untouched.
+- F4 publication delivery witness: `725a749fd455ab75ff0abd82c884a0e61d0b6cbd refs/heads/main`.
