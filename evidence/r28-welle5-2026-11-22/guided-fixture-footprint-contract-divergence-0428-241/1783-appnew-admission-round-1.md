@@ -97,3 +97,11 @@ cleanliness: `docker ps -a` BEFORE = 0 entries (pid 2227297), AFTER = 0 entries
 -sel-dk.log vóór END verwijderd. Werktree workers/0428-241-optawt 0 delta.
 
 END 0428-223-testctx DONE — 0428-241 #1783 app-new narrow admission round-1: branch lane-0428-241-optionA-operator-allowlist NIEUWE HEAD 8b99bdc3c615f29a788e4800e50a685a8099be9a (additive hop c8b8da85 op exact develop 978a0f90 + fix-commit; ls-remote branch+pull/1783 bewezen; niet 2da7f565), EXACT hosted run 45061359667 terminal; 'selected app-new admitted data-caps: JA' — trace `decision=managed-local-gate command="app new"` in de selected docker cell, app edit blijft correct denied, broker [OK] (13.7s), seam-tests 137327855366 hosted success incl. TestCIIntegrationOperatorDataGateAppNewAdmission; cel wordt nog rood door de aparte demo-consent laag (new-edit-new-sql-cancel --confirm-candidate, buiten deze opdracht, reeds gemeld); native :edge = waiting-#1770 niet defect; 'remote/other-gates fail-closed: ja'. cleanliness: besenrein
+
+## origin/main witness
+
+Exact: `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 1783-appnew-admission` (plan main = 4f82ebe889556fb37235ad493d43e80136a8df1b):
+
+```
+evidence/r28-welle5-2026-11-22/guided-fixture-footprint-contract-divergence-0428-241/1783-appnew-admission-round-1.md
+```
