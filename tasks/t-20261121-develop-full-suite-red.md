@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: 0428-223-testctx
-kanban_status: wait
-kanban_lane: wait
+kanban_status: review
+kanban_lane: review
 kanban_summary: "The whole-package Go unit suite (go test ./...) is red on develop and no merge gate runs it: make the suite pass on develop…"
 kanban_title: 0428-223 · full-suite unit tests are red
 priority: ""
@@ -18,20 +18,19 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1750]
 sources: []
 blocker: ""
-wait_reason: "exact CI is green but PR Selected Runtime skips because its test-only paths have no gate entry; depends on card 0428-228 owner mapping"
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-develop-full-suite-red · CI: full-suite unit tests are red on develop and no merge gate runs them #task #release/v0-4-28 #status/wait #view/wait #kind/task
+- [ ] t-20261121-develop-full-suite-red · CI: full-suite unit tests are red on develop and no merge gate runs them #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** 0428-223-testctx  
     **PR:** [baseharbor#1750](https://github.com/mcpdev80/baseharbor/pull/1750)  
-    **Waiting:** exact CI is green but PR Selected Runtime skips because its test-only paths have no gate entry; depends on card 0428-228 owner mapping  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261120-workload-port-flag-ignored-locally](t-20261120-workload-port-flag-ignored-locally.md), [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md), [t-20261122-static-cells-operator-auth-helper](t-20261122-static-cells-operator-auth-helper.md)  
@@ -88,3 +87,5 @@ lane pushed a new exact candidate 4bd779b1501 (parent 1588ee1be72, back=0, addit
 akte round-3-oras-provisioning.md auf origin/main; cleanliness gemeldet: keine eigenen container/netzwerke/volumes, scratch entfernt
 
 PR 1753 hopped to develop 8b9a8f50645 at head 91f4e38795a with exact CI green (run 44978381512, 0 failed); PR Selected Runtime still SKIPPED pending card 0428-228 path to gate mapping
+
+independent CODEX-REVIEW gives APPROVE at exact head 17f471cd3fe (required checks pass, job 137087212830); two follow-ups recorded: P3 temp-dir cleanup in cmd/baha/test_operator_context_test.go:112-121 and the skipped Selected Runtime/validate proof that depends on card 0428-228
