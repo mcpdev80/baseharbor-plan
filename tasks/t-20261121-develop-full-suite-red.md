@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: 0428-223-testctx
-kanban_status: wait
-kanban_lane: wait
+kanban_status: active
+kanban_lane: active
 kanban_summary: "The whole-package Go unit suite (go test ./...) is red on develop and no merge gate runs it: make the suite pass on develop…"
 kanban_title: 0428-223 · full-suite unit tests are red
 priority: ""
@@ -18,20 +18,19 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1750]
 sources: []
 blocker: ""
-wait_reason: "kandidat ist unveraendert gut (head 1588ee1be72, back=0, die 14 mission-namen hosted gruen, validate-step 14 ok cmd/baha 306.966s), ABER zwei owner-scope umgebungs-defekte machen den exakten lauf rot, von der lane belegt: (1) 'validate' installiert kein ORAS => cmd/baha/app_repository_integration_test.go:27 'ORAS is required before Core setup' (job 137044903908, step 16; develop-lauf 44918870333 zeigt denselben text, ORAS-install fehlt in der validate-umgebung sowohl auf 22fc68ebc als auch auf 6209874428f); (2) 'PR · Draft Go · cli-3' (ci.yml:1646) installiert kein zsh/fish => cmd/baha/context_terminal_test.go:467 'zsh: executable file not found' (job 137044885831); der nicht-draft-shard installiert sie (ci.yml:1260). naechster ausloeser: owner aendert .github/workflows/ci.yml (ORAS-install im validate-job, shells im draft-shard); kein eigener defect der lane"
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-develop-full-suite-red · CI: full-suite unit tests are red on develop and no merge gate runs them #task #release/v0-4-28 #status/wait #view/wait #kind/task
+- [ ] t-20261121-develop-full-suite-red · CI: full-suite unit tests are red on develop and no merge gate runs them #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** 0428-223-testctx  
     **PR:** [baseharbor#1750](https://github.com/mcpdev80/baseharbor/pull/1750)  
-    **Waiting:** kandidat ist unveraendert gut (head 1588ee1be72, back=0, die 14 mission-namen hosted gruen, validate-step 14 ok cmd/baha 306.966s), ABER zwei owner-scope umgebungs-defekte machen den exakten lauf rot, von der lane belegt: (1) 'validate' in…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** 0428-223-testctx  
@@ -81,3 +80,5 @@ The whole-package Go unit suite (`go test ./...`) is **red on develop** and **no
 H-V50 shows the 14 red cases are an environment gap: probe application resolves target 'company-dev' which no test configures since 80961866f. The fix lane proves it with a CI workflow_dispatch on its own branch, where the validate cell actually runs.
 
 QUERBEZUG vom coordinator: die operator-auth-/test-context-vorbedingung dieser karte blockiert messbar eine ZWEITE karte. der combined validation run 44957245330 fuer PR #1627 (karte 0428-055) fiel in BEIDEN coreless-lifecycle-shards (docker UND podman) mit 'prepare native workload deployment inputs requires authenticated BaseHarbor operator' und einem cleanup ohne verifizierten operator context - derselbe grundtyp wie bei #1746s static suite (akte static-gate-registration/finding-1746-static-suite-failure.md). PR #1750 / karte 0428-223 ist damit der schluessel fuer die 0428-055-abnahme: wer immer diese karte abschliesst, muss danach 0428-055 neu validieren (exakter hosted run mit docker UND podman lifecycle-ausfuehrung).
+
+lane pushed a new exact candidate 4bd779b1501 (parent 1588ee1be72, back=0, additive): ORAS is provisioned inside the test-support path (cmd/baha/runtime_integration_test_support_test.go, provisionORASForIntegrationCell, uses the production installer installORAS with orasSetupVersion + checksum, no-op when exec.LookPath finds oras). no .github/** or scripts/** change. hosted runs 44972447675 (PR CI) and 44972454590 (selected target-context) in_progress; verdict ordered, PR stays draft
