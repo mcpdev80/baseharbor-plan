@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: Owner (#1761 MERGED; #1771 update-branch 04bc2e3e run 45074956259) / b90e4ba1 (#1765 hop) / f0f6c8b4 (#1738 hop) / ffe7611b (#1773 hop) / Coordinator
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-231 · operator auth in static cells
 priority: ""
@@ -19,19 +19,19 @@ prs: [mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#17
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.com/mcpdev80/baseharbor/actions/runs/44994765677", "https://github.com/mcpdev80/baseharbor/actions/runs/44998552411", "https://github.com/mcpdev80/baseharbor/actions/runs/44999534797", "https://github.com/mcpdev80/baseharbor/actions/runs/45000121766", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/hunt-operator-auth-static-cells-round-1.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.com/mcpdev80/baseharbor/actions/runs/44994765677", "https://github.com/mcpdev80/baseharbor/actions/runs/44998552411", "https://github.com/mcpdev80/baseharbor/actions/runs/44999534797", "https://github.com/mcpdev80/baseharbor/actions/runs/45000121766", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/hunt-operator-auth-static-cells-round-1.md", "https://github.com/mcpdev80/baseharbor/commit/b48ac03ef75165c4e50a4a29d5ef0197af3444da"]
 ---
 
-- [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** Owner (\#1761 MERGED; \#1771 update-branch 04bc2e3e run 45074956259) / b90e4ba1 (\#1765 hop) / f0f6c8b4 (\#1738 hop) / ffe7611b (\#1773 hop) / Coordinator  
     **PR:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1784](https://github.com/mcpdev80/baseharbor/pull/1784), [baseharbor#1785](https://github.com/mcpdev80/baseharbor/pull/1785), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1786](https://github.com/mcpdev80/baseharbor/pull/1786), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1761), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44994765677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44998552411), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44999534797), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/hunt-operator-auth-static-cells-round-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1761), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44994765677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44998552411), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44999534797), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/hunt-operator-auth-static-cells-round-1.md), [proof 8](https://github.com/mcpdev80/baseharbor/commit/b48ac03ef75165c4e50a4a29d5ef0197af3444da)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
 **Owner:** Owner (#1761 MERGED; #1771 update-branch 04bc2e3e run 45074956259) / b90e4ba1 (#1765 hop) / f0f6c8b4 (#1738 hop) / ffe7611b (#1773 hop) / Coordinator  
@@ -138,3 +138,5 @@ FANOUT LIVE (develop 66ce0055 = #1770 pin + #1783 fixture GEMERGT, deadlock gekl
 #1761 MERGED zu develop 78f75c90 (operator-auth helper). #1771 re-hop = owner update-branch head 04bc2e3e (run 45074956259, no fails, native/selected aktiv) -> gruene required checks erwartet -> owner merge. Kein doppelwriter (b90e hopte genau diesen head vorher, owner fuehrt update-branch aus). develop 78f75c90.
 
 #1761 MERGED develop 78f75c90 (job-belegt voll gruen vher, run 45072991060: native+selected+TP gruen, opauth-helper 6 files). #1771 owner update-branch 04bc2e3e auf 78f75c90 (run 45074956259, 0 fail) -> owner merge. Fan-out breiter: b90e=#1765, f0f=#1738, ffe=#1773 re-hops auf 78f75c90 (git-only + hosted). develop 78f75c90.
+
+0428-231 CLOSED. Beide PRs der Karte auf develop: #1761 (merge 78f75c907) + #1771 (owner merge b48ac03ef 2026-11-22T22:21:19Z, exact-head run 45074956259 SUCCESS inkl. native docker+podman selected). Acceptance-Check erfuellt: nicht-interaktiver operator helper deckt init/shell-ux/config-matrix/core-bootstrap; der Rest der_cells klaerte das laengst gemergte #1750. Owner fuehrt Merge unter delegierter Maintainer-Authority; keine lokale Evidence noetig. develop=b48ac03ef.

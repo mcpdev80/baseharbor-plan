@@ -10,7 +10,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 7 |
+| active | 6 |
 | review | 3 |
 | wait | 23 |
 | blocked | 1 |
@@ -18,7 +18,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
-| closed | 437 |
+| closed | 438 |
 
 ## Active
 
@@ -30,7 +30,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-base-branch-provenance-loss](../tasks/t-20261121-base-branch-provenance-loss.md) | 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened | active | high | coordinator | — | — |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
 | [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](../tasks/t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md) | Acceptance contract: baha app footprint show is admitted only for the guided gate | active | not set | 0847d100 (lane, haelt push bis handoff) | [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](../tasks/t-20261122-ci-integration-operator-seams-without-gate-admission.md) | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746) |
-| [t-20261122-static-cells-operator-auth-helper](../tasks/t-20261122-static-cells-operator-auth-helper.md) | operator auth in static cells | active | not set | Owner (#1761 MERGED; #1771 update-branch 04bc2e3e run 45074956259) / b90e4ba1 (#1765 hop) / f0f6c8b4 (#1738 hop) / ffe7611b (#1773 hop) / Coordinator | [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md) | [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1784](https://github.com/mcpdev80/baseharbor/pull/1784), [baseharbor#1785](https://github.com/mcpdev80/baseharbor/pull/1785), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1786](https://github.com/mcpdev80/baseharbor/pull/1786), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770) |
 
 ## Ready for review
 
@@ -92,7 +91,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 4 open, 165 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 59 open, 204 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 58 open, 205 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 16 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
