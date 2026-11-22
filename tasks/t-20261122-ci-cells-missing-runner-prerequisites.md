@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w21-pr1702-0428-142-compat
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "validate and PR · Draft Go · cli- stop failing on missing runner tools, so a PR that only changes product code can reach a…"
 kanban_title: 0428-229 · CI cells miss runner tools
 priority: high
@@ -19,18 +19,19 @@ prs: [mcpdev80/baseharbor#1754]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1754"]
 ---
 
-- [ ] t-20261122-ci-cells-missing-runner-prerequisites · 0428-229 · Provision the runner prerequisites the two PR CI cells already require #task #release/v0-4-28 #status/review #view/review #area/ci #kind/task
+- [x] t-20261122-ci-cells-missing-runner-prerequisites · 0428-229 · Provision the runner prerequisites the two PR CI cells already require #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** w21-pr1702-0428-142-compat · **Priority:** high  
     **PR:** [baseharbor#1754](https://github.com/mcpdev80/baseharbor/pull/1754)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1754)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w21-pr1702-0428-142-compat  
@@ -95,3 +96,5 @@ proof closed: run 44974482264 (draft variant) completed/success with PR Draft Go
 RETRACTION of my own earlier claim: the install-only proof does NOT close the wrapper-test proof. verdict review-1754-headacd8dd95.md (plan dbfa824c2..e113d401b) says REQUEST CHANGES / END BLOCKED: shells install fine in cli-3 (job 137061187025, 'sudo apt-get install -y zsh fish', 'zsh: /usr/bin/zsh', 'fish: /usr/bin/fish') but the test step printed 'No changed Go packages.' (ci.yml:1706-1707) because #1754 changes only .github/**, so scripts/pr-draft-go-packages.py:8 selects no ./cmd/baha package and TestEndToEndInstalledZshAndFishWrappers never ran. needed: a test-inclusion route (map .github/workflows/ci.yml to ./cmd/baha in the planner, or force the cli-3 shard when the cell's own definition changed) - Owner-scope decision
 
 exact head 0975e671319 with PR run 44980710684 success and cli-3 job 137080402549 showing TestEndToEndInstalledZshAndFishWrappers PASS 8.02s
+
+squash-merged into develop 82825e95a6f; cli-3 job 137080402549 shows TestEndToEndInstalledZshAndFishWrappers PASS 8.02s
