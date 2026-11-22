@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0847d100 (kette) / Owner (fix-besitzer, offen) / 0428-240 diagnostics getrennt
+owner: f0f6c8b4 (lane, fix auf develop acc34323968) / Owner (freigabe der ablage)
 tags: [#task, #release/v0.4-28]
 kanban_status: active
 kanban_lane: active
@@ -21,21 +21,21 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/45000121766"]
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/45000121766", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md"]
 ---
 
 - [ ] t-20261122-runtime-broker-health-unhealthy · CI: data-capabilities native gate fails on secure runtime broker readiness #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** 0847d100 (kette) / Owner (fix-besitzer, offen) / 0428-240 diagnostics getrennt  
+    **Owner:** f0f6c8b4 (lane, fix auf develop acc34323968) / Owner (freigabe der ablage)  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0847d100 (kette) / Owner (fix-besitzer, offen) / 0428-240 diagnostics getrennt  
+**Owner:** f0f6c8b4 (lane, fix auf develop acc34323968) / Owner (freigabe der ablage)  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
 **Source:** 
@@ -108,3 +108,5 @@ DIAGNOSE FERTIG, ENTSCHEIDUNG BEI IHREN SITZEN. Der 503 not_ready kommt aus serv
 weiter in arbeit, ein schritt fehlt noch: der NAME der fehlgeschlagenen abhaengigkeit entscheidet den fix-besitzer. Die kette liegt in internal/controlplaneruntime/server_run.go:163-219 (database :166-170, openbao :172-178, runtime-executor :179-206) und writeNotReady in internal/controlplaneruntime/server.go:260-274 schreibt ein 'dependency'-feld - beide dateien sind Lane-ERLAUBT, die sperren betreffen nur registry.go/perses_selection.go. Auftrag an f0f6c8b4, das feld aus den logs der attempt-3-jobs 137133647957, 137133625738, 137133627704, 137133627980 zu lesen und die korrektur dort zu verorten. Kein grundloser dritter rerun: der owner sagt ausdruecklich, unveraendert nicht nochmal versuchen.
 
 BESTAETIGT AUF DEVELOP-HOEHE, nicht nur am alten base-zeiger: PR 1761 ist aktiv exakt an develop acc343239681feb235a33cf00c8ea754c537291f und sein nativer job native/docker/data-capabilities 137139636770 FAELLT in TestApplicationCapabilityLifecycleExistingCore/secrets mit broker-readiness timeout nach 2m03s. Dieser eine defekt erklaert die roten runs von PR 1753, 1723, 1725 und 1761. ABGRENZUNG gegen stillumdefinition: karte 0428-237 bleibt ausschliesslich DER readiness-fix (wem gehrt die korrektur, wenn die kette in internal/observability/registry.go oder internal/capability/perses_selection.go endet - beide Lane-gesperrt). Die neue karte 0428-240 ist DAFUER NUR der diagnostics-text im CLI-fehlertext (cmd/baha/app_broker.go:206, das 'runtime diagnostics:'-feld ist leer) und loest 0428-237 NICHT ab. Kein weiterer unveraenderter rerun: erst fix, dann run, wie der owner sagt.
+
+FIX IST BEAUFTRAGT, nach ihrem read-only-befund (akte round-2.md, plan main 4bff809da): die dependency ist aus CI nicht mehr lesbar (run 44994268323 logs HTTP 404, purged) und der fix-pfad liegt in internal/controlplaneruntime/** - also KEINSPERRT, keine owner-ausnahme noetig. Schluessel-beleg aus ihrer messe: policy-artig haengt es an der readiness-reihenfolge in server_run.go:163-219 (database :168, openbao :175, runtime-executor :182/:203) mit writeNotReady server.go:260-274; der fall tritt auf beiden engines auf, also eine gemeinsame control-plane-dependency. Stoppt die lane, wenn eine Lane-gesperrte datei oder cmd/baha/app_broker.go (0428-240, andere haende) getroffen muesste.
