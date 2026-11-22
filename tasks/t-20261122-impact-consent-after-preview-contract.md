@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w21-pr1702-0428-142-compat
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: Define and enforce one consent contract for env destroy so that an impact consent produced by a preview is still authoritative…
 kanban_title: 0428-226 · impact consent validated after
 priority: ""
@@ -18,18 +18,19 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "Owner-Push auf cli2-env-delete (PR #1627): Patch round-2-proposal-i.patch.md ist fertig und 'git apply --check' ist sauber gegen b3b0c2c9efc; naechster ausloeser ist der neue exakte PR-run nach ihrem push"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-impact-consent-after-preview-contract · Env destroy: impact consent validated after preview is structurally stale (five fixture rounds) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261122-impact-consent-after-preview-contract · Env destroy: impact consent validated after preview is structurally stale (five fixture rounds) #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** w21-pr1702-0428-142-compat  
+    **Waiting:** Owner-Push auf cli2-env-delete (PR \#1627): Patch round-2-proposal-i.patch.md ist fertig und 'git apply --check' ist sauber gegen b3b0c2c9efc; naechster ausloeser ist der neue exakte PR-run nach ihrem push  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w21-pr1702-0428-142-compat  
@@ -104,3 +105,5 @@ UMSCHALTUNG VON ANALYSE AUF UMSETZUNG (Owner-Direktive 03:2xZ): die karte DARF N
 STAND DER ERKENNTNIS, mit korrekter bescheidenheit (04:1xZ): die klassifikation 'produktseitiger single-consent design-fehler' ist HYPOTHESE, nicht belegte tatsache - der owner hat seine eigene These zurueckgenommen ('I cannot prove from the one-line CI error which compare fired'), und meine ruecknahme der anweisung 'capture-punkt angleichen' (mission d6a62563023b) war in der stoerke nicht gedeckt; nachricht 329dddd4ee90 stellt die pruefreihenfolge wieder her. VON MIR SELBST IN develop 7d4351c6d645 GEGELESEN, und das ist der grund, warum die meldung allein nichts entscheidet: der code 'stale-impact-consent' hat DREI emissionsstellen - cmd/baha/application_stop_impact.go:35 (target seit preview gewechselt), cmd/baha/app_runtime_retirement.go:116-117 (stopPlan.retirementPlanID != plan.Impact.PlanID, mit dem kommentar :108-111, dass bewusst der application-stop scope als consent-authoritaet gilt und an genau diesen retirement-plan gebunden wird) und cmd/baha/application_destroy_authorization.go:187-188 (zweiter bau, abweichender PlanID). das protokoll nennt nur 'provider change: stale-impact-consent'. DER PRUEFPUNKT: welcher der drei zweige schlug, muss aus dem hosted-protokoll belegt werden (gh api …/actions/jobs/137020935578/logs und …/137020935792/logs; gh run view --log liefert 0 bytes), nicht aus dem code-lesen gefolgert. DER KANDIDAT bleibt der aus round-1-planid-parity.md: fixture bindet den leaf-retirement Impact.PlanID plus parity-test - aber nur gueltig, wenn derselbe wert ALLE konsumstellen passiert (zerstoerungs-scope :180, verschachtelter stop-scope application_stop_impact.go:177, revalidierung :183-188/app_runtime_retirement.go:114-125). braeuchte eine ebene einen anderen wert, ist eine ausdrueckliche, gesicherte delegation noetig, und deren form entscheidet der owner. stale-pruefungen bleiben unveraendert streng; echte zustands-aenderung zwischen den bauten waere drift und fuehrt zu STOP und meldung. mission sha256 d650234… (s. ledger) praezisiert das.
 
 STAND DER ERKENNTNIS, mit korrekter bescheidenheit (04:1xZ): die klassifikation 'produktseitiger single-consent design-fehler' ist HYPOTHESE, nicht belegte tatsache - der owner hat seine eigene these zurueckgenommen ('I cannot prove from the one-line CI error which compare fired'), und meine ruecknahme der anweisung 'capture-punkt angleichen' (mission d6a62563023b) war in dieser stoerke nicht gedeckt; die nachricht sha256 329dddd4ee90 stellt die pruefreihenfolge wieder her. VON MIR SELBST IN develop 7d4351c6d645 GEGELESEN, und das ist der grund, warum die meldung allein nichts entscheidet: der code 'stale-impact-consent' hat DREI emissionsstellen - cmd/baha/application_stop_impact.go:35 (target seit preview gewechselt), cmd/baha/app_runtime_retirement.go:116-117 (stopPlan.retirementPlanID != plan.Impact.PlanID; der kommentar :108-111 erklaert den application-stop scope zur consent-authoritaet und bindet ihn an genau diesen retirement-plan) und cmd/baha/application_destroy_authorization.go:187-188 (zweiter bau, abweichender PlanID). das protokoll nennt nur 'provider change: stale-impact-consent'. DER PRUEFPUNKT: WELCHER DER DREI EMISSIONSPFADE schlug, muss aus dem hosted-protokoll belegt werden (gh api …/actions/jobs/137020935578/logs und …/137020935792/logs; gh run view --log liefert dort 0 bytes), nicht aus dem code-lesen gefolgert; kann das protokoll es nicht entscheiden, soll die akte das bekennen. DER KANDIDAT bleibt der aus round-1-planid-parity.md: fixture bindet den leaf-retirement Impact.PlanID plus parity-/stabilitaetstest - gueltig nur, wenn derselbe wert ALLE konsumstellen passiert (aussen application_destroy_authorization.go:180 gegen buildApplicationDestructionPlan.Scope.PlanID, verschachtelt application_stop_impact.go:177 authorizeApplicationStop, revalidierung :183-188 app_runtime_retirement.go:114-125). braucht eine ebene einen anderen wert, ist die einzige zulaessige form eine ausdrueckliche, gesicherte delegation, deren gestalt der owner entscheidet. stale-pruefungen bleiben unveraendert streng; eine echte zustandsaenderung zwischen den bauten ist drift und fuehrt zu STOP und meldung.
+
+lane hat den fixture-only fix gelauncht und gemeldet (END_BLOCKED): proposal i, cmd/baha/env_destroy_integration_test.go, kein internal/**; akten auf origin/main
