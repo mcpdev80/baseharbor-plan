@@ -7,7 +7,7 @@ areas: [testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ffe7611b (#1780: FIX-1 provider-override + FIX-2 Option A allowlist, dann hop b27b2ebe)
+owner: ffe7611b (#1780: provider-override @:376 own fix) / b90e (shared optionA fixture)
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261122-guided-fixture-footprint-contract-divergence · Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 #task #release/v0-4-28 #status/active #view/active #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** ffe7611b (\#1780: FIX-1 provider-override + FIX-2 Option A allowlist, dann hop b27b2ebe) · **Priority:** high  
+    **Owner:** ffe7611b (\#1780: provider-override @:376 own fix) / b90e (shared optionA fixture) · **Priority:** high  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** ffe7611b (#1780: FIX-1 provider-override + FIX-2 Option A allowlist, dann hop b27b2ebe)  
+**Owner:** ffe7611b (#1780: provider-override @:376 own fix) / b90e (shared optionA fixture)  
 **Priority:** high  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780)  
 **Source:** 
@@ -85,3 +85,5 @@ FEHL-SCOPE KORRIGIERT: frueher 'runner-bootstrap gate issue END_BLOCKED' war fal
 #1780 hat DREI unabhaengige fehlerklassen: (1) selected consent digest=GEFIXT (2) selected test-only allowlist footprint-show=Option A (ffe7611b, ci_integration_operator_enabled.go:115-140) (3) native Docker broker EDGE unhealthy ~2m = 0428-237 image-resolution (ANDERE session/#1770, NICHT 241). #1780 ist NICHT merge-ready bis alle drei geloest. Class-3 ist ausserhalb des 241-write-sets.
 
 #1780 VIERTE, praezise klasse (owner read-only): neue footprint-digest-consent test @ app_capability_runtime_test.go:376 failt podman selected core-capability (137270924827) 'docker.sock rootful vs rootless' weil der BASEHARBOR_TEST_RUNTIME==podman provider-override (muster :32-39 aus ExistingCore) fehlt. FIX-1=override spiegeln/configureIsolatedEmptyRuntimeTarget. FIX-2=Option A footprint-show read allowlist (ci_integration_operator_enabled.go). Beide test-only. Dann hop b27b2ebe + rerun. native docker edge-broker = 237 separat. #1770 = SELBE policy-luecke (andere session) -> nach #1780 fix + hop b27b2ebe.
+
+#1780 run 45042733884 terminally RED (11 jobs): (a) selected read-only footprint fixture = SHARED, wird als eigener optionA-PR von b90e gelandet (nicht in #1780 vergraben), (b) selected podman coreless provider mismatch @:376 = ffe7611b own fix (BASEHARBOR_TEST_RUNTIME podman override), (c) native docker edge-broker unhealthy = 0428-237 andere session. ffe7611b NICHT re-hopen bis (a) gemerged + (c) geloest; nur (b) vorbereiten. Kein stale-green merge.
