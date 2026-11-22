@@ -31,7 +31,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-base-branch-provenance-loss](../tasks/t-20261121-base-branch-provenance-loss.md) | 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened | active | high | coordinator | — | — |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
 | [t-20261122-host-config-isolation-tmpdir-cleanup](../tasks/t-20261122-host-config-isolation-tmpdir-cleanup.md) | CLI: release the per-test host config isolation directory | active | not set | ffe7611b (lane) | — | [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725) |
-| [t-20261122-runtime-broker-health-unhealthy](../tasks/t-20261122-runtime-broker-health-unhealthy.md) | CI: data-capabilities native gate fails on secure runtime broker readiness | active | not set | f0f6c8b4 (dependency-name) / 0847d100 (kette fertig) | — | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753) |
+| [t-20261122-runtime-broker-health-unhealthy](../tasks/t-20261122-runtime-broker-health-unhealthy.md) | CI: data-capabilities native gate fails on secure runtime broker readiness | active | not set | 0847d100 (kette) / Owner (fix-besitzer, offen) / 0428-240 diagnostics getrennt | — | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753) |
 
 ## Ready for review
 
