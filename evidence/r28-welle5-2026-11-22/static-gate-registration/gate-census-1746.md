@@ -82,4 +82,12 @@ e455302f1a89d17d9fae2f532ebb803f479a0994	refs/pull/1746/head
 - `docker ps -a` before review recording, shell PID 3280443: header only; no containers listed.
 - `docker ps -a` after review recording, shell PID 3287457: header only; no containers listed. No container or compose command was started.
 
-END_DONE codex-rev2-1736: the four named static gates remain in the hosted release static matrix; PR #1746 did not run them, and its empty native matrix exposes the missing `source.workflow.pre.release` native source mapping plus lagging-base finding. Planning remote is origin https://github.com/mcpdev80/baseharbor-plan.git.
+END_DONE codex-rev2-1736: evidence published to Planning main at c804958bb; four static gates remain in the hosted release matrix but did not run on PR #1746, whose empty native matrix exposes the workflow source mapping gap and lagging-base finding.
+
+## Published evidence path witness
+
+Exact output of `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md` after publication:
+
+```text
+evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md
+```
