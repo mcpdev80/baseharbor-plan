@@ -112,3 +112,11 @@ cleanliness: `docker ps -a` BEFORE = 0 entries (pid 799778), AFTER = 0 entries
 workers/0428-241-optawt houdt de kandidaat (0 delta na commit).
 
 END 0428-223-testctx DONE — 0428-241/250 Option-A shared fixture round-1: branch lane-0428-241-optionA-operator-allowlist, head 8f84fcbdbd347a103a0829f4ecc490621b914a7b (ONE commit op exact develop b27b2ebe, ANCESTOR/log/diff bewezen), PR #1783 class READY, exact hosted run 45045885547 terminal (footprint-show operator-admission BEVESTIGD in beide native cells — trace 'managed-local-gate command="app footprint show -o json"', geen command-not-in-managed-workload-set meer voor dit pad op deze head), cel-faal rest = ANDERE oorzaak (demo footprint_parity CLI-vs-MCP contract divergence, bevind gemeld), 'footprint-show read in tagged fixture admitted, write record-dep bleibt digest, product unveraendert', cleanliness: besenrein
+
+## origin/main witness
+
+Exacte uitvoer van `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep optionA-shared-round-1` (plan main = d816dc135baf5117b152926bc8f9374b226d5237):
+
+```
+evidence/r28-welle5-2026-11-22/ci-operator-allowlist-0428-241/optionA-shared-round-1.md
+```
