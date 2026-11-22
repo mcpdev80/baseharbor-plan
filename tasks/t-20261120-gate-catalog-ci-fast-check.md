@@ -7,9 +7,9 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-223-testctx
-kanban_status: wait
-kanban_lane: wait
+owner: ffe7611b (lane, hop + fish-einschraenkung) / coord (abhaengigkeits-pflege)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Register scripts/ci-fast-check.sh as a real v0.4.28 Pre-Release static gate, with the full catalog/dispatcher wiring and…"
 kanban_title: "0428-205 · Gate catalog: ci-fast-check"
 priority: normal
@@ -18,24 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746]
 sources: []
 blocker: ""
-wait_reason: "kopf exakt (48f0cb1e44d, ahead=5 behind=0) und PR-CI 44973953752 completed/success. der vom PR-koerper verlangte zielgerichtete volle static-lauf ist angestossen: workflow_dispatch auf 'Release . Pre-Release Validation' (workflow 362658451), run 44975747939 in_progress am exakten head, only_gates = atomic/static/agent, atomic/static/ci-fast-check, atomic/static/config-matrix, atomic/static/init, atomic/static/lifecycle, atomic/static/mcp, atomic/static/shell-ux; tag=v0.4.28, ref=48f0cb1e44d…, demo_ref=5d1cf312e18d06915db35c340bebe4e3d4f39d45. der pin kommt aus docs/releases/v0.4.28.demo-ref DES kandidaten, die gate-ids aus scripts/release-requirements.json - keine lane hat ihren pruefeingang selbst gesetzt (AGENTS 3.8). vorher: 44944570763 war am ALTEN head 9ddcde356e9 rot. offen: terminales resultat von 44975747939, Release-Owner-Bestaetigung, unabhaengiges verdict"
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "https://github.com/mcpdev80/baseharbor/actions/runs/44944570763", "https://github.com/mcpdev80/baseharbor/pull/1746"]
 ---
 
-- [ ] t-20261120-gate-catalog-ci-fast-check · 0428-205 · Wire ci-fast-check into the release gate catalog #task #release/v0-4-28 #status/wait #view/wait #area/ci #kind/bug
+- [ ] t-20261120-gate-catalog-ci-fast-check · 0428-205 · Wire ci-fast-check into the release gate catalog #task #release/v0-4-28 #status/active #view/active #area/ci #kind/bug
     <!-- generated:card -->
-    **Owner:** 0428-223-testctx · **Priority:** normal  
+    **Owner:** ffe7611b (lane, hop + fish-einschraenkung) / coord (abhaengigkeits-pflege) · **Priority:** normal  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
-    **Waiting:** kopf exakt (48f0cb1e44d, ahead=5 behind=0) und PR-CI 44973953752 completed/success. der vom PR-koerper verlangte zielgerichtete volle static-lauf ist angestossen: workflow\_dispatch auf 'Release . Pre-Release Validation' (workflow 362658451…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44943804395), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44944570763), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1746)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
-**Owner:** 0428-223-testctx  
+**Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
+**Owner:** ffe7611b (lane, hop + fish-einschraenkung) / coord (abhaengigkeits-pflege)  
 **Priority:** normal  
 **PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
 **Source:** 
@@ -75,3 +74,5 @@ Register `scripts/ci-fast-check.sh` as a real v0.4.28 Pre-Release static gate, w
 - The uncatalogued-gate negative regression is part of `scripts/ci-fast-check.sh`; the exact-head Release Suite gate run #44943804395 executed that script successfully on this same candidate. The standalone run therefore covers the negative selector test at the current head; the full-suite positive proof remains incomplete.
 - The local unpublished candidate `fab709a45` is withdrawn and is not an acceptance candidate.
 - Scope review: the current `pre-release.yml` diff installs both `zsh` and `fish` in one cli-3 setup step. The Owner authorized a single zsh installation step; Coordinator must confirm that the fish addition is already covered by that authorization or narrow it before merge. `ci.yml` remains unchanged.
+
+EIGENTUER-ENTSCHEID UMGESETZT: der additive hop/recheck ist aktiv auf einer worker-lane (ffe7611b, frei nach ihrem halte-auftrag zu 1762) INNERHALBST der bestehenden vollmacht, ohne neue .github-vollmacht. ABHAENGIGKEIT ERLEDIGT UND UMGEZOGEN, gemessen: die karte zeigte depends_on auf t-20261120-r28-cli-shard-operator-env (0428-198); 0428-198 ist closed/superseded durch t-20261121-develop-full-suite-red (0428-223), und 0428-223 ist closed mit resolution accepted. Ihre wart-war damit GEOEFFNET - depends_on steht jetzt auf der acceptierten karte (plan bf5403c6c). ZWEITER PUNKT, von ihm verlangt: in .github/workflows/pre-release.yml steht im diff 'sudo apt-get install --no-install-recommends -y zsh fish' plus zwei echo-zeilen; die karte deckt NUR EINEN zsh-schritt, fisch ist nicht genannt - die lane muss die zeile auf zsh einschraenken ODER mit datei:zeile eine bestehende autorisierung belegen, sonst nichts. rueckstand 29 commits, additiver hop auf develop 8629450ef3c, danach EIN durchgang mit den vier static-job-ids (config-matrix, shell-ux, mcp, init) als zeugen - skipped ist kein beleg. HINWEIS INTEGRATION: karte 0428-208 eroeffnet denselben PR 1746; 0428-205 ist die INTEGRATIONS-karte, 0428-208 bleibt der zensus-verweis (gate-deckung), damit niemand zwei schreiber annimmt.
