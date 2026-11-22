@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w21-pr1702-0428-142-compat
+owner: 0847d100 (lane, additiver hop + exact durchgang) / coord (zeugnis)
 kanban_status: active
 kanban_lane: active
 kanban_summary: "The disposable acceptance gates that legitimately call baha app footprint show are admitted by the CI operator boundary, so the…"
@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44993125398", "https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44993125398", "https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44998829701"]
 ---
 
 - [ ] t-20261122-footprint-show-not-admitted-in-data-capabilities-gate · Acceptance contract: baha app footprint show is admitted only for the guided gate #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w21-pr1702-0428-142-compat  
+    **Owner:** 0847d100 (lane, additiver hop + exact durchgang) / coord (zeugnis)  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44993125398), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44993125398), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998829701)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](t-20261122-ci-integration-operator-seams-without-gate-admission.md)  
 **Required by:** [t-20261120-workload-port-flag-ignored-locally](t-20261120-workload-port-flag-ignored-locally.md)  
-**Owner:** w21-pr1702-0428-142-compat  
+**Owner:** 0847d100 (lane, additiver hop + exact durchgang) / coord (zeugnis)  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
 **Source:** 
@@ -114,3 +114,11 @@ MEILENPFAHL: nach dem PR-1756-merge (develop 52a3c5446f4) laufen die nativen run
 EXAKTER RUN FEHLGESCHLAGEN, kandidat bleibt unge mergt: run 44994268323 am head a40b76764c3 faellt auf BEIDEN engineen in TestApplicationCapabilityLifecycleExistingCore/secrets beim start des secure runtime brokers (native jobs 137121839425 docker und 137121839379 podman, selected-runtime 137122169353 und 137122169299, aggregate 137124048433); readiness 503 not_ready, timeout ~2m/~5m, mTLS-identity davor in ordnung. Additivitaet ist in ordnung (hop nur develop-inhalt, back=0). Verdict des reviewers: HOLD ohne merge-empfehlung. Der fehler ist NICHT fussabdruck-cli-semantik, sondern die erstmals AUSGEFUEHRTE nativ-reihe zeigt einen broker-readiness-defekt - dafuer ist karte 0428-237 angelegt (rerun am selben head plus datei:zeilen-diagnose).
 
 REIHENFOLGE-ROLLE BESTAETIGT, ihr fall ist der SCHLUESSELkandidat des fensters: PR 1753 laesst 'baha app footprint show' als canonical command in die admitted-matrix der selected data-capabilities - ohne ihn bleibt PR 1762 (tmpdir) rot, egal wie sein test aussieht. Rueckstand nur 29 commits, 2 dateien in cmd/baha. SEIN EIGENER blocker bleibt 0428-237: der exakte durchgang 44994268323 scheiterte in den nativen reihen (docker 137133647957, podman 137133625738) am broker-readiness-fall. Kette damit: 0428-237 (arbeit auf f0f6c8b4) -> 1753 -> 1762 -> dann 1723, 1725, 1761. Kein unveraenderter rerun vorher.
+
+MESSE STATT MEINUNG, vier protokolle selbst gezogen (gh api job-logs): selected-docker 137139969524 (PR 1725) zeigt wortlich den fehlgeschlagenen aufruf 'app footprint show -o json' plus 'operator/automation consent (--confirm-candidate); refusing to record deployment state' (achtfach im selben job, digest 9a4da90e4e0d60e54a45a1ccf16b2a147a53eb7c865fc67d87d9b837df509295); selected-podman 137139969537 ebenso (257 KB / 242 KB protokolle). In ALLEN vier gelesenen jobs (dazu 137139636770 und 137139636747 von PR 1761) steht 'readiness timeout' NULL mal und 'not_ready' GENAU EIN mal (podman 137139636747). SHARED BLOCKER DAMIT: die fussnoten-ZULASSUNG, also dieser kandidat und karte 0428-227 - NICHT die broker-chronologie 0428-237. Ich habe 0428-237 umgeschichtet (keine aenderung an internal/controlplaneruntime ohne wiederholbaren not_ready auf develop 8629450ef3c).
+
+MESSE STATT MEINUNG, vier protokolle selbst gezogen (gh api job-logs, 72-257 KB): selected-docker 137139969524 (PR 1725) zeigt wortlich 'app footprint show -o json' plus 'operator/automation consent (--confirm-candidate); refusing to record deployment state' (achtfach, digest 9a4da90e4e0d60e54a45a1ccf16b2a147a53eb7c865fc67d87d9b837df509295); selected-podman 137139969537 ebenso. In ALLEN vier gelesenen jobs (auch 137139636770 und 1371396747 von PR 1761) steht 'readiness timeout' NULL mal, 'not_ready' GENAU EIN mal (podman 137139636747). SHARED BLOCKER = die fussnoten-ZULASSUNG (0428-227), NICHT die broker-chronologie 0428-237; 0428-237 habe ich umgeschichtet (kein eingriff in internal/controlplaneruntime ohne wiederholbaren not_ready auf develop 8629450ef3c).
+
+MESSE STATT MEINUNG, vier protokolle selbst gezogen (gh api job-logs, 72-257 KB): selected-docker 137139969524 (PR 1725) zeigt wortlich 'app footprint show -o json' plus 'operator/automation consent (--confirm-candidate); refusing to record deployment state'; selected-podman 137139969537 ebenso. In ALLEN vier gelesenen jobs (auch 137139636770 und 137139636747 von PR 1761) steht 'readiness timeout' NULL mal, 'not_ready' GENAU EIN mal (podman 137139636747). SHARED BLOCKER = die fussnoten-ZULASSUNG (karte 0428-227), NICHT die broker-chronologie 0428-237.
+
+MESSE STATT MEINUNG, vier protokolle selbst gezogen (gh api job-logs, 72-257 KB): selected-docker 137139969524 (PR 1725) zeigt wortlich 'app footprint show -o json' plus 'operator/automation consent (--confirm-candidate); refusing to record deployment state'; selected-podman 137139969537 ebenso. In ALLEN vier gelesenen jobs (auch 137139636770 und 137139636747 von PR 1761) steht 'readiness timeout' NULL mal, 'not_ready' GENAU EIN mal (podman 137139636747). SHARED BLOCKER = die fussnoten-ZULASSUNG (karte 0428-227), NICHT die broker-chronologie 0428-237.

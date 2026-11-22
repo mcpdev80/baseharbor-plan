@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: b90e4ba1 (lane) / 1450c201 (merge-preflight abgelehnt) / Owner (fix-besitzer)
+owner: b90e4ba1 (lane) / fecbada9 (APPROVE am selben head) / 0428-227 vorrangig
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: ""
@@ -18,16 +18,16 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1761]
 sources: []
 blocker: ""
-wait_reason: "native docker 137139636770 and podman 137139636747 fail on the develop-height broker readiness defect (0428-237)"
+wait_reason: "shared footprint-show admission blocker is card 0428-227 (PR 1753); consent refusal measured in selected data-capabilities jobs 137139969524 and 137139969537, zero readiness-timeout lines in the four logs read"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.com/mcpdev80/baseharbor/actions/runs/44994765677", "https://github.com/mcpdev80/baseharbor/actions/runs/44998552411", "https://github.com/mcpdev80/baseharbor/actions/runs/44999534797", "https://github.com/mcpdev80/baseharbor/actions/runs/45000121766", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md"]
 ---
 
 - [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (lane) / 1450c201 (merge-preflight abgelehnt) / Owner (fix-besitzer)  
+    **Owner:** b90e4ba1 (lane) / fecbada9 (APPROVE am selben head) / 0428-227 vorrangig  
     **PR:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
-    **Waiting:** native docker 137139636770 and podman 137139636747 fail on the develop-height broker readiness defect (0428-237)  
+    **Waiting:** shared footprint-show admission blocker is card 0428-227 (PR 1753); consent refusal measured in selected data-capabilities jobs 137139969524 and 137139969537, zero readiness-timeout lines in the four logs read  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1761), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44994765677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44998552411), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44999534797), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md)  
     <!-- /generated:card -->
 
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.c
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
-**Owner:** b90e4ba1 (lane) / 1450c201 (merge-preflight abgelehnt) / Owner (fix-besitzer)  
+**Owner:** b90e4ba1 (lane) / fecbada9 (APPROVE am selben head) / 0428-227 vorrangig  
 **Priority:** not set  
 **PRs:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
 **Source:** 
@@ -81,3 +81,11 @@ AM EXAKTEN head 669d76ac447 ist ein Exact-Head-APPROVE vorhanden (akte review-17
 merge ist NICHT erfolgt, preflight hat korrekt abgelehnt: exact run 45000121766 ist TERMINAL FAILURE (native docker 137139636770 und native podman 137139636747, broker-readiness timeout 2m03s in TestApplicationCapabilityLifecycleExistingCore/secrets), alle uebrigen shards und source-format sind SUCCESS. Der Exact-Head-APPROVE am selben head bleibt gueltig fuer den INHALT; was fehlt, ist der native beleg, und der haengt an 0428-237. Karte steht darum auf wait mit dem defekt als grund - nicht auf review.
 
 merge ist NICHT erfolgt: preflight hat korrekt abgelehnt, weil run 45000121766 TERMINAL FAILURE ist (native docker 137139636770 und podman 137139636747, broker-readiness timeout 2m03s), alle anderen shards SUCCESS. Der Exact-Head-APPROVE am selben head gilt fuer den inhalt weiter; der fehlende native beleg haengt an 0428-237. Kein unveraenderter rerun.
+
+MESSE STATT MEINUNG, vier protokolle selbst gezogen (gh api job-logs): selected-docker 137139969524 (PR 1725) zeigt wortlich den fehlgeschlagenen aufruf 'app footprint show -o json' plus 'operator/automation consent (--confirm-candidate); refusing to record deployment state' (achtfach im selben job, digest 9a4da90e4e0d60e54a45a1ccf16b2a147a53eb7c865fc67d87d9b837df509295); selected-podman 137139969537 ebenso (257 KB / 242 KB protokolle). In ALLEN vier gelesenen jobs (dazu 137139636770 und 137139636747 von PR 1761) steht 'readiness timeout' NULL mal und 'not_ready' GENAU EIN mal (podman 137139636747). SHARED BLOCKER DAMIT: die fussnoten-ZULASSUNG, also dieser kandidat und karte 0428-227 - NICHT die broker-chronologie 0428-237. Ich habe 0428-237 umgeschichtet (keine aenderung an internal/controlplaneruntime ohne wiederholbaren not_ready auf develop 8629450ef3c).
+
+MESSE STATT MEINUNG, vier protokolle selbst gezogen (gh api job-logs, 72-257 KB): selected-docker 137139969524 (PR 1725) zeigt wortlich 'app footprint show -o json' plus 'operator/automation consent (--confirm-candidate); refusing to record deployment state' (achtfach, digest 9a4da90e4e0d60e54a45a1ccf16b2a147a53eb7c865fc67d87d9b837df509295); selected-podman 137139969537 ebenso. In ALLEN vier gelesenen jobs (auch 137139636770 und 1371396747 von PR 1761) steht 'readiness timeout' NULL mal, 'not_ready' GENAU EIN mal (podman 137139636747). SHARED BLOCKER = die fussnoten-ZULASSUNG (0428-227), NICHT die broker-chronologie 0428-237; 0428-237 habe ich umgeschichtet (kein eingriff in internal/controlplaneruntime ohne wiederholbaren not_ready auf develop 8629450ef3c).
+
+MESSE STATT MEINUNG: selected-docker 137139969524 (PR 1725) zeigt wortlich 'app footprint show -o json' plus 'operator/automation consent (--confirm-candidate); refusing to record deployment state'; selected-podman 137139969537 ebenso. In allen vier gelesenen jobs (auch 137139636770 und 137139636747 von PR 1761) steht 'readiness timeout' NULL mal, 'not_ready' GENAU EIN mal (podman 137139636747). SHARED BLOCKER = fussnoten-ZULASSUNG (0428-227), NICHT die broker-chronologie 0428-237.
+
+MESSE STATT MEINUNG, vier protokolle selbst gezogen (gh api job-logs, 72-257 KB): selected-docker 137139969524 (PR 1725) zeigt wortlich 'app footprint show -o json' plus 'operator/automation consent (--confirm-candidate); refusing to record deployment state'; selected-podman 137139969537 ebenso. In ALLEN vier gelesenen jobs (auch 137139636770 und 137139636747 von PR 1761) steht 'readiness timeout' NULL mal, 'not_ready' GENAU EIN mal (podman 137139636747). SHARED BLOCKER = die fussnoten-ZULASSUNG (karte 0428-227), NICHT die broker-chronologie 0428-237.

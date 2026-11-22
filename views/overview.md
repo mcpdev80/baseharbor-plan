@@ -10,9 +10,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 10 |
+| active | 9 |
 | review | 1 |
-| wait | 21 |
+| wait | 22 |
 | blocked | 1 |
 | ready | 7 |
 | queued | 25 |
@@ -32,8 +32,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-base-branch-provenance-loss](../tasks/t-20261121-base-branch-provenance-loss.md) | 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened | active | high | coordinator | — | — |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
 | [t-20261122-broker-diagnostics-empty](../tasks/t-20261122-broker-diagnostics-empty.md) | CLI: name the failing dependency in broker readiness diagnostics | active | not set | b90e4ba1 (lane) | — | [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763) |
-| [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](../tasks/t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md) | Acceptance contract: baha app footprint show is admitted only for the guided gate | active | not set | w21-pr1702-0428-142-compat | [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](../tasks/t-20261122-ci-integration-operator-seams-without-gate-admission.md) | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753) |
-| [t-20261122-runtime-broker-health-unhealthy](../tasks/t-20261122-runtime-broker-health-unhealthy.md) | CI: data-capabilities native gate fails on secure runtime broker readiness | active | not set | f0f6c8b4 (lane, rueckgabe der uebernahme) / maintainer-sitzung (informiert) | — | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753) |
+| [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](../tasks/t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md) | Acceptance contract: baha app footprint show is admitted only for the guided gate | active | not set | 0847d100 (lane, additiver hop + exact durchgang) / coord (zeugnis) | [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](../tasks/t-20261122-ci-integration-operator-seams-without-gate-admission.md) | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753) |
 
 ## Ready for review
 
@@ -65,7 +64,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-trust-uninstall-false-green](../tasks/t-20261121-trust-uninstall-false-green.md) | trust-uninstall EOF tests are green on the auth gate error | wait | high | coordinator (karte) / erster freier worker-sitz (ausfuehrung) | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737) |
 | [t-20261122-host-config-isolation-tmpdir-cleanup](../tasks/t-20261122-host-config-isolation-tmpdir-cleanup.md) | CLI: release the per-test host config isolation directory | wait | not set | ffe7611b (lane) / Owner (entscheid: beide commits bleiben) | — | [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762) |
 | [t-20261122-impact-consent-after-preview-contract](../tasks/t-20261122-impact-consent-after-preview-contract.md) | Env destroy: impact consent validated after preview is structurally stale (five fixture rounds) | wait | not set | w21-pr1702-0428-142-compat | — | [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627) |
-| [t-20261122-static-cells-operator-auth-helper](../tasks/t-20261122-static-cells-operator-auth-helper.md) | operator auth in static cells | wait | not set | b90e4ba1 (lane) / 1450c201 (merge-preflight abgelehnt) / Owner (fix-besitzer) | [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md) | [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761) |
+| [t-20261122-runtime-broker-health-unhealthy](../tasks/t-20261122-runtime-broker-health-unhealthy.md) | CI: data-capabilities native gate fails on secure runtime broker readiness | wait | not set | f0f6c8b4 (lane, umgeschichtet) / Owner (zusammenlegung mit 0428-227?) | — | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753) |
+| [t-20261122-static-cells-operator-auth-helper](../tasks/t-20261122-static-cells-operator-auth-helper.md) | operator auth in static cells | wait | not set | b90e4ba1 (lane) / fecbada9 (APPROVE am selben head) / 0428-227 vorrangig | [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md) | [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761) |
 
 ## Blocked
 

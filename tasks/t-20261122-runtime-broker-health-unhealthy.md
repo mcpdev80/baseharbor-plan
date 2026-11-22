@@ -7,10 +7,10 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: f0f6c8b4 (lane, rueckgabe der uebernahme) / maintainer-sitzung (informiert)
+owner: f0f6c8b4 (lane, umgeschichtet) / Owner (zusammenlegung mit 0428-227?)
 tags: [#task, #release/v0.4-28]
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-237 · data-capabilities native gate
 priority: ""
@@ -19,23 +19,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1753]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "no repeatable not_ready on current develop tip: zero readiness-timeout lines in the four job logs measured, one not_ready line in podman job 137139636747; shared blocker is the footprint-show admission (0428-227)"
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/45000121766", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/45000121766", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44998846458"]
 ---
 
-- [ ] t-20261122-runtime-broker-health-unhealthy · CI: data-capabilities native gate fails on secure runtime broker readiness #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261122-runtime-broker-health-unhealthy · CI: data-capabilities native gate fails on secure runtime broker readiness #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
-    **Owner:** f0f6c8b4 (lane, rueckgabe der uebernahme) / maintainer-sitzung (informiert)  
+    **Owner:** f0f6c8b4 (lane, umgeschichtet) / Owner (zusammenlegung mit 0428-227?)  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md)  
+    **Waiting:** no repeatable not\_ready on current develop tip: zero readiness-timeout lines in the four job logs measured, one not\_ready line in podman job 137139636747; shared blocker is the footprint-show admission (0428-227)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998846458)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** f0f6c8b4 (lane, rueckgabe der uebernahme) / maintainer-sitzung (informiert)  
+**Owner:** f0f6c8b4 (lane, umgeschichtet) / Owner (zusammenlegung mit 0428-227?)  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
 **Source:** 
@@ -114,3 +115,9 @@ FIX IST BEAUFTRAGT, nach ihrem read-only-befund (akte round-2.md, plan main 4bff
 UEBERGABE VOLLZOGEN, zustand gemessen statt beschnigt: die lane meldet END_BLOCKED mit ausdruecklicher HAND OFF. Ihr branch lane-0428-237-broker-readiness existiert NUR LOKAL im haupt-clone und zeigt auf acc343239681feb235a33cf00c8ea754c537291f - also NULL eigene commits, nie gepusht, kein PR. Es ist nichts zu retten aus diesem branch; die uebernahme beginnt bei der read-only-akte round-2.md (rekonstruierte /readyz-kette server_run.go:166-206: database :168, openbao :175, runtime-executor :182/:203; writeNotReady server.go:260-274; fix-pfad internal/controlplaneruntime/** = erlaubt). ZWEI zeugen, die die uebernahme kennen muss: die logs von 45001383922 sind lokal abgelegt (/tmp/devid237/run45001383922.log, 929 KB, 5575 zeilen) enthalten aber NUR checkout-rauschen, KEINEN dependency-namen; die API-pfade liefern 404/limit. Der dependency-name ist damit weiterhin UNBEKANNT - das ist genau das loch, das karte 0428-240 (PR 1763, draft) schliessen soll. Ich habe der lane aufgegeben: haupt-clone zurueck auf develop, akte-zeile 'zustand des zweigs', END mit meldefrist.
 
 RUECKGABE DER UEBERGABE, begruendet und gemessen: die maintainer-sitzung hat den index-traeger PR 1764 uebernommen (base develop, head 8d64f0cf803, ein LEERER marker-commit, durchgang 45005623091 FAILED in 'PR . Trusted Plan' 137156455112 und 'PR . Selected Checks' 137156547886, 24 checks skipped) - aber NICHT ihre karte. Damit der fenster-blocker nicht herrenlos haengt, geht 0428-237 zurueck an f0f6c8b4: neuer branch lane-0428-237-broker-readiness-r2, base exakt develop 8629450ef3c, fixes recht auf internal/controlplaneruntime/**; stapeln auf PR 1763 (branch lane-0428-240-broker-diagnostics, spitze 5d138ce2613) ist als additiver STACK erlaubt, wenn der dependency-name vorher sichtbar sein muss - deklaration im PR-body, kein rebase/amend/force. Timeout erhoehen, retry aufweichen, sleep im test oder 'not_ready' durch 'ok' ersetzen ist ausdruecklich verboten.
+
+UMGESCHICHTET, weil meine messung die these nicht traegt: 'readiness timeout' erscheint in den vier gelesenen job-protokollen NULL mal, 'not_ready' GENAU EIN mal (podman-Job 137139636747 von PR 1761); der shared blocker ist die fussnoten-ZULASSUNG (karte 0428-227, PR 1753) mit dem wortlichen 'app footprint show -o json' + '--confirm-candidate ... refusing to record deployment state' in 137139969524/137139969537. Auftrag an die lane: CHRONOLOGIE-NDERUNG gestoppt, kein PR ohne wiederholbaren not_ready auf develop 8629450ef3c, dafuer der abgrenzungs-abschnitt in runde-3. Wenn der fall nicht isolierbar ist, entscheiden sie: 0428-237 zusammen mit 0428-227 fueren oder aufheben - ich habe keine liebe zur doppelten karte.
+
+UMGESCHICHTET, weil meine these die messung nicht traegt: 'readiness timeout' NULL mal in den vier gelesenen protokollen, 'not_ready' GENAU EIN mal (podman 137139636747); shared blocker ist die fussnoten-ZULASSUNG (0428-227). Auftrag an die lane: chronologie-aenderung gestoppt, kein PR ohne wiederholbaren not_ready auf develop 8629450ef3c, dafuer der abgrenzungs-abschnitt in runde-3.
+
+UMGESCHICHTET, weil meine these die messung nicht traegt: 'readiness timeout' NULL mal in den vier protokollen, 'not_ready' GENAU EIN mal (podman 137139636747). Shared blocker ist die fussnoten-ZULASSUNG (0428-227). Auftrag an die lane: chronologie-aenderung gestoppt, kein PR ohne wiederholbaren not_ready auf develop 8629450ef3c, dafuer der abgrenzungs-abschnitt in runde-3 (akten-Regel: keine checkbox-zeilen, nummerierte listen - sie blockieren die board-publikation).
