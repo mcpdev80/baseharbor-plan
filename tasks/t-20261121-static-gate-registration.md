@@ -1,4 +1,5 @@
 ---
+depends_on: [t-20261122-gate-catalog-missing-app-broker-component]
 id: t-20261121-static-gate-registration
 card_number: "0428-208"
 card_short_title: "0428-208 static gate"
@@ -13,7 +14,6 @@ kanban_lane: wait
 kanban_summary: Run the existing scripts/ci-fast-check.sh as its own static gate in the v0.4.28 Pre-Release Suite. Preserve every existing…
 kanban_title: 0428-208 · 0428-208 static gate
 priority: high
-depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746]
 sources: []
@@ -28,13 +28,14 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "h
     **Owner:** ffe7611b (lane ueber 0428-205) / 1450c201 (zensus) · **Priority:** high  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
     **Waiting:** integration runs on card 0428-205 (lane ffe7611b) within that card authorization; this card keeps the gate-coverage census verdict (b) and closes when the hosted static jobs are seen executed  
+    **Needs:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44997978036), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** none  
+**Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
 **Owner:** ffe7611b (lane ueber 0428-205) / 1450c201 (zensus)  
 **Priority:** high  
 **PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  

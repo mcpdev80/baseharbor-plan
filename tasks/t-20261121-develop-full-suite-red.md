@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1750", "https://github.c
 **State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Required by:** [t-20261120-gate-catalog-ci-fast-check](t-20261120-gate-catalog-ci-fast-check.md), [t-20261120-workload-port-flag-ignored-locally](t-20261120-workload-port-flag-ignored-locally.md), [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md), [t-20261122-static-cells-operator-auth-helper](t-20261122-static-cells-operator-auth-helper.md)  
+**Required by:** [t-20261120-workload-port-flag-ignored-locally](t-20261120-workload-port-flag-ignored-locally.md), [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md), [t-20261122-static-cells-operator-auth-helper](t-20261122-static-cells-operator-auth-helper.md)  
 **Owner:** fecbada9/1450c201 (review) + Owner (merge autorisiert durch sweep-klaerung)  
 **Priority:** not set  
 **PRs:** [baseharbor#1750](https://github.com/mcpdev80/baseharbor/pull/1750)  

@@ -7,36 +7,36 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: coord (befund) / external demo owner (aktion)
-kanban_status: blocked
-kanban_lane: blocked
+owner: andere Codex-Session (demo)
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-232 · perses MCP contract demo drift
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor-demo#169]
 sources: []
-blocker: "der gepinnte Demo-Vertrag (baseharbor-demo) ist NICHT im lane-zugriff - externe Demo-owner aktion: die vier tools baseharbor.app.perses.{disable,enable,remove,status} in den Demo-expected-tool-list aufnehmen, damit static-mcp sie nicht mehr als unexpected zaehlt. Kein Codeman-produkt/aenderung moeglich, repo ist extern."
+blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/mcp-contract-0428-232/round-1.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/mcp-contract-0428-232/round-1.md", "https://github.com/mcpdev80/baseharbor-demo/commit/c23bd9ac"]
 ---
 
-- [ ] t-20261122-mcp-contract-perses-demo-drift · perses MCP contract demo drift #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [x] t-20261122-mcp-contract-perses-demo-drift · perses MCP contract demo drift #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
-    **Owner:** coord (befund) / external demo owner (aktion)  
-    **Blocker:** der gepinnte Demo-Vertrag (baseharbor-demo) ist NICHT im lane-zugriff - externe Demo-owner aktion: die vier tools baseharbor.app.perses.{disable,enable,remove,status} in den Demo-expected-tool-list aufnehmen, damit static-mcp sie nicht meh…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/mcp-contract-0428-232/round-1.md)  
+    **Owner:** andere Codex-Session (demo)  
+    **PR:** [baseharbor-demo#169](https://github.com/mcpdev80/baseharbor-demo/pull/169)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/mcp-contract-0428-232/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-demo/commit/c23bd9ac)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** coord (befund) / external demo owner (aktion)  
+**Owner:** andere Codex-Session (demo)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor-demo#169](https://github.com/mcpdev80/baseharbor-demo/pull/169)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -65,3 +65,9 @@ Der drift ist nicht mehr nur behauptet, sondern von einem gehosteten statischen 
 Ursache ist NICHT der produktcontract: die vier perses-methoden sind legitima exponiert (cmd/baha/mcp_lifecycle_extra.go:61-75, internal/machine/contract.go:205-208, Operations meldet sie und MCPTools bei zeile 270 liefert jedes nicht-leere MCPTool) und stehen bereits im produkt-internen golden. Die abweichende liste liegt im DEMO-REPO: baseharbor-demo/tests/mcp/run.sh, das expected-set bei zeile 31 (ein Python set-literal), die bracket-zeilen 72-73 fuer baseharbor.app.perses.*, und der comparer bei 127-128; aufgerufen wird die position aus baseharbor-demo/.github/workflows/pre-release-runtime-suite.yml:267 (mcp-branch). Die lane hat korrekt STOP gemeldet: die korrektur ist ein ADDITIVER golden-eintrag im demo-repo, also Owner-scope. Rezept mit exakten zeilen liegt in der akte mcp-contract-0428-232/round-1.md. Diese karte bleibt blocked auf diesen einen demo-edit; nach dem edit melde ich den statischen mcp-gate-nachweis neu an.
 
 VON active zurueck auf blocked: 0847d100 wurde losgeschickt, aber sie ist im gepinnten DEMO-repo extern, nicht lane-aenderbar. static-mcp 137190621450 braucht die vier perses tools im demo-expected-list. Befund liegt vor, aktion = externer demo owner. Kein blocked-heben ohne deren zugriff.
+
+Geloest: demo PR #169 (head 1bc8b2f) MERGED bei c23bd9ac. Exakt sechs Additionen in tests/mcp/run.sh: vier freigegebene Perses-MCP-tool-namen + status read-only annotation + destructive annotation entfernt. bash -n + diff-check gruen. Owner gab die vier Tools ausdruecklich frei.
+
+Geloest: demo PR #169 (head 1bc8b2f) MERGED bei c23bd9ac. Exakt sechs Additionen in tests/mcp/run.sh: vier freigegebene Perses-MCP-tool-namen + status read-only annotation + destructive annotation entfernt. Owner gab die vier Tools ausdruecklich frei.
+
+Geloest: demo PR #169 (head 1bc8b2f) MERGED bei c23bd9ac. Exakt sechs Additionen in tests/mcp/run.sh: vier freigegebene Perses-MCP-tool-namen + status read-only annotation + destructive annotation entfernt. Owner gab die vier Tools ausdruecklich frei.

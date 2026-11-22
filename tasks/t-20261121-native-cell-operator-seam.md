@@ -7,7 +7,7 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: coord (route) / owner (delta sauber)
+owner: coord (park) / owner (delta sauber)
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: "controlplanesinglenativecitest.go stops failing with prepare BaseHarbor integration trust plane: because the native-cell test…"
@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1740, mcpdev80/baseharbor#1765, mcpdev80/baseharbor#1766]
 sources: []
 blocker: ""
-wait_reason: "Rebased head fadaa3e20 auf develop 64eab13e, exakter lauf 45021008989. Native Keycloak/Core docker+podman BEIDE SUCCESS (assertion durch #1766 behoben). Erste rote reihe native docker data-capabilities 137203733905 = broker container unhealthy 2m03s = 0428-237 separater PR. Podman data-capabilities + selected docker/podman laufen noch. Rerun-gruen erst wenn 0428-237-PR + 0428-227-consent-entscheidung auf develop liegen."
+wait_reason: "PARKED am belegten broker-blocker (readyz 503 = 0428-237). Andere Codex-session fuehrt keine weiteren breiten laeufe aus. Rerun erst wenn 242 + 237 + consent(236) auf develop sind."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1740", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md", "https://github.com/mcpdev80/baseharbor/pull/1765", "https://github.com/mcpdev80/baseharbor/actions/runs/45021008989"]
   - "https://github.com/mcpdev80/baseharbor/pull/1740"
@@ -27,9 +27,9 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1740", "https://github.c
 
 - [ ] t-20261121-native-cell-operator-seam · 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** coord (route) / owner (delta sauber) · **Priority:** high  
+    **Owner:** coord (park) / owner (delta sauber) · **Priority:** high  
     **PR:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740), [baseharbor#1765](https://github.com/mcpdev80/baseharbor/pull/1765), [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766)  
-    **Waiting:** Rebased head fadaa3e20 auf develop 64eab13e, exakter lauf 45021008989. Native Keycloak/Core docker+podman BEIDE SUCCESS (assertion durch \#1766 behoben). Erste rote reihe native docker data-capabilities 137203733905 = broker container unhea…  
+    **Waiting:** PARKED am belegten broker-blocker (readyz 503 = 0428-237). Andere Codex-session fuehrt keine weiteren breiten laeufe aus. Rerun erst wenn 242 + 237 + consent(236) auf develop sind.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1765), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45021008989), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44868911131)  
     <!-- /generated:card -->
 
@@ -37,7 +37,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1740", "https://github.c
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** coord (route) / owner (delta sauber)  
+**Owner:** coord (park) / owner (delta sauber)  
 **Priority:** high  
 **PRs:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740), [baseharbor#1765](https://github.com/mcpdev80/baseharbor/pull/1765), [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766)  
 **Source:** 

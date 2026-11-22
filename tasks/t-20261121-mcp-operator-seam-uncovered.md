@@ -7,18 +7,18 @@ areas: [cli, observability]
 release: v0.4.28
 version: ""
 parent: ""
-owner: coordinator (karte) / erster freier worker-sitz (ausfuehrung)
-kanban_status: wait
-kanban_lane: wait
+owner: f0f6c8b4 (fix)
+kanban_status: active
+kanban_lane: active
 kanban_summary: Every MCP mutation path whose test expects the verbatim gate message Managed-environment machine operations require an…
 kanban_title: 0428-218 · 0428-218 mcp operator seam
 priority: normal
 depends_on: [t-20261120-cli-operator-entrypoints]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1741, mcpdev80/baseharbor#1738]
+prs: [mcpdev80/baseharbor#1741, mcpdev80/baseharbor#1738, mcpdev80/baseharbor#1769]
 sources: []
 blocker: ""
-wait_reason: "carrier-abhaengigkeit ja; neue basis ist develop 8629450ef3c, der delta wird dort neu geschnitten - die alte PR-basis bleibt nicht in gebrauch"
+wait_reason: ""
 resolution: ""
 created: "2026-11-21T05:55:00Z"
 updated: "2026-11-21T05:55:00Z"
@@ -26,21 +26,20 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 ---
 
-- [ ] t-20261121-mcp-operator-seam-uncovered · 0428-218 make the MCP operator seam reachable from MCP tests #task #release/v0-4-28 #status/wait #view/wait #area/cli #area/observability #kind/bug
+- [ ] t-20261121-mcp-operator-seam-uncovered · 0428-218 make the MCP operator seam reachable from MCP tests #task #release/v0-4-28 #status/active #view/active #area/cli #area/observability #kind/bug
     <!-- generated:card -->
-    **Owner:** coordinator (karte) / erster freier worker-sitz (ausfuehrung) · **Priority:** normal  
-    **PR:** [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741), [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
-    **Waiting:** carrier-abhaengigkeit ja; neue basis ist develop 8629450ef3c, der delta wird dort neu geschnitten - die alte PR-basis bleibt nicht in gebrauch  
+    **Owner:** f0f6c8b4 (fix) · **Priority:** normal  
+    **PR:** [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741), [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738), [baseharbor#1769](https://github.com/mcpdev80/baseharbor/pull/1769)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** coordinator (karte) / erster freier worker-sitz (ausfuehrung)  
+**Owner:** f0f6c8b4 (fix)  
 **Priority:** normal  
-**PRs:** [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741), [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
+**PRs:** [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741), [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738), [baseharbor#1769](https://github.com/mcpdev80/baseharbor/pull/1769)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -125,3 +124,9 @@ CODEX-REVIEW r2 'review-2.md' (plan 14309cf0 + 2ca4c07b + f624354a) = 'Verdikt: 
 r5 plus rebase auf e45430f2 (delta eine datei, head 7e6792939c55). Der aufruf von authorizeMCPOperation mit installation.destroy steht im TEST, nicht im produktionspfad der bootstrap-aufraeum-route. cli-0 zeigt denselben einen fremden fallen wie 1737.
 
 ROUTE NEU FESTGELEGT NACH CENSUS (akte operator-auth-helper/carrier-census-1737-1738-1740-1741.md, plan commit da2176f7f40, von 1450c201 gemessen): PR 1726 wird NICHT wieder eroeffnet und es entsteht KEIN neuer traeger - #1750 ist gemergt, also wird der JEWEILIGE eigene delta des kandidaten auf develop 8629450ef3c neu geschnitten. Fernzeugnis der kinder: alle back=275, mergeStateStatus UNSTABLE, base zeigt auf die tote basis lane-0428-198-cli-shard-operator-env (spitze e45430f2f1b). Carrier-abhaengigkeit: ja. Ihr PR-head gemessen: 1741 siehe akte 'Child PR state and diff against the named carrier'. Naechster schritt: mission auf dem ersten freien arbeits-sitz (neu schneiden statt hoepfen; bei 'nein' reicht der additive hop), dann exact gehosteter durchgang + unabhaengige pruefung. Kein merge aus der alten basis heraus.
+
+Recut #1769 review REQUEST CHANGES: acfee600b fails undefined operatorAuthFixtureContext + withoutOperatorAuthTestContext (beide 0 definitionen auf develop; helper lebt in #1741 cmd/baha/operator_test_fixture_test.go). f0f6c8b4 portiert die helper (test-seitig, kein guard). #1741 bleibt offen bis #1769 verified+gemerged.
+
+Recut 1769 review REQUEST CHANGES: acfee600b fails undefined operatorAuthFixtureContext + withoutOperatorAuthTestContext (beide 0 definitionen auf develop; helper lebt in 1741 cmd/baha/operator_test_fixture_test.go). f0f6c8b4 portiert die helper (test-seitig, kein guard). 1741 bleibt offen bis 1769 verified+gemerged.
+
+Recut 1769 review REQUEST CHANGES: acfee600b fails undefined operatorAuthFixtureContext + withoutOperatorAuthTestContext. Beide auf develop NICHT vorhanden (H-V24 FUND1: withoutOperatorAuthTestContext existiert auch auf #1741-head nicht) -> fixer SCHREIBT die opt-out helpers test-seitig NEU (mcp.go:303->authentication_failed negativ-richtung erreichbar machen), KEINE produkt-/operatorauth-denial-aenderung. #1741 bleibt offen bis 1769 verified+gemerged.

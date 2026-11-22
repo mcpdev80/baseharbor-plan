@@ -34,6 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45011815553"]
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
+**Required by:** [t-20261121-static-gate-registration](t-20261121-static-gate-registration.md), [t-20261122-runtime-broker-health-unhealthy](t-20261122-runtime-broker-health-unhealthy.md)  
 **Owner:** ffe7611b (Codeman lane, OWNER-FREIGABE scripts/** 22.11) / coord (zeugnis)  
 **Priority:** high  
 **PRs:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763)  

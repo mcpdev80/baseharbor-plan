@@ -7,34 +7,35 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ffe7611b (lane, hop + fish-einschraenkung) / coord (abhaengigkeits-pflege)
-kanban_status: active
-kanban_lane: active
+owner: ffe7611b (hop+pin) / coord
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Register scripts/ci-fast-check.sh as a real v0.4.28 Pre-Release static gate, with the full catalog/dispatcher wiring and…"
 kanban_title: "0428-205 · Gate catalog: ci-fast-check"
 priority: normal
-depends_on: [t-20261121-develop-full-suite-red]
+depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "SCHRITT 3: erst NACH 242 (232 fertig demo c23bd9ac) volstaendige release-qualifikation positiv+negativ am selben Stand. Traegt demo-pin ff2ccaf + beide-shell install; fokussierter pre-release lauf 45023477422 (atomic/static/mcp) laeuft ordinary, aber KEINE neue volle qualifizierung und NICHT mergen bevor 1768/242 gruen ist."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "https://github.com/mcpdev80/baseharbor/actions/runs/44944570763", "https://github.com/mcpdev80/baseharbor/pull/1746"]
 ---
 
-- [ ] t-20261120-gate-catalog-ci-fast-check · 0428-205 · Wire ci-fast-check into the release gate catalog #task #release/v0-4-28 #status/active #view/active #area/ci #kind/bug
+- [ ] t-20261120-gate-catalog-ci-fast-check · 0428-205 · Wire ci-fast-check into the release gate catalog #task #release/v0-4-28 #status/wait #view/wait #area/ci #kind/bug
     <!-- generated:card -->
-    **Owner:** ffe7611b (lane, hop + fish-einschraenkung) / coord (abhaengigkeits-pflege) · **Priority:** normal  
+    **Owner:** ffe7611b (hop+pin) / coord · **Priority:** normal  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
+    **Waiting:** SCHRITT 3: erst NACH 242 (232 fertig demo c23bd9ac) volstaendige release-qualifikation positiv+negativ am selben Stand. Traegt demo-pin ff2ccaf + beide-shell install; fokussierter pre-release lauf 45023477422 (atomic/static/mcp) laeuft ord…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44943804395), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44944570763), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1746)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
-**Owner:** ffe7611b (lane, hop + fish-einschraenkung) / coord (abhaengigkeits-pflege)  
+**Depends on:** none  
+**Owner:** ffe7611b (hop+pin) / coord  
 **Priority:** normal  
 **PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
 **Source:** 

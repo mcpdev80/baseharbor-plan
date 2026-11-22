@@ -1,4 +1,5 @@
 ---
+depends_on: [t-20261122-gate-catalog-missing-app-broker-component]
 id: t-20261122-runtime-broker-health-unhealthy
 card_number: "0428-237"
 card_short_title: "data-capabilities native gate"
@@ -7,16 +8,15 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0847d100 (lane)
+owner: andere Codex-Session (#1770)
 tags: [#task, #release/v0.4-28]
 kanban_status: active
 kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-237 · data-capabilities native gate
 priority: ""
-depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1753, mcpdev80/baseharbor#1761]
+prs: [mcpdev80/baseharbor#1753, mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1770]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,18 +26,19 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "h
 
 - [ ] t-20261122-runtime-broker-health-unhealthy · CI: data-capabilities native gate fails on secure runtime broker readiness #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** 0847d100 (lane)  
-    **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
+    **Owner:** andere Codex-Session (\#1770)  
+    **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770)  
+    **Needs:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998846458), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45008538769), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-3.md), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45011764715)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** none  
-**Owner:** 0847d100 (lane)  
+**Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
+**Owner:** andere Codex-Session (#1770)  
 **Priority:** not set  
-**PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
+**PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -136,3 +137,5 @@ DER ECHTE VERBLEIBENDE #1753-BLOCKER, NEU BESTAETIGT am frischen head 22ff534533
 BESTAETIGT an durchgang 45011764715 (head 22ff5345335, TERMINAL FAILURE failed 5): NATIVE data-capabilities schlagen fehl in BEIDEN engines - docker-job 137175474667 UND podman-job 137175474631 (TestApplicationCapabilityLifecycleExistingCore/secrets, broker unhealthy/503), plus PR Selected Checks. Meine fruehere feststellung, podman laeuft noch, ist ueberholt: podman ist FAHLS. Die broker-readiness-fix (controlplaneruntime) ist im head NOCH NICHT enthalten. 0847d100 liefert.
 
 FIX-ORT KORRIGIERT DURCH READ-ONLY-HUNT (akte hunt-develop-releasedesse-round-1.md, origin/main 9fe9690c2): der broker-503/unhealthy kommt aus cmd/baha/app_broker.go - (1) :440-447 docker / :412-421 podman lesen transientes 'starting'/ 'unhealthy' als FATAL, obwohl compose-healthcheck retries:12 traegt -> keine FailingStreak-Toleranz = wahre ursache der fruehzeitigen ablehnung. (2) :502 version-mismatch zeigt expectedVersion doppelt. (3) /readyz parst raw-body ohne HTTP-status. Auftrag an 0847d100 (brk503c). SCHREIB-KANTE: #1763 editiert dieselbe datei (diagnostics) -> merge-reihenfolge, kein file-conflict wenn 0847d100 nur die readiness-BEDINGUNG ergaenzt und die redaction nicht anfasst.
+
+1770 standalone (nur scripts/ci-native-pr-gate.sh) head 11df3b2e, CI 45022910559 green aber native matrices skipped (keine katalog-mapping) = nicht runtime-validiert. Wartet 1768/242 (registriert scripts/ci-native-pr-gate.sh als ci-executor). Danach 1770 auf develop-head hoppen + exakten native data-capabilities docker und rootless podman nachweis. 1753 haelt am consent 236 owner-entscheidung.
