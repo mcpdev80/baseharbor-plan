@@ -8,26 +8,26 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ffe7611b (lane ueber 0428-205) / 1450c201 (zensus)
+owner: coord
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: Run the existing scripts/ci-fast-check.sh as its own static gate in the v0.4.28 Pre-Release Suite. Preserve every existing…
 kanban_title: 0428-208 · 0428-208 static gate
 priority: high
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1746]
+prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1771]
 sources: []
 blocker: ""
-wait_reason: "integration runs on card 0428-205 (lane ffe7611b) within that card authorization; this card keeps the gate-coverage census verdict (b) and closes when the hosted static jobs are seen executed"
+wait_reason: "Schritt 3, gleiches 1746-paket. Freigabe erst wenn #242 (katalog) + #232 (demo, fertig) + #1771 (231 operator-auth fixture/grant fuer mcp-static) auf develop + volstaendige release-qualifikation positiv+negativ am selben stand."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md"]
 ---
 
 - [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/wait #view/wait #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** ffe7611b (lane ueber 0428-205) / 1450c201 (zensus) · **Priority:** high  
-    **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
-    **Waiting:** integration runs on card 0428-205 (lane ffe7611b) within that card authorization; this card keeps the gate-coverage census verdict (b) and closes when the hosted static jobs are seen executed  
+    **Owner:** coord · **Priority:** high  
+    **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771)  
+    **Waiting:** Schritt 3, gleiches 1746-paket. Freigabe erst wenn \#242 (katalog) + \#232 (demo, fertig) + \#1771 (231 operator-auth fixture/grant fuer mcp-static) auf develop + volstaendige release-qualifikation positiv+negativ am selben stand.  
     **Needs:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44997978036), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md)  
     <!-- /generated:card -->
@@ -36,9 +36,9 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "h
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** ffe7611b (lane ueber 0428-205) / 1450c201 (zensus)  
+**Owner:** coord  
 **Priority:** high  
-**PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
+**PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771)  
 **Source:** 
 <!-- /generated:links -->
 
