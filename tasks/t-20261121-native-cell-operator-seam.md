@@ -7,9 +7,9 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: b90e4ba1 (#1765 TP-eintrag iteration 2, head 90586945a, run 45081520103 laeuft) / Coordinator
-kanban_status: active
-kanban_lane: active
+owner: Coordinator (ingress-wartend) / Lane eingefroren
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "controlplanesinglenativecitest.go stops failing with prepare BaseHarbor integration trust plane: because the native-cell test…"
 kanban_title: 0428-209 · 0428-209 native cell seam
 priority: high
@@ -17,7 +17,7 @@ depends_on: [t-20261120-cli-operator-entrypoints]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1740, mcpdev80/baseharbor#1765, mcpdev80/baseharbor#1766]
 sources: []
-blocker: ""
+blocker: "dieselbe klasse: control_plane_single_native_ci_test.go existiert bereits in develop, base-row fehlt. Trigger: merge der ingress-karte t-20261123-catalog-ingress-develop-prereqs, dann re-run #1765. Kein dritter blindrow-push (hint zugestellt)."
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1740", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md", "https://github.com/mcpdev80/baseharbor/pull/1765", "https://github.com/mcpdev80/baseharbor/actions/runs/45021008989"]
@@ -25,18 +25,19 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1740", "https://github.c
   - "https://github.com/mcpdev80/baseharbor/actions/runs/44868911131"
 ---
 
-- [ ] t-20261121-native-cell-operator-seam · 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
+- [ ] t-20261121-native-cell-operator-seam · 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (\#1765 TP-eintrag iteration 2, head 90586945a, run 45081520103 laeuft) / Coordinator · **Priority:** high  
+    **Owner:** Coordinator (ingress-wartend) / Lane eingefroren · **Priority:** high  
     **PR:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740), [baseharbor#1765](https://github.com/mcpdev80/baseharbor/pull/1765), [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766)  
+    **Blocker:** dieselbe klasse: control\_plane\_single\_native\_ci\_test.go existiert bereits in develop, base-row fehlt. Trigger: merge der ingress-karte t-20261123-catalog-ingress-develop-prereqs, dann re-run \#1765. Kein dritter blindrow-push (hint zugestel…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1765), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45021008989), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44868911131)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** b90e4ba1 (#1765 TP-eintrag iteration 2, head 90586945a, run 45081520103 laeuft) / Coordinator  
+**Owner:** Coordinator (ingress-wartend) / Lane eingefroren  
 **Priority:** high  
 **PRs:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740), [baseharbor#1765](https://github.com/mcpdev80/baseharbor/pull/1765), [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766)  
 **Source:** 
