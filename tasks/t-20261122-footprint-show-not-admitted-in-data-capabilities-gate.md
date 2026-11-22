@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w21-pr1702-0428-142-compat
-kanban_status: review
-kanban_lane: review
+owner: fecbada9 (review) / 0847d100 (lane)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "The disposable acceptance gates that legitimately call baha app footprint show are admitted by the CI operator boundary, so the…"
 kanban_title: 0428-227 · footprint show gate admission
 priority: ""
@@ -20,21 +20,22 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44993125398"]
 ---
 
-- [ ] t-20261122-footprint-show-not-admitted-in-data-capabilities-gate · Acceptance contract: baha app footprint show is admitted only for the guided gate #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261122-footprint-show-not-admitted-in-data-capabilities-gate · Acceptance contract: baha app footprint show is admitted only for the guided gate #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w21-pr1702-0428-142-compat  
+    **Owner:** fecbada9 (review) / 0847d100 (lane)  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44993125398)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](t-20261122-ci-integration-operator-seams-without-gate-admission.md)  
 **Required by:** [t-20261120-workload-port-flag-ignored-locally](t-20261120-workload-port-flag-ignored-locally.md)  
-**Owner:** w21-pr1702-0428-142-compat  
+**Owner:** fecbada9 (review) / 0847d100 (lane)  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
 **Source:** 
@@ -105,3 +106,5 @@ hop delivered by 0847d100: refs/pull/1753/head 71deb610a03, back=0 against devel
 independent review at exact head 91f4e38795a gives VERDICT APPROVE content, merge blocked by card 0428-228 path to gate entry at scripts/pr-gate-plan.py line 180 (reviewer akte review-1753-head91f4e38795a.md)
 
 Corrected candidate head ce5cf8f3037 (back=0, ahead=1) mit run 44986388874 SUCCESS und 0 failed jobs; der erste versuch e120f0815 war durch eine beschnittene datei ungueltig und CI hat das sofort gezeigt. Selected Runtime ist auch hier SKIPPED (job 137097832863), grund: fehlende components- und native_checks-zeilen, karte 0428-230.
+
+review am exakten head d690d7ffd4d = APPROVE (akte footprint-gate-admission/review-1753-headd690d7ffd4d5.md auf origin/main e7a30bd6848). Exakter run 44993125398 SUCCESS/0 failed, operator-job 137118399949 PASS. Commit ce5cf8f3037 ist kartenarbeit (footprint operator seam plus test), keine fremde arbeit. Kein merge in dieser runde: die karten-abnahme will die Zulassung im native-gate BELEGT, und 'PR Selected Runtime' 137118401195 ist am kandidaten noch SKIPPED, weil PR 1756 (die katalogzeilen) noch nicht in der base liegt. Naechster schritt nach dem 1756-merge: weiterer additiver hop, ein run mit echten runtime-zeilen, dann merge.
