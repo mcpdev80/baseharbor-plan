@@ -75,3 +75,14 @@ origin	https://github.com/mcpdev80/baseharbor-plan.git (fetch)
 ```
 
 END 0428-223-testctx DONE (0428-231 korrekturronde: branch lane-0428-231-static-auth-helper, neuer head d275e50c5ba0245b6ab8a42f9655c9bef1bb2bd0, base 52a3c544 base-behind=0, PR #1761 draft, run 44998552411 completed SUCCESS failed 0, alle fuenf dateien auf dem helper, cleanliness: nothing started)
+
+## origin/main evidence witness
+
+Exact output of `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep static-cells-operator-auth-helper`:
+
+```
+evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head5794874302f.md
+evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/round-1.md
+evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/round-2.md
+tasks/t-20261122-static-cells-operator-auth-helper.md
+```
