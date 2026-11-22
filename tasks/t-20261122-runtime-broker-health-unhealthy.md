@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0847d100 (lane, naechster auftrag) / f0f6c8b4 (read-only-vorarbeit)
+owner: 0847d100 (lane, zweiter fix-schritt auf demselben zweig)
 tags: [#task, #release/v0.4-28]
 kanban_status: active
 kanban_lane: active
@@ -26,7 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "h
 
 - [ ] t-20261122-runtime-broker-health-unhealthy · CI: data-capabilities native gate fails on secure runtime broker readiness #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** 0847d100 (lane, naechster auftrag) / f0f6c8b4 (read-only-vorarbeit)  
+    **Owner:** 0847d100 (lane, zweiter fix-schritt auf demselben zweig)  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998846458), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45008538769), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-3.md)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "h
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0847d100 (lane, naechster auftrag) / f0f6c8b4 (read-only-vorarbeit)  
+**Owner:** 0847d100 (lane, zweiter fix-schritt auf demselben zweig)  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
 **Source:** 
@@ -124,3 +124,7 @@ UMGESCHICHTET, weil meine these die messung nicht traegt: 'readiness timeout' NU
 UMGESCHICHTET, weil meine these die messung nicht traegt: 'readiness timeout' NULL mal in den vier protokollen, 'not_ready' GENAU EIN mal (podman 137139636747). Shared blocker ist die fussnoten-ZULASSUNG (0428-227). Auftrag: chronologie-aenderung gestoppt, kein PR ohne wiederholbaren not_ready auf develop 8629450ef3c, dafuer der abgrenzungs-abschnitt in runde-3 (akten-regel: nummerierte listen statt checkbox-zeilen, die blockieren die publikation).
 
 ARBEIT WIEDER AKTIV, WEIL DER FALL REAL IST (protokoll von mir, nativer docker-job 137165488041 im durchgang 45008538769, head b86440c3 auf develop 8629450ef3c): 'app_capability_runtime_test.go:136: [app apply --skip-memory-preflight]: Starting secure runtime broker:' mit 'unhealthy' 2 mal, daneben READY 8 mal und OpenBao 2 mal, und 'live runtime inventory: Core containers=0 total containers=0' (zeile :55). DER BROKER STARTET ALSO NICHT HOCH, waehrend control-plane und OpenBao bereit melden - das zeigt auf den runtime-executor-pfad (server_run.go:182/:203), nicht auf database/openbao. Meine pauschale zuruecknahme von vorhin war zu breit: der defekt ist reproduzierbar, nur nicht in den develop-Core-laehlen. AUFTRAG: fix auf 0847d100 nach ihrem #1753-bericht (ihr durchgang traegt den beweis), verbotenerweg weiter: kein timeout erhoehen, kein retry, kein sleep, kein 'not_ready' durch 'ok'. SELECTED-seite ist eine ANDERE karte geworden: 0428-241 (guided fixture drift, dep-frei, wartet auf einen freien sitz).
+
+MEINE EIGENE KORREKTUR: ich hatte diese karte wegen 'containers=0' zurueck auf active gedreht - das war zu weit. Im exakten-head-protokoll 137165488041 steht 'readiness timeout' NULL mal und 'not_ready' genau einmal, waehrend 'confirm-candidate' und zwei TestApplication-Faelle den ausschlag geben. DER BROKER HAENGT ALSO NICHT in diesem fall; die ursache der roten runtime-reihen ist die fussnoten-zulassung (0428-227), die 0847d100 jetzt behebt. Diese karte wartet auf dessen outcome; wenn nach gruenem 0428-227 immer noch ein readiness-fehler uebrig bleibt, geht sie zurueck in arbeit.
+
+ZWEI-URECHEN-AUFTEILUNG, DIREKT GEMESSEN AN RUN 45008538769 (head b86440c3): NATIV (docker 137165488041 + podman 137165488058) readiness timeout=0, not_ready=1, 'Starting secure runtime broker' 32x, '503' 17x -> DER BROKER meldet 503 NICHT-BEREIT im capability-lifecycle-test. SELECTED (docker 137165839346) not_ready=0, confirm-candidate=8 -> NUR consent. PR 1753 braucht BEIDE gruen, deshalb zwei getrennte fix-schritte auf DEMSELBEN branch. Meine zwei vorangehenden drehungen (active, dann wait) waren je zur eine haelfte richtig: nativ IST ein echtes 503-readiness-fehlerbild. Auftrag an 0847d100: den broker-readiness-pfad in internal/controlplaneruntime/** so fixen, dass /readyz NICHT 503 liefert, wenn der broker im lifecycle-test hochfaehrt - verbotenes weiter: timeout erhoehen, retry, sleep, not_ready->ok.

@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0847d100 (lane, hop + durchgang) / fecbada9 (pruefung bereit)
-kanban_status: blocked
-kanban_lane: blocked
+owner: 0847d100 (lane)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "The disposable acceptance gates that legitimately call baha app footprint show are admitted by the CI operator boundary, so the…"
 kanban_title: 0428-227 · footprint show gate admission
 priority: ""
@@ -17,26 +17,25 @@ depends_on: [t-20261121-develop-full-suite-red, t-20261122-ci-integration-operat
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1753]
 sources: []
-blocker: "broker readiness fix (card 0428-237) must land first; then one additive hop onto current develop and one exact hosted run. Hop done at b86440c3 (parent 8629450e). Exact run 45008538769 FAILED on BOTH native data-capabilities engines at broker readiness: job 137165488041 (docker) + job 137165488058 (podman), readiness 503 not_ready. Candidate byte-identical to prior hop; failure is 0428-237 domain. No rerun."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44993125398", "https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44998829701", "https://github.com/mcpdev80/baseharbor/actions/runs/45008538769"]
 ---
 
-- [ ] t-20261122-footprint-show-not-admitted-in-data-capabilities-gate · Acceptance contract: baha app footprint show is admitted only for the guided gate #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261122-footprint-show-not-admitted-in-data-capabilities-gate · Acceptance contract: baha app footprint show is admitted only for the guided gate #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** 0847d100 (lane, hop + durchgang) / fecbada9 (pruefung bereit)  
+    **Owner:** 0847d100 (lane)  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
-    **Blocker:** broker readiness fix (card 0428-237) must land first; then one additive hop onto current develop and one exact hosted run. Hop done at b86440c3 (parent 8629450e). Exact run 45008538769 FAILED on BOTH native data-capabilities engines at bro…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44993125398), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998829701), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45008538769)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](t-20261122-ci-integration-operator-seams-without-gate-admission.md)  
 **Required by:** [t-20261120-workload-port-flag-ignored-locally](t-20261120-workload-port-flag-ignored-locally.md)  
-**Owner:** 0847d100 (lane, hop + durchgang) / fecbada9 (pruefung bereit)  
+**Owner:** 0847d100 (lane)  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
 **Source:** 
@@ -129,3 +128,7 @@ HOP IST GELANDET, drchung laeuft: branch lane-0428-227-footprint-gate-admission 
 HOP IST GELANDET, durchgang laeuft: branch lane-0428-227-footprint-gate-admission zeigt auf b86440c389b mit base develop 8629450ef3c; exact durchgang 45008538769 AKTIV auf beiden nativen (docker 137165488041, podman 137165488058) UND beiden selected data-capabilities-reihen (docker 137165839346, podman 137165839308), 'Selected Core-less' 137165589059 skipped - der erste kandidat, dessen matrix wirklich ausgefuehrt wird. Kein fehlgeschlagener job bis zu dieser messe. Zeuge gegen meine fruehere these: 'readiness timeout' NULL mal in den vier gelesenen protokollen, 'not_ready' genau EIN mal (podman 137139636747 von PR 1761) - shared blocker ist die fussnoten-ZULASSUNG, diese karte.
 
 HOP IST GELANDET, durchgang laeuft: branch lane-0428-227-footprint-gate-admission zeigt auf b86440c389b mit base develop 8629450ef3c; exact durchgang 45008538769 AKTIV auf beiden nativen (docker 137165488041, podman 137165488058) UND beiden selected data-capabilities-reihen (docker 137165839346, podman 137165839308); 'Selected Core-less' 137165589059 skipped. Der erste kandidat, dessen matrix wirklich ausgefuehrt wird - kein fehlgeschlagener job bis zu dieser messe. ZEUGE GEGEN MEINE FRUEHERE THESE: 'readiness timeout' NULL mal in den vier gelesenen protokollen, 'not_ready' genau EIN mal (podman 137139636747 von PR 1761) - shared blocker ist die fussnoten-ZULASSUNG, also diese karte.
+
+DIE EIGENTLICHE blockade, von der lane-diagnose und meinem exakten-head-protokoll bestaetigt: 'app footprint show' ist im Trusted-Gate-Registry (internal/gate-registry.go ~45) nicht als lesende operation zugelassen, wird wie eine kandidaten-mutation behandelt und loest die Consent-kaskade aus, an der alle vier runtime-reihen rot werden. PR 1753 fuegt das kommando ein, aberr NICHT die zulassung. Auftrag an 0847d100: registry-zeile ergaenzen (readend), echter hop auf develop, EIN durchgang bis terminal, ziel alle vier reihen green. Kein merge bis dahin.
+
+ZWEI-URECHEN-AUFTEILUNG, DIREKT GEMESSEN AN RUN 45008538769 (head b86440c3): NATIV (docker 137165488041 + podman 137165488058) readiness timeout=0, not_ready=1, 'Starting secure runtime broker' 32x, '503' 17x -> DER BROKER meldet 503 NICHT-BEREIT im capability-lifecycle-test. SELECTED (docker 137165839346) not_ready=0, confirm-candidate=8 -> NUR consent. PR 1753 braucht BEIDE gruen, deshalb zwei getrennte fix-schritte auf DEMSELBEN branch. Diese karte deckt die SELECTED-seite: registry-zulassung von 'app footprint show' als lesend (0847d100 erhaelt beide schritte, registry-zulassung + broker-readiness, in einem branch, EIN durchgang, ziel alle vier reihen green).

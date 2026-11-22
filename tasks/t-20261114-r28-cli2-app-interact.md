@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1623]
 sources: []
 blocker: ""
-wait_reason: "carrier not needed: generated docs on develop are byte-identical to generator output (measured); regeneration runs as a step inside this PR own additive hop, carrier PR 1764 stays closed"
+wait_reason: "die vier vollen Pre-Release-gates (mcp, init, shell-ux, config-matrix) sind am head 3617a2a5 ROT wegin ANDEREN karten, nicht wegen 1746 (PR-CI 45007709072 SUCCESS): mcp 137170967605 = 4 unerwartete Perses-methoden (0428-231), init/shell-ux = managed operator authentication (0428-063), config-matrix = workload-only authentication_failed (0428-199); plus die fisch->zsh einschraenkung ist .github-owner-scope"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1623"]
 ---
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1623"]
     <!-- generated:card -->
     **Owner:** sweep maintainer (claim 2ae9fd00d) / coord (integrations-regel) · **Priority:** high  
     **PR:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623)  
-    **Waiting:** carrier not needed: generated docs on develop are byte-identical to generator output (measured); regeneration runs as a step inside this PR own additive hop, carrier PR 1764 stays closed  
+    **Waiting:** die vier vollen Pre-Release-gates (mcp, init, shell-ux, config-matrix) sind am head 3617a2a5 ROT wegin ANDEREN karten, nicht wegen 1746 (PR-CI 45007709072 SUCCESS): mcp 137170967605 = 4 unerwartete Perses-methoden (0428-231), init/shell-ux…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1623)  
     <!-- /generated:card -->
 
@@ -99,3 +99,5 @@ TRAEGER-GEDANKE IST ERLEDIGT, GRUND GEMESSEN (akte der lane 0847d100): die gener
 test: traeger-entscheid gemessen, PR 1764 bleibt geschlossen
 
 TRAEGER-GEDANKE ERLEDIGT, GRUND GEMESSEN: die generator-ausgabe (BASEHARBOR_UPDATE_MACHINE_DOCS=1 go test ./cmd/baha -run TestHumanCommandIndexTracksExactCommandMetadata und TestMachineDocumentationTracksRegistryAndCommandTree) ist BYTE-FOR-BYTE wie develop 8629450ef3c - der carrier-PR 1764 war darum LEER und fiel zu recht durch 'PR . Trusted Plan' 137156455112 und 'PR . Selected Checks' 137156547886 (24 skipped). ENTSCHEID: weder einen leeren carrier akzeptieren, noch die command-tree-aenderung in eine andere karte ziehen - die neu-erzeugung ist ein SCHRITT IM hop dieses PRs (generator-durchgang, kein hand-edit); PR 1764 bleibt geschlossen. Damit entfaellt die blockade 'wartet auf index-traeger': der hop auf develop 8629450ef3c erzeugt die doc-deltas aus dem EIGENEN command-baum. Rueckstand 586 commits, 20 dateien, davon 8 in cmd/baha; KANTE zu #1620 ueber cmd/baha/app_access.go vor dem hop pruefen (coordinator/board/integration-order.md).
+
+#1746: ihr teil ist GELUNGEN (PR-CI 45007709072 SUCCESS/CLEAN am 3617a2a5a8b). Der REST der akzeptanz haengt NICHT an 1746: der volle Pre-Release-durchgang 45009827491 ist rot in mcp/init/shell-ux/config-matrix, aber die kopfe dieser fehl- schlaege sind ANDERE karten - Perses (0428-231), managed-operator-auth (0428-063), workload-auth (0428-199). Und die eine fisch->zsh-zeile (pre-release.yml 343) ist .github-OWNER-scope, die lane darf sie nicht pushen. Karte auf wait; der fisch-einschub liegt beim eigentimer, die gate-kopfe bei ihren eigenen karten.

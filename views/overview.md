@@ -10,10 +10,10 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 10 |
+| active | 11 |
 | review | 1 |
 | wait | 20 |
-| blocked | 2 |
+| blocked | 1 |
 | ready | 9 |
 | queued | 25 |
 | waiting | 177 |
@@ -33,7 +33,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-destroy-authority-stamp](../tasks/t-20261121-destroy-authority-stamp.md) | installation.destroy authorization assertion runs on a stamped context | active | high | f0f6c8b4 (lane, retarget + hop + durchgang) | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738) |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
 | [t-20261122-broker-diagnostics-empty](../tasks/t-20261122-broker-diagnostics-empty.md) | CLI: name the failing dependency in broker readiness diagnostics | active | not set | b90e4ba1 (lane) | — | [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763) |
-| [t-20261122-runtime-broker-health-unhealthy](../tasks/t-20261122-runtime-broker-health-unhealthy.md) | CI: data-capabilities native gate fails on secure runtime broker readiness | active | not set | 0847d100 (lane, naechster auftrag) / f0f6c8b4 (read-only-vorarbeit) | — | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761) |
+| [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](../tasks/t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md) | Acceptance contract: baha app footprint show is admitted only for the guided gate | active | not set | 0847d100 (lane) | [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](../tasks/t-20261122-ci-integration-operator-seams-without-gate-admission.md) | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753) |
+| [t-20261122-runtime-broker-health-unhealthy](../tasks/t-20261122-runtime-broker-health-unhealthy.md) | CI: data-capabilities native gate fails on secure runtime broker readiness | active | not set | 0847d100 (lane, zweiter fix-schritt auf demselben zweig) | — | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761) |
 
 ## Ready for review
 
@@ -70,7 +71,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](../tasks/t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md) | Acceptance contract: baha app footprint show is admitted only for the guided gate | blocked | not set | 0847d100 (lane, hop + durchgang) / fecbada9 (pruefung bereit) | [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](../tasks/t-20261122-ci-integration-operator-seams-without-gate-admission.md) | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753) |
 | [t-20261122-mcp-contract-perses-demo-drift](../tasks/t-20261122-mcp-contract-perses-demo-drift.md) | perses MCP contract demo drift | blocked | not set | f0f6c8b4 (diagnose geliefert), korrektur beim Owner im baseharbor-demo-repo | — | — |
 
 ## Ready to assign
