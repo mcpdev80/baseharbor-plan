@@ -1,55 +1,57 @@
-# 0428-231 round-1 — STOP-criteria metingen op develop c463edf87ee (helper-roede niet uitvoerbaar als beschreven)
+# 0428-231 round-1 — exported operator-auth helper, fan-out of the five sites (variant A)
+
+Stand nach Coordinator-Antwort (ans231.md.g: variant A, citation des Auftragstexts zurückgenommen,Owner-Anordnung der helper-route; Freigabe für genau eine neue Datei in internal/operatorauth).
 
 ## PLAN
 
-- (done) 1. Claim via scripts/plan.py claim (gepubliceed op plan origin/main); ls-remote develop c463edf87ee; branch lane-0428-231-static-auth-helper op develop gesneden (ancestry OK, base-behind=0)
-- (done) 2. Duplikatie-stand op de echte refs afgelezen — zie metingen: de in de mission genoemde paden/regels bestaan niet op develop
-- (done) 3. Beslispunt bereikt volgens STOP-conditie van de mission ("als de helper zonder neue interface-erweiterung niet gaat … mit datei:zeile melden, nicht breiter bauen")
-- (pending) 4. Umstellung der Test-Dateien + PR + gehoste run — wacht op beslissing van de coordinator
-- (done) 5. Akte + publicatie op plan origin/main met ls-tree-witness
-- (pending) 6. QUESTION post aan 9142ab1f
+- (done) 1. Basis neu abgeglichen: ls-remote develop = `52a3c5446f41a1dd8678d99875e4cb1eee67874c` (#1756 gemergt, wie gemeldet); Branch lane-0428-231-static-auth-helper auf develop, base-behind=0. Anmerkung: der Branch-ref existierte lokal im workers/-bookkeeping-repo (Unfall aus der Vorrunde, leer); bereinigt, die echte Lane-Zone ist workers/0428-231-authhelper-wt.
+- (done) 2. Fundstellen vollständig ausgelesen und Verhaltensgleichheit gesichert (if-absent vs. force, principal-Argumente): see 'hilfe' section
+- (done) 3. Neue Datei internal/operatorauth/test_operator.go (nur diese eine Datei + keine interface/typ-Aenderungen): exports TestOperatorPrincipal, ReadGrantingMembershipProvider, WithVerifiedTestOperator (if-absent-Semantik wie bisher), WithVerifiedTestOperatorForce (force-Semantik wie bisher)
+- (done) 4. Fan-out der fünf Dateien, kein Verhaltenswechsel (assert-Pfad identisch); Provider-Definition aus app_env_test.go entfernt
+- (done) 5. build/vet/test-compile lokal sauber; bash scripts/ci-fast-check.sh OK (302 tests, 'Workflow policy PASS', OK); commit 5794874302f, push ohne force, PR #1761 (draft) gegen develop; delivery-witness ls-remote branch = 5794874302f; run 44994765677 terminal completed SUCCESS, failed 0
+- (done) 6. Akte umgeschrieben auf diesen Stand (diese Datei), ## PLAN behalten
+- (pending) 7. END post aan 9142ab1f
 
-## Remote/zone witnesses
+## hilfe: welche der fünf Dateien rufen jetzt den helper auf
 
-- Planning repo: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v` → `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)` — correcte zone; claim is daarop gecommit/push.
-- Product (eerste git-actie in de wermtree): `git remote -v` → `origin https://github.com/mcpdev80/baseharbor.git`.
-- `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/heads/lane-0428-231-static-auth-helper` → develop `c463edf87ee6f12c9da2ae2ee02ea6fe7c7ef0f9`; branch-ref bestaat NIET op de remote (alleen lokaal, nog geen PR).
+- `cmd/baha/test_operator_context_test.go` — `testOperatorContext` ist jetzt `return operatorauth.WithVerifiedTestOperator(ctx)` (if-absent Semantik erhalten; Principal-Logik nach PrincipalFromContext unverändert).
+- `cmd/baha/app_env_test.go` — die lokale `readGrantingMembershipProvider`-Definition (:51-58 alt) ist ENTFERNT und durch `operatorauth.ReadGrantingMembershipProvider` ersetzt; `runWithIOAndOperator` behält sein EXPLIZITES principal-Argument (ein Force-Helper würde die verschiedenen Test-identitäten überschreiben —文档 in der Datei), nutzt aber den geteilten Provider.
+- `cmd/baha/app_export_command_test.go` — beide Stellen (:377, :400 alt) rufen `operatorauth.ReadGrantingMembershipProvider` statt des lokalen Typs.
+- `cmd/baha/installation_destroy_native_test.go` — :47 nutzt den geteilten Provider (eigene operator-Principal bleibt, wie zuvor).
+- `cmd/baha/target_definition_change_test.go` — ruft unverändert `testOperatorContext`, das jetzt DER EINEN helper-Route folgt (Zeile 41 mit explizitem WithVerifiedPrincipal-Override danach, Semantik erhalten).
 
-## Wat de mission beweert vs. wat gemeten is
-
-- Mission: "de helper-functie internal/testing.NewCLIContextForTargetForApp is dus im kandidaten vorratig".
-  - Gemeten: `GitHub contents API internal/testing?ref=c463edf87ee…` → **HTTP 404** (geen dir internal/testing op develop); `grep -rn NewCLIContextForTargetForApp` over de volledige develop-boom → **0 treffers**.
-- Mission: "cmd/baha/test_operator_context_test.go:269-273 en :464-468, cmd/baha/cli_test.go:439-443".
-  - Gemeten: `cmd/baha/test_operator_context_test.go` is op develop **141 regels** (de regels 269+/464+ bestaan dus niet); `git cat-file -e 1ff16925c4e:cmd/baha/cli_test.go` → **faalt, bestand bestaat niet op develop**. Beide regels stammen kennelijk uit een andere (langere) versie uit de 0428-231-notitie.
-
-## De echte, gemeten duplicatie (op develop c463edf87ee)
-
-De opwand-afdekking die nu 4-5 keer handmatig wordt gerepliceerd in package-main tests:
-
-1. `cmd/baha/test_operator_context_test.go:22-34` — `testOperatorContext`: bouwt `identity.Principal{Issuer:"https://issuer.test", Subject:"cli-test-operator", IssuerVerified:true, Groups:["editor"]}` + `operatorauth.WithVerifiedPrincipal` + `WithMembershipProviderIfAbsent(&readGrantingMembershipProvider{})` + `WithEnforcementIfAbsent`.
-2. `cmd/baha/app_env_test.go:36-37` — principal + `operatorauth.WithMembershipProvider(ctx, &readGrantingMembershipProvider{})`; de provider-selfde is hier gedefinieerd: `cmd/baha/app_env_test.go:51-53` (`readGrantingMembershipProvider`).
-3. `cmd/baha/app_export_command_test.go:371-377` en `:394-400` — `WithVerifiedPrincipal` + `WithMembershipProvider(readGrantingMembershipProvider{})`.
-4. `cmd/baha/installation_destroy_native_test.go:46-47` — `WithVerifiedPrincipal` + `WithMembershipProvider`.
-5. `cmd/baha/target_definition_change_test.go:41` — `WithVerifiedPrincipal` bovenop `testOperatorContext`.
-
-`internal/operatorauth/context.go` exporteert de bouwstenen (WithVerifiedPrincipal / WithMembershipProvider(IfAbsent) / WithEnforcement(IfAbsent) / PrincipalFromContext) maar GEEN samengestelde test-operator helper.
-
-## Beslispunt (volgens de mission: melden, niet breder bouwen)
-
-De helper-roede is uitvoerbaar, maar ANDERS dan de mission beschrijft:
-- Een exporteerde helper in `internal/operatorauth` (packageregel, Owner-scope OK voor internal/operatorauth/**) zoals `func AuthenticatedOperatorForTest(t, ctx)` die principal + membership + enforcement in één zet — vereist dat het package `internal/operatorauth` een test-only principal/membership-stub exporteert, EN vereist dat de membership-provider-definitie (nu in cmd/baha/app_env_test.go) naar de helper verhuist. Dat raakt precies de 4-5 testbestanden hierboven, dus ALLEEN test-oppervlak + internal/operatorauth — binnen het toegefpaneel, maar de in de mission genoemde regels/bestanden kloppen niet.
-- Het alternatief van de mission (fan-out op internal/testing.NewCLIContextForTargetForApp) is onuitvoerbaar: die functie/dir bestaat niet op develop — zonder NUEUWE interface-erweiterung (dir + functie zelf aanmaken, product-zijde) gaat die roede niet, en dat is de letterlijke STOP-conditie.
-
-## repo-rule compliance / cleanliness
-
-- Geen `.github/**`, geen `scripts/**` gewijzigd; er is nog GEEN productwijziging geimplementaeerd (alleen metingen); branch nog niet gepusht. Geen lokale test-runs als bewijs; geen subagenten; posten alleen naar coordinator 9142ab1f.
-- cleanliness: nothing started. Eigen pid 2903795; `docker ps -a` BEFORE/AFTER = 0 entries.
-
-END 0428-223-testctx BLOCKED (beslispunt bereikt; branch lane-0428-231-static-auth-helper = develop c463edf87ee, base-behind=0, geen PR nog, run-id n.v.t.)
-
-## publishing witness
+Diff-stat (`git diff --stat develop..HEAD`):
 
 ```
-$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep static-cells-operator-auth-helper/round-1
-evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/round-1.md
+ cmd/baha/app_env_test.go                     | 20 +++++++-------------
+ cmd/baha/app_export_command_test.go          |  4 ++--
+ cmd/baha/installation_destroy_native_test.go |  2 +-
+ cmd/baha/test_operator_context_test.go       | 13 +------------
 ```
+plus neu: `internal/operatorauth/test_operator.go` (72 Zeilen, einzige neue Datei; `git diff develop...HEAD --name-only` listet exakt diese 5 Pfade).
+
+## Provenance + witnesses
+
+- `git merge-base --is-ancestor 52a3c5446f41 HEAD` → yes (develop 52a3c544 = Ancestor des ersten Commits 5794874302f).
+- `git log --oneline origin/develop..HEAD` → genau EIN commit (5794874302f, meiner).
+- `git diff origin/develop...HEAD --name-only` → die 5 Dateien oben; KEINE .github/**, KEINE scripts/**.
+- Remote: `git remote -v` → `origin https://github.com/mcpdev80/baseharbor.git`; push `52a3c544..579487430 refs/heads/lane-0428-231-static-auth-helper`; `git ls-remote … refs/heads/lane-0428-231-static-auth-helper` = `5794874302f197d0d4ec76d7c2743ba2bfd4288d`; PR #1761 draft=true gegen develop.
+
+## Gehosteter run
+
+- run `44994765677` (pull_request, head 5794874302f): **completed SUCCESS**, failed jobs **0**.
+- Draft-Pfad-Sichtbarkeit: `PR · Validation · ${{ matrix.check }}` 137123317416 skipped, `PR · Native · ${{ matrix.id }}` 137123317510 skipped, `PR · Selected Runtime` 137123318152 skipped — bei einem draft PR laufen die selected-checks nicht; der draft-schalter liegt beim Handoff (review-Regel), ich habe ihn nicht umgestellt.
+
+## Checks lokal (kein Ersatz für hosted, nur Vorprüfung)
+
+- `go build ./...` ok; `go vet ./cmd/baha ./internal/operatorauth` ok; `go test -run XXX_NONE -count=1 ./cmd/baha ./internal/operatorauth` = compile-only, keine lifecycle containers; `bash scripts/ci-fast-check.sh` → 'Ran 302 tests … OK' (unittest-suite, keine cmd/baha package tests).
+
+## repo-rule compliance
+
+- Write set: internal/operatorauth/** (genau eine neue Datei — durch die Owner-Direktive in dieser mission für GENAU diese Datei gehoben) + die fünf cmd/baha test-Dateien. Keine product-sematik, keine interface-erweiterung (der Provider nutzt das BESTEHENDE MembershipProvider-Interface), keine .github/**-, keine scripts/**-Änderung. Keine aktion auf PR #1746. Kein merge/close/ready-schalten; PR bleibt draft bis Handoff. Keine subagenten; keine lokalen test-runs als beweis (hosted run ist der beweis). Posten nur an coordinator 9142ab1f.
+
+## cleanliness
+
+cleanliness: nothing started. Eigen pid 2928572. `docker ps -a` BEFORE = 0 entries; AFTER = 0 entries. Keine container/netzwerke/volumes; scratch `/var/tmp/go-cache-0428-231` (cache, bleibt unter /var/tmp); worktree workers/0428-231-authhelper-wt ist meine Lane-Zone.
+
+END 0428-223-testctx DONE (branch lane-0428-231-static-auth-helper, head 5794874302f, base-behind=0, PR #1761, run 44994765677 completed SUCCESS, failed 0, cleanliness: nothing started)
