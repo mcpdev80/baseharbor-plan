@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: owner (wendete an) / coord (verfolgt + pruefung)
-kanban_status: review
-kanban_lane: review
+owner: ffe7611b (lane, option A) / owner (zsh-only autorisiert) / coord (zeugnis)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Guide app logs exec and urls. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-063 · Guide app logs exec and urls
 priority: high
@@ -20,22 +20,22 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1623", "https://github.com/mcpdev80/baseharbor/actions/runs/45012848258", "https://github.com/mcpdev80/baseharbor/actions/runs/45012883646"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1623", "https://github.com/mcpdev80/baseharbor/actions/runs/45012848258", "https://github.com/mcpdev80/baseharbor/actions/runs/45012883646", "https://github.com/mcpdev80/baseharbor/actions/runs/45013307400"]
 ---
 
-- [ ] t-20261114-r28-cli2-app-interact · CLI redesign: Guide app logs exec and urls #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-app-interact · CLI redesign: Guide app logs exec and urls #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** owner (wendete an) / coord (verfolgt + pruefung) · **Priority:** high  
+    **Owner:** ffe7611b (lane, option A) / owner (zsh-only autorisiert) / coord (zeugnis) · **Priority:** high  
     **PR:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1623), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45012848258), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45012883646)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1623), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45012848258), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45012883646), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45013307400)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** owner (wendete an) / coord (verfolgt + pruefung)  
+**Owner:** ffe7611b (lane, option A) / owner (zsh-only autorisiert) / coord (zeugnis)  
 **Priority:** high  
 **PRs:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
 **Source:** 
@@ -106,3 +106,5 @@ SEQENZ-UNLOCK, VOM EIGENTUMER REKONZILIERT: die fehlende zsh-Installation im Pre
 zsh-only-korrektur GELANDET durch den eigentumer: commit 26ae64c4d47 auf branch lane-0428-208-static-release-gate, diff NUR .github/workflows/pre-release.yml 'ci: limit release shell setup to zsh' (fisch raus). PR-CI 45012848258 laeuft (19 jobs, 0 failed). Gehosteter Pre-Release 45012883646 gegen demo 5d1cf312 laeuft (SourceCandidate+Gate Plan). Akzeptanz braucht: beide durchgaenge terminal green + unabhaengige CODEX-pruefung am exakten head + release-owner-bestaetigung. Kein merge vor den vier punkten.
 
 zsh-only landed durch owner: commit 26ae64c4d47 branch lane-0428-208-static-release-gate, diff NUR pre-release.yml. PR-CI 45012848258 + gehosteter Pre-Release 45012883646 (demo 5d1cf312, alle fnf selected static gates) laufen, 0 failed. Akzeptanz = beide green + unabhaengige CODEX-pruefung head 26ae64c4 + release-owner-bestaetigung.
+
+ECHTER SCOPE-KONFLIKT, NICHT MEHR NUR ZSH-INSTALL: test cmd/baha/context_terminal_test.go:458 verlangt LOUD zsh UND fish (kommentar: 'CI-cell installiert beide'), aber die autorisierung ist zsh-only (26ae64c4). Durchgang 45013307400: zsh install SUCCESS, cli-3 137180544980 failt an FISH (:467). OPTION A befohlen: exec-loop auf zsh verengen WAEHREND der fish-recursion-guard exec-frei bei :235-252 weiter in JEDEM shard laeuft (activationSnippet fish + contextWrapperBody fish 'command baha' guard) -> keine evidence-schwaeche, kein .github. OPTION B (owner): fish-exec zwingend in CI = .github fish-install = owner-scope, frage den owner. Karte zurueck auf active bis die test-verengung + ein gruerner cli-durchgang steht.
