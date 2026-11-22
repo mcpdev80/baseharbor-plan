@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: b90e4ba1 (lane) / Owner (draft -> ready)
+owner: b90e4ba1 (lane) / fecbada9 (review) / Owner (ready + merge)
 kanban_status: review
 kanban_lane: review
 kanban_summary: ""
@@ -20,21 +20,21 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.com/mcpdev80/baseharbor/actions/runs/44994765677", "https://github.com/mcpdev80/baseharbor/actions/runs/44998552411"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.com/mcpdev80/baseharbor/actions/runs/44994765677", "https://github.com/mcpdev80/baseharbor/actions/runs/44998552411", "https://github.com/mcpdev80/baseharbor/actions/runs/44999534797", "https://github.com/mcpdev80/baseharbor/actions/runs/45000121766"]
 ---
 
 - [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (lane) / Owner (draft -\> ready)  
+    **Owner:** b90e4ba1 (lane) / fecbada9 (review) / Owner (ready + merge)  
     **PR:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1761), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44994765677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44998552411)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1761), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44994765677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44998552411), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44999534797), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
-**Owner:** b90e4ba1 (lane) / Owner (draft -> ready)  
+**Owner:** b90e4ba1 (lane) / fecbada9 (review) / Owner (ready + merge)  
 **Priority:** not set  
 **PRs:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
 **Source:** 
@@ -70,3 +70,5 @@ PR 1761 ist drafted (kein fertiger kandidat): branch lane-0428-231-static-auth-h
 helper ist fertig und gruener gelaufen (run 44998552411 SUCCESS am head d275e50c5ba, branch lane-0428-231-static-auth-helper). PR bleibt DRAFT: das ready-schalten ist des owners hand. Rueckstand: base-pointer 52a3c5446f4, develop ist acc34323968, mergeable_state BEHIND - der dritte hop ist der lane befohlen. Diese karte ist die vorgegebene sequenz-stufe vor PR 1746 (0428-208): erst 1761 rein, dann dessen statische zellen-beweise, dann 1746 hop und static suite.
 
 korrekturronde ABGESCHLOSSEN, kandidatiegruen: head d275e50c5ba0245b6ab8a42f9655c9bef1bb2bd0 (additive kette 57948743 -> e0d4a0e3 -> d275e50c), base 52a3c5446f4, PR bleibt DRAFT (ready-schalten ist des owners hand). Gehosteter run 44998552411 SUCCESS/0 failed, cli-shards 137134801858 / 137134801765 / 137134801777 / 137134801792 und packages 137134801752. Fan-out ist VOLLSTAENDIG: alle fnf dateien rufen den helper, keine zweite provider-definitie. Offene punkte: ein hop auf develop acc34323968 (befohlen) und danach exact-head review, dann merge - diese karte ist die sequenz-stufe vor PR 1746.
+
+hop von ihrer lane ist belegt: head 669d76ac447, additiv aus develop acc34323968, back=0, run 44999534797 SUCCESS/0 failed, cli-shards 137137806291/137137806376/137137806417/137137806374 und packages 137137806463; die draft-routen-reihen (native-matrix 137137808006, selected-runtime 137137808013, selected checks 137137808235, validation-matrix 137137807405) waren SKIPPED und zaehlen nicht als beleg. Danach hat der owner den PR auf READY geschaltet: draft=false, der VOLLE gehostete run 45000121766 ist aktiv mit 36 jobs, und die beiden nativen data-capabilities-reihen (docker UND podman) werden erstmals AUSGEFUEHRT. Exact-head review ist aktiv bei fecbada9, merge erfolgt nach gruenem CI + verdict.
