@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: Owner (user-authorized CI coverage, PR 1756, includes ci-native-pr-gate.sh gate executor support)
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-230 · native gate rows for
 priority: ""
@@ -19,19 +19,19 @@ prs: [mcpdev80/baseharbor#1756]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/gate-admission-census/native-checks-catalog-recipe.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/gate-admission-census/native-checks-catalog-recipe.md", "https://github.com/mcpdev80/baseharbor/pull/1756", "https://github.com/mcpdev80/baseharbor/commit/52a3c5446f4", "https://github.com/mcpdev80/baseharbor/actions/runs/44992226702", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/gate-admission-census/review-1756-headebb6c9434a6.md"]
 ---
 
-- [ ] t-20261122-native-gate-admission-rows · native gate rows for env-destroy #task #release/v0-4-28 #status/review #view/review #kind/task
+- [x] t-20261122-native-gate-admission-rows · native gate rows for env-destroy #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** Owner (user-authorized CI coverage, PR 1756, includes ci-native-pr-gate.sh gate executor support)  
     **PR:** [baseharbor#1756](https://github.com/mcpdev80/baseharbor/pull/1756)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/gate-admission-census/native-checks-catalog-recipe.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/gate-admission-census/native-checks-catalog-recipe.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1756), [proof 3](https://github.com/mcpdev80/baseharbor/commit/52a3c5446f4), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44992226702), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/gate-admission-census/review-1756-headebb6c9434a6.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261122-native-checks-rows-operator-seam](t-20261122-native-checks-rows-operator-seam.md)  
@@ -100,3 +100,5 @@ Final-kandidat ist 6b9810c0cec9e0c98cd284f14103a86cea76d015, 4 dateien; die kopf
 Final head ist 925e829f26d (4 dateien, 5 commits, mergeState BLOCKED weil review aussteht); 6b9810c0cec und alle frueheren sind ersetzt. Grund der bewegung: der exact-head run 44989602930 am head 6b9810c0 FAILED im job 'PR . Validation . pr-planner-tests' 137108727142 mit AssertionError Lists differ - die neue globale paarungs-assertion hatte gemessen, dass der component cmd.baha.runtime_integration_test_support_test in den data-capabilities- und guided-gruppen fehlte; der owner hat ihn in alle vier docker-/podman-zeilen ergaenzt. Damit ist der rezept-punkt 5 aus der akte am ersetzten head 6cec31ff673 empirisch bestaetigt: die assertion haettet, nicht beispielsweise. Exact-head run 44990222344 ist unterwegs, review umgeleitet auf den final head (sha an fecbada9). Merge-Reihenfolge: 1714 ist APPROVED am head 67495fde968 (run 44989324573 SUCCESS, CLEAN) und wird gemergt; 1750 wartet auf seine exact-head verdict-akte; 1756 nach gruenem pr-planner-tests.
 
 APPROVE am exakten head 4f2a5d4701c ist publiziert (akte gate-admission-census/review-1756-head4f2a5d4701c.md): exact run 44990390149 completed SUCCESS, 'PR . Validation . pr-planner-tests' job 137110003413 success, 'PR . Validation . ci-executor-tests' job 137110003374 success, und der zweiseitige vergleich wird an scripts/test_pre_release_runtime_reuse.py:438-441 aufgehangen - unbekannte wie fehlende zuordnungen schlagen also in der CI fehl. Der PR ist behind, weil #1714 gemergt ist; nach dem #1750 merge hoppe ich ihn neu und lasse einen letzten run fahren, dann merge.
+
+PR 1756 ist GEMERGT: merged_at 2026-11-22T06:29:02Z, merge-commit 52a3c5446f4 = neuer develop-stand (ls-remote bestaetigt). Exakter kandidat head ebb6c9434a6 auf base c463edf87ee, behind=0, mergeStateStatus CLEAN, run 44992226702 SUCCESS/0 failed, 'PR Selected Checks' SUCCESS, 'PR . Validation . pr-planner-tests' 137115616321 SUCCESS. Verdict am exakten head: APPROVE mit 'merge-empfehlung' (akte gate-admission-census/review-1756-headebb6c9434a6.md, blob 50228dddb039). Der leere native-matrix ({include:[]}) ist als bootstrap-stand dokumentiert: die vier geaenderten katalog-/planer-pfade haben selbst keine components-zeile - dafuer ist karte 0428-235 angelegt. Von diesem merge an lesen die plan-jobs die neuen zeilen der base, also laufen die runtime-gates fuer kuenftige kandidaten (pruefen: naechster hop von PR 1753).
