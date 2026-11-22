@@ -7,10 +7,10 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
+owner: (offen, mission liegt bereit)
 tags: [#task, #release/v0.4-28]
-kanban_status: planned
-kanban_lane: ready
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-240 · broker readiness failure ships
 priority: ""
@@ -19,22 +19,23 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "kein ausfuehrender worker-sitz frei (03c7350a fuehrt missionen nicht aus, rotation braucht owner-directive)"
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md"]
 ---
 
-- [ ] t-20261122-broker-diagnostics-empty · CLI: name the failing dependency in broker readiness diagnostics #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261122-broker-diagnostics-empty · CLI: name the failing dependency in broker readiness diagnostics #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** (offen, mission liegt bereit)  
+    **Waiting:** kein ausfuehrender worker-sitz frei (03c7350a fuehrt missionen nicht aus, rotation braucht owner-directive)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** (offen, mission liegt bereit)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -100,3 +101,5 @@ No product semantics change, no new API, and do NOT touch `internal/observabilit
 `internal/capability/perses_selection.go`. Add/extend a test that asserts the dependency name appears in the error when
 `/readyz` reports a named dependency. Evidence must be a hosted native run (docker+podman) whose output now carries the
 dependency name.
+
+mission ist zweimal zugestellt und wurde NICHT ausgefuehrt: der sitz 03c7350a ging nach der zustellung sofort wieder idle, es gibt weder branch lane-0428-240-broker-diagnostics noch eine akte. Die karte bleibt darum auf wait und behauptet keine lebende lane. Naechster trigger: der erste freie AUSFUEHRENDE worker-sitz (b90e4ba1, 0847d100, f0f6c8b4 oder ffe7611b, sobald deren laufende hops/reviews endet sind) - die mission liegt fertig unter /var/tmp/m/fix240.md.g. Wenn die rotation von 03c7350a nicht kommt, ist das ihr einziger dauerhafter ausfallender platz: fuenf von sechs arbeitsplaetzen liefern, einer replayt alten kontext (zuletzt eine END-hinweis zu karte 0428-225 und PR 1751, die um 00:26:05Z gemergt wurden).

@@ -12,9 +12,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | ---: |
 | active | 8 |
 | review | 2 |
-| wait | 21 |
+| wait | 22 |
 | blocked | 2 |
-| ready | 9 |
+| ready | 8 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
@@ -63,6 +63,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-native-cell-operator-seam](../tasks/t-20261121-native-cell-operator-seam.md) | 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam | wait | high | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740) |
 | [t-20261121-static-gate-registration](../tasks/t-20261121-static-gate-registration.md) | 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate | wait | high | (lane, PR wartet) | — | [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746) |
 | [t-20261121-trust-uninstall-false-green](../tasks/t-20261121-trust-uninstall-false-green.md) | trust-uninstall EOF tests are green on the auth gate error | wait | high | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737) |
+| [t-20261122-broker-diagnostics-empty](../tasks/t-20261122-broker-diagnostics-empty.md) | CLI: name the failing dependency in broker readiness diagnostics | wait | not set | (offen, mission liegt bereit) | — | — |
 | [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](../tasks/t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md) | Acceptance contract: baha app footprint show is admitted only for the guided gate | wait | not set | fecbada9 (review) / 0428-061-sourcepull (hop) | [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](../tasks/t-20261122-ci-integration-operator-seams-without-gate-admission.md) | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753) |
 | [t-20261122-impact-consent-after-preview-contract](../tasks/t-20261122-impact-consent-after-preview-contract.md) | Env destroy: impact consent validated after preview is structurally stale (five fixture rounds) | wait | not set | w21-pr1702-0428-142-compat | — | [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627) |
 
@@ -84,7 +85,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261120-r28-keycloak-producer-target-mismatch](../tasks/t-20261120-r28-keycloak-producer-target-mismatch.md) | Keycloak producer registers ID/target the identity witness can never match | ready | not set | — | — | — |
 | [t-20261120-r28-perses-status-never-verified](../tasks/t-20261120-r28-perses-status-never-verified.md) | No source API yields verified: status --json can never report true | ready | not set | — | — | — |
 | [t-20261121-candidate-commit-identity](../tasks/t-20261121-candidate-commit-identity.md) | Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) | ready | not set | — | — | — |
-| [t-20261122-broker-diagnostics-empty](../tasks/t-20261122-broker-diagnostics-empty.md) | CLI: name the failing dependency in broker readiness diagnostics | ready | not set | — | — | — |
 | [t-20261122-native-plan-self-selection](../tasks/t-20261122-native-plan-self-selection.md) | CI: catalog and planner self-change selects zero gates | ready | not set | — | — | — |
 
 ## By release
