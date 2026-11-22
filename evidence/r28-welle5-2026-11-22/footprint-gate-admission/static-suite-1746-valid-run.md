@@ -56,3 +56,10 @@ Leeg in deze dispatch: geen productwijziging, geen push op een product-ref, geen
 cleanliness: nothing started. Eigen pid 2407437. BEFORE `docker ps -a` = 1 entry (`a0d40c5bcc8e baha-prunit-db-2286133`, running ~40 min, gestart door een andere lane — niet van mij, niet aangeraakt); AFTER idem. Geen containers/netwerken/volumes van deze dispatch; scratch onder `/var/tmp/0428-223` wordt voor END verwijderd.
 
 END 0428-223-testctx DONE (geldig: run 44987381250 completed FAILURE; zes statische gates uitgevoerd, geen skipped: agent 137102052113 success, ci-fast-check 137102089845 success, init 137102052110 failure, config-matrix 137102052148 failure, mcp 137102052168 failure, shell-ux 137102052189 failure; cli-3 137100936494 success met shells-stap success)
+
+## publishing witness
+
+```
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep footprint-gate-admission/static-suite-1746-valid-run
+evidence/r28-welle5-2026-11-22/footprint-gate-admission/static-suite-1746-valid-run.md
+```
