@@ -7,7 +7,7 @@ areas: [testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: b90e4ba1 (#1783 head 8b99bdc3 app-new admission :138 TP-green, selected running 45061359667) / Coordinator
+owner: b90e4ba1 (#1783 8b99bdc3 seam-tests SUCCESS qualif; native :edge fail=#1770) / Coordinator
 kanban_status: review
 kanban_lane: review
 kanban_summary: ""
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261122-guided-fixture-footprint-contract-divergence · Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 #task #release/v0-4-28 #status/review #view/review #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (\#1783 head 8b99bdc3 app-new admission :138 TP-green, selected running 45061359667) / Coordinator · **Priority:** high  
+    **Owner:** b90e4ba1 (\#1783 8b99bdc3 seam-tests SUCCESS qualif; native :edge fail=\#1770) / Coordinator · **Priority:** high  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1787](https://github.com/mcpdev80/baseharbor/pull/1787)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** b90e4ba1 (#1783 head 8b99bdc3 app-new admission :138 TP-green, selected running 45061359667) / Coordinator  
+**Owner:** b90e4ba1 (#1783 8b99bdc3 seam-tests SUCCESS qualif; native :edge fail=#1770) / Coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1787](https://github.com/mcpdev80/baseharbor/pull/1787)  
 **Source:** 
@@ -117,3 +117,5 @@ ENTSCHEID shared (owner+coordinator): #1783 selected timeout = getagtes TEST-FIX
 #1783 NARROW fix (owner-diagnose, scope berichtigt): ciIntegrationGuidedAppNew admitted nur gate==guided (:129); data-capabilities `app new` create-only faellt durch -> interaktive OIDC -> PTY timeout. FIX = getagtes test-fixture app-new admission auf gate==data-capabilities, exakt kanonische args + Regression (noncanonical + ANDERE gates DENIED/unchanged), kein blanket-allow. Produkt --confirm-candidate boundary UNVERAENDERT; Demo digest NICHT angefasst (existiert, gruen). Footprint-show :135 nur falls rerun-log selected consent-fail zeigt. b90e laeuft, neuer head (nicht 2da7f565). develop 978a0f90b. native=#1770.
 
 #1783 HARNESS FIX gelandet (head 8b99bdc3): ciIntegrationGuidedAppNew admitted fuer gate==data-capabilities (:138, exakt kanonische args) + 135 test lines; Produkt --confirm-candidate boundary UNVERAENDERT. Trusted Plan PASS, selected docker/podman + exact candidate + CLI guided laufen (run 45061359667). Owner redundantes stacked #1787 VOR CI geschlossen (nicht merged) -> b90e = einziger fixture-writer. Regression (noncanonical + andere gates DENIED) bestaetigt am branch. native data-caps = waiting-#1770. develop 978a0f90b. KEIN merge bis reviewed + selected gruen.
+
+#1783 app-new fixture fix ERWIESEN (head 8b99bdc3): run 45061359667 `Validation  ci-integration-operator-seam-tests` = SUCCESS = QUALIFYING EVIDENCE (data-capabilities app-new admitted unter selected gates, Produkt consent intact). SPAETER `native/docker/data-capabilities` FAIL = TestApplicationCapabilityLifecycleExistingCore/secrets broker >2m auf ghcr.io/...:edge = EXAKT der :edge drift, SCHARF geroutet zu #1770 (exact-runtime-image pin; #1770 eigener branch macht native docker+podman GREEN 45060014055). KEIN #1783 defect/chasing am runtime (waere consent/boundary risk). native/podman + selected = waiting-#1770. Merge-Ordnung: #1770->develop ZUERST, dann #1783 re-hop zeigt native gruen. develop 978a0f90b. KEIN merge bis reviewed.
