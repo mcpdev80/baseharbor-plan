@@ -240,4 +240,12 @@ origin https://github.com/mcpdev80/baseharbor-plan.git (push)
 
 No Docker or Podman commands or compose projects were started. No product files were changed.
 
+Exact `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep ...` output after first publication:
+
+```text
+evidence/r28-welle5-2026-11-22/stale-pr-census/duplicates-1760-1759.md
+```
+
+First publication commit: f6bb18e2e1416aca2f48e569e7528576da0c8d37.
+
 END_DONE codex-rev2-1736: closed duplicate PRs #1760 and #1759; #1723/#1725 remain open; reviewed heads 5f6f3a98a66f2e18d8c76f68ab04dd7d285a276a and 22087745d27217bfe7b7bcbe66f36685cc9ba4ce.
