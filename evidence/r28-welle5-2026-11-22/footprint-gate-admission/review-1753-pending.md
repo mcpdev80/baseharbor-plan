@@ -37,3 +37,9 @@ origin https://github.com/mcpdev80/baseharbor-plan.git (push)
 Shell PID `1317826`: `docker ps -a` before and after showed the same eight pre-existing exited containers (IDs `268b7d8b4612`, `34cf9576dc2b`, `e88b00795b5c`, `1451a7b5b3c6`, `d7ba821c0e08`, `957a80e73b57`, `45bddf32278e`, `9d3f1a2b1e0e`). No container or compose project was started or changed.
 
 END_BLOCKED codex-rev-1747: #1753 remains behind develop; exact current candidate required before review. Current stale head 03ef125e610f3a3db60042b70784d8e463f11500; no verdict.
+
+## Final origin/main path witness
+
+After `git -C baseharbor-plan fetch origin main`, `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 'evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-pending.md'` returned exactly:
+
+`evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-pending.md`
