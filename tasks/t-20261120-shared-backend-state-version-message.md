@@ -7,7 +7,7 @@ areas: [lifecycle]
 release: v0.4.28
 version: ""
 parent: ""
-owner: f0f6c8b4 (lane, dekontam+hop)
+owner: f0f6c8b4 (lane, dekontam+hop fertig)
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -20,22 +20,22 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pulls/1725", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44995066580", "https://github.com/mcpdev80/baseharbor/actions/runs/44998846458", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/stale-pr-census/ancestry-rule-clarification.md", "https://github.com/mcpdev80/baseharbor/pull/1725"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pulls/1725", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44995066580", "https://github.com/mcpdev80/baseharbor/actions/runs/44998846458", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/stale-pr-census/ancestry-rule-clarification.md", "https://github.com/mcpdev80/baseharbor/pull/1725", "https://github.com/mcpdev80/baseharbor/actions/runs/45014090675"]
 created: 2026-11-20
 ---
 
 - [ ] t-20261120-shared-backend-state-version-message · shared state version message #task #release/v0-4-28 #status/active #view/active #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** f0f6c8b4 (lane, dekontam+hop)  
+    **Owner:** f0f6c8b4 (lane, dekontam+hop fertig)  
     **PR:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pulls/1725), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44995066580), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44998846458), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/stale-pr-census/ancestry-rule-clarification.md), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1725)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pulls/1725), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44995066580), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44998846458), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/stale-pr-census/ancestry-rule-clarification.md), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1725), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/45014090675)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** f0f6c8b4 (lane, dekontam+hop)  
+**Owner:** f0f6c8b4 (lane, dekontam+hop fertig)  
 **Priority:** not set  
 **PRs:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725)  
 **Source:** 
@@ -99,3 +99,5 @@ kein re-cut noetig, die reihenfolge loest es: der zensus meldete '1725 needs cle
 kein re-cut noetig, die reihenfolge loest es: 1450c201 dokumentiert die regel jetzt formal (akte stale-pr-census/ancestry-rule-clarification.md, plan main 771bb6be4): eigener-frueherer-head = ungefaehrlich, fremder-head = verfaelscht. Am neuen head d65e9a25419 sind es 7 dateien, davon vier (cmd/baha/app_apply.go, app_workload_ports.go, runtime.go, workload_port_local_regression_test.go) OWN-inhalt von PR 1723, dessen head 12a62523fc5 als ahne in der kette steckt. Sobald 1723 in develop liegt, schrumpft dieser diff auf die drei eigenen dateien (internal/application/shared_backends.go, shared_backends_state.go, shared_backends_state_version_test.go). Beide hops sind FAILURE mit je 2 jobs, und der fehler ist der broker-blocker (0428-237), nicht der kartenschnitt. Reihenfolge: broker klaren -> 1723 mergen -> 1725 hop -> exact-head review.
 
 PR 1725 traegt 4 KONTAMINATIONS-dateien aus bruder-PR 1723 (0428-199: app_workload_ports.go, workload_port_local_regression_test.go, runtime.go, app_apply.go - die letzten zwei MEHRENDEUTIG pruefen) neben den drei echten 0428-201-backend-dateien. develop ist KEIN Vorfahr des branch -> auf dem vorhandenen branch: kontaminierte dateien auf develop-Stand zuruecksetzen + Hop (merge --no-ff develop), additiv, #1723 unangetastet, EIN durchgang. Auftrag an f0f6c8b4.
+
+DEKONTAMINIERUNG VOLLZOGEN (f0f6c8b4): develop 8629450ef3c additiv in den branch gemerged + korrektur-commit 47e51b16e, KEIN force/rewrite. EXAKTER PR-diff jetzt NUR die drei 0428-201 dateien (shared_backends.go, shared_backends_state.go, shared_backends_state_version_test.go); die vier 0428-199 workload-port-pfade sind RAUS, #1723 UNANGETASTET. Gehosteter durchgang 45014090675 laeuft. Naechster schritt: bei terminal green -> unabhaengige CODEX-pruefung am exakten head, dann merge im fenster. Karte bleibt active bis der durchgang gruen + die pruefung vorliegt.
