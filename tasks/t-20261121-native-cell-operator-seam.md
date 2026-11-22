@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1740]
 sources: []
 blocker: ""
-wait_reason: "operatorauth ErrConfigurationRequired an operator_auth_boundary.go:113, internal/operatorauth ist Tabu; owner-entscheidung wie bei 0428-214 (local-grant oder scope-feld)"
+wait_reason: "base-Karte 0428-198 ist superseded und ihr PR 1726 nie gemergt; die geteilte Operator-Kontext-Mechanik kommt erst mit PR 1750. Danach wird diese Karte von develop aus neu angesetzt (Cherry-pick der eigenen Commits), siehe cli-shard-fanin/fanin-1726-disposition.md"
 resolution: ""
 evidence:
   - "https://github.com/mcpdev80/baseharbor/pull/1740"
@@ -29,7 +29,7 @@ evidence:
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740)  
-    **Waiting:** operatorauth ErrConfigurationRequired an operator\_auth\_boundary.go:113, internal/operatorauth ist Tabu; owner-entscheidung wie bei 0428-214 (local-grant oder scope-feld)  
+    **Waiting:** base-Karte 0428-198 ist superseded und ihr PR 1726 nie gemergt; die geteilte Operator-Kontext-Mechanik kommt erst mit PR 1750. Danach wird diese Karte von develop aus neu angesetzt (Cherry-pick der eigenen Commits), siehe cli-shard-fanin/f…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44868911131)  
     <!-- /generated:card -->
 
