@@ -54,3 +54,11 @@ origin https://github.com/mcpdev80/baseharbor-plan.git (push)
 ## END codex-rev-1747 BLOCKED
 
 PR #1753 exact head `a40b76764c3c08ec690e723def0ca167ce989c2b`; HOLD due terminal run `44994268323` failure with five failed jobs, including executed Native and Selected Runtime matrices; Planning evidence remote verified above.
+
+## origin/main evidence path witness
+
+Exact output from `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md` after fetching `origin main`:
+
+```text
+evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md
+```
