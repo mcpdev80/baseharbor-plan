@@ -14,3 +14,9 @@ Pending exact-head, diff, and run verification. Read-only independent review: no
 ## Verdict
 
 PENDING review.
+
+## origin/main evidence path witness
+
+Exact output from the post-fetch `git ls-tree -r --name-only origin/main | grep evidence/r28-welle5-2026-11-22/shared-backend-0428-201/review-1725-head47e51b16.md` command:
+
+`evidence/r28-welle5-2026-11-22/shared-backend-0428-201/review-1725-head47e51b16.md`
