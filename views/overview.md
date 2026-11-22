@@ -10,15 +10,15 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 6 |
-| review | 6 |
+| active | 7 |
+| review | 4 |
 | wait | 22 |
 | blocked | 2 |
 | ready | 8 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
-| closed | 436 |
+| closed | 437 |
 
 ## Active
 
@@ -30,15 +30,14 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-base-branch-provenance-loss](../tasks/t-20261121-base-branch-provenance-loss.md) | 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened | active | high | coordinator | — | — |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
 | [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](../tasks/t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md) | Acceptance contract: baha app footprint show is admitted only for the guided gate | active | not set | 0847d100 (lane, haelt push bis handoff) | [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](../tasks/t-20261122-ci-integration-operator-seams-without-gate-admission.md) | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746) |
+| [t-20261122-guided-fixture-footprint-contract-divergence](../tasks/t-20261122-guided-fixture-footprint-contract-divergence.md) | Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 | active | high | b90e4ba1 (#1783 stacked head 66838807 = app-new+app-edit, CI auf 66838807 laeuft; re-hop auf develop+1770 folgt) / Coordinator | — | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1787](https://github.com/mcpdev80/baseharbor/pull/1787), [baseharbor#1788](https://github.com/mcpdev80/baseharbor/pull/1788) |
 
 ## Ready for review
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261114-r28-perses-dashboard-databases](../tasks/t-20261114-r28-perses-dashboard-databases.md) | Perses database dashboards | review | normal | 0847d100 (#1597 hopped 09435191a @978a0f90b green) / 1450c201 (CODEX-REVIEW laeuft) / Owner/Codex-MERGE | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597) |
 | [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | review | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
 | [t-20261122-ci-operator-fixture-allowlist-gap](../tasks/t-20261122-ci-operator-fixture-allowlist-gap.md) | Add the missing command forms to the test-only CI-operator fixture allow-list so static/core gates stamp the synthetic operator instead of failing closed | review | high | 0847d100 (baseharbor-demo fix) | — | [baseharbor-demo#170](https://github.com/mcpdev80/baseharbor-demo/pull/170) |
-| [t-20261122-guided-fixture-footprint-contract-divergence](../tasks/t-20261122-guided-fixture-footprint-contract-divergence.md) | Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 | review | high | b90e4ba1 (#1783 8b99bdc3 app-new) / Owner (#1788 app-edit) / fecbada9 CODEX-MERGE #1788->#1783 branch laeuft / Coordinator | — | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1787](https://github.com/mcpdev80/baseharbor/pull/1787), [baseharbor#1788](https://github.com/mcpdev80/baseharbor/pull/1788) |
 | [t-20261122-runtime-broker-health-unhealthy](../tasks/t-20261122-runtime-broker-health-unhealthy.md) | CI: data-capabilities native gate fails on secure runtime broker readiness | review | not set | ffe7611b (#1770 fbbd08e0 base 978a0f90b, native docker+podman GREEN 45062285607; mergeState=BLOCKED durch eigenes selected=waiting-#1783) / Owner/Codex (shared-prereq merge) / Coordinator | [t-20261122-gate-catalog-missing-app-broker-component](../tasks/t-20261122-gate-catalog-missing-app-broker-component.md) | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762) |
 | [t-20261122-static-cells-operator-auth-helper](../tasks/t-20261122-static-cells-operator-auth-helper.md) | operator auth in static cells | review | not set | b90e4ba1 (#1771 hopped 2d578b1d TP GREEN run 45063171920 provider-fix feldbestaetigt; #1761 b9b8f059 TP-green) / Coordinator | [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md) | [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1784](https://github.com/mcpdev80/baseharbor/pull/1784), [baseharbor#1785](https://github.com/mcpdev80/baseharbor/pull/1785), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1786](https://github.com/mcpdev80/baseharbor/pull/1786), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762) |
 
@@ -93,7 +92,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 4 open, 165 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 60 open, 203 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 59 open, 204 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 16 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))

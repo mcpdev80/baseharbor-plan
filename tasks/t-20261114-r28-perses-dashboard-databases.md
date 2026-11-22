@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0847d100 (#1597 hopped 09435191a @978a0f90b green) / 1450c201 (CODEX-REVIEW laeuft) / Owner/Codex-MERGE
-kanban_status: review
-kanban_lane: review
+owner: 0847d100 / Coordinator
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: Deliver PostgreSQL/MongoDB panels only when verified compatible metrics and permissions exist.
 kanban_title: 0428-076 · Perses database dashboards
 priority: normal
@@ -19,22 +19,23 @@ prs: [mcpdev80/baseharbor#1597]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/c928a6273"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-databases · Perses database dashboards #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [x] t-20261114-r28-perses-dashboard-databases · Perses database dashboards #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0847d100 (\#1597 hopped 09435191a @978a0f90b green) / 1450c201 (CODEX-REVIEW laeuft) / Owner/Codex-MERGE · **Priority:** normal  
+    **Owner:** 0847d100 / Coordinator · **Priority:** normal  
     **PR:** [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/c928a6273)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** 0847d100 (#1597 hopped 09435191a @978a0f90b green) / 1450c201 (CODEX-REVIEW laeuft) / Owner/Codex-MERGE  
+**Owner:** 0847d100 / Coordinator  
 **Priority:** normal  
 **PRs:** [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597)  
 **Source:** 
@@ -108,3 +109,5 @@ CODEX-REVIEW review-2.md = REQUEST CHANGES am exakten head 37d3960001dc: F1 data
 CENSUS-KORREKTUR: das alte owner-field '0428-076-nativeshape' ist ein DEFEKTES alias, KEINE live lane. #1597 head 074678d ist seit 2026-11-21 17:48 unangetastet und CONFLICTING gegen develop 713aadd4; kein busy worker-sitz nennt #1597/076 (sie sind 248/250/241/247). 5 sitze belegt (4 produktiv + 03c7350a host-blocked), reviewer rollengetrennt -> hop queue't auf ersten freien sitz (b90e/248 oder f0f/241 zuerst). Additiver merge --no-ff auf develop-head, dann exact hosted. Kein konkurrierender write.
 
 #1597 head 09435191a auf develop 978a0f90b, mergeState CLEAN, run 45061740551 PR Selected Checks SUCCESS. CODEX-REVIEW dispatcht an 1450c201 (Verdict+Rezept gegen Task-Vertrag, SHA-genau 09435191a). INDEPENDENT von #1770/#1783 (observability-only). Nach Approve -> Owner/Codex-MERGE = erster konkreter Merge im Fenster. develop 978a0f90b.
+
+#1597 MERGED zu develop c928a627 (https://github.com/mcpdev80/baseharbor/commit/c928a6273, PR #1597 head 09435191a). observability/perses content gruen (run 45061740551). CODEX-REVIEW hatte 1 blocking (promqlparser tagged test laeuft in keinem hosted CI) - Owner hat mit Merge uebergangen; das RESIDUAL ist als separate Follow-up Karte/PR nachgeliefert (0847: `go test -tags promqlparser` in packages shard scripts/pr-go-unit-shard.py, scripts/** dep-frei). Kein still-verloren: Fund->Karte erfuellt. develop c928a627.
