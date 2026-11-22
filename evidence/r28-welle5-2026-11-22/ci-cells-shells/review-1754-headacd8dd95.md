@@ -34,3 +34,11 @@ Read-only inspection. No code or workflow edits, no local tests, no draft/ready 
 ## END codex-rev-1747 BLOCKED
 
 Blocked pending a CI-selected execution of `TestEndToEndInstalledZshAndFishWrappers` on exact head `acd8dd95e6a7d77d59e6a602203e5891efc32cf8`.
+
+## Planning path witness
+
+Exact output of `git ls-tree -r --name-only origin/main | grep 'evidence/r28-welle5-2026-11-22/ci-cells-shells/review-1754-headacd8dd95.md'` after fetching origin/main:
+
+```text
+evidence/r28-welle5-2026-11-22/ci-cells-shells/review-1754-headacd8dd95.md
+```
