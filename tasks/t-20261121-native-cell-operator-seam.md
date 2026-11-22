@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1740]
 sources: []
 blocker: ""
-wait_reason: "carrier-abhaengigkeit: ja; neue basis ist develop 8629450ef3c, delta wird dort neu geschnitten; die alte PR-basis bleibt ausser gebrauch"
+wait_reason: "carrier-abhaengigkeit ja; neue basis ist develop 8629450ef3c, der delta wird dort neu geschnitten - die alte PR-basis bleibt nicht in gebrauch"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1740", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md"]
   - "https://github.com/mcpdev80/baseharbor/pull/1740"
@@ -29,7 +29,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1740", "https://github.c
     <!-- generated:card -->
     **Owner:** coordinator (karte) / erster freier worker-sitz (ausfuehrung) · **Priority:** high  
     **PR:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740)  
-    **Waiting:** carrier-abhaengigkeit: ja; neue basis ist develop 8629450ef3c, delta wird dort neu geschnitten; die alte PR-basis bleibt ausser gebrauch  
+    **Waiting:** carrier-abhaengigkeit ja; neue basis ist develop 8629450ef3c, der delta wird dort neu geschnitten - die alte PR-basis bleibt nicht in gebrauch  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44868911131)  
     <!-- /generated:card -->
 
@@ -107,4 +107,4 @@ diagnose abgenommen (akte round-2-nativefail.md, plan 8b955447, durchgang 448787
 
 END_BLOCKED gemeldet, von mir bestaetigt: ihre fix wirkt (der "bootstrap target is not configured"-fall ist behoben), aber der test haelt an cmd/baha/operator_auth_boundary.go:113 an ErrConfigurationRequired, und internal/operatorauth/** ist Tabu. Das ist dieselbe owner-entscheidung wie 0428-214. NEUER VERFAHRENSBEFUND von mir: fuer GRUENE shard-jobs ist der test-detail gar nicht im protokoll - cli-2 (success) liefert 22242 bytes ohne einzige RUN-/PASS-/ok-zeile, cli-0 (failure) 23033 bytes mit FAIL-zeile. "test laeuft remote im shard" ist aus gruenen logs also NICHT beweisbar; die mutation (rot/weiss) bleibt der einzige beleg, plus job-success. Bitte nicht als unterstellung buchen.
 
-ROUTE NEU FESTGELEGT NACH CENSUS (akte operator-auth-helper/carrier-census-1737-1738-1740-1741.md, plan da2176f7f40): PR 1726 wird NICHT wieder eroeffnet und es entsteht KEIN neuer traeger - #1750 ist gemergt, darum wird der eigene delta dieses kandidaten auf develop 8629450ef3c5198bb675331c12f56b2c9377aa1c NEU GESCHNITTEN. Carrier-abhaengigkeit dieses PR: ja. Fernzeugnis: back=275, mergeStateStatus UNSTABLE, base zeigt auf die tote basis lane-0428-198-cli-shard-operator-env (spitze e45430f2f1b). Naechster schritt: mission auf dem ersten freien worker-sitz (neu schneiden), dann exact gehosteter durchgang und unabhaengige pruefung. Kein merge aus der alten basis heraus.
+ROUTE NEU FESTGELEGT NACH CENSUS (akte operator-auth-helper/carrier-census-1737-1738-1740-1741.md, plan commit da2176f7f40, von 1450c201 gemessen): PR 1726 wird NICHT wieder eroeffnet und es entsteht KEIN neuer traeger - #1750 ist gemergt, also wird der JEWEILIGE eigene delta des kandidaten auf develop 8629450ef3c neu geschnitten. Fernzeugnis der kinder: alle back=275, mergeStateStatus UNSTABLE, base zeigt auf die tote basis lane-0428-198-cli-shard-operator-env (spitze e45430f2f1b). Carrier-abhaengigkeit: ja. Ihr PR-head gemessen: 1740 siehe akte 'Child PR state and diff against the named carrier'. Naechster schritt: mission auf dem ersten freien arbeits-sitz (neu schneiden statt hoepfen; bei 'nein' reicht der additive hop), dann exact gehosteter durchgang + unabhaengige pruefung. Kein merge aus der alten basis heraus.

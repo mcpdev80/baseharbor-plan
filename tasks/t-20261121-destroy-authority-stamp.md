@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1738]
 sources: []
 blocker: ""
-wait_reason: "carrier-abhaengigkeit: nein; neue basis ist develop 8629450ef3c, delta wird dort neu geschnitten; die alte PR-basis bleibt ausser gebrauch"
+wait_reason: "carrier-abhaengigkeit nein; neue basis ist develop 8629450ef3c, der delta wird dort neu geschnitten - die alte PR-basis bleibt nicht in gebrauch"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1738", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-5-rebase.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md"]
 ---
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1738", "https://github.c
     <!-- generated:card -->
     **Owner:** coordinator (karte) / erster freier worker-sitz (ausfuehrung) · **Priority:** high  
     **PR:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
-    **Waiting:** carrier-abhaengigkeit: nein; neue basis ist develop 8629450ef3c, delta wird dort neu geschnitten; die alte PR-basis bleibt ausser gebrauch  
+    **Waiting:** carrier-abhaengigkeit nein; neue basis ist develop 8629450ef3c, der delta wird dort neu geschnitten - die alte PR-basis bleibt nicht in gebrauch  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1738), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-5-rebase.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md)  
     <!-- /generated:card -->
 
@@ -124,4 +124,4 @@ rebase delivered, und der fenster-blocker ist damit AN DIESER KARTE GELÖST (von
 
 CODEX-REVIEW 'review-2.md' (plan ea196e46 + 04ae137d) = 'Verdict: REQUEST CHANGES', drei belege, alle von mir nachvollzogen. BEFUND 1 (inhalt): 'cmd/baha/core_installation_runtime_test.go:378-386' behauptet die ausgewaehlte destruction-operation NICHT — nachtrag: positiver kontext MIT enforcement-stellung OHNE principal, 'operatorauth.AuthorizationDecisionFromContext(ctx)' lesen, 'Allowed' UND 'Operation == "installation.destroy"' verlangen, plus mutation (zuordnung weg = rot); no-consent-assertion und teardown-stempel bleiben. BEFUND 2 (basis) = MEINE EIGENE MESSENSCHAFT von row 874: 'merge-base --is-ancestor e45430f2f1b7 a8079303acaa' = NEIN, merge-base ist 7546b1806aac, 9 commits rueckstaendig; rebase auf das echte ziel, kein zweiter branch. BEFUND 3 (aggregat): cli-0 'TestAppListAllTargetsWorksAfterInstallationDestroy' = 0428-210/#1739 und die nativen docker/podman-zellen = 0428-215/#1745 — fremde baustellen; der reviewer behaelt meine gleich-basis-per-job-rechnung (durchgang 44867737065 gegen 44867737078) und bucht den aggregate TROTZDEM als failure. MISSION liegt fertig im coordinator/missions/ (0428-214-r5-bothdirections.md, payload-gate 0) und geht auf den ersten frei werdenden sitz — in der abnahme-stunde waren alle funf plaetze belegt, daher kein Scheinauftrag.
 
-ROUTE NEU FESTGELEGT NACH CENSUS (akte operator-auth-helper/carrier-census-1737-1738-1740-1741.md, plan da2176f7f40): PR 1726 wird NICHT wieder eroeffnet und es entsteht KEIN neuer traeger - #1750 ist gemergt, darum wird der eigene delta dieses kandidaten auf develop 8629450ef3c5198bb675331c12f56b2c9377aa1c NEU GESCHNITTEN. Carrier-abhaengigkeit dieses PR: nein. Fernzeugnis: back=275, mergeStateStatus UNSTABLE, base zeigt auf die tote basis lane-0428-198-cli-shard-operator-env (spitze e45430f2f1b). Naechster schritt: mission auf dem ersten freien worker-sitz (neu schneiden / nur additive hop, weil unabhaengig), dann exact gehosteter durchgang und unabhaengige pruefung. Kein merge aus der alten basis heraus.
+ROUTE NEU FESTGELEGT NACH CENSUS (akte operator-auth-helper/carrier-census-1737-1738-1740-1741.md, plan commit da2176f7f40, von 1450c201 gemessen): PR 1726 wird NICHT wieder eroeffnet und es entsteht KEIN neuer traeger - #1750 ist gemergt, also wird der JEWEILIGE eigene delta des kandidaten auf develop 8629450ef3c neu geschnitten. Fernzeugnis der kinder: alle back=275, mergeStateStatus UNSTABLE, base zeigt auf die tote basis lane-0428-198-cli-shard-operator-env (spitze e45430f2f1b). Carrier-abhaengigkeit: nein. Ihr PR-head gemessen: 1738 siehe akte 'Child PR state and diff against the named carrier'. Naechster schritt: mission auf dem ersten freien arbeits-sitz (neu schneiden statt hoepfen; bei 'nein' reicht der additive hop), dann exact gehosteter durchgang + unabhaengige pruefung. Kein merge aus der alten basis heraus.
