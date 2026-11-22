@@ -7,36 +7,37 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: f0f6c8b4 (lane, PR #1627 branch cli2-env-delete)
+owner: f0f6c8b4 (lane)
 tags: [#task, #release/v0-4-28]
-kanban_status: planned
-kanban_lane: ready
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-238 · native env-destroy assertion
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1627]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1627", "https://github.com/mcpdev80/baseharbor/actions/runs/44996713389", "https://github.com/mcpdev80/baseharbor/commit/acc34323968"]
 ---
 
-- [ ] t-20261122-env-destroy-native-assertion-contract · test: align native env-destroy assertion with the app stop contract #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [x] t-20261122-env-destroy-native-assertion-contract · test: align native env-destroy assertion with the app stop contract #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
-    **Owner:** f0f6c8b4 (lane, PR \#1627 branch cli2-env-delete)  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** f0f6c8b4 (lane)  
+    **PR:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1627), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44996713389), [proof 3](https://github.com/mcpdev80/baseharbor/commit/acc34323968)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** f0f6c8b4 (lane, PR #1627 branch cli2-env-delete)  
+**Owner:** f0f6c8b4 (lane)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -97,3 +98,5 @@ Fix: assert BOTH halves of the established invariant - resolved app status repor
 reports `runtime-retired`. Do NOT change product semantics to force a stored `stopped` state without a broader
 contract decision. Rerun hosted CI at the exact head; a green native pair on docker+podman is the evidence.
 Parent card: `t-20261114-r28-cli2-env-delete` (0428-055, PRs #1627/#1736).
+
+erfuellt durch den merge von PR 1627 in develop acc34323968 (merged_at 07:24:02Z). Die two-sided KEEP-invarianz (geloester status 'stopped' plus persistierter record 'runtime-retired') sitzt in cmd/baha/env_destroy_integration_test.go am head fe4027f7986, nur test-datei, innerhalb des write-sets. Gehosteter beleg: run 44996713389 SUCCESS, 19 success / 11 skipped / 0 failed, env-destroy gates docker 12.91s und podman 16.98s PASS. Kein produkt-eingriff, wie vom owner verlangt. Karte 0428-055 traegt den merge-beleg.
