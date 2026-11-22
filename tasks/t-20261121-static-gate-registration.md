@@ -8,7 +8,7 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: Owner (zsh+fish .github + ci-fast-check legacy mapping) / Coordinator (tracks exact run)
+owner: Owner (re-run #1746) / b90e4ba1 (pr-stage-boundary static-classification fix) / Coordinator
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: Run the existing scripts/ci-fast-check.sh as its own static gate in the v0.4.28 Pre-Release Suite. Preserve every existing…
@@ -18,16 +18,16 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1774]
 sources: []
 blocker: ""
-wait_reason: "#1746 exact head 887058a6 run 45027509559 PR-validation FAIL: drei coverage_guardian fixtures fehlen legacy mapping atomic/static/ci-fast-check (scripts/ci-fast-check.sh + scripts/test_pre_release_check_plan.py + scripts/test_ci_v0427_gate_catalog.py). run 45028181619 canceled. ZWEI owner-scope-abhaengigkeiten: (1) zsh+fish in .github (USER autorisiert, owner setzt), (2) diese ci-fast-check LEGACY mapping + current-base hop (release-gate semantik = owner). NICHT mergen ohne beide. Coordinator editiert .github nicht (owner-scope)."
+wait_reason: "#1746 hop e29e5859 auf develop 3939aa5, run 45041976030 failt NUR Trusted Plan pre-test: scripts/pr-stage-boundary.py lehnt atomic/static/shell-ux als unclassified gate ab (shared trusted-controller prerequisite, NICHT shell-test failure). zsh+fish im PR installiert (user autorisiert). Fix: b90e minimaler pr-stage-boundary.py classification PR (static gates korrekt gestaged, native acceptance erhalten), dann owner re-run. REST fuer volle qual: 241(f0f PR laeuft)+coreinst-catalog(b90e)+249(.github+acceptance.sh owner)+247(owner). develop 3939aa5."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md"]
 ---
 
 - [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/wait #view/wait #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** Owner (zsh+fish .github + ci-fast-check legacy mapping) / Coordinator (tracks exact run) · **Priority:** high  
+    **Owner:** Owner (re-run \#1746) / b90e4ba1 (pr-stage-boundary static-classification fix) / Coordinator · **Priority:** high  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774)  
-    **Waiting:** \#1746 exact head 887058a6 run 45027509559 PR-validation FAIL: drei coverage\_guardian fixtures fehlen legacy mapping atomic/static/ci-fast-check (scripts/ci-fast-check.sh + scripts/test\_pre\_release\_check\_plan.py + scripts/test\_ci\_v0427\_gate…  
+    **Waiting:** \#1746 hop e29e5859 auf develop 3939aa5, run 45041976030 failt NUR Trusted Plan pre-test: scripts/pr-stage-boundary.py lehnt atomic/static/shell-ux als unclassified gate ab (shared trusted-controller prerequisite, NICHT shell-test failure).…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44997978036), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md)  
     <!-- /generated:card -->
 
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "h
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** Owner (zsh+fish .github + ci-fast-check legacy mapping) / Coordinator (tracks exact run)  
+**Owner:** Owner (re-run #1746) / b90e4ba1 (pr-stage-boundary static-classification fix) / Coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774)  
 **Source:** 
