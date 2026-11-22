@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: b90e4ba1 (#1761 re-hop 484c95fca erbt mcp catalog; #1771 ebd01baa TP gruen) / Owner (review bei terminal) / Coordinator
+owner: b90e4ba1 (#1761 self-catalog 6 new sources incl operatorauth/test_operator.go + re-hop 484c95fca) / Owner (review) / Coordinator
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.c
 
 - [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (\#1761 re-hop 484c95fca erbt mcp catalog; \#1771 ebd01baa TP gruen) / Owner (review bei terminal) / Coordinator  
+    **Owner:** b90e4ba1 (\#1761 self-catalog 6 new sources incl operatorauth/test\_operator.go + re-hop 484c95fca) / Owner (review) / Coordinator  
     **PR:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1784](https://github.com/mcpdev80/baseharbor/pull/1784)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1761), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44994765677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44998552411), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44999534797), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/hunt-operator-auth-static-cells-round-1.md)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.c
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
-**Owner:** b90e4ba1 (#1761 re-hop 484c95fca erbt mcp catalog; #1771 ebd01baa TP gruen) / Owner (review bei terminal) / Coordinator  
+**Owner:** b90e4ba1 (#1761 self-catalog 6 new sources incl operatorauth/test_operator.go + re-hop 484c95fca) / Owner (review) / Coordinator  
 **Priority:** not set  
 **PRs:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1784](https://github.com/mcpdev80/baseharbor/pull/1784)  
 **Source:** 
@@ -104,3 +104,5 @@ PR #1771 (draft) head 172fb251 auf develop 8629450ef3c = BEHIND aktuellem develo
 0428-231 hops: #1771 ebd01baa Trusted Plan GRUEN (selected data-caps pending-runner). #1761 fcfe3f09 Trusted Plan FAIL weil cmd/baha/mcp.go unkatalogisiert (fail-loud guardian) -> geloest durch PR #1784 (mcp.go->gate.mcp, CI SUCCESS, review 1450c201). NACH #1784 merge: #1761 re-hop neuer develop -> Trusted Plan gruen. Dann #1746 static operator-auth gates (warten auf 231). develop b27b2ebe.
 
 #1784 (mcp.go->gate.mcp) GEMERGT als develop 484c95fca -> loest #1761 Trusted Plan fail (war mcp uncataloged fail-loud). b90e re-hoppt #1761 auf 484c95fca (additiv). #1771 ebd01baa Trusted Plan gruen, selected data-caps pending-runner. 0428-231 -> #1746 static operator-auth gates. Review der 231 heads durch Owner wenn runs terminal. develop 484c95fca.
+
+#1761 Trusted Plan fail ATTRIBUTION KORRIGIERT (war nicht mcp.go/#1784): #1761 fuegt 6 neue uncataloged sources hinzu = cmd/baha/{app_env_test,app_export_command_test,installation_destroy_native_test,target_definition_change_test,test_operator_context_test}.go + internal/operatorauth/test_operator.go (produkt operatorauth TestPrincipal/WithVerifiedTestOperatorPrincipalForced = legitimer static-auth-helper inhalt 0428-231). FIX = #1761 self-cataloged seine neuen files in pr-gate-coverage.json (lane-owned) + re-hop 484c95fca -> Trusted Plan gruen. native broker=#1770 waiting. #1771 ebd01baa selected docker fail (broker/parity), podman aktiv. Owner review bei terminal. develop 484c95fca.
