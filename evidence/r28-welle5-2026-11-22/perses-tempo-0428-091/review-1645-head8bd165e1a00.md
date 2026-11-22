@@ -52,3 +52,13 @@ Read-only review only. No product files changed, no PR review/comment/merge/clos
 Before review, PID 3322430 ran `docker ps -a --no-trunc`; output contained only the column header and no containers. After review, PID 3329378 ran `docker ps -a --no-trunc`; output contained only the column header and no containers. No compose project was started. The Planning validator `python3 scripts/plan.py check` completed with 0 errors and 10 pre-existing dependency warnings.
 
 END codex-rev-1747 DONE — REQUEST_CHANGES on exact head `8bd165e1a00d25972b55e5b50787091f0aee8f0a`; runtime-coverage verdict: native data-capabilities not required for the test-only correction; run `45001605859`, failed jobs 0, packages job `137144258716`; `develop...HEAD` non-test diff is not empty; Planning remote `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)`.
+
+## Planning path witness
+
+The required fetch and tree lookup returned exactly:
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle5-2026-11-22/perses-tempo-0428-091/review-1645-head8bd165e1a00.md
+```
