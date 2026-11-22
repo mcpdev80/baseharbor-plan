@@ -7,7 +7,7 @@ areas: [testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: owner (bereitete #1766 vor) / 1450c201 (review) / coord (route)
+owner: owner (bereitet #1766 vor) / 1450c201 (CODEX-REVIEW+MERGE_assigned) / coord (zeugnis)
 kanban_status: review
 kanban_lane: review
 kanban_summary: ""
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1766"]
 
 - [ ] t-20261122-core-network-protected-owner-assertion-stale · Static test asserts protected-owner while product emits a valid longer core/shared-backend owner diagnostic #task #release/v0-4-28 #status/review #view/review #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** owner (bereitete \#1766 vor) / 1450c201 (review) / coord (route) · **Priority:** high  
+    **Owner:** owner (bereitet \#1766 vor) / 1450c201 (CODEX-REVIEW+MERGE\_assigned) / coord (zeugnis) · **Priority:** high  
     **PR:** [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1766)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1766"]
 **State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** owner (bereitete #1766 vor) / 1450c201 (review) / coord (route)  
+**Owner:** owner (bereitet #1766 vor) / 1450c201 (CODEX-REVIEW+MERGE_assigned) / coord (zeugnis)  
 **Priority:** high  
 **PRs:** [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766)  
 **Source:** 
@@ -64,3 +64,5 @@ out of sync with the current diagnostic wording.
 the cause). Blocks #1765's native Keycloak/Core gate until synced.
 
 PR #1766 (head 405be63, develop-basiert) korrigiert NUR die stale expected-diagnostic in operator_core_network_binding_native_test.go:78/86, product-verhalten unveraendert, ablehnung bleibt belegt. Review 1450c201 = PENDING (beim beobachtungspunkt war KEIN exact-head native docker/podman job terminal green; checks queued/in_progress). Bei terminal green native keycloak/core (137197826981 docker / 137197826980 podman) -> APPROVE + MERGE VOR #1765-rerun. f0f6c8b4 wurde abgezogen (dupliziert #1766).
+
+EXAKTER head 405be63, native Keycloak/Core docker+podman BEIDE SUCCESS (gemessen). Assertion-phrase correct, produktverhalten unveraendert, ablehnung bleibt belegt. Review flippt PENDING->APPROVE, danach CODEX-MERGE #1766 in develop (additiv, develop-head aus refs/heads/develop, kein force). MERGE VOR #1765-rerun.t #1765 native keycloak/core + jede lane mit derselben stale assertion. 0428-209 (#1765) rerun nach diesem land.

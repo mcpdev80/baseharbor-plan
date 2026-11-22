@@ -43,7 +43,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | review | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
-| [t-20261122-core-network-protected-owner-assertion-stale](../tasks/t-20261122-core-network-protected-owner-assertion-stale.md) | Static test asserts protected-owner while product emits a valid longer core/shared-backend owner diagnostic | review | high | owner (bereitete #1766 vor) / 1450c201 (review) / coord (route) | — | [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766) |
+| [t-20261122-core-network-protected-owner-assertion-stale](../tasks/t-20261122-core-network-protected-owner-assertion-stale.md) | Static test asserts protected-owner while product emits a valid longer core/shared-backend owner diagnostic | review | high | owner (bereitet #1766 vor) / 1450c201 (CODEX-REVIEW+MERGE_assigned) / coord (zeugnis) | — | [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766) |
 
 ## Waiting for resources
 
