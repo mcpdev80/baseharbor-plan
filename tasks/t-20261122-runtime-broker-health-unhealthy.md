@@ -8,7 +8,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ffe7611b (#1770 fbbd08e0 base 978a0f90b, native docker+podman GREEN 45062285607; mergeState=BLOCKED durch eigenes selected=waiting-#1783) / Owner/Codex (shared-prereq merge) / Coordinator
+owner: ffe7611b (#1770 0da4a571 on develop c928a627, native docker+podman GREEN, selected fail=footprint-show lacks fixture=waiting-#1783) / Owner (merge vehicle #4) / Coordinator
 tags: [#task, #release/v0.4-28]
 kanban_status: review
 kanban_lane: review
@@ -16,7 +16,7 @@ kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-237 · data-capabilities native gate
 priority: ""
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1753, mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1770, mcpdev80/baseharbor#1780, mcpdev80/baseharbor#1762]
+prs: [mcpdev80/baseharbor#1753, mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1770, mcpdev80/baseharbor#1780, mcpdev80/baseharbor#1762, mcpdev80/baseharbor#1783]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,8 +26,8 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "h
 
 - [ ] t-20261122-runtime-broker-health-unhealthy · CI: data-capabilities native gate fails on secure runtime broker readiness #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** ffe7611b (\#1770 fbbd08e0 base 978a0f90b, native docker+podman GREEN 45062285607; mergeState=BLOCKED durch eigenes selected=waiting-\#1783) / Owner/Codex (shared-prereq merge) / Coordinator  
-    **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762)  
+    **Owner:** ffe7611b (\#1770 0da4a571 on develop c928a627, native docker+podman GREEN, selected fail=footprint-show lacks fixture=waiting-\#1783) / Owner (merge vehicle \#4) / Coordinator  
+    **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998846458), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45008538769), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-3.md), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45011764715)  
     <!-- /generated:card -->
 
@@ -35,9 +35,9 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "h
 **State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** ffe7611b (#1770 fbbd08e0 base 978a0f90b, native docker+podman GREEN 45062285607; mergeState=BLOCKED durch eigenes selected=waiting-#1783) / Owner/Codex (shared-prereq merge) / Coordinator  
+**Owner:** ffe7611b (#1770 0da4a571 on develop c928a627, native docker+podman GREEN, selected fail=footprint-show lacks fixture=waiting-#1783) / Owner (merge vehicle #4) / Coordinator  
 **Priority:** not set  
-**PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762)  
+**PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -166,3 +166,5 @@ DRITTE FEHLKLASSE (separat von 241 consent + test-only allowlist): #1780 native 
 #1770 NATIVE-UNLOCK auf current develop BESTAETIGT: head fbbd08e0 (additiver re-hop base 978a0f90b, KEIN content-edit), run 45062285607 native docker+podman data-caps GRUEN (exact runtime image pin wirkt, 0 broker-unhealthy). = der shared native-unlock. selected data-caps = waiting-#1783 (orthogonaler app-new/footprint seam, NICHT #1770 defect) -> scripts-only CI pin ist auf seinem NATIVE-gate green qualifiziert, selected zeigt bewusst waiting bis #1783 in develop. PR open/not merged, mergeState CLEAN. Owner/Codex koennen #1770 als shared prereq mergen (native-green); danach re-hops (#1761/#1762/#1763/#1765/#1771/#1783) zeigen native gruen. develop 978a0f90b.
 
 #1770 NATIVE-UNLOCK current-develop BESTAETIGT (head fbbd08e0, run 45062285607: native docker+podman data-caps BEIDE GREEN, pin wirkt, 0 broker-unhealthy). ABER mergeState=BLOCKED (NICHT CLEAN): der aggregierte 'PR Selected Checks' ist rot, weil #1770s EIGENE selected data-caps denselben app-new/footprint fixture-seam treffen der erst durch #1783/#1788 in develop geheilt wird. => GEGENSEITIGE BLOCKADE der shared prereqs: #1770 (native pin) blockiert #1783/#1761/#1771 NATIVE-cells; #1783 (fixture) blockiert #1770/#1761/#1771 SELECTED-cells. Jeder zeigt sein Qualifying-Gate gruen (#1770=native, #1783=seam-tests), der Aggregat bleibt bis zum jeweils anderen rot. OWNER-ENTSCHEID noetig: welchen shared prereq zuerst auf Qualifying-Evidence mergen (Empfehlung: #1770 native green -> damit native fan-out frei; selected bleibt waiting bis #1783). KEIN force/bypass durch Lane. develop 978a0f90b.
+
+#1770 run 45067047575: native docker+podman data-caps GREEN (exact-image pin wirkt), selected docker+podman data-caps FAIL = `app footprint show -o json` command-not-in-managed-workload-set = footprint-show fixture NICHT in develop = waiting-#1783, BESTAETIGT #1770-only-touches-ci-native-pr-gate.sh (native gate_id case, selected ruft es nicht auf) -> selected red IST NICHT #1770 defect. gh pr merge 1770 rejected (base protection). SEQUENZ: #1783 auf #1770 gestapelt + merged -> #1770 head traegt pin+fixture -> #1770 vollstaendig gruen -> MERGE develop. develop c928a627.
