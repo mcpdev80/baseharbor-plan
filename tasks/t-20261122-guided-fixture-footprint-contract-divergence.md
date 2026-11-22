@@ -7,15 +7,15 @@ areas: [testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: 03c7350a (lane, auftrag gestellt)
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-241 · guided fixture drift
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
-prs: []
+prs: [mcpdev80/baseharbor#1753]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,19 +23,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-guided-fixture-footprint-contract-divergence · Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 #task #release/v0-4-28 #status/planned #view/ready #area/testing #kind/bug
+- [ ] t-20261122-guided-fixture-footprint-contract-divergence · Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 #task #release/v0-4-28 #status/active #view/active #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** 03c7350a (lane, auftrag gestellt) · **Priority:** high  
+    **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** 03c7350a (lane, auftrag gestellt)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -59,3 +59,5 @@ output differs from `tests/guided/new_edit.py:63` in the demo repository.
 
 baseharbor-demo `tests/guided/new_edit.py` plus the footprint contract assertions in baseharbor `cmd/baha/app_footprint*`
 test files. Reserved paths (`.github/**`, `scripts/**`) are excluded.
+
+SITZ BESETZT (03c7350a). Die selected-seite der #1753-rotung hat jetzt eine EIGENE lane: der fixture-/contract-vergleich zwischen 'app footprint show -o json' und baseharbor-demo tests/guided/new_edit.py:63 (job 137165839346: confirm-candidate=8, not_ready=0, unhealthy=0 = reine consent-/fixture-ursache). Auftrag an 03c7350a: abweichung Feld fuer Feld benennen, fix auf der FIXTURE-seite (geteilter contract-helper statt doppelter erwartungen); falls cmd/baha/** produktcode noetig, an 0428-227 rueckmelden statt selbst zu aendern.
