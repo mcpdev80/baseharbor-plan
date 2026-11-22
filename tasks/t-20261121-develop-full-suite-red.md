@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: 0428-223-testctx
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "The whole-package Go unit suite (go test ./...) is red on develop and no merge gate runs it: make the suite pass on develop…"
 kanban_title: 0428-223 · full-suite unit tests are red
 priority: ""
@@ -18,19 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1750]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "head ist exakt (4bd779b1501, back=0, draft=true) und die validate-zelle ist groen belegt: run 44973644884 completed/success, job 137058691290, schritt 14 zeigt alle 14 mission-namen groen, schritt 16 das receipt 'PASS: all six native runtime tests and both package teardowns'; ORAS wird jetzt ueber den produktions-installer innerhalb des integration trust plane gepinnt (test-surface only, kein .github/scripts-eingriff, kein skip). das einzige verbleibende rot ist 'PR . Draft Go . cli-3' (job 137054968702 im lauf 44972447675) mit 'zsh: executable file not found in …' aus cmd/baha/context_terminal_test.go:467 - das ist karte 0428-229 / PR #1754, owner-scope. naechster ausloeser: merge von #1754, dann neuer exakter lauf auf dem dann aktuellen develop, dann verdict"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-develop-full-suite-red · CI: full-suite unit tests are red on develop and no merge gate runs them #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261121-develop-full-suite-red · CI: full-suite unit tests are red on develop and no merge gate runs them #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** 0428-223-testctx  
     **PR:** [baseharbor#1750](https://github.com/mcpdev80/baseharbor/pull/1750)  
+    **Waiting:** head ist exakt (4bd779b1501, back=0, draft=true) und die validate-zelle ist groen belegt: run 44973644884 completed/success, job 137058691290, schritt 14 zeigt alle 14 mission-namen groen, schritt 16 das receipt 'PASS: all six native runti…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261120-workload-port-flag-ignored-locally](t-20261120-workload-port-flag-ignored-locally.md), [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md)  
@@ -83,3 +84,5 @@ H-V50 shows the 14 red cases are an environment gap: probe application resolves 
 QUERBEZUG vom coordinator: die operator-auth-/test-context-vorbedingung dieser karte blockiert messbar eine ZWEITE karte. der combined validation run 44957245330 fuer PR #1627 (karte 0428-055) fiel in BEIDEN coreless-lifecycle-shards (docker UND podman) mit 'prepare native workload deployment inputs requires authenticated BaseHarbor operator' und einem cleanup ohne verifizierten operator context - derselbe grundtyp wie bei #1746s static suite (akte static-gate-registration/finding-1746-static-suite-failure.md). PR #1750 / karte 0428-223 ist damit der schluessel fuer die 0428-055-abnahme: wer immer diese karte abschliesst, muss danach 0428-055 neu validieren (exakter hosted run mit docker UND podman lifecycle-ausfuehrung).
 
 lane pushed a new exact candidate 4bd779b1501 (parent 1588ee1be72, back=0, additive): ORAS is provisioned inside the test-support path (cmd/baha/runtime_integration_test_support_test.go, provisionORASForIntegrationCell, uses the production installer installORAS with orasSetupVersion + checksum, no-op when exec.LookPath finds oras). no .github/** or scripts/** change. hosted runs 44972447675 (PR CI) and 44972454590 (selected target-context) in_progress; verdict ordered, PR stays draft
+
+akte round-3-oras-provisioning.md auf origin/main; cleanliness gemeldet: keine eigenen container/netzwerke/volumes, scratch entfernt
