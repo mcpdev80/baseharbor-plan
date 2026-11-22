@@ -8,34 +8,34 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: owner (resolves catalog+auth+requal) / coord
-kanban_status: blocked
-kanban_lane: blocked
+owner: Owner (zsh+fish .github + ci-fast-check legacy mapping) / Coordinator (tracks exact run)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: Run the existing scripts/ci-fast-check.sh as its own static gate in the v0.4.28 Pre-Release Suite. Preserve every existing…
 kanban_title: 0428-208 · 0428-208 static gate
 priority: high
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1774]
 sources: []
-blocker: "#1746 head 887058a6 bleibt BLOCKED (owner-direktive). pre-release 45028181619 terminal CANCELLED 34 fails + 6 cancelled; cli-3 (zsh+fish) bestaetigt PASS. Fehlklassen + ihre wurzeln: (1) static config-matrix/init/shell-ux/mcp/ci-fast-check + PR-planner (45027509559 failt wegen scripts/ci-fast-check.sh kataloglcke A) -> #1774 (b90e4ba1 ergaenzt A+C). (2) mcp static auch target.create auth -> 0428-247 owner/core decision. (3) docker/podman core-bootstrap + viele runtime matrices + reference journeys docker+podman -> broker/:edge image = 0428-237/#1770 (wartet #1774 B + exact image). Requalifikation erst nach owner resolution von katalog(A)+auth(247)+237 + exakten hosted gaeten."
-wait_reason: ""
+blocker: ""
+wait_reason: "#1746 exact head 887058a6 run 45027509559 PR-validation FAIL: drei coverage_guardian fixtures fehlen legacy mapping atomic/static/ci-fast-check (scripts/ci-fast-check.sh + scripts/test_pre_release_check_plan.py + scripts/test_ci_v0427_gate_catalog.py). run 45028181619 canceled. ZWEI owner-scope-abhaengigkeiten: (1) zsh+fish in .github (USER autorisiert, owner setzt), (2) diese ci-fast-check LEGACY mapping + current-base hop (release-gate semantik = owner). NICHT mergen ohne beide. Coordinator editiert .github nicht (owner-scope)."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md"]
 ---
 
-- [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #kind/task
+- [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/wait #view/wait #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** owner (resolves catalog+auth+requal) / coord · **Priority:** high  
+    **Owner:** Owner (zsh+fish .github + ci-fast-check legacy mapping) / Coordinator (tracks exact run) · **Priority:** high  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774)  
-    **Blocker:** \#1746 head 887058a6 bleibt BLOCKED (owner-direktive). pre-release 45028181619 terminal CANCELLED 34 fails + 6 cancelled; cli-3 (zsh+fish) bestaetigt PASS. Fehlklassen + ihre wurzeln: (1) static config-matrix/init/shell-ux/mcp/ci-fast-check…  
+    **Waiting:** \#1746 exact head 887058a6 run 45027509559 PR-validation FAIL: drei coverage\_guardian fixtures fehlen legacy mapping atomic/static/ci-fast-check (scripts/ci-fast-check.sh + scripts/test\_pre\_release\_check\_plan.py + scripts/test\_ci\_v0427\_gate…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44997978036), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** owner (resolves catalog+auth+requal) / coord  
+**Owner:** Owner (zsh+fish .github + ci-fast-check legacy mapping) / Coordinator (tracks exact run)  
 **Priority:** high  
 **PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774)  
 **Source:** 
