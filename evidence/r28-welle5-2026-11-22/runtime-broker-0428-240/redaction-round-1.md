@@ -50,3 +50,11 @@ origin	https://github.com/mcpdev80/baseharbor-plan.git (fetch)
 ```
 
 END 0428-223-testctx DONE (0428-240 redaktion: branch lane-0428-240-broker-diagnostics, head b38838e1c30d18eabe3fa7e8e64c6c053c576bce, base 8629450ef3c (additiv gehopft), PR #1763, run 45008350091 completed SUCCESS failed 0, marker-test aktiv (TestRuntimeBrokerReadinessDiagnosticsNeverEchoesValueMarker, 4 case), cleanliness: nothing started)
+
+## origin/main evidence witness
+
+Exact output of `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep redaction-round-1`:
+
+```
+evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/redaction-round-1.md
+```
