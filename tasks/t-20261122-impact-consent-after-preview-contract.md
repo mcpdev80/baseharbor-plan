@@ -8,33 +8,35 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w21-pr1702-0428-142-compat
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: Define and enforce one consent contract for env destroy so that an impact consent produced by a preview is still authoritative…
 kanban_title: 0428-226 · impact consent validated after
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1627]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: fix-1 (stale-impact-consent) production fix pushed additive to PR #1627 (head 0768274c), verified locally past line 128 on both runtimes; keeper #2 (runtime-retired) reported as a separate finding. Blocked on owner selecting the hosted coreless-lifecycle runtime gate on the exact candidate and on the keeper #2 state-mismatch decision (two owner items: (1) scripts/pr-gate-coverage.json / plan selected_gates does not select integration/docker+podman/coreless-lifecycle for the additive commit; (2) KEEP apply records State "runtime-retired" but the test expects "stopped" — a global change breaks 13 tests).
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-impact-consent-after-preview-contract · Env destroy: impact consent validated after preview is structurally stale (five fixture rounds) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261122-impact-consent-after-preview-contract · Env destroy: impact consent validated after preview is structurally stale (five fixture rounds) #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** w21-pr1702-0428-142-compat  
+    **PR:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627)  
+    **Waiting:** fix-1 (stale-impact-consent) production fix pushed additive to PR \#1627 (head 0768274c), verified locally past line 128 on both runtimes; keeper \#2 (runtime-retired) reported as a separate finding. Blocked on owner selecting the hosted cor…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w21-pr1702-0428-142-compat  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -92,7 +94,7 @@ preview consent and the destroy-time authorization fails, and the native test
   `62dd38f9b6d`, `ac05cc4efbc`, `38be89aa4a0` and `b3b0c2c9efc`. Both required engine shards failed on the exact run
   `44961334018`: Docker job `137020935578` and Podman job `137020935792`, log lines 1178-1192 resolving
   `prod/docker-dev` and the target deployment.
-- Current state: PR #1627 (`0428-055`) is held from review and merge; a read-only diagnosis of the preview-to-apply
+- Current state: root cause fixed additively on PR #1627 (head 0768274c, additive one commit on top of 2f0f8078, no force). Fix-1 (stale-impact-consent): manifestIntentEqual in cmd/baha/application_provider_authorization.go + CanonicalizeProviderPreferences/ProviderPreferencesIsNil in internal/application/provider_preferences.go — the never-serialized providerPreferences nil-vs-empty projection now compares equal at revalidate. Verified locally past line 128 on docker (BASEHARBOR_ENV_DESTROY_ACCEPTANCE=1); keeper #2 (state "runtime-retired" vs expected "stopped" at line 136) is a separate production/test mismatch, reported to owner. Evidence on origin/main (evidence/r28-welle5-2026-11-22/impact-consent-contract/round-1-1627.md). Blocked on the owner selecting the hosted coreless-lifecycle gate on the exact candidate and the keeper #2 state-mismatch decision.
   consent path is dispatched and its artefact will be linked here.
 
 STELLE BESATZT, coordinator-auftrag 02:5xZ. grund fuer den namen: die FRISCHE Lane w226-pr1627-0428-226-consent konnte nicht gestartet werden, weil 'worker-cleanup.sh w21-pr1702-…' mit PARTIAL 'session/OpenCode release incomplete' endete (tooling issue #6) und spawn-lane.sh deshalb ADMISSION-HOLD 'POOL-UNKNOWN: live worker without pool reservation' meldet. der sitz 0847d100 (w21) fuehrt diese karte daher in derselben session weiter - AGENTS 3.6 erlaubt das ausdruecklich als explizite uebergabe, und dieselbe session hat die diagnose bereits geliefert. PR-FELD bleibt leer, bis die lane ihren eigenen branch/PR eroffnet; integration in #1627 erfolgt erst, wenn der fix mit dem dann exakten develop 7d4351c6d64 bereit ist.
