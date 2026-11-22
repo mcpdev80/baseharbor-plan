@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-223-testctx
+owner: fecbada9/1450c201 (review) + Owner (merge autorisiert durch sweep-klaerung)
 kanban_status: review
 kanban_lane: review
 kanban_summary: "The whole-package Go unit suite (go test ./...) is red on develop and no merge gate runs it: make the suite pass on develop…"
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261121-develop-full-suite-red · CI: full-suite unit tests are red on develop and no merge gate runs them #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-223-testctx  
+    **Owner:** fecbada9/1450c201 (review) + Owner (merge autorisiert durch sweep-klaerung)  
     **PR:** [baseharbor#1750](https://github.com/mcpdev80/baseharbor/pull/1750)  
     <!-- /generated:card -->
 
@@ -34,7 +34,7 @@ evidence: []
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261120-workload-port-flag-ignored-locally](t-20261120-workload-port-flag-ignored-locally.md), [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md), [t-20261122-static-cells-operator-auth-helper](t-20261122-static-cells-operator-auth-helper.md)  
-**Owner:** 0428-223-testctx  
+**Owner:** fecbada9/1450c201 (review) + Owner (merge autorisiert durch sweep-klaerung)  
 **Priority:** not set  
 **PRs:** [baseharbor#1750](https://github.com/mcpdev80/baseharbor/pull/1750)  
 **Source:** 
@@ -91,3 +91,5 @@ PR 1753 hopped to develop 8b9a8f50645 at head 91f4e38795a with exact CI green (r
 independent CODEX-REVIEW gives APPROVE at exact head 17f471cd3fe (required checks pass, job 137087212830); two follow-ups recorded: P3 temp-dir cleanup in cmd/baha/test_operator_context_test.go:112-121 and the skipped Selected Runtime/validate proof that depends on card 0428-228
 
 Hop ist gelandet: head 5d47569f337 (additiv, back=0, run 44986337450 SUCCESS, 0 failed jobs). Acceptance bleibt withheld: Selected Runtime ist an diesem head SKIPPED (job 137097672713), validate skipped (137097623509). Grund ist nicht der kandidaat, sondern die fehlenden catalog-zeilen in pr-gate-coverage.json - karte 0428-230, rezept native-checks-catalog-recipe.md. Der P2 hostConfigIsolationDir cleanup ist als 0428-233 eigenstaendig gefuehrt.
+
+Verdict auf origin/main: APPROVE am exakten head 5d47569f337, ausdruecklich als additiver develop-only hop gegen das fruhere APPROVE bei 17f471cd3fe bestaetigt (akte testcontext-0428-223/review-1750-head5d47569f337.md). Damit ist die merge-blockade weg. Ein additiver hop auf develop 5ca8420c181 laeuft parallel; die merge-session prueft den LEBENDEN refs/pull/1750/head und merged bei CLEAN + terminal SUCCESS (zwei getrennte akten, ROLLE-Label, rule-getreu).
