@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w27-pr1627-0428-061-pull
-kanban_status: blocked
-kanban_lane: blocked
+owner: Owner (autoren-vertrag) / erster freier worker-sitz (hop)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Implement guided source pull. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-061 · Implement guided source pull
 priority: high
@@ -17,25 +17,26 @@ depends_on: [t-20261114-r28-cli2-app-lifecycle, t-20261114-r28-cli2-source-model
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1752]
 sources: []
-blocker: "Owner-Entscheidung noetig: die zwei neuesten commits b010dabcb und e7df5ab4a6c sind als 'BaseHarbor Worker <worker@example.invalid>' geschrieben (unsigniert, keine karten-identitaet), die fuenf frueheren als '0428-061-sourcepull <0428-061@baseharbor.local>'. das FRUEHERE verdict (a4adc29a584, akte 37ef97e67c) traegt nicht auf die neuen commits ueber, und die review verlangt eine zuordnung (akte identity-followup-e7df5ab4.md, plan c11fcb80ad). optionen: (a) dokumentierte ausnahme wie bei #1596, verdict gilt mit vermerk; (b) branch zuruecksetzen auf den letzten karten-identitaet-kopf und die beiden fixes als neue commits mit 0428-061-sourcepull-identitaet - das braucht einen force-push, also ihre hand. keine lane darf force-pushen."
-wait_reason: ""
+blocker: 
+wait_reason: "Owner authorship exception (option A) granted for b010dabcb, e7df5ab4a6c and 7b3c65880; candidate may move only by an additive hop; shares machine registry/docs files with 1623 and 1614, so it runs after them"
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1752"]
 ---
 
-- [ ] t-20261114-r28-cli2-source-pull · CLI redesign: Implement guided source pull #task #release/v0-4-28 #status/blocked #view/blocked #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-source-pull · CLI redesign: Implement guided source pull #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** w27-pr1627-0428-061-pull · **Priority:** high  
+    **Owner:** Owner (autoren-vertrag) / erster freier worker-sitz (hop) · **Priority:** high  
     **PR:** [baseharbor#1752](https://github.com/mcpdev80/baseharbor/pull/1752)  
-    **Blocker:** Owner-Entscheidung noetig: die zwei neuesten commits b010dabcb und e7df5ab4a6c sind als 'BaseHarbor Worker \<worker@example.invalid\>' geschrieben (unsigniert, keine karten-identitaet), die fuenf frueheren als '0428-061-sourcepull \<0428-061@…  
+    **Waiting:** Owner authorship exception (option A) granted for b010dabcb, e7df5ab4a6c and 7b3c65880; candidate may move only by an additive hop; shares machine registry/docs files with 1623 and 1614, so it runs after them  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1752)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-app-lifecycle](t-20261114-r28-cli2-app-lifecycle.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** w27-pr1627-0428-061-pull  
+**Owner:** Owner (autoren-vertrag) / erster freier worker-sitz (hop)  
 **Priority:** high  
 **PRs:** [baseharbor#1752](https://github.com/mcpdev80/baseharbor/pull/1752)  
 **Source:** 
@@ -99,3 +100,7 @@ Review-ziel berichtigt: die pruefung am head 34feb493480 war gegen karte 0428-19
 Review-ziel berichtigt: die pruefung am head 34feb493480 war gegen karte 0428-199 (workload-port) geschrieben; dieser kandidat geh rt zu 0428-061 (source pull). Das finding 'workload-port verhalten fehlt im diff' entfaellt damit. PR-run 44987053069 ist SUCCESS an dem head (draft-zellen cli-0 bis cli-3 und packages, job 137099810021 mit beiden shells). Die korrektur gegen den richtigen vertrag ist dispatcht. Die karte bleibt blocked auf ihre entscheidung zur autorschaft: b010dabcb, e7df5ab4a6c und 7b3c65880 sind als 'BaseHarbor Worker <worker@example.invalid>' geschrieben.
 
 Verdict am exakten head 34feb493480: APPROVE, keine code-befunde (akte workload-port-0428-199/review-1752-head34feb493480-contract061.md). Der inhaltliche grund meiner vorigen REQUEST CHANGES war ein falsch zugeordneter vertrag (0428-199 statt 0428-061). Die karte bleibt blocked auf eine einzige entscheidung: die commits b010dabcb, e7df5ab4a6c und 7b3c65880 tragen 'BaseHarbor Worker <worker@example.invalid>'. Option a: dokumentierte ausnahme, dann ist der kandidat merge-reif (draft ist noch zu schalten - Ihre hand). Option b: neu autorschaften, dann dispatche ich eine lane fuer den re-author und anschliessend einen frischen exakten run.
+
+EIGENTUER-ENTSCHEID LIEGT VOR UND IST HINTERLEGT (option A, dokumentierte ausnahme): die commits b010dabcb, e7df5ab4a6c und 7b3c65880 (author worker@example.invalid) BLEIBEN unveraendert - kein re-author, kein umschreiben, kein force. Fuer die lanen heisst das: der PR darf NUR additiv gehopft werden (merge --no-ff auf die develop-spitze, ziel-sha direkt aus refs/heads/develop), die geschichte bleibt, wie sie ist; ein 'git commit --amend --author' waere jetzt ein VERSTOSS gegen den eigentumer-vertrag. Damit ist der blocker-text der karte GELST. STAND gemessen: state OPEN, draft=true, head 34feb493480, base develop, rueckstand 39 commits, 19 dateien davon 8 in cmd/baha. FRUEHERER gruener durchgang 44987053069 galt einem ALTEN head und ist keine merge-probe. ZEITFENSTER: nach 0428-237, 1753 und 1762 - dieser kandidat teilt die machine-registry-/docs-dateien mit 1623 und mit 1614 (kanten in coordinator/board/integration-order.md).
+
+EIGENTUER-ENTSCHEID LIEGT VOR UND IST HINTERLEGT (option A, dokumentierte ausnahme): die commits b010dabcb, e7df5ab4a6c und 7b3c65880 (author worker@example.invalid) BLEIBEN unveraendert - kein re-author, kein umschreiben, kein force. Fuer die lanen heisst das: der PR darf NUR additiv gehopft werden (merge --no-ff auf die develop-spitze, ziel-sha direkt aus refs/heads/develop), die geschichte bleibt, wie sie ist; ein 'git commit --amend --author' waere jetzt ein VERSTOSS gegen den eigentumer-vertrag. Damit ist der blocker-text der karte GELST. STAND gemessen: state OPEN, draft=true, head 34feb493480, base develop, rueckstand 39 commits, 19 dateien davon 8 in cmd/baha. FRUEHERER gruener durchgang 44987053069 galt einem ALTEN head und ist keine merge-probe. ZEITFENSTER: nach 0428-237, 1753 und 1762 - dieser kandidat teilt die machine-registry-/docs-dateien mit 1623 und mit 1614 (kanten in coordinator/board/integration-order.md).

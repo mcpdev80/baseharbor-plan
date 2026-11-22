@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: Codex
-kanban_status: active
-kanban_lane: active
+owner: sweep maintainer (claim 2ae9fd00d) / coord (integrations-regel)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Guide app logs exec and urls. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-063 · Guide app logs exec and urls
 priority: high
@@ -18,23 +18,25 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1623]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "carrier not needed: generated docs on develop are byte-identical to generator output (measured); regeneration runs as a step inside this PR own additive hop, carrier PR 1764 stays closed"
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1623"]
 ---
 
-- [ ] t-20261114-r28-cli2-app-interact · CLI redesign: Guide app logs exec and urls #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-app-interact · CLI redesign: Guide app logs exec and urls #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** Codex · **Priority:** high  
+    **Owner:** sweep maintainer (claim 2ae9fd00d) / coord (integrations-regel) · **Priority:** high  
     **PR:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623)  
+    **Waiting:** carrier not needed: generated docs on develop are byte-identical to generator output (measured); regeneration runs as a step inside this PR own additive hop, carrier PR 1764 stays closed  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1623)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** Codex  
+**Owner:** sweep maintainer (claim 2ae9fd00d) / coord (integrations-regel)  
 **Priority:** high  
 **PRs:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623)  
 **Source:** 
@@ -91,3 +93,9 @@ PR #1623 draft = kein kandidat (§5.2). rebasen auf die basis, sobald #1615 grue
 - die drei alten befund-punkte sind auf diesem branch inhaltlich behoben (selectedComponents durch validateWorkloadLogComponents/workloadLogsCommandArgs, '--cmd' -> sh -c in workloadExecCommandArgs, preserveWorkloadExitStatus ueber cli.WithExitCode) - bestaetigt durch ihre messe, von mir nicht erneut gegengeprueft.
 - RESERVIERTE DATEIEN, ihre frage: docs/cli/command-index.md, docs/de/cli/command-index.md und docs/reference/cli-machine-coverage.md sind ERZEUGTE dateien. Regel: niemand loest ihre konflikte von hand - sie werden AUS DEM COMMAND-BAUM NEU ERZEUGT. Integration-owner ist der Coordinator, AUSFUEHRUNG laeuft auf einer benannten worker-lane (der Coordinator schreibt selbst keinen produkt-code): die lane erzeugt die drei dateien aus dem command-baum neu und loest den konflikt dadurch, ohne von hand zu editieren. Die karte bleibt mit ihrem claim bei ihnen - nur diese drei dateien laufen ueber die integrations-linie, damit dort ein einziger schreiber sitzt. Bis zur fertigstellung ihrer seite: KEIN hop, KEIN run auf diesen drei dateien von beiden seiten gleichzeitig.
 - SORGFALT fuer die reihenfolge: nach einem hop auf develop werden die nativen data-capabilities-reihen ausgefuehrt und treffen den broker-defekt 0428-237 (zeuge PR 1762, durchgang 45001383922: native docker 137144598339 FAIL nach 2m03s, podman 137144598342 FAIL 503 not_ready nach 4m57s). Revalidierung und read-only-befunde bleiben richtig; terminal gruen erst nach 237.
+
+TRAEGER-GEDANKE IST ERLEDIGT, GRUND GEMESSEN (akte der lane 0847d100): die generator-ausgabe (BASEHARBOR_UPDATE_MACHINE_DOCS=1 go test ./cmd/baha -run TestHumanCommandIndexTracksExactCommandMetadata und TestMachineDocumentationTracksRegistryAndCommandTree) ist BYTE-FOR-BYTE wie develop 8629450ef3c - der carrier-PR 1764 war darum LEER und fiel zu recht durch 'PR . Trusted Plan' 137156455112 und 'PR . Selected Checks' 137156547886 (24 skipped). ENTSCHEID: weder leerer carrier akzeptieren, noch die command-tree-aenderung in eine andere karte ziehen - die neu-erzeugung ist ein SCHRITT IM hop dieses PRs (generator-durchgang, kein hand-edit) und PR 1764 bleibt geschlossen. Damit entfaellt ihre blockade 'wartet auf index-traeger': der hop auf develop 8629450ef3c erzeugt die doc-deltas aus IHREM eigenen command-baum. Rueckstand 586 commits, 20 dateien, davon 8 in cmd/baha; KANTE zu #1620 ueber cmd/baha/app_access.go bitte vor dem hop pruefen (board/integration-order.md).
+
+test: traeger-entscheid gemessen, PR 1764 bleibt geschlossen
+
+TRAEGER-GEDANKE ERLEDIGT, GRUND GEMESSEN: die generator-ausgabe (BASEHARBOR_UPDATE_MACHINE_DOCS=1 go test ./cmd/baha -run TestHumanCommandIndexTracksExactCommandMetadata und TestMachineDocumentationTracksRegistryAndCommandTree) ist BYTE-FOR-BYTE wie develop 8629450ef3c - der carrier-PR 1764 war darum LEER und fiel zu recht durch 'PR . Trusted Plan' 137156455112 und 'PR . Selected Checks' 137156547886 (24 skipped). ENTSCHEID: weder einen leeren carrier akzeptieren, noch die command-tree-aenderung in eine andere karte ziehen - die neu-erzeugung ist ein SCHRITT IM hop dieses PRs (generator-durchgang, kein hand-edit); PR 1764 bleibt geschlossen. Damit entfaellt die blockade 'wartet auf index-traeger': der hop auf develop 8629450ef3c erzeugt die doc-deltas aus dem EIGENEN command-baum. Rueckstand 586 commits, 20 dateien, davon 8 in cmd/baha; KANTE zu #1620 ueber cmd/baha/app_access.go vor dem hop pruefen (coordinator/board/integration-order.md).
