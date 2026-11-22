@@ -8,7 +8,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ffe7611b (#1770 62f4ab0d combined pin+fixture; rerun 20 pass/0 fail, selected docker+podman data-caps 2 pending) / Owner (merge->develop wenn gruen) / Coordinator
+owner: ffe7611b (#1770 62f4ab0d combined: 0 fail / 21 pass / 2 pending, native+selected+TP gruen, mergeState BLOCKED bis 2 terminal) / Owner (step4 develop merge wenn voll gruen) / Coordinator
 tags: [#task, #release/v0.4-28]
 kanban_status: review
 kanban_lane: review
@@ -26,7 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "h
 
 - [ ] t-20261122-runtime-broker-health-unhealthy · CI: data-capabilities native gate fails on secure runtime broker readiness #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** ffe7611b (\#1770 62f4ab0d combined pin+fixture; rerun 20 pass/0 fail, selected docker+podman data-caps 2 pending) / Owner (merge-\>develop wenn gruen) / Coordinator  
+    **Owner:** ffe7611b (\#1770 62f4ab0d combined: 0 fail / 21 pass / 2 pending, native+selected+TP gruen, mergeState BLOCKED bis 2 terminal) / Owner (step4 develop merge wenn voll gruen) / Coordinator  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998846458), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45008538769), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-3.md), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45011764715)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "h
 **State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** ffe7611b (#1770 62f4ab0d combined pin+fixture; rerun 20 pass/0 fail, selected docker+podman data-caps 2 pending) / Owner (merge->develop wenn gruen) / Coordinator  
+**Owner:** ffe7611b (#1770 62f4ab0d combined: 0 fail / 21 pass / 2 pending, native+selected+TP gruen, mergeState BLOCKED bis 2 terminal) / Owner (step4 develop merge wenn voll gruen) / Coordinator  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
 **Source:** 
@@ -172,3 +172,5 @@ DRITTE FEHLKLASSE (separat von 241 consent + test-only allowlist): #1780 native 
 #1770 branch per FF auf combined head 62f4ab0d vorgezogen (enthlt #1770 pin scripts/ci-native-pr-gate.sh + #1783 fixture app-new :137/app-edit :140/footprint-show :151, FF ohne force, 62f4ab0d ist descendant von 0da4a571). Exact rerun auf combined head: native docker+podman + selected docker+podman data-caps = 4 gates PENDING, 18 pass, 0 fail, Trusted Plan pass (erbt #1786). Erwartung selected GRUEN diesmal (fixture im head). Wenn alle gruen -> Owner MERGE #1770 -> develop -> damit fan-out (#1761/#1771/#1762/#1763) + #1783 auf combined develop. mergeState noch BLOCKED bis gates terminal. develop c928a627.
 
 #1770 combined (FF 62f4ab0d = pin + #1783 fixture merged-in): exact rerun native docker+podman GREEN, Trusted Plan GREEN, 20 pass / 0 fail, NUR selected docker+podman data-caps pending (footprint-show :151 fixture jetzt im head -> erwartet gruen). Wenn die zwei terminal gruen -> #1770 VOLLSTAENDIG gruen -> Owner MERGE -> develop -> oeffnet fan-out (#1761/#1771/#1762/#1763 re-hops auf combined develop). mergeState noch BLOCKED bis die 2 selected terminal. develop c928a627.
+
+#1770 combined (FF 62f4ab0d = pin + #1783 fixture merged): native docker+podman GREEN, selected docker+podman GREEN (footprint-show :151 admitted), Trusted Plan GREEN (#1786). gh witness: run 45069601227 0 fail / 21 pass / 2 checks pending, mergeState BLOCKED bis die zwei terminal (bei 0 fail erwartungsgemass gruen). ffe END meldete die Kern-gates gruen vor dem letzten aggregat-post. Sobald terminal gruen -> Owner MERGE #1770 -> develop -> FANOUT (b90e #1761, f0f #1771, + #1762/#1763 re-hops auf combined develop). develop c928a627 noch. Kein Hop vor develop-move.
