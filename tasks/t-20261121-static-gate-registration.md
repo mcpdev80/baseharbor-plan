@@ -8,7 +8,7 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: Owner (PR CI + static suite dispatched, confirmations) / Coordinator (track) / b90e (prereq #1761/#1771 hops)
+owner: Owner (zsh+fish approved + static suite) / Coordinator (confirmation BLOCKED on prereq) / b90e (#1761/#1771 prereq hops)
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: Run the existing scripts/ci-fast-check.sh as its own static gate in the v0.4.28 Pre-Release Suite. Preserve every existing…
@@ -18,16 +18,16 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1774, mcpdev80/baseharbor#1782, mcpdev80/baseharbor#1761]
 sources: []
 blocker: ""
-wait_reason: "#1746 exact 8561447dc: PR CI 45051210001 sauber (in_progress). FULL static suite 45052561097: agent SUCCESS, aber shell-ux/init/mcp/config-matrix cells FAIL = operator-auth PREREQ (#1761 static-auth-helper + #1771 static-opauth-fix, karte 0428-231, UNASSIGNED->jetzt b90e hops), NICHT #1746 content. mcp target-create mcp-static evtl 247. #1746 kann erst nach #1761+#1771 gruen (in develop) + target.create klar + Coordinator + Release-Owner confirmations gemergt werden. KEIN merge jetzt. develop b27b2ebe."
+wait_reason: "#1746 zsh+fish EXPLICIT approved + bestaetigt: own hosted 45051210001 completed, 107 checks, ALLE #1746-jobs SUCCESS (Go cli-3 inkl shell/zsh+fish, focused-python, planner, executor, source format, candidate artifact, snapshot, go vet). EINZIGER FAIL = 'PR Selected Checks' AGGREGAT = die 4 static operator-auth gates (shell-ux/init/config-matrix/mcp) = PREREQ #1761(static-auth-helper)+#1771(static-opauth-fix) karte 0428-231, AKTIV auf b90e4ba1 (additive hops b27b2ebe, heads noch 669d76ac/dc775235 = push in arbeit). COORDINATOR-CONFIRMATION FR MERGE = NOCH NICHT (gate nicht gruen, keine gruenen gates behaupten). Erteilte CONDITION: sobald #1761+#1771 in develop + #1746 re-hop -> static gates gruen -> Coordinator witness + Release-Owner confirmation -> merge. KEIN merge #1746 vorher. develop b27b2ebe."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md"]
 ---
 
 - [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/wait #view/wait #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** Owner (PR CI + static suite dispatched, confirmations) / Coordinator (track) / b90e (prereq \#1761/\#1771 hops) · **Priority:** high  
+    **Owner:** Owner (zsh+fish approved + static suite) / Coordinator (confirmation BLOCKED on prereq) / b90e (\#1761/\#1771 prereq hops) · **Priority:** high  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
-    **Waiting:** \#1746 exact 8561447dc: PR CI 45051210001 sauber (in\_progress). FULL static suite 45052561097: agent SUCCESS, aber shell-ux/init/mcp/config-matrix cells FAIL = operator-auth PREREQ (\#1761 static-auth-helper + \#1771 static-opauth-fix, karte…  
+    **Waiting:** \#1746 zsh+fish EXPLICIT approved + bestaetigt: own hosted 45051210001 completed, 107 checks, ALLE \#1746-jobs SUCCESS (Go cli-3 inkl shell/zsh+fish, focused-python, planner, executor, source format, candidate artifact, snapshot, go vet). EI…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44997978036), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md)  
     <!-- /generated:card -->
 
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "h
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** Owner (PR CI + static suite dispatched, confirmations) / Coordinator (track) / b90e (prereq #1761/#1771 hops)  
+**Owner:** Owner (zsh+fish approved + static suite) / Coordinator (confirmation BLOCKED on prereq) / b90e (#1761/#1771 prereq hops)  
 **Priority:** high  
 **PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
 **Source:** 
