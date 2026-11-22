@@ -7,9 +7,9 @@ areas: [testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: b90e4ba1 (#1783 app-new :138 admitted; naechster seam app-edit data-capabilities + regression; Produkt boundary intact) / Coordinator
-kanban_status: active
-kanban_lane: active
+owner: b90e4ba1 (#1783 8b99bdc3 app-new seam terminal selected GREEN 45061359667) / Owner (stacked app-edit follow-up PR) / Coordinator
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-241 · guided fixture drift
 priority: high
@@ -23,17 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-guided-fixture-footprint-contract-divergence · Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 #task #release/v0-4-28 #status/active #view/active #area/testing #kind/bug
+- [ ] t-20261122-guided-fixture-footprint-contract-divergence · Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 #task #release/v0-4-28 #status/review #view/review #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (\#1783 app-new :138 admitted; naechster seam app-edit data-capabilities + regression; Produkt boundary intact) / Coordinator · **Priority:** high  
+    **Owner:** b90e4ba1 (\#1783 8b99bdc3 app-new seam terminal selected GREEN 45061359667) / Owner (stacked app-edit follow-up PR) / Coordinator · **Priority:** high  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1787](https://github.com/mcpdev80/baseharbor/pull/1787)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** b90e4ba1 (#1783 app-new :138 admitted; naechster seam app-edit data-capabilities + regression; Produkt boundary intact) / Coordinator  
+**Owner:** b90e4ba1 (#1783 8b99bdc3 app-new seam terminal selected GREEN 45061359667) / Owner (stacked app-edit follow-up PR) / Coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1787](https://github.com/mcpdev80/baseharbor/pull/1787)  
 **Source:** 
@@ -121,3 +121,5 @@ ENTSCHEID shared (owner+coordinator): #1783 selected timeout = getagtes TEST-FIX
 #1783 app-new fixture fix ERWIESEN (head 8b99bdc3): run 45061359667 `Validation  ci-integration-operator-seam-tests` = SUCCESS = QUALIFYING EVIDENCE (data-capabilities app-new admitted unter selected gates, Produkt consent intact). SPAETER `native/docker/data-capabilities` FAIL = TestApplicationCapabilityLifecycleExistingCore/secrets broker >2m auf ghcr.io/...:edge = EXAKT der :edge drift, SCHARF geroutet zu #1770 (exact-runtime-image pin; #1770 eigener branch macht native docker+podman GREEN 45060014055). KEIN #1783 defect/chasing am runtime (waere consent/boundary risk). native/podman + selected = waiting-#1770. Merge-Ordnung: #1770->develop ZUERST, dann #1783 re-hop zeigt native gruen. develop 978a0f90b. KEIN merge bis reviewed.
 
 #1783 app-new admission WIRKT (:138 data-capabilities, run 45061359667 seam-tests SUCCESS). NAechster uncovered seam (owner): `app edit` faellt durch -> Trace 'command-not-in-managed-workload-set: app edit' -> new-edit-new-sql-cancel no-output timeout. FIX analog app-new: EINE admission-zeile `gate=="data-capabilities" && ciIntegrationGuidedAppEdit(args)` (canonical len==2 app edit) + Regression (noncanonical/andere gates DENIED, kein blanket), PRODUKT managed-workload boundary UNVERAENDERT. b90e routed, neuer head (nicht 8b99bdc3) + exact selected rerun. native :edge = waiting-#1770. develop 978a0f90b.
+
+#1783 TERMINAL run 45061359667: SELECTED data-caps (docker+podman) app-new admitted + digest-bound app apply + lifecycle = GRUEN (Qualifying-Evidence erbracht). #1783 content KOMPLETT fuer app-new (head bleibt 8b99bdc3). NAechster gate gap = exact `app edit` -> no-output timeout (new-edit-new-sql-cancel): wird vom OWNER als gestapelter test-only fixture follow-up PR behoben (NICHT b90e, um #1787-artige Doppel-writer-kollision zu vermeiden). native docker+podman = pre-existing existing-core/secrets :edge broker readiness = SEPARAT #1770 (pin, nachhop 978a0f90b laeuft). b90e steht auf #1771 hop 978a0f90b (dep-frei via #1786). develop 978a0f90b.
