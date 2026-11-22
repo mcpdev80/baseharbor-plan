@@ -1,5 +1,5 @@
 ---
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md"]
 id: t-20261122-host-config-isolation-tmpdir-cleanup
 card_number: "0428-233"
 card_short_title: "host config isolation tmpdir"
@@ -8,7 +8,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ffe7611b (lane, product test file)
+owner: ffe7611b (lane)
 tags: [#task, #release/v0.4-28]
 kanban_status: active
 kanban_lane: active
@@ -17,7 +17,7 @@ kanban_title: 0428-233 · host config isolation tmpdir
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1725]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,16 +26,18 @@ resolution: ""
 
 - [ ] t-20261122-host-config-isolation-tmpdir-cleanup · CLI: release the per-test host config isolation directory #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** ffe7611b (lane, product test file)  
+    **Owner:** ffe7611b (lane)  
+    **PR:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** ffe7611b (lane, product test file)  
+**Owner:** ffe7611b (lane)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -95,3 +97,5 @@ mask the 14-test root cause that card 0428-223 fixes, which is why it was not fo
   after card 0428-228 lands its mapping, so the leak cannot return silently.
 
 Abgesetzt auf den freien sitz: mission sha 15d11b3ec9a9, lifecycle-festigung der hostConfigIsolationDir in cmd/baha/test_operator_context_test.go:112-121, regression im gehosteten data-capabilities-gate (beide engines) nach PR 1755/1756.
+
+inhaltsteil ist auf der lane fertig gemeldet (tmpdir-freigabe im host-config-isolation-test); PR steht noch aus, weil derselbe sitz zuerst den PR-1645-hop ausfuehrt. Kein merge, keine abnahme: es fehlt der gehostete beleg am eigenen head.
