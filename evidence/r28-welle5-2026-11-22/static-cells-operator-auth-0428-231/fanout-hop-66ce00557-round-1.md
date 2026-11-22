@@ -63,3 +63,12 @@ achtergelaten (/var/tmp/0428-223* leeg). Werktree
 workers/0428-231-opauthfix-wt 0 delta na de hop-push.
 
 END 0428-223-testctx DONE — 0428-231 #1771 fanout-hop ronde-1: NIEUWE HEAD a599032ce279da1db9ee9329d4af3122521ce0a5 (additive merge --no-ff van develop 66ce00557, ouders 2d578b1d+66ce0055, ls-remote branch+pull/1771 = head, PR open/ready, geen merge door deze lane), EXACT hosted run 45072733588 completed/SUCCESS failed=0: 'TP groen: ja' (137363110542), 'native groen: ja' (docker 137363160995 + podman 137363160991), 'selected groen: ja' (docker 137363766974 + podman 137363766948), PR Selected Checks 137369585487 success. PR #1771 is hiermede volledig groen voor gate-verify + merge (besluit blijft bij Codex/Owner). cleanliness: besenrein
+
+## origin/main witness
+
+Exact: `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep fanout-hop-66ce00557` (plan main = e00a11d21f16235786441398d3b5d89af5f8bb62):
+
+```
+evidence/r28-welle5-2026-11-22/broker-runtime-health-0428-246/fanout-hop-66ce00557-round-1.md
+evidence/r28-welle5-2026-11-22/static-cells-operator-auth-0428-231/fanout-hop-66ce00557-round-1.md
+```
