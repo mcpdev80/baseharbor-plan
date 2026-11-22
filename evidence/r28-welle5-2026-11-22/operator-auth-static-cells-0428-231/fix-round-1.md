@@ -120,7 +120,8 @@ Extra, gemeten defect op dezelfde paden: de root `baha init` (quick route) kreeg
 local-workload-scope in cliLocalWorkloadOperation (main.go), terwijl de operatie-waardering app.adopt is
 — dit is de scope-regel die de statische init/config-matrix cellen raken; beide wijzigingen zijn additive
 en verlagen GEEN authenticatie-eis. PR #1746 (andere lane) levert intussen de static-cell CI bootstrap met
-de testonly route (commit 3650e652 "run release static gates with the CI operator binary").
+#1746 (head ff2ccafaa, state gemeten via gh api) takt de statische gates aan en voorziene bootstrap-route
+  voor de statische cellen; merge-volgorde is coordinator/Owner-werk, niet deze lane.
 
 ## cleanliness
 
