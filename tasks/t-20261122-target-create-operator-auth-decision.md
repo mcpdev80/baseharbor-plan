@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "Owner/Core decision on managed-operator auth for target create; not lane-implementable (no auth bypass). Blocks #1746 static/mcp Pre-Release."
+wait_reason: "Owner/Core ruling. H-V28 schaerft: DEFekt ist AUSSCHLIESSLICH die 'target create'-MUTATION ohne local-workload hook; READS sind korrekt (CLI reads exempt bzw. per verified local grant geklaert, local_workload_authority.go:45/57 clear boundary mcp.go:316-320). Also NICHT breiter auth-bruch. #1746 static/mcp cell haelt genau daran + perses-expected-list (H-V29). Option B1 = target-fall main.go:158-175 + target-CLI hook; Option B2 = gate/test-contract. Guard nicht angetastet."
 resolution: ""
 evidence: []
 ---
@@ -26,7 +26,7 @@ evidence: []
 - [ ] t-20261122-target-create-operator-auth-decision · target create reaches the managed-operator auth boundary with no local-workload hook; owner decides the consent/auth path #task #release/v0-4-28 #status/wait #view/wait #area/cli #area/security #kind/task
     <!-- generated:card -->
     **Owner:** Owner / Core · **Priority:** high  
-    **Waiting:** Owner/Core decision on managed-operator auth for target create; not lane-implementable (no auth bypass). Blocks \#1746 static/mcp Pre-Release.  
+    **Waiting:** Owner/Core ruling. H-V28 schaerft: DEFekt ist AUSSCHLIESSLICH die 'target create'-MUTATION ohne local-workload hook; READS sind korrekt (CLI reads exempt bzw. per verified local grant geklaert, local\_workload\_authority.go:45/57 clear bound…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -56,3 +56,5 @@ Either rule the consent/auth mechanism for the static `target create` gate (Opti
 ## Boundaries
 
 Owner/Core decision record only. No lane edits to mcp.go / local_workload_authority.go / main.go guard logic. Blocks #1746 static/mcp acceptance until ruled.
+
+Scope durch H-V27+H-V28 belegt: target.create only. app footprint show/list/mcp-reads OK.
