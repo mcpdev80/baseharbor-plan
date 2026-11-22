@@ -88,3 +88,11 @@ under /var/tmp/0428-223-* wordt vóór END verwijderd. Werkboom
 workers/0428-248-brokerdiag-wt houdt de kandidaat (0 delta na commit).
 
 END 0428-223-testctx DONE — 0428-248 broker-diag round-1: branch lane-0428-248-broker-diag-mapping, head 5d9bd2623b65b14685bacf9d0f0b3986aab45256 (ONE additive commit op develop 68b26bd78c3d), PR https://github.com/mcpdev80/baseharbor/pull/1778 class DRAFT, exact run 45036510669 completed/success failed=0, trusted-planner #1763 cataloged: ja, cleanliness: besenrein
+
+## origin/main witness
+
+Exacte uitvoer van `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep gate-catalog-0428-248/broker-diag-round-1` (plan main = 02e74fc88b7932a29a37caf16ee331daa19e3814):
+
+```
+evidence/r28-welle5-2026-11-22/gate-catalog-0428-248/broker-diag-round-1.md
+```
