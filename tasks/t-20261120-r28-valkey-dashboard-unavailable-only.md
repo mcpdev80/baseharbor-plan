@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: Codex (Marcel, active wait sweep 2026-11-21)
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-183 · valkey dashboards gate
 priority: ""
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md", "https://github.com/mcpdev80/baseharbor/pull/1734", "https://github.com/mcpdev80/baseharbor/actions/runs/44853938826"]
 ---
 
-- [ ] t-20261120-r28-valkey-dashboard-unavailable-only · Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable #task #release/v0-4-28 #status/review #view/review #kind/bug
+- [ ] t-20261120-r28-valkey-dashboard-unavailable-only · Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
     **Owner:** Codex (Marcel, active wait sweep 2026-11-21)  
     **PR:** [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714)  
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-loki-verify-probe](t-20261121-loki-verify-probe.md), [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
 **Owner:** Codex (Marcel, active wait sweep 2026-11-21)  
@@ -96,3 +96,5 @@ review -> wait: verdict REQUEST CHANGES measured at ecff7e2f575, no live session
 REQUEST CHANGES der abnahme, ausschliesslich fuer die commit-identitaet (akte evidence/r28-welle4-2026-11-21/valkey-dashboard-unavailable/review-2-headecff7e2f.md): der kandidat traegt zwei autoren ('worker' und '0428-183-realpos') bei einem committer, karte 0428-224 verlangt genau eine identitaet. KEIN inhaltlicher befund: die valkey-verfuegbarkeits-semantik ('unavailable-only') ist geprueft und in ordnung, die vier commits sind linear. entscheidung noetig, wie bei #1596: dokumentierte owner-ausnahme (praedez: evidence/r28-welle4-2026-11-21/org-env-reconciliation/owner-exception-identity-1596.md) ODER history-normalisierung mit frischem exaktem hosted run. rueckstand: back=19 gegen develop 42da7128e72, der gehostete run 44940738791 war auf dem alten head. keine lane schreibt an diesem branch, die lane-sitzung ist freigegeben.
 
 PR 1714 exact run 44981355459 success at head 731302e9a7a (35 jobs, PR Selected Checks success) but base is the previous develop; second additive hop onto 82825e95 dispatched before review
+
+independent review at exact head 277ff976395 gave REQUEST CHANGES: internal/application/runtime_observability.go:253 always passes ObservabilityVerifyNone so the production path cannot reach the verified valkey dashboard; correction round dispatched to seat f0f6c8b4
