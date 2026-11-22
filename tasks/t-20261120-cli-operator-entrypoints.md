@@ -27,6 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1726", "https://github.c
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1726](https://github.com/mcpdev80/baseharbor/pull/1726)  
+    **Needs:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1726), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44864365574), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44885697655), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44887314441), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/cli-operator-entrypoints/round-1.md)  
     <!-- /generated:card -->
 

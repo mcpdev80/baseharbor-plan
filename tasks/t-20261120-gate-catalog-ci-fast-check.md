@@ -28,6 +28,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "h
     **Owner:** 0428-223-testctx · **Priority:** normal  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
     **Waiting:** kopf exakt (48f0cb1e44d, ahead=5 behind=0) und PR-CI 44973953752 completed/success. der vom PR-koerper verlangte zielgerichtete volle static-lauf ist angestossen: workflow\_dispatch auf 'Release . Pre-Release Validation' (workflow 362658451…  
+    **Needs:** [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44943804395), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44944570763), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1746)  
     <!-- /generated:card -->
 
