@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: Coordinator (naechster freier sitz fuehrt aus)
-kanban_status: planned
-kanban_lane: ready
+owner: f0f6c8b4 (branch lane-0428-ingress-catalog, PR folgt) / Coordinator
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One develop-only catalog PR registers the base rows that Trusted Plan needs to admit already-existing product sources in #1753…"
 kanban_title: 0428-252 · register existing-path sources
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261123-catalog-ingress-develop-prereqs · Catalog ingress: register existing-path sources in develop base catalog #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261123-catalog-ingress-develop-prereqs · Catalog ingress: register existing-path sources in develop base catalog #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** Coordinator (naechster freier sitz fuehrt aus)  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** f0f6c8b4 (branch lane-0428-ingress-catalog, PR folgt) / Coordinator  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** Coordinator (naechster freier sitz fuehrt aus)  
+**Owner:** f0f6c8b4 (branch lane-0428-ingress-catalog, PR folgt) / Coordinator  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -80,3 +79,5 @@ One develop-only catalog PR registers the base rows that Trusted Plan needs to a
 - Current state, branch, PR and evidence links. Newest first.
 
 abhaengige: #1753 (227) und #1765 (209) blockiert auf diesen base-ingress. Row-form analog internal.operatorauth.test.operator.go.
+
+arbeit beginnt: drei base-rows, lokale validator-pflicht, dann PR + exact-head run. package-root-kapitel gestrichen (owner-schienenroute).
