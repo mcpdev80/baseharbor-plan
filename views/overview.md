@@ -13,8 +13,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | active | 9 |
 | review | 3 |
 | wait | 18 |
-| blocked | 1 |
-| ready | 10 |
+| blocked | 2 |
+| ready | 9 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
@@ -70,6 +70,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) | Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) | blocked | high | — | — | — |
+| [t-20261123-demo-digest-consent-adaptation](../tasks/t-20261123-demo-digest-consent-adaptation.md) | Demo: pass explicit candidate digest in footprint consent test (fail-closed kept) | blocked | not set | Coordinator (kein Lane-Dispatch,Entscheid-frei hinfällig) | — | [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780) |
 
 ## Ready to assign
 
@@ -84,7 +85,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-candidate-commit-identity](../tasks/t-20261121-candidate-commit-identity.md) | Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) | ready | not set | — | — | — |
 | [t-20261122-native-plan-self-selection](../tasks/t-20261122-native-plan-self-selection.md) | CI: catalog and planner self-change selects zero gates | ready | not set | — | — | — |
 | [t-20261122-static-cell-local-workload-grant-access](../tasks/t-20261122-static-cell-local-workload-grant-access.md) | Static cells: --access local-docker rejected at local_workload_authority.go:62 | ready | high | — | — | — |
-| [t-20261123-demo-digest-consent-adaptation](../tasks/t-20261123-demo-digest-consent-adaptation.md) | Demo: pass explicit candidate digest in footprint consent test (fail-closed kept) | ready | not set | — | — | — |
 
 ## By release
 

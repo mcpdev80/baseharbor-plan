@@ -16,8 +16,9 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 172/264 · **Blocked:** 1 · **Waiting:** 20  
+    **Accepted tasks:** 172/264 · **Blocked:** 2 · **Waiting:** 20  
     **Blocker:** [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) — Owner-Entscheidung 2026-11-22: Freigabe für eine Ursachenprüfung und genau einen PR mit der eng begrenzten Reparatur, soweit durch Befund belegt: Reihenfolge u…  
+    **Blocker:** [t-20261123-demo-digest-consent-adaptation](../tasks/t-20261123-demo-digest-consent-adaptation.md) — owner-befund 2026-11-23: keine Demo-aenderung noetig baseharbor-demo main extrahiert das candidate-digest bereits und ruft 'baha app apply --confirm-candidate…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next
