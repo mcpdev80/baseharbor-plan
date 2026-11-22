@@ -44,3 +44,20 @@ Before review: PID `2523699`; `docker ps -a` returned no containers. No containe
 ## END codex-rev2-1736 DONE
 
 APPROVE PR #1750 at live head `f6d3fc5c23e4a3097d4d36130303338b0ff180bd`; its hop adds only develop content from #1714. Exact run `44990801974` completed SUCCESS.
+
+## CI selection detail
+
+This exact-head run completed with 14 successful jobs, 0 failed jobs, and 21 skipped jobs. `PR · Validation · go-build` (`137111247772`), `PR · Validation · go-vet` (`137111247789`), and `PR · Native gate plan` (`137111206801`) passed. `validate` (`137111207599`), `PR · Native · ${{ matrix.id }}` (`137111239451`), `PR · Native Keycloak/Core · ${{ matrix.runtime }}` (`137111249223`), and `PR · Selected Runtime` (`137111249509`) were skipped. PR #1756 remains OPEN and unmerged; these native selection skips are expected before #1756 adds the native catalog rows, and they are not treated as passing receipts or as a defect in this #1750 hop.
+
+## Final exact-head CI and skipped selection record
+
+Run `44990801974` is terminal `completed / SUCCESS` at `f6d3fc5c23e4a3097d4d36130303338b0ff180bd`: 14 successful jobs, 0 failed jobs, 21 skipped jobs. Required aggregate `PR Selected Checks` job `137112288306` passed from GitHub Actions integration `15368`. Validation build `137111247772`, validation vet `137111247789`, and Native gate plan `137111206801` passed. The selected `validate` job `137111207599`, Native matrix `137111239451`, Native Keycloak/Core `137111249223`, and Selected Runtime `137111249509` were skipped. These skips are expected before #1756 adds the native catalog rows; they are not counted as passing receipts or treated as a defect in this hop.
+
+## Post-review cleanliness
+
+Session PID `2537271`; `docker ps -a` returned only its header and no containers
+## Publication witness
+
+Exact path listed by `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle5-2026-11-22/testcontext-0428-223/review-1750-headf6d3fc5c23.md`:
+
+`evidence/r28-welle5-2026-11-22/testcontext-0428-223/review-1750-headf6d3fc5c23.md`
