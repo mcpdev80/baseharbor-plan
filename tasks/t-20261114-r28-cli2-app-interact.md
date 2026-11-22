@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1623", "https://github.com/mcpdev80/baseharbor/actions/runs/45012848258", "https://github.com/mcpdev80/baseharbor/actions/runs/45012883646", "https://github.com/mcpdev80/baseharbor/actions/runs/45013307400", "https://github.com/mcpdev80/baseharbor/pull/1746", "https://github.com/mcpdev80/baseharbor/actions/runs/45014782334"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1623", "https://github.com/mcpdev80/baseharbor/actions/runs/45012848258", "https://github.com/mcpdev80/baseharbor/actions/runs/45012883646", "https://github.com/mcpdev80/baseharbor/actions/runs/45013307400", "https://github.com/mcpdev80/baseharbor/pull/1746", "https://github.com/mcpdev80/baseharbor/actions/runs/45014782334", "https://github.com/mcpdev80/baseharbor/actions/runs/45015867089"]
 ---
 
 - [ ] t-20261114-r28-cli2-app-interact · CLI redesign: Guide app logs exec and urls #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** owner (autorisierte zsh+fish, wendete 26ae64c4+3d927252 an) / fecbada9 (CODEX-REVIEW\_assigned) / coord (merge-route) · **Priority:** high  
     **PR:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1623), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45012848258), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45012883646), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45013307400), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1746), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45014782334)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1623), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45012848258), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45012883646), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45013307400), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1746), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45014782334), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/45015867089)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -112,3 +112,5 @@ ECHTER SCOPE-KONFLIKT, NICHT MEHR NUR ZSH-INSTALL: test cmd/baha/context_termina
 SCOPE-KONFLIKT DURCH OWNER ENTSCHIEDEN = OPTION B (nicht meine A-empfehlung): commit 3d927252fae 'ci: install fish for release wrapper coverage' installiert FICH in der .github ZUSAETZLICH zu zsh (26ae64c4). Der end-to-end-test context_terminal_test.go:458 loop ['zsh','fish'] bleibt UNANGETASTET - die fish-exec-abdeckung ist jetzt ausdruecklich gewollt. MEINE OPTION-A-testverengung ist WIDERRUFEN (haette die coverage zurueckgeswaecht). PR head 3d927252, mergeState BLOCKED. Akzeptanz = voller Pre-Release-durchgang gruen (beide shells, cli-3) + unabhaengige CODEX-pruefung am exakten head. Diff beruehrt auch scripts/** (release-requirements.json, pr-gate-plan.py) - owner-autorschaft, kein lane-zugriff.
 
 SEQENZ-KOPF. Review-BESITZ vergeben: fecbada9 prueft den EXAKTEN head 3d927252fae, verdict an die beiden laufenden durchgaenge gebunden (exact CI 45014782334 + shell-ux 45014836421, beide in_progress) - PENDING bis terminal green, dann APPROVE+merge-empfehlung. Owner-model bestaetigt: #1746 MERGE zuerst, DANN #1763 re-hop (neues develop mit zsh+fish source-test) + exact hosted runtime. #1723 nach broker-clearance, DANN #1725. Kein merge vor gruenen checks + fecbada9-verdict.
+
+PR-CI 45014782334 TERMINAL SUCCESS am exakten head 3d927252fae, alle required PR jobs green. Eigene akzeptanz = neues ci-fast-check gate 45015867089 (laeuft) + voller positiver Pre-Release 45015912507 (queued) am selben SHA; cli-3 exact SUCCESS (zsh+fish wirkt). shell-ux 'authenticated operator' ist eine SEPARATE bestehende gate (0428-231), nicht dieser PR. Unabhaengige review fecbada9 laeuft am exakten head. Coordinator-bestaetigung: scope = zsh+fish vom owner autorisiert, head-exaktheit + PR-CI green besttigt; merge Sobald review APPROVE + 45015867089 + 45015912507 green. #1763 haengt an diesem land.
