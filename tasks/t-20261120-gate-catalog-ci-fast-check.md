@@ -7,37 +7,37 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: owner (dispatch) / coord (route) / b90e4ba1 (katalog-pr)
-kanban_status: wait
-kanban_lane: wait
+owner: owner (resolves catalog+auth+requal) / coord
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "Register scripts/ci-fast-check.sh as a real v0.4.28 Pre-Release static gate, with the full catalog/dispatcher wiring and…"
 kanban_title: "0428-205 · Gate catalog: ci-fast-check"
 priority: normal
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1771]
+prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1774]
 sources: []
-blocker: ""
-wait_reason: "#1746 head 887058a6 NICHT release-qualifiziert. Zell-genau (Durchgang 45028181619 + PR-validierung): (1) ALLE 5 Static-zellen (config-matrix/init/shell-ux/mcp/ci-fast-check) failen am 'Run static gate'. config-matrix+ci-fast-check-root = KATALOG-LUECKE: scripts/ci-fast-check.sh fehlt in pr-gate-coverage.json (planner [], test erwartet atomic/static/ci-fast-check, job 137223693177) -> entscheidung= MAPPING HINZUFUEGEN (test massgeblich), in b90e4ba1 katalog-pr. (2) mcp-zelle = target.create auth (0428-247 owner/core) PLUS MCP-contract unexpected=['baseharbor.app.perses.*'] (static erwartungsliste vs die 4 freigegebenen perses-tools, 0428-232 alignment). (3) Light-podman x3 + Reference Journey docker+podman = broker/runtime-image (0428-237/#1770, moving :edge, wartet katalog-pr+exact image). Merge erst nach: katalog-pr(242-followup) + 0428-247 ruling + #1770 exact native + perses-list alignment. pre-release.yml fish->zsh:343 = owner-scope."
+blocker: "#1746 head 887058a6 bleibt BLOCKED (owner-direktive). pre-release 45028181619 terminal CANCELLED 34 fails + 6 cancelled; cli-3 (zsh+fish) bestaetigt PASS. Fehlklassen + ihre wurzeln: (1) static config-matrix/init/shell-ux/mcp/ci-fast-check + PR-planner (45027509559 failt wegen scripts/ci-fast-check.sh kataloglcke A) -> #1774 (b90e4ba1 ergaenzt A+C). (2) mcp static auch target.create auth -> 0428-247 owner/core decision. (3) docker/podman core-bootstrap + viele runtime matrices + reference journeys docker+podman -> broker/:edge image = 0428-237/#1770 (wartet #1774 B + exact image). Requalifikation erst nach owner resolution von katalog(A)+auth(247)+237 + exakten hosted gaeten."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "https://github.com/mcpdev80/baseharbor/actions/runs/44944570763", "https://github.com/mcpdev80/baseharbor/pull/1746"]
 ---
 
-- [ ] t-20261120-gate-catalog-ci-fast-check · 0428-205 · Wire ci-fast-check into the release gate catalog #task #release/v0-4-28 #status/wait #view/wait #area/ci #kind/bug
+- [ ] t-20261120-gate-catalog-ci-fast-check · 0428-205 · Wire ci-fast-check into the release gate catalog #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #kind/bug
     <!-- generated:card -->
-    **Owner:** owner (dispatch) / coord (route) / b90e4ba1 (katalog-pr) · **Priority:** normal  
-    **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771)  
-    **Waiting:** \#1746 head 887058a6 NICHT release-qualifiziert. Zell-genau (Durchgang 45028181619 + PR-validierung): (1) ALLE 5 Static-zellen (config-matrix/init/shell-ux/mcp/ci-fast-check) failen am 'Run static gate'. config-matrix+ci-fast-check-root = K…  
+    **Owner:** owner (resolves catalog+auth+requal) / coord · **Priority:** normal  
+    **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774)  
+    **Blocker:** \#1746 head 887058a6 bleibt BLOCKED (owner-direktive). pre-release 45028181619 terminal CANCELLED 34 fails + 6 cancelled; cli-3 (zsh+fish) bestaetigt PASS. Fehlklassen + ihre wurzeln: (1) static config-matrix/init/shell-ux/mcp/ci-fast-check…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44943804395), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44944570763), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1746)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** owner (dispatch) / coord (route) / b90e4ba1 (katalog-pr)  
+**Owner:** owner (resolves catalog+auth+requal) / coord  
 **Priority:** normal  
-**PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771)  
+**PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774)  
 **Source:** 
 <!-- /generated:links -->
 
