@@ -48,7 +48,7 @@ This is read-only CODEX-REVIEW. Only this Planning evidence and the live todo bo
 
 ## cleanliness
 
-No container or compose project was started during this review. Before review evidence finalization, shell PID 3798588 ran `docker ps -a`; output showed only the header and no containers. The after witness is pending.
+No container or compose project was started during this review. Before review evidence finalization, shell PID 3798588 ran `docker ps -a`; output showed only the header and no containers. After review evidence finalization, shell PID 3799272 ran `docker ps -a`; output again showed only the header and no containers.
 
 END_BLOCKED: REQUEST CHANGES, option (b); cli-0/cli-1 executed successfully but the native matrix was skipped and does not cover the real readiness-failure path. Candidate SHA c698d1310ed5a2d5178affb956ba8af2051d0a5b.
 
