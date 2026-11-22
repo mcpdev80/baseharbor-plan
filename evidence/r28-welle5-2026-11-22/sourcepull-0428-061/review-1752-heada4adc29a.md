@@ -70,3 +70,4 @@ Source selection, strict fast-forward, dirty/ahead/diverged/missing-upstream fai
 REQUEST CHANGES for exact head `a4adc29a5844266cf4009bb12b9b68ae26a4a99a`. F1 remains a product behavior defect: JSON plus `--up` writes two top-level documents. F3's newly compiling regression test fails because it compares against the pre-drift revision. The `cli-3` failure is a hosted-runner setup failure due missing `zsh`; report it as state for the owning CI cell. `PR Selected Checks` and Trusted Plan are skipped, so the run is not a passing required-gate receipt. F2 and F4 are implemented in code; direct approval regression coverage is still missing. No product branch changes, merge, close or comment.
 
 END codex-rev-1747 DONE — REQUEST CHANGES for exact head a4adc29a5844266cf4009bb12b9b68ae26a4a99a
+- First evidence push delivery witness: `db962b0df194eb8a0030476fe114b9be582b0ed6 refs/heads/main`.
