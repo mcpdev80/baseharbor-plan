@@ -10,7 +10,24 @@ Owner branch (implementation): `cli2-env-delete` (PR #1627) — NOT touched by t
 
 The fix is a fixture-only change to `cmd/baha/env_destroy_integration_test.go` (my card owns the native destroy fixture). The production consent path (`cmd/baha/application_stop_impact.go`, `cmd/baha/app_runtime_retirement.go`) is unchanged on this lane — this is a test-side bind fix, not a product change.
 
-The #1627 head `b3b0c2c9` is the integration candidate (env-destroy feature + the failing test). The fixture diff below is against the #1627 head's `env_destroy_integration_test.go` (the nearest base that carries the failing test). Against develop `6209874428f`, the fixture does not exist yet (env-destroy feature is #1627); it is carried here because card 0428-226 owns the native destroy fixture.
+The #1627 head `b3b0c2c9efc43e9696c5eeda2a7164c88889e188` is the integration candidate (env-destroy feature + the failing test). The fixture diff below is against that head's `env_destroy_integration_test.go` (the nearest base that carries the failing test). Against develop `6209874428f`, the fixture does not exist yet (env-destroy feature is #1627); it is carried here because card 0428-226 owns the native destroy fixture.
+
+diff-base: b3b0c2c9efc43e9696c5eeda2a7164c88889e188 (PR #1627 head, the #1627 implementation candidate).
+
+`git apply --check` against b3b0c2c9efc (dry-run, not a test; owner instruction w21h point 2):
+- `git apply --check round-2.patch` -> exit 0 (passes clean, context-exact).
+- `git apply --check -C1 round-2.patch` -> exit 0.
+Both pass. The patch was re-cut against b3b0c2c9 (hunk header `@@ -107,8 +107,17 @@`, replacing fixture lines 110-111), so it is context-exact on the #1627 head. (An earlier cut against my own lane base 7d4351c6d64 had hunk header `@@ -107,10 +107,19 @@` and was NOT context-exact on b3b0c2c9 — that base has no fixture at all; the corrected b3b0c2c9 cut is the one handed to the owner.)
+
+Copy-paste command for the owner (PR #1627, cli2-env-delete, head b3b0c2c9efc):
+```
+git -C <baseharbor checkout> apply round-2.patch
+# or the line form: replace fixture lines 110-111
+#   stopCtx := withApplicationInput(withTargetOverride(ctx, target.Name), runtimeInput)
+#   stopCtx = context.WithValue(stopCtx, applicationStopModeKey{}, true)
+# with
+#   stopCtx = context.WithValue(ctx, applicationStopModeKey{}, true)
+```
 
 ```diff
 diff --git a/cmd/baha/env_destroy_integration_test.go b/cmd/baha/env_destroy_integration_test.go
@@ -39,6 +56,14 @@ diff --git a/cmd/baha/env_destroy_integration_test.go b/cmd/baha/env_destroy_int
  	}
  	stopPlan, err := buildApplicationStopPlan(stopCtx, destroyExecution.resolved)
 ```
+
+## Failing job log lines (proof, section (i) of the drift report)
+Both prior exact-hosted coreless-lifecycle jobs failed identically (run 44961334018, event pull_request, head b3b0c2c9efc):
+- Docker job 137020935578 (worker id af707b0c-6f1d-4a51-b918-ca1a97c79739): `env_destroy_integration_test.go:128: native env destroy: process scoped deployment env-destroy-native (af707b0c-6f1d-4a51-b918-ca1a97c79739): provider change: stale-impact-consent`
+- Podman job 137020935792 (worker id 4ccdd4c5-5cad-4571-9fa9-b495d204c1c3): `env_destroy_integration_test.go:128: native env destroy: process scoped deployment env-destroy-native (4ccdd4c5-5cad-4571-9fa9-b495d204c1c3): provider change: stale-impact-consent`
+- Wrapper (both): `Environment destroy incomplete; identity retained so the operation can be retried: ... provider change: stale-impact-consent`
+- Log before failure: `Members (preserved): none recorded.` (env_destroy.go renders `Members` from `scope.Members` only if non-empty) and banner `BaseHarbor · env-destroy-native · prod`, `INFO target docker-dev`.
+- Markers m1 (application-stop impact label, `application_stop_impact.go:190`) and m2 (retirement-plan JSON + `Runtime retirement removes...`, `app_runtime_retirement.go:95/98`) appear NOWHERE in the extractable structured-JSON test-output stream between `=== RUN` and the failure — only the fixture's own preview block + the wrapped error. The log therefore cannot decide which keeper fired (marker-ordering diagnostic requires a separate visible-output run).
 
 ## (b) file:line proof of the preview-digest fix
 
