@@ -82,3 +82,12 @@ Session pid 1992354 (docker witness taken in the same shell family). This dispat
 - Scratch: all `/var/tmp/0428-223*` removed (0 remaining); temporary hopzone `/tmp/opencode/0428-223-hopzone` deleted + `git worktree prune` (no foreign worktree touched).
 
 END 0428-223-testctx DONE (read-only diagnosis; kein push erfolgt)
+
+## publishing note (plan repo)
+
+The earlier commit 25acb4be4 (published during a transport hiccup before the cleanliness section existed) was superseded by the final single commit e73b12f52 (identical content plus cleanliness + the corrected plan publish line) pushed with --force-with-lease; only the file content changed, nothing else on plan main.
+
+```
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep develop-full-suite-red/diagnose-1
+evidence/r28-welle5-2026-11-22/develop-full-suite-red/diagnose-1.md
+```
