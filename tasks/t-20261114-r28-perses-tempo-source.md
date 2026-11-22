@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1610, mcpdev80/baseharbor#1645]
 sources: []
 blocker: ""
-wait_reason: "PR #1645 is 222 commits behind develop (head 4d73aa97808, ahead=1, mergeable) and its exact old run 44814746593 is red on cli-0..3 + packages for shared reasons, not its own change: CLI cases need an authenticated operator/OIDC context and the Loki package tests miss providers/loki/shared/service-access/pki/client-cert.pem. The diff also spans 35 paths, far beyond the .go -> .go.txt rename, so a fast-close is refused. No live session carries this card (agent list shows no 0428-091 lane), which is why it moves off 'active'. Next trigger: refresh onto current develop, then full review of the 35-path diff."
+wait_reason: "hop and rerun are deliberately withheld: run 44814746593 failed in cli-0..3 and packages on the interactive-setup operator context, which card 0428-221 (PR 1750) fixes; rerun only after that merge and an additive hop to current develop"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44688554297", "https://github.com/mcpdev80/baseharbor/actions/runs/44689126814", "https://github.com/mcpdev80/baseharbor/actions/runs/44695439903", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md"]
 ---
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44688554297", "h
     <!-- generated:card -->
     **Owner:** 0428-091- · **Priority:** normal  
     **PR:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645)  
-    **Waiting:** PR \#1645 is 222 commits behind develop (head 4d73aa97808, ahead=1, mergeable) and its exact old run 44814746593 is red on cli-0..3 + packages for shared reasons, not its own change: CLI cases need an authenticated operator/OIDC context and…  
+    **Waiting:** hop and rerun are deliberately withheld: run 44814746593 failed in cli-0..3 and packages on the interactive-setup operator context, which card 0428-221 (PR 1750) fixes; rerun only after that merge and an additive hop to current develop  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44688554297), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44689126814), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44695439903), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md)  
     <!-- /generated:card -->
 
