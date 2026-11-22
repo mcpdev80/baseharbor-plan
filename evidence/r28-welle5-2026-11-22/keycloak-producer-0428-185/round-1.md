@@ -4,13 +4,13 @@ Card `0428-185`, branch `lane-0428-185-producer-target`, base develop `8629450e`
 
 ## PLAN
 
-- [x] Read card + task (acceptance 1-3, boundaries)
-- [x] Claim via scripts/plan.py claim + commit + push (done before edit)
-- [x] ls-remote + base attestation: develop = `8629450e`
-- [x] Messen: producer vs witness contract, datei:leile
-- [ ] Fix (STOPPED on scope question — see below)
-- [ ] Regression test
-- [ ] PR + hosted run
+- Read card + task (acceptance 1-3, boundaries)
+- Claim via scripts/plan.py claim + commit + push (done before edit)
+- ls-remote + base attestation: develop = `8629450e`
+- Messen: producer vs witness contract, datei:leile
+- Fix (STOPPED on scope question — see below)
+- Regression test
+- PR + hosted run
 
 ## Base attestation
 
