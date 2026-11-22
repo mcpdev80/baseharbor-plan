@@ -87,7 +87,7 @@ trusted-planner #1738 cataloged: ja
 ## cleanliness
 
 cleanliness: `docker ps -a` BEFORE = 0 entries (pid 674297), AFTER = 0 entries
-(END-shell pid hieronder). Geen compose/container gestart op deze host. Eigen
+(pid 726124). Geen compose/container gestart op deze host. Eigen
 scratch `/var/tmp/0428-223-chg.txt`, `-diff-ci.json`, `-fc-ci.log`, job-logs
 worden vóór END verwijderd. Werkboom workers/0428-248-coreinstwt houdt de
 kandidaat (0 delta na commit).
