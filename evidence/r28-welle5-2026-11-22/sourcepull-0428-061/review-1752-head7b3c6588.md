@@ -49,3 +49,8 @@ Waiting for the shared CI zsh provisioning fix, Owner hop to develop `8b9a8f5064
 Exact output of `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep 'evidence/r28-welle5-2026-11-22/sourcepull-0428-061/review-1752-head7b3c6588.md'`:
 
 `evidence/r28-welle5-2026-11-22/sourcepull-0428-061/review-1752-head7b3c6588.md`
+
+## Cleanliness
+
+- `docker ps -a` before review closeout, shell PID 1862564: the seven listed `bh-itest-*` containers were all exited; no running containers were present.
+- `docker ps -a` after review closeout, shell PID 1862564: the same seven pre-existing containers remained exited; no container was started or changed during this read-only review.
