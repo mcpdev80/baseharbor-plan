@@ -136,3 +136,4 @@ F4 is a blocking REQUEST CHANGES finding alongside F1 and F2. The owner’s requ
 4. Record this hold instruction in the Planning evidence and notify the Coordinator that the review seat is held for the new candidate.
 
 Owner/coordinator mission SHA256 `d65b09b8ffed` directs that F4 is already being implemented by card owner w27 under mission `5caf75836375`; the current draft head remains `9140e0c8224e`. The existing REQUEST CHANGES evidence at this exact head remains authoritative. No further review or verdict is issued now. The separate #1753 hold remains unchanged. Board step 107 tracks the wait for a new exact head and terminal green run.
+- Hold-note publication delivery witness: `ad55760a248e1a34a72152828185d29f57577a22 refs/heads/main`.
