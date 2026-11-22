@@ -45,7 +45,7 @@ This was a read-only review of the exact PR head. No product files, workflows, t
 
 ## cleanliness
 
-Before review, `docker ps -a --no-trunc` showed only the header and no containers; command was run in this session. This review started no container or compose project. A second witness ran with session shell pid 3603811 and again showed only the header and no containers: `docker ps -a --no-trunc`.
+Before review, `docker ps -a --no-trunc` showed only the header and no containers; command was run in this session. This review started no container or compose project. A second witness ran with session shell pid 3603811 and again showed only the header and no containers: `docker ps -a --no-trunc`. Final post-work witness ran with session shell pid 3606756 and showed only the header and no containers.
 
 ## origin/main evidence path witness
 
@@ -53,7 +53,7 @@ Exact output from `git ls-tree -r --name-only origin/main | grep evidence/r28-we
 
 `evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-headb38838e1c30.md`
 
-Final Planning publication witness: `9b3604907efd9481147b382a2016e9e57b962838 refs/heads/main` from `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main`.
+Final Planning publication witness: `ebb423c5a5efa57bcb3e438d4a6dd9145dfa6114 refs/heads/main` from `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main`.
 
 ## END_BLOCKED
 
