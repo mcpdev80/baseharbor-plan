@@ -71,3 +71,10 @@ Geloest: demo PR #169 (head 1bc8b2f) MERGED bei c23bd9ac. Exakt sechs Additionen
 Geloest: demo PR #169 (head 1bc8b2f) MERGED bei c23bd9ac. Exakt sechs Additionen in tests/mcp/run.sh: vier freigegebene Perses-MCP-tool-namen + status read-only annotation + destructive annotation entfernt. Owner gab die vier Tools ausdruecklich frei.
 
 Geloest: demo PR #169 (head 1bc8b2f) MERGED bei c23bd9ac. Exakt sechs Additionen in tests/mcp/run.sh: vier freigegebene Perses-MCP-tool-namen + status read-only annotation + destructive annotation entfernt. Owner gab die vier Tools ausdruecklich frei.
+
+## 2026-11-22 hosted follow-up
+
+- Demo PR [#169](https://github.com/mcpdev80/baseharbor-demo/pull/169) merged as `c23bd9ac58919302ffad3a43f43afb1a34bfbc96`; it adds exactly the four Perses tool names, marks status read-only and remove destructive in `tests/mcp/run.sh`.
+- Core #1746 pins that exact Demo merge at `ff2ccafaec67fcddfd3e9900fdc7b246c7b310de`.
+- Hosted `Static · mcp` run [45023477422](https://github.com/mcpdev80/baseharbor/actions/runs/45023477422), job `137212735131`, reached `tests/mcp/new-edit-static.py` after the live `tools/list` exact-set comparison; the Perses mismatch no longer stopped the contract check. The downstream setup failed because `baha target create mcp-static ...` requires an authenticated BaseHarbor operator. This is a shared fixture blocker, not a contract mismatch. No auth workaround or unrelated Demo change was made.
+- The owner-sequenced plan closed 0428-232 after the Demo contract fix merged. The exact hosted run still failed later in the MCP journey on the separate operator-auth fixture; coordinator received that exact run/job for routing.
