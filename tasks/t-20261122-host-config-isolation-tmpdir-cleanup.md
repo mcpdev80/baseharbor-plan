@@ -8,10 +8,10 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
+owner: ffe7611b (lane, product test file)
 tags: [#task, #release/v0.4-28]
-kanban_status: planned
-kanban_lane: ready
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-233 · host config isolation tmpdir
 priority: ""
@@ -24,17 +24,16 @@ wait_reason: ""
 resolution: ""
 ---
 
-- [ ] t-20261122-host-config-isolation-tmpdir-cleanup · CLI: release the per-test host config isolation directory #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261122-host-config-isolation-tmpdir-cleanup · CLI: release the per-test host config isolation directory #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** ffe7611b (lane, product test file)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** ffe7611b (lane, product test file)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -94,3 +93,5 @@ mask the 14-test root cause that card 0428-223 fixes, which is why it was not fo
 - Keep the operator selection behaviour of card 0428-223 unchanged; this is a lifecycle change only.
 - The regression must be hosted: a gate that executes the affected `cmd/baha` test sources has to select the test
   after card 0428-228 lands its mapping, so the leak cannot return silently.
+
+Abgesetzt auf den freien sitz: mission sha 15d11b3ec9a9, lifecycle-festigung der hostConfigIsolationDir in cmd/baha/test_operator_context_test.go:112-121, regression im gehosteten data-capabilities-gate (beide engines) nach PR 1755/1756.
