@@ -7,7 +7,7 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ffe7611b (hop+pin) / coord
+owner: owner (hop) / coord
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: "Register scripts/ci-fast-check.sh as a real v0.4.28 Pre-Release static gate, with the full catalog/dispatcher wiring and…"
@@ -18,16 +18,16 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1771]
 sources: []
 blocker: ""
-wait_reason: "PR-CI 45023450298 SUCCESS am head ff2ccaf (incl selected docker+podman coreless) ABER NICHT release-qualifiziert: Pre-Release 45023477422 failed weiter downstream am MCP operator-auth FIXTURE SETUP (nach Perses tools/list green). Unlock = 0428-231/#1771 (b90e4ba1) auf develop 64eab13e. Sequenz 242->232->1746; NICHT merged-ready aus PR-CI allein. Owner autorisierte zsh+fish."
+wait_reason: "Gehoppt auf develop 676909a7 (0428-242 gemerged) -> candidate head 887058a6, Demo pin c23bd9ac. Volle Pre-Release 45027607903 AKTIV. ABER verbleibender blocker NICHT nur #1771: der owner hat belegt dass #1746 static/mcp bei 'target create' managed-operator auth denial failt und cliLocalWorkloadOperation #1771 target.create NICHT mappt -> target.create auth-fixture mechanismus = separate owner/core-decision (aehnlich consent 236). Sequenz 242(merged)->232(fertig)->1746; merge erst nach target-create routing + sauberer pre-release qual."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "https://github.com/mcpdev80/baseharbor/actions/runs/44944570763", "https://github.com/mcpdev80/baseharbor/pull/1746"]
 ---
 
 - [ ] t-20261120-gate-catalog-ci-fast-check · 0428-205 · Wire ci-fast-check into the release gate catalog #task #release/v0-4-28 #status/wait #view/wait #area/ci #kind/bug
     <!-- generated:card -->
-    **Owner:** ffe7611b (hop+pin) / coord · **Priority:** normal  
+    **Owner:** owner (hop) / coord · **Priority:** normal  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771)  
-    **Waiting:** PR-CI 45023450298 SUCCESS am head ff2ccaf (incl selected docker+podman coreless) ABER NICHT release-qualifiziert: Pre-Release 45023477422 failed weiter downstream am MCP operator-auth FIXTURE SETUP (nach Perses tools/list green). Unlock =…  
+    **Waiting:** Gehoppt auf develop 676909a7 (0428-242 gemerged) -\> candidate head 887058a6, Demo pin c23bd9ac. Volle Pre-Release 45027607903 AKTIV. ABER verbleibender blocker NICHT nur \#1771: der owner hat belegt dass \#1746 static/mcp bei 'target create'…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44943804395), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44944570763), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1746)  
     <!-- /generated:card -->
 
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "h
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** ffe7611b (hop+pin) / coord  
+**Owner:** owner (hop) / coord  
 **Priority:** normal  
 **PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771)  
 **Source:** 
