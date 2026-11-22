@@ -7,15 +7,15 @@ areas: [testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ffe7611b (rotiert von f0f6c8b4: 2x END_BLOCKED, strategy change) / Coordinator
-kanban_status: active
-kanban_lane: active
+owner: f0f6c8b4 (delivered + opening PR re-hopped 3939aa5)
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-241 · guided fixture drift
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
-prs: [mcpdev80/baseharbor#1753, mcpdev80/baseharbor#1770, mcpdev80/baseharbor#1773]
+prs: [mcpdev80/baseharbor#1753, mcpdev80/baseharbor#1770, mcpdev80/baseharbor#1773, mcpdev80/baseharbor#1763]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,19 +23,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-guided-fixture-footprint-contract-divergence · Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 #task #release/v0-4-28 #status/active #view/active #area/testing #kind/bug
+- [ ] t-20261122-guided-fixture-footprint-contract-divergence · Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 #task #release/v0-4-28 #status/review #view/review #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** ffe7611b (rotiert von f0f6c8b4: 2x END\_BLOCKED, strategy change) / Coordinator · **Priority:** high  
-    **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773)  
+    **Owner:** f0f6c8b4 (delivered + opening PR re-hopped 3939aa5) · **Priority:** high  
+    **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** ffe7611b (rotiert von f0f6c8b4: 2x END_BLOCKED, strategy change) / Coordinator  
+**Owner:** f0f6c8b4 (delivered + opening PR re-hopped 3939aa5)  
 **Priority:** high  
-**PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773)  
+**PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -73,3 +73,5 @@ UMGEZOGEN von 03c7350a (flaky) auf den funktionierenden sitz f0f6c8b4. Auftrag g
 FEHL-SCOPE KORRIGIERT: frueher 'runner-bootstrap gate issue END_BLOCKED' war falsch. EXAKTE route (datei:zeile): selected capability lifecycle ruft footprint show/record-deployment ohne --confirm-candidate digest -> deployment_record.go:365-374 fail-closed -> interactive auth. Harness MUSTER existiert: app_candidate_consent_test.go:171-176 withCandidateConsentDigest + coreBootstrapFixtureConsent (app_capability_runtime_test.go:133/190/224/282/332). Test-only fix in app_capability_runtime_test.go selected lifecycle = liefert digest. Entblockt #1770 + #1753 + #1773 selected. f0f6c8b4 re-dispatched.
 
 #1773 exact run 45036009904 selected docker+podman bestaetigen DENSSELBEN defect: 'record deployment before mutation requires --confirm-candidate' = diese karte. 241 digest-consent harness (app_capability_runtime_test.go selected lifecycle, muster app_candidate_consent_test.go:171-176) heilt selected fuer #1770 + #1753 + #1773. native podman 503 separat = 237 (andere session).
+
+241 GELIEFERT (f0f6c8b4): test TestApplicationCapabilityLifecycleFootprintShowDigestConsent + scripts/ci-native-pr-gate.sh:83-84 wired (codeman scope). branch lane-0428-241-footprint-consent-harness head 68b26bd -> PR wird geoeffnet + additiv auf 3939aa5 gehoppt. unit gruen, vet clean. Bei gruen: entblockt selected fuer #1763 #1770 #1771 #1773 #1753. ffe7611b hat 241 korrekt abgegeben (#1723 hop laeuft).
