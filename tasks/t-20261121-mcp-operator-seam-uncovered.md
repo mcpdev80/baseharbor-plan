@@ -7,7 +7,7 @@ areas: [cli, observability]
 release: v0.4.28
 version: ""
 parent: ""
-owner: coordinator
+owner: coordinator (karte) / erster freier worker-sitz (ausfuehrung)
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: Every MCP mutation path whose test expects the verbatim gate message Managed-environment machine operations require an…
@@ -18,24 +18,27 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1741, mcpdev80/baseharbor#1738]
 sources: []
 blocker: ""
-wait_reason: "base-Karte 0428-198 ist superseded und ihr PR 1726 nie gemergt; die geteilte Operator-Kontext-Mechanik kommt erst mit PR 1750. Danach wird diese Karte von develop aus neu angesetzt (Cherry-pick der eigenen Commits), siehe cli-shard-fanin/fanin-1726-disposition.md"
+wait_reason: "carrier-abhaengigkeit: ja; neue basis ist develop 8629450ef3c, delta wird dort neu geschnitten; die alte PR-basis bleibt ausser gebrauch"
 resolution: ""
 created: "2026-11-21T05:55:00Z"
 updated: "2026-11-21T05:55:00Z"
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md"]
+
 ---
 
 - [ ] t-20261121-mcp-operator-seam-uncovered · 0428-218 make the MCP operator seam reachable from MCP tests #task #release/v0-4-28 #status/wait #view/wait #area/cli #area/observability #kind/bug
     <!-- generated:card -->
-    **Owner:** coordinator · **Priority:** normal  
+    **Owner:** coordinator (karte) / erster freier worker-sitz (ausfuehrung) · **Priority:** normal  
     **PR:** [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741), [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
-    **Waiting:** base-Karte 0428-198 ist superseded und ihr PR 1726 nie gemergt; die geteilte Operator-Kontext-Mechanik kommt erst mit PR 1750. Danach wird diese Karte von develop aus neu angesetzt (Cherry-pick der eigenen Commits), siehe cli-shard-fanin/f…  
+    **Waiting:** carrier-abhaengigkeit: ja; neue basis ist develop 8629450ef3c, delta wird dort neu geschnitten; die alte PR-basis bleibt ausser gebrauch  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** coordinator  
+**Owner:** coordinator (karte) / erster freier worker-sitz (ausfuehrung)  
 **Priority:** normal  
 **PRs:** [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741), [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
 **Source:** 
@@ -120,3 +123,5 @@ r2 delivered, von mir am remote gemessen: head fb5a5deaf36b, nachkomme von e4543
 CODEX-REVIEW r2 'review-2.md' (plan 14309cf0 + 2ca4c07b + f624354a) = 'Verdikt: REQUEST CHANGES', aber der einzige offen punkt ist NICHT ihr inhalt: anerkennungspunkte 1-4 sind PASS — reichbarkeit/beide richtungen PASS, EXAKTE nachricht PASS (dekodiertes 'Error.Message' gleich der produktquelle inkl. punkt am ende, 'authentication_failed' + fehlender principal behalten, befund 1 aus r1 DAMIT GESCHLOSSEN), mutation PASS (text geaendert = rot, zurueck = gruen), CI-ROUTING PASS (cli-3 job 136780430782 success, 'Trusted Plan' + 'Native gate plan' success). PUNKT 5 = 'Required checks: FAIL': durchgang 44882418434 terminal failure, 'PR Selected Checks' job 136781570119 failure, cli-0 job 136780430791 + packages job 136780430748 failure — und der reviewer selbst bucht das als SAME-BASE erbschaft. Byte-zahlen aus per-job-logs, wie verlangt (894134 / 35949 / 45764 / 66915 / 44206). Karte bleibt 'review' (inhalt abnahme-faehig), der weg zum gruenen aggregate fuehrt ueber den BASIS-HOP der lane-0428-198 auf develop 9bd76324ec6d (#1615 ist dort seit 08:08 gemergt), nicht ueber eine weitere korrekturrunde dieser lane.
 
 r5 plus rebase auf e45430f2 (delta eine datei, head 7e6792939c55). Der aufruf von authorizeMCPOperation mit installation.destroy steht im TEST, nicht im produktionspfad der bootstrap-aufraeum-route. cli-0 zeigt denselben einen fremden fallen wie 1737.
+
+ROUTE NEU FESTGELEGT NACH CENSUS (akte operator-auth-helper/carrier-census-1737-1738-1740-1741.md, plan da2176f7f40): PR 1726 wird NICHT wieder eroeffnet und es entsteht KEIN neuer traeger - #1750 ist gemergt, darum wird der eigene delta dieses kandidaten auf develop 8629450ef3c5198bb675331c12f56b2c9377aa1c NEU GESCHNITTEN. Carrier-abhaengigkeit dieses PR: ja. Fernzeugnis: back=275, mergeStateStatus UNSTABLE, base zeigt auf die tote basis lane-0428-198-cli-shard-operator-env (spitze e45430f2f1b). Naechster schritt: mission auf dem ersten freien worker-sitz (neu schneiden), dann exact gehosteter durchgang und unabhaengige pruefung. Kein merge aus der alten basis heraus.
