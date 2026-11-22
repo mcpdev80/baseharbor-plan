@@ -77,3 +77,31 @@ From https://github.com/mcpdev80/baseharbor-plan
  * branch                main       -> FETCH_HEAD
 evidence/r28-welle5-2026-11-22/perses-tempo-0428-091/review-1645-head8bd165e1a00.md
 ```
+
+## PLAN — post-merge final witness
+
+13. Read the final #1645 review addendum and record its post-merge evidence requirements.
+14. Independently verify PR merge metadata, develop SHA, merge parents, and candidate ancestry/count without modifying the product repository.
+15. Append the post-merge witness and final verdict to the existing Planning evidence, validate and publish only that file, then post END.
+
+## Final witness (post-merge)
+
+Fresh GitHub `gh pr view 1645` reports state `MERGED`, head `8bd165e1a00d25972b55e5b50787091f0aee8f0a`, base `develop`, merge commit `8629450ef3c5198bb675331c12f56b2c9377aa1c`, and `mergedAt` `2026-11-22T08:25:17Z`. The PR metadata reports 35 changed files, 18,243 additions, and 21 deletions. Fresh `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1645/head` reports develop at `8629450ef3c5198bb675331c12f56b2c9377aa1c` and the PR head at `8bd165e1a00d25972b55e5b50787091f0aee8f0a`.
+
+Git confirms merge commit `8629450ef3c5198bb675331c12f56b2c9377aa1c` parents are `[acc343239681feb235a33cf00c8ea754c537291f, 8bd165e1a00d25972b55e5b50787091f0aee8f0a]`. The candidate is an ancestor of the merge. `git diff 8629450ef3c5198bb675331c12f56b2c9377aa1c..8bd165e1a00d25972b55e5b50787091f0aee8f0a --name-only` produced no paths; `git rev-list --count 8629450ef3c5198bb675331c12f56b2c9377aa1c..8bd165e1a00d25972b55e5b50787091f0aee8f0a` returned `0`; and `git rev-list --count 8bd165e1a00d25972b55e5b50787091f0aee8f0a..develop` returned `1` (the merge commit). The merge and candidate trees are both `0fbfbea2630c0e77a9f56cfe5f62e192b5d56480`. Adapter commit `4d73aa97808d000d2f70eaa193f8dbfc14e817a7` is an ancestor of develop. Its adapter and service-access/traces content is now in develop.
+
+The earlier REQUEST_CHANGES identified a contradiction in the review instruction: it simultaneously required an empty full `develop...HEAD` non-test diff and retention of the adapter commit. The owner has corrected that instruction-text conflict under RUNBOOK §4.12, commit `a01db004`; this was not a candidate defect. The post-merge tree witness now satisfies the empty-diff/count condition stated for the final review.
+
+Final verdict: APPROVE (condition post-merge met) — exact head `8bd165e1a00d25972b55e5b50787091f0aee8f0a` is the second parent of merged develop `8629450ef3c5198bb675331c12f56b2c9377aa1c`, and the post-merge diff is empty.
+
+END codex-rev-1747 DONE — final verdict recorded above; no product-repository action was taken.
+
+## Final Planning path witness
+
+The required fetch and tree lookup returned exactly:
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle5-2026-11-22/perses-tempo-0428-091/review-1645-head8bd165e1a00.md
+```
