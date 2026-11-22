@@ -6,7 +6,7 @@
 2. Reconfirm the exact PR head, base, and terminal selected-check result. DONE.
 3. Inspect the exact source and diagnosis evidence for temporary-directory cleanup and selection-state isolation. DONE.
 4. Classify both points and record any fix recipe without running tests or changing product/PR state. DONE.
-5. Validate and publish this evidence, verify its remote path, update the board, and post END.
+5. Validate and publish this evidence, verify its remote path, update the board, and post END. DONE.
 
 ## Review target and provenance
 
@@ -60,4 +60,12 @@ The temporary directory leak is a non-blocking P3 cleanup issue, and the early r
 
 END codex-rev-1747 DONE — #1750 exact head 17f471cd3fe9a41fbe5b4e2d3d2748f1e1bf9c99 APPROVE; temp-dir leak is non-blocking; early return does not mask the diagnosed 14 failures.
 
-Planning evidence commit SHA: pending.
+Initial Planning evidence publication commit: `2a9e3ff64ef8322f3b3b012f2d0e014e602ab1c3`; the exact origin/main path witness is recorded below.
+
+Planning origin/main path witness after fetch:
+
+```text
+evidence/r28-welle5-2026-11-22/testcontext-0428-223/review-1750-head17f471cd3fe.md
+```
+
+First-push delivery witness: `2a9e3ff64ef8322f3b3b012f2d0e014e602ab1c3 refs/heads/main`.
