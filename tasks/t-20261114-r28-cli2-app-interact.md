@@ -7,7 +7,7 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: owner (wendete .github an: zsh 26ae64c4 + fish 3d927252) / coord (verfolgt + review)
+owner: owner (autorisierte zsh+fish, wendete 26ae64c4+3d927252 an) / fecbada9 (CODEX-REVIEW_assigned) / coord (merge-route)
 kanban_status: review
 kanban_lane: review
 kanban_summary: "Guide app logs exec and urls. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1623", "https://github.com/mcpdev80/baseharbor/actions/runs/45012848258", "https://github.com/mcpdev80/baseharbor/actions/runs/45012883646", "https://github.com/mcpdev80/baseharbor/actions/runs/45013307400", "https://github.com/mcpdev80/baseharbor/pull/1746"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1623", "https://github.com/mcpdev80/baseharbor/actions/runs/45012848258", "https://github.com/mcpdev80/baseharbor/actions/runs/45012883646", "https://github.com/mcpdev80/baseharbor/actions/runs/45013307400", "https://github.com/mcpdev80/baseharbor/pull/1746", "https://github.com/mcpdev80/baseharbor/actions/runs/45014782334"]
 ---
 
 - [ ] t-20261114-r28-cli2-app-interact · CLI redesign: Guide app logs exec and urls #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** owner (wendete .github an: zsh 26ae64c4 + fish 3d927252) / coord (verfolgt + review) · **Priority:** high  
+    **Owner:** owner (autorisierte zsh+fish, wendete 26ae64c4+3d927252 an) / fecbada9 (CODEX-REVIEW\_assigned) / coord (merge-route) · **Priority:** high  
     **PR:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1623), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45012848258), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45012883646), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45013307400), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1746)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1623), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45012848258), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45012883646), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45013307400), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1746), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45014782334)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1623", "https://github.c
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** owner (wendete .github an: zsh 26ae64c4 + fish 3d927252) / coord (verfolgt + review)  
+**Owner:** owner (autorisierte zsh+fish, wendete 26ae64c4+3d927252 an) / fecbada9 (CODEX-REVIEW_assigned) / coord (merge-route)  
 **Priority:** high  
 **PRs:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
 **Source:** 
@@ -110,3 +110,5 @@ zsh-only landed durch owner: commit 26ae64c4d47 branch lane-0428-208-static-rele
 ECHTER SCOPE-KONFLIKT, NICHT MEHR NUR ZSH-INSTALL: test cmd/baha/context_terminal_test.go:458 verlangt LOUD zsh UND fish (kommentar: 'CI-cell installiert beide'), aber die autorisierung ist zsh-only (26ae64c4). Durchgang 45013307400: zsh install SUCCESS, cli-3 137180544980 failt an FISH (:467). OPTION A befohlen: exec-loop auf zsh verengen WAEHREND der fish-recursion-guard exec-frei bei :235-252 weiter in JEDEM shard laeuft (activationSnippet fish + contextWrapperBody fish 'command baha' guard) -> keine evidence-schwaeche, kein .github. OPTION B (owner): fish-exec zwingend in CI = .github fish-install = owner-scope, frage den owner. Karte zurueck auf active bis die test-verengung + ein gruerner cli-durchgang steht.
 
 SCOPE-KONFLIKT DURCH OWNER ENTSCHIEDEN = OPTION B (nicht meine A-empfehlung): commit 3d927252fae 'ci: install fish for release wrapper coverage' installiert FICH in der .github ZUSAETZLICH zu zsh (26ae64c4). Der end-to-end-test context_terminal_test.go:458 loop ['zsh','fish'] bleibt UNANGETASTET - die fish-exec-abdeckung ist jetzt ausdruecklich gewollt. MEINE OPTION-A-testverengung ist WIDERRUFEN (haette die coverage zurueckgeswaecht). PR head 3d927252, mergeState BLOCKED. Akzeptanz = voller Pre-Release-durchgang gruen (beide shells, cli-3) + unabhaengige CODEX-pruefung am exakten head. Diff beruehrt auch scripts/** (release-requirements.json, pr-gate-plan.py) - owner-autorschaft, kein lane-zugriff.
+
+SEQENZ-KOPF. Review-BESITZ vergeben: fecbada9 prueft den EXAKTEN head 3d927252fae, verdict an die beiden laufenden durchgaenge gebunden (exact CI 45014782334 + shell-ux 45014836421, beide in_progress) - PENDING bis terminal green, dann APPROVE+merge-empfehlung. Owner-model bestaetigt: #1746 MERGE zuerst, DANN #1763 re-hop (neues develop mit zsh+fish source-test) + exact hosted runtime. #1723 nach broker-clearance, DANN #1725. Kein merge vor gruenen checks + fecbada9-verdict.
