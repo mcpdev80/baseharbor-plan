@@ -54,3 +54,7 @@
 REQUEST CHANGES — the exact requested candidate still preselects an unregistered target during registration; the native Docker and Podman gates are cancelled, not green. The current PR head is newer and requires a separate exact-head review.
 
 END codex-rev2-1736 DONE: REQUEST CHANGES for requested candidate f4e340eca932ba7bec466bd987e4f1f5235fd305; current PR head 31c6ac1b353a1b26df0dead079ec34e1a85feebe is not approved.
+
+## publication witness
+
+- Exact `git ls-tree -r --name-only origin/main | grep` output after fetching origin/main: `evidence/r28-welle5-2026-11-22/native-cell-operator-0428-209/review-1765-headf4e340e.md`
