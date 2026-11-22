@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746]
 sources: []
 blocker: ""
-wait_reason: "PR #1746 is coherent on its own: the isolated gate run 44943804395 (atomic/static/ci-fast-check, demo pin 5d1cf312e18d) is completed/success at head 9ddcde356e9, and the PR CI run 44942308935 is terminal success (35 jobs). The full six-gate static run 44944570763 fails, but not because of this PR: init (job 136970241191) and shell-ux (job 136970241182) stop at 'authenticate the BaseHarbor operator / run baha login' - the same operator-auth prerequisite as card 0428-223 and PRs #1723/#1725 - and mcp (job 136970241277) reports 'MCP contract mismatch: missing=[] unexpected=[baseharbor.app.perses.disable, .enable, .remove, .status]', which is card 0428-225 contract drift in scripts/** (Owner scope). Witness akte: evidence/r28-welle4-2026-11-21/static-gate-registration/finding-1746-static-suite-failure.md. Next trigger: 0428-223 clears the auth context and the four MCP tools are registered, then the full static run is repeated and the independent review finishes. No merge before that plus the Coordinator/Release Owner approvals."
+wait_reason: "statik-laeufe werden von zwei bekannten defekten gehalten: karte 0428-232 (MCP contract drift, mcp-gate) und karte 0428-231 (operator-auth helper, init/config-matrix/shell-ux); erst wenn beide gemergt sind, kann der statische nachweis fuer PR 1746 erbracht werden"
 resolution: ""
 evidence: []
 ---
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
-    **Waiting:** PR \#1746 is coherent on its own: the isolated gate run 44943804395 (atomic/static/ci-fast-check, demo pin 5d1cf312e18d) is completed/success at head 9ddcde356e9, and the PR CI run 44942308935 is terminal success (35 jobs). The full six-gat…  
+    **Waiting:** statik-laeufe werden von zwei bekannten defekten gehalten: karte 0428-232 (MCP contract drift, mcp-gate) und karte 0428-231 (operator-auth helper, init/config-matrix/shell-ux); erst wenn beide gemergt sind, kann der statische nachweis fuer…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -87,3 +87,5 @@ Owner 2026-11-21: zweckgebundene Freigabe für pre-release-runtime-suite.yml und
 Owner hat 0428-208 selbst umgesetzt als PR #1746 (head a1e95e7ebc5d, base develop, 9 dateien, ci.yml NICHT im diff). Von mir gemessen am head: release-requirements.json traegt genau eine zeile atomic/static/ci-fast-check mit required_for v0.4.28, jobs static_gates, dependencies core, und die releases-liste enthaelt v0.4.28. Der withdrawn kandidat fab709a45 (required_for leer) bleibt unveroeffentlicht. Scope- und plan-bestaetigung als kommentar auf dem PR hinterlegt. Offen: head ist kein nachkomme von develop, der exakt-current-base aggregate braucht einen hop.
 
 review -> wait: two foreign prerequisites (0428-223 operator-auth, 0428-225 mcp contract) proven from the failing run's own logs
+
+Der gueltige statische nachweis ist gefuehrt und FEHLGESCHLAGEN: run 44987381250 (workflow ref lane-0428-208-static-release-gate, head eb2e471a8fd, ls-remote bewiesen) fuehrt ALLE sechs statischen gates aus, kein skip: agent 137102052113 SUCCESS, ci-fast-check 137102089845 SUCCESS, init 137102052110 FAILURE, config-matrix 137102052148 FAILURE, mcp 137102052168 FAILURE, shell-ux 137102052189 FAILURE. Die vier failures sind zwei bekannte, messbare ursachen: MCP contract mismatch (unexpected baseharbor.app.perses.disable/enable/remove/status, karte 0428-232, produktseite internal/machine/contract.go:205-208) und 'Managed-environment machine operations require an authenticated BaseHarbor operator' in init/config-matrix/shell-ux (karte 0428-231, operator-auth-helper). Der vorherige run 44986797647 war mit ref=develop angestossen und zaehlt nicht als beleg (akte static-suite-1746-valid-run.md, plan 036aa0175).
