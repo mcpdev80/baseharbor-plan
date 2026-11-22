@@ -43,3 +43,13 @@ Owner-anweisung (ready1763.md.g): der draft-stand von PR #1763 soll fallen, dami
 cleanliness: nothing started. Eigen pid 3568594. `docker ps -a` BEFORE = 0 entries; AFTER = 0 entries. Geen container/netwerk/volume; scratch `/var/tmp/0428-240-fastcheck*.txt` + nativeplan-logs verwijderd voor END; GOCACHE=/var/tmp/go-cache-0428-240; worktree workers/0428-240-brokerdiag-wt (Lane-Zone).
 
 END 0428-223-testctx DONE (0428-240 ready-flip: PR #1763 isDraft=false, head c698d1310ed5a2d5178affb956ba8af2051d0a5b, run 45011815553 completed SUCCESS failed 0; native docker/podman + selected docker/podman = SKIPPED (lege native-matrix door catalog-gap, file:line in akte); dependency-fund via unit-shards (marker-test geactiveerd, 5 case); cleanliness: nothing started)
+
+## origin/main evidence witness
+
+Exact output of `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep runtime-broker-0428-240`:
+
+```
+evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/ready-round-1.md
+evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/redaction-round-1.md
+evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-headb38838e1c30.md
+```
