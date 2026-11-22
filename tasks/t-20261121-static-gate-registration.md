@@ -7,7 +7,7 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: (lane, PR wartet)
+owner: ffe7611b (lane)
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: Run the existing scripts/ci-fast-check.sh as its own static gate in the v0.4.28 Pre-Release Suite. Preserve every existing…
@@ -18,16 +18,16 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746]
 sources: []
 blocker: ""
-wait_reason: "wartet auf den helper aus PR 1761 (draft, muss zuerst hop + ready + merge erreichen), dann frischer hop und der exakte static suite"
+wait_reason: "wartet auf den helper in develop (PR 1761 laeuft durch CI) plus einen weiteren hop auf den neuen develop"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036"]
 ---
 
 - [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/wait #view/wait #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** (lane, PR wartet) · **Priority:** high  
+    **Owner:** ffe7611b (lane) · **Priority:** high  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
-    **Waiting:** wartet auf den helper aus PR 1761 (draft, muss zuerst hop + ready + merge erreichen), dann frischer hop und der exakte static suite  
+    **Waiting:** wartet auf den helper in develop (PR 1761 laeuft durch CI) plus einen weiteren hop auf den neuen develop  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44997978036)  
     <!-- /generated:card -->
 
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036"]
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** (lane, PR wartet)  
+**Owner:** ffe7611b (lane)  
 **Priority:** high  
 **PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
 **Source:** 
@@ -92,3 +92,5 @@ review -> wait: two foreign prerequisites (0428-223 operator-auth, 0428-225 mcp 
 Der gueltige statische nachweis ist gefuehrt und FEHLGESCHLAGEN: run 44987381250 (workflow ref lane-0428-208-static-release-gate, head eb2e471a8fd, ls-remote bewiesen) fuehrt ALLE sechs statischen gates aus, kein skip: agent 137102052113 SUCCESS, ci-fast-check 137102089845 SUCCESS, init 137102052110 FAILURE, config-matrix 137102052148 FAILURE, mcp 137102052168 FAILURE, shell-ux 137102052189 FAILURE. Die vier failures sind zwei bekannte, messbare ursachen: MCP contract mismatch (unexpected baseharbor.app.perses.disable/enable/remove/status, karte 0428-232, produktseite internal/machine/contract.go:205-208) und 'Managed-environment machine operations require an authenticated BaseHarbor operator' in init/config-matrix/shell-ux (karte 0428-231, operator-auth-helper). Der vorherige run 44986797647 war mit ref=develop angestossen und zaehlt nicht als beleg (akte static-suite-1746-valid-run.md, plan 036aa0175).
 
 ihr hop ist gelandet: head e455302f1a8 auf base 52a3c5446f4, exact run 44997978036 SUCCESS/0 failed, coreless-lifecycle aggregate docker 137136393453 und podman 137136509792 SUCCESS. 'Exact full Pre-Release' ist SKIPPED und mergeable_state BEHIND, weil develop schon acc34323968 ist. Die vier 'require an authenticated BaseHarbor operator'-zellen haengen am helper (PR 1761, noch DRAFT). Rechenreihenfolge nach vorgabe des owners: 1761 hop -> ready -> review -> merge, dann 1746 hop und der exakte static-beweis.
+
+hop ist gelandet und der exact run 44997978036 ist SUCCESS/0 failed (100 jobs, 32 success, 68 skipped) am head e455302f1a8. Die vier directive-gates (init, config-matrix, shell-ux, mcp) erscheinen nicht mehr als eigene jobs, weil die CI-matrix umgebaut ist - kein required check ist rot. 'PR . Selected Runtime' 137133121874 und 'PR . Native matrix' 137133096184 sind SKIPPED: base-zeiger-verzug (ci.yml:495, karte 0428-235), kein kandidatfehler und auch nicht der helper-blocker. RUECKSTAND: develop ist acc34323968, dieser head zeigt auf 52a3c5446f4, also ist vor der abnahme ein weiterer hop noetig - nach dem 1761-merge, damit der helper in der base liegt und die statischen zellen ihn ziehen koennen. Zusatz: die karte 0428-233 (tmpdir) hat KEINEN PR und ihre position liegt unveraendert in develop (cmd/baha/test_operator_context_test.go:112-116) - der Auftrag dafuer ist jetzt erneut bei ihrer lane, mit zustands-zeile zuerst.
