@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: b90e4ba1 (lane, #1761)
+owner: b90e4ba1 (lane, #1771)
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -15,7 +15,7 @@ kanban_title: 0428-231 · operator auth in static cells
 priority: ""
 depends_on: [t-20261121-develop-full-suite-red]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1761]
+prs: [mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1771]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -25,8 +25,8 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.c
 
 - [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (lane, \#1761)  
-    **PR:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
+    **Owner:** b90e4ba1 (lane, \#1771)  
+    **PR:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1761), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44994765677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44998552411), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44999534797), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/hunt-operator-auth-static-cells-round-1.md)  
     <!-- /generated:card -->
 
@@ -34,9 +34,9 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.c
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
-**Owner:** b90e4ba1 (lane, #1761)  
+**Owner:** b90e4ba1 (lane, #1771)  
 **Priority:** not set  
-**PRs:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
+**PRs:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -96,3 +96,5 @@ STANDALONE bestehende gate, KEIN #1746-blocker (owner-erklaerung): 'Managed-envi
 HUNT-belegt -> UNABHAENGIG fixbar (nicht an #1753 gekoppelt). PRIMAERDEFEKT cmd/baha/local_workload_authority.go:62: fixture meldet '--access local-docker', check vergleicht gegen 'local' -> grant faellt ab -> 'authenticated operator' fails in shell-ux/init/config-matrix statischen zellen. FIX: local-docker/local-podman als grant akzeptieren, regression in cmd/baha shards, KEIN .github. SEKUNDAR (tag baseharbor_ci_operator_testonly fehlt = no-op helper) NUR melden, ob fix 2 allein genuegt (tag waere .github owner-scope). NEBENBEFUND: static-mcp rot ist NICHT operator-auth sondern die 0428-232 demo-pin/candidate perses-divergenz.
 
 SHARED-PREREQ. b90e4ba1 besitzt cmd/baha/operator_test_fixture_test.go. #1746 mcp-static failed an operator-auth fixture setup (Durchgang 45023477422) -> #1761 muss den static-cell operator-auth fixture-helper auf develop liefern. Achtung: #1769 nutzt fuer anonymen fall das REAL symbol operatorauth.WithEnforcement (kein neuer helper), also KEINE kollision. Guard/denial-logik NICHT aendern, kein auth-bypass.
+
+PR #1771 (draft) head 172fb251 auf develop 8629450ef3c = BEHIND aktuellem develop 64eab13e -> b90e4ba1 hoppt einmalig additiv auf 64eab13e + exact-hosted + draft->ready. Root-cause KORRIGIERT: nicht ein alias; echte drop = root quick-init route OHNE app.adopt scope in cliLocalWorkloadOperation (main.go). Fix additiv isLocalRuntimeAccessProvider (local + local-docker/local-podman) in grant-check + init-scope. operator-auth/boundary INTAKT, KEIN .github/scripts/operatorauth. Runs 45023442557 + 45024197667 success/failed 0 am alten head. STATIC-GATES nicht lane-startbar (Owner workflow_dispatch pre-release.yml) - als ausloeser notiert, nicht als deficit. Dient #1746 mcp-static (geteiltes fixture/grant-issue). Akte plan origin/main.
