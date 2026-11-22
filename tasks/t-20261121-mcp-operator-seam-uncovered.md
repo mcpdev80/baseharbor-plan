@@ -7,9 +7,9 @@ areas: [cli, observability]
 release: v0.4.28
 version: ""
 parent: ""
-owner: fecbada9 (CODEX-MERGE am laufen) / owner (hop) / coord
-kanban_status: review
-kanban_lane: review
+owner: fecbada9 (review+merge) / owner (hop) / coord
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: Every MCP mutation path whose test expects the verbatim gate message Managed-environment machine operations require an…
 kanban_title: 0428-218 · 0428-218 mcp operator seam
 priority: normal
@@ -19,25 +19,25 @@ prs: [mcpdev80/baseharbor#1741, mcpdev80/baseharbor#1738, mcpdev80/baseharbor#17
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: accepted
 created: "2026-11-21T05:55:00Z"
 updated: "2026-11-21T05:55:00Z"
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md", "https://github.com/mcpdev80/baseharbor/commit/cdca12b6"]
 
 ---
 
-- [ ] t-20261121-mcp-operator-seam-uncovered · 0428-218 make the MCP operator seam reachable from MCP tests #task #release/v0-4-28 #status/review #view/review #area/cli #area/observability #kind/bug
+- [x] t-20261121-mcp-operator-seam-uncovered · 0428-218 make the MCP operator seam reachable from MCP tests #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/cli #area/observability #kind/bug
     <!-- generated:card -->
-    **Owner:** fecbada9 (CODEX-MERGE am laufen) / owner (hop) / coord · **Priority:** normal  
+    **Owner:** fecbada9 (review+merge) / owner (hop) / coord · **Priority:** normal  
     **PR:** [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741), [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738), [baseharbor#1769](https://github.com/mcpdev80/baseharbor/pull/1769)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md), [proof 2](https://github.com/mcpdev80/baseharbor/commit/cdca12b6)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** fecbada9 (CODEX-MERGE am laufen) / owner (hop) / coord  
+**Owner:** fecbada9 (review+merge) / owner (hop) / coord  
 **Priority:** normal  
 **PRs:** [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741), [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738), [baseharbor#1769](https://github.com/mcpdev80/baseharbor/pull/1769)  
 **Source:** 
@@ -138,3 +138,5 @@ EXAKTER head 2f06b52a, run 45024804281 completed SUCCESS, 0 failures, mergeState
 EXAKTER head 1e9b51fb (owner additiv gehoppt auf develop 62784eff), CI run 45025980720 queued, mergeState BLOCKED bis gruen. diff NUR cmd/baha/mcp_operator_seam_test.go, self-contained operatorauth.WithEnforcement. fecbada9 prueft bei terminal green von 45025980720 + CODEX-MERGE, dann #1741 replacement-only schliessen. 1450c201 entlastet (lieferte nicht).
 
 EXAKTER head 1e9b51fb (owner hop auf 62784eff), run 45025980720 completed SUCCESS, mergeState CLEAN. diff NUR cmd/baha/mcp_operator_seam_test.go, self-contained operatorauth.WithEnforcement. fecbada9 fuehrt CODEX-MERGE aus (additiv, kein force); danach #1741 replacement-only schliessen. 1450c201 entlastet.
+
+GEMERGED als develop cdca12b6 (exact run 45025980720 SUCCESS, mergeState CLEAN). Stale #1741 als superseded geschlossen (gleiche MCP-test-datei, aber fixture-helper die auf develop fehlen; #1769 ist das getestete current-base-equivalent). Recut-Route 0428-218 erfuellt.
