@@ -58,3 +58,9 @@ REQUEST CHANGES — current develop `cdca12b6…` is not an ancestor of the cand
 - After review, `docker ps -a` under shell PID 137380 showed only the header and no containers; no containers were started.
 
 END codex-rev2-1736 DONE: REQUEST CHANGES for PR 1768 head 0331ec6f764aba62a293d4f740791bc063155a2d; current develop is not an ancestor and native Docker/Podman jobs were skipped.
+
+## Published evidence path witness
+
+Exact output from `git ls-tree -r --name-only origin/main | grep -F evidence/r28-welle5-2026-11-22/gate-catalog-0428-242/review-1768-head-hopcdca12b6.md` before this evidence update:
+
+    evidence/r28-welle5-2026-11-22/gate-catalog-0428-242/review-1768-head-hopcdca12b6.md
