@@ -7,7 +7,7 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: Owner (autoren-vertrag) / erster freier worker-sitz (hop)
+owner: Owner (.github/ci.yml owner-scope) / 0428-248 bulk (uncataloged sources) / Coordinator
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: "Implement guided source pull. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
@@ -18,16 +18,16 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1752]
 sources: []
 blocker: ""
-wait_reason: "Owner authorship exception (option A) granted for b010dabcb, e7df5ab4a6c and 7b3c65880; candidate may move only by an additive hop; shares machine registry/docs files with 1623 and 1614 so it runs after them"
+wait_reason: "#1752 head 34feb49 BEHIND draft. DEP cli2-app-lifecycle=0428-060 CLOSED(#1747) erfuellt. Aber NICHT sauberer lane-hop: diff enthaelt .github/workflows/ci.yml (OWNER-scope) + uncataloged cmd/baha product-sources (app_pull*.go/commands.go/mcp.go/mcp_lifecycle_extra.go/machine_coverage.go) -> Trusted Plan failt bis 0428-248 bulk. naechster trigger: coreinst+bulk catalog (b90e) + owner bestaetigt ci.yml -> dann free-lane latest-develop hop + exact CI. Kein produktiver sitz frei -> kein scheinauftrag jetzt."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1752"]
 ---
 
 - [ ] t-20261114-r28-cli2-source-pull · CLI redesign: Implement guided source pull #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** Owner (autoren-vertrag) / erster freier worker-sitz (hop) · **Priority:** high  
+    **Owner:** Owner (.github/ci.yml owner-scope) / 0428-248 bulk (uncataloged sources) / Coordinator · **Priority:** high  
     **PR:** [baseharbor#1752](https://github.com/mcpdev80/baseharbor/pull/1752)  
-    **Waiting:** Owner authorship exception (option A) granted for b010dabcb, e7df5ab4a6c and 7b3c65880; candidate may move only by an additive hop; shares machine registry/docs files with 1623 and 1614 so it runs after them  
+    **Waiting:** \#1752 head 34feb49 BEHIND draft. DEP cli2-app-lifecycle=0428-060 CLOSED(\#1747) erfuellt. Aber NICHT sauberer lane-hop: diff enthaelt .github/workflows/ci.yml (OWNER-scope) + uncataloged cmd/baha product-sources (app\_pull\*.go/commands.go/mc…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1752)  
     <!-- /generated:card -->
 
@@ -36,7 +36,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1752"]
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-app-lifecycle](t-20261114-r28-cli2-app-lifecycle.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** Owner (autoren-vertrag) / erster freier worker-sitz (hop)  
+**Owner:** Owner (.github/ci.yml owner-scope) / 0428-248 bulk (uncataloged sources) / Coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1752](https://github.com/mcpdev80/baseharbor/pull/1752)  
 **Source:** 
