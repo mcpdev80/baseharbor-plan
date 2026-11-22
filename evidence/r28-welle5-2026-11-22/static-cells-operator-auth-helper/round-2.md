@@ -12,7 +12,7 @@ KANIDATEN-KETTE: 57948743 (round-1, unverändert erhalten) -> e0d4a0e3 (vollstä
 - (done) 4. bash scripts/ci-fast-check.sh OK (302 tests); source-readability-audit PASS; gofmt clean; pushes ohne force; delivery-witness: refs/pull/1761/head = d275e50c5ba0245b6ab8a42f9655c9bef1bb2bd0.
 - (done) 5. Gehoster run 44998552411 (head d275e50c) terminal completed SUCCESS, failed 0; CLI-suite job-ids: cli-0 137134801858, cli-1 137134801765, cli-2 137134801777, cli-3 137134801792, packages 137134801752 (alle success). Der zwischen-run 44997681554 (head e0d4a0e3, SUCCESS failed 0) blieb als vorlaeufiger beweis erhalten; static cells/Native bleiben auf draft-route skipped — ready-schalten ist keine lane-aktion, PR bleibt DRAFT.
 - (done) 6. Diese akte, publiciert auf plan origin/main mit ls-tree-witness.
-- (pending) 7. END post aan 9142ab1f.
+- (done) 7. END post aan 9142ab1f (met both missions: 236 STOP + 231 korrektur DONE).
 
 ## beweis-punkt für beweis-punkt: befund -> was geaendert wurde -> job-id
 
