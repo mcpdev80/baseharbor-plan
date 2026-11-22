@@ -110,3 +110,11 @@ cleanliness: `docker ps -a` BEFORE = 0 entries (pid 1961963), AFTER = 0 entries
 na de hops); workers/0428-231-hop is leeg/verwijderd.
 
 END 0428-223-testctx DONE — 0428-231 hop-both round-1: #1761 nieuwe head fcfe3f09668f160cff1de4d0ee8f693ce5de958c (merge --no-ff van b27b2ebe, ouders 669d76ac+b27b2ebe, ls-remote branch+pull bewezen), run 45053923585 completed/failure — Trusted Plan job 137304883073 faalt op 4 uncataloged diff-paden van de helper-PR zelf (app_env_test.go, app_export_command_test.go, target_definition_change_test.go, internal/operatorauth/test_operator.go) — VERVOLGKAART noddig: catalog entries (buiten deze write-set). #1771 nieuwe head ebd01baa5218d4bc55880647e7b7b318c096bcfa (ouders dc775235+b27b2ebe, ls-remote bewezen), run 45054073860 completed/failure — Trusted Plan 137305322238 SUCCESS (fix-paden cataloged), falen zit in native/selected data-caps cellen op candidate-consent (--confirm-candidate in TestApplicationCapabilityLifecycle), zelfde familie als de Option-A round-2 demo-consent bevind. static cells operator-auth gruen: NEIN (nog niet, oorzaken hierboven); target-create mcp-static: in GEEN BEIDE runs opgedoken — niet de blocker die zich hier voordeed, geen 247-stop nodig vanuit deze runs. cleanliness: besenrein
+
+## origin/main witness
+
+Exacte uitvoer van `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep hop-both-round-1` (plan main = 07dc22dc666669a74ef35b3e27a17b327ed363fe):
+
+```
+evidence/r28-welle5-2026-11-22/static-cells-operator-auth-0428-231/hop-both-round-1.md
+```
