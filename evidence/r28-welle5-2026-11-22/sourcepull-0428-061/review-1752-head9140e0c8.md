@@ -106,3 +106,21 @@ END codex-rev-1747 DONE — independent review requests changes; candidate 9140e
 
 - Exact required origin/main tree witness after fetch: `evidence/r28-welle5-2026-11-22/sourcepull-0428-061/review-1752-head9140e0c8.md`.
 - Second evidence push delivery witness: `5406131d02fb64ae7ab06c599f9eafc7810b135f refs/heads/main`.
+
+## Follow-up exact-head review — approval contract
+
+Follow-up plan:
+
+1. Reconfirm the live #1752 PR ref and pinned base.
+2. Compare the app.pull registry confirmation/policy flags with the MCP input and handler, then verify whether authorization itself enforces confirmation.
+3. Append a concise exact-head finding to this evidence, publish it to Planning origin/main, and notify the Coordinator. No product edits.
+
+Live ref witness at follow-up: `9140e0c8224e2ed346e6971aa0b2f6266d9c88a5 refs/pull/1752/head`; base remained `6209874428f08dc3e90d6e29a42b30683ce9932a refs/heads/develop`.
+
+### F4 — CONFIRMED: MCP app.pull omits the required explicit approval gate
+
+At exact head `9140e0c8224e2ed346e6971aa0b2f6266d9c88a5`, `internal/machine/contract.go:242` registers `app.pull` as mutating with both `PolicyRequired: true` and `ConfirmationRequired: true`; the regenerated golden fixture publishes the same confirmation requirement. However, `cmd/baha/mcp.go:89-93` uses `machineApplicationInput`, which has no `Approval` field, and `cmd/baha/mcp_lifecycle_extra.go:88-100` calls `authorizeCurrentMCPContext` then directly calls `runAppPull`, with no `applicationlifecycle.RequireApproval` call. `machineMCPTool` at `cmd/baha/mcp.go:266-281` exposes safety annotations but does not enforce confirmation. The authorization path in `internal/operatorauth/authorization.go` copies `ConfirmationRequired` into the decision metadata; it does not reject an allowed operation for missing approval. Thus policy authorization is present, but the declared confirmation is not enforced before this MCP tool fetches and fast-forwards source repositories. This is a real contract/security gap, not only a schema-description mismatch.
+
+Repair: add an explicit `approval` input and call `applicationlifecycle.RequireApproval("app.pull", input.Approval)` before entering `runAppPull`; add an MCP regression proving a missing approval is rejected without invoking Git fetch/pull, and approval allows the authorized operation. Keep the registry/golden confirmation requirement aligned with that enforced gate.
+
+F4 is a blocking REQUEST CHANGES finding alongside F1 and F2. The owner’s request to preserve explicit approval is consistent with this verified gap. Product branch remains untouched.
