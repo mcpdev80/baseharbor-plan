@@ -44,5 +44,6 @@ F1/F2/F3 came from the independent exact-head review of 9140e0c8; F3 compile err
 - Blocker: TestEndToEndInstalledZshAndFishWrappers @ context_terminal_test.go:467 — zsh/fish missing in CI cell PATH (Draft Go route); owner scope.
 - F1/F2/F3 code + package tests: PASS in packages shard (run 44971297170 once F3 compile fixed).
 - Exact CI pending after zsh-cell resolution; run 44971782040 in progress (Draft Go).
+- Coordinator notified (post 9142ab1f, END_BLOCKED @ a4adc29a): awaiting routed exact head to a hosted cell that installs zsh/fish, or authorized Draft Go provisioning. No .github/** change made. Holding for Owner/Coordinator input.
 - draft= True (kept until gate complete)
 - shells-befund: zsh/fell in the Draft Go CI cell (context_terminal_test.go:467) — requires Coordinator to route exact head a4adc29a to a hosted cell with zsh/fish or add authorized Draft Go provisioning; .github/** not edited by the lane.
