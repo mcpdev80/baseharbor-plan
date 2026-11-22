@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: f0f6c8b4 (#1738 hop in flight, inherits develop catalog) / Coordinator
-kanban_status: wait
-kanban_lane: wait
+owner: Owner (#1738 owner-merge ef73b50b) / f0f6c8b4 (hop+runs) / Coordinator
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Unify up and down semantics. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-060 · Unify up and down semantics
 priority: high
@@ -18,24 +18,25 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1747, mcpdev80/baseharbor#1738]
 sources: []
 blocker: ""
-wait_reason: "#1738 hop auf 78f75c90 laeuft erneut (false-positive catalog-STOP berichtigt: #1738 aendert katalog selbst nicht, erbt nur develops #1786 rows); exakter PR-head gruen ausstehend"
-evidence: ["https://github.com/mcpdev80/baseharbor/commit/e6c199e7b7dd7d076a776d11c3ba16f25e59c254"]
+wait_reason: ""
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/e6c199e7b7dd7d076a776d11c3ba16f25e59c254", "https://github.com/mcpdev80/baseharbor/commit/ef73b50b6aee3dea8d4badf347c264daefa3d064"]
+resolution: accepted
+
 ---
 
-- [ ] t-20261114-r28-cli2-app-lifecycle · CLI redesign: Unify up and down semantics #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
+- [x] t-20261114-r28-cli2-app-lifecycle · CLI redesign: Unify up and down semantics #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** f0f6c8b4 (\#1738 hop in flight, inherits develop catalog) / Coordinator · **Priority:** high  
+    **Owner:** Owner (\#1738 owner-merge ef73b50b) / f0f6c8b4 (hop+runs) / Coordinator · **Priority:** high  
     **PR:** [baseharbor#1747](https://github.com/mcpdev80/baseharbor/pull/1747), [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
-    **Waiting:** \#1738 hop auf 78f75c90 laeuft erneut (false-positive catalog-STOP berichtigt: \#1738 aendert katalog selbst nicht, erbt nur develops \#1786 rows); exakter PR-head gruen ausstehend  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/e6c199e7b7dd7d076a776d11c3ba16f25e59c254)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/e6c199e7b7dd7d076a776d11c3ba16f25e59c254), [proof 2](https://github.com/mcpdev80/baseharbor/commit/ef73b50b6aee3dea8d4badf347c264daefa3d064)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
 **Required by:** [t-20261114-r28-cli2-source-pull](t-20261114-r28-cli2-source-pull.md)  
-**Owner:** f0f6c8b4 (#1738 hop in flight, inherits develop catalog) / Coordinator  
+**Owner:** Owner (#1738 owner-merge ef73b50b) / f0f6c8b4 (hop+runs) / Coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1747](https://github.com/mcpdev80/baseharbor/pull/1747), [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
 **Source:** 
@@ -85,3 +86,5 @@ korrektur IST GEKOMMEN, von MIR gemessen: PR #1747 head fb841c2c27c, 'rev-list -
 CODEX-REVIEW 'evidence/cli-redesign-20261114/0428-060/review-3.md' = APPROVE CONTENT am exakten head fb841c2c27c90c6aa2c7b9ee9559da912ac64c2a, mit dem vermerk 'identity leak, no content deficiency' (die zwei obersten commits tragen den author '0428-076-nativeshape' — tooling-issue #24, von mir dort dokumentiert). MERGEN KANN ICH NOCH NICHT: develop ist seit 15:24 22fc68ebc065 (Ihr merge von #1748), fuer den kandidaten gilt 'rev-list head..develop' = 4 und ancestry NEIN. Ein hop-auftrag liegt fertig an (mission '0428-060-r3-hop22fc.md', gate exit 0) und geht auf den sitz der isolations-jagd, die ich mit meldefrist stoppe. Im hop-auftrag steht ausdruecklich: push auf 'lane-0428-060-updown' (KEIN neuer branch — das war der fehler der 076-lane heute), und 'git log --format=%an develop..head' muss genau eine identitaet zeigen.
 
 statuskorrektur: NICHT blocked. #1738 editiert pr-gate-coverage.json selbst nicht; der additive hop ERBT develops #1784/#1785/#1786 rows (release bleibt v0.4.27) = korrekt, KEIN owner-decision. f0f fuehrt hop mit korrigierter pruefung aus (git diff develop HEAD -- katalog muss leer sein -> OK). Wartet nur auf gruenen exact-head. develop 78f75c90.
+
+0428-060/0428-214 CLOSED. #1738 gemergt 23:14:11Z als ef73b50b, exact-head run 45080013444 FULL GREEN (native+selected docker+podman data-caps, TP, Go/static) am final head 6dde499a9  ls-remote+run fernbelegt. Geschwister #1747 (0428-060 converge-down) ist ebenfalls MERGED (state fernbelegt). Katalog wurde nie branch-seitig geaendert (diff==leer, 1:1 develop geerbt).
