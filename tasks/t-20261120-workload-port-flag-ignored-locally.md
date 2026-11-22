@@ -101,3 +101,5 @@ kandidat ist EXAKT und VOLLSTAENDIG GEGENUEBER develop: head 5c063c7f278 (additi
 kandidat ist gehoepft bis develop 52a3c5446f4 (head 12a62523fc5, back=0). Am vorherigen head b2d9aeb446f (run 449937223) waren build, vet und die go-shards SUCCESS; der einzige fehler war das data-capabilities-gate, identisch zu karte 0428-237 (secure runtime broker 503 not_ready) - KEIN inhaltfehler dieses kandidaten. Am neuen head ist aktiv der run noch. Exaktes review folgt, sobald der run terminal ist und der broker-blocker gezinkt ist.
 
 wartet auf den hop auf develop acc34323968 (back=2). Kontext: das REQUEST CHANGES am head 12a62523fc5 war ein verfaelschungs-artefakt, der diff enthielt 1627-inhalt; seit dem 1627-merge sind es nur noch 4 dateien eigenen inhalts. Nach dem hop: neuer run, dann exact-head review.
+
+wartet auf den hop auf develop acc34323968 (back=2). Kontext: das REQUEST CHANGES am head 12a62523fc5 war ein verfaelschungs-artefakt, der diff enthielt 1627-inhalt; seit dem 1627-merge sind es nur noch 4 dateien eigenen inhalts. Nach dem hop: neuer run, dann exact-head review.
