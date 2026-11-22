@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: owner (resolves) / coord
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Register scripts/ci-fast-check.sh as a real v0.4.28 Pre-Release static gate, with the full catalog/dispatcher wiring and…"
 kanban_title: "0428-205 · Gate catalog: ci-fast-check"
 priority: normal
@@ -17,22 +17,22 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1774]
 sources: []
-blocker: "#1746 head 887058a6 terminal cancelled 34 fails. Wurzeln sauber getrennt: (i) operator-auth fixture (authenticated BaseHarbor operator) fehlt in core-bootstrap 137227219764/735 + config-matrix/init/shell-ux + reference journeys -> 0428-231/#1771 BREITER pruefen (nicht nur target.create). (ii) ci-fast-check 137227411383 = katalog A fehlt -> #1774 (b90e4ba1 ergaenzt A+C). (iii) mcp perses 'unexpected' = H-V29: KEIN baseharbor-code-defect, RELEASE-VERSION-SKEW (bild vor contract-ops gebaut) -> bild-pin/release-ordnung, nicht code. (iv) light-runtime blob/manifest unknown = eigenes bild-artefakt/registry 0428-249 (nicht auth). (v) target.create = 0428-247 owner/core. Requalifikation erst wenn A+247+237+249+operatorauth(231) adressiert. NICHT qualifiziert."
-wait_reason: ""
+blocker: ""
+wait_reason: "#1746 bleibt wait (nicht voll qualifiziert). NEUE schaerfung (H-V30): static core-bootstrap/config-matrix/init/shell-ux/journeys auth-fail ist eine TEST-ONLY CI-operator fixture allow-list luecke = KARTE 0428-250 (f0f6c8b4, worker-fixbar), NICHT owner-decision. Zusaetzlich: A (ci-fast-check.sh) im #1774-followup, footprint-consent in 0428-241, light-runtime blob = 0428-249. target.create bleibt 0428-247 owner/core. Requal wenn 250+241+A+249 adressiert + pre-release gruen."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "https://github.com/mcpdev80/baseharbor/actions/runs/44944570763", "https://github.com/mcpdev80/baseharbor/pull/1746"]
 ---
 
-- [ ] t-20261120-gate-catalog-ci-fast-check · 0428-205 · Wire ci-fast-check into the release gate catalog #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #kind/bug
+- [ ] t-20261120-gate-catalog-ci-fast-check · 0428-205 · Wire ci-fast-check into the release gate catalog #task #release/v0-4-28 #status/wait #view/wait #area/ci #kind/bug
     <!-- generated:card -->
     **Owner:** owner (resolves) / coord · **Priority:** normal  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774)  
-    **Blocker:** \#1746 head 887058a6 terminal cancelled 34 fails. Wurzeln sauber getrennt: (i) operator-auth fixture (authenticated BaseHarbor operator) fehlt in core-bootstrap 137227219764/735 + config-matrix/init/shell-ux + reference journeys -\> 0428-231…  
+    **Waiting:** \#1746 bleibt wait (nicht voll qualifiziert). NEUE schaerfung (H-V30): static core-bootstrap/config-matrix/init/shell-ux/journeys auth-fail ist eine TEST-ONLY CI-operator fixture allow-list luecke = KARTE 0428-250 (f0f6c8b4, worker-fixbar),…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44943804395), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44944570763), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1746)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** owner (resolves) / coord  

@@ -1,0 +1,55 @@
+---
+id: t-20261122-ci-operator-fixture-allowlist-gap
+card_number: "0428-250"
+card_short_title: "ci operator fixture allow-list"
+type: bug
+areas: [ci, testing]
+release: v0.4.28
+version: ""
+parent: v0.4.28
+owner: f0f6c8b4
+kanban_status: active
+kanban_lane: active
+kanban_summary: ""
+kanban_title: 0428-250 · ci operator fixture allow-list
+priority: high
+depends_on: []
+repos: [mcpdev80/baseharbor]
+prs: []
+sources: []
+blocker: ""
+wait_reason: ""
+resolution: ""
+evidence: []
+---
+
+- [ ] t-20261122-ci-operator-fixture-allowlist-gap · Add the missing command forms to the test-only CI-operator fixture allow-list so static/core gates stamp the synthetic operator instead of failing closed #task #release/v0-4-28 #status/active #view/active #area/ci #area/testing #kind/bug
+    <!-- generated:card -->
+    **Owner:** f0f6c8b4 · **Priority:** high  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** active  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** none  
+**Owner:** f0f6c8b4  
+**Priority:** high  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
+
+## Found by H-V30 (f0f6c8b4) on develop 3cbb2bac
+
+The 'authenticated BaseHarbor operator' needed by the static/core gates is a synthetic, test-only fixture present on develop via `cmd/baha/ci_integration_operator_enabled.go:24-119` (`withCIIntegrationOperator`, guarded by `DEMO_ATOMIC_GATE=1` + build tag `baseharbor_ci_operator_testonly`), stamped by `ciIntegrationOperatorContext` (:369-377, Subject `ci-acceptance-operator`, IssuerVerified true). The non-tagged build is a no-op (`ci_integration_operator_disabled.go:10`).
+
+`ciIntegrationManagedLocalGateReason` (`:96-195`) builds an exact command-form allow-list (12 managedWorkload=true exceptions: read-only status :116, guided/observability/doctor :123-155, root-identity/init :161, local-core-bootstrap :304-352). A command form NOT in that allow-list (or a binary built without the tag) reaches `mcp.go:300/314-323` with no verified principal and fails closed with 'missing authenticated BaseHarbor operator'. The `coreinstallation.Load` check (:188-195) returns core-installation-not-loadable (:195), matching the atomic-podman-data-capabilities failure.
+
+## Acceptance
+
+1. Identify which failing command forms (init, up-as-bootstrap, config-matrix, reference-journey, shell-ux) are missing from the allow-list and add them to the TEST-ONLY fixture (`ci_integration_operator_enabled.go`), so the gate cells stamp the synthetic operator and proceed. Do NOT weaken production `operatorauth` / `mcp.go` boundary.
+2. Confirm the affected pre-release/workflow invocations build with the `baseharbor_ci_operator_testonly` tag (if the gap is a missing build tag rather than an allow-list entry, report the exact place as a finding, do not fabricate).
+3. Regression via existing static/CI cells; prove one previously-failing static cell now passes because the operator is stamped.
+
+## Boundaries
+
+cmd/baha test-only fixture file(s) with the build tag only. NOT operatorauth production code, NOT .github workflows (report any needed workflow tag/ordering as owner file:line, do not edit), NOT #1771 (local-workload layer), NOT target.create (247).

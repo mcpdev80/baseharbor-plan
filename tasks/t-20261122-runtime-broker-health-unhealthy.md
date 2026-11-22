@@ -8,7 +8,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: andere Codex-Session (#1770) / fecbada9 (review auf gruen)
+owner: andere Codex-Session (#1770) / coord
 tags: [#task, #release/v0.4-28]
 kanban_status: active
 kanban_lane: active
@@ -26,7 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "h
 
 - [ ] t-20261122-runtime-broker-health-unhealthy · CI: data-capabilities native gate fails on secure runtime broker readiness #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** andere Codex-Session (\#1770) / fecbada9 (review auf gruen)  
+    **Owner:** andere Codex-Session (\#1770) / coord  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998846458), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45008538769), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-3.md), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45011764715)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "h
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** andere Codex-Session (#1770) / fecbada9 (review auf gruen)  
+**Owner:** andere Codex-Session (#1770) / coord  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770)  
 **Source:** 
@@ -144,3 +144,7 @@ FIX-ORT KORRIGIERT DURCH READ-ONLY-HUNT (akte hunt-develop-releasedesse-round-1.
 #1770 additiv gehoppt auf develop 3cbb2bac (nach #1774-B-merge) -> head 2a4adca0, exact run 45030747445 queued. Weil B jetzt auf develop ist, SOLLTE der planner native/docker+podman/data-capabilities ECHT selektieren (nicht mehr skipped). Owner verifiziert die selected native gates vor merge; review fecbada9 danach. Wenn trotz B weiter skipped -> befund an coord (catalog-selectie pruefen).
 
 #1770 head 2a4adca0 auf develop 3cbb2bac (nach #1774-B-merge). UNLOCK BESTAETIGT: native docker+podman data-capabilities + selected runtime atomic/docker|podman laufen in Durchgang 45030747445 ECHT (in_progress, nicht skipped). fecbada9 prueft bei terminal + merged wenn gruen. #1753 haelt derweil am consent (236 owner-decision).
+
+KATALOG-UNLOCK BESTAETIGT: #1774(B) wirkt, native data-caps docker 137234060728 + podman 137234060645 laufen JETZT echt. Sie failen aber an 'app footprint show -o json' confirm-candidate + interactive auth auf piped input = DERSSELBE defect wie #1753 selected, ZUGEORDNET KARTE 0428-241 (worker-behebbar footprint JSON contract + consent harness), NICHT consent 236 (closed/dropped) und NICHT image-build. Sequence um #1753/0428-241 + exact rerun. native jobs noch running.
+
+NATIVE PODMAN data-capabilities job 137233607705 SUCCESS - localhost/baseharbor-runtime:ci-native-podman-72959a95 gebaut, TestApplicationCapabilityLifecycleExistingCore PASS 466s = 0428-237 SHA-image fix VALIDIERT auf podman. Native docker laeuft noch. SELECTED docker+podman failen im 0428-241 footprint consent-harness (f0f6c8b4). PR unmerged bis native docker + 241 routing. Kein merge auf partial.
