@@ -78,6 +78,28 @@ Delivery proof:
 No docker/podman compose projects started on this host. No containers spawned by this lane.
 docker/podman not run here as a test host. (Banned test-gate failure is GitHub-hosted only.)
 
+## re-hop run 44963676934 (second hop, head b9c2e483)
+
+New hop-pflicht after develop advanced to 7d4351c6d645 (PR #1749 merged). Same
+outcome as the first hop: feature shard green, data-capabilities red on the same
+external prerequisite.
+
+Re-hop commit: `b9c2e483f8b1538ff5b291f185c55303a6c27c43`
+(merge `hop develop 7d4351c6d645 into 0428-199 workloadport candidate (re-hop)`).
+- FETCH_HEAD develop verified = `7d4351c6d645353b6b96c8d320b4c832d55f9047`
+- git rev-list --count HEAD..7d4351c6 = `0` (back=0)
+- first parent = 5c063c7f (pre-rehop), second parent = 7d4351c6 (develop)
+- feature diff pre-rehop(5c063c7f) vs post-rehop(b9c2e483) on the 4 write-set files = EMPTY
+- git diff 7d4351c6...HEAD --name-only = only the 4 write-set files
+- git log origin/develop..HEAD = only my own commits (re-hop, first hop, codex merge, feature fix)
+- git merge-base --is-ancestor origin/develop HEAD = OK; go build ./... clean; go vet clean; targeted test pass
+
+Run 44963676934 (head b9c2e483), terminal conclusion = failure:
+- Failed jobs: 137027853679-equivalent `PR · Selected Runtime (atomic/docker/data-capabilities, docker, data-capabilities)` (Executed docker · data-capabilities) + `PR Selected Checks` (cascade).
+- `workload_port_local_regression_test.go` runs in `PR · Go unit · cli-3` (job 137027853679), conclusion = success. All 6 Go unit shards (cli-0..cli-3, packages, owner) pass.
+
+This is the same external prerequisite (card 0428-226) documented on runs 44961493271 and 44934975722. PR #1723 has no own defect.
+
 ## END SUMMARY
 
 - new head-sha: 5c063c7f278bfd92dcef9a0fabd3b6e6d1ddbe42
