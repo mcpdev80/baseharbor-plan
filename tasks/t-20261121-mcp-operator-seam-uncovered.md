@@ -7,7 +7,7 @@ areas: [cli, observability]
 release: v0.4.28
 version: ""
 parent: ""
-owner: 1450c201 (review+merge) / fecbada9 (fallback) / coord
+owner: fecbada9 (CODEX-REVIEW+MERGE) / owner (hop) / coord
 kanban_status: review
 kanban_lane: review
 kanban_summary: Every MCP mutation path whose test expects the verbatim gate message Managed-environment machine operations require an…
@@ -28,7 +28,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 - [ ] t-20261121-mcp-operator-seam-uncovered · 0428-218 make the MCP operator seam reachable from MCP tests #task #release/v0-4-28 #status/review #view/review #area/cli #area/observability #kind/bug
     <!-- generated:card -->
-    **Owner:** 1450c201 (review+merge) / fecbada9 (fallback) / coord · **Priority:** normal  
+    **Owner:** fecbada9 (CODEX-REVIEW+MERGE) / owner (hop) / coord · **Priority:** normal  
     **PR:** [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741), [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738), [baseharbor#1769](https://github.com/mcpdev80/baseharbor/pull/1769)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md)  
     <!-- /generated:card -->
@@ -37,7 +37,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** 1450c201 (review+merge) / fecbada9 (fallback) / coord  
+**Owner:** fecbada9 (CODEX-REVIEW+MERGE) / owner (hop) / coord  
 **Priority:** normal  
 **PRs:** [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741), [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738), [baseharbor#1769](https://github.com/mcpdev80/baseharbor/pull/1769)  
 **Source:** 
@@ -134,3 +134,5 @@ Recut 1769 review REQUEST CHANGES: acfee600b fails undefined operatorAuthFixture
 #1769 head 2f06b52a (nur Kommentar/umbruch gegenueber 8f5f4b0), 1 datei cmd/baha/mcp_operator_seam_test.go, verhaltensneutral. Anonymer opt-out nutzt REAL produkt-symbol operatorauth.WithEnforcement, KEIN shared-helper aus 0428-231 noetig -> keine write-set-kollision, keine hard-dep auf 231. Review 1450c201 routed; approve erst wenn exact-head 2f06b52a required checks terminal gruen (skipped native matrix OK fuer test-port). 1741 bleibt offen bis 1769 gemerged.
 
 EXAKTER head 2f06b52a, run 45024804281 completed SUCCESS, 0 failures, mergeState CLEAN. Eine Datei cmd/baha/mcp_operator_seam_test.go, self-contained mit operatorauth.WithEnforcement, kein shared-helper. Kandidat-Wechsel 8f5f4b0 zu 2f06b52a (nur Kommentar) erlaubt frische Pruefung. Merge an 1450c201 zugewiesen, fecbada9 Fallback. Nach Merge die 1741 als ersetzt schliessen. Kein Native-Block (nur test port).
+
+EXAKTER head 1e9b51fb (owner additiv gehoppt auf develop 62784eff), CI run 45025980720 queued, mergeState BLOCKED bis gruen. diff NUR cmd/baha/mcp_operator_seam_test.go, self-contained operatorauth.WithEnforcement. fecbada9 prueft bei terminal green von 45025980720 + CODEX-MERGE, dann #1741 replacement-only schliessen. 1450c201 entlastet (lieferte nicht).
