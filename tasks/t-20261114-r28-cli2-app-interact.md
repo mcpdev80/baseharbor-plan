@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: sweep maintainer (claim 2ae9fd00d) / coord (integrations-regel)
-kanban_status: wait
-kanban_lane: wait
+owner: ffe7611b (lane, content) / coord (zeugnis + owner-push)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Guide app logs exec and urls. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-063 · Guide app logs exec and urls
 priority: high
@@ -18,25 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1623]
 sources: []
 blocker: ""
-wait_reason: "die vier vollen Pre-Release-gates (mcp, init, shell-ux, config-matrix) sind am head 3617a2a5 ROT wegin ANDEREN karten, nicht wegen 1746 (PR-CI 45007709072 SUCCESS): mcp 137170967605 = 4 unerwartete Perses-methoden (0428-231), init/shell-ux = managed operator authentication (0428-063), config-matrix = workload-only authentication_failed (0428-199); plus die fisch->zsh einschraenkung ist .github-owner-scope"
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1623"]
 ---
 
-- [ ] t-20261114-r28-cli2-app-interact · CLI redesign: Guide app logs exec and urls #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-app-interact · CLI redesign: Guide app logs exec and urls #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** sweep maintainer (claim 2ae9fd00d) / coord (integrations-regel) · **Priority:** high  
+    **Owner:** ffe7611b (lane, content) / coord (zeugnis + owner-push) · **Priority:** high  
     **PR:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623)  
-    **Waiting:** die vier vollen Pre-Release-gates (mcp, init, shell-ux, config-matrix) sind am head 3617a2a5 ROT wegin ANDEREN karten, nicht wegen 1746 (PR-CI 45007709072 SUCCESS): mcp 137170967605 = 4 unerwartete Perses-methoden (0428-231), init/shell-ux…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1623)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** sweep maintainer (claim 2ae9fd00d) / coord (integrations-regel)  
+**Owner:** ffe7611b (lane, content) / coord (zeugnis + owner-push)  
 **Priority:** high  
 **PRs:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623)  
 **Source:** 
@@ -101,3 +100,5 @@ test: traeger-entscheid gemessen, PR 1764 bleibt geschlossen
 TRAEGER-GEDANKE ERLEDIGT, GRUND GEMESSEN: die generator-ausgabe (BASEHARBOR_UPDATE_MACHINE_DOCS=1 go test ./cmd/baha -run TestHumanCommandIndexTracksExactCommandMetadata und TestMachineDocumentationTracksRegistryAndCommandTree) ist BYTE-FOR-BYTE wie develop 8629450ef3c - der carrier-PR 1764 war darum LEER und fiel zu recht durch 'PR . Trusted Plan' 137156455112 und 'PR . Selected Checks' 137156547886 (24 skipped). ENTSCHEID: weder einen leeren carrier akzeptieren, noch die command-tree-aenderung in eine andere karte ziehen - die neu-erzeugung ist ein SCHRITT IM hop dieses PRs (generator-durchgang, kein hand-edit); PR 1764 bleibt geschlossen. Damit entfaellt die blockade 'wartet auf index-traeger': der hop auf develop 8629450ef3c erzeugt die doc-deltas aus dem EIGENEN command-baum. Rueckstand 586 commits, 20 dateien, davon 8 in cmd/baha; KANTE zu #1620 ueber cmd/baha/app_access.go vor dem hop pruefen (coordinator/board/integration-order.md).
 
 #1746: ihr teil ist GELUNGEN (PR-CI 45007709072 SUCCESS/CLEAN am 3617a2a5a8b). Der REST der akzeptanz haengt NICHT an 1746: der volle Pre-Release-durchgang 45009827491 ist rot in mcp/init/shell-ux/config-matrix, aber die kopfe dieser fehl- schlaege sind ANDERE karten - Perses (0428-231), managed-operator-auth (0428-063), workload-auth (0428-199). Und die eine fisch->zsh-zeile (pre-release.yml 343) ist .github-OWNER-scope, die lane darf sie nicht pushen. Karte auf wait; der fisch-einschub liegt beim eigentimer, die gate-kopfe bei ihren eigenen karten.
+
+SEQENZ-UNLOCK, VOM EIGENTUMER REKONZILIERT: die fehlende zsh-Installation im Pre-Release-source-test (job 137173241314, context_terminal_test.go:467), die #1763 blockiert, wird DURCH DIESEN PR behoben - pre-release.yml 343-348 enthaelt den install-schritt, ABER er installiert auch fisch (unautorisiert). AUTORISIERT ist NUR zsh. SIE SIND JETZT DER SCHLUESSEL: verengen Sie die zeile auf 'sudo apt-get install --no-install-recommends -y zsh' + fisch-echo raus (ihr lokaler 1cf7f992 tut genau das, nur dass der push am .github-workflow-scope haengt - das klaert der owner). Danach die statischen gate-koepfe (mcp Perses, init/shell-ux operator-auth) - das sind ANDERE karten, nur der zsh-teil ist ihrer. develop 8629450ef3c.
