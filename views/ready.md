@@ -14,3 +14,4 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | [t-20261121-candidate-commit-identity](../tasks/t-20261121-candidate-commit-identity.md) | Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) | ready | not set | — | — | — |
 | [t-20261122-data-capabilities-gate-consent](../tasks/t-20261122-data-capabilities-gate-consent.md) | demo: pass candidate consent in the data-capabilities native gate | ready | not set | — | — | — |
 | [t-20261122-native-plan-self-selection](../tasks/t-20261122-native-plan-self-selection.md) | CI: catalog and planner self-change selects zero gates | ready | not set | — | — | — |
+| [t-20261122-runtime-broker-health-unhealthy](../tasks/t-20261122-runtime-broker-health-unhealthy.md) | CI: data-capabilities native gate fails on secure runtime broker readiness | ready | not set | — | — | — |
