@@ -7,7 +7,7 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: coord (route) / 1450c201 (review_assigned) / f0f6c8b4 (abgezogen)
+owner: 1450c201 (#1766 review) / coord (route) / f0f6c8b4 (abgezogen, #1766 = owner)
 kanban_status: review
 kanban_lane: review
 kanban_summary: "controlplanesinglenativecitest.go stops failing with prepare BaseHarbor integration trust plane: because the native-cell test…"
@@ -15,7 +15,7 @@ kanban_title: 0428-209 · 0428-209 native cell seam
 priority: high
 depends_on: [t-20261120-cli-operator-entrypoints]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1740, mcpdev80/baseharbor#1765]
+prs: [mcpdev80/baseharbor#1740, mcpdev80/baseharbor#1765, mcpdev80/baseharbor#1766]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -27,8 +27,8 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1740", "https://github.c
 
 - [ ] t-20261121-native-cell-operator-seam · 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam #task #release/v0-4-28 #status/review #view/review #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** coord (route) / 1450c201 (review\_assigned) / f0f6c8b4 (abgezogen) · **Priority:** high  
-    **PR:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740), [baseharbor#1765](https://github.com/mcpdev80/baseharbor/pull/1765)  
+    **Owner:** 1450c201 (\#1766 review) / coord (route) / f0f6c8b4 (abgezogen, \#1766 = owner) · **Priority:** high  
+    **PR:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740), [baseharbor#1765](https://github.com/mcpdev80/baseharbor/pull/1765), [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1765), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44868911131)  
     <!-- /generated:card -->
 
@@ -36,9 +36,9 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1740", "https://github.c
 **State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** coord (route) / 1450c201 (review_assigned) / f0f6c8b4 (abgezogen)  
+**Owner:** 1450c201 (#1766 review) / coord (route) / f0f6c8b4 (abgezogen, #1766 = owner)  
 **Priority:** high  
-**PRs:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740), [baseharbor#1765](https://github.com/mcpdev80/baseharbor/pull/1765)  
+**PRs:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740), [baseharbor#1765](https://github.com/mcpdev80/baseharbor/pull/1765), [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -111,3 +111,5 @@ ROUTE NEU FESTGELEGT NACH CENSUS (akte operator-auth-helper/carrier-census-1737-
 RE-CUT ROUTE BESTAETIGT (praegenz 1738): PR 1740 haelt, base von der TOten carrier-lane 198 auf develop retargeted + head auf develop-basierten recut (kandidat f4e340eca, 2 files: selection-regression-assertion + bootstrap-target helper). EXAKTE native docker+podman gaetes + unabhaengige review danach. Kein neuer PR. Kein app_broker/controlplaneruntime-zugriff (0428-237).
 
 ROUTE-WECHSEL bestaetigt: statt #1740 base-retarget wurde ein NEUER develop-basierter PR #1765 (head f4e340eca, 2 files: selection-regression-assertion + bootstrap-target helper, BASEHARBOR_TARGET erst nach registration) geoeffnet. #1740 (toter carrier-base) bleibt OFFEN bis #1765 verifiziert+gemerged ist, dann ersetzt/geschlossen. f0f6c8b4 von #1740 abgezogen (kollision). Exakte PR-checks (native docker+podman) starten; unabhaengige review = 1450c201, an terminal-gruen gebunden.
+
+#1765 = GANZE cluster-abhaengig, NICHT sein 2-file delta. Run 45018856573: nativ docker data-capabilities 137197810751 failt secrets broker unhealthy (-> 0428-237, separater PR, laeuft bei Codex Runner), selected docker 137198119508 'app footprint show' confirm-candidate consent + contract (-> #1753 0428-227, EINGEFROREN bis 237-PR), native keycloak/core docker+podman stale network-owner assertion (-> #1766, korrigiert genau das). #1765 own delta ist OK; es kann erst gruen wenn 237-PR + #1766 + #1753-consent auf develop sind. ROUTING an besitzer: broker=0428-237 Codex Runner, candidate-consent=0428-227 (0847d100 triagiert mutation-vs-read, haelt #1753-push), assertion=#1766 (1450c201 review). 0428-232 demo 240e325 (0847d100) = static-mcp behoben.

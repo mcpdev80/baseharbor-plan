@@ -1,7 +1,7 @@
 ---
 id: t-20261122-core-network-protected-owner-assertion-stale
 card_number: "0428-244"
-card_short_title: "core network owner assertion stale"
+card_short_title: "core-network assertion stale"
 type: bug
 areas: [testing]
 release: v0.4.28
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: ""
-kanban_title: 0428-244 · core network owner assertion stale
+kanban_title: 0428-244 · core-network assertion stale
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
