@@ -1,5 +1,5 @@
 ---
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md", "https://github.com/mcpdev80/baseharbor/pull/1762"]
 id: t-20261122-host-config-isolation-tmpdir-cleanup
 card_number: "0428-233"
 card_short_title: "host config isolation tmpdir"
@@ -17,7 +17,7 @@ kanban_title: 0428-233 · host config isolation tmpdir
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1725]
+prs: [mcpdev80/baseharbor#1725, mcpdev80/baseharbor#1762]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -27,8 +27,8 @@ resolution: ""
 - [ ] t-20261122-host-config-isolation-tmpdir-cleanup · CLI: release the per-test host config isolation directory #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** ffe7611b (lane)  
-    **PR:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md)  
+    **PR:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1762)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -37,7 +37,7 @@ resolution: ""
 **Depends on:** none  
 **Owner:** ffe7611b (lane)  
 **Priority:** not set  
-**PRs:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725)  
+**PRs:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -99,3 +99,5 @@ mask the 14-test root cause that card 0428-223 fixes, which is why it was not fo
 Abgesetzt auf den freien sitz: mission sha 15d11b3ec9a9, lifecycle-festigung der hostConfigIsolationDir in cmd/baha/test_operator_context_test.go:112-121, regression im gehosteten data-capabilities-gate (beide engines) nach PR 1755/1756.
 
 inhaltsteil ist auf der lane fertig gemeldet (tmpdir-freigabe im host-config-isolation-test); PR steht noch aus, weil derselbe sitz zuerst den PR-1645-hop ausfuehrt. Kein merge, keine abnahme: es fehlt der gehostete beleg am eigenen head.
+
+ Review-des-eigentmers ist umgesetzt: neuer head 6937d0609c7 auf lane-0428-233-tmpdir-cleanup (ls-remote belegt). Der beleg-test faehrt hostConfigIsolationDir jetzt in einem verschachtelten t.Run und prft die abwesenheit des verzeichnisses NACH rueckkehr des t.Run - das beweist das registrierte Cleanup; das manuelle os.RemoveAll ist weg. Exact run 45001093525 war in_progress, der neue run wird abgewartet. Korrektur zu meiner eigenen hinweis zuvor: die karte hatte doch einen PR (#1762), die aussage 'kein PR' galt dem stand vor ihrem push.
