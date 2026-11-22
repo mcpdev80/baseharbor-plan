@@ -7,7 +7,7 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: owner (resolves catalog+auth+requal) / coord
+owner: owner (resolves) / coord
 kanban_status: blocked
 kanban_lane: blocked
 kanban_summary: "Register scripts/ci-fast-check.sh as a real v0.4.28 Pre-Release static gate, with the full catalog/dispatcher wiring and…"
@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1774]
 sources: []
-blocker: "#1746 head 887058a6 bleibt BLOCKED (owner-direktive). pre-release 45028181619 terminal CANCELLED 34 fails + 6 cancelled; cli-3 (zsh+fish) bestaetigt PASS. Fehlklassen + ihre wurzeln: (1) static config-matrix/init/shell-ux/mcp/ci-fast-check + PR-planner (45027509559 failt wegen scripts/ci-fast-check.sh kataloglcke A) -> #1774 (b90e4ba1 ergaenzt A+C). (2) mcp static auch target.create auth -> 0428-247 owner/core decision. (3) docker/podman core-bootstrap + viele runtime matrices + reference journeys docker+podman -> broker/:edge image = 0428-237/#1770 (wartet #1774 B + exact image). Requalifikation erst nach owner resolution von katalog(A)+auth(247)+237 + exakten hosted gaeten."
+blocker: "#1746 head 887058a6 terminal cancelled 34 fails. Wurzeln sauber getrennt: (i) operator-auth fixture (authenticated BaseHarbor operator) fehlt in core-bootstrap 137227219764/735 + config-matrix/init/shell-ux + reference journeys -> 0428-231/#1771 BREITER pruefen (nicht nur target.create). (ii) ci-fast-check 137227411383 = katalog A fehlt -> #1774 (b90e4ba1 ergaenzt A+C). (iii) mcp perses 'unexpected' = H-V29: KEIN baseharbor-code-defect, RELEASE-VERSION-SKEW (bild vor contract-ops gebaut) -> bild-pin/release-ordnung, nicht code. (iv) light-runtime blob/manifest unknown = eigenes bild-artefakt/registry 0428-249 (nicht auth). (v) target.create = 0428-247 owner/core. Requalifikation erst wenn A+247+237+249+operatorauth(231) adressiert. NICHT qualifiziert."
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "https://github.com/mcpdev80/baseharbor/actions/runs/44944570763", "https://github.com/mcpdev80/baseharbor/pull/1746"]
@@ -25,9 +25,9 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "h
 
 - [ ] t-20261120-gate-catalog-ci-fast-check · 0428-205 · Wire ci-fast-check into the release gate catalog #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #kind/bug
     <!-- generated:card -->
-    **Owner:** owner (resolves catalog+auth+requal) / coord · **Priority:** normal  
+    **Owner:** owner (resolves) / coord · **Priority:** normal  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774)  
-    **Blocker:** \#1746 head 887058a6 bleibt BLOCKED (owner-direktive). pre-release 45028181619 terminal CANCELLED 34 fails + 6 cancelled; cli-3 (zsh+fish) bestaetigt PASS. Fehlklassen + ihre wurzeln: (1) static config-matrix/init/shell-ux/mcp/ci-fast-check…  
+    **Blocker:** \#1746 head 887058a6 terminal cancelled 34 fails. Wurzeln sauber getrennt: (i) operator-auth fixture (authenticated BaseHarbor operator) fehlt in core-bootstrap 137227219764/735 + config-matrix/init/shell-ux + reference journeys -\> 0428-231…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44943804395), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44944570763), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1746)  
     <!-- /generated:card -->
 
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "h
 **State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** owner (resolves catalog+auth+requal) / coord  
+**Owner:** owner (resolves) / coord  
 **Priority:** normal  
 **PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774)  
 **Source:** 

@@ -7,7 +7,7 @@ areas: [ci, testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: b90e4ba1 (#1774) / owner (akzeptanz) / coord
+owner: b90e4ba1 (#1774) / owner (promote+merge) / coord
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: ""
@@ -18,23 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1774]
 sources: []
 blocker: ""
-wait_reason: "STAND diff acd57828 = NUR eintrag B (ci-native-pr-gate.sh). A (scripts/ci-fast-check.sh->atomic/static/ci-fast-check) und C (app_footprint_presenter.go product-gate) FEHLEN noch -> #1746-static + #1773/246 bleiben blockiert. b90e4ba1 ergaenzt A+C als zweiten additiven commit + planner-3x-ja beweis. Draft-CI 45029281024 (nur B) war SUCCESS; nach A+C exact-hosted neu + owner-akzeptanz + normale PR-CI + native/data-caps exact (nicht skipped) vor merge."
+wait_reason: "#1774 promoted ready (draft run 45029281024 SUCCESS) aber diff=head acd57828 = NUR eintrag B. b90e4ba1 ergaenzt A (scripts/ci-fast-check.sh->atomic/static/ci-fast-check) + C (app_footprint_presenter.go) als zweiten additiven commit VOR merge, damit der eine merge #1770-native UND #1746-static(A) UND #1773(C) entblockt. Owner fuehrt native docker+podman evidence + review, merged selbst. Akzeptanz: alle drei planner-selektionen + validate-catalog + unittests gruen, native nicht skipped gebucht."
 resolution: ""
 evidence: []
 ---
 
 - [ ] t-20261122-gate-catalog-completion-ci-executor · Complete the gate catalog by registering the three remaining changed paths in pr-gate-coverage.json so dependent gates execute #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/testing #kind/task
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (\#1774) / owner (akzeptanz) / coord · **Priority:** high  
+    **Owner:** b90e4ba1 (\#1774) / owner (promote+merge) / coord · **Priority:** high  
     **PR:** [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774)  
-    **Waiting:** STAND diff acd57828 = NUR eintrag B (ci-native-pr-gate.sh). A (scripts/ci-fast-check.sh-\>atomic/static/ci-fast-check) und C (app\_footprint\_presenter.go product-gate) FEHLEN noch -\> \#1746-static + \#1773/246 bleiben blockiert. b90e4ba1 ergae…  
+    **Waiting:** \#1774 promoted ready (draft run 45029281024 SUCCESS) aber diff=head acd57828 = NUR eintrag B. b90e4ba1 ergaenzt A (scripts/ci-fast-check.sh-\>atomic/static/ci-fast-check) + C (app\_footprint\_presenter.go) als zweiten additiven commit VOR mer…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** b90e4ba1 (#1774) / owner (akzeptanz) / coord  
+**Owner:** b90e4ba1 (#1774) / owner (promote+merge) / coord  
 **Priority:** high  
 **PRs:** [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774)  
 **Source:** 
