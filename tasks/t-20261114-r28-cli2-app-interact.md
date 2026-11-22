@@ -7,7 +7,7 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: owner (wende an) / coord (verfolge durchgaenge + unabhaengige pruefung)
+owner: owner (wendete an) / coord (verfolgt + pruefung)
 kanban_status: review
 kanban_lane: review
 kanban_summary: "Guide app logs exec and urls. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1623"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1623", "https://github.com/mcpdev80/baseharbor/actions/runs/45012848258", "https://github.com/mcpdev80/baseharbor/actions/runs/45012883646"]
 ---
 
 - [ ] t-20261114-r28-cli2-app-interact · CLI redesign: Guide app logs exec and urls #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** owner (wende an) / coord (verfolge durchgaenge + unabhaengige pruefung) · **Priority:** high  
+    **Owner:** owner (wendete an) / coord (verfolgt + pruefung) · **Priority:** high  
     **PR:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1623)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1623), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45012848258), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45012883646)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1623"]
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** owner (wende an) / coord (verfolge durchgaenge + unabhaengige pruefung)  
+**Owner:** owner (wendete an) / coord (verfolgt + pruefung)  
 **Priority:** high  
 **PRs:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
 **Source:** 
@@ -104,3 +104,5 @@ TRAEGER-GEDANKE ERLEDIGT, GRUND GEMESSEN: die generator-ausgabe (BASEHARBOR_UPDA
 SEQENZ-UNLOCK, VOM EIGENTUMER REKONZILIERT: die fehlende zsh-Installation im Pre-Release-source-test (job 137173241314, context_terminal_test.go:467), die #1763 blockiert, wird DURCH DIESEN PR behoben - pre-release.yml 343-348 enthaelt den install-schritt, ABER er installiert auch fisch (unautorisiert). AUTORISIERT ist NUR zsh. SIE SIND JETZT DER SCHLUESSEL: verengen Sie die zeile auf 'sudo apt-get install --no-install-recommends -y zsh' + fisch-echo raus (ihr lokaler 1cf7f992 tut genau das, nur dass der push am .github-workflow-scope haengt - das klaert der owner). Danach die statischen gate-koepfe (mcp Perses, init/shell-ux operator-auth) - das sind ANDERE karten, nur der zsh-teil ist ihrer. develop 8629450ef3c.
 
 zsh-only-korrektur GELANDET durch den eigentumer: commit 26ae64c4d47 auf branch lane-0428-208-static-release-gate, diff NUR .github/workflows/pre-release.yml 'ci: limit release shell setup to zsh' (fisch raus). PR-CI 45012848258 laeuft (19 jobs, 0 failed). Gehosteter Pre-Release 45012883646 gegen demo 5d1cf312 laeuft (SourceCandidate+Gate Plan). Akzeptanz braucht: beide durchgaenge terminal green + unabhaengige CODEX-pruefung am exakten head + release-owner-bestaetigung. Kein merge vor den vier punkten.
+
+zsh-only landed durch owner: commit 26ae64c4d47 branch lane-0428-208-static-release-gate, diff NUR pre-release.yml. PR-CI 45012848258 + gehosteter Pre-Release 45012883646 (demo 5d1cf312, alle fnf selected static gates) laufen, 0 failed. Akzeptanz = beide green + unabhaengige CODEX-pruefung head 26ae64c4 + release-owner-bestaetigung.
