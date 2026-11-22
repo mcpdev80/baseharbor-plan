@@ -7,9 +7,9 @@ areas: [cli, documentation]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0847d100 (pausiert) / b90e4ba1 (katalog #1774) / coord
-kanban_status: blocked
-kanban_lane: blocked
+owner: Owner (re-hop #1773) / fecbada9|1450c201 (review auf gruen)
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-246 · footprint human doc gaps
 priority: normal
@@ -17,24 +17,23 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1773]
 sources: []
-blocker: "#1773 blocked durch fehlenden katalogeintrag fuer cmd/baha/app_footprint_presenter.go (fail-loud guardian aus 242 #1768, planner selected []). Unlock = #1774 katalogeintrag (C) auf develop; danach #1773 hoppen -> selected checks gruen. Kein eigener defect."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-footprint-human-surface-doc-gaps · Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract #task #release/v0-4-28 #status/blocked #view/blocked #area/cli #area/documentation #kind/maintenance
+- [ ] t-20261122-footprint-human-surface-doc-gaps · Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract #task #release/v0-4-28 #status/review #view/review #area/cli #area/documentation #kind/maintenance
     <!-- generated:card -->
-    **Owner:** 0847d100 (pausiert) / b90e4ba1 (katalog \#1774) / coord · **Priority:** normal  
+    **Owner:** Owner (re-hop \#1773) / fecbada9|1450c201 (review auf gruen) · **Priority:** normal  
     **PR:** [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773)  
-    **Blocker:** \#1773 blocked durch fehlenden katalogeintrag fuer cmd/baha/app\_footprint\_presenter.go (fail-loud guardian aus 242 \#1768, planner selected \[\]). Unlock = \#1774 katalogeintrag (C) auf develop; danach \#1773 hoppen -\> selected checks gruen. Kei…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0847d100 (pausiert) / b90e4ba1 (katalog #1774) / coord  
+**Owner:** Owner (re-hop #1773) / fecbada9|1450c201 (review auf gruen)  
 **Priority:** normal  
 **PRs:** [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773)  
 **Source:** 
@@ -57,3 +56,5 @@ design a curated subset, but two divergences are undocumented and read like defe
 ## Boundaries
 
 cmd/baha footprint human presenter comments/help only (and its existing test if a string is asserted). Not the consent guard (236/227), not app_broker/237, not operatorauth (231), not 242 catalog, not .github/scripts.
+
+UNBLOCKT: C-mapping (app_footprint_presenter.go) via #1777 auf develop 68b26bd7 GEMERGT. Owner hoppte #1773 additiv auf head 3ec2eba9 base 68b26bd; exact run 45036009904 laeuft (selected docker+podman native+runtime heavy gates). Review + merge bei terminal green. Kein content-aenderung (presenter-docs only).
