@@ -8,7 +8,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: andere Codex-Session (#1770) / 0428-241 (selected blocker) / coord
+owner: andere Codex-Session (#1770) / 0428-241 (selected blocker)
 tags: [#task, #release/v0.4-28]
 kanban_status: active
 kanban_lane: active
@@ -26,7 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "h
 
 - [ ] t-20261122-runtime-broker-health-unhealthy · CI: data-capabilities native gate fails on secure runtime broker readiness #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** andere Codex-Session (\#1770) / 0428-241 (selected blocker) / coord  
+    **Owner:** andere Codex-Session (\#1770) / 0428-241 (selected blocker)  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998846458), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45008538769), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-3.md), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45011764715)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "h
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** andere Codex-Session (#1770) / 0428-241 (selected blocker) / coord  
+**Owner:** andere Codex-Session (#1770) / 0428-241 (selected blocker)  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770)  
 **Source:** 
@@ -150,3 +150,5 @@ KATALOG-UNLOCK BESTAETIGT: #1774(B) wirkt, native data-caps docker 137234060728 
 NATIVE PODMAN data-capabilities job 137233607705 SUCCESS - localhost/baseharbor-runtime:ci-native-podman-72959a95 gebaut, TestApplicationCapabilityLifecycleExistingCore PASS 466s = 0428-237 SHA-image fix VALIDIERT auf podman. Native docker laeuft noch. SELECTED docker+podman failen im 0428-241 footprint consent-harness (f0f6c8b4). PR unmerged bis native docker + 241 routing. Kein merge auf partial.
 
 MILESTONE: beide NATIVE data-caps ZELLEN GRUEN (docker 137233607782 687s + podman 137233607705 466s, je localhost/baseharbor-runtime:ci-native-<runtime>-72959a95, TestApplicationCapabilityLifecycleExistingCore PASS). 0428-237 KERN (SHA-image heilt broker 503) VALIDIERT. aggregate FAILURE NUR durch selected docker/podman 137234060728/0645 = 0428-241 footprint-show consent/fixture (worker, NICHT 236/image). planner/ci-executor/source/trusted/policy/candidate/runner ALLE gruen. Unmerged bis 0428-241 selected geoeffnet oder owner exception. Nicht als full-green buchen.
+
+NATIVE data-caps docker+podman BEIDE SUCCESS (localhost/baseharbor-runtime:ci-native-<rt>-72959a95 gebaut, TestApplicationCapabilityLifecycleExistingCore PASS) = 0428-237 SHA-image broker-fix VALIDIERT auf beiden providern. Aggregate FAILURE NUR selected docker/podman = 0428-241 footprint consent/fixture. PR #1770 UNMERGED bis selected geoeffnet + owner genehmigt.
