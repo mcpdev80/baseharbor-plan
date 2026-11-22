@@ -72,3 +72,11 @@ origin	https://github.com/mcpdev80/baseharbor-plan.git (push)
 ## END
 
 END codex-rev-1747 DONE: REQUEST CHANGES for `50c4bce74d2d269cd985b3e66ac51fc879e0d627`; additivity verdict FAIL because of `ce5cf8f30373e13c0d08092d84b24232e93a356a`; run `44990860430` terminal SUCCESS; `PR · Selected Runtime` SKIPPED (expected per handoff). Planning remote: `origin https://github.com/mcpdev80/baseharbor-plan.git`.
+
+## Planning publication witness
+
+Fresh `origin/main` tree output:
+
+```text
+evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-head50c4bce74d2.md
+```
