@@ -95,3 +95,13 @@ Reason: run 44974482264 executed cli-3 provisioning, but selected no Go packages
 3. Update this evidence from the prior blocked state to the final verdict, without repeating the source diff review.
 4. Validate and publish the evidence through the verified Planning origin/main.
 5. Preserve the separate #1753 hold and report the review handoff to the Coordinator.
+
+## Planning publication witness
+
+Initial evidence commit published to Planning origin/main: `dbfa824c2`.
+
+Exact output of `git ls-tree -r --name-only origin/main | grep 'evidence/r28-welle5-2026-11-22/oras-0428-229/review-1754-headacd8dd95.md'` after fetching origin/main:
+
+```text
+evidence/r28-welle5-2026-11-22/oras-0428-229/review-1754-headacd8dd95.md
+```
