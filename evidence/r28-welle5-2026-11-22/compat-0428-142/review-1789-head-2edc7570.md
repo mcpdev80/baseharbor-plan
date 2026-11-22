@@ -60,3 +60,9 @@ Before review, `docker ps -a --no-trunc` with shell PID 2659316 showed only the 
 ## END_DONE
 
 END_DONE: APPROVE for exact head `2edc757079e27617f44e24fc02daf4e37db1e58a`; PR #1789 remains draft and no merge or GitHub review submission was made.
+
+## origin/main evidence path witness
+
+Exact output from `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle5-2026-11-22/compat-0428-142/review-1789-head-2edc7570.md`:
+
+`evidence/r28-welle5-2026-11-22/compat-0428-142/review-1789-head-2edc7570.md`
