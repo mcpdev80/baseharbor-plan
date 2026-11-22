@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0847d100 (lane) / coord (zeugnis)
+owner: 0847d100 (lane, mechanismus-auftrag)
 kanban_status: active
 kanban_lane: active
 kanban_summary: "The disposable acceptance gates that legitimately call baha app footprint show are admitted by the CI operator boundary, so the…"
@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44993125398", "https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44998829701", "https://github.com/mcpdev80/baseharbor/actions/runs/45008538769"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44993125398", "https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44998829701", "https://github.com/mcpdev80/baseharbor/actions/runs/45008538769", "https://github.com/mcpdev80/baseharbor/actions/runs/45014558296"]
 ---
 
 - [ ] t-20261122-footprint-show-not-admitted-in-data-capabilities-gate · Acceptance contract: baha app footprint show is admitted only for the guided gate #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** 0847d100 (lane) / coord (zeugnis)  
+    **Owner:** 0847d100 (lane, mechanismus-auftrag)  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44993125398), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998829701), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45008538769)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44993125398), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998829701), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45008538769), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/45014558296)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](t-20261122-ci-integration-operator-seams-without-gate-admission.md)  
 **Required by:** [t-20261120-workload-port-flag-ignored-locally](t-20261120-workload-port-flag-ignored-locally.md)  
-**Owner:** 0847d100 (lane) / coord (zeugnis)  
+**Owner:** 0847d100 (lane, mechanismus-auftrag)  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
 **Source:** 
@@ -134,3 +134,5 @@ DIE EIGENTLICHE blockade, von der lane-diagnose und meinem exakten-head-protokol
 ZWEI-URECHEN-AUFTEILUNG, DIREKT GEMESSEN AN RUN 45008538769 (head b86440c3): NATIV (docker 137165488041 + podman 137165488058) readiness timeout=0, not_ready=1, 'Starting secure runtime broker' 32x, '503' 17x -> DER BROKER meldet 503 NICHT-BEREIT im capability-lifecycle-test. SELECTED (docker 137165839346) not_ready=0, confirm-candidate=8 -> NUR consent. PR 1753 braucht BEIDE gruen, deshalb zwei getrennte fix-schritte auf DEMSELBEN branch. Diese karte deckt die SELECTED-seite: registry-zulassung von 'app footprint show' als lesend (0847d100 erhaelt beide schritte, registry-zulassung + broker-readiness, in einem branch, EIN durchgang, ziel alle vier reihen green).
 
 TRIAGE am frischen head 22ff5345335 (durchgang 45011764715): der commit 'admit app.footprint.show as read operation in gate registry' aendert internal/operatorauth/local_runtime.go + test - DAS IST EIN GESPERRTER PFAD (AGENTS 5.6 / write-ban internal/operatorauth/**), SCOPE-VERSTOSS, Ruecknahme pruefen. INHALTLICH war die kommando-zulassung schon wirksam (ihr ci-operator-log bestaetigt 'app footprint show -o json admitted'). Der SELECTED-fehler ist daher NICHT mehr zulassung, sondern confirm-candidate=8 + CONTRACT-mismatch=4 (footprint json weicht von der erwartung ab) = KARTE 0428-241 (fixture/contract), plus consent als harness-verhalten. Fuer DIESE karte heisst das: die zulassung ist ERLEDIGT, ihr rest = contract-/consent-seite liegt bei 0428-241, und die NATIVE-seite bei 0428-237. PR 1753 bleibt offen.
+
+#1753 dritter hop (head 73631921, run 45014558296) wieder FAILURE: selected docker+podman data-capabilities = 'app footprint show -o json' verlangt --confirm-candidate (show wird ALS MUTATION klassifiziert, 0428-227), dann 'contracts differ' (0428-241); NEU cli-1 + source-format fail = merge-format-regression. Mechanismus-auftrag an 0847d100: show-KLASSE auf read-only fixen (kein mutation-consent), dann contract, dann format. Wenn show danach consent verlangt: STOP + die klassifizierende datei:zeile, owner entscheidet. #1725 zeigt dieselbe consent-wurzel (nur runner-state, kein regress). PR bleibt offen.
