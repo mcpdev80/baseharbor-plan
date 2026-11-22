@@ -103,3 +103,5 @@ kandidat ist gehoepft bis develop 52a3c5446f4 (head 12a62523fc5, back=0). Am vor
 wartet auf den hop auf develop acc34323968 (back=2). Kontext: das REQUEST CHANGES am head 12a62523fc5 war ein verfaelschungs-artefakt, der diff enthielt 1627-inhalt; seit dem 1627-merge sind es nur noch 4 dateien eigenen inhalts. Nach dem hop: neuer run, dann exact-head review.
 
 wartet auf den hop auf develop acc34323968 (back=2). Kontext: das REQUEST CHANGES am head 12a62523fc5 war ein verfaelschungs-artefakt, der diff enthielt 1627-inhalt; seit dem 1627-merge sind es nur noch 4 dateien eigenen inhalts. Nach dem hop: neuer run, dann exact-head review.
+
+wartet auf den hop auf develop acc34323968 (back=2). Kontext: das REQUEST CHANGES am head 12a62523fc5 war ein verfaelschungs-artefakt, der diff enthielt 1627-inhalt; seit dem 1627-merge sind es nur noch 4 dateien eigenen inhalts. Nach dem hop: neuer run, dann exact-head review.
