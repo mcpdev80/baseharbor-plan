@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 10 |
-| review | 1 |
+| active | 9 |
+| review | 2 |
 | wait | 21 |
 | blocked | 2 |
 | ready | 8 |
@@ -33,13 +33,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
 | [t-20261122-host-config-isolation-tmpdir-cleanup](../tasks/t-20261122-host-config-isolation-tmpdir-cleanup.md) | CLI: release the per-test host config isolation directory | active | not set | ffe7611b (lane, product test file) | — | — |
 | [t-20261122-runtime-broker-health-unhealthy](../tasks/t-20261122-runtime-broker-health-unhealthy.md) | CI: data-capabilities native gate fails on secure runtime broker readiness | active | not set | 03c7350a (lane) | — | — |
-| [t-20261122-static-cells-operator-auth-helper](../tasks/t-20261122-static-cells-operator-auth-helper.md) | operator auth in static cells | active | not set | 0428-223-testctx | [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md) | — |
 
 ## Ready for review
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | review | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
+| [t-20261122-static-cells-operator-auth-helper](../tasks/t-20261122-static-cells-operator-auth-helper.md) | operator auth in static cells | review | not set | b90e4ba1 (lane) / fecbada9 (review) | [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md) | [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761) |
 
 ## Waiting for resources
 

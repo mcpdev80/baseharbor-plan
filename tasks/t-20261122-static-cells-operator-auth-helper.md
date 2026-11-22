@@ -7,34 +7,36 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0428-223-testctx
-kanban_status: active
-kanban_lane: active
+owner: b90e4ba1 (lane) / fecbada9 (review)
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-231 · operator auth in static cells
 priority: ""
 depends_on: [t-20261121-develop-full-suite-red]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1761]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.com/mcpdev80/baseharbor/actions/runs/44994765677"]
 ---
 
-- [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-223-testctx  
+    **Owner:** b90e4ba1 (lane) / fecbada9 (review)  
+    **PR:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1761), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44994765677)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
-**Owner:** 0428-223-testctx  
+**Owner:** b90e4ba1 (lane) / fecbada9 (review)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -62,3 +64,5 @@ machine paths through the interactive operator path, so they fail regardless of 
 - The failing init / shell-ux / config-matrix / core-bootstrap paths use the same non-interactive operator helper that
   #1750 delivers for env destroy, so the guard is satisfied without a terminal.
 - Hosted CI shows the five jobs above green at one exact head; no local run counts.
+
+PR 1761 ist drafted (kein fertiger kandidat): branch lane-0428-231-static-auth-helper, head 5794874302f1, base 52a3c544 (back=0), gehosteter run 44994765677 SUCCESS/0 failed. Inhalt: ein exportierter helper in internal/operatorauth/test_operator.py -> test_operator.go plus die fan-out ueber die fnf gemessenen dateien (test_operator_context_test.go, app_env_test.go, app_export_command_test.go, installation_destroy_native_test.go, target_definition_change_test.go). Die Lane-Schreibsperre auf internal/operatorauth/** war fuer GENAU diese datei durch die owner-direktive zur helper-route gehoben. Naechster schritt: CODEX-REVIEW am exakten head, dann ready-schalten (entscheidung liegt beim owner, weil der PR draft ist) und fan-in von PR 1746 auf den helper.
