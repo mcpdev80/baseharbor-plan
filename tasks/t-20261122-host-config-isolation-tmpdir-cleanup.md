@@ -1,5 +1,5 @@
 ---
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md", "https://github.com/mcpdev80/baseharbor/pull/1762"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md", "https://github.com/mcpdev80/baseharbor/pull/1762", "https://github.com/mcpdev80/baseharbor/actions/runs/45001383922"]
 id: t-20261122-host-config-isolation-tmpdir-cleanup
 card_number: "0428-233"
 card_short_title: "host config isolation tmpdir"
@@ -8,10 +8,10 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ffe7611b (lane)
+owner: ffe7611b (lane) / Owner (entscheid: beide commits bleiben)
 tags: [#task, #release/v0.4-28]
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-233 · host config isolation tmpdir
 priority: ""
@@ -20,22 +20,23 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1725, mcpdev80/baseharbor#1762]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "admission depends on PR 1753 (card 0428-227, canonical footprint show admission), which waits on card 0428-237; both commits kept by Owner decision, no rewrite"
 resolution: ""
 ---
 
-- [ ] t-20261122-host-config-isolation-tmpdir-cleanup · CLI: release the per-test host config isolation directory #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261122-host-config-isolation-tmpdir-cleanup · CLI: release the per-test host config isolation directory #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
-    **Owner:** ffe7611b (lane)  
+    **Owner:** ffe7611b (lane) / Owner (entscheid: beide commits bleiben)  
     **PR:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1762)  
+    **Waiting:** admission depends on PR 1753 (card 0428-227, canonical footprint show admission), which waits on card 0428-237; both commits kept by Owner decision, no rewrite  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1762), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45001383922)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** ffe7611b (lane)  
+**Owner:** ffe7611b (lane) / Owner (entscheid: beide commits bleiben)  
 **Priority:** not set  
 **PRs:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762)  
 **Source:** 
@@ -101,3 +102,7 @@ Abgesetzt auf den freien sitz: mission sha 15d11b3ec9a9, lifecycle-festigung der
 inhaltsteil ist auf der lane fertig gemeldet (tmpdir-freigabe im host-config-isolation-test); PR steht noch aus, weil derselbe sitz zuerst den PR-1645-hop ausfuehrt. Kein merge, keine abnahme: es fehlt der gehostete beleg am eigenen head.
 
  Review-des-eigentmers ist umgesetzt: neuer head 6937d0609c7 auf lane-0428-233-tmpdir-cleanup (ls-remote belegt). Der beleg-test faehrt hostConfigIsolationDir jetzt in einem verschachtelten t.Run und prft die abwesenheit des verzeichnisses NACH rueckkehr des t.Run - das beweist das registrierte Cleanup; das manuelle os.RemoveAll ist weg. Exact run 45001093525 war in_progress, der neue run wird abgewartet. Korrektur zu meiner eigenen hinweis zuvor: die karte hatte doch einen PR (#1762), die aussage 'kein PR' galt dem stand vor ihrem push.
+
+URSACHE KORRIGIERT, drei messungen statt einer vermutung: die nativen reihen in 45001383922 (docker 137144959891, podman 137144959836) scheitern an der ABWEISUNG von 'baha app footprint show -o json' (command-not-in-managed-workload-set / operator-auth-pfad); der 'missing --confirm-candidate'-verweis (cmd/baha/app_candidate_consent.go:148-158, errConsentRequiredForCandidateSubmission als *cli.UsageError, exit 2) erscheint nur DOWNSTREAM im halb abgebrochenen test. Meine broker-503-lesart fuer DIESEN kandidat war FALSCH und ist zurueckgezogen; fuer PR 1761 gilt sie weiter (von mir selbst gemessen: broker readiness timeout 2m03s in TestApplicationCapabilityLifecycleExistingCore/secrets). EIGENTUER-ENTSCHEID uebernommen: beide commits bleiben (adccce73 cleanup + 6937d060 assertion), endgueltiger diff = eine datei, kein rebase/amend/force. HALTEAUFTRAG an die lane: kein hop, kein durchgang bis 1753 gemergt ist; dann ein additiver hop auf die dann aktuelle develop-spitze und EIN durchgang mit den zwei nativen job-ids als zeugen. Erste/simple merge-ziel ist 1762 in genau dieser reihenfolge.
+
+URSACHE KORRIGIERT, drei messungen statt einer vermutung: die nativen reihen in 45001383922 (docker 137144959891, podman 137144959836) scheitern an der ABWEISUNG von 'baha app footprint show -o json' (command-not-in-managed-workload-set / operator-auth-pfad); der 'missing --confirm-candidate'-verweis (cmd/baha/app_candidate_consent.go:148-158, usageError exit 2) erscheint nur DOWNSTREAM im halb abgebrochenen test. Meine broker-503-lesart fuer DIESEN kandidat war falsch und ist zurueckgezogen; fuer PR 1761 gilt sie weiter (selbst gemessen: broker readiness timeout 2m03s in TestApplicationCapabilityLifecycleExistingCore/secrets). EIGENTUEMER-ENTSCHEID uebernommen: beide commits bleiben (adccce73 cleanup + 6937d060 assertion), endgueltiger diff eine datei, kein rebase/amend/force. HALTEAUFTRAG an die lane: kein hop, kein durchgang bis PR 1753 gemergt ist; dann ein additiver hop auf die dann aktuelle develop-spitze und EIN durchgang mit den zwei nativen job-ids als zeugen. 1762 ist damit das erste simple merge-ziel in genau dieser reihenfolge.
