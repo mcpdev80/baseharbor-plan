@@ -90,3 +90,5 @@ kandidat ist gehoepft bis develop 52a3c5446f4 (head 485103523b9, back=0). Am vor
 wartet auf denselben hop auf develop acc34323968 (back=2, diff jetzt 7 dateien statt 19). Gleiches bild wie bei 1723: der alte review-fehler war kontaminations-bedingt.
 
 wartet auf denselben hop auf develop acc34323968 (back=2, diff jetzt 7 dateien statt 19). Gleiches bild wie bei 1723: das REQUEST CHANGES am head 485103523b9 (akte cli-sourcepull/... 47156bcd24a, run 44995066580, 7 failed jobs, '16 paths outside card write-set') zaehlt ab dem neuen develop nicht mehr als kandidatfehler.
+
+wartet auf denselben hop auf develop acc34323968 (back=2, diff jetzt 7 dateien statt 19). Gleiches bild wie bei 1723: das REQUEST CHANGES am head 485103523b9 (run 44995066580, 7 failed jobs, '16 paths outside card write-set') zaehlt ab dem neuen develop nicht mehr als kandidatfehler.
