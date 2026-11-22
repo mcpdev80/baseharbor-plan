@@ -102,4 +102,14 @@ origin	https://github.com/mcpdev80/baseharbor-plan.git (push)
 - `docker ps -a` before review completion, shell PID 3139823: output was the header only, no containers listed.
 - `docker ps -a` after review inspection, shell PID 3140182: output was the header only, no containers listed. No containers were started or changed.
 
-END_BLOCKED codex-rev2-1736: REQUEST CHANGES as a post-merge scope finding for #1627 at fe4027f7986502a825b2c701fb53725f39434435; test-only fix correct, run 44996713389 succeeded, but shared foreign commit 0768274 is ancestor of both #1723 and #1725; evidence publication pending.
+END_BLOCKED codex-rev2-1736: REQUEST CHANGES as a post-merge scope finding for #1627 at fe4027f7986502a825b2c701fb53725f39434435; test-only fix correct, run 44996713389 succeeded, but shared foreign commit 0768274 is ancestor of both #1723 and #1725; review evidence published on Planning main; shared commit 0768274 fails the foreign-content ancestry rule.
+
+
+Exact output of `git fetch origin main && git ls-tree -r --name-only origin/main | grep 'evidence/r28-welle5-2026-11-22/cli-sourcepull/review-1627-headfe4027f7986.md'`:
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+   794446b94..0dea01464  main       -> origin/main
+evidence/r28-welle5-2026-11-22/cli-sourcepull/review-1627-headfe4027f7986.md
+```
