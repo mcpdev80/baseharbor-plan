@@ -7,7 +7,7 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: coordinator
+owner: coordinator (karte) / erster freier worker-sitz (ausfuehrung)
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: "TestCoreBootstrapFixtureCleanupContextIsBoundToItsLocalTarget shows which authority mode admitted installation.destroy, instead…"
@@ -18,24 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1738]
 sources: []
 blocker: ""
-wait_reason: "base-Karte 0428-198 ist superseded und ihr PR 1726 nie gemergt; die geteilte Operator-Kontext-Mechanik kommt erst mit PR 1750. Danach wird diese Karte von develop aus neu angesetzt (Cherry-pick der eigenen Commits), siehe cli-shard-fanin/fanin-1726-disposition.md"
+wait_reason: "carrier-abhaengigkeit: nein; neue basis ist develop 8629450ef3c, delta wird dort neu geschnitten; die alte PR-basis bleibt ausser gebrauch"
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1738", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-5-rebase.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1738", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-5-rebase.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md"]
 ---
 
 - [ ] t-20261121-destroy-authority-stamp · installation.destroy authorization assertion runs on a stamped context #task #release/v0-4-28 #status/wait #view/wait #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** coordinator · **Priority:** high  
+    **Owner:** coordinator (karte) / erster freier worker-sitz (ausfuehrung) · **Priority:** high  
     **PR:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
-    **Waiting:** base-Karte 0428-198 ist superseded und ihr PR 1726 nie gemergt; die geteilte Operator-Kontext-Mechanik kommt erst mit PR 1750. Danach wird diese Karte von develop aus neu angesetzt (Cherry-pick der eigenen Commits), siehe cli-shard-fanin/f…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1738), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-5-rebase.md)  
+    **Waiting:** carrier-abhaengigkeit: nein; neue basis ist develop 8629450ef3c, delta wird dort neu geschnitten; die alte PR-basis bleibt ausser gebrauch  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1738), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-5-rebase.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** coordinator  
+**Owner:** coordinator (karte) / erster freier worker-sitz (ausfuehrung)  
 **Priority:** high  
 **PRs:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
 **Source:** 
@@ -123,3 +123,5 @@ inhaltlich abgenommen (round-3, akte round-3-scope-proof.md), aber UNBEWEISBAR a
 rebase delivered, und der fenster-blocker ist damit AN DIESER KARTE GELÖST (von mir gemessen, nicht von ihr): head a8079303acaa, 'PR · Trusted Plan' = success, fan-out skippt nicht mehr (19 skipped = pfadfilter statt ALLE), 'PR Selected Checks' weiter failure aus ERBSCHAFT: cli-0 'TestAppListAllTargetsWorksAfterInstallationDestroy' = 0428-210/#1739, packages 'providers/loki/shared/service-access/pki/client-cert.pem' = owner-stapel #1615. IHR fall laeuft und besteht im cli-2-durchsatz (435 PASS). BASIS-KORREKTUR: sie meldet 'current base 7546b1806' — drei unabhaengige lesegaenge (gh api git/refs + zwei ls-remote) geben 'e45430f2f1b7', und 7546b1806 ist AHNE davon (9 commits, 'merge-base --is-ancestor' = 0). Der rebase zielte also auf ein veraltetes SHA: unschaedlich fuer den guard, aber der diff gegen die echte basis zeigt 25 dateien statt der einen ihrer karte — der reviewer muss gegen e45430f2f1b7 bilden. Inhaltlich unveraendert: 'TestCoreBootstrapFixtureDestroyRunsThroughInstallationApplicationScope' (positiv durch die 'installationApplicationScope'-naht, negativ ohne consent = 'impact-confirmation-required'), teardown-stempel unangetastet.
 
 CODEX-REVIEW 'review-2.md' (plan ea196e46 + 04ae137d) = 'Verdict: REQUEST CHANGES', drei belege, alle von mir nachvollzogen. BEFUND 1 (inhalt): 'cmd/baha/core_installation_runtime_test.go:378-386' behauptet die ausgewaehlte destruction-operation NICHT — nachtrag: positiver kontext MIT enforcement-stellung OHNE principal, 'operatorauth.AuthorizationDecisionFromContext(ctx)' lesen, 'Allowed' UND 'Operation == "installation.destroy"' verlangen, plus mutation (zuordnung weg = rot); no-consent-assertion und teardown-stempel bleiben. BEFUND 2 (basis) = MEINE EIGENE MESSENSCHAFT von row 874: 'merge-base --is-ancestor e45430f2f1b7 a8079303acaa' = NEIN, merge-base ist 7546b1806aac, 9 commits rueckstaendig; rebase auf das echte ziel, kein zweiter branch. BEFUND 3 (aggregat): cli-0 'TestAppListAllTargetsWorksAfterInstallationDestroy' = 0428-210/#1739 und die nativen docker/podman-zellen = 0428-215/#1745 — fremde baustellen; der reviewer behaelt meine gleich-basis-per-job-rechnung (durchgang 44867737065 gegen 44867737078) und bucht den aggregate TROTZDEM als failure. MISSION liegt fertig im coordinator/missions/ (0428-214-r5-bothdirections.md, payload-gate 0) und geht auf den ersten frei werdenden sitz — in der abnahme-stunde waren alle funf plaetze belegt, daher kein Scheinauftrag.
+
+ROUTE NEU FESTGELEGT NACH CENSUS (akte operator-auth-helper/carrier-census-1737-1738-1740-1741.md, plan da2176f7f40): PR 1726 wird NICHT wieder eroeffnet und es entsteht KEIN neuer traeger - #1750 ist gemergt, darum wird der eigene delta dieses kandidaten auf develop 8629450ef3c5198bb675331c12f56b2c9377aa1c NEU GESCHNITTEN. Carrier-abhaengigkeit dieses PR: nein. Fernzeugnis: back=275, mergeStateStatus UNSTABLE, base zeigt auf die tote basis lane-0428-198-cli-shard-operator-env (spitze e45430f2f1b). Naechster schritt: mission auf dem ersten freien worker-sitz (neu schneiden / nur additive hop, weil unabhaengig), dann exact gehosteter durchgang und unabhaengige pruefung. Kein merge aus der alten basis heraus.
