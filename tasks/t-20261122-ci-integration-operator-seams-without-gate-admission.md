@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: Owner (implementor)
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: A pull request that changes any cmd/baha/ciintegrationoperator.go seam selects an executed native gate in the required hosted…
 kanban_title: 0428-228 · Admit operator seams to a gate
 priority: high
@@ -19,18 +19,19 @@ prs: [mcpdev80/baseharbor#1755]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/1ff16925c4e141d732459a34ddf0b7f49128a214", "https://github.com/mcpdev80/baseharbor/actions/runs/44985859511", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/gate-admission-census/native-checks-catalog-recipe.md"]
 ---
 
-- [ ] t-20261122-ci-integration-operator-seams-without-gate-admission · 0428-228 · Admit operator seams to a gate #task #release/v0-4-28 #status/review #view/review #area/ci #area/cli #kind/task
+- [x] t-20261122-ci-integration-operator-seams-without-gate-admission · 0428-228 · Admit operator seams to a gate #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** Owner (implementor) · **Priority:** high  
     **PR:** [baseharbor#1755](https://github.com/mcpdev80/baseharbor/pull/1755)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/1ff16925c4e141d732459a34ddf0b7f49128a214), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44985859511), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/gate-admission-census/native-checks-catalog-recipe.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md)  
@@ -85,3 +86,5 @@ the exact PR run can be green while the operator boundary is never executed.
 exact recipe written and published: pr-gate-plan.py entries plus pre-release-runtime-impact.json core entries for the ci_integration_operator sources, with a pairing assertion in test_pr_gate_plan.py and test_pre_release_runtime_reuse.py; 1753 acceptance waits on this merge
 
 Erster kandidat a2f680c09 wurde am exakten head geprueft; die Nachbesserung 558265019 ergaenzt vier Zeilen in .github/workflows/ci.yml: eine direkte direkte Ausfhrung fuer die build-tagged suite, weil der vertrauenswuerdige base runner eine neue validation-id nicht kennt. Exact-head run 44985859511 ist unterwegs; review dispatcht.
+
+PR 1755 ist gemergt (squash 1ff16925c4e). Der eigene lieferumfang ist damit erbracht: die wizard-artige pfad-zu-gate karte in scripts/pr-gate-plan.py, die paarung in pre-release-runtime-impact.json und der paarungs-test. Die wirkung auf PR Selected Runtime blieb an den exakten heads 5d47569f337 (#1750) und ce5cf8f3037 (#1753) aus, weil der native planer ein anderes document liest: scripts/pr-gate-coverage.json. Diese offenlassende wirkung traegt karte 0428-230 mit PR 1756, nicht diese karte.

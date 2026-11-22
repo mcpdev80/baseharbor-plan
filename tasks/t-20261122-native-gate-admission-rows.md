@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: Owner (scripts and pr-gate-coverage.json are Owner scope; a lane executes only under the same explicit user authorization as 0428-228)
+owner: Owner (user-authorized CI coverage, PR 1756, includes ci-native-pr-gate.sh gate executor support)
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 - [ ] t-20261122-native-gate-admission-rows · native gate rows for env-destroy #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** Owner (scripts and pr-gate-coverage.json are Owner scope; a lane executes only under the same explicit user authorization as 0428-228)  
+    **Owner:** Owner (user-authorized CI coverage, PR 1756, includes ci-native-pr-gate.sh gate executor support)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/gate-admission-census/native-checks-catalog-recipe.md)  
     <!-- /generated:card -->
 
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261122-native-checks-rows-operator-seam](t-20261122-native-checks-rows-operator-seam.md)  
-**Owner:** Owner (scripts and pr-gate-coverage.json are Owner scope; a lane executes only under the same explicit user authorization as 0428-228)  
+**Owner:** Owner (user-authorized CI coverage, PR 1756, includes ci-native-pr-gate.sh gate executor support)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -87,3 +87,7 @@ Measured at develop 1ff16925c4e: besides the eight named components, the eight P
 Measured at develop 1ff16925c4e: besides the eight named components, the eight PR 1750 test sources and the three ci_integration_operator sources also have no native_checks rows. That is why PR Selected Runtime is still skipped at the hopped heads 5d47569f337 (#1750) and ce5cf8f3037 (#1753) although PR 1755 merged. Recipe: gate-admission-census/native-checks-catalog-recipe.md. Card 0428-234 folded in as superseded.
 
 Route berichtigt, mit zeugen: der trusted native planner steht bereits in develop (blob 4259fbf665 am base 1ff16925c4e, added_by eabe37d36, ancestor bestaetigt) und die drei Native-check-runs aus run 44986337450 tragen NULL annotationen - die hinweis ueber einen fehlenden planner ist nur der vom runner echoed script-quelltext mit unersetzter variable. Die basis-eigene selektor-logik auf den acht geaenderten pfaden von PR 1750 liefert byte-genau die leere matrix, und der zaehlbare grund ist: 0 von 8 pfaden haben eine components-zeile, native_checks traegt 6 zeilen. Diese karte heisst damit catalog rows for the existing planner, nicht establish the planner. Nach dem merge: hop plus native-gate-runs fuer PR 1750 und PR 1753, proof ist der ausgefuehrte Selected-Runtime-job.
+
+Uebergabe an den owner: sie haben die native_checks-zeilen als PR 1756 in eigener regie uebernommen, einschliesslich der ausfuehrungs-unterstuetzung, die ci-native-pr-gate.sh fuer die exakten gates braucht. Grund und feldformen sind gemessen (blob 4259fbf665 am base, null annotationen, 0 von 8 pfaden mit components-zeile). Nach merge: ich hoppe #1750 und #1753 neu und melde die ausgefuehrten Selected-Runtime-jobs als acceptance-beweis.
+
+Uebergabe an den owner: sie uebernehmen die native_checks-zeilen als PR 1756 in eigener regie, einschliesslich der ausfuehrungs-unterstuetzung die ci-native-pr-gate.sh fuer die exakten gates braucht. Grund und feldformen sind gemessen (blob 4259fbf665 am base, null annotationen, 0 von 8 pfaden mit components-zeile). Keine lane ist darauf angesetzt - dublette vermieden. Nach merge hoppe ich #1750 und #1753 neu und melde die ausgefuehrten Selected-Runtime-jobs als acceptance-beweis.

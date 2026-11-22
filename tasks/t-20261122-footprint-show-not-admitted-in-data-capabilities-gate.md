@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w21-pr1702-0428-142-compat  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
-    **Needs:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](t-20261122-ci-integration-operator-seams-without-gate-admission.md)  
+    **Needs:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
