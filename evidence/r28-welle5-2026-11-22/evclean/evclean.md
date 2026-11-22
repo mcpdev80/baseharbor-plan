@@ -24,3 +24,13 @@
 - #1753 remains owned by its separate session and was not touched.
 
 END codex-rev-1747 DONE — #1750 duplicate audit and #1754 evidence-only change documented; final Planning evidence is published.
+
+Planning evidence commit and push witness: `6d82f2613dfc76f2d9a59e15c0f9da0572d8ec44 refs/heads/main`.
+
+Exact output from `git fetch origin main && git ls-tree -r --name-only origin/main | grep -E '^evidence/r28-welle5-2026-11-22/(evclean/evclean\.md|testcontext-0428-223/review-1750-head17f471cd3fe\.md|ci-cells-shells/review-1754-headacd8dd95\.md)$'`:
+
+```text
+evidence/r28-welle5-2026-11-22/ci-cells-shells/review-1754-headacd8dd95.md
+evidence/r28-welle5-2026-11-22/evclean/evclean.md
+evidence/r28-welle5-2026-11-22/testcontext-0428-223/review-1750-head17f471cd3fe.md
+```
