@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w1625-pr1723-0428-199-workloadport
-kanban_status: wait
-kanban_lane: wait
+owner: w21-pr1702-0428-142-compat
+kanban_status: active
+kanban_lane: active
 kanban_summary: "The disposable acceptance gates that legitimately call baha app footprint show are admitted by the CI operator boundary, so the…"
 kanban_title: 0428-227 · footprint show gate admission
 priority: ""
@@ -18,23 +18,22 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1753]
 sources: []
 blocker: ""
-wait_reason: "Zwei abhaengigkeiten: (1) pfad->gate-abbildung fuer cmd/baha/ci_integration_operator_enabled.go fehlt in scripts/pr-gate-plan.py:173,175 und scripts/pre-release-runtime-impact.json:30,31, dadurch war atomic/docker/data-capabilities im PR-run 44966211481 SKIPPED (skip ist kein nachweis); (2) basis-hop auf develop 6209874428f ist nicht ausgefuehrt (refs/pull/1753/head 03ef125e610, back=3) und liegt beim owner. naechster ausloeser: owner-entscheidung zur abbildung, dann hop + gruen-exakter lauf"
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-footprint-show-not-admitted-in-data-capabilities-gate · Acceptance contract: baha app footprint show is admitted only for the guided gate #task #release/v0-4-28 #status/wait #view/wait #kind/task
+- [ ] t-20261122-footprint-show-not-admitted-in-data-capabilities-gate · Acceptance contract: baha app footprint show is admitted only for the guided gate #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w1625-pr1723-0428-199-workloadport  
+    **Owner:** w21-pr1702-0428-142-compat  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
-    **Waiting:** Zwei abhaengigkeiten: (1) pfad-\>gate-abbildung fuer cmd/baha/ci\_integration\_operator\_enabled.go fehlt in scripts/pr-gate-plan.py:173,175 und scripts/pre-release-runtime-impact.json:30,31, dadurch war atomic/docker/data-capabilities im PR-r…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w1625-pr1723-0428-199-workloadport  
+**Owner:** w21-pr1702-0428-142-compat  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
 **Source:** 
@@ -99,3 +98,5 @@ boundary, so the gate fails on the contract and not on the command shape. Today 
   prerequisite tracked on card 0428-223 (PR #1750).
 - Classification: this is a shared acceptance contract in product code, not Owner-scope CI files and not a defect of
   card 0428-199. It is blocked behind nobody; it can be staffed as soon as a seat is free.
+
+hop delivered by 0847d100: refs/pull/1753/head 71deb610a03, back=0 against develop 6209874428f, PR draft=false, exact run 44972857723 in_progress. a second re-hop branch lane-0428-227-footprint-gate-admission-rh2 (43d85d637a0) exists as surplus, nothing deleted. the data-capabilities gate still depends on the path-to-gate mapping (card 0428-228, Owner-scope)
