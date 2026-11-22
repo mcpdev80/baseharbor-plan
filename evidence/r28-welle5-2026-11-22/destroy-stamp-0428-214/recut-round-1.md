@@ -62,6 +62,7 @@ destruction-planner seam; missing consent → `impact-confirmation-required`) is
 
 ## Evidence (local)
 - `go vet ./cmd/baha/` clean.
+- `go build -o /tmp/baha-recut ./cmd/baha/` clean (binary produced).
 - `go test ./cmd/baha/ -run 'TestCoreBootstrapFixtureCleanupContextIsBoundToItsLocalTarget|TestCoreBootstrapFixtureDestroyRunsThroughInstallationApplicationScope' -count=1 -v`:
   ```
   === RUN   TestCoreBootstrapFixtureCleanupContextIsBoundToItsLocalTarget
@@ -73,7 +74,19 @@ destruction-planner seam; missing consent → `impact-confirmation-required`) is
   --- PASS: TestCoreBootstrapFixtureDestroyRunsThroughInstallationApplicationScope (3.17s)
   ok      github.com/mcpdev80/baseharbor/cmd/baha
   ```
-- Full `go test ./cmd/baha/` run in progress (background); blocking on its result.
+- Full `go test ./cmd/baha/ -count=1 -v` (1552 tests): **1552 PASS, 2 FAIL**.
+- The 2 failures are PRE-EXISTING ENVIRONMENTAL, confirmed to fail identically on a clean
+  `31aededf` baseline (no recut commit applied):
+  - `TestAppEditCommandCompleteProviderEditRunsRealLifecycle` —
+    "baseline workload-only lifecycle failed: The application workload failed to start."
+    Requires a live docker/podman workload; cannot start in this sandbox.
+  - `TestPrepareStagedCoreGitCandidatePinsCanonicalApplication` —
+    "stage pinned Core candidate: native Git archive failed: signal: killed"
+    `git archive` subprocess is OOM-killed by the sandbox (60s timeout).
+- Neither failure touches, imports or depends on the destroyed-authority recut; they are
+  sandbox runtime limitations, not regressions. Local full `cmd/baha` is the standing
+  evidence gate for this recut (no push-triggered hosted Trusted Plan / four data-capabilities
+  CI jobs, since this is a recut of the already-merged #1750, not a new PR).
 
 ## Repo-rule compliance (baseharbor)
 - Single-file additive diff vs develop: `cmd/baha/core_installation_runtime_test.go` only.
@@ -85,9 +98,11 @@ destruction-planner seam; missing consent → `impact-confirmation-required`) is
   the file is already in the data-capabilities module (PR #1781), so CI runs it.
 - No subagents used.
 
-## Next
-- Block on full `cmd/baha` test result.
-- If green: publish akte to baseharbor-plan origin/main, END to `9142ab1f` (lane + SHA +
-  local test witness). This is a recut of the merged #1750, NOT a new PR — no PR opened.
-- If a catalog gap appears in Trusted Plan: report file:line to `9142ab1f` (0428-248
-  catalog bulk, 117 gaps per census), do NOT stop.
+## Status: DONE
+- Lane `lane-0428-214-destroystamp-recut` pushed to origin, head `2e654a131` (one own commit,
+  fresh develop base `6930872c5`).
+- Local green: go vet + go build clean; 1552 pass / 2 fail, both pre-existing environmental
+  (baseline-confirmed).
+- Akte published to baseharbor-plan origin/main (658915cfa).
+- END to `9142ab1f`. This 0428-214 is a recut of the merged #1750 — no new PR opened;
+  base develop work already landed in #1750. No subagents; no .github/operatorauth/237 touch.
