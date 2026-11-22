@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0847d100 (lane, zweiter fix-schritt auf demselben zweig)
+owner: 0847d100 (lane, zweiter fix-schritt auf PR 1753) / coord (zeugnis)
 tags: [#task, #release/v0.4-28]
 kanban_status: active
 kanban_lane: active
@@ -26,7 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "h
 
 - [ ] t-20261122-runtime-broker-health-unhealthy · CI: data-capabilities native gate fails on secure runtime broker readiness #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** 0847d100 (lane, zweiter fix-schritt auf demselben zweig)  
+    **Owner:** 0847d100 (lane, zweiter fix-schritt auf PR 1753) / coord (zeugnis)  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998846458), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45008538769), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-3.md)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "h
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0847d100 (lane, zweiter fix-schritt auf demselben zweig)  
+**Owner:** 0847d100 (lane, zweiter fix-schritt auf PR 1753) / coord (zeugnis)  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
 **Source:** 
@@ -128,3 +128,5 @@ ARBEIT WIEDER AKTIV, WEIL DER FALL REAL IST (protokoll von mir, nativer docker-j
 MEINE EIGENE KORREKTUR: ich hatte diese karte wegen 'containers=0' zurueck auf active gedreht - das war zu weit. Im exakten-head-protokoll 137165488041 steht 'readiness timeout' NULL mal und 'not_ready' genau einmal, waehrend 'confirm-candidate' und zwei TestApplication-Faelle den ausschlag geben. DER BROKER HAENGT ALSO NICHT in diesem fall; die ursache der roten runtime-reihen ist die fussnoten-zulassung (0428-227), die 0847d100 jetzt behebt. Diese karte wartet auf dessen outcome; wenn nach gruenem 0428-227 immer noch ein readiness-fehler uebrig bleibt, geht sie zurueck in arbeit.
 
 ZWEI-URECHEN-AUFTEILUNG, DIREKT GEMESSEN AN RUN 45008538769 (head b86440c3): NATIV (docker 137165488041 + podman 137165488058) readiness timeout=0, not_ready=1, 'Starting secure runtime broker' 32x, '503' 17x -> DER BROKER meldet 503 NICHT-BEREIT im capability-lifecycle-test. SELECTED (docker 137165839346) not_ready=0, confirm-candidate=8 -> NUR consent. PR 1753 braucht BEIDE gruen, deshalb zwei getrennte fix-schritte auf DEMSELBEN branch. Meine zwei vorangehenden drehungen (active, dann wait) waren je zur eine haelfte richtig: nativ IST ein echtes 503-readiness-fehlerbild. Auftrag an 0847d100: den broker-readiness-pfad in internal/controlplaneruntime/** so fixen, dass /readyz NICHT 503 liefert, wenn der broker im lifecycle-test hochfaehrt - verbotenes weiter: timeout erhoehen, retry, sleep, not_ready->ok.
+
+PR 1761 teilt den GETEILTEN blockierer mit PR 1753: am head 669d76ac447 schlagen die vier data-capabilities-reihen fehl und mergeStateStatus = BEHIND. Es ist KEIN perses-einzelfall und KEIN einfacher merge - dieselbe fussnoten-zulassung (0428-227) + derselbe broker-503 (diese karte 0428-237). Wenn 0428-237/227 auf develop gruen sind, braucht #1761 nur hop + EINEN durchgang. Kein merge vorher.
