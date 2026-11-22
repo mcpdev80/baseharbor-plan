@@ -7,7 +7,7 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: coordinator
+owner: (lane, PR wartet)
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: Run the existing scripts/ci-fast-check.sh as its own static gate in the v0.4.28 Pre-Release Suite. Preserve every existing…
@@ -18,23 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746]
 sources: []
 blocker: ""
-wait_reason: "statik-laeufe werden von zwei bekannten defekten gehalten: karte 0428-232 (MCP contract drift, mcp-gate) und karte 0428-231 (operator-auth helper, init/config-matrix/shell-ux); erst wenn beide gemergt sind, kann der statische nachweis fuer PR 1746 erbracht werden"
+wait_reason: "wartet auf den helper aus PR 1761 (draft, muss zuerst hop + ready + merge erreichen), dann frischer hop und der exakte static suite"
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036"]
 ---
 
 - [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/wait #view/wait #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** coordinator · **Priority:** high  
+    **Owner:** (lane, PR wartet) · **Priority:** high  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
-    **Waiting:** statik-laeufe werden von zwei bekannten defekten gehalten: karte 0428-232 (MCP contract drift, mcp-gate) und karte 0428-231 (operator-auth helper, init/config-matrix/shell-ux); erst wenn beide gemergt sind, kann der statische nachweis fuer…  
+    **Waiting:** wartet auf den helper aus PR 1761 (draft, muss zuerst hop + ready + merge erreichen), dann frischer hop und der exakte static suite  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44997978036)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** coordinator  
+**Owner:** (lane, PR wartet)  
 **Priority:** high  
 **PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
 **Source:** 
@@ -89,3 +90,5 @@ Owner hat 0428-208 selbst umgesetzt als PR #1746 (head a1e95e7ebc5d, base develo
 review -> wait: two foreign prerequisites (0428-223 operator-auth, 0428-225 mcp contract) proven from the failing run's own logs
 
 Der gueltige statische nachweis ist gefuehrt und FEHLGESCHLAGEN: run 44987381250 (workflow ref lane-0428-208-static-release-gate, head eb2e471a8fd, ls-remote bewiesen) fuehrt ALLE sechs statischen gates aus, kein skip: agent 137102052113 SUCCESS, ci-fast-check 137102089845 SUCCESS, init 137102052110 FAILURE, config-matrix 137102052148 FAILURE, mcp 137102052168 FAILURE, shell-ux 137102052189 FAILURE. Die vier failures sind zwei bekannte, messbare ursachen: MCP contract mismatch (unexpected baseharbor.app.perses.disable/enable/remove/status, karte 0428-232, produktseite internal/machine/contract.go:205-208) und 'Managed-environment machine operations require an authenticated BaseHarbor operator' in init/config-matrix/shell-ux (karte 0428-231, operator-auth-helper). Der vorherige run 44986797647 war mit ref=develop angestossen und zaehlt nicht als beleg (akte static-suite-1746-valid-run.md, plan 036aa0175).
+
+ihr hop ist gelandet: head e455302f1a8 auf base 52a3c5446f4, exact run 44997978036 SUCCESS/0 failed, coreless-lifecycle aggregate docker 137136393453 und podman 137136509792 SUCCESS. 'Exact full Pre-Release' ist SKIPPED und mergeable_state BEHIND, weil develop schon acc34323968 ist. Die vier 'require an authenticated BaseHarbor operator'-zellen haengen am helper (PR 1761, noch DRAFT). Rechenreihenfolge nach vorgabe des owners: 1761 hop -> ready -> review -> merge, dann 1746 hop und der exakte static-beweis.
