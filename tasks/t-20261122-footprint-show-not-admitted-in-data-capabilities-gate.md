@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w21-pr1702-0428-142-compat
-kanban_status: wait
-kanban_lane: wait
+kanban_status: review
+kanban_lane: review
 kanban_summary: "The disposable acceptance gates that legitimately call baha app footprint show are admitted by the CI operator boundary, so the…"
 kanban_title: 0428-227 · footprint show gate admission
 priority: ""
@@ -18,21 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1753]
 sources: []
 blocker: ""
-wait_reason: "kopf exakt (71deb610a03, back=0, mergeState CLEAN), PR-checks gruen, aber Selected Checks und Selected Runtime sind SKIPPED: das data-capabilities-gate wird fuer die operator-boundary-datei nicht ausgewaehlt (pfad-abbildung, karte 0428-228). der ausgefuehrte gate am Parallel-PR #1723 (job 137056660905) zeigt zusaetzlich, dass der lauf vor der footprint-grenze an der runtime-consent-stelle (0428-223, #1750) scheitert. reihenfolge nach owner-anweisung: 0428-223 loesen, dann #1753-gate ausfuehren, dann #1723"
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-footprint-show-not-admitted-in-data-capabilities-gate · Acceptance contract: baha app footprint show is admitted only for the guided gate #task #release/v0-4-28 #status/wait #view/wait #kind/task
+- [ ] t-20261122-footprint-show-not-admitted-in-data-capabilities-gate · Acceptance contract: baha app footprint show is admitted only for the guided gate #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** w21-pr1702-0428-142-compat  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
-    **Waiting:** kopf exakt (71deb610a03, back=0, mergeState CLEAN), PR-checks gruen, aber Selected Checks und Selected Runtime sind SKIPPED: das data-capabilities-gate wird fuer die operator-boundary-datei nicht ausgewaehlt (pfad-abbildung, karte 0428-228…  
     **Needs:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](t-20261122-ci-integration-operator-seams-without-gate-admission.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](t-20261122-ci-integration-operator-seams-without-gate-admission.md)  
 **Required by:** [t-20261120-workload-port-flag-ignored-locally](t-20261120-workload-port-flag-ignored-locally.md)  
@@ -103,3 +102,5 @@ boundary, so the gate fails on the contract and not on the command shape. Today 
   card 0428-199. It is blocked behind nobody; it can be staffed as soon as a seat is free.
 
 hop delivered by 0847d100: refs/pull/1753/head 71deb610a03, back=0 against develop 6209874428f, PR draft=false, exact run 44972857723 in_progress. a second re-hop branch lane-0428-227-footprint-gate-admission-rh2 (43d85d637a0) exists as surplus, nothing deleted. the data-capabilities gate still depends on the path-to-gate mapping (card 0428-228, Owner-scope)
+
+independent review at exact head 91f4e38795a gives VERDICT APPROVE content, merge blocked by card 0428-228 path to gate entry at scripts/pr-gate-plan.py line 180 (reviewer akte review-1753-head91f4e38795a.md)
