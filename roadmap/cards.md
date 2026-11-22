@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 161/255 · **Blocked:** 2 · **Waiting:** 20  
+    **Accepted tasks:** 161/256 · **Blocked:** 2 · **Waiting:** 20  
     **Blocker:** [t-20261122-broker-diagnostics-empty](../tasks/t-20261122-broker-diagnostics-empty.md) — ZWEI unabhaengige CODEX-reviews (fecbada9 + 1450c201) am EXAKTEN head c698d1310 entscheiden Option (b): die NATIVE data-capabilities-matrix ist PFLICHT-beleg,…  
     **Blocker:** [t-20261122-mcp-contract-perses-demo-drift](../tasks/t-20261122-mcp-contract-perses-demo-drift.md) — der gepinnte Demo-Vertrag (baseharbor-demo) ist NICHT im lane-zugriff - externe Demo-owner aktion: die vier tools baseharbor.app.perses.{disable,enable,remove,…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
