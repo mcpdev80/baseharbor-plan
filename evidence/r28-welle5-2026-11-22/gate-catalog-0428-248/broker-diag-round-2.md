@@ -94,3 +94,11 @@ verwijderd. Werkboom workers/0428-248-brokerdiag-wt houdt de kandidaat (0 delta
 na commit).
 
 END 0428-223-testctx DONE — 0428-248 broker-diag round-2: branch lane-0428-248-broker-diag-mapping, head 1f87c2c5ae901073ca380ed90cb06f06e1af022f (TWO additive commits op develop 68b26bd7, geen force/amend), PR #1778 class READY (promotie door missie bevolen), exact hosted run 45037984802 completed/success failed=0 met Trusted Plan 137255887316 + Validation pr-planner-tests 137255955271 + Focused Python 137255955252 EXECUTED success, trusted-planner #1763 und #1723 cataloged: ja, cleanliness: besenrein
+
+## origin/main witness
+
+Exacte uitvoer van `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep gate-catalog-0428-248/broker-diag-round-2` (plan main = d6c7ce78ba901e9f61285b58ddde8fea21ac2e10):
+
+```
+evidence/r28-welle5-2026-11-22/gate-catalog-0428-248/broker-diag-round-2.md
+```
