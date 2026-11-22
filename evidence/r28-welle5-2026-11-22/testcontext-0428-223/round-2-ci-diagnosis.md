@@ -138,8 +138,9 @@ The card's own mission gate — the 14 develop-suite names green in the hosted
 
 ## cleanliness
 
-- No containers/networks/volumes were created by this lane on this host in round 2; scratch lives in `/var/tmp/0428-223*` only.
-- `docker ps -a` on this host: empty (witness recorded in the END turn).
+- This lane created NO containers, networks, volumes or compose projects on this host in either round (verified: `docker ps -a` lists only foreign `bh-itest-*` projects from other lanes' runtime cells, newest 2026-11-21 20:26, none named by 0428-223 state; foreign stacks remain untouched).
+- Scratch lives in `/var/tmp/0428-223*` only (logs, probe binaries, isolated HOMEs); deleted at END.
+- `docker ps -a` witness with this session's pid is recorded in the END turn.
 
 ## witnesses (append at END turn)
 
