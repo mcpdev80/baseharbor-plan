@@ -60,6 +60,15 @@ Fails on BOTH engines (docker 137133647957 + podman 137133625738) → the failed
 - 'runtime-executor' → only fires for a bound broker with a missing executor client (server_run.go:182/203); not the shape of the generic native data-capabilities gate.
 - Verdict: the fix lives in internal/controlplaneruntime/** (server_run.go readiness ordering + server.go writeNotReady) — ALLOWED. Do NOT open internal/observability/registry.go or internal/capability/perses_selection.go for the readiness fix; if the Owner's broader contract decision moves the dependency name, that decision is the Owner's (STOP point per mission).
 
+## zustand des zweigs: (hand-off witness)
+
+- branch vorhanden: ja, local `lane-0428-237-broker-readiness` (created from develop HEAD).
+- head: `acc343239681feb235a33cf00c8ea754c537291f` == develop-1 (the 1st commit ahead of nothing; exactly the current develop HEAD), 0 eigene commits (`git log --oneline origin/develop..HEAD` empty).
+- nie gepusht: `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/lane-0428-237*` => LEER; `gh pr list --repo mcpdev80/baseharbor --search 0428-237` => `[]`.
+- haupt-clone zurueck auf develop gestellt: ja, `git checkout origin/develop` (kein reset --hard, kein delete foreign branch); HEAD now `acc343239681feb235a33cf00c8ea754c537291f`, detached, my temp branch `_develop-reset` deleted.
+- dirty-zeile (metadatum, nicht geloescht/ueberschrieben): `?? 0428-211-hopdevelop-wt/` — eine ungetrackte worktree-dir aus anderer lane, pfad `baseharbor/0428-211-hopdevelop-wt/`, modus untracked; fremde arbeit nicht angefasst.
+- damit die uebernahme nicht annimmt, es sei bereits arbeit vorhanden: der zweig ist leer (0 commits), die einzige arbeit ist die read-only diagnose in diesem file.
+
 ## repo-rule compliance
 
 - Read-only: no product code edited, no test file touched, no .github/** change, no merge, no comment, no rerun, no workflow_dispatch.
