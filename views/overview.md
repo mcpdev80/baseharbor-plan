@@ -14,7 +14,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | review | 1 |
 | wait | 20 |
 | blocked | 1 |
-| ready | 8 |
+| ready | 9 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
@@ -83,6 +83,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261120-r28-identity-dashboard-catalog-consumer](../tasks/t-20261120-r28-identity-dashboard-catalog-consumer.md) | Identity dashboard catalog has zero production consumers (P4 of review 1650) | ready | not set | — | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | — |
 | [t-20261120-r28-perses-status-never-verified](../tasks/t-20261120-r28-perses-status-never-verified.md) | No source API yields verified: status --json can never report true | ready | not set | — | — | — |
 | [t-20261121-candidate-commit-identity](../tasks/t-20261121-candidate-commit-identity.md) | Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) | ready | not set | — | — | — |
+| [t-20261122-gate-catalog-missing-app-broker-component](../tasks/t-20261122-gate-catalog-missing-app-broker-component.md) | Gate catalog: no coverage component for cmd/baha/app_broker.go | ready | high | — | — | — |
 | [t-20261122-guided-fixture-footprint-contract-divergence](../tasks/t-20261122-guided-fixture-footprint-contract-divergence.md) | Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 | ready | high | — | — | — |
 | [t-20261122-native-plan-self-selection](../tasks/t-20261122-native-plan-self-selection.md) | CI: catalog and planner self-change selects zero gates | ready | not set | — | — | — |
 
@@ -90,7 +91,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 4 open, 165 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 57 open, 197 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 58 open, 197 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 16 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))

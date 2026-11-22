@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 161/254 · **Blocked:** 1 · **Waiting:** 20  
+    **Accepted tasks:** 161/255 · **Blocked:** 1 · **Waiting:** 20  
     **Blocker:** [t-20261122-mcp-contract-perses-demo-drift](../tasks/t-20261122-mcp-contract-perses-demo-drift.md) — additive erweiterung des expected-sets in baseharbor-demo/tests/mcp/run.sh:31 (comparer 127-128) ist Owner-scope im demo-repo; rezept liegt in evidence/r28-wel…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
