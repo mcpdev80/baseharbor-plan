@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: (offen, wartet auf freien sitz)
-kanban_status: wait
-kanban_lane: wait
+owner: 0847d100 (lane, fix + hop)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Provision selected authorized Tempo datasource via supported Perses plugin, scoped and verified."
 kanban_title: 0428-091 · Connect Perses Tempo
 priority: normal
@@ -18,25 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1610, mcpdev80/baseharbor#1645]
 sources: []
 blocker: ""
-wait_reason: "kein ausfuehrender worker-sitz: 03c7350a nimmt missionen nicht an (needs Owner rotation directive)"
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44688554297", "https://github.com/mcpdev80/baseharbor/actions/runs/44689126814", "https://github.com/mcpdev80/baseharbor/actions/runs/44695439903", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44996055999", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/stale-pr-census/review-1645-head326ca900526.md"]
 ---
 
-- [ ] t-20261114-r28-perses-tempo-source · Connect Perses Tempo #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
+- [ ] t-20261114-r28-perses-tempo-source · Connect Perses Tempo #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** (offen, wartet auf freien sitz) · **Priority:** normal  
+    **Owner:** 0847d100 (lane, fix + hop) · **Priority:** normal  
     **PR:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645)  
-    **Waiting:** kein ausfuehrender worker-sitz: 03c7350a nimmt missionen nicht an (needs Owner rotation directive)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44688554297), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44689126814), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44695439903), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44996055999), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/stale-pr-census/review-1645-head326ca900526.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
 **Required by:** [t-20261114-r28-perses-log-trace-dash](t-20261114-r28-perses-log-trace-dash.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** (offen, wartet auf freien sitz)  
+**Owner:** 0847d100 (lane, fix + hop)  
 **Priority:** normal  
 **PRs:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645)  
 **Source:** 
@@ -129,3 +128,5 @@ review am exakten head 326ca900526 = REQUEST CHANGES (akte stale-pr-census/revie
 review REQUEST CHANGES am head 326ca900526 (run 44996055999, 2 failed jobs: 'PR . Go unit . packages' 137127343932, aggregate 137128679130). Eigener fehler des kandidaten: internal/metrics/perses_tempo_source_test.go:419 TestPersesTempoDatasourceSharedBackendGatewayStaysPolicyNeutral. Korrekturmission war geschrieben und zugestellt, aber der sitz fuehrte SIE NICHT AUS: PR-head unveraendert 326ca900526 (ls-remote) und keine akte im plan-repo. Die karte darum nicht auf active - es arbeitet keine lebende lane daran. Naechster trigger: freier worker-sitz oder Owner-rotation von 03c7350a.
 
 review REQUEST CHANGES am head 326ca900526 (run 44996055999, 2 failed jobs: 'PR . Go unit . packages' 137127343932, aggregate 137128679130). Eigener fehler des kandidaten: internal/metrics/perses_tempo_source_test.go:419 TestPersesTempoDatasourceSharedBackendGatewayStaysPolicyNeutral. Korrekturmission war geschrieben und zugestellt, aber der sitz fuehrte SIE NICHT AUS: PR-head unveraendert 326ca900526 (ls-remote) und keine akte im plan-repo. Die karte darum nicht auf active - es arbeitet keine lebende lane daran. Naechster trigger: freier worker-sitz oder Owner-rotation von 03c7350a.
+
+eigentum ist WIEDER BESETZT, und zwar durch eine ausfuehrende lane: die mission liegt auf 0847d100 (zuvor zweimal an 03c7350a zugestellt, dort ohne abgabe - keine branch, keine akte).stand des kandidaten: head 326ca900526 auf base 52a3c5446f4, develop ist acc34323968, also back=1; exact run 44996055999 war FAILURE mit 2 jobs ('PR . Go unit . packages' 137127343932, aggregate 137128679130), ursache EIGENER inhalt: internal/metrics/perses_tempo_source_test.go:419 TestPersesTempoDatasourceSharedBackendGatewayStaysPolicyNeutral. Der fehler ist UEBERHAUPT kein broker-fall und damit einer der wenigen kandidaten, die das merge-fenster OHNE den broker-fix passieren koennen. Bitte NICHT parallel hoepfen: die lane macht fix und hop in einem durch.
