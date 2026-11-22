@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: b90e4ba1 (lane) / fecbada9 (APPROVE) / Owner (ready)
-kanban_status: review
-kanban_lane: review
+owner: b90e4ba1 (lane) / fecbada9 (APPROVE am selben head) / Owner (entscheidung)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: ""
 kanban_title: 0428-231 · operator auth in static cells
 priority: ""
@@ -18,23 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1761]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "native/docker/data-capabilities job 137139636770 fails at develop height on the shared runtime-broker readiness defect (0428-237/240)"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.com/mcpdev80/baseharbor/actions/runs/44994765677", "https://github.com/mcpdev80/baseharbor/actions/runs/44998552411", "https://github.com/mcpdev80/baseharbor/actions/runs/44999534797", "https://github.com/mcpdev80/baseharbor/actions/runs/45000121766", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md"]
 ---
 
-- [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (lane) / fecbada9 (APPROVE) / Owner (ready)  
+    **Owner:** b90e4ba1 (lane) / fecbada9 (APPROVE am selben head) / Owner (entscheidung)  
     **PR:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
+    **Waiting:** native/docker/data-capabilities job 137139636770 fails at develop height on the shared runtime-broker readiness defect (0428-237/240)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1761), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44994765677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44998552411), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44999534797), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
-**Owner:** b90e4ba1 (lane) / fecbada9 (APPROVE) / Owner (ready)  
+**Owner:** b90e4ba1 (lane) / fecbada9 (APPROVE am selben head) / Owner (entscheidung)  
 **Priority:** not set  
 **PRs:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
 **Source:** 
@@ -74,3 +75,5 @@ korrekturronde ABGESCHLOSSEN, kandidatiegruen: head d275e50c5ba0245b6ab8a42f9655
 hop von ihrer lane ist belegt: head 669d76ac447, additiv aus develop acc34323968, back=0, run 44999534797 SUCCESS/0 failed, cli-shards 137137806291/137137806376/137137806417/137137806374 und packages 137137806463; die draft-routen-reihen (native-matrix 137137808006, selected-runtime 137137808013, selected checks 137137808235, validation-matrix 137137807405) waren SKIPPED und zaehlen nicht als beleg. Danach hat der owner den PR auf READY geschaltet: draft=false, der VOLLE gehostete run 45000121766 ist aktiv mit 36 jobs, und die beiden nativen data-capabilities-reihen (docker UND podman) werden erstmals AUSGEFUEHRT. Exact-head review ist aktiv bei fecbada9, merge erfolgt nach gruenem CI + verdict.
 
 EXAKT-HEAD REVIEW = APPROVE am head 669d76ac44792a56d2642df05c5211058460b3bb (akte static-cells-operator-auth-helper/review-1761-head669d76ac447.md, plan main 305bf4149c7): fan-out ist VOLLSTAENDIG, die provider-definitie steht GENAU EINMAL. Beleg am draft-stand: run 44999534797 SUCCESS/0 failed; die nativen reihen waren damals skipped, darum gab es KEINEN matrix-beleg - der reviewer hat das ausdruecklich als stand benannt, nicht als freigabe. Nach dem ready-schalten des owners ist aktiv der volle CI 45000121766 mit AUSGEFUEHRTEN nativen data-capabilities-reihen (docker 137139636770, podman 137139636747, selected-runtime 137139969524 und 137139969537).Merge erfolgt erst, wenn dieser run terminal success ist; der merge-befehl liegt bereit.
+
+AM EXAKTEN head 669d76ac447 ist ein Exact-Head-APPROVE vorhanden (akte review-1761-head669d76ac447.md, plan main 305bf4149c7, fan-out voellig, provider genau einmal). ABER der volle CI 45000121766 zeigt einen ECHTEN fehlgeschlagenen nativen job: native/docker/data-capabilities 137139636770 faellt in TestApplicationCapabilityLifecycleExistingCore/secrets, broker-readiness timeout nach 2m03s. Das ist DIESSELBE signatur wie bei PR 1753, 1723 und 1725 - und sie erscheint jetzt an develop acc34323968 selbst. Damit ist die these 'nur base-zeiger-verzug' FUER DIESEN FALL WIDERLEGT: der defekt hat develop-Hoehe. Kein merge, bis der run gruen ist (weigerung des owners). Die karte 0428-240 (diagnostics im CLI-fehlertext, cmd/baha/app_broker.go:206) ist auf einer ausfuehrenden lane; der readiness-fix selbst braucht eine besitzer-entscheidung, weil die abhaengigkeit im fehlertext bisher NICHT benannt wird.
