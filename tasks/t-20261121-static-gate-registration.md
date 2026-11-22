@@ -8,26 +8,26 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: Owner (release suite 45052561097 dispatched + Release-Owner confirmation) / Coordinator (observes, Coordinator-confirmation bei terminal green)
+owner: Owner (PR CI + static suite dispatched, confirmations) / Coordinator (track) / b90e (prereq #1761/#1771 hops)
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: Run the existing scripts/ci-fast-check.sh as its own static gate in the v0.4.28 Pre-Release Suite. Preserve every existing…
 kanban_title: 0428-208 · 0428-208 static gate
 priority: high
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1774, mcpdev80/baseharbor#1782]
+prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1774, mcpdev80/baseharbor#1782, mcpdev80/baseharbor#1761]
 sources: []
 blocker: ""
-wait_reason: "#1746 BEIDE proofs AKTIV auf exact candidate 8561447dc: (1) PR CI run 45051210001 (in_progress, kein fail am letzten poll), (2) FULL selected v0.4.28 STATIC RELEASE SUITE run 45052561097 dispatched auf SHA 8561447dc + Demo c23bd9ac, aus dem PR-branch (-> candidate workflow wiring wird benutzt), cells config-matrix/init/mcp/agent/shell-ux/ci-fast-check. FREIGABE-PROTOKOLL: wenn BEIDE terminal gruen -> Coordinator-CONFIRMATION (mein Teil, exact-head remote witness: PR SHA + suite run-id + job-conclusions) + Release-Owner-CONFIRMATION (Ihr Teil) -> erst DANN merge. KEIN merge vor beiden gruen + beiden confirmationen. develop b27b2ebe."
+wait_reason: "#1746 exact 8561447dc: PR CI 45051210001 sauber (in_progress). FULL static suite 45052561097: agent SUCCESS, aber shell-ux/init/mcp/config-matrix cells FAIL = operator-auth PREREQ (#1761 static-auth-helper + #1771 static-opauth-fix, karte 0428-231, UNASSIGNED->jetzt b90e hops), NICHT #1746 content. mcp target-create mcp-static evtl 247. #1746 kann erst nach #1761+#1771 gruen (in develop) + target.create klar + Coordinator + Release-Owner confirmations gemergt werden. KEIN merge jetzt. develop b27b2ebe."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md"]
 ---
 
 - [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/wait #view/wait #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** Owner (release suite 45052561097 dispatched + Release-Owner confirmation) / Coordinator (observes, Coordinator-confirmation bei terminal green) · **Priority:** high  
-    **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782)  
-    **Waiting:** \#1746 BEIDE proofs AKTIV auf exact candidate 8561447dc: (1) PR CI run 45051210001 (in\_progress, kein fail am letzten poll), (2) FULL selected v0.4.28 STATIC RELEASE SUITE run 45052561097 dispatched auf SHA 8561447dc + Demo c23bd9ac, aus de…  
+    **Owner:** Owner (PR CI + static suite dispatched, confirmations) / Coordinator (track) / b90e (prereq \#1761/\#1771 hops) · **Priority:** high  
+    **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
+    **Waiting:** \#1746 exact 8561447dc: PR CI 45051210001 sauber (in\_progress). FULL static suite 45052561097: agent SUCCESS, aber shell-ux/init/mcp/config-matrix cells FAIL = operator-auth PREREQ (\#1761 static-auth-helper + \#1771 static-opauth-fix, karte…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44997978036), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md)  
     <!-- /generated:card -->
 
@@ -35,9 +35,9 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "h
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** Owner (release suite 45052561097 dispatched + Release-Owner confirmation) / Coordinator (observes, Coordinator-confirmation bei terminal green)  
+**Owner:** Owner (PR CI + static suite dispatched, confirmations) / Coordinator (track) / b90e (prereq #1761/#1771 hops)  
 **Priority:** high  
-**PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782)  
+**PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
 **Source:** 
 <!-- /generated:links -->
 

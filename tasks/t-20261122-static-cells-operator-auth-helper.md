@@ -7,37 +7,36 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: Owner (hop done) / Coordinator (trigger 241)
-kanban_status: wait
-kanban_lane: wait
+owner: b90e4ba1 (#1761 helper + #1771 fix additive hops b27b2ebe + exact hosted) / Coordinator
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-231 · operator auth in static cells
 priority: ""
 depends_on: [t-20261121-develop-full-suite-red]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1771]
+prs: [mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1746]
 sources: []
 blocker: ""
-wait_reason: "#1771 head dc775235 exact run 45037247452: KATALOG BESTAETIGT (trusted plan pass, alle cmd/baha go shards/build/vet pass, 1777-mapping wirkt). aggregate FAILURE nur durch 241 (selected+native brauchen --confirm-candidate digest, ffe7611b laeuft) + 237 (native podman broker 503, andere session). naechster trigger: 241 merged -> #1771 re-run. Kein merge bis aggregate gruen."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.com/mcpdev80/baseharbor/actions/runs/44994765677", "https://github.com/mcpdev80/baseharbor/actions/runs/44998552411", "https://github.com/mcpdev80/baseharbor/actions/runs/44999534797", "https://github.com/mcpdev80/baseharbor/actions/runs/45000121766", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/hunt-operator-auth-static-cells-round-1.md"]
 ---
 
-- [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/wait #view/wait #kind/task
+- [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** Owner (hop done) / Coordinator (trigger 241)  
-    **PR:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771)  
-    **Waiting:** \#1771 head dc775235 exact run 45037247452: KATALOG BESTAETIGT (trusted plan pass, alle cmd/baha go shards/build/vet pass, 1777-mapping wirkt). aggregate FAILURE nur durch 241 (selected+native brauchen --confirm-candidate digest, ffe7611b l…  
+    **Owner:** b90e4ba1 (\#1761 helper + \#1771 fix additive hops b27b2ebe + exact hosted) / Coordinator  
+    **PR:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1761), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44994765677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44998552411), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44999534797), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/hunt-operator-auth-static-cells-round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
-**Owner:** Owner (hop done) / Coordinator (trigger 241)  
+**Owner:** b90e4ba1 (#1761 helper + #1771 fix additive hops b27b2ebe + exact hosted) / Coordinator  
 **Priority:** not set  
-**PRs:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771)  
+**PRs:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -99,3 +98,5 @@ HUNT-belegt -> UNABHAENGIG fixbar (nicht an #1753 gekoppelt). PRIMAERDEFEKT cmd/
 SHARED-PREREQ. b90e4ba1 besitzt cmd/baha/operator_test_fixture_test.go. #1746 mcp-static failed an operator-auth fixture setup (Durchgang 45023477422) -> #1761 muss den static-cell operator-auth fixture-helper auf develop liefern. Achtung: #1769 nutzt fuer anonymen fall das REAL symbol operatorauth.WithEnforcement (kein neuer helper), also KEINE kollision. Guard/denial-logik NICHT aendern, kein auth-bypass.
 
 PR #1771 (draft) head 172fb251 auf develop 8629450ef3c = BEHIND aktuellem develop 64eab13e -> b90e4ba1 hoppt einmalig additiv auf 64eab13e + exact-hosted + draft->ready. Root-cause KORRIGIERT: nicht ein alias; echte drop = root quick-init route OHNE app.adopt scope in cliLocalWorkloadOperation (main.go). Fix additiv isLocalRuntimeAccessProvider (local + local-docker/local-podman) in grant-check + init-scope. operator-auth/boundary INTAKT, KEIN .github/scripts/operatorauth. Runs 45023442557 + 45024197667 success/failed 0 am alten head. STATIC-GATES nicht lane-startbar (Owner workflow_dispatch pre-release.yml) - als ausloeser notiert, nicht als deficit. Dient #1746 mcp-static (geteiltes fixture/grant-issue). Akte plan origin/main.
+
+0428-231 = operator-auth static-cells prereq fuer #1746 full static suite (shell-ux 137302542528/init 137302542587/mcp 137302542606/config-matrix 137302542638 fail 'authenticate operator'/authentication_failed). #1761(static-auth-helper head 669d76ac) + #1771(static-opauth-fix head dc775235) beide stale base, UNASSIGNED -> b90e additive hops b27b2ebe + rerun (helper->fix stacked). mcp target create mcp-static fail = pruefen ob 247 product-semantik (STOP->owner) oder helper deckt es. develop b27b2ebe.
