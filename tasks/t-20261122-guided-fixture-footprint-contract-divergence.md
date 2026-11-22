@@ -7,9 +7,9 @@ areas: [testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: b90e4ba1 (#1783 additiv auf #1770 branch gestapelt + base retarget -> exact hosted kombiniert; native pin + selected fixture) / Owner (sequenz autorisiert) / Coordinator
-kanban_status: active
-kanban_lane: active
+owner: b90e4ba1 (#1783 STACKED auf #1770: head 62f4ab0d = merge #1770-tip 0da4a571 + fixture, base=codex/0428-237-exact-native-runtime, PR CLEAN; combined run 45068985009 pending) / Owner (wait green -> merge) / Coordinator
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-241 · guided fixture drift
 priority: high
@@ -23,17 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-guided-fixture-footprint-contract-divergence · Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 #task #release/v0-4-28 #status/active #view/active #area/testing #kind/bug
+- [ ] t-20261122-guided-fixture-footprint-contract-divergence · Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 #task #release/v0-4-28 #status/review #view/review #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (\#1783 additiv auf \#1770 branch gestapelt + base retarget -\> exact hosted kombiniert; native pin + selected fixture) / Owner (sequenz autorisiert) / Coordinator · **Priority:** high  
+    **Owner:** b90e4ba1 (\#1783 STACKED auf \#1770: head 62f4ab0d = merge \#1770-tip 0da4a571 + fixture, base=codex/0428-237-exact-native-runtime, PR CLEAN; combined run 45068985009 pending) / Owner (wait green -\> merge) / Coordinator · **Priority:** high  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1787](https://github.com/mcpdev80/baseharbor/pull/1787), [baseharbor#1788](https://github.com/mcpdev80/baseharbor/pull/1788)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** b90e4ba1 (#1783 additiv auf #1770 branch gestapelt + base retarget -> exact hosted kombiniert; native pin + selected fixture) / Owner (sequenz autorisiert) / Coordinator  
+**Owner:** b90e4ba1 (#1783 STACKED auf #1770: head 62f4ab0d = merge #1770-tip 0da4a571 + fixture, base=codex/0428-237-exact-native-runtime, PR CLEAN; combined run 45068985009 pending) / Owner (wait green -> merge) / Coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1787](https://github.com/mcpdev80/baseharbor/pull/1787), [baseharbor#1788](https://github.com/mcpdev80/baseharbor/pull/1788)  
 **Source:** 
@@ -133,3 +133,5 @@ ENTSCHEID shared (owner+coordinator): #1783 selected timeout = getagtes TEST-FIX
 #1788 GEMERGT in parent #1783 branch (head 66838807, owner-executed, stacked konsolidierung; fecbada9 CODEX-MERGE hielt korrekt an statt native-503 zu umgehen). #1783 = app-new + app-edit fixture vollstaendig; CI auf 66838807 laeuft (BEHIND develop c928a627 durch #1597). Nach #1770 merge -> #1783 re-hop auf develop+1770 -> native green (pin) + selected green (fixture) = vollstaendig gruen -> #1783 merge develop. native-503 = #1770 shared, NICHT 1783. develop c928a627.
 
 OWNER-SEQUENZ APPROVIERT (policy-konform, 3.3(8) stack retarget): #1783 enthlt ALLE drei selected admissions (app-new :137, app-edit :140, footprint-show :151 data-caps||core-caps) -> heilt genau den footprint-show 'command-not-in-managed-workload-set' fail der #1770 auf develop. Schritt 1 (b90e jetzt): #1783 branch additiv mit #1770-tip (disjunkt: fixture vs scripts pin) + PR base develop->#1770 branch. Schritt 2: exact hosted MUSS native green (pin) + selected green (fixture) + TP green (#1786). Schritt 3: CODEX-MERGE #1783 -> #1770 branch (feature-branch, protection intakt). Schritt 4: #1770 rerun = vollstaendig gruen -> MERGE -> develop. Schritt 5: fan-out re-hops. develop c928a627.
+
+STACK APPLIED (approved sequence): #1783 base via REST PATCH -> #1770 branch codex/0428-237-exact-native-runtime; head 62f4ab0d = merge-commit von #1770 tip 0da4a571 (pin) + #1783 fixture (app-new :137, app-edit :140, footprint-show :151) -> PR exakt CLEAN mit integriertem pin+fixture. Kombinerter run 45068985009 queued. Erwartung: native docker+podman GREEN (pin), selected docker+podman GREEN (fixture incl footprint-show), TP GREEN (#1786). Wenn alle gruen -> Schritt3 CODEX-MERGE #1783 -> #1770 branch -> #1770 rerun vollstaendig gruen -> #1770 MERGE develop -> fan-out. develop c928a627. Kein force/bypass.
