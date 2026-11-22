@@ -56,3 +56,10 @@ cleanliness: nothing started. Eigen pid 2073855 (en latere shells van dezelfde s
 - AFTER: lege lijst (0 entries).
 
 END 0428-223-testctx DONE (candidate SHAs: #1750 = 17f471cd3fe, #1753 = f29bf6fa303)
+
+## publishing witness
+
+```
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep base-hop-mechanics/hop-develop-82825e95-w223
+evidence/r28-welle5-2026-11-22/base-hop-mechanics/hop-develop-82825e95-w223.md
+```
