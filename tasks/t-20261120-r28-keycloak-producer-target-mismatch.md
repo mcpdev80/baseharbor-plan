@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: 0847d100 (lane)
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-185 · producer target mismatch
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-r28-keycloak-producer-target-mismatch · Keycloak producer registers ID/target the identity witness can never match #task #release/v0-4-28 #status/planned #view/ready #kind/bug
+- [ ] t-20261120-r28-keycloak-producer-target-mismatch · Keycloak producer registers ID/target the identity witness can never match #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** 0847d100 (lane)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** 0847d100 (lane)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -52,3 +51,5 @@ Measured while the owner completed 0428-078: internal/identityprovider/keycloak_
 ## Boundaries
 
 internal/identityprovider/keycloak_realization.go plus internal/metrics/perses_identity_witness.go. internal/observability/registry.go and provider_registration.go are released to the 0428-078 takeover work for the target-root change; 0428-184 is confined to its destroy-side cleanup. No .github/**.
+
+BEAUFTRAGT AUF EINER FREI GEWORDENEN ausfuehrenden lane (0847d100, nach abgabe von 0428-091):arbeit beginnt bei der card-messe, dann branch lane-0428-185-producer-target auf develop acc34323968, write-set ist ausschliesslich internal/identityprovider/keycloak_realization.go plus internal/metrics/perses_identity_witness.go. STOP ist vorgespannt, wenn ziel-uid-/state-root-scoping ein schema-wechsel in internal/observability/registry.go oder in provider_registrations verlangt (acceptance 3, owner-scope). Kein dependency zu anderen karten, kein konflikt mit den laufenden kandidaten: die tempo-datei in internal/metrics wird von PR 1645 angefasst, diese karte nicht.
