@@ -15,7 +15,7 @@ kanban_title: 0428-248 · catalog completion #1774
 priority: high
 depends_on: [t-20261122-gate-catalog-missing-app-broker-component]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1774, mcpdev80/baseharbor#1776]
+prs: [mcpdev80/baseharbor#1774, mcpdev80/baseharbor#1776, mcpdev80/baseharbor#1777]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,7 +26,7 @@ evidence: []
 - [ ] t-20261122-gate-catalog-completion-ci-executor · Complete the gate catalog by registering the three remaining changed paths in pr-gate-coverage.json so dependent gates execute #task #release/v0-4-28 #status/active #view/active #area/ci #area/testing #kind/task
     <!-- generated:card -->
     **Owner:** b90e4ba1 (mappings-pr) / \#1776 merged · **Priority:** high  
-    **PR:** [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1776](https://github.com/mcpdev80/baseharbor/pull/1776)  
+    **PR:** [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1776](https://github.com/mcpdev80/baseharbor/pull/1776), [baseharbor#1777](https://github.com/mcpdev80/baseharbor/pull/1777)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +35,7 @@ evidence: []
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
 **Owner:** b90e4ba1 (mappings-pr) / #1776 merged  
 **Priority:** high  
-**PRs:** [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1776](https://github.com/mcpdev80/baseharbor/pull/1776)  
+**PRs:** [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1776](https://github.com/mcpdev80/baseharbor/pull/1776), [baseharbor#1777](https://github.com/mcpdev80/baseharbor/pull/1777)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -64,3 +64,5 @@ B (ci-native-pr-gate.sh) GEMERGED ueber #1774 @ 3cbb2bac (exact run 45030308249 
 #1775 geschlossen (war dirty dup-B). #1776 = test-only planner-test auf develop 7391946f (hosted CI laeuft). Die ECHTEN fehlenden mappings A(ci-fast-check.sh)+C(app_footprint_presenter.go)+243(local_workload_authority.go/_test/main.go) sind NICHT in develop (nur shell-ux vorhanden) und bleiben #1746-static/#1773/#1771 blockierer -> eigener sauberer 0428-248 mappings-pr (b90e4ba1).
 
 #1776 (test-only planner-test) gemergt als 713aadd4. Die ECHTEN fehlenden mappings sind VIER saetze und laufen in EINEM sauberen 0428-248 mappings-pr auf develop 713aadd4: app_broker_diagnostics_test.go(#1763) + app_footprint_presenter.go(#1773) + local_workload_authority.go/_test.go/main.go(#1771) + scripts/ci-fast-check.sh(#1746-static). Ziel-surfaces atomic.* existieren. #1775 (dup+conflict) wird als superseded geschlossen (kein owner-replacement). b90e4ba1 dispatched fuer alle vier.
+
+#1777 (branch lane-0428-248-catalog-mappings d9c1b895) deckt A(ci-fast-check)+C(footprint_presenter)+243(local_workload_authority/test/main) ab. EIN gap: app_broker_diagnostics_test.go (#1763) fehlt -> b90e amended #1777 additiv (kein neuer PR, kein dup-B, surfaces schema ok). Nach merge entblockt dieser eine PR #1763 #1771 #1773 #1746-static. develop 713aadd4.

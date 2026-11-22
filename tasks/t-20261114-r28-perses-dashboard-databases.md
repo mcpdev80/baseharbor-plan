@@ -7,7 +7,7 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: Coordinator (queued: kein live worker, additiver hop auf 713aadd4 wartet auf freien sitz)
+owner: 0847d100 (lane, hop1597 auftrag gestellt)
 kanban_status: active
 kanban_lane: active
 kanban_summary: Deliver PostgreSQL/MongoDB panels only when verified compatible metrics and permissions exist.
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261114-r28-perses-dashboard-databases · Perses database dashboards #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** Coordinator (queued: kein live worker, additiver hop auf 713aadd4 wartet auf freien sitz) · **Priority:** normal  
+    **Owner:** 0847d100 (lane, hop1597 auftrag gestellt) · **Priority:** normal  
     **PR:** [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597)  
     <!-- /generated:card -->
 
@@ -34,7 +34,7 @@ evidence: []
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** Coordinator (queued: kein live worker, additiver hop auf 713aadd4 wartet auf freien sitz)  
+**Owner:** 0847d100 (lane, hop1597 auftrag gestellt)  
 **Priority:** normal  
 **PRs:** [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597)  
 **Source:** 

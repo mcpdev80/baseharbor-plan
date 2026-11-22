@@ -7,15 +7,15 @@ areas: [ci, testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0847d100 (baseharbor-demo fix) / f0f6c8b4 (diagnose)
-kanban_status: active
-kanban_lane: active
+owner: 0847d100 (baseharbor-demo fix)
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-250 · ci operator fixture allow-list
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor-demo#170]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,18 +23,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-ci-operator-fixture-allowlist-gap · Add the missing command forms to the test-only CI-operator fixture allow-list so static/core gates stamp the synthetic operator instead of failing closed #task #release/v0-4-28 #status/active #view/active #area/ci #area/testing #kind/bug
+- [ ] t-20261122-ci-operator-fixture-allowlist-gap · Add the missing command forms to the test-only CI-operator fixture allow-list so static/core gates stamp the synthetic operator instead of failing closed #task #release/v0-4-28 #status/review #view/review #area/ci #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** 0847d100 (baseharbor-demo fix) / f0f6c8b4 (diagnose) · **Priority:** high  
+    **Owner:** 0847d100 (baseharbor-demo fix) · **Priority:** high  
+    **PR:** [baseharbor-demo#170](https://github.com/mcpdev80/baseharbor-demo/pull/170)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0847d100 (baseharbor-demo fix) / f0f6c8b4 (diagnose)  
+**Owner:** 0847d100 (baseharbor-demo fix)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor-demo#170](https://github.com/mcpdev80/baseharbor-demo/pull/170)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -59,3 +60,5 @@ UMKLASSIFIZIERT (f0f6c8b4 H-V30): KEIN baseharbor allow-list gap. baseharbor ci_
 UMKLASSIFIZIERT (f0f6c8b4 H-V30): KEIN baseharbor allow-list gap. baseharbor ci_integration_operator_enabled.go:327-330 ist bewusst eng+korrekt (prefix baseharbor-core-bootstrap.*). Fix liegt in baseharbor-demo/tests/config-matrix/run.sh + reference-journey: temp-root prefix baseharbor-core-bootstrap.* + BASEHARBOR_DEMO_ALLOWED_PROJECT_ROOT exportieren (core-bootstrap.sh:9 muster). Entblockt #1746 static core-bootstrap/config-matrix/reference-journey/shell-ux. Repo: baseharbor-demo (nicht baseharbor).
 
 UMKLASSIFIZIERT: baseharbor allow-list bewusst eng+korrekt; fix in baseharbor-demo tests/config-matrix + reference-journey (temp-root prefix baseharbor-core-bootstrap.* + BASEHARBOR_DEMO_ALLOWED_PROJECT_ROOT export). 0847d100 dispatched. Entblockt #1746 static core-bootstrap/ config-matrix/reference-journey/shell-ux zellen.
+
+GELOEST in baseharbor-demo tests/config-matrix/run.sh (commit 0249c9f, demo PR #170 draft): temp-root basename baseharbor-core-bootstrap.XXXXXX (zeile 9) + BASEHARBOR_DEMO_ALLOWED_PROJECT_ROOT export vor core-up (core-bootstrap.sh:9 muster, bootstrap_root=matrix_root damit cwd==allowedRoot). Local docker smoke: baha up --yes allow-list + startet Core (PG/OpenBao) statt missing operator. baseharbor/.github/allow-list/guard unberuehrt. reference-journey/run.sh existiert nicht auf develop. Entblockt #1746 static core-bootstrap/config-matrix auth-zellen. Review auf baseharbor-demo CI + merge. Kein baseharbor aenderung.
