@@ -12,9 +12,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | ---: |
 | active | 13 |
 | review | 2 |
-| wait | 18 |
+| wait | 19 |
 | blocked | 2 |
-| ready | 9 |
+| ready | 8 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
@@ -43,7 +43,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | review | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
-| [t-20261121-native-cell-operator-seam](../tasks/t-20261121-native-cell-operator-seam.md) | 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam | review | high | 1450c201 (#1766 review) / coord (route) / f0f6c8b4 (abgezogen, #1766 = owner) | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740), [baseharbor#1765](https://github.com/mcpdev80/baseharbor/pull/1765), [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766) |
+| [t-20261122-core-network-protected-owner-assertion-stale](../tasks/t-20261122-core-network-protected-owner-assertion-stale.md) | Static test asserts protected-owner while product emits a valid longer core/shared-backend owner diagnostic | review | high | owner (bereitete #1766 vor) / 1450c201 (review) / coord (route) | — | [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766) |
 
 ## Waiting for resources
 
@@ -63,6 +63,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261120-shared-backend-state-version-message](../tasks/t-20261120-shared-backend-state-version-message.md) | shared state version message | wait | not set | coord (wartet geteiltes gate + history-entscheidung) | — | [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725) |
 | [t-20261120-workload-port-flag-ignored-locally](../tasks/t-20261120-workload-port-flag-ignored-locally.md) | workload-port ignored locally | wait | not set | f0f6c8b4 (lane) | [t-20261114-r28-cli2-env-delete](../tasks/t-20261114-r28-cli2-env-delete.md), [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md), [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](../tasks/t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md) (open) | [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723) |
 | [t-20261121-mcp-operator-seam-uncovered](../tasks/t-20261121-mcp-operator-seam-uncovered.md) | 0428-218 make the MCP operator seam reachable from MCP tests | wait | normal | coordinator (karte) / erster freier worker-sitz (ausfuehrung) | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741), [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738) |
+| [t-20261121-native-cell-operator-seam](../tasks/t-20261121-native-cell-operator-seam.md) | 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam | wait | high | 1450c201 (#1766 review) / coord (route) / f0f6c8b4 (abgezogen, #1766 = owner) | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740), [baseharbor#1765](https://github.com/mcpdev80/baseharbor/pull/1765), [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766) |
 | [t-20261121-static-gate-registration](../tasks/t-20261121-static-gate-registration.md) | 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate | wait | high | ffe7611b (lane ueber 0428-205) / 1450c201 (zensus) | — | [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746) |
 | [t-20261121-trust-uninstall-false-green](../tasks/t-20261121-trust-uninstall-false-green.md) | trust-uninstall EOF tests are green on the auth gate error | wait | high | coordinator (karte) / erster freier worker-sitz (ausfuehrung) | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737) |
 | [t-20261122-host-config-isolation-tmpdir-cleanup](../tasks/t-20261122-host-config-isolation-tmpdir-cleanup.md) | CLI: release the per-test host config isolation directory | wait | not set | ffe7611b (lane) / Owner (entscheid: beide commits bleiben) | — | [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762) |
@@ -85,7 +86,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261120-r28-identity-dashboard-catalog-consumer](../tasks/t-20261120-r28-identity-dashboard-catalog-consumer.md) | Identity dashboard catalog has zero production consumers (P4 of review 1650) | ready | not set | — | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | — |
 | [t-20261120-r28-perses-status-never-verified](../tasks/t-20261120-r28-perses-status-never-verified.md) | No source API yields verified: status --json can never report true | ready | not set | — | — | — |
 | [t-20261121-candidate-commit-identity](../tasks/t-20261121-candidate-commit-identity.md) | Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) | ready | not set | — | — | — |
-| [t-20261122-core-network-protected-owner-assertion-stale](../tasks/t-20261122-core-network-protected-owner-assertion-stale.md) | Static test asserts protected-owner while product emits a valid longer core/shared-backend owner diagnostic | ready | high | — | — | — |
 | [t-20261122-native-plan-self-selection](../tasks/t-20261122-native-plan-self-selection.md) | CI: catalog and planner self-change selects zero gates | ready | not set | — | — | — |
 | [t-20261122-static-cell-local-workload-grant-access](../tasks/t-20261122-static-cell-local-workload-grant-access.md) | Static cells: --access local-docker rejected at local_workload_authority.go:62 | ready | high | — | — | — |
 

@@ -7,35 +7,36 @@ areas: [testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: owner (bereitete #1766 vor) / 1450c201 (review) / coord (route)
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-244 · core-network assertion stale
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1766]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1766"]
 ---
 
-- [ ] t-20261122-core-network-protected-owner-assertion-stale · Static test asserts protected-owner while product emits a valid longer core/shared-backend owner diagnostic #task #release/v0-4-28 #status/planned #view/ready #area/testing #kind/bug
+- [ ] t-20261122-core-network-protected-owner-assertion-stale · Static test asserts protected-owner while product emits a valid longer core/shared-backend owner diagnostic #task #release/v0-4-28 #status/review #view/review #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** owner (bereitete \#1766 vor) / 1450c201 (review) / coord (route) · **Priority:** high  
+    **PR:** [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1766)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** owner (bereitete #1766 vor) / 1450c201 (review) / coord (route)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -61,3 +62,5 @@ out of sync with the current diagnostic wording.
 
 `cmd/baha/operator_core_network_binding_native_test.go` only. Outside card 0428-209 / PR #1765 write-set (its 2-file delta is not
 the cause). Blocks #1765's native Keycloak/Core gate until synced.
+
+PR #1766 (head 405be63, develop-basiert) korrigiert NUR die stale expected-diagnostic in operator_core_network_binding_native_test.go:78/86, product-verhalten unveraendert, ablehnung bleibt belegt. Review 1450c201 = PENDING (beim beobachtungspunkt war KEIN exact-head native docker/podman job terminal green; checks queued/in_progress). Bei terminal green native keycloak/core (137197826981 docker / 137197826980 podman) -> APPROVE + MERGE VOR #1765-rerun. f0f6c8b4 wurde abgezogen (dupliziert #1766).
