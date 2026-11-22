@@ -53,6 +53,8 @@ Exact output from `git ls-tree -r --name-only origin/main | grep evidence/r28-we
 
 `evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-headb38838e1c30.md`
 
+Final Planning publication witness: `9b3604907efd9481147b382a2016e9e57b962838 refs/heads/main` from `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main`.
+
 ## END_BLOCKED
 
 END_BLOCKED: review verdict is REQUEST CHANGES pending owner-scope native coverage catalog and runtime scenario work.
