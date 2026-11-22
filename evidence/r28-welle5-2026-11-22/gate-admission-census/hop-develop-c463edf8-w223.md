@@ -46,3 +46,10 @@ Geen inhoudelijke file-aendering (enkel een merge-poging die 'Already up to date
 cleanliness: nothing started. Eigen pid 2662351. BEFORE `docker ps -a` = 0 entries. AFTER idem. Zone `/tmp/opencode/0428-223-hop1756` + `git worktree prune` verwijderd; `/var/tmp/0428-223` scratch voor END weg.
 
 END 0428-223-testctx DONE (#1756 head ebb6c9434a6 back=0 (hop al door de eigenaar; ik niets gepromoveerd), run 44992226702 completed SUCCESS failed 0, pr-planner-tests 137115616321 success, Native gate plan 137115562373 matrix='{"include":[]}' — oorzaak: geen component-rijen voor de 4 catalog-bestanden zelf, Selected Runtime 137115617859 + Native·matrix 137115597380 skipped)
+
+## publishing witness
+
+```
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep gate-admission-census/hop-develop-c463edf8-w223
+evidence/r28-welle5-2026-11-22/gate-admission-census/hop-develop-c463edf8-w223.md
+```
