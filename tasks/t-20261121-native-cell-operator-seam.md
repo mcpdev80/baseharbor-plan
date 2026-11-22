@@ -7,9 +7,9 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: coordinator (karte) / erster freier worker-sitz (ausfuehrung)
-kanban_status: wait
-kanban_lane: wait
+owner: f0f6c8b4 (lane, recut-route beauftragt)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "controlplanesinglenativecitest.go stops failing with prepare BaseHarbor integration trust plane: because the native-cell test…"
 kanban_title: 0428-209 · 0428-209 native cell seam
 priority: high
@@ -18,26 +18,25 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1740]
 sources: []
 blocker: ""
-wait_reason: "carrier-abhaengigkeit ja; neue basis ist develop 8629450ef3c, der delta wird dort neu geschnitten - die alte PR-basis bleibt nicht in gebrauch"
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1740", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md"]
   - "https://github.com/mcpdev80/baseharbor/pull/1740"
   - "https://github.com/mcpdev80/baseharbor/actions/runs/44868911131"
 ---
 
-- [ ] t-20261121-native-cell-operator-seam · 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/cli #kind/bug
+- [ ] t-20261121-native-cell-operator-seam · 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** coordinator (karte) / erster freier worker-sitz (ausfuehrung) · **Priority:** high  
+    **Owner:** f0f6c8b4 (lane, recut-route beauftragt) · **Priority:** high  
     **PR:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740)  
-    **Waiting:** carrier-abhaengigkeit ja; neue basis ist develop 8629450ef3c, der delta wird dort neu geschnitten - die alte PR-basis bleibt nicht in gebrauch  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44868911131)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** coordinator (karte) / erster freier worker-sitz (ausfuehrung)  
+**Owner:** f0f6c8b4 (lane, recut-route beauftragt)  
 **Priority:** high  
 **PRs:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740)  
 **Source:** 
@@ -108,3 +107,5 @@ diagnose abgenommen (akte round-2-nativefail.md, plan 8b955447, durchgang 448787
 END_BLOCKED gemeldet, von mir bestaetigt: ihre fix wirkt (der "bootstrap target is not configured"-fall ist behoben), aber der test haelt an cmd/baha/operator_auth_boundary.go:113 an ErrConfigurationRequired, und internal/operatorauth/** ist Tabu. Das ist dieselbe owner-entscheidung wie 0428-214. NEUER VERFAHRENSBEFUND von mir: fuer GRUENE shard-jobs ist der test-detail gar nicht im protokoll - cli-2 (success) liefert 22242 bytes ohne einzige RUN-/PASS-/ok-zeile, cli-0 (failure) 23033 bytes mit FAIL-zeile. "test laeuft remote im shard" ist aus gruenen logs also NICHT beweisbar; die mutation (rot/weiss) bleibt der einzige beleg, plus job-success. Bitte nicht als unterstellung buchen.
 
 ROUTE NEU FESTGELEGT NACH CENSUS (akte operator-auth-helper/carrier-census-1737-1738-1740-1741.md, plan commit da2176f7f40, von 1450c201 gemessen): PR 1726 wird NICHT wieder eroeffnet und es entsteht KEIN neuer traeger - #1750 ist gemergt, also wird der JEWEILIGE eigene delta des kandidaten auf develop 8629450ef3c neu geschnitten. Fernzeugnis der kinder: alle back=275, mergeStateStatus UNSTABLE, base zeigt auf die tote basis lane-0428-198-cli-shard-operator-env (spitze e45430f2f1b). Carrier-abhaengigkeit: ja. Ihr PR-head gemessen: 1740 siehe akte 'Child PR state and diff against the named carrier'. Naechster schritt: mission auf dem ersten freien arbeits-sitz (neu schneiden statt hoepfen; bei 'nein' reicht der additive hop), dann exact gehosteter durchgang + unabhaengige pruefung. Kein merge aus der alten basis heraus.
+
+RE-CUT ROUTE BESTAETIGT (praegenz 1738): PR 1740 haelt, base von der TOten carrier-lane 198 auf develop retargeted + head auf develop-basierten recut (kandidat f4e340eca, 2 files: selection-regression-assertion + bootstrap-target helper). EXAKTE native docker+podman gaetes + unabhaengige review danach. Kein neuer PR. Kein app_broker/controlplaneruntime-zugriff (0428-237).
