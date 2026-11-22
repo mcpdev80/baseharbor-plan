@@ -7,7 +7,7 @@ areas: [cli, documentation]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: Owner (re-hop) / Coordinator (route) — content selbst gruen
+owner: Coordinator (route-after-#1783) / a lane (hop+rerun) / Owner
 kanban_status: blocked
 kanban_lane: blocked
 kanban_summary: ""
@@ -15,9 +15,9 @@ kanban_title: 0428-246 · footprint human doc gaps
 priority: normal
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1773]
+prs: [mcpdev80/baseharbor#1773, mcpdev80/baseharbor#1783]
 sources: []
-blocker: "#1773 head 3ec2eba base 68b26bd exact run 45036009904 TERMINAL FAILURE, aber diff ist docs-only presenter (content okay). Aggregate rot NUR durch ZWEI fremde blocker: (1) selected-runtime docker+podman 137250325955/137250325942 failen 'record deployment before mutation requires --confirm-candidate' = KARTE 0428-241 (f0f6c8b4, re-aimed, laeuft). (2) native docker 137249846862 + podman 137249846882 failen TestApplicationCapabilityLifecycleExistingCore/secrets MIT digest, podman ZUSAETZLICH broker not_ready HTTP 503 = KARTE 0428-237 (andere Codex-Session/#1770; NICHT codeman-lane). Naechster trigger: 241 selected fix gemerged DANN 237 broker-503 native geklaert, dann #1773 re-run."
+blocker: "#1773 (nur app_footprint_presenter.go) exact checks terminal rot in native docker/podman + selected data-caps = IDENTISCHE footprint fixture/consent seam -> NICHT independent merge-ready. Presenter-only focused check zaehlt NICHT als gruen. BLOCKIERT bis PR #1783 (optionA shared fixture, hosted 67-checks 0-fail, nur 4 native runner-pending) GEMERGT ist; dann rebase auf develop-(mit-1783) + rerun erbt den fix (wie #1780/#1770). Nominierter naechster NICHT-UEBERLAPPENDER simpler kandidat = catalog surface-c lane (03c7350a). native edge broker = 0428-237 separat."
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -25,18 +25,18 @@ evidence: []
 
 - [ ] t-20261122-footprint-human-surface-doc-gaps · Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract #task #release/v0-4-28 #status/blocked #view/blocked #area/cli #area/documentation #kind/maintenance
     <!-- generated:card -->
-    **Owner:** Owner (re-hop) / Coordinator (route) — content selbst gruen · **Priority:** normal  
-    **PR:** [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773)  
-    **Blocker:** \#1773 head 3ec2eba base 68b26bd exact run 45036009904 TERMINAL FAILURE, aber diff ist docs-only presenter (content okay). Aggregate rot NUR durch ZWEI fremde blocker: (1) selected-runtime docker+podman 137250325955/137250325942 failen 'rec…  
+    **Owner:** Coordinator (route-after-\#1783) / a lane (hop+rerun) / Owner · **Priority:** normal  
+    **PR:** [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
+    **Blocker:** \#1773 (nur app\_footprint\_presenter.go) exact checks terminal rot in native docker/podman + selected data-caps = IDENTISCHE footprint fixture/consent seam -\> NICHT independent merge-ready. Presenter-only focused check zaehlt NICHT als gruen…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** Owner (re-hop) / Coordinator (route) — content selbst gruen  
+**Owner:** Coordinator (route-after-#1783) / a lane (hop+rerun) / Owner  
 **Priority:** normal  
-**PRs:** [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773)  
+**PRs:** [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
 **Source:** 
 <!-- /generated:links -->
 
