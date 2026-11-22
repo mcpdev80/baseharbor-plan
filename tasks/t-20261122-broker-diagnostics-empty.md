@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: b90e4ba1 (lane) / coord (zeugnis)
+owner: 1450c201 (review fertig) / owner (katalog 0428-242 noetig) / coord (zeugnis)
 tags: [#task, #release/v0.4-28]
 kanban_status: wait
 kanban_lane: wait
@@ -19,24 +19,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1763]
 sources: []
 blocker: ""
-wait_reason: "PR 1746 muss zuerst den zsh-only-install-schritt in pre-release.yml auf develop bringen (durchgang 45010958948 terminal: cli-3 zsh fehlt, alle anderen source-shards SUCCESS, runtime-gate-matrizen SKIPPED nachdem Source . Qualified failte). DANN re-hop auf neues develop + EINER durchgang der exakten Hosted-CI/runtime-gates"
+wait_reason: "unabhaengige review am exakten head c698d1310 = REQUEST CHANGES, sufficiency sentinel-YES | native-NEEDS-242: die redaktion ist durch den marker-test belegt, ABER der readiness-pfad app_broker.go:202-204 braucht die LAUFENDE native matrix, die erst existiert wenn scripts/pr-gate-coverage.json den app_broker component traegt (0428-242, owner-scope)"
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md", "https://github.com/mcpdev80/baseharbor/pull/1763", "https://github.com/mcpdev80/baseharbor/actions/runs/45005245380", "https://github.com/mcpdev80/baseharbor/actions/runs/45008350091", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/redaction-round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/45010884066", "https://github.com/mcpdev80/baseharbor/actions/runs/45010958948"]
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md", "https://github.com/mcpdev80/baseharbor/pull/1763", "https://github.com/mcpdev80/baseharbor/actions/runs/45005245380", "https://github.com/mcpdev80/baseharbor/actions/runs/45008350091", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/redaction-round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/45010884066", "https://github.com/mcpdev80/baseharbor/actions/runs/45010958948", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-headc698d1310.md", "https://github.com/mcpdev80/baseharbor/actions/runs/45011815553"]
 ---
 
 - [ ] t-20261122-broker-diagnostics-empty · CLI: name the failing dependency in broker readiness diagnostics #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (lane) / coord (zeugnis)  
+    **Owner:** 1450c201 (review fertig) / owner (katalog 0428-242 noetig) / coord (zeugnis)  
     **PR:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763)  
-    **Waiting:** PR 1746 muss zuerst den zsh-only-install-schritt in pre-release.yml auf develop bringen (durchgang 45010958948 terminal: cli-3 zsh fehlt, alle anderen source-shards SUCCESS, runtime-gate-matrizen SKIPPED nachdem Source . Qualified failte).…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1763), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45005245380), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45008350091), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/redaction-round-1.md), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/45010884066), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45010958948)  
+    **Waiting:** unabhaengige review am exakten head c698d1310 = REQUEST CHANGES, sufficiency sentinel-YES | native-NEEDS-242: die redaktion ist durch den marker-test belegt, ABER der readiness-pfad app\_broker.go:202-204 braucht die LAUFENDE native matrix,…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1763), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45005245380), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45008350091), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/redaction-round-1.md), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/45010884066), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45010958948), [proof 9](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-headc698d1310.md), [proof 10](https://github.com/mcpdev80/baseharbor/actions/runs/45011815553)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** b90e4ba1 (lane) / coord (zeugnis)  
+**Owner:** 1450c201 (review fertig) / owner (katalog 0428-242 noetig) / coord (zeugnis)  
 **Priority:** not set  
 **PRs:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763)  
 **Source:** 
@@ -120,3 +120,5 @@ KORRIGIERTER durchgang: der erste versuch 45010884066 terminal FAILURE, aber NUR
 RUNTIME-BELEG GESPERRT DURCH OWNER-SCOPE-CI-SETUP (NICHT CODE): der korrigierte runtime-only-durchgang 45010958948 gegen exakten head b38838e1c30 faellt in 'Source  Go Tests  cli-3' (job 137173241314) mit cmd/baha/context_terminal_test.go:467 'zsh is required to run this wrapper path' - der Pre-Release-Workflow installiert im cli-source-test-KEIN zsh. cli-0/1/2 + packages sind SUCCESS, aber die runtime-Kette (HA groups 137174458368, runtime light 137174458574, heavy 137174458581) faill/skippt DESHALB - quellen-abhaengig, nicht diagnostics-code. Der CODEX-decision-(b)-anspruch ('native abbildung noetig') ist nur erfuellbar, wenn (i) die Pre-Release-Source-test-zeile zsh installiert (.github, OWNER-scope) ODER (ii) scripts/pr-gate-coverage.json app_broker native abbildet (0428-242, scripts, OWNER-scope). Beides kann die lane nicht. Karte auf WAIT; die dauerhafte abdeckung haengt an einer owner-entscheidung, der einmalige runtime-beleg an einer owner-wartung. Kein skipped-source-test als beleg werten.
 
 SEQUENZ-ABHAENGIGKEIT FESTGEHALTEN: #1763s runtime-beleg wartet NICHT auf einen eigenen fix, sondern auf #1746 auf develop (der zsh-install im source-test). Kette: PR 1746 (zsh-only, owner-pushed) -> develop hat zsh -> #1763 re-hop auf neues develop -> cli-3 gruen -> runtime-gates erreichbar -> exakter Hosted-CI/runtime-beleg -> unabhaengige pruefung am head. Die dauerhafte abbildung bleibt zusatzlich 0428-242 (scripts, owner). Kein skipped-source-test als beleg.
+
+REVIEW ABGESCHLOSSEN (fecbada9/1450c201-kette): content = redaktion correct + sentinel-YES. Kein merge vor der native-matrix. Loesung NICHT bei der lane (scripts/**): der owner setzt pr-gate-coverage.json app_broker eintrag (0428-242), DANN re-hop von #1763 auf neues develop (mit #1746 zsh+fish source-test, damit cli-3 gruen) und EIN durchgang mit echter native-matrix. Nach gruen: erneute kurze review-bestaetigung + merge. review-akte auf origin/main.
