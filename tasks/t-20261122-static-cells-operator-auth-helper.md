@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: b90e4ba1 (lane, fix aus eigenem hunt)
+owner: b90e4ba1 (lane, #1761)
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.c
 
 - [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (lane, fix aus eigenem hunt)  
+    **Owner:** b90e4ba1 (lane, \#1761)  
     **PR:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1761), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44994765677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44998552411), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44999534797), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/hunt-operator-auth-static-cells-round-1.md)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.c
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
-**Owner:** b90e4ba1 (lane, fix aus eigenem hunt)  
+**Owner:** b90e4ba1 (lane, #1761)  
 **Priority:** not set  
 **PRs:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
 **Source:** 
@@ -94,3 +94,5 @@ MESSE STATT MEINUNG, vier protokolle selbst gezogen (gh api job-logs, 72-257 KB)
 STANDALONE bestehende gate, KEIN #1746-blocker (owner-erklaerung): 'Managed-environment machine operations require an authenticated BaseHarbor operator for shell-ux-static/dev' - die shell-ux-static/dev zelle braucht eine operator-auth BASELINE/fixture. Das ist eine EIGENE bestehende gate, die der PR 1746 nicht verursacht und nicht blockiert (1746 cli-3 ist SUCCESS). Wer die operator-auth baseline in den static cells liefert, loest diese gate. Nicht mit 1746-akzeptanz verwechseln.
 
 HUNT-belegt -> UNABHAENGIG fixbar (nicht an #1753 gekoppelt). PRIMAERDEFEKT cmd/baha/local_workload_authority.go:62: fixture meldet '--access local-docker', check vergleicht gegen 'local' -> grant faellt ab -> 'authenticated operator' fails in shell-ux/init/config-matrix statischen zellen. FIX: local-docker/local-podman als grant akzeptieren, regression in cmd/baha shards, KEIN .github. SEKUNDAR (tag baseharbor_ci_operator_testonly fehlt = no-op helper) NUR melden, ob fix 2 allein genuegt (tag waere .github owner-scope). NEBENBEFUND: static-mcp rot ist NICHT operator-auth sondern die 0428-232 demo-pin/candidate perses-divergenz.
+
+SHARED-PREREQ. b90e4ba1 besitzt cmd/baha/operator_test_fixture_test.go. #1746 mcp-static failed an operator-auth fixture setup (Durchgang 45023477422) -> #1761 muss den static-cell operator-auth fixture-helper auf develop liefern. Achtung: #1769 nutzt fuer anonymen fall das REAL symbol operatorauth.WithEnforcement (kein neuer helper), also KEINE kollision. Guard/denial-logik NICHT aendern, kein auth-bypass.

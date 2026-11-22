@@ -7,7 +7,7 @@ areas: [cli, observability]
 release: v0.4.28
 version: ""
 parent: ""
-owner: f0f6c8b4 (fix)
+owner: coord (comment) / 1450c201 (review) / f0f6c8b4
 kanban_status: active
 kanban_lane: active
 kanban_summary: Every MCP mutation path whose test expects the verbatim gate message Managed-environment machine operations require an…
@@ -28,7 +28,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 - [ ] t-20261121-mcp-operator-seam-uncovered · 0428-218 make the MCP operator seam reachable from MCP tests #task #release/v0-4-28 #status/active #view/active #area/cli #area/observability #kind/bug
     <!-- generated:card -->
-    **Owner:** f0f6c8b4 (fix) · **Priority:** normal  
+    **Owner:** coord (comment) / 1450c201 (review) / f0f6c8b4 · **Priority:** normal  
     **PR:** [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741), [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738), [baseharbor#1769](https://github.com/mcpdev80/baseharbor/pull/1769)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md)  
     <!-- /generated:card -->
@@ -37,7 +37,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** f0f6c8b4 (fix)  
+**Owner:** coord (comment) / 1450c201 (review) / f0f6c8b4  
 **Priority:** normal  
 **PRs:** [baseharbor#1741](https://github.com/mcpdev80/baseharbor/pull/1741), [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738), [baseharbor#1769](https://github.com/mcpdev80/baseharbor/pull/1769)  
 **Source:** 
@@ -130,3 +130,5 @@ Recut #1769 review REQUEST CHANGES: acfee600b fails undefined operatorAuthFixtur
 Recut 1769 review REQUEST CHANGES: acfee600b fails undefined operatorAuthFixtureContext + withoutOperatorAuthTestContext (beide 0 definitionen auf develop; helper lebt in 1741 cmd/baha/operator_test_fixture_test.go). f0f6c8b4 portiert die helper (test-seitig, kein guard). 1741 bleibt offen bis 1769 verified+gemerged.
 
 Recut 1769 review REQUEST CHANGES: acfee600b fails undefined operatorAuthFixtureContext + withoutOperatorAuthTestContext. Beide auf develop NICHT vorhanden (H-V24 FUND1: withoutOperatorAuthTestContext existiert auch auf #1741-head nicht) -> fixer SCHREIBT die opt-out helpers test-seitig NEU (mcp.go:303->authentication_failed negativ-richtung erreichbar machen), KEINE produkt-/operatorauth-denial-aenderung. #1741 bleibt offen bis 1769 verified+gemerged.
+
+#1769 head 2f06b52a (nur Kommentar/umbruch gegenueber 8f5f4b0), 1 datei cmd/baha/mcp_operator_seam_test.go, verhaltensneutral. Anonymer opt-out nutzt REAL produkt-symbol operatorauth.WithEnforcement, KEIN shared-helper aus 0428-231 noetig -> keine write-set-kollision, keine hard-dep auf 231. Review 1450c201 routed; approve erst wenn exact-head 2f06b52a required checks terminal gruen (skipped native matrix OK fuer test-port). 1741 bleibt offen bis 1769 gemerged.

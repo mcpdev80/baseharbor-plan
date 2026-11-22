@@ -7,9 +7,9 @@ areas: [cli, testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: 0847d100
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-245 · footprint Unused gap
 priority: normal
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-footprint-human-presenter-drops-unused · Human footprint presenter drops the Unused field present in JSON contract #task #release/v0-4-28 #status/planned #view/ready #area/cli #area/testing #kind/bug
+- [ ] t-20261122-footprint-human-presenter-drops-unused · Human footprint presenter drops the Unused field present in JSON contract #task #release/v0-4-28 #status/active #view/active #area/cli #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** 0847d100 · **Priority:** normal  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** 0847d100  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 

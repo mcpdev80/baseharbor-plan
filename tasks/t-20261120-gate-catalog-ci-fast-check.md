@@ -15,10 +15,10 @@ kanban_title: "0428-205 · Gate catalog: ci-fast-check"
 priority: normal
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1746]
+prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1761]
 sources: []
 blocker: ""
-wait_reason: "SCHRITT 3: erst NACH 242 (232 fertig demo c23bd9ac) volstaendige release-qualifikation positiv+negativ am selben Stand. Traegt demo-pin ff2ccaf + beide-shell install; fokussierter pre-release lauf 45023477422 (atomic/static/mcp) laeuft ordinary, aber KEINE neue volle qualifizierung und NICHT mergen bevor 1768/242 gruen ist."
+wait_reason: "SCHRITT 3 (sequenz 242->232->1746). Neuer exact run 45023450298 auf head ff2ccaf LAEUFT, 5 component jobs, KEINE failures. ABER nicht merge-ready bevor #1768/242 gruen. Vorheriger run 45023477422 failed in mcp-static an operator-auth FIXTURE SETUP = geteiltes 0428-231 fixture-issue (Perses tools/list war green), KEIN demo-contract/aenderung an #1746, KEIN auth-bypass. Route: 0428-231/#1761 (b90e4ba1) liefert den fixture-helper."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "https://github.com/mcpdev80/baseharbor/actions/runs/44944570763", "https://github.com/mcpdev80/baseharbor/pull/1746"]
 ---
@@ -26,8 +26,8 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "h
 - [ ] t-20261120-gate-catalog-ci-fast-check · 0428-205 · Wire ci-fast-check into the release gate catalog #task #release/v0-4-28 #status/wait #view/wait #area/ci #kind/bug
     <!-- generated:card -->
     **Owner:** ffe7611b (hop+pin) / coord · **Priority:** normal  
-    **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
-    **Waiting:** SCHRITT 3: erst NACH 242 (232 fertig demo c23bd9ac) volstaendige release-qualifikation positiv+negativ am selben Stand. Traegt demo-pin ff2ccaf + beide-shell install; fokussierter pre-release lauf 45023477422 (atomic/static/mcp) laeuft ord…  
+    **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
+    **Waiting:** SCHRITT 3 (sequenz 242-\>232-\>1746). Neuer exact run 45023450298 auf head ff2ccaf LAEUFT, 5 component jobs, KEINE failures. ABER nicht merge-ready bevor \#1768/242 gruen. Vorheriger run 45023477422 failed in mcp-static an operator-auth FIXTU…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44943804395), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44944570763), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1746)  
     <!-- /generated:card -->
 
@@ -37,7 +37,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "h
 **Depends on:** none  
 **Owner:** ffe7611b (hop+pin) / coord  
 **Priority:** normal  
-**PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
+**PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
 **Source:** 
 <!-- /generated:links -->
 
