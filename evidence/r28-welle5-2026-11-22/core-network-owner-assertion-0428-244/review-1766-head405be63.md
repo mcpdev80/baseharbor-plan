@@ -54,3 +54,7 @@
 PENDING — the assertion correction is sound, but exact-head native Docker is queued and native Podman is in progress. The mission-specified failed jobs belong to another head, and the required merge sequence is not complete.
 
 END codex-rev2-1736 DONE: PENDING for exact head 405be63ff01061cdb3d5eeb0562ef441d6b89e6e; merge #1766 before rerunning #1765.
+
+## publication witness
+
+- Exact `git ls-tree -r --name-only origin/main | grep` output after fetching origin/main: `evidence/r28-welle5-2026-11-22/core-network-owner-assertion-0428-244/review-1766-head405be63.md`
