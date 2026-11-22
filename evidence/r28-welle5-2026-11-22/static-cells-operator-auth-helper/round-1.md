@@ -55,3 +55,9 @@ plus neu: `internal/operatorauth/test_operator.go` (72 Zeilen, einzige neue Date
 cleanliness: nothing started. Eigen pid 2928572. `docker ps -a` BEFORE = 0 entries; AFTER = 0 entries. Keine container/netzwerke/volumes; scratch `/var/tmp/go-cache-0428-231` (cache, bleibt unter /var/tmp); worktree workers/0428-231-authhelper-wt ist meine Lane-Zone.
 
 END 0428-223-testctx DONE (branch lane-0428-231-static-auth-helper, head 5794874302f, base-behind=0, PR #1761, run 44994765677 completed SUCCESS, failed 0, cleanliness: nothing started)
+
+## origin/main witness
+
+```
+evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/round-1.md
+```
