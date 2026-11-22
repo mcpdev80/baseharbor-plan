@@ -7,38 +7,37 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: f0f6c8b4 (lane, umgeschichtet) / Owner (zusammenlegung mit 0428-227?)
+owner: 0847d100 (lane, naechster auftrag) / f0f6c8b4 (read-only-vorarbeit)
 tags: [#task, #release/v0.4-28]
-kanban_status: wait
-kanban_lane: wait
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-237 · data-capabilities native gate
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1753]
+prs: [mcpdev80/baseharbor#1753, mcpdev80/baseharbor#1761]
 sources: []
 blocker: ""
-wait_reason: "no repeatable not_ready on current develop tip: zero readiness-timeout lines in the four job logs measured, one not_ready line in podman job 137139636747; shared blocker is the footprint-show admission (0428-227)"
+wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/45000121766", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44998846458"]
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/45000121766", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44998846458", "https://github.com/mcpdev80/baseharbor/actions/runs/45008538769", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-3.md"]
 ---
 
-- [ ] t-20261122-runtime-broker-health-unhealthy · CI: data-capabilities native gate fails on secure runtime broker readiness #task #release/v0-4-28 #status/wait #view/wait #kind/task
+- [ ] t-20261122-runtime-broker-health-unhealthy · CI: data-capabilities native gate fails on secure runtime broker readiness #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** f0f6c8b4 (lane, umgeschichtet) / Owner (zusammenlegung mit 0428-227?)  
-    **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
-    **Waiting:** no repeatable not\_ready on current develop tip: zero readiness-timeout lines in the four job logs measured, one not\_ready line in podman job 137139636747; shared blocker is the footprint-show admission (0428-227)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998846458)  
+    **Owner:** 0847d100 (lane, naechster auftrag) / f0f6c8b4 (read-only-vorarbeit)  
+    **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998846458), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45008538769), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** f0f6c8b4 (lane, umgeschichtet) / Owner (zusammenlegung mit 0428-227?)  
+**Owner:** 0847d100 (lane, naechster auftrag) / f0f6c8b4 (read-only-vorarbeit)  
 **Priority:** not set  
-**PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
+**PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -123,3 +122,5 @@ UMGESCHICHTET, weil meine these die messung nicht traegt: 'readiness timeout' NU
 UMGESCHICHTET, weil meine these die messung nicht traegt: 'readiness timeout' NULL mal in den vier protokollen, 'not_ready' GENAU EIN mal (podman 137139636747). Shared blocker ist die fussnoten-ZULASSUNG (0428-227). Auftrag an die lane: chronologie-aenderung gestoppt, kein PR ohne wiederholbaren not_ready auf develop 8629450ef3c, dafuer der abgrenzungs-abschnitt in runde-3 (akten-Regel: keine checkbox-zeilen, nummerierte listen - sie blockieren die board-publikation).
 
 UMGESCHICHTET, weil meine these die messung nicht traegt: 'readiness timeout' NULL mal in den vier protokollen, 'not_ready' GENAU EIN mal (podman 137139636747). Shared blocker ist die fussnoten-ZULASSUNG (0428-227). Auftrag: chronologie-aenderung gestoppt, kein PR ohne wiederholbaren not_ready auf develop 8629450ef3c, dafuer der abgrenzungs-abschnitt in runde-3 (akten-regel: nummerierte listen statt checkbox-zeilen, die blockieren die publikation).
+
+ARBEIT WIEDER AKTIV, WEIL DER FALL REAL IST (protokoll von mir, nativer docker-job 137165488041 im durchgang 45008538769, head b86440c3 auf develop 8629450ef3c): 'app_capability_runtime_test.go:136: [app apply --skip-memory-preflight]: Starting secure runtime broker:' mit 'unhealthy' 2 mal, daneben READY 8 mal und OpenBao 2 mal, und 'live runtime inventory: Core containers=0 total containers=0' (zeile :55). DER BROKER STARTET ALSO NICHT HOCH, waehrend control-plane und OpenBao bereit melden - das zeigt auf den runtime-executor-pfad (server_run.go:182/:203), nicht auf database/openbao. Meine pauschale zuruecknahme von vorhin war zu breit: der defekt ist reproduzierbar, nur nicht in den develop-Core-laehlen. AUFTRAG: fix auf 0847d100 nach ihrem #1753-bericht (ihr durchgang traegt den beweis), verbotenerweg weiter: kein timeout erhoehen, kein retry, kein sleep, kein 'not_ready' durch 'ok'. SELECTED-seite ist eine ANDERE karte geworden: 0428-241 (guided fixture drift, dep-frei, wartet auf einen freien sitz).
