@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: fecbada9/1450c201 (review) + Owner (merge autorisiert durch sweep-klaerung)
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "The whole-package Go unit suite (go test ./...) is red on develop and no merge gate runs it: make the suite pass on develop…"
 kanban_title: 0428-223 · full-suite unit tests are red
 priority: ""
@@ -19,18 +19,19 @@ prs: [mcpdev80/baseharbor#1750]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1750", "https://github.com/mcpdev80/baseharbor/commit/c463edf87ee6f12c9da2ae2ee02ea6fe7c7ef0f9", "https://github.com/mcpdev80/baseharbor/actions/runs/44990801974", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/testcontext-0428-223/review-1750-headf6d3fc5c23.md"]
 ---
 
-- [ ] t-20261121-develop-full-suite-red · CI: full-suite unit tests are red on develop and no merge gate runs them #task #release/v0-4-28 #status/review #view/review #kind/task
+- [x] t-20261121-develop-full-suite-red · CI: full-suite unit tests are red on develop and no merge gate runs them #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** fecbada9/1450c201 (review) + Owner (merge autorisiert durch sweep-klaerung)  
     **PR:** [baseharbor#1750](https://github.com/mcpdev80/baseharbor/pull/1750)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1750), [proof 2](https://github.com/mcpdev80/baseharbor/commit/c463edf87ee6f12c9da2ae2ee02ea6fe7c7ef0f9), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44990801974), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/testcontext-0428-223/review-1750-headf6d3fc5c23.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261120-workload-port-flag-ignored-locally](t-20261120-workload-port-flag-ignored-locally.md), [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md), [t-20261122-static-cells-operator-auth-helper](t-20261122-static-cells-operator-auth-helper.md)  
@@ -95,3 +96,5 @@ Hop ist gelandet: head 5d47569f337 (additiv, back=0, run 44986337450 SUCCESS, 0 
 Verdict auf origin/main: APPROVE am exakten head 5d47569f337, ausdruecklich als additiver develop-only hop gegen das fruhere APPROVE bei 17f471cd3fe bestaetigt (akte testcontext-0428-223/review-1750-head5d47569f337.md). Damit ist die merge-blockade weg. Ein additiver hop auf develop 5ca8420c181 laeuft parallel; die merge-session prueft den LEBENDEN refs/pull/1750/head und merged bei CLEAN + terminal SUCCESS (zwei getrennte akten, ROLLE-Label, rule-getreu).
 
 APPROVE am LEBENDEN head f6d3fc5c23e4a3097d4d36130303338b0ff180bd ist publiziert (akte testcontext-0428-223/review-1750-headf6d3fc5c23.md, remote bestaetigt): exact run 44990801974 completed SUCCESS, 14 jobs success / 0 failed / 21 skipped, required aggregate 'PR Selected Checks' success; validate 137111207599, Native matrix 137111239451, Native Keycloak/Core 137111249223 und Selected Runtime 137111249509 sind SKIPPED - erwarteter stand VOR PR 1756, kein ablehnungsgrund. Der hop auf develop 5ca8420c181 fuegt ausschliesslich develop-inhalt bei (log 5d47569f337..f6d3fc5c23e = nur der #1714 squash). CODEX-MERGE ist beauftragt.
+
+PR 1750 ist GEMERGT: merged_at 2026-11-22T05:59:48Z, merge-commit c463edf87ee6f12c9da2ae2ee02ea6fe7c7ef0f9 = neuer develop-stand (per git ref bestaetigt). Exakter kandidat war head f6d3fc5c23e (7 commits, +852 -37, 12 dateien, alle cmd/baha/*_test.go), exact run 44990801974 SUCCESS mit 'PR Selected Checks' success, verdict am exakten head war APPROVE auf origin/main. Keine skips wurden umgangen: validate 137111207599 und Selected Runtime 137111249509 waren an diesem head noch SKIPPED, weil die katalogzeilen erst mit PR 1756 kommen - das ist ausdruecklich als erwarteter stand dokumentiert, nicht als freigabe. Die 14 roten develop-suite-faelle sind mit diesem merge beseitigt; karte 0428-231 (operator-auth-helper) verliert damit ihre abhaengigkeit.

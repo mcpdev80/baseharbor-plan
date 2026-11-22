@@ -29,7 +29,7 @@ created: 2026-11-20
     **Owner:** w1625-pr1723-0428-199-workloadport  
     **PR:** [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723)  
     **Waiting:** kopf exakt (8fe3c9bfb3c, back=0) UND der data-capabilities-job laeuft dort wirklich (Selected Runtime atomic/docker/data-capabilities, job 137056660905) - scheitert aber vor der footprint-grenze an der runtime-consent-stelle (confirm-candi…  
-    **Needs:** [t-20261114-r28-cli2-env-delete](t-20261114-r28-cli2-env-delete.md), [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md), [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md)  
+    **Needs:** [t-20261114-r28-cli2-env-delete](t-20261114-r28-cli2-env-delete.md), [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44788134959)  
     <!-- /generated:card -->
 

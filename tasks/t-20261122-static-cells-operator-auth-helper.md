@@ -9,7 +9,7 @@ version: ""
 parent: ""
 owner: ""
 kanban_status: planned
-kanban_lane: planned
+kanban_lane: ready
 kanban_summary: ""
 kanban_title: 0428-231 · operator auth in static cells
 priority: ""
@@ -23,15 +23,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/planned #view/waiting #board/planned #kind/task
+- [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/planned #view/ready #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
 **Owner:** unassigned  
