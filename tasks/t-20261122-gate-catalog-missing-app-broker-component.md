@@ -7,9 +7,9 @@ areas: [testing, ci]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: blocked
-kanban_lane: blocked
+owner: ffe7611b (Codeman lane, OWNER-FREIGABE scripts/** 22.11) / coord (zeugnis)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Make broker diagnostics provable in hosted CI: scripts/pr-gate-coverage.json carries 65 cmd/baha path entries but no entry…"
 kanban_title: 0428-242 · app_broker not in gate catalog
 priority: high
@@ -17,25 +17,24 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1763]
 sources: []
-blocker: "OWNER-scope aktion ausstehend: scripts/pr-gate-coverage.json traegt keinen component fuer cmd/baha/app_broker.go (65 cmd/baha, 0 app_broker), dadurch ist der native gate-plan fuer PR 1763 leer (matrix include=[]), kein gehosteter runtime-beleg moeglich; scripts/** ist owner-scope"
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45011815553"]
 ---
 
-- [ ] t-20261122-gate-catalog-missing-app-broker-component · Gate catalog: no coverage component for cmd/baha/app_broker.go #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/testing #kind/bug
+- [ ] t-20261122-gate-catalog-missing-app-broker-component · Gate catalog: no coverage component for cmd/baha/app_broker.go #task #release/v0-4-28 #status/active #view/active #area/ci #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
+    **Owner:** ffe7611b (Codeman lane, OWNER-FREIGABE scripts/\*\* 22.11) / coord (zeugnis) · **Priority:** high  
     **PR:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763)  
-    **Blocker:** OWNER-scope aktion ausstehend: scripts/pr-gate-coverage.json traegt keinen component fuer cmd/baha/app\_broker.go (65 cmd/baha, 0 app\_broker), dadurch ist der native gate-plan fuer PR 1763 leer (matrix include=\[\]), kein gehosteter runtime-b…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45011815553)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** ffe7611b (Codeman lane, OWNER-FREIGABE scripts/** 22.11) / coord (zeugnis)  
 **Priority:** high  
 **PRs:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763)  
 **Source:** 
@@ -69,3 +68,5 @@ DER EINE FEHLENDE SCHRITT FUER #1763 RUNTIME-BELEG (owner-scope scripts/**): #17
 owner-scope stueck, damit #1763 runtime-beleg bekommt. Gemessen an head c698d1310 durchgang 45011815553: 'Native gate plan matrix EMPTY', selected runtime skipped - die broker-diagnose hat KEINEN gehosteten runtime-zeugen. Loesung = ein component-eintrag in scripts/pr-gate-coverage.json der cmd/baha/app_broker.go auf die data-capabilities-native gaete mappt (analog der cmd/baha/app_* muster ab datei ~142). Kein lanen-zugriff (scripts/**).
 
 VON DER #1763-LANE BELEGT (head c698d1310, run 45011815553 SUCCESS, alle vier runtime-reihen SKIPPED). Die einzige loesung liegt in scripts/pr-gate-coverage.json: ein component analog cmd/baha/app_* (ab datei ~142) der app_broker.go auf die data-capabilities-native gaete mappt. File:line in akte runtime-broker-0428-240/ready-round-1.md. Owner-aktion, keine lane.
+
+UMGESTELLT von 'blocked auf owner' auf 'active Codeman': der owner hat am 22.11 scripts/** fuer die Codeman-front FREIGEGEBEN. Ein vorgang = (A) katalogeintrag cmd/baha/app_broker.go in pr-gate-coverage.json (muster: path+surfaces data.capabilities docker+podman) + (B) fail-loud-Waechter (validate-pr-gate-coverage.py / pr-native-gate-plan.py): geaenderte UNKATALOGISIerte datei => exit!=0 mit fehlender katalognummer + naechster handlung, NIE leere matrix=gruen. + (C) test-faelle katalogisiert vs unkatalogisiert. Bezug #1763 native matrix. KEINE broker-/runtime-/github-datei (Codex Runner domain).
