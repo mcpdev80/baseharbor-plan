@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: b90e4ba1 (#1771 hopped 2d578b1d TP GREEN via #1786; #1761 b9b8f059 TP-green inherits #1783/#1788) / Coordinator
+owner: b90e4ba1 (#1771 hopped 2d578b1d TP GREEN run 45063171920 provider-fix feldbestaetigt; #1761 b9b8f059 TP-green) / Coordinator
 kanban_status: review
 kanban_lane: review
 kanban_summary: ""
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.c
 
 - [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (\#1771 hopped 2d578b1d TP GREEN via \#1786; \#1761 b9b8f059 TP-green inherits \#1783/\#1788) / Coordinator  
+    **Owner:** b90e4ba1 (\#1771 hopped 2d578b1d TP GREEN run 45063171920 provider-fix feldbestaetigt; \#1761 b9b8f059 TP-green) / Coordinator  
     **PR:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1784](https://github.com/mcpdev80/baseharbor/pull/1784), [baseharbor#1785](https://github.com/mcpdev80/baseharbor/pull/1785), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1786](https://github.com/mcpdev80/baseharbor/pull/1786), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1761), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44994765677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44998552411), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44999534797), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/hunt-operator-auth-static-cells-round-1.md)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.c
 **State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
-**Owner:** b90e4ba1 (#1771 hopped 2d578b1d TP GREEN via #1786; #1761 b9b8f059 TP-green inherits #1783/#1788) / Coordinator  
+**Owner:** b90e4ba1 (#1771 hopped 2d578b1d TP GREEN run 45063171920 provider-fix feldbestaetigt; #1761 b9b8f059 TP-green) / Coordinator  
 **Priority:** not set  
 **PRs:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1784](https://github.com/mcpdev80/baseharbor/pull/1784), [baseharbor#1785](https://github.com/mcpdev80/baseharbor/pull/1785), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1786](https://github.com/mcpdev80/baseharbor/pull/1786), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762)  
 **Source:** 
@@ -130,3 +130,5 @@ CATALOG-Order bestaetigt: #1785 (f0f surface-e, diff nur pr-gate-coverage.json, 
 #1771 b9dc3c31 = behind -> Trusted Plan fail (2 sources, jetzt in #1786 develop 978a0f90b katalogisiert). b90e additiver hop 978a0f90b (dep-frei, nur #1786 noetig) laeuft -> TP gruen + rerun, neuer head. Provider content fertig (docker<->Docker/podman<->Podman, mismatch/remote fail-closed + regression). #1761 selected = geteilter #1783 app-new/#1788 app-edit seam -> re-hop erst nach #1783<-#1788 combined merge. native :edge = waiting-#1770. develop 978a0f90b.
 
 #1771 additiver hop 2d578b1d auf develop 978a0f90b (#1786: target.go + provider_test rows) -> TRUSTED PLAN GREEN (run: TP pass; der bisherige '2 unkatalogisierte sources' TP-fail ist damit behoben, catalog geerbt). Provider content fertig + regression (mismatch/remote fail-closed). fail=3 = native :edge waiting-#1770 + selected waiting-#1783/#1788. #1761 b9b8f059 TP-green, selected=#1783 seam erbt. Merge-ready beider nach #1770+#1783 combined + owner review. develop 978a0f90b.
+
+#1771 additiver hop 2d578b1d auf develop 978a0f90b (#1786: target.go+provider_test cataloged, disjunkte write-sets, KEIN conflict). EXACT run 45063171920 terminal: TRUSTED PLAN SUCCESS (job 137333403798) = der 2-unkatalogisierte-sources TP-fail ist behoben (catalog geerbt, gemessen). PROVIDER-FIX FELDBESTAETIGT: kein 'has no authenticated live runtime binding' reject mehr, runtime probe passiert, up/up-with-confirm-candidate formen OK. reds NUR shared: native :edge waiting-#1770 (137333455659/74) + selected waiting-#1783/#1788 (consent + footprint-show admission, 137333849722/74). #1761 b9b8f059 TP-green. Merge-ready beider nach #1770+#1783 combined + owner review. develop 978a0f90b.
