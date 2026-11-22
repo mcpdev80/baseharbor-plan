@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0847d100 (hop #1753 auf b48ac03ef laeuft) / Coordinator
-kanban_status: active
-kanban_lane: active
+owner: Coordinator (ingress-wartend) / Lane eingefroren
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "The disposable acceptance gates that legitimately call baha app footprint show are admitted by the CI operator boundary, so the…"
 kanban_title: 0428-227 · footprint show gate admission
 priority: ""
@@ -17,25 +17,26 @@ depends_on: [t-20261121-develop-full-suite-red, t-20261122-ci-integration-operat
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1753, mcpdev80/baseharbor#1746]
 sources: []
-blocker: ""
+blocker: "trusted-base catalog precedence ist TEST-ERZWUNGEN (test_pr_native_gate_plan.py asserted git show :katalog; owner-beweis 2026-11-23). Naechster Trigger: merge der karte t-20261123-catalog-ingress-develop-prereqs (rows fuer local_runtime.go + local_runtime_test.go, beide existieren in develop), dann re-run/re-hop #1753 ohne branch-seitige katalog-edits. Native gates zu ende beobachten laut freeze-mission."
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44993125398", "https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44998829701", "https://github.com/mcpdev80/baseharbor/actions/runs/45008538769", "https://github.com/mcpdev80/baseharbor/actions/runs/45014558296", "https://github.com/mcpdev80/baseharbor/actions/runs/45015912507"]
 ---
 
-- [ ] t-20261122-footprint-show-not-admitted-in-data-capabilities-gate · Acceptance contract: baha app footprint show is admitted only for the guided gate #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261122-footprint-show-not-admitted-in-data-capabilities-gate · Acceptance contract: baha app footprint show is admitted only for the guided gate #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
-    **Owner:** 0847d100 (hop \#1753 auf b48ac03ef laeuft) / Coordinator  
+    **Owner:** Coordinator (ingress-wartend) / Lane eingefroren  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
+    **Blocker:** trusted-base catalog precedence ist TEST-ERZWUNGEN (test\_pr\_native\_gate\_plan.py asserted git show :katalog; owner-beweis 2026-11-23). Naechster Trigger: merge der karte t-20261123-catalog-ingress-develop-prereqs (rows fuer local\_runtime.go…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44993125398), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998829701), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45008538769), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/45014558296), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45015912507)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](t-20261122-ci-integration-operator-seams-without-gate-admission.md)  
 **Required by:** [t-20261120-workload-port-flag-ignored-locally](t-20261120-workload-port-flag-ignored-locally.md)  
-**Owner:** 0847d100 (hop #1753 auf b48ac03ef laeuft) / Coordinator  
+**Owner:** Coordinator (ingress-wartend) / Lane eingefroren  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
 **Source:** 
@@ -144,3 +145,5 @@ KRITISCHER PFAD FUER #1746-volles-suite + #1753 + #1761 + #1762. Der owner-repor
 #1753 SERIALISIERT (ein schreiber pro zeit): Codex Runner arbeitet JETZT auf dem branch (0428-237 broker-image-fix additiv, integration-SHA 626490f9, run 45018148255; nativ docker 137194876293 GREEN mit vollem lifecycle PASS, podman 137194876273 laeuft; gofmt/cli-1 aus frueherem app_broker.go-commit steht aus). 0847d100 haelt ihren 0428-227 footprint-consent-push, bis der codex runner terminal meldet, dann additiv darauf. 0428-227 seite unveraendert bei 0847d100. 0428-237 = BELEGT UMGEBUNG/FIXTURE-DRIFT (image :edge statt SHA-build), der 237-karte/zustand bleibt beim Codex Runner.
 
 PROMOTED (owner-direktive): #1753 ist der admission-fix, den #1773s selected-gate braucht -> hop direkt auf b48ac03ef, exact-head gruen + merge VOR #1773. 0847 fuehrt aus nach 3x host-bounce auf w26 (reason-coded, sitz aufgegeben).
+
+catalog-registry im selben PR gepusht (owner-verifiziert): components-entry fuer internal/operatorauth/local_runtime.go (diff vs develop = +9, nur eigene zeilen, muster analog test_operator.go runtime_specific+beide data-caps surfaces). alter run 45083252785 auf head 3c81ea42 = superseded; PR-base weiterhin BEHIND (merge-base cace61802 vs develop ef73b50b) -> nach terminalem green von 45084041925 EIN final-hop auf ef73b50b, dann merge-ready. Kein anderer owner-branch angefasst.
