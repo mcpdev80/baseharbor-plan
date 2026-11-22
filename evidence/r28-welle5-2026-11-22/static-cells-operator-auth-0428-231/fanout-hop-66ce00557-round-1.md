@@ -58,7 +58,7 @@ moet daarmee alle drie gates groen zijn.
 ## cleanliness
 
 cleanliness: `docker ps -a` BEFORE = 0 entries (pid 2446620), AFTER = 0 entries
-(pid 2499411). Geen compose/container gestart op deze host. Geen scratch
+(pid 2510040). Geen compose/container gestart op deze host. Geen scratch
 achtergelaten (/var/tmp/0428-223* leeg). Werktree
 workers/0428-231-opauthfix-wt 0 delta na de hop-push.
 
