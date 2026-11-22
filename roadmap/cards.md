@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 151/239 · **Blocked:** 3 · **Waiting:** 21  
+    **Accepted tasks:** 151/240 · **Blocked:** 3 · **Waiting:** 21  
     **Blocker:** [t-20261109-r27-target-policy-presets](../tasks/t-20261109-r27-target-policy-presets.md) — DEFERRED SCOPE, PR CLOSED WITHOUT MERGE (Owner disposition 2026-11-21 20:58:18Z). PR \#1588 = state CLOSED, mergeCommit=none, exact head 28842990d8fe86cc9090b18…  
     **Blocker:** [t-20261120-gate-catalog-ci-fast-check](../tasks/t-20261120-gate-catalog-ci-fast-check.md) — Owner decision needed on corrected scope after Option A (2026-11-21): exact current \#1665 base/head b71c6da27e8b/db27880c108a passes both Workflow policy and G…  
     Plus 1 further blockers in the task list.  
