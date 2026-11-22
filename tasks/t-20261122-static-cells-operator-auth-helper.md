@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: b90e4ba1 (#1761 b9b8f059 TP-green, selected=#1783 seam inherits; #1771 surface-f rows) / f0f(surface-f) / Owner(review) / Coordinator
+owner: b90e4ba1 (#1761 b9b8f059 TP-green; #1771 re-hop 978a0f90b nach #1783) / f0f(#1762 hop) / Coordinator
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -15,7 +15,7 @@ kanban_title: 0428-231 · operator auth in static cells
 priority: ""
 depends_on: [t-20261121-develop-full-suite-red]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1784, mcpdev80/baseharbor#1785, mcpdev80/baseharbor#1783]
+prs: [mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1784, mcpdev80/baseharbor#1785, mcpdev80/baseharbor#1783, mcpdev80/baseharbor#1786, mcpdev80/baseharbor#1762]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -25,8 +25,8 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.c
 
 - [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (\#1761 b9b8f059 TP-green, selected=\#1783 seam inherits; \#1771 surface-f rows) / f0f(surface-f) / Owner(review) / Coordinator  
-    **PR:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1784](https://github.com/mcpdev80/baseharbor/pull/1784), [baseharbor#1785](https://github.com/mcpdev80/baseharbor/pull/1785), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
+    **Owner:** b90e4ba1 (\#1761 b9b8f059 TP-green; \#1771 re-hop 978a0f90b nach \#1783) / f0f(\#1762 hop) / Coordinator  
+    **PR:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1784](https://github.com/mcpdev80/baseharbor/pull/1784), [baseharbor#1785](https://github.com/mcpdev80/baseharbor/pull/1785), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1786](https://github.com/mcpdev80/baseharbor/pull/1786), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1761), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44994765677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44998552411), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44999534797), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/hunt-operator-auth-static-cells-round-1.md)  
     <!-- /generated:card -->
 
@@ -34,9 +34,9 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.c
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
-**Owner:** b90e4ba1 (#1761 b9b8f059 TP-green, selected=#1783 seam inherits; #1771 surface-f rows) / f0f(surface-f) / Owner(review) / Coordinator  
+**Owner:** b90e4ba1 (#1761 b9b8f059 TP-green; #1771 re-hop 978a0f90b nach #1783) / f0f(#1762 hop) / Coordinator  
 **Priority:** not set  
-**PRs:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1784](https://github.com/mcpdev80/baseharbor/pull/1784), [baseharbor#1785](https://github.com/mcpdev80/baseharbor/pull/1785), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
+**PRs:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1784](https://github.com/mcpdev80/baseharbor/pull/1784), [baseharbor#1785](https://github.com/mcpdev80/baseharbor/pull/1785), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1786](https://github.com/mcpdev80/baseharbor/pull/1786), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -122,3 +122,5 @@ CATALOG-Order bestaetigt: #1785 (f0f surface-e, diff nur pr-gate-coverage.json, 
 #1771 provider-fix = CORRECT (detectRuntimeForTarget: local-docker<->Docker, local-podman<->Podman, mismatch/remote/unknown fail-closed, 9/9 regression; provider-reject 'no authenticated live runtime binding' NICHT mehr in native cells -> grant laeuft bis candidate-consent (#1783/#1770 familie, separat). #1771 TP failt NUR wegen 2 uncataloged diff-sources (cmd/baha/target.go MODIFIED + target_runtime_access_provider_test.go NEW), catalog ausserhalb #1771 write-set -> f0f surface-f catalog-PR (#1785 muster), dann b90e re-hop #1771. #1761 hop auf 1253e8d0a (erbt #1785) -> TP gruen. develop 1253e8d0a.
 
 #1761 hop b9b8f059 auf 1253e8d0a = Trusted Plan GREEN (erbt #1785 catalog). run 45059388188: SELECTED docker+podman data-caps FAIL = SELBER geteilter #1783 fixture seam (app new/create-only operator auth, admitted nur gate==guided :129) - KEIN unique #1761 defect, KEIN demo digest-edit (no-op). #1761 erbt #1783 fixture-loesung: nach #1783 app-new admission merge + #1761 re-hop -> selected gruen. native docker/podman = :edge broker #1770 (laufen noch). Kein merge bis terminal + nach #1783. #1771 TP-fail wartet surface-f rows (f0f). develop 1253e8d0a.
+
+#1761 hop b9b8f059 (auf 1253e8d0a) Trusted Plan GREEN run 45059388188 terminal; selected data-caps fail = geteilter #1783 app-new seam (kein unique fix, erbt loesung). #1786 GEMERGT (978a0f90b: target.go+provider-test rows) -> #1771 hoppt nach #1783 push auf 978a0f90b -> TP gruen. #1762 f0f additiver hop 978a0f90b (1-file test-only, GitHub-hosted dep-frei, native waiting-#1770). develop JETZT 978a0f90b (#1786 squash).

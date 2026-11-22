@@ -7,7 +7,7 @@ areas: [testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: b90e4ba1 (#1783 tagged-fixture app-new/create-only operator admission auf selected gates; KEIN demo/247) / Owner(zsh+fish+decision shared) / Coordinator
+owner: b90e4ba1 (#1783 narrow app-new fixture admission :129 -> data-caps + regression; KEIN demo/digest/247) / Coordinator
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261122-guided-fixture-footprint-contract-divergence · Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 #task #release/v0-4-28 #status/active #view/active #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (\#1783 tagged-fixture app-new/create-only operator admission auf selected gates; KEIN demo/247) / Owner(zsh+fish+decision shared) / Coordinator · **Priority:** high  
+    **Owner:** b90e4ba1 (\#1783 narrow app-new fixture admission :129 -\> data-caps + regression; KEIN demo/digest/247) / Coordinator · **Priority:** high  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** b90e4ba1 (#1783 tagged-fixture app-new/create-only operator admission auf selected gates; KEIN demo/247) / Owner(zsh+fish+decision shared) / Coordinator  
+**Owner:** b90e4ba1 (#1783 narrow app-new fixture admission :129 -> data-caps + regression; KEIN demo/digest/247) / Coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771)  
 **Source:** 
@@ -113,3 +113,5 @@ CRITICAL PATH: #1783 head haengt noch 8f84fcbb (run 45045885547 old fails: nativ
 #1783 selected REAL root (owner exact-log @demo pin 98e4d549): NICHT candidate-consent (apply --confirm-candidate digest-pfad existiert schon, gruen 17:47). Echter Timeout 17:50: new_application(create-only) -> app newfordert interaktive DEV operator auth ('Configure now?'), weil app new im tagged fixture nur gate==guided admitted ist (ci_integration_operator_enabled.go :129 ciIntegrationGuidedAppNew), NICHT unter data-caps/core-caps. FIX = analog footprint-show: app-new/create-only operator admission auf {data-capabilities, core-capability} gates, candidate consent unveraendert, product fail-closed intact. KEIN baseharbor-demo edit, KEIN 247. (A)-owner-blocker FAELLT WEG. b90e routed, neuer head noetig (nicht 2da7f565). native=#1770. develop 1253e8d0a.
 
 ENTSCHEID shared (owner+coordinator): #1783 selected timeout = getagtes TEST-FIXTURE muss app new/create-only operator stempeln unter data-caps/core-caps (analog footprint-show :129 nur-guided). NICHT baseharbor-demo digest-edit (no-op, apply --confirm-captured-digest bereits gruen), NICHT Core/produkt-boundary (fail-closed intact), NICHT 247. Fix im bestehenden #1783 write-set (b90e), KEIN neuer owner. STOP-Fall nur falls echte product session-binding. neuer head noetig (nicht 2da7f565) + exact hosted. native=#1770. develop 1253e8d0a.
+
+#1783 NARROW fix (owner-diagnose, scope berichtigt): ciIntegrationGuidedAppNew admitted nur gate==guided (:129); data-capabilities `app new` create-only faellt durch -> interaktive OIDC -> PTY timeout. FIX = getagtes test-fixture app-new admission auf gate==data-capabilities, exakt kanonische args + Regression (noncanonical + ANDERE gates DENIED/unchanged), kein blanket-allow. Produkt --confirm-candidate boundary UNVERAENDERT; Demo digest NICHT angefasst (existiert, gruen). Footprint-show :135 nur falls rerun-log selected consent-fail zeigt. b90e laeuft, neuer head (nicht 2da7f565). develop 978a0f90b. native=#1770.
