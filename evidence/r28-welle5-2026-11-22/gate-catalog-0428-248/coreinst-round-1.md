@@ -93,3 +93,11 @@ worden vóór END verwijderd. Werkboom workers/0428-248-coreinstwt houdt de
 kandidaat (0 delta na commit).
 
 END 0428-223-testctx DONE — 0428-248 coreinst-round-1: branch lane-0428-248-coreinst-catalog, head f271ebde70ddc342d700f811f9250cf93e863794 (ONE commit op exact develop 3939aa5, ANCESTOR/log/diff bewezen), PR #1781 class READY (draft→ready per opdracht), exact hosted run 45042277776 completed/success failed=0 met Trusted Plan 137269184752 + pr-planner-tests 137269255448 + Focused Python 137269255316 EXECUTED success, 'core_installation_runtime_test -> data-caps gemappt, dup-frei', 'trusted-planner #1738 cataloged: ja', cleanliness: besenrein
+
+## origin/main witness
+
+Exacte uitvoer van `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep coreinst` (plan main = d427559aed66422d86c507a0bbbdece0f6b504a9):
+
+```
+evidence/r28-welle5-2026-11-22/gate-catalog-0428-248/coreinst-round-1.md
+```
