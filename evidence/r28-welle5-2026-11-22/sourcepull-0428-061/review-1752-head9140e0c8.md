@@ -95,9 +95,13 @@ The machine golden-fixture diff is additive: exactly one `app.pull` operation re
 
 REQUEST CHANGES for exact head `9140e0c8224e2ed346e6971aa0b2f6266d9c88a5`. Blocking findings: F1 and F2. F3 is a non-blocking but needed accuracy/test-coverage correction. Exact hosted run 44968867153 is green, but green CI does not resolve the interface and output-mode contract defects. No branch modification or merge requested. Preserve #1753 hold.
 
-END codex-rev-1747 BLOCKED — independent review requests changes; candidate 9140e0c8224e2ed346e6971aa0b2f6266d9c88a5
+END codex-rev-1747 DONE — independent review requests changes; candidate 9140e0c8224e2ed346e6971aa0b2f6266d9c88a5
 - After review, PID 1467884: `docker ps -a` again listed the same seven exited `bh-itest-*` containers and no running containers; no review-owned container was created.
 
 ## Planning publication
 
 - Verified Planning repository remote before commit: `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)` and `origin https://github.com/mcpdev80/baseharbor-plan.git (push)`.
+- First evidence push delivery witness: `96210383bafa3786c6cb61cc804da51937346d5a refs/heads/main`.
+- Board step 105 marked done; #1753 step 104 remains done with its existing hold state.
+
+- Exact required origin/main tree witness after fetch: `evidence/r28-welle5-2026-11-22/sourcepull-0428-061/review-1752-head9140e0c8.md`.
