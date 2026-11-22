@@ -7,9 +7,9 @@ areas: [cli, documentation]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: Owner (re-hop #1773) / fecbada9|1450c201 (review auf gruen)
-kanban_status: review
-kanban_lane: review
+owner: Owner (re-hop) / Coordinator (route) — content selbst gruen
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: ""
 kanban_title: 0428-246 · footprint human doc gaps
 priority: normal
@@ -17,23 +17,24 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1773]
 sources: []
-blocker: ""
+blocker: "#1773 head 3ec2eba base 68b26bd exact run 45036009904 TERMINAL FAILURE, aber diff ist docs-only presenter (content okay). Aggregate rot NUR durch ZWEI fremde blocker: (1) selected-runtime docker+podman 137250325955/137250325942 failen 'record deployment before mutation requires --confirm-candidate' = KARTE 0428-241 (f0f6c8b4, re-aimed, laeuft). (2) native docker 137249846862 + podman 137249846882 failen TestApplicationCapabilityLifecycleExistingCore/secrets MIT digest, podman ZUSAETZLICH broker not_ready HTTP 503 = KARTE 0428-237 (andere Codex-Session/#1770; NICHT codeman-lane). Naechster trigger: 241 selected fix gemerged DANN 237 broker-503 native geklaert, dann #1773 re-run."
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-footprint-human-surface-doc-gaps · Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract #task #release/v0-4-28 #status/review #view/review #area/cli #area/documentation #kind/maintenance
+- [ ] t-20261122-footprint-human-surface-doc-gaps · Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract #task #release/v0-4-28 #status/blocked #view/blocked #area/cli #area/documentation #kind/maintenance
     <!-- generated:card -->
-    **Owner:** Owner (re-hop \#1773) / fecbada9|1450c201 (review auf gruen) · **Priority:** normal  
+    **Owner:** Owner (re-hop) / Coordinator (route) — content selbst gruen · **Priority:** normal  
     **PR:** [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773)  
+    **Blocker:** \#1773 head 3ec2eba base 68b26bd exact run 45036009904 TERMINAL FAILURE, aber diff ist docs-only presenter (content okay). Aggregate rot NUR durch ZWEI fremde blocker: (1) selected-runtime docker+podman 137250325955/137250325942 failen 'rec…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** Owner (re-hop #1773) / fecbada9|1450c201 (review auf gruen)  
+**Owner:** Owner (re-hop) / Coordinator (route) — content selbst gruen  
 **Priority:** normal  
 **PRs:** [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773)  
 **Source:** 
