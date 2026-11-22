@@ -33,6 +33,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
+**Required by:** [t-20261120-workload-port-flag-ignored-locally](t-20261120-workload-port-flag-ignored-locally.md), [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md)  
 **Owner:** 0428-223-testctx  
 **Priority:** not set  
 **PRs:** [baseharbor#1750](https://github.com/mcpdev80/baseharbor/pull/1750)  

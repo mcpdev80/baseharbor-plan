@@ -13,12 +13,12 @@ kanban_lane: wait
 kanban_summary: ""
 kanban_title: 0428-199 · workload-port ignored locally
 priority: ""
-depends_on: []
+depends_on: [t-20261114-r28-cli2-env-delete, t-20261121-develop-full-suite-red, t-20261122-footprint-show-not-admitted-in-data-capabilities-gate]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1723]
 sources: []
 blocker: ""
-wait_reason: "KANDIDAT IST EINWANDFREI, DIE PRUEFUNG NICHT: head b9c2e483f8b1538ff5b291f185c55303a6c27c43 ist exakt (back=0 gegen develop 7d4351c6d645, hop von der lane sauber gemessen), die feature-shards sind gruen, der docker guided job 137028211092 ist completed/SUCCESS. der exakte run 44963676934 ist completed/FAILURE mit genau zwei failed jobs: 137028211165 'Executed docker · data-capabilities' und der abgeleitete aggregat-job 137030140112 'PR Selected Checks'. DER FEHLER IST AEUSSERLICH UND VON MIR IN develop NACHGELESEN: cmd/baha/ci_integration_operator_enabled.go:135 laesst 'app footprint show -o json' nur fuer gate == 'guided' zu (predicate ciIntegrationGuidedFootprintShow, :232-233); im data-capabilities-gate faellt die pruefung auf :179-180 und liefert 'command-not-in-managed-workload-set: app footprint show …'. das kommando ist anderswo als read-only bekannt (machine_coverage.go:97 app.footprint.show, app_registration_921.go:40,43). die zweite diagnose 'operator authentication needs interactive setup but input is not a terminal' ist cmd/baha/operator_auth_boundary.go:117 und gehoert zu karte 0428-223. WARTEGRUND: karte 0428-227 (gate-zulassung fuer footprint show im data-capabilities-gate, neue karte, planned, dep-frei) UND karte 0428-223 (operator-auth). TRIGGER FUER MICH: eine davon gemergt -> neuer exakter run auf #1723 -> erst dann exact-head review, reihenfolge bleibt gewahrt (kein verdict auf einem kopf, dessen selected checks nicht terminal gruen sind)."
+wait_reason: "kopf exakt (8fe3c9bfb3c, back=0) UND der data-capabilities-job laeuft dort wirklich (Selected Runtime atomic/docker/data-capabilities, job 137056660905) - scheitert aber vor der footprint-grenze an der runtime-consent-stelle (confirm-candidate). das ist karte 0428-223 (#1750), nicht 0428-199. reihenfolge nach owner-anweisung: 0428-223 loesen, dann #1753-gate, dann #1723"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44788134959"]
 created: 2026-11-20
@@ -28,14 +28,15 @@ created: 2026-11-20
     <!-- generated:card -->
     **Owner:** w1625-pr1723-0428-199-workloadport  
     **PR:** [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723)  
-    **Waiting:** KANDIDAT IST EINWANDFREI, DIE PRUEFUNG NICHT: head b9c2e483f8b1538ff5b291f185c55303a6c27c43 ist exakt (back=0 gegen develop 7d4351c6d645, hop von der lane sauber gemessen), die feature-shards sind gruen, der docker guided job 137028211092…  
+    **Waiting:** kopf exakt (8fe3c9bfb3c, back=0) UND der data-capabilities-job laeuft dort wirklich (Selected Runtime atomic/docker/data-capabilities, job 137056660905) - scheitert aber vor der footprint-grenze an der runtime-consent-stelle (confirm-candi…  
+    **Needs:** [t-20261114-r28-cli2-env-delete](t-20261114-r28-cli2-env-delete.md), [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md), [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44788134959)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** none  
+**Depends on:** [t-20261114-r28-cli2-env-delete](t-20261114-r28-cli2-env-delete.md), [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md), [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md)  
 **Owner:** w1625-pr1723-0428-199-workloadport  
 **Priority:** not set  
 **PRs:** [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723)  

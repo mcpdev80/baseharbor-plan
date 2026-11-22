@@ -33,6 +33,7 @@ evidence: []
 **State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
+**Required by:** [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md)  
 **Owner:** unassigned  
 **Priority:** high  
 **PRs:** none  

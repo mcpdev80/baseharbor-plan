@@ -13,12 +13,12 @@ kanban_lane: wait
 kanban_summary: "The disposable acceptance gates that legitimately call baha app footprint show are admitted by the CI operator boundary, so the…"
 kanban_title: 0428-227 · footprint show gate admission
 priority: ""
-depends_on: []
+depends_on: [t-20261121-develop-full-suite-red, t-20261122-ci-integration-operator-seams-without-gate-admission]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1753]
 sources: []
 blocker: ""
-wait_reason: "kopf ist exakt (71deb610a03, back=0) aber der PR-CI-lauf 44972857723 qualifiziert die karte NICHT: 'PR Selected Checks' und 'PR Selected Runtime' sind SKIPPED, es laeuft nur der CI-PR-pfad. die karte verlangt den ausgefuehrten Docker data-capabilities-job. zwei wege, beide Owner-scope: (a) pfad->gate-abbildung ergaenzen (karte 0428-228, scripts/pr-gate-plan.py:173/175 und scripts/pre-release-runtime-impact.json:30/31) - dann waehlt der PR-lauf das gate selbst; (b) 'Targeted Atomic Gate' wieder dispatch-bar machen: jeder dispatch dieser datei endet startup_failure mit 0 jobs, und im resolve-job (runs-on ubuntu-latest, nur checkout, KEIN setup-python) sind :142 und :144 die einzigen 'python'-aufrufe der datei (alle anderen :84/:110/:112/:181/:226 nutzen python3)"
+wait_reason: "kopf exakt (71deb610a03, back=0, mergeState CLEAN), PR-checks gruen, aber 'PR Selected Checks' und 'PR Selected Runtime' sind SKIPPED - das data-capabilities-gate wird fuer die operator-boundary-datei nicht ausgewaehlt (pfad->gate-abbildung, karte 0428-228). zusaetzlich zeigt der ausgefuehrte gate am brueder-pr #1723 (job 137056660905), dass der lauf VOR der footprint-grenze an der runtime-consent-stelle (karte 0428-223, #1750) scheitert. reihenfolge nach owner-anweisung: 0428-223 loesen -> exakten #1753-gate (oder autorisierten targeted gate) ausfuehren -> dann #1723"
 resolution: ""
 evidence: []
 ---
@@ -27,13 +27,15 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w21-pr1702-0428-142-compat  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
-    **Waiting:** kopf ist exakt (71deb610a03, back=0) aber der PR-CI-lauf 44972857723 qualifiziert die karte NICHT: 'PR Selected Checks' und 'PR Selected Runtime' sind SKIPPED, es laeuft nur der CI-PR-pfad. die karte verlangt den ausgefuehrten Docker data-…  
+    **Waiting:** kopf exakt (71deb610a03, back=0, mergeState CLEAN), PR-checks gruen, aber 'PR Selected Checks' und 'PR Selected Runtime' sind SKIPPED - das data-capabilities-gate wird fuer die operator-boundary-datei nicht ausgewaehlt (pfad-\>gate-abbildun…  
+    **Needs:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](t-20261122-ci-integration-operator-seams-without-gate-admission.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** none  
+**Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](t-20261122-ci-integration-operator-seams-without-gate-admission.md)  
+**Required by:** [t-20261120-workload-port-flag-ignored-locally](t-20261120-workload-port-flag-ignored-locally.md)  
 **Owner:** w21-pr1702-0428-142-compat  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
