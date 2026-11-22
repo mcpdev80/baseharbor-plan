@@ -76,3 +76,11 @@ origin	https://github.com/mcpdev80/baseharbor-plan.git (fetch)
 ```
 
 END 0428-223-testctx DONE (hop: neuer head 669d76ac44792a56d2642df05c5211058460b3bb, base acc34323968, run 44999534797 completed SUCCESS failed 0, CLI-shards 137137806291/376/417/374 + packages 137137806463, static cells/Native skipped (draft-route, liste oben), cleanliness: nothing started)
+
+## origin/main evidence witness
+
+Exact output of `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep hop-develop-acc34323968-w1761`:
+
+```
+evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/hop-develop-acc34323968-w1761.md
+```
