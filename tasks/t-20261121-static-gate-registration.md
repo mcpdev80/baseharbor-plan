@@ -7,7 +7,7 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ffe7611b (lane)
+owner: ffe7611b (lane) / 1450c201 (census) / Owner (.github source-registration gap)
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: Run the existing scripts/ci-fast-check.sh as its own static gate in the v0.4.28 Pre-Release Suite. Preserve every existing…
@@ -18,24 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746]
 sources: []
 blocker: ""
-wait_reason: "wartet auf den helper in develop (PR 1761 laeuft durch CI) plus einen weiteren hop auf den neuen develop"
+wait_reason: "no exact-head execution proof for the four static gates; census verdict (b), pending the 1761 merge and one more hop onto current develop"
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036"]
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md"]
 ---
 
 - [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/wait #view/wait #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** ffe7611b (lane) · **Priority:** high  
+    **Owner:** ffe7611b (lane) / 1450c201 (census) / Owner (.github source-registration gap) · **Priority:** high  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
-    **Waiting:** wartet auf den helper in develop (PR 1761 laeuft durch CI) plus einen weiteren hop auf den neuen develop  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44997978036)  
+    **Waiting:** no exact-head execution proof for the four static gates; census verdict (b), pending the 1761 merge and one more hop onto current develop  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44997978036), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** ffe7611b (lane)  
+**Owner:** ffe7611b (lane) / 1450c201 (census) / Owner (.github source-registration gap)  
 **Priority:** high  
 **PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
 **Source:** 
@@ -94,3 +94,5 @@ Der gueltige statische nachweis ist gefuehrt und FEHLGESCHLAGEN: run 44987381250
 ihr hop ist gelandet: head e455302f1a8 auf base 52a3c5446f4, exact run 44997978036 SUCCESS/0 failed, coreless-lifecycle aggregate docker 137136393453 und podman 137136509792 SUCCESS. 'Exact full Pre-Release' ist SKIPPED und mergeable_state BEHIND, weil develop schon acc34323968 ist. Die vier 'require an authenticated BaseHarbor operator'-zellen haengen am helper (PR 1761, noch DRAFT). Rechenreihenfolge nach vorgabe des owners: 1761 hop -> ready -> review -> merge, dann 1746 hop und der exakte static-beweis.
 
 hop ist gelandet und der exact run 44997978036 ist SUCCESS/0 failed (100 jobs, 32 success, 68 skipped) am head e455302f1a8. Die vier directive-gates (init, config-matrix, shell-ux, mcp) erscheinen nicht mehr als eigene jobs, weil die CI-matrix umgebaut ist - kein required check ist rot. 'PR . Selected Runtime' 137133121874 und 'PR . Native matrix' 137133096184 sind SKIPPED: base-zeiger-verzug (ci.yml:495, karte 0428-235), kein kandidatfehler und auch nicht der helper-blocker. RUECKSTAND: develop ist acc34323968, dieser head zeigt auf 52a3c5446f4, also ist vor der abnahme ein weiterer hop noetig - nach dem 1761-merge, damit der helper in der base liegt und die statischen zellen ihn ziehen koennen. Zusatz: die karte 0428-233 (tmpdir) hat KEINEN PR und ihre position liegt unveraendert in develop (cmd/baha/test_operator_context_test.go:112-116) - der Auftrag dafuer ist jetzt erneut bei ihrer lane, mit zustands-zeile zuerst.
+
+CENSUS IST DA und faellt in die mittelste kategori (b): die vier gates init/config-matrix/shell-ux/mcp sind WEITER HINTERLEGT - scripts/release-requirements.json :13-29 fuehrt sie, das gehostete job-muster 'Static . matrix.gate' existiert - aber sie liefen an diesem kandidat NICHT als exact-head-pruefung, und zwar aus zwei gruenden: (1) der diff traegt keine quelle, die auf einen der vier gates gemappt ist (kein source-component im diff), (2) der planned von seinem alt-base 52a3c5446f4, develop ist acc34323968 (0428-235). Damit ist meine vorige formulierung 'kein required check rot, alles gut' ZU LANG: die deckung ist echt, aber der exact-head-beleg fehlt, solange der base-zeiger nicht h uepft. Ein eigener befund im census: eine source-registration-luecke auf .github/workflows/pre-release.yml (owner-scope) - ich trage sie als zeile in 0428-235 nach. Naechster schritt: ein weiterer hop auf develop nach dem 1761-merge, dann sind die vier gates am exact head sichtbar.
