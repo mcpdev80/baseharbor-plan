@@ -7,15 +7,15 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ffe7611b (lane, content) / coord (zeugnis + owner-push)
-kanban_status: active
-kanban_lane: active
+owner: owner (wende an) / coord (verfolge durchgaenge + unabhaengige pruefung)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Guide app logs exec and urls. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-063 · Guide app logs exec and urls
 priority: high
 depends_on: [t-20261114-r28-cli2-contract, t-20261114-r28-cli2-identity-secrets, t-20261114-r28-cli2-source-model]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1623]
+prs: [mcpdev80/baseharbor#1623, mcpdev80/baseharbor#1746]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,21 +23,21 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1623"]
 ---
 
-- [ ] t-20261114-r28-cli2-app-interact · CLI redesign: Guide app logs exec and urls #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-app-interact · CLI redesign: Guide app logs exec and urls #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** ffe7611b (lane, content) / coord (zeugnis + owner-push) · **Priority:** high  
-    **PR:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623)  
+    **Owner:** owner (wende an) / coord (verfolge durchgaenge + unabhaengige pruefung) · **Priority:** high  
+    **PR:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1623)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** ffe7611b (lane, content) / coord (zeugnis + owner-push)  
+**Owner:** owner (wende an) / coord (verfolge durchgaenge + unabhaengige pruefung)  
 **Priority:** high  
-**PRs:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623)  
+**PRs:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -102,3 +102,5 @@ TRAEGER-GEDANKE ERLEDIGT, GRUND GEMESSEN: die generator-ausgabe (BASEHARBOR_UPDA
 #1746: ihr teil ist GELUNGEN (PR-CI 45007709072 SUCCESS/CLEAN am 3617a2a5a8b). Der REST der akzeptanz haengt NICHT an 1746: der volle Pre-Release-durchgang 45009827491 ist rot in mcp/init/shell-ux/config-matrix, aber die kopfe dieser fehl- schlaege sind ANDERE karten - Perses (0428-231), managed-operator-auth (0428-063), workload-auth (0428-199). Und die eine fisch->zsh-zeile (pre-release.yml 343) ist .github-OWNER-scope, die lane darf sie nicht pushen. Karte auf wait; der fisch-einschub liegt beim eigentimer, die gate-kopfe bei ihren eigenen karten.
 
 SEQENZ-UNLOCK, VOM EIGENTUMER REKONZILIERT: die fehlende zsh-Installation im Pre-Release-source-test (job 137173241314, context_terminal_test.go:467), die #1763 blockiert, wird DURCH DIESEN PR behoben - pre-release.yml 343-348 enthaelt den install-schritt, ABER er installiert auch fisch (unautorisiert). AUTORISIERT ist NUR zsh. SIE SIND JETZT DER SCHLUESSEL: verengen Sie die zeile auf 'sudo apt-get install --no-install-recommends -y zsh' + fisch-echo raus (ihr lokaler 1cf7f992 tut genau das, nur dass der push am .github-workflow-scope haengt - das klaert der owner). Danach die statischen gate-koepfe (mcp Perses, init/shell-ux operator-auth) - das sind ANDERE karten, nur der zsh-teil ist ihrer. develop 8629450ef3c.
+
+zsh-only-korrektur GELANDET durch den eigentumer: commit 26ae64c4d47 auf branch lane-0428-208-static-release-gate, diff NUR .github/workflows/pre-release.yml 'ci: limit release shell setup to zsh' (fisch raus). PR-CI 45012848258 laeuft (19 jobs, 0 failed). Gehosteter Pre-Release 45012883646 gegen demo 5d1cf312 laeuft (SourceCandidate+Gate Plan). Akzeptanz braucht: beide durchgaenge terminal green + unabhaengige CODEX-pruefung am exakten head + release-owner-bestaetigung. Kein merge vor den vier punkten.

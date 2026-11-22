@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 11 |
-| review | 1 |
+| active | 10 |
+| review | 2 |
 | wait | 22 |
 | blocked | 1 |
 | ready | 7 |
@@ -26,7 +26,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | active | normal | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261018-r27-team-proof](../tasks/t-20261018-r27-team-proof.md) | Acceptance: prove two workstations share one authoritative deployment | active | normal | worker-059-teamproof | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-maintenance-client](../tasks/t-20261018-r27-maintenance-client.md), [t-20261018-r27-public-surfaces](../tasks/t-20261018-r27-public-surfaces.md), [t-20261018-r27-stage-versions](../tasks/t-20261018-r27-stage-versions.md), [t-20261018-r27-state-recovery](../tasks/t-20261018-r27-state-recovery.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
-| [t-20261114-r28-cli2-app-interact](../tasks/t-20261114-r28-cli2-app-interact.md) | CLI redesign: Guide app logs exec and urls | active | high | ffe7611b (lane, content) / coord (zeugnis + owner-push) | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md), [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) | [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623) |
 | [t-20261114-r28-perses-dashboard-databases](../tasks/t-20261114-r28-perses-dashboard-databases.md) | Perses database dashboards | active | normal | 0428-076-nativeshape | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597) |
 | [t-20261120-gate-catalog-ci-fast-check](../tasks/t-20261120-gate-catalog-ci-fast-check.md) | 0428-205 · Wire ci-fast-check into the release gate catalog | active | normal | ffe7611b (lane, hop + fish-einschraenkung) / coord (abhaengigkeits-pflege) | [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md) | [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746) |
 | [t-20261120-r28-valkey-dashboard-unavailable-only](../tasks/t-20261120-r28-valkey-dashboard-unavailable-only.md) | Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable | active | not set | Codex (Marcel, active wait sweep 2026-11-21) | [t-20261121-loki-verify-probe](../tasks/t-20261121-loki-verify-probe.md), [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) | [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714) |
@@ -40,6 +39,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [t-20261114-r28-cli2-app-interact](../tasks/t-20261114-r28-cli2-app-interact.md) | CLI redesign: Guide app logs exec and urls | review | high | owner (wende an) / coord (verfolge durchgaenge + unabhaengige pruefung) | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md), [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) | [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746) |
 | [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | review | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
 
 ## Waiting for resources
