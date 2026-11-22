@@ -79,3 +79,32 @@ END_BLOCKED codex-rev-1747: #1753 remains held at stale head 03ef125e610f3a3db60
 After `git -C baseharbor-plan fetch origin main`, `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 'evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-pending.md'` returned exactly:
 
 `evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-pending.md`
+
+
+## PLAN — continued owner hold
+
+1. Preserve the existing #1753 hold and treat the newly supplied state as owner-reported; do not self-hop or inspect product sources further.
+2. Record that the post-hop head is still absent, both relevant heads remain three commits behind develop, and the green PR run skipped the required data-capabilities gate.
+3. Retain the qualification finding: both Targeted Atomic Gate dispatches ended at startup failure with zero jobs, so neither proves gate execution.
+4. Await an owner-supplied exact current head and terminal run with an executed data-capabilities job before any verdict.
+5. Publish this hold update to Planning origin/main, update the board, and post QUESTION; no merge or close.
+
+## Latest hold update
+
+Mission `/var/tmp/rev1753hold.g.md` reports that the post-hop exact head still does not exist. The reported refs remain #1753 head `03ef125e610f3a3db60042b70784d8e463f11500` and develop `6209874428f08dc3e90d6e29a42b30683ce9932a`, back=3; #1723 head `b9c2e483f8b` is also reported back=3. The two ordered hops were not executed; the owner escalated lane rotation or an owner-performed hop. No new review or verdict is possible on this state.
+
+The mission reports PR run `44966211481` green with Docker `atomic/docker/data-capabilities` skipped; that is not gate evidence. It further reports both Targeted Atomic Gate dispatches ended `startup_failure` with zero jobs, so neither test executed. The previously verified routing locations remain `scripts/pr-gate-plan.py:172-175` and `scripts/pre-release-runtime-impact.json:30-31`; the missing operator-boundary mapping still prevents the required data-capabilities selection. The owner reports additional workflow concerns at `.github/workflows/targeted-demo-acceptance.yml:100, 131-144, 142, 190`; those files remain owner scope and were not inspected or changed in this hold-only update.
+
+No product changes, workflow actions, runs, PR actions, or self-hop were performed. Verdict remains held until a new exact current head has an actually executed data-capabilities job.
+
+END_BLOCKED codex-rev-1747: #1753 remains held; owner reports unchanged back=3 heads and no executed data-capabilities gate; await exact current candidate and terminal executed gate evidence.
+
+## cleanliness — continued hold update
+
+Shell PID `1457416`: `docker ps -a` before and after showed the same eight pre-existing exited containers (IDs `268b7d8b4612`, `34cf9576dc2b`, `e88b00795b5c`, `1451a7b5b3c6`, `d7ba821c0e08`, `957a80e73b57`, `45bddf32278e`, `9d3f1a2b1e0e`). No container or compose project was started or changed.
+
+## Final origin/main path witness after latest hold update
+
+After `git -C baseharbor-plan fetch origin main`, `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 'evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-pending.md'` returned exactly:
+
+`evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-pending.md`
