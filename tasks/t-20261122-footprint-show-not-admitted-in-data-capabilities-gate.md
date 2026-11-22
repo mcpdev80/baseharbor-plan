@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: Coordinator (ingress-wartend) / Lane eingefroren
+owner: Coordinator (ingress-fuestend) / 0847d100
 kanban_status: blocked
 kanban_lane: blocked
 kanban_summary: "The disposable acceptance gates that legitimately call baha app footprint show are admitted by the CI operator boundary, so the…"
@@ -17,7 +17,7 @@ depends_on: [t-20261121-develop-full-suite-red, t-20261122-ci-integration-operat
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1753, mcpdev80/baseharbor#1746]
 sources: []
-blocker: "trusted-base catalog precedence ist TEST-ERZWUNGEN (test_pr_native_gate_plan.py asserted git show :katalog; owner-beweis 2026-11-23). Naechster Trigger: merge der karte t-20261123-catalog-ingress-develop-prereqs (rows fuer local_runtime.go + local_runtime_test.go, beide existieren in develop), dann re-run/re-hop #1753 ohne branch-seitige katalog-edits. Native gates zu ende beobachten laut freeze-mission."
+blocker: "ingress-noetig, file:line-belege von 0847 FESTGEHALTEN: pr-gate-plan.py:1816/1818 (catalog = ROOT/datei am base-checkout), validate-pr-gate-coverage.py:289/293, workflow zeile 440 'git checkout --detach effective_base'. Native data-caps docker+podman PASSEN bereits (run 45084041925). naechster trigger: merge des ingress-PR (karte t-20261123-catalog-ingress-develop-prereqs), dann EIN re-hop/re-run #1753 auf dann aktuellen develop."
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44993125398", "https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44998829701", "https://github.com/mcpdev80/baseharbor/actions/runs/45008538769", "https://github.com/mcpdev80/baseharbor/actions/runs/45014558296", "https://github.com/mcpdev80/baseharbor/actions/runs/45015912507"]
@@ -25,9 +25,9 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 - [ ] t-20261122-footprint-show-not-admitted-in-data-capabilities-gate · Acceptance contract: baha app footprint show is admitted only for the guided gate #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
-    **Owner:** Coordinator (ingress-wartend) / Lane eingefroren  
+    **Owner:** Coordinator (ingress-fuestend) / 0847d100  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
-    **Blocker:** trusted-base catalog precedence ist TEST-ERZWUNGEN (test\_pr\_native\_gate\_plan.py asserted git show :katalog; owner-beweis 2026-11-23). Naechster Trigger: merge der karte t-20261123-catalog-ingress-develop-prereqs (rows fuer local\_runtime.go…  
+    **Blocker:** ingress-noetig, file:line-belege von 0847 FESTGEHALTEN: pr-gate-plan.py:1816/1818 (catalog = ROOT/datei am base-checkout), validate-pr-gate-coverage.py:289/293, workflow zeile 440 'git checkout --detach effective\_base'. Native data-caps do…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44993125398), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998829701), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45008538769), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/45014558296), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45015912507)  
     <!-- /generated:card -->
 
@@ -36,7 +36,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](t-20261122-ci-integration-operator-seams-without-gate-admission.md)  
 **Required by:** [t-20261120-workload-port-flag-ignored-locally](t-20261120-workload-port-flag-ignored-locally.md)  
-**Owner:** Coordinator (ingress-wartend) / Lane eingefroren  
+**Owner:** Coordinator (ingress-fuestend) / 0847d100  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
 **Source:** 
