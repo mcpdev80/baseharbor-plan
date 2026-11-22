@@ -8,7 +8,7 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: Owner (zsh+fish approved + static suite) / Coordinator (confirmation BLOCKED on prereq) / b90e (#1761/#1771 prereq hops)
+owner: Owner (zsh+fish approved) / Coordinator (confirmation BLOCKED, gate red) / b90e (#1761/#1771 0428-231 prereq)
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: Run the existing scripts/ci-fast-check.sh as its own static gate in the v0.4.28 Pre-Release Suite. Preserve every existing…
@@ -18,16 +18,16 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1774, mcpdev80/baseharbor#1782, mcpdev80/baseharbor#1761]
 sources: []
 blocker: ""
-wait_reason: "#1746 zsh+fish EXPLICIT approved + bestaetigt: own hosted 45051210001 completed, 107 checks, ALLE #1746-jobs SUCCESS (Go cli-3 inkl shell/zsh+fish, focused-python, planner, executor, source format, candidate artifact, snapshot, go vet). EINZIGER FAIL = 'PR Selected Checks' AGGREGAT = die 4 static operator-auth gates (shell-ux/init/config-matrix/mcp) = PREREQ #1761(static-auth-helper)+#1771(static-opauth-fix) karte 0428-231, AKTIV auf b90e4ba1 (additive hops b27b2ebe, heads noch 669d76ac/dc775235 = push in arbeit). COORDINATOR-CONFIRMATION FR MERGE = NOCH NICHT (gate nicht gruen, keine gruenen gates behaupten). Erteilte CONDITION: sobald #1761+#1771 in develop + #1746 re-hop -> static gates gruen -> Coordinator witness + Release-Owner confirmation -> merge. KEIN merge #1746 vorher. develop b27b2ebe."
+wait_reason: "#1746 exact 8561447dc WITNESS-KORREKTUR: hosted 45051210001 = completed FAILURE mit 1 FAIL = 'PR Selected Checks' AGGREGAT (nicht 'ohne failed jobs'). Alle #1746-eigenen jobs SUCCESS (Go cli-3 zsh+fish, focused-python, planner, executor, source format, candidate artifact, snapshot, go vet) + static suite ci-fast-check SUCCESS (41+315 tests + negativfall). Die 4 static auth gates (shell-ux/init/config-matrix/mcp) = AGGREGAT-FAIL gekoppelt = PREREQ 0428-231 (#1761 helper + #1771 fix, b90e hops). COORDINATOR-CONFIRMATION = NOCH NICHT moeglich (gate nicht gruen). Erteilt erst wenn #1761+#1771 in develop + re-hop gruen. develop b27b2ebe. KEIN merge."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md"]
 ---
 
 - [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/wait #view/wait #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** Owner (zsh+fish approved + static suite) / Coordinator (confirmation BLOCKED on prereq) / b90e (\#1761/\#1771 prereq hops) · **Priority:** high  
+    **Owner:** Owner (zsh+fish approved) / Coordinator (confirmation BLOCKED, gate red) / b90e (\#1761/\#1771 0428-231 prereq) · **Priority:** high  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
-    **Waiting:** \#1746 zsh+fish EXPLICIT approved + bestaetigt: own hosted 45051210001 completed, 107 checks, ALLE \#1746-jobs SUCCESS (Go cli-3 inkl shell/zsh+fish, focused-python, planner, executor, source format, candidate artifact, snapshot, go vet). EI…  
+    **Waiting:** \#1746 exact 8561447dc WITNESS-KORREKTUR: hosted 45051210001 = completed FAILURE mit 1 FAIL = 'PR Selected Checks' AGGREGAT (nicht 'ohne failed jobs'). Alle \#1746-eigenen jobs SUCCESS (Go cli-3 zsh+fish, focused-python, planner, executor, s…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44997978036), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md)  
     <!-- /generated:card -->
 
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "h
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** Owner (zsh+fish approved + static suite) / Coordinator (confirmation BLOCKED on prereq) / b90e (#1761/#1771 prereq hops)  
+**Owner:** Owner (zsh+fish approved) / Coordinator (confirmation BLOCKED, gate red) / b90e (#1761/#1771 0428-231 prereq)  
 **Priority:** high  
 **PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
 **Source:** 
