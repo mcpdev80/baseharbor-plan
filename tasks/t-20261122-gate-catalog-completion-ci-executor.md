@@ -7,9 +7,9 @@ areas: [ci, testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 1450c201 (#1774 review+merge) / b90e4ba1 (A+C followup) / owner (akzeptanz)
-kanban_status: review
-kanban_lane: review
+owner: b90e4ba1 (A+C followup) / coord
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-248 · catalog completion #1774
 priority: high
@@ -23,17 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-gate-catalog-completion-ci-executor · Complete the gate catalog by registering the three remaining changed paths in pr-gate-coverage.json so dependent gates execute #task #release/v0-4-28 #status/review #view/review #area/ci #area/testing #kind/task
+- [ ] t-20261122-gate-catalog-completion-ci-executor · Complete the gate catalog by registering the three remaining changed paths in pr-gate-coverage.json so dependent gates execute #task #release/v0-4-28 #status/active #view/active #area/ci #area/testing #kind/task
     <!-- generated:card -->
-    **Owner:** 1450c201 (\#1774 review+merge) / b90e4ba1 (A+C followup) / owner (akzeptanz) · **Priority:** high  
+    **Owner:** b90e4ba1 (A+C followup) / coord · **Priority:** high  
     **PR:** [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** 1450c201 (#1774 review+merge) / b90e4ba1 (A+C followup) / owner (akzeptanz)  
+**Owner:** b90e4ba1 (A+C followup) / coord  
 **Priority:** high  
 **PRs:** [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774)  
 **Source:** 
@@ -58,3 +58,5 @@ PR #1768 merged the catalog with only `cmd/baha/app_broker.go`. Three changed pa
 scripts/pr-gate-coverage.json + planner/guardian metadata only. Not the presenter/product code, not operatorauth, not .github workflows (pre-release.yml is owner scope).
 
 #1774 head acd57828 = NUR eintrag B, normal PR run 45030308249 TERMINAL SUCCESS, native skipped (katalog-only, korrekt). review+merge an 1450c201 geroutet (unlockt #1770 native bei merge). A (ci-fast-check.sh) + C (app_footprint_presenter.go) NICHT in diesem head -> FOLGE-katalog-PR (b90e4ba1, 248 bleibt offen bis A+C+ #1746-static + #1773 entblockt). Kein merged PR ueberschreibt den anderen: folge PR rebased nach #1774-merge.
+
+B (ci-native-pr-gate.sh) GEMERGED ueber #1774 @ 3cbb2bac (exact run 45030308249 SUCCESS). Das entblockt #1770 native docker+podman (owner hoppte #1770->2a4adca0, run 45030747445 queued). 0428-248 BLEIBT OFFEN fuer A+C (folgen in eigenem katalog-pr auf 3cbb2bac): A ci-fast-check.sh (unlockt #1746 static planner), C app_footprint_presenter.go (unlockt #1773/246).
