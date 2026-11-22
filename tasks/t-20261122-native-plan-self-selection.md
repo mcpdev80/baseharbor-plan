@@ -94,3 +94,19 @@ Missing: catalog rows whose `affected_sources` cover those four paths plus `scri
 Scope note: `scripts/**` is Owner scope (card 0428-209); a worker may only implement this after the Owner
 unblocks the path. Analysis witness:
 `evidence/r28-welle5-2026-11-22/gate-admission-census/hop-develop-c463edf8-w223.md`.
+
+## Second finding (2026-11-22): the plan reads a LAGGING base pointer, not the trusted develop tip
+
+`.github/workflows/ci.yml:501-505` resolves the catalog with `BASE_SHA = github.event.pull_request.base.sha`
+(`ci.yml:495`). Measured base pointers vs develop tip `52a3c5446f4`: PR #1627 -> `8b9a8f50645` (03:36 UTC),
+PR #1723 -> `c463edf87ee`, PR #1746 -> `82825e95a6f6`. All three predate the #1756 rows, so the planner loads the OLD
+catalog and selects zero native runtime gates even when the PR head already contains the new develop - which is exactly
+what run `44995034290` showed (`matrix {include:[]}`).
+
+Checked and rejected: the 'missing from base' warning branch never fires - `scripts/pr-native-gate-plan.py` exists at
+`1ff16925c4e`, `8b9a8f50645` and `c463edf87ee`; the warning text appears in logs only because the step echoes the whole
+script.
+
+Fix owner: `.github/workflows/ci.yml` is Owner scope. Options: (a) plan against the trusted `develop` head resolved
+from the checkout instead of `pull_request.base.sha`; (b) advance the PR base pointer when a hop lands. Until then,
+'green' for hopped PRs means their lifecycle jobs, not the native matrix - do not read an empty matrix as proof.
