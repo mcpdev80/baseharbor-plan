@@ -58,7 +58,18 @@ What I pushed before the recall (ls-remote witness):
 - lane-0428-199-workloadport = b2d9aeb446f1360f03e6f8a8c416b315e833a729 (PR #1723)
 - w201-0428-201-statever = dd4e826f6c87c838950927a664f145ddc9a3b314 (PR #1725)
 
-Stopped. No further merge or push on either lane. Remote heads confirmed unchanged since.
+Stopped. No further merge or push on either lane. My `b2d9aeb4` (#1723) and `dd4e826f` (#1725)
+were pushed as the seed merge (verified: both remain ancestors of the current branch heads, not
+overwritten - no double-push loss).
+
+Seat hop completed by coordinator/0428-061-seat (per stand-down, they own the develop-hop):
+- #1723 current head 12a62523fc5f2259220aece4cc5619dcb8f4ae4d = no-ff merge of develop 52a3c5446f
+  onto my b2d9aeb4 (parent bfd01276 = develop 52a3c544). CI run 7229 (db queued) triggered.
+- #1725 current head 485103523b93d23877e2103974d7af22ef95f831 = no-ff hop stacking on #1723's hop
+  (parent 12a62523). CI run 7230 (db queued) triggered.
+Both branches now correctly sit on the newest develop 52a3c5446f41a1dd8678d99875e4cb1eee67874c.
+My earlier runs 7223 (b2d9aeb4) and 7226 (dd4e826f) remain the witnesses for my merges; all Go unit
+shards/vet/build passed on those; only the pre-existing data-capabilities runtime gate failed.
 
 ## Substantive part status (0428-199 portedat + 0428-233 tmpdir)
 
