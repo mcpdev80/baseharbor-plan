@@ -7,7 +7,7 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: owner (hop) / coord
+owner: owner (dispatch) / coord
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: "Register scripts/ci-fast-check.sh as a real v0.4.28 Pre-Release static gate, with the full catalog/dispatcher wiring and…"
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "h
 
 - [ ] t-20261120-gate-catalog-ci-fast-check · 0428-205 · Wire ci-fast-check into the release gate catalog #task #release/v0-4-28 #status/wait #view/wait #area/ci #kind/bug
     <!-- generated:card -->
-    **Owner:** owner (hop) / coord · **Priority:** normal  
+    **Owner:** owner (dispatch) / coord · **Priority:** normal  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771)  
     **Waiting:** Gehoppt auf develop 676909a7 (0428-242 gemerged) -\> candidate head 887058a6, Demo pin c23bd9ac. Volle Pre-Release 45027607903 AKTIV. ABER verbleibender blocker NICHT nur \#1771: der owner hat belegt dass \#1746 static/mcp bei 'target create'…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44943804395), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44944570763), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1746)  
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "h
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** owner (hop) / coord  
+**Owner:** owner (dispatch) / coord  
 **Priority:** normal  
 **PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771)  
 **Source:** 
@@ -77,3 +77,5 @@ Register `scripts/ci-fast-check.sh` as a real v0.4.28 Pre-Release static gate, w
 - Scope review: the current `pre-release.yml` diff installs both `zsh` and `fish` in one cli-3 setup step. The Owner authorized a single zsh installation step; Coordinator must confirm that the fish addition is already covered by that authorization or narrow it before merge. `ci.yml` remains unchanged.
 
 EIGENTUER-ENTSCHEID UMGESETZT: der additive hop/recheck ist aktiv auf einer worker-lane (ffe7611b, frei nach ihrem halte-auftrag zu 1762) INNERHALBST der bestehenden vollmacht, ohne neue .github-vollmacht. ABHAENGIGKEIT ERLEDIGT UND UMGEZOGEN, gemessen: die karte zeigte depends_on auf t-20261120-r28-cli-shard-operator-env (0428-198); 0428-198 ist closed/superseded durch t-20261121-develop-full-suite-red (0428-223), und 0428-223 ist closed mit resolution accepted. Ihre wart-war damit GEOEFFNET - depends_on steht jetzt auf der acceptierten karte (plan bf5403c6c). ZWEITER PUNKT, von ihm verlangt: in .github/workflows/pre-release.yml steht im diff 'sudo apt-get install --no-install-recommends -y zsh fish' plus zwei echo-zeilen; die karte deckt NUR EINEN zsh-schritt, fisch ist nicht genannt - die lane muss die zeile auf zsh einschraenken ODER mit datei:zeile eine bestehende autorisierung belegen, sonst nichts. rueckstand 29 commits, additiver hop auf develop 8629450ef3c, danach EIN durchgang mit den vier static-job-ids (config-matrix, shell-ux, mcp, init) als zeugen - skipped ist kein beleg. HINWEIS INTEGRATION: karte 0428-208 eroeffnet denselben PR 1746; 0428-205 ist die INTEGRATIONS-karte, 0428-208 bleibt der zensus-verweis (gate-deckung), damit niemand zwei schreiber annimmt.
+
+cli-3-failure 45027607903 = workflow-ref-Fehler (main statt kandidat), nicht #1746. Berichtigter Durchgang 45028181619 (ref lane-0428-208, workflow-head 887058a6) aktiv. target.create auth weiterhin separater, ungeklaerter blocker.
