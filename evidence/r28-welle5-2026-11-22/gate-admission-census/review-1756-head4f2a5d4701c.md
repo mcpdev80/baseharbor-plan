@@ -15,7 +15,7 @@ This is an evidence verdict only; no GitHub review/comment, merge, or PR-state c
 ## Exact hosted evidence
 
 - Run `44990390149`: terminal `completed / success`, exact head `4f2a5d4701c429eb7788b25e958b676d1f5f0356`.
-- `PR · Validation · pr-planner-tests`, job `137110003413`: SUCCESS. Its log shows `python3 -m unittest scripts/test_pr_gate_plan.py scripts/test_pre_release_runtime_reuse.py` and final `OK`; this executes the full pairing assertion at `scripts/test_pre_release_runtime_reuse.py:392-436`.
+- `PR · Validation · pr-planner-tests`, job `137110003413`: SUCCESS. The exact run event is `pull_request`; its log shows `python3 -m unittest scripts/test_pr_gate_plan.py scripts/test_pre_release_runtime_reuse.py` and final `OK`, so CI reaches the changed test on this PR trigger. This executes the full pairing assertion at `scripts/test_pre_release_runtime_reuse.py:392-436`.
 - `PR · Validation · ci-executor-tests`, job `137110003374`: SUCCESS.
 - `PR · Native gate plan`, job `137109948958`: SUCCESS. The log used `BASE_SHA=1ff16925c4e141d732459a34ddf0b7f49128a214` and emitted `matrix={"include":[]}` because that merge-base snapshot lacked `scripts/pr-native-gate-plan.py`. Therefore no native runtime matrix jobs ran in this run; skipped jobs are not treated as passes. The changed paths are scripts-only, and the new catalog/planner assertions ran in the successful planner-validation job.
 - `PR Selected Checks`, job `137110275159`: SUCCESS. Across the run, 11 jobs succeeded and 21 were skipped; only successful executed checks above are counted as evidence.
