@@ -59,3 +59,9 @@ Read-only product review only. No local tests, product code/workflow changes, PR
 ## END codex-rev-1747 DONE
 
 Exact-head independent review is APPROVE with no blocking findings; review evidence is being published. Candidate SHA: `fa527b439472b66736e242944a3ef7e48ab200db`.
+
+## Publication witness
+
+Output of `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep 'evidence/r28-welle5-2026-11-22/coreless-validation/review-1736-headfa527b439.md'`:
+
+`evidence/r28-welle5-2026-11-22/coreless-validation/review-1736-headfa527b439.md`
