@@ -105,3 +105,4 @@ END codex-rev-1747 DONE — independent review requests changes; candidate 9140e
 - Board step 105 marked done; #1753 step 104 remains done with its existing hold state.
 
 - Exact required origin/main tree witness after fetch: `evidence/r28-welle5-2026-11-22/sourcepull-0428-061/review-1752-head9140e0c8.md`.
+- Second evidence push delivery witness: `5406131d02fb64ae7ab06c599f9eafc7810b135f refs/heads/main`.
