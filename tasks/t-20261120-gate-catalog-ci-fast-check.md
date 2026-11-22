@@ -13,7 +13,7 @@ kanban_lane: wait
 kanban_summary: "Register scripts/ci-fast-check.sh as a real v0.4.28 Pre-Release static gate, with the full catalog/dispatcher wiring and…"
 kanban_title: "0428-205 · Gate catalog: ci-fast-check"
 priority: normal
-depends_on: [t-20261120-r28-cli-shard-operator-env]
+depends_on: [t-20261121-develop-full-suite-red]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746]
 sources: []
