@@ -8,14 +8,14 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w21-pr1702-0428-142-compat
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "validate and PR · Draft Go · cli- stop failing on missing runner tools, so a PR that only changes product code can reach a…"
 kanban_title: 0428-229 · CI cells miss runner tools
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1754]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,18 +23,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-ci-cells-missing-runner-prerequisites · 0428-229 · Provision the runner prerequisites the two PR CI cells already require #task #release/v0-4-28 #status/active #view/active #area/ci #kind/task
+- [ ] t-20261122-ci-cells-missing-runner-prerequisites · 0428-229 · Provision the runner prerequisites the two PR CI cells already require #task #release/v0-4-28 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** w21-pr1702-0428-142-compat · **Priority:** high  
+    **PR:** [baseharbor#1754](https://github.com/mcpdev80/baseharbor/pull/1754)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w21-pr1702-0428-142-compat  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1754](https://github.com/mcpdev80/baseharbor/pull/1754)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -84,3 +85,5 @@ code can reach a terminal green exact run. No test is skipped, softened or delet
   CI-Aufnahmepflicht). The Owner applies the two steps; a lane then re-runs and witnesses the exact CI.
 
 Owner ordered the central zsh provisioning; mission b34f567c3cf2 adds the existing authorized step 'Install interactive shells for the shell-wrapper path' (template ci.yml:1254-1262) into pr_draft_go_shards (ci.yml:1645) on branch lane-0428-229-ci-draft-cell-shells; ORAS half of the card is solved differently by 0428-223 test-side and is under review
+
+lane delivered PR #1754 (branch lane-0428-229-ci-draft-cell-shells, head acd8dd95e6a): adds the existing authorized step 'Install interactive shells for the shell-wrapper path' into pr_draft_go_shards; ORAS half stays with 0428-223's test-side route under review. exact-head CI and independent review pending
