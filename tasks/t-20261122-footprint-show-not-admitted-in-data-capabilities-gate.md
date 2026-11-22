@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w1625-pr1723-0428-199-workloadport
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "The disposable acceptance gates that legitimately call baha app footprint show are admitted by the CI operator boundary, so the…"
 kanban_title: 0428-227 · footprint show gate admission
 priority: ""
@@ -18,18 +18,19 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "Zwei abhaengigkeiten: (1) pfad->gate-abbildung fuer cmd/baha/ci_integration_operator_enabled.go fehlt in scripts/pr-gate-plan.py:173,175 und scripts/pre-release-runtime-impact.json:30,31, dadurch ist atomic/docker/data-capabilities im PR-run 44966211481 SKIPPED (skip ist kein nachweis); (2) basis-hop auf develop 6209874428f ist nicht ausgefuehrt (refs/pull/1753/head 03ef125e610, back=3) und liegt beim owner. naechster ausloeser: owner-entscheidung zur abbildung, dann hop + gruen-exakter lauf"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-footprint-show-not-admitted-in-data-capabilities-gate · Acceptance contract: baha app footprint show is admitted only for the guided gate #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261122-footprint-show-not-admitted-in-data-capabilities-gate · Acceptance contract: baha app footprint show is admitted only for the guided gate #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** w1625-pr1723-0428-199-workloadport  
+    **Waiting:** Zwei abhaengigkeiten: (1) pfad-\>gate-abbildung fuer cmd/baha/ci\_integration\_operator\_enabled.go fehlt in scripts/pr-gate-plan.py:173,175 und scripts/pre-release-runtime-impact.json:30,31, dadurch ist atomic/docker/data-capabilities im PR-r…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w1625-pr1723-0428-199-workloadport  
