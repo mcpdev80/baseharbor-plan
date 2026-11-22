@@ -4,12 +4,12 @@ Card `t-20261114-r28-perses-tempo-source`, PR #1645, branch `w091-tempo-r5-fix`.
 
 ## PLAN
 
-- [x] Record plan in board file + ## PLAN in akte
-- [x] PRUEFPUNKT 1 (read-only): confirm policy.go position with datei:leile that EnvironmentPolicy{TrustedLocal:true} is the ONLY switch making AuthenticationRequired=false
-- [x] PRUEFPUNKT 2: fix is test-only setup line Resolve -> ResolveWithPolicy(TrustedLocal:true) in perses_tempo_source_test.go
-- [x] git merge --no-ff acc343239681 on branch (develop head)
-- [x] push without force; hosted run to terminal: run-id, failed-count, packages-job-id
-- [x] akte with two pruefpunkt sections; END + coordinator post
+- Record plan in board file + ## PLAN in akte
+- PRUEFPUNKT 1 (read-only): confirm policy.go position with datei:leile that EnvironmentPolicy{TrustedLocal:true} is the ONLY switch making AuthenticationRequired=false
+- PRUEFPUNKT 2: fix is test-only setup line Resolve -> ResolveWithPolicy(TrustedLocal:true) in perses_tempo_source_test.go
+- git merge --no-ff acc343239681 on branch (develop head)
+- push without force; hosted run to terminal: run-id, failed-count, packages-job-id
+- akte with two pruefpunkt sections; END + coordinator post
 
 ## Base attestation
 
