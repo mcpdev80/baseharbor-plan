@@ -71,7 +71,7 @@ het combined head exact hosted aantonen dat de stack BEIDE blockers breekt.
 ## cleanliness
 
 cleanliness: `docker ps -a` BEFORE = 0 entries (pid 2376950), AFTER = 0 entries
-(pid 2438069). Geen compose/container gestart op deze host. Scratch
+(pid 2425250). Geen compose/container gestart op deze host. Scratch
 `/var/tmp/0428-223-fc-st.log` vóór END verwijderd. Werktree
 workers/0428-241-optawt 0 delta na de merge-push.
 
