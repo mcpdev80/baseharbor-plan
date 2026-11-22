@@ -8,10 +8,10 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ffe7611b (#1770 fa559ceef NATIVE GREEN run 45060014055, nachhop 978a0f90b running) / Owner/Codex (merge) / Coordinator
+owner: ffe7611b (#1770 fbbd08e0 base 978a0f90b, run 45062285607 native docker+podman GREEN, selected waiting-#1783) / Owner/Codex (merge) / Coordinator
 tags: [#task, #release/v0.4-28]
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-237 · data-capabilities native gate
 priority: ""
@@ -24,18 +24,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/45000121766", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44998846458", "https://github.com/mcpdev80/baseharbor/actions/runs/45008538769", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-3.md", "https://github.com/mcpdev80/baseharbor/actions/runs/45011764715"]
 ---
 
-- [ ] t-20261122-runtime-broker-health-unhealthy · CI: data-capabilities native gate fails on secure runtime broker readiness #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261122-runtime-broker-health-unhealthy · CI: data-capabilities native gate fails on secure runtime broker readiness #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** ffe7611b (\#1770 fa559ceef NATIVE GREEN run 45060014055, nachhop 978a0f90b running) / Owner/Codex (merge) / Coordinator  
+    **Owner:** ffe7611b (\#1770 fbbd08e0 base 978a0f90b, run 45062285607 native docker+podman GREEN, selected waiting-\#1783) / Owner/Codex (merge) / Coordinator  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998846458), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45008538769), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-3.md), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45011764715)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** ffe7611b (#1770 fa559ceef NATIVE GREEN run 45060014055, nachhop 978a0f90b running) / Owner/Codex (merge) / Coordinator  
+**Owner:** ffe7611b (#1770 fbbd08e0 base 978a0f90b, run 45062285607 native docker+podman GREEN, selected waiting-#1783) / Owner/Codex (merge) / Coordinator  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762)  
 **Source:** 
@@ -162,3 +162,5 @@ DRITTE FEHLKLASSE (separat von 241 consent + test-only allowlist): #1780 native 
 #1770 = SHARED native exact-runtime-image pin (scripts/ci-native-pr-gate.sh). head fa559ceef; develop jetzt 978a0f90b (#1786). ffe prueft ancestry, bei behind additiver hop + exact hosted. native docker+podman broker 503 soll WEGEN (pin wirkt). selected data-caps weiter #1783 = waiting. PRIORITISIERT vor dependent fan-out. KEIN merge bis reviewed + selected geklaert.
 
 #1770 = SHARED native exact-runtime-image pin (scripts/ci-native-pr-gate.sh): NATIVE docker+podman data-caps GREEN (run 45060014055) = :edge broker drift BEHOBEN. Das ist der native-unlock fuer ALLE dependenten native cells (#1761/#1762/#1763/#1765/#1738/#1753/#1771/#1783). head fa559ceef base 1253e8d0a -> behind #1786, ffe nachhop 978a0f90b (native soll gruen bleiben). selected data-caps = waiting-#1783 (fremder seam, NICHT #1770 defect). PR open/not merged. Owner/Codex entscheiden merge eines shared prereq auf native-green. develop 978a0f90b.
+
+#1770 NATIVE-UNLOCK auf current develop BESTAETIGT: head fbbd08e0 (additiver re-hop base 978a0f90b, KEIN content-edit), run 45062285607 native docker+podman data-caps GRUEN (exact runtime image pin wirkt, 0 broker-unhealthy). = der shared native-unlock. selected data-caps = waiting-#1783 (orthogonaler app-new/footprint seam, NICHT #1770 defect) -> scripts-only CI pin ist auf seinem NATIVE-gate green qualifiziert, selected zeigt bewusst waiting bis #1783 in develop. PR open/not merged, mergeState CLEAN. Owner/Codex koennen #1770 als shared prereq mergen (native-green); danach re-hops (#1761/#1762/#1763/#1765/#1771/#1783) zeigen native gruen. develop 978a0f90b.
