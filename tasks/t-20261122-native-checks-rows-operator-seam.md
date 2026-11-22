@@ -21,6 +21,7 @@ blocker: ""
 wait_reason: ""
 resolution: superseded
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/gate-admission-census/native-checks-catalog-recipe.md"]
+superseded_by: t-20261122-native-gate-admission-rows
 ---
 
 - [x] t-20261122-native-checks-rows-operator-seam · native checks rows 1750 #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
