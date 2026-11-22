@@ -56,3 +56,10 @@ De gate-toelating is via PR #1755 (squash) door de owner op develop gezet; devel
 cleanliness: nothing started door deze dispatch. Let op: `docker ps` toont de running container `a0d40c5bcc8e baha-prunit-db-2286133` (Up ~27 min, gestart VOOR deze dispatch) — niet van mij; ik heb hem niet aangeraakt en meld hem hier. Voor/na-getuigenis: BEFORE `docker ps -a` = [a0d40c5bcc8e baha-prunit-db-2286133]; AFTER idem. Mijn hopzone `/tmp/opencode/0428-223-hop1753` verwijderd + `git worktree prune`. Scratch: `/var/tmp/0428-223/*` (logs/artefakt-ontleding; opgeruimd voor END).
 
 END 0428-223-testctx DONE (#1750 new head 5d47569f337 run 44986337450 success; #1753 head ce5cf8f3037 run 44986388874 success; BEIDE 'PR · Selected Runtime' = SKIPPED → blokkerende befund met job-ids 137097672713 / 137097832863 en plan-artefakt 14740560007)
+
+## publishing witness
+
+```
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep hop-develop-1ff16925-w223
+evidence/r28-welle5-2026-11-22/base-hop-mechanics/hop-develop-1ff16925-w223.md
+```
