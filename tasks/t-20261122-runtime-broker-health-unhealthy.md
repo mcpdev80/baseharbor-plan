@@ -7,37 +7,37 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0847d100 (diagnose fertig) / Owner (fix-besitzer)
+owner: f0f6c8b4 (dependency-name) / 0847d100 (kette fertig)
 tags: [#task, #release/v0.4-28]
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-237 · data-capabilities native gate
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1753]
 sources: []
-blocker: "readiness-pfad fuehrt in Lane-gesperrte dateien (internal/observability/registry.go, internal/capability/perses_selection.go): Owner muss fix-besitzer bestimmen"
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md"]
 ---
 
-- [ ] t-20261122-runtime-broker-health-unhealthy · CI: data-capabilities native gate fails on secure runtime broker readiness #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261122-runtime-broker-health-unhealthy · CI: data-capabilities native gate fails on secure runtime broker readiness #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** 0847d100 (diagnose fertig) / Owner (fix-besitzer)  
-    **Blocker:** readiness-pfad fuehrt in Lane-gesperrte dateien (internal/observability/registry.go, internal/capability/perses\_selection.go): Owner muss fix-besitzer bestimmen  
+    **Owner:** f0f6c8b4 (dependency-name) / 0847d100 (kette fertig)  
+    **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0847d100 (diagnose fertig) / Owner (fix-besitzer)  
+**Owner:** f0f6c8b4 (dependency-name) / 0847d100 (kette fertig)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -104,3 +104,5 @@ RERUN AM EXAKTEN head a40b76764c3 ist GELAUFPEN (attempt 3 von run 44994268323) 
 DIAGNOSE FERTIG, ENTSCHEIDUNG BEI IHREN SITZEN. Der 503 not_ready kommt aus server.go:260 (writeNotReady, antwortet 503 mit {status:not_ready}), aufgerufen aus server_run.go:168/175/182/203 fuer die /readyz-abhaengigkeitspruefungen. Der gebundene runtime-/executor-pfad haelt an den Lane-gesperrten dateien internal/observability/registry.go und internal/capability/perses_selection.go an - die lane hat dort bewusst NICHTS geaendert (read-only, akte runtime-broker-0428-237/round-1.md, plan main 794446b94). Deterministisch ueber docker UND podman data-capabilities (run 44994268323: 4 failed / 12 success / 14 skipped am head a40b76764c3; attempt-3-rerun zeigt dieselben jobs). Konsequenz: PR 1753 kann nicht gemergt werden, bis dieser pfad entschieden ist; danach frischer hop auf develop acc34323968 und ein run mit echten runtime-gates.
 
 DIAGNOSE FERTIG, ENTSCHEIDUNG BEI IHREN SITZEN. Der 503 not_ready kommt aus server.go:260 (writeNotReady, antwortet 503 mit {status:not_ready}), aufgerufen aus server_run.go:168/175/182/203 fuer die /readyz-abhaengigkeitspruefungen. Der gebundene runtime-/executor-pfad haelt an den Lane-gesperrten dateien internal/observability/registry.go und internal/capability/perses_selection.go an - die lane hat dort bewusst NICHTS geaendert (read-only, akte runtime-broker-0428-237/round-1.md, plan main 794446b94). Deterministisch ueber docker UND podman data-capabilities (run 44994268323: 4 failed / 12 success / 14 skipped am head a40b76764c3; attempt-3-rerun zeigt dieselben jobs). Konsequenz: PR 1753 kann nicht gemergt werden, bis dieser pfad entschieden ist; danach frischer hop auf develop acc34323968 und ein run mit echten runtime-gates.
+
+weiter in arbeit, ein schritt fehlt noch: der NAME der fehlgeschlagenen abhaengigkeit entscheidet den fix-besitzer. Die kette liegt in internal/controlplaneruntime/server_run.go:163-219 (database :166-170, openbao :172-178, runtime-executor :179-206) und writeNotReady in internal/controlplaneruntime/server.go:260-274 schreibt ein 'dependency'-feld - beide dateien sind Lane-ERLAUBT, die sperren betreffen nur registry.go/perses_selection.go. Auftrag an f0f6c8b4, das feld aus den logs der attempt-3-jobs 137133647957, 137133625738, 137133627704, 137133627980 zu lesen und die korrektur dort zu verorten. Kein grundloser dritter rerun: der owner sagt ausdruecklich, unveraendert nicht nochmal versuchen.
