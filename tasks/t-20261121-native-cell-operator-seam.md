@@ -7,7 +7,7 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: 1450c201 (#1766 review) / coord (route) / f0f6c8b4 (abgezogen, #1766 = owner)
+owner: coord (route) / owner (delta sauber)
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: "controlplanesinglenativecitest.go stops failing with prepare BaseHarbor integration trust plane: because the native-cell test…"
@@ -18,26 +18,26 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1740, mcpdev80/baseharbor#1765, mcpdev80/baseharbor#1766]
 sources: []
 blocker: ""
-wait_reason: "eigener 2-file delta ist sauber, ABER exakter lauf 45018856573 fails NUR an quer-cluster: broker 503/"FailingStreak 49" (0428-237, separater PR laeuft) + selected footprint confirm-candidate consent (#1753, eingefroren bis 237-PR) + native keycloak/core stale assertion (#1766, PENDING). Merge erst nachdem 237-PR + #1766 + #1753-consent auf develop liegen."
+wait_reason: "Rebased head fadaa3e20 auf develop 64eab13e, exakter lauf 45021008989. Native Keycloak/Core docker+podman BEIDE SUCCESS (assertion durch #1766 behoben). Erste rote reihe native docker data-capabilities 137203733905 = broker container unhealthy 2m03s = 0428-237 separater PR. Podman data-capabilities + selected docker/podman laufen noch. Rerun-gruen erst wenn 0428-237-PR + 0428-227-consent-entscheidung auf develop liegen."
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1740", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md", "https://github.com/mcpdev80/baseharbor/pull/1765"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1740", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md", "https://github.com/mcpdev80/baseharbor/pull/1765", "https://github.com/mcpdev80/baseharbor/actions/runs/45021008989"]
   - "https://github.com/mcpdev80/baseharbor/pull/1740"
   - "https://github.com/mcpdev80/baseharbor/actions/runs/44868911131"
 ---
 
 - [ ] t-20261121-native-cell-operator-seam · 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** 1450c201 (\#1766 review) / coord (route) / f0f6c8b4 (abgezogen, \#1766 = owner) · **Priority:** high  
+    **Owner:** coord (route) / owner (delta sauber) · **Priority:** high  
     **PR:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740), [baseharbor#1765](https://github.com/mcpdev80/baseharbor/pull/1765), [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766)  
-    **Waiting:** eigener 2-file delta ist sauber, ABER exakter lauf 45018856573 fails NUR an quer-cluster: broker 503/"FailingStreak 49" (0428-237, separater PR laeuft) + selected footprint confirm-candidate consent (\#1753, eingefroren bis 237-PR) + native…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1765), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44868911131)  
+    **Waiting:** Rebased head fadaa3e20 auf develop 64eab13e, exakter lauf 45021008989. Native Keycloak/Core docker+podman BEIDE SUCCESS (assertion durch \#1766 behoben). Erste rote reihe native docker data-capabilities 137203733905 = broker container unhea…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1765), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45021008989), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44868911131)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** 1450c201 (#1766 review) / coord (route) / f0f6c8b4 (abgezogen, #1766 = owner)  
+**Owner:** coord (route) / owner (delta sauber)  
 **Priority:** high  
 **PRs:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740), [baseharbor#1765](https://github.com/mcpdev80/baseharbor/pull/1765), [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766)  
 **Source:** 
@@ -116,3 +116,5 @@ ROUTE-WECHSEL bestaetigt: statt #1740 base-retarget wurde ein NEUER develop-basi
 #1765 = GANZE cluster-abhaengig, NICHT sein 2-file delta. Run 45018856573: nativ docker data-capabilities 137197810751 failt secrets broker unhealthy (-> 0428-237, separater PR, laeuft bei Codex Runner), selected docker 137198119508 'app footprint show' confirm-candidate consent + contract (-> #1753 0428-227, EINGEFROREN bis 237-PR), native keycloak/core docker+podman stale network-owner assertion (-> #1766, korrigiert genau das). #1765 own delta ist OK; es kann erst gruen wenn 237-PR + #1766 + #1753-consent auf develop sind. ROUTING an besitzer: broker=0428-237 Codex Runner, candidate-consent=0428-227 (0847d100 triagiert mutation-vs-read, haelt #1753-push), assertion=#1766 (1450c201 review). 0428-232 demo 240e325 (0847d100) = static-mcp behoben.
 
 #1765 = NICHT sein delta. Beide native data-capabilities docker 137197810751 + podman 137197810744 failen TestApplicationCapabilityLifecycleExistingCore/secrets (broker /readyz 503/not_ready, podman FailingStreak 49) = 0428-237. selected docker 137198119508 + podman 137198119493 failen footprint show confirm-candidate = 0428-227 mutation-consent (#1753, eingefroren). native keycloak/core = #1766 assertion. Coreless/guided laufen noch. #1765 haelt an DENSELBEN cluster wie #1753. Wait, nicht review.
+
+Nach #1766 ist die stale assertion KEIN #1765-blocker mehr (beide native keycloak/core green). Was bleibt ist DERSELBE cluster wie #1753: broker 503 (0428-237) + selected confirm-candidate consent (0428-227, braucht Core/owner decision, karte 236 dropped). Delta sauber. PR-ref #1740->#1765 (owner bat darum bei closeout).
