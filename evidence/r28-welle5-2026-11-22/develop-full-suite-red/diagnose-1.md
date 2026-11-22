@@ -10,7 +10,7 @@ Read-only diagnosis dispatch. No product change, no branch push in this dispatch
 - (done) 3. Vergelijksbewijs: develop runs 44918870333/44916333992 (head 22fc68ebc06) status + job-ids + log
 - (done) 4. Diagnose per testgroep met file:line, scheiding (a) fixture/omgeving (b) produktfout (c) runner-prerequisite
 - (done) 5. Akte op baseharbor-plan origin/main publiceren + ls-tree-witness
-- (pending) 6. END post aan 9142ab1f met per-groep regel + 'kein push erfolgt'
+- (done) 6. END post aan 9142ab1f met per-groep regel + 'kein push erfolgt'
 
 ## Remote/zone witnesses (measured)
 
