@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0428-091-
-kanban_status: wait
-kanban_lane: wait
+owner: 03c7350a (lane)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Provision selected authorized Tempo datasource via supported Perses plugin, scoped and verified."
 kanban_title: 0428-091 · Connect Perses Tempo
 priority: normal
@@ -18,25 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1610, mcpdev80/baseharbor#1645]
 sources: []
 blocker: ""
-wait_reason: "hop and rerun are deliberately withheld: run 44814746593 failed in cli-0..3 and packages on the interactive-setup operator context, which card 0428-221 (PR 1750) fixes; rerun only after that merge and an additive hop to current develop"
+wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44688554297", "https://github.com/mcpdev80/baseharbor/actions/runs/44689126814", "https://github.com/mcpdev80/baseharbor/actions/runs/44695439903", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44688554297", "https://github.com/mcpdev80/baseharbor/actions/runs/44689126814", "https://github.com/mcpdev80/baseharbor/actions/runs/44695439903", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44996055999", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/stale-pr-census/review-1645-head326ca900526.md"]
 ---
 
-- [ ] t-20261114-r28-perses-tempo-source · Connect Perses Tempo #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
+- [ ] t-20261114-r28-perses-tempo-source · Connect Perses Tempo #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-091- · **Priority:** normal  
+    **Owner:** 03c7350a (lane) · **Priority:** normal  
     **PR:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645)  
-    **Waiting:** hop and rerun are deliberately withheld: run 44814746593 failed in cli-0..3 and packages on the interactive-setup operator context, which card 0428-221 (PR 1750) fixes; rerun only after that merge and an additive hop to current develop  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44688554297), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44689126814), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44695439903), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44688554297), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44689126814), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44695439903), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44996055999), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/stale-pr-census/review-1645-head326ca900526.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
 **Required by:** [t-20261114-r28-perses-log-trace-dash](t-20261114-r28-perses-log-trace-dash.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** 0428-091-  
+**Owner:** 03c7350a (lane)  
 **Priority:** normal  
 **PRs:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645)  
 **Source:** 
@@ -123,3 +122,5 @@ The exact-head review in [1645-0428-091.md](../evidence/r28-welle4-2026-11-20/co
 The current Wait status is supported by the owner pause and the latest Codeman pool snapshot (5/5 seats, no open seat), but the prior `wait_reason` incorrectly emphasized the earlier green run and did not reflect the later CODEX-REVIEW r2 REQUEST CHANGES. The reason now records the outstanding Perses runtime endpoint, mTLS policy, and host-dashboard regression findings and sets the concrete resume trigger: first open worker seat, followed by corrections and exact-head acceptance. PR #1645 remains OPEN+Ready at `0449f065`; no closure transition is supported.
 
 SITZ FREI GEWORDEN DURCH DEN MERGE VON #1709 (develop 681700ca66f3) -> diese karte nimmt ihn, die warteschlange ist damit geloest. neue frische lane 0428-091- (sid 0ee3dfb3, flash-kanal, model worker-flash ueber agentgateway, readiness von spawn-lane.sh verifiziert). gemessener ausgang: #1645 head 0449f06587c8, base 36d075fad77f, draft=false, mergeable=clean, 25 dateien, develop-ahn JA, run 44695439903 completed/success 36/36 - der gruene stand ersetzt NICHT das verdict (§5.4), das verdict ist REQUEST CHANGES (akte codex-review-wave/1645-0428-091.md, vier punkte P1-P4). auftrag: endpoint-routbarkeit aus dem echten netzwerk-namespace von Perses ohne verlust der AuthenticationRequired-policy (perses_tempo_datasource.go:482-496, :467-470, internal/traces/tempo.go:511-523), rueckgabe der ZWEI geloeschten fail-closed host-dashboard regressionstests in internal/capability/perses_test.go, und die drei 'partially present, not accepted'-punkte auf accepted fuehren. Coordinator/lane tooling observations have been moved to the separate Codeman Coordinator Tooling repository.
+
+review am exakten head 326ca900526 = REQUEST CHANGES (akte stale-pr-census/review-1645-head326ca900526.md, plan main 063972d9e87). run 44996055999 terminal FAILURE mit 2 fehlgeschlagenen jobs: 'PR . Go unit . packages' 137127343932 und aggregate 137128679130. Der fehler ist EIGENER inhalt des kandidaten (nicht der broker-blocker 0428-237, nicht die static cells): TestPersesTempoDatasourceSharedBackendGatewayStaysPolicyNeutral in internal/metrics/perses_tempo_source_test.go:419. Der PR fuegt 35 dateien hinzu und benennt .go-zeugen in .go.txt um. Korrektur ist befohlen (sitz 03c7350a, branch w091-tempo-r5-fix): zeugen-pfad oder testerwartung berichtigen, keine policy-aenderung, dann gehosteter run bis terminal. Hinweis: 'PR . Selected Runtime' 137127345558 und 'PR . Native matrix' 137127405068 sind SKIPPED mit matrix-laenge 0 - das ist der base-zeiger-verzug aus karte 0428-235, kein beleg und kein widerlegungsgrund.
