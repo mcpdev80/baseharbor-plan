@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: b90e4ba1 (lane) / fecbada9 (APPROVE am selben head) / 0428-227 vorrangig
+owner: b90e4ba1 (lane, fix aus eigenem hunt)
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -20,21 +20,21 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.com/mcpdev80/baseharbor/actions/runs/44994765677", "https://github.com/mcpdev80/baseharbor/actions/runs/44998552411", "https://github.com/mcpdev80/baseharbor/actions/runs/44999534797", "https://github.com/mcpdev80/baseharbor/actions/runs/45000121766", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.com/mcpdev80/baseharbor/actions/runs/44994765677", "https://github.com/mcpdev80/baseharbor/actions/runs/44998552411", "https://github.com/mcpdev80/baseharbor/actions/runs/44999534797", "https://github.com/mcpdev80/baseharbor/actions/runs/45000121766", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/hunt-operator-auth-static-cells-round-1.md"]
 ---
 
 - [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (lane) / fecbada9 (APPROVE am selben head) / 0428-227 vorrangig  
+    **Owner:** b90e4ba1 (lane, fix aus eigenem hunt)  
     **PR:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1761), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44994765677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44998552411), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44999534797), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1761), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44994765677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44998552411), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44999534797), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/hunt-operator-auth-static-cells-round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
-**Owner:** b90e4ba1 (lane) / fecbada9 (APPROVE am selben head) / 0428-227 vorrangig  
+**Owner:** b90e4ba1 (lane, fix aus eigenem hunt)  
 **Priority:** not set  
 **PRs:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
 **Source:** 
@@ -92,3 +92,5 @@ MESSE STATT MEINUNG, vier protokolle selbst gezogen (gh api job-logs, 72-257 KB)
 MESSE STATT MEINUNG, vier protokolle selbst gezogen (gh api job-logs, 72-257 KB): selected-docker 137139969524 (PR 1725) zeigt wortlich 'app footprint show -o json' plus 'operator/automation consent (--confirm-candidate); refusing to record deployment state'; selected-podman 137139969537 ebenso. In ALLEN vier gelesenen jobs (auch 137139636770 und 137139636747 von PR 1761) steht 'readiness timeout' NULL mal, 'not_ready' GENAU EIN mal (podman 137139636747). SHARED BLOCKER = die fussnoten-ZULASSUNG (karte 0428-227), NICHT die broker-chronologie 0428-237.
 
 STANDALONE bestehende gate, KEIN #1746-blocker (owner-erklaerung): 'Managed-environment machine operations require an authenticated BaseHarbor operator for shell-ux-static/dev' - die shell-ux-static/dev zelle braucht eine operator-auth BASELINE/fixture. Das ist eine EIGENE bestehende gate, die der PR 1746 nicht verursacht und nicht blockiert (1746 cli-3 ist SUCCESS). Wer die operator-auth baseline in den static cells liefert, loest diese gate. Nicht mit 1746-akzeptanz verwechseln.
+
+HUNT-belegt -> UNABHAENGIG fixbar (nicht an #1753 gekoppelt). PRIMAERDEFEKT cmd/baha/local_workload_authority.go:62: fixture meldet '--access local-docker', check vergleicht gegen 'local' -> grant faellt ab -> 'authenticated operator' fails in shell-ux/init/config-matrix statischen zellen. FIX: local-docker/local-podman als grant akzeptieren, regression in cmd/baha shards, KEIN .github. SEKUNDAR (tag baseharbor_ci_operator_testonly fehlt = no-op helper) NUR melden, ob fix 2 allein genuegt (tag waere .github owner-scope). NEBENBEFUND: static-mcp rot ist NICHT operator-auth sondern die 0428-232 demo-pin/candidate perses-divergenz.
