@@ -7,9 +7,9 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: Owner (recut 2ba70a58 done) / 0847d100 (read-only QA nur)
-kanban_status: review
-kanban_lane: review
+owner: Owner (recut 2ba70a58) / b90e4ba1 (catalog-entry 0428-248) / 0847d100 (read-only QA)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "TestCoreBootstrapFixtureCleanupContextIsBoundToItsLocalTarget shows which authority mode admitted installation.destroy, instead…"
 kanban_title: 0428-214 · 0428-214 destroy stamp
 priority: high
@@ -18,23 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1738]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "recut head 2ba70a58 exact run 45040395191 failt Trusted Plan: cmd/baha/core_installation_runtime_test.go uncataloged (derzeit hits=0). Schmal: 0428-248 katalog-pr (#1779 b90e4ba1) erhaelt source.cmd.baha.core.installation.runtime.test.go -> data-capabilities docker+podman (validator-rezept). naechster trigger: #1779 merged -> owner re-hopt #1738 auf neuen develop + exact CI. Kein merge des roten runs. Kein competing writer auf #1738 (owner recut steht). develop 31aededf."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1738", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-5-rebase.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md"]
 ---
 
-- [ ] t-20261121-destroy-authority-stamp · installation.destroy authorization assertion runs on a stamped context #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
+- [ ] t-20261121-destroy-authority-stamp · installation.destroy authorization assertion runs on a stamped context #task #release/v0-4-28 #status/wait #view/wait #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** Owner (recut 2ba70a58 done) / 0847d100 (read-only QA nur) · **Priority:** high  
+    **Owner:** Owner (recut 2ba70a58) / b90e4ba1 (catalog-entry 0428-248) / 0847d100 (read-only QA) · **Priority:** high  
     **PR:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
+    **Waiting:** recut head 2ba70a58 exact run 45040395191 failt Trusted Plan: cmd/baha/core\_installation\_runtime\_test.go uncataloged (derzeit hits=0). Schmal: 0428-248 katalog-pr (\#1779 b90e4ba1) erhaelt source.cmd.baha.core.installation.runtime.test.go -…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1738), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-5-rebase.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** Owner (recut 2ba70a58 done) / 0847d100 (read-only QA nur)  
+**Owner:** Owner (recut 2ba70a58) / b90e4ba1 (catalog-entry 0428-248) / 0847d100 (read-only QA)  
 **Priority:** high  
 **PRs:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
 **Source:** 
