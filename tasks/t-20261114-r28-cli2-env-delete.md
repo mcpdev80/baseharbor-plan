@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: Codex owner (combined validation ref)
-kanban_status: wait
-kanban_lane: wait
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Environment deletion lifecycle. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-055 · Env deletion lifecycle
 priority: high
@@ -18,21 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1627, mcpdev80/baseharbor#1736]
 sources: []
 blocker: ""
-wait_reason: "WARTET NICHT MEHR UNBENANT - DIE VORBEDINGUNG IST BESATZT: karte 0428-226 t-20261122-impact-consent-after-preview-contract ist beansprucht und aktiv (claim plan 611bc43cdb4), ausfuehrender sitz ist 0847d100 (w21-pr1702-…), dieselbe session, die die diagnose geliefert hat; mission sha256 8e4ac837f1c1. inhalt des fixes: das native fixture muss sein consent aus DEMSELBEN zerstoerungs-plan builder / scope holen, den authorizeApplicationDestruction spaeter erneut aufbaut (cmd/baha/application_destroy_authorization.go:148 und :183), statt aus dem stop-plan (cmd/baha/env_destroy_integration_test.go:117 ueber application_stop_impact.go:28), plus ein Stabilitaets-test der revalidierung (:183-188 PlanID-vergleich) und der beibehaltene negativfall. ZWEI PRAEZISIERUNGEN, die ich beim gegenlesen in develop 7d4351c6d64 gefunden habe: (1) der gemeldete code 'stale-impact-consent' entsteht in zeile 187-188, die consent-VALIDIERUNG in zeile 180 war also erfolgreich - es ist die REVALIDIERUNG, nicht der consent-vergleich; (2) application_stop_impact.go:35 meldet denselben code, wenn sich das target seit preview geaendert hat. WARTEGRUND FUER #1627: der fix auf 0428-226 ist bereit und gemergt, dann hop von cli2-env-delete auf den dann aktuellen develop (7d4351c6d64 oder neuer), dann terminale gruen-exakte hosted laeufe mit docker UND podman lifecycle-ausfuehrung, dann frisches unabhaengiges verdict, dann ordinary merge durch den owner; erst danach #1736 als inhaltlich enthalten schliessen. ihre sechs fixture-runden auf diesem branch entfallen damit - wenn 0428-226 den fall trifft, wird #1627s test-aenderungueberschuessig und der PR auf 'inhaltlich in 0428-226 enthalten' gestellt (entscheidung owner)."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1627", "https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677", "https://github.com/mcpdev80/baseharbor/actions/runs/44852435311", "https://github.com/mcpdev80/baseharbor/pull/1615", "https://github.com/mcpdev80/baseharbor/pull/1736", "https://github.com/mcpdev80/baseharbor/actions/runs/44859609354"]
 ---
 
-- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** Codex owner (combined validation ref) · **Priority:** high  
     **PR:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627), [baseharbor#1736](https://github.com/mcpdev80/baseharbor/pull/1736)  
-    **Waiting:** WARTET NICHT MEHR UNBENANT - DIE VORBEDINGUNG IST BESATZT: karte 0428-226 t-20261122-impact-consent-after-preview-contract ist beansprucht und aktiv (claim plan 611bc43cdb4), ausfuehrender sitz ist 0847d100 (w21-pr1702-…), dieselbe session…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1627), [proof 2](https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44852435311), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1615), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1736), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44859609354)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
 **Required by:** [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md), [t-20261120-workload-port-flag-ignored-locally](t-20261120-workload-port-flag-ignored-locally.md)  
@@ -119,3 +118,5 @@ Owner-Direktive 00:3xZ: review parallel zum laufenden exakten hosted run, nicht 
 ABHAENGIGKEITS-KOERPER (inhaltlich), von mir gemessen und bisher falsch beschrieben: 'git merge-base --is-ancestor refs/pull/1736/head refs/pull/1627/head' = NEIN (4c919fd61f3 gegen b3b0c2c9efc, 01:1xZ). die karte fuehrt beide PRs, aber #1736 ist durch seinen eigenen develop-hop aus dem #1627-validation-stack herausgefallen: es braucht EITHER einen eigenen exact-head run plus eigenen merge in abhaengigkeits-reihenfolge ODER einen neuen hop von #1627 auf des #1736 branch, damit der inhalt wieder ancestor ist. der ownersatz 'die beiden coreless lifecycle cases sind im trusted plan von #1627 ausgewaehlt' gilt fuer die FRUEHEREN heads, fuer b3b0c2c9efc muss die review-session das erneut messen (mission sha256 retire). mein vorrang fur den owner: die erste variante, weil beide PRs schon eigene gruenen runs haben koennen.
 
 MERGE-REIHENFOLGE, Owner-Anweisung 01:2xZ, bindig: #1627 zuerst ordinary merge, DANN #1736 als 'inhaltlich enthalten' schliessen (superseded), falls GitHub es nicht automatisch schliesst. #1736 darf VOR #1627 NICHT unabhaengig gemergt werden. VON MIR KORRIGIERT, WEIL ICH ZUERST 'nicht enthalten' GEMESSEN HATTE: 'git cherry -v refs/pull/1627/head refs/pull/1736/head' = '-' fuer alle drei commits 8f11a34da52 (route), 6af74ddf477 (register), 31d8e5e0e82 (defer) - patch-aequivalent schon in #1627, und 1e2ba9d5786 ist ancestor von b3b0c2c9efc. der ancestor-test auf 4c919fd61f3 sagt NEIN, aber das ist nur der develop-merge-wrapper des hops, nicht der inhalt. inhaltlich ist die abhaengigkeit also ERFUELLT. #1736 exakter run 44960494316 ist completed/SUCCESS auf 4c919fd61f3 (docker UND podman coreless-lifecycle ausgefuehrt, PR Selected Checks gruen, mergeStateStatus=CLEAN); das verdict wird von der review-session auf diesen head verlaengert mit der premerge-auflage 'nicht vor #1627 mergen'. #1627 exakter run 44961334018 auf b3b0c2c9efc ist in_progress (25 success, 0 failure).
+
+hop to develop 8b9a8f50645 dispatched after PR 1736 merged; acceptance proof is exact Docker and Podman coreless-lifecycle execution of TestEnvironmentDestroyNativeLifecycle
