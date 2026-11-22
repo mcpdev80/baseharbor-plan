@@ -7,7 +7,7 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: coordinator
+owner: coordinator (karte) / erster freier worker-sitz (ausfuehrung)
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: "controlplanesinglenativecitest.go stops failing with prepare BaseHarbor integration trust plane: because the native-cell test…"
@@ -18,26 +18,26 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1740]
 sources: []
 blocker: ""
-wait_reason: "base-Karte 0428-198 ist superseded und ihr PR 1726 nie gemergt; die geteilte Operator-Kontext-Mechanik kommt erst mit PR 1750. Danach wird diese Karte von develop aus neu angesetzt (Cherry-pick der eigenen Commits), siehe cli-shard-fanin/fanin-1726-disposition.md"
+wait_reason: "carrier-abhaengigkeit: ja; neue basis ist develop 8629450ef3c, delta wird dort neu geschnitten; die alte PR-basis bleibt ausser gebrauch"
 resolution: ""
-evidence:
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1740", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md"]
   - "https://github.com/mcpdev80/baseharbor/pull/1740"
   - "https://github.com/mcpdev80/baseharbor/actions/runs/44868911131"
 ---
 
 - [ ] t-20261121-native-cell-operator-seam · 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** coordinator · **Priority:** high  
+    **Owner:** coordinator (karte) / erster freier worker-sitz (ausfuehrung) · **Priority:** high  
     **PR:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740)  
-    **Waiting:** base-Karte 0428-198 ist superseded und ihr PR 1726 nie gemergt; die geteilte Operator-Kontext-Mechanik kommt erst mit PR 1750. Danach wird diese Karte von develop aus neu angesetzt (Cherry-pick der eigenen Commits), siehe cli-shard-fanin/f…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44868911131)  
+    **Waiting:** carrier-abhaengigkeit: ja; neue basis ist develop 8629450ef3c, delta wird dort neu geschnitten; die alte PR-basis bleibt ausser gebrauch  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44868911131)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** coordinator  
+**Owner:** coordinator (karte) / erster freier worker-sitz (ausfuehrung)  
 **Priority:** high  
 **PRs:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740)  
 **Source:** 
@@ -106,3 +106,5 @@ Ein 'skipped' waere kein beweis gewesen (AGENTS 5.3); jetzt ist es rot statt ski
 diagnose abgenommen (akte round-2-nativefail.md, plan 8b955447, durchgang 44878727267 an #1743 head 57e7941772ce): (a) DER KORPER LAEUFT — '=== RUN TestControlPlaneSingleDefaultNativeRuntimeInCI' in docker (protokoll-zeile 542) UND podman (zeile 400), kein skip; ihre stellung (c) ist damit N/A, keine auswahl-regel fehlt. (b) scheitert am RUMPF, nicht an der infra: 'cmd/baha/control_plane_single_native_ci_test.go:30' ruft das paket-fixture 'ensureRuntimeIntegrationTrustPlane'; im teardown 'bootstrapTeardownProvider()' (internal/deployment) heisst es 'target \"w169-ci-bootstrap-a755c994\" is not configured' (zeile 543), 'bootstrap trust-plane teardown could not begin' (547), 'teardown left residual resources: no runtime provider available for target' (548). (c) sie weist die korrektur DEM EIGENEN write-set dieser karte zu (test-datei + fixture), also KEIN owner-eingriff. MEINE ZUSATZ-PFLICHT: ihr akte nennt 'operator_core_network_binding_native_test.go' NICHT — ob der #1743-eigene test in denselben zellen laeuft, bleibt fuer mich unbelegt; und der docker-job-log war fuer mich NICHT holbar (job 136769154180, '--log' wie '--log-failed' = 0 bytes, dasselge bekannte abhole-fehler wie bei 44865751734), also sind ihre zeilenangaben vorlaeufig der zeuge und die neue lane muss sie reproduzieren.
 
 END_BLOCKED gemeldet, von mir bestaetigt: ihre fix wirkt (der "bootstrap target is not configured"-fall ist behoben), aber der test haelt an cmd/baha/operator_auth_boundary.go:113 an ErrConfigurationRequired, und internal/operatorauth/** ist Tabu. Das ist dieselbe owner-entscheidung wie 0428-214. NEUER VERFAHRENSBEFUND von mir: fuer GRUENE shard-jobs ist der test-detail gar nicht im protokoll - cli-2 (success) liefert 22242 bytes ohne einzige RUN-/PASS-/ok-zeile, cli-0 (failure) 23033 bytes mit FAIL-zeile. "test laeuft remote im shard" ist aus gruenen logs also NICHT beweisbar; die mutation (rot/weiss) bleibt der einzige beleg, plus job-success. Bitte nicht als unterstellung buchen.
+
+ROUTE NEU FESTGELEGT NACH CENSUS (akte operator-auth-helper/carrier-census-1737-1738-1740-1741.md, plan da2176f7f40): PR 1726 wird NICHT wieder eroeffnet und es entsteht KEIN neuer traeger - #1750 ist gemergt, darum wird der eigene delta dieses kandidaten auf develop 8629450ef3c5198bb675331c12f56b2c9377aa1c NEU GESCHNITTEN. Carrier-abhaengigkeit dieses PR: ja. Fernzeugnis: back=275, mergeStateStatus UNSTABLE, base zeigt auf die tote basis lane-0428-198-cli-shard-operator-env (spitze e45430f2f1b). Naechster schritt: mission auf dem ersten freien worker-sitz (neu schneiden), dann exact gehosteter durchgang und unabhaengige pruefung. Kein merge aus der alten basis heraus.
