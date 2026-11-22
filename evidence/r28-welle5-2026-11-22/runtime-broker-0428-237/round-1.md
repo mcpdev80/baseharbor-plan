@@ -4,11 +4,11 @@ Card `t-20261122-runtime-broker-health-unhealthy`, lane `0428-237`. Diagnose onl
 
 ## PLAN
 
-- [x] Rerun 44994268323 --failed on head a40b76764c3 (no push/force); follow run to terminal — per-job new job-id + status
-- [x] Classify deterministic vs transient
-- [x] Read-only `## Kette` trace: where the runtime broker starts, where the test waits for readiness, where 503 not_ready arises
-- [x] LANE-GESPERRE: `internal/observability/registry.go` + `internal/capability/perses_selection.go` — trace to them, STOP at `datei:leile`, no edit
-- [x] Write akte, publish to origin/main
+- Rerun 44994268323 --failed on head a40b76764c3 (no push/force); follow run to terminal — per-job new job-id + status
+- Classify deterministic vs transient
+- Read-only `## Kette` trace: where the runtime broker starts, where the test waits for readiness, where 503 not_ready arises
+- LANE-GESPERRE: `internal/observability/registry.go` + `internal/capability/perses_selection.go` — trace to them, STOP at `datei:leile`, no edit
+- Write akte, publish to origin/main
 
 ## Evidence location
 
