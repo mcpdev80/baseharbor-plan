@@ -8,7 +8,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ffe7611b (#1770 fa559ceef hop-check -> 978a0f90b + exact hosted, SHARED native pin) / Owner/Codex / Coordinator
+owner: ffe7611b (#1770 fa559ceef NATIVE GREEN run 45060014055, nachhop 978a0f90b running) / Owner/Codex (merge) / Coordinator
 tags: [#task, #release/v0.4-28]
 kanban_status: active
 kanban_lane: active
@@ -26,7 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "h
 
 - [ ] t-20261122-runtime-broker-health-unhealthy · CI: data-capabilities native gate fails on secure runtime broker readiness #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** ffe7611b (\#1770 fa559ceef hop-check -\> 978a0f90b + exact hosted, SHARED native pin) / Owner/Codex / Coordinator  
+    **Owner:** ffe7611b (\#1770 fa559ceef NATIVE GREEN run 45060014055, nachhop 978a0f90b running) / Owner/Codex (merge) / Coordinator  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998846458), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45008538769), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-3.md), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45011764715)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "h
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** ffe7611b (#1770 fa559ceef hop-check -> 978a0f90b + exact hosted, SHARED native pin) / Owner/Codex / Coordinator  
+**Owner:** ffe7611b (#1770 fa559ceef NATIVE GREEN run 45060014055, nachhop 978a0f90b running) / Owner/Codex (merge) / Coordinator  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762)  
 **Source:** 
@@ -160,3 +160,5 @@ DRITTE FEHLKLASSE (separat von 241 consent + test-only allowlist): #1780 native 
 #1770 = SHARED native exact-runtime-image pin (scripts/ci-native-pr-gate.sh). PRIORITISIERT vor allen dependenten native retries (owner-anweisung): ffe additiver hop auf 1253e8d0a + exact hosted. native docker+podman broker 503 soll damit WEGEN (pin wirkt). selected data-caps weiter #1783 parity/demo-consent = waiting. 2a4adca0 war BEHIND; earlier #1753 candidate-built image passed secrets subtest (belegt pin-wirksamkeit). KEIN merge bis reviewed + selected geklaert. develop 1253e8d0a.
 
 #1770 = SHARED native exact-runtime-image pin (scripts/ci-native-pr-gate.sh). head fa559ceef; develop jetzt 978a0f90b (#1786). ffe prueft ancestry, bei behind additiver hop + exact hosted. native docker+podman broker 503 soll WEGEN (pin wirkt). selected data-caps weiter #1783 = waiting. PRIORITISIERT vor dependent fan-out. KEIN merge bis reviewed + selected geklaert.
+
+#1770 = SHARED native exact-runtime-image pin (scripts/ci-native-pr-gate.sh): NATIVE docker+podman data-caps GREEN (run 45060014055) = :edge broker drift BEHOBEN. Das ist der native-unlock fuer ALLE dependenten native cells (#1761/#1762/#1763/#1765/#1738/#1753/#1771/#1783). head fa559ceef base 1253e8d0a -> behind #1786, ffe nachhop 978a0f90b (native soll gruen bleiben). selected data-caps = waiting-#1783 (fremder seam, NICHT #1770 defect). PR open/not merged. Owner/Codex entscheiden merge eines shared prereq auf native-green. develop 978a0f90b.
