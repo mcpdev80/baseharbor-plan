@@ -65,4 +65,4 @@ Fresh `origin/main` tree output:
 evidence/r28-welle5-2026-11-22/gate-admission-census/review-1756-head4f2a5d4701c.md
 ```
 
-Evidence commit: `e2fe8101b` (published to Planning `origin/main`).
+Initial evidence commit: `e2fe8101b`; final content commit: `17b8a5221` (published to Planning `origin/main`).
