@@ -43,3 +43,9 @@ No APPROVE or REQUEST CHANGES verdict while run 44976906715 is nonterminal and t
 ## END codex-rev-1747 BLOCKED
 
 Waiting for the exact run to become terminal, Owner hop to develop `8b9a8f50645db1dbaad4a5e1f2140930436d3ea7`, and authorship attribution for the worker-identity commits.
+
+## Publication witness
+
+Exact output of `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep 'evidence/r28-welle5-2026-11-22/sourcepull-0428-061/review-1752-head7b3c6588.md'`:
+
+`evidence/r28-welle5-2026-11-22/sourcepull-0428-061/review-1752-head7b3c6588.md`
