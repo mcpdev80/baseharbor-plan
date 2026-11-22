@@ -38,3 +38,9 @@ Before review, `docker ps -a --no-trunc` with shell PID 2351059 showed only the 
 ## END_BLOCKED
 
 END_BLOCKED: required exact-head `PR Selected Checks` failed on both native data-capabilities jobs; no bypass or merge was attempted. Owner direction is needed before further merge work.
+
+## origin/main evidence path witness
+
+Exact output from `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle5-2026-11-22/guided-fixture-footprint-contract-divergence-0428-241/1788-into-1783-stacked-merge-round-1.md`:
+
+`evidence/r28-welle5-2026-11-22/guided-fixture-footprint-contract-divergence-0428-241/1788-into-1783-stacked-merge-round-1.md`
