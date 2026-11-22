@@ -110,3 +110,11 @@ worden vóór END verwijderd. Werkboom workers/0428-248-perseswt houdt de kandid
 (0 delta na commit).
 
 END 0428-223-testctx DONE — 0428-248 perses-catalog round-1: branch lane-0428-248-perses-catalog, head e9818cf40d46132088450b3224b74acaf0a3101b (ONE commit op develop 31aededf, log+diff bewezen), PR #1779 class READY (draft→ready door missie bevolen), exact hosted run 45040866670 completed/success failed=0 met Trusted Plan 137264800274 + pr-planner-tests 137264859029 + Focused Python 137264858965 EXECUTED success, 'perses-pfade gemappt, dup-frei, surface sicher/ambivalent je datei', trusted-planner #1597 cataloged: ja, alle uncataloged-aborts weg: ja, cleanliness: besenrein
+
+## origin/main witness
+
+Exacte uitvoer van `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep gate-catalog-0428-248/perses-catalog-round-1` (plan main = 4739efe60d5c21686ced3501d64f2ad060347bed):
+
+```
+evidence/r28-welle5-2026-11-22/gate-catalog-0428-248/perses-catalog-round-1.md
+```
