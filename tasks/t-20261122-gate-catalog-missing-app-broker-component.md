@@ -8,34 +8,36 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: ""
-kanban_status: wait
-kanban_lane: wait
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "Make broker diagnostics provable in hosted CI: scripts/pr-gate-coverage.json carries 65 cmd/baha path entries but no entry…"
 kanban_title: 0428-242 · app_broker not in gate catalog
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1763]
 sources: []
-blocker: ""
-wait_reason: "scripts/pr-gate-coverage.json traegt keinen component fuer cmd/baha/app_broker (65 cmd/baha, 0 app_broker); PR 1763 head c698d1310 hat damit leere native gate-plan matrix und keinen runtime-beleg"
+blocker: "OWNER-scope aktion ausstehend: scripts/pr-gate-coverage.json traegt keinen component fuer cmd/baha/app_broker.go (65 cmd/baha, 0 app_broker), dadurch ist der native gate-plan fuer PR 1763 leer (matrix include=[]), kein gehosteter runtime-beleg moeglich; scripts/** ist owner-scope"
+wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45011815553"]
 ---
 
-- [ ] t-20261122-gate-catalog-missing-app-broker-component · Gate catalog: no coverage component for cmd/baha/app_broker.go #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/testing #kind/bug
+- [ ] t-20261122-gate-catalog-missing-app-broker-component · Gate catalog: no coverage component for cmd/baha/app_broker.go #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/testing #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **Waiting:** scripts/pr-gate-coverage.json traegt keinen component fuer cmd/baha/app\_broker (65 cmd/baha, 0 app\_broker); PR 1763 head c698d1310 hat damit leere native gate-plan matrix und keinen runtime-beleg  
+    **PR:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763)  
+    **Blocker:** OWNER-scope aktion ausstehend: scripts/pr-gate-coverage.json traegt keinen component fuer cmd/baha/app\_broker.go (65 cmd/baha, 0 app\_broker), dadurch ist der native gate-plan fuer PR 1763 leer (matrix include=\[\]), kein gehosteter runtime-b…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45011815553)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** unassigned  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -65,3 +67,5 @@ diagnostic path is never exercised by a hosted job.
 DER EINE FEHLENDE SCHRITT FUER #1763 RUNTIME-BELEG (owner-scope scripts/**): #1763 head c698d1310 hat 'Native gate plan matrix empty', selected runtime skipped, kein runtime-zeugnis fuer die broker-diagnose. Loesung liegt NICHT bei der lane - scripts/pr-gate-coverage.json braucht einen component-Eintrag, der cmd/baha/app_broker.go auf die data-capabilities-native-gaete mappt. Damit der owner es direkt setzen kann: genuegt ein eintrag analog der bestehenden cmd/baha/app_*-muster (datei ~142 ff), 'path':'cmd/baha/app_broker.go' plus dieselbe gate-liste wie die anderen cmd/baha-dateien.
 
 owner-scope stueck, damit #1763 runtime-beleg bekommt. Gemessen an head c698d1310 durchgang 45011815553: 'Native gate plan matrix EMPTY', selected runtime skipped - die broker-diagnose hat KEINEN gehosteten runtime-zeugen. Loesung = ein component-eintrag in scripts/pr-gate-coverage.json der cmd/baha/app_broker.go auf die data-capabilities-native gaete mappt (analog der cmd/baha/app_* muster ab datei ~142). Kein lanen-zugriff (scripts/**).
+
+VON DER #1763-LANE BELEGT (head c698d1310, run 45011815553 SUCCESS, alle vier runtime-reihen SKIPPED). Die einzige loesung liegt in scripts/pr-gate-coverage.json: ein component analog cmd/baha/app_* (ab datei ~142) der app_broker.go auf die data-capabilities-native gaete mappt. File:line in akte runtime-broker-0428-240/ready-round-1.md. Owner-aktion, keine lane.
