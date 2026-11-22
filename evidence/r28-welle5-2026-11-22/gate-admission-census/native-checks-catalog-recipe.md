@@ -57,3 +57,31 @@ The lane for PR #1746 stopped correctly: `.github/workflows/pre-release-runtime-
 `.github/workflows/pre-release.yml` "Release Validation" (near lines 672-687, `runtime: static`), which itself needs a
 release tag from the orchestrator. A lane must not dispatch that chain, so the current-head static proof for #1746
 needs either an Owner-added dispatch entry or a tag-gated release validation run.
+
+## Reproduction that settles the "planner missing" reading
+
+The predicate is **not** the cause. Witness set:
+
+* `git cat-file -t 1ff16925c4e:scripts/pr-native-gate-plan.py` = `blob`, blob
+  `4259fbf665f80f6e6cb43bb0995f7a120aa2042b`, added by `eabe37d36`, which `git merge-base --is-ancestor` confirms is an
+  ancestor of the base. The `if` branch in `ci.yml` therefore taken is the planner branch, not the warning branch.
+* Every check-run of run 44986337450 named `PR · Native gate plan`, `PR · Native · ${{ matrix.id }}` and
+  `PR · Native Keycloak/Core · ${{ matrix.runtime }}` reports **0 annotations**, so no `::warning::The PR base …` was
+  ever emitted. The `$BASE_REF`-shaped line that appears in the job log is the runner echoing the script source
+  (unsubstituted variable), not a runtime message.
+* Diagnosis (not evidence): running the base's own selector on the base's catalog with the eight changed paths of
+  #1750 reproduces the hosted result byte for byte:
+
+      python3 pr-native-gate-plan.py --changed-paths-file changed-paths \
+        --coverage pr-gate-coverage.json --requirements release-requirements.json
+      {"include":[]}
+
+  and the reason is countable: **0 of 8** changed paths have a `components` row
+  (`cmd/baha/app_init_source_neutral_test.go`, `app_init_wizard_test.go`, `app_perses_host_containers_cli_test.go`,
+  `app_perses_infra_dashboards_cli_test.go`, `application_lifecycle_lock_test.go`, `repository_up_init_test.go`,
+  `runtime_integration_test_support_test.go`, `test_operator_context_test.go`).
+
+Conclusion for card 0428-230: the trusted native planner already stands in develop; what is missing are the catalog
+rows it consumes. Adding `components` rows plus matching `native_checks` rows (runtime `docker`/`podman`, otherwise
+`resolve_matrix` raises `invalid native gate selected by coverage catalog`) is the whole change. The wizard-style map
+in `scripts/pr-gate-plan.py`, which PR #1755 extended, is a different consumer and cannot close this.
