@@ -47,3 +47,9 @@ No local tests were run. No product files, PR state, GitHub reviews/comments, wo
 
 Candidate `558265019ffcd69b66a422180eafcc56cddd5d30`; verdict REQUEST CHANGES, finding F1: dedicated operator seam workflow branch absent from the exact successful run's selected validation list.
 - After review, PID `2350391`: `docker ps -a` showed the same pre-existing container `baha-prunit-db-2286133` (`a0d40c5bcc8e`) Up; no container was created, stopped, or modified.
+
+## Planning publication witness
+
+- First evidence commit: `31c6bb83ffd9ec2ec5a21abf04ce633709edf2d0`; push witness: `31c6bb83ffd9ec2ec5a21abf04ce633709edf2d0 refs/heads/main`.
+- `git fetch origin main && git ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-22/rev1755/review.md$'` exact output:
+  `evidence/r28-welle5-2026-11-22/rev1755/review.md`
