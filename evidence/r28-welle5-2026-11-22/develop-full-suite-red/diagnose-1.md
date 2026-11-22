@@ -91,3 +91,10 @@ The earlier commit 25acb4be4 (published during a transport hiccup before the cle
 $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep develop-full-suite-red/diagnose-1
 evidence/r28-welle5-2026-11-22/develop-full-suite-red/diagnose-1.md
 ```
+
+Final witness (plan commit f83432576 on origin/main):
+
+```
+$ git fetch -q origin main && git ls-tree -r --name-only origin/main | grep develop-full-suite-red/diagnose-1
+evidence/r28-welle5-2026-11-22/develop-full-suite-red/diagnose-1.md
+```
