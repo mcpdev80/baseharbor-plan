@@ -57,3 +57,7 @@
 PENDING — the exact head's implementation review passes, but exact-head run 45024804281 remains in progress and required PR-CI shards lack terminal results.
 
 END codex-rev2-1736 DONE: PENDING for exact head 2f06b52a25a58fdddcaaab18b0eae27514a76569; wait for terminal exact-head PR-CI before approval.
+
+## Publication witness
+
+- Exact `git ls-tree -r --name-only origin/main | grep` output after fetching origin/main: `evidence/r28-welle5-2026-11-22/mcp-operator-seam-0428-218/review-1769-head8f5f4b0.md`
