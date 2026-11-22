@@ -36,10 +36,10 @@ Product boundary: NO rebase, NO amend, NO force-push, NO content change. Conflic
 - Conflict file: `cmd/baha/app_status_result.go` (git status `UU`, markers at lines 28 `<<<<<<< HEAD`, 42 `=======`, 70 `>>>>>>> 6209874428f…`).
 - Per directive: STOP, name file, notify owner. Owner resolves/decides.
 
-## Run watching (AGENTS 4.6)
-- HOP A PR #1725 run `44975262053`: in_progress at last poll (02:15Z). Awaiting terminal.
+## Run watching (AGENTS 4.6) — terminal
+- HOP A PR #1725 run `44975262053`: **completed / FAILURE** (terminal, 02:24Z). Jobs: **16 SUCCESS, 14 SKIPPED, 0 FAILED jobs**. The aggregate FAILURE is a Required-Checks / workflow-level gate (all jobs success/skipped) — an Owner/CI-policy matter, documented only, not adjudicated.
 - HOP B PR #1597: no run — STOP before push (conflict). No run to watch.
-- skipped gates are NOT a proof; if any selected-runtime job is skipped it will be cited as skipped.
+- skipped gates are NOT a proof; any selected-runtime job skipped is cited as skipped.
 
 ## Boundaries honored
 - No rebase, no amend, no force-push, no content change to branch work. Hop A additive only.
@@ -49,4 +49,4 @@ Product boundary: NO rebase, NO amend, NO force-push, NO content change. Conflic
 - Hop B conflict left unresolved and branch unpushed (correct STOP; not a defect).
 
 ## END
-END_BLOCKED w21-pr1702-0428-142-compat: two mechanical hops (w21hops2.g.md). HOP A PR #1725 w201-0428-201-statever 0208f725996 -> 1ec67313ca0 (additive merge --no-ff of develop 6209874428f, back=0, push OHNE force); new run 44975262053 in_progress (awaiting terminal). HOP B PR #1597 perses-dashboard-databases-lane STOPPED on merge CONFLICT in cmd/baha/app_status_result.go (lines 28-70, HEAD vs develop markers); branch left at 074678d149e, nothing committed/pushed, conflict NOT resolved (owner decides). No further branch. Evidence: evidence/r28-welle5-2026-11-22/base-hop-mechanics/hop-develop-6209874428f-w21-b.md. 0428-226 round-2 fix STILL WAITING owner push to cli2-env-delete.
+END_DONE w21-pr1702-0428-142-compat: two mechanical hops (w21hops2.g.md). HOP A PR #1725 w201-0428-201-statever 0208f725996 -> 1ec67313ca0ff583d2faf0ad2e0c814e95c0d6aa (additive merge --no-ff of develop 6209874428f, back=0, push OHNE force); new run 44975262053 terminal completed/FAILURE (16 SUCCESS / 14 SKIPPED / 0 FAILED jobs — aggregate FAILURE is a Required-Checks/workflow gate, Owner/CI-policy, documented only). HOP B PR #1597 perses-dashboard-databases-lane STOPPED on merge CONFLICT in cmd/baha/app_status_result.go (lines 28-70, HEAD vs develop markers); branch left at 074678d149e, nothing committed/pushed, conflict NOT resolved (owner decides). No further branch. Evidence: evidence/r28-welle5-2026-11-22/base-hop-mechanics/hop-develop-6209874428f-w21-b.md. 0428-226 round-2 fix STILL WAITING owner push to cli2-env-delete.
