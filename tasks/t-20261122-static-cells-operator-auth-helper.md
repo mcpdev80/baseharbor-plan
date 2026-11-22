@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: b90e4ba1 (#1761 helper + #1771 fix additive hops b27b2ebe + exact hosted) / Coordinator
+owner: b90e4ba1 (#1761 hop fcfe3f09 TrustedPlan-fail=mcp.uncataloged->waartet #1784; #1771 hop ebd01baa TrustedPlan GRUEN) / Coordinator
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -15,7 +15,7 @@ kanban_title: 0428-231 · operator auth in static cells
 priority: ""
 depends_on: [t-20261121-develop-full-suite-red]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1746]
+prs: [mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1784]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -25,8 +25,8 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.c
 
 - [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (\#1761 helper + \#1771 fix additive hops b27b2ebe + exact hosted) / Coordinator  
-    **PR:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
+    **Owner:** b90e4ba1 (\#1761 hop fcfe3f09 TrustedPlan-fail=mcp.uncataloged-\>waartet \#1784; \#1771 hop ebd01baa TrustedPlan GRUEN) / Coordinator  
+    **PR:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1784](https://github.com/mcpdev80/baseharbor/pull/1784)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1761), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44994765677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44998552411), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44999534797), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/hunt-operator-auth-static-cells-round-1.md)  
     <!-- /generated:card -->
 
@@ -34,9 +34,9 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.c
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
-**Owner:** b90e4ba1 (#1761 helper + #1771 fix additive hops b27b2ebe + exact hosted) / Coordinator  
+**Owner:** b90e4ba1 (#1761 hop fcfe3f09 TrustedPlan-fail=mcp.uncataloged->waartet #1784; #1771 hop ebd01baa TrustedPlan GRUEN) / Coordinator  
 **Priority:** not set  
-**PRs:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
+**PRs:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1784](https://github.com/mcpdev80/baseharbor/pull/1784)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -100,3 +100,5 @@ SHARED-PREREQ. b90e4ba1 besitzt cmd/baha/operator_test_fixture_test.go. #1746 mc
 PR #1771 (draft) head 172fb251 auf develop 8629450ef3c = BEHIND aktuellem develop 64eab13e -> b90e4ba1 hoppt einmalig additiv auf 64eab13e + exact-hosted + draft->ready. Root-cause KORRIGIERT: nicht ein alias; echte drop = root quick-init route OHNE app.adopt scope in cliLocalWorkloadOperation (main.go). Fix additiv isLocalRuntimeAccessProvider (local + local-docker/local-podman) in grant-check + init-scope. operator-auth/boundary INTAKT, KEIN .github/scripts/operatorauth. Runs 45023442557 + 45024197667 success/failed 0 am alten head. STATIC-GATES nicht lane-startbar (Owner workflow_dispatch pre-release.yml) - als ausloeser notiert, nicht als deficit. Dient #1746 mcp-static (geteiltes fixture/grant-issue). Akte plan origin/main.
 
 0428-231 = operator-auth static-cells prereq fuer #1746 full static suite (shell-ux 137302542528/init 137302542587/mcp 137302542606/config-matrix 137302542638 fail 'authenticate operator'/authentication_failed). #1761(static-auth-helper head 669d76ac) + #1771(static-opauth-fix head dc775235) beide stale base, UNASSIGNED -> b90e additive hops b27b2ebe + rerun (helper->fix stacked). mcp target create mcp-static fail = pruefen ob 247 product-semantik (STOP->owner) oder helper deckt es. develop b27b2ebe.
+
+0428-231 hops: #1771 ebd01baa Trusted Plan GRUEN (selected data-caps pending-runner). #1761 fcfe3f09 Trusted Plan FAIL weil cmd/baha/mcp.go unkatalogisiert (fail-loud guardian) -> geloest durch PR #1784 (mcp.go->gate.mcp, CI SUCCESS, review 1450c201). NACH #1784 merge: #1761 re-hop neuer develop -> Trusted Plan gruen. Dann #1746 static operator-auth gates (warten auf 231). develop b27b2ebe.
