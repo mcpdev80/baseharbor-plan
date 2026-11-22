@@ -10,8 +10,8 @@ parent: ""
 owner: ""
 kanban_status: closed
 kanban_lane: closed
-kanban_summary: "Folded into 0428-230: the measured reason PR 1750 and 1753 still skip Selected Runtime."
-kanban_title: "0428-234 · native gate rows: PR 1750 and operator seam sources"
+kanban_summary: ""
+kanban_title: 0428-234 · native_checks rows for PR 1750 sources
 priority: ""
 depends_on: [t-20261122-native-gate-admission-rows]
 repos: [mcpdev80/baseharbor]
@@ -24,7 +24,22 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 superseded_by: t-20261122-native-gate-admission-rows
 ---
 
-- [ ] t-20261122-native-checks-rows-operator-seam · CI: give the operator seam and PR 1750 sources native_checks rows
+- [x] t-20261122-native-checks-rows-operator-seam · CI: give the operator seam and PR 1750 sources native_checks rows #task #release/v0.4.28 #status/closed #view/closed #board/planned #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned  
+    **Needs:** [t-20261122-native-gate-admission-rows](t-20261122-native-gate-admission-rows.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/gate-admission-census/native-checks-catalog-recipe.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** superseded  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** [t-20261122-native-gate-admission-rows](t-20261122-native-gate-admission-rows.md)  
+**Owner:** unassigned  
+**Priority:** not set  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Why this card exists and why it is closed as superseded
 

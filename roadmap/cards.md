@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 152/246 · **Blocked:** 1 · **Waiting:** 22  
+    **Accepted tasks:** 152/247 · **Blocked:** 1 · **Waiting:** 22  
     **Blocker:** [t-20261114-r28-cli2-source-pull](../tasks/t-20261114-r28-cli2-source-pull.md) — Owner-Entscheidung noetig: die zwei neuesten commits b010dabcb und e7df5ab4a6c sind als 'BaseHarbor Worker \<worker@example.invalid\>' geschrieben (unsigniert, k…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
