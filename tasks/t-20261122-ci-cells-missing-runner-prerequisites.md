@@ -87,3 +87,5 @@ code can reach a terminal green exact run. No test is skipped, softened or delet
 Owner ordered the central zsh provisioning; mission b34f567c3cf2 adds the existing authorized step 'Install interactive shells for the shell-wrapper path' (template ci.yml:1254-1262) into pr_draft_go_shards (ci.yml:1645) on branch lane-0428-229-ci-draft-cell-shells; ORAS half of the card is solved differently by 0428-223 test-side and is under review
 
 lane delivered PR #1754 (branch lane-0428-229-ci-draft-cell-shells, head acd8dd95e6a): adds the existing authorized step 'Install interactive shells for the shell-wrapper path' into pr_draft_go_shards; ORAS half stays with 0428-223's test-side route under review. exact-head CI and independent review pending
+
+Owner ordered exact-head read-only review by codex-rev-1747 (verdict only after terminal CI); run 44973717868 in_progress on acd8dd95e6a. After merge of #1754 every affected candidate PR must hop onto the new develop and re-run its exact hosted CI; coordinator books those hops
