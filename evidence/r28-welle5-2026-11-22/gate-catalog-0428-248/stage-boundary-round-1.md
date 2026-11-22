@@ -100,3 +100,11 @@ verwijderd. Werkboom workers/0428-248-sbwt houdt de kandidaat (0 delta na
 commit).
 
 END 0428-223-testctx DONE — 0428-248 stage-boundary round-1: branch lane-0428-248-stage-boundary-static, head de63fb35c43ca1f51cbef72be11a49bc68071da1 (ONE commit op exact develop 6930872c, ANCESTOR/log/diff bewezen), PR #1782 class READY (draft→ready per opdracht), exact hosted run 45043610970 completed/success failed=0 met Trusted Plan 137273271581 + pr-planner-tests 137273336875 + Focused Python 137273336712 EXECUTED success, 'atomic/static/shell-ux + ci-fast-check -> PR-executed STATIC klasse, dup-frei', 'trusted-planner #1746 voorbedingung: behoben ja', 'native acceptance unveraendert: ja', cleanliness: besenrein
+
+## origin/main witness
+
+Exacte uitvoer van `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep stage-boundary-round-1` (plan main = 16a1ebd654f411a5cdfc4e957d95204d1f1bd842):
+
+```
+evidence/r28-welle5-2026-11-22/gate-catalog-0428-248/stage-boundary-round-1.md
+```
