@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: fecbada9 (review) / 0428-061-sourcepull (hop)
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "The disposable acceptance gates that legitimately call baha app footprint show are admitted by the CI operator boundary, so the…"
 kanban_title: 0428-227 · footprint show gate admission
 priority: ""
@@ -18,20 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1753]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "runtime broker readiness fails the newly executed native data-capabilities gate (card 0428-237)"
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44993125398", "https://github.com/mcpdev80/baseharbor/actions/runs/44994268323"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44993125398", "https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md"]
 ---
 
-- [ ] t-20261122-footprint-show-not-admitted-in-data-capabilities-gate · Acceptance contract: baha app footprint show is admitted only for the guided gate #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261122-footprint-show-not-admitted-in-data-capabilities-gate · Acceptance contract: baha app footprint show is admitted only for the guided gate #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** fecbada9 (review) / 0428-061-sourcepull (hop)  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44993125398), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323)  
+    **Waiting:** runtime broker readiness fails the newly executed native data-capabilities gate (card 0428-237)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44993125398), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](t-20261122-ci-integration-operator-seams-without-gate-admission.md)  
 **Required by:** [t-20261120-workload-port-flag-ignored-locally](t-20261120-workload-port-flag-ignored-locally.md)  
@@ -110,3 +111,5 @@ Corrected candidate head ce5cf8f3037 (back=0, ahead=1) mit run 44986388874 SUCCE
 review am exakten head d690d7ffd4d = APPROVE (akte footprint-gate-admission/review-1753-headd690d7ffd4d5.md auf origin/main e7a30bd6848). Exakter run 44993125398 SUCCESS/0 failed, operator-job 137118399949 PASS. Commit ce5cf8f3037 ist kartenarbeit (footprint operator seam plus test), keine fremde arbeit. Kein merge in dieser runde: die karten-abnahme will die Zulassung im native-gate BELEGT, und 'PR Selected Runtime' 137118401195 ist am kandidaten noch SKIPPED, weil PR 1756 (die katalogzeilen) noch nicht in der base liegt. Naechster schritt nach dem 1756-merge: weiterer additiver hop, ein run mit echten runtime-zeilen, dann merge.
 
 MEILENPFAHL: nach dem PR-1756-merge (develop 52a3c5446f4) laufen die nativen runtime-gates WIRKLICH. Am dritten hop-head a40b76764c3 (base 52a3c5446f4, back=0) zeigt der exakte run 44994268323: 'PR . Native gate plan' SUCCESS (137121803257), 'PR . Selected Runtime' docker/data-capabilities job 137122169353 und podman/data-capabilities job 137122169299 sind AUSGEFUEHRT (in_progress, nicht skipped); 'PR . Native Keycloak/Core' skipped als unrelated. Exaktes review am selben head ist aktiv bei fecbada9. Vorbedingung war der 1756-merge - damit ist die zulassungs-kette zum ersten mal maschinell sichtbar statt still uebersprungen.
+
+EXAKTER RUN FEHLGESCHLAGEN, kandidat bleibt unge mergt: run 44994268323 am head a40b76764c3 faellt auf BEIDEN engineen in TestApplicationCapabilityLifecycleExistingCore/secrets beim start des secure runtime brokers (native jobs 137121839425 docker und 137121839379 podman, selected-runtime 137122169353 und 137122169299, aggregate 137124048433); readiness 503 not_ready, timeout ~2m/~5m, mTLS-identity davor in ordnung. Additivitaet ist in ordnung (hop nur develop-inhalt, back=0). Verdict des reviewers: HOLD ohne merge-empfehlung. Der fehler ist NICHT fussabdruck-cli-semantik, sondern die erstmals AUSGEFUEHRTE nativ-reihe zeigt einen broker-readiness-defekt - dafuer ist karte 0428-237 angelegt (rerun am selben head plus datei:zeilen-diagnose).
