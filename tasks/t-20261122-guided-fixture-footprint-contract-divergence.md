@@ -7,15 +7,15 @@ areas: [testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: b90e4ba1 (#1783 narrow app-new fixture admission :129 -> data-caps + regression; KEIN demo/digest/247) / Coordinator
-kanban_status: active
-kanban_lane: active
+owner: b90e4ba1 (#1783 head 8b99bdc3 app-new admission :138 TP-green, selected running 45061359667) / Coordinator
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-241 · guided fixture drift
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
-prs: [mcpdev80/baseharbor#1753, mcpdev80/baseharbor#1770, mcpdev80/baseharbor#1773, mcpdev80/baseharbor#1763, mcpdev80/baseharbor#1780, mcpdev80/baseharbor#1783, mcpdev80/baseharbor#1771]
+prs: [mcpdev80/baseharbor#1753, mcpdev80/baseharbor#1770, mcpdev80/baseharbor#1773, mcpdev80/baseharbor#1763, mcpdev80/baseharbor#1780, mcpdev80/baseharbor#1783, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1787]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,19 +23,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-guided-fixture-footprint-contract-divergence · Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 #task #release/v0-4-28 #status/active #view/active #area/testing #kind/bug
+- [ ] t-20261122-guided-fixture-footprint-contract-divergence · Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 #task #release/v0-4-28 #status/review #view/review #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (\#1783 narrow app-new fixture admission :129 -\> data-caps + regression; KEIN demo/digest/247) / Coordinator · **Priority:** high  
-    **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771)  
+    **Owner:** b90e4ba1 (\#1783 head 8b99bdc3 app-new admission :138 TP-green, selected running 45061359667) / Coordinator · **Priority:** high  
+    **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1787](https://github.com/mcpdev80/baseharbor/pull/1787)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** b90e4ba1 (#1783 narrow app-new fixture admission :129 -> data-caps + regression; KEIN demo/digest/247) / Coordinator  
+**Owner:** b90e4ba1 (#1783 head 8b99bdc3 app-new admission :138 TP-green, selected running 45061359667) / Coordinator  
 **Priority:** high  
-**PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771)  
+**PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1787](https://github.com/mcpdev80/baseharbor/pull/1787)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -115,3 +115,5 @@ CRITICAL PATH: #1783 head haengt noch 8f84fcbb (run 45045885547 old fails: nativ
 ENTSCHEID shared (owner+coordinator): #1783 selected timeout = getagtes TEST-FIXTURE muss app new/create-only operator stempeln unter data-caps/core-caps (analog footprint-show :129 nur-guided). NICHT baseharbor-demo digest-edit (no-op, apply --confirm-captured-digest bereits gruen), NICHT Core/produkt-boundary (fail-closed intact), NICHT 247. Fix im bestehenden #1783 write-set (b90e), KEIN neuer owner. STOP-Fall nur falls echte product session-binding. neuer head noetig (nicht 2da7f565) + exact hosted. native=#1770. develop 1253e8d0a.
 
 #1783 NARROW fix (owner-diagnose, scope berichtigt): ciIntegrationGuidedAppNew admitted nur gate==guided (:129); data-capabilities `app new` create-only faellt durch -> interaktive OIDC -> PTY timeout. FIX = getagtes test-fixture app-new admission auf gate==data-capabilities, exakt kanonische args + Regression (noncanonical + ANDERE gates DENIED/unchanged), kein blanket-allow. Produkt --confirm-candidate boundary UNVERAENDERT; Demo digest NICHT angefasst (existiert, gruen). Footprint-show :135 nur falls rerun-log selected consent-fail zeigt. b90e laeuft, neuer head (nicht 2da7f565). develop 978a0f90b. native=#1770.
+
+#1783 HARNESS FIX gelandet (head 8b99bdc3): ciIntegrationGuidedAppNew admitted fuer gate==data-capabilities (:138, exakt kanonische args) + 135 test lines; Produkt --confirm-candidate boundary UNVERAENDERT. Trusted Plan PASS, selected docker/podman + exact candidate + CLI guided laufen (run 45061359667). Owner redundantes stacked #1787 VOR CI geschlossen (nicht merged) -> b90e = einziger fixture-writer. Regression (noncanonical + andere gates DENIED) bestaetigt am branch. native data-caps = waiting-#1770. develop 978a0f90b. KEIN merge bis reviewed + selected gruen.
