@@ -104,3 +104,5 @@ boundary, so the gate fails on the contract and not on the command shape. Today 
 hop delivered by 0847d100: refs/pull/1753/head 71deb610a03, back=0 against develop 6209874428f, PR draft=false, exact run 44972857723 in_progress. a second re-hop branch lane-0428-227-footprint-gate-admission-rh2 (43d85d637a0) exists as surplus, nothing deleted. the data-capabilities gate still depends on the path-to-gate mapping (card 0428-228, Owner-scope)
 
 independent review at exact head 91f4e38795a gives VERDICT APPROVE content, merge blocked by card 0428-228 path to gate entry at scripts/pr-gate-plan.py line 180 (reviewer akte review-1753-head91f4e38795a.md)
+
+Corrected candidate head ce5cf8f3037 (back=0, ahead=1) mit run 44986388874 SUCCESS und 0 failed jobs; der erste versuch e120f0815 war durch eine beschnittene datei ungueltig und CI hat das sofort gezeigt. Selected Runtime ist auch hier SKIPPED (job 137097832863), grund: fehlende components- und native_checks-zeilen, karte 0428-230.
