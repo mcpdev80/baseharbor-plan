@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: m186-policy-presets (0427-186 lane)
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: "0427-186 · Editable Target policy presets"
 priority: high
@@ -17,23 +17,28 @@ depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-connection-client
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1588]
 sources: []
-blocker: "DEFERRED SCOPE, PR CLOSED WITHOUT MERGE (Owner disposition 2026-11-21 20:58:18Z). PR #1588 = state CLOSED, mergeCommit=none, exact head 28842990d8fe86cc9090b1867c6b503b57adccdc preserved on branch lane/0427-186-target-policy-presets; reason recorded on the PR (https://github.com/mcpdev80/baseharbor/pull/1588#issuecomment-7069156506). The four blockers of the review (baseharbor-plan evidence/r28-welle4-2026-11-21/r27-target-policy-edit/review-1-head28842990.md, findings lines 23-26) are NOT repairable inside this seven-file slice: the apply path still calls EvaluateDeploymentAdmission(policy, nil) before branch-specific proof (cmd/baha/app_remote_lifecycle.go) and there is no current-candidate verifier for multi-repo branch / remote / image-digest facts, and no attestation seam exists. A safe implementation needs its own source-ingress and artifact-verification design, dispatched separately with its own contract. NOTHING in this card is accepted; the feature remains unimplemented. Next trigger: Owner authorizes the scoped design card, then a fresh branch and fresh candidate."
+blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1514", "https://github.com/mcpdev80/baseharbor/actions/runs/42707150233", "https://github.com/mcpdev80/baseharbor/pull/1588", "https://github.com/mcpdev80/baseharbor/actions/runs/44895998000"]
+resolution: "dropped"
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1588", "https://github.com/mcpdev80/baseharbor/pull/1588#issuecomment-7069156506", "https://github.com/mcpdev80/baseharbor/commit/28842990d8fe86cc9090b1867c6b503b57adccdc"]
 early: true
 ---
+## Owner disposition — 2026-11-21
 
-- [ ] t-20261109-r27-target-policy-presets · Target: editable best-practice deployment policy presets #task #release/v0-4-28 #status/blocked #view/blocked #area/deployment #area/remote #kind/feature
+Eigentümer-Disposition 2026-11-21: Umfang vertagt aus v0.4.28, PR #1588 geschlossen ohne Zusammenführung (Kopf 28842990d8fe86cc9090b1867c6b503b57adccdc bleibt auf lane/0427-186-target-policy-presets erhalten). Begründung: die vier Überprüfungsergebnisse (Anwendungspfad ruft EvaluateDeploymentAdmission(policy, nil) vor dem beweisbaren Artefakt-Abgleich auf, fehlender Kandidaten-Verifizierer für Ziel-Zweig/Remote/Image-Digest-Fakten, fehlender Nachweis-Grenzbereich, fehlende Artefakt-Bestätigungs-Kette) sind im sieben-Dateien-Schnitt nicht reparierbar und erfordern ein eigenes Quellzufluss- und Artefakt-Nachweisedesign. Nichts aus dieser Karte ist angenommen; die Funktion bleibt unimplementiert.
+
+PR #1588 is verified CLOSED without merge at the exact preserved head above. The planning schema requires `resolution` to be one of `accepted`, `superseded` or `dropped`; therefore the canonical value is `dropped`, while the complete Owner disposition is recorded above verbatim.
+
+
+- [x] t-20261109-r27-target-policy-presets · Target: editable best-practice deployment policy presets #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/deployment #area/remote #kind/feature
     <!-- generated:card -->
     **Owner:** m186-policy-presets (0427-186 lane) · **Priority:** high  
     **PR:** [baseharbor#1588](https://github.com/mcpdev80/baseharbor/pull/1588)  
-    **Blocker:** DEFERRED SCOPE, PR CLOSED WITHOUT MERGE (Owner disposition 2026-11-21 20:58:18Z). PR \#1588 = state CLOSED, mergeCommit=none, exact head 28842990d8fe86cc9090b1867c6b503b57adccdc preserved on branch lane/0427-186-target-policy-presets; reaso…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1514), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42707150233), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1588), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44895998000)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1588), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1588#issuecomment-7069156506), [proof 3](https://github.com/mcpdev80/baseharbor/commit/28842990d8fe86cc9090b1867c6b503b57adccdc)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
 **Required by:** [t-20261109-r27-local-delta-delivery](t-20261109-r27-local-delta-delivery.md)  

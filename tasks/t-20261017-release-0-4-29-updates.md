@@ -34,7 +34,7 @@ evidence: []
 **State:** waiting  
 **Release:** [v0.4.29](../releases/v0.4.29.md) (v0.4.29)  
 **Depends on:** [t-20261017-release-0-4-29-cleanup](t-20261017-release-0-4-29-cleanup.md)  
-**Required by:** [core-817](core-817-audit-host-portability-architecture.md), [core-819](core-819-architecture-host-interface-guard.md), [core-820](core-820-linux-host-adapters-regressions.md), [core-821](core-821-wsl2-host-behavior-windows-boundaries.md), [core-822](core-822-macos-darwin-adapters.md), [core-823](core-823-tests-platform-conformance-support.md), [core-882](core-882-macos-fix-darwin-builds-build-vet.md), [core-883](core-883-macos-quadlet-inside-podman-machine.md), [core-884](core-884-tests-macos-runtime-real-mac.md), [t-20261017-release-0-4-29-prepare](t-20261017-release-0-4-29-prepare.md)  
+**Required by:** [core-817](core-817-audit-host-portability-architecture.md), [core-819](core-819-architecture-host-interface-guard.md), [core-820](core-820-linux-host-adapters-regressions.md), [core-821](core-821-wsl2-host-behavior-windows-boundaries.md), [core-822](core-822-macos-darwin-adapters.md), [core-823](core-823-tests-platform-conformance-support.md), [core-882](core-882-macos-fix-darwin-builds-build-vet.md), [core-883](core-883-macos-quadlet-inside-podman-machine.md), [core-884](core-884-tests-macos-runtime-real-mac.md), [t-20261017-release-0-4-29-prepare](t-20261017-release-0-4-29-prepare.md), [t-20261122-r29-target-policy-source-ingress-attestation-design](t-20261122-r29-target-policy-source-ingress-attestation-design.md)  
 **Owner:** unassigned  
 **Priority:** high  
 **PRs:** none  
