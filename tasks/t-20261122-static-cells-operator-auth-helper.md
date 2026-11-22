@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: Owner (hop #1771 nach #1773) / Coordinator (tick)
+owner: Owner (hop done) / Coordinator (trigger 241)
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: ""
@@ -18,16 +18,16 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1771]
 sources: []
 blocker: ""
-wait_reason: "naechster trigger: owner hoppt #1771 additiv auf develop 68b26bd7 NACHDEM exact run 45036009904 (#1773) terminal ist, um doppelte heavy selected native+runtime gate-laeufe zu vermeiden. KATALOG bereit: local_workload_authority.go/_test.go/main.go sind via #1777 cataloged, darum passiert Trusted Plan nach dem hop. Kein content-aenderung."
+wait_reason: "#1771 head dc775235 exact run 45037247452: KATALOG BESTAETIGT (trusted plan pass, alle cmd/baha go shards/build/vet pass, 1777-mapping wirkt). aggregate FAILURE nur durch 241 (selected+native brauchen --confirm-candidate digest, ffe7611b laeuft) + 237 (native podman broker 503, andere session). naechster trigger: 241 merged -> #1771 re-run. Kein merge bis aggregate gruen."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.com/mcpdev80/baseharbor/actions/runs/44994765677", "https://github.com/mcpdev80/baseharbor/actions/runs/44998552411", "https://github.com/mcpdev80/baseharbor/actions/runs/44999534797", "https://github.com/mcpdev80/baseharbor/actions/runs/45000121766", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/hunt-operator-auth-static-cells-round-1.md"]
 ---
 
 - [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
-    **Owner:** Owner (hop \#1771 nach \#1773) / Coordinator (tick)  
+    **Owner:** Owner (hop done) / Coordinator (trigger 241)  
     **PR:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771)  
-    **Waiting:** naechster trigger: owner hoppt \#1771 additiv auf develop 68b26bd7 NACHDEM exact run 45036009904 (\#1773) terminal ist, um doppelte heavy selected native+runtime gate-laeufe zu vermeiden. KATALOG bereit: local\_workload\_authority.go/\_test.go/…  
+    **Waiting:** \#1771 head dc775235 exact run 45037247452: KATALOG BESTAETIGT (trusted plan pass, alle cmd/baha go shards/build/vet pass, 1777-mapping wirkt). aggregate FAILURE nur durch 241 (selected+native brauchen --confirm-candidate digest, ffe7611b l…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1761), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44994765677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44998552411), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44999534797), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/hunt-operator-auth-static-cells-round-1.md)  
     <!-- /generated:card -->
 
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.c
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
-**Owner:** Owner (hop #1771 nach #1773) / Coordinator (tick)  
+**Owner:** Owner (hop done) / Coordinator (trigger 241)  
 **Priority:** not set  
 **PRs:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771)  
 **Source:** 

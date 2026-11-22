@@ -7,7 +7,7 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0847d100 (hop fertig) / Coordinator (catalog tick)
+owner: 0847d100 (hop 211a6d57 done) / Coordinator (perses-catalog follow-on)
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: Deliver PostgreSQL/MongoDB panels only when verified compatible metrics and permissions exist.
@@ -18,16 +18,16 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1597]
 sources: []
 blocker: ""
-wait_reason: "#1597 additiv gehoppt auf 211a6d57 (conflict app_status_result geloeset, beide seiten, build+vet OK). Trusted Plan failt NUR an UNCATALOGED perses sources (app_perses_cli_test.go/app_status_result.go/internal/metrics/perses_dashboards*.go) = 0428-248 katalog, NICHT #1597 inhalt. naechster trigger: #1778 perses-mapping merged -> #1597 re-run gruen. 0847d100 auf zensus umgelenkt (findet alle luecken)."
+wait_reason: "#1597 head 211a6d57 exact run 45037243487 = Trusted Plan FAIL: perses-cluster NICHT cataloged (app_perses_cli_test.go/app_status_result.go/internal/metrics/perses_dashboards*.go). #1778-merge enthielt KEINE perses-pfade (nur broker-diag+workload). follow-on katalog-pr noetig; 0847d100 zensus-tabelle (noch in arbeit) liefert die exakten perses surfaces -> dann neuer 0428-248-klasse PR. Kein re-hop bis perses cataloged. owner-field #1597 = 0847d100 (hop done, kein aktiver writer). develop 31aededf."
 resolution: ""
 evidence: []
 ---
 
 - [ ] t-20261114-r28-perses-dashboard-databases · Perses database dashboards #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0847d100 (hop fertig) / Coordinator (catalog tick) · **Priority:** normal  
+    **Owner:** 0847d100 (hop 211a6d57 done) / Coordinator (perses-catalog follow-on) · **Priority:** normal  
     **PR:** [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597)  
-    **Waiting:** \#1597 additiv gehoppt auf 211a6d57 (conflict app\_status\_result geloeset, beide seiten, build+vet OK). Trusted Plan failt NUR an UNCATALOGED perses sources (app\_perses\_cli\_test.go/app\_status\_result.go/internal/metrics/perses\_dashboards\*.go)…  
+    **Waiting:** \#1597 head 211a6d57 exact run 45037243487 = Trusted Plan FAIL: perses-cluster NICHT cataloged (app\_perses\_cli\_test.go/app\_status\_result.go/internal/metrics/perses\_dashboards\*.go). \#1778-merge enthielt KEINE perses-pfade (nur broker-diag+wo…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +35,7 @@ evidence: []
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** 0847d100 (hop fertig) / Coordinator (catalog tick)  
+**Owner:** 0847d100 (hop 211a6d57 done) / Coordinator (perses-catalog follow-on)  
 **Priority:** normal  
 **PRs:** [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597)  
 **Source:** 

@@ -7,10 +7,10 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: owner (katalog 0428-242) / coord (zeugnis)
+owner: Owner (additive hop #1763) / 1450c201 (independent exact-head review)
 tags: [#task, #release/v0.4-28]
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-240 · broker readiness failure ships
 priority: ""
@@ -18,25 +18,24 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1763]
 sources: []
-blocker: "ZWEI unabhaengige CODEX-reviews (fecbada9 + 1450c201) am EXAKTEN head c698d1310 entscheiden Option (b): die NATIVE data-capabilities-matrix ist PFLICHT-beleg, nicht der ausgefuehrte cli-0/cli-1 unit-shard allein (befunde app_broker.go:202-204 + 223-231/243-265). Die matrix ist auf develop LEER, weil scripts/pr-gate-coverage.json KEINEN component fuer cmd/baha/app_broker.go traegt = OWNER-scope aktion KARTE 0428-242. Keine lane kann scripts/** aendern."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md", "https://github.com/mcpdev80/baseharbor/pull/1763", "https://github.com/mcpdev80/baseharbor/actions/runs/45005245380", "https://github.com/mcpdev80/baseharbor/actions/runs/45008350091", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/redaction-round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/45010884066", "https://github.com/mcpdev80/baseharbor/actions/runs/45010958948", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-headc698d1310.md", "https://github.com/mcpdev80/baseharbor/actions/runs/45011815553", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-sufficiency-round-2.md"]
 ---
 
-- [ ] t-20261122-broker-diagnostics-empty · CLI: name the failing dependency in broker readiness diagnostics #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261122-broker-diagnostics-empty · CLI: name the failing dependency in broker readiness diagnostics #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** owner (katalog 0428-242) / coord (zeugnis)  
+    **Owner:** Owner (additive hop \#1763) / 1450c201 (independent exact-head review)  
     **PR:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763)  
-    **Blocker:** ZWEI unabhaengige CODEX-reviews (fecbada9 + 1450c201) am EXAKTEN head c698d1310 entscheiden Option (b): die NATIVE data-capabilities-matrix ist PFLICHT-beleg, nicht der ausgefuehrte cli-0/cli-1 unit-shard allein (befunde app\_broker.go:202-…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1763), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45005245380), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45008350091), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/redaction-round-1.md), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/45010884066), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45010958948), [proof 9](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-headc698d1310.md), [proof 10](https://github.com/mcpdev80/baseharbor/actions/runs/45011815553), [proof 11](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-sufficiency-round-2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** owner (katalog 0428-242) / coord (zeugnis)  
+**Owner:** Owner (additive hop #1763) / 1450c201 (independent exact-head review)  
 **Priority:** not set  
 **PRs:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763)  
 **Source:** 
@@ -124,3 +123,5 @@ SEQUENZ-ABHAENGIGKEIT FESTGEHALTEN: #1763s runtime-beleg wartet NICHT auf einen 
 REVIEW ABGESCHLOSSEN (fecbada9/1450c201-kette): content = redaktion correct + sentinel-YES. Kein merge vor der native-matrix. Loesung NICHT bei der lane (scripts/**): der owner setzt pr-gate-coverage.json app_broker eintrag (0428-242), DANN re-hop von #1763 auf neues develop (mit #1746 zsh+fish source-test, damit cli-3 gruen) und EIN durchgang mit echter native-matrix. Nach gruen: erneute kurze review-bestaetigung + merge. review-akte auf origin/main.
 
 FIXIERT DURCH ZWEITE REVIEW: content correct (redaktion sentinel-YES), ABER native matrix noetig (option b). Einzige loesung = owner setzt pr-gate-coverage.json app_broker eintrag (0428-242), DANN #1763 re-hop auf neues develop (nach #1746, mit zsh+fish source-test) + EIN exact hosted durchgang mit echter native matrix, dann kurze re-bestatigung + merge. Kein merge vor der katalog-aktion. review-akten review-1763-headc698d1310.md + review-1763-sufficiency-round-2.md auf origin/main.
+
+#1763 additiv gehoppt auf develop 31aededf -> candidate 1d661942 (parents 31aededf + old 9bd97ca3). broker-diagnostics-test JETZT cataloged via #1778 -> Trusted Plan sollte greifen. Owner inspiziert fresh exact hosted run vor merge. Diff = broker diagnostics only. 1450c201 primed.
