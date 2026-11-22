@@ -142,10 +142,12 @@ The card's own mission gate — the 14 develop-suite names green in the hosted
 - Scratch lives in `/var/tmp/0428-223*` only (logs, probe binaries, isolated HOMEs); deleted at END.
 - `docker ps -a` witness with this session's pid is recorded in the END turn.
 
-## witnesses (append at END turn)
+## witnesses (END turn)
 
-- `git -C baseharbor-plan remote -v` -> `origin https://github.com/mcpdev80/baseharbor-plan.git`
+- `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v` -> `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch/push)`.
 - ls-remote lines: section 1.
-- origin/main publication: section 6 (filled at END).
+- origin/main publication witness: `git -C baseharbor-plan fetch origin main && git ls-tree -r --name-only origin/main | grep r28-welle5-2026-11-22/testcontext-0428-223` ->
+  `evidence/r28-welle5-2026-11-22/testcontext-0428-223/round-2-ci-diagnosis.md` (this file, on origin/main).
+- Host cleanliness at END: `docker ps -a` shows only foreign `bh-itest-*` projects (newest 2026-11-21 20:26 +0100), zero containers owned by this lane; session pid 1535491.
 
 END 0428-223-testctx BLOCKED — first failed test per run: validate/137044903908 = `TestRepositoryWorkflowRealLifecycle` (`app_repository_integration_test.go:27`, ORAS); cli-3/137044885831 = `TestEndToEndInstalledZshAndFishWrappers` (`context_terminal_test.go:467`, zsh). eigener defect: nein (beleg-run 44918870333 + ci.yml inspectie). head 1588ee1b terminal failure, mission names green.
