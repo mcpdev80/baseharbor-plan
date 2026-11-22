@@ -7,7 +7,7 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: owner (dispatch) / coord
+owner: owner (dispatch) / coord (route) / b90e4ba1 (katalog-pr)
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: "Register scripts/ci-fast-check.sh as a real v0.4.28 Pre-Release static gate, with the full catalog/dispatcher wiring and…"
@@ -18,16 +18,16 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1771]
 sources: []
 blocker: ""
-wait_reason: "Pre-release 45028181619 laeuft (korrekter ref). Inhalt-restblocker = target.create managed-operator auth = PRODUCT-SEMANTIK, karte 0428-247 (H-V27 datei:zeile: main.go:158-175 mappt target create nicht; mcp.go:300/314-323 operator_authentication_required; local_workload_authority.go:57 braucht LocalWorkloadOperation=true). KEIN 231/243 carve-out, KEIN auth-bypass. Owner/Core decision noetig (wie consent 236). Merge #1746 erst nach 0428-247 ruling + sauberem pre-release."
+wait_reason: "#1746 head 887058a6 NICHT release-qualifiziert. Zell-genau (Durchgang 45028181619 + PR-validierung): (1) ALLE 5 Static-zellen (config-matrix/init/shell-ux/mcp/ci-fast-check) failen am 'Run static gate'. config-matrix+ci-fast-check-root = KATALOG-LUECKE: scripts/ci-fast-check.sh fehlt in pr-gate-coverage.json (planner [], test erwartet atomic/static/ci-fast-check, job 137223693177) -> entscheidung= MAPPING HINZUFUEGEN (test massgeblich), in b90e4ba1 katalog-pr. (2) mcp-zelle = target.create auth (0428-247 owner/core) PLUS MCP-contract unexpected=['baseharbor.app.perses.*'] (static erwartungsliste vs die 4 freigegebenen perses-tools, 0428-232 alignment). (3) Light-podman x3 + Reference Journey docker+podman = broker/runtime-image (0428-237/#1770, moving :edge, wartet katalog-pr+exact image). Merge erst nach: katalog-pr(242-followup) + 0428-247 ruling + #1770 exact native + perses-list alignment. pre-release.yml fish->zsh:343 = owner-scope."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "https://github.com/mcpdev80/baseharbor/actions/runs/44944570763", "https://github.com/mcpdev80/baseharbor/pull/1746"]
 ---
 
 - [ ] t-20261120-gate-catalog-ci-fast-check · 0428-205 · Wire ci-fast-check into the release gate catalog #task #release/v0-4-28 #status/wait #view/wait #area/ci #kind/bug
     <!-- generated:card -->
-    **Owner:** owner (dispatch) / coord · **Priority:** normal  
+    **Owner:** owner (dispatch) / coord (route) / b90e4ba1 (katalog-pr) · **Priority:** normal  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771)  
-    **Waiting:** Pre-release 45028181619 laeuft (korrekter ref). Inhalt-restblocker = target.create managed-operator auth = PRODUCT-SEMANTIK, karte 0428-247 (H-V27 datei:zeile: main.go:158-175 mappt target create nicht; mcp.go:300/314-323 operator\_authenti…  
+    **Waiting:** \#1746 head 887058a6 NICHT release-qualifiziert. Zell-genau (Durchgang 45028181619 + PR-validierung): (1) ALLE 5 Static-zellen (config-matrix/init/shell-ux/mcp/ci-fast-check) failen am 'Run static gate'. config-matrix+ci-fast-check-root = K…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44943804395), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44944570763), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1746)  
     <!-- /generated:card -->
 
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "h
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** owner (dispatch) / coord  
+**Owner:** owner (dispatch) / coord (route) / b90e4ba1 (katalog-pr)  
 **Priority:** normal  
 **PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771)  
 **Source:** 
