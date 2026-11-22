@@ -7,7 +7,7 @@ areas: [testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ffe7611b (#1780 ef6de850, run pending) / b90e4ba1 (#1783 Option-A shared fixture, hosted CI-trigger noetig)
+owner: b90e4ba1 (#1783 optionA hosted 67-checks 0-fail, nur 4 native-cells runner-pending)
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261122-guided-fixture-footprint-contract-divergence · Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 #task #release/v0-4-28 #status/active #view/active #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** ffe7611b (\#1780 ef6de850, run pending) / b90e4ba1 (\#1783 Option-A shared fixture, hosted CI-trigger noetig) · **Priority:** high  
+    **Owner:** b90e4ba1 (\#1783 optionA hosted 67-checks 0-fail, nur 4 native-cells runner-pending) · **Priority:** high  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** ffe7611b (#1780 ef6de850, run pending) / b90e4ba1 (#1783 Option-A shared fixture, hosted CI-trigger noetig)  
+**Owner:** b90e4ba1 (#1783 optionA hosted 67-checks 0-fail, nur 4 native-cells runner-pending)  
 **Priority:** high  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
 **Source:** 
@@ -91,3 +91,5 @@ FEHL-SCOPE KORRIGIERT: frueher 'runner-bootstrap gate issue END_BLOCKED' war fal
 INFRA-BLOCK: run 45044744796 pending zero-jobs weil self-hosted runner OFFLINE (service inactive) + root 99% voll. Code-fix (provider override :376 + optionA shared) LOBAL weiter, push/rerun erst nach runner-back. Kein stale-green merge moeglich (CI down).
 
 SHARED UNLOCK = PR #1783 (branch lane-0428-241-optionA-operator-allowlist head 8f84fcbb, nur ci_integration_operator_enabled.go+test, non-draft) bringt selected footprint-show policy-freiheit fuer #1780/#1770/#1738. ABER statusCheckRollup LEER + BLOCKED = hosted CI lief am exact head nie an -> b90e triggert per close/reopen (head bleibt). #1780 vorgerueckt auf ef6de850 (run 45045737874 pending, stale 45044680383 cancelt noch). #1738 e09ceb9a: cli-2(137277583015)+native docker(137277586142) FAILED, logs erst am terminal, native podman+selected laufen. Kein merge vor exact run+current base.
+
+#1783 (optionA shared fixture, head 8f84fcbb) hosted CHECKS = 67, 0 FAIL, 4 PENDING. Die 4 pending SIND die self-hosted native data-caps/selected-runtime zellen = runner-blocked (service inactive, root 2.4G). GitHub-hosted teil IST gruen. #1783 ist der SHARED unlock fuer selected footprint-show von #1780/#1770/#1773/#1738(A) -> merge-reif sobald die 4 native zellen dispatchen (runner-back) ODER als N/A fuer ein test-only tagged file bestaetigt. #1780 run 45045737874 noch queued (concurrency hinter stale 45044680383). develop b27b2ebe.
