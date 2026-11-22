@@ -123,3 +123,11 @@ cel-logs worden vóór END verwijderd. Werkboom workers/0428-241-optawt houdt de
 kandidaat (0 delta na commit).
 
 END 0428-223-testctx BLOCKED — 0428-241 round-2: nieuwe head 2da7f5657a6b29a7052d7716e42da0aa0527bebf op #1783 (additief, ls-remote bewezen), exact hosted run 45051057741 terminal — parity-beide-helften gestures en 'contracts differ' weg (ja), other mcp tools denied: ja, MAAR selected docker+podman data-caps cells worden daardoor NIET groen: nieuwe/andere faal `new-edit-new-sql exceeded no-output timeout` met bron `record deployment … requires --confirm-candidate` in de demo-fixture (buiten deze write-set; Owner/247-family vraagstuk). 'selected docker+podman parity gruen: NEIN — parity gebeven, andere oorzaak'. cleanliness: besenrein
+
+## origin/main witness
+
+Exacte uitvoer van `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep optionA-shared-round-2` (plan main = 3e7c50917d556ff85ea62a60f2bcdb5d01f8f5b5):
+
+```
+evidence/r28-welle5-2026-11-22/ci-operator-allowlist-0428-241/optionA-shared-round-2.md
+```
