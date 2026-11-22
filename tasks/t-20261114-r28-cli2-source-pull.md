@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w27-pr1627-0428-061-pull
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Implement guided source pull. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-061 · Implement guided source pull
 priority: high
@@ -23,14 +23,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-source-pull · CLI redesign: Implement guided source pull #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-source-pull · CLI redesign: Implement guided source pull #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** w27-pr1627-0428-061-pull · **Priority:** high  
     **PR:** [baseharbor#1752](https://github.com/mcpdev80/baseharbor/pull/1752)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-app-lifecycle](t-20261114-r28-cli2-app-lifecycle.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
@@ -80,3 +80,5 @@ RUECKGANG MEINER STAND-DOWN: der owner hat ausdrtuecklich klargestellt, dass er 
 lane hat geliefert: AGENTS.md wiederhergestellt (commit 16c120f1) und hop auf develop 42da7128e72 -> head d9124a9154d (beide refs gemessen, feature commit 4bae3194fa7 bleibt ancestor, eine kandidaten-kette). der CI-defekt bleibt bestehen und war NICHT von der lane zu beheben: 'unclassified command: baha app pull', registration_ci_readiness_test.go:82, roter beleg run 44955232402; der run 44959026535 auf d9124a9154d ist in progress, ohne klassifikation wird er wieder rot. ENTSCHEIDUNG DES COORDINATORS (04:1xZ): ausnahme von der write-set-reservation erteilt, weil der inhaber der reservierten dateien seit zwei tagen nicht benannt ist und der owner die PR-liste abtragen will (mission sha256 im ledger, owner um veto bis naechster tick gebeten). scope: cliMachineOperations in cmd/baha/machine_coverage.go:95, ein semantisches Operation-objekt in internal/machine/contract.go Operations() mit MCPTool, cliSemanticModes-begruendung, und GENERIERUNG BEIDER docs/reference/cli-machine-coverage.md + docs/de/reference/cli-machine-coverage.md per BASEHARBOR_UPDATE_MACHINE_DOCS. .github/** und scripts/** bleiben gesperrt. der mutationstest muss rot (44955232402) -> gruen am selben test zeigen; danach draft=false, unabhaengiges verdict, ordinary merge.
 
 fortschritt gemessen: die write-set-ausnahme wirkt - head ist 5cb139a6e4e, und die klassifikations-stelle 'unclassified command: baha app pull' (registration_ci_readiness_test.go:82) ist im neuen exakten run 44962445337 nicht mehr der fehler. zwei vertragstests ziehen jetzt nach, beide in cmd/baha: (a) job 137024002111 'PR · Draft Go · cli-0' FAIL TestMCPGenericClientDiscoversCompleteSemanticSurfaceAndExercisesReadOnlyTools (0.14 s) - das neue app-pull operation muss im semantic surface vollstaendig erscheinen (Operations(), MCPTool-name, cliSemanticModes zusammen), (b) job 137024002085 'PR · Draft Go · cli-3' FAIL TestEndToEndInstalledZshAndFishWrappers (0.00 s) - die installierten zsh/fish-wrapper kennen den unterbefehl noch nicht. ZUSAETZLICH ist develop auf 7d4351c6d645 gezogen (#1749 gemergt), also back=8 und ein NEUER hop ist Pflicht, bevor ein verdict oder merge in frage kommt (mission sha256 b65071f7cc3f + detail b0 …). PR bleibt draft=true bis der exakte run gruen ist. meine ausnahme gilt weiter NUR fuer die genannten dateien plus ggf. die completion-tabellen; .github/scripts bleiben gesperrt, und ein veto des owners gegen die ausnahme ist noch moeglich.
+
+exakter head 9140e0c8224, run 44968867153 SUCCESS (21 skipped = HA/release/draft-routing per PR-event), akte 8ce6104ec; unabhaengiges verdict bestellt
