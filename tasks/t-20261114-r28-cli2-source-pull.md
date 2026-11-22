@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w27-pr1627-0428-061-pull
-kanban_status: wait
-kanban_lane: wait
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "Implement guided source pull. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-061 · Implement guided source pull
 priority: high
@@ -17,21 +17,21 @@ depends_on: [t-20261114-r28-cli2-app-lifecycle, t-20261114-r28-cli2-source-model
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1752]
 sources: []
-blocker: ""
-wait_reason: "head is exact (e7df5ab4a6c, back=0, draft=true) and run 44974701796 is terminal with exactly one failed job: 'PR . Draft Go . cli-3' (137061866445), '--- FAIL: TestEndToEndInstalledZshAndFishWrappers (0.00s)' from cmd/baha/context_terminal_test.go:467 'zsh is required to run this wrapper path'. compile, packages and partial-failure tests passed in the same run. what is missing is the cli-3 execution rule the Owner adds in .github/workflows/ci.yml (card 0428-229, PR #1754). next trigger: merge of #1754, then a fresh exact run, then a fresh verdict"
+blocker: "Owner-Entscheidung noetig: die zwei neuesten commits b010dabcb und e7df5ab4a6c sind als 'BaseHarbor Worker <worker@example.invalid>' geschrieben (unsigniert, keine karten-identitaet), die fuenf frueheren als '0428-061-sourcepull <0428-061@baseharbor.local>'. das FRUEHERE verdict (a4adc29a584, akte 37ef97e67c) traegt nicht auf die neuen commits ueber, und die review verlangt eine zuordnung (akte identity-followup-e7df5ab4.md, plan c11fcb80ad). optionen: (a) dokumentierte ausnahme wie bei #1596, verdict gilt mit vermerk; (b) branch zuruecksetzen auf den letzten karten-identitaet-kopf und die beiden fixes als neue commits mit 0428-061-sourcepull-identitaet - das braucht einen force-push, also ihre hand. keine lane darf force-pushen."
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-source-pull · CLI redesign: Implement guided source pull #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-source-pull · CLI redesign: Implement guided source pull #task #release/v0-4-28 #status/blocked #view/blocked #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** w27-pr1627-0428-061-pull · **Priority:** high  
     **PR:** [baseharbor#1752](https://github.com/mcpdev80/baseharbor/pull/1752)  
-    **Waiting:** head is exact (e7df5ab4a6c, back=0, draft=true) and run 44974701796 is terminal with exactly one failed job: 'PR . Draft Go . cli-3' (137061866445), '--- FAIL: TestEndToEndInstalledZshAndFishWrappers (0.00s)' from cmd/baha/context\_terminal…  
+    **Blocker:** Owner-Entscheidung noetig: die zwei neuesten commits b010dabcb und e7df5ab4a6c sind als 'BaseHarbor Worker \<worker@example.invalid\>' geschrieben (unsigniert, keine karten-identitaet), die fuenf frueheren als '0428-061-sourcepull \<0428-061@…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-app-lifecycle](t-20261114-r28-cli2-app-lifecycle.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
