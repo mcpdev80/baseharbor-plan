@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: f0f6c8b4 (user-authorized CI coverage, product side internal/machine/contract.go)
-kanban_status: active
-kanban_lane: active
+owner: f0f6c8b4 (diagnose geliefert), korrektur beim Owner im baseharbor-demo-repo
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: ""
 kanban_title: 0428-232 · perses MCP contract demo drift
 priority: ""
@@ -17,22 +17,24 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: ""
+blocker: "additive erweiterung des expected-sets in baseharbor-demo/tests/mcp/run.sh:31 (comparer 127-128) ist Owner-scope im demo-repo; rezept liegt in evidence/r28-welle5-2026-11-22/mcp-contract-0428-232/round-1.md"
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/mcp-contract-0428-232/round-1.md"]
 ---
 
-- [ ] t-20261122-mcp-contract-perses-demo-drift · perses MCP contract demo drift #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261122-mcp-contract-perses-demo-drift · perses MCP contract demo drift #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
-    **Owner:** f0f6c8b4 (user-authorized CI coverage, product side internal/machine/contract.go)  
+    **Owner:** f0f6c8b4 (diagnose geliefert), korrektur beim Owner im baseharbor-demo-repo  
+    **Blocker:** additive erweiterung des expected-sets in baseharbor-demo/tests/mcp/run.sh:31 (comparer 127-128) ist Owner-scope im demo-repo; rezept liegt in evidence/r28-welle5-2026-11-22/mcp-contract-0428-232/round-1.md  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/mcp-contract-0428-232/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** f0f6c8b4 (user-authorized CI coverage, product side internal/machine/contract.go)  
+**Owner:** f0f6c8b4 (diagnose geliefert), korrektur beim Owner im baseharbor-demo-repo  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -59,3 +61,5 @@ fixture side, not in #1746's diff.
   empty.
 
 Der drift ist nicht mehr nur behauptet, sondern von einem gehosteten statischen gate gemessen: job 137102052168 aus run 44987381250 meldet 'MCP contract mismatch: missing=[] unexpected=[baseharbor.app.perses.disable/enable/remove/status]'. Der eine freie sitz arbeitet daran (mission sha 04ab43ff7e73); falls contracts/** Owner-scope bleibt, liefert die lane das rezept mit datei:zeile und ich melde denbedarf.
+
+Ursache ist NICHT der produktcontract: die vier perses-methoden sind legitima exponiert (cmd/baha/mcp_lifecycle_extra.go:61-75, internal/machine/contract.go:205-208, Operations meldet sie und MCPTools bei zeile 270 liefert jedes nicht-leere MCPTool) und stehen bereits im produkt-internen golden. Die abweichende liste liegt im DEMO-REPO: baseharbor-demo/tests/mcp/run.sh, das expected-set bei zeile 31 (ein Python set-literal), die bracket-zeilen 72-73 fuer baseharbor.app.perses.*, und der comparer bei 127-128; aufgerufen wird die position aus baseharbor-demo/.github/workflows/pre-release-runtime-suite.yml:267 (mcp-branch). Die lane hat korrekt STOP gemeldet: die korrektur ist ein ADDITIVER golden-eintrag im demo-repo, also Owner-scope. Rezept mit exakten zeilen liegt in der akte mcp-contract-0428-232/round-1.md. Diese karte bleibt blocked auf diesen einen demo-edit; nach dem edit melde ich den statischen mcp-gate-nachweis neu an.
