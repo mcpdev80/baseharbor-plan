@@ -28,6 +28,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1752"]
     **Owner:** Owner (promote ci.yml) / Coordinator (queued refresh) / a lane (hop+CI nach shared-fix) · **Priority:** high  
     **PR:** [baseharbor#1752](https://github.com/mcpdev80/baseharbor/pull/1752)  
     **Waiting:** Draft+BEHIND, run 44987053069 SUCCESS nur DRAFT; diff .github/ci.yml(owner)+uncataloged sources; QUEUED: promote nur mit owner-scope + normal exact CI ERST nach shared-gate fixes (optionA \#1780 + catalog).  
+    **Needs:** [t-20261114-r28-cli2-app-lifecycle](t-20261114-r28-cli2-app-lifecycle.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1752)  
     <!-- /generated:card -->
 

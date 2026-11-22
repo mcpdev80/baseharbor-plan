@@ -7,9 +7,9 @@ areas: [cli, documentation]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: Coordinator (parity defect intake) / Owner-Core (canonical-output ruling) / a lane (product fix)
-kanban_status: blocked
-kanban_lane: blocked
+owner: ffe7611b (#1773 hop+reconcile auf 78f75c90 laeuft) / Coordinator
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: ""
 kanban_title: 0428-246 · footprint human doc gaps
 priority: normal
@@ -17,24 +17,24 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1773, mcpdev80/baseharbor#1783]
 sources: []
-blocker: "#1773 (presenter-only) + #1762 (test-only) selected data-caps = SELBE #1783 MCP-serve/parity gate, native = #1770 pin. Downstream von #1770+#1783. QUEUED: hop auf develop-(mit-#1770+#1783) + rerun. #1762 NOT independent (owner bestaetigt, teilt #1783 gate). native edge = 0428-237/#1770."
-wait_reason: ""
+blocker: ""
+wait_reason: "#1773 OPEN/BEHIND auf 78f75c90; #1770+#1783 GEMERGT (kein owner-decision noetig); #1773 aendert katalog NICHT selbst -> additive hop mit develops katalog, exact-head gruen ausstehend"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-footprint-human-surface-doc-gaps · Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract #task #release/v0-4-28 #status/blocked #view/blocked #area/cli #area/documentation #kind/maintenance
+- [ ] t-20261122-footprint-human-surface-doc-gaps · Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract #task #release/v0-4-28 #status/wait #view/wait #area/cli #area/documentation #kind/maintenance
     <!-- generated:card -->
-    **Owner:** Coordinator (parity defect intake) / Owner-Core (canonical-output ruling) / a lane (product fix) · **Priority:** normal  
+    **Owner:** ffe7611b (\#1773 hop+reconcile auf 78f75c90 laeuft) / Coordinator · **Priority:** normal  
     **PR:** [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
-    **Blocker:** \#1773 (presenter-only) + \#1762 (test-only) selected data-caps = SELBE \#1783 MCP-serve/parity gate, native = \#1770 pin. Downstream von \#1770+\#1783. QUEUED: hop auf develop-(mit-\#1770+\#1783) + rerun. \#1762 NOT independent (owner bestaetigt,…  
+    **Waiting:** \#1773 OPEN/BEHIND auf 78f75c90; \#1770+\#1783 GEMERGT (kein owner-decision noetig); \#1773 aendert katalog NICHT selbst -\> additive hop mit develops katalog, exact-head gruen ausstehend  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** Coordinator (parity defect intake) / Owner-Core (canonical-output ruling) / a lane (product fix)  
+**Owner:** ffe7611b (#1773 hop+reconcile auf 78f75c90 laeuft) / Coordinator  
 **Priority:** normal  
 **PRs:** [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
 **Source:** 
@@ -61,3 +61,5 @@ cmd/baha footprint human presenter comments/help only (and its existing test if 
 UNBLOCKT: C-mapping (app_footprint_presenter.go) via #1777 auf develop 68b26bd7 GEMERGT. Owner hoppte #1773 additiv auf head 3ec2eba9 base 68b26bd; exact run 45036009904 laeuft (selected docker+podman native+runtime heavy gates). Review + merge bei terminal green. Kein content-aenderung (presenter-docs only).
 
 #1773/#1762 = downstream von shared gate #1783(parity)+#1770(pin). #1762 in queue hinter fixture (NICHT unabhaengig, owner-korrektur).
+
+#1773 statuskorrektur (owner): Karte von blocked -> wait. #1770 + #1783 sind GEMERGT, daher KEIN owner-decision mehr noetig. #1773 ist OPEN/BEHIND auf develop 78f75c90 und editiert pr-gate-coverage.json SELBST NICHT -> additive hop uebernimmt develops katalog (keine -144 regression). ffe fuehrt hop+exact-head-pruefung aus. Nur noch auf gruenen exact-head wartend. develop 78f75c90.

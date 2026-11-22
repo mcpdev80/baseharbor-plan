@@ -7,9 +7,9 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: owner (resolves) / coord
-kanban_status: wait
-kanban_lane: wait
+owner: Codex (root-cause diagnose, NICHT worker) / Coordinator
+kanban_status: planned
+kanban_lane: ready
 kanban_summary: "Register scripts/ci-fast-check.sh as a real v0.4.28 Pre-Release static gate, with the full catalog/dispatcher wiring and…"
 kanban_title: "0428-205 · Gate catalog: ci-fast-check"
 priority: normal
@@ -18,24 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1774]
 sources: []
 blocker: ""
-wait_reason: "#1746 release-run bleibt wait (nicht qualifiziert), ABER NEU PRAEZISIERT: der zsh+fish WRAPPER-pfad ist GRUEN (run 45028181619 head 887058a6 job 137225878764 cli-3 installiert+uebt beide wrapper erfolgreich; user-explicit-approved). Wrapper NICHT als offenen failure buchen. Restblocker sind UNABHAENGIG: (a) fehlende katalog-mappings A+broker-diag+footprint+workload/main = 0428-248 (b90e, laeuft); (b) static core-bootstrap/config-matrix/auth = 0428-250 (baseharbor-demo fix, 0847d100); (c) selected footprint consent = 0428-241 (f0f6c8b4); (d) light-runtime blob = 0428-249 owner .github + acceptance.sh; (e) target.create = 0428-247 owner/core decision. Requal wenn a-d geloenst + pre-release gruen."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "https://github.com/mcpdev80/baseharbor/actions/runs/44944570763", "https://github.com/mcpdev80/baseharbor/pull/1746"]
 ---
 
-- [ ] t-20261120-gate-catalog-ci-fast-check · 0428-205 · Wire ci-fast-check into the release gate catalog #task #release/v0-4-28 #status/wait #view/wait #area/ci #kind/bug
+- [ ] t-20261120-gate-catalog-ci-fast-check · 0428-205 · Wire ci-fast-check into the release gate catalog #task #release/v0-4-28 #status/planned #view/ready #area/ci #kind/bug
     <!-- generated:card -->
-    **Owner:** owner (resolves) / coord · **Priority:** normal  
+    **Owner:** Codex (root-cause diagnose, NICHT worker) / Coordinator · **Priority:** normal  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774)  
-    **Waiting:** \#1746 release-run bleibt wait (nicht qualifiziert), ABER NEU PRAEZISIERT: der zsh+fish WRAPPER-pfad ist GRUEN (run 45028181619 head 887058a6 job 137225878764 cli-3 installiert+uebt beide wrapper erfolgreich; user-explicit-approved). Wrappe…  
+    **Ready to assign** · prerequisites accepted  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44943804395), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44944570763), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1746)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** owner (resolves) / coord  
+**Owner:** Codex (root-cause diagnose, NICHT worker) / Coordinator  
 **Priority:** normal  
 **PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774)  
 **Source:** 
@@ -79,3 +79,5 @@ Register `scripts/ci-fast-check.sh` as a real v0.4.28 Pre-Release static gate, w
 EIGENTUER-ENTSCHEID UMGESETZT: der additive hop/recheck ist aktiv auf einer worker-lane (ffe7611b, frei nach ihrem halte-auftrag zu 1762) INNERHALBST der bestehenden vollmacht, ohne neue .github-vollmacht. ABHAENGIGKEIT ERLEDIGT UND UMGEZOGEN, gemessen: die karte zeigte depends_on auf t-20261120-r28-cli-shard-operator-env (0428-198); 0428-198 ist closed/superseded durch t-20261121-develop-full-suite-red (0428-223), und 0428-223 ist closed mit resolution accepted. Ihre wart-war damit GEOEFFNET - depends_on steht jetzt auf der acceptierten karte (plan bf5403c6c). ZWEITER PUNKT, von ihm verlangt: in .github/workflows/pre-release.yml steht im diff 'sudo apt-get install --no-install-recommends -y zsh fish' plus zwei echo-zeilen; die karte deckt NUR EINEN zsh-schritt, fisch ist nicht genannt - die lane muss die zeile auf zsh einschraenken ODER mit datei:zeile eine bestehende autorisierung belegen, sonst nichts. rueckstand 29 commits, additiver hop auf develop 8629450ef3c, danach EIN durchgang mit den vier static-job-ids (config-matrix, shell-ux, mcp, init) als zeugen - skipped ist kein beleg. HINWEIS INTEGRATION: karte 0428-208 eroeffnet denselben PR 1746; 0428-205 ist die INTEGRATIONS-karte, 0428-208 bleibt der zensus-verweis (gate-deckung), damit niemand zwei schreiber annimmt.
 
 cli-3-failure 45027607903 = workflow-ref-Fehler (main statt kandidat), nicht #1746. Berichtigter Durchgang 45028181619 (ref lane-0428-208, workflow-head 887058a6) aktiv. target.create auth weiterhin separater, ungeklaerter blocker.
+
+0428-249 owner-freigabe dokumentiert (plan-main 624d2e76): genau EIN eng begrenzter ursachenfix-PR fuer die pre-release dateien; .github ci.yml + normaler CI-pfad AUSGESCHLOSSEN; exakter PR-head braucht gruen docker+podman LIGHT runtime gates. Schwere diagnose -> GEHT AN CODEX (runner session), NICHT an einen worker. Karte auf planned (ready in v0.4.28), erst active wenn echte Codex-session die technische ursachenpruefung uebernimmt. Dateigrenze exakt einhalten.
