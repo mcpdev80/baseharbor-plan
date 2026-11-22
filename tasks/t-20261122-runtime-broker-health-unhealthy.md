@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: maintainer-sitzung (uebernahme) / f0f6c8b4 (read-only-vorarbeit)
+owner: f0f6c8b4 (lane, rueckgabe der uebernahme) / maintainer-sitzung (informiert)
 tags: [#task, #release/v0.4-28]
 kanban_status: active
 kanban_lane: active
@@ -26,7 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "h
 
 - [ ] t-20261122-runtime-broker-health-unhealthy · CI: data-capabilities native gate fails on secure runtime broker readiness #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** maintainer-sitzung (uebernahme) / f0f6c8b4 (read-only-vorarbeit)  
+    **Owner:** f0f6c8b4 (lane, rueckgabe der uebernahme) / maintainer-sitzung (informiert)  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "h
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** maintainer-sitzung (uebernahme) / f0f6c8b4 (read-only-vorarbeit)  
+**Owner:** f0f6c8b4 (lane, rueckgabe der uebernahme) / maintainer-sitzung (informiert)  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
 **Source:** 
@@ -112,3 +112,5 @@ BESTAETIGT AUF DEVELOP-HOEHE, nicht nur am alten base-zeiger: PR 1761 ist aktiv 
 FIX IST BEAUFTRAGT, nach ihrem read-only-befund (akte round-2.md, plan main 4bff809da): die dependency ist aus CI nicht mehr lesbar (run 44994268323 logs HTTP 404, purged) und der fix-pfad liegt in internal/controlplaneruntime/** - also KEINSPERRT, keine owner-ausnahme noetig. Schluessel-beleg aus ihrer messe: policy-artig haengt es an der readiness-reihenfolge in server_run.go:163-219 (database :168, openbao :175, runtime-executor :182/:203) mit writeNotReady server.go:260-274; der fall tritt auf beiden engines auf, also eine gemeinsame control-plane-dependency. Stoppt die lane, wenn eine Lane-gesperrte datei oder cmd/baha/app_broker.go (0428-240, andere haende) getroffen muesste.
 
 UEBERGABE VOLLZOGEN, zustand gemessen statt beschnigt: die lane meldet END_BLOCKED mit ausdruecklicher HAND OFF. Ihr branch lane-0428-237-broker-readiness existiert NUR LOKAL im haupt-clone und zeigt auf acc343239681feb235a33cf00c8ea754c537291f - also NULL eigene commits, nie gepusht, kein PR. Es ist nichts zu retten aus diesem branch; die uebernahme beginnt bei der read-only-akte round-2.md (rekonstruierte /readyz-kette server_run.go:166-206: database :168, openbao :175, runtime-executor :182/:203; writeNotReady server.go:260-274; fix-pfad internal/controlplaneruntime/** = erlaubt). ZWEI zeugen, die die uebernahme kennen muss: die logs von 45001383922 sind lokal abgelegt (/tmp/devid237/run45001383922.log, 929 KB, 5575 zeilen) enthalten aber NUR checkout-rauschen, KEINEN dependency-namen; die API-pfade liefern 404/limit. Der dependency-name ist damit weiterhin UNBEKANNT - das ist genau das loch, das karte 0428-240 (PR 1763, draft) schliessen soll. Ich habe der lane aufgegeben: haupt-clone zurueck auf develop, akte-zeile 'zustand des zweigs', END mit meldefrist.
+
+RUECKGABE DER UEBERGABE, begruendet und gemessen: die maintainer-sitzung hat den index-traeger PR 1764 uebernommen (base develop, head 8d64f0cf803, ein LEERER marker-commit, durchgang 45005623091 FAILED in 'PR . Trusted Plan' 137156455112 und 'PR . Selected Checks' 137156547886, 24 checks skipped) - aber NICHT ihre karte. Damit der fenster-blocker nicht herrenlos haengt, geht 0428-237 zurueck an f0f6c8b4: neuer branch lane-0428-237-broker-readiness-r2, base exakt develop 8629450ef3c, fixes recht auf internal/controlplaneruntime/**; stapeln auf PR 1763 (branch lane-0428-240-broker-diagnostics, spitze 5d138ce2613) ist als additiver STACK erlaubt, wenn der dependency-name vorher sichtbar sein muss - deklaration im PR-body, kein rebase/amend/force. Timeout erhoehen, retry aufweichen, sleep im test oder 'not_ready' durch 'ok' ersetzen ist ausdruecklich verboten.

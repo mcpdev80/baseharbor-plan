@@ -7,13 +7,13 @@ gegen develop. Der branch ist der TRAEGER: PR 1623 hoepft spaeter auf ihn.
 
 ## PLAN
 
-- [x] Plan in board-file + ## PLAN in akte
-- [ ] ls-remote + base attestation: develop 8629450e; branch lane-0428-063-index-carrier
-- [ ] Generator scripts/** lesen (NICHT aendern); erzeugende Befehle identifizieren
-- [ ] Generator ausfuehren -> drei dateien: docs/cli/command-index.md, docs/de/cli/command-index.md, docs/reference/cli-machine-coverage.md
-- [ ] Commit nur dieser drei dateien; push (normal); branch + head-sha melden
-- [ ] Kleiner PR gegen develop (NU3 die drei dateien); hosted run bis terminal; run-id, failed-zahl
-- [ ] END + coordinator-post
+- Plan in board-file + ## PLAN in akte
+- ls-remote + base attestation: develop 8629450e; branch lane-0428-063-index-carrier
+- Generator scripts/** lesen (NICHT aendern); erzeugende Befehle identifizieren
+- Generator ausfuehren -> drei dateien: docs/cli/command-index.md, docs/de/cli/command-index.md, docs/reference/cli-machine-coverage.md
+- Commit nur dieser drei dateien; push (normal); branch + head-sha melden
+- Kleiner PR gegen develop (NU3 die drei dateien); hosted run bis terminal; run-id, failed-zahl
+- END + coordinator-post
 
 ## Base attestation
 
