@@ -47,3 +47,11 @@ Geen produkt-/workflow-/scripts-wĳziging nodig voor deze snit; alles leesbaar u
 cleanliness: read-only, besenrein. Eigen pid 3738731. `docker ps -a` BEFORE = 0 entries; AFTER = 0 entries. Niets gestart, geen commit/push in enig repo; scratch `/var/tmp/0428-223-hunt-*` (logs/yml-extracten) verwijderd voor END; worktrees workers/0428-240-brokerdiag-wt onverandert (git status 0).
 
 END 0428-223-testctx DONE (hunt gate-selection: fund a ci.yml:478-524 + validate-pr-gate-coverage.py:66-83 + catalogus zonder app_broker; fund b ci.yml:531/1427/1444/1461 required==true => skipped-niet-fail, bewezen skipped in run 45011815553; fund c vier tests in app_broker_diagnostics_test.go dekken het diagnostics-pad echt, cli-0 job 137175633047 + cli-1 137175633032 executed success; cleanliness: read-only, besenrein)
+
+## origin/main witness
+
+Exact output of `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep hunt-gate-selection`:
+
+```
+evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/hunt-gate-selection-round-1.md
+```
