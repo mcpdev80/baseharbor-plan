@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w27-pr1627-0428-061-pull
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Implement guided source pull. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-061 · Implement guided source pull
 priority: high
@@ -23,14 +23,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-source-pull · CLI redesign: Implement guided source pull #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-source-pull · CLI redesign: Implement guided source pull #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** w27-pr1627-0428-061-pull · **Priority:** high  
     **PR:** [baseharbor#1752](https://github.com/mcpdev80/baseharbor/pull/1752)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-app-lifecycle](t-20261114-r28-cli2-app-lifecycle.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
@@ -88,3 +88,5 @@ independent review REQUEST CHANGES at exact head 9140e0c8224 (evidence 5406131d0
 correction missions to w27: F1/F2/F3 (f6e8294fecda), draft rule (33b8d6833a5b), F2b buffer split (931e8b531eec), F2c/F4 approval enforcement (5caf75836375); reviewer confirmed F4 at evidence d1f4a357ed and holds until the new exact head
 
 corrections F1/F2/F2b/F2c(F4)/F3 pushed as exact head 719242df476 (back=0 against develop 6209874428f, additive on 9140e0c8224); PR stays Draft by Owner decision; exact hosted run 44971297170 queued; codex-rev-1747 reads the head now, verdict only after terminal green
+
+review returned REQUEST CHANGES at 719242df476 (akte aada967193); exact run 44971782040 at head a4adc29a584 is terminal failure in two jobs: Draft Go packages 137052952860 (candidate: partial-failure test asserts wrong state) and Draft Go cli-3 137052952179 (environment: card 0428-229 missing zsh in the draft cell). correction missions 858bf3f62d9d + 5246d5ac2d5e ordered, PR stays draft
