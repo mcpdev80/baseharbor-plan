@@ -7,7 +7,7 @@ areas: [cli, documentation]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: Coordinator (route-after-#1783) / a lane (hop+rerun) / Owner
+owner: Coordinator (defect intake: CLI/MCP footprint parity) / Owner (product ruling) / a lane
 kanban_status: blocked
 kanban_lane: blocked
 kanban_summary: ""
@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1773, mcpdev80/baseharbor#1783]
 sources: []
-blocker: "#1773 (nur app_footprint_presenter.go) exact checks terminal rot in native docker/podman + selected data-caps = IDENTISCHE footprint fixture/consent seam -> NICHT independent merge-ready. Presenter-only focused check zaehlt NICHT als gruen. BLOCKIERT bis PR #1783 (optionA shared fixture, hosted 67-checks 0-fail, nur 4 native runner-pending) GEMERGT ist; dann rebase auf develop-(mit-1783) + rerun erbt den fix (wie #1780/#1770). Nominierter naechster NICHT-UEBERLAPPENDER simpler kandidat = catalog surface-c lane (03c7350a). native edge broker = 0428-237 separat."
+blocker: "#1773 selected data-caps fail = ECHTER PRODUKT footprint_parity DEFECT: tests/guided footprint_parity RuntimeError 'native CLI JSON vs MCP Footprint contracts differ' (mcp.go:248 registerMCPFootprintShowTool vs app_footprint_presenter). Das ist KEIN operator-fixture-thema: #1783 loest nur die record-deployment-confirm policy-luecke, NICHT die contract-divergenz. #1773 bleibt BLOCKED bis diese product parity (presenter vs mcp) entschieden ist (owner/core: ist presenter-JSON oder mcp-tool-JSON die kanonische form?). Zusaetzlich #1783 gate-string fix noetig fuer selected. native broker=237. develop b27b2ebe."
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -25,16 +25,16 @@ evidence: []
 
 - [ ] t-20261122-footprint-human-surface-doc-gaps · Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract #task #release/v0-4-28 #status/blocked #view/blocked #area/cli #area/documentation #kind/maintenance
     <!-- generated:card -->
-    **Owner:** Coordinator (route-after-\#1783) / a lane (hop+rerun) / Owner · **Priority:** normal  
+    **Owner:** Coordinator (defect intake: CLI/MCP footprint parity) / Owner (product ruling) / a lane · **Priority:** normal  
     **PR:** [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
-    **Blocker:** \#1773 (nur app\_footprint\_presenter.go) exact checks terminal rot in native docker/podman + selected data-caps = IDENTISCHE footprint fixture/consent seam -\> NICHT independent merge-ready. Presenter-only focused check zaehlt NICHT als gruen…  
+    **Blocker:** \#1773 selected data-caps fail = ECHTER PRODUKT footprint\_parity DEFECT: tests/guided footprint\_parity RuntimeError 'native CLI JSON vs MCP Footprint contracts differ' (mcp.go:248 registerMCPFootprintShowTool vs app\_footprint\_presenter). Da…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** Coordinator (route-after-#1783) / a lane (hop+rerun) / Owner  
+**Owner:** Coordinator (defect intake: CLI/MCP footprint parity) / Owner (product ruling) / a lane  
 **Priority:** normal  
 **PRs:** [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
 **Source:** 
