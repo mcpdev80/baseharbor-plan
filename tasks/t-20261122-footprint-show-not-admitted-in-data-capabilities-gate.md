@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: 0847d100 (lane, haelt push bis handoff)
+owner: 0847d100 (hop #1753 auf b48ac03ef laeuft) / Coordinator
 kanban_status: active
 kanban_lane: active
 kanban_summary: "The disposable acceptance gates that legitimately call baha app footprint show are admitted by the CI operator boundary, so the…"
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 - [ ] t-20261122-footprint-show-not-admitted-in-data-capabilities-gate · Acceptance contract: baha app footprint show is admitted only for the guided gate #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** 0847d100 (lane, haelt push bis handoff)  
+    **Owner:** 0847d100 (hop \#1753 auf b48ac03ef laeuft) / Coordinator  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44993125398), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998829701), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45008538769), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/45014558296), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45015912507)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](t-20261122-ci-integration-operator-seams-without-gate-admission.md)  
 **Required by:** [t-20261120-workload-port-flag-ignored-locally](t-20261120-workload-port-flag-ignored-locally.md)  
-**Owner:** 0847d100 (lane, haelt push bis handoff)  
+**Owner:** 0847d100 (hop #1753 auf b48ac03ef laeuft) / Coordinator  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
 **Source:** 
@@ -142,3 +142,5 @@ KRITISCHER PFAD FUER #1746-volles-suite + #1753 + #1761 + #1762. Der owner-repor
 0428-237 = UNGEKLAERT (Codex-Runner-korrektur, ich habe die vorlaeufige env-drift-klasse zurueckgezogen): #1753 ist selbst der 237-pr und traegt bereit einen readiness-patch in cmd/baha/app_broker.go (head 7363192). Exakter run 45014558296: DOCKER faillt weiter im selben broker-lifecycle-test mit container health unhealthy; PODMAN failt zuletzt an 'runtime inspect signal killed' - ZWEI verschiedene signaturen, env-drift ist NICHT bewiesen. Karte/Broker-Code bleiben beim Codex Runner (Zustandssitz), ich aendere den status nicht. BRANCH-REGEL: 0847d100 (footprint consent, cmd/baha) und Codex Runner (app_broker.go) schreiben NICHT gleichzeitig auf #1753 - ein schreiber pro zeit, wechsel ueber mich. Keine aenderung an fremden lanes/katalog/wait-karten. 0428-227 seite: show-Klassifizierung ist der Teil, den 0847d100 in cmd/baha prueft (nicht app_broker.go).
 
 #1753 SERIALISIERT (ein schreiber pro zeit): Codex Runner arbeitet JETZT auf dem branch (0428-237 broker-image-fix additiv, integration-SHA 626490f9, run 45018148255; nativ docker 137194876293 GREEN mit vollem lifecycle PASS, podman 137194876273 laeuft; gofmt/cli-1 aus frueherem app_broker.go-commit steht aus). 0847d100 haelt ihren 0428-227 footprint-consent-push, bis der codex runner terminal meldet, dann additiv darauf. 0428-227 seite unveraendert bei 0847d100. 0428-237 = BELEGT UMGEBUNG/FIXTURE-DRIFT (image :edge statt SHA-build), der 237-karte/zustand bleibt beim Codex Runner.
+
+PROMOTED (owner-direktive): #1753 ist der admission-fix, den #1773s selected-gate braucht -> hop direkt auf b48ac03ef, exact-head gruen + merge VOR #1773. 0847 fuehrt aus nach 3x host-bounce auf w26 (reason-coded, sitz aufgegeben).

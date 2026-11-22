@@ -7,7 +7,7 @@ areas: [cli, documentation]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ffe7611b (#1773 hop+reconcile auf 78f75c90 laeuft) / Coordinator
+owner: ffe7611b (#1773 beobachtet run 45076500862) / Coordinator
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: ""
@@ -18,23 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1773, mcpdev80/baseharbor#1783]
 sources: []
 blocker: ""
-wait_reason: "#1773 OPEN/BEHIND auf 78f75c90; #1770+#1783 GEMERGT (kein owner-decision noetig); #1773 aendert katalog NICHT selbst -> additive hop mit develops katalog, exact-head gruen ausstehend"
+wait_reason: "owner-klassifikation: selected docker+podman failure ist CONTENT-DEP auf #1753 (0428-227 app-footprint-show admission im data-caps target), kein #1773-defect. #1753 hopt gerade (0847). Nach #1753-landing: #1773 re-hop + re-run, dann merge. Merge-Reihenfolge: #1762 -> #1738 -> #1753 -> #1773 -> #1765 -> #1789"
 resolution: ""
 evidence: []
 ---
 
 - [ ] t-20261122-footprint-human-surface-doc-gaps · Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract #task #release/v0-4-28 #status/wait #view/wait #area/cli #area/documentation #kind/maintenance
     <!-- generated:card -->
-    **Owner:** ffe7611b (\#1773 hop+reconcile auf 78f75c90 laeuft) / Coordinator · **Priority:** normal  
+    **Owner:** ffe7611b (\#1773 beobachtet run 45076500862) / Coordinator · **Priority:** normal  
     **PR:** [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
-    **Waiting:** \#1773 OPEN/BEHIND auf 78f75c90; \#1770+\#1783 GEMERGT (kein owner-decision noetig); \#1773 aendert katalog NICHT selbst -\> additive hop mit develops katalog, exact-head gruen ausstehend  
+    **Waiting:** owner-klassifikation: selected docker+podman failure ist CONTENT-DEP auf \#1753 (0428-227 app-footprint-show admission im data-caps target), kein \#1773-defect. \#1753 hopt gerade (0847). Nach \#1753-landing: \#1773 re-hop + re-run, dann merge.…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** ffe7611b (#1773 hop+reconcile auf 78f75c90 laeuft) / Coordinator  
+**Owner:** ffe7611b (#1773 beobachtet run 45076500862) / Coordinator  
 **Priority:** normal  
 **PRs:** [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
 **Source:** 
@@ -63,3 +63,5 @@ UNBLOCKT: C-mapping (app_footprint_presenter.go) via #1777 auf develop 68b26bd7 
 #1773/#1762 = downstream von shared gate #1783(parity)+#1770(pin). #1762 in queue hinter fixture (NICHT unabhaengig, owner-korrektur).
 
 #1773 statuskorrektur (owner): Karte von blocked -> wait. #1770 + #1783 sind GEMERGT, daher KEIN owner-decision mehr noetig. #1773 ist OPEN/BEHIND auf develop 78f75c90 und editiert pr-gate-coverage.json SELBST NICHT -> additive hop uebernimmt develops katalog (keine -144 regression). ffe fuehrt hop+exact-head-pruefung aus. Nur noch auf gruenen exact-head wartend. develop 78f75c90.
+
+abhaengigkeit korrigiert (owner 23:5x): #1773 wartet NICHT nur auf eigenen gruenen exact-head, sondern auf #1753-content (consent/commission-admission von 'baha app footprint show -o json' im managed-workload-set des data-capabilities targets). Der consent-digest ist ok; command-not-in-managed-workload-set ist das admission-defect von 0428-227. Lane arbeitet nicht um.
