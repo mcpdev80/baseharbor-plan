@@ -7,7 +7,7 @@ areas: [lifecycle]
 release: v0.4.28
 version: ""
 parent: ""
-owner: (lane, PR waits for hop)
+owner: (lane, PR wartet)
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: ""
@@ -18,25 +18,25 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1725]
 sources: []
 blocker: ""
-wait_reason: "awaiting additive hop onto develop acc34323968 (back=2)"
+wait_reason: "PR 1723 muss zuerst in develop (seine dateien stecken als ahne in diesem diff)"
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pulls/1725", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44995066580"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pulls/1725", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44995066580", "https://github.com/mcpdev80/baseharbor/actions/runs/44998846458"]
 created: 2026-11-20
 ---
 
 - [ ] t-20261120-shared-backend-state-version-message · shared state version message #task #release/v0-4-28 #status/wait #view/wait #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** (lane, PR waits for hop)  
+    **Owner:** (lane, PR wartet)  
     **PR:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725)  
-    **Waiting:** awaiting additive hop onto develop acc34323968 (back=2)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pulls/1725), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44995066580)  
+    **Waiting:** PR 1723 muss zuerst in develop (seine dateien stecken als ahne in diesem diff)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pulls/1725), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44995066580), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44998846458)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** (lane, PR waits for hop)  
+**Owner:** (lane, PR wartet)  
 **Priority:** not set  
 **PRs:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725)  
 **Source:** 
@@ -92,3 +92,5 @@ wartet auf denselben hop auf develop acc34323968 (back=2, diff jetzt 7 dateien s
 wartet auf denselben hop auf develop acc34323968 (back=2, diff jetzt 7 dateien statt 19). Gleiches bild wie bei 1723: das REQUEST CHANGES am head 485103523b9 (akte cli-sourcepull/... 47156bcd24a, run 44995066580, 7 failed jobs, '16 paths outside card write-set') zaehlt ab dem neuen develop nicht mehr als kandidatfehler.
 
 wartet auf denselben hop auf develop acc34323968 (back=2, diff jetzt 7 dateien statt 19). Gleiches bild wie bei 1723: das REQUEST CHANGES am head 485103523b9 (run 44995066580, 7 failed jobs, '16 paths outside card write-set') zaehlt ab dem neuen develop nicht mehr als kandidatfehler.
+
+kein re-cut noetig, rekchenreihenfolge loest es: der zensus meldete '1725 needs clean re-cut', aber die messung am neuen head d65e9a25419 zeigt 7 dateien, davon vier (cmd/baha/app_apply.go, app_workload_ports.go, runtime.go, workload_port_local_regression_test.go) das sind die OWN-inhalte von PR 1723, deren head als ahne in der kette steckt. Dreimal dieselbe lage wie bei 1627: sobald PR 1723 in develop liegt, schrumpft dieser diff auf die drei eigenen dateien (internal/application/shared_backends.go, shared_backends_state.go, shared_backends_state_version_test.go). Daher: 1723 zuerst mergen, dann 1725 hop auf den neuen develop, dann exact-head review. Kein paralleler merge, kein mischen der write-sets.
