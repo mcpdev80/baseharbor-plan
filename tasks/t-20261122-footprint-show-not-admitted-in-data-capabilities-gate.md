@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: fecbada9 (review) / 0847d100 (lane)
+owner: fecbada9 (review) / 0428-061-sourcepull (hop)
 kanban_status: active
 kanban_lane: active
 kanban_summary: "The disposable acceptance gates that legitimately call baha app footprint show are admitted by the CI operator boundary, so the…"
@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44993125398"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44993125398", "https://github.com/mcpdev80/baseharbor/actions/runs/44994268323"]
 ---
 
 - [ ] t-20261122-footprint-show-not-admitted-in-data-capabilities-gate · Acceptance contract: baha app footprint show is admitted only for the guided gate #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** fecbada9 (review) / 0847d100 (lane)  
+    **Owner:** fecbada9 (review) / 0428-061-sourcepull (hop)  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44993125398)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44993125398), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](t-20261122-ci-integration-operator-seams-without-gate-admission.md)  
 **Required by:** [t-20261120-workload-port-flag-ignored-locally](t-20261120-workload-port-flag-ignored-locally.md)  
-**Owner:** fecbada9 (review) / 0847d100 (lane)  
+**Owner:** fecbada9 (review) / 0428-061-sourcepull (hop)  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
 **Source:** 
@@ -108,3 +108,5 @@ independent review at exact head 91f4e38795a gives VERDICT APPROVE content, merg
 Corrected candidate head ce5cf8f3037 (back=0, ahead=1) mit run 44986388874 SUCCESS und 0 failed jobs; der erste versuch e120f0815 war durch eine beschnittene datei ungueltig und CI hat das sofort gezeigt. Selected Runtime ist auch hier SKIPPED (job 137097832863), grund: fehlende components- und native_checks-zeilen, karte 0428-230.
 
 review am exakten head d690d7ffd4d = APPROVE (akte footprint-gate-admission/review-1753-headd690d7ffd4d5.md auf origin/main e7a30bd6848). Exakter run 44993125398 SUCCESS/0 failed, operator-job 137118399949 PASS. Commit ce5cf8f3037 ist kartenarbeit (footprint operator seam plus test), keine fremde arbeit. Kein merge in dieser runde: die karten-abnahme will die Zulassung im native-gate BELEGT, und 'PR Selected Runtime' 137118401195 ist am kandidaten noch SKIPPED, weil PR 1756 (die katalogzeilen) noch nicht in der base liegt. Naechster schritt nach dem 1756-merge: weiterer additiver hop, ein run mit echten runtime-zeilen, dann merge.
+
+MEILENPFAHL: nach dem PR-1756-merge (develop 52a3c5446f4) laufen die nativen runtime-gates WIRKLICH. Am dritten hop-head a40b76764c3 (base 52a3c5446f4, back=0) zeigt der exakte run 44994268323: 'PR . Native gate plan' SUCCESS (137121803257), 'PR . Selected Runtime' docker/data-capabilities job 137122169353 und podman/data-capabilities job 137122169299 sind AUSGEFUEHRT (in_progress, nicht skipped); 'PR . Native Keycloak/Core' skipped als unrelated. Exaktes review am selben head ist aktiv bei fecbada9. Vorbedingung war der 1756-merge - damit ist die zulassungs-kette zum ersten mal maschinell sichtbar statt still uebersprungen.
