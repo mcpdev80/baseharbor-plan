@@ -25,13 +25,13 @@ production.
 
 ## ## PLAN-Checkliste
 
-- [ ] Read card + task-note (t-20261120-r28-valkey-dashboard-unavailable-only) + fix1714 mission + review-1714 verdict.
-- [ ] Investigate FUND 1. First attempt (runtime_observability.go:253 -> Verification=Backend) was WRONG: broke 6 internal/metrics snapshot tests + 60s hang (workload source is intentionally Verification=none, symbolic runtime:// target kept out of scrape targets per bcae1e8c 0428-100). Reverted that commit.
-- [ ] Coordinator ANSWER (ans1714): the 3 coordinator-named tests (TestWorkloadOnlyRegistersSharedSnapshotOnDeploy, TestServiceAppKeepsRuntimeSourceRegistrationOnDeploy, TestVerifyProviderAndApplicationSourcesSkipsOnlySnapshotMetadata) FAILED at my first commit 0b5fc5bd because it changed internal/application. Decision rule: internal/metrics contract is valid; if fix must change it, that is a conscious contract change; if fix does NOT need to change it, keep the 3 tests unchanged. My perses fix keeps all 3 passing unchanged -> variant 2.
-- [ ] Apply correct fix: perses_dashboards_valkey.go persesValkeyBackendVerified() now resolves Valkey metrics signal Verification from the SAME reference catalog as persesValkeyResolvedSignalStatus() (Backend only for Supported+backend-verified, else None = fail closed). 3-state regression test TestPersesValkeyBackendVerifiedReadsReferenceCatalog added.
-- [ ] Verify: full internal/metrics shard OK, go vet clean, the 3 coordinator-named tests PASS, internal/application workload reconcile tests PASS.
-- [ ] Push additively on same branch (no rebase/amend/force). Prove delivery ls-remote refs/pull/1714/head. Watch exact PR run to terminal: run-id + failed job-ids + proof internal/metrics packages shard runs (job-id + 'ok').
-- [ ] Write akte with ## PLAN + ## repo-rule compliance + the 3 assert-lines + variant chosen. Publish to baseharbor-plan origin/main. Post END to coordinator 9142ab1f.
+- Read card + task-note (t-20261120-r28-valkey-dashboard-unavailable-only) + fix1714 mission + review-1714 verdict.
+- Investigate FUND 1. First attempt (runtime_observability.go:253 -> Verification=Backend) was WRONG: broke 6 internal/metrics snapshot tests + 60s hang (workload source is intentionally Verification=none, symbolic runtime:// target kept out of scrape targets per bcae1e8c 0428-100). Reverted that commit.
+- Coordinator ANSWER (ans1714): the 3 coordinator-named tests (TestWorkloadOnlyRegistersSharedSnapshotOnDeploy, TestServiceAppKeepsRuntimeSourceRegistrationOnDeploy, TestVerifyProviderAndApplicationSourcesSkipsOnlySnapshotMetadata) FAILED at my first commit 0b5fc5bd because it changed internal/application. Decision rule: internal/metrics contract is valid; if fix must change it, that is a conscious contract change; if fix does NOT need to change it, keep the 3 tests unchanged. My perses fix keeps all 3 passing unchanged -> variant 2.
+- Apply correct fix: perses_dashboards_valkey.go persesValkeyBackendVerified() now resolves Valkey metrics signal Verification from the SAME reference catalog as persesValkeyResolvedSignalStatus() (Backend only for Supported+backend-verified, else None = fail closed). 3-state regression test TestPersesValkeyBackendVerifiedReadsReferenceCatalog added.
+- Verify: full internal/metrics shard OK, go vet clean, the 3 coordinator-named tests PASS, internal/application workload reconcile tests PASS.
+- Push additively on same branch (no rebase/amend/force). Prove delivery ls-remote refs/pull/1714/head. Watch exact PR run to terminal: run-id + failed job-ids + proof internal/metrics packages shard runs (job-id + 'ok').
+- Write akte with ## PLAN + ## repo-rule compliance + the 3 assert-lines + variant chosen. Publish to baseharbor-plan origin/main. Post END to coordinator 9142ab1f.
 
 ## Fix
 
