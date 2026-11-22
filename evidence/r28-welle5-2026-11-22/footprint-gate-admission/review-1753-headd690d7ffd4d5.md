@@ -56,3 +56,11 @@ origin	https://github.com/mcpdev80/baseharbor-plan.git (push)
 ## END
 
 END codex-rev-1747 DONE: APPROVE for `d690d7ffd4d55f1562c2c106d1424b8c0088ca6c`; the `ce5cf8f` operator/test change is card-specific, not foreign work; run `44993125398` terminal SUCCESS; `PR · Selected Runtime` SKIPPED as expected. Planning remote: `origin https://github.com/mcpdev80/baseharbor-plan.git`.
+
+## Planning publication witness
+
+Fresh `origin/main` tree output:
+
+```text
+evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md
+```
