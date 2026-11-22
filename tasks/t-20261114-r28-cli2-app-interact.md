@@ -7,7 +7,7 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: owner (autorisierte zsh+fish, wendete 26ae64c4+3d927252 an) / fecbada9 (CODEX-REVIEW_assigned) / coord (merge-route)
+owner: owner (autorisierte zsh+fish) / 1450c201 (CODEX-REVIEW_assigned) / coord (bestaetigung+merge-route)
 kanban_status: review
 kanban_lane: review
 kanban_summary: "Guide app logs exec and urls. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1623", "https://github.com/mcpdev80/baseharbor/actions/runs/45012848258", "https://github.com/mcpdev80/baseharbor/actions/runs/45012883646", "https://github.com/mcpdev80/baseharbor/actions/runs/45013307400", "https://github.com/mcpdev80/baseharbor/pull/1746", "https://github.com/mcpdev80/baseharbor/actions/runs/45014782334", "https://github.com/mcpdev80/baseharbor/actions/runs/45015867089"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1623", "https://github.com/mcpdev80/baseharbor/actions/runs/45012848258", "https://github.com/mcpdev80/baseharbor/actions/runs/45012883646", "https://github.com/mcpdev80/baseharbor/actions/runs/45013307400", "https://github.com/mcpdev80/baseharbor/pull/1746", "https://github.com/mcpdev80/baseharbor/actions/runs/45014782334", "https://github.com/mcpdev80/baseharbor/actions/runs/45015867089", "https://github.com/mcpdev80/baseharbor/actions/runs/45015912507"]
 ---
 
 - [ ] t-20261114-r28-cli2-app-interact · CLI redesign: Guide app logs exec and urls #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** owner (autorisierte zsh+fish, wendete 26ae64c4+3d927252 an) / fecbada9 (CODEX-REVIEW\_assigned) / coord (merge-route) · **Priority:** high  
+    **Owner:** owner (autorisierte zsh+fish) / 1450c201 (CODEX-REVIEW\_assigned) / coord (bestaetigung+merge-route) · **Priority:** high  
     **PR:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1623), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45012848258), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45012883646), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45013307400), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1746), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45014782334), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/45015867089)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1623), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45012848258), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45012883646), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45013307400), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1746), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45014782334), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/45015867089), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45015912507)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1623", "https://github.c
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** owner (autorisierte zsh+fish, wendete 26ae64c4+3d927252 an) / fecbada9 (CODEX-REVIEW_assigned) / coord (merge-route)  
+**Owner:** owner (autorisierte zsh+fish) / 1450c201 (CODEX-REVIEW_assigned) / coord (bestaetigung+merge-route)  
 **Priority:** high  
 **PRs:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
 **Source:** 
@@ -114,3 +114,5 @@ SCOPE-KONFLIKT DURCH OWNER ENTSCHIEDEN = OPTION B (nicht meine A-empfehlung): co
 SEQENZ-KOPF. Review-BESITZ vergeben: fecbada9 prueft den EXAKTEN head 3d927252fae, verdict an die beiden laufenden durchgaenge gebunden (exact CI 45014782334 + shell-ux 45014836421, beide in_progress) - PENDING bis terminal green, dann APPROVE+merge-empfehlung. Owner-model bestaetigt: #1746 MERGE zuerst, DANN #1763 re-hop (neues develop mit zsh+fish source-test) + exact hosted runtime. #1723 nach broker-clearance, DANN #1725. Kein merge vor gruenen checks + fecbada9-verdict.
 
 PR-CI 45014782334 TERMINAL SUCCESS am exakten head 3d927252fae, alle required PR jobs green. Eigene akzeptanz = neues ci-fast-check gate 45015867089 (laeuft) + voller positiver Pre-Release 45015912507 (queued) am selben SHA; cli-3 exact SUCCESS (zsh+fish wirkt). shell-ux 'authenticated operator' ist eine SEPARATE bestehende gate (0428-231), nicht dieser PR. Unabhaengige review fecbada9 laeuft am exakten head. Coordinator-bestaetigung: scope = zsh+fish vom owner autorisiert, head-exaktheit + PR-CI green besttigt; merge Sobald review APPROVE + 45015867089 + 45015912507 green. #1763 haengt an diesem land.
+
+REVIEW EXPLIZIT SICHTBAR VERGEBEN: 1450c201 prueft den EXAKTEN head 3d927252fae, verdict gekoppelt an terminal-gruenen vollen Akzeptanz-durchgang 45015912507. BESTAETIGUNGEN: (a) Coordinator-besttigung von MIR gesetzt - scope zsh+fish vom owner freigegeben (26ae64c4+3d927252), head-exaktheit + PR-CI 45014782334 SUCCESS + fokus-gate ci-fast-check 45015867089 SUCCESS verifiziert. (b) Release-Owner-besttigung = ihr wort beim merge im fenster (steht aus, nur formsache wenn 1450c201 APPROVE + 45015912507 green). Merge soGLEICH bei grner voller akzeptanz, dann #1763 re-hop.
