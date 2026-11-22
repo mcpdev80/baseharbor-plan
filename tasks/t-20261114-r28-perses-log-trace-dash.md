@@ -28,7 +28,6 @@ evidence: []
     **Owner:** coord · **Priority:** normal  
     **PR:** [baseharbor#1619](https://github.com/mcpdev80/baseharbor/pull/1619)  
     **Waiting:** handoff abgeschlossen, pruefbarer kandidat mit eigenem beobachteten run: PR \#1645 head 4d73aa97808d == branch, base develop 96f2ae11a, draft=false, 35 dateien, checks 12 success / 6 failure. Meine rueckfrage 'PR Selected Checks' ist mit jo…  
-    **Needs:** [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

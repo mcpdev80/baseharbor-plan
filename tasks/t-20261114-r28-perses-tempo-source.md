@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0847d100 (autor) / fecbada9 (unabhaengige pruefung)
-kanban_status: review
-kanban_lane: review
+owner: 0847d100 (autor) / fecbada9 (pruefung) / 1450c201 (merge-preflight)
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Provision selected authorized Tempo datasource via supported Perses plugin, scoped and verified."
 kanban_title: 0428-091 · Connect Perses Tempo
 priority: normal
@@ -19,23 +19,23 @@ prs: [mcpdev80/baseharbor#1610, mcpdev80/baseharbor#1645]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44688554297", "https://github.com/mcpdev80/baseharbor/actions/runs/44689126814", "https://github.com/mcpdev80/baseharbor/actions/runs/44695439903", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44996055999", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/stale-pr-census/review-1645-head326ca900526.md", "https://github.com/mcpdev80/baseharbor/pull/1645", "https://github.com/mcpdev80/baseharbor/actions/runs/45001605859"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44688554297", "https://github.com/mcpdev80/baseharbor/actions/runs/44689126814", "https://github.com/mcpdev80/baseharbor/actions/runs/44695439903", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44996055999", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/stale-pr-census/review-1645-head326ca900526.md", "https://github.com/mcpdev80/baseharbor/pull/1645", "https://github.com/mcpdev80/baseharbor/actions/runs/45001605859", "https://github.com/mcpdev80/baseharbor/commit/8629450ef3c5198bb675331c12f56b2c9377aa1c", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/perses-tempo-0428-091/review-1645-head8bd165e1a00.md"]
 ---
 
-- [ ] t-20261114-r28-perses-tempo-source · Connect Perses Tempo #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [x] t-20261114-r28-perses-tempo-source · Connect Perses Tempo #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0847d100 (autor) / fecbada9 (unabhaengige pruefung) · **Priority:** normal  
+    **Owner:** 0847d100 (autor) / fecbada9 (pruefung) / 1450c201 (merge-preflight) · **Priority:** normal  
     **PR:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44688554297), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44689126814), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44695439903), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44996055999), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/stale-pr-census/review-1645-head326ca900526.md), [proof 7](https://github.com/mcpdev80/baseharbor/pull/1645), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45001605859)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44688554297), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44689126814), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44695439903), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1645-0428-091.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44996055999), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/stale-pr-census/review-1645-head326ca900526.md), [proof 7](https://github.com/mcpdev80/baseharbor/pull/1645), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45001605859), [proof 9](https://github.com/mcpdev80/baseharbor/commit/8629450ef3c5198bb675331c12f56b2c9377aa1c), [proof 10](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/perses-tempo-0428-091/review-1645-head8bd165e1a00.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
 **Required by:** [t-20261114-r28-perses-log-trace-dash](t-20261114-r28-perses-log-trace-dash.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** 0847d100 (autor) / fecbada9 (unabhaengige pruefung)  
+**Owner:** 0847d100 (autor) / fecbada9 (pruefung) / 1450c201 (merge-preflight)  
 **Priority:** normal  
 **PRs:** [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645)  
 **Source:** 
@@ -142,3 +142,5 @@ EXAKTER GRUENER BELEG VORHANDEN: 45001605859 am head 8bd165e1a00d25972b55e5b5078
 EXAKTER GRUENER BELEG VORHANDEN: 45001605859 am head 8bd165e1a00d25972b55e5b50787091f0aee8f0a ist TERMINAL SUCCESS, 0 failed, 5m2s (summary-seite belegt: pr_unit_shards 6 completed, pr_validations 4 completed, pr_native_selected 1 completed, main_release_go_shards 1 completed, source-format 19s, focused-python 52s). Der packages-job 137144258716 ist SUCCESS und loest den fehlerjob 137127343932 am alten head ab. Inhalt: eine zeile in internal/metrics/perses_tempo_source_test.go (Resolve -> ResolveWithPolicy mit EnvironmentPolicy{TrustedLocal:true}), hop additiv ueber merge-commit 95ddbb1c3 (eltern [326ca9005, acc34323968]). RUNTIME-DECKUNG GETRENNT GEMELDET (0428-235): 'PR . Native gate plan' 9s SUCCESS, aber KEINE native data-capabilities-zeile an diesem kandidat - das ist ausdruecklich KEIN runtime-beleg; die unabhaengige stimme prueft am katalog, ob ein reiner test-datei-diff diese zeile ueberhaupt ausloesen muss. ABNAHME GETRENNT vom autor: fecbada9 (autor ist 0847d100). Kein merge vor dem verdict. Plan-hygiene: die akte round-1.md enthielt checkbox-zeilen (CardBoard-fehler), inzwischen von mir bereinigt und publiziert.
 
 ABGEGEBEN UND GRUEN BELEGT: head 8bd165e1a00, 45001605859 SUCCESS/0 failed, packages 137144258716 SUCCESS. Die unabhaengige pruefung liegt bei fecbada9, NICHT bei der autor-lane - eigenbehauptung ist ausgeschlossen. Die autor-lane hat ihren naechsten auftrag erhalten: die dep-freie karte 0428-185 (keycloak producer target mismatch), branch lane-0428-185-producer-target auf base acc34323968, write-set internal/identityprovider/keycloak_realization.go plus internal/metrics/perses_identity_witness.go, STOP bei schema-wunsch in internal/observability/registry.go.
+
+KARTE ABGESCHLOSSEN (merged): PR 1645 normal ge merged, merge-commit und develop-spitze 8629450ef3c5198bb675331c12f56b2c9377aa1c, merged_at 2026-11-22T08:25:17Z, zwei eltern [acc34323968, 8bd165e1a00] gemessen. exact durchgang 45001605859 SUCCESS/0 failed, packages-job 137144258716 SUCCESS. KONFLIKT DER PRUEFUNGSMELDUNGEN, aufbewahrt statt beschönigt: derselbe pruefer meldet am selben head ZWEI stände - blob 2bc08f703ed = APPROVE, dann cc4e56ccf/98d97f98f = REQUEST_CHANGES. Der rueckgang stuetzt sich auf eine WIDERSPRUECHLICHE BEDINGUNG IN MEINEM EIGENEN AUFTRAGSTEXT (akte zeile 28: 'leerer develop...HEAD-diff' verlangt ZUGLEICH den adapter-commit 4d73aa97 zu behalten - das eine schliesst das andere aus); der pruefer hat den widerspruch selbst benannt. NACHMESSUNG: diff develop..head ist LEER, head liegt 0 commits vor develop (develop 1 voraus = der merge-commit), adapter samt test-korrektur steckt in develop. Damit ist die bedingung des rueckgangs durch den merge erfuellt, es bleibt KEINE produkt-luecke und KEINE korrekturronde. Regel-folgerung fuer kinftige auftraege: nie 'leerer diff gegen develop' zusammen mit 'diesen commit behalten' verlangen (coordinator/RUNBOOK.md, Abschnitt Auftrags-text-pruefung).

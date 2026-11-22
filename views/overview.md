@@ -11,14 +11,14 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 9 |
-| review | 2 |
+| review | 1 |
 | wait | 22 |
 | blocked | 2 |
 | ready | 7 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
-| closed | 428 |
+| closed | 429 |
 
 ## Active
 
@@ -38,7 +38,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | Connect Perses Tempo | review | normal | 0847d100 (autor) / fecbada9 (unabhaengige pruefung) | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610), [baseharbor#1645](https://github.com/mcpdev80/baseharbor/pull/1645) |
 | [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | review | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
 
 ## Waiting for resources
@@ -54,7 +53,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-wizard-platform](../tasks/t-20261114-r28-cli2-wizard-platform.md) | CLI redesign: Platform and access wizards | wait | high | Codex (Marcel assigned) | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) | [baseharbor#1620](https://github.com/mcpdev80/baseharbor/pull/1620) |
 | [t-20261114-r28-perses-contact-routing](../tasks/t-20261114-r28-perses-contact-routing.md) | Define alert notification routing | wait | normal | coord | [t-20261114-r28-perses-alerts](../tasks/t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-secure-access](../tasks/t-20261114-r28-perses-secure-access.md) | — |
 | [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) | Perses identity dashboard | wait | normal | Codex (Marcel assignment 2026-11-21) | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650) |
-| [t-20261114-r28-perses-log-trace-dash](../tasks/t-20261114-r28-perses-log-trace-dash.md) | Perses log and trace views | wait | normal | coord | [t-20261114-r28-perses-loki-source](../tasks/t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) (open) | [baseharbor#1619](https://github.com/mcpdev80/baseharbor/pull/1619) |
+| [t-20261114-r28-perses-log-trace-dash](../tasks/t-20261114-r28-perses-log-trace-dash.md) | Perses log and trace views | wait | normal | coord | [t-20261114-r28-perses-loki-source](../tasks/t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | [baseharbor#1619](https://github.com/mcpdev80/baseharbor/pull/1619) |
 | [t-20261120-gate-catalog-ci-fast-check](../tasks/t-20261120-gate-catalog-ci-fast-check.md) | 0428-205 · Wire ci-fast-check into the release gate catalog | wait | normal | 0428-223-testctx | [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) | [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746) |
 | [t-20261120-shared-backend-state-version-message](../tasks/t-20261120-shared-backend-state-version-message.md) | shared state version message | wait | not set | (lane, PR wartet) | — | [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725) |
 | [t-20261120-workload-port-flag-ignored-locally](../tasks/t-20261120-workload-port-flag-ignored-locally.md) | workload-port ignored locally | wait | not set | f0f6c8b4 (lane) | [t-20261114-r28-cli2-env-delete](../tasks/t-20261114-r28-cli2-env-delete.md), [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md), [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](../tasks/t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md) (open) | [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723) |
@@ -91,7 +90,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 4 open, 165 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 58 open, 195 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 57 open, 196 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 16 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
