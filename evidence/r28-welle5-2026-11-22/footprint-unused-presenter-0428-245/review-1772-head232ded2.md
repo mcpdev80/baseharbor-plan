@@ -48,3 +48,9 @@ Before review, `docker ps -a --no-trunc` with shell PID 117984 showed only the h
 ## END_DONE
 
 END_DONE: APPROVE; PR #1772 is already merged at `62784eff7befadfaa8a08fc21eaffbd4e3cc8962`, which is also the current `develop` head.
+
+## origin/main evidence path witness
+
+Exact output from `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle5-2026-11-22/footprint-unused-presenter-0428-245/review-1772-head232ded2.md`:
+
+`evidence/r28-welle5-2026-11-22/footprint-unused-presenter-0428-245/review-1772-head232ded2.md`
