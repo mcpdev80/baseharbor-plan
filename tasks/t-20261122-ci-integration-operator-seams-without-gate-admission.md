@@ -7,15 +7,15 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: lane b90e4ba1 (seat reuse, user-authorized CI coverage work, scripts-Scope nur fuer diese Karte)
-kanban_status: active
-kanban_lane: active
+owner: Owner (implementor)
+kanban_status: review
+kanban_lane: review
 kanban_summary: A pull request that changes any cmd/baha/ciintegrationoperator.go seam selects an executed native gate in the required hosted…
 kanban_title: 0428-228 · Admit operator seams to a gate
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1755]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,19 +23,20 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-ci-integration-operator-seams-without-gate-admission · 0428-228 · Admit operator seams to a gate #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/task
+- [ ] t-20261122-ci-integration-operator-seams-without-gate-admission · 0428-228 · Admit operator seams to a gate #task #release/v0-4-28 #status/review #view/review #area/ci #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** lane b90e4ba1 (seat reuse, user-authorized CI coverage work, scripts-Scope nur fuer diese Karte) · **Priority:** high  
+    **Owner:** Owner (implementor) · **Priority:** high  
+    **PR:** [baseharbor#1755](https://github.com/mcpdev80/baseharbor/pull/1755)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md)  
-**Owner:** lane b90e4ba1 (seat reuse, user-authorized CI coverage work, scripts-Scope nur fuer diese Karte)  
+**Owner:** Owner (implementor)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1755](https://github.com/mcpdev80/baseharbor/pull/1755)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -82,3 +83,5 @@ the exact PR run can be green while the operator boundary is never executed.
   and every later operator-boundary change.
 
 exact recipe written and published: pr-gate-plan.py entries plus pre-release-runtime-impact.json core entries for the ci_integration_operator sources, with a pairing assertion in test_pr_gate_plan.py and test_pre_release_runtime_reuse.py; 1753 acceptance waits on this merge
+
+Erster kandidat a2f680c09 wurde am exakten head geprueft; die Nachbesserung 558265019 ergaenzt vier Zeilen in .github/workflows/ci.yml: eine direkte direkte Ausfhrung fuer die build-tagged suite, weil der vertrauenswuerdige base runner eine neue validation-id nicht kennt. Exact-head run 44985859511 ist unterwegs; review dispatcht.
