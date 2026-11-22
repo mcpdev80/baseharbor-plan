@@ -104,7 +104,7 @@ static cells (shell-ux/init/mcp/config-matrix) de operator-auth helper zien.
 ## cleanliness
 
 cleanliness: `docker ps -a` BEFORE = 0 entries (pid 1961963), AFTER = 0 entries
-(pid hieronder ingevuld). Geen compose/container gestart op deze host. Scratch
+(pid 2026545). Geen compose/container gestart op deze host. Scratch
 `/var/tmp/0428-223-tp1761.log`, `-np1771.log` vóór END verwijderd. Werkbomen
 0428-231-authhelper-wt en 0428-231-opauthfix-wt houden hun kandidaten (0 delta
 na de hops); workers/0428-231-hop is leeg/verwijderd.
