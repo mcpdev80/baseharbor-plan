@@ -7,7 +7,7 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: (lane, PR waits for hop)
+owner: f0f6c8b4 (lane)
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: ""
@@ -18,26 +18,26 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1723]
 sources: []
 blocker: ""
-wait_reason: "awaiting additive hop onto develop acc34323968 (back=2)"
+wait_reason: "runtime broker readiness fails the native data-capabilities gate (card 0428-237)"
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44788134959", "https://github.com/mcpdev80/baseharbor/pulls/1723", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44995050874"]
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44788134959", "https://github.com/mcpdev80/baseharbor/pulls/1723", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44995050874", "https://github.com/mcpdev80/baseharbor/actions/runs/44998829701"]
 created: 2026-11-20
 ---
 
 - [ ] t-20261120-workload-port-flag-ignored-locally · workload-port ignored locally #task #release/v0-4-28 #status/wait #view/wait #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** (lane, PR waits for hop)  
+    **Owner:** f0f6c8b4 (lane)  
     **PR:** [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723)  
-    **Waiting:** awaiting additive hop onto develop acc34323968 (back=2)  
+    **Waiting:** runtime broker readiness fails the native data-capabilities gate (card 0428-237)  
     **Needs:** [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44788134959), [proof 2](https://github.com/mcpdev80/baseharbor/pulls/1723), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44995050874)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44788134959), [proof 2](https://github.com/mcpdev80/baseharbor/pulls/1723), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44995050874), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998829701)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-delete](t-20261114-r28-cli2-env-delete.md), [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md), [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md)  
-**Owner:** (lane, PR waits for hop)  
+**Owner:** f0f6c8b4 (lane)  
 **Priority:** not set  
 **PRs:** [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723)  
 **Source:** 
@@ -105,3 +105,5 @@ wartet auf den hop auf develop acc34323968 (back=2). Kontext: das REQUEST CHANGE
 wartet auf den hop auf develop acc34323968 (back=2). Kontext: das REQUEST CHANGES am head 12a62523fc5 war ein verfaelschungs-artefakt, der diff enthielt 1627-inhalt; seit dem 1627-merge sind es nur noch 4 dateien eigenen inhalts. Nach dem hop: neuer run, dann exact-head review.
 
 wartet auf den hop auf develop acc34323968 (back=2). Kontext: das REQUEST CHANGES am head 12a62523fc5 war ein verfaelschungs-artefakt, der diff enthielt 1627-inhalt; seit dem 1627-merge sind es nur noch 4 dateien eigenen inhalts. Nach dem hop: neuer run, dann exact-head review.
+
+hop ist gelandet und der exact run 44998829701 ist FAILURE mit 2 jobs; am laufenden stand ist 'PR . Selected Runtime (atomic/docker/data-capabilities)' job 137136024513 der fehler, 'PR . Native gate plan' 137135625304 SUCCESS. Das ist derselbe broker-readiness-blocker (karte 0428-237), nicht der kartenschnitt dieser karte: der diff gegen develop acc34323968 sind nur noch 4 dateien eigenen inhalts. Diese karte ist ausserdem die stufe VOR PR 1725, weil 1725 ihren inhalt als ahne traegt - also: broker klaren, 1723 mergen, dann 1725 hop und review.
