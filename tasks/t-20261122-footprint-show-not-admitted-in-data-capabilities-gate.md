@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1753]
 sources: []
 blocker: ""
-wait_reason: "kopf exakt (71deb610a03, back=0, mergeState CLEAN), PR-checks gruen, aber 'PR Selected Checks' und 'PR Selected Runtime' sind SKIPPED - das data-capabilities-gate wird fuer die operator-boundary-datei nicht ausgewaehlt (pfad->gate-abbildung, karte 0428-228). zusaetzlich zeigt der ausgefuehrte gate am brueder-pr #1723 (job 137056660905), dass der lauf VOR der footprint-grenze an der runtime-consent-stelle (karte 0428-223, #1750) scheitert. reihenfolge nach owner-anweisung: 0428-223 loesen -> exakten #1753-gate (oder autorisierten targeted gate) ausfuehren -> dann #1723"
+wait_reason: "kopf exakt (71deb610a03, back=0, mergeState CLEAN), PR-checks gruen, aber Selected Checks und Selected Runtime sind SKIPPED: das data-capabilities-gate wird fuer die operator-boundary-datei nicht ausgewaehlt (pfad-abbildung, karte 0428-228). der ausgefuehrte gate am Parallel-PR #1723 (job 137056660905) zeigt zusaetzlich, dass der lauf vor der footprint-grenze an der runtime-consent-stelle (0428-223, #1750) scheitert. reihenfolge nach owner-anweisung: 0428-223 loesen, dann #1753-gate ausfuehren, dann #1723"
 resolution: ""
 evidence: []
 ---
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w21-pr1702-0428-142-compat  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753)  
-    **Waiting:** kopf exakt (71deb610a03, back=0, mergeState CLEAN), PR-checks gruen, aber 'PR Selected Checks' und 'PR Selected Runtime' sind SKIPPED - das data-capabilities-gate wird fuer die operator-boundary-datei nicht ausgewaehlt (pfad-\>gate-abbildun…  
+    **Waiting:** kopf exakt (71deb610a03, back=0, mergeState CLEAN), PR-checks gruen, aber Selected Checks und Selected Runtime sind SKIPPED: das data-capabilities-gate wird fuer die operator-boundary-datei nicht ausgewaehlt (pfad-abbildung, karte 0428-228…  
     **Needs:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](t-20261122-ci-integration-operator-seams-without-gate-admission.md)  
     <!-- /generated:card -->
 
