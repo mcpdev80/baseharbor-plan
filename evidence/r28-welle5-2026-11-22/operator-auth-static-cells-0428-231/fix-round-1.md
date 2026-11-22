@@ -99,7 +99,28 @@ grant-eligibility-semantiek). Meld dit als bevinding; GEEN .github-wijziging doo
   gewijzigd (only cmd/baha/**); geen subagenten; worktree workers/0428-231-opauthfix-wt;
   GOCACHE under /var/tmp/go-cache-0428-231; geen containers op deze host gestart.
 
-PR: https://github.com/mcpdev80/baseharbor/pull/1771 (draft, branch lane-0428-231-static-opauth-fix, head b57f3428b1bc690e1135a972c481d2f2962dc7ac, PR-CI run 45023442557 — deze akte is geschreven TERWIJL de run liep; run-uitkomst wordt na de run bijgewerkt in deze akte).
+PR: https://github.com/mcpdev80/baseharbor/pull/1771 (draft; branch lane-0428-231-static-opauth-fix;
+head `172fb2510b279528ffdcdf26620586286a2b4d24`; ONE additive commit op develop `8629450ef3c`
+(`git merge-base --is-ancestor 8629450ef3c HEAD` OK; `git log --oneline origin/develop..HEAD` = één eigen commit;
+`gh pr diff --name-only` = cmd/baha/local_workload_authority.go, cmd/baha/local_workload_authority_test.go,
+cmd/baha/main.go).
+Gehoste doorloop (eigen runs, beide terminal op de kandidaat-heads):
+- run 45023442557 @ b57f3428: completed/success; failed jobs 0. Draft-shard jobs 137211163999 (routing),
+  137211164206/148/205/208/311 (Go cli-0..3 + packages) success.
+- run 45024197667 @ 172fb251 (huidige head): completed/success.
+Shard-routing: nieuwe tests dragen `TestCLI*`, zodat ze in de cli-cohort van
+scripts/pr-go-unit-shard.py (sha256("cli:"+naam)%4) vallen en dus in de BESTAANDE
+`PR · Draft Go · cli-N` shards draaien (geen nieuwe CI-job, geen .github-wijziging). Local getuigenis
+van uitvoer: named-form runs hierboven (ok op deze host); de hosted shards voerden het hele cmd/baha
+cli-cohort uit met failed=0 (shard-script faalt leadig als een geselecteerde test niet draaide).
+
+Correctie op de opdracht-aanname (vastgelegd boven): de mapper normaliseert `--access local-docker` al
+naar provider `local`, dus de alias-vergelijking op :62 was op current source NIET de afval-regel.
+Extra, gemeten defect op dezelfde paden: de root `baha init` (quick route) kreeg geen
+local-workload-scope in cliLocalWorkloadOperation (main.go), terwijl de operatie-waardering app.adopt is
+— dit is de scope-regel die de statische init/config-matrix cellen raken; beide wijzigingen zijn additive
+en verlagen GEEN authenticatie-eis. PR #1746 (andere lane) levert intussen de static-cell CI bootstrap met
+de testonly route (commit 3650e652 "run release static gates with the CI operator binary").
 
 ## cleanliness
 
