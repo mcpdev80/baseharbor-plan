@@ -51,3 +51,9 @@ Before review, `docker ps -a --no-trunc` returned no containers. After review, `
 ## END codex-rev-1747 DONE
 
 Exact-head verdict: APPROVE for implementation at `34feb493480ec3b2703681bf576ce41e3904995b`; card 0428-061 acceptance is met in the reviewed code, with no code findings. MCP difference: none; typed arguments and explicit approval enforcement are present. Card 0428-199 is not this PR's contract. Merge remains held by the Draft state, skipped `PR Selected Checks`, and owner authorship decision.
+
+## Publication witness
+
+Exact output from `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 'evidence/r28-welle5-2026-11-22/workload-port-0428-199/review-1752-head34feb493480-contract061.md'`:
+
+`evidence/r28-welle5-2026-11-22/workload-port-0428-199/review-1752-head34feb493480-contract061.md`
