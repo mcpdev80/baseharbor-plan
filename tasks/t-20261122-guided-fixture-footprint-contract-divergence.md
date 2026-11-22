@@ -7,7 +7,7 @@ areas: [testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: b90e4ba1 (#1783: gate-string mismatch fix, test-only; parity=product-befund #1773)
+owner: b90e4ba1 (#1783 diff OK, hält open) / Owner-Core (parity X ruling) / Infra-237 (edge Y)
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261122-guided-fixture-footprint-contract-divergence · Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 #task #release/v0-4-28 #status/active #view/active #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (\#1783: gate-string mismatch fix, test-only; parity=product-befund \#1773) · **Priority:** high  
+    **Owner:** b90e4ba1 (\#1783 diff OK, hält open) / Owner-Core (parity X ruling) / Infra-237 (edge Y) · **Priority:** high  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** b90e4ba1 (#1783: gate-string mismatch fix, test-only; parity=product-befund #1773)  
+**Owner:** b90e4ba1 (#1783 diff OK, hält open) / Owner-Core (parity X ruling) / Infra-237 (edge Y)  
 **Priority:** high  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
 **Source:** 
@@ -95,3 +95,5 @@ SHARED UNLOCK = PR #1783 (branch lane-0428-241-optionA-operator-allowlist head 8
 #1783 (optionA shared fixture, head 8f84fcbb) hosted CHECKS = 67, 0 FAIL, 4 PENDING. Die 4 pending SIND die self-hosted native data-caps/selected-runtime zellen = runner-blocked (service inactive, root 2.4G). GitHub-hosted teil IST gruen. #1783 ist der SHARED unlock fuer selected footprint-show von #1780/#1770/#1773/#1738(A) -> merge-reif sobald die 4 native zellen dispatchen (runner-back) ODER als N/A fuer ein test-only tagged file bestaetigt. #1780 run 45045737874 noch queued (concurrency hinter stale 45044680383). develop b27b2ebe.
 
 #1783 exact run 45045885547 SELECTED data-caps FAILED (docker 137280787736/podman 137280787743), native laeuft. (1) optionA block matcht FALSCHEN gate: gate=BASEHARBOR_DEMO_OPERATOR_GATE (:100) vs GATE guard (:102); der neue 'data-capabilities'==gate block feuert nie (zelle nutzt anderen string, vermutlich 'guided'). FIX: echten gate-string aus trace (:106) lesen + read-only footprint-show unter DEM admit, ODER ciIntegrationGuidedFootprintShow (:135) um '-o json' canonical argv erweitern (read-only, write bleibt digest). (2) footprint_parity 'CLI JSON vs MCP contracts differ' RuntimeError = PRODUKT-defect (mcp.go:248 vs presenter) -> #1773/0428-246 traegt ihn, NICHT fixture. #1780/#1770/#1773/#1738A erben erst den GEKOPIGTEN #1783. develop b27b2ebe.
+
+KORRIGIERT (owner exact test-source-read): das 'missing --confirm-candidate' = BEABSICHTIGTER negative-control (footprint-show digest consent test), KEIN fixture-fehler. #1783 diff ist korrekt. #1783 run 45045885547 terminal rot wegen 2 SHARED PRODUKT-blockern AUSSERHALB des PRs: (X) new_edit.py:63 footprint_parity native CLI JSON != MCP JSON (selected docker+podman; product mcp.go:248 vs app_footprint_presenter) und (Y) runtime:edge broker unhealthy (native docker 137280389091/podman 137280389052) = 0428-237 ghcr edge image. Beide blocken auch #1780/#1770/#1773/#1738. #1783 haelt OPEN, alle zellen bis terminal, kein push der head aendert, kein merge bis X/Y geloest. develop b27b2ebe.

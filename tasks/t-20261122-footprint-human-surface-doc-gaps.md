@@ -7,7 +7,7 @@ areas: [cli, documentation]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: Coordinator (defect intake: CLI/MCP footprint parity) / Owner (product ruling) / a lane
+owner: Coordinator (parity defect intake) / Owner-Core (canonical-output ruling) / a lane (product fix)
 kanban_status: blocked
 kanban_lane: blocked
 kanban_summary: ""
@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1773, mcpdev80/baseharbor#1783]
 sources: []
-blocker: "#1773 selected data-caps fail = ECHTER PRODUKT footprint_parity DEFECT: tests/guided footprint_parity RuntimeError 'native CLI JSON vs MCP Footprint contracts differ' (mcp.go:248 registerMCPFootprintShowTool vs app_footprint_presenter). Das ist KEIN operator-fixture-thema: #1783 loest nur die record-deployment-confirm policy-luecke, NICHT die contract-divergenz. #1773 bleibt BLOCKED bis diese product parity (presenter vs mcp) entschieden ist (owner/core: ist presenter-JSON oder mcp-tool-JSON die kanonische form?). Zusaetzlich #1783 gate-string fix noetig fuer selected. native broker=237. develop b27b2ebe."
+blocker: "NEUER BESTAETIGTER PRODUKT-DEFECT (critical path): tests/guided/new_edit.py:63 footprint_parity assertiert native CLI footprint JSON == MCP footprint JSON, beide selected data-caps jobs zeigen DIVERGENZ. Product code: cmd/baha/mcp.go:248 registerMCPFootprintShowTool vs cmd/baha/app_footprint_presenter.go. OWNER-CORE-ENTSCHEID noetig: welche output-form ist kanonisch (presenter oder mcp), dann product fix + regression. DIES blockiert ALLE selected data-caps zellen (#1783/#1780/#1770/#1773/#1738-A) - NICHT das operator fixture. (Y) runtime:edge broker = 0428-237 separat. develop b27b2ebe."
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -25,16 +25,16 @@ evidence: []
 
 - [ ] t-20261122-footprint-human-surface-doc-gaps · Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract #task #release/v0-4-28 #status/blocked #view/blocked #area/cli #area/documentation #kind/maintenance
     <!-- generated:card -->
-    **Owner:** Coordinator (defect intake: CLI/MCP footprint parity) / Owner (product ruling) / a lane · **Priority:** normal  
+    **Owner:** Coordinator (parity defect intake) / Owner-Core (canonical-output ruling) / a lane (product fix) · **Priority:** normal  
     **PR:** [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
-    **Blocker:** \#1773 selected data-caps fail = ECHTER PRODUKT footprint\_parity DEFECT: tests/guided footprint\_parity RuntimeError 'native CLI JSON vs MCP Footprint contracts differ' (mcp.go:248 registerMCPFootprintShowTool vs app\_footprint\_presenter). Da…  
+    **Blocker:** NEUER BESTAETIGTER PRODUKT-DEFECT (critical path): tests/guided/new\_edit.py:63 footprint\_parity assertiert native CLI footprint JSON == MCP footprint JSON, beide selected data-caps jobs zeigen DIVERGENZ. Product code: cmd/baha/mcp.go:248 r…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** Coordinator (defect intake: CLI/MCP footprint parity) / Owner (product ruling) / a lane  
+**Owner:** Coordinator (parity defect intake) / Owner-Core (canonical-output ruling) / a lane (product fix)  
 **Priority:** normal  
 **PRs:** [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
 **Source:** 
