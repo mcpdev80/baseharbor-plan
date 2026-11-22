@@ -56,3 +56,13 @@ Merge remains blocked until the separate gate-admission work makes the real data
 ## END codex-rev2-1736 DONE
 
 END codex-rev2-1736 DONE — content approved, merge blocked by 0428-228; candidate `91f4e38795a2657d50228c569a684fcb77da031c`.
+
+## Published-path witness
+
+Exact output of the required fetch and remote tree lookup:
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch            main       -> FETCH_HEAD
+evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-head91f4e38795a.md
+```
