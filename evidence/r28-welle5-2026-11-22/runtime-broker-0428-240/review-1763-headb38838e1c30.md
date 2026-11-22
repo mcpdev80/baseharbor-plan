@@ -47,6 +47,12 @@ This was a read-only review of the exact PR head. No product files, workflows, t
 
 Before review, `docker ps -a --no-trunc` showed only the header and no containers; command was run in this session. This review started no container or compose project. A second witness ran with session shell pid 3603811 and again showed only the header and no containers: `docker ps -a --no-trunc`.
 
+## origin/main evidence path witness
+
+Exact output from `git ls-tree -r --name-only origin/main | grep evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-headb38838e1c30.md` after fetching origin/main:
+
+`evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-headb38838e1c30.md`
+
 ## END_BLOCKED
 
 END_BLOCKED: review verdict is REQUEST CHANGES pending owner-scope native coverage catalog and runtime scenario work.
