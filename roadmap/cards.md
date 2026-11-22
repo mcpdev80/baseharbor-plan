@@ -16,9 +16,9 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 162/257 · **Blocked:** 2 · **Waiting:** 20  
-    **Blocker:** [t-20261122-broker-diagnostics-empty](../tasks/t-20261122-broker-diagnostics-empty.md) — ZWEI unabhaengige CODEX-reviews (fecbada9 + 1450c201) am EXAKTEN head c698d1310 entscheiden Option (b): die NATIVE data-capabilities-matrix ist PFLICHT-beleg,…  
-    **Blocker:** [t-20261122-mcp-contract-perses-demo-drift](../tasks/t-20261122-mcp-contract-perses-demo-drift.md) — der gepinnte Demo-Vertrag (baseharbor-demo) ist NICHT im lane-zugriff - externe Demo-owner aktion: die vier tools baseharbor.app.perses.{disable,enable,remove,…  
+    **Accepted tasks:** 167/263 · **Blocked:** 2 · **Waiting:** 20  
+    **Blocker:** [t-20261122-footprint-human-surface-doc-gaps](../tasks/t-20261122-footprint-human-surface-doc-gaps.md) — NEUER BESTAETIGTER PRODUKT-DEFECT (critical path): tests/guided/new\_edit.py:63 footprint\_parity assertiert native CLI footprint JSON == MCP footprint JSON, bei…  
+    **Blocker:** [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) — OWNER scope: .github workflow ordering + a missing scripts/acceptance.sh reference  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next

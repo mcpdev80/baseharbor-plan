@@ -106,7 +106,7 @@ footprint-show read in tagged fixture admitted, write record-dep bleibt digest, 
 ## cleanliness
 
 cleanliness: `docker ps -a` BEFORE = 0 entries (pid 799778), AFTER = 0 entries
-(END-shell pid). Geen compose/container gestart op deze host. Onbedoelde build
+(pid 1541419). Geen compose/container gestart op deze host. Onbedoelde build
 `baha` in de werktree verwijderd vóór de commit; scratch
 `/var/tmp/0428-223-fc-opta.log`, cel-logs worden vóór END verwijderd. Werkboom
 workers/0428-241-optawt houdt de kandidaat (0 delta na commit).
