@@ -7,34 +7,36 @@ areas: [cli, documentation]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0847d100
-kanban_status: active
-kanban_lane: active
+owner: 0847d100 (pausiert) / b90e4ba1 (katalog #1774) / coord
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: ""
 kanban_title: 0428-246 · footprint human doc gaps
 priority: normal
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1773]
 sources: []
-blocker: ""
+blocker: "#1773 blocked durch fehlenden katalogeintrag fuer cmd/baha/app_footprint_presenter.go (fail-loud guardian aus 242 #1768, planner selected []). Unlock = #1774 katalogeintrag (C) auf develop; danach #1773 hoppen -> selected checks gruen. Kein eigener defect."
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-footprint-human-surface-doc-gaps · Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract #task #release/v0-4-28 #status/active #view/active #area/cli #area/documentation #kind/maintenance
+- [ ] t-20261122-footprint-human-surface-doc-gaps · Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract #task #release/v0-4-28 #status/blocked #view/blocked #area/cli #area/documentation #kind/maintenance
     <!-- generated:card -->
-    **Owner:** 0847d100 · **Priority:** normal  
+    **Owner:** 0847d100 (pausiert) / b90e4ba1 (katalog \#1774) / coord · **Priority:** normal  
+    **PR:** [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773)  
+    **Blocker:** \#1773 blocked durch fehlenden katalogeintrag fuer cmd/baha/app\_footprint\_presenter.go (fail-loud guardian aus 242 \#1768, planner selected \[\]). Unlock = \#1774 katalogeintrag (C) auf develop; danach \#1773 hoppen -\> selected checks gruen. Kei…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0847d100  
+**Owner:** 0847d100 (pausiert) / b90e4ba1 (katalog #1774) / coord  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773)  
 **Source:** 
 <!-- /generated:links -->
 

@@ -10,10 +10,10 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 12 |
+| active | 11 |
 | review | 1 |
 | wait | 20 |
-| blocked | 1 |
+| blocked | 2 |
 | ready | 8 |
 | queued | 25 |
 | waiting | 177 |
@@ -31,7 +31,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-base-branch-provenance-loss](../tasks/t-20261121-base-branch-provenance-loss.md) | 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened | active | high | coordinator | — | — |
 | [t-20261121-destroy-authority-stamp](../tasks/t-20261121-destroy-authority-stamp.md) | installation.destroy authorization assertion runs on a stamped context | active | high | f0f6c8b4 (lane, retarget + hop + durchgang) | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738) |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
-| [t-20261122-footprint-human-surface-doc-gaps](../tasks/t-20261122-footprint-human-surface-doc-gaps.md) | Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract | active | normal | 0847d100 | — | — |
 | [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](../tasks/t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md) | Acceptance contract: baha app footprint show is admitted only for the guided gate | active | not set | 0847d100 (lane, haelt push bis handoff) | [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](../tasks/t-20261122-ci-integration-operator-seams-without-gate-admission.md) | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746) |
 | [t-20261122-guided-fixture-footprint-contract-divergence](../tasks/t-20261122-guided-fixture-footprint-contract-divergence.md) | Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 | active | high | f0f6c8b4 (lane, auftrag gestellt) | — | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753) |
 | [t-20261122-runtime-broker-health-unhealthy](../tasks/t-20261122-runtime-broker-health-unhealthy.md) | CI: data-capabilities native gate fails on secure runtime broker readiness | active | not set | andere Codex-Session (#1770) | [t-20261122-gate-catalog-missing-app-broker-component](../tasks/t-20261122-gate-catalog-missing-app-broker-component.md) | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770) |
@@ -73,6 +72,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261122-broker-diagnostics-empty](../tasks/t-20261122-broker-diagnostics-empty.md) | CLI: name the failing dependency in broker readiness diagnostics | blocked | not set | owner (katalog 0428-242) / coord (zeugnis) | — | [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763) |
+| [t-20261122-footprint-human-surface-doc-gaps](../tasks/t-20261122-footprint-human-surface-doc-gaps.md) | Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract | blocked | normal | 0847d100 (pausiert) / b90e4ba1 (katalog #1774) / coord | — | [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773) |
 
 ## Ready to assign
 
