@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: Codex owner (authenticated base hop)
-kanban_status: wait
-kanban_lane: wait
+kanban_status: review
+kanban_lane: review
 kanban_summary: The Pre-Release workflow reports unexpected MCP tools baseharbor.app.perses.disable/enable/remove/status while…
 kanban_title: 0428-225 · MCP release gate rejects the
 priority: ""
@@ -18,20 +18,19 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1751]
 sources: []
 blocker: ""
-wait_reason: "HOP IST LIVE (03:4xZ von mir gemessen, nicht nur gemeldet): refs/pull/1751/head = 89253bd23d6a4c5f9006d624c3d78910c2eea68b, base develop 7d4351c6d645353b6b96c8d320b4c832d55f9047, 'git rev-list --count <head>..7d4351c6d645…' = 0 (back=0), zwei parents (bdc7c1a9e6e + 7d4351c6d645), additiver merge-commit, author == committer = owner, diff gegen develop bleibt exakt cmd/baha/agent_mcp_test.go +25, feature-commit erhalten. EXAKTER hosted PR run 44965123423 ist queued (00:07:59Z). WARTEGRUND: terminaler gruener exakter run 44965123423, dann FRISCHES unabhaengiges exact-head verdict auf 89253bd23d6 (dafuer ist die bestehende review-session vorgesehen, ich routee sie in dem augenblick, in dem der lauf terminal ist), dann ordinary merge durch den owner. kein merge, kein close, kein zweiter hop; die lane 03c7350a hat an diesem PR nichts mehr zu tun (stand-down sha256 963f9972d10b), ihre beiden nicht abgelieferten missionen bleiben als tooling #35 offen."
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-mcp-release-gate-perses-tool-drift · MCP release gate rejects the app.perses.* tools the machine contract declares #task #release/v0-4-28 #status/wait #view/wait #kind/task
+- [ ] t-20261121-mcp-release-gate-perses-tool-drift · MCP release gate rejects the app.perses.* tools the machine contract declares #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** Codex owner (authenticated base hop)  
     **PR:** [baseharbor#1751](https://github.com/mcpdev80/baseharbor/pull/1751)  
-    **Waiting:** HOP IST LIVE (03:4xZ von mir gemessen, nicht nur gemeldet): refs/pull/1751/head = 89253bd23d6a4c5f9006d624c3d78910c2eea68b, base develop 7d4351c6d645353b6b96c8d320b4c832d55f9047, 'git rev-list --count \<head\>..7d4351c6d645…' = 0 (back=0), z…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** Codex owner (authenticated base hop)  
@@ -137,3 +136,5 @@ escalated to the Owner in the coordination ledger (row 940); this card does not 
 planned -> active: hosted proof from PR #1746 static gate (job 136970241277): 'MCP contract mismatch: missing=[] unexpected=[baseharbor.app.perses.disable,.enable,.remove,.status]'. Fresh laptop lane dispatched (mission coordinator/missions/0428-225-mcp-contract-drift.md). Scope per card: internal/machine/contract.go + contracts/machine/v1/control.golden.json; scripts/**, docs/releases/**, .github/** stay Owner scope.
 
 KORREKTUR NACH OWNER-AUFKLARUNG 00:5xZ, mein vorheriger wait-grund war teilweise FALSCH: der fehlgeschlagene run 44952645994 war ein MISPARAMETERIZETER 'Release Pre-Release Validation'-workflow_dispatch (tag/ref/demo_ref nicht gesetzt), NICHT ein fehlender refs/heads/release/v0.4.28. der gehoffte 'Static · mcp'-cell war deshalb nur skipped. Die eigentliche PR-CI 44951681560 ist completed/success auf head bdc7c1a9e6e (35 jobs, 14 success / 21 skipped, 0 failed); der trusted plan verlangt cli-build/gofmt/go test ./cmd/baha/vet/source-contracts, selected_gates ist leer, weil dieser PR nur cmd/baha/agent_mcp_test.go aendert - alle required checks sind gruen. OFFEN ist damit nur noch: der PR-base ist 1080986, develop ist 513488eeb6d (back=7) -> hop auf den aktuellen develop, dann exakter PR-CI-run, dann review. Keine lokalen tests als ersatz (owner-anweisung).
+
+KANDIDAT IST BEREIT FUER ABNAHME, review ist UNWESSENTLICH VERSPAETET, NICHT NICHT erteilt: refs/pull/1751/head = 89253bd23d6a4c5f9006d624c3d78910c2eea68b (additiver merge-commit hop des owners, parents bdc7c1a9e6e + 7d4351c6d645), base develop 7d4351c6d645353b6b96c8d320b4c832d55f9047, back=0 gemessen, draft=false, diff gegen develop bleibt exakt cmd/baha/agent_mcp_test.go (+25 zeilen). exakter hosted run 44965123423 = completed/SUCCESS, 0 failed jobs. mission an die review-session ist erteilt (sha256 44c076502611, akte mcp-perses-tool-drift/review-2-head89253bd2.md) und die session ARBEITET daran - 'agent list' zeigt isWorking=true, letzter echter prompt vor 11 s; ihr transcript liest gerade die exakten runs auf 'RunsRealLifecycle|RequiresORAS|RejectsSecondProcess|PinsCanonicalApplication' und prueft, ob ein skip ein case verdeckt. die watch-zeile 'idle' war eine der bekannten geister-reihen (tooling #34/#36), kein grund, die mission zu wiederholen: eine zweite zustellung haette doppelte arbeit ergeben. bei APPROVE ruebergebe ich sofort an ihre merge-rolle.
