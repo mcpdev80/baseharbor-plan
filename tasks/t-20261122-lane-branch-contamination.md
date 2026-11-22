@@ -9,34 +9,35 @@ version: ""
 parent: ""
 owner: ""
 tags: [#task, #release/v0-4-28]
-kanban_status: planned
-kanban_lane: ready
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-239 · sibling PR content merged into
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1723]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: dropped
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/acc34323968"]
 ---
 
-- [ ] t-20261122-lane-branch-contamination · re-cut PR 1723 and PR 1725 without sibling PR content #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [x] t-20261122-lane-branch-contamination · re-cut PR 1723 and PR 1725 without sibling PR content #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **PR:** [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/acc34323968)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** unassigned  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -104,3 +105,5 @@ lanes merge only their OWN base chain (AGENTS 3.3.8); a hop must never merge a s
 <develop-sha>` only, and the develop SHA must be resolved from `refs/heads/develop` immediately before the merge.
 Witness: run `44995050874` (#1723, 6 failed jobs), run `44995066580` (#1725), review
 `evidence/r28-welle5-2026-11-22/workload-port-0428-199/review-1723-head12a62523fc5.md`.
+
+kein re-cut noetig - die messung hat die ursache aufloest, indem der fremde inhalt in develop einzog: nach dem 1627-merge (develop acc34323968) schrumpft der diff von PR 1723 gegen develop von 16 auf 4 dateien (app_apply.go, app_workload_ports.go, runtime.go, workload_port_local_regression_test.go) und der von PR 1725 von 19 auf 7. Die ahnen-kette bleibt, aber sie ist jetzt develop-inhalt. Was bleibt, ist die REGEL: ein hop loest refs/heads/develop direkt vor dem merge auf und merged NUR diesen stand, nie einen parallelen PR-head - die beiden zusatz-merges mit verfaesser 0428-222-childenv (0768274c6f6 und b2d9aeb446f) waren der verlauf, der die 1723-review verfaelschte. Naechster schritt fuer 1723/1725 ist ein normaler hop auf acc34323968 (back=2).
