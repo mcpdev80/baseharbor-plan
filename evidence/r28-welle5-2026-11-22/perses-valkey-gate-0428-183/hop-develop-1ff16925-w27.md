@@ -47,3 +47,10 @@ Keine Produkt-, .github/**- oder scripts/**-Bearbeitung durch diese Lane (nur de
 cleanliness: nothing started. Eigen pid 2448014. BEFORE `docker ps -a`: 1 entry `a0d40c5bcc8e baha-prunit-db-2286133` (fremde Lane, ~1h alt, nicht angefasst). AFTER: identisch (1 entry). Hopzone `/tmp/opencode/0428-223-hop1714` wird entfernt + `git worktree prune`; scratch `/var/tmp/0428-223` wird vor END geloescht.
 
 END 0428-223-testctx DONE (#1714 new head 67495fde968, back=0, run 44989324573 completed SUCCESS, failed jobs 0, packages-shard job 137106741719 mit internal/metrics-receipt; kein separater metrics-shard-job in dieser Suite — datei:line gemeldet)
+
+## publishing witness
+
+```
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep perses-valkey-gate-0428-183/hop-develop-1ff16925-w27
+evidence/r28-welle5-2026-11-22/perses-valkey-gate-0428-183/hop-develop-1ff16925-w27.md
+```
