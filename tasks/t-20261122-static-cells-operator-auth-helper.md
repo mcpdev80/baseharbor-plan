@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: b90e4ba1 (#1761 self-catalog+rehop; #1771 downstream nur beobachten) / Owner (review bei terminal) / Coordinator
+owner: f0f6c8b4 (surface-e catalog PR fuer #1761 4 neue sources) / b90e (re-hop nach merge) / Owner (review) / Coordinator
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.c
 
 - [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (\#1761 self-catalog+rehop; \#1771 downstream nur beobachten) / Owner (review bei terminal) / Coordinator  
+    **Owner:** f0f6c8b4 (surface-e catalog PR fuer \#1761 4 neue sources) / b90e (re-hop nach merge) / Owner (review) / Coordinator  
     **PR:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1784](https://github.com/mcpdev80/baseharbor/pull/1784)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1761), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44994765677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44998552411), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44999534797), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/hunt-operator-auth-static-cells-round-1.md)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.c
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
-**Owner:** b90e4ba1 (#1761 self-catalog+rehop; #1771 downstream nur beobachten) / Owner (review bei terminal) / Coordinator  
+**Owner:** f0f6c8b4 (surface-e catalog PR fuer #1761 4 neue sources) / b90e (re-hop nach merge) / Owner (review) / Coordinator  
 **Priority:** not set  
 **PRs:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1784](https://github.com/mcpdev80/baseharbor/pull/1784)  
 **Source:** 
@@ -108,3 +108,5 @@ PR #1771 (draft) head 172fb251 auf develop 8629450ef3c = BEHIND aktuellem develo
 #1761 Trusted Plan fail ATTRIBUTION KORRIGIERT (war nicht mcp.go/#1784): #1761 fuegt 6 neue uncataloged sources hinzu = cmd/baha/{app_env_test,app_export_command_test,installation_destroy_native_test,target_definition_change_test,test_operator_context_test}.go + internal/operatorauth/test_operator.go (produkt operatorauth TestPrincipal/WithVerifiedTestOperatorPrincipalForced = legitimer static-auth-helper inhalt 0428-231). FIX = #1761 self-cataloged seine neuen files in pr-gate-coverage.json (lane-owned) + re-hop 484c95fca -> Trusted Plan gruen. native broker=#1770 waiting. #1771 ebd01baa selected docker fail (broker/parity), podman aktiv. Owner review bei terminal. develop 484c95fca.
 
 #1771 ebd01baa run 45054073860 = DOWNSTREAM, own static-opauth-fix code OK. selected docker+podman fail an FIXTURE SETUP (nicht dem local-workload grant): target-create bootstrap lief, dann 'up' rejected (installation.json absent) + 'app footprint show' rejected outside managed workload set = #1783 fixture admission. native docker+podman fail ExistingCore secrets broker health = #1770 exact image. #1771 haelt (keine aenderung von owner/b90e noetig ausser re-hop auf develop-mit-1783+1770). Actions-API listet latest-attempt nur native jobs = job/attempt linkage, logs zeigen selected fails. develop 484c95fca.
+
+b90e hop-both clean. #1761 fcfe3f09 Trusted Plan fail = 4 neue uncataloged sources (app_env_test/app_export_command_test/target_definition_change_test/internal/operatorauth/test_operator.go) - catalog-json AUSSERHALB hop write-set -> SEPARATER catalog-PR surface-e (f0f, muster #1784) noetig, dann #1761 re-hop -> gruen. #1771 ebd01baa Trusted Plan SUCCESS (main.go/local_workload_authority.go cataloged), fail nur native #1770 + selected ExistingCore 'Re-run --confirm-candidate'=SELBE demo-consent grenze #1783. KEIN target-create in beiden -> KEIN 247-stop. develop 484c95fca.
