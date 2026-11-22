@@ -14,7 +14,7 @@
 - `git ls-remote` witness: `8b9a8f50645db1dbaad4a5e1f2140930436d3ea7 refs/heads/develop`; `7b3c658800aff87ce8298fe370c5bcd448942f83 refs/pull/1752/head`.
 - PR #1752 is OPEN and Draft at exact head `7b3c658800aff87ce8298fe370c5bcd448942f83`. Its recorded base SHA is `6209874428f08dc3e90d6e29a42b30683ce9932a`.
 - Current develop is `8b9a8f50645db1dbaad4a5e1f2140930436d3ea7`. GitHub compare `8b9a8f50645...7b3c658800a` reports diverged, ahead by 12 and behind by 5, with merge base still `6209874428f08dc3e90d6e29a42b30683ce9932a`. The candidate has not yet been hopped to current develop.
-- Run [44976906715](https://github.com/mcpdev80/baseharbor/actions/runs/44976906715) is `in_progress`, event `pull_request`, exact head `7b3c658800aff87ce8298fe370c5bcd448942f83`, base `6209874428f08dc3e90d6e29a42b30683ce9932a`. `PR · Draft source and routing` has succeeded; Draft Go packages and cli-0 through cli-3 were still running at inspection. Ready-mode checks were skipped; no successful `PR Selected Checks` aggregate is present. This run cannot qualify the updated current-base candidate.
+- Run [44976906715](https://github.com/mcpdev80/baseharbor/actions/runs/44976906715) is terminal `completed / failure`, event `pull_request`, exact head `7b3c658800aff87ce8298fe370c5bcd448942f83`, base `6209874428f08dc3e90d6e29a42b30683ce9932a`. `PR · Draft Go · cli-3`, job 137068733114, failed `TestEndToEndInstalledZshAndFishWrappers`; the log states `context_terminal_test.go:467: zsh is required to run this wrapper path; install zsh in the owning CI cell: exec: "zsh": executable file not found in $PATH`. Draft source/routing (137068733130), packages (137068733199), cli-0 (137068733218), cli-1 (137068732829), and cli-2 (137068733181) succeeded. Ready-mode checks and the `PR Selected Checks` aggregate are absent from this Draft-mode run. This exact run is red and cannot qualify the updated current-base candidate.
 - The PR body still describes base `d1acf3f3` and commit `4bae3194`, so that description is stale. It lists acceptance behavior but does not claim that this new head has been accepted or passed the current-base gates.
 - The PR diff against its recorded base contains 19 files: `cmd/baha/app_pull.go`, `cmd/baha/app_pull_mcp_approval_regression_test.go`, `cmd/baha/app_pull_options_test.go`, `cmd/baha/app_pull_render.go`, `cmd/baha/commands.go`, `cmd/baha/machine_coverage.go`, `cmd/baha/mcp.go`, `cmd/baha/mcp_lifecycle_extra.go`, `contracts/machine/v1/control.golden.json`, five CLI/MCP documentation files, `internal/development/source.go`, `internal/development/source_pull.go`, `internal/development/source_pull_test.go`, and `internal/machine/contract.go`.
 
@@ -38,11 +38,11 @@ Planning remote verified before evidence publication: `origin https://github.com
 
 ## VERDICT: HELD
 
-No APPROVE or REQUEST CHANGES verdict while run 44976906715 is nonterminal and the PR remains behind current develop. No GitHub review event, comment, PR-state mutation, merge or close action was made.
+No APPROVE or REQUEST CHANGES verdict: run 44976906715 is terminal failure on the old base, and the PR remains behind current develop. No GitHub review event, comment, PR-state mutation, merge or close action was made.
 
 ## END codex-rev-1747 BLOCKED
 
-Waiting for the exact run to become terminal, Owner hop to develop `8b9a8f50645db1dbaad4a5e1f2140930436d3ea7`, and authorship attribution for the worker-identity commits.
+Waiting for the shared CI zsh provisioning fix, Owner hop to develop `8b9a8f50645db1dbaad4a5e1f2140930436d3ea7`, a fresh exact-head terminal-green run, and authorship attribution for the worker-identity commits. Current run failure is recorded as STATE: `PR · Draft Go · cli-3` / `zsh: executable file not found in $PATH`.
 
 ## Publication witness
 
