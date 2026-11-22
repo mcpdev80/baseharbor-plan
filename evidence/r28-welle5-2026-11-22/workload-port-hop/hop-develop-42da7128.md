@@ -100,6 +100,31 @@ Run 44963676934 (head b9c2e483), terminal conclusion = failure:
 
 This is the same external prerequisite (card 0428-226) documented on runs 44961493271 and 44934975722. PR #1723 has no own defect.
 
+## classification ffe227 (Owner, 03:0xZ, read in develop 7d4351c6d64)
+
+PR #1723 is NOT the faulty part. Two external gates own the red:
+
+1. data-capabilities gate (my failing job 137028211165 in run 44963676934):
+   - Fails at lines 179-180 with `command-not-in-managed-workload-set: app footprint show`.
+   - The command itself is documented as read-only (machine_coverage.go:97 maps
+     `baha app footprint show` to app.footprint.show; app_registration_921.go:40,43
+     document the -o json form). The guided-path footprint-read is gated behind
+     `gate == "guided"` only (cmd/baha/ci_integration_operator_enabled.go:135 via
+     ciIntegrationGuidedFootprintShow, lines 232-233).
+   - Owning card: **0428-227** t-20261122-footprint-show-not-admitted-in-data-capabilities-gate
+     (open, planned, no blocker; belongs the gate admission or the remote call, incl.
+     regression tests both directions).
+
+2. operator-interactive-setup prerequisite:
+   - `operator authentication needs interactive setup but input is not a terminal`.
+   - Located at cmd/baha/operator_auth_boundary.go:117.
+   - Owning card: **0428-223** (PR #1750). Known prerequisite, not mine.
+
+PR #1723 stays OPEN, draft=false, head b9c2e483f8b1538ff5b291f185c55303a6c27c43
+(correct, exact, back=0, hop clean). No new run, no change. A verdict on the
+current head would be moot because `PR Selected Checks` (137030140112) follows
+from the two external gates. Card 0428-227 adopted by this lane.
+
 ## END SUMMARY
 
 - new head-sha: 5c063c7f278bfd92dcef9a0fabd3b6e6d1ddbe42
