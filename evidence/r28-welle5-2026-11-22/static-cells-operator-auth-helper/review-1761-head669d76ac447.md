@@ -85,3 +85,19 @@ origin https://github.com/mcpdev80/baseharbor-plan.git (push)
 - Evidence is stored only in the canonical Planning repository. Shared untracked Planning files were left untouched.
 
 END_DONE codex-rev-1747: PR #1761 head 669d76ac447 reviewed APPROVE; fan-out complete, run 44999534797 success/0 failed with draft skips and native matrix unavailable; Planning publication pending.
+
+## Origin/main witnesses
+
+Remote delivery after the first evidence push: 
+
+```text
+cec45f6e0751966877a3164fa20ad476be05cbd5\trefs/heads/main
+```
+
+Exact output of the required fetched-origin tree lookup:
+
+```text
+evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md
+```
+
+END_DONE codex-rev-1747: PR #1761 exact head 669d76ac447 APPROVE for code review; fan-out complete; run 44999534797 success with draft skips and native matrix unavailable; Planning evidence is present on origin/main.
