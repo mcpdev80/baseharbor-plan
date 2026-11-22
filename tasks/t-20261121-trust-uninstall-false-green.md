@@ -7,7 +7,7 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: coordinator
+owner: coordinator (karte) / erster freier worker-sitz (ausfuehrung)
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: "TestTrustUninstallPromptEOFRejects, TestTrustUninstallPromptUnterminatedAffirmativeEOFRejects and…"
@@ -18,23 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1737]
 sources: []
 blocker: ""
-wait_reason: "base-Karte 0428-198 ist superseded und ihr PR 1726 nie gemergt; die geteilte Operator-Kontext-Mechanik kommt erst mit PR 1750. Danach wird diese Karte von develop aus neu angesetzt (Cherry-pick der eigenen Commits), siehe cli-shard-fanin/fanin-1726-disposition.md"
+wait_reason: "carrier-abhaengigkeit: ja; neue basis ist develop 8629450ef3c, delta wird dort neu geschnitten; die alte PR-basis bleibt ausser gebrauch"
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md"]
 ---
 
 - [ ] t-20261121-trust-uninstall-false-green · trust-uninstall EOF tests are green on the auth gate error #task #release/v0-4-28 #status/wait #view/wait #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** coordinator · **Priority:** high  
+    **Owner:** coordinator (karte) / erster freier worker-sitz (ausfuehrung) · **Priority:** high  
     **PR:** [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737)  
-    **Waiting:** base-Karte 0428-198 ist superseded und ihr PR 1726 nie gemergt; die geteilte Operator-Kontext-Mechanik kommt erst mit PR 1750. Danach wird diese Karte von develop aus neu angesetzt (Cherry-pick der eigenen Commits), siehe cli-shard-fanin/f…  
+    **Waiting:** carrier-abhaengigkeit: ja; neue basis ist develop 8629450ef3c, delta wird dort neu geschnitten; die alte PR-basis bleibt ausser gebrauch  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** coordinator  
+**Owner:** coordinator (karte) / erster freier worker-sitz (ausfuehrung)  
 **Priority:** high  
 **PRs:** [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737)  
 **Source:** 
@@ -109,3 +110,5 @@ CODEX-REVIEW r2 'review-2.md' (plan 3cdd3f07 + 24179731) = 'Verdikt: REQUEST CHA
 sitz frei geworden (0428-210-hopfix4 uebergeben), daher geht die wartende mission SOFORT raus: lane 0428-213-compilefix (3f536e2e, ornith) arbeitet 'coordinator/missions/0428-213-r3-compile-and-verbatim.md'. Auftrag nach CODEX-REVIEW r2: (1) die duplizierte 'withoutOperatorAuthTestContext'-deklaration in 'cmd/baha/trust_uninstall_test.go:32-44' RAUS und den echten opt-out aus 'cmd/baha/app_init_wizard.go:29-31' aufrufen (heute zaehlen die vier cli-shards als COMPILE-fehler, nicht als erbschaft — redeclaration in 'PR · Validation · cli-vet'), (2) 'strings.Contains' in ':175' durch wortvergleich inkl. endpunkt ersetzen, mit mutations-paar (text angehaengt = rot, zurueck = gruen). NEUER RUECKENWIND, von mir gemessen: #1739 zeigt am gehopften develop ein KOMPLETT gruenes required-aggregat (durchgang 44885264462, cli-0..3/packages/owner success, 0 failure) — dieselbe heilung erreichen sie an dieser karte nur ueber den basis-hop der stapel-lane (owner-aktion, row 877). Sollte ihre korrektur am basis-head GRUEN werden, melden sie das mit den byte-zahlen der per-job-logs.
 
 korrekturrunde geliefert: doppel-definierung raus, verbatim-vergleich strings.EqualFold mit dem endpunkt, compile sauber (mein go vet exit 0 am head 37587b0ed6fc, genau eine definition). cli-0 zeigt genau einen fremden fallen (TestAppListAllTargetsWorksAfterInstallationDestroy = gebiet 0428-210). Blocker: basis-lane hat PR #1726 geschlossen ohne merge
+
+ROUTE NEU FESTGELEGT NACH CENSUS (akte operator-auth-helper/carrier-census-1737-1738-1740-1741.md, plan da2176f7f40): PR 1726 wird NICHT wieder eroeffnet und es entsteht KEIN neuer traeger - #1750 ist gemergt, darum wird der eigene delta dieses kandidaten auf develop 8629450ef3c5198bb675331c12f56b2c9377aa1c NEU GESCHNITTEN. Carrier-abhaengigkeit dieses PR: ja. Fernzeugnis: back=275, mergeStateStatus UNSTABLE, base zeigt auf die tote basis lane-0428-198-cli-shard-operator-env (spitze e45430f2f1b). Naechster schritt: mission auf dem ersten freien worker-sitz (neu schneiden), dann exact gehosteter durchgang und unabhaengige pruefung. Kein merge aus der alten basis heraus.
