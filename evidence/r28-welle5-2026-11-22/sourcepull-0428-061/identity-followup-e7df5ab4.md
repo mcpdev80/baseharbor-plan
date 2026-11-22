@@ -29,3 +29,10 @@ Read-only GitHub metadata inspection. No local tests, source changes, branch cha
 ## END codex-rev-1747 BLOCKED
 
 #1752 identity attribution and exact-head CI/review remain unresolved; #1754 remains REQUEST CHANGES pending an executed hosted wrapper test; #1753 remains held separately.
+
+Exact remote Planning tree output after fetch:
+
+```text
+evidence/r28-welle5-2026-11-22/ci-cells-shells/review-1754-headacd8dd95.md
+evidence/r28-welle5-2026-11-22/sourcepull-0428-061/identity-followup-e7df5ab4.md
+```

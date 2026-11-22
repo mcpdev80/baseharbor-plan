@@ -64,3 +64,10 @@ The owner reports commits `b010dabcb` and `e7df5ab4a6c` on #1752 use author iden
 No further #1754 inspection is authorized until a new exact head shows `TestEndToEndInstalledZshAndFishWrappers` (or focused `ok /cmd/baha`) in the hosted cli-3 log. The current REQUEST CHANGES verdict remains in force. #1753 remains held independently.
 
 The new #1752 identity metadata reported in rev1754c is recorded separately at `evidence/r28-welle5-2026-11-22/sourcepull-0428-061/identity-followup-e7df5ab4.md`; it is not part of this #1754 verdict.
+
+Exact remote Planning tree output after fetch:
+
+```text
+evidence/r28-welle5-2026-11-22/ci-cells-shells/review-1754-headacd8dd95.md
+evidence/r28-welle5-2026-11-22/sourcepull-0428-061/identity-followup-e7df5ab4.md
+```
