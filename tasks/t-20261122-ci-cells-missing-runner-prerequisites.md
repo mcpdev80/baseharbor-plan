@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: accepted
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1754"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1754", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/ci-cells-shells/review-1754-head0975e671.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/ci-cells-shells/review-1754-headacd8dd95.md", "https://github.com/mcpdev80/baseharbor/commit/82825e95a6f6083702d0ba5401d97f356085c722"]
 ---
 
 - [x] t-20261122-ci-cells-missing-runner-prerequisites · 0428-229 · Provision the runner prerequisites the two PR CI cells already require #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** w21-pr1702-0428-142-compat · **Priority:** high  
     **PR:** [baseharbor#1754](https://github.com/mcpdev80/baseharbor/pull/1754)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1754)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1754), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/ci-cells-shells/review-1754-head0975e671.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/ci-cells-shells/review-1754-headacd8dd95.md), [proof 4](https://github.com/mcpdev80/baseharbor/commit/82825e95a6f6083702d0ba5401d97f356085c722)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -98,3 +98,5 @@ RETRACTION of my own earlier claim: the install-only proof does NOT close the wr
 exact head 0975e671319 with PR run 44980710684 success and cli-3 job 137080402549 showing TestEndToEndInstalledZshAndFishWrappers PASS 8.02s
 
 squash-merged into develop 82825e95a6f; cli-3 job 137080402549 shows TestEndToEndInstalledZshAndFishWrappers PASS 8.02s
+
+Das vom plan-auge gemeldete document traegt das verdict REQUEST CHANGES am alten head acd8dd95, weil TestEndToEndInstalledZshAndFishWrappers in diesem gehosteten cli-3-job nicht ausgefuehrt war. Ersetzt durch das APPROVE am finalen head 0975e671319, wo derselbe test im gehosteten job ausgefuehrt wurde; der PR ist als 82825e95a6f gemergt. Beide documents sind jetzt als evidence verlinkt.
