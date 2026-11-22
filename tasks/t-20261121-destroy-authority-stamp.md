@@ -7,9 +7,9 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: coordinator (karte) / erster freier worker-sitz (ausfuehrung)
-kanban_status: wait
-kanban_lane: wait
+owner: f0f6c8b4 (lane, retarget + hop + durchgang)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "TestCoreBootstrapFixtureCleanupContextIsBoundToItsLocalTarget shows which authority mode admitted installation.destroy, instead…"
 kanban_title: 0428-214 · 0428-214 destroy stamp
 priority: high
@@ -18,24 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1738]
 sources: []
 blocker: ""
-wait_reason: "carrier-abhaengigkeit nein; neue basis ist develop 8629450ef3c, der delta wird dort neu geschnitten - die alte PR-basis bleibt nicht in gebrauch"
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1738", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-5-rebase.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md"]
 ---
 
-- [ ] t-20261121-destroy-authority-stamp · installation.destroy authorization assertion runs on a stamped context #task #release/v0-4-28 #status/wait #view/wait #area/cli #kind/bug
+- [ ] t-20261121-destroy-authority-stamp · installation.destroy authorization assertion runs on a stamped context #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** coordinator (karte) / erster freier worker-sitz (ausfuehrung) · **Priority:** high  
+    **Owner:** f0f6c8b4 (lane, retarget + hop + durchgang) · **Priority:** high  
     **PR:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
-    **Waiting:** carrier-abhaengigkeit nein; neue basis ist develop 8629450ef3c, der delta wird dort neu geschnitten - die alte PR-basis bleibt nicht in gebrauch  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1738), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/destroy-authority-stamp/round-5-rebase.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** coordinator (karte) / erster freier worker-sitz (ausfuehrung)  
+**Owner:** f0f6c8b4 (lane, retarget + hop + durchgang)  
 **Priority:** high  
 **PRs:** [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738)  
 **Source:** 
@@ -125,3 +124,5 @@ rebase delivered, und der fenster-blocker ist damit AN DIESER KARTE GELÖST (von
 CODEX-REVIEW 'review-2.md' (plan ea196e46 + 04ae137d) = 'Verdict: REQUEST CHANGES', drei belege, alle von mir nachvollzogen. BEFUND 1 (inhalt): 'cmd/baha/core_installation_runtime_test.go:378-386' behauptet die ausgewaehlte destruction-operation NICHT — nachtrag: positiver kontext MIT enforcement-stellung OHNE principal, 'operatorauth.AuthorizationDecisionFromContext(ctx)' lesen, 'Allowed' UND 'Operation == "installation.destroy"' verlangen, plus mutation (zuordnung weg = rot); no-consent-assertion und teardown-stempel bleiben. BEFUND 2 (basis) = MEINE EIGENE MESSENSCHAFT von row 874: 'merge-base --is-ancestor e45430f2f1b7 a8079303acaa' = NEIN, merge-base ist 7546b1806aac, 9 commits rueckstaendig; rebase auf das echte ziel, kein zweiter branch. BEFUND 3 (aggregat): cli-0 'TestAppListAllTargetsWorksAfterInstallationDestroy' = 0428-210/#1739 und die nativen docker/podman-zellen = 0428-215/#1745 — fremde baustellen; der reviewer behaelt meine gleich-basis-per-job-rechnung (durchgang 44867737065 gegen 44867737078) und bucht den aggregate TROTZDEM als failure. MISSION liegt fertig im coordinator/missions/ (0428-214-r5-bothdirections.md, payload-gate 0) und geht auf den ersten frei werdenden sitz — in der abnahme-stunde waren alle funf plaetze belegt, daher kein Scheinauftrag.
 
 ROUTE NEU FESTGELEGT NACH CENSUS (akte operator-auth-helper/carrier-census-1737-1738-1740-1741.md, plan commit da2176f7f40, von 1450c201 gemessen): PR 1726 wird NICHT wieder eroeffnet und es entsteht KEIN neuer traeger - #1750 ist gemergt, also wird der JEWEILIGE eigene delta des kandidaten auf develop 8629450ef3c neu geschnitten. Fernzeugnis der kinder: alle back=275, mergeStateStatus UNSTABLE, base zeigt auf die tote basis lane-0428-198-cli-shard-operator-env (spitze e45430f2f1b). Carrier-abhaengigkeit: nein. Ihr PR-head gemessen: 1738 siehe akte 'Child PR state and diff against the named carrier'. Naechster schritt: mission auf dem ersten freien arbeits-sitz (neu schneiden statt hoepfen; bei 'nein' reicht der additive hop), dann exact gehosteter durchgang + unabhaengige pruefung. Kein merge aus der alten basis heraus.
+
+RE-CUT BEAUFTRAGT, weil der census diesen kandidat als EINZIGEN der vier kinder OHNE carrier-abhaengigkeit ausweist (akte carrier-census-1737-1738-1740-1741.md, plan da2176f7f40): base retarget auf develop (eine einzige metadata-aenderung, ausdruecklich autorisiert), dann additiver hop auf 8629450ef3c, danach EIN durchgang mit den vier data-capabilities-job-ids als zeugen. rueckstand 275 commits, 30 dateien. Ausfuehrende lane ist f0f6c8b4 (frei nach der 237-rueckgabe). KONFLIKT-REGEL: wenn die erzeugten index-dateien im merge konfliktieren, gilt der generator-pfad, kein hand-edit; sollte dafuer .github/scripts betroffen sein, STOP mit datei:zeile an mich (reservierte gebiete).
