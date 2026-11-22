@@ -7,7 +7,7 @@ areas: [ci, testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: f0f6c8b4
+owner: 0847d100 (baseharbor-demo fix) / f0f6c8b4 (diagnose)
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -25,14 +25,14 @@ evidence: []
 
 - [ ] t-20261122-ci-operator-fixture-allowlist-gap · Add the missing command forms to the test-only CI-operator fixture allow-list so static/core gates stamp the synthetic operator instead of failing closed #task #release/v0-4-28 #status/active #view/active #area/ci #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** f0f6c8b4 · **Priority:** high  
+    **Owner:** 0847d100 (baseharbor-demo fix) / f0f6c8b4 (diagnose) · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** f0f6c8b4  
+**Owner:** 0847d100 (baseharbor-demo fix) / f0f6c8b4 (diagnose)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -53,3 +53,9 @@ The 'authenticated BaseHarbor operator' needed by the static/core gates is a syn
 ## Boundaries
 
 cmd/baha test-only fixture file(s) with the build tag only. NOT operatorauth production code, NOT .github workflows (report any needed workflow tag/ordering as owner file:line, do not edit), NOT #1771 (local-workload layer), NOT target.create (247).
+
+UMKLASSIFIZIERT (f0f6c8b4 H-V30): KEIN baseharbor allow-list gap. baseharbor ci_integration_operator_enabled.go ist bewusst eng+korrekt (:327-330 prefix baseharbor-core-bootstrap.*). Fix liegt in baseharbor-demo/tests/config-matrix/run.sh + reference-journey: temp-root prefix auf baseharbor-core-bootstrap.* + BASEHARBOR_DEMO_ALLOWED_PROJECT_ROOT exportieren (core-bootstrap.sh:9 muster). 0847d100 drauf. Entblockt #1746 static core-bootstrap/config-matrix/reference-journey/shell-ux zellen.
+
+UMKLASSIFIZIERT (f0f6c8b4 H-V30): KEIN baseharbor allow-list gap. baseharbor ci_integration_operator_enabled.go:327-330 ist bewusst eng+korrekt (prefix baseharbor-core-bootstrap.*). Fix liegt in baseharbor-demo/tests/config-matrix/run.sh + reference-journey: temp-root prefix baseharbor-core-bootstrap.* + BASEHARBOR_DEMO_ALLOWED_PROJECT_ROOT exportieren (core-bootstrap.sh:9 muster). Entblockt #1746 static core-bootstrap/config-matrix/reference-journey/shell-ux. Repo: baseharbor-demo (nicht baseharbor).
+
+UMKLASSIFIZIERT: baseharbor allow-list bewusst eng+korrekt; fix in baseharbor-demo tests/config-matrix + reference-journey (temp-root prefix baseharbor-core-bootstrap.* + BASEHARBOR_DEMO_ALLOWED_PROJECT_ROOT export). 0847d100 dispatched. Entblockt #1746 static core-bootstrap/ config-matrix/reference-journey/shell-ux zellen.

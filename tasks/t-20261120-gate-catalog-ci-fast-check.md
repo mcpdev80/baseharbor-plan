@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1774]
 sources: []
 blocker: ""
-wait_reason: "#1746 bleibt wait (nicht voll qualifiziert). NEUE schaerfung (H-V30): static core-bootstrap/config-matrix/init/shell-ux/journeys auth-fail ist eine TEST-ONLY CI-operator fixture allow-list luecke = KARTE 0428-250 (f0f6c8b4, worker-fixbar), NICHT owner-decision. Zusaetzlich: A (ci-fast-check.sh) im #1774-followup, footprint-consent in 0428-241, light-runtime blob = 0428-249. target.create bleibt 0428-247 owner/core. Requal wenn 250+241+A+249 adressiert + pre-release gruen."
+wait_reason: "#1746 release-run bleibt wait (nicht qualifiziert), ABER NEU PRAEZISIERT: der zsh+fish WRAPPER-pfad ist GRUEN (run 45028181619 head 887058a6 job 137225878764 cli-3 installiert+uebt beide wrapper erfolgreich; user-explicit-approved). Wrapper NICHT als offenen failure buchen. Restblocker sind UNABHAENGIG: (a) fehlende katalog-mappings A+broker-diag+footprint+workload/main = 0428-248 (b90e, laeuft); (b) static core-bootstrap/config-matrix/auth = 0428-250 (baseharbor-demo fix, 0847d100); (c) selected footprint consent = 0428-241 (f0f6c8b4); (d) light-runtime blob = 0428-249 owner .github + acceptance.sh; (e) target.create = 0428-247 owner/core decision. Requal wenn a-d geloenst + pre-release gruen."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "https://github.com/mcpdev80/baseharbor/actions/runs/44944570763", "https://github.com/mcpdev80/baseharbor/pull/1746"]
 ---
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44943804395", "h
     <!-- generated:card -->
     **Owner:** owner (resolves) / coord · **Priority:** normal  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774)  
-    **Waiting:** \#1746 bleibt wait (nicht voll qualifiziert). NEUE schaerfung (H-V30): static core-bootstrap/config-matrix/init/shell-ux/journeys auth-fail ist eine TEST-ONLY CI-operator fixture allow-list luecke = KARTE 0428-250 (f0f6c8b4, worker-fixbar),…  
+    **Waiting:** \#1746 release-run bleibt wait (nicht qualifiziert), ABER NEU PRAEZISIERT: der zsh+fish WRAPPER-pfad ist GRUEN (run 45028181619 head 887058a6 job 137225878764 cli-3 installiert+uebt beide wrapper erfolgreich; user-explicit-approved). Wrappe…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44943804395), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44944570763), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1746)  
     <!-- /generated:card -->
 
