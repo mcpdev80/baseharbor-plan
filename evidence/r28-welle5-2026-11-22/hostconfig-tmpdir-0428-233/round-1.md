@@ -39,6 +39,18 @@ Card t-20261122-host-config-isolation-tmpdir-cleanup (0428-233), mission `fix233
   - PR · Selected Runtime (atomic/docker/data-capabilities, docker, data-capabilities) /
     Executed docker · data-capabilities, job 137142900400: FAILURE
   - PR Selected Checks (aggregate), job 137144478427: FAILURE
+
+### Run 7241 - db=45001383922, head 6937d060 (integrated: my adccce73 + other seat's refinement)
+- event pull_request, terminal: completed/failure. Tally: total 34, success 12, skipped 17,
+  failure 5, cancelled 0.
+- failed-count: 5 job-ids:
+  - PR · Selected Runtime (atomic/podman/data-capabilities, podman, data-capabilities) /
+    Executed podman · data-capabilities, job 137144959836: FAILURE
+  - PR · Selected Runtime (atomic/docker/data-capabilities, docker, data-capabilities) /
+    Executed docker · data-capabilities, job 137144959891: FAILURE
+  - PR · Native · native/docker/data-capabilities, job 137144598339: FAILURE
+  - PR · Native · native/podman/data-capabilities, job 137144598342: FAILURE
+  - PR Selected Checks (aggregate), job 137146967934: FAILURE
 - PR · Go unit · cli shards (die diese datei ausführen, ./cmd/baha): alle success - der
   cli-shard-run trifft meinen Test; er ist grün. Die runner-interface / validation · cli-*
   jobs sind success.
@@ -58,10 +70,13 @@ Card t-20261122-host-config-isolation-tmpdir-cleanup (0428-233), mission `fix233
 
 ## PR #1762
 
-- number 1762, base develop (acc343239681), head lane-0428-233-tmpdir-cleanup = adccce73,
-  state OPEN, isDraft=false (gh pr create setzt kein draft; die github REST-API war heute
-  rate-limited, draft-manual gesetzt).
-- write-set: nur cmd/baha/test_operator_context_test.go (+31/-9).
+- number 1762, base develop, head lane-0428-233-tmpdir-cleanup = 6937d060 (integrated line:
+  my fix adccce73 09:03 + other seat's test refinement 6937d060 09:08, non-conflicting, both
+  only touch cmd/baha/test_operator_context_test.go; my adccce73 parent is clean develop
+  acc34323), state OPEN.
+- write-set (against own base adccce73^): nur cmd/baha/test_operator_context_test.go.
+  Der frühere `git diff origin/develop` zeigte dutzende internal/**-felder, weil sich
+  develop seit dem Abschneiden auf 8629450ef3c5 bewegt hat (nicht fremder Inhalt im Branch).
 
 ## GRENZEN eingehalten
 
