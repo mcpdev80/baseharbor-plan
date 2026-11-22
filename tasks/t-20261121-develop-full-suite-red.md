@@ -86,3 +86,5 @@ QUERBEZUG vom coordinator: die operator-auth-/test-context-vorbedingung dieser k
 lane pushed a new exact candidate 4bd779b1501 (parent 1588ee1be72, back=0, additive): ORAS is provisioned inside the test-support path (cmd/baha/runtime_integration_test_support_test.go, provisionORASForIntegrationCell, uses the production installer installORAS with orasSetupVersion + checksum, no-op when exec.LookPath finds oras). no .github/** or scripts/** change. hosted runs 44972447675 (PR CI) and 44972454590 (selected target-context) in_progress; verdict ordered, PR stays draft
 
 akte round-3-oras-provisioning.md auf origin/main; cleanliness gemeldet: keine eigenen container/netzwerke/volumes, scratch entfernt
+
+PR 1753 hopped to develop 8b9a8f50645 at head 91f4e38795a with exact CI green (run 44978381512, 0 failed); PR Selected Runtime still SKIPPED pending card 0428-228 path to gate mapping
