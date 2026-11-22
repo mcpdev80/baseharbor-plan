@@ -7,7 +7,7 @@ areas: [testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ffe7611b (#1780: provider-override @:376 own fix) / b90e (shared optionA fixture)
+owner: ffe7611b (#1780 ef6de850, run pending) / b90e4ba1 (#1783 Option-A shared fixture, hosted CI-trigger noetig)
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -15,7 +15,7 @@ kanban_title: 0428-241 · guided fixture drift
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
-prs: [mcpdev80/baseharbor#1753, mcpdev80/baseharbor#1770, mcpdev80/baseharbor#1773, mcpdev80/baseharbor#1763, mcpdev80/baseharbor#1780]
+prs: [mcpdev80/baseharbor#1753, mcpdev80/baseharbor#1770, mcpdev80/baseharbor#1773, mcpdev80/baseharbor#1763, mcpdev80/baseharbor#1780, mcpdev80/baseharbor#1783]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -25,17 +25,17 @@ evidence: []
 
 - [ ] t-20261122-guided-fixture-footprint-contract-divergence · Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 #task #release/v0-4-28 #status/active #view/active #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** ffe7611b (\#1780: provider-override @:376 own fix) / b90e (shared optionA fixture) · **Priority:** high  
-    **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780)  
+    **Owner:** ffe7611b (\#1780 ef6de850, run pending) / b90e4ba1 (\#1783 Option-A shared fixture, hosted CI-trigger noetig) · **Priority:** high  
+    **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** ffe7611b (#1780: provider-override @:376 own fix) / b90e (shared optionA fixture)  
+**Owner:** ffe7611b (#1780 ef6de850, run pending) / b90e4ba1 (#1783 Option-A shared fixture, hosted CI-trigger noetig)  
 **Priority:** high  
-**PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780)  
+**PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -89,3 +89,5 @@ FEHL-SCOPE KORRIGIERT: frueher 'runner-bootstrap gate issue END_BLOCKED' war fal
 #1780 run 45042733884 terminally RED (11 jobs): (a) selected read-only footprint fixture = SHARED, wird als eigener optionA-PR von b90e gelandet (nicht in #1780 vergraben), (b) selected podman coreless provider mismatch @:376 = ffe7611b own fix (BASEHARBOR_TEST_RUNTIME podman override), (c) native docker edge-broker unhealthy = 0428-237 andere session. ffe7611b NICHT re-hopen bis (a) gemerged + (c) geloest; nur (b) vorbereiten. Kein stale-green merge.
 
 INFRA-BLOCK: run 45044744796 pending zero-jobs weil self-hosted runner OFFLINE (service inactive) + root 99% voll. Code-fix (provider override :376 + optionA shared) LOBAL weiter, push/rerun erst nach runner-back. Kein stale-green merge moeglich (CI down).
+
+SHARED UNLOCK = PR #1783 (branch lane-0428-241-optionA-operator-allowlist head 8f84fcbb, nur ci_integration_operator_enabled.go+test, non-draft) bringt selected footprint-show policy-freiheit fuer #1780/#1770/#1738. ABER statusCheckRollup LEER + BLOCKED = hosted CI lief am exact head nie an -> b90e triggert per close/reopen (head bleibt). #1780 vorgerueckt auf ef6de850 (run 45045737874 pending, stale 45044680383 cancelt noch). #1738 e09ceb9a: cli-2(137277583015)+native docker(137277586142) FAILED, logs erst am terminal, native podman+selected laufen. Kein merge vor exact run+current base.
