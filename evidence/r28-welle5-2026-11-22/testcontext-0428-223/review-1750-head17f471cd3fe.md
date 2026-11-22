@@ -69,3 +69,15 @@ evidence/r28-welle5-2026-11-22/testcontext-0428-223/review-1750-head17f471cd3fe.
 ```
 
 First-push delivery witness: `2a9e3ff64ef8322f3b3b012f2d0e014e602ab1c3 refs/heads/main`.
+
+## Unversioned-copy audit (evclean)
+
+The local untracked copy `evidence/r28-welle5-2026-11-22/sourcepull-0428-223/review-1750-head17f471cd3fe9a41fbe5b4e2d3d2748f1e1bf9c99.md` is not byte-identical to this published file (`sha256 ea5edf863b9a37f5416dc6bfd1c08c7cfd2f5faed389ada20edbebd4d4a0871c` versus published file `sha256 b6cf49c5f958a7aeb7c83225c2421def768cfb624b82ed5c699f19be8f93c384`). The local copy combines the first broad review and its later focused follow-up; it is not a reliable mirror and remains untracked. It was not deleted or altered.
+
+This published file is the authoritative final record because it is on Planning `origin/main` and contains the focused follow-up verdict. The untracked copy's missing chronology is summarized here so its earlier findings are not lost or mistaken for the final disposition:
+
+- The first review was against the same exact head/base, with an eight-file test-only diff and documented additive develop hops. It recorded run `44982040951` as terminal success while `PR Selected Checks` was skipped; the exact-head follow-up run `44982566548` later passed that aggregate. The focused final verdict relies on the latter required-check proof.
+- The first review also recorded the prior Podman data-capabilities failure `44975262053` / job `137064042865` and its non-interactive operator-authentication error. Run `44982566548` still skipped `PR · Selected Runtime` and `validate`; this evidence does not claim those jobs passed. The later focused follow-up classified only the host-temp-directory and early-return questions specified in its mission.
+- The initial verdict and the focused follow-up are separate review moments. The initial REQUEST CHANGES text in the untracked copy is superseded; the final exact-head disposition is the APPROVE recorded above and in this published file.
+
+The historical local copy remains at the named path for its owner to reconcile; no untracked file was removed.
