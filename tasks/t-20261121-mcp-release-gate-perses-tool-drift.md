@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: Codex owner (authenticated base hop)
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: The Pre-Release workflow reports unexpected MCP tools baseharbor.app.perses.disable/enable/remove/status while…
 kanban_title: 0428-225 · MCP release gate rejects the
 priority: ""
@@ -19,18 +19,19 @@ prs: [mcpdev80/baseharbor#1751]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1751", "https://github.com/mcpdev80/baseharbor/actions/runs/44965123423"]
 ---
 
-- [ ] t-20261121-mcp-release-gate-perses-tool-drift · MCP release gate rejects the app.perses.* tools the machine contract declares #task #release/v0-4-28 #status/review #view/review #kind/task
+- [x] t-20261121-mcp-release-gate-perses-tool-drift · MCP release gate rejects the app.perses.* tools the machine contract declares #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** Codex owner (authenticated base hop)  
     **PR:** [baseharbor#1751](https://github.com/mcpdev80/baseharbor/pull/1751)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1751), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44965123423)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** Codex owner (authenticated base hop)  
@@ -138,3 +139,5 @@ planned -> active: hosted proof from PR #1746 static gate (job 136970241277): 'M
 KORREKTUR NACH OWNER-AUFKLARUNG 00:5xZ, mein vorheriger wait-grund war teilweise FALSCH: der fehlgeschlagene run 44952645994 war ein MISPARAMETERIZETER 'Release Pre-Release Validation'-workflow_dispatch (tag/ref/demo_ref nicht gesetzt), NICHT ein fehlender refs/heads/release/v0.4.28. der gehoffte 'Static · mcp'-cell war deshalb nur skipped. Die eigentliche PR-CI 44951681560 ist completed/success auf head bdc7c1a9e6e (35 jobs, 14 success / 21 skipped, 0 failed); der trusted plan verlangt cli-build/gofmt/go test ./cmd/baha/vet/source-contracts, selected_gates ist leer, weil dieser PR nur cmd/baha/agent_mcp_test.go aendert - alle required checks sind gruen. OFFEN ist damit nur noch: der PR-base ist 1080986, develop ist 513488eeb6d (back=7) -> hop auf den aktuellen develop, dann exakter PR-CI-run, dann review. Keine lokalen tests als ersatz (owner-anweisung).
 
 KANDIDAT IST BEREIT FUER ABNAHME, review ist UNWESSENTLICH VERSPAETET, NICHT NICHT erteilt: refs/pull/1751/head = 89253bd23d6a4c5f9006d624c3d78910c2eea68b (additiver merge-commit hop des owners, parents bdc7c1a9e6e + 7d4351c6d645), base develop 7d4351c6d645353b6b96c8d320b4c832d55f9047, back=0 gemessen, draft=false, diff gegen develop bleibt exakt cmd/baha/agent_mcp_test.go (+25 zeilen). exakter hosted run 44965123423 = completed/SUCCESS, 0 failed jobs. mission an die review-session ist erteilt (sha256 44c076502611, akte mcp-perses-tool-drift/review-2-head89253bd2.md) und die session ARBEITET daran - 'agent list' zeigt isWorking=true, letzter echter prompt vor 11 s; ihr transcript liest gerade die exakten runs auf 'RunsRealLifecycle|RequiresORAS|RejectsSecondProcess|PinsCanonicalApplication' und prueft, ob ein skip ein case verdeckt. die watch-zeile 'idle' war eine der bekannten geister-reihen (tooling #34/#36), kein grund, die mission zu wiederholen: eine zweite zustellung haette doppelte arbeit ergeben. bei APPROVE ruebergebe ich sofort an ihre merge-rolle.
+
+GELOGDET: ordinary merge, merge-commit 6209874428f08dc3e90d6e29a42b30683ce9932a, gemessen an refs/heads/develop (vorher 7d4351c6d645). kandidat war exakt 89253bd23d6a4c5f9006d624c320b4c832d55f9047 (additiver merge-commit hop des owners, parents bdc7c1a9e6e + 7d4351c6d645, back=0), der exakte hosted run 44965123423 = completed/SUCCESS, cli-0 job 137032347806 hat den test AUSGEFUEHRT (nicht skipped), und das unabhaengige CODEX-REVIEW verdict APPROVE auf genau dieser sha liegt vor: evidence/r28-welle5-2026-11-22/mcp-perses-tool-drift/review-2-head89253bd2.md, plan 91ac668328cb. diff gegen develop war ein test-file (cmd/baha/agent_mcp_test.go, +25 zeilen). kein squash, kein force, kein admin-bypass. inhalt: die Perses-tool-drift-oberflaeche ist im release-gate now festgelegt; die surface-aufnahme-entscheidung der lane ist damit umgesetzt.
