@@ -37,3 +37,7 @@ The exact-head review path required by gate 2 was absent from fetched `origin/ma
 ## END codex-rev-1747 BLOCKED
 
 Merge: NO. New develop SHA: none; develop remains `1ff16925c4e141d732459a34ddf0b7f49128a214`. Run 44986337450 was already terminal; no run was initiated. Mission gate 2 is missing; gates 1, 3, and 4 are verified. No product PR changes were made.
+
+Exact output from `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 'evidence/r28-welle5-2026-11-22/testcontext-0428-223/merge-1750.md'`:
+
+`evidence/r28-welle5-2026-11-22/testcontext-0428-223/merge-1750.md`
