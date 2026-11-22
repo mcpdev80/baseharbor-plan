@@ -7,9 +7,9 @@ areas: [lifecycle]
 release: v0.4.28
 version: ""
 parent: ""
-owner: coord (wartet geteiltes gate + history-entscheidung)
-kanban_status: wait
-kanban_lane: wait
+owner: f0f6c8b4 (#1725 hop auf ef73b50b laeuft) / Coordinator
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-201 · shared state version message
 priority: ""
@@ -18,25 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1725]
 sources: []
 blocker: ""
-wait_reason: "PR 1725: NET-diff sauber (3 files, dekontaminiert) und content review fecbada9=REQUEST CHANGES. GRUENDE NICHT inhalt: (a) der branch traegt zusaetzlich einen FREMDEN 0428-199 commit 26755fc1 in der history; (b) durchgang 45014090675 terminal FAILURE am GETEILTEN gate - selected podman data-capabilities 137182949575 faellt an confirm-candidate/app-footprint-show consent (0428-227) dann an nichtinteraktivem operator auth (0428-063/199). Merge erst nach geteiltem consent/auth-fix auf develop."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pulls/1725", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44995066580", "https://github.com/mcpdev80/baseharbor/actions/runs/44998846458", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/stale-pr-census/ancestry-rule-clarification.md", "https://github.com/mcpdev80/baseharbor/pull/1725", "https://github.com/mcpdev80/baseharbor/actions/runs/45014090675"]
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-shared-backend-state-version-message · shared state version message #task #release/v0-4-28 #status/wait #view/wait #area/lifecycle #kind/bug
+- [ ] t-20261120-shared-backend-state-version-message · shared state version message #task #release/v0-4-28 #status/active #view/active #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** coord (wartet geteiltes gate + history-entscheidung)  
+    **Owner:** f0f6c8b4 (\#1725 hop auf ef73b50b laeuft) / Coordinator  
     **PR:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725)  
-    **Waiting:** PR 1725: NET-diff sauber (3 files, dekontaminiert) und content review fecbada9=REQUEST CHANGES. GRUENDE NICHT inhalt: (a) der branch traegt zusaetzlich einen FREMDEN 0428-199 commit 26755fc1 in der history; (b) durchgang 45014090675 termin…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pulls/1725), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44995066580), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44998846458), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/stale-pr-census/ancestry-rule-clarification.md), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1725), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/45014090675)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** coord (wartet geteiltes gate + history-entscheidung)  
+**Owner:** f0f6c8b4 (#1725 hop auf ef73b50b laeuft) / Coordinator  
 **Priority:** not set  
 **PRs:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725)  
 **Source:** 
@@ -106,3 +105,5 @@ DEKONTAMINIERUNG VOLLZOGEN (f0f6c8b4): develop 8629450ef3c additiv in den branch
 KEIN MERGE, KEIN unabhaengiger kandidat. Dekontamination korrigiert den NET-diff auf die drei 0428-201 dateien, aber der review (akte review-1725-head47e516 auf origin/main a2170aaae) Zaehlt einen FREMDEN 0428-199 commit 26755fc1 in der branch-HISTORY und den geteilten consent/auth-gate-fehlschlag auf. Entscheidung dem eigentumer: (option A) history-cleanup per echtem re-cut (frischer branch von develop + nur die drei 0428-201 commits) ODER (option B) history belassen (net-diff clean) und nur auf das geteilte gate warten. Ich EMPFEHLE re-cut (option A) damit #1723 und 0428-201 sauber getrennt sind, plus das gate ist unabhaengig von 1725. Karte -> wait.
 
 #1725 content ist FREI von regress: run 45014090675, alle Go/exact/native PASS, der EINE rote podman data-capabilities job 137182949575 ist ein RUNNER-BOOTSTRAP-STATE (target atomic-podman-data-capabilities core-installation-not-loadable -> footprint show --confirm-candidate abgelehnt) - identisch zur #1753/0428-227 consent-wurzel. develop ist Vorfahr, dekontaminiert (47e51b16), kein lane-zugriff noetig. Merge NACH dem geteilten consent-fix (0428-227 via #1753/#1746).
+
+window-vorhop (fenster ist nicht blockiert, nur reihenfolge): #1725 ist open/ready mit head 47e51b16e, own-catalog-edit NO, base-pre-#1762. f0f hoppt additive auf ef73b50b + exact-head-pruefung, damit die karte im naechsten freien merge-slot abnahmebereit liegt. develop-stand: ef73b50b (#1738+ #1762+ #1771+ #1761 sind gemergt).
