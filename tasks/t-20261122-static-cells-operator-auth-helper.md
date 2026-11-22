@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: b90e4ba1 (#1771) / f0f6c8b4 (#1761) / Coordinator
-kanban_status: active
-kanban_lane: active
+owner: Owner (#1761 MERGED 78f75c90; #1771 owner update-branch 04bc2e3e run 45074956259 running) / ffe(#1762 owner re-hop; #1773) / Coordinator
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-231 · operator auth in static cells
 priority: ""
@@ -23,18 +23,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1761", "https://github.com/mcpdev80/baseharbor/actions/runs/44994765677", "https://github.com/mcpdev80/baseharbor/actions/runs/44998552411", "https://github.com/mcpdev80/baseharbor/actions/runs/44999534797", "https://github.com/mcpdev80/baseharbor/actions/runs/45000121766", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/hunt-operator-auth-static-cells-round-1.md"]
 ---
 
-- [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261122-static-cells-operator-auth-helper · operator auth in static cells #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (\#1771) / f0f6c8b4 (\#1761) / Coordinator  
+    **Owner:** Owner (\#1761 MERGED 78f75c90; \#1771 owner update-branch 04bc2e3e run 45074956259 running) / ffe(\#1762 owner re-hop; \#1773) / Coordinator  
     **PR:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1784](https://github.com/mcpdev80/baseharbor/pull/1784), [baseharbor#1785](https://github.com/mcpdev80/baseharbor/pull/1785), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1786](https://github.com/mcpdev80/baseharbor/pull/1786), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1761), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44994765677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44998552411), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44999534797), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-cells-operator-auth-helper/review-1761-head669d76ac447.md), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/hunt-operator-auth-static-cells-round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md)  
-**Owner:** b90e4ba1 (#1771) / f0f6c8b4 (#1761) / Coordinator  
+**Owner:** Owner (#1761 MERGED 78f75c90; #1771 owner update-branch 04bc2e3e run 45074956259 running) / ffe(#1762 owner re-hop; #1773) / Coordinator  
 **Priority:** not set  
 **PRs:** [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1784](https://github.com/mcpdev80/baseharbor/pull/1784), [baseharbor#1785](https://github.com/mcpdev80/baseharbor/pull/1785), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1786](https://github.com/mcpdev80/baseharbor/pull/1786), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770)  
 **Source:** 
@@ -134,3 +134,5 @@ CATALOG-Order bestaetigt: #1785 (f0f surface-e, diff nur pr-gate-coverage.json, 
 #1771 additiver hop 2d578b1d auf develop 978a0f90b (#1786: target.go+provider_test cataloged, disjunkte write-sets, KEIN conflict). EXACT run 45063171920 terminal: TRUSTED PLAN SUCCESS (job 137333403798) = der 2-unkatalogisierte-sources TP-fail ist behoben (catalog geerbt, gemessen). PROVIDER-FIX FELDBESTAETIGT: kein 'has no authenticated live runtime binding' reject mehr, runtime probe passiert, up/up-with-confirm-candidate formen OK. reds NUR shared: native :edge waiting-#1770 (137333455659/74) + selected waiting-#1783/#1788 (consent + footprint-show admission, 137333849722/74). #1761 b9b8f059 TP-green. Merge-ready beider nach #1770+#1783 combined + owner review. develop 978a0f90b.
 
 FANOUT LIVE (develop 66ce0055 = #1770 pin + #1783 fixture GEMERGT, deadlock geklart): #1771 (war 2d578b1d) + #1761 (war b9b8f059) additiv auf 66ce0055 gehopped (b90e/f0f) -> combined develop erbt native-pin (kein :edge) + selected fixture -> erwartet VOLLSTAENDIG gruen. Owner verified gates + merged gruenen PRs. heads nach hop folgen. #1762 separat ffe. develop 66ce0055.
+
+#1761 MERGED zu develop 78f75c90 (operator-auth helper). #1771 re-hop = owner update-branch head 04bc2e3e (run 45074956259, no fails, native/selected aktiv) -> gruene required checks erwartet -> owner merge. Kein doppelwriter (b90e hopte genau diesen head vorher, owner fuehrt update-branch aus). develop 78f75c90.
