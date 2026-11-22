@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: b90e4ba1 (lane, abdeckung + pruefung eingeleitet) / coord (zeugnis)
+owner: b90e4ba1 (lane) / coord (zeugnis)
 tags: [#task, #release/v0.4-28]
 kanban_status: active
 kanban_lane: active
@@ -21,21 +21,21 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md", "https://github.com/mcpdev80/baseharbor/pull/1763", "https://github.com/mcpdev80/baseharbor/actions/runs/45005245380", "https://github.com/mcpdev80/baseharbor/actions/runs/45008350091", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/redaction-round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/45010884066"]
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md", "https://github.com/mcpdev80/baseharbor/pull/1763", "https://github.com/mcpdev80/baseharbor/actions/runs/45005245380", "https://github.com/mcpdev80/baseharbor/actions/runs/45008350091", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/redaction-round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/45010884066", "https://github.com/mcpdev80/baseharbor/actions/runs/45010958948"]
 ---
 
 - [ ] t-20261122-broker-diagnostics-empty · CLI: name the failing dependency in broker readiness diagnostics #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (lane, abdeckung + pruefung eingeleitet) / coord (zeugnis)  
+    **Owner:** b90e4ba1 (lane) / coord (zeugnis)  
     **PR:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1763), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45005245380), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45008350091), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/redaction-round-1.md), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/45010884066)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1763), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45005245380), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45008350091), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/redaction-round-1.md), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/45010884066), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45010958948)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** b90e4ba1 (lane, abdeckung + pruefung eingeleitet) / coord (zeugnis)  
+**Owner:** b90e4ba1 (lane) / coord (zeugnis)  
 **Priority:** not set  
 **PRs:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763)  
 **Source:** 
@@ -113,3 +113,5 @@ testkurz
 ROTSTUNG IST GELIEFERT, gemessen bestaetigt: head b38838e1c30 auf lane-0428-240-broker-diagnostics (base develop 8629450ef3c, additiv gehopft, kein rebase/amend/force), PR 1763 draft. Code-Beweis: 'truncateDiagnosticTail' ENTFERNT, koerper nur name/status/version, nicht-JSON faellt auf eine laengen-angabe, log-tail nur zeilenzahl + ganze token-nennung; MARKIERER-TEST laeuft in den cli-shards dieses durchgangs (TestRuntimeBrokerReadinessDiagnosticsNeverEchoesValueMarker, 4 faelle, 'token=abc123' darf nicht erscheinen, der name wohl). Durchgang 45008350091 SUCCESS/0 failed ABER nur Draft-Go + source/routing (cli-0 137164863124, cli-1 137164863204, cli-2 137164863115, cli-3 137164863161, packages 137164863193); native und policy-/validierungs-gates SKIPPED = KEIN pruef- oder merge-beleg. NAechster schritt auf anweisung des eigentuemers: draft->readySwitch, damit die erforderlichen nativen gates laufen, dann exact-head-pruefung. Hinweis sprachregel: zwei brocken ihrer angabe waren niederlaendisch ('gesloten', 'laeuft in de cli-shards van deze run') - akten und meldungen bleiben deutsch mit englischen fachwoertern.
 
 CODEX-verdict fecbada9 am exakten head b38838e1c30 = REQUEST CHANGES, entscheidung (b): native lifecycle-abdeckung NOETIG, skipped-native ist KEIN beleg. Die LANE hat die luecke auf ECHTEM wege adressiert, OHNE scripts/** anzufassen: sie dispatchte den gehosteten Pre-Release-durchgang 45010884066 (workflow_dispatch, exakt target head b38838e1c30 + demo 5d1cf312, Docker+Podman data-capabilities), aktuell queued bei SourceCandidate und Gate Plan (job 137172737923). Das ist der geforderte runtime-beleg fuer die diagnose-zeichenkette. Die DAUERHAFTE katalog-abbildung bleibt KARTE 0428-242 (scripts/**, owner-scope). Naechster schritt: durchgang 45010884066 bis terminal beobachten; bei gruen die unabhaengige pruefung am exakten head (mit dem jetzt echten runtime-beleg) ansetzen.
+
+KORRIGIERTER durchgang: der erste versuch 45010884066 terminal FAILURE, aber NUR im source-preflight ('Source . Candidate and Gat' + 'Source . Qualified'), weil als release v0.4.28 OHNE pinned demo-revision uebergeben wurde - ein dispatch-eingabe-fehler, KEIN kandidat-code-fehler (develop traegt v0.4.27 mit demo-pin f23b6e09). Der korrigierte runtime-only-durchgang 45010958948 laeuft jetzt gegen denselben exakten head b38838e1c30 (Docker+Podman data-capabilities, 7 jobs aktiv, 0 failed). Das ist die gezielte runtime-abdeckung fuer die CODEX-entscheidung (b), KEINE v0.4.28-release-qualifikation. Die dauerhafte katalog-abbildung bleibt 0428-242 (scripts/**, owner-scope). NAechSTER: durchgang bis terminal, dann die unabhaengige pruefung am exakten head MIT dem echten runtime-beleg.
