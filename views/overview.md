@@ -10,9 +10,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 7 |
+| active | 8 |
 | review | 2 |
-| wait | 22 |
+| wait | 21 |
 | blocked | 1 |
 | ready | 7 |
 | queued | 25 |
@@ -31,6 +31,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-base-branch-provenance-loss](../tasks/t-20261121-base-branch-provenance-loss.md) | 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened | active | high | coordinator | — | — |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
 | [t-20261122-ci-cells-missing-runner-prerequisites](../tasks/t-20261122-ci-cells-missing-runner-prerequisites.md) | 0428-229 · Provision the runner prerequisites the two PR CI cells already require | active | high | w21-pr1702-0428-142-compat | — | [baseharbor#1754](https://github.com/mcpdev80/baseharbor/pull/1754) |
+| [t-20261122-impact-consent-after-preview-contract](../tasks/t-20261122-impact-consent-after-preview-contract.md) | Env destroy: impact consent validated after preview is structurally stale (five fixture rounds) | active | not set | w21-pr1702-0428-142-compat | — | — |
 
 ## Ready for review
 
@@ -64,7 +65,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-static-gate-registration](../tasks/t-20261121-static-gate-registration.md) | 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate | wait | high | coordinator | — | [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746) |
 | [t-20261121-trust-uninstall-false-green](../tasks/t-20261121-trust-uninstall-false-green.md) | trust-uninstall EOF tests are green on the auth gate error | wait | high | coordinator | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737) |
 | [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](../tasks/t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md) | Acceptance contract: baha app footprint show is admitted only for the guided gate | wait | not set | w21-pr1702-0428-142-compat | [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md) (open), [t-20261122-ci-integration-operator-seams-without-gate-admission](../tasks/t-20261122-ci-integration-operator-seams-without-gate-admission.md) (open) | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753) |
-| [t-20261122-impact-consent-after-preview-contract](../tasks/t-20261122-impact-consent-after-preview-contract.md) | Env destroy: impact consent validated after preview is structurally stale (five fixture rounds) | wait | not set | w21-pr1702-0428-142-compat | — | — |
 
 ## Blocked
 
