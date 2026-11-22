@@ -57,3 +57,7 @@
 REQUEST CHANGES — the file port is textually complete, but the referenced fixtures are undefined on develop and exact-head CI failed. Keep #1741 open until #1769 is fixed, verified, and merged; then rerun #1741.
 
 END codex-rev2-1736 DONE: REQUEST CHANGES for exact head acfee600b70b8905a16ed118a071a37cdaa9e352; #1741 remains open pending #1769 verification and merge.
+
+## publication witness
+
+- Exact `git ls-tree -r --name-only origin/main | grep` output after fetching origin/main: `evidence/r28-welle5-2026-11-22/mcp-operator-seam-0428-218/review-1769-headacfee600.md`
