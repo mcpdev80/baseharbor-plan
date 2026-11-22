@@ -37,10 +37,10 @@ Run `44974482264` was triggered by `pull_request`, completed at `2026-11-22T02:0
 - `PR · Draft Go · cli-1` job `137061187082`: SUCCESS.
 - `PR · Draft Go · cli-2` job `137061187002`: SUCCESS.
 - `PR · Draft Go · cli-3` job `137061187025`: SUCCESS. Its step “Install interactive shells for the shell-wrapper path” executed `sudo apt-get install -y zsh fish` and printed `zsh: /usr/bin/zsh` and `fish: /usr/bin/fish`.
-- The following cli-3 step “Reuse canonical CLI shards and test selected non-CLI packages” ran with `BASE_SHA=6209874428f08dc3e90d6e29a42b30683ce9932a`, `HEAD_SHA=acd8dd95e6a7d77d59e6a602203e5891efc32cf8`, and `SHARD=cli-3`, then printed `No changed Go packages.` Because the reviewed diff changes only `.github/workflows/ci.yml`, the CLI shard script selected no Go packages. Thus this run proves the shell provisioning executes on cli-3, but does not prove the zsh/fish wrapper regression executed.
+- The following cli-3 step “Reuse canonical CLI shards and test selected non-CLI packages” ran with `BASE_SHA=6209874428f08dc3e90d6e29a42b30683ce9932a`, `HEAD_SHA=acd8dd95e6a7d77d59e6a602203e5891efc32cf8`, and `SHARD=cli-3`, then printed `No changed Go packages.` Because the reviewed diff changes only `.github/workflows/ci.yml`, the CLI shard script selected no Go packages. Thus this run proves the shell provisioning executes on cli-3, but does not prove `TestEndToEndInstalledZshAndFishWrappers` executed.
 - `PR Selected Checks` job `137061189427`: SKIPPED. This Draft-triggered run is not a receipt for that aggregate.
 
-The new step has exact parity with the existing ready-shard provisioning template, and the source diff remains limited to the intended workflow insertion. The remaining acceptance gap is test routing: this workflow-only change does not select `cmd/baha/context_terminal_test.go`, and the successful cli-3 job explicitly reports no changed Go packages. A real executed wrapper test on the exact SHA is still required before approval.
+The new step has exact parity with the existing ready-shard provisioning template, and the source diff remains limited to the intended workflow insertion. The remaining acceptance gap is test routing: this workflow-only change does not select `cmd/baha/context_terminal_test.go`, and the successful cli-3 job explicitly reports no changed Go packages. The exact missing receipt is an executed `TestEndToEndInstalledZshAndFishWrappers` on this SHA; it is still required before approval.
 
 ## Affected exact heads after #1754 lands on develop
 
