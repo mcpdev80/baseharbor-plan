@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: 0428-223-testctx
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "The whole-package Go unit suite (go test ./...) is red on develop and no merge gate runs it: make the suite pass on develop…"
 kanban_title: 0428-223 · full-suite unit tests are red
 priority: ""
@@ -18,19 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1750]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "kandidat ist unveraendert gut (head 1588ee1be72, back=0, die 14 mission-namen hosted gruen, validate-step 14 ok cmd/baha 306.966s), ABER zwei owner-scope umgebungs-defekte machen den exakten lauf rot, von der lane belegt: (1) 'validate' installiert kein ORAS => cmd/baha/app_repository_integration_test.go:27 'ORAS is required before Core setup' (job 137044903908, step 16; develop-lauf 44918870333 zeigt denselben text, ORAS-install fehlt in der validate-umgebung sowohl auf 22fc68ebc als auch auf 6209874428f); (2) 'PR · Draft Go · cli-3' (ci.yml:1646) installiert kein zsh/fish => cmd/baha/context_terminal_test.go:467 'zsh: executable file not found' (job 137044885831); der nicht-draft-shard installiert sie (ci.yml:1260). naechster ausloeser: owner aendert .github/workflows/ci.yml (ORAS-install im validate-job, shells im draft-shard); kein eigener defect der lane"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-develop-full-suite-red · CI: full-suite unit tests are red on develop and no merge gate runs them #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261121-develop-full-suite-red · CI: full-suite unit tests are red on develop and no merge gate runs them #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** 0428-223-testctx  
     **PR:** [baseharbor#1750](https://github.com/mcpdev80/baseharbor/pull/1750)  
+    **Waiting:** kandidat ist unveraendert gut (head 1588ee1be72, back=0, die 14 mission-namen hosted gruen, validate-step 14 ok cmd/baha 306.966s), ABER zwei owner-scope umgebungs-defekte machen den exakten lauf rot, von der lane belegt: (1) 'validate' in…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** 0428-223-testctx  
