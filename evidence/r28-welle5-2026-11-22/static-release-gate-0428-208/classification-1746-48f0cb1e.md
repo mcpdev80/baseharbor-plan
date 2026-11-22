@@ -48,4 +48,8 @@ PR #1751/card 0428-225 is merged, but its diff changes only `cmd/baha/agent_mcp_
 No local tests were run. No PR comment, rerun, workflow dispatch, merge, or product edit was made. The full static-suite success criterion remains unmet: the catalog claim is disproven, the operator-auth context is a separate inherited prerequisite, and the MCP fixture mismatch needs a follow-up outside this candidate. The existing six-gate run is terminal; ci-fast-check passed but does not override the four failures.
 
 VERDICT: HELD (classification only)
-END codex-rev2-1736 DONE — classification complete; evidence publication pending.
+END codex-rev2-1736 DONE — classification complete; evidence path verified on origin/main.
+
+## origin/main evidence path witness
+
+evidence/r28-welle5-2026-11-22/static-release-gate-0428-208/classification-1746-48f0cb1e.md
