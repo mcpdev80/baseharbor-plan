@@ -7,7 +7,7 @@ areas: [ci, testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: b90e4ba1 (#1774) / coord (route) / owner (akzeptanz)
+owner: b90e4ba1 (#1774) / owner (akzeptanz) / coord
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: ""
@@ -18,23 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1774]
 sources: []
 blocker: ""
-wait_reason: "#1774 (draft, head acd57828) exact draft-CI 45029281024 SUCCESS (routing + alle cli/package shards), mergeState UNSTABLE. Wartet OWNER-AKZEPTANZ zum promote (draft->ready), dann NORMALE PR-CI + verify native/docker+podman/data-caps EXACT selected jobs (nicht skipped). Unlockt drei sachen: A ci-fast-check.sh -> #1746 static cells; B ci-native-pr-gate.sh -> #1770 native; C app_footprint_presenter.go -> #1773/0428-246. Kein merge bevor owner akzeptiert + native echt laeuft."
+wait_reason: "STAND diff acd57828 = NUR eintrag B (ci-native-pr-gate.sh). A (scripts/ci-fast-check.sh->atomic/static/ci-fast-check) und C (app_footprint_presenter.go product-gate) FEHLEN noch -> #1746-static + #1773/246 bleiben blockiert. b90e4ba1 ergaenzt A+C als zweiten additiven commit + planner-3x-ja beweis. Draft-CI 45029281024 (nur B) war SUCCESS; nach A+C exact-hosted neu + owner-akzeptanz + normale PR-CI + native/data-caps exact (nicht skipped) vor merge."
 resolution: ""
 evidence: []
 ---
 
 - [ ] t-20261122-gate-catalog-completion-ci-executor · Complete the gate catalog by registering the three remaining changed paths in pr-gate-coverage.json so dependent gates execute #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/testing #kind/task
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (\#1774) / coord (route) / owner (akzeptanz) · **Priority:** high  
+    **Owner:** b90e4ba1 (\#1774) / owner (akzeptanz) / coord · **Priority:** high  
     **PR:** [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774)  
-    **Waiting:** \#1774 (draft, head acd57828) exact draft-CI 45029281024 SUCCESS (routing + alle cli/package shards), mergeState UNSTABLE. Wartet OWNER-AKZEPTANZ zum promote (draft-\>ready), dann NORMALE PR-CI + verify native/docker+podman/data-caps EXACT s…  
+    **Waiting:** STAND diff acd57828 = NUR eintrag B (ci-native-pr-gate.sh). A (scripts/ci-fast-check.sh-\>atomic/static/ci-fast-check) und C (app\_footprint\_presenter.go product-gate) FEHLEN noch -\> \#1746-static + \#1773/246 bleiben blockiert. b90e4ba1 ergae…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** b90e4ba1 (#1774) / coord (route) / owner (akzeptanz)  
+**Owner:** b90e4ba1 (#1774) / owner (akzeptanz) / coord  
 **Priority:** high  
 **PRs:** [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774)  
 **Source:** 
