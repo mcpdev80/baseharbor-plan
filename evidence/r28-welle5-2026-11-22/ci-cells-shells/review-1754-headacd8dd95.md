@@ -71,3 +71,11 @@ Exact remote Planning tree output after fetch:
 evidence/r28-welle5-2026-11-22/ci-cells-shells/review-1754-headacd8dd95.md
 evidence/r28-welle5-2026-11-22/sourcepull-0428-061/identity-followup-e7df5ab4.md
 ```
+
+## PLAN — tail follow-up
+
+139. Read /var/tmp/m/rev1754.md.tail.g and capture the exact #1754 follow-up scope and restrictions. DONE.
+140. Refresh #1754 exact PR head, base, and relevant hosted CI result from the GitHub remote. DONE.
+141. Inspect the requested source/test/CI evidence read-only; do not run local tests or change PR state. DONE.
+142. Update the prescribed Planning evidence with the exact-head finding and verdict or hold. DONE.
+143. Validate and publish only the evidence, verify origin/main path, update the board, and post END. DONE.
