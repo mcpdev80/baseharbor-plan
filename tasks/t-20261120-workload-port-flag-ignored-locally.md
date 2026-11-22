@@ -28,7 +28,7 @@ created: 2026-11-20
     <!-- generated:card -->
     **Owner:** ffe7611b (lane)  
     **PR:** [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723)  
-    **Needs:** [t-20261114-r28-cli2-env-delete](t-20261114-r28-cli2-env-delete.md), [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md)  
+    **Needs:** [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44788134959), [proof 2](https://github.com/mcpdev80/baseharbor/pulls/1723), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md)  
     <!-- /generated:card -->
 

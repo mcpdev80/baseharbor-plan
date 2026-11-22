@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: Codex owner (combined validation ref)
-kanban_status: active
-kanban_lane: active
+owner: f0f6c8b4 (lane) / Owner (merge autorisiert)
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Environment deletion lifecycle. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-055 · Env deletion lifecycle
 priority: high
@@ -19,23 +19,23 @@ prs: [mcpdev80/baseharbor#1627, mcpdev80/baseharbor#1736]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1627", "https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677", "https://github.com/mcpdev80/baseharbor/actions/runs/44852435311", "https://github.com/mcpdev80/baseharbor/pull/1615", "https://github.com/mcpdev80/baseharbor/pull/1736", "https://github.com/mcpdev80/baseharbor/actions/runs/44859609354"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1627", "https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677", "https://github.com/mcpdev80/baseharbor/actions/runs/44852435311", "https://github.com/mcpdev80/baseharbor/pull/1615", "https://github.com/mcpdev80/baseharbor/pull/1736", "https://github.com/mcpdev80/baseharbor/actions/runs/44859609354", "https://github.com/mcpdev80/baseharbor/commit/acc34323968", "https://github.com/mcpdev80/baseharbor/actions/runs/44996713389"]
 ---
 
-- [ ] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [x] t-20261114-r28-cli2-env-delete · CLI redesign: Environment deletion lifecycle #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** Codex owner (combined validation ref) · **Priority:** high  
+    **Owner:** f0f6c8b4 (lane) / Owner (merge autorisiert) · **Priority:** high  
     **PR:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627), [baseharbor#1736](https://github.com/mcpdev80/baseharbor/pull/1736)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1627), [proof 2](https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44852435311), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1615), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1736), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44859609354)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1627), [proof 2](https://github.com/mcpdev80/baseharbor/commit/202b984e2a103d713bb688eb0b8be52f1ddfa677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44852435311), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1615), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1736), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44859609354), [proof 7](https://github.com/mcpdev80/baseharbor/commit/acc34323968), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/44996713389)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
 **Required by:** [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md), [t-20261120-workload-port-flag-ignored-locally](t-20261120-workload-port-flag-ignored-locally.md)  
-**Owner:** Codex owner (combined validation ref)  
+**Owner:** f0f6c8b4 (lane) / Owner (merge autorisiert)  
 **Priority:** high  
 **PRs:** [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627), [baseharbor#1736](https://github.com/mcpdev80/baseharbor/pull/1736)  
 **Source:** 
@@ -120,3 +120,5 @@ ABHAENGIGKEITS-KOERPER (inhaltlich), von mir gemessen und bisher falsch beschrie
 MERGE-REIHENFOLGE, Owner-Anweisung 01:2xZ, bindig: #1627 zuerst ordinary merge, DANN #1736 als 'inhaltlich enthalten' schliessen (superseded), falls GitHub es nicht automatisch schliesst. #1736 darf VOR #1627 NICHT unabhaengig gemergt werden. VON MIR KORRIGIERT, WEIL ICH ZUERST 'nicht enthalten' GEMESSEN HATTE: 'git cherry -v refs/pull/1627/head refs/pull/1736/head' = '-' fuer alle drei commits 8f11a34da52 (route), 6af74ddf477 (register), 31d8e5e0e82 (defer) - patch-aequivalent schon in #1627, und 1e2ba9d5786 ist ancestor von b3b0c2c9efc. der ancestor-test auf 4c919fd61f3 sagt NEIN, aber das ist nur der develop-merge-wrapper des hops, nicht der inhalt. inhaltlich ist die abhaengigkeit also ERFUELLT. #1736 exakter run 44960494316 ist completed/SUCCESS auf 4c919fd61f3 (docker UND podman coreless-lifecycle ausgefuehrt, PR Selected Checks gruen, mergeStateStatus=CLEAN); das verdict wird von der review-session auf diesen head verlaengert mit der premerge-auflage 'nicht vor #1627 mergen'. #1627 exakter run 44961334018 auf b3b0c2c9efc ist in_progress (25 success, 0 failure).
 
 hop to develop 8b9a8f50645 dispatched after PR 1736 merged; acceptance proof is exact Docker and Podman coreless-lifecycle execution of TestEnvironmentDestroyNativeLifecycle
+
+PR 1627 ist GEMERGT: merged_at 2026-11-22T07:24:02Z, merge-commit acc34323968 = neuer develop-stand (ls-remote bestaetigt). Exakter kandidat head fe4027f7986, base 52a3c5446f4, run 44996713389 SUCCESS/0 failed, coreless-lifecycle docker 137132416299 und podman 137132563518 SUCCESS, alle sechs matrix-slices success, aggregate 'PR Selected Checks' 137132582868 SUCCESS, mergeStateStatus CLEAN, nicht draft. Der fix war eine testerwartung (persistierter record runtime-retired, user-seitiger status stopped) nach ihrer vertragentscheidung, ohne produkt-sematik. 'PR . Selected Runtime' war SKIPPED - base-zeiger-verzug aus karte 0428-235, kein ersetztes gate.
