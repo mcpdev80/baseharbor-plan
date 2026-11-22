@@ -53,6 +53,10 @@ origin	https://github.com/mcpdev80/baseharbor-plan.git (push)
 
 `docker ps -a` after: PID 2513837; no containers listed. This review started no containers or compose projects.
 
+## Planning validation state
+
+`python3 scripts/plan.py check` reported 1 error and 13 warnings after evidence publication. The error is external to this review: `tasks/t-20261122-impact-consent-after-preview-contract.md: blocker is set but the card is not #status/blocked`. That task file and other concurrent Planning modifications were left untouched; the review evidence itself is on `origin/main`.
+
 ## END
 
 END codex-rev-1747 DONE: APPROVE for #1756 exact head `4f2a5d4701c429eb7788b25e958b676d1f5f0356`; run `44990390149` SUCCESS, `pr-planner-tests` job `137110003413` SUCCESS; 50/50 expected pairs verified. Planning remote: `origin https://github.com/mcpdev80/baseharbor-plan.git`.
