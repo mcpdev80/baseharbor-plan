@@ -71,4 +71,13 @@ origin https://github.com/mcpdev80/baseharbor-plan.git (push)
 
 - `docker ps -a --no-trunc` after audit work: no containers listed.
 
-END_DONE codex-rev-1747: census completed for 16 open PRs; zero live foreign open-head ancestry pairs; #1725 needs clean re-cut; Planning publication follows.
+
+## Origin/main tree witness
+
+Exact output of `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep 'evidence/r28-welle5-2026-11-22/stale-pr-census/cross-ancestry-audit-acc34323968.md'` after fetching origin/main:
+
+```text
+evidence/r28-welle5-2026-11-22/stale-pr-census/cross-ancestry-audit-acc34323968.md
+```
+
+END_DONE codex-rev-1747: 16 open PRs audited; zero live foreign-head ancestry pairs; #1725 is the next clean re-cut; Planning remote origin https://github.com/mcpdev80/baseharbor-plan.git.
