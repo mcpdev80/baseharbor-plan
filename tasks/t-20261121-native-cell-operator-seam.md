@@ -7,7 +7,7 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: b90e4ba1 (#1765 catalog-entry + final-hop auf b48ac03ef laeuft) / Coordinator
+owner: b90e4ba1 (#1765 TP-eintrag iteration 2, head 90586945a, run 45081520103 laeuft) / Coordinator
 kanban_status: active
 kanban_lane: active
 kanban_summary: "controlplanesinglenativecitest.go stops failing with prepare BaseHarbor integration trust plane: because the native-cell test…"
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1740", "https://github.c
 
 - [ ] t-20261121-native-cell-operator-seam · 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (\#1765 catalog-entry + final-hop auf b48ac03ef laeuft) / Coordinator · **Priority:** high  
+    **Owner:** b90e4ba1 (\#1765 TP-eintrag iteration 2, head 90586945a, run 45081520103 laeuft) / Coordinator · **Priority:** high  
     **PR:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740), [baseharbor#1765](https://github.com/mcpdev80/baseharbor/pull/1765), [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1765), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45021008989), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44868911131)  
     <!-- /generated:card -->
@@ -36,7 +36,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1740", "https://github.c
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** b90e4ba1 (#1765 catalog-entry + final-hop auf b48ac03ef laeuft) / Coordinator  
+**Owner:** b90e4ba1 (#1765 TP-eintrag iteration 2, head 90586945a, run 45081520103 laeuft) / Coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740), [baseharbor#1765](https://github.com/mcpdev80/baseharbor/pull/1765), [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766)  
 **Source:** 
@@ -119,3 +119,5 @@ ROUTE-WECHSEL bestaetigt: statt #1740 base-retarget wurde ein NEUER develop-basi
 Nach #1766 ist die stale assertion KEIN #1765-blocker mehr (beide native keycloak/core green). Was bleibt ist DERSELBE cluster wie #1753: broker 503 (0428-237) + selected confirm-candidate consent (0428-227, braucht Core/owner decision, karte 236 dropped). Delta sauber. PR-ref #1740->#1765 (owner bat darum bei closeout).
 
 TP-fund von b90e: eigene neue source cmd/baha/control_plane_single_native_ci_test.go war nie katalogisiert -> fail-loud guardian. Lane-fix im selben PR (test-to-CI-Aufnahmepflicht, katalog ist Codeman-owned): b90e ergaenzt die source-entry (analog target_runtime_access_provider_test.go: runtime_specific + beide data-capabilities surfaces) + hoppt final auf develop b48ac03ef, ein Push, ein exact-head run.
+
+stand: components-eintrag formgleich platziert (+9, nur eigene zeilen), TP dennoch uncataloged -> inbox-hint gegeben: praezedenz #1786 (978a0f90) dateiuebergreifend replizieren + base-vs-head-lesepfad des guardians belegen. Zweiter identischer failure = eskalation der guardian-diagnose an codex (planned karte 0428-249 grenze beachten: kein .github).

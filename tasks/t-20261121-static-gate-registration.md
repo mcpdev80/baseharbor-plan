@@ -8,9 +8,9 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: Owner (zsh+fish REKORDIERT approved) / Coordinator / b90e+f0f (0428-231)
-kanban_status: wait
-kanban_lane: wait
+owner: ffe7611b (owner-delegierter release-only katalog-fix auf #1746, target cace61802) / Coordinator
+kanban_status: active
+kanban_lane: active
 kanban_summary: Run the existing scripts/ci-fast-check.sh as its own static gate in the v0.4.28 Pre-Release Suite. Preserve every existing…
 kanban_title: 0428-208 · 0428-208 static gate
 priority: high
@@ -18,24 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1774, mcpdev80/baseharbor#1782, mcpdev80/baseharbor#1761]
 sources: []
 blocker: ""
-wait_reason: "OWNER-WAHL REKORDELT: #1746 zsh UND fish EXPLICIT approved; own shell-CI auf 8561447dc (45051210001) beide installiert/getestet, own green; 1 Aggregat-fail = 0428-231 prereq (#1761 catalog surface-e + #1771 target.go+catalog-row). Merge/Release-Confirmation proceed wenn 231 gaetes gruen + full static suite + Coordinator+Release-Owner confirmations. develop 484c95fca."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md"]
 ---
 
-- [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/wait #view/wait #area/ci #kind/task
+- [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** Owner (zsh+fish REKORDIERT approved) / Coordinator / b90e+f0f (0428-231) · **Priority:** high  
+    **Owner:** ffe7611b (owner-delegierter release-only katalog-fix auf \#1746, target cace61802) / Coordinator · **Priority:** high  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
-    **Waiting:** OWNER-WAHL REKORDELT: \#1746 zsh UND fish EXPLICIT approved; own shell-CI auf 8561447dc (45051210001) beide installiert/getestet, own green; 1 Aggregat-fail = 0428-231 prereq (\#1761 catalog surface-e + \#1771 target.go+catalog-row). Merge/Re…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44997978036), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** Owner (zsh+fish REKORDIERT approved) / Coordinator / b90e+f0f (0428-231)  
+**Owner:** ffe7611b (owner-delegierter release-only katalog-fix auf #1746, target cace61802) / Coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
 **Source:** 
@@ -100,3 +99,5 @@ CENSUS IST DA und faellt in die mittelste kategori (b): die vier gates init/conf
 GRUND KORRIGIERT, MESSE STATT ERINNERUNG: mein bisheriger wart-grund ('wartet auf den helper aus PR 1761') ist WIDERLEGT - das diff von PR 1746 gegen develop 8629450ef3c beruehrt KEIN operatorauth-symbol (suche im diff: operatorauth / test_operator / RequireAuthenticatedOperator = keine treffer) und hat NULL pfade in cmd/baha, internal/capability oder internal/controlplaneruntime. Der diff besteht aus .github/workflows/pre-release.yml, .github/workflows/pre-release-runtime-suite.yml, CHANGELOG.md, docs/releases/v0.4.28.demo-ref und neun dateien in scripts/ (pr-gate-plan.py, pre-release-check-plan.py, pre-release-runtime-impact.json, release-requirements.json, ci-fast-check.sh, drei test_*.py). rueckstand nur 29 commits, 12 dateien. DAMIT: kein broker-bezug, kein helper-bezug - aber der diff liegtkomplett in RESERVIERTEN gebieten, die keine lane aendern darf. Abgabe-entscheidung ist ihre: entweder sie ziehen den hop selbst, oder sie geben eine benannte lane mit ausdruecklicher ausnahme fuers .github/-und scripts/-gebiet. Der previous exact durchgang 44997978036 war SUCCESS/0 failed am head e455302f1a8 (base damals 52a3c5446f4).
 
 ROLLE KLARGESTELLT: diese karte bleibt der ZENSUS-verweis auf die gate-deckung von PR 1746 (verdict (b), akte gate-census-1746.md, plan 03e506a81). INTEGRATION und hop laufen ueber karte 0428-205 auf der lane ffe7611b - beide eroeffnen denselben PR, aber nur 0428-205 fuehrt ihn. Mein bisheriger wart-grund 'wartet auf den helper aus PR 1761' ist WIDERLEGT: der diff hat keinen verweis auf operatorauth/test_operator und keine broker-pfade (gemessen). Neuer grund: reservierte gebiete (scripts/** und .github/**), deren korrektur innerhalb der 205-vollmacht ist aktiv, plus der fisch-einschraenkungs-punkt des eigentuemers.
+
+PROMOTED per owner-delegation: die freigegebene katalog-release-only korrektur (ledger 1291 rezept) wird von sitz ffe auf branch lane-0428-208-static-release-gate (head 208ee7607) ausgefuehrt. .github-bestand des PRs bleibt owner-eigentumunangetastet; kein PR-CI-neu-route. PR-aggregat muss nach fix weg-gruen; full release gate bleibt owner-aktion.
