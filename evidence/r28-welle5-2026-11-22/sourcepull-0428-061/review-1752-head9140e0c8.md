@@ -125,3 +125,14 @@ Repair: add an explicit `approval` input and call `applicationlifecycle.RequireA
 
 F4 is a blocking REQUEST CHANGES finding alongside F1 and F2. The owner’s request to preserve explicit approval is consistent with this verified gap. Product branch remains untouched.
 - F4 publication delivery witness: `725a749fd455ab75ff0abd82c884a0e61d0b6cbd refs/heads/main`.
+
+## Hold instruction — /var/tmp/revf4.g.md
+
+### PLAN
+
+1. Keep the existing REQUEST CHANGES verdict for #1752 head `9140e0c8224e` as the controlling review; issue no second verdict on that head.
+2. Leave #1753 on its existing hold and make no product or GitHub PR changes.
+3. Wait for the card owner’s new exact #1752 head and terminal successful hosted run before any fresh review; then inspect approval enforcement, JSON plus `--up`, MCP contract accuracy, and CI routing of the new test.
+4. Record this hold instruction in the Planning evidence and notify the Coordinator that the review seat is held for the new candidate.
+
+Owner/coordinator mission SHA256 `d65b09b8ffed` directs that F4 is already being implemented by card owner w27 under mission `5caf75836375`; the current draft head remains `9140e0c8224e`. The existing REQUEST CHANGES evidence at this exact head remains authoritative. No further review or verdict is issued now. The separate #1753 hold remains unchanged. Board step 107 tracks the wait for a new exact head and terminal green run.
