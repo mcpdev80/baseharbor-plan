@@ -7,7 +7,7 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0428-076-nativeshape
+owner: Coordinator (queued: kein live worker, additiver hop auf 713aadd4 wartet auf freien sitz)
 kanban_status: active
 kanban_lane: active
 kanban_summary: Deliver PostgreSQL/MongoDB panels only when verified compatible metrics and permissions exist.
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261114-r28-perses-dashboard-databases · Perses database dashboards #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0428-076-nativeshape · **Priority:** normal  
+    **Owner:** Coordinator (queued: kein live worker, additiver hop auf 713aadd4 wartet auf freien sitz) · **Priority:** normal  
     **PR:** [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597)  
     <!-- /generated:card -->
 
@@ -34,7 +34,7 @@ evidence: []
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** 0428-076-nativeshape  
+**Owner:** Coordinator (queued: kein live worker, additiver hop auf 713aadd4 wartet auf freien sitz)  
 **Priority:** normal  
 **PRs:** [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597)  
 **Source:** 
@@ -104,3 +104,5 @@ END zurueckgewiesen, gemessen: kandidat 8225f3e6f0bc liegt auf einem NEUEN branc
 PR-head = branch-head = 37d3960001dc (ls-remote), eigener run 44914907130 completed/success am exakten head, 15 checks pass. Zurueckweisung behoben. Offen: base 54 commits hinter develop, hop vor dem merge. Befund: der kandidat aendert auch cmd/baha/app_status_result.go, dieselbe datei wie PR #1702.
 
 CODEX-REVIEW review-2.md = REQUEST CHANGES am exakten head 37d3960001dc: F1 database-verfuegbarkeit ignoriert den aufgeloesten target (perses_dashboards.go:348-377,431-445; app_perses_cli_test.go:493-527 testet die globale map), F2 goldene dateien mit unaufgeloesten placeholders (:173-180,:223-240). Korrektur laeuft auf 0428-076-nativeshape.
+
+CENSUS-KORREKTUR: das alte owner-field '0428-076-nativeshape' ist ein DEFEKTES alias, KEINE live lane. #1597 head 074678d ist seit 2026-11-21 17:48 unangetastet und CONFLICTING gegen develop 713aadd4; kein busy worker-sitz nennt #1597/076 (sie sind 248/250/241/247). 5 sitze belegt (4 produktiv + 03c7350a host-blocked), reviewer rollengetrennt -> hop queue't auf ersten freien sitz (b90e/248 oder f0f/241 zuerst). Additiver merge --no-ff auf develop-head, dann exact hosted. Kein konkurrierender write.
