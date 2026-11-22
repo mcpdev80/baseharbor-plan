@@ -7,8 +7,15 @@
 - (done) 3. PR #1750: push ohne force; run 44990801974 completed SUCCESS, failed jobs 0
 - (done) 4. PR #1750 PFLICHTBELEG: Selected Runtime + Native·matrix STILL SKIPPED (job-ids + plan-rule beigelegt)
 - (done) 5. PR #1753: additive hop 50c4bce74d2, push ohne force; run 44990860430 completed SUCCESS, failed jobs 0; idem SKIPPED-befund
-- (pending) 6. Akte publiceren op plan origin/main + ls-tree-witness
+- (done) 6. Akte publiceren op plan origin/main + ls-tree-witness (plan commit a15c069e0; zie onder)
 - (pending) 7. END post aan 9142ab1f
+
+## publishing witness
+
+```
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep hop-develop-5ca8420c-w223
+evidence/r28-welle5-2026-11-22/base-hop-mechanics/hop-develop-5ca8420c-w223.md
+```
 
 ## Remote witnesses
 
