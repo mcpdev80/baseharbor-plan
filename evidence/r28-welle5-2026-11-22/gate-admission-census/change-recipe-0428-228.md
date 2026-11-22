@@ -73,3 +73,32 @@ Inside the `"core"` object (current entries at lines 30-31 are the two `app_mach
    data-capabilities)` must then be **executed**, not skipped; card 0428-227 is accepted only on that witness.
 
 Do not accept 0428-227 while the runtime job is skipped: a skipped gate is never evidence.
+
+## Extension measured for PR #1750 (same admission gap, second victim)
+
+Reviewer handoff at exact head `17f471cd3fe9a41fbe5b4e2d3d2748f1e1bf9c99` (base develop `82825e95a6f`, PR ready): run
+`44982566548` completed/success with `PR Selected Checks` = **success** (job `137087212830`, all six "require …"
+steps success), but `PR · Selected Runtime` = **SKIPPED** (job `137086100059`) and `PR · Native` = skipped
+(`137086081200`). The verdict is therefore REQUEST CHANGES on admission grounds, not on code: the runtime-consent
+behaviour this PR fixes is only observable inside a runtime gate, and no gate was selected.
+
+Cause measured: the candidate changes only test sources -
+`cmd/baha/test_operator_context_test.go`, `cmd/baha/application_lifecycle_lock_test.go`,
+`cmd/baha/app_init_source_neutral_test.go`, `cmd/baha/app_init_wizard_test.go`, `cmd/baha/repository_up_init_test.go`,
+`cmd/baha/runtime_integration_test_support_test.go`, `cmd/baha/app_perses_host_containers_cli_test.go`,
+`cmd/baha/app_perses_infra_dashboards_cli_test.go` - and the reviewed path→gate map in `scripts/pr-gate-plan.py`
+carries no entry for them, so they fall through to the unmatched default (`scripts/pr-gate-plan.py:1344`).
+
+Same two-file rule as above: add these paths with the gates their behaviour needs -
+`atomic/docker/data-capabilities` + `atomic/podman/data-capabilities` for `test_operator_context_test.go` and
+`application_lifecycle_lock_test.go`, and `atomic/docker/guided` + `atomic/podman/guided` in addition for the four
+init/dashboard test sources - and mirror every entry in `scripts/pre-release-runtime-impact.json` under `"core"`.
+The pairing assertion in `scripts/test_pre_release_runtime_reuse.py` then makes the drift impossible for future PRs.
+
+## Handoff state
+
+- Card 0428-228 (this recipe) is `active`, owner = Owner, because `scripts/**` is Owner scope for lanes.
+- Card 0428-221 (PR #1750) is set to `wait` with the dependency named, not `blocked`: no decision is missing from the
+  Owner beyond applying this recipe.
+- Card 0428-227 (PR #1753) stays `review`: content approved, acceptance withheld until this recipe lands and the
+  runtime job is executed at the hopped head.
