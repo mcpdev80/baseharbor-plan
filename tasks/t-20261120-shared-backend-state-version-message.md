@@ -7,9 +7,9 @@ areas: [lifecycle]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ffe7611b (lane)
-kanban_status: review
-kanban_lane: review
+owner: (lane, PR waits for hop)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: ""
 kanban_title: 0428-201 · shared state version message
 priority: ""
@@ -18,24 +18,25 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1725]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "awaiting additive hop onto develop acc34323968 (back=2)"
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pulls/1725", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pulls/1725", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44995066580"]
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-shared-backend-state-version-message · shared state version message #task #release/v0-4-28 #status/review #view/review #area/lifecycle #kind/bug
+- [ ] t-20261120-shared-backend-state-version-message · shared state version message #task #release/v0-4-28 #status/wait #view/wait #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** ffe7611b (lane)  
+    **Owner:** (lane, PR waits for hop)  
     **PR:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pulls/1725), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md)  
+    **Waiting:** awaiting additive hop onto develop acc34323968 (back=2)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pulls/1725), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44995066580)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** ffe7611b (lane)  
+**Owner:** (lane, PR waits for hop)  
 **Priority:** not set  
 **PRs:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725)  
 **Source:** 
@@ -85,3 +86,5 @@ HANDOFF NAHE, EINE BELEGZEILE FEHLT - DARUM BLEIBT active (nicht wait, nicht rev
 The refreshed PR head `cfd8851f730d356a75b3e65448f995f47284e7d9` includes latest `develop` at `77c1e60f51b91003ac3ddc391008c15e4a713a5c`. Exact pull-request run [44897015296](https://github.com/mcpdev80/baseharbor/actions/runs/44897015296) completed FAILURE: CLI shards 0–3 and `PR · Go unit · packages` passed; the selected rootless Podman data-capabilities runtime job [136825185177](https://github.com/mcpdev80/baseharbor/actions/runs/44897015296/job/136825185177) failed, so `PR Selected Checks` [136826810005](https://github.com/mcpdev80/baseharbor/actions/runs/44897015296/job/136826810005) failed. The runtime log shows candidate recording refused for missing `--confirm-candidate`, then `baha app footprint show -o json` could not configure target `atomic-podman-data-capabilities`; the managed test-only operator setup also reported interactive auth required on piped input. These are shared candidate-consent/CI-target authorization failures outside this card's state-version message scope. No production auth behavior or another owner's files were changed. Keep the card in Wait until its shared required gate is corrected and the exact current candidate can pass.
 
 kandidat ist gehoepft bis develop 52a3c5446f4 (head 485103523b9, back=0). Am vorherigen head dd4e826f6c8 (run 449937224) likewise: go-shards und build SUCCESS, einziger fehler das data-capabilities-gate (0428-237). Review nach terminalen run und nach broker-klarung.
+
+wartet auf denselben hop auf develop acc34323968 (back=2, diff jetzt 7 dateien statt 19). Gleiches bild wie bei 1723: der alte review-fehler war kontaminations-bedingt.
