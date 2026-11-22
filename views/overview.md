@@ -32,7 +32,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-base-branch-provenance-loss](../tasks/t-20261121-base-branch-provenance-loss.md) | 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened | active | high | coordinator | — | — |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
 | [t-20261122-impact-consent-after-preview-contract](../tasks/t-20261122-impact-consent-after-preview-contract.md) | Env destroy: impact consent validated after preview is structurally stale (five fixture rounds) | active | not set | w21-pr1702-0428-142-compat | — | — |
-| [t-20261122-native-gate-admission-rows](../tasks/t-20261122-native-gate-admission-rows.md) | native gate rows for env-destroy | active | not set | Owner (scripts und pr-gate-coverage.json sind Owner-scope; ausfuehrende lane nur mit ausdruecklicher benutzer-beauftragung, derselbe fall wie 0428-228) | — | — |
+| [t-20261122-native-gate-admission-rows](../tasks/t-20261122-native-gate-admission-rows.md) | native gate rows for env-destroy | active | not set | Owner (scripts and pr-gate-coverage.json are Owner scope; a lane executes only under the same explicit user authorization as 0428-228) | — | — |
 
 ## Ready for review
 

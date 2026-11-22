@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: Owner (scripts und pr-gate-coverage.json sind Owner-scope; ausfuehrende lane nur mit ausdruecklicher benutzer-beauftragung, derselbe fall wie 0428-228)
+owner: Owner (scripts and pr-gate-coverage.json are Owner scope; a lane executes only under the same explicit user authorization as 0428-228)
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 - [ ] t-20261122-native-gate-admission-rows · native gate rows for env-destroy #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** Owner (scripts und pr-gate-coverage.json sind Owner-scope; ausfuehrende lane nur mit ausdruecklicher benutzer-beauftragung, derselbe fall wie 0428-228)  
+    **Owner:** Owner (scripts and pr-gate-coverage.json are Owner scope; a lane executes only under the same explicit user authorization as 0428-228)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/gate-admission-census/native-checks-catalog-recipe.md)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** Owner (scripts und pr-gate-coverage.json sind Owner-scope; ausfuehrende lane nur mit ausdruecklicher benutzer-beauftragung, derselbe fall wie 0428-228)  
+**Owner:** Owner (scripts and pr-gate-coverage.json are Owner scope; a lane executes only under the same explicit user authorization as 0428-228)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -74,3 +74,7 @@ check row is therefore an admission gap, not an execution gap: the planner file 
 commissioned for it; lanes only re-run and witness.
 
 Erweiterung des vertrags, gemessen an develop 1ff16925c4e: neben den acht bereits benannten komponenten fehlen auch die acht test-quellen von PR 1750 und die drei ci_integration_operator-quellen in den native_checks-zeilen - deshalb ist PR . Selected Runtime an den gehopften heads 5d47569f337 (#1750) und ce5cf8f3037 (#1753) weiterhin SKIPPED, obwohl PR 1755 gemergt ist. rezept und feldformen: evidence/r28-welle5-2026-11-22/gate-admission-census/native-checks-catalog-recipe.md. Karte 0428-234 ist als superseded in diese karte folded.
+
+Measured at develop 1ff16925c4e: besides the eight named components, the eight PR 1750 test sources and the three ci_integration_operator sources also have no native_checks rows. That is why PR Selected Runtime is still skipped at the hopped heads 5d47569f337 (#1750) and ce5cf8f3037 (#1753) although PR 1755 merged. Recipe and field shapes: gate-admission-census/native-checks-catalog-recipe.md. Card 0428-234 is folded into this card as superseded.
+
+Measured at develop 1ff16925c4e: besides the eight named components, the eight PR 1750 test sources and the three ci_integration_operator sources also have no native_checks rows. That is why PR Selected Runtime is still skipped at the hopped heads 5d47569f337 (#1750) and ce5cf8f3037 (#1753) although PR 1755 merged. Recipe: gate-admission-census/native-checks-catalog-recipe.md. Card 0428-234 folded in as superseded.
