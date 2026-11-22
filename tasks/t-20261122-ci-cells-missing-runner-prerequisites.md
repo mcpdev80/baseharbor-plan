@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w21-pr1702-0428-142-compat
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: "validate and PR · Draft Go · cli- stop failing on missing runner tools, so a PR that only changes product code can reach a…"
 kanban_title: 0428-229 · CI cells miss runner tools
 priority: high
@@ -23,14 +23,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-ci-cells-missing-runner-prerequisites · 0428-229 · Provision the runner prerequisites the two PR CI cells already require #task #release/v0-4-28 #status/review #view/review #area/ci #kind/task
+- [ ] t-20261122-ci-cells-missing-runner-prerequisites · 0428-229 · Provision the runner prerequisites the two PR CI cells already require #task #release/v0-4-28 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** w21-pr1702-0428-142-compat · **Priority:** high  
     **PR:** [baseharbor#1754](https://github.com/mcpdev80/baseharbor/pull/1754)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w21-pr1702-0428-142-compat  
@@ -91,3 +91,5 @@ lane delivered PR #1754 (branch lane-0428-229-ci-draft-cell-shells, head acd8dd9
 Owner ordered exact-head read-only review by codex-rev-1747 (verdict only after terminal CI); run 44973717868 in_progress on acd8dd95e6a. After merge of #1754 every affected candidate PR must hop onto the new develop and re-run its exact hosted CI; coordinator books those hops
 
 proof closed: run 44974482264 (draft variant) completed/success with PR Draft Go cli-3 job 137061187025 EXECUTED; job log shows 'sudo apt-get install -y zsh fish', 'zsh: /usr/bin/zsh', 'fish: /usr/bin/fish' and zero occurrences of the fail message from context_terminal_test.go:467. earlier run 44973717868 skipped that cell and stays as an incomplete witness. Owner restores ready and merges after the verdict
+
+RETRACTION of my own earlier claim: the install-only proof does NOT close the wrapper-test proof. verdict review-1754-headacd8dd95.md (plan dbfa824c2..e113d401b) says REQUEST CHANGES / END BLOCKED: shells install fine in cli-3 (job 137061187025, 'sudo apt-get install -y zsh fish', 'zsh: /usr/bin/zsh', 'fish: /usr/bin/fish') but the test step printed 'No changed Go packages.' (ci.yml:1706-1707) because #1754 changes only .github/**, so scripts/pr-draft-go-packages.py:8 selects no ./cmd/baha package and TestEndToEndInstalledZshAndFishWrappers never ran. needed: a test-inclusion route (map .github/workflows/ci.yml to ./cmd/baha in the planner, or force the cli-3 shard when the cell's own definition changed) - Owner-scope decision
