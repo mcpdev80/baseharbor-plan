@@ -41,3 +41,30 @@ Before merge evidence publication: PID `2498165`; `docker ps -a` returned no con
 ## END codex-rev2-1736 DONE
 
 MERGED PR #1714 at candidate `67495fde96837846d9d2b26e8db5ad93b7b7c988`; new develop SHA and squash merge commit are both `5ca8420c1814f25bea6404e55fd054c60746eae5`. All four prechecks passed.
+
+First evidence push witness from `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main`:
+
+    1cad97946bf194bb3500692d62ed8d349945acba refs/heads/main
+
+Required fetched `origin/main` tree witness from `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 'review-17'`:
+
+    evidence/r28-welle5-2026-11-22/ci-cells-shells/review-1754-head0975e671.md
+    evidence/r28-welle5-2026-11-22/ci-cells-shells/review-1754-headacd8dd95.md
+    evidence/r28-welle5-2026-11-22/coreless-validation/review-1736-head4c919fd6.md
+    evidence/r28-welle5-2026-11-22/coreless-validation/review-1736-headfa527b439.md
+    evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-head91f4e38795a.md
+    evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-pending.md
+    evidence/r28-welle5-2026-11-22/gate-admission-census/review-1756-head6cec31ff673.md
+    evidence/r28-welle5-2026-11-22/oras-0428-229/review-1754-headacd8dd95.md
+    evidence/r28-welle5-2026-11-22/perses-valkey-gate-0428-183/review-1714-head67495fde968.md
+    evidence/r28-welle5-2026-11-22/perses-valkey-gate-0428-183/review-1714-headfc525970d41.md
+    evidence/r28-welle5-2026-11-22/sourcepull-0428-061/review-1752-head719242df.md
+    evidence/r28-welle5-2026-11-22/sourcepull-0428-061/review-1752-head7b3c6588.md
+    evidence/r28-welle5-2026-11-22/sourcepull-0428-061/review-1752-head9140e0c8.md
+    evidence/r28-welle5-2026-11-22/sourcepull-0428-061/review-1752-heada4adc29a.md
+    evidence/r28-welle5-2026-11-22/sourcepull-0428-061/review-1752-heade7df5ab4.md
+    evidence/r28-welle5-2026-11-22/testcontext-0428-223/review-1750-head17f471cd3fe.md
+    evidence/r28-welle5-2026-11-22/testcontext-0428-223/review-1750-head5d47569f337.md
+    evidence/r28-welle5-2026-11-22/valkey-gate-0428-183/review-1714-head277ff976395a.md
+    evidence/r28-welle5-2026-11-22/workload-port-0428-199/review-1752-head34feb493480-contract061.md
+    evidence/r28-welle5-2026-11-22/workload-port-0428-199/review-1752-head34feb493480.md
