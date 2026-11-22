@@ -7,7 +7,7 @@ areas: [testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: b90e4ba1 (#1783 round-3: selected demo candidate-submission consent hang) / 237(native :edge) / Owner
+owner: b90e4ba1 (#1783 parity DONE, HOLD) / baseharbor-demo lane (demo --confirm-candidate wiring, OWNER-Autorisation noetig) / 237(native :edge)
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261122-guided-fixture-footprint-contract-divergence · Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 #task #release/v0-4-28 #status/active #view/active #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (\#1783 round-3: selected demo candidate-submission consent hang) / 237(native :edge) / Owner · **Priority:** high  
+    **Owner:** b90e4ba1 (\#1783 parity DONE, HOLD) / baseharbor-demo lane (demo --confirm-candidate wiring, OWNER-Autorisation noetig) / 237(native :edge) · **Priority:** high  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** b90e4ba1 (#1783 round-3: selected demo candidate-submission consent hang) / 237(native :edge) / Owner  
+**Owner:** b90e4ba1 (#1783 parity DONE, HOLD) / baseharbor-demo lane (demo --confirm-candidate wiring, OWNER-Autorisation noetig) / 237(native :edge)  
 **Priority:** high  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
 **Source:** 
@@ -105,3 +105,5 @@ KORRIGIERT (owner exact test-source-read): das 'missing --confirm-candidate' = B
 CRITICAL PATH: #1783 head haengt noch 8f84fcbb (run 45045885547 old fails: native :edge 137280389091/052 + selected docker 137280787736). b90e round-2 MCP-serve admission+restricted-toolset fix noch NICHT pushed -> gekitzelt, neuen head+run melden. native :edge red bis #1770 pin in develop. select data-caps werden mit fix gruen.
 
 #1783 round-2 2da7f565 TERMINAL rot (run 45051057741), NEUE selected signatur: NICHT mehr parity -> Demo new-edit-new-sql haengt (106-107s no-output) 'candidate submission requires --confirm-candidate'. footprint-READ admitted aber 0428-241 sequence unter data-caps NICHT zu Ende enabled (candidate-SUBMISSION write consent haengt). round-3 = tagged fixture selected-gate candidate-submission consent (synthetischer test-only stamp ODER test reicht --confirm-candidate digest durch; STOP-Fall=247 product write-auth). native docker 137296082318/podman 137296082310 = pre-existing :edge 503 (0428-237/#1770, NICHT 1783 code). KEIN merge bis selected sequence terminiert+gruen. develop b27b2ebe.
+
+#1783 round-2 2da7f565 = PARITY FIX GELUNGEN (selected docker 137296517250/podman 137296517242: contracts differ=0, MCP-serve admitted data-caps/core-caps, one-tool baseharbor.app.footprint.show only, other MCP tools DENIED ListTools=1; product unangetastet). ABER selected NICHT gruen: NEUER blocker ANDERE klasse = demo new-edit-new-sql (drive.py:415) no-output timeout an record-deployment WRITE-consent ('requires --confirm-candidate'). Das ist KEIN 247/produkt-thema (consent mechanismus intakt, baseharbor refuses korrekt) SONDERN test-wiring in baseharbor-DEMO (flag-setzer dort, anderes repo). b90e HOLD (kein baseharbor-demo/product edit, #1783 READY, kein merge). BENOETIGT: OWNER autorisation einer baseharbor-demo lane (demo reicht captured confirm-DIGEST + --confirm-candidate durch) + #1770 native pin. native docker 137296082318/podman 137296082310 = :edge 503 = 237. develop b27b2ebe.
