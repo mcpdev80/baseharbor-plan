@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0847d100 (lane, hop1597 auftrag gestellt)
-kanban_status: active
-kanban_lane: active
+owner: 0847d100 (hop fertig) / Coordinator (catalog tick)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: Deliver PostgreSQL/MongoDB panels only when verified compatible metrics and permissions exist.
 kanban_title: 0428-076 · Perses database dashboards
 priority: normal
@@ -18,23 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1597]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "#1597 additiv gehoppt auf 211a6d57 (conflict app_status_result geloeset, beide seiten, build+vet OK). Trusted Plan failt NUR an UNCATALOGED perses sources (app_perses_cli_test.go/app_status_result.go/internal/metrics/perses_dashboards*.go) = 0428-248 katalog, NICHT #1597 inhalt. naechster trigger: #1778 perses-mapping merged -> #1597 re-run gruen. 0847d100 auf zensus umgelenkt (findet alle luecken)."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-databases · Perses database dashboards #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-databases · Perses database dashboards #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 0847d100 (lane, hop1597 auftrag gestellt) · **Priority:** normal  
+    **Owner:** 0847d100 (hop fertig) / Coordinator (catalog tick) · **Priority:** normal  
     **PR:** [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597)  
+    **Waiting:** \#1597 additiv gehoppt auf 211a6d57 (conflict app\_status\_result geloeset, beide seiten, build+vet OK). Trusted Plan failt NUR an UNCATALOGED perses sources (app\_perses\_cli\_test.go/app\_status\_result.go/internal/metrics/perses\_dashboards\*.go)…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** 0847d100 (lane, hop1597 auftrag gestellt)  
+**Owner:** 0847d100 (hop fertig) / Coordinator (catalog tick)  
 **Priority:** normal  
 **PRs:** [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597)  
 **Source:** 

@@ -7,9 +7,9 @@ areas: [ci, testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: b90e4ba1 (#1778 broker-diag + 1723 files)
-kanban_status: review
-kanban_lane: review
+owner: b90e4ba1 (#1778 sammelt ALLE katalog-luecken) / 0847d100 (read-only zensus)
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-248 · catalog completion #1774
 priority: high
@@ -23,17 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-gate-catalog-completion-ci-executor · Complete the gate catalog by registering the three remaining changed paths in pr-gate-coverage.json so dependent gates execute #task #release/v0-4-28 #status/review #view/review #area/ci #area/testing #kind/task
+- [ ] t-20261122-gate-catalog-completion-ci-executor · Complete the gate catalog by registering the three remaining changed paths in pr-gate-coverage.json so dependent gates execute #task #release/v0-4-28 #status/active #view/active #area/ci #area/testing #kind/task
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (\#1778 broker-diag + 1723 files) · **Priority:** high  
+    **Owner:** b90e4ba1 (\#1778 sammelt ALLE katalog-luecken) / 0847d100 (read-only zensus) · **Priority:** high  
     **PR:** [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1776](https://github.com/mcpdev80/baseharbor/pull/1776), [baseharbor#1777](https://github.com/mcpdev80/baseharbor/pull/1777), [baseharbor#1778](https://github.com/mcpdev80/baseharbor/pull/1778)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** b90e4ba1 (#1778 broker-diag + 1723 files)  
+**Owner:** b90e4ba1 (#1778 sammelt ALLE katalog-luecken) / 0847d100 (read-only zensus)  
 **Priority:** high  
 **PRs:** [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1776](https://github.com/mcpdev80/baseharbor/pull/1776), [baseharbor#1777](https://github.com/mcpdev80/baseharbor/pull/1777), [baseharbor#1778](https://github.com/mcpdev80/baseharbor/pull/1778)  
 **Source:** 
@@ -70,3 +70,5 @@ B (ci-native-pr-gate.sh) GEMERGED ueber #1774 @ 3cbb2bac (exact run 45030308249 
 #1777 GEMERGT als 68b26bd (exact run 45035683974). Katalog enthaelt A(ci-fast-check via static-surface)+C(app_footprint_presenter)+243(local_workload_authority/_test/main). EINZIGER rest: app_broker_diagnostics_test.go (#1763) -> b90e oeffnet MINI follow PR auf develop 68b26bd. #1773 owner re-hoppt additiv auf 68b26bd (presenter-docs, keine aktive lane). develop JETZT 68b26bd7.
 
 #1777 merged 68b26bd. #1778 (draft head 5d9bd262, additive auf 68b26bd7) mappt app_broker_diagnostics_test.go -> #1763 trusted-planner cataloged:ja (draft run 45036510669 routing+go-shards success, planner bei ready). b90e ergaenzt #1778 um app_workload_ports.go + workload_port_local_regression_test.go (#1723). Nach merge: #1763 + #1723 entblockt. File existiert auf #1763 head 9bd97ca3 (mapping korrekt in beiden merge-reihenfolgen).
+
+Whack-a-Mole beendet: 0847d100 faehrt katalog-luecken-zensus ueber alle offenen PRs -> komplette fehlende-paths liste. b90e deckt in #1778: broker-diag(#1763) + app_workload_ports/_regression(#1723) + perses-cluster(#1597: app_perses_cli_test.go/app_status_result.go/internal/metrics/perses_dashboards*.go) + rest laut zensus. develop 68b26bd7.
