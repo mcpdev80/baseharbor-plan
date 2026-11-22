@@ -56,3 +56,13 @@ origin	https://github.com/mcpdev80/baseharbor-plan.git (push)
 ## END
 
 END codex-rev-1747 DONE: APPROVE for #1756 exact head `4f2a5d4701c429eb7788b25e958b676d1f5f0356`; run `44990390149` SUCCESS, `pr-planner-tests` job `137110003413` SUCCESS; 50/50 expected pairs verified. Planning remote: `origin https://github.com/mcpdev80/baseharbor-plan.git`.
+
+## Planning publication witness
+
+Fresh `origin/main` tree output:
+
+```text
+evidence/r28-welle5-2026-11-22/gate-admission-census/review-1756-head4f2a5d4701c.md
+```
+
+Evidence commit: `e2fe8101b` (published to Planning `origin/main`).
