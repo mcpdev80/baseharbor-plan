@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 7 |
+| active | 8 |
 | review | 2 |
 | wait | 22 |
 | blocked | 0 |
-| ready | 8 |
+| ready | 7 |
 | queued | 25 |
 | waiting | 178 |
 | backlog | 7 |
@@ -31,6 +31,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-base-branch-provenance-loss](../tasks/t-20261121-base-branch-provenance-loss.md) | 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened | active | high | coordinator | — | — |
 | [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md) | CI: full-suite unit tests are red on develop and no merge gate runs them | active | not set | 0428-223-testctx | — | [baseharbor#1750](https://github.com/mcpdev80/baseharbor/pull/1750) |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
+| [t-20261122-ci-cells-missing-runner-prerequisites](../tasks/t-20261122-ci-cells-missing-runner-prerequisites.md) | 0428-229 · Provision the runner prerequisites the two PR CI cells already require | active | high | w21-pr1702-0428-142-compat | — | — |
 
 ## Ready for review
 
@@ -80,7 +81,6 @@ None.
 | [t-20261120-r28-keycloak-producer-target-mismatch](../tasks/t-20261120-r28-keycloak-producer-target-mismatch.md) | Keycloak producer registers ID/target the identity witness can never match | ready | not set | — | — | — |
 | [t-20261120-r28-perses-status-never-verified](../tasks/t-20261120-r28-perses-status-never-verified.md) | No source API yields verified: status --json can never report true | ready | not set | — | — | — |
 | [t-20261121-candidate-commit-identity](../tasks/t-20261121-candidate-commit-identity.md) | Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) | ready | not set | — | — | — |
-| [t-20261122-ci-cells-missing-runner-prerequisites](../tasks/t-20261122-ci-cells-missing-runner-prerequisites.md) | 0428-229 · Provision the runner prerequisites the two PR CI cells already require | ready | high | — | — | — |
 | [t-20261122-ci-integration-operator-seams-without-gate-admission](../tasks/t-20261122-ci-integration-operator-seams-without-gate-admission.md) | 0428-228 · Admit operator seams to a gate | ready | high | — | — | — |
 
 ## By release

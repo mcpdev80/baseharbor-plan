@@ -7,9 +7,9 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w21-pr1702-0428-142-compat
+kanban_status: active
+kanban_lane: active
 kanban_summary: "validate and PR · Draft Go · cli- stop failing on missing runner tools, so a PR that only changes product code can reach a…"
 kanban_title: 0428-229 · CI cells miss runner tools
 priority: high
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-ci-cells-missing-runner-prerequisites · 0428-229 · Provision the runner prerequisites the two PR CI cells already require #task #release/v0-4-28 #status/planned #view/ready #area/ci #kind/task
+- [ ] t-20261122-ci-cells-missing-runner-prerequisites · 0428-229 · Provision the runner prerequisites the two PR CI cells already require #task #release/v0-4-28 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w21-pr1702-0428-142-compat · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w21-pr1702-0428-142-compat  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -83,3 +82,5 @@ code can reach a terminal green exact run. No test is skipped, softened or delet
   PR #1750 (validate job `137044903908`, `PR · Draft Go · cli-3` job `137044885831` at head `1588ee1be72`).
 - `.github/**` is Owner-scope in this window: worker lanes report file:line and do not edit (AGENTS 5.3,
   CI-Aufnahmepflicht). The Owner applies the two steps; a lane then re-runs and witnesses the exact CI.
+
+Owner ordered the central zsh provisioning; mission b34f567c3cf2 adds the existing authorized step 'Install interactive shells for the shell-wrapper path' (template ci.yml:1254-1262) into pr_draft_go_shards (ci.yml:1645) on branch lane-0428-229-ci-draft-cell-shells; ORAS half of the card is solved differently by 0428-223 test-side and is under review
