@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1773, mcpdev80/baseharbor#1783]
 sources: []
-blocker: "NEUER BESTAETIGTER PRODUKT-DEFECT (critical path): tests/guided/new_edit.py:63 footprint_parity assertiert native CLI footprint JSON == MCP footprint JSON, beide selected data-caps jobs zeigen DIVERGENZ. Product code: cmd/baha/mcp.go:248 registerMCPFootprintShowTool vs cmd/baha/app_footprint_presenter.go. OWNER-CORE-ENTSCHEID noetig: welche output-form ist kanonisch (presenter oder mcp), dann product fix + regression. DIES blockiert ALLE selected data-caps zellen (#1783/#1780/#1770/#1773/#1738-A) - NICHT das operator fixture. (Y) runtime:edge broker = 0428-237 separat. develop b27b2ebe."
+blocker: "#1773 (presenter-only) + #1762 (test-only) selected data-caps = SELBE #1783 MCP-serve/parity gate, native = #1770 pin. Downstream von #1770+#1783. QUEUED: hop auf develop-(mit-#1770+#1783) + rerun. #1762 NOT independent (owner bestaetigt, teilt #1783 gate). native edge = 0428-237/#1770."
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** Coordinator (parity defect intake) / Owner-Core (canonical-output ruling) / a lane (product fix) · **Priority:** normal  
     **PR:** [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
-    **Blocker:** NEUER BESTAETIGTER PRODUKT-DEFECT (critical path): tests/guided/new\_edit.py:63 footprint\_parity assertiert native CLI footprint JSON == MCP footprint JSON, beide selected data-caps jobs zeigen DIVERGENZ. Product code: cmd/baha/mcp.go:248 r…  
+    **Blocker:** \#1773 (presenter-only) + \#1762 (test-only) selected data-caps = SELBE \#1783 MCP-serve/parity gate, native = \#1770 pin. Downstream von \#1770+\#1783. QUEUED: hop auf develop-(mit-\#1770+\#1783) + rerun. \#1762 NOT independent (owner bestaetigt,…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -59,3 +59,5 @@ design a curated subset, but two divergences are undocumented and read like defe
 cmd/baha footprint human presenter comments/help only (and its existing test if a string is asserted). Not the consent guard (236/227), not app_broker/237, not operatorauth (231), not 242 catalog, not .github/scripts.
 
 UNBLOCKT: C-mapping (app_footprint_presenter.go) via #1777 auf develop 68b26bd7 GEMERGT. Owner hoppte #1773 additiv auf head 3ec2eba9 base 68b26bd; exact run 45036009904 laeuft (selected docker+podman native+runtime heavy gates). Review + merge bei terminal green. Kein content-aenderung (presenter-docs only).
+
+#1773/#1762 = downstream von shared gate #1783(parity)+#1770(pin). #1762 in queue hinter fixture (NICHT unabhaengig, owner-korrektur).

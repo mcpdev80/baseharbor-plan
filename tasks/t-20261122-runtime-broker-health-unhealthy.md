@@ -8,7 +8,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: andere Codex-Session (#1770) / Coordinator (fund #1780-native) / f0f6c8b4 (read-only diag)
+owner: 0428-237 codex-session / Coordinator (merge-order #1770-first) / Owner (ruling)
 tags: [#task, #release/v0.4-28]
 kanban_status: active
 kanban_lane: active
@@ -26,7 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "h
 
 - [ ] t-20261122-runtime-broker-health-unhealthy · CI: data-capabilities native gate fails on secure runtime broker readiness #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** andere Codex-Session (\#1770) / Coordinator (fund \#1780-native) / f0f6c8b4 (read-only diag)  
+    **Owner:** 0428-237 codex-session / Coordinator (merge-order \#1770-first) / Owner (ruling)  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998846458), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45008538769), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-3.md), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45011764715)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "h
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** andere Codex-Session (#1770) / Coordinator (fund #1780-native) / f0f6c8b4 (read-only diag)  
+**Owner:** 0428-237 codex-session / Coordinator (merge-order #1770-first) / Owner (ruling)  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780)  
 **Source:** 
@@ -154,3 +154,5 @@ MILESTONE: beide NATIVE data-caps ZELLEN GRUEN (docker 137233607782 687s + podma
 NATIVE data-caps docker+podman BEIDE SUCCESS (localhost/baseharbor-runtime:ci-native-<rt>-72959a95 gebaut, TestApplicationCapabilityLifecycleExistingCore PASS) = 0428-237 SHA-image broker-fix VALIDIERT auf beiden providern. Aggregate FAILURE NUR selected docker/podman = 0428-241 footprint consent/fixture. PR #1770 UNMERGED bis selected geoeffnet + owner genehmigt.
 
 DRITTE FEHLKLASSE (separat von 241 consent + test-only allowlist): #1780 native Docker data-capabilities 137270894017 + coreless-lifecycle 137270893986 failen TestApplicationCapabilityLifecycleExistingCore/secrets @ app_capability_runtime_test.go:137 weil ghcr.io/mcpdev80/baseharbor-runtime:edge nach ~2m UNHEALTHY. #1770 bewies GRUEN auf SHA-pin 72959a95 -> die native Docker gate-loest auf EDGE auf (development_runtime_image.go sha-vs-edge). Das ist 0428-237 image-resolution, NICHT consent/allowlist. Hosted broker health artifacts nach terminal inspizieren. Podman native noch aktiv. #1780 NICHT gruen.
+
+237 FIX = PR #1770 (branch codex/0428-237-exact-native-runtime, nur scripts/ci-native-pr-gate.sh prepare_exact_runtime_image(): baute localhost/baseharbor-runtime:ci-native-<runtime>-<sha> statt ghcr :edge). #1770 native docker(137233607782)+podman(137233607705) GREEN (ExistingCore+secrets broker ok). selected docker+podman data-caps RED = PRE-EXISTING footprint parity (#1783) NICHT #1770 code. #1770 ist BEHIND -> hop b27b2ebe. ENTSCHEIDUNG: #1770 FIRST mergen (breakt Zirkularitaet 1783<->1770), dann #1783 (native-gruen via pin), dann #1780/#1738/#1773 rerun.

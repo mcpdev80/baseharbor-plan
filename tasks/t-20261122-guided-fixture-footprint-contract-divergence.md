@@ -7,7 +7,7 @@ areas: [testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ffe7611b (#1780 selected :376/:430/:409 own write-set fixes) / b90e (#1783 MCP-serve selected-gates fix) / 237 (native edge broker)
+owner: b90e4ba1 (#1783 MCP-serve+restricted-toolset selected-gates fix) / Coordinator (merge AFTER #1770)
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261122-guided-fixture-footprint-contract-divergence · Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 #task #release/v0-4-28 #status/active #view/active #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** ffe7611b (\#1780 selected :376/:430/:409 own write-set fixes) / b90e (\#1783 MCP-serve selected-gates fix) / 237 (native edge broker) · **Priority:** high  
+    **Owner:** b90e4ba1 (\#1783 MCP-serve+restricted-toolset selected-gates fix) / Coordinator (merge AFTER \#1770) · **Priority:** high  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** ffe7611b (#1780 selected :376/:430/:409 own write-set fixes) / b90e (#1783 MCP-serve selected-gates fix) / 237 (native edge broker)  
+**Owner:** b90e4ba1 (#1783 MCP-serve+restricted-toolset selected-gates fix) / Coordinator (merge AFTER #1770)  
 **Priority:** high  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
 **Source:** 
@@ -99,3 +99,5 @@ SHARED UNLOCK = PR #1783 (branch lane-0428-241-optionA-operator-allowlist head 8
 KORRIGIERT (owner exact test-source-read): das 'missing --confirm-candidate' = BEABSICHTIGTER negative-control (footprint-show digest consent test), KEIN fixture-fehler. #1783 diff ist korrekt. #1783 run 45045885547 terminal rot wegen 2 SHARED PRODUKT-blockern AUSSERHALB des PRs: (X) new_edit.py:63 footprint_parity native CLI JSON != MCP JSON (selected docker+podman; product mcp.go:248 vs app_footprint_presenter) und (Y) runtime:edge broker unhealthy (native docker 137280389091/podman 137280389052) = 0428-237 ghcr edge image. Beide blocken auch #1780/#1770/#1773/#1738. #1783 haelt OPEN, alle zellen bis terminal, kein push der head aendert, kein merge bis X/Y geloest. develop b27b2ebe.
 
 #1780 ffe END_BLOCKED: NATIVE set -e bricht bei ExistingCore broker :91 (=0428-237, ausserhalb write-set) -> harness laeuft dort nie, HALTEN. SELECTED core-cap fails SIND feins write-set app_capability_runtime_test.go: :376 (podman provider override fehlt), :430 (digest nur aus err.Error(), hash im captured 'out'), :409 (cleanup nach fail). ffe fixt die 3 + hop b27b2ebe + rerun. #1783 (b90e) erweitert MCP-serve+restricted-toolset auf selected gates (parity). develop b27b2ebe.
+
+#1783 selected parity fix (MCP-serve admission+restricted-toolset auf data-caps/core-caps, one-tool baseharbor.app.footprint.show) geloest selected footprint cells fuer #1780/#1770/#1773/#1738. ABER #1783 EIGENE native cells :edge-red (pre-existing, braucht #1770 pin) -> #1783 kann native NICHT selbst gruen zeigen. MERGE-ORDER: NACH #1770 (pin in develop -> #1783 native gruen + selected gruen). b90e haelt #1783 ready, kein merge bis #1770 + own selected gruen.
