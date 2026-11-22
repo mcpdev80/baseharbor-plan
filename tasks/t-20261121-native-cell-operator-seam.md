@@ -7,9 +7,9 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: coord (park) / owner (delta sauber)
-kanban_status: wait
-kanban_lane: wait
+owner: b90e4ba1 (#1765 catalog-entry + final-hop auf b48ac03ef laeuft) / Coordinator
+kanban_status: active
+kanban_lane: active
 kanban_summary: "controlplanesinglenativecitest.go stops failing with prepare BaseHarbor integration trust plane: because the native-cell test…"
 kanban_title: 0428-209 · 0428-209 native cell seam
 priority: high
@@ -18,26 +18,25 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1740, mcpdev80/baseharbor#1765, mcpdev80/baseharbor#1766]
 sources: []
 blocker: ""
-wait_reason: "PARKED am belegten broker-blocker (readyz 503 = 0428-237). Andere Codex-session fuehrt keine weiteren breiten laeufe aus. Rerun erst wenn 242 + 237 + consent(236) auf develop sind."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1740", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md", "https://github.com/mcpdev80/baseharbor/pull/1765", "https://github.com/mcpdev80/baseharbor/actions/runs/45021008989"]
   - "https://github.com/mcpdev80/baseharbor/pull/1740"
   - "https://github.com/mcpdev80/baseharbor/actions/runs/44868911131"
 ---
 
-- [ ] t-20261121-native-cell-operator-seam · 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/cli #kind/bug
+- [ ] t-20261121-native-cell-operator-seam · 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** coord (park) / owner (delta sauber) · **Priority:** high  
+    **Owner:** b90e4ba1 (\#1765 catalog-entry + final-hop auf b48ac03ef laeuft) / Coordinator · **Priority:** high  
     **PR:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740), [baseharbor#1765](https://github.com/mcpdev80/baseharbor/pull/1765), [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766)  
-    **Waiting:** PARKED am belegten broker-blocker (readyz 503 = 0428-237). Andere Codex-session fuehrt keine weiteren breiten laeufe aus. Rerun erst wenn 242 + 237 + consent(236) auf develop sind.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1765), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45021008989), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44868911131)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** coord (park) / owner (delta sauber)  
+**Owner:** b90e4ba1 (#1765 catalog-entry + final-hop auf b48ac03ef laeuft) / Coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740), [baseharbor#1765](https://github.com/mcpdev80/baseharbor/pull/1765), [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766)  
 **Source:** 
@@ -118,3 +117,5 @@ ROUTE-WECHSEL bestaetigt: statt #1740 base-retarget wurde ein NEUER develop-basi
 #1765 = NICHT sein delta. Beide native data-capabilities docker 137197810751 + podman 137197810744 failen TestApplicationCapabilityLifecycleExistingCore/secrets (broker /readyz 503/not_ready, podman FailingStreak 49) = 0428-237. selected docker 137198119508 + podman 137198119493 failen footprint show confirm-candidate = 0428-227 mutation-consent (#1753, eingefroren). native keycloak/core = #1766 assertion. Coreless/guided laufen noch. #1765 haelt an DENSELBEN cluster wie #1753. Wait, nicht review.
 
 Nach #1766 ist die stale assertion KEIN #1765-blocker mehr (beide native keycloak/core green). Was bleibt ist DERSELBE cluster wie #1753: broker 503 (0428-237) + selected confirm-candidate consent (0428-227, braucht Core/owner decision, karte 236 dropped). Delta sauber. PR-ref #1740->#1765 (owner bat darum bei closeout).
+
+TP-fund von b90e: eigene neue source cmd/baha/control_plane_single_native_ci_test.go war nie katalogisiert -> fail-loud guardian. Lane-fix im selben PR (test-to-CI-Aufnahmepflicht, katalog ist Codeman-owned): b90e ergaenzt die source-entry (analog target_runtime_access_provider_test.go: runtime_specific + beide data-capabilities surfaces) + hoppt final auf develop b48ac03ef, ein Push, ein exact-head run.
