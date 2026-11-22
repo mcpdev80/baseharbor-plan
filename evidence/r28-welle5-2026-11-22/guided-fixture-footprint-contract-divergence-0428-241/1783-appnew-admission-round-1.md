@@ -92,7 +92,7 @@ erbij, nieuwe head + exact hosted. Re-hop later apart; niets verder gedaan.
 ## cleanliness
 
 cleanliness: `docker ps -a` BEFORE = 0 entries (pid 2227297), AFTER = 0 entries
-(pid hieronder ingevuld). Geen compose/container gestart op deze host. Onbedoelde
+(pid 2278802). Geen compose/container gestart op deze host. Onbedoelde
 `baha` build-resten verwijderd; scratch /var/tmp/0428-223-fc-an.log en
 -sel-dk.log vóór END verwijderd. Werktree workers/0428-241-optawt 0 delta.
 
