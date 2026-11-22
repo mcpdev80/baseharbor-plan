@@ -17,7 +17,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
     **Accepted tasks:** 167/263 · **Blocked:** 2 · **Waiting:** 20  
-    **Blocker:** [t-20261122-footprint-human-surface-doc-gaps](../tasks/t-20261122-footprint-human-surface-doc-gaps.md) — NEUER BESTAETIGTER PRODUKT-DEFECT (critical path): tests/guided/new\_edit.py:63 footprint\_parity assertiert native CLI footprint JSON == MCP footprint JSON, bei…  
+    **Blocker:** [t-20261122-footprint-human-surface-doc-gaps](../tasks/t-20261122-footprint-human-surface-doc-gaps.md) — \#1773 (presenter-only) + \#1762 (test-only) selected data-caps = SELBE \#1783 MCP-serve/parity gate, native = \#1770 pin. Downstream von \#1770+\#1783. QUEUED: hop…  
     **Blocker:** [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) — OWNER scope: .github workflow ordering + a missing scripts/acceptance.sh reference  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
