@@ -88,3 +88,5 @@ The refreshed PR head `cfd8851f730d356a75b3e65448f995f47284e7d9` includes latest
 kandidat ist gehoepft bis develop 52a3c5446f4 (head 485103523b9, back=0). Am vorherigen head dd4e826f6c8 (run 449937224) likewise: go-shards und build SUCCESS, einziger fehler das data-capabilities-gate (0428-237). Review nach terminalen run und nach broker-klarung.
 
 wartet auf denselben hop auf develop acc34323968 (back=2, diff jetzt 7 dateien statt 19). Gleiches bild wie bei 1723: der alte review-fehler war kontaminations-bedingt.
+
+wartet auf denselben hop auf develop acc34323968 (back=2, diff jetzt 7 dateien statt 19). Gleiches bild wie bei 1723: das REQUEST CHANGES am head 485103523b9 (akte cli-sourcepull/... 47156bcd24a, run 44995066580, 7 failed jobs, '16 paths outside card write-set') zaehlt ab dem neuen develop nicht mehr als kandidatfehler.
