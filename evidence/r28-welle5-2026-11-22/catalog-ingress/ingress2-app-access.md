@@ -103,3 +103,11 @@ terminal SUCCESS — Trusted Plan GROEN (137422407321), Source format +
 Focused Python + Candidate-added advisory + PR Selected Checks
 (137423008005) success; runtime gates structureel skipped bij catalog-only
 diff. Na merge passeert #1620 de TP base-zijdig. cleanliness: besenrein.
+
+## origin/main witness
+
+Exact: `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep ingress2-app-access` (plan main = 0fe22152c4806e1ec286bd876edf65cd7a2cb333):
+
+```
+evidence/r28-welle5-2026-11-22/catalog-ingress/ingress2-app-access.md
+```
