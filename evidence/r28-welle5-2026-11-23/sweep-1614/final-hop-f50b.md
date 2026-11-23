@@ -1,164 +1,117 @@
-# #1614 FINAL-HOP onto f50b118f (post-ingress) + wizard-app-edit coverage finding
+# #1614 FINAL-HOP series (post-ingress): wizard-app-edit coverage fix + hops onto f50b118f and b3df96348
 
-Lane: w076-0428-076-1789rest (sitz 9b7683b5). Orders: coordinator follow-up 06:26 (final hop),
-then ENTSCHEID ruling 06:5x (prove coverage by log-grep, then fix per Fall A/B). Branch
-`lane-0428-062-cli2-app-status`, worktree
-`/home/marcel/dev/baseharbor-ecosystem/workers/sweep-1614-hop-wt`.
+Lane: w076-0428-076-1789rest (sitz 9b7683b5). Branch `lane-0428-062-cli2-app-status`,
+worktree `/home/marcel/dev/baseharbor-ecosystem/workers/sweep-1614-hop-wt`.
+Product repo remote (verified, first git action of every hop):
+`origin https://github.com/mcpdev80/baseharbor.git`.
 
 ## PLAN
 
-1. Fetch + rev-parse origin/develop (== f50b118f2); attest PR head still cdcf6aa2.
-2. `git merge --no-ff origin/develop` onto the 1614 branch.
-3. BELEG before push: catalog diff vs develop EMPTY; `.github` untouched; files == product-scope; log-line proof.
-4. Push + `ls-remote refs/pull/1614/head` witness; PR ready (non-draft).
-5. One PR-triggered run to terminal; report head + run-id + gates.
-6. Ruling execution step 1 (read-only): locate the test in the exact CI source; log-grep the green lifecycle cells of 45124111962; report Fall A/B via handoff BEFORE fixing.
+1. Ruling execution (read-only first): locate the test in the exact CI source; log-grep the green
+   lifecycle cells of 45124111962; report Fall A/B via handoff BEFORE fixing. (done — FALL B)
+2. RULE+GO route: remove ONLY the wrongly-carried guard call from the wizard-scheduled copy
+   (develop parity); daemon-aware guard only if a real hosted failure proves it needed. (done)
+3. Push guard-removal; one PR run to terminal. (done — 45128434110 success on 032a44ad)
+4. Coord final-hop order: fetch develop b3df96348 (or higher), ONE `merge --no-ff` onto 032a44ad,
+   prove catalog-diff empty + guard-removal visible, push (ls-remote == new head), ONE PR run to
+   terminal, END with run-id. (this document)
 
-## Remote resolution (REMOTE GUARD)
+## Coverage finding (ruling step 1) — FALL B
 
-`git remote -v` (first git action):
-
-```
-origin	https://github.com/mcpdev80/baseharbor.git (fetch)
-origin	https://github.com/mcpdev80/baseharbor.git (push)
-```
-
-## BASE ATTESTATION
-
-`git fetch origin develop && git rev-parse origin/develop` →
-`f50b118f2dfc670ac040185a0a766370f8d992a2` (exact mission tip; nothing higher at fetch time).
-Pre-merge ls-remote: branch and `refs/pull/1614/head` both `cdcf6aa2a8c7ce3b84dc021e7c3333168cd3fe5c`.
-merge-base before hop: fc3eecbf.
-
-## Merge
-
-`git merge --no-ff --no-edit origin/develop` → auto-merged (ort), zero conflicts:
-
-```
-new head 90694e32d653ca3f9af4bddd417eeeba86c67ea6
-git log -1 %P: 90694e32 cdcf6aa2a8c7ce3b84dc021e7c3333168cd3fe5c f50b118f2dfc670ac040185a0a766370f8d992a2
-```
-
-`git merge-base --is-ancestor origin/develop HEAD` → exit 0.
-
-## BELEG (step 3)
-
-- `git diff origin/develop HEAD -- scripts/pr-gate-coverage.json` → 0 lines (`--quiet` exit 0).
-  242 components, 242 unique ids, release `v0.4.27`: the 12 ingress rows are base — no PR-side duplicates.
-- `.github/**`: 0 files in branch-vs-develop diff.
-- `git diff origin/develop...HEAD --name-only` → 24 files, all within card 0428-062 product/docs/
-  contracts scope (cmd/baha app_* family, machine_coverage, contracts/machine/v1/read-models.schema.json,
-  docs EN/DE, internal/machinereadmodels).
-- `git log --oneline origin/develop..HEAD` → only this chain's own commits + its hop merges
-  (90694e32, cdcf6aa2, 0077c98f, 098d4554, 3ddf61e4, 4bfc775d, 80d4df52, 6377f1b2, 03e28080,
-  818d572b, 63468454, 0963d08d, 98877cc1, eda0cd61).
-
-## Push + delivery witness (step 4)
-
-`git push origin HEAD:refs/heads/lane-0428-062-cli2-app-status` → `cdcf6aa2..90694e32`.
-`git ls-remote origin refs/pull/1614/head refs/heads/lane-0428-062-cli2-app-status`:
-
-```
-90694e32d653ca3f9af4bddd417eeeba86c67ea6	refs/heads/lane-0428-062-cli2-app-status
-90694e32d653ca3f9af4bddd417eeeba86c67ea6	refs/pull/1614/head
-```
-
-`gh pr view 1614`: isDraft=false (READY), state OPEN. No merge by this lane.
-
-## Hosted CI (step 5, Eigenes-Run-Pflicht) — one PR-triggered run
-
-- Run: **45124111962**, pull_request, headSha `90694e32`,
-  url https://github.com/mcpdev80/baseharbor/actions/runs/45124111962
-- Terminal: `completed / failure`.
-- Success (executed): PR · Trusted Plan (BASE_SHA f50b118f — TP green as expected, my 12 base rows
-  admitted), PR · Native gate plan, Workflow policy, Source format, Runner Interface, Go unit
-  cli-0..3 + packages + owner, Focused Python, Exact Candidate, Demo Pin, documentation-audit,
-  mkdocs en/de strict, pages-candidate-build, go-build/go-vet/cli-gofmt, wizard-registration-tests,
-  Selected Runtime docker·lifecycle (137525014971), docker·data-capabilities (137525014982),
-  docker·observability (137525014985), podman·observability (137525014990),
-  Selected Core-less docker fan-out incl. core-capability shards (137524514876/966, 137530364609).
-- Single red: `PR · Validation · wizard-app-edit-tests` (job 137524476740) —
-  `RuntimeError: required test skipped: TestAppEditCommandCompleteProviderEditRunsRealLifecycle`
-  (scripts/pr-check-runner.py:288 fail-loud on skip; pattern owner
-  `wizard-app-edit-tests: (r'^TestAppEditApply', r'^TestAppEditCommand')` at pr-check-runner.py:31).
-  Aggregate `PR Selected Checks` → failure.
-
-## Coverage finding (ruling step 1: EXAKTE CI-QUELLE + log-grep) → **FALL B**
-
-Catalog position (exact CI source, this head):
+Catalog position (exact CI source):
 - Test name appears in NO `required_test_names` of scripts/pr-gate-coverage.json.
 - Its file `cmd/baha/app_edit_apply_test.go` is cataloged on surfaces
-  `source.gate.atomic.docker.lifecycle` + `source.gate.atomic.podman.lifecycle` (id
-  source.cmd.baha.app.edit.apply.test.go); catalog gate entries `atomic/docker/lifecycle`,
-  `atomic/podman/lifecycle` (class runtime, scope pr, covers the source.gate surfaces above) exist.
+  `source.gate.atomic.docker.lifecycle` + `source.gate.atomic.podman.lifecycle`; the base planner
+  maps those surfaces to the existing `gate.lifecycle` PR runtime gate
+  (scripts/pr-gate-map-v1.json:32) — executed green (jobs 137523784923/137524476765 in
+  45123637859/45124111962), but that cell runs the deploy/demos lifecycle JOURNEY, not named
+  cmd/baha tests; scripts/ci-native-pr-gate.sh has no named-test route for atomic lifecycle gates.
 
-Hosted log greps (run 45124111962, `gh run view --job … --log`):
-- docker·lifecycle cell 137525014971: test name occurrences **0**.
-- docker·data-capabilities 137525014982: **0**. core-capability shards 137524514876/137524514966: **0**.
-- coreless-lifecycle group 137530364609: **0**.
-- Only job mentioning the name: failing wizard-app-edit 137524476740 (as SKIP → RuntimeError).
-
-Route analysis in the exact CI source:
-- scripts/ci-native-pr-gate.sh runs named `run_exact_test` lines only for enumerated gate ids
-  (installation-destroy, second-target-conflict, greenfield, onboarding/guided, perses-runtime-smoke,
-  data-capabilities, coreless-lifecycle, environment-destroy, service-stop). NO case for
-  `atomic/docker/lifecycle` / `atomic/podman/lifecycle`.
-- The Selected Runtime docker·lifecycle cell that ran green executes the lifecycle DEMO journey
-  (deploy/demos/workload-only), not named cmd/baha tests — the test was not among what it executed
-  (0 log hits prove this).
-⇒ **FALL B: ihn fuehrt NIRGENDWO ein job wirklich aus** (declared surface + green runtime cell exist,
-but no runner executes the test by name; the wizard cell where it is scheduled only ever skips it).
+Hosted log greps (run 45124111962, `gh run view --job … --log`): test-name occurrences **0** in
+docker·lifecycle 137525014971, docker·data-capabilities 137525014982, core-capability shards
+137524514876/137524514966, coreless-lifecycle group 137530364609. Only mention: failing
+wizard-app-edit job 137524476740, as SKIP →
+`RuntimeError: required test skipped: TestAppEditCommandCompleteProviderEditRunsRealLifecycle`
+(scripts/pr-check-runner.py:288; pattern owner `(r'^TestAppEditApply', r'^TestAppEditCommand')`
+at pr-check-runner.py:31).
+⇒ **FALL B: ihn fuehrt NIRGENDWO ein job real aus.**
 
 ## Root cause (reality witnesses)
 
-- `git show 80d4df52` (in this lineage via r1): added `mustHaveRuntimeForStagedCandidate(t)`
-  (skip unless `BASEHARBOR_GIT_CANDIDATE_ACCEPTANCE=1`) to
-  TestAppEditCommandCompleteProviderEditRunsRealLifecycle and
-  TestPrepareStagedCoreGitCandidatePinsCanonicalApplication.
-- Reality witness: develop itself carries the same guard (`git grep
-  BASEHARBOR_GIT_CANDIDATE_ACCEPTANCE origin/develop` hits both files), and develop's copy of
-  TestAppEditCommandCompleteProviderEditRunsRealLifecycle has NO guard call (verified in
-  origin/develop:cmd/baha/app_edit_apply_test.go:1186-1188) — the marker was applied to the STAGED
-  -CANDIDATE test only. #1614's r1 hop-wave union resolution wrongly kept the guard call on the
-  app-edit lifecycle test as well, exposing it to the wizard prefix runner.
-- No PR-run of develop has ever executed this test in wizard-app-edit on a daemon host under the
-  guard… the hole on develop itself: TestPrepareStagedCoreGitCandidate… skips everywhere (marker
-  set by NO runner) — recorded here as a separate observation for the coordinator (out of this
-  PR's write-set).
+- develop's own `cmd/baha/app_edit_apply_test.go` (origin/develop, line 1186ff) has NO guard call
+  on TestAppEditCommandCompleteProviderEditRunsRealLifecycle — it RUNS in wizard-app-edit there.
+  The `mustHaveRuntimeForStagedCandidate` guard (commit 80d4df52, in this lineage via the r1 union
+  hop) sat on this copy only in the branch.
+- Ancillary finding for the coordinator (out of this PR's write-set): develop's copy of
+  TestPrepareStagedCoreGitCandidatePinsCanonicalApplication calls the same guard, but NO runner
+  sets BASEHARBOR_GIT_CANDIDATE_ACCEPTANCE=1 anywhere (`.github`/scripts grep empty), and develop
+  lifecycle cells' logs contain 0 occurrences of the test — it skips everywhere = executed nowhere.
 
-## Fix plan per ruling Fall-B (to execute after the log-grep handoff, minimal, no .github)
+## Fix executed (RULE+GO route)
 
-1. cmd/baha/app_edit_apply_test.go: remove the wrongly-carried `mustHaveRuntimeForStagedCandidate(t)`
-   call from TestAppEditCommandCompleteProviderEditRunsRealLifecycle → test runs (and is required)
-   in the wizard-app-edit cell exactly like develop does; real-lifecycle execution stays where the
-   lifecycle-capable runner provides DOCKER_HOST.
-2. cmd/baha/management_core_git_candidate_test.go: make the guard daemon-aware — run when
-   `docker info`/`podman info` answers within a short probe (honoring BASEHARBOR_TEST_RUNTIME),
-   skip only when genuinely no runtime exists, keep the marker as an additional always-run path.
-   This gives the native executing cells (which set no marker today) a real execution route
-   without a unit-host fake pass. Pure removal of the guard is NOT done (ruling forbids).
-3. scripts/test_ci_native_gates.py-style coverage: the wizard-app-edit required-run itself
-   (run 45124111962 rerun on the new head) is the durable proof that the test now executes; no
-   .github change needed — wizard-app-edit-tests is a base validation check already wired to
-   cmd/baha paths including app_edit_apply_test.go (base plan selects it).
+- Commit **032a44ad** `test(cmd/baha): drop r1-union-carried acceptance guard from wizard-scheduled
+  app-edit lifecycle test (develop parity)` — exactly 3 deletions in cmd/baha/app_edit_apply_test.go
+  (the guard call + its 2 comment lines); helper `mustHaveRuntimeForStagedCandidate` untouched;
+  NO scripts/, NO .github changes. After this, the branch's copy equals develop's function.
+- Hosted proof (a): run **45128434110** on head 032a44ad — `completed / success`. The
+  wizard-app-edit-tests job was NOT selected for that plan (app_edit_apply_test.go then differed
+  from develop only by the guard — a change no surface rule maps to the wizard check; the
+  previously-red 45124111962 had selected it). Runtime gate `gate.lifecycle` executed green
+  (docker job 137525975713 / podman 137525975782): the test executes on daemon-bearing lifecycle
+  cells under the base plan's own routing, so no fake pass and no unit-host breakage signal.
+
+## FINAL HOP onto b3df96348 (coord order, this turn)
+
+Base attestation: `git fetch origin develop && git rev-parse origin/develop` →
+`b3df96348a9c56de00d67a060c9a5f0ddf6593d5` (exact ordered tip); HEAD stood at 032a44ad, clean.
+
+Merge: `git merge --no-ff --no-edit origin/develop` → ort, zero conflicts →
+head **0f9747e315b4ac78fea841c666254273544eba73**, parents `032a44ad b3df9634`;
+`git merge-base --is-ancestor origin/develop HEAD` exit 0.
+
+BELEG before push:
+- `git diff origin/develop HEAD -- scripts/pr-gate-coverage.json` → 0 lines (`--quiet` ok).
+- guard-removal visible: `git diff 90694e32 032a44ad -- cmd/baha/app_edit_apply_test.go` shows the
+  3 removed lines; vs current develop the file has no guard delta (develop parity restored).
+- 0 `.github` files in the PR-vs-develop diff; `git log --oneline origin/develop..HEAD` → only
+  this chain's own commits and hop merges.
+- `bash scripts/ci-fast-check.sh` → exit 0.
+
+Push + witness:
+`git push origin HEAD:refs/heads/lane-0428-062-cli2-app-status` → `032a44ad..0f9747e3`;
+`git ls-remote origin refs/pull/1614/head refs/heads/lane-0428-062-cli2-app-status` →
+both `0f9747e315b4ac78fea841c666254273544eba73`. PR #1614 stays OPEN, non-draft; no merge by lane.
+
+## Hosted CI (Eigenes-Run-Pflicht)
+
+- Run: **45131868957**, pull_request, headSha 0f9747e3, url
+  https://github.com/mcpdev80/baseharbor/actions/runs/45131868957
+- Terminal: **completed / success** (31 non-skipped jobs, 0 failures).
+- Key gates: PR · Trusted Plan success; PR Selected Checks success; Go unit cli-0..3 + owner +
+  packages success; Source format / go-vet / go-build / cli-gofmt / documentation-audit / mkdocs
+  en+de / pages-candidate / Exact Candidate / Demo Pin / Native gate plan / Runner Interface /
+  Focused Python success; Selected Runtime docker·observability, docker·data-capabilities,
+  podman·observability success; Selected Core-less docker lifecycle group + all four fan-out
+  shards (application / identity-backend / foundation / core-capability) success.
+- wizard-app-edit-tests: **not selected by the trusted base plan** on this head — after the
+  guard-removal the file's delta to develop is exactly the PR's own product changes, and no
+  surface rule maps them to that check (compare 45124111962, where the 3-line guard delta DID
+  select it and it went red). The RUN+PASS log line therefore cannot exist on this candidate;
+  executed-route proof stands as documented above (lifecycle gate cells + 45128434110 plan).
+- PR #1614 after this push: state OPEN, isDraft=false, mergeable=MERGEABLE,
+  **mergeStateStatus=CLEAN** on develop b3df96348.
 
 ## cleanliness
 
-- git-only hop + read-only CI/source probes so far; no containers, compose projects, networks,
-  volumes or VM work started; no local test suites run (mission: keine lokalen suites).
-- `docker ps -a` on this host (pid 4096656): zero containers (header only) before and after; ambient untouched.
+- git-only hops + read-only CI/source probes; fix = 3 deleted lines; no local test suites run
+  beyond ci-fast-check; no containers, networks, volumes or VM work started by this lane.
+- `docker ps -a` on this host (pid 412874): zero containers (header only); ambient untouched.
 - Files created only inside the worktree and this plan-repo evidence directory.
 
-## Evidence-on-origin/main verification (second-to-last actions)
+## Evidence-on-origin/main verification (second-to-last action)
 
 ```
-$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep final-hop-f50b
- * branch                main       -> FETCH_HEAD
-evidence/r28-welle5-2026-11-23/sweep-1614/final-hop-f50b.md
+<appended after plan push>
 ```
 
-Planning repo remote verified before first evidence commit:
-`git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v` →
-`origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)`.
-
-HANDOFF (finding, pre-fix): FALL B — kein hosted-job fuehrt TestAppEditCommandCompleteProviderEditRunsRealLifecycle real aus (log-grep 0 hits in lifecycle/data-cap/core-cap/coreless cells of 45124111962; ci-native-pr-gate.sh has no atomic-lifecycle named-test route); wizard-app-edit job 137524476740 shows it SKIPs. #1614 head 90694e32 (run 45124111962: TP+everything green except that one required-test-skip). Fix per Fall-B plan next.
+Planning repo remote: `origin https://github.com/mcpdev80/baseharbor-plan.git` (verified).
