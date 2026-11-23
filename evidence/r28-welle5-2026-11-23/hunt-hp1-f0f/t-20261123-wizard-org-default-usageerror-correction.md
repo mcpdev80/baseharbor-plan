@@ -50,14 +50,31 @@ VERIFY (full ci.yml step simulation with fixed develop checker + candidate repo)
 
 This is the minimal fix ON THE GATE SCRIPTS (scripts/), at exactly the layer that drops the three functions: the selector regex (pr-check-runner.py:26) and the per-file gate-plan mapping (pr-gate-plan.py). No test rename, no .github change, no product code change.
 
-## BLOCKER / SCOPE DECISION REQUIRED (POSTED AS QUESTION)
+## OUTCOME: MERGED (coordinator STORNO of Frist command + merge-fakt)
 
-The gate scripts run from develop, but develop cannot be advanced by a direct push (repo rule rejects push to develop; requires a merged PR). The develop-side fix therefore needs a PR — but:
-- AGENTS.md: a change to a shared/base script (pr-check-runner.py, pr-gate-plan.py) outside this card's write-set is a COORDINATOR/Owner action, not a lane fix.
-- One PR per card (#1804 is this card's PR). A second PR for the develop-side shared-script fix collides with single-PR discipline.
-- The branch w081-pr1802-... that PR #1804 is pinned to was FORCE-MOVED by a coordinator process to b9a487209 (a develop merge carrying ~21 foreign files: logs/exec/urls, machine-coverage, docs, contracts, operator-auth) — violating the one-candidate-per-chain rule (AGENTS 3.8).
+PR #1804 is MERGED as commit `7e09afc382c21dda6cc2b741a4ef4e4ada173d80` (2026-11-23T15:12:30Z). The terminal-green run 7519 on head 74175064c was merge-ready; the 'foreign' files were develop content via #1805 merge, so the PR diff vs develop shrank automatically to fix+test+selector.
 
-CLEAN CANDIDATE PRESERVED: branch w081-pr1804-receipt-final at c67ea34e6 (my two clean commits: 854c7ceff usageError fix+test, c67ea34e6 selector+mapping fix), pushed to origin. Commit-content diff vs parent = exactly the 2 files at the tip.
+MERGE COMMIT 7e09afc38 changed EXACTLY 4 FILES:
+- cmd/baha/app_new_wizard.go (usageError format-verb fix)
+- cmd/baha/app_new_wizard_org_default_test.go (regression test)
+- scripts/pr-check-runner.py (selector widened)
+- scripts/pr-gate-plan.py (org-default mapping added)
+
+MERGED DEVELOP TREE VERIFIED:
+- selector: 'wizard-app-new-tests': (r'^TestAppNewWizard', r'^TestGuidedStackProfile', r'^TestOrgDefault')
+- org mapping present in pr-gate-plan.py
+
+CI GATE SIMULATION against merged develop (7e09afc38):
+- python3 pr-check-runner.py execute --check wizard-app-new-tests --repository <merge checkout>
+- matched_tests count: 20
+- org-default tests named: ['TestGuidedStackProfileOrgDefaultMissingStackUsageError', 'TestGuidedStackProfileOrgDefaultPresentStackResolves', 'TestOrgDefaultStackNotInCatalog']
+- exit clean (no RuntimeError). The receipt now names all three tests.
+
+INGRESS PR #1806 opened and then CLOSED (redundant): the develop-side fix was delivered AS PART OF PR #1804's merge, not as a separate ingress. Confirmed #1806 closed.
+
+POST-MERGE RECEIPT-PRÜFUNG: taken over by fecb per coordinator STORNO. My session: ruhe bis rückfrage; nothing to push, no branch change.
+
+DISPOSITION per coordinator: HEAD was already correct (74175064c / merged 7e09afc38). No reset, no new PR, nothing pushed.
 
 ## repo-rule compliance
 
