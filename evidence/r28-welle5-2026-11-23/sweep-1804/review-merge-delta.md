@@ -60,4 +60,15 @@ The three org-default tests are covered by successful exact-head CLI package rec
 - After review, PID `74011`: `docker ps -a` returned only the header; no containers were present. This session started no containers or compose projects.
 - A neighboring tracked artifact at `evidence/r28-welle5-2026-11-23/sweep-1804pm/review-merge.md` was restored byte-for-byte from `origin/main` after the exact mission path was read; it is not part of this review change.
 
+## evidence publication
+
+- First Planning evidence push was verified by `git ls-remote origin refs/heads/main`: `a4c6a48ea69f79454ebd9bb0e274a661d598cb05 refs/heads/main`.
+- Exact output of `git fetch origin main && git ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-23/sweep-1804/review-merge-delta.md$'`:
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle5-2026-11-23/sweep-1804/review-merge-delta.md
+```
+
 END_DONE codex-rev-1747: APPROVE-delta for merged PR #1804; exact-head run 45198327048 passed and the three org-default tests map to passing cli-1/cli-2/cli-3 package receipts on 74175064c3dbf540d25086fcff485aa0e0ced874.
