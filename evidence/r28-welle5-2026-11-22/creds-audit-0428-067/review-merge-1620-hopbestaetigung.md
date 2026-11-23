@@ -51,3 +51,14 @@ Task `t-20261114-r28-cli2-wizard-platform` had both declared dependencies accept
 END_DONE codex-rev2-1736: PR #1620 merged as `7880a8f6bcfaabd8fd254ef987522abc1770c52e`; exact-head run `45108359161` passed, catalog diff empty, develop remote witnessed.
 
 Planning repository remote, verified before this evidence commit: `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)` and `origin https://github.com/mcpdev80/baseharbor-plan.git (push)`.
+
+
+Planning closeout completed with `python3 coordinator/scripts/card-status.py t-20261114-r28-cli2-wizard-platform closed --pr mcpdev80/baseharbor#1620 --resolution accepted`, plus the exact run and merge-commit evidence links. Output: `ok: t-20261114-r28-cli2-wizard-platform -> closed (render+check gruen, publiziert)`. `python3 scripts/plan.py show t-20261114-r28-cli2-wizard-platform` now reports `state: accepted`; both dependencies remain accepted. Planning main at that verification was `5e02733a34f2644d777ef71bab49be90cdbc190d`.
+
+Required evidence path witness after the task transition (exact output of `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle5-2026-11-22/creds-audit-0428-067/review-merge-1620-hopbestaetigung`):
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle5-2026-11-22/creds-audit-0428-067/review-merge-1620-hopbestaetigung.md
+```
