@@ -116,3 +116,29 @@ Repair recipe: update the existing candidate against the current develop tip, pr
 Immediately before this evidence update, `git fetch origin main && git ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-23/sweep-1723/review-merge.md$'` returned this exact path:
 
 evidence/r28-welle5-2026-11-23/sweep-1723/review-merge.md
+
+## Final remote snapshot — current review head
+
+Read-only snapshot on 2026-11-23 after the latest PR update:
+
+- `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1723/head` returned `b41103867e370f6588a396cb08ab0b3013e209ac refs/heads/develop` and `9627763bd68018e962237b49d05450a7bf1348a9 refs/pull/1723/head`.
+- PR API reports #1723 `OPEN`, head `9627763bd68018e962237b49d05450a7bf1348a9`, base `develop`, `mergeable=MERGEABLE`, and `mergeStateStatus=BLOCKED` (updated `2026-11-23T11:18:11Z`). Its exact changed-file list is `cmd/baha/app_apply.go`, `cmd/baha/app_workload_ports.go`, `cmd/baha/runtime.go`, and `cmd/baha/workload_port_local_regression_test.go`; no workflow path is present.
+- `scripts/pr-gate-coverage.json` blob SHA on develop and candidate is identical: `8b07be15eebbb720ec1122ba3215286039dc4c66`.
+- Hosted run `45163965244` is `pull_request`, head `9627763bd68018e962237b49d05450a7bf1348a9`, and remains `in_progress`. At the last poll, its Docker guided selected runtime succeeded; Docker and Podman `data-capabilities` selected-runtime jobs were still `in_progress`; no failed jobs had appeared. No terminal `PR Selected Checks` aggregate was available. The run log endpoint reports that logs are unavailable until the run completes, so the named workload-port test PASS receipt cannot yet be confirmed for this latest head. No rerun or workflow dispatch was requested.
+- Because the latest exact-head run is nonterminal and the merge-state is blocked, review acceptance and merge criteria are not met. The earlier completed exact-head run 45159172695 on head `12bf50c...` is not a substitute for run 45163965244 on head `9627763...`; its logs also lacked the named test PASS lines. No merge or PR mutation was attempted.
+- Latest `docker ps -a` cleanliness witness, shell PID `2094154`: output was only `CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES`; no containers were listed. No containers or compose projects were started.
+
+## Final role and verdict
+
+ROLE: REVIEW
+VERDICT: BLOCKED
+
+END_BLOCKED codex-rev2-1736: PR #1723 not merged; current exact-head run 45163965244 on 9627763bd68018e962237b49d05450a7bf1348a9 remains in progress with no terminal PR Selected Checks aggregate, and required named workload-port test receipt is unavailable.
+
+Repair recipe: let the existing hosted run reach terminal state, inspect the exact-head aggregate and hosted logs for a named PASS of the workload-port regression; if the log still does not name it, add a durable inspectable receipt through the authorized test path and re-review. Reconfirm current develop/base, four-file scope, catalog equality, rules, and review state before any normal merge. This review session did not modify product code, PR state, or workflow state.
+
+## Required origin/main path witness before this publication
+
+Immediately before this evidence update was pushed, `git fetch origin main && git ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-23/sweep-1723/review-merge.md$'` emitted this exact grep output:
+
+evidence/r28-welle5-2026-11-23/sweep-1723/review-merge.md
