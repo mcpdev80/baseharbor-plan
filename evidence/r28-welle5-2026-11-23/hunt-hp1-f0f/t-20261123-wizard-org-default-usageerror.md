@@ -2,58 +2,78 @@
 
 - lane: w081-pr1802-wizard-org-default-usageerror
 - card: 0428-258 · app-new wizard: org-default (H-P1 finding F6)
-- PR: #1802 https://github.com/mcpdev80/baseharbor/pull/1802 (branch lane-0428-wizard-org-default-usageerror)
+- PR: #1802 https://github.com/mcpdev80/baseharbor/pull/1802
+- base branch: develop
 - owner: w081
 - real github remote confirmed: origin = https://github.com/mcpdev80/baseharbor.git
 
 ## PLAN
 
-1. Read task note + hunt akte F6; claim centrally (plan.py claim committed + pushed to baseharbor-plan).
-2. Isolated branch off develop; minimal fix for the missing-stack error class.
-3. Reuse existing usageError helper (cmd/baha/commands.go:261); no consent/fail-closed/github change.
-4. Add targeted unit tests; verify pass locally (named -run, no bare go test ./cmd/baha/).
-5. Register new test source in scripts/pr-gate-coverage.json (additive only, 0 removed).
-6. Run CI fast-check + gate planner; diagnose CI Trusted Plan failure; STOP with finding.
+1. Read mission m_584_fix.md.g; understand corrected hypothesis: line-level coverage gap for cmd/baha/app_new_wizard_org_default_test.go.
+2. Show git diff origin/develop for scripts/pr-gate-coverage.json; compare path match to precedence pattern (id source.cmd_baha_app_new_wizard_<name>_test_go, guided surfaces like #1800).
+3. Register the new test source in scripts/pr-gate-coverage.json (append-only vs develop byte-exact, no sorting/regeneration, no .github/**, no consent change).
+4. Rebase branch onto current develop so diff-vs-develop is clean; confirm catalog delta is write-set-free vs develop.
+5. Build, targeted tests (named -run, skip RunsRealLifecycle), go vet; run gate planner vs base.
+6. One PR run to terminal (Trusted Plan + wizard-app-new-tests). END with head + run-id + BASE_SHA + line excerpt.
 
-## FIX (correct, passes locally)
+## FIX (correct, passes locally and in CI)
 
-- File: cmd/baha/app_new_wizard.go, function guidedStackProfile (org-default branch).
-- Before: `return guidedStackSelection{}, fmt.Errorf("organization default stack %q is not available in the effective stack catalog", name)`
-- After: same message via `usageError("organization default stack %q is not available in the effective stack catalog", "Remove the organization stack default or add the stack to the effective catalog, then re-run app new.")`
-- Extracted guard `orgDefaultStackNotInCatalog(name, catalog)` (shared by fix + tests).
-- Made org-default source injectable via package var `organizationDefaultStackName` for test determinism.
+- File: cmd/baha/app_new_wizard.go, function guidedStackProfile (org-default branch, org-default name present but absent from the effective stack catalog).
+- Before: return guidedStackSelection{}, fmt.Errorf("organization default stack %q is not available in the effective stack catalog", name)
+- After: return guidedStackSelection{}, usageError("organization default stack %q is not available in the effective stack catalog", "Remove the organization stack default or add the stack to the effective catalog, then re-run app new.")
+- Reuse existing usageError helper (cmd/baha/commands.go:261). No consent/fail-closed/github behavior change. No UX/environment change, no new framework.
+- Extracted shared guard orgDefaultStackNotInCatalog(name, catalog) so fix + tests share one path.
+- Indirect organizationDefaultStack via package var organizationDefaultStackName for test determinism (no on-disk org config needed).
 - New tests: cmd/baha/app_new_wizard_org_default_test.go
-  - TestGuidedStackProfileOrgDefaultMissingStackUsageError: missing stack -> *cli.UsageError (was *errors.errorString before fix).
-  - TestGuidedStackProfileOrgDefaultPresentStackResolves: present stack resolves.
-  - TestOrgDefaultStackNotInCatalog: pure guard coverage.
-- go vet ./cmd/baha/ : exit 0. Targeted tests: PASS (0.030s). ci-fast-check.sh: PASS.
-- Gate planner (GITHUB_REPOSITORY=mcpdev80/baseharbor GITHUB_BASE_REF=develop) against an up-to-date catalog: exit 0, selected_gates = ['atomic/docker/data-capabilities', 'atomic/docker/guided'].
+  - TestGuidedStackProfileOrgDefaultMissingStackUsageError: missing stack yields *cli.UsageError (before fix the same test caught *errors.errorString).
+  - TestGuidedStackProfileOrgDefaultPresentStackResolves: present stack resolves to nil error.
+  - TestOrgDefaultStackNotInCatalog: pure guard coverage (empty/present not missing; absent missing).
 
-## BLOCKER: CI Trusted Plan reads a partial catalog from migration controller 859654861
+## LOCAL VERIFICATION (head 027fb255a)
 
-- CI Trusted Plan step 4 (.github/workflows/ci.yml:859-863): MIGRATION_CONTROLLER = 85965486154284d4ae7974573f504002335d4523; if 859654861 is an ancestor of effective_base, controller = 859654861. The planner reads scripts/pr-gate-coverage.json from that controller checkout.
-- 859654861 is the commit "CI fast feedback with base-owned required checks" on lane lane-0428-184-shared-destroy-2. Its catalog has 163 components; only 50 of 964 cmd/baha/*.go paths are cataloged (914 uncataloged).
-- My effective base f6ab22b7dc9793ccd2872cb7717402816561c401 has 859654861 as an ancestor (git merge-base --is-ancestor confirmed), so CI selects 859654861 as the catalog source.
-- Run #7496 on head 2721154232913675e75b8328cb3c95255b7dd673: PR Trusted Plan FAILURE with `ValueError: invalid trusted PR gate coverage catalog: uncataloged source change, no declared runtime gate owner: cmd/baha/app_new_wizard_org_default_test.go`.
-- The uncataloged-source guard fires on the partial catalog, not only on my path. This is a cross-lane contamination: another lane's commit landed on develop as an ancestor of my base and carries a partial catalog.
+- go build ./cmd/baha/ : exit 0
+- go vet ./cmd/baha/ : exit 0
+- go test ./cmd/baha/ -count=1 -run 'TestGuidedStackProfileOrgDefaultMissingStackUsageError|TestGuidedStackProfileOrgDefaultPresentStackResolves|TestOrgDefaultStackNotInCatalog' -skip "RunsRealLifecycle|RequiresORAS|RejectsSecondProcess|PinsCanonicalApplication" : ok (0.027s)
+- Gate planner vs base afa064519 (GITHUB_REPOSITORY=mcpdev80/baseharbor GITHUB_BASE_REF=develop): exit 0, selected_gates = ['atomic/docker/data-capabilities', 'atomic/docker/guided']
+- Validator: python3 scripts/validate-pr-gate-coverage.py -> "PR gate coverage catalog is valid"
+- diff-vs-develop (origin/develop .. 027fb255a) = only cmd/baha/app_new_wizard.go + cmd/baha/app_new_wizard_org_default_test.go. scripts/pr-gate-coverage.json is a no-op (row now owned by #1803).
 
-## WHY THIS IS OUTSIDE MY WRITE-SET (STOP + REPORT)
+## CI (run #7503, head 027fb255a) - RESULT SUCCESS
 
-- The catalog source (migration controller 859654861) is a pinned, shared, immutable commit authored by another lane; modifying its pr-gate-coverage.json affects every lane. Owner scope (shared planner/required-plan).
-- The controller-selection logic (.github/workflows/ci.yml:859-863) is under .github/** — Owner scope. Per AGENTS, a failing check here is a STATE finding; I report it and stop.
-- No CI framework added. No consent/fail-closed change. No merge. No subagents.
+- Run: https://github.com/mcpdev80/baseharbor/actions/runs/45173006468 (number 7503, terminal: completed / conclusion success)
+- PR base sha (BASE_SHA) = afa064519a859fbfa6e171c749a911301b9522b7 (confirmed via gh api pull/1802 .base.sha). This is the catalog the Trusted Plan read; #1803 registered my test row on develop.
+- No failed jobs. Key jobs (all success): PR · Trusted Plan, PR · Native gate plan, PR · Source format, PR · Runner Interface, PR · Exact Candidate, PR · Go unit (cli-0..3), PR · Validation · cli-gofmt / cli-vet / cli-build, PR · Validation · wizard-app-new-tests, PR · Validation · source-contracts, PR · Focused Python. Remaining jobs skipped (release-matrix gates not applicable to this focused fix).
+- The line-level coverage gap that caused the earlier uncataloged-source failure is resolved: the path cmd/baha/app_new_wizard_org_default_test.go now matches a catalog row on the base.
 
-## EVIDENCE MUST BE ON origin/main BEFORE END
+## BASE ATTESTATION
 
-- As required, evidence path verified against origin/main before END.
-- origin/main ls-tree (grep) for this evidence path: (pasted below after publish)
+- git ls-remote origin refs/heads/develop (base for this run): afa064519 (pull base.sha witness above).
+- git merge-base --is-ancestor afa064519a859fbfa6e171c749a911301b9522b7 HEAD -> YES (base is an ancestor of head).
+- git log --oneline origin/develop..HEAD:
+  - 027fb255a fix: rebase 0428-258 wizard fix on trusted coverage
+  - 272115423 fix(0428-258): org-default missing-stack returns usageError parity (#0428-258)
+  - d361c5337 ci(0428-258): catalog cmd/baha/app_new_wizard_org_default_test.go in pr-gate-coverage (#1802 develop-only)
+- PR head ls-remote: 027fb255a4396215760771729d265ebbc6f9020f refs/pull/1802/head.
+
+## CATALOG LINE EXCERPT (base afa064519, my test source)
+
+{"id": "source.cmd_baha_app_new_wizard_org_default_test_go", "path": "cmd/baha/app_new_wizard_org_default_test.go", "surfaces": ["source.gate.atomic.docker.data.capabilities", "source.gate.atomic.podman.data.capabilities"]}
+
+## repo-rule compliance
+
+- Fix reuses existing usageError helper; single-area, minimal diff. No consent/fail-closed/github change.
+- Catalog registration append-only vs develop byte-exact; no sorting/regeneration; no .github/** edit. The row was landed on develop by the Owner via #1803 (separate ingress PR, Owner scope), so this PR's diff-vs-develop is write-set-free for the catalog.
+- No subagents. Every step executed in this session. One PR per card.
+- Tests run via named -run with skip (test-runner-rule). No bare go test ./cmd/baha/ on the coordinator host.
+- Runners GitHub-hosted shared runners only; no runner/build infrastructure touched. No docker/podman compose started.
 
 ## CLEANLINESS
 
 - No docker/podman containers or compose projects started (Go unit work only, per test-runner-rule).
-- No stray files in /home/marcel/dev/baseharbor-ecosystem; helper scripts under /tmp/opencode.
-- git status clean after commit; no uncommitted changes in the worktree.
+- docker ps -a (my pid run): $(docker ps -a 2>&1 || true)
+- No stray files in /home/marcel/dev/baseharbor-ecosystem; helper artifacts under /tmp/opencode.
+- Worktree at workers/baseharbor (canonical remote origin = github.com/mcpdev80/baseharbor). Working tree clean after checkout of canonical head 027fb255a.
 
 ## END
 
-END_BLOCKED w081-pr1802-wizard-org-default-usageerror: fix + tests correct and green locally; CI Trusted Plan fails because controller 859654861 (lane-0428-184-shared-destroy-2, partial 163-row catalog) is an ancestor of my effective base and its catalog governs the run. Owner/coordinator action: resolve the partial migration-controller catalog or the .github/workflows/ci.yml:859-863 controller-selection (file:line cited above).
+END_DONE w081-pr1802-wizard-org-default-usageerror: #0428-258 fix + tests correct and green. CI run #7503 on head 027fb255a terminal success (BASE_SHA afa064519); Trusted Plan + wizard-app-new-tests pass, no failed jobs. Catalog line owned by Owner #1803 on develop; this PR diff-vs-develop is only the fix + test (write-set-free).
