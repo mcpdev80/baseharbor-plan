@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: accepted
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1783"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1783", "https://github.com/mcpdev80/baseharbor/commit/fcccf7a2059fa862f921ed58fda3f8248932c60d", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-23/sweep-1780/review-merge-1780-delta.md"]
 ---
 
 - [x] t-20261122-guided-fixture-footprint-contract-divergence · Selected data-capabilities: native CLI JSON/MCP footprint contracts differ from demo tests/guided/new_edit.py:63 #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/testing #kind/bug
     <!-- generated:card -->
     **Owner:** Owner (merged) / Coordinator · **Priority:** high  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1787](https://github.com/mcpdev80/baseharbor/pull/1787), [baseharbor#1788](https://github.com/mcpdev80/baseharbor/pull/1788)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1783)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1783), [proof 2](https://github.com/mcpdev80/baseharbor/commit/fcccf7a2059fa862f921ed58fda3f8248932c60d), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-23/sweep-1780/review-merge-1780-delta.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
