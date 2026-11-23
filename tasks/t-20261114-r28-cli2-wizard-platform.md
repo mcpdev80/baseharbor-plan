@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: Codex (Marcel assigned)
-kanban_status: wait
-kanban_lane: wait
+owner: b90e4ba1 (#1620 hop auf c6a7138 laeuft) / Coordinator
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Platform and access wizards. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-067 · Platform and access wizards
 priority: high
@@ -18,25 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1620]
 sources: []
 blocker: ""
-wait_reason: "Ready exact-head run 44849270489 on 28cb907dc0a6 completed FAILURE. Workflow policy, Trusted Plan, source format, build, vet and focused Python pass; required CLI shards fail on shared managed-operator auth/runtime test setup and packages fails the Loki multi-source tests. Wait for the shared auth/runtime and Loki prerequisite fixes, then rerun the exact PR head."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1620", "https://github.com/mcpdev80/baseharbor/actions/runs/44849270489", "https://github.com/mcpdev80/baseharbor/commit/28cb907dc0a678d1b5326df5203741c70cf84978"]
 ---
 
-- [ ] t-20261114-r28-cli2-wizard-platform · CLI redesign: Platform and access wizards #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-wizard-platform · CLI redesign: Platform and access wizards #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** Codex (Marcel assigned) · **Priority:** high  
+    **Owner:** b90e4ba1 (\#1620 hop auf c6a7138 laeuft) / Coordinator · **Priority:** high  
     **PR:** [baseharbor#1620](https://github.com/mcpdev80/baseharbor/pull/1620)  
-    **Waiting:** Ready exact-head run 44849270489 on 28cb907dc0a6 completed FAILURE. Workflow policy, Trusted Plan, source format, build, vet and focused Python pass; required CLI shards fail on shared managed-operator auth/runtime test setup and packages…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1620), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44849270489), [proof 3](https://github.com/mcpdev80/baseharbor/commit/28cb907dc0a678d1b5326df5203741c70cf84978)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** Codex (Marcel assigned)  
+**Owner:** b90e4ba1 (#1620 hop auf c6a7138 laeuft) / Coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1620](https://github.com/mcpdev80/baseharbor/pull/1620)  
 **Source:** 
@@ -95,3 +94,5 @@ BOARD-KORREKTUR nach unabhaengiger GEGENLESE (akte evidence/r28-welle4-2026-11-1
 
 - Befund (independent review 1620): cmd/baha/app_access.go, --reveal-Zweig: scheitert recordConnectionRevealAudit, wird der Fehler nur nach errOut geschrieben und das SECRET TROTZDEM ausgegeben — ein nicht geschriebenes Audit muss die Ausgabe blockieren (fail-closed).
 - Nachweis-Voraussetzung: ein exaktkopf-lauf mit dem geforderten gate; ueber den gestapelten base-ref ist der derzeit nicht ausloesbar (owner-draht ci.yml:14-18, derselbe grund wie #1615).
+
+vorhop im fenster: keine PR-neuen quellen, kein katalog-touch (present belegt); alter run 44849270489 failure auf altem base-stand, neuer exact-head run nach push steht aus (b90e mission laeuft).
