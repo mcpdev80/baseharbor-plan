@@ -79,3 +79,5 @@ One or two sentences: the observable outcome.
 - Current state, branch, PR and evidence links. Newest first.
 
 Candidate green: #1817 draft, head 3bae61a7 on develop d4fa8c589, run 45290693530 terminal success; diff = ONLY scripts/pr-gate-coverage.json adding EXACTLY the 3 data.capabilities rows (verified). Trusted Plan aggregate SKIPPED while draft. MERGE-FROST: Owner advances #1817 to ready + merges when green -> then rebase #1816 -> exact-head Hosted green. No lane merge; no Codex.
+
+Expanded: #1817 now carries 6 develop-baseline rows — 3 for #1816 (cmd/baha app_status_collect/_perses_alert_evaluator_0428_152_test/perses_lifecycle) + 3 for #1810 (internal/application/perses_lifecycle_go, internal/metrics/perses_backend_status_go + _test_go). ALL surfaces docker+podman data.capabilities (validator-exact). Draft to develop d4fa8c589. Owner advance+merge once -> unblocks #1816 (rebase) AND #1810 (Trusted Plan). No lane merge; no Codex.
