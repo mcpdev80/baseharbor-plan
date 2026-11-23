@@ -7,9 +7,9 @@ areas: [ci, testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0847d100 (baseharbor-demo fix)
-kanban_status: review
-kanban_lane: review
+owner: 0847d100 (baseharbor-demo fix - SESSION GONE)
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: ""
 kanban_title: 0428-250 · ci operator fixture allow-list
 priority: high
@@ -17,23 +17,24 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor-demo#170]
 sources: []
-blocker: ""
+blocker: "MIS-SCOPED PR: card is in Review on baseharbor-demo#170 but that PR only changes demo tests/config-matrix/run.sh and CANNOT fix the Core test-only operator fixture. The real #1812 blocker is in Core cmd/baha/ci_integration_operator_enabled.go (ciIntegrationManagedLocalGateReason :96 / predicate group :230-317): add allowlist branches for the 5 denied forms [config organization set, policy explain, app inspect ., target -o json, app list --all-targets] so the fixture stamps them instead of falling into noninteractive OIDC. Owner 0847d100 is GONE. Route the Core fixture change to an authorized owner/lane against baseharbor (NOT demo). Next trigger: authorized owner lands the Core fixture forms."
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-ci-operator-fixture-allowlist-gap · Add the missing command forms to the test-only CI-operator fixture allow-list so static/core gates stamp the synthetic operator instead of failing closed #task #release/v0-4-28 #status/review #view/review #area/ci #area/testing #kind/bug
+- [ ] t-20261122-ci-operator-fixture-allowlist-gap · Add the missing command forms to the test-only CI-operator fixture allow-list so static/core gates stamp the synthetic operator instead of failing closed #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** 0847d100 (baseharbor-demo fix) · **Priority:** high  
+    **Owner:** 0847d100 (baseharbor-demo fix - SESSION GONE) · **Priority:** high  
     **PR:** [baseharbor-demo#170](https://github.com/mcpdev80/baseharbor-demo/pull/170)  
+    **Blocker:** MIS-SCOPED PR: card is in Review on baseharbor-demo\#170 but that PR only changes demo tests/config-matrix/run.sh and CANNOT fix the Core test-only operator fixture. The real \#1812 blocker is in Core cmd/baha/ci\_integration\_operator\_enabled…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0847d100 (baseharbor-demo fix)  
+**Owner:** 0847d100 (baseharbor-demo fix - SESSION GONE)  
 **Priority:** high  
 **PRs:** [baseharbor-demo#170](https://github.com/mcpdev80/baseharbor-demo/pull/170)  
 **Source:** 
