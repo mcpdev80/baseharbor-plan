@@ -259,6 +259,17 @@ $ docker ps -a --format '{{.Names}}' | grep -c -i "hv38\|w38"
 
 - Ambient images untouched; nothing registered or repaired; no VMs used.
 
+## Evidence delivery witness (second-to-last action)
+
+```
+$ git -C baseharbor-plan fetch origin main
+ * branch                main       -> FETCH_HEAD
+$ git -C baseharbor-plan ls-tree -r --name-only origin/main | grep hunt-hv38-catalog-patch
+evidence/recovery-2026-11-23/hunt-hv38-catalog-patch/round-1.md
+```
+
+Evidence commit `7da3c76e3` is on origin/main (pushed 2488a8c6c..7da3c76e3 main -> main).
+
 ## Verdict line
 
 END_DONE hunt-hv38: proven-yes — the 5-row patch (`components` block, diff above; catch-all 3-row variant
