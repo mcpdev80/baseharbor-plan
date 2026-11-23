@@ -101,3 +101,9 @@ Coordinator follow-up: register `ci-fast-check` in the v0.4.28 release gate cata
 
 - VERDICT: REQUEST CHANGES — post-merge acceptance of PR #1797 is not granted because `ci-fast-check` is classified as release-only without an executable v0.4.28 release route. The squash merge already exists remotely at `826d498fc1ae9524112d07477a8809798d8272a7`; no new merge was attempted.
 - END BLOCKED codex-rev-1747: report the missing release executor and implement the coordinator-owned v0.4.28 gate registration before accepting card 0428-208. Merged candidate SHA `826d498fc1ae9524112d07477a8809798d8272a7`.
+
+## Planning publication witness
+
+Exact output from the required origin/main tree check before the final evidence push:
+
+evidence/r28-welle5-2026-11-23/sweep-1797/review-merge.md
