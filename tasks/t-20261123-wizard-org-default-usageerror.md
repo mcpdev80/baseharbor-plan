@@ -7,9 +7,9 @@ areas: ["cli"]
 release: v0.4.28
 version: ""
 parent: ""
-owner: Coordinator (lane 584cca00)
-kanban_status: review
-kanban_lane: review
+owner: 584cca00 + Owner ingress #1803
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: "0428-258 · app-new wizard: org-default"
 priority: ""
@@ -20,21 +20,21 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: accepted
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-23/hunt-hp1-f0f/t-20261123-wizard-org-default-usageerror.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-23/hunt-hp1-f0f/t-20261123-wizard-org-default-usageerror.md", "https://github.com/mcpdev80/baseharbor/pull/1802"]
 ---
 
-- [ ] t-20261123-wizard-org-default-usageerror · Bug (hunt H-P1): app-new wizard: org-default missing-stack must return usageError parity, not hard error #task #release/v0-4-28 #status/review #view/review #area/cli #kind/task
+- [x] t-20261123-wizard-org-default-usageerror · Bug (hunt H-P1): app-new wizard: org-default missing-stack must return usageError parity, not hard error #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** Coordinator (lane 584cca00)  
+    **Owner:** 584cca00 + Owner ingress \#1803  
     **PR:** [baseharbor#1802](https://github.com/mcpdev80/baseharbor/pull/1802)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-23/hunt-hp1-f0f/t-20261123-wizard-org-default-usageerror.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-23/hunt-hp1-f0f/t-20261123-wizard-org-default-usageerror.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1802)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** Coordinator (lane 584cca00)  
+**Owner:** 584cca00 + Owner ingress #1803  
 **Priority:** not set  
 **PRs:** [baseharbor#1802](https://github.com/mcpdev80/baseharbor/pull/1802)  
 **Source:** 
@@ -91,3 +91,5 @@ One or two sentences: the observable outcome.
 fix(0428-258): org-default missing-stack now usageError parity; CI run #7503 success (BASE_SHA afa064519, head 027fb255a). Catalog row owned by #1803 on develop; PR #1802 diff-vs-develop = fix + test only.
 
 review: head 027fb255a @ exact base afa064519, run terminal 0-fail, fix+test only diff.
+
+CLOSED: merged ff4cdf509 (exact-base run terminal 0/0 am head 027fb255a via afa064519); hunt-F6 fund resolved.
