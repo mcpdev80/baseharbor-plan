@@ -7,7 +7,7 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: Codex (Marcel assignment 2026-11-21)
+owner: w078-0428-078-identity-gate-fix
 kanban_status: active
 kanban_lane: active
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 - [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** Codex (Marcel assignment 2026-11-21) · **Priority:** normal  
+    **Owner:** w078-0428-078-identity-gate-fix · **Priority:** normal  
     **PR:** [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md), [t-20261120-r28-prune-key-too-coarse](t-20261120-r28-prune-key-too-coarse.md), [t-20261120-r28-registerprovider-signal-failclosed](t-20261120-r28-registerprovider-signal-failclosed.md), [t-20261120-r28-restart-persist-signal-dump](t-20261120-r28-restart-persist-signal-dump.md), [t-20261120-r28-runtimetarget-failclosed](t-20261120-r28-runtimetarget-failclosed.md), [t-20261120-r28-signal-one-active-write-path](t-20261120-r28-signal-one-active-write-path.md), [t-20261120-r28-signalregistry-race](t-20261120-r28-signalregistry-race.md)  
-**Owner:** Codex (Marcel assignment 2026-11-21)  
+**Owner:** w078-0428-078-identity-gate-fix  
 **Priority:** normal  
 **PRs:** [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
 **Source:** 
@@ -219,3 +219,5 @@ The latest exact-head review recorded REQUEST CHANGES on PR #1650. The Codeman l
 - Producer-to-witness integration proof added in `28c18f02039f0957544146cf5d0db2a1561a4220`: `Apply()` now routes through the same `RegisterKeycloakMetricsSignalsAt` producer seam exercised by `TestIdentityWitnessFromKeycloakProducer`, which creates canonical Target Keycloak files, registers the real signal, and asks `IdentitySelectionWitnessAt` to consume it without hand-seeding a `SignalSource`. Local checks pass: `go test ./internal/identityprovider -run '^TestKeycloakSignalRegistration' -count=1`, `go test ./internal/metrics -run '^TestIdentityWitness' -count=1`, `go test ./cmd/baha -run 'TestIdentityDashboard|TestRemoteApplicationStatusNeverInfersAbsenceFromLocalFiles' -count=1`, `go build ./cmd/baha`, and `git diff --check`. Exact PR run [44846209015](https://github.com/mcpdev80/baseharbor/actions/runs/44846209015) is running on this SHA; the native gate plan passed and mandatory Go shards, focused validation, Trusted Plan, source format and candidate checks are pending/in progress. Keep the PR open until exact required checks and fresh review are green; the previous head's shared operator-auth/Loki/runtime failures remain unresolved.
 
 - Exact run [44846209015](https://github.com/mcpdev80/baseharbor/actions/runs/44846209015) completed FAILURE on `28c18f02039f0957544146cf5d0db2a1561a4220`. It proves the new producer-to-witness test executed successfully in `internal/metrics`; selected `identity-provider-package-tests`, `go-build`, `go-vet`, source format, `PR · Exact Candidate`, `PR · Trusted Plan`, and `Workflow policy` also pass. Remaining failures are CLI shards `136666535981`, `136666535996`, `136666536022`, and `136666536069` (missing authenticated operator context, shared with 0428-198/#1726 and 0428-204), `packages` job `136666535997` (three Loki datasource tests missing `providers/loki/shared/service-access/pki/client-cert.pem`, 0428-202/#1732), and selected Docker identity runtime `136666960147` (first `baha target create ... --access local-podman` denied because no authenticated operator). No merge. The implementation/test work is complete locally and exact targeted checks pass; task moves to wait until those shared authorization/runtime and Loki gates are resolved, then rebase and rerun exact required CI and obtain fresh review.
+
+dispatched post-recovery 2026-11-23
