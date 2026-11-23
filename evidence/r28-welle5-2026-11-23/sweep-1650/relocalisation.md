@@ -45,7 +45,19 @@ Non-admissible NEW files (must be eliminated by relocation, net zero added files
 - `git diff origin/develop...HEAD --name-only` shows only modified existing files
 - hop --no-ff onto origin/develop e8acf7405; push; exact CI run to terminal; NO merge
 
+## EXECUTION WITNESSES
+
+- go build ./internal/metrics ./internal/identityprovider ./cmd/baha: BUILD_EXIT=0 on develop cd9cc4836
+- go vet ./cmd/baha ./internal/metrics ./internal/identityprovider: VET_EXIT=0
+- go test ./internal/metrics -run 'TestIdentityWitness|TestIdentityAvailability' (skip RunsRealLifecycle|RequiresORAS|RejectsSecondProcess|PinsCanonicalApplication): ok 0.013s, 9 tests PASS
+- go test ./cmd/baha -run 'TestIdentityDashboard' (same skip): ok, 5 tests PASS
+- gofmt -l on all 6 changed files: clean
+- push to PR #1650 backing branch lane-0428-078-perses-identity-on-resolver: forced 28c18f02 -> 3126bf05e (delivered)
+- git ls-remote refs/pull/1650/head AFTER push (prove delivery): 3126bf05ea445684c52f231a4fbd588953fb52af
+- CI state for PR head 3126bf05e: pending (GitHub-hosted runners, triggered by push — no rerun/trigger authored)
+
 ## CLEANLINESS
 
-- docker ps -a before/after with own pid
-- no compose project left running at END
+- docker ps -a before/after with own pid: baseline empty (0 containers) at start of lane
+- no compose project started during this lane; none to bring down
+- worktree /tmp/opencode/w078-pr1650-reloc-wt is a scratch zone under /tmp/opencode (fixed workspace rule); will be removed at END
