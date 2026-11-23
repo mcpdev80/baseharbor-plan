@@ -124,4 +124,12 @@ JSON validity of `scripts/pr-gate-coverage.json` verified with python3 json.load
   (git-only hop; docker/podman tests run only on the named SSH hosts).
 - `docker ps -a` (host pid 3174895) before/after: header only, zero containers, ambient stack untouched.
 
+## Evidence-on-origin/main verification (second-to-last actions)
+
+```
+$ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 1789-resthop-15c652-flash
+evidence/r28-welle5-2026-11-22/promql-0428-076/1789-resthop-15c652-flash.md
+```
+(commit f8041e1eb on origin/main; planning repo remote verified: https://github.com/mcpdev80/baseharbor-plan.git)
+
 END_DONE w076-0428-076-1789rest: rest-hop merged develop 15c652136 into #1789 (no conflicts), new head 2be11366 pushed and witnessed, katalog diff delete-only promql row (6-/0+), run 45094339280 completed/success on exact head; sole red is advisory Candidate-added checks (known 0428-253, non-blocking).
