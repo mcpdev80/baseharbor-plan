@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: accepted
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1620", "https://github.com/mcpdev80/baseharbor/actions/runs/44849270489", "https://github.com/mcpdev80/baseharbor/commit/28cb907dc0a678d1b5326df5203741c70cf84978"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1620", "https://github.com/mcpdev80/baseharbor/actions/runs/44849270489", "https://github.com/mcpdev80/baseharbor/commit/28cb907dc0a678d1b5326df5203741c70cf84978", "https://github.com/mcpdev80/baseharbor/actions/runs/45108359161", "https://github.com/mcpdev80/baseharbor/commit/7880a8f6bcfaabd8fd254ef987522abc1770c52e"]
 ---
 
 - [x] t-20261114-r28-cli2-wizard-platform · CLI redesign: Platform and access wizards #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** Coordinator (merge 1450) / 9b7683b5 · **Priority:** high  
     **PR:** [baseharbor#1620](https://github.com/mcpdev80/baseharbor/pull/1620)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1620), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44849270489), [proof 3](https://github.com/mcpdev80/baseharbor/commit/28cb907dc0a678d1b5326df5203741c70cf84978)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1620), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44849270489), [proof 3](https://github.com/mcpdev80/baseharbor/commit/28cb907dc0a678d1b5326df5203741c70cf84978), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45108359161), [proof 5](https://github.com/mcpdev80/baseharbor/commit/7880a8f6bcfaabd8fd254ef987522abc1770c52e)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -98,3 +98,5 @@ BOARD-KORREKTUR nach unabhaengiger GEGENLESE (akte evidence/r28-welle4-2026-11-1
 vorhop im fenster: keine PR-neuen quellen, kein katalog-touch (present belegt); alter run 44849270489 failure auf altem base-stand, neuer exact-head run nach push steht aus (b90e mission laeuft).
 
 MERGED; head a07f4e2f07 exact run 45108359161 SUCCESS (TP base cd9cc), delta-check gegen gehaltenen APPROVE rein additiv; merge 7880a8f6bc.
+
+Accepted after PR #1620 merged at 7880a8f6bcfaabd8fd254ef987522abc1770c52e. Exact-head candidate a07f4e2f0708d4df2e21b0efd1a3addd01ecbdf4 passed run 45108359161, including Trusted Plan at base cd9cc4836a69815a6cdcf7079902bafe5be1e000, PR Selected Checks, and both selected data-capabilities runtime jobs. Hop review found only upstream develop content; the catalog diff against develop was empty.
