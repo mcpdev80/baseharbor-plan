@@ -81,3 +81,9 @@ b1b49890586f662b873eff0e6fac8d0d4a255fa3 refs/pull/1763/head
 
 - VERDICT: PASS — accept the #1763 delta. The broker content is unchanged from the earlier content head, the develop hop is the only candidate-history change, the exact new-base diff has the two expected broker files, and exact-head hosted checks passed. The authorized squash merge is already confirmed remotely as `a3bbc689e4da70da73a0dcf5370d9a9e2e81d24d`.
 - END DONE codex-rev-1747: #1763 delta review PASS; squash merge already verified. Merge SHA `a3bbc689e4da70da73a0dcf5370d9a9e2e81d24d`.
+
+## Planning publication witness
+
+Exact output from the required origin/main tree check before the final evidence push:
+
+evidence/r28-welle5-2026-11-23/sweep-1763/review-merge-delta.md
