@@ -79,3 +79,5 @@ One develop-only catalog PR registers cmd/baha/app_access.go and cmd/baha/app_ac
 - Current state, branch, PR and evidence links. Newest first.
 
 EXAKT-GRUEN: head d3eed85ab, run 45091676596 failed=0 (TP gruen 137422407321; native/Go structuur... 
+
+EXAKT-GRUEN: head d3eed85ab, run 45091676596 failed=0, TP gruen (job 137422407321); zwei rows rein additiv (app_access.go ohne rs nach app_edit-muster, test.go mit rs nach provider-muster  begruendung in akte); dup 0, validator lokal gruen, release v0.4.27. Uebergabe an CODEX 1450c201 (review->merge laeuft).
