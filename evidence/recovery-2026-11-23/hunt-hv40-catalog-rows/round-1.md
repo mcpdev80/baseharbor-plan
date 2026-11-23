@@ -227,6 +227,34 @@ $ docker ps -a --format '{{.Names}}' | grep -c -i 'hv40\|w40'
 
 cleanliness: read-only; edits confined to /tmp/opencode/hv40; no stack/worktree-with-branch/PR; ambient untouched
 
+## Evidence delivery witness (second-to-last action)
+
+```
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main
+ * branch                main       -> FETCH_HEAD
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep hunt-hv40-catalog-rows
+evidence/recovery-2026-11-23/hunt-hv40-catalog-rows/base-pr-gate-coverage.tip.json
+evidence/recovery-2026-11-23/hunt-hv40-catalog-rows/before-1650-error.txt
+evidence/recovery-2026-11-23/hunt-hv40-catalog-rows/before-1809-error.txt
+evidence/recovery-2026-11-23/hunt-hv40-catalog-rows/before-1810-error.txt
+evidence/recovery-2026-11-23/hunt-hv40-catalog-rows/plan-1650-catalog-8c32ee36.json
+evidence/recovery-2026-11-23/hunt-hv40-catalog-rows/plan-1650-tip-catalog.json
+evidence/recovery-2026-11-23/hunt-hv40-catalog-rows/plan-1809-catalog-8c32ee36.json
+evidence/recovery-2026-11-23/hunt-hv40-catalog-rows/plan-1809-tip-catalog.json
+evidence/recovery-2026-11-23/hunt-hv40-catalog-rows/plan-1810-catalog-8c32ee36.json
+evidence/recovery-2026-11-23/hunt-hv40-catalog-rows/plan-1810-tip-catalog.json
+evidence/recovery-2026-11-23/hunt-hv40-catalog-rows/prdiff-1650.json
+evidence/recovery-2026-11-23/hunt-hv40-catalog-rows/prdiff-1809.json
+evidence/recovery-2026-11-23/hunt-hv40-catalog-rows/prdiff-1810.json
+evidence/recovery-2026-11-23/hunt-hv40-catalog-rows/rejected-catalog-candidate.diff
+evidence/recovery-2026-11-23/hunt-hv40-catalog-rows/rejected-catalog-candidate.json
+evidence/recovery-2026-11-23/hunt-hv40-catalog-rows/round-1.md
+evidence/recovery-2026-11-23/hunt-hv40-catalog-rows/unowned-tip-population.txt
+evidence/recovery-2026-11-23/hunt-hv40-catalog-rows/unowned-tip.txt
+```
+
+Evidence commit `8938a6597` (pushed 339547f4f..8938a6597 main -> main).
+
 ## END
 
 END_DONE hunt-hv40: package-rows-REJECTED (secure-by-design). Negative-verdict evidence at
