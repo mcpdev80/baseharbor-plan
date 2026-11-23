@@ -125,7 +125,7 @@ Completed run #7511, run ID `45186409688`, is on exact head `c67ea34e6dc280bdbc5
 
 Therefore the selector delta is in the candidate, but the named job's successful receipt does not demonstrate those tests ran. This does not meet the stated requirement for all three names to appear in that job's log.
 
-Run #7515, run ID `45191572848`, is also on the exact candidate head and was still `pending`, with no jobs reported, when checked at 2026-11-23 14:18 UTC. It has no terminal result or test receipt and cannot count as a pass. The earlier #7511 success is the #1623 pre-hop-base witness; the PR is now behind current develop by one commit. No rerun or dispatch was initiated by this review.
+Run #7515, run ID `45191572848`, is also on the exact candidate head and was still `pending`, with no jobs reported, at the last query on 2026-11-23. It has no terminal result or test receipt and cannot count as a pass. The earlier #7511 success is the #1623 pre-hop-base witness; the PR is now behind current develop by one commit. No rerun or dispatch was initiated by this review.
 
 ### Verdict and repair recipe
 
@@ -153,3 +153,23 @@ REQUEST CHANGES
 The three required tests are absent from the named `wizard-app-new-tests` receipt; run #7515 is pending and has no jobs. Require an exact-head terminal receipt listing and executing all three tests, and reconcile the current one-commit base lag before merge.
 
 END codex-rev-1747 DONE — REQUEST CHANGES for `c67ea34e6dc280bdbc5e40e50c5c902cc271db68`.
+
+
+After this follow-up review, `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1804/head` returned:
+
+```text
+f3d84787462f324a6311e2e95928441c64a09296	refs/heads/develop
+c67ea34e6dc280bdbc5e40e50c5c902cc271db68	refs/pull/1804/head
+```
+
+The PR API still reports open, not draft, not merged, head `c67ea34e6dc280bdbc5e40e50c5c902cc271db68`, base `f3d84787462f324a6311e2e95928441c64a09296`. After review, `docker ps -a` was run by PID `3453239`; it showed only the header and no containers.
+
+Planning path witness command: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-23/sweep-1804/review-merge.md$'`
+
+Exact command output:
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle5-2026-11-23/sweep-1804/review-merge.md
+```
