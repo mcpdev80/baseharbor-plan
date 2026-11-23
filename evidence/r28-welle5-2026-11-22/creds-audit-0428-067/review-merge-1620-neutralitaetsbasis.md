@@ -68,3 +68,13 @@ Before review: `docker ps -a` (PID 3446891) showed only header `CONTAINER ID   I
 ## END
 
 END_BLOCKED codex-rev2-1736: REVIEW APPROVE; merge blocked by active strict PR Selected Checks status, final hop to develop `1b7598aef8c4cae33b77c8523872637090d0f2bf` required, candidate `ad5859916d54bfb218a4c04f1cd41de44df0bb62`.
+
+## Origin main evidence-path witness
+
+Exact output of the required fetch and origin/main tree lookup:
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle5-2026-11-22/creds-audit-0428-067/review-merge-1620-neutralitaetsbasis.md
+```
