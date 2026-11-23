@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: f0f6c8b4 / Coordinator
-kanban_status: review
-kanban_lane: review
+owner: Owner (#1790 owner-merge) / f0f6c8b4
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One develop-only catalog PR registers the base rows that Trusted Plan needs to admit already-existing product sources in #1753…"
 kanban_title: 0428-252 · register existing-path sources
 priority: ""
@@ -19,21 +19,22 @@ prs: [mcpdev80/baseharbor#1790]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/c6a7138ce2bf7de88f45f2a68e5168c835601a16"]
 ---
 
-- [ ] t-20261123-catalog-ingress-develop-prereqs · Catalog ingress: register existing-path sources in develop base catalog #task #release/v0-4-28 #status/review #view/review #kind/task
+- [x] t-20261123-catalog-ingress-develop-prereqs · Catalog ingress: register existing-path sources in develop base catalog #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
-    **Owner:** f0f6c8b4 / Coordinator  
+    **Owner:** Owner (\#1790 owner-merge) / f0f6c8b4  
     **PR:** [baseharbor#1790](https://github.com/mcpdev80/baseharbor/pull/1790)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/c6a7138ce2bf7de88f45f2a68e5168c835601a16)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** f0f6c8b4 / Coordinator  
+**Owner:** Owner (#1790 owner-merge) / f0f6c8b4  
 **Priority:** not set  
 **PRs:** [baseharbor#1790](https://github.com/mcpdev80/baseharbor/pull/1790)  
 **Source:** 
@@ -84,3 +85,5 @@ abhaengige: #1753 (227) und #1765 (209) blockiert auf diesen base-ingress. Row-f
 arbeit beginnt: drei base-rows, lokale validator-pflicht, dann PR + exact-head run. package-root-kapitel gestrichen (owner-schienenroute).
 
 kandidat complete: PR #1790 head b103495b6, base develop ef73b50b, ready, diff exakt +27/0 (drei component-rows, KEIN package-root  scope-gemaess; title fix wurde lane aufgetragen). Exact-head run 45086017941 COMPLETED/SUCCESS (alle jobs inkl. executor/planner tests). Uebergabe an CODEX (REVIEW dann MERGE, owner-autorisiert durch diese karte + ingress-entscheidung 2026-11-23).
+
+0428-252 CLOSED: #1790 gemergt 00:01:01Z als c6a7138ce (current develop), exact-head run 45086017941 SUCCESS, drei base-rows fern-verifiziert im develop-tree. Title berichtigt (owner). Nachfolger: re-hops #1753/#1765 auf c6a7138, dann deren gruen-exact-heads; #1725 umzug folgt.

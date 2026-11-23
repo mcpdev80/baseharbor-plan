@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 172/265 · **Blocked:** 5 · **Waiting:** 20  
+    **Accepted tasks:** 173/265 · **Blocked:** 5 · **Waiting:** 20  
     **Blocker:** [t-20261120-shared-backend-state-version-message](../tasks/t-20261120-shared-backend-state-version-message.md) — route BESTATIGT (owner-vorschlag, coord-uebernommen): die 108 zeilen regression in die bereits base-katalogisierte internal/application/shared\_backends\_test.go…  
     **Blocker:** [t-20261121-native-cell-operator-seam](../tasks/t-20261121-native-cell-operator-seam.md) — dieselbe klasse: control\_plane\_single\_native\_ci\_test.go existiert bereits in develop, base-row fehlt im katalog. Naechster trigger: merge der ingress-karte t-2…  
     Plus 3 further blockers in the task list.  
