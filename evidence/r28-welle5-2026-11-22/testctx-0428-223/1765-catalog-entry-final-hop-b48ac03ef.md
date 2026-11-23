@@ -151,3 +151,11 @@ herleid naar de BASE-catalog semantiek van de TP-job: de entry MOET op
 develop komen (coordinator-action, patroon #1785/#1786); de in-PR entry is
 correct en blijft staan. Selected/Go skipped (23). Uncataloged fix via deze
 PR: NIET doorvoerbaar — gemeld met exact blok. cleanliness: besenrein.
+
+## origin/main witness
+
+Exact: `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 1765-catalog-entry-final-hop` (plan main = 70c99cdb42727151bf8e00ebb2b3a85efbf7f9db):
+
+```
+evidence/r28-welle5-2026-11-22/testctx-0428-223/1765-catalog-entry-final-hop-b48ac03ef.md
+```
