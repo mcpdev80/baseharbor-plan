@@ -93,3 +93,11 @@ Repair recipe for a follow-up PR, since #1802 is already merged:
 - No container or compose project was started.
 
 END_BLOCKED codex-rev-1747: REQUEST CHANGES for PR #1802 at `027fb255a4396215760771729d265ebbc6f9020f`; `usageError` is correctly typed with exit status 2, but its message contains an unformatted `%q` because the helper stores messages verbatim. The exact-head `wizard-app-new-tests` job and CLI shards passed; the fix requires a follow-up PR.
+
+Exact output of the required final origin/main path witness command:
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle5-2026-11-23/sweep-1802/review-merge.md
+```
