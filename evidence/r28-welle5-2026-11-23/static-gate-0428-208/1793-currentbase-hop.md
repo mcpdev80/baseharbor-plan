@@ -47,7 +47,10 @@ Candidate: `ingress-0428-208-static-gate`, base `9ba8e9baa7`
 - cleanliness: clean — no containers, no volumes, no state dirs created.
 
 ## END
-- HEAD: <new HEAD>
-- Run-id: <run-id>
-- Gates: PR Selected Checks => success (TRUSTED PLAN, FOCUSED PYTHON), PR Public Contracts => skipped.
+- HEAD: `35e7255dcf8063893b4adc7bf060e569da2e3d0b`
+- Branch head ls-remote witness: `35e7255dcf8063893b4adc7bf060e569da2e3d0b refs/heads/ingress-0428-208-static-gate`
+- PR head ls-remote witness: `35e7255dcf8063893b4adc7bf060e569da2e3d0b refs/pull/1793/head`
+- Run-id: `45121255846` (event pull_request, PR #1793), conclusion success.
+- Gates: PR · Trusted Plan => success (mcp classified deferred, no #1752-TP crash), PR · Focused Python => success (runs my modified scripts), PR · Validation · ci-executor-tests => success, PR · Validation · pr-planner-tests => success, PR · Validation · ci-policy => success, PR · Validation · receipt-execution-tests => success, PR · Public Contracts => skipped (mcp deferred release-only, never a PR executor). PR Selected Checks aggregate => success.
 - STATUS: DONE
+- NO merge (mission: KEIN merge). PR stays draft for coordinator review.
