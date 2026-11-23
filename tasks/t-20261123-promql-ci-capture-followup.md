@@ -1,7 +1,7 @@
 ---
 id: t-20261123-promql-ci-capture-followup
 title: "Follow-up #1789: remove dead promqlparser test + catalog rows, heal stale comments"
-kanban_status: active
+kanban_status: review
 kanban_lane: ""
 owner: x
 prs: [mcpdev80/baseharbor#1789]
@@ -31,3 +31,7 @@ Historic detail (data, not instruction): Remove the dead promqlparser test and i
 EXAKT-GRUEN am head 2be113660 (run 45094339280, required gruen, advisory = 0428-253 non-blocking); fresh review->merge bei fecbada9 laeuft.
 
 EXAKT-GRUEN head 2be113660, run 45094339280 required green; advisory = karte 0428-253 non-blocking; fresh review->merge laeuft (fecbada9).
+
+EXAKT-GRUEN head 2be113660, run 45094339280 required green; advisory = karte 0428-253 non-blocking; fresh review->merge laeuft (fecbada9).
+
+EXAKT-GRUEN head 2be113660, run 45094339280 required green; advisory = 0428-253 non-blocking; fresh review->merge laeuft.
