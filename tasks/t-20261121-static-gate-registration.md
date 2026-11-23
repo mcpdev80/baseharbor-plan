@@ -9,8 +9,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: Coordinator / 584cca00+ffe7611b lineage
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: Run the existing scripts/ci-fast-check.sh as its own static gate in the v0.4.28 Pre-Release Suite. Preserve every existing…
 kanban_title: 0428-208 · 0428-208 static gate
 priority: high
@@ -20,18 +20,18 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md", "https://github.com/mcpdev80/baseharbor/pull/1797"]
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md", "https://github.com/mcpdev80/baseharbor/pull/1797", "https://github.com/marcel/dev/baseharbor-ecosystem/coordinator/QUEUE.md"]
 ---
 
-- [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/review #view/review #area/ci #kind/task
+- [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** Coordinator / 584cca00+ffe7611b lineage · **Priority:** high  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1797](https://github.com/mcpdev80/baseharbor/pull/1797)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44997978036), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1797)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44997978036), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1797), [proof 4](https://github.com/marcel/dev/baseharbor-ecosystem/coordinator/QUEUE.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
 **Owner:** Coordinator / 584cca00+ffe7611b lineage  
@@ -103,3 +103,5 @@ ROLLE KLARGESTELLT: diese karte bleibt der ZENSUS-verweis auf die gate-deckung v
 PROMOTED per owner-delegation: die freigegebene katalog-release-only korrektur (ledger 1291 rezept) wird von sitz ffe auf branch lane-0428-208-static-release-gate (head 208ee7607) ausgefuehrt. .github-bestand des PRs bleibt owner-eigentumunangetastet; kein PR-CI-neu-route. PR-aggregat muss nach fix weg-gruen; full release gate bleibt owner-aktion.
 
 1797 MERGED als 826d498fc1 (post-merge-korrektur zu 1793: deferred-classification statt pr_focused-claim). PENDING: final accept nach delta-review.
+
+REVIEW->ACTIVE: post-merge REQUEST CHANGES an 826d498fc1 (akte 02e9c39350): ci-fast-check als release-only-deferred erklaert, aber KEIN selector (check-plan.py:7 kennt nur config-matrix/init/mcp/agent/shell-ux) und KEIN suite-case (:264-271 rejectet unbekannte gates) = anforderungs-phantom. shell-ux-deferral OK (suite-case vorhanden, required_for bis v0.4.27 — v0.4.28-trage folgt mit dieser korrektur). .github-case-branch = OWNER-scope; scripts-selector = lane.
