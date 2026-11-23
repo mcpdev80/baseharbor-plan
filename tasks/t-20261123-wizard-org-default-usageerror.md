@@ -7,9 +7,9 @@ areas: ["cli"]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w081
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: "0428-258 · app-new wizard: org-default"
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261123-wizard-org-default-usageerror · Bug (hunt H-P1): app-new wizard: org-default missing-stack must return usageError parity, not hard error #task #release/v0-4-28 #status/planned #view/ready #area/cli #kind/task
+- [ ] t-20261123-wizard-org-default-usageerror · Bug (hunt H-P1): app-new wizard: org-default missing-stack must return usageError parity, not hard error #task #release/v0-4-28 #status/active #view/active #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w081  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w081  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
