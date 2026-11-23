@@ -71,3 +71,16 @@ REQUEST CHANGES
 Required correction: route the changed regression test through the existing `wizard-app-new-tests` validation by renaming it to match `scripts/pr-check-runner.py:26` (`^TestAppNewWizard`), then provide an exact-head CI receipt whose `matched_tests` includes and executes it successfully. The code fix and requested two-file scope otherwise pass review.
 
 END codex-rev-1747 DONE — REQUEST CHANGES for `854c7cefff1e4483b2885026b91354944312522f`.
+
+
+## Published evidence path witness
+
+Command: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-23/sweep-1804/review-merge.md$'`
+
+Exact command output:
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle5-2026-11-23/sweep-1804/review-merge.md
+```
