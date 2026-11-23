@@ -97,3 +97,12 @@ BLOCKED for Owner ratification on three points:
 3. Merge stays blocked (Merge-Frost 0.4.27 + pending Owner ratification). PR #1812 stays open.
 
 No invented logic. No scripts/** change applied. ci.yml untouched. Evidence on baseharbor-plan origin/main pending this END post.
+
+## UPDATE (additive hop + CI green; 0428-250 gate red remains)
+
+- Additive hop: `git fetch lane-origin develop` + `git merge --no-edit lane-origin/develop`. develop was d4fa8c58 (contains #1813 registering catalog rows). Merge clean (added only scripts/pr-gate-coverage.json catalog rows). Integrated Owner's same-lane commit 5ab9fe4a (fix(ci): allow source build for pre-release gates — made the baha-ci-operator-testonly preflight optional). New head: 7bce1838.
+- PR #1812 head now 7bce1838 (base develop, open). Diff vs old head: only .github/workflows/pre-release-runtime-suite.yml (my fix + Owner's optional-testonly) + scripts/pr-gate-coverage.json (additive catalog, #1813). ci.yml byte-identical; scripts/** untouched.
+- PR body reconciled: describes only the YAML reload-before-publish fix (discarded scripts/ci-local-oci-registry.sh description removed).
+- Hosted CI: run 7550 (pull_request on exact head 7bce1838) = SUCCESS.
+- The 14 Docker+Podman light-runtime gates still fail on the Pre-Release Validation / Runtime Core runs on my head; the failing preflight is the Core test-only fixture allowlist (card 0428-250, `test -s baha-ci-operator-testonly` at pre-release-runtime-suite.yml:186/315). That is CI/Owner artifact-production scope, not this YAML fix. Confirmed by Owner: not a lane fault.
+- No merge (frost + 0428-250 pending). PR #1812 stays open.
