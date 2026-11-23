@@ -71,3 +71,9 @@ END_BLOCKED codex-rev2-1736: PR #1723 not merged; develop advanced beyond the ca
 ROLE: REVIEW
 VERDICT: BLOCKED
 The candidate has a successful exact-head historical run, but it is no longer current-base; the mission-cited run is for another branch; and the required named test receipt is absent from the hosted logs. No merge is authorized on this evidence.
+
+## Required origin/main witness before final publication
+
+Immediately before this evidence update, ran `git fetch origin main && git ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-23/sweep-1723/review-merge.md$'`. Exact grep output:
+
+evidence/r28-welle5-2026-11-23/sweep-1723/review-merge.md
