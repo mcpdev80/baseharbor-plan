@@ -101,7 +101,9 @@ No merge performed by this lane.
 ## Evidence-on-origin/main verification (second-to-last actions)
 
 ```
-<output appended after push>
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep sweep-1780/finalhop
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle5-2026-11-23/sweep-1780/finalhop.md
 ```
 
 Planning repo remote verified before first evidence commit:
