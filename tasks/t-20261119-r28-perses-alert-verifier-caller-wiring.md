@@ -15,7 +15,7 @@ blocker: ""
 wait_reason: ""
 depends_on: [t-20261119-r28-perses-status-backend-witness]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1816]
 sources: []
 source_note: "befund aus der unabhaengigen review und der korrekturrunde von karte 0428-073 (PR #1704), fundstelle von MIR am develop 28fb427f nachgemessen; akte evidence/r28-welle4-2026-11-19/codex-review-wave/1704-0428-073.md P6"
 evidence:
@@ -27,6 +27,7 @@ created: 2026-11-19
 - [ ] t-20261119-r28-perses-alert-verifier-caller-wiring · alert-verifier haengt in der luft #task #release/v0-4-28 #status/active #view/active #area/cli #area/metrics #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w41-0428-152-alertverifier  
+    **PR:** [baseharbor#1816](https://github.com/mcpdev80/baseharbor/pull/1816)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-review-wave/1704-0428-073.md)  
     <!-- /generated:card -->
 
@@ -36,7 +37,7 @@ created: 2026-11-19
 **Depends on:** [t-20261119-r28-perses-status-backend-witness](t-20261119-r28-perses-status-backend-witness.md)  
 **Owner:** w41-0428-152-alertverifier  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1816](https://github.com/mcpdev80/baseharbor/pull/1816)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -70,3 +71,5 @@ Unstarted and unassigned; scheduled behind 0428-142/#1702 because both need
 the card remains planned and renders as waiting until 0428-142 is accepted.
 
 Dep backend-witness closed/accepted; blocking dep #1702 (0428-142) MERGED -> cmd/baha/app_status_collect.go consolidated on develop d4fa8c589. Dispatched flash lane w41 (7d4c6d78) on new branch lane-0428-152-alertverifier-caller. Write-set cmd/baha/app_status_collect.go + cmd/baha tests only; Hosted-only verify; no collision with active lanes (secret_*/ci_integration_* different files). One honest consumer for the alert-evaluator verifier.
+
+Correction (maintainer review on 3f8e6fa): alert-evaluator observation added only to app-status; acceptance requires it on the Perses STATUS command face too (cmd/baha/perses_lifecycle.go persesStatusResult returns without it; command-face test checks unrelated top-level state). Routed w41: add observation to perses_lifecycle.go status path + fix that test; no internal/metrics edits; exact-head Hosted rerun; PR open until green.
