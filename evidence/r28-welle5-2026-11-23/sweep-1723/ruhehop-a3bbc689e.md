@@ -99,7 +99,15 @@ a3bbc689e4da70da73a0dcf5370d9a9e2e81d24d  refs/heads/develop
   cli-gofmt/go-build/go-vet, Go unit cli-0..3 + owner + packages, Selected Runtime
   docker·guided, docker·data-capabilities, podman·data-capabilities, Native
   native/docker/data-capabilities + native/podman/data-capabilities.
-- Run on final head 37ddf3bdc (base a3bbc689e): **<RUN2>**, watched to terminal **<RUN2 STATUS>**.
+- Run on final head 37ddf3bdc (base a3bbc689e): **45147022935**, pull_request, watched to terminal
+  `completed / success` — 23 executed-and-green (PR · Trusted Plan, PR Selected Checks, Source
+  format, Runner Interface, Focused Python, Demo Pin, go-build/go-vet/cli-gofmt, Go unit
+  cli-0..3+owner+packages, Selected Runtime docker·guided + docker/podman·data-capabilities,
+  Native native/docker + native/podman·data-capabilities), 16 correctly-skipped matrix jobs.
+- develop moved again after that run (a3bbc689e → 304b3ad1d, #1798). That delta touches only
+  app_new_wizard_test.go / application_provider_preferences.go + catalog rows for them — nothing
+  in the 0428-199 write-set; per CI policy ("no endless hopping on every develop commit") the
+  candidate 37ddf3bdc with terminal-green run 45147022935 on a3bbc689e stands as delivered.
 
 ## cleanliness
 
@@ -113,7 +121,7 @@ a3bbc689e4da70da73a0dcf5370d9a9e2e81d24d  refs/heads/develop
 ## END
 
 - HEAD: 37ddf3bdca8a0115f5c57b93740a21c90e13ac62 (lane-0428-199-workloadport, base a3bbc689e)
-- Run-id: 45143306703 (success, on intermediate head 019074b44) + <RUN2> (<RUN2 STATUS>, final head)
+- Run-id: 45143306703 (success, intermediate head 019074b44) + **45147022935** (success, final head 37ddf3bdc)
 - STATUS: DONE — no merge by lane.
 
 ## Evidence-on-origin/main verification (second-to-last action)
