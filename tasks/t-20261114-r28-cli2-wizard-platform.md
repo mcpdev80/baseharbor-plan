@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: b90e4ba1 (#1620 hop auf c6a7138 laeuft) / Coordinator
-kanban_status: active
-kanban_lane: active
+owner: b90e4ba1 (stop-anweisung: kein retry) / Coordinator
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "Platform and access wizards. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-067 · Platform and access wizards
 priority: high
@@ -17,25 +17,26 @@ depends_on: [t-20261114-r28-cli2-contract, t-20261114-r28-cli2-env-policy]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1620]
 sources: []
-blocker: ""
+blocker: "trusted BASE c6a7138 lacks owners fuer cmd/baha/app_access.go + app_access_test.go (PR touches beide, same-PR edit wirkt nicht  base-precedence). naechster trigger: merge der karte t-20261123-catalog-ingress-app-access (owner-abgestimmte surfaces: beide atomic data-caps, analog app_env_test.go + target_runtime_access_provider_test.go), dann EIN re-hop/re-run #1620. Kein retry bis dahin, kein force-merge, validation bleibt. depends_on gesetzt."
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1620", "https://github.com/mcpdev80/baseharbor/actions/runs/44849270489", "https://github.com/mcpdev80/baseharbor/commit/28cb907dc0a678d1b5326df5203741c70cf84978"]
 ---
 
-- [ ] t-20261114-r28-cli2-wizard-platform · CLI redesign: Platform and access wizards #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-wizard-platform · CLI redesign: Platform and access wizards #task #release/v0-4-28 #status/blocked #view/blocked #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (\#1620 hop auf c6a7138 laeuft) / Coordinator · **Priority:** high  
+    **Owner:** b90e4ba1 (stop-anweisung: kein retry) / Coordinator · **Priority:** high  
     **PR:** [baseharbor#1620](https://github.com/mcpdev80/baseharbor/pull/1620)  
+    **Blocker:** trusted BASE c6a7138 lacks owners fuer cmd/baha/app\_access.go + app\_access\_test.go (PR touches beide, same-PR edit wirkt nicht base-precedence). naechster trigger: merge der karte t-20261123-catalog-ingress-app-access (owner-abgestimmte su…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1620), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44849270489), [proof 3](https://github.com/mcpdev80/baseharbor/commit/28cb907dc0a678d1b5326df5203741c70cf84978)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** b90e4ba1 (#1620 hop auf c6a7138 laeuft) / Coordinator  
+**Owner:** b90e4ba1 (stop-anweisung: kein retry) / Coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1620](https://github.com/mcpdev80/baseharbor/pull/1620)  
 **Source:** 
