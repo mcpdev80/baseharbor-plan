@@ -93,7 +93,9 @@ components 230->242; `bash scripts/ci-fast-check.sh` exit 0.
 ## Evidence-on-origin/main verification (second-to-last actions)
 
 ```
-<output appended after push>
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep sweep-1614/ingress-forward-rows
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle5-2026-11-23/sweep-1614/ingress-forward-rows.md
 ```
 
 Planning repo remote verified before first evidence commit:
