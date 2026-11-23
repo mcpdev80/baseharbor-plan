@@ -104,10 +104,31 @@ a3bbc689e4da70da73a0dcf5370d9a9e2e81d24d  refs/heads/develop
   format, Runner Interface, Focused Python, Demo Pin, go-build/go-vet/cli-gofmt, Go unit
   cli-0..3+owner+packages, Selected Runtime docker·guided + docker/podman·data-capabilities,
   Native native/docker + native/podman·data-capabilities), 16 correctly-skipped matrix jobs.
-- develop moved again after that run (a3bbc689e → 304b3ad1d, #1798). That delta touches only
-  app_new_wizard_test.go / application_provider_preferences.go + catalog rows for them — nothing
-  in the 0428-199 write-set; per CI policy ("no endless hopping on every develop commit") the
-  candidate 37ddf3bdc with terminal-green run 45147022935 on a3bbc689e stands as delivered.
+- develop moved again after that run (a3bbc689e → 304b3ad1d, #1798): initially recorded as no
+  write-set touch; the reviewer verdict then demanded base EXACTLY current develop, so the LAST
+  HOP followed (next section).
+
+## EIN LETZTER HOP (coord order 2026-11-23 10:0x, reviewer-verdict REQUEST CHANGES)
+
+- Delta check first: `git diff --name-only a3bbc689e..origin/develop` → app_new_wizard_test.go,
+  application_provider_preferences.go, scripts/pr-gate-coverage.json — grep for
+  app_apply|workload_ports|runtime.go|workload_port_local → **no write-set touch** (no STOP).
+- `git fetch lane-origin develop && git rev-parse lane-origin/develop` →
+  `304b3ad1d88647377ea647d0d94174bfc9298e14` (== ordered tip); HEAD stood at 37ddf3bdc.
+- ONE additive `git merge --no-ff --no-edit lane-origin/develop` →
+  **340e66a881e60e20252ef5b284ca95e959732b59** (parents 37ddf3bdc + 304b3ad1d), zero conflicts;
+  ancestry exit 0; catalog `git diff lane-origin/develop HEAD -- scripts/pr-gate-coverage.json`
+  → 0 lines (BYTE-EQUAL develop); content delta still exactly the 4 write-set files; 0 .github;
+  `go build ./...` ok and planner MappingTests group green locally (cheap pre-check only).
+- Push `37ddf3bdc..340e66a88`; `git ls-remote lane-origin refs/pull/1723/head
+  refs/heads/lane-0428-199-workloadport refs/heads/develop` →
+  branch + PR head `340e66a88…`, develop `304b3ad1d…` (PR BASE == current develop, EXACT).
+- Run **45153328164** (pull_request, head 340e66a88) watched to terminal: `completed / success`;
+  23 executed-and-green jobs (PR · Trusted Plan, PR Selected Checks, Source format, Runner
+  Interface, Focused Python, Demo Pin, go-build/go-vet/cli-gofmt, Go unit cli-0..3+owner+packages,
+  Selected Runtime docker·guided + docker/podman·data-capabilities, Native data-capabilities),
+  16 conditional skips. **TP BASE_SHA witness:** job log line
+  `BASE_SHA: 304b3ad1d88647377ea647d0d94174bfc9298e14` — the exact ordered base.
 
 ## cleanliness
 
@@ -120,8 +141,8 @@ a3bbc689e4da70da73a0dcf5370d9a9e2e81d24d  refs/heads/develop
 
 ## END
 
-- HEAD: 37ddf3bdca8a0115f5c57b93740a21c90e13ac62 (lane-0428-199-workloadport, base a3bbc689e)
-- Run-id: 45143306703 (success, intermediate head 019074b44) + **45147022935** (success, final head 37ddf3bdc)
+- HEAD: 340e66a881e60e20252ef5b284ca95e959732b59 (lane-0428-199-workloadport, base EXAKT 304b3ad1d)
+- Run-id: 45153328164 — completed/success, TP BASE_SHA 304b3ad1d88647377ea647d0d94174bfc9298e14
 - STATUS: DONE — no merge by lane.
 
 ## Evidence-on-origin/main verification (second-to-last action)
