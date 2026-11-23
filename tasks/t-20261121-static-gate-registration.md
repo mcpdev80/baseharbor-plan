@@ -8,36 +8,35 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ffe7611b (fix applied, blockiert auf owner-punkt) / Coordinator
-kanban_status: blocked
-kanban_lane: blocked
+owner: Coordinator / 584cca00+ffe7611b lineage
+kanban_status: review
+kanban_lane: review
 kanban_summary: Run the existing scripts/ci-fast-check.sh as its own static gate in the v0.4.28 Pre-Release Suite. Preserve every existing…
 kanban_title: 0428-208 · 0428-208 static gate
 priority: high
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1774, mcpdev80/baseharbor#1782, mcpdev80/baseharbor#1761]
+prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1774, mcpdev80/baseharbor#1782, mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1797]
 sources: []
-blocker: "release-tag tension (LANE-ERKENT, zeugen in akte): release-requirements.json ci-fast-check required_for [v0.4.28] aber validator/mapping release-FELD = v0.4.27 (zeile 122: coverage release muss in requirements-releases sein; liste endet v0.4.27). Beide in-scope-fixes brechen Lane-Tests. naechster trigger: owner aligns requirements (begin-marker/beta) ODER autorisiert variante (a). ffe haelt fix unangetastet (local head be5c8ddc, kein push)."
+blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md", "https://github.com/mcpdev80/baseharbor/pull/1797"]
 ---
 
-- [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #kind/task
+- [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** ffe7611b (fix applied, blockiert auf owner-punkt) / Coordinator · **Priority:** high  
-    **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
-    **Blocker:** release-tag tension (LANE-ERKENT, zeugen in akte): release-requirements.json ci-fast-check required\_for \[v0.4.28\] aber validator/mapping release-FELD = v0.4.27 (zeile 122: coverage release muss in requirements-releases sein; liste endet v0…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44997978036), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md)  
+    **Owner:** Coordinator / 584cca00+ffe7611b lineage · **Priority:** high  
+    **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1797](https://github.com/mcpdev80/baseharbor/pull/1797)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44997978036), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1797)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** ffe7611b (fix applied, blockiert auf owner-punkt) / Coordinator  
+**Owner:** Coordinator / 584cca00+ffe7611b lineage  
 **Priority:** high  
-**PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
+**PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1797](https://github.com/mcpdev80/baseharbor/pull/1797)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -102,3 +101,5 @@ GRUND KORRIGIERT, MESSE STATT ERINNERUNG: mein bisheriger wart-grund ('wartet au
 ROLLE KLARGESTELLT: diese karte bleibt der ZENSUS-verweis auf die gate-deckung von PR 1746 (verdict (b), akte gate-census-1746.md, plan 03e506a81). INTEGRATION und hop laufen ueber karte 0428-205 auf der lane ffe7611b - beide eroeffnen denselben PR, aber nur 0428-205 fuehrt ihn. Mein bisheriger wart-grund 'wartet auf den helper aus PR 1761' ist WIDERLEGT: der diff hat keinen verweis auf operatorauth/test_operator und keine broker-pfade (gemessen). Neuer grund: reservierte gebiete (scripts/** und .github/**), deren korrektur innerhalb der 205-vollmacht ist aktiv, plus der fisch-einschraenkungs-punkt des eigentuemers.
 
 PROMOTED per owner-delegation: die freigegebene katalog-release-only korrektur (ledger 1291 rezept) wird von sitz ffe auf branch lane-0428-208-static-release-gate (head 208ee7607) ausgefuehrt. .github-bestand des PRs bleibt owner-eigentumunangetastet; kein PR-CI-neu-route. PR-aggregat muss nach fix weg-gruen; full release gate bleibt owner-aktion.
+
+1797 MERGED als 826d498fc1 (post-merge-korrektur zu 1793: deferred-classification statt pr_focused-claim). PENDING: final accept nach delta-review.
