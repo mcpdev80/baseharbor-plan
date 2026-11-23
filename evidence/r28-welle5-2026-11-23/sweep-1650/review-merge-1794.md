@@ -61,3 +61,11 @@ Review verdict: APPROVE. All mission acceptance points pass; proceed to ordinary
 ## END codex-rev-1747 DONE
 
 PR #1794 was independently reviewed and normally squash-merged. Merge SHA and current develop head: `0c1b8ca2ff4a057853432a7a565040be57cade06`.
+
+## origin/main evidence-path witness
+
+Exact output from `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle5-2026-11-23/sweep-1650/review-merge-1794.md` was:
+
+```text
+evidence/r28-welle5-2026-11-23/sweep-1650/review-merge-1794.md
+```
