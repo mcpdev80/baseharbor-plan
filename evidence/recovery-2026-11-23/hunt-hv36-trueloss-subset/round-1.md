@@ -203,3 +203,12 @@ is listed MERGED at 2026-11-22T21:57 but its head `1e9c9b145` is not an ancestor
 - docker not invoked; host unchanged.
 
 END_DONE hunt-hv36: develop dc8626e9c; 3 LOST-RECOVER (085←937b8a747, 198←e45430f2f, 213←37587b0ed-minus-loki-regression); 091 landed-via-sibling #1645; 202+244 NO-LOSS (#1734/#1766 merged).
+
+## origin/main verification witness (second-to-last action)
+
+```
+$ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/recovery-2026-11-23/hunt-hv36-trueloss-subset
+evidence/recovery-2026-11-23/hunt-hv36-trueloss-subset/round-1.md
+```
+
+Evidence commit: 916e88066 (baseharbor-plan main, pushed 2026-11-23).
