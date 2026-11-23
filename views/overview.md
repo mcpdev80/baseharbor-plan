@@ -12,13 +12,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | ---: |
 | active | 6 |
 | review | 4 |
-| wait | 14 |
+| wait | 13 |
 | blocked | 2 |
 | ready | 10 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
-| closed | 453 |
+| closed | 454 |
 
 ## Active
 
@@ -49,7 +49,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261017-release-0-4-27-verify](../tasks/t-20261017-release-0-4-27-verify.md) | v0.4.27 · Release: verify publication, artifacts, Pages and closeout | wait | normal | mission-closeout27 | [t-20261017-release-0-4-27-publish](../tasks/t-20261017-release-0-4-27-publish.md) (open) | — |
 | [t-20261017-release-0-4-28-cleanup](../tasks/t-20261017-release-0-4-28-cleanup.md) | v0.4.28 · Release start: reconcile old PRs, tasks and branches | wait | high | lane-0428-002-r28 | [t-20261017-release-0-4-27-verify](../tasks/t-20261017-release-0-4-27-verify.md) (open) | — |
 | [t-20261114-r28-cli2-app-interact](../tasks/t-20261114-r28-cli2-app-interact.md) | CLI redesign: Guide app logs exec and urls | wait | high | owner (autorisierte zsh+fish) / 1450c201 (CODEX-REVIEW_assigned) / coord (bestaetigung+merge-route) | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md), [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) | [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746) |
-| [t-20261114-r28-cli2-app-status](../tasks/t-20261114-r28-cli2-app-status.md) | CLI redesign: Unify app status and versions | wait | high | Codex (owner-directive 2026-11-20) | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) | [baseharbor#1614](https://github.com/mcpdev80/baseharbor/pull/1614) |
 | [t-20261114-r28-cli2-source-pull](../tasks/t-20261114-r28-cli2-source-pull.md) | CLI redesign: Implement guided source pull | wait | high | Owner (promote ci.yml) / Coordinator (queued refresh) / a lane (hop+CI nach shared-fix) | [t-20261114-r28-cli2-app-lifecycle](../tasks/t-20261114-r28-cli2-app-lifecycle.md), [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) | [baseharbor#1752](https://github.com/mcpdev80/baseharbor/pull/1752) |
 | [t-20261114-r28-perses-contact-routing](../tasks/t-20261114-r28-perses-contact-routing.md) | Define alert notification routing | wait | normal | coord | [t-20261114-r28-perses-alerts](../tasks/t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-secure-access](../tasks/t-20261114-r28-perses-secure-access.md) | — |
 | [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) | Perses identity dashboard | wait | normal | Codex (Marcel assignment 2026-11-21) | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650) |
@@ -85,7 +84,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 4 open, 165 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 52 open, 220 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 51 open, 221 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 16 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))

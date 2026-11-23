@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261114-r28-cli2-app-data](t-20261114-r28-cli2-app-data.md), [t-20261114-r28-cli2-app-interact](t-20261114-r28-cli2-app-interact.md), [t-20261114-r28-cli2-app-status](t-20261114-r28-cli2-app-status.md), [t-20261114-r28-cli2-source-pull](t-20261114-r28-cli2-source-pull.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md)  
+    **Needs:** [t-20261114-r28-cli2-app-data](t-20261114-r28-cli2-app-data.md), [t-20261114-r28-cli2-app-interact](t-20261114-r28-cli2-app-interact.md), [t-20261114-r28-cli2-source-pull](t-20261114-r28-cli2-source-pull.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
