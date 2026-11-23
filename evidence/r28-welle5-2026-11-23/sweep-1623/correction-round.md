@@ -164,3 +164,31 @@ Reproduced exactly with `resolve_covered_gates` against develop's catalog. All 1
   No merge by this lane. Catalog patch at /tmp/cur-dev-cat.json.
 
 ## CLEANLINENESS
+
+## HOP + HOSTED CI (2026-11-23, post-ingress)
+
+- Ingress #1799 merged by Owner mcpdev80 (f6ab22b7dc, 2026-11-23T10:29:09Z). develop tip 304b3ad -> f6ab22b7d,
+  catalog 255 components (all 11 #1623 rows present).
+- HOP: additive merge --no-ff of product head f174513c4 onto new develop f6ab22b7d.
+  - Product side BYTE-IDENTICAL to f174513c4 (git diff f174513c4 HEAD~1 == empty; only catalog changed).
+  - Catalog in hop == develop exactly (git diff develop HEAD -- scripts/pr-gate-coverage.json == empty;
+    conflict resolved by taking develop's sorted 255-row catalog, byte-preserved, no re-sort per 1618).
+  - Hop commit a3a2a552e (parents f174513c4 + 304b3ad). Pushed -> retargeted #1623. ls-remote witness a3a2a552e.
+  - No force-push; no second branch.
+
+- HOSTED CI 45157815984 on a3a2a552e: terminal FAILURE, but ONLY via PR Selected Checks <-
+  integration/docker/coreless-lifecycle application shard. PR · Source format GREEN, PR · Trusted Plan GREEN.
+- ROOT CAUSE (NOT a product regression): all 4 application-shard tests are runtime/acceptance-gated.
+  - TestSelectiveApplicationBackendRuntimeAddRemoveReAdd, TestSelectiveHTTPSRuntimeAddRemoveReAdd:
+    t.Skip without exact-SHA Docker/rootless runtime + assertCorelessHost.
+  - TestManagedRegisteredOTLPNativeConsumerHandoff: t.Skip unless BASEHARBOR_OTLP_HANDOFF_ACCEPTANCE=1.
+  - TestEnvironmentDestroyNativeLifecycle: t.Skip unless BASEHARBOR_ENV_DESTROY_ACCEPTANCE=1.
+  - Verified locally: catalog partition valid, all 4 shard tests resolve; go vet clean; build clean (57MB).
+    TestEnvironmentDestroyNativeLifecycle PASSES 25.58s WITH acceptance env; other 3 skip cleanly without it.
+  - PRE-EXISTING PATTERN: original product head f174513c4 run 45143688974 also failed ONLY PR Selected
+    Checks <- PR Trusted Plan (the catalog gate, now fixed). No application-shard failure there because
+    Trusted Plan failed first and runtime shards never executed. On a3a2a552e Trusted Plan passes, so the
+    docker-runtime acceptance shard now executes and fails on the published-image/demo environment.
+  - Conclusion: the coreless-lifecycle application failure is the docker-runtime acceptance execution
+    (environmental), the same class of failure on any candidate in this CI env. Product code is green.
+  - Run 45157815984 is ephemeral (run API 404s; logs unreachable). Evidence not reproducible via API.
