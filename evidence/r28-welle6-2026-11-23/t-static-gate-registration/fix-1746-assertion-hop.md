@@ -127,5 +127,9 @@ cleanliness: clean.
 ## Evidence-on-origin/main verification (second-to-last action)
 
 ```
-<appended after plan push>
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main \
+    && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep fix-1746-assertion-hop
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle6-2026-11-23/t-static-gate-registration/fix-1746-assertion-hop.md
+(origin/main tip c27532e5e; evidence push b3f949cc2..c27532e5e)
 ```
