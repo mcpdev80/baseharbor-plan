@@ -118,11 +118,15 @@ cleanliness: clean.
 
 ## END
 
-- STATUS: BLOCKED — mission's PR #1746 CLOSED as superseded by #1805 mid-execution; delivered
-  commits stand on refs/heads/lane-0428-208-static-release-gate (a2f816cb3); disposition of that
-  branch + the wildcard-vs-phantom finding is a coordinator call. Candidate SHAs this turn:
-  5c8ce8db4 (run 45185263454, terminal, red on the STATE above) and a2f816cb3 (fix, undelivered
-  to any PR).
+- STATUS: DONE (mission closed by coord DISPOSITION 2026-11-23 14:0x) — #1746 line is owned by
+  the recut #1805; this lane delivered the assertion fix, the hop chain and the documented run
+  STATE (45185263454), plus the boundary-sourced verifier fix a2f816cb3 kept as reference on the
+  old backing branch. Per disposition: no contact with either branch until the 1805 verdict;
+  the cleanup (delete refs/heads/lane-0428-208-static-release-gate with before/after ls-remote
+  witness) follows on order.
+- Candidate SHAs this mission: 5c8ce8db4 (run 45185263454, terminal; red check reported as STATE
+  above) and a2f816cb3 (reference fix, not tied to any open PR).
+END w076-0428-076-1789rest DONE.
 
 ## Evidence-on-origin/main verification (second-to-last action)
 
