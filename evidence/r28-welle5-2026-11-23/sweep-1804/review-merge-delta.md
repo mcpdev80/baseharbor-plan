@@ -63,6 +63,7 @@ The three org-default tests are covered by successful exact-head CLI package rec
 ## evidence publication
 
 - First Planning evidence push was verified by `git ls-remote origin refs/heads/main`: `a4c6a48ea69f79454ebd9bb0e274a661d598cb05 refs/heads/main`.
+- Second Planning evidence push was verified by `git ls-remote origin refs/heads/main`: `8cf51718ec30180b73865b677eda6e8fc618c70b refs/heads/main`.
 - Exact output of `git fetch origin main && git ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-23/sweep-1804/review-merge-delta.md$'`:
 
 ```text
