@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w186-0428-186-verified-status-source
+owner: w186-0428-186-hop
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261120-r28-perses-status-never-verified · No source API yields verified: status --json can never report true #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
-    **Owner:** w186-0428-186-verified-status-source  
+    **Owner:** w186-0428-186-hop  
     **PR:** [baseharbor#1810](https://github.com/mcpdev80/baseharbor/pull/1810)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w186-0428-186-verified-status-source  
+**Owner:** w186-0428-186-hop  
 **Priority:** not set  
 **PRs:** [baseharbor#1810](https://github.com/mcpdev80/baseharbor/pull/1810)  
 **Source:** 
@@ -64,3 +64,5 @@ CODEX-REVIEW #1810 = REQUEST_CHANGES (422 self-review, routed to worker): Perses
 Gate dependency: #1810 Trusted Plan clears via card 0428-260 (catalog guardian rows for internal/capability + internal/application/perses_lifecycle_test.go). INDEPENDENT of that: w186 still owes the REQUEST_CHANGES code fix (static verified -> fail-closed configured_unverified); head 168d40950 unchanged 5 ticks -> seat escalated to Owner.
 
 develop d4fa8c589 (#1813) cataloged #1810's paths -> gate guardian clears after the additive hop (routed to w186). STILL owed regardless: the CODEX REQUEST_CHANGES fail-closed code fix (head stuck 168d40950 many briefs). Last chance sent; unchanged head next tick -> Owner seat force-release.
+
+RESTART (beefcd12) of dead 402f1117. Continuing branch lane-0428-186: additive hop to d4fa8c589 + STILL-owed fail-closed code fix (perses.go configured_unverified + answering/silent tests).
