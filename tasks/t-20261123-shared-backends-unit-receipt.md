@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: Coordinator / 043d9868
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: "0428-259 · TestSharedBackendState* lack"
 priority: ""
@@ -19,21 +19,21 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1725"]
 ---
 
-- [ ] t-20261123-shared-backends-unit-receipt · Bug (post-merge #1725): TestSharedBackendState* lack hosted unit receipt (coverage maps sources only to podman data-caps surface) #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [x] t-20261123-shared-backends-unit-receipt · Bug (post-merge #1725): TestSharedBackendState* lack hosted unit receipt (coverage maps sources only to podman data-caps surface) #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** Coordinator / 043d9868  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1725)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** Coordinator / 043d9868  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -89,3 +89,5 @@ CI-Aufnahmepflicht wiederherstellen: shared_backends.go/_state.go/_test.go sourc
 ## Evidence
 - post-merge-verdict: evidence/r28-welle5-2026-11-23/sweep-1725/review-merge.md
 - run 45136441345 UNIT_SCOPE=none zeile
+
+CLOSED (doc-only, Option 1 ruling 1603): deckung EXISTIERTE bereits — vier tests in source-contracts job 137563847502 package-run (ok internal/application 4.572s), definitionen shared_backends_test.go:286/316/337/367; akte fd63a2b85. Kein code noetig; 1725-BLOCKED war receipt-sichtbarkeits-befund.
