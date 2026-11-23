@@ -94,3 +94,73 @@ git diff origin/develop..HEAD --name-only:
 - workspace /home/marcel/dev/baseharbor-ecosystem not extended with scratch files
 - stray probe file cmd/baha/zz_probe_test.go (develop's noop probe) restored after accidental deletion during cleanup
 - ls-remote witness: refs/pull/1623/head == d3f56709cc553279e6b4e3164da05590fe08a041; refs/heads/lane-0428-063-cli2-app-interact == d3f56709cc553279e6b4e3164da05590fe08a041
+
+---
+
+## ROOT CAUSE #2: aggregate checks fail on uncataloged sources (NOT the line-count gate)
+
+The `PR · Source format` line-count gate is now GREEN (app_access.go extracted to app_exec.go,
+876->639 lines). The remaining `PR Selected Checks` + `PR · Trusted Plan` failures have a DIFFERENT,
+deeper root cause that the earlier akte had NOT yet reached.
+
+### What the gate actually does
+- Trusted Plan (`pr_plan` job) resolves runtime-gate coverage from `scripts/pr-gate-coverage.json`
+  read from the TRUSTED BASE, never from the PR head. ci.yml:80 `git checkout --detach "$effective_base"`
+  then ci.yml:106-107 `git show "$controller:scripts/pr-gate-coverage.json"`. `controller` = develop tip
+  (controller pin 85965486154284d4ae7974573f504002335d4523 IS an ancestor of develop, so
+  `controller="$effective_base"`). The run read develop's catalog (242 components).
+- Card 0428-252 (PR #1790) states it explicitly: "PR-head rows cannot admit any source, so every
+  touched source must already be cataloged on develop."
+- `resolve_covered_gates(changed_paths, coverage)` (scripts/validate-pr-gate-coverage.py:17) returns any
+  changed `cmd/` or `internal/` source with no catalog entry as unresolved; `pr-gate-plan.py:1828-1833`
+  FAILS LOUD (`ValueError: invalid trusted PR gate coverage catalog: uncataloged source change, no
+  declared runtime gate owner`) for exactly those.
+
+### The 11 uncataloged changed sources
+Reproduced exactly with `resolve_covered_gates` against develop's catalog. All 11 changed by my fix:
+- cmd/baha/app_exec.go (NEW vs develop — extracted here)
+- cmd/baha/app_interact.go (NEW vs develop)
+- cmd/baha/app_interact_test.go (NEW vs develop)
+- cmd/baha/app_logs.go (on develop, never cataloged)
+- cmd/baha/human_open.go (on develop, never cataloged)
+- cmd/baha/operator_auth_boundary.go (on develop, never cataloged)
+- cmd/baha/app_access_urls.go (on develop, never cataloged)
+- internal/cli/cli.go (on develop, never cataloged)
+- internal/cli/cli_test.go (on develop, never cataloged)
+- internal/operatorauth/context.go (on develop, never cataloged)
+- internal/operatorauth/interaction_operations_test.go (NEW vs develop)
+
+### Catalog fix PREPARED and VERIFIED (NOT pushed — needs develop, owner-gated)
+- 11 net-new component rows added to a fresh develop checkout of pr-gate-coverage.json (253 components total,
+  was 242). Surfaces = `source.gate.atomic.docker.data.capabilities` + `source.gate.atomic.podman.data.capabilities`
+  (mirrors card 0428-254 PR #1791 shape for app_access.go; runtime_specific=true on the 2 test rows
+  cli_test.go / interaction_operations_test.go, mirroring internal/operatorauth/local_runtime_test.go).
+  No duplicate ids/paths; `validate(coverage, requirements)` OK.
+- Verified against a fresh `git worktree add /tmp/develop-verify origin/develop` + commit the catalog:
+  - catalog-only PR diff -> source_unowned=NONE -> gate PASSES
+  - REAL #1623 changed set (product + catalog files) -> source_unowned=NONE -> gate PASSES,
+    selected gates = atomic/docker+podman/data-capabilities, atomic/docker+podman/observability,
+    integration/docker/coreless-lifecycle
+- Patch saved at /tmp/cur-dev-cat.json (253 components). This is the artifact for the develop catalog PR.
+
+### WHY this lane cannot finish it
+- The gate reads develop's catalog; my lane (lane-0428-063-cli2-app-interact, head f174513c4) is an
+  ISOLATED branch 165 commits behind develop (a3bbc689e4) and NOT merged. Any branch-side catalog edit
+  is never read by the gate (already proven: run 45143688974 on f174513c4 read develop's catalog and
+  failed-loud on the same 11 sources).
+- Catalog / immutable-pin changes to develop are owner-gated. This worker lane will NOT push to develop
+  unilaterally. The owner-established pattern (cards 0428-252/#1790, 0428-254/#1791) is a SEPARATE
+  develop-only catalog PR.
+
+### CURRENT STATE (2026-11-23)
+- #1623 product fix: COMPLETE + verified. Head f174513c4. Full cmd/baha suite PASS (411s), gofmt clean,
+  go vet clean, source-readability-audit PASS, documentation-audit.sh PASS, catalog byte-valid.
+- Hosted run 45143688974 on f174513c4: PR · Source format GREEN; PR Selected Checks + PR · Trusted Plan
+  FAIL (fail-loud on the 11 uncataloged sources, not a test failure).
+- QUESTION escalated to Coordinator (session 9142ab1f) 2026-11-23: catalog fix is prepared+verified and
+  must land on develop via a separate develop-only catalog PR (owner-coordinated). Either (A) Coordinator
+  opens/assigns the catalog PR and this lane hands the verified patch, or (B) Coordinator authorizes this
+  lane to open the catalog PR against develop. Either way #1623 head stays f174513c4 (product fix only).
+  No merge by this lane. Catalog patch at /tmp/cur-dev-cat.json.
+
+## CLEANLINENESS
