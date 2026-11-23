@@ -229,3 +229,5 @@ Owner routed the additive hop to the existing owner (w078): develop d4fa8c589 (#
 RESTART (71ff001a) of dead bbf9d49f. ONE safe additive hop of develop d4fa8c589 (registers perses_dashboards_keycloak.go) into lane-0428-078-perses-identity-on-resolver; abort+QUESTION on conflict with owner commits.
 
 DO-NOT-MERGE guard (Owner): #1650 IdentityDashboardEligible=true depends on #1810 providing a reachable 'verified' path. #1810 currently makes verified unreachable; until 0428-186 lands a real probe (or Owner decides the eligibility instrument), #1650's positive case is unreachable -> hold merge even when its own hop/consent CI is green. #1810 is the active functional dependency for #1650 shipping.
+
+Reconciled: #1650 head now 884d2818, exact-hosted run 45283500012 active. 11-file diff adds test-only app-exec gate admission + identity metrics realization but does NOT change PersesStatusNow nor add the real per-target probe. 0428-186 positive-path OPEN -> #1650 merge HELD on probe (0428-186) + target-isolated query acceptance. DO NOT MERGE (frost + dependency).
