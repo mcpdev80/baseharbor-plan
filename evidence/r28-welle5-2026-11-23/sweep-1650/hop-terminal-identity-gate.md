@@ -127,3 +127,23 @@ to owner. NO code fix, NO gate-drop, NO skip-hiding. The candidate `cf43c6e89`
 is otherwise clean (all non-identity gates pass, BASE_SHA == current develop tip,
 build/vet/tests green). The identity-gate consent wall is an owner/harness
 decision point.
+
+## END
+
+- **head:** `cf43c6e89aae8a8f1c489f9aa074c22f70ef4682` (parents `22a76d68` + `f3d847874`, additive `--no-ff` hop onto current develop tip)
+- **run:** `45195781651` — terminal FAILURE, BASE_SHA `f3d84787462f324a6311e2e95928441c64a09296` (trusted-plan SUCCESS)
+- **klassifikation:** identity-gate failure = **(b) environmental** (1623-coreless pattern: per-submission `--confirm-candidate` consent CI cannot auto-provide). NOT (a) code fix — `keycloak_realization.go` change is purely additive `RegisterKeycloakMetricsSignalsAt` wrapper, code gate `Validation · identity-provider-package-tests` PASSES. NOT (c) flake — deterministic exit 41.
+- **candidate clean:** all non-identity gates pass (Go units, docker/podman data-capabilities, docker/observability), build/vet/tests green
+- **no merge, .github untouched** (NET diff vs develop = 4 1650 identity-witness files only)
+- **evidence on origin/main:** `57f47e977` (`evidence/r28-welle5-2026-11-23/sweep-1650/hop-terminal-identity-gate.md`)
+- **board on origin/main:** `c178412b` (`todos/w078-pr1650-0428-078-reloc.json`)
+- **cleanliness:** `docker ps -a` = no containers (CI ran on GitHub runners, not local)
+
+### QUESTION to coordinator (Owner)
+
+The identity-gate failure on `cf43c6e89` is environmental (consent wall), not a
+code defect. Decision needed: (1) is the `--confirm-candidate` harness a CI
+configuration issue to fix at Owner level, or (2) does the candidate need to be
+carried on a branch that already has deployment-state consent? NO code change
+suggested — the identity provider package tests pass and the runtime failure is
+in the demo workload confirmation step.
