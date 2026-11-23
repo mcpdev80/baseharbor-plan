@@ -63,11 +63,11 @@ Post-merge GitHub PR state: closed and merged. Fresh remote witness:
 d3eed85ab96040c1f80b2132f8316879f31e1b26 refs/pull/1791/head
 ```
 
-The separate #1620 re-hop and exact-head run remain follow-up work; this does not change the verified merge result for #1791.
+The separate #1620 re-hop and exact-head run remain follow-up work; this does not change the verified merge result for #1791. Fresh check after the merge found PR #1620 still based at `c6a7138ce2bf7de88f45f2a68e5168c835601a16`, with head `334733a1d8030a0d86fcfb6c8d0c27df0b6beabb`; its latest workflow run remains the pre-merge failure `45090587243`. There is no post-merge #1620 run in this evidence.
 
 ## Repo-rule compliance
 
-Evidence is stored only in baseharbor-plan. Product files and `.github/**` were not edited by this review. No local product tests, workflow reruns, or VM tests were started. The PR was not modified except for the authorized merge. The planning card remains unaccepted; this evidence records review/merge only.
+Evidence is stored only in baseharbor-plan. Product files and `.github/**` were not edited by this review. No local product tests, workflow reruns, or VM tests were started. The PR was not modified except for the authorized merge. This session did not edit task metadata. Current origin/main shows task `t-20261123-catalog-ingress-app-access` closed/accepted under Coordinator owner `b90e4ba1` by commit `27c288f18`. However, task acceptance line 55 requires #1620 to re-hop to the post-merge develop tip and pass its exact Trusted Plan and `PR Selected Checks`; the current #1620 state above does not prove that criterion. I therefore cannot attest full task acceptance from this review; the coordinator should restore follow-up tracking for that condition.
 
 ## cleanliness
 
@@ -75,7 +75,7 @@ Evidence is stored only in baseharbor-plan. Product files and `.github/**` were 
 
 ## END
 
-END_DONE codex-rev2-1736: APPROVE and squash-merged PR #1791; merge SHA `15c652136b0fce19dd0ae286b341b38cac3f7854`; exact-head run `45091676596` succeeded. The #1620 post-merge re-hop remains separate follow-up.
+END_BLOCKED codex-rev2-1736: APPROVE and squash-merged PR #1791 at `15c652136b0fce19dd0ae286b341b38cac3f7854`; the task's required post-merge #1620 re-hop and exact passing run are still absent, despite the task currently being marked closed/accepted.
 ## Origin main evidence-path witness
 
 Exact output of `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep <evidence-path>`:
