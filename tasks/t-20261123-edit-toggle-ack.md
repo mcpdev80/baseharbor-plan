@@ -7,9 +7,9 @@ areas: ["cli"]
 release: v0.4.28
 version: ""
 parent: ""
-owner: Coordinator / f0f6c8b4
-kanban_status: review
-kanban_lane: review
+owner: Coordinator (owner-merge + fecb delta-APPROVE) / f0f6c8b4
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: "0428-257 · app-edit: space-toggle lacks"
 priority: ""
@@ -19,22 +19,22 @@ prs: [mcpdev80/baseharbor#1801]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1801", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-23/sweep-1801/review-merge-delta.md"]
 ---
 
-- [ ] t-20261123-edit-toggle-ack · Bug (hunt H-P1): app-edit: space-toggle lacks on-screen acknowledgement #task #release/v0-4-28 #status/review #view/review #area/cli #kind/task
+- [x] t-20261123-edit-toggle-ack · Bug (hunt H-P1): app-edit: space-toggle lacks on-screen acknowledgement #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** Coordinator / f0f6c8b4  
+    **Owner:** Coordinator (owner-merge + fecb delta-APPROVE) / f0f6c8b4  
     **PR:** [baseharbor#1801](https://github.com/mcpdev80/baseharbor/pull/1801)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1801), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-23/sweep-1801/review-merge-delta.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** Coordinator / f0f6c8b4  
+**Owner:** Coordinator (owner-merge + fecb delta-APPROVE) / f0f6c8b4  
 **Priority:** not set  
 **PRs:** [baseharbor#1801](https://github.com/mcpdev80/baseharbor/pull/1801)  
 **Source:** 
@@ -95,3 +95,5 @@ One or two sentences: the observable outcome.
 The review of merged commit `b41103867e370f6588a396cb08ab0b3013e209ac` accepts the two additional paths as a documented scope extension. The controller methods only read the visible need at the cursor and its selected bit; the test file adds one regression without changing existing tests. The selection, provider, consent, and fail-closed semantics remain unchanged. No revert is required.
 
 The regression's package receipt is run `45152943243`, job `137618621308` (`PR · Draft Go · cli-3`, pull_request trigger, source head `c3677dfa19f4aa0d0bc7ceccb51a6929b84f400c`). The `cmd/baha` package path selects the CLI unit-shard path; `TestReview918SpaceToggleAcknowledgesOnScreen` hashes to `cli-3` under the shard selector, and that job completed with `PASS cli-3: 438 passed / 16 intentionally skipped / 454 discovered; CLI inventory total=1872`. The test and implementation file blobs are unchanged through current head `ff81c5a17ba0ba6c1f784773302497771ab089d8` and merge `b41103867e370f6588a396cb08ab0b3013e209ac`. Exact-head ready run `45157306258` also passed Trusted Plan and terminal PR Selected Checks; its unit shards were skipped after the base hop, so the mapped package receipt above is the test-execution witness. See the linked review evidence for the complete mapping and remote witnesses.
+
+CLOSED: b41103867 merged; post-merge delta APPROVE aac6fc60b. Deviation dokumentiert: +77 rein additiv, zwei dateien ueber write-set (controller +17 ack-durchreichpfad, apply_test +54) — funktional neutral befunden.
