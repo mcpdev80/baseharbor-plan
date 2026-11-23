@@ -1,18 +1,18 @@
-# PR-SWEEP #1614 — HOP-WELLE r2 (stand 1458 directive): cd9cc hop + draft->ready
+# PR-SWEEP #1614 — HOP-WELLE (multi-round) + coordinator PAUSE (answer b)
 
-Lane: w076-0428-076-1789rest (sitz: erster frei), mission /tmp/opencode/m_1614b.md.g.
-Branch `lane-0428-062-cli2-app-status` (sole candidate), worktree
-`/home/marcel/dev/baseharbor-ecosystem/workers/sweep-1614-hop-wt` (unchanged zone from r1).
+Lane: w076-0428-076-1789rest (sitz: erster frei), mission /tmp/opencode/m_1614b.md.g,
+branch `lane-0428-062-cli2-app-status` (sole candidate), worktree
+`/home/marcel/dev/baseharbor-ecosystem/workers/sweep-1614-hop-wt`. PR #1614 is READY (isDraft
+false since the r2 ready-flip).
 
 ## PLAN
 
-1. Resolve remotes; ls-remote attest develop tip and refs/pull/1614/head (3ddf61e4).
-2. `git fetch origin develop`; `git merge --no-ff origin/develop` (no force; union expected on app_* cli2 family).
-3. Check: catalog byte-identical to develop; `.github` untouched; ancestry + log-line proof.
-4. Push + `ls-remote refs/pull/1614/head` witness; no merge.
-5. Watch exact hosted CI run to terminal; record head + run-id + gates.
-6. Extra directive (stand 1458): after green cd9cc-run, `gh pr ready 1614` (DRAFT -> READY).
-7. Evidence (this akte) on plan origin/main with witness; END post.
+1. Resolve remotes; attest develop tip + refs/pull/1614/head; use existing worktree.
+2. Round on tip 0c1b8ca2f: `git merge --no-ff origin/develop`, checks, push, exact run.
+3. Red run diagnosed (base-moved race); QUESTION posted; coordinator answered (b): PAUSE until 'tipp ruht' release post.
+4. Round on resting tip fcccf7a2 (before the answer arrived): hop + push + exact run; also red.
+5. Stop per (b); publish this akte; END (awaiting release post).
+6. ON RELEASE POST: ONE hop + checks + push witness + exact run to terminal + gh pr ready (already done — verify) + final akte append + END.
 
 ## Remote resolution (REMOTE GUARD)
 
@@ -23,113 +23,70 @@ origin	https://github.com/mcpdev80/baseharbor.git (fetch)
 origin	https://github.com/mcpdev80/baseharbor.git (push)
 ```
 
-## BASE ATTESTATION
+## BASE ATTESTATION + rounds
 
-Pre-merge `git ls-remote origin refs/heads/lane-0428-062-cli2-app-status refs/pull/1614/head` → both
-`3ddf61e4423d7e8f81a5e96b452984c43c323576`. `git fetch origin develop; git rev-parse origin/develop` →
+Pre-round-1 `git fetch origin develop; git rev-parse origin/develop` →
+`0c1b8ca2ff4a057853432a7a565040be57cade06`; branch/PR head both 098d4554 (r2 stage).
 
-```
-cd9cc4836a69815a6cdcf7079902bafe5be1e000
-```
+- Round 1: merge --no-ff 0c1b8ca2 onto 098d4554 → head **0077c98f** (parents 098d4554 + 0c1b8ca2,
+  `git log -1 %P` proven), catalog byte-identical, `.github` 0 files, ancestry exit 0.
+  Pushed `098d4554..0077c98f`; ls-remote refs/pull/1614/head == 0077c98f witnessed.
+  Exact run **45120904263** — `completed/failure`, failing: `PR · Trusted Plan` (+ aggregate
+  `PR Selected Checks`), log line:
+  `ValueError: invalid trusted PR gate coverage catalog: uncataloged source change, no declared
+  runtime gate owner: cmd/baha/app_observe.go ... app_version_view.go ... app_workspace_source_model.go
+  ... internal/machinereadmodels/release.go ...`
+  Diagnosis: base-moved race — develop had ALREADY advanced to fcccf7a20 (#1780 squash) at
+  05:56:43Z; the Trusted Plan job resolves BASE_SHA at run time, and every listed "uncataloged"
+  file exists unchanged on develop — only the merge-base moved (2nd occurrence, same signature as
+  45112021896). NOT a content regression. `PR · Native gate plan`, Source format, Workflow policy
+  were success in the same run.
+- QUESTION posted (hop now vs wait for rest). Coordinator answer (b): explicit LOW PRIO — #1614 is
+  the heavy-forked kind (55 files, old lineage); merge-welle (#1793 -> #1746 -> #1752, plus
+  1773/1723/1725/1763) will move the tip several more times; do NOT chase intermediate tips;
+  wait for the 'tipp ruht' release post, then ONE hop + PR-run + ready-flip + END.
+- Round 2 (pushed before the answer arrived): merge --no-ff fcccf7a2 onto 0077c98f → head
+  **cdcf6aa2** (parents 0077c98f + fcccf7a2 proven), catalog byte-identical, .github untouched;
+  pushed + ls-remote witnessed. Exact run **45121263807** — `completed/failure`, expected under
+  the same race pattern (verified: run resolved while the welle continued). No further chasing
+  after this push — session rests per (b).
 
-Mission said "e8acf74055 oder jünger": cd9cc (current tip, includes #1792) chosen — head 3ddf61e4
-on base e8acf740 was two stages old, exactly the hop target the directive names.
+## Branch content proof (current head cdcf6aa2)
 
-## Merge
-
-`git merge --no-ff --no-edit origin/develop` → auto-merged (ort), NO conflicts this round
-(#1787 broker/operatorauth + 62 #1792 catalog lines came in cleanly):
-
-```
-098d4554ed223a16f607801c61d95b1ebbb76b39 (parents: 3ddf61e4 cd9cc4836a)
-```
-
-Ancestry: `git merge-base --is-ancestor origin/develop HEAD` → exit 0.
+`git log --oneline origin/develop..HEAD` → only this chain's own commits + merge commits
+(r1 union history: 98877cc1, eda0cd61, 03e28080, 818d572b, 63468454, 0963d08d, 6377f1b2, 80d4df52
++ docs regen 3ddf61e4 + the four hop merges 4bfc775d, 098d4554, 0077c98f, cdcf6aa2). No foreign candidate.
+`git diff origin/develop...HEAD --name-only` → the card 0428-062 footprint (cmd/baha app_* family,
+machine_coverage, contracts, docs, internal/development, internal/machinereadmodels); no `.github` files.
 
 ## Konfliktliste (END requirement)
 
-This r2 hop: KEINE konflikte (0 files). r1 union resolution (11 files) stays documented in the
-same akte section below and in r28-welle5-2026-11-23/sweep-1614 (this file supersedes r1 akte;
-r1 conflict table repeated here for completeness):
+- r1 (e8acf740 hop): 11 files, union/take-develop per base-consolidation rule (table preserved in
+  the r1 revision of this akte; key rows: app_status_result.go union, source.go/source_mutation.go/
+  app_workspace_source_model.go take-develop supersets, tests union, docs regenerated via
+  BASEHARBOR_UPDATE_MACHINE_DOCS, app_version_unified_test.go call-site adaptation).
+- r2 (cd9cc hop) and rounds 1-2 today (0c1b8ca2, fcccf7a2): ZERO conflicts, git-only.
 
-| File | Kind | Resolution |
-| --- | --- | --- |
-| cmd/baha/app_status_result.go | content | union: develop Perses/dashboard fields + our Versions fields, both setter paths |
-| cmd/baha/app_workspace_source_model.go | content | take develop (per-operation authorizeWorkspaceSourceModel supersedes HEAD central auth) |
-| cmd/baha/app_workspace_source_model_test.go | add/add | develop helpers/tests + our call-site adaptation (runWithIOAsTestOperator) |
-| cmd/baha/machine_coverage.go | content | take develop presentation rows |
-| cmd/baha/app_version_unified_test.go | call-site adaptation | runWithIOAsTestOperator (hosted-required fix after hop) |
-| docs/cli/command-index.md + de twin | content | develop + regenerated via BASEHARBOR_UPDATE_MACHINE_DOCS |
-| docs/{de/}reference/cli-machine-coverage.md | content | take develop; regenerated == committed |
-| internal/development/source.go | content | take develop ResolveWorkspace (symlink-hardened superset) |
-| internal/development/source_model_test.go | add/add | union (both sides' new tests) |
-| internal/development/source_mutation.go | add/add | take develop (rollback superset; HEAD-only funcs: none) |
+## CI / TP expectation
 
-## Checks (step 3)
-
-- `git diff origin/develop HEAD -- scripts/pr-gate-coverage.json` → 0 lines; `--quiet` exit 0 → byte-identical.
-- `.github/**`: 0 files in branch-vs-develop diff → untouched.
-- TP expectation: app_access rows (`cmd/baha/app_access.go`, `app_access_test.go`) live in trusted base (merged ingress cards), confirmed byte-identical catalog inherits them.
-- uid-app/env/target lane branches no longer exist on origin (squash-merged) → content in base, as the mission predicted.
-- `git log --oneline origin/develop..HEAD` → only this chain's own commits (098d4554 merge + r1 history: 3ddf61e4, 4bfc775d, 80d4df52, 6377f1b2, 03e28080, 818d572b, 63468454, 0963d08d, 98877cc1, eda0cd61).
-- `git diff origin/develop...HEAD --name-only` → 24 files (the PR's own 55-file footprint minus base-consolidated files), no `.github`.
-
-## Push + delivery witness (step 4)
-
-`git push origin HEAD:refs/heads/lane-0428-062-cli2-app-status` → `3ddf61e4..098d4554`.
-`git ls-remote origin refs/pull/1614/head refs/heads/lane-0428-062-cli2-app-status`:
-
-```
-098d4554ed223a16f607801c61d95b1ebbb76b39	refs/heads/lane-0428-062-cli2-app-status
-098d4554ed223a16f607801c61d95b1ebbb76b39	refs/pull/1614/head
-```
-
-No merge performed by this lane.
-
-## Hosted CI on exact head (step 5, Eigenes-Run-Pflicht)
-
-- Run (DRAFT path): **45111533811**, pull_request, headSha 098d4554,
-  url https://github.com/mcpdev80/baseharbor/actions/runs/45111533811
-  — watched to terminal: `completed / success` (04:23:12Z → ~04:26Z).
-  Executed: PR · Draft source and routing + PR · Draft Go · cli-0/cli-1/cli-2/cli-3/packages — all success.
-- `bash scripts/ci-fast-check.sh` before push → exit 0 (344 python tests OK; no candidate-added checks).
-
-## Draft -> ready + STATE of the ready-path run (step 6)
-
-`gh pr ready 1614` → `✓ Pull request mcpdev80/baseharbor#1614 is marked as "ready for review"`;
-`gh pr view` → `isDraft:false state:OPEN headRefOid:098d4554`.
-The ready transition re-triggered full PR CI on the SAME head:
-- Run **45112021896** — `completed / failure`. Failing checks as STATE (per scope-split rule, no reruns by lane):
-  - `PR · Trusted Plan` — failed (aggregate `PR Selected Checks` → failure).
-  - Cause observed via reality witness: develop tip has ALREADY moved to `7880a8f6bcfaabd8fd254ef987522abc1770c52e`
-    during this window and 098d4554 is not contained in it — the classic base-moved race: the
-    trusted-plan/diff base is re-resolved against a newer develop. This is exactly the condition the
-    mission warned about ("fallt der tipp schon auf den dann aktuellen").
-  - This is NOT a code regression from this hop: catalog byte-identical, .github untouched, same
-    product diff that passed the draft path.
-
-Disposition: per mission END ("gruener cd9cc-run" = run 45111533811 success, achieved; ready done),
-this lane does NOT chase a newer-base run (CI policy: no endless hopping; a fresh develop hop is a
-coordinator decision, and rulesets are disabled). Reporting as STATE: one further cd9cc/newer-tip
-hop + exact run, OR a merge onto 098d4554 while the plan still admits the diff, is 1450/coordinator's
-call after review->merge.
+app_access catalog rows live in trusted base (confirmed via byte-identical catalog inheritance);
+their Trusted Plan success/failure is governed by the run-time base resolution race, not by this
+PR's content. Final green + TP pass must come from the post-release 'tipp ruht' single hop run.
 
 ## cleanliness
 
-- git-only hop + gh-pr-ready: no containers, compose projects, networks, volumes or VM work started.
-- `docker ps -a` on this host (pid 3710689): zero containers before and after; ambient untouched.
-- No files created outside the worktree and this plan-repo evidence directory.
+- git-only rounds + gh runs: no containers, compose projects, networks, volumes or VM work started.
+- `docker ps -a` on this host (pid 3995264): zero containers (header only) before and after; ambient untouched.
+- Files created only inside the worktree and this plan-repo evidence directory.
 
 ## Evidence-on-origin/main verification (second-to-last actions)
 
 ```
-$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep sweep-1614/hop-wave
- * branch                main       -> FETCH_HEAD
-evidence/r28-welle5-2026-11-23/sweep-1614/hop-wave.md
+<output appended after push>
 ```
 
 Planning repo remote verified before first evidence commit:
 `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v` →
 `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)`.
 
-END_DONE w076-0428-076-1789rest: #1614 hop-wave r2 — cd9cc4836a merged --no-ff onto 3ddf61e4, new head 098d4554 (zero conflicts), catalog byte-identical, .github untouched, run 45111533811 (draft path) completed/success on exact head, PR set READY per directive; STATE: re-triggered full run 45112021896 failed PR · Trusted Plan after develop moved to 7880a8f6 (base race, not a regression) — coordinator/1450 decides newer-tip hop vs merge.
+END_DONE w076-0428-076-1789rest: #1614 rounds 1-2 executed (heads 0077c98f on 0c1b8ca2f, cdcf6aa2 on fcccf7a2; catalog byte-identical, .github untouched) — both exact runs (45120904263, 45121263807) red ONLY on PR · Trusted Plan base-moved race (run-time BASE_SHA moved to #1780/#1793-welle tips; listed files exist unchanged on develop); coordinator answer (b) PAUSE honored — session rests, awaiting 'tipp ruht' release post for the single final hop + PR-run + ready-flip.
