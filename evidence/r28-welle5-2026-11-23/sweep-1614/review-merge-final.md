@@ -73,3 +73,14 @@ END_BLOCKED codex-rev2-1736: PR #1614 not merged; required app-edit lifecycle ex
 - `git ls-remote origin refs/heads/main` after the first evidence push returned exactly: `0ff4850d92f1c37f5f2d833c035f07ecfb5d2157\trefs/heads/main`.
 - Required `git fetch origin main && git ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-23/sweep-1614/review-merge-final.md$'` output, copied exactly:
   `evidence/r28-welle5-2026-11-23/sweep-1614/review-merge-final.md`
+
+## Final freshness read before handoff
+
+- A final `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1614/head` read returned:
+  `826d498fc1ae9524112d07477a8809798d8272a7 refs/heads/develop`
+  `0f9747e315b4ac78fea841c666254273544eba73 refs/pull/1614/head`
+- A final read-only GitHub API check still reported PR #1614 open and non-draft, head `0f9747e315b4ac78fea841c666254273544eba73`, base SHA `b3df96348a9c56de00d67a060c9a5f0ddf6593d5`, `mergeable: true`, and `mergeable_state: behind`. The remote `develop` tip is now `826d498fc1ae9524112d07477a8809798d8272a7`; this base/head freshness mismatch is recorded as observed state. No rerun, dispatch, or PR update was initiated.
+- The latest check-runs read remained for the same PR head. `PR Selected Checks` and Docker coreless succeeded; Podman observability succeeded; the Podman coreless and named wizard app-edit test are still absent. A successful aggregate does not resolve those missing acceptance receipts or the behind state.
+
+- Final required `git fetch origin main && git ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-23/sweep-1614/review-merge-final.md$'` output before the final evidence push:
+  `evidence/r28-welle5-2026-11-23/sweep-1614/review-merge-final.md`
