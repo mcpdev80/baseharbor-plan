@@ -16,7 +16,12 @@ Candidate: `2be1136606d5c881badf317bd001f0024da1ea46`; base/develop `15c652136b0
 
 ## Scope and live refs
 
-Product `git remote -v` resolved `lane-origin`, `origin`, and `upstream` to `https://github.com/mcpdev80/baseharbor.git`. Planning remote, verified before this evidence commit: `origin https://github.com/mcpdev80/baseharbor-plan.git` for fetch and push.
+Product `git remote -v` resolved `lane-origin`, `origin`, and `upstream` to `https://github.com/mcpdev80/baseharbor.git`. Planning `git remote -v` before the evidence commit returned:
+
+```text
+origin	https://github.com/mcpdev80/baseharbor-plan.git (fetch)
+origin	https://github.com/mcpdev80/baseharbor-plan.git (push)
+```
 
 `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1789/head` at review start:
 
@@ -77,12 +82,43 @@ VERDICT: APPROVE for exact head `2be1136606d5c881badf317bd001f0024da1ea46`. The 
 
 Follow-up recipe for 0428-253: make the candidate planner classify deletion before requiring a source owner, then add a regression proving a deleted source plus removed catalog row passes the advisory while an unowned source that remains present still fails. Do not weaken Trusted Plan.
 
-Planning check: `python3 scripts/plan.py render && python3 scripts/plan.py check` found 1 unrelated schema error in the concurrent task note `tasks/t-20261123-promql-ci-capture-followup.md`: its card line is `- [ ] Merge proof for PR #1789...` and fails the required generated-card format. That tracked file has concurrent Coordinator edits; this review did not modify or stage it. The review evidence itself contains no Markdown checkbox lines.
+Planning validation initially reported one schema error in the concurrently edited follow-up card. At final validation, `python3 scripts/plan.py check` completed with 0 errors and 11 warnings after the card-note issue was resolved concurrently; this review did not edit or stage that task note. The review evidence itself contains no Markdown checkbox lines.
 
 ## cleanliness
 
 - Before: `docker ps -a --no-trunc`, shell PID 3178799; header only, no containers.
-- No Docker/Podman compose project was started.
-- This review has not changed product files or PR refs; merge is pending the normal GitHub merge operation.
+- After: `docker ps -a --no-trunc`, shell PID 3198042; header only, no containers.
+- No Docker/Podman compose project was started. Product change was the authorized normal squash merge; no PR head or candidate branch was pushed or rewritten.
 
-END REVIEW_APPROVE codex-rev-1747: exact-head #1789 review passed; normal merge pending, candidate 2be1136606d5c881badf317bd001f0024da1ea46.
+## ROLLE: MERGE
+
+The exact-head review record was published to Planning origin/main before merge (review record commit `935196e281b8c6968bdb3b040d99e7802a715b9c`). Immediately before merge, the PR still had head `2be1136606d5c881badf317bd001f0024da1ea46`, base/current develop `15c652136b0fce19dd0ae286b341b38cac3f7854`, `PR Selected Checks` success from integration 15368, and the only red check was the known advisory job 137430774780. The branch-rules API required only `PR Selected Checks` (strict up-to-date); no bypass or override was used. Although GitHub reported mergeStateStatus `UNSTABLE` due to the known advisory, its required aggregate was green and the normal squash merge API accepted the merge.
+
+`gh pr merge 1789 --repo mcpdev80/baseharbor --squash` completed normally. GitHub now reports PR #1789 closed/merged at `2026-11-23T01:41:46Z`, merge commit `e8acf740553f7218b259f4855f5b79f83f21ab6b`. The merge commit has parent `15c652136b0fce19dd0ae286b341b38cac3f7854`, the exact base SHA. Post-merge `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1789/head` returned:
+
+```text
+e8acf740553f7218b259f4855f5b79f83f21ab6b	refs/heads/develop
+2be1136606d5c881badf317bd001f0024da1ea46	refs/pull/1789/head
+```
+
+The merge-triggered develop runs were observed to terminal success on the exact merge SHA:
+
+- Runtime · Docker Core · develop: run 45096006175, `completed/success`, event `push`, head `e8acf740553f7218b259f4855f5b79f83f21ab6b`.
+- Runtime · Podman Core · develop: run 45096006283, `completed/success`, event `push`, head `e8acf740553f7218b259f4855f5b79f83f21ab6b`.
+
+No force push or protection bypass was used. Card relevance: #1789 fulfills the 0428-076 PromQL follow-up; the independent advisory deletion-classification repair remains separately tracked by 0428-253.
+
+## Final verdict
+
+CODEX-REVIEW: APPROVE exact head `2be1136606d5c881badf317bd001f0024da1ea46`.
+CODEX-MERGE: MERGED normally by squash as `e8acf740553f7218b259f4855f5b79f83f21ab6b`; develop witness confirmed; post-merge Docker and Podman develop runs completed successfully. The advisory Candidate-added check remains non-blocking and is assigned to 0428-253.
+
+END_DONE codex-rev-1747: #1789 reviewed and squash-merged; merge SHA e8acf740553f7218b259f4855f5b79f83f21ab6b; exact-head required run 45094339280 green, post-merge Docker/Podman runs 45096006175 and 45096006283 successful.
+
+## origin/main evidence-path witness
+
+Exact output of `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep 'evidence/r28-welle5-2026-11-22/promql-0428-076/review-merge-1789-2be1136.md'` after fetching origin/main:
+
+```text
+evidence/r28-welle5-2026-11-22/promql-0428-076/review-merge-1789-2be1136.md
+```
