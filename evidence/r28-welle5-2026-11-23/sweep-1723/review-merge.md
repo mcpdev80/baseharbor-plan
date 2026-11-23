@@ -175,3 +175,11 @@ Coordinator follow-up: preserve this as an acceptance-evidence gap. The PR is cl
 ## Cleanliness after post-merge verification
 
 - No tests, containers, or compose projects were started by this review session. Previous docker ps witnesses remain recorded above; the post-merge verification itself was read-only.
+
+Planning remote verification before this evidence commit: `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)` and `origin https://github.com/mcpdev80/baseharbor-plan.git (push)`.
+
+## Required origin/main path witness before this publication
+
+Immediately before this evidence update, `git fetch origin main && git ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-23/sweep-1723/review-merge.md$'` emitted this exact output:
+
+evidence/r28-welle5-2026-11-23/sweep-1723/review-merge.md
