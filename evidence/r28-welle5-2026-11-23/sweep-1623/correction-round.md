@@ -192,3 +192,22 @@ Reproduced exactly with `resolve_covered_gates` against develop's catalog. All 1
   - Conclusion: the coreless-lifecycle application failure is the docker-runtime acceptance execution
     (environmental), the same class of failure on any candidate in this CI env. Product code is green.
   - Run 45157815984 is ephemeral (run API 404s; logs unreachable). Evidence not reproducible via API.
+
+## REPRO PROBE on new develop tip b41103867 (decision #1623, 2026-11-23)
+
+Per Owner decision: hop to current develop tip (b41103867) via SINGLE merge --no-ff, single push; the
+resulting run = clean reproduction probe of the coreless-lifecycle application shard class (0847-hypothese:
+environmental). Identical fail -> environmental confirmed; different -> flake.
+
+- Hop commit 47c138c4a (parents a3a2a552e + b41103867). Product fix byte-identical to f174513c4; catalog ==
+  develop exactly (255 comps, all 11 rows). New develop product content merged in additively: app_edit.go,
+  app_edit_apply_test.go, app_wizard_controller.go. Pushed -> retargeted #1623 (ls-remote witness 47c138c4a).
+- Run 45166304036 on 47c138c4a: terminal FAILURE, tally 31 success / 42 skipped / 3 failure.
+  - PR · Trusted Plan GREEN, PR · Source format GREEN.
+  - PR Selected Checks <- integration/docker/coreless-lifecycle application shard (same class as a3a2a552e).
+- VERDICT (0847): IDENTICAL fail on a fresh head -> ENVIRONMENTAL confirmed (not a product regression, not a
+  flake). The coreless-lifecycle application shard is a docker-runtime + published-image + demo acceptance
+  execution that fails in this CI env on every candidate. Product code is green.
+- ACTION: QUESTION to Owner for the env-gate solution. The acceptance markers (BASEHARBOR_OTLP_HANDOFF_ACCEPTANCE
+  / BASEHARBOR_ENV_DESTROY_ACCEPTANCE) gated behind a flag in the acceptance cell is a scripts/CI topic, NOT a
+  gate drop and NOT a skip-hiding. Do NOT drop the gate or hide skips to go green.
