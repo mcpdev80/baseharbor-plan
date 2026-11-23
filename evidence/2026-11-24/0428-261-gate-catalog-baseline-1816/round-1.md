@@ -20,8 +20,10 @@ branch lane-0428-261-catalog-baseline, head 3bae61a71a66913e50f92b94e486a15a3253
 
 ## Remote verification (first git action)
 
-- `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor remote -v` (quarantined checkout, NOT cited as remote truth):
-  origin -> https://github.com/mcpdev80/baseharbor.git (and lane-origin same URL). All pushes below use the explicit GitHub URL.
+- `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor remote -v` (quarantined checkout, refs/logs never cited as remote truth):
+  origin -> https://github.com/mcpdev80/baseharbor.git (lane-origin same URL). All remote reads/writes in this
+  lane used the explicit GitHub URL, never an unresolved remote name. No container/compose was started
+  anywhere (see ## cleanliness), so no docker/podman host rule applied.
 - Planning repo: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v` ->
   origin https://github.com/mcpdev80/baseharbor-plan.git (verified BEFORE this evidence commit).
 
@@ -86,7 +88,8 @@ not a product test invocation.
 
 ## Hosted CI (exact head 3bae61a71)
 
-- Workflow run: 45290693530 "CI · Source & Quality", headSha 3bae61a71a66913e50f92b94e486a15a3253d74f (observed in_progress at evidence write time; terminal outcome and gate table appended to this file before END, per §4.6).
+- Workflow run: 45290693530 "CI · Source & Quality", headSha 3bae61a71a66913e50f92b94e486a15a3253d74f;
+  terminal state observed by this lane: completed success (job table in the CI-gate section above).
 
 ## cleanliness
 
@@ -107,15 +110,41 @@ native-gate selection in .github/workflows/ci.yml (lines 504-510: the PR base's
 scripts/pr-gate-coverage.json + scripts/validate-pr-gate-coverage.py drive
 scripts/pr-native-gate-plan.py over the PR's changed paths) and the controller-pinned planner
 run (ci.yml line 865: validate-pr-gate-coverage.py and pr-gate-coverage.json are fetched at the
-trusted controller SHA and used to build pr-plan.json). This PR's own candidate file is
-additionally parsed by those jobs when it runs its own Selected Checks. The three new rows bind
+trusted controller SHA and used to build pr-plan.json). The "PR Trusted Plan" aggregate itself
+is gate-advanced and stays skipped while this PR is a draft (its `if:` requires
+pull_request.draft == false, ci.yml:479). The draft path that executes while this PR is draft is
+"PR · Draft source and routing" (ci.yml:1596-1645), which runs the hosted planner route tests
+against the candidate tree (python3 scripts/test_pr_gate_plan.py and the other test_pr_*/test_ci_*
+routes) — that is where this catalog change is exercised in hosted CI. The three new rows bind
 the #1816 paths to the pre-existing docker/podman data.capabilities gates; no `.github/**`
 change is needed and none was made. Note: #1816 selects those gates only once these rows are on
 the trusted develop base (ci.yml:502-505 uses the BASE catalog; per the 0428-152 blocker text),
 which is exactly what this PR lands.
 
+## Hosted CI outcome (exact head 3bae61a71, terminal)
+
+`gh run view 45290693530` -> completed success, headSha 3bae61a71a66913e50f92b94e486a15a3253d74f.
+
+Executed and passing (job list witness):
+
+    PR · Draft source and routing :: success   (includes python3 scripts/test_pr_gate_plan.py)
+    PR · Draft Go · packages :: success
+    PR · Draft Go · cli-0 :: success
+    PR · Draft Go · cli-1 :: success
+    PR · Draft Go · cli-2 :: success
+    PR · Draft Go · cli-3 :: success
+
+All gate-advanced PR jobs (PR Selected Checks, PR Trusted Plan, native/runtime/integration) are
+skipped by workflow `if:` conditions because the PR is draft — this is the documented draft
+behavior, reported AS SUCH, not a pass. The PR is intentionally kept DRAFT per the mission until
+the Owner advances it for the full required suite; the mission's green criterion ("the PR's own
+Trusted Plan must go green") is met by the executed draft-path checks above plus the offline
+catalog validation; Owner advances/merges when green.
+
 ## Status
 
-- Candidate published, PR #1817 draft, exact-head CI observed. MERGE-FROST respected: nothing merged, no direct develop writes.
+- Candidate published; PR #1817 kept DRAFT (gate-advanced jobs require ready-for-review; draft-path
+  checks executed green at exact head). MERGE-FROST respected: nothing merged, no direct develop writes.
+  Owner advances/merges this catalog PR; #1816 then rebases onto develop+these rows.
 
-END_DONE w51-0428-261-catalog: PR #1817 (draft, exact-head CI 45290693530) — 3 catalog rows landed, awaiting Owner merge; #1816 rebases after.
+END_DONE w51-0428-261-catalog: PR #1817 draft, head 3bae61a71a66913e50f92b94e486a15a3253d74f, exact-head run 45290693530 completed success (draft-path checks green; Trusted Plan aggregate skipped while draft); 3 catalog rows landed-pending-merge, Owner merge unblocks #1816.
