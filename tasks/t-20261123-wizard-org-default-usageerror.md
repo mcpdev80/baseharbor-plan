@@ -7,15 +7,15 @@ areas: ["cli"]
 release: v0.4.28
 version: ""
 parent: ""
-owner: w081
-kanban_status: closed
-kanban_lane: closed
+owner: Coordinator (lane 584cca00)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: "0428-258 · app-new wizard: org-default"
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1802]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,19 +23,20 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-23/hunt-hp1-f0f/t-20261123-wizard-org-default-usageerror.md"]
 ---
 
-- [x] t-20261123-wizard-org-default-usageerror · Bug (hunt H-P1): app-new wizard: org-default missing-stack must return usageError parity, not hard error #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/cli #kind/task
+- [ ] t-20261123-wizard-org-default-usageerror · Bug (hunt H-P1): app-new wizard: org-default missing-stack must return usageError parity, not hard error #task #release/v0-4-28 #status/review #view/review #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** w081  
+    **Owner:** Coordinator (lane 584cca00)  
+    **PR:** [baseharbor#1802](https://github.com/mcpdev80/baseharbor/pull/1802)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-23/hunt-hp1-f0f/t-20261123-wizard-org-default-usageerror.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w081  
+**Owner:** Coordinator (lane 584cca00)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1802](https://github.com/mcpdev80/baseharbor/pull/1802)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -88,3 +89,5 @@ One or two sentences: the observable outcome.
 - hunt-akte: evidence/r28-welle5-2026-11-23/hunt-hp1-f0f.md
 
 fix(0428-258): org-default missing-stack now usageError parity; CI run #7503 success (BASE_SHA afa064519, head 027fb255a). Catalog row owned by #1803 on develop; PR #1802 diff-vs-develop = fix + test only.
+
+review: head 027fb255a @ exact base afa064519, run terminal 0-fail, fix+test only diff.
