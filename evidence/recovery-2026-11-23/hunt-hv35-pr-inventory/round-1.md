@@ -156,3 +156,4 @@ checkout's refs (pruned + updated remote-tracking refs), no branch/PR changes. N
 - H-V35 inventory complete: 42 branches, develop dc8626e9c, 1 OPEN PR, 6 cards in the closed-unmerged loss class.
 
 END_DONE hunt-hv35: develop dc8626e9c; 42 lane/codex branches inventoried (3 landed, 38 not-ancestor), 1 OPEN PR #1650, 6 cards closed-unmerged LOSS (085/091/198/202/213/244).
+Candidate (planning-repo commit): 73cf9addb.
