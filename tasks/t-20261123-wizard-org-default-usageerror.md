@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: ""
+blocker: CI Trusted Plan reads partial catalog from migration controller 859654861 (lane-0428-184-shared-destroy-2); cross-lane contamination, Owner scope""
 wait_reason: ""
 resolution: ""
 evidence: []
