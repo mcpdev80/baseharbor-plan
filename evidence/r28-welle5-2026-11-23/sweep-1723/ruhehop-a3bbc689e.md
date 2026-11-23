@@ -127,7 +127,11 @@ a3bbc689e4da70da73a0dcf5370d9a9e2e81d24d  refs/heads/develop
 ## Evidence-on-origin/main verification (second-to-last action)
 
 ```
-<appended after plan push>
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main \
+    && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep sweep-1723/ruhehop-a3bbc689e
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle5-2026-11-23/sweep-1723/ruhehop-a3bbc689e.md
+(origin/main tip 38cc2f9ed; evidence push 84178f505..38cc2f9ed)
 ```
 
 Planning repo remote (verified before first evidence commit):
