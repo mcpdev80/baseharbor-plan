@@ -88,10 +88,10 @@ beb2ee585 cmd/baha: exit-status preservation keeps a plain runtime error identit
 - Product tests were not run locally, consistent with COST_CONTROL. No source, PR, workflow, or branch was changed by this review; no CI rerun or workflow dispatch was initiated. No subagents were used. Planning remote was verified before committing this evidence: `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)` and `origin https://github.com/mcpdev80/baseharbor-plan.git (push)`.
 - Session identity: Codex, model family GPT-6 as disclosed to this session; exact backend build metadata is not exposed. Review task/lane identifier: `codex-rev2-1736`; owner-directed Codeman session identifier: `9142ab1f-c464-4f2f-abc8-d6997d8655ae`.
 
-## Findings and decision
+## Findings and decision — pre-reactivation snapshot (superseded below)
 
 ROLE: REVIEW
-VERDICT: BLOCKED
+VERDICT AT PRE-REACTIVATION SNAPSHOT: BLOCKED
 
 The mission’s exact head 521d is no longer the remote PR head. Its run 45178269349 was cancelled before any jobs, while current head 213ca has only a pending run and no receipts. The full-pre-release blocker remains on the authoritative Planning task. The current candidate also contains a later generated-index edit, and the requested base-to-head log contains other-lane commits whose provenance cannot be certified under the strict rule. No merge was attempted, as explicitly directed by the mission.
 
@@ -102,7 +102,7 @@ Repair recipe: keep the existing PR chain, resolve whether the 213ca docs/index 
 - Before review source inspection, shell PID `2362373`: `docker ps -a` printed only `CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES`; no containers were listed.
 - No containers or compose projects were started by this session. A second docker listing is recorded after review in the final addendum.
 
-END_BLOCKED codex-rev2-1736: PR #1623 no longer has the mission head and lacks terminal exact-head CI, named receipts, and provenance/scope confirmation; no merge performed.
+Historical END_BLOCKED snapshot, superseded by the terminal post-merge review below: the PR had not yet produced the requested terminal run when this snapshot was recorded.
 
 ## Final live snapshot and after-cleanliness witness
 
@@ -147,7 +147,95 @@ evidence/r28-welle5-2026-11-23/sweep-1623/review-merge.md
 ## PLAN — m_rev_1623pm follow-up
 
 1. Record this mission plan, then read m_rev_1623pm and determine its scope against the current hold.
-2. Check whether the required lane 0847 terminal END and final SHA are available, then refresh exact remote refs.
+2. Check available lane 0847 state, then refresh exact remote refs, final SHA, and terminal run status.
 3. Review the specified final candidate and verify test, gate, scope, and provenance evidence.
 4. Publish the verdict and actionable findings without merging unless explicitly authorized.
 5. Publish updated evidence to baseharbor-plan origin/main, synchronize the board, and post the required lane status.
+
+
+## Superseding post-merge review — m_rev_1623pm
+
+ROLE: REVIEW
+
+The user supplied `/tmp/opencode/m_rev_1623pm.md.g` as the active post-merge review mission. This section supersedes the earlier paused/blocked snapshot and records only observed remote state. Planning task `t-20261114-r28-cli2-app-interact` / card 0428-063 now reports `state: accepted`; its three dependencies also report accepted. This review did not alter the task status.
+
+### Remote and merge facts
+
+- Product remote checked before this review closeout: `https://github.com/mcpdev80/baseharbor.git`.
+- Product `git ls-remote` before closeout returned:
+
+```text
+f3d84787462f324a6311e2e95928441c64a09296 refs/heads/develop
+2eb6f40bd3a5724f11c655621c8b5bc99c48b022 refs/pull/1623/head
+```
+
+- Codeman `agent ls --json` showed no live session named with `0847` or `1623`; the current mission supplied the final head, and the terminal GitHub run was independently re-read directly. PR API reports #1623 `MERGED`, merge commit `f3d84787462f324a6311e2e95928441c64a09296`, merged at `2026-11-23T14:03:35Z` by `mcpdev80`; source head was `2eb6f40bd3a5724f11c655621c8b5bc99c48b022`, base `develop` at `ff4cdf509dd00df81f90ecd0eb0bff17696ca9bb`.
+- The merge commit has the exact base as its parent. GitHub compare from that base to the merge commit reports ahead by 1, behind by 0, merge base `ff4cdf509dd00df81f90ecd0eb0bff17696ca9bb`.
+- The source candidate compare reports that same merge base, 20 commits ahead, and zero behind. Its history includes task/hop merges and the accepted identity-secrets dependency; the final effective merge diff is bounded to the 22 paths below. No unrelated `0428-258` wizard path is in the diff; that change is already in the base. This post-merge review records the candidate ancestry rather than claiming the range is composed solely of commits authored in this lane.
+- Merged diff paths:
+
+```text
+cmd/baha/app_access.go
+cmd/baha/app_access_urls.go
+cmd/baha/app_exec.go
+cmd/baha/app_interact.go
+cmd/baha/app_interact_test.go
+cmd/baha/app_logs.go
+cmd/baha/commands.go
+cmd/baha/human_open.go
+cmd/baha/machine_coverage.go
+cmd/baha/operator_auth_boundary.go
+contracts/machine/v1/control.golden.json
+docs/cli/applications.md
+docs/cli/command-index.md
+docs/de/cli/applications.md
+docs/de/cli/command-index.md
+docs/de/reference/cli-machine-coverage.md
+docs/reference/cli-machine-coverage.md
+internal/cli/cli.go
+internal/cli/cli_test.go
+internal/machine/contract.go
+internal/operatorauth/context.go
+internal/operatorauth/interaction_operations_test.go
+```
+
+These paths implement the card’s guided `app logs`, `app exec`/`app shell`, and `app urls` behavior, authorization/operation registration and tests. The EN/DE command indexes are the authorized syntax synchronization documented in `env-gate-fix.md` § Scope reconciliation and the `d65029d97` / `604c79b65` evidence lineage. The effective diff has no `.github/**`, runtime-gate catalog, or integration-harness change.
+
+### Exact-head CI receipts
+
+- PR run `45182759775`: event `pull_request`, exact head `2eb6f40bd3a5724f11c655621c8b5bc99c48b022`, terminal `completed / success` at `2026-11-23T14:03:14Z`.
+- The terminal aggregate `PR Selected Checks`, check-run `137745621894`, app `github-actions` (`15368`), has the same exact head and terminal `completed / success`. The aggregate executed its selected native-acceptance, complete selected Go-shard coverage, and normal selected-job result requirements. Unselected unrelated matrix jobs are skipped by selection; that is not reported as a pass for those jobs.
+- `PR · Go unit · cli-3`, job `137732225005`, exact head `2eb6f40bd3a5724f11c655621c8b5bc99c48b022`, terminal success. Its executed receipt is `PASS cli-3: 449 passed / 17 intentionally skipped / 466 discovered; CLI inventory total=1916`. This is the package/shard receipt allowed by the 1606 acceptance rule. The 17 skips are reported as intentional; no failing or missing `cli-3` receipt was observed.
+- The selected coreless application shard job `PR · Selected Core-less · docker / PR selected · integration/docker/coreless-lifecycle · application`, job `137732302937`, exact head `2eb6f40bd3a5724f11c655621c8b5bc99c48b022`, terminal success at `2026-11-23T13:51:25Z`. The job executed `Run exact selected Core-less lifecycle gate` successfully and then `Clean owned runtime and local registry` successfully. Its log shows passing executions for `TestSelectiveApplicationBackendRuntimeAddRemoveReAdd`, `TestSelectiveHTTPSRuntimeAddRemoveReAdd`, `TestManagedRegisteredOTLPNativeConsumerHandoff`, and `TestEnvironmentDestroyNativeLifecycle`. The selected-group aggregate `137739801441` is also terminal success. This is an executed gate, not a skipped receipt.
+- The prior env-gate classification (b) concerned catalog/harness routing and acceptance-only fixtures. Neither catalog nor harness was changed in the merged diff; the exact selected application shard ran and passed, with explicit cleanup. No gate-drop or skip-hiding change is present in the merged source diff.
+
+### Source review and compliance
+
+- The reviewed behavior remains bounded to the card: logs use the status read view and bounded tail/follow semantics; exec treats `--cmd` as one command unit, preserves the child exit status, and does not invoke a host shell; URLs are derived from the secret-safe status model and report verified/unverified accessibility. Authorization is enforced for the `app.logs`, `app.exec`, and `app.urls` operation categories before execution or guidance.
+- No product source was edited by this review. No PR update, workflow dispatch/rerun, local product test, container start, or merge action was performed by this session. No subagents were used.
+- Planning remote was verified before evidence publication: `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)` and `origin https://github.com/mcpdev80/baseharbor-plan.git (push)`.
+- `python3 scripts/plan.py check` still reports one unrelated error at `tasks/t-20261123-wizard-org-default-usageerror.md` (“resolution is only valid on a checked card”) and ten warnings; the 0428-063 task itself is accepted. `git diff --check` passed. This evidence contains no markdown checkbox lines.
+- Session identity: Codex, GPT-6 model family; exact backend build metadata is not exposed. Lane identifier `codex-rev2-1736`; requested owner-directed Codeman session `9142ab1f-c464-4f2f-abc8-d6997d8655ae`.
+
+### Verdict and cleanliness
+
+VERDICT: ACCEPTED for the requested post-merge diff and exact-head CI review. No review correction is required; no recipe is pending. The repository merge was performed by the owner before this review, not by this session.
+
+- Before closeout, shell PID `3505374`: `docker ps -a` printed only the header; no containers were listed.
+- After source review, shell PID `3648406`: `docker ps -a` printed only the header; no containers were listed. No local container or compose project was started by this session.
+
+Final product `git ls-remote` after review and before evidence publication:
+
+```text
+f3d84787462f324a6311e2e95928441c64a09296 refs/heads/develop
+2eb6f40bd3a5724f11c655621c8b5bc99c48b022 refs/pull/1623/head
+```
+
+Final PR #1623 head remains `2eb6f40bd3a5724f11c655621c8b5bc99c48b022`; merged develop remains `f3d84787462f324a6311e2e95928441c64a09296`.
+
+END_DONE codex-rev2-1736: PR #1623 post-merge diff matches card 0428-063 plus authorized syntax sync; exact-head cli-3, selected coreless application gate, and PR Selected Checks are terminal-success at 2eb6f40bd3a5724f11c655621c8b5bc99c48b022; merged as f3d84787462f324a6311e2e95928441c64a09296.
+
+
+Required origin/main path witness for this post-merge publication. Immediately before the evidence commit, `git fetch origin main && git ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-23/sweep-1623/review-merge.md$'` emitted this exact matching path:
+
+evidence/r28-welle5-2026-11-23/sweep-1623/review-merge.md
