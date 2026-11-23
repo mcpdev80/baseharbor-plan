@@ -1,71 +1,78 @@
-# TASK EVIDENCE: t-20261123-wizard-org-default-usageerror (correction round)
+# TASK EVIDENCE: t-20261123-wizard-org-default-usageerror — CI receipt-omission root-cause (correction round)
 
-- lane: w081-pr1802-wizard-org-default-usageerror-correction
-- card: 0428-258 · app-new wizard: org-default (correction round, reviewer fecb post-merge)
-- PR: #1804 https://github.com/mcpdev80/baseharbor/pull/1804 (fresh branch off develop; #1802 already merged)
+- lane: w081-pr1802-wizard-org-default-usageerror-correction (branch hijacked by coordinator, see BLOCKER)
+- card: 0428-258 · wizard-org-default usageError (correction round, coordinator/fecb akte af50fee57 + 673a30a32)
+- PR: #1804 https://github.com/mcpdev80/baseharbor/pull/1804 (base develop f3d847874)
 - owner: w081
 - real github remote confirmed: origin = https://github.com/mcpdev80/baseharbor.git
 
 ## PLAN
 
-1. Read mission m_584_q.md.g: correction round. Bug: org-default missing-stack usageError prints LITERAL %q instead of expanded stack name at cmd/baha/app_new_wizard.go ~508. usageError() takes a plain string (no format expansion); precedent callers use fmt.Sprintf("...%q...", val).
-2. Reproduce literal %q: extend cmd/baha/app_new_wizard_org_default_test.go with substring assertion (message must contain the quoted stack name and never contain literal %q). Confirmed FAIL against merged code: message was "organization default stack %q is not available...".
-3. Smallest fix: expand format verb via fmt.Sprintf before passing to usageError (existing helper style, no UX/env change).
-4. Fresh branch from current develop tip ff4cdf509 (old PR branch lane-0428-wizard-org-default-usageerror merged, no longer usable). Build, go vet, targeted named -run tests (skip RunsRealLifecycle|RequiresORAS|RejectsSecondProcess|PinsCanonicalApplication). bash scripts/ci-fast-check.sh.
-5. One push, one pull_request-run to terminal (wizard-app-new-tests by name + PR Trusted Plan). No merge, no catalog/.github change (row exists develop-side via #1803). END with head + run-id + BASE_SHA + test witness.
+1. Reproduce prior receipt-omission: run #7511 at head c67ea34e6 showed matched_tests with 17 TestAppNewWizard* tests and NONE of the three org-default tests.
+2. Trace the actual CI execution path of the wizard-app-new-tests gate end to end.
+3. Locate the exact layer that drops the three functions.
+4. Verify the minimal fix at that layer names all three tests.
+5. Push the fix to the reachable target; END with head + run-id + BASE_SHA + log witness.
 
-## FIX
+## ROOT CAUSE (definitive, source-verified)
 
-- File: cmd/baha/app_new_wizard.go, guidedStackProfile org-default branch (line ~508).
-- Root cause: usageError() signature is `func usageError(message, hint string) error` — it stores the message verbatim. The message was passed as the literal format string "organization default stack %q is not available in the effective stack catalog" with no expansion, so the user saw the literal `%q`.
-- Before: return guidedStackSelection{}, usageError("organization default stack %q is not available in the effective stack catalog", "...")
-- After: return guidedStackSelection{}, usageError(fmt.Sprintf("organization default stack %q is not available in the effective stack catalog", name), "...")
-- Matches precedent callers: cmd/baha/app_init_prompts.go:399 usageError(fmt.Sprintf("expected yes or no, got %q", line), ...), cmd/baha/app_prune.go:299 usageError(fmt.Sprintf("app prune accepts exactly one name, got %d", len(args)), ...).
-- No UX/env/framework change. Minimal single-site diff.
+CI's pr_validations job (.github/workflows/ci.yml:1267) runs the wizard-*-tests case at ci.yml:1332-1336:
 
-## LOCAL VERIFICATION (head 854c7ceff, base ff4cdf509)
+    git fetch --no-tags origin "$BASE_SHA"
+    git show "$BASE_SHA:scripts/pr-check-runner.py" > "$RUNNER_TEMP/pr-check-runner.py"
+    python3 "$RUNNER_TEMP/pr-check-runner.py" execute --check "$VALIDATION" --repository "$GITHUB_WORKSPACE"
 
-- Reproduction (before fix): go test -run TestGuidedStackProfileOrgDefaultMissingStackUsageError -> FAIL: message was "organization default stack %q is not available in the effective stack catalog" (literal %q).
-- go build ./cmd/baha/ : exit 0
-- go vet ./cmd/baha/ : exit 0
-- go test ./cmd/baha/ -count=1 -run 'TestGuidedStackProfileOrgDefaultMissingStackUsageError|TestGuidedStackProfileOrgDefaultPresentStackResolves|TestOrgDefaultStackNotInCatalog' -skip "RunsRealLifecycle|RequiresORAS|RejectsSecondProcess|PinsCanonicalApplication" : ok (0.049s)
-- The new regression assertion now passes: usageError message contains the quoted stack name "\"ghost\"" and contains no literal %q.
-- bash scripts/ci-fast-check.sh : OK (41 tests + 308 tests, workflow policy PASS 20 approved files, source readability PASS).
+BASE_SHA for this job = needs.pr_plan.outputs.controller_sha (ci.yml:1289). The pr_plan job resolves controller_sha = effective_base (ci.yml:839-864), and for a develop-base PR effective_base = develop tip. The migration controller 85965486 is an ancestor of develop, so controller = develop (f3d847874), NOT the candidate head.
 
-## CI (run #7507, head 854c7ceff) - RESULT SUCCESS
+CONFIRMED with git merge-base --is-ancestor 85965486 origin/develop -> YES.
 
-- Run: https://github.com/mcpdev80/baseharbor/actions/runs/45180964447 (number 7507, terminal: completed / conclusion success)
-- PR base sha (BASE_SHA) = ff4cdf509dd00df81f90ecd0eb0bff17696ca9bb (gh api pull/1804 .base.sha; also origin/develop).
-- No failed jobs (all non-success are skipped release-matrix gates).
-- Key jobs (all success): PR · Trusted Plan, PR · Validation · wizard-app-new-tests (by name, as required), PR · Native gate plan, PR · Source format, PR · Go unit (cli-0, cli-1, cli-2, cli-3).
+So the gate runs the checker FROM develop. Develop's selector (scripts/pr-check-runner.py:26) is:
+    'wizard-app-new-tests': (r'^TestAppNewWizard',),
+which does NOT match TestGuidedStackProfileOrgDefaultMissingStackUsageError, TestGuidedStackProfileOrgDefaultPresentStackResolves, TestOrgDefaultStackNotInCatalog.
 
-## BASE ATTESTATION
+Also develop's scripts/pr-gate-plan.py has NO row for cmd/baha/app_new_wizard_org_default_test.go.
 
-- git ls-remote origin refs/heads/develop (base): ff4cdf509dd00df81f90ecd0eb0bff17696ca9bb
-- git merge-base --is-ancestor origin/develop HEAD -> YES (base ff4cdf509 is an ancestor of head 854c7ceff).
-- git log --oneline origin/develop..HEAD (ONLY my commit):
-  - 854c7ceff fix(0428-258): expand org-default usageError format verb (#0428-258 correction)
-- git diff --name-only origin/develop HEAD (write-set-free, no catalog/.github):
-  - cmd/baha/app_new_wizard.go
-  - cmd/baha/app_new_wizard_org_default_test.go
-- PR head ls-remote witness: 854c7cefff1e4483b2885026b91354944312522f refs/heads/w081-pr1802-wizard-org-default-usageerror-correction (refs/pull/1804/head = 854c7ceff).
+Local proof (ci.yml step simulation, BASE_SHA=f3d847874, repo=candidate checkout):
+    grep 'wizard-app-new-tests' (develop copy) -> (r'^TestAppNewWizard',)
+    python3 pr-check-runner.py execute --check wizard-app-new-tests --repository <candidate>
+    -> matched_tests count: 17, org tests: []  <-- receipt-omission reproduced
+
+## FIX AT THE FOUND LAYER (verified)
+
+Edit develop's scripts/pr-check-runner.py:26 to:
+    'wizard-app-new-tests': (r'^TestAppNewWizard', r'^TestGuidedStackProfile', r'^TestOrgDefault'),
+Edit develop's scripts/pr-gate-plan.py to add the org-default test mapping:
+    'cmd/baha/app_new_wizard_org_default_test.go': ('wizard-app-new-tests', ('atomic/docker/lifecycle', 'atomic/podman/lifecycle')),
+
+VERIFY (full ci.yml step simulation with fixed develop checker + candidate repo):
+    matched_tests count: 20, org tests: ['TestGuidedStackProfileOrgDefaultMissingStackUsageError', 'TestGuidedStackProfileOrgDefaultPresentStackResolves', 'TestOrgDefaultStackNotInCatalog']
+    exit 0, stderr empty.
+
+This is the minimal fix ON THE GATE SCRIPTS (scripts/), at exactly the layer that drops the three functions: the selector regex (pr-check-runner.py:26) and the per-file gate-plan mapping (pr-gate-plan.py). No test rename, no .github change, no product code change.
+
+## BLOCKER / SCOPE DECISION REQUIRED (POSTED AS QUESTION)
+
+The gate scripts run from develop, but develop cannot be advanced by a direct push (repo rule rejects push to develop; requires a merged PR). The develop-side fix therefore needs a PR — but:
+- AGENTS.md: a change to a shared/base script (pr-check-runner.py, pr-gate-plan.py) outside this card's write-set is a COORDINATOR/Owner action, not a lane fix.
+- One PR per card (#1804 is this card's PR). A second PR for the develop-side shared-script fix collides with single-PR discipline.
+- The branch w081-pr1802-... that PR #1804 is pinned to was FORCE-MOVED by a coordinator process to b9a487209 (a develop merge carrying ~21 foreign files: logs/exec/urls, machine-coverage, docs, contracts, operator-auth) — violating the one-candidate-per-chain rule (AGENTS 3.8).
+
+CLEAN CANDIDATE PRESERVED: branch w081-pr1804-receipt-final at c67ea34e6 (my two clean commits: 854c7ceff usageError fix+test, c67ea34e6 selector+mapping fix), pushed to origin. Commit-content diff vs parent = exactly the 2 files at the tip.
 
 ## repo-rule compliance
 
-- Smallest possible fix; reuses existing usageError helper and precedent fmt.Sprintf style. No consent/fail-closed/github change.
-- New regression assertion wired into the same PR (wizard-app-new-tests CI job picks it up; durable evidence, not just local).
-- Fresh branch cut from current develop tip ff4cdf509 (old branch was merged, not usable). One PR per card (#1804). No merge.
-- No subagents; every step executed in this session.
-- Tests via named -run with skip (test-runner-rule). No bare go test ./cmd/baha/ on the coordinator host.
-- Runners GitHub-hosted shared runners only; no runner/build infrastructure touched. No docker/podman compose started.
+- Root-cause traced against actual ci.yml and scripts source, not assumption.
+- Fix is the minimal change at the exact drop layer (selector regex + gate-plan mapping).
+- No product code touched this round.
+- No subagents; every step in this session.
+- No docker/podman containers started (Go unit + python gate simulation only).
 
 ## CLEANLINESS
 
-- No docker/podman containers or compose projects started (Go unit work only, per test-runner-rule).
-- docker ps -a (my pid run): $(docker ps -a 2>&1 || true)
-- No stray files in /home/marcel/dev/baseharbor-ecosystem; temp PR files under /tmp.
-- Worktree at workers/baseharbor (canonical remote origin = github.com/mcpdev80/baseharbor). Branch w081-pr1802-wizard-org-default-usageerror-correction at 854c7ceff.
+- No docker/podman containers or compose projects started. docker ps -a: (none started this lane).
+- Worktrees created under /tmp/opencode/w081-pr1804-receipt-wt and /tmp/opencode/w081-pr1804-develop-wt (safe zones); candidate worktree at workers/baseharbor.
+- Temporary branch w081-pr1804-receipt-final (clean) pushed.
 
 ## END
 
-END_DONE w081-pr1802-wizard-org-default-usageerror-correction: #0428-258 correction round fixed. Literal %q in org-default usageError now expanded via fmt.Sprintf (matches precedent usageError callers). CI run #7507 on head 854c7ceff terminal success (BASE_SHA ff4cdf509): PR Trusted Plan + wizard-app-new-tests + Go unit all pass, zero failed jobs. Fresh branch off develop ff4cdf509; PR #1804 diff-vs-develop = fix + test only (no catalog/.github). Evidence on origin/main; END posted.
+END_BLOCKED w081-pr1802-wizard-org-default-usageerror-correction: root cause of CI receipt-omission FOUND and FIX VERIFIED locally — the gate runs pr-check-runner.py from develop, whose selector (r'^TestAppNewWizard',) and missing gate-plan mapping drop the three org-default tests. Fix (widen selector to include r'^TestGuidedStackProfile' and r'^TestOrgDefault', add org-default mapping) verified to name all three tests (matched_tests 17->20, exit 0). BUT BLOCKED on a scope decision: the fix must land on develop, which cannot be direct-pushed (repo rule), and a develop-side shared-script change is a coordinator/Owner action under a single-PR-per-card constraint. Branch hijacked by coordinator (b9a487209, foreign files). Clean candidate preserved on w081-pr1804-receipt-final@c67ea34e6.
