@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w51-0428-261-catalog
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-261 · add 3 Trusted Plan rows to
 priority: ""
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-24/0428-261-gate-catalog-baseline-1816/round-1.md"]
 ---
 
-- [ ] t-20261124-gate-catalog-baseline-1816 · CI/catalog: add 3 Trusted Plan rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261124-gate-catalog-baseline-1816 · CI/catalog: add 3 Trusted Plan rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** w51-0428-261-catalog  
     **PR:** [baseharbor#1817](https://github.com/mcpdev80/baseharbor/pull/1817)  
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w51-0428-261-catalog  
@@ -77,3 +77,5 @@ One or two sentences: the observable outcome.
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+
+Candidate green: #1817 draft, head 3bae61a7 on develop d4fa8c589, run 45290693530 terminal success; diff = ONLY scripts/pr-gate-coverage.json adding EXACTLY the 3 data.capabilities rows (verified). Trusted Plan aggregate SKIPPED while draft. MERGE-FROST: Owner advances #1817 to ready + merges when green -> then rebase #1816 -> exact-head Hosted green. No lane merge; no Codex.

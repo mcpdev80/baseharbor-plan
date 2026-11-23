@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 10 |
-| review | 3 |
+| active | 9 |
+| review | 4 |
 | wait | 10 |
 | blocked | 2 |
 | ready | 6 |
@@ -33,7 +33,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-base-branch-provenance-loss](../tasks/t-20261121-base-branch-provenance-loss.md) | 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened | active | high | coordinator | — | — |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
 | [t-20261122-ci-operator-fixture-allowlist-gap](../tasks/t-20261122-ci-operator-fixture-allowlist-gap.md) | Add the missing command forms to the test-only CI-operator fixture allow-list so static/core gates stamp the synthetic operator instead of failing closed | active | high | w50-0428-250-corefixture | — | [baseharbor-demo#170](https://github.com/mcpdev80/baseharbor-demo/pull/170), [baseharbor#1815](https://github.com/mcpdev80/baseharbor/pull/1815) |
-| [t-20261124-gate-catalog-baseline-1816](../tasks/t-20261124-gate-catalog-baseline-1816.md) | CI/catalog: add 3 Trusted Plan rows to develop pr-gate-coverage.json | active | not set | w51-0428-261-catalog | — | [baseharbor#1817](https://github.com/mcpdev80/baseharbor/pull/1817) |
 
 ## Ready for review
 
@@ -42,6 +41,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | review | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
 | [t-20261122-footprint-human-surface-doc-gaps](../tasks/t-20261122-footprint-human-surface-doc-gaps.md) | Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract | review | normal | 0847d100 (finalhop 7880a8f6 laeuft) / Coordinator | — | [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783) |
 | [t-20261122-runtime-broker-health-unhealthy](../tasks/t-20261122-runtime-broker-health-unhealthy.md) | CI: data-capabilities native gate fails on secure runtime broker readiness | review | not set | ffe7611b (#1770 62f4ab0d combined, 0 fail / 22 pass / 1 pending = ~terminal; alle 3 Poorten job-belegt gruen) / Owner (step4 develop merge) / Coordinator | [t-20261122-gate-catalog-missing-app-broker-component](../tasks/t-20261122-gate-catalog-missing-app-broker-component.md) | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783) |
+| [t-20261124-gate-catalog-baseline-1816](../tasks/t-20261124-gate-catalog-baseline-1816.md) | CI/catalog: add 3 Trusted Plan rows to develop pr-gate-coverage.json | review | not set | w51-0428-261-catalog | — | [baseharbor#1817](https://github.com/mcpdev80/baseharbor/pull/1817) |
 
 ## Waiting for resources
 
