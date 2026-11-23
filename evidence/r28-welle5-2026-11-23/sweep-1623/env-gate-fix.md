@@ -56,6 +56,18 @@ The pending run at the new head `213ca5195` (a merge `521d76812 x ff4cdf509`) ca
 
 My #1623 delta vs develop (`afa064519`) = 19 files (product + docs + contracts). No harness/catalog change applied.
 
+## Step 4 — Run `45178624184` at `213ca5195` to terminal: FAILED
+
+The run reached a partial terminal: 18 success / 11 skipped / 1 failure. The single failure is `PR · Go unit · cli-3` = `TestGuidedExecParsesComponentCmdAndExitStatus`. Root cause confirmed as a real #1623 regression in MY card code (commit `d44dad4dd` "fix: pass guided exec command flags through" on my line), NOT the 0428-258 carry-in (the 3 carried-in tests pass cleanly locally at `213ca`).
+
+Fix applied, verified, and committed on top of run head `213ca5195`:
+- Commit `7676f8100` fix(0428-063): treat first post-component arg as command, not service.
+- Single file `cmd/baha/app_exec.go`, +21/-6, 2 hunks:
+  1. `commandTail` trip condition `(len(positional) == 2 || (componentValue != "" && len(positional) == 1))` → `(componentValue != "" || len(positional) == 2)`. The old `len(positional)==1 && componentValue!=""` clause tripped on the first command arg after `-c` and let the command-tail branch double-append it as positional[0], stealing it as the service.
+  2. Assembly: `-c` form now sets `command = positional` (whole run is the command, no positional service) instead of `service = positional[0]` (which stole the first command arg); service assignment guarded by `service == ""`. Positional form unchanged (`positional[0]`=svc, `positional[1:]`=command).
+- Verified locally at `213ca`: `go build` clean, `go vet ./cmd/baha/` clean, all 4 guided-exec tests PASS (`TestGuidedExecParsesComponentCmdAndExitStatus`, `...ShellDefaultAndNoCommand`, `...ExitStatusIsPreserved`, `...NonInteractiveAmbiguityFailsClosed`), full `cmd/baha` suite exit=0 (`ok github.com/mcpdev80/baseharbor/cmd/baha 500.711s`, skip guard excludes docker-engine teardown tests), `internal/cli` `ok 11.983s`. My lane worktree file is byte-identical to the `/tmp/213ca-wt` verified copy.
+- `7676f8100` is unpushed (detached HEAD at `213ca`). Per worker rules (no push/merge by worker; merge + CI is Codex post-review), the fix is staged locally for the coordinator/Codex to route into a clean CI candidate. No harness/catalog change.
+
 ## cleanliness
 
 - No containers/compose started on this host (no docker/podman test). `docker ps -a` witness: N/A (no daemon test).
