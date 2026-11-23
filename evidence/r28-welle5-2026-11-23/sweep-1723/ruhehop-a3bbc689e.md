@@ -139,11 +139,24 @@ a3bbc689e4da70da73a0dcf5370d9a9e2e81d24d  refs/heads/develop
 - Files created only inside the existing worktree /tmp/opencode/1723-sweep-wt and this
   plan-repo evidence directory.
 
+## STOPP (coord/owner-ordering 2026-11-23 10:5x) — hop ruht, lane idle bis freigabe
+
+- Order: NO further hop on #1723 before #1801 merges (1801 is priority, running on f6ab22b7d with
+  2 native jobs active). Sequence after that: 1801 terminal -> review/merge -> THEN one single hop
+  onto the post-1801 tip. No push, no run from this side until release.
+- State at STOP (as left, nothing rolled back): branch + `refs/pull/1723/head` == **12bf50c4c**
+  (hop merge onto f6ab22b7d, delivered and ls-remote-witnessed before the stop arrived); the
+  auto pull_request run 45159172695 was `queued` at STOP time — the lane observes NOTHING further
+  of it and starts nothing new. PR #1723 OPEN, non-draft, mergeStateStatus BLOCKED (base moved
+  after the stop: #1801 pending).
+- Earlier delivered chain this shift stands as evidence: 340e66a88 @ 304b3ad1d, run 45153328164
+  completed/success with TP log `BASE_SHA: 304b3ad1d…` (section above).
+
 ## END
 
-- HEAD: 340e66a881e60e20252ef5b284ca95e959732b59 (lane-0428-199-workloadport, base EXAKT 304b3ad1d)
-- Run-id: 45153328164 — completed/success, TP BASE_SHA 304b3ad1d88647377ea647d0d94174bfc9298e14
-- STATUS: DONE — no merge by lane.
+- HEAD: 12bf50c4c8dbeadeb5fa9324fdafa4069e267d8d (lane-0428-199-workloadport; hop work STOPPED per
+  owner-ordering — further hop awaits #1801 merge and coordinator release)
+- STATUS: BLOCKED (extern: #1801 merge must land first; lane idle, no push/run until release)
 
 ## Evidence-on-origin/main verification (second-to-last action)
 
