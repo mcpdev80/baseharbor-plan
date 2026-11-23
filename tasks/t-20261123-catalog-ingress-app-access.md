@@ -7,15 +7,15 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: b90e4ba1 (kandidat delivered) / Coordinator
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One develop-only catalog PR registers cmd/baha/appaccess.go and cmd/baha/appaccesstest.go in the trusted BASE so #1620…"
 kanban_title: 0428-254 · register cmd/baha/app_access
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1791]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,19 +23,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261123-catalog-ingress-app-access · Catalog ingress 2: register cmd/baha/app_access source rows in base #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261123-catalog-ingress-app-access · Catalog ingress 2: register cmd/baha/app_access source rows in base #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** b90e4ba1 (kandidat delivered) / Coordinator  
+    **PR:** [baseharbor#1791](https://github.com/mcpdev80/baseharbor/pull/1791)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** b90e4ba1 (kandidat delivered) / Coordinator  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1791](https://github.com/mcpdev80/baseharbor/pull/1791)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -77,3 +77,5 @@ One develop-only catalog PR registers cmd/baha/app_access.go and cmd/baha/app_ac
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+
+EXAKT-GRUEN: head d3eed85ab, run 45091676596 failed=0 (TP gruen 137422407321; native/Go structuur... 
