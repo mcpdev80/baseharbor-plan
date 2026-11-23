@@ -113,3 +113,11 @@ Go shards + Exact Candidate + Focused Python + PR Selected Checks
 (137428435195) success; Advisory candidate-added 137425769881 rood (known,
 kaart 0428-253, bindt deze PR niet); native matrix structureel skipped.
 cleanliness: besenrein.
+
+## origin/main witness
+
+Exact: `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 1789-finalhop-b90` (plan main = 9e8e766baeaefc3aa825841135baa6ca504d75a6):
+
+```
+evidence/r28-welle5-2026-11-22/compat-0428-142/1789-finalhop-b90-handoff.md
+```
