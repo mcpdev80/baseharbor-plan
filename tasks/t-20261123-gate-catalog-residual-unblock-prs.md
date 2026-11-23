@@ -8,33 +8,35 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: mcpdev80 CI/coverage owner (sweep-assigned apply; owner-scope scripts/**)
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-260 · register residual uncataloged
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1813, mcpdev80/baseharbor#1814]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1813", "https://github.com/mcpdev80/baseharbor/actions/runs/45265897355", "https://github.com/mcpdev80/baseharbor/pull/1814", "https://github.com/mcpdev80/baseharbor/actions/runs/45268937124"]
 ---
 
-- [ ] t-20261123-gate-catalog-residual-unblock-prs · CI gate catalog: register residual uncataloged cmd/internal paths so the 0428-242 fail-loud guardian stops blocking Trusted Plan for PRs 1810/1809 #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261123-gate-catalog-residual-unblock-prs · CI gate catalog: register residual uncataloged cmd/internal paths so the 0428-242 fail-loud guardian stops blocking Trusted Plan for PRs 1810/1809 #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 CI/coverage owner (sweep-assigned apply; owner-scope scripts/\*\*)  
+    **PR:** [baseharbor#1813](https://github.com/mcpdev80/baseharbor/pull/1813), [baseharbor#1814](https://github.com/mcpdev80/baseharbor/pull/1814)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1813), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45265897355), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1814), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45268937124)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** mcpdev80 CI/coverage owner (sweep-assigned apply; owner-scope scripts/**)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1813](https://github.com/mcpdev80/baseharbor/pull/1813), [baseharbor#1814](https://github.com/mcpdev80/baseharbor/pull/1814)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -81,6 +83,12 @@ H-V38 DELIVERED proven patch (baseharbor-plan origin/main ed1032734, evidence/re
 ASSIGNED per sweep routing request: H-V38 proven 5-row scripts/pr-gate-coverage.json patch (origin/main ed1032734) is ready to apply directly to develop. Single owner scripts/** edit; unblocks PR · Trusted Plan for #1810 (3 gates) and #1809 (2 gates), validate rc=0. No worker lane (reserved CI/coverage scope). Owner applies + re-runs both PRs.
 
 H-V39 CENSUS upgraded the ask: NOT just 5 rows. Because develop catalog release=v0.4.27, v0.4.28 plans take catalog-mode and BYPASS all legacy catch-alls -> the current green Trusted Plans are an artifact of the release mismatch. Real fix = ~40 PACKAGE-LEVEL path rows (prefix coverage, so NEW files inherit): decisive = cmd/baha, internal/capability, internal/application, internal/openbao, internal/runtime/resolver + ~20 top internal dirs (88% of 764-path population). Interim unblock for the 3 PRs = H-V38 5-row patch + 1 row for #1650 new file internal/metrics/perses_dashboards_keycloak.go. H-V40 desk is producing the apply-ready patched catalog + offline proof for #1810/#1809/#1650 + new-file inheritance. Landing note: when the rows ship, set catalog release to v0.4.28 deliberately.
+
+H-V38 exact-path rows DELIVERED through PR #1813 and MERGED at `d4fa8c589e02bf6708d9e6beba7a510c1a2efc7e`; exact Hosted CI run `45265897355` passed Trusted Plan, Native gate plan, source format, planner tests, CI/receipt validations and PR Selected Checks. This covers the changed source paths for #1809/#1810/#1650 while keeping the catalog release at v0.4.27, per Owner direction.
+
+H-V40 broad-prefix attempt #1814 CLOSED without merge. Exact Hosted run `45268937124` exposed four guardian regressions: `internal/application/provider_union.go` stopped being unresolved, and `internal/runtime/new_feature.go` no longer raised the uncataloged-source error (including the discovery suite replay). The broad prefixes would weaken fail-closed behavior. Preserve exact per-file rows for reviewed paths; new source paths must carry their component rows in their introducing PR. No package-wide catch-alls over explicit unresolved prefixes. The catalog release remains v0.4.27.
+
+Current task outcome: the current Trusted Plan aborts are resolved by #1813; broader prefix coverage was disproven by Hosted CI and rejected. The remaining required action is each existing PR owner's additive hop and exact Hosted requalification, tracked by their own cards.
 
 DELIVERED via PR #1813 (MERGED, develop d4fa8c589, Hosted run 45265897355 green): 6 PER-FILE component rows clear the immediate guardian aborts for #1810/#1809/#1650. OPEN: (a) develop catalog release field still v0.4.27 while PRs plan v0.4.28 (H-V40 analyzing effect); (b) future NEW files still need a row each (per-file rows do not scale to new files) — H-V40 proving whether package/prefix rows give genuine (non-fallback) coverage in catalog-mode or must be retracted.
 
