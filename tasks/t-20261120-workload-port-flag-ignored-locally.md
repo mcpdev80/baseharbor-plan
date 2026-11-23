@@ -7,9 +7,9 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ffe7611b (#1723 dedup-hop gepusht, exact run 45088083129 laeuft) / Coordinator
-kanban_status: active
-kanban_lane: active
+owner: Coordinator (owner-merge ddddbed16) / 9b7683b5 + fecb delta-APPROVE
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-199 · workload-port ignored locally
 priority: ""
@@ -19,23 +19,23 @@ prs: [mcpdev80/baseharbor#1723]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44788134959", "https://github.com/mcpdev80/baseharbor/pulls/1723", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44995050874", "https://github.com/mcpdev80/baseharbor/actions/runs/44998829701"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44788134959", "https://github.com/mcpdev80/baseharbor/pulls/1723", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44995050874", "https://github.com/mcpdev80/baseharbor/actions/runs/44998829701", "https://github.com/mcpdev80/baseharbor/pull/1723"]
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-workload-port-flag-ignored-locally · workload-port ignored locally #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
+- [x] t-20261120-workload-port-flag-ignored-locally · workload-port ignored locally #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** ffe7611b (\#1723 dedup-hop gepusht, exact run 45088083129 laeuft) / Coordinator  
+    **Owner:** Coordinator (owner-merge ddddbed16) / 9b7683b5 + fecb delta-APPROVE  
     **PR:** [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44788134959), [proof 2](https://github.com/mcpdev80/baseharbor/pulls/1723), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44995050874), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998829701)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44788134959), [proof 2](https://github.com/mcpdev80/baseharbor/pulls/1723), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44995050874), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998829701), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1723)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-delete](t-20261114-r28-cli2-env-delete.md), [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md), [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md)  
-**Owner:** ffe7611b (#1723 dedup-hop gepusht, exact run 45088083129 laeuft) / Coordinator  
+**Owner:** Coordinator (owner-merge ddddbed16) / 9b7683b5 + fecb delta-APPROVE  
 **Priority:** not set  
 **PRs:** [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723)  
 **Source:** 
@@ -109,3 +109,5 @@ hop ist gelandet und der exact run 44998829701 ist FAILURE mit 2 jobs; am laufen
 hop gelandet, exact run 44998829701 FAILURE mit 2 jobs: 'PR . Selected Runtime (atomic/docker/data-capabilities)' 137136024513 failure, 'PR . Native gate plan' 137135625304 SUCCESS. Derselbe broker-readiness-blocker (0428-237), nicht der kartenschnitt: gegen develop acc34323968 bleiben 4 dateien eigenen inhalts. Diese karte ist die stufe VOR PR 1725, weil 1725 diesen inhalt als ahne traegt. Naechster trigger: broker-klarung, dann exact-head review, dann merge.
 
 stand: head 198f9bdad up-to-date mit develop c6a7138, katalog-diff 0 zeilen (dedup korrekt), product-diff = 4 dateien der karte (workload port apply/pfade + regression-test, base-row fuer die regression-datei vorhanden -> admission ok). full hosted CI laeuft; bei required-green: CODEX-REVIEW (1450c201 bereit).
+
+CLOSED: merged ddddbed16 (exact-base run 45163965244 23/0); post-merge delta APPROVE aab7661b — workload-port regressions via cli-1/cli-3 package receipts (1606-doctrine).
