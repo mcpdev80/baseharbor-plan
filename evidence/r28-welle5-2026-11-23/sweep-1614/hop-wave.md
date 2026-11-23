@@ -106,6 +106,16 @@ No merge performed by this lane. PR stays DRAFT (hop-wave, handoff already revie
   "native Git archive failed: signal: killed" — reproduced identically on the untouched
   1620-hop worktree (develop-based, zero union content) => coordinator-host resource limit, not candidate content.
 
+## Evidence-on-origin/main verification (second-to-last actions)
+
+```
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep sweep-1614/hop-wave
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle5-2026-11-23/sweep-1614/hop-wave.md
+```
+
+(both exact commands run; evidence commit c525b4c30 on origin/main; no checkboxes anywhere)
+
 ## cleanliness
 
 - git/docs-regen hop: no containers, compose projects, networks or volumes started.
