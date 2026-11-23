@@ -7,34 +7,36 @@ areas: ["cli"]
 release: v0.4.28
 version: ""
 parent: ""
-owner: f0f6c8b4
-kanban_status: active
-kanban_lane: active
+owner: Coordinator (owner-merge) / 584cca00
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: "0428-256 · Wizard UX: candidate-confirm"
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1798]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1798"]
 ---
 
-- [ ] t-20261123-wizard-confirm-post-chdir · Bug (hunt H-P1): Wizard UX: candidate-confirm fires after chdir into new project (clarity) #task #release/v0-4-28 #status/active #view/active #area/cli #kind/task
+- [x] t-20261123-wizard-confirm-post-chdir · Bug (hunt H-P1): Wizard UX: candidate-confirm fires after chdir into new project (clarity) #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** f0f6c8b4  
+    **Owner:** Coordinator (owner-merge) / 584cca00  
+    **PR:** [baseharbor#1798](https://github.com/mcpdev80/baseharbor/pull/1798)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1798)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** f0f6c8b4  
+**Owner:** Coordinator (owner-merge) / 584cca00  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1798](https://github.com/mcpdev80/baseharbor/pull/1798)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -85,3 +87,5 @@ One or two sentences: the observable outcome.
 
 ## Evidence
 - hunt-akte: evidence/r28-welle5-2026-11-23/hunt-hp1-f0f.md
+
+CLOSED: #1798 MERGED 09:49:56Z nach exaktem pull_request-run 45149227807 SUCCESS (wizard-focused + docker guided green); catalog base-owned seit 1800; net diff 2 product dateien.
