@@ -45,9 +45,9 @@ achterlaten.
    - Native: 6/6 success — docker data-caps 137408195963, podman
      data-caps 137408195996, coreless docker/podman 137408196051/137408195941,
      guided docker/podman 137408195959/137408196026.
-   - Selected Runtime: data-caps docker 137408655821 + podman
-     137408655818, guided docker 137408655821/137408655841 alle
-     "Executed ... success".
+   - Selected Runtime: docker data-caps 137408655821 + podman data-caps
+     137408655818, docker guided 137408655841 + podman guided 137408655806,
+     alle "Executed ... success".
    - Selected Core-less integrations docker/podman: success (137413362323,
      137412582096 + de matrix-bladen).
    - Go/static: Source format 137408145552 success; Focused Python
