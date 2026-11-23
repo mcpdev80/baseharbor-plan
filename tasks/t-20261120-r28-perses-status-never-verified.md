@@ -66,3 +66,5 @@ Gate dependency: #1810 Trusted Plan clears via card 0428-260 (catalog guardian r
 develop d4fa8c589 (#1813) cataloged #1810's paths -> gate guardian clears after the additive hop (routed to w186). STILL owed regardless: the CODEX REQUEST_CHANGES fail-closed code fix (head stuck 168d40950 many briefs). Last chance sent; unchanged head next tick -> Owner seat force-release.
 
 RESTART (beefcd12) of dead 402f1117. Continuing branch lane-0428-186: additive hop to d4fa8c589 + STILL-owed fail-closed code fix (perses.go configured_unverified + answering/silent tests).
+
+Owner scope review @ head 5f000fb: fail-closed fix removed static bug but made 'verified' permanently unreachable (perses.go ~:215). WRONG terminal design -> kills #1650 IdentityDashboardEligible=true (derived from verified, app_status_result.go:57). Correction routed: real per-target reachability probe so answering target -> verified=true (eligible reachable), silent -> configured_unverified; if probe not buildable in scope -> QUESTION (name the missing instrument) for Owner to decide. Decision recorded in evidence/plan. #1650 must not merge while eligible unreachable.
