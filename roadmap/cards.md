@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 192/273 · **Blocked:** 2 · **Waiting:** 20  
+    **Accepted tasks:** 192/274 · **Blocked:** 2 · **Waiting:** 20  
     **Blocker:** [t-20261119-r28-perses-alert-verifier-caller-wiring](../tasks/t-20261119-r28-perses-alert-verifier-caller-wiring.md) — CI/catalog owner must land 3 baseline rows on develop scripts/pr-gate-coverage.json (ids source.cmd\_baha\_app\_status\_collect\_go/\_app\_status\_perses\_alert\_evaluat…  
     **Blocker:** [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) — \#1812 write-set COMPLETE (head 5ab9fe4, diff = ONLY .github/workflows/pre-release-runtime-suite.yml). Its own lane session (w249/19017525) is GONE (oc-status)…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
