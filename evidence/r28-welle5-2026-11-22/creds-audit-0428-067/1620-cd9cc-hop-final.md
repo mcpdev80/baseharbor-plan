@@ -111,7 +111,8 @@ refs/pull/1620/head == M proven. No merge performed by this lane (1450 merges on
 
 ```
 $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep creds-audit-0428-067/1620-cd9cc-hop-final
-<output appended after push>
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle5-2026-11-22/creds-audit-0428-067/1620-cd9cc-hop-final.md
 ```
 
 Planning repo remote verified before first evidence commit:
