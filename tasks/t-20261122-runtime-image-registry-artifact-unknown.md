@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w249-0428-249-runtime-image-fix
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-249 · light-runtime blob unknown
 priority: high
@@ -17,20 +17,19 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: "OWNER ACTION (2): (1) ratify-or-revert one-file scope crossing into scripts/ci-local-oci-registry.sh (NOT in 0428-249 release path list); (2) PR #1812 head 41c1e6d9 has CI Source&Quality #7544 GREEN but the Docker+Podman light-runtime gates are workflow_call/workflow_dispatch-only (verified: docker-runtime-acceptance.yml + pre-release-runtime-suite.yml have NO pull_request trigger), so they cannot run from the PR — Owner must workflow_dispatch Release·Pre-Release Validation on head 41c1e6d9 (hand terminal Docker+Podman run ids) OR confirm CI #7544 satisfies the gate intent. Lane must not trigger workflow_dispatch (owner scope). Next trigger: Owner dispatch/ratify."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/testing #kind/bug
+- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/active #view/active #area/ci #area/testing #kind/bug
     <!-- generated:card -->
     **Owner:** w249-0428-249-runtime-image-fix · **Priority:** high  
-    **Blocker:** OWNER ACTION (2): (1) ratify-or-revert one-file scope crossing into scripts/ci-local-oci-registry.sh (NOT in 0428-249 release path list); (2) PR \#1812 head 41c1e6d9 has CI Source&Quality \#7544 GREEN but the Docker+Podman light-runtime gate…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w249-0428-249-runtime-image-fix  
@@ -55,3 +54,5 @@ Die Freigabe ist auf den belegten Pre-Release-Fix begrenzt. ci.yml und der norma
 owner release 2026-11-22/23: one narrow PR (.github pre-release workflows + acceptance.sh + impact.json, ci.yml untouched), Docker+Podman light gates green before merge
 
 fix done in write-set; tests green; not merged (frost+pending)
+
+OWNER ACTION DONE 19:4xZ: dispatched Release·Pre-Release Validation run 45251664813 (7 light gates Docker+Podman). Scope crossing RESOLVED: #1812 head now 69de976f1e, diff = ONLY .github/workflows/pre-release-runtime-suite.yml (+20/-0), scripts/** clean (verified ls-remote+gh pr diff). Lane finish: reconcile PR body (still describes discarded scripts fix), watch OWN dispatched run to terminal, verify it tested candidate 69de976f1e (run headSha shows develop dc8626e9c5 - flag if candidate not built), republish evidence, END only when run green. No merge (frost+acceptance).

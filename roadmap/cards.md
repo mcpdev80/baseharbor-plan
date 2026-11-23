@@ -16,8 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 191/272 · **Blocked:** 1 · **Waiting:** 20  
-    **Blocker:** [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) — OWNER ACTION (2): (1) ratify-or-revert one-file scope crossing into scripts/ci-local-oci-registry.sh (NOT in 0428-249 release path list); (2) PR \#1812 head 41c…  
+    **Accepted tasks:** 191/272 · **Blocked:** 0 · **Waiting:** 20  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next
