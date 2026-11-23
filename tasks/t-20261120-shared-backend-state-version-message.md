@@ -7,9 +7,9 @@ areas: [lifecycle]
 release: v0.4.28
 version: ""
 parent: ""
-owner: f0f6c8b4 (korrektur-runde) / Coordinator
-kanban_status: active
-kanban_lane: active
+owner: Coordinator (merge 1450/owner) / 043d+584 lineage
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-201 · shared state version message
 priority: ""
@@ -19,23 +19,23 @@ prs: [mcpdev80/baseharbor#1725]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pulls/1725", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44995066580", "https://github.com/mcpdev80/baseharbor/actions/runs/44998846458", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/stale-pr-census/ancestry-rule-clarification.md", "https://github.com/mcpdev80/baseharbor/pull/1725", "https://github.com/mcpdev80/baseharbor/actions/runs/45014090675"]
 created: 2026-11-20
 ---
 
-- [ ] t-20261120-shared-backend-state-version-message · shared state version message #task #release/v0-4-28 #status/active #view/active #area/lifecycle #kind/bug
+- [x] t-20261120-shared-backend-state-version-message · shared state version message #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** f0f6c8b4 (korrektur-runde) / Coordinator  
+    **Owner:** Coordinator (merge 1450/owner) / 043d+584 lineage  
     **PR:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pulls/1725), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44995066580), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44998846458), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/stale-pr-census/ancestry-rule-clarification.md), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1725), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/45014090675)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** f0f6c8b4 (korrektur-runde) / Coordinator  
+**Owner:** Coordinator (merge 1450/owner) / 043d+584 lineage  
 **Priority:** not set  
 **PRs:** [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725)  
 **Source:** 
@@ -107,3 +107,5 @@ KEIN MERGE, KEIN unabhaengiger kandidat. Dekontamination korrigiert den NET-diff
 #1725 content ist FREI von regress: run 45014090675, alle Go/exact/native PASS, der EINE rote podman data-capabilities job 137182949575 ist ein RUNNER-BOOTSTRAP-STATE (target atomic-podman-data-capabilities core-installation-not-loadable -> footprint show --confirm-candidate abgelehnt) - identisch zur #1753/0428-227 consent-wurzel. develop ist Vorfahr, dekontaminiert (47e51b16), kein lane-zugriff noetig. Merge NACH dem geteilten consent-fix (0428-227 via #1753/#1746).
 
 window-vorhop (fenster ist nicht blockiert, nur reihenfolge): #1725 ist open/ready mit head 47e51b16e, own-catalog-edit NO, base-pre-#1762. f0f hoppt additive auf ef73b50b + exact-head-pruefung, damit die karte im naechsten freien merge-slot abnahmebereit liegt. develop-stand: ef73b50b (#1738+ #1762+ #1771+ #1761 sind gemergt).
+
+CLOSED: squash-merged b517b279c (08:37:39Z) nach exaktem pull_request-run 45136441345 (head 3f3343475, base==tipp 826d, alle required green).
