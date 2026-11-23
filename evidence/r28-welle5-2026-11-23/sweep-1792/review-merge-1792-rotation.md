@@ -111,3 +111,13 @@ This session did not capture `docker ps -a` before the merge; it started no cont
 ## END
 
 END_DONE codex-rev2-1736: APPROVE and squash-merged PR #1792 at `cd9cc4836a69815a6cdcf7079902bafe5be1e000`; exact candidate `a2bbeaefb34583f0a5d6c1b8483e8350169d516e`.
+
+## Origin main evidence-path witness
+
+Exact output of the required fetch and origin/main tree lookup:
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle5-2026-11-23/sweep-1792/review-merge-1792-rotation.md
+```
