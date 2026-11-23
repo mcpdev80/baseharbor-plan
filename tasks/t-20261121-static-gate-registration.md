@@ -8,35 +8,35 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: Coordinator / 584cca00+ffe7611b lineage
-kanban_status: active
-kanban_lane: active
+owner: Coordinator (owner recut-line merged fdced23de) / f0f6+9b76 lineage
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: Run the existing scripts/ci-fast-check.sh as its own static gate in the v0.4.28 Pre-Release Suite. Preserve every existing…
 kanban_title: 0428-208 · 0428-208 static gate
 priority: high
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1774, mcpdev80/baseharbor#1782, mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1797]
+prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1774, mcpdev80/baseharbor#1782, mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1797, mcpdev80/baseharbor#1805]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md", "https://github.com/mcpdev80/baseharbor/pull/1797", "https://github.com/marcel/dev/baseharbor-ecosystem/coordinator/QUEUE.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md", "https://github.com/mcpdev80/baseharbor/pull/1797", "https://github.com/marcel/dev/baseharbor-ecosystem/coordinator/QUEUE.md", "https://github.com/mcpdev80/baseharbor/pull/1805"]
 ---
 
-- [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/active #view/active #area/ci #kind/task
+- [x] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** Coordinator / 584cca00+ffe7611b lineage · **Priority:** high  
-    **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1797](https://github.com/mcpdev80/baseharbor/pull/1797)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44997978036), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1797), [proof 4](https://github.com/marcel/dev/baseharbor-ecosystem/coordinator/QUEUE.md)  
+    **Owner:** Coordinator (owner recut-line merged fdced23de) / f0f6+9b76 lineage · **Priority:** high  
+    **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1797](https://github.com/mcpdev80/baseharbor/pull/1797), [baseharbor#1805](https://github.com/mcpdev80/baseharbor/pull/1805)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44997978036), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1797), [proof 4](https://github.com/marcel/dev/baseharbor-ecosystem/coordinator/QUEUE.md), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1805)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** Coordinator / 584cca00+ffe7611b lineage  
+**Owner:** Coordinator (owner recut-line merged fdced23de) / f0f6+9b76 lineage  
 **Priority:** high  
-**PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1797](https://github.com/mcpdev80/baseharbor/pull/1797)  
+**PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1797](https://github.com/mcpdev80/baseharbor/pull/1797), [baseharbor#1805](https://github.com/mcpdev80/baseharbor/pull/1805)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -105,3 +105,5 @@ PROMOTED per owner-delegation: die freigegebene katalog-release-only korrektur (
 1797 MERGED als 826d498fc1 (post-merge-korrektur zu 1793: deferred-classification statt pr_focused-claim). PENDING: final accept nach delta-review.
 
 REVIEW->ACTIVE: post-merge REQUEST CHANGES an 826d498fc1 (akte 02e9c39350): ci-fast-check als release-only-deferred erklaert, aber KEIN selector (check-plan.py:7 kennt nur config-matrix/init/mcp/agent/shell-ux) und KEIN suite-case (:264-271 rejectet unbekannte gates) = anforderungs-phantom. shell-ux-deferral OK (suite-case vorhanden, required_for bis v0.4.27 — v0.4.28-trage folgt mit dieser korrektur). .github-case-branch = OWNER-scope; scripts-selector = lane.
+
+CLOSED: re-cut merged fdced23de — real ci-fast-check executor in develop workflows; fecb abschluss-record laeuft.
