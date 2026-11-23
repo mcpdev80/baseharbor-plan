@@ -7,7 +7,7 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w058-0428-058-cli2-audit-events
+owner: w058-0428-058-hop
 kanban_status: active
 kanban_lane: active
 kanban_summary: "Audit secret and environment actions. Follow the owner working brief, command mapping and code entry index; revalidate current…"
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261114-r28-cli2-audit-events · CLI redesign: Audit secret and environment actions #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** w058-0428-058-cli2-audit-events · **Priority:** high  
+    **Owner:** w058-0428-058-hop · **Priority:** high  
     **PR:** [baseharbor#1809](https://github.com/mcpdev80/baseharbor/pull/1809)  
     <!-- /generated:card -->
 
@@ -34,7 +34,7 @@ evidence: []
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-delete](t-20261114-r28-cli2-env-delete.md), [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
 **Required by:** [t-20261114-r28-cli2-app-data](t-20261114-r28-cli2-app-data.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md)  
-**Owner:** w058-0428-058-cli2-audit-events  
+**Owner:** w058-0428-058-hop  
 **Priority:** high  
 **PRs:** [baseharbor#1809](https://github.com/mcpdev80/baseharbor/pull/1809)  
 **Source:** 
@@ -80,3 +80,5 @@ reconcile Owner sweep: #1809 open under w058. Trusted Plan block = 0428-242 cata
 reclassified from active: H-V37 proved Draft Go reds stale; only the catalog guardian blocks
 
 #1813 merged to develop (d4fa8c589): cmd/baha/secret_audit_test.go + secret_operations.go now cataloged -> guardian missing-path abort cleared. Lane routed the additive hop (merge develop d4fa8c589 into lane branch) + own exact Headed rerun. Code complete; H-V37: prior Draft Go reds stale. Should go green after hop.
+
+RESTART (89ed2fab) of dead c9127cee. Branch lane-0428-058: additive hop to d4fa8c589 (#1813 rows) + exact Headed rerun; code complete.
