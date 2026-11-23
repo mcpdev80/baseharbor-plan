@@ -56,3 +56,7 @@
 - No test-owned containers, networks, volumes, or state directories were created by this session.
 
 END_BLOCKED codex-rev2-1736: #1780 reviewed; current develop is ahead of the tested base; no merge. Candidate `5a05da37c8c0ec6813f398bae1fb5f542c06cc2e`.
+
+Exact output of `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle5-2026-11-23/sweep-1780/review-merge-1780.md`:
+
+evidence/r28-welle5-2026-11-23/sweep-1780/review-merge-1780.md
