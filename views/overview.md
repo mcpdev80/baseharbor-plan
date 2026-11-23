@@ -10,10 +10,10 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 6 |
+| active | 5 |
 | review | 3 |
 | wait | 18 |
-| blocked | 5 |
+| blocked | 6 |
 | ready | 9 |
 | queued | 25 |
 | waiting | 177 |
@@ -29,7 +29,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261120-r28-valkey-dashboard-unavailable-only](../tasks/t-20261120-r28-valkey-dashboard-unavailable-only.md) | Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable | active | not set | Codex (Marcel, active wait sweep 2026-11-21) | [t-20261121-loki-verify-probe](../tasks/t-20261121-loki-verify-probe.md), [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) | [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714) |
 | [t-20261121-base-branch-provenance-loss](../tasks/t-20261121-base-branch-provenance-loss.md) | 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened | active | high | coordinator | — | — |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
-| [t-20261121-static-gate-registration](../tasks/t-20261121-static-gate-registration.md) | 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate | active | high | ffe7611b (owner-delegierter release-only katalog-fix auf #1746, target cace61802) / Coordinator | [t-20261122-gate-catalog-missing-app-broker-component](../tasks/t-20261122-gate-catalog-missing-app-broker-component.md) | [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761) |
 
 ## Ready for review
 
@@ -68,6 +67,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261120-shared-backend-state-version-message](../tasks/t-20261120-shared-backend-state-version-message.md) | shared state version message | blocked | not set | f0f6c8b4 (mission: test-umzug in katalogisierte schwester-datei, nach ingress-dispatch) / Coordinator | — | [baseharbor#1725](https://github.com/mcpdev80/baseharbor/pull/1725) |
 | [t-20261121-native-cell-operator-seam](../tasks/t-20261121-native-cell-operator-seam.md) | 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam | blocked | high | Coordinator (ingress-wartend) / b90e4ba1 eingefroren | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740), [baseharbor#1765](https://github.com/mcpdev80/baseharbor/pull/1765), [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766) |
+| [t-20261121-static-gate-registration](../tasks/t-20261121-static-gate-registration.md) | 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate | blocked | high | ffe7611b (fix applied, blockiert auf owner-punkt) / Coordinator | [t-20261122-gate-catalog-missing-app-broker-component](../tasks/t-20261122-gate-catalog-missing-app-broker-component.md) | [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761) |
 | [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](../tasks/t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md) | Acceptance contract: baha app footprint show is admitted only for the guided gate | blocked | not set | Coordinator (ingress-fuestend) / 0847d100 | [t-20261121-develop-full-suite-red](../tasks/t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](../tasks/t-20261122-ci-integration-operator-seams-without-gate-admission.md) | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746) |
 | [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) | Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) | blocked | high | — | — | — |
 | [t-20261123-demo-digest-consent-adaptation](../tasks/t-20261123-demo-digest-consent-adaptation.md) | Demo: pass explicit candidate digest in footprint consent test (fail-closed kept) | blocked | not set | Coordinator (kein Lane-Dispatch,Entscheid-frei hinfällig) | — | [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780) |

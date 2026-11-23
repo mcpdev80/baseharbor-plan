@@ -8,33 +8,34 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ffe7611b (owner-delegierter release-only katalog-fix auf #1746, target cace61802) / Coordinator
-kanban_status: active
-kanban_lane: active
+owner: ffe7611b (fix applied, blockiert auf owner-punkt) / Coordinator
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: Run the existing scripts/ci-fast-check.sh as its own static gate in the v0.4.28 Pre-Release Suite. Preserve every existing…
 kanban_title: 0428-208 · 0428-208 static gate
 priority: high
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1746, mcpdev80/baseharbor#1771, mcpdev80/baseharbor#1774, mcpdev80/baseharbor#1782, mcpdev80/baseharbor#1761]
 sources: []
-blocker: ""
+blocker: "release-tag tension (LANE-ERKENT, zeugen in akte): release-requirements.json ci-fast-check required_for [v0.4.28] aber validator/mapping release-FELD = v0.4.27 (zeile 122: coverage release muss in requirements-releases sein; liste endet v0.4.27). Beide in-scope-fixes brechen Lane-Tests. naechster trigger: owner aligns requirements (begin-marker/beta) ODER autorisiert variante (a). ffe haelt fix unangetastet (local head be5c8ddc, kein push)."
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44997978036", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md"]
 ---
 
-- [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/active #view/active #area/ci #kind/task
+- [ ] t-20261121-static-gate-registration · 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** ffe7611b (owner-delegierter release-only katalog-fix auf \#1746, target cace61802) / Coordinator · **Priority:** high  
+    **Owner:** ffe7611b (fix applied, blockiert auf owner-punkt) / Coordinator · **Priority:** high  
     **PR:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
+    **Blocker:** release-tag tension (LANE-ERKENT, zeugen in akte): release-requirements.json ci-fast-check required\_for \[v0.4.28\] aber validator/mapping release-FELD = v0.4.27 (zeile 122: coverage release muss in requirements-releases sein; liste endet v0…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44997978036), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/static-gate-registration/gate-census-1746.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** ffe7611b (owner-delegierter release-only katalog-fix auf #1746, target cace61802) / Coordinator  
+**Owner:** ffe7611b (fix applied, blockiert auf owner-punkt) / Coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761)  
 **Source:** 
