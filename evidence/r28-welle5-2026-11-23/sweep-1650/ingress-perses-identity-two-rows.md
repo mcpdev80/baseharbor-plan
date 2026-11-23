@@ -78,6 +78,6 @@ Row B — the metrics product file that carries the folded identity-witness:
 
 ## CLEANLINESS
 
-- docker ps -a before/after with own pid: to be recorded at END.
+- docker ps -a (own pid witness): 0 containers at END; `docker compose ls`: no projects.
 - No compose project started this lane; none to bring down.
 - Worktree `/tmp/opencode/w078-pr1650-reloc-wt` is a scratch zone under /tmp/opencode (fixed workspace rule).
