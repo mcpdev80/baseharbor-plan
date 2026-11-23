@@ -120,22 +120,42 @@ workload-binding confirmation fails on the consent wall.
   deployment-state consent (`--confirm-candidate <hash>`) that the CI harness on
   a fresh branch does not carry. Environmental / harness-level.
 
+## FOLLOW-UP: candidate advanced to 8a53ff543 (owner-lane push)
+
+The candidate head advanced from `cf43c6e89` to `8a53ff543` via a later push by
+another lane. The `cf43c6e89` → `8a53ff543` delta carries `.github/workflows`
+changes (pre-release-runtime-suite.yml, pre-release.yml), script updates
+(pr-check-runner.py, validate-pr-gate-coverage.py, etc.), `CHANGELOG.md`,
+`docs/releases/v0.4.28.demo-ref`, and `cmd/baha/app_new_wizard.go` + its test.
+These are owner-lane / CI-harness changes, NOT #1650 code — the identity-witness
+content from my hop is preserved in `8a53ff543` (confirmed:
+`git diff cf43c6e89..8a53ff543` shows NO change to `keycloak_realization.go`,
+`keycloak_files.go`, `perses_dashboards_test.go`, or `realization.go`).
+
+The identity-gate consent-wall failure is **unchanged** on `8a53ff543`: run
+`45202734176` (BASE_SHA `7e09afc38`) shows `Managed Identity` PASS, `OIDC
+Discovery` PASS, `demo-identity` FAIL on the same `--confirm-candidate` consent
+wall. All other gates (Go units, docker/podman data-capabilities, docker/
+observability, `Validation · identity-provider-package-tests`) PASS.
+
 ## Action
 
 Per coord triage (2026-11-23): for classification (b) → akte-zeugnis + QUESTION
-to owner. NO code fix, NO gate-drop, NO skip-hiding. The candidate `cf43c6e89`
-is otherwise clean (all non-identity gates pass, BASE_SHA == current develop tip,
-build/vet/tests green). The identity-gate consent wall is an owner/harness
-decision point.
+to owner. NO code fix, NO gate-drop, NO skip-hiding. The candidate `8a53ff543`
+is otherwise clean (all non-identity gates pass, BASE_SHA == current develop tip
+`7e09afc38`, build/vet/tests green). The identity-gate consent wall is an
+owner/harness decision point.
 
 ## END
 
-- **head:** `cf43c6e89aae8a8f1c489f9aa074c22f70ef4682` (parents `22a76d68` + `f3d847874`, additive `--no-ff` hop onto current develop tip)
-- **run:** `45195781651` — terminal FAILURE, BASE_SHA `f3d84787462f324a6311e2e95928441c64a09296` (trusted-plan SUCCESS)
+- **hop head:** `cf43c6e89aae8a8f1c489f9aa074c22f70ef4682` (parents `22a76d68` + `f3d847874`, additive `--no-ff` hop onto current develop tip)
+- **candidate advanced to:** `8a53ff5437624fa8ed48cb5d79acac24fb42228f` (owner-lane push; carries `.github/workflows` + script updates + `app_new_wizard.go`; #1650 identity-witness content preserved unchanged)
+- **run:** `45202734176` — terminal FAILURE, BASE_SHA `7e09afc382c21dda6cc2b741a4ef4e4ada173d80` (current develop tip, trusted-plan SUCCESS)
 - **klassifikation:** identity-gate failure = **(b) environmental** (1623-coreless pattern: per-submission `--confirm-candidate` consent CI cannot auto-provide). NOT (a) code fix — `keycloak_realization.go` change is purely additive `RegisterKeycloakMetricsSignalsAt` wrapper, code gate `Validation · identity-provider-package-tests` PASSES. NOT (c) flake — deterministic exit 41.
 - **candidate clean:** all non-identity gates pass (Go units, docker/podman data-capabilities, docker/observability), build/vet/tests green
-- **no merge, .github untouched** (NET diff vs develop = 4 1650 identity-witness files only)
-- **evidence on origin/main:** `57f47e977` (`evidence/r28-welle5-2026-11-23/sweep-1650/hop-terminal-identity-gate.md`)
+- **no merge, .github untouched by #1650** (NET diff vs develop = 4 1650 identity-witness files only)
+- **change line cf43c6e89 → 8a53ff543:** candidate head advanced via owner-lane push carrying `.github/workflows` (pre-release suites), script updates, `app_new_wizard.go` + test — #1650 identity-witness content unchanged
+- **evidence on origin/main:** `a485e76e0` (`evidence/r28-welle5-2026-11-23/sweep-1650/hop-terminal-identity-gate.md`)
 - **board on origin/main:** `c178412b` (`todos/w078-pr1650-0428-078-reloc.json`)
 - **cleanliness:** `docker ps -a` = no containers (CI ran on GitHub runners, not local)
 
