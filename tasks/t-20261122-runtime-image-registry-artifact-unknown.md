@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812]
 sources: []
-blocker: "0428-249 workflow-artifact fix is DONE and PROVEN (Candidate Runtime Image builds; 14 gates now START, vs dying at the testonly preflight before). Remaining reds on run 45259373990 (6 pass / 8 fail, head 5ab9fe4) are 100% the SHARED test-only CI-operator fixture allowlist = card 0428-250 (baseharbor-demo#170, owner 0847d100): the fixture denies exact command forms [policy: 'config organization set','policy explain'; connectivity: 'app inspect .'; reconciliation: 'target -o json'; full-destroy: 'app list --all-targets'] then falls into noninteractive OIDC. #1812 has NO source change beyond the authorized artifact workflow (verified gh pr diff = only .github/workflows/pre-release-runtime-suite.yml). This is out of 0428-249's workflow-only scope. OWNER/LANE ACTION on 0428-250: extend the fixture allowlist with the 5 forms above; #1812 cannot reach green until that lands. Next trigger: 0428-250 allowlist fix merged + re-run of Pre-Release Validation on 5ab9fe4."
+blocker: "#1812 workflow-artifact fix COMPLETE + effective (Candidate Runtime Image green, 14 gates start). Remaining 8 red gates (run 45259373990, head 5ab9fe4) = CORE test-only CI-operator fixture allowlist = card 0428-250, surface cmd/baha/ci_integration_operator_enabled.go (add 5 forms: config organization set, policy explain, app inspect ., target -o json, app list --all-targets). NOT baseharbor-demo#170, NOT #1812 code (diff = only .github yaml). Out of 0428-249 scope. Next trigger: 0428-250 Core fixture forms landed + Pre-Release re-run on 5ab9fe4."
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w249-0428-249-runtime-image-fix · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
-    **Blocker:** 0428-249 workflow-artifact fix is DONE and PROVEN (Candidate Runtime Image builds; 14 gates now START, vs dying at the testonly preflight before). Remaining reds on run 45259373990 (6 pass / 8 fail, head 5ab9fe4) are 100% the SHARED test-o…  
+    **Blocker:** \#1812 workflow-artifact fix COMPLETE + effective (Candidate Runtime Image green, 14 gates start). Remaining 8 red gates (run 45259373990, head 5ab9fe4) = CORE test-only CI-operator fixture allowlist = card 0428-250, surface cmd/baha/ci\_int…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
