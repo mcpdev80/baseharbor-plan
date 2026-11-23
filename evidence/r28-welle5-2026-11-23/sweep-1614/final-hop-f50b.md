@@ -106,7 +106,9 @@ wizard-app-edit for this PR if policy allows (not this lane's call).
 ## Evidence-on-origin/main verification (second-to-last actions)
 
 ```
-<output appended after push>
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep final-hop-f50b
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle5-2026-11-23/sweep-1614/final-hop-f50b.md
 ```
 
 Planning repo remote verified before first evidence commit:
