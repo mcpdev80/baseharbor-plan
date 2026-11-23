@@ -76,3 +76,10 @@ Evidence is stored only in baseharbor-plan. Product files and `.github/**` were 
 ## END
 
 END_DONE codex-rev2-1736: APPROVE and squash-merged PR #1791; merge SHA `15c652136b0fce19dd0ae286b341b38cac3f7854`; exact-head run `45091676596` succeeded. The #1620 post-merge re-hop remains separate follow-up.
+## Origin main evidence-path witness
+
+Exact output of `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep <evidence-path>`:
+
+```text
+evidence/r28-welle5-2026-11-22/catalog-ingress/review-merge-1791.md
+```
