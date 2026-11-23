@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w058-0428-058-hop
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Audit secret and environment actions. Follow the owner working brief, command mapping and code entry index; revalidate current…"
 kanban_title: 0428-058 · Audit secret and Env actions
 priority: high
@@ -23,14 +23,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-audit-events · CLI redesign: Audit secret and environment actions #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-audit-events · CLI redesign: Audit secret and environment actions #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** w058-0428-058-hop · **Priority:** high  
     **PR:** [baseharbor#1809](https://github.com/mcpdev80/baseharbor/pull/1809)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-delete](t-20261114-r28-cli2-env-delete.md), [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
 **Required by:** [t-20261114-r28-cli2-app-data](t-20261114-r28-cli2-app-data.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md)  
@@ -88,3 +88,5 @@ Independent exact-head REVIEW on 3eed1ae8 = correction needed (audit-correctness
 Audit-precedence correction LANDED: head 2dfb66b3, exact-head run 45278870978 terminal GREEN (17 required pass / 13 advisory skipped / 0 fail); WithAuthorizationDecision helper + deny regression + env fix; evidence on origin/main. Ready for Owner exact-diff independent review (Codex not used per Owner directive; no merge under frost).
 
 RUN TERMINAL GREEN: cleanup-stall self-resolved, run 45278870978 completed/success at exact head 2dfb66b (all validation + runtime assertions + cleanup + evidence-manifest/upload done). Fully green candidate in review -> ready for Owner external exact-diff accept. No Codex contact; no merge (frost).
+
+Correction round 2 (maintainer review on 2dfb66b): acceptance requires success/denial/failed REVEAL auditing, but head adds NONE to authorizeHumanReveal (cmd/baha/secret_operations.go) or inspectApplicationEnvironment --reveal (environment_operations.go). creds has recordConnectionRevealAudit; env reveal + denied/failed reveals are unaudited. Fix: add matching reveal audit to BOTH paths recording outcome (success/denied/failed), mirror the creds pattern, tests for all three outcomes. Keep PR open until exact-head Hosted CI covers it. No merge (frost).
