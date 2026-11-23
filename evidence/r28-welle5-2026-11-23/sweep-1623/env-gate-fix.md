@@ -43,14 +43,18 @@ Root cause of FAIL-vs-SKIP:
 
 The 1797 precedent: commit `48488e65b` (0428-208, reclassify `atomic/static/mcp` as deferred release-only gate) — the gate stays selected/recorded, is pulled out of the PR-executed list, no silent skip-cover, honest carry to the release/qualify window.
 
-## Step 3 — BLOCKED on scope confirmation
+## Step 3 — DECISION (c) from coordinator: no branch change; hold final state.
 
-I posted a QUESTION to the coordinator (9142ab1f) before writing the fix, because the exact mechanism (move the two tests out of `CORELESS_SHARD_TESTS['application']` vs add a skip-allowed deferred path in `checked_tests`) changes the required-PR-check semantics. Awaiting the call.
+Coordinator 9142ab1f QUESTION ruling: Option (c) — NO change. My head `521d76812` sits on the exact base with 0 failures (the coreless-lifecycle application class went green with clean skip-as-success, no gate-drop needed). A harness deferral (`pre-release-integration.py`) would be an unnecessary change with drop risk. Hold the branch as-is; the skip-semantics question is the reviewer's to decide at the candidate (1450), verdict is decisive, request-changes if needed. END with run line + link.
 
-Candidate state at STOP:
+## Scope reconciliation (OwnerFernkorrektur)
 
-- HEAD `8828ceabf` (additive hop onto `afa064519`). No scripts/catalog change applied yet (awaiting confirmation).
-- No push, no CI run, no merge.
+The pending run at the new head `213ca5195` (a merge `521d76812 x ff4cdf509`) carries 4 files beyond my #1623 delta. Verified write-set attribution:
+
+- `cmd/baha/app_exec.go` (1 line) + `docs/cli/command-index.md` + `docs/de/cli/command-index.md` (1 line each): MINE — the Owner's `213ca5195` merge commit "docs: match guided exec command syntax" edits the #1623 guided-exec path + its docs. Belongs to card 0428-063 write-set (PR-doc-consistency: the command-index must match the guided-exec command syntax that `app_exec.go` produces). Fine to keep.
+- `cmd/baha/app_new_wizard.go` + `cmd/baha/app_new_wizard_org_default_test.go`: NOT MINE — Owner's card **0428-258** (#1802, commit `ff4cdf509` "fix(0428-258): org-default missing-stack returns usageError parity"). These entered my lane branch via the Owner merging their 1802 fix into this lane. Documented as a cross-card write-set carry-in; not something this lane authored. No action without Owner confirmation — scope churn was the RC reason on 1801, so flagged, not silently reverted.
+
+My #1623 delta vs develop (`afa064519`) = 19 files (product + docs + contracts). No harness/catalog change applied.
 
 ## cleanliness
 
