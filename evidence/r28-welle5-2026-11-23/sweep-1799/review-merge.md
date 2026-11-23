@@ -56,3 +56,9 @@ Role: REVIEW, then MERGE only if all contract criteria pass.
 VERDICT: REQUEST CHANGES — do not merge PR #1799. Restore the two deleted guided records, correct the runtime_specific count to exactly two test rows, and submit a new exact-head CI run.
 
 END DONE codex-rev-1747: #1799 REQUEST CHANGES; PR head 7021f0a6d1ad48a52c9dcdab2e4e37a024beec10 requires catalog repair; no merge SHA.
+
+## Planning publication witness
+
+Exact output from the required fresh `origin/main` tree check before the final evidence push:
+
+evidence/r28-welle5-2026-11-23/sweep-1799/review-merge.md
