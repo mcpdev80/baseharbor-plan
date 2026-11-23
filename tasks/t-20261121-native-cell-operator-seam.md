@@ -7,9 +7,9 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: b90e4ba1 (candidate delivered) / Coordinator
-kanban_status: review
-kanban_lane: review
+owner: Coordinator (owner-verifizierter merge) / 1450c201 review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "controlplanesinglenativecitest.go stops failing with prepare BaseHarbor integration trust plane: because the native-cell test…"
 kanban_title: 0428-209 · 0428-209 native cell seam
 priority: high
@@ -19,24 +19,24 @@ prs: [mcpdev80/baseharbor#1740, mcpdev80/baseharbor#1765, mcpdev80/baseharbor#17
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1740", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md", "https://github.com/mcpdev80/baseharbor/pull/1765", "https://github.com/mcpdev80/baseharbor/actions/runs/45021008989"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1740", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md", "https://github.com/mcpdev80/baseharbor/pull/1765", "https://github.com/mcpdev80/baseharbor/actions/runs/45021008989", "https://github.com/mcpdev80/baseharbor/commit/b9e69b14a7c8c7e1ccf9176b0762bacecdecee5e"]
   - "https://github.com/mcpdev80/baseharbor/pull/1740"
   - "https://github.com/mcpdev80/baseharbor/actions/runs/44868911131"
 ---
 
-- [ ] t-20261121-native-cell-operator-seam · 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam #task #release/v0-4-28 #status/review #view/review #area/ci #area/cli #kind/bug
+- [x] t-20261121-native-cell-operator-seam · 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (candidate delivered) / Coordinator · **Priority:** high  
+    **Owner:** Coordinator (owner-verifizierter merge) / 1450c201 review · **Priority:** high  
     **PR:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740), [baseharbor#1765](https://github.com/mcpdev80/baseharbor/pull/1765), [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1765), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45021008989), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44868911131)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1765), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45021008989), [proof 5](https://github.com/mcpdev80/baseharbor/commit/b9e69b14a7c8c7e1ccf9176b0762bacecdecee5e), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/44868911131)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** b90e4ba1 (candidate delivered) / Coordinator  
+**Owner:** Coordinator (owner-verifizierter merge) / 1450c201 review  
 **Priority:** high  
 **PRs:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740), [baseharbor#1765](https://github.com/mcpdev80/baseharbor/pull/1765), [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766)  
 **Source:** 
@@ -123,3 +123,5 @@ TP-fund von b90e: eigene neue source cmd/baha/control_plane_single_native_ci_tes
 stand: components-eintrag formgleich platziert (+9, nur eigene zeilen), TP dennoch uncataloged -> inbox-hint gegeben: praezedenz #1786 (978a0f90) dateiuebergreifend replizieren + base-vs-head-lesepfad des guardians belegen. Zweiter identischer failure = eskalation der guardian-diagnose an codex (planned karte 0428-249 grenze beachten: kein .github).
 
 EXAKT-GRUEN: head c8bbb0f52, run 45087109688 SUCCESS (required: TP+selected+native+Go), mergeState CLEAN, dedup-hop korrekt (katalog byteidentisch develop, base-row aus #1790). Uebergeben an CODEX 1450c201 (REVIEW->MERGE, owner-anweisung 02:0x).
+
+0428-209 CLOSED: #1765 GEMERGT als b9e69b14 (current develop), exact-head run 45087109688 SUCCESS (head c8bbb0f52, required alle gruen), CODEX review-merge akte review-merge-1765-c8bbb0f52.md. Dedup-regel bestaetigt: base-row aus #1790 + byteidentischer katalog im PR. develop-tipp bewegt KETTE: #1725/#1723/#1789 gruen-aber-BEHIND -> je EIN final-hop auf b9e69 + new exact CI + fresh review (kein prior-base-run gilt als merge-zeugnis).
