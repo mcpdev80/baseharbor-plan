@@ -75,3 +75,7 @@ END_DONE codex-rev2-1736: PR #1780 delta reviewed and normally squash-merged as 
 - `git diff --check` reported the renderer’s two trailing spaces on the generated `**Evidence:**` hard-break line in the changed task view. The generated line was left renderer-owned; no generated view was hand-edited.
 - An unrelated pre-existing untracked file `evidence/r28-welle5-2026-11-23/static-gate-0428-208/1793-currentbase-hop.md` was present in the shared Planning checkout. It was not opened, modified, staged, or committed.
 - Coordinator basics preflight also reported an idle unrelated lane and three stale GUI TODO lanes. They were left untouched because this mission’s assigned scope is the #1780 delta review/merge.
+
+Exact output of `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle5-2026-11-23/sweep-1780/review-merge-1780-delta.md`:
+
+evidence/r28-welle5-2026-11-23/sweep-1780/review-merge-1780-delta.md
