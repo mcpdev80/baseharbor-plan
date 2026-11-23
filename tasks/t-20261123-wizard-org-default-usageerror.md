@@ -7,9 +7,9 @@ areas: ["cli"]
 release: v0.4.28
 version: ""
 parent: ""
-owner: 584cca00 + Owner ingress #1803
-kanban_status: closed
-kanban_lane: closed
+owner: 584cca00 (correction round, follow-up PR)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: "0428-258 · app-new wizard: org-default"
 priority: ""
@@ -23,18 +23,18 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-23/hunt-hp1-f0f/t-20261123-wizard-org-default-usageerror.md", "https://github.com/mcpdev80/baseharbor/pull/1802"]
 ---
 
-- [x] t-20261123-wizard-org-default-usageerror · Bug (hunt H-P1): app-new wizard: org-default missing-stack must return usageError parity, not hard error #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/cli #kind/task
+- [ ] t-20261123-wizard-org-default-usageerror · Bug (hunt H-P1): app-new wizard: org-default missing-stack must return usageError parity, not hard error #task #release/v0-4-28 #status/active #view/active #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** 584cca00 + Owner ingress \#1803  
+    **Owner:** 584cca00 (correction round, follow-up PR)  
     **PR:** [baseharbor#1802](https://github.com/mcpdev80/baseharbor/pull/1802)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-23/hunt-hp1-f0f/t-20261123-wizard-org-default-usageerror.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1802)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 584cca00 + Owner ingress #1803  
+**Owner:** 584cca00 (correction round, follow-up PR)  
 **Priority:** not set  
 **PRs:** [baseharbor#1802](https://github.com/mcpdev80/baseharbor/pull/1802)  
 **Source:** 
@@ -93,3 +93,5 @@ fix(0428-258): org-default missing-stack now usageError parity; CI run #7503 suc
 review: head 027fb255a @ exact base afa064519, run terminal 0-fail, fix+test only diff.
 
 CLOSED: merged ff4cdf509 (exact-base run terminal 0/0 am head 027fb255a via afa064519); hunt-F6 fund resolved.
+
+REOPEN (fecb RC 2573a0a25): usageError klasse+exit 2 korrekt, aber nachricht druckt literals '%q' (format-verb nicht expandiert) in develop ff4cdf509 — follow-up PR noetig, kein revert.
