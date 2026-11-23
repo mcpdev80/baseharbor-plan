@@ -51,3 +51,11 @@ VERDICT: APPROVE-delta
 END_DONE codex-rev-1747: APPROVE-delta for merged PR #1723 (`ddddbed16e34638f35968e2dc99921f970ba3720`); run `45163965244` passed on exact head `9627763bd68018e962237b49d05450a7bf1348a9`, with workload-port tests mapped to successful `cli-1` and `cli-3` package receipts.
 
 Post-review cleanliness: PID `2145683`; `docker ps -a` printed only the header `CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES` and listed no containers. No container or compose project was started.
+
+Exact output of the required final path witness command (`git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-23/sweep-1723/review-merge-delta.md$'`):
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+evidence/r28-welle5-2026-11-23/sweep-1723/review-merge-delta.md
+```
