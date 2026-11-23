@@ -7,7 +7,7 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: "Codex (Marcel, full wait sweep 2026-11-21)"
+owner: coordinator
 kanban_status: closed
 kanban_lane: closed
 kanban_summary: "Jeder Pull Request, der auf develop 40cb28c758b0 (Merge von #1594, cli2-env-policy-head) gehopft wird, verliert die vier shards…"
@@ -28,7 +28,7 @@ superseded_by: t-20261121-develop-full-suite-red
 
 - [x] t-20261120-r28-cli-shard-operator-env · cli shards need operator env #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** Codex (Marcel, full wait sweep 2026-11-21)  
+    **Owner:** coordinator  
     **PR:** [baseharbor#1726](https://github.com/mcpdev80/baseharbor/pull/1726)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44864365574), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44885697655), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44887314441), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1726), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-21/cli-shard-operator-env/round-4.md), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/cli-shard-fanin/fanin-1726-disposition.md)  
     <!-- /generated:card -->
@@ -38,7 +38,7 @@ superseded_by: t-20261121-develop-full-suite-red
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md), [t-20261120-r28-valkey-dashboard-unavailable-only](t-20261120-r28-valkey-dashboard-unavailable-only.md)  
-**Owner:** Codex (Marcel, full wait sweep 2026-11-21)  
+**Owner:** coordinator  
 **Priority:** not set  
 **PRs:** [baseharbor#1726](https://github.com/mcpdev80/baseharbor/pull/1726)  
 **Source:** 
@@ -110,3 +110,5 @@ Continuation — 2026-11-21 04:20 UTC: exact run [44864365574](https://github.co
 The shared CLI gate defect is resolved in the current test harness: a test-only operator context is supplied by the tests, without worker-provided environment variables or changes to production authorization. PR #1726 was closed as superseded because the current base already passes the complete required CLI gate. The before witness is run [44864365574](https://github.com/mcpdev80/baseharbor/actions/runs/44864365574) (operator-auth failures); after witnesses are runs [44885697655](https://github.com/mcpdev80/baseharbor/actions/runs/44885697655) and [44887314441](https://github.com/mcpdev80/baseharbor/actions/runs/44887314441), each with all four CLI shards and `PR Selected Checks` passing. Exact mapping is in [round-4](../evidence/r28-welle4-2026-11-21/cli-shard-operator-env/round-4.md).
 
 Fan-in: PR 1726 wurde am 2026-11-21 als superseded geschlossen, ohne je gemergt zu sein. Die geteilte Operator-Kontext-Mechanik kommt aus PR 1750 (Karte 0428-223), nicht aus develop. Die vier gestapelten Kinder (1737/1738/1740/1741) tragen nur ein bis zwei eigene Dateien und werden nach 1750 per Cherry-pick ihrer eigenen Commits auf develop neu angesetzt.
+
+reopen deferred: H-V36 marks #1726(e45430f2f) LOST-RECOVER, but superseded_by t-20261121-develop-full-suite-red may have landed the content — must confirm successor delivery before flipping off accepted; keep valid superseded state meanwhile
