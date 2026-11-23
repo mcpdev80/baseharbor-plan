@@ -70,6 +70,12 @@ Row B — the metrics product file that carries the folded identity-witness:
 - PR Selected Checks aggregate for run 45115221208: `completed` / `success`.
 - Local `bash scripts/ci-fast-check.sh`: all Go/format/readability/workflow-policy gates PASS (timed out only on the final GitHub CI aggregate poll, which needs live PR event context — the hosted run above is the authoritative terminal result).
 
+## BLOCKER for the second END (product-hop) — for the Coordinator
+
+- The product-hop END (mission step 10) re-hops PR #1650's relocated content onto the tip AFTER this ingress #1794 is merged. This requires (a) the Owner's merge of #1794 (my mission explicitly says NO merge; merges are an Owner gate, and merge protection/rulesets are disabled) and (b) PR #1650 itself being base-admissible.
+- PR #1650 (head d3100a1f) is currently NOT base-admissible: its relocated content adds files whose only resolvable owners are the two rows this ingress #1794 supplies. Until #1794 is merged, a #1650 hop onto develop fails the trusted-plan gate with `unresolved` — exactly the race the prior run 45106588850 hit (that was a push-propagation race; the real fix is this ingress catalog row, now proven to yield `resolved`).
+- Therefore the second END is BLOCKED pending the Owner merging #1794. This lane reports the blocker with its 15-minute mission deadline rather than hopping a dead branch.
+
 ## CLEANLINESS
 
 - docker ps -a before/after with own pid: to be recorded at END.
