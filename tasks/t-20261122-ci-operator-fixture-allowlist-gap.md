@@ -7,9 +7,9 @@ areas: [ci, testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 0847d100 (baseharbor-demo fix - SESSION GONE)
-kanban_status: blocked
-kanban_lane: blocked
+owner: w50-0428-250-corefixture
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-250 · ci operator fixture allow-list
 priority: high
@@ -17,24 +17,23 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor-demo#170]
 sources: []
-blocker: "MIS-SCOPED PR: card is in Review on baseharbor-demo#170 but that PR only changes demo tests/config-matrix/run.sh and CANNOT fix the Core test-only operator fixture. The real #1812 blocker is in Core cmd/baha/ci_integration_operator_enabled.go (ciIntegrationManagedLocalGateReason :96 / predicate group :230-317): add allowlist branches for the 5 denied forms [config organization set, policy explain, app inspect ., target -o json, app list --all-targets] so the fixture stamps them instead of falling into noninteractive OIDC. Owner 0847d100 is GONE. Route the Core fixture change to an authorized owner/lane against baseharbor (NOT demo). Next trigger: authorized owner lands the Core fixture forms."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-ci-operator-fixture-allowlist-gap · Add the missing command forms to the test-only CI-operator fixture allow-list so static/core gates stamp the synthetic operator instead of failing closed #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/testing #kind/bug
+- [ ] t-20261122-ci-operator-fixture-allowlist-gap · Add the missing command forms to the test-only CI-operator fixture allow-list so static/core gates stamp the synthetic operator instead of failing closed #task #release/v0-4-28 #status/active #view/active #area/ci #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** 0847d100 (baseharbor-demo fix - SESSION GONE) · **Priority:** high  
+    **Owner:** w50-0428-250-corefixture · **Priority:** high  
     **PR:** [baseharbor-demo#170](https://github.com/mcpdev80/baseharbor-demo/pull/170)  
-    **Blocker:** MIS-SCOPED PR: card is in Review on baseharbor-demo\#170 but that PR only changes demo tests/config-matrix/run.sh and CANNOT fix the Core test-only operator fixture. The real \#1812 blocker is in Core cmd/baha/ci\_integration\_operator\_enabled…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** 0847d100 (baseharbor-demo fix - SESSION GONE)  
+**Owner:** w50-0428-250-corefixture  
 **Priority:** high  
 **PRs:** [baseharbor-demo#170](https://github.com/mcpdev80/baseharbor-demo/pull/170)  
 **Source:** 
@@ -65,3 +64,5 @@ UMKLASSIFIZIERT: baseharbor allow-list bewusst eng+korrekt; fix in baseharbor-de
 GELOEST in baseharbor-demo tests/config-matrix/run.sh (commit 0249c9f, demo PR #170 draft): temp-root basename baseharbor-core-bootstrap.XXXXXX (zeile 9) + BASEHARBOR_DEMO_ALLOWED_PROJECT_ROOT export vor core-up (core-bootstrap.sh:9 muster, bootstrap_root=matrix_root damit cwd==allowedRoot). Local docker smoke: baha up --yes allow-list + startet Core (PG/OpenBao) statt missing operator. baseharbor/.github/allow-list/guard unberuehrt. reference-journey/run.sh existiert nicht auf develop. Entblockt #1746 static core-bootstrap/config-matrix auth-zellen. Review auf baseharbor-demo CI + merge. Kein baseharbor aenderung.
 
 RECONCILED (Owner sweep): #1812's 8 red light gates fail on the CORE test-only operator fixture allowlist cmd/baha/ci_integration_operator_enabled.go (ciIntegrationManagedLocalGateReason :96; predicate group :230-317), NOT on baseharbor-demo#170. The 5 forms ABSENT from Core allowlist (verified git grep on develop 5ab9fe4): config organization set, policy explain, app inspect ., target -o json, app list --all-targets -> fixture denies -> noninteractive OIDC. demo#170 is a separate demo-slice; it must NOT stand in for the Core fix. Required owner action: add these 5 predicate branches in the Core fixture. THIS (not #1812's workflow) is the last blocker to #1812 green.
+
+RE-ROUTED (333cfa7a NEW Core lane): demo#170 (0847d100 GONE) cannot fix Core. Lane edits Core cmd/baha/ci_integration_operator_enabled.go -> allowlist the 5 test-only operator forms + tests, new branch + PR vs develop. Real #1812 gate unblocker.
