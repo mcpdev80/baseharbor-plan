@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w186-0428-186-verified-status-source
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: ""
 kanban_title: 0428-186 · no verified status source
 priority: ""
@@ -17,19 +17,20 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: ""
+blocker: "OWNER ACTION: remote push rejected with 'fatal error in commit_refs_rules' (GitHub repo ruleset fault). Candidate 168d40950 implemented + locally verified, predicate untouched, patch being preserved in plan evidence. Lane cannot push; ruleset edit is Owner scope (no bypass). Next trigger: Owner resolves commit_refs_rules, then lane pushes lane-0428-186 + draft PR."
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-r28-perses-status-never-verified · No source API yields verified: status --json can never report true #task #release/v0-4-28 #status/active #view/active #kind/bug
+- [ ] t-20261120-r28-perses-status-never-verified · No source API yields verified: status --json can never report true #task #release/v0-4-28 #status/blocked #view/blocked #kind/bug
     <!-- generated:card -->
     **Owner:** w186-0428-186-verified-status-source  
+    **Blocker:** OWNER ACTION: remote push rejected with 'fatal error in commit\_refs\_rules' (GitHub repo ruleset fault). Candidate 168d40950 implemented + locally verified, predicate untouched, patch being preserved in plan evidence. Lane cannot push; rule…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w186-0428-186-verified-status-source  
@@ -53,3 +54,5 @@ Measured during the 0428-078 takeover: PersesStatusNow (internal/capability/pers
 internal/capability/perses_selection.go is owner-closed for the 0428-078 card; this card is the place where a change there may be proposed. It is the sequenced predecessor of 0428-181 (catalog consumer) because a catalog needs a verified signal to emit anything.
 
 dispatched; write-set internal/capability/perses_selection.go confirmed disjoint from w078 (keycloak/metrics/app_status_result)
+
+external repo-admin blocker, not a lane defect (#1809/#1650 pushed OK so it is branch/ruleset-specific)
