@@ -3,11 +3,15 @@
 - lane: w21-pr1702-0428-142-compat
 - card: catalog ingress for 0428-063 (unblocks #1623 Trusted Plan)
 - ingress PR: [#1799](https://github.com/mcpdev80/baseharbor/pull/1799) (lane-0428-ingress-1623-catalog)
-- ingress head (rebuilt per owner-regel 1618/1619): **7021f0a6d1ad48a52c9dcdab2e4e37a024beec10**
-- base: develop a3bbc689e4da70da73a0dcf5370d9a9e2e81d24d
-- CI run: **45149446083 terminal SUCCESS** (PR Selected Checks + PR · Source format + PR · Trusted Plan all green; tally 11 success / 21 skipped / 0 failures)
-- status: green on the rebuilt branch; MERGED by owner/Coordinator (precedent #1792/1794/1796), NOT by this lane
-- rebuild note: first push was 7cf0556fe (re-sorted 2182-line diff = churn 1181+/2, not merge-fähig per owner-regel 1618). Owner-regel 1618/1619: checkout develop-catalog, append 11 rows WITHOUT sorting, one push, one run. Rebuilt at 7021f0a6d (265-line diff, rows appended at tail, develop baseline preserved, net 11 added / 0 removed / 0 dup). Force-pushed with --force-with-lease to retarget PR #1799.
+- ingress head (final, owner-audit rebuild per 1618/1619): **e9fdf1b1e9430aeffa7d1882922e8412dcf22855**
+- base: develop `304b3ad1d88647377ea647d0d94174bfc9298e14` (#1798 merged; PR #1799 base=develop)
+- CI run: **45155998089 terminal SUCCESS** (PR Selected Checks + PR · Source format + PR · Trusted Plan all green; tally 11 success / 21 skipped / 0 failures)
+- status: green on the rebuilt branch; MERGED by owner/Coordinator (precedent #1792/1794/1796), NOT by this lane; PR non-draft
+- rebuild history (two owner rework rounds 2026-11-23):
+  - 1st push 7cf0556fe = re-sorted 2182-line diff (churn 1181+/2, not merge-fähig per 1618).
+  - 2nd push 7021f0a6d = additive merge --no-ff onto develop a3bbc689e, tail-appended 11 rows.
+  - owner-audit (rounds 3+4): base stale (#1798 now merged, new tip 304b3ad) AND component ORDER still shifted (+223/-58). Rebuilt: checkout develop-catalog `304b3ad`, append 11 rows at TAIL of the **components** array WITHOUT re-sorting (byte-preserved baseline, includes 2 wizard rows from #1800). Insertion point verified precisely (components array closes before `gates`/`native_checks`; do NOT append to file end — rows must land in `components`). Verified: exactly +11 records / 0 removed / 0 moved / no dup ids, all 11 ids 1612-normalized, validate(coverage,requirements) OK, resolve_covered_gates(#1623 changed-set) → source_unowned=NONE. Committed e9fdf1b1e (parents 7021f0a6d + 304b3ad).
+  - COLLISION: parallel lane `w21-pr1702-0428-246-footprint` pushed concurrent `e362bc328` (merge --no-ff onto 304b3ad, same 11 net-new paths) to the same branch. Branch tip currently e9fdf1b1e (ls-remote witness). Owner/Coordinator to reconcile the two builds.
 
 ## PLAN
 
