@@ -13,12 +13,12 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | active | 6 |
 | review | 4 |
 | wait | 13 |
-| blocked | 2 |
+| blocked | 1 |
 | ready | 10 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
-| closed | 454 |
+| closed | 455 |
 
 ## Active
 
@@ -63,7 +63,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) | Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) | blocked | high | — | — | — |
-| [t-20261123-wizard-org-default-usageerror](../tasks/t-20261123-wizard-org-default-usageerror.md) | Bug (hunt H-P1): app-new wizard: org-default missing-stack must return usageError parity, not hard error | blocked | not set | w081 | — | — |
 
 ## Ready to assign
 
@@ -84,7 +83,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 4 open, 165 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 51 open, 221 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 50 open, 222 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 16 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))

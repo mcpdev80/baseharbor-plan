@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w081
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: "0428-258 · app-new wizard: org-default"
 priority: ""
@@ -17,20 +17,20 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: "CI Trusted Plan reads partial catalog (163 rows, 50/964 cmd/baha paths) from migration controller 859654861 (lane-0428-184-shared-destroy-2); ancestor of effective base -> Owner-scope: resolve controller catalog or .github/workflows/ci.yml:859-863 controller-selection"
+blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-23/hunt-hp1-f0f/t-20261123-wizard-org-default-usageerror.md"]
 ---
 
-- [ ] t-20261123-wizard-org-default-usageerror · Bug (hunt H-P1): app-new wizard: org-default missing-stack must return usageError parity, not hard error #task #release/v0-4-28 #status/blocked #view/blocked #area/cli #kind/task
+- [x] t-20261123-wizard-org-default-usageerror · Bug (hunt H-P1): app-new wizard: org-default missing-stack must return usageError parity, not hard error #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** w081  
-    **Blocker:** CI Trusted Plan reads partial catalog (163 rows, 50/964 cmd/baha paths) from migration controller 859654861 (lane-0428-184-shared-destroy-2); ancestor of effective base -\> Owner-scope: resolve controller catalog or .github/workflows/ci.yml…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-23/hunt-hp1-f0f/t-20261123-wizard-org-default-usageerror.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w081  
@@ -86,3 +86,5 @@ One or two sentences: the observable outcome.
 
 ## Evidence
 - hunt-akte: evidence/r28-welle5-2026-11-23/hunt-hp1-f0f.md
+
+fix(0428-258): org-default missing-stack now usageError parity; CI run #7503 success (BASE_SHA afa064519, head 027fb255a). Catalog row owned by #1803 on develop; PR #1802 diff-vs-develop = fix + test only.
