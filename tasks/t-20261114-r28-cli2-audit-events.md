@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w058-0428-058-cli2-audit-events
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "Audit secret and environment actions. Follow the owner working brief, command mapping and code entry index; revalidate current…"
 kanban_title: 0428-058 · Audit secret and Env actions
 priority: high
@@ -17,20 +17,21 @@ depends_on: [t-20261114-r28-cli2-env-delete, t-20261114-r28-cli2-env-policy, t-2
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1809]
 sources: []
-blocker: ""
+blocker: "Gate-blocked on owner-scope CI card 0428-260 (residual pr-gate-coverage.json rows). #1809 current run 45244415977 fails ONLY PR Trusted Plan + PR Selected Checks (8s) = the 0428-242 fail-loud catalog guardian on uncataloged cmd/baha/secret_audit_test.go + cmd/baha/secret_operations.go. The Draft Go cli-0..3 FAILs are from the STALE older run 45240846474; in the current run Draft Go is 'skipping' (plan aborted). Lane code is clean and has NOTHING to push until 0428-260 lands; then re-trigger Draft Go + Trusted Plan on head 034c0c7d. Next trigger: 0428-260 catalog rows merge + a fresh PR run."
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-audit-events · CLI redesign: Audit secret and environment actions #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-audit-events · CLI redesign: Audit secret and environment actions #task #release/v0-4-28 #status/blocked #view/blocked #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** w058-0428-058-cli2-audit-events · **Priority:** high  
     **PR:** [baseharbor#1809](https://github.com/mcpdev80/baseharbor/pull/1809)  
+    **Blocker:** Gate-blocked on owner-scope CI card 0428-260 (residual pr-gate-coverage.json rows). \#1809 current run 45244415977 fails ONLY PR Trusted Plan + PR Selected Checks (8s) = the 0428-242 fail-loud catalog guardian on uncataloged cmd/baha/secret…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-delete](t-20261114-r28-cli2-env-delete.md), [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
 **Required by:** [t-20261114-r28-cli2-app-data](t-20261114-r28-cli2-app-data.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md)  
@@ -76,3 +77,5 @@ dispatched post-recovery 2026-11-23
 reconcile per Owner sweep: #1809 open under w058. Trusted Plan block = 0428-242 fail-loud catalog guardian on uncataloged cmd/baha/secret_audit_test.go + secret_operations.go (owner/CI-scope, card gate-catalog-residual-unblock-prs). H-V37: Draft Go reds on #1809 = STALE runs, not content. Lane: hold product, blocked on catalog card for the gate.
 
 reconcile Owner sweep: #1809 open under w058. Trusted Plan block = 0428-242 catalog guardian on uncataloged cmd/baha/secret_audit_test.go+secret_operations.go (owner/CI scope, card 0428-260). H-V37: Draft Go reds = STALE. Lane hold product; gate blocked on 0428-260.
+
+reclassified from active: H-V37 proved Draft Go reds stale; only the catalog guardian blocks
