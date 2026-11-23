@@ -16,8 +16,9 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 191/273 · **Blocked:** 1 · **Waiting:** 20  
+    **Accepted tasks:** 191/273 · **Blocked:** 2 · **Waiting:** 20  
     **Blocker:** [t-20261114-r28-cli2-audit-events](../tasks/t-20261114-r28-cli2-audit-events.md) — Gate-blocked on owner-scope CI card 0428-260 (residual pr-gate-coverage.json rows). \#1809 current run 45244415977 fails ONLY PR Trusted Plan + PR Selected Chec…  
+    **Blocker:** [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) — 0428-249 workflow-artifact fix is DONE and PROVEN (Candidate Runtime Image builds; 14 gates now START, vs dying at the testonly preflight before). Remaining re…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next
