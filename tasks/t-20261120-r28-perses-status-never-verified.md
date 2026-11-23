@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w186-0428-186-verified-status-source
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-186 · no verified status source
 priority: ""
@@ -23,14 +23,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-r28-perses-status-never-verified · No source API yields verified: status --json can never report true #task #release/v0-4-28 #status/review #view/review #kind/bug
+- [ ] t-20261120-r28-perses-status-never-verified · No source API yields verified: status --json can never report true #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
     **Owner:** w186-0428-186-verified-status-source  
     **PR:** [baseharbor#1810](https://github.com/mcpdev80/baseharbor/pull/1810)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w186-0428-186-verified-status-source  
@@ -58,3 +58,5 @@ dispatched; write-set internal/capability/perses_selection.go confirmed disjoint
 external repo-admin blocker, not a lane defect (#1809/#1650 pushed OK so it is branch/ruleset-specific)
 
 candidate 168d40950 PR #1810 base develop clean (develop ancestor); verified-state source via hostProviderMetricsNativeVerified witness, predicate untouched; ruleset blocker moot (push succeeded). full gate pending draft->ready
+
+CODEX-REVIEW #1810 = REQUEST_CHANGES (422 self-review, routed to worker): PersesStatusVerified derived from hostProviderMetricsNativeVerified() = static ReferenceIntegrations inspection, no target/provider input, no probe; violates acceptance 1+3 (never static 'true'). Route to w186.
