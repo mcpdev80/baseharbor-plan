@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w186-0428-186-verified-status-source
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-186 · no verified status source
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-r28-perses-status-never-verified · No source API yields verified: status --json can never report true #task #release/v0-4-28 #status/planned #view/ready #kind/bug
+- [ ] t-20261120-r28-perses-status-never-verified · No source API yields verified: status --json can never report true #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w186-0428-186-verified-status-source  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w186-0428-186-verified-status-source  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -52,3 +51,5 @@ Measured during the 0428-078 takeover: PersesStatusNow (internal/capability/pers
 ## Boundaries
 
 internal/capability/perses_selection.go is owner-closed for the 0428-078 card; this card is the place where a change there may be proposed. It is the sequenced predecessor of 0428-181 (catalog consumer) because a catalog needs a verified signal to emit anything.
+
+dispatched; write-set internal/capability/perses_selection.go confirmed disjoint from w078 (keycloak/metrics/app_status_result)
