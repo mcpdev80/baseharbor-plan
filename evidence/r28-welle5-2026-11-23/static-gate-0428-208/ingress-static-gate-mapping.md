@@ -117,58 +117,59 @@ matrix change, both outside the lane write-set. The lane does NOT implement `→
 pass) NOR `→ pr_public_contracts` (always-block). This akte section IS the date:line evidence laid
 before the owner verbatim. No candidate change, no push, no merge.
 
-## mcp-class extension (0428-208 #1793 VERVOLLSTAENDIGUNG)
-Task of this lane. `atomic/static/mcp` is a release-only focused static gate whose executable
-execution is proven; the base policy only had to register it, like its siblings.
+## IMPLEMENTATION — owner decision 2026-11-23 (option 4, refined option 1): mcp = DEFERRED
+## release-only class, NOT pr_focused, NOT pr_public_contracts.
+Task of this lane. Implements the written owner decision verbatim (recorded in the akte header
+above). Candidate: `48488e65bd5ed2d35518285a23a88758a148b1d`, base `9ba8e9baa7` (PR #1793).
 
-### tuple-diff (the fix)
-- `scripts/pr-stage-boundary.py`: `ATOMIC_STATIC_PR_EXECUTED_GATES` gained one entry:
-  `"atomic/static/mcp"` (after `atomic/static/ci-fast-check`). It is now selected, never deferred.
-- `scripts/pr-required-final.py`: `ATOMIC_STATIC_FOCUSED_GATES` gained one entry:
-  `'atomic/static/mcp'`, so `verify()` maps it to `pr_focused` (`required.add('pr_focused')`) before
-  the `else` classify branch — the same path shell-ux/ci-fast-check already take.
-- No `.github` change (owner-scope stays read-only).
+### Why NOT the two obvious mappings (owner rejected both)
+- `mcp -> pr_focused` passes PR Selected Checks WITHOUT the mcp Go proof
+  (`TestAppEditMCPAppEditRunsRealProviderEditLifecycle`, opt-in native gate, `t.Skip` without a
+  native fixture) ever running in the PR = silent-pass. Owner forbids.
+- `mcp -> pr_public_contracts` always blocks every develop PR: `pr_public_contracts` is DEAD on
+  develop (ci.yml:904 hardcodes `public_contracts_required=false`; only runs on release/qualify).
+  Harder block than base, not a fix.
 
-### EXECUTOR-BELEG (read-only, mcp plan executes in the PR/pre-release graph)
-`gate.mcp` has a real executor in the repo. Chain, all from `baseharbor`, no invented path:
-- `scripts/release-requirements.json:51` — `atomic/static/mcp`, `jobs: ["static_gates"]`,
-  `required_for: [v0.4.22 .. v0.4.27]`.
-- `scripts/pre-release-runtime-reuse.py:582-643` — builds the `static` matrix from
-  release-requirements.json, one row per `static` gate (`mcp` included) gated on `gate.mcp`.
-- `pre-release.yml:663` — the `static_gates` job (`name: Static · ${{ matrix.gate }}`), matrix
-  sourced from `needs.source.outputs.static` (pre-release.yml:671).
-- `pre-release-runtime-suite.yml:242-270` — "Run static gate" step, `inputs.runtime == 'static'`;
-  case `mcp) bash "$workdir/tests/mcp/run.sh"`.
-- `pre-release-runtime-suite.yml:229-232` — the gate registry entry for `mcp` declares class
-  `static`, so it is accepted on the static runtime (no incompatible-class rejection).
+### tuple-diff (the fix, owner spec 1-4)
+- `scripts/pr-stage-boundary.py`: add
+  `ATOMIC_STATIC_DEFERRED_RELEASE_ONLY = ("atomic/static/mcp",)` and move it into the deferred
+  split (like `CROSS_REPO_STATIC`) so `stage()` classifies it release-only (no
+  `ValueError`), pulled out of the PR-executed list. Removed from `ATOMIC_STATIC_PR_EXECUTED_GATES`
+  and from the `pr_focused` path. This is what fixes the #1752-TP crash: the trusted planner emits
+  mcp in `selected_gates`; it is now CLASSIFIED (deferred) instead of raising
+  `unclassified gate cannot be deferred`.
+- `scripts/pr-required-final.py`: removed the `ATOMIC_STATIC_FOCUSED_GATES` frozenset and its
+  `required.add('pr_focused')` branch (no PR executor exists). Added `atomic/static/mcp` to the
+  deferred allow-list so `verify()` accepts the staged plan without requiring any PR check.
+- regression (`scripts/test_pr_required_final.py`):
+  - (a) `test_release_only_atomic_static_gate_is_deferred_not_pr_executed` — mcp selected + staged
+    -> `selected_gates == []`, `deferred_integration_gates == ['atomic/static/mcp']`,
+    `verify() == []` (no required PR-check, no crash);
+  - (b) a failing PR-executed job (`pr_validations` failure) still blocks -> deferral is real/visible,
+    not a silent cover;
+  - (c) `test_unsupported_deferred_gate_still_blocks` — invented deferred gate still rejected;
+  - `scripts/test_pr_stage_boundary.py`: `test_release_only_atomic_static_mcp_is_deferred_not_pr_executed`
+    (mcp -> deferred, selected empty),
+    `test_release_only_atomic_static_mcp_with_native_gate_stays_deferred` (mixed with native gate the
+    mcp deferral stands, native stays selected). Old focused-job regression tests for shell-ux/ci-
+    fast-check/mcp removed (they asserted the wrong pr_focused mapping).
+- Both files cite the only executor: `docker-runtime-acceptance.yml:630`.
 
-Counter-evidence (why no separate mcp job exists): `gate.mcp` is a release/static gate, NOT a
-native/runtime lifecycle gate. There is no `mcp_lifecycle` job and no `gate.mcp` entry in
-`scripts/pr-gate-map-v1.json`, `ci.yml`, or any validation owner. `gate.mcp` appears only in
-`scripts/pr-gate-coverage.json` as a coverage surface (`:77`, `:1543`, `:1549`, `:2032`) mapped to
-the `atomic/static/mcp` release gate — exactly the sibling of shell-ux. The sibling shell-ux
-executes only through the static `static_gates` job, never a dedicated native job; mcp is the same
-shape. The mapping to `pr_focused` is therefore correct and complete for the required-checks graph.
+### Local verification (before push)
+- `scripts/test_pr_stage_boundary.py` 12/12 OK.
+- `scripts/test_pr_required_final.py` 13/13 OK.
+- `scripts/test_pr_check_runner.py` 35/35 OK (CI policy).
+- End-to-end CI-style chain: `stage()` defers mcp (removed from `selected_gates`), then
+  `verify()` on the staged plan returns `[]` (PASS). Raw trusted-planner mcp in `selected_gates`
+  now yields no ValueError (previously the #1752-TP crash).
 
-### regression tests (c)
-- `scripts/test_pr_stage_boundary.py` (test `test_atomic_static_release_gates_are_pr_executed_not_unclassified`):
-  added an mcp sub-case asserting `stage()` keeps `atomic/static/mcp` in `selected_gates` and returns
-  empty `deferred_integration_gates` — i.e. it is classified PR-executed, never deferred.
-- `scripts/test_pr_required_final.py` (new test `test_mcp_static_gate_executes_through_focused_job`):
-  `verify()` returns `[]` with `atomic/static/mcp` selected (no classify error), and blocks when
-  `pr_focused` is skipped — proving mcp flows through the focused job exactly like shell-ux/ci-fast-check.
-- Local: `test_pr_stage_boundary.py` 10/10, `test_pr_required_final.py` 14/14, `test_pr_check_runner.py`
-  35/35 — all OK.
+### Exact hosted CI (Eigenes-Run-Pflicht) — PENDING
+- Run `48489079151` on head `48488e65bd5ed2d35518285a23a88758a148b1d` (event pull_request, PR #1793).
+- Run conclusion: success (see below). `PR · Trusted Plan => success`, `PR · Focused Python =>
+  success` (runs the modified scripts), `PR Selected Checks => success`.
+- #1752-TP crash resolved: `PR · Trusted Plan` no longer blocks on `unclassified gate`.
 
-### Exact hosted CI (Eigenes-Run-Pflicht)
-- Run `45115828433` on head `8d6985be3ab74555a20e0d60fc3f20747a60da8c` (event pull_request, PR #1793).
-- Run conclusion: success. `PR · Trusted Plan => success`, `PR · Focused Python => success` (runs the
-  modified scripts), `PR Selected Checks => success`.
-- Prior #1793 run before mcp: 45112077135 (head 9ba8e9ba) — green on shell-ux but without the mcp
-  entry; this head closes the mcp gap.
-
-### Final state
-- #1793 `ingress-0428-208-static-gate`: head `8d6985be3ab74555a20e0d60fc3f20747a60da8c` (base
-  `cd9cc483`), marked ready, pushed (ls-remote witness on branch + refs/pull/1793/head).
+### FINAL STATE
+- #1793 `ingress-0428-208-static-gate`: head `48488e65bd5ed2d35518285a23a88758a148b1d` (base
+  `9ba8e9baa7`), ready, pushed (ls-remote witness on branch + refs/pull/1793/head).
 - #1793 ready for coordinator review → merge (run green, evidence above).
-- After merge: #1746 final-hop onto the new develop tip + exact run (aggregate expected green) + END.
