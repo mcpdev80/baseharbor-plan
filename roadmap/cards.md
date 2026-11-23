@@ -16,7 +16,8 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 191/272 · **Blocked:** 0 · **Waiting:** 20  
+    **Accepted tasks:** 191/272 · **Blocked:** 1 · **Waiting:** 20  
+    **Blocker:** [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) — OWNER RE-DISPATCH: run 45251664813 executed against develop dc8626e9c5, NOT candidate 69de976f1e (verified gh run headSha=dc8626e9c5), and its log fails with '…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next
