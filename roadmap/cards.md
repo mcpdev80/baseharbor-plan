@@ -16,8 +16,9 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 184/272 · **Blocked:** 1 · **Waiting:** 20  
+    **Accepted tasks:** 184/272 · **Blocked:** 2 · **Waiting:** 20  
     **Blocker:** [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) — Owner-Entscheidung 2026-11-22: Freigabe für eine Ursachenprüfung und genau einen PR mit der eng begrenzten Reparatur, soweit durch Befund belegt: Reihenfolge u…  
+    **Blocker:** [t-20261123-wizard-org-default-usageerror](../tasks/t-20261123-wizard-org-default-usageerror.md) — CI Trusted Plan reads partial catalog (163 rows, 50/964 cmd/baha paths) from migration controller 859654861 (lane-0428-184-shared-destroy-2); ancestor of effec…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next
