@@ -76,3 +76,5 @@ One or two sentences: the observable outcome.
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+
+H-V38 DELIVERED proven patch (baseharbor-plan origin/main ed1032734, evidence/recovery-2026-11-23/hunt-hv38-catalog-patch/round-1.md): 5-row pr-gate-coverage.json additions clear the 0428-242 guardian rc=1->0 for #1810 (3 gates) and #1809 (2 gates), validate rc=0; 3-row catch-all variant also proven. APPLY=owner/CI scope. Shared unblocker for both PRs' Trusted Plan.
