@@ -1,0 +1,1 @@
+1371. [#1789 END akzeptiert (head+run decken sich mit meinem fernbeweis; akte fdc3a183; karte auf review mit owner+pr+note, run 45094339280 SUCCESS). FLASH-SITZ bleibt besetzt: #1620 re-hop mission (base rows sind jetzt in develop) an 9b7683b5 dispatcht — kein idle-Zyklus, kein zweiter writer. 1369/1370 korrektur: karte existiert jetzt und ist auf review.]
