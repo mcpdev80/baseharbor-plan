@@ -84,3 +84,11 @@ END_BLOCKED codex-rev2-1736: PR #1614 not merged; required app-edit lifecycle ex
 
 - Final required `git fetch origin main && git ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-23/sweep-1614/review-merge-final.md$'` output before the final evidence push:
   `evidence/r28-welle5-2026-11-23/sweep-1614/review-merge-final.md`
+
+## PLAN — refreshed review
+
+1. Re-read the m_rev_1614 mission and confirm candidate, write-set, and acceptance criteria.
+2. Refresh product and Planning remote state and check whether the candidate or PR state changed.
+3. Reinspect exact-head diff, security paths, CI receipts, and required lineage evidence.
+4. Complete only the authorized review/merge action if all gates pass; otherwise record a repair recipe.
+5. Publish refreshed evidence on baseharbor-plan origin/main, update the board, and post status.
