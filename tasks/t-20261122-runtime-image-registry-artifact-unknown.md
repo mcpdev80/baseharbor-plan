@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w249-0428-249-runtime-image-fix
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: ""
 kanban_title: 0428-249 · light-runtime blob unknown
 priority: high
@@ -17,20 +17,21 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812]
 sources: []
-blocker: ""
+blocker: "EXACT candidate run 45255981415 (head 69de976f1e, ref lane-0428-249) = completed/FAILURE on all 14 Docker+Podman light gates, identical to the prior develop run -> the gate dies at the common 'Run runtime gate' test -s baha-ci-operator-testonly preflight (Owner artifact inspection: pre-release-runtime-candidate contains only baha + baseharbor-runtime-pre-release.tar, NO baha-ci-operator-testonly). That binary is BUILT in ci.yml:1145 but is not assembled into the dispatched candidate artifact consumed at pre-release-runtime-suite.yml:186/315. ROOT CAUSE = CI artifact production/consumption = OWNER/CI scope (cards 0428-250 testonly fixture / 0428-260 catalog). #1812 write-set is CLEAN (diff = ONLY .github/workflows/pre-release-runtime-suite.yml; scripts reverted; ci.yml byte-identical; local gates green). The YAML reload fix is UNQUALIFIED, not failed: it cannot be judged green until the candidate artifact ships baha-ci-operator-testonly and a fresh Hosted run passes. Next trigger: owner fixes artifact production (or wires the gate) and re-dispatches on the candidate."
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/active #view/active #area/ci #area/testing #kind/bug
+- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/testing #kind/bug
     <!-- generated:card -->
     **Owner:** w249-0428-249-runtime-image-fix · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
+    **Blocker:** EXACT candidate run 45255981415 (head 69de976f1e, ref lane-0428-249) = completed/FAILURE on all 14 Docker+Podman light gates, identical to the prior develop run -\> the gate dies at the common 'Run runtime gate' test -s baha-ci-operator-tes…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w249-0428-249-runtime-image-fix  
@@ -63,3 +64,5 @@ fix landed YAML-only, scope clean, lane held (no scripts/** re-cross); blocked p
 OWNER re-dispatched Hosted Pre-Release Validation run 45255981415 on exact candidate 69de976f1e (ref lane-0428-249-runtime-image-fix, Demo pin f23b6e09, 14 light gates; verified gh run headSha=69de976f1e). w249 resume: watch OWN run to terminal + reconcile PR body (still describes discarded scripts fix). #1812 write-set clean (diff = ONLY .github yaml). No merge (frost).
 
 OWNER re-dispatched Hosted Pre-Release Validation run 45255981415 on exact candidate 69de976f1e (verified gh run headSha). w249: watch OWN run to terminal + reconcile PR body (still describes discarded scripts fix). diff = ONLY .github yaml. No merge.
+
+own-run terminal FAILURE at artifact preflight, not lane code; held pending CI-owner artifact fix
