@@ -44,3 +44,7 @@ Role: REVIEW, then MERGE only if all acceptance criteria pass.
 VERDICT: REQUEST CHANGES — do not merge PR #1801.
 
 END DONE codex-rev-1747: REQUEST CHANGES #1801; out-of-scope controller file and missing exact named-test receipt; no merge SHA.
+
+## Published evidence path witness
+
+evidence/r28-welle5-2026-11-23/sweep-1801/review-merge.md
