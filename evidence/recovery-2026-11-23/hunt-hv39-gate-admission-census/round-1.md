@@ -112,3 +112,12 @@ Order of value:
 - No containers/compose/networks/volumes created on this host or any VM (`docker` never invoked); ambient stack and images untouched. `docker ps -a` witness: not applicable — this lane started no processes of the kind; host daemon state unchanged by this session.
 
 END_DONE hunt-hv39: 764 uncataloged cmd/internal paths on develop (740 Go, 0 under cmd/ only nominally — cmd/baha is catch-all-routed and inert in catalog-mode) + 3 of 4 open PRs (#1810 #1809 #1650) gate-blocked by the guardian, #1812 clear; recommend the H-V38 5-row patch plus ~40 package-level catch-all rows (20 top-dir rows cover 88% of the population) with per-path component rows as the tightening mechanism.
+
+## origin/main delivery witness (second-to-last action)
+
+```
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep hunt-hv39-gate-admission-census
+evidence/recovery-2026-11-23/hunt-hv39-gate-admission-census/round-1.md
+```
+
+Evidence commit: `22f59503a` (pushed to origin/main, path verified present above).
