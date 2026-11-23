@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w243-0428-243-static-cell-grant-access
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-243 · static cell local-docker grant
 priority: high
@@ -19,17 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/recovery-2026-11-23/0428-243/round-1.md"]
 ---
 
-- [ ] t-20261122-static-cell-local-workload-grant-access · Static cells: --access local-docker rejected at local_workload_authority.go:62 #task #release/v0-4-28 #status/active #view/active #area/identity #area/testing #kind/bug
+- [x] t-20261122-static-cell-local-workload-grant-access · Static cells: --access local-docker rejected at local_workload_authority.go:62 #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/identity #area/testing #kind/bug
     <!-- generated:card -->
     **Owner:** w243-0428-243-static-cell-grant-access · **Priority:** high  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/recovery-2026-11-23/0428-243/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w243-0428-243-static-cell-grant-access  
@@ -61,3 +62,5 @@ Secondary: the static cell builds `go build ./cmd/baha` without the `baseharbor_
 (helper fan-out, write-set `internal/operatorauth/**`), so it carries its own branch and PR; #1761 is untouched.
 
 dispatched post-recovery 2026-11-23
+
+defect already fixed on develop by #1771 (b48ac03ef, ancestor of dc8626e9); develop local_workload_authority.go:35 accepts local-docker/local-podman; no separate candidate, no merge by this card
