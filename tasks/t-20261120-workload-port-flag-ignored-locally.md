@@ -28,7 +28,6 @@ created: 2026-11-20
     <!-- generated:card -->
     **Owner:** ffe7611b (\#1723 dedup-hop gepusht, exact run 45088083129 laeuft) / Coordinator  
     **PR:** [baseharbor#1723](https://github.com/mcpdev80/baseharbor/pull/1723)  
-    **Needs:** [t-20261122-footprint-show-not-admitted-in-data-capabilities-gate](t-20261122-footprint-show-not-admitted-in-data-capabilities-gate.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44788134959), [proof 2](https://github.com/mcpdev80/baseharbor/pulls/1723), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/workload-port-0428-199/hop-develop-c463edf8-w17235.md), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44995050874), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998829701)  
     <!-- /generated:card -->
 

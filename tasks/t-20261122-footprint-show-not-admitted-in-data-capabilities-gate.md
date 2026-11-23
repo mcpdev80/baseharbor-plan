@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: Coordinator (ingress-fuestend) / 0847d100
-kanban_status: blocked
-kanban_lane: blocked
+owner: Coordinator (review-merge 1450c201) / 0847d100
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "The disposable acceptance gates that legitimately call baha app footprint show are admitted by the CI operator boundary, so the…"
 kanban_title: 0428-227 · footprint show gate admission
 priority: ""
@@ -17,26 +17,25 @@ depends_on: [t-20261121-develop-full-suite-red, t-20261122-ci-integration-operat
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1753, mcpdev80/baseharbor#1746]
 sources: []
-blocker: "ingress-noetig, file:line-belege von 0847 FESTGEHALTEN: pr-gate-plan.py:1816/1818 (catalog = ROOT/datei am base-checkout), validate-pr-gate-coverage.py:289/293, workflow zeile 440 'git checkout --detach effective_base'. Native data-caps docker+podman PASSEN bereits (run 45084041925). naechster trigger: merge des ingress-PR (karte t-20261123-catalog-ingress-develop-prereqs), dann EIN re-hop/re-run #1753 auf dann aktuellen develop."
+blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44993125398", "https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44998829701", "https://github.com/mcpdev80/baseharbor/actions/runs/45008538769", "https://github.com/mcpdev80/baseharbor/actions/runs/45014558296", "https://github.com/mcpdev80/baseharbor/actions/runs/45015912507"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44993125398", "https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44998829701", "https://github.com/mcpdev80/baseharbor/actions/runs/45008538769", "https://github.com/mcpdev80/baseharbor/actions/runs/45014558296", "https://github.com/mcpdev80/baseharbor/actions/runs/45015912507", "https://github.com/mcpdev80/baseharbor/commit/1b7598aef8c4cae33b77c8523872637090d0f2bf"]
 ---
 
-- [ ] t-20261122-footprint-show-not-admitted-in-data-capabilities-gate · Acceptance contract: baha app footprint show is admitted only for the guided gate #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [x] t-20261122-footprint-show-not-admitted-in-data-capabilities-gate · Acceptance contract: baha app footprint show is admitted only for the guided gate #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
-    **Owner:** Coordinator (ingress-fuestend) / 0847d100  
+    **Owner:** Coordinator (review-merge 1450c201) / 0847d100  
     **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
-    **Blocker:** ingress-noetig, file:line-belege von 0847 FESTGEHALTEN: pr-gate-plan.py:1816/1818 (catalog = ROOT/datei am base-checkout), validate-pr-gate-coverage.py:289/293, workflow zeile 440 'git checkout --detach effective\_base'. Native data-caps do…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44993125398), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998829701), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45008538769), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/45014558296), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45015912507)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-headd690d7ffd4d5.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44993125398), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/footprint-gate-admission/review-1753-heada40b76764c3c0.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998829701), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45008538769), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/45014558296), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45015912507), [proof 9](https://github.com/mcpdev80/baseharbor/commit/1b7598aef8c4cae33b77c8523872637090d0f2bf)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-develop-full-suite-red](t-20261121-develop-full-suite-red.md), [t-20261122-ci-integration-operator-seams-without-gate-admission](t-20261122-ci-integration-operator-seams-without-gate-admission.md)  
 **Required by:** [t-20261120-workload-port-flag-ignored-locally](t-20261120-workload-port-flag-ignored-locally.md)  
-**Owner:** Coordinator (ingress-fuestend) / 0847d100  
+**Owner:** Coordinator (review-merge 1450c201) / 0847d100  
 **Priority:** not set  
 **PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746)  
 **Source:** 
@@ -147,3 +146,5 @@ KRITISCHER PFAD FUER #1746-volles-suite + #1753 + #1761 + #1762. Der owner-repor
 PROMOTED (owner-direktive): #1753 ist der admission-fix, den #1773s selected-gate braucht -> hop direkt auf b48ac03ef, exact-head gruen + merge VOR #1773. 0847 fuehrt aus nach 3x host-bounce auf w26 (reason-coded, sitz aufgegeben).
 
 catalog-registry im selben PR gepusht (owner-verifiziert): components-entry fuer internal/operatorauth/local_runtime.go (diff vs develop = +9, nur eigene zeilen, muster analog test_operator.go runtime_specific+beide data-caps surfaces). alter run 45083252785 auf head 3c81ea42 = superseded; PR-base weiterhin BEHIND (merge-base cace61802 vs develop ef73b50b) -> nach terminalem green von 45084041925 EIN final-hop auf ef73b50b, dann merge-ready. Kein anderer owner-branch angefasst.
+
+CLOSED: #1753 gemergt als 1b7598aef (squash), exact run 45098577557 terminal gruen inkl. docker+podman data-caps exec, katalog byteidentisch, review-akte review-merge-1753-6a8fbf5a.md.
