@@ -50,3 +50,9 @@ Role: REVIEW, then MERGE only if all contract criteria pass.
 VERDICT: REQUEST CHANGES — do not merge PR #1723. Its base is behind current develop, the gate catalog is not byte-identical to develop, and the named regression test has no hosted-log witness.
 
 END DONE codex-rev-1747: #1723 REQUEST CHANGES; rebase to current develop and provide named hosted test evidence; candidate `37ddf3bdca8a0115f5c57b93740a21c90e13ac62`; no merge SHA.
+
+## Planning publication witness
+
+Exact output from the required fresh `origin/main` tree check before the final evidence push:
+
+evidence/r28-welle5-2026-11-23/sweep-1723/review-merge.md
