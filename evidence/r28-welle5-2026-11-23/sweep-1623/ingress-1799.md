@@ -3,10 +3,11 @@
 - lane: w21-pr1702-0428-142-compat
 - card: catalog ingress for 0428-063 (unblocks #1623 Trusted Plan)
 - ingress PR: [#1799](https://github.com/mcpdev80/baseharbor/pull/1799) (lane-0428-ingress-1623-catalog)
-- ingress head: 7cf0556fe02632cd57cfb462654564ea1ecef972
+- ingress head (rebuilt per owner-regel 1618/1619): **7021f0a6d1ad48a52c9dcdab2e4e37a024beec10**
 - base: develop a3bbc689e4da70da73a0dcf5370d9a9e2e81d24d
-- CI run: 45147335327 terminal SUCCESS (PR Selected Checks + PR · Source format + PR · Trusted Plan all green)
-- status: green on the ingress branch; MERGED by owner/Coordinator (precedent #1792/1794/1796), NOT by this lane
+- CI run: **45149446083 terminal SUCCESS** (PR Selected Checks + PR · Source format + PR · Trusted Plan all green; tally 11 success / 21 skipped / 0 failures)
+- status: green on the rebuilt branch; MERGED by owner/Coordinator (precedent #1792/1794/1796), NOT by this lane
+- rebuild note: first push was 7cf0556fe (re-sorted 2182-line diff = churn 1181+/2, not merge-fähig per owner-regel 1618). Owner-regel 1618/1619: checkout develop-catalog, append 11 rows WITHOUT sorting, one push, one run. Rebuilt at 7021f0a6d (265-line diff, rows appended at tail, develop baseline preserved, net 11 added / 0 removed / 0 dup). Force-pushed with --force-with-lease to retarget PR #1799.
 
 ## PLAN
 
