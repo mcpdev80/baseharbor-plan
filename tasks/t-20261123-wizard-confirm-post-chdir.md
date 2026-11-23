@@ -7,9 +7,9 @@ areas: ["cli"]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: f0f6c8b4
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: "0428-256 · Wizard UX: candidate-confirm"
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261123-wizard-confirm-post-chdir · Bug (hunt H-P1): Wizard UX: candidate-confirm fires after chdir into new project (clarity) #task #release/v0-4-28 #status/planned #view/ready #area/cli #kind/task
+- [ ] t-20261123-wizard-confirm-post-chdir · Bug (hunt H-P1): Wizard UX: candidate-confirm fires after chdir into new project (clarity) #task #release/v0-4-28 #status/active #view/active #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** f0f6c8b4  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** f0f6c8b4  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

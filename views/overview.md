@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 8 |
+| active | 9 |
 | review | 4 |
 | wait | 15 |
 | blocked | 1 |
-| ready | 13 |
+| ready | 12 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
@@ -32,6 +32,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-base-branch-provenance-loss](../tasks/t-20261121-base-branch-provenance-loss.md) | 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened | active | high | coordinator | — | — |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
 | [t-20261121-static-gate-registration](../tasks/t-20261121-static-gate-registration.md) | 0428-208 wire `scripts/ci-fast-check.sh` as a standalone v0.4.28 Release Suite gate | active | high | Coordinator / 584cca00+ffe7611b lineage | [t-20261122-gate-catalog-missing-app-broker-component](../tasks/t-20261122-gate-catalog-missing-app-broker-component.md) | [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774), [baseharbor#1782](https://github.com/mcpdev80/baseharbor/pull/1782), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1797](https://github.com/mcpdev80/baseharbor/pull/1797) |
+| [t-20261123-wizard-confirm-post-chdir](../tasks/t-20261123-wizard-confirm-post-chdir.md) | Bug (hunt H-P1): Wizard UX: candidate-confirm fires after chdir into new project (clarity) | active | not set | f0f6c8b4 | — | — |
 
 ## Ready for review
 
@@ -83,7 +84,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261122-static-cell-local-workload-grant-access](../tasks/t-20261122-static-cell-local-workload-grant-access.md) | Static cells: --access local-docker rejected at local_workload_authority.go:62 | ready | high | — | — | — |
 | [t-20261123-edit-toggle-ack](../tasks/t-20261123-edit-toggle-ack.md) | Bug (hunt H-P1): app-edit: space-toggle lacks on-screen acknowledgement | ready | not set | — | — | — |
 | [t-20261123-planner-deleted-source-advisory](../tasks/t-20261123-planner-deleted-source-advisory.md) | CI: candidate planner mishandles deleted source rows (advisory job red) | ready | not set | — | — | — |
-| [t-20261123-wizard-confirm-post-chdir](../tasks/t-20261123-wizard-confirm-post-chdir.md) | Bug (hunt H-P1): Wizard UX: candidate-confirm fires after chdir into new project (clarity) | ready | not set | — | — | — |
 | [t-20261123-wizard-org-default-usageerror](../tasks/t-20261123-wizard-org-default-usageerror.md) | Bug (hunt H-P1): app-new wizard: org-default missing-stack must return usageError parity, not hard error | ready | not set | — | — | — |
 
 ## By release
