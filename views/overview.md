@@ -61,7 +61,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) | Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) | blocked | high | w249-0428-249-runtime-image-fix | — | [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812) |
+| [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) | Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) | blocked | high | w249-0428-249-runtime-image-fix (SESSION GONE - no live owner; work complete) | — | [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812) |
 
 ## Ready to assign
 

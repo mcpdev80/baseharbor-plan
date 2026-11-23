@@ -7,7 +7,7 @@ areas: [ci, testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w249-0428-249-runtime-image-fix
+owner: w249-0428-249-runtime-image-fix (SESSION GONE - no live owner; work complete)
 kanban_status: blocked
 kanban_lane: blocked
 kanban_summary: ""
@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812]
 sources: []
-blocker: "#1812 workflow-artifact fix COMPLETE + effective (Candidate Runtime Image green, 14 gates start). Remaining 8 red gates (run 45259373990, head 5ab9fe4) = CORE test-only CI-operator fixture allowlist = card 0428-250, surface cmd/baha/ci_integration_operator_enabled.go (add 5 forms: config organization set, policy explain, app inspect ., target -o json, app list --all-targets). NOT baseharbor-demo#170, NOT #1812 code (diff = only .github yaml). Out of 0428-249 scope. Next trigger: 0428-250 Core fixture forms landed + Pre-Release re-run on 5ab9fe4."
+blocker: "#1812 write-set COMPLETE (head 5ab9fe4, diff = ONLY .github/workflows/pre-release-runtime-suite.yml). Its own lane session (w249/19017525) is GONE (oc-status) but NOTHING is left for it: remaining red is 0428-250 (Core cmd/baha/ci_integration_operator_enabled.go needs 5 test-only fixture command forms), which is NOT on #1812's branch. Additive hop to develop d4fa8c589 (picks up #1813) + re-run the 14 Hosted gates can ONLY go green AFTER 0428-250 Core fixture lands. No lane needed on #1812; do not restart it. Next trigger: 0428-250 Core fix merged + #1812 re-run."
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -25,16 +25,16 @@ evidence: []
 
 - [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** w249-0428-249-runtime-image-fix · **Priority:** high  
+    **Owner:** w249-0428-249-runtime-image-fix (SESSION GONE - no live owner; work complete) · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
-    **Blocker:** \#1812 workflow-artifact fix COMPLETE + effective (Candidate Runtime Image green, 14 gates start). Remaining 8 red gates (run 45259373990, head 5ab9fe4) = CORE test-only CI-operator fixture allowlist = card 0428-250, surface cmd/baha/ci\_int…  
+    **Blocker:** \#1812 write-set COMPLETE (head 5ab9fe4, diff = ONLY .github/workflows/pre-release-runtime-suite.yml). Its own lane session (w249/19017525) is GONE (oc-status) but NOTHING is left for it: remaining red is 0428-250 (Core cmd/baha/ci\_integrat…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w249-0428-249-runtime-image-fix  
+**Owner:** w249-0428-249-runtime-image-fix (SESSION GONE - no live owner; work complete)  
 **Priority:** high  
 **PRs:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
 **Source:** 
