@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 175/268 · **Blocked:** 6 · **Waiting:** 20  
+    **Accepted tasks:** 176/268 · **Blocked:** 6 · **Waiting:** 20  
     **Blocker:** [t-20261114-r28-cli2-wizard-platform](../tasks/t-20261114-r28-cli2-wizard-platform.md) — trusted BASE c6a7138 lacks owners fuer cmd/baha/app\_access.go + app\_access\_test.go (PR touches beide, same-PR edit wirkt nicht base-precedence). naechster trig…  
     **Blocker:** [t-20261120-shared-backend-state-version-message](../tasks/t-20261120-shared-backend-state-version-message.md) — route BESTATIGT (owner-vorschlag, coord-uebernommen): die 108 zeilen regression in die bereits base-katalogisierte internal/application/shared\_backends\_test.go…  
     Plus 4 further blockers in the task list.  
