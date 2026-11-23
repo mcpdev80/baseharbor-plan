@@ -7,10 +7,10 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: Owner (hop 1d661942) / Coordinator (trigger 241)
+owner: Coordinator (merge fecb/owner) / f0f+584 lineage
 tags: [#task, #release/v0.4-28]
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-240 · broker readiness failure ships
 priority: ""
@@ -19,24 +19,23 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1763]
 sources: []
 blocker: ""
-wait_reason: "#1763 head 1d661942 exact run 45038621419: Trusted Plan + source-format + python/validation + Go CLI shards PASS (katalog #1778 wirkt). Beide SELECTED data-capabilities cells failen an DERSSELBEN shared 0428-241 fixture: app footprint show -o json ohne exaktes --confirm-candidate digest (docker 137258330467, podman 137258330471). KEIN #1763 code-defect. bleibt wait bis 0428-241 (ffe7611b) merged, DANN refresh auf develop + exact run + independent review (1450c201)."
-resolution: ""
+wait_reason: ""
+resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md", "https://github.com/mcpdev80/baseharbor/pull/1763", "https://github.com/mcpdev80/baseharbor/actions/runs/45005245380", "https://github.com/mcpdev80/baseharbor/actions/runs/45008350091", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/redaction-round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/45010884066", "https://github.com/mcpdev80/baseharbor/actions/runs/45010958948", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-headc698d1310.md", "https://github.com/mcpdev80/baseharbor/actions/runs/45011815553", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-sufficiency-round-2.md"]
 ---
 
-- [ ] t-20261122-broker-diagnostics-empty · CLI: name the failing dependency in broker readiness diagnostics #task #release/v0-4-28 #status/wait #view/wait #kind/task
+- [x] t-20261122-broker-diagnostics-empty · CLI: name the failing dependency in broker readiness diagnostics #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
-    **Owner:** Owner (hop 1d661942) / Coordinator (trigger 241)  
+    **Owner:** Coordinator (merge fecb/owner) / f0f+584 lineage  
     **PR:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763)  
-    **Waiting:** \#1763 head 1d661942 exact run 45038621419: Trusted Plan + source-format + python/validation + Go CLI shards PASS (katalog \#1778 wirkt). Beide SELECTED data-capabilities cells failen an DERSSELBEN shared 0428-241 fixture: app footprint show…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1763), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45005245380), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45008350091), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/redaction-round-1.md), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/45010884066), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45010958948), [proof 9](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-headc698d1310.md), [proof 10](https://github.com/mcpdev80/baseharbor/actions/runs/45011815553), [proof 11](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-240/review-1763-sufficiency-round-2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** Owner (hop 1d661942) / Coordinator (trigger 241)  
+**Owner:** Coordinator (merge fecb/owner) / f0f+584 lineage  
 **Priority:** not set  
 **PRs:** [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763)  
 **Source:** 
@@ -126,3 +125,5 @@ REVIEW ABGESCHLOSSEN (fecbada9/1450c201-kette): content = redaktion correct + se
 FIXIERT DURCH ZWEITE REVIEW: content correct (redaktion sentinel-YES), ABER native matrix noetig (option b). Einzige loesung = owner setzt pr-gate-coverage.json app_broker eintrag (0428-242), DANN #1763 re-hop auf neues develop (nach #1746, mit zsh+fish source-test) + EIN exact hosted durchgang mit echter native matrix, dann kurze re-bestatigung + merge. Kein merge vor der katalog-aktion. review-akten review-1763-headc698d1310.md + review-1763-sufficiency-round-2.md auf origin/main.
 
 #1763 additiv gehoppt auf develop 31aededf -> candidate 1d661942 (parents 31aededf + old 9bd97ca3). broker-diagnostics-test JETZT cataloged via #1778 -> Trusted Plan sollte greifen. Owner inspiziert fresh exact hosted run vor merge. Diff = broker diagnostics only. 1450c201 primed.
+
+CLOSED: squash-merged a3bbc689e (09:05:28Z) nach delta-review; exakter pull_request-run 45140871554 green am hop-head b1b498905 base b517b279c; mismatch-diagnostic nennt tatsaechlichen wert, regression hosted.
