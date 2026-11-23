@@ -122,3 +122,83 @@ Exact output of `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls
 ```text
 evidence/r28-welle5-2026-11-22/promql-0428-076/review-merge-1789-2be1136.md
 ```
+
+
+## PLAN — #1789 re-review
+- 287. Read PR #1789 review/merge contract and create the numbered plan in the live board and Planning evidence.
+- 288. Verify GitHub remote, live PR/develop refs, ancestry, merge state, scoped diff, and candidate immutability.
+- 289. Confirm catalog delta is exactly six PromQL removals and inherited ingress rows remain unchanged.
+- 290. Verify exact-head run 45094339280 required checks and classify advisory Candidate-added failure.
+- 291. Compare content since approved head 146ccf6, inspect hops/dedup/comment heals for regression.
+- 292. Merge normally only if all review gates pass; otherwise record a file/change/test/stop remedy.
+- 293. Verify merge SHA/develop refs and any merge-triggered runs; record cleanliness.
+- 294. Validate and publish Planning evidence, update board, and post END.
+
+
+## ROLLE: REVIEW — post-merge re-audit
+
+Session: codex-rev-1747 (Codex / GPT-6-Luna); backend identifier is not exposed; review time: 2026-11-23 02:42 UTC.
+Scope: `t-20261123-promql-ci-capture-followup` (0428-255), the #1789 follow-up arising from card 0428-076. This section records the current mission's independent re-audit and supersedes the earlier APPROVE as the review verdict; it does not rewrite the historical merge event.
+
+### Remote candidate and merge state
+
+The product remote names resolved to `https://github.com/mcpdev80/baseharbor.git`. The live `git ls-remote` result is:
+
+```text
+e8acf740553f7218b259f4855f5b79f83f21ab6b	refs/heads/develop
+2be1136606d5c881badf317bd001f0024da1ea46	refs/pull/1789/head
+```
+
+GitHub reports PR #1789 closed/merged at `2026-11-23T01:41:46Z`, exact head `2be1136606d5c881badf317bd001f0024da1ea46`, and merge commit `e8acf740553f7218b259f4855f5b79f83f21ab6b`. The squash merge commit has parent `15c652136b0fce19dd0ae286b341b38cac3f7854`, the PR's recorded develop base. GitHub compare `15c652...2be113...` reports merge base `15c652...`, ahead 9, behind 0. The PR head remains unchanged after merge. No merge was attempted in this re-audit because the PR was already merged.
+
+GitHub's exact PR file list and patches establish the equivalent of `git diff origin/develop...HEAD --name-only` at the recorded base `15c652...`:
+
+```text
+internal/metrics/perses_dashboards_promql_test.go
+internal/metrics/perses_dashboards_test.go
+scripts/pr-gate-coverage.json
+scripts/test_pr_native_gate_plan.py
+```
+
+There is no `.github/**`, `go.mod`, or `go.sum` change. The deleted parser test and its catalog/plan references are removals; the remaining test-file change contains comments only. No production implementation file changed.
+
+### Catalog and inherited ingress
+
+I fetched and parsed `scripts/pr-gate-coverage.json` at the exact base and candidate through GitHub Contents API. Base: 220 component rows, 220 unique paths. Candidate: 219 rows, 219 unique paths. The path delta is one removal, `internal/metrics/perses_dashboards_promql_test.go`; additions: zero; modified rows: zero. The removed JSON component record is exactly the six-line PromQL catalog entry.
+
+At both refs, `internal/operatorauth/local_runtime.go` and `internal/operatorauth/local_runtime_test.go` each retain Docker and Podman `data.capabilities` surfaces (four registrations total). `cmd/baha/app_access.go` and `cmd/baha/app_access_test.go` each retain those same two surfaces (two rows). No inherited ingress registration changed.
+
+### Exact-head CI and known advisory
+
+Run `45094339280` is completed/success for exact head `2be1136606d5c881badf317bd001f0024da1ea46`, event `pull_request`. `PR Selected Checks` job `137433654865`, `PR · Trusted Plan` job `137430693974`, `PR · Native gate plan` job `137430694168`, and selected native Docker/Podman observability jobs `137431464133` / `137431464039` are successful. The Go packages and required validation jobs are successful. Skipped unrelated release and targeted jobs are not counted as passes.
+
+The sole red result is `PR · Candidate-added checks (advisory)`, job `137430774780`. Its failing line is:
+
+```text
+ValueError: invalid trusted PR gate coverage catalog: uncataloged source change, no declared runtime gate owner: internal/metrics/perses_dashboards_promql_test.go (id source.internal_metrics_perses_dashboards_promql_test_go)
+```
+
+This is the documented deleted-source planner behavior assigned to 0428-253, and is advisory under the coordinator disposition. It does not change the required-check result. Merge-triggered develop runs `45096006175` (Docker Core) and `45096006283` (Podman Core) both completed/success on exact merge SHA `e8acf740553f7218b259f4855f5b79f83f21ab6b`.
+
+### Finding and verdict
+
+Finding F1, comment-heal acceptance not met: at `internal/metrics/perses_dashboards_test.go:320-326`, the negative-witness comment correctly says the default heuristic rejects both shapes, but line 325 then says the *removed* build-tagged real parser witness “stands in for the same two shapes.” That test file was deleted, so this sentence leaves a misleading/contradictory description in the surviving test source. The preceding comment at lines 262-267 accurately says the tagged witness is gone and Route b's heuristic covers these shapes; the function comment should likewise name the surviving heuristic as the witness.
+
+Repair recipe: in `internal/metrics/perses_dashboards_test.go`, replace the final sentence of the comment above `TestPersesInvalidTrailingMatcherIsRejected` with a statement that the default-build heuristic is the surviving witness and the tagged real-parser test was removed because `promqlparser` was never wired into `go.mod`. Keep executable behavior unchanged. If a correction is made, verify `TestPersesInvalidTrailingMatcherIsRejected` remains exercised by the existing Go packages shard and require its exact-head CI run; stop if that route no longer selects it. This is a post-merge finding: GitHub had already merged the candidate before this re-audit, so I made no product-repository edit and did not attempt to alter or revert the merge.
+
+VERDICT: REQUEST CHANGES for exact head `2be1136606d5c881badf317bd001f0024da1ea46` because the surviving comment does not fully heal the deleted-test reference. The earlier APPROVE and normal squash merge remain historical facts, but this re-audit does not affirm that the comment criterion passed.
+
+## cleanliness
+
+- Before re-audit: `docker ps -a --no-trunc`, shell PID 3354138; header only, no containers.
+- After re-audit: `docker ps -a --no-trunc`, shell PID 3356665; header only, no containers. No Docker or Podman command started a container or compose project.
+
+END_BLOCKED codex-rev-1747: post-merge re-audit found stale deleted-witness wording at `internal/metrics/perses_dashboards_test.go:325`; PR was already merged as `e8acf740553f7218b259f4855f5b79f83f21ab6b`.
+
+## origin/main evidence-path witness
+
+Exact output of evidence/r28-welle5-2026-11-22/promql-0428-076/review-merge-1789-2be1136.md before publishing this re-audit:
+
+```text
+evidence/r28-welle5-2026-11-22/promql-0428-076/review-merge-1789-2be1136.md
+```
