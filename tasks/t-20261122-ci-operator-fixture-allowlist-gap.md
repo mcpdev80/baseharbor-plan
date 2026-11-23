@@ -15,7 +15,7 @@ kanban_title: 0428-250 · ci operator fixture allow-list
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor-demo#170]
+prs: [mcpdev80/baseharbor-demo#170, mcpdev80/baseharbor#1815]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,7 +26,7 @@ evidence: []
 - [ ] t-20261122-ci-operator-fixture-allowlist-gap · Add the missing command forms to the test-only CI-operator fixture allow-list so static/core gates stamp the synthetic operator instead of failing closed #task #release/v0-4-28 #status/active #view/active #area/ci #area/testing #kind/bug
     <!-- generated:card -->
     **Owner:** w50-0428-250-corefixture · **Priority:** high  
-    **PR:** [baseharbor-demo#170](https://github.com/mcpdev80/baseharbor-demo/pull/170)  
+    **PR:** [baseharbor-demo#170](https://github.com/mcpdev80/baseharbor-demo/pull/170), [baseharbor#1815](https://github.com/mcpdev80/baseharbor/pull/1815)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +35,7 @@ evidence: []
 **Depends on:** none  
 **Owner:** w50-0428-250-corefixture  
 **Priority:** high  
-**PRs:** [baseharbor-demo#170](https://github.com/mcpdev80/baseharbor-demo/pull/170)  
+**PRs:** [baseharbor-demo#170](https://github.com/mcpdev80/baseharbor-demo/pull/170), [baseharbor#1815](https://github.com/mcpdev80/baseharbor/pull/1815)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -66,3 +66,5 @@ GELOEST in baseharbor-demo tests/config-matrix/run.sh (commit 0249c9f, demo PR #
 RECONCILED (Owner sweep): #1812's 8 red light gates fail on the CORE test-only operator fixture allowlist cmd/baha/ci_integration_operator_enabled.go (ciIntegrationManagedLocalGateReason :96; predicate group :230-317), NOT on baseharbor-demo#170. The 5 forms ABSENT from Core allowlist (verified git grep on develop 5ab9fe4): config organization set, policy explain, app inspect ., target -o json, app list --all-targets -> fixture denies -> noninteractive OIDC. demo#170 is a separate demo-slice; it must NOT stand in for the Core fix. Required owner action: add these 5 predicate branches in the Core fixture. THIS (not #1812's workflow) is the last blocker to #1812 green.
 
 RE-ROUTED (333cfa7a NEW Core lane): demo#170 (0847d100 GONE) cannot fix Core. Lane edits Core cmd/baha/ci_integration_operator_enabled.go -> allowlist the 5 test-only operator forms + tests, new branch + PR vs develop. Real #1812 gate unblocker.
+
+Correction round from Owner exact-diff review of #1815 (head c1b3da4f): matchers too short vs pinned-Demo run.sh real calls. Route full forms per consumer gate (config organization set --source local --location $ARTIFACT_DIR/policy-organization --environment dev -o json; policy explain -e dev; app inspect . -o json), constrain location under ARTIFACT_DIR, add wrong-gate/nearby negatives, no broad config/policy, leave 'policy check' out unless Hosted shows it. Verify via #1812 14-gate runtime suite.
