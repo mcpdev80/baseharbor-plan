@@ -227,3 +227,5 @@ H-V39 finding: #1650 Trusted Plan FAILS on the 0428-242 catalog guardian for NEW
 Owner routed the additive hop to the existing owner (w078): develop d4fa8c589 (#1813) registers internal/metrics/perses_dashboards_keycloak.go (the file that aborted #1650 Trusted Plan). w078 re-engaged for ONE safe additive merge of develop + exact Headed rerun (no force-push, no double-writer conflict resolution -> STOP+QUESTION on conflict). Gate clears via catalog; ownership concern superseded by this additive routing.
 
 RESTART (71ff001a) of dead bbf9d49f. ONE safe additive hop of develop d4fa8c589 (registers perses_dashboards_keycloak.go) into lane-0428-078-perses-identity-on-resolver; abort+QUESTION on conflict with owner commits.
+
+DO-NOT-MERGE guard (Owner): #1650 IdentityDashboardEligible=true depends on #1810 providing a reachable 'verified' path. #1810 currently makes verified unreachable; until 0428-186 lands a real probe (or Owner decides the eligibility instrument), #1650's positive case is unreachable -> hold merge even when its own hop/consent CI is green. #1810 is the active functional dependency for #1650 shipping.
