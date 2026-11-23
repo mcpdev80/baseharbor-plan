@@ -142,3 +142,36 @@ Repair recipe: let the existing hosted run reach terminal state, inspect the exa
 Immediately before this evidence update was pushed, `git fetch origin main && git ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-23/sweep-1723/review-merge.md$'` emitted this exact grep output:
 
 evidence/r28-welle5-2026-11-23/sweep-1723/review-merge.md
+
+## PLAN — follow-up verification
+
+1. Re-read the m_rev_1723 mission and confirm its current review criteria.
+2. Refresh the authoritative PR head, develop base, and exact-head hosted run state.
+3. Reassess the named regression receipt, merge gate, and current candidate scope.
+4. Append and validate final evidence, preserving the blocked decision unless every gate passes.
+5. Publish evidence to baseharbor-plan origin/main, synchronize the board, and post final lane status.
+
+## Post-merge remote verification — 2026-11-23
+
+This section supersedes the earlier statement that PR #1723 remained unmerged. During the follow-up review, the owner merged it remotely; this session did not issue a merge command.
+
+- Fresh `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1723/head` returned `ddddbed16e34638f35968e2dc99921f970ba3720 refs/heads/develop` and `9627763bd68018e962237b49d05450a7bf1348a9 refs/pull/1723/head`.
+- Pull Request API reports state `closed`, `merged=true`, merged at `2026-11-23T11:45:46Z` by `mcpdev80`, merge commit `ddddbed16e34638f35968e2dc99921f970ba3720`; PR head was `9627763bd68018e962237b49d05450a7bf1348a9`, base was `b41103867e370f6588a396cb08ab0b3013e209ac` (`develop`). The develop tip equals the merge commit SHA.
+- PR changed-file API still reports only the four authorized paths: `cmd/baha/app_apply.go`, `cmd/baha/app_workload_ports.go`, `cmd/baha/runtime.go`, and `cmd/baha/workload_port_local_regression_test.go`. The catalog gate blob was byte-identical between the candidate and develop before merge (`8b07be15eebbb720ec1122ba3215286039dc4c66`). No `.github/**` path is in the PR file list.
+- Exact-head hosted run `45163965244` is terminal `completed / success`, event `pull_request`, head `9627763bd68018e962237b49d05450a7bf1348a9`. The `PR Selected Checks` job is `137669607778`, terminal success at `2026-11-23T11:44:57Z`; GitHub reports its app as `github-actions`, integration ID `15368`. The run has no failed or open jobs. CLI shards `cli-0` through `cli-3` each report PASS; Docker and Podman `data-capabilities` selected-runtime jobs report success.
+- Full hosted log search for `TestAppApplyRunAcceptsWorkloadPort`, `TestUpRunAcceptsWorkloadPort`, and `TestExtractLocalWorkloadPorts` returned no matching named test line. The CLI logs show shard counts, not the required named regression PASS. Thus the explicit named-test evidence criterion is still unverified, despite the aggregate CI success. I do not infer a named PASS from the shard counts.
+- The earlier mission-cited run `45157306258` remains unrelated to #1723. The completed valid current candidate run is `45163965244` on the PR head and its tested base `b411038...`.
+- Review API currently lists no submitted review records. The source/security review in this evidence was performed against head `9627763...`; no code or PR-state mutation was performed by this session.
+
+## Final role and verdict after remote merge
+
+ROLE: REVIEW
+VERDICT: BLOCKED — the PR is already merged remotely, but this review cannot certify the full mission acceptance because the required hosted log line naming the workload-port regression PASS is absent. The successful exact-head `PR Selected Checks` aggregate is recorded above. This session did not merge, rerun CI, dispatch a workflow, or modify product code.
+
+END_BLOCKED codex-rev2-1736: PR #1723 is merged as ddddbed16e34638f35968e2dc99921f970ba3720, but the required named regression-test PASS line is absent from hosted run 45163965244.
+
+Coordinator follow-up: preserve this as an acceptance-evidence gap. The PR is closed/merged, so do not mutate it to fabricate a receipt; any future change to make the test name inspectable must go through an authorized follow-up and a durable CI route. No change to workflow files is requested or made here.
+
+## Cleanliness after post-merge verification
+
+- No tests, containers, or compose projects were started by this review session. Previous docker ps witnesses remain recorded above; the post-merge verification itself was read-only.
