@@ -75,3 +75,9 @@
 - VERDICT: REQUEST CHANGES; do not merge PR #1763.
 - Blocking findings: required `cmd/baha/app_broker_compat_test.go` is absent from the two-file diff; current develop is `826d498fc1ae9524112d07477a8809798d8272a7` while the PR and successful run still target base `b3df96348a9c56de00d67a060c9a5f0ddf6593d5`.
 - END BLOCKED codex-rev-1747: review complete; repair the same PR candidate and obtain current-base exact-head CI proof. Candidate SHA `60844a770a67dd6c4a86e85ed2292933e64a88da`.
+
+## Planning publication witness
+
+Exact output from the required origin/main tree check:
+
+`evidence/r28-welle5-2026-11-23/sweep-1763/review-merge.md`
