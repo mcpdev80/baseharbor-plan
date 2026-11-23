@@ -1,0 +1,69 @@
+{
+  "broad_required": false,
+  "coverage_status": "resolved",
+  "fallback_reasons": [
+    "CLI runtime impact needs qualified targeted native coverage: cmd/baha/app_status_result.go",
+    "unknown impact for internal/metrics/perses_dashboards.go",
+    "unknown impact for internal/metrics/perses_dashboards_keycloak.go",
+    "unknown impact for internal/metrics/perses_dashboards_test.go",
+    "unknown impact for internal/metrics/realization.go",
+    "unknown impact for internal/metrics/testdata/perses-dashboards/keycloak-identity.json"
+  ],
+  "fallback_used": true,
+  "head_sha": "cc4fc36f3f0732c1b50e1a9ccf8b453e1f971ce5",
+  "integration_sha": "994ec6640e5577e246be68da3e4142bfa9471c65",
+  "mapping_schema": "baseharbor.pr-gate-map/v1",
+  "merge_base_sha": "dc8626e9c52be07a8ea5b87b468c5991b7540c4f",
+  "reasons": [
+    "cmd/baha/app_status_result.go: cli-unresolved-runtime-impact",
+    "cmd/baha/app_status_result_test.go: cli-package-tests",
+    "internal/identityprovider/keycloak_files.go: identity-provider-package",
+    "internal/identityprovider/keycloak_realization.go: identity-provider-package",
+    "internal/metrics/perses_dashboards.go: unresolved",
+    "internal/metrics/perses_dashboards_keycloak.go: unresolved",
+    "internal/metrics/perses_dashboards_test.go: unresolved",
+    "internal/metrics/realization.go: unresolved",
+    "internal/metrics/testdata/perses-dashboards/keycloak-identity.json: unresolved",
+    "Declared coverage selected gates: atomic/docker/data-capabilities, atomic/docker/identity, atomic/docker/observability, atomic/podman/data-capabilities, atomic/podman/observability",
+    "Unknown narrow coverage selects normal broad unit/vet/build checks; runtime gates require declared coverage."
+  ],
+  "release": "v0.4.27",
+  "required_validation_checks": [
+    {
+      "command": "test -z \"$(gofmt -l cmd/baha)\"",
+      "id": "cli-gofmt",
+      "owner": "cmd/baha formatting"
+    },
+    {
+      "command": "go build ./...",
+      "id": "go-build",
+      "owner": "all Go packages"
+    },
+    {
+      "command": "go test ./... -count=1",
+      "id": "go-unit-tests",
+      "owner": "all Go unit packages"
+    },
+    {
+      "command": "go vet ./...",
+      "id": "go-vet",
+      "owner": "all Go packages"
+    },
+    {
+      "command": "python3 scripts/pr-check-runner.py execute --check identity-provider-package-tests --repository .",
+      "id": "identity-provider-package-tests",
+      "owner": "Keycloak and Identity provider unit contract"
+    }
+  ],
+  "schema": "baseharbor.pr-gate-plan/v1",
+  "selected_gates": [
+    "atomic/docker/data-capabilities",
+    "atomic/docker/identity",
+    "atomic/docker/observability",
+    "atomic/podman/data-capabilities",
+    "atomic/podman/observability"
+  ],
+  "target_base_sha": "dc8626e9c52be07a8ea5b87b468c5991b7540c4f",
+  "unresolved_coverage": [],
+  "validation_contract": "Enforce all required_validation_checks independently of selected_gates; zero selected_gates is valid only when coverage_status is resolved. If unresolved, final check MUST fail closed; never treat as no checks or automatically run the complete release catalog."
+}

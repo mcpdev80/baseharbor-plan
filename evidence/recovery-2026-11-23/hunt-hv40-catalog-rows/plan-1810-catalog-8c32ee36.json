@@ -1,0 +1,55 @@
+{
+  "broad_required": false,
+  "coverage_status": "resolved",
+  "fallback_reasons": [
+    "application lifecycle/provider resolution impact needs targeted qualification: internal/application/perses_lifecycle_test.go",
+    "provider/capability registry or lifecycle impact needs targeted qualification: internal/capability/perses.go",
+    "provider/capability registry or lifecycle impact needs targeted qualification: internal/capability/perses_test.go"
+  ],
+  "fallback_used": true,
+  "head_sha": "168d40950bae5b8fb31862b36ceaffbdd1862207",
+  "integration_sha": "3aae1c02deec40fbf3f2afa27e73aa924575148c",
+  "mapping_schema": "baseharbor.pr-gate-map/v1",
+  "merge_base_sha": "dc8626e9c52be07a8ea5b87b468c5991b7540c4f",
+  "reasons": [
+    "cmd/baha/app_perses_cli_test.go: cli-package-tests",
+    "internal/application/perses_lifecycle_test.go: application-implementation-unresolved",
+    "internal/application/perses_runtime_test.go: application-perses-runtime-smoke",
+    "internal/capability/perses.go: capability-implementation-unresolved",
+    "internal/capability/perses_test.go: capability-implementation-unresolved",
+    "Declared coverage selected gates: atomic/docker/observability, atomic/podman/observability, integration/static/public-contracts",
+    "Unknown narrow coverage selects normal broad unit/vet/build checks; runtime gates require declared coverage."
+  ],
+  "release": "v0.4.27",
+  "required_validation_checks": [
+    {
+      "command": "test -z \"$(gofmt -l cmd/baha)\"",
+      "id": "cli-gofmt",
+      "owner": "cmd/baha formatting"
+    },
+    {
+      "command": "go build ./...",
+      "id": "go-build",
+      "owner": "all Go packages"
+    },
+    {
+      "command": "go test ./... -count=1",
+      "id": "go-unit-tests",
+      "owner": "all Go unit packages"
+    },
+    {
+      "command": "go vet ./...",
+      "id": "go-vet",
+      "owner": "all Go packages"
+    }
+  ],
+  "schema": "baseharbor.pr-gate-plan/v1",
+  "selected_gates": [
+    "atomic/docker/observability",
+    "atomic/podman/observability",
+    "integration/static/public-contracts"
+  ],
+  "target_base_sha": "dc8626e9c52be07a8ea5b87b468c5991b7540c4f",
+  "unresolved_coverage": [],
+  "validation_contract": "Enforce all required_validation_checks independently of selected_gates; zero selected_gates is valid only when coverage_status is resolved. If unresolved, final check MUST fail closed; never treat as no checks or automatically run the complete release catalog."
+}

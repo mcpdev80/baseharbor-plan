@@ -1,0 +1,4634 @@
+{
+  "schema": "baseharbor.pr-gate-coverage/v1",
+  "release": "v0.4.27",
+  "surfaces": [
+    "source.gate.atomic.static.ci.fast.check",
+    "adoption.conformance",
+    "adoption.realworld-compose",
+    "adoption.realworld-kubernetes",
+    "adoption.realworld-quadlet",
+    "application.data-capabilities",
+    "capability.alloy",
+    "capability.application-connectivity",
+    "capability.cache.key-value",
+    "capability.control-plane",
+    "capability.database.document",
+    "capability.database.key-value",
+    "capability.database.sql",
+    "capability.development-gateway",
+    "capability.document-database-management-ui",
+    "capability.identity-management-ui",
+    "capability.identity.oidc",
+    "capability.key-value-management-ui",
+    "capability.logs",
+    "capability.loki",
+    "capability.messaging-management-ui",
+    "capability.messaging.pubsub",
+    "capability.messaging.queue",
+    "capability.messaging.stream",
+    "capability.metrics.openmetrics",
+    "capability.object-storage.s3",
+    "capability.openbao",
+    "capability.operator-recovery",
+    "capability.profile.binding-security",
+    "capability.profile.contracts",
+    "capability.profile.control-plane-recovery",
+    "capability.profile.data",
+    "capability.profile.document-database",
+    "capability.profile.durable-key-value",
+    "capability.profile.identity",
+    "capability.profile.logs-ingestion",
+    "capability.profile.machine-interface",
+    "capability.profile.messaging",
+    "capability.profile.metrics-failure",
+    "capability.profile.observability",
+    "capability.profile.recovery",
+    "capability.profile.repository-adoption",
+    "capability.profile.shell-interface",
+    "capability.profile.sql-reconcile",
+    "capability.profile.trace-ingestion",
+    "capability.profile.workload-only",
+    "capability.runtime-mtls",
+    "capability.runtime-resource",
+    "capability.secrets",
+    "capability.telemetry.otlp",
+    "capability.tempo",
+    "capability.traces",
+    "capability.workload",
+    "capability.workload.storage",
+    "configuration.policy",
+    "contracts.public-api",
+    "control-plane.bootstrap",
+    "core.greenfield",
+    "gate.agent",
+    "gate.backup-restore",
+    "gate.config-matrix",
+    "gate.connectivity",
+    "gate.control-plane-recovery",
+    "gate.data-capabilities",
+    "gate.durable-key-value",
+    "gate.failure",
+    "gate.full-destroy",
+    "gate.guided",
+    "gate.identity",
+    "gate.init",
+    "gate.lifecycle",
+    "gate.loki-runtime",
+    "gate.mcp",
+    "gate.mongodb-runtime",
+    "gate.observability",
+    "gate.perses-runtime-smoke",
+    "gate.policy",
+    "gate.rabbitmq-runtime",
+    "gate.reconciliation",
+    "gate.security",
+    "gate.shell-ux",
+    "gate.tempo-runtime",
+    "ha.data",
+    "ha.identity",
+    "ha.observability",
+    "ha.routing",
+    "installation.destroy-retry",
+    "installation.second-target-conflict",
+    "interface.browser-terminal",
+    "release.journey",
+    "runtime.coreless-lifecycle",
+    "source.gate.atomic.docker.backup.restore",
+    "source.gate.atomic.docker.control.plane.recovery",
+    "source.gate.atomic.docker.data.capabilities",
+    "source.gate.atomic.docker.guided",
+    "source.gate.atomic.docker.lifecycle",
+    "source.gate.atomic.docker.observability",
+    "source.gate.atomic.podman.backup.restore",
+    "source.gate.atomic.podman.control.plane.recovery",
+    "source.gate.atomic.podman.data.capabilities",
+    "source.gate.atomic.podman.guided",
+    "source.gate.atomic.podman.lifecycle",
+    "source.gate.atomic.podman.observability",
+    "source.gate.integration.docker.coreless.lifecycle",
+    "source.gate.integration.podman.coreless.lifecycle",
+    "source.gate.integration.static.public.contracts",
+    "source.package.atomic.docker.identity",
+    "source.package.atomic.docker.lifecycle",
+    "source.package.atomic.podman.identity",
+    "source.package.atomic.podman.lifecycle",
+    "source.package.integration.static.public.contracts",
+    "workstation.onboarding"
+  ],
+  "packages": [
+    {
+      "path": "contracts",
+      "surfaces": [
+        "source.package.integration.static.public.contracts"
+      ]
+    },
+    {
+      "path": "internal/identityprovider",
+      "surfaces": [
+        "source.package.atomic.docker.identity",
+        "source.package.atomic.podman.identity"
+      ]
+    },
+    {
+      "path": "internal/runtimebroker",
+      "surfaces": [
+        "source.package.atomic.docker.lifecycle",
+        "source.package.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "path": "internal/metrics/testdata",
+      "surfaces": [
+        "source.gate.atomic.docker.observability",
+        "source.gate.atomic.podman.observability"
+      ]
+    },
+    {
+      "path": "cmd/baha",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "path": "internal/application",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "path": "internal/capability",
+      "surfaces": [
+        "source.gate.integration.static.public.contracts"
+      ]
+    },
+    {
+      "path": "internal/openbao",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery",
+        "source.gate.atomic.podman.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/runtime/resolver",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "path": "internal/accesswizard",
+      "surfaces": [
+        "source.gate.atomic.docker.guided"
+      ]
+    },
+    {
+      "path": "internal/apierror",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities"
+      ]
+    },
+    {
+      "path": "internal/application/assets/valkey-image",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle"
+      ]
+    },
+    {
+      "path": "internal/application/testdata",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle"
+      ]
+    },
+    {
+      "path": "internal/applicationbackup",
+      "surfaces": [
+        "source.gate.atomic.docker.backup.restore"
+      ]
+    },
+    {
+      "path": "internal/applicationinput",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities"
+      ]
+    },
+    {
+      "path": "internal/applicationlifecycle",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle"
+      ]
+    },
+    {
+      "path": "internal/applicationruntimeapi",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/applicationruntimeauth",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/applicationsecret",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/applicationsecretapi",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/auth",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/authorization",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/availability",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/cli",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities"
+      ]
+    },
+    {
+      "path": "internal/connectivityrelay",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/controlplaneapi",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/controlplaneruntime",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/corebackup/etcd",
+      "surfaces": [
+        "source.gate.atomic.docker.backup.restore"
+      ]
+    },
+    {
+      "path": "internal/coreinstallation",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/coreupdate",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/coreupdate/releases",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/credential",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/credential/native",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/credential/openbao",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/database",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities"
+      ]
+    },
+    {
+      "path": "internal/database/migrations",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities"
+      ]
+    },
+    {
+      "path": "internal/dcspki",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/delivery",
+      "surfaces": [
+        "source.gate.integration.static.public.contracts"
+      ]
+    },
+    {
+      "path": "internal/deployment",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle"
+      ]
+    },
+    {
+      "path": "internal/devaccess",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/development",
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ]
+    },
+    {
+      "path": "internal/development/goadapter",
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ]
+    },
+    {
+      "path": "internal/development/nextjsadapter",
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ]
+    },
+    {
+      "path": "internal/development/pythonadapter",
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ]
+    },
+    {
+      "path": "internal/development/quarkusadapter",
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ]
+    },
+    {
+      "path": "internal/devgateway",
+      "surfaces": [
+        "source.gate.atomic.docker.guided"
+      ]
+    },
+    {
+      "path": "internal/endpoint",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/environment",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities"
+      ]
+    },
+    {
+      "path": "internal/evidence",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/exposure",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/extension",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/externalprovider",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/health",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle"
+      ]
+    },
+    {
+      "path": "internal/hostresource",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/hosttrust",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/httpsecurity",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/identity",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/installauthority",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/localhosts",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/logs",
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ]
+    },
+    {
+      "path": "internal/logs/testdata/perses-loki-datasource",
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ]
+    },
+    {
+      "path": "internal/machine",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/machinehttp",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/machinereadmodels",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/metrics",
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ]
+    },
+    {
+      "path": "internal/metrics/testdata/perses-dashboard-hosts",
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ]
+    },
+    {
+      "path": "internal/metrics/testdata/perses-dashboard-messaging",
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ]
+    },
+    {
+      "path": "internal/metrics/testdata/perses-dashboards",
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ]
+    },
+    {
+      "path": "internal/metrics/testdata/perses-infra-dashboard",
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ]
+    },
+    {
+      "path": "internal/metrics/testdata/perses-infra-dashboard/upstream",
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ]
+    },
+    {
+      "path": "internal/metrics/testdata/perses-native/v0.55.1",
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ]
+    },
+    {
+      "path": "internal/metrics/testdata/perses-prometheus-datasource",
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ]
+    },
+    {
+      "path": "internal/metrics/testdata/perses-tempo-datasource",
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ]
+    },
+    {
+      "path": "internal/metrics/testdata/perses-tempo-datasource/upstream",
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ]
+    },
+    {
+      "path": "internal/metrics/testdata/perses-valkey",
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ]
+    },
+    {
+      "path": "internal/objectstorage",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities"
+      ]
+    },
+    {
+      "path": "internal/observability",
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ]
+    },
+    {
+      "path": "internal/onboardingbundle",
+      "surfaces": [
+        "source.gate.atomic.docker.guided"
+      ]
+    },
+    {
+      "path": "internal/onboardingwizard",
+      "surfaces": [
+        "source.gate.atomic.docker.guided"
+      ]
+    },
+    {
+      "path": "internal/operatorauth",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities"
+      ]
+    },
+    {
+      "path": "internal/orgconfig",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/policy",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/preflight",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities"
+      ]
+    },
+    {
+      "path": "internal/provider/authoring",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/provider/builtin",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/providerbinding",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/providerconformance",
+      "surfaces": [
+        "source.gate.integration.static.public.contracts"
+      ]
+    },
+    {
+      "path": "internal/provideroperation",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/providers/runtime/docker",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle"
+      ]
+    },
+    {
+      "path": "internal/providers/runtime/podman",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle"
+      ]
+    },
+    {
+      "path": "internal/providertopology",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/providerui",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/providerupgrade",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/providerupgrade/keycloak",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/providerupgrade/openbao",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/reconciliation",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle"
+      ]
+    },
+    {
+      "path": "internal/repositoryinspect",
+      "surfaces": [
+        "source.gate.integration.static.public.contracts"
+      ]
+    },
+    {
+      "path": "internal/runtime",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle"
+      ]
+    },
+    {
+      "path": "internal/runtime/assets",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle"
+      ]
+    },
+    {
+      "path": "internal/runtime/contract",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle"
+      ]
+    },
+    {
+      "path": "internal/runtime/model",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle"
+      ]
+    },
+    {
+      "path": "internal/runtime/remoteprojection",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle"
+      ]
+    },
+    {
+      "path": "internal/runtime/terminal",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle"
+      ]
+    },
+    {
+      "path": "internal/runtimeapidocs",
+      "surfaces": [
+        "source.gate.integration.static.public.contracts"
+      ]
+    },
+    {
+      "path": "internal/runtimeexecutor",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle"
+      ]
+    },
+    {
+      "path": "internal/runtimeexplorer",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities"
+      ]
+    },
+    {
+      "path": "internal/runtimeobservability",
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ]
+    },
+    {
+      "path": "internal/runtimeoperation",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle"
+      ]
+    },
+    {
+      "path": "internal/runtimeresourceapi",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/serviceaccess",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/sourcetransfer",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/stableid",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/stableid/testdata",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/targetaccess",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/targetenrollment",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/targetsession",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities"
+      ]
+    },
+    {
+      "path": "internal/telemetry",
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ]
+    },
+    {
+      "path": "internal/tenancy",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery"
+      ]
+    },
+    {
+      "path": "internal/testsupport/containersecurity",
+      "surfaces": [
+        "source.gate.integration.static.public.contracts"
+      ]
+    },
+    {
+      "path": "internal/testsupport/envpin",
+      "surfaces": [
+        "source.gate.integration.static.public.contracts"
+      ]
+    },
+    {
+      "path": "internal/testsupport/externalprovider",
+      "surfaces": [
+        "source.gate.integration.static.public.contracts"
+      ]
+    },
+    {
+      "path": "internal/testsupport/runtimeprovider",
+      "surfaces": [
+        "source.gate.integration.static.public.contracts"
+      ]
+    },
+    {
+      "path": "internal/testsupport/serviceissuer",
+      "surfaces": [
+        "source.gate.integration.static.public.contracts"
+      ]
+    },
+    {
+      "path": "internal/traces",
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ]
+    },
+    {
+      "path": "internal/workstationenrollment",
+      "surfaces": [
+        "source.gate.atomic.docker.guided"
+      ]
+    },
+    {
+      "path": "internal/workstationenrollment/http",
+      "surfaces": [
+        "source.gate.atomic.docker.guided"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "source.cmd_baha_secret_audit_test_go",
+      "path": "cmd/baha/secret_audit_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd_baha_secret_operations_go",
+      "path": "cmd/baha/secret_operations.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal_application_perses_lifecycle_test_go",
+      "path": "internal/application/perses_lifecycle_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.observability",
+        "source.gate.atomic.podman.observability"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.internal_capability_perses_go",
+      "path": "internal/capability/perses.go",
+      "surfaces": [
+        "source.gate.integration.static.public.contracts"
+      ]
+    },
+    {
+      "id": "source.internal_capability_perses_test_go",
+      "path": "internal/capability/perses_test.go",
+      "surfaces": [
+        "source.gate.integration.static.public.contracts"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.apply.go",
+      "path": "cmd/baha/app_apply.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.apply.result.go",
+      "path": "cmd/baha/app_apply_result.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.backup.restore.integration.test.go",
+      "path": "cmd/baha/app_backup_restore_integration_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.backup.restore",
+        "source.gate.atomic.podman.backup.restore"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.broker.go",
+      "path": "cmd/baha/app_broker.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd_baha_app_new_wizard_org_default_test_go",
+      "path": "cmd/baha/app_new_wizard_org_default_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.pull.go",
+      "path": "cmd/baha/app_pull.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.pull.render.go",
+      "path": "cmd/baha/app_pull_render.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.pull.options.test.go",
+      "path": "cmd/baha/app_pull_options_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.pull.mcp.approgression.test.go",
+      "path": "cmd/baha/app_pull_mcp_approval_regression_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.core.requirement.go",
+      "path": "cmd/baha/app_core_requirement.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.docker.guided",
+        "source.gate.atomic.podman.data.capabilities",
+        "source.gate.atomic.podman.guided"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.coreless.runtime.test.go",
+      "path": "cmd/baha/app_coreless_runtime_test.go",
+      "surfaces": [
+        "source.gate.integration.docker.coreless.lifecycle",
+        "source.gate.integration.podman.coreless.lifecycle"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.identity.selective.runtime.test.go",
+      "path": "cmd/baha/app_identity_selective_runtime_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.edit.go",
+      "path": "cmd/baha/app_edit.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.access.go",
+      "path": "cmd/baha/app_access.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "cmd.baha.app.access.test.go",
+      "path": "cmd/baha/app_access_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.edit.apply.go",
+      "path": "cmd/baha/app_edit_apply.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.edit.apply.result.go",
+      "path": "cmd/baha/app_edit_apply_result.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.edit.apply.test.go",
+      "path": "cmd/baha/app_edit_apply_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.edit.test.go",
+      "path": "cmd/baha/app_edit_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.edit.zero.preview.test.go",
+      "path": "cmd/baha/app_edit_zero_preview_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.local.stdio.runtime.test.go",
+      "path": "cmd/baha/app_local_stdio_runtime_test.go",
+      "surfaces": [
+        "source.gate.integration.docker.coreless.lifecycle",
+        "source.gate.integration.podman.coreless.lifecycle"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.machine.adapters.go",
+      "path": "cmd/baha/app_machine_adapters.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.machine.adapters.test.go",
+      "path": "cmd/baha/app_machine_adapters_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.new.go",
+      "path": "cmd/baha/app_new.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.new.wizard.go",
+      "path": "cmd/baha/app_new_wizard.go",
+      "surfaces": [
+        "source.gate.atomic.docker.guided",
+        "source.gate.atomic.podman.guided"
+      ]
+    },
+    {
+      "id": "source.cmd_baha_app_new_wizard_test_go",
+      "path": "cmd/baha/app_new_wizard_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.guided",
+        "source.gate.atomic.podman.guided"
+      ]
+    },
+    {
+      "id": "source.cmd_baha_application_provider_preferences_go",
+      "path": "cmd/baha/application_provider_preferences.go",
+      "surfaces": [
+        "source.gate.atomic.docker.guided",
+        "source.gate.atomic.podman.guided"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.observability.acceptance.test.go",
+      "path": "cmd/baha/app_observability_acceptance_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.observability",
+        "source.gate.atomic.podman.observability"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.provider.choice.go",
+      "path": "cmd/baha/app_provider_choice.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.provider.choice.test.go",
+      "path": "cmd/baha/app_provider_choice_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.repository.integration.test.go",
+      "path": "cmd/baha/app_repository_integration_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.wizard.controller.go",
+      "path": "cmd/baha/app_wizard_controller.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.wizard.controller.test.go",
+      "path": "cmd/baha/app_wizard_controller_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.workload.integration.test.go",
+      "path": "cmd/baha/app_workload_integration_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.application.service.issuer.go",
+      "path": "cmd/baha/application_service_issuer.go",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery",
+        "source.gate.atomic.podman.control.plane.recovery"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.application.service.issuer.test.go",
+      "path": "cmd/baha/application_service_issuer_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery",
+        "source.gate.atomic.podman.control.plane.recovery"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.control.plane.operations.go",
+      "path": "cmd/baha/control_plane_operations.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.deployment.record.go",
+      "path": "cmd/baha/deployment_record.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.docker.engine.go",
+      "path": "cmd/baha/docker_engine.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "core.greenfield-tests",
+      "path": "cmd/baha/greenfield_isolated_core_native_test.go",
+      "surfaces": [
+        "core.greenfield"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.guided.application.read.context.go",
+      "path": "cmd/baha/guided_application_read_context.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.docker.guided",
+        "source.gate.atomic.podman.data.capabilities",
+        "source.gate.atomic.podman.guided",
+        "source.gate.integration.static.public.contracts"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.guided.application.read.context.test.go",
+      "path": "cmd/baha/guided_application_read_context_test.go",
+      "surfaces": [
+        "source.gate.integration.static.public.contracts"
+      ]
+    },
+    {
+      "id": "podman.installation-destroy-tests",
+      "path": "cmd/baha/installation_destroy_native_test.go",
+      "surfaces": [
+        "installation.destroy-retry"
+      ]
+    },
+    {
+      "id": "podman.installation-destroy",
+      "path": "cmd/baha/management_remote_installation_destroy.go",
+      "surfaces": [
+        "installation.destroy-retry"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.podman.doctor.checks.go",
+      "path": "cmd/baha/podman_doctor_checks.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.podman.doctor.checks.test.go",
+      "path": "cmd/baha/podman_doctor_checks_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.runtime.restart.integration.test.go",
+      "path": "cmd/baha/runtime_restart_integration_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery",
+        "source.gate.atomic.podman.control.plane.recovery"
+      ]
+    },
+    {
+      "id": "podman.second-target-conflict-tests",
+      "path": "cmd/baha/second_target_conflict_native_test.go",
+      "surfaces": [
+        "installation.second-target-conflict"
+      ]
+    },
+    {
+      "id": "workstation.onboarding-tests",
+      "path": "cmd/baha/workstation_onboarding_remote_native_test.go",
+      "surfaces": [
+        "workstation.onboarding"
+      ]
+    },
+    {
+      "id": "workstation.operator-api-runbook",
+      "path": "docs/how-to/operator-api.md",
+      "surfaces": [
+        "workstation.onboarding"
+      ]
+    },
+    {
+      "id": "workstation.remote-workstation-runbook",
+      "path": "docs/how-to/remote-workstation.md",
+      "surfaces": [
+        "workstation.onboarding"
+      ]
+    },
+    {
+      "id": "workstation.onboarding-contract",
+      "path": "docs/spec/zero-friction-workstation-onboarding-v0427.md",
+      "surfaces": [
+        "workstation.onboarding"
+      ]
+    },
+    {
+      "id": "source.internal.application.manifest.go",
+      "path": "internal/application/manifest.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.application.manifest.parse.go",
+      "path": "internal/application/manifest_parse.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.application.runtime.multi.integration.test.go",
+      "path": "internal/application/runtime_multi_integration_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.application.runtime.observability.go",
+      "path": "internal/application/runtime_observability.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.observability",
+        "source.gate.atomic.podman.observability"
+      ]
+    },
+    {
+      "id": "source.internal.application.runtime.observability.trace.source.test.go",
+      "path": "internal/application/runtime_observability_trace_source_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.observability",
+        "source.gate.atomic.podman.observability"
+      ]
+    },
+    {
+      "id": "source.internal.application.perses.runtime.go",
+      "path": "internal/application/perses_runtime.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ],
+      "required_test_names": [
+        "TestPersesRuntimeSmokeDockerIsolated"
+      ]
+    },
+    {
+      "id": "source.internal.application.perses.runtime.test.go",
+      "path": "internal/application/perses_runtime_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.observability"
+      ],
+      "required_test_names": [
+        "TestPersesRuntimeSmokeDockerIsolated"
+      ]
+    },
+    {
+      "id": "source.internal.application.shared.backend.dependency.go",
+      "path": "internal/application/shared_backend_dependency.go",
+      "surfaces": [
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal.application.shared.backend.dependency.projection.go",
+      "path": "internal/application/shared_backend_dependency_projection.go",
+      "surfaces": [
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal.application.shared.backend.dependency.projection.test.go",
+      "path": "internal/application/shared_backend_dependency_projection_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal.application.shared.backend.dependency.test.go",
+      "path": "internal/application/shared_backend_dependency_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal.application.shared.backend.destroy.go",
+      "path": "internal/application/shared_backend_destroy.go",
+      "surfaces": [
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal.application.shared.backend.destroy.test.go",
+      "path": "internal/application/shared_backend_destroy_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal.application.shared.backend.network.binding.test.go",
+      "path": "internal/application/shared_backend_network_binding_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal.application.shared.backend.tls.lifecycle.test.go",
+      "path": "internal/application/shared_backend_tls_lifecycle_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal.application.shared.backends.go",
+      "path": "internal/application/shared_backends.go",
+      "surfaces": [
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal.application.shared.backends.convergence.runtime.go",
+      "path": "internal/application/shared_backends_convergence_runtime.go",
+      "surfaces": [
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal.application.shared.backends.convergence.test.go",
+      "path": "internal/application/shared_backends_convergence_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal.application.shared.backends.environment.identity.test.go",
+      "path": "internal/application/shared_backends_environment_identity_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal.application.shared.backends.inventory.go",
+      "path": "internal/application/shared_backends_inventory.go",
+      "surfaces": [
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal.application.shared.backends.inventory.test.go",
+      "path": "internal/application/shared_backends_inventory_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal.application.shared.backends.management.go",
+      "path": "internal/application/shared_backends_management.go",
+      "surfaces": [
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal.application.shared.backends.resources.runtime.go",
+      "path": "internal/application/shared_backends_resources_runtime.go",
+      "surfaces": [
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal.application.shared.backends.runtime.go",
+      "path": "internal/application/shared_backends_runtime.go",
+      "surfaces": [
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal.application.shared.backends.state.go",
+      "path": "internal/application/shared_backends_state.go",
+      "surfaces": [
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal.application.shared.backends.test.go",
+      "path": "internal/application/shared_backends_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal.application.v0425.contract.test.go",
+      "path": "internal/application/v0425_contract_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.capability.domain.test.go",
+      "path": "internal/capability/domain_test.go",
+      "surfaces": [
+        "source.gate.integration.static.public.contracts"
+      ]
+    },
+    {
+      "id": "source.internal.capability.integration.contract.test.go",
+      "path": "internal/capability/integration_contract_test.go",
+      "surfaces": [
+        "source.gate.integration.static.public.contracts"
+      ]
+    },
+    {
+      "id": "source.internal.capability.lifecycle.go",
+      "path": "internal/capability/lifecycle.go",
+      "surfaces": [
+        "source.gate.integration.static.public.contracts"
+      ]
+    },
+    {
+      "id": "source.internal.capability.service.binding.go",
+      "path": "internal/capability/service_binding.go",
+      "surfaces": [
+        "source.gate.integration.static.public.contracts"
+      ]
+    },
+    {
+      "id": "source.internal.capability.service.binding.test.go",
+      "path": "internal/capability/service_binding_test.go",
+      "surfaces": [
+        "source.gate.integration.static.public.contracts"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.config.mutation.go",
+      "path": "internal/deployment/config_mutation.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.config.target.recovery.go",
+      "path": "internal/deployment/config_target_recovery.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.damaged.state.go",
+      "path": "internal/deployment/damaged_state.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.deployment.duplicate.name.go",
+      "path": "internal/deployment/deployment_duplicate_name.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.deployment.identity.drift.go",
+      "path": "internal/deployment/deployment_identity_drift.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.deployment.list.go",
+      "path": "internal/deployment/deployment_list.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.deployment.list.owner.batch.go",
+      "path": "internal/deployment/deployment_list_owner_batch.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.deployment.local.owner.go",
+      "path": "internal/deployment/deployment_local_owner.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.deployment.optional.read.go",
+      "path": "internal/deployment/deployment_optional_read.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.deployment.orphan.refusal.go",
+      "path": "internal/deployment/deployment_orphan_refusal.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.deployment.owner.classification.go",
+      "path": "internal/deployment/deployment_owner_classification.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.deployment.owner.load.seam.go",
+      "path": "internal/deployment/deployment_owner_load_seam.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.deployment.owner.loan.go",
+      "path": "internal/deployment/deployment_owner_loan.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.deployment.repair.read.go",
+      "path": "internal/deployment/deployment_repair_read.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.deployment.store.go",
+      "path": "internal/deployment/deployment_store.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.never.delivered.proof.go",
+      "path": "internal/deployment/never_delivered_proof.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.operator.auth.go",
+      "path": "internal/deployment/operator_auth.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.registry.conflict.go",
+      "path": "internal/deployment/registry_conflict.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.registry.lock.go",
+      "path": "internal/deployment/registry_lock.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.remote.project.go",
+      "path": "internal/deployment/remote_project.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.runtime.provider.go",
+      "path": "internal/deployment/runtime_provider.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.runtime.selection.go",
+      "path": "internal/deployment/runtime_selection.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.stage.versions.go",
+      "path": "internal/deployment/stage_versions.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.target.go",
+      "path": "internal/deployment/target.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.target.deployment.policy.go",
+      "path": "internal/deployment/target_deployment_policy.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.target.deployment.policy.admission.go",
+      "path": "internal/deployment/target_deployment_policy_admission.go",
+      "surfaces": [
+        "source.gate.atomic.docker.lifecycle",
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.health.podman.doctor.go",
+      "path": "internal/health/podman_doctor.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.logs.journal.provider.render.test.go",
+      "path": "internal/logs/journal_provider_render_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.observability",
+        "source.gate.atomic.podman.observability"
+      ]
+    },
+    {
+      "id": "source.internal.logs.render.go",
+      "path": "internal/logs/render.go",
+      "surfaces": [
+        "source.gate.atomic.docker.observability",
+        "source.gate.atomic.podman.observability"
+      ]
+    },
+    {
+      "id": "source.internal.openbao.bootstrap.auth.go",
+      "path": "internal/openbao/bootstrap_auth.go",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery",
+        "source.gate.atomic.podman.control.plane.recovery"
+      ]
+    },
+    {
+      "id": "source.internal.openbao.bootstrap.auth.test.go",
+      "path": "internal/openbao/bootstrap_auth_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery",
+        "source.gate.atomic.podman.control.plane.recovery"
+      ]
+    },
+    {
+      "id": "source.internal.openbao.service.issuer.go",
+      "path": "internal/openbao/service_issuer.go",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery",
+        "source.gate.atomic.podman.control.plane.recovery"
+      ]
+    },
+    {
+      "id": "source.internal.openbao.service.issuer.test.go",
+      "path": "internal/openbao/service_issuer_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery",
+        "source.gate.atomic.podman.control.plane.recovery"
+      ]
+    },
+    {
+      "id": "source.internal.openbao.service.pki.go",
+      "path": "internal/openbao/service_pki.go",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery",
+        "source.gate.atomic.podman.control.plane.recovery"
+      ]
+    },
+    {
+      "id": "source.internal.openbao.service.pki.test.go",
+      "path": "internal/openbao/service_pki_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.control.plane.recovery",
+        "source.gate.atomic.podman.control.plane.recovery"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.command.env.go",
+      "path": "internal/providers/runtime/podman/command_env.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.doctor.go",
+      "path": "internal/providers/runtime/podman/doctor.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.doctor.test.go",
+      "path": "internal/providers/runtime/podman/doctor_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.explorer.units.go",
+      "path": "internal/providers/runtime/podman/explorer_units.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.explorer.units.test.go",
+      "path": "internal/providers/runtime/podman/explorer_units_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.lifecycle.go",
+      "path": "internal/providers/runtime/podman/lifecycle.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.lifecycle.helpers.go",
+      "path": "internal/providers/runtime/podman/lifecycle_helpers.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.lifecycle.identity.test.go",
+      "path": "internal/providers/runtime/podman/lifecycle_identity_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.lifecycle.test.go",
+      "path": "internal/providers/runtime/podman/lifecycle_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.local.authority.go",
+      "path": "internal/providers/runtime/podman/local_authority.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.local.authority.test.go",
+      "path": "internal/providers/runtime/podman/local_authority_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.local.authority.verify.test.go",
+      "path": "internal/providers/runtime/podman/local_authority_verify_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.oneoff.go",
+      "path": "internal/providers/runtime/podman/oneoff.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.oneoff.test.go",
+      "path": "internal/providers/runtime/podman/oneoff_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.owned.resource.removal.go",
+      "path": "internal/providers/runtime/podman/owned_resource_removal.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.provider.go",
+      "path": "internal/providers/runtime/podman/provider.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.provider.status.test.go",
+      "path": "internal/providers/runtime/podman/provider_status_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.go",
+      "path": "internal/providers/runtime/podman/quadlet.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.build.completion.test.go",
+      "path": "internal/providers/runtime/podman/quadlet_build_completion_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.built.images.go",
+      "path": "internal/providers/runtime/podman/quadlet_built_images.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.built.images.test.go",
+      "path": "internal/providers/runtime/podman/quadlet_built_images_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.completed.dependency.test.go",
+      "path": "internal/providers/runtime/podman/quadlet_completed_dependency_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.completion.observation.go",
+      "path": "internal/providers/runtime/podman/quadlet_completion_observation.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.completion.observation.test.go",
+      "path": "internal/providers/runtime/podman/quadlet_completion_observation_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.exec.go",
+      "path": "internal/providers/runtime/podman/quadlet_exec.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.force.go",
+      "path": "internal/providers/runtime/podman/quadlet_force.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.images.go",
+      "path": "internal/providers/runtime/podman/quadlet_images.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.images.test.go",
+      "path": "internal/providers/runtime/podman/quadlet_images_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.logs.go",
+      "path": "internal/providers/runtime/podman/quadlet_logs.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.network.merge.go",
+      "path": "internal/providers/runtime/podman/quadlet_network_merge.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.network.merge.test.go",
+      "path": "internal/providers/runtime/podman/quadlet_network_merge_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.project.go",
+      "path": "internal/providers/runtime/podman/quadlet_project.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.project.test.go",
+      "path": "internal/providers/runtime/podman/quadlet_project_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.render.go",
+      "path": "internal/providers/runtime/podman/quadlet_render.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.resources.go",
+      "path": "internal/providers/runtime/podman/quadlet_resources.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.resources.test.go",
+      "path": "internal/providers/runtime/podman/quadlet_resources_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.retirement.go",
+      "path": "internal/providers/runtime/podman/quadlet_retirement.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.retirement.test.go",
+      "path": "internal/providers/runtime/podman/quadlet_retirement_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.runtime.go",
+      "path": "internal/providers/runtime/podman/quadlet_runtime.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.runtime.test.go",
+      "path": "internal/providers/runtime/podman/quadlet_runtime_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.quadlet.systemctl.go",
+      "path": "internal/providers/runtime/podman/quadlet_systemctl.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.providers.runtime.podman.umask.isolation.test.go",
+      "path": "internal/providers/runtime/podman/umask_isolation_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ]
+    },
+    {
+      "id": "runtime.container-identity",
+      "path": "internal/runtime/container_identity.go",
+      "surfaces": [
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "runtime.container-identity-tests",
+      "path": "internal/runtime/container_identity_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "runtime.service-retirement-tests",
+      "path": "internal/runtime/service_retirement_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "runtime.podman-service-stop",
+      "path": "internal/runtime/service_stop.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ],
+      "runtime_specific": true,
+      "required_test_names": [
+        "TestSelectedStopAcceptsPinnedContainerName"
+      ]
+    },
+    {
+      "id": "runtime.podman-service-stop-tests",
+      "path": "internal/runtime/service_stop_test.go",
+      "surfaces": [
+        "source.gate.atomic.podman.lifecycle"
+      ],
+      "runtime_specific": true,
+      "required_test_names": [
+        "TestSelectedStopAcceptsPinnedContainerName"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.backend.selective.runtime.test.go",
+      "path": "cmd/baha/app_backend_selective_runtime_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.integration.docker.coreless.lifecycle",
+        "source.gate.integration.podman.coreless.lifecycle"
+      ],
+      "required_test_names": [
+        "TestSelectiveBackendCleanupPreservesRuntimeBaseline"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.backend.shared.runtime.test.go",
+      "path": "cmd/baha/app_backend_shared_runtime_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.integration.docker.coreless.lifecycle",
+        "source.gate.integration.podman.coreless.lifecycle"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.application.backend.runtime.test.go",
+      "path": "cmd/baha/app_application_backend_runtime_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.integration.docker.coreless.lifecycle",
+        "source.gate.integration.podman.coreless.lifecycle"
+      ],
+      "required_test_names": [
+        "TestSelectiveApplicationBackendRuntimeAddRemoveReAdd"
+      ]
+    },
+    {
+      "id": "source.scripts.pre.release.integration",
+      "path": "scripts/pre-release-integration.py",
+      "surfaces": [
+        "source.gate.integration.docker.coreless.lifecycle",
+        "source.gate.integration.podman.coreless.lifecycle"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.scripts.ci.native.pr.gate",
+      "path": "scripts/ci-native-pr-gate.sh",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.scripts.ci.fast.check",
+      "path": "scripts/ci-fast-check.sh",
+      "surfaces": [
+        "source.gate.atomic.static.ci.fast.check"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.cmd.baha.app.footprint.presenter.go",
+      "path": "cmd/baha/app_footprint_presenter.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.cmd.baha.local.workload.authority.go",
+      "path": "cmd/baha/local_workload_authority.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.cmd.baha.local.workload.authority.test.go",
+      "path": "cmd/baha/local_workload_authority_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.cmd.baha.app.broker.diagnostics.test.go",
+      "path": "cmd/baha/app_broker_diagnostics_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.cmd.baha.app.workload.ports.go",
+      "path": "cmd/baha/app_workload_ports.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.cmd.baha.core.installation.runtime.test.go",
+      "path": "cmd/baha/core_installation_runtime_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.cmd.baha.workload.port.local.regression.test.go",
+      "path": "cmd/baha/workload_port_local_regression_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.cmd.baha.app.status.result.go",
+      "path": "cmd/baha/app_status_result.go",
+      "surfaces": [
+        "source.gate.atomic.docker.observability",
+        "source.gate.atomic.podman.observability"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.cmd.baha.app.status.result.test.go",
+      "path": "cmd/baha/app_status_result_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.cmd.baha.app.perses.cli.test.go",
+      "path": "cmd/baha/app_perses_cli_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.observability",
+        "source.gate.atomic.podman.observability"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.internal.metrics.perses.dashboards.go",
+      "path": "internal/metrics/perses_dashboards.go",
+      "surfaces": [
+        "source.gate.atomic.docker.observability",
+        "source.gate.atomic.podman.observability"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.internal.metrics.perses.dashboards.helpers.go",
+      "path": "internal/metrics/perses_dashboards_helpers.go",
+      "surfaces": [
+        "source.gate.atomic.docker.observability",
+        "source.gate.atomic.podman.observability"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.internal_metrics_perses_dashboards_keycloak_go",
+      "path": "internal/metrics/perses_dashboards_keycloak.go",
+      "surfaces": [
+        "source.gate.atomic.docker.observability",
+        "source.gate.atomic.podman.observability"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.internal.metrics.perses.dashboards.test.go",
+      "path": "internal/metrics/perses_dashboards_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.observability",
+        "source.gate.atomic.podman.observability"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.internal.metrics.perses.dashboards.0428-076.native.test.go",
+      "path": "internal/metrics/perses_dashboards_0428-076_native_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.observability",
+        "source.gate.atomic.podman.observability"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.internal.metrics.realization.go",
+      "path": "internal/metrics/realization.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.internal.development.source.go",
+      "path": "internal/development/source.go",
+      "surfaces": [
+        "source.gate.atomic.docker.observability",
+        "source.gate.atomic.podman.observability"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.internal.development.source.pull.go",
+      "path": "internal/development/source_pull.go",
+      "surfaces": [
+        "source.gate.atomic.docker.observability",
+        "source.gate.atomic.podman.observability"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.internal.development.source.pull.test.go",
+      "path": "internal/development/source_pull_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.observability",
+        "source.gate.atomic.podman.observability"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.internal.machine.contract.go",
+      "path": "internal/machine/contract.go",
+      "surfaces": [
+        "source.gate.atomic.docker.observability",
+        "source.gate.atomic.podman.observability"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.cmd.baha.main.go",
+      "path": "cmd/baha/main.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.cmd.baha.mcp.go",
+      "path": "cmd/baha/mcp.go",
+      "surfaces": [
+        "gate.mcp"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.cmd.baha.mcp.lifecycle.extra.go",
+      "path": "cmd/baha/mcp_lifecycle_extra.go",
+      "surfaces": [
+        "gate.mcp"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.workflow.pre.release",
+      "path": ".github/workflows/pre-release.yml",
+      "surfaces": [
+        "source.gate.integration.docker.coreless.lifecycle",
+        "source.gate.integration.podman.coreless.lifecycle"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.workflow.targeted.integration",
+      "path": ".github/workflows/targeted-integration.yml",
+      "surfaces": [
+        "source.gate.integration.docker.coreless.lifecycle",
+        "source.gate.integration.podman.coreless.lifecycle"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.cmd.baha.oras.setup.go",
+      "path": "cmd/baha/oras_setup.go",
+      "surfaces": [
+        "source.gate.atomic.docker.guided",
+        "source.gate.atomic.podman.guided"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.oras.setup.test.go",
+      "path": "cmd/baha/oras_setup_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.guided",
+        "source.gate.atomic.podman.guided"
+      ],
+      "required_test_names": [
+        "TestIncludeInstalledORASOnPath",
+        "TestEnsureORASForCoreUpRequiresExplicitInteractiveConsent"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.rootless.bootstrap.go",
+      "path": "cmd/baha/rootless_bootstrap.go",
+      "surfaces": [
+        "source.gate.atomic.docker.guided"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.rootless.bootstrap.test.go",
+      "path": "cmd/baha/rootless_bootstrap_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.guided"
+      ],
+      "required_test_names": [
+        "TestRootlessBootstrapEligibilityHonorsExplicitSelection",
+        "TestRootlessSetupConsentNeverAssumesYes",
+        "TestRootlessSubIDRangeValidation",
+        "TestApprovedRootlessSetupCommandSequence",
+        "TestRootlessSetupPartialFailuresNeverRunUnapprovedFallback",
+        "TestRootlessSetupMissingUIDMapAfterInstallFailsClosed",
+        "TestRootlessSetupContextRestoreFailureIsReported",
+        "TestRootlessSudoUsesControllingTTYNotBufferedInput",
+        "TestRootlessSudoWithoutControllingTTYFailsClosed",
+        "TestRootlessUserCommandsUseDirectStdinNoExtraReader"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.runtime.go",
+      "path": "cmd/baha/runtime.go",
+      "surfaces": [
+        "source.gate.atomic.docker.guided",
+        "source.gate.atomic.podman.guided"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.capability.runtime.test.go",
+      "path": "cmd/baha/app_capability_runtime_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.integration.docker.coreless.lifecycle",
+        "source.gate.integration.podman.coreless.lifecycle"
+      ],
+      "required_test_names": [
+        "TestApplicationCapabilityLifecycleExistingCore"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.app.https.selective.runtime.test.go",
+      "path": "cmd/baha/app_https_selective_runtime_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.integration.docker.coreless.lifecycle",
+        "source.gate.integration.podman.coreless.lifecycle"
+      ],
+      "required_test_names": [
+        "TestSelectiveHTTPSRuntimeAddRemoveReAdd"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.application.otlp.handoff.runtime.test.go",
+      "path": "cmd/baha/application_otlp_handoff_runtime_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.integration.docker.coreless.lifecycle",
+        "source.gate.integration.podman.coreless.lifecycle"
+      ],
+      "required_test_names": [
+        "TestManagedRegisteredOTLPNativeConsumerHandoff"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.commands.env.destroy",
+      "path": "cmd/baha/commands.go",
+      "surfaces": [
+        "source.gate.integration.docker.coreless.lifecycle",
+        "source.gate.integration.podman.coreless.lifecycle"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.env.destroy",
+      "path": "cmd/baha/env_destroy.go",
+      "surfaces": [
+        "source.gate.integration.docker.coreless.lifecycle",
+        "source.gate.integration.podman.coreless.lifecycle"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.env.destroy.integration.test",
+      "path": "cmd/baha/env_destroy_integration_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.integration.docker.coreless.lifecycle",
+        "source.gate.integration.podman.coreless.lifecycle"
+      ],
+      "required_test_names": [
+        "TestEnvironmentDestroyNativeLifecycle"
+      ]
+    },
+    {
+      "id": "source.cmd.baha.machine.coverage.env.destroy",
+      "path": "cmd/baha/machine_coverage.go",
+      "surfaces": [
+        "source.gate.integration.docker.coreless.lifecycle",
+        "source.gate.integration.podman.coreless.lifecycle"
+      ]
+    },
+    {
+      "id": "source.docs.cli.command.index.env.destroy",
+      "path": "docs/cli/command-index.md",
+      "surfaces": [
+        "source.gate.integration.docker.coreless.lifecycle",
+        "source.gate.integration.podman.coreless.lifecycle"
+      ]
+    },
+    {
+      "id": "source.docs.de.cli.command.index.env.destroy",
+      "path": "docs/de/cli/command-index.md",
+      "surfaces": [
+        "source.gate.integration.docker.coreless.lifecycle",
+        "source.gate.integration.podman.coreless.lifecycle"
+      ]
+    },
+    {
+      "id": "source.docs.reference.cli.machine.coverage.env.destroy",
+      "path": "docs/reference/cli-machine-coverage.md",
+      "surfaces": [
+        "source.gate.integration.docker.coreless.lifecycle",
+        "source.gate.integration.podman.coreless.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.environment.destroy.scope",
+      "path": "internal/deployment/environment_destroy_scope.go",
+      "surfaces": [
+        "source.gate.integration.docker.coreless.lifecycle",
+        "source.gate.integration.podman.coreless.lifecycle"
+      ]
+    },
+    {
+      "id": "source.internal.deployment.environment.destroy.scope.test",
+      "path": "internal/deployment/environment_destroy_scope_test.go",
+      "surfaces": [
+        "source.gate.integration.docker.coreless.lifecycle",
+        "source.gate.integration.podman.coreless.lifecycle"
+      ]
+    },
+    {
+      "id": "cmd.baha.application_lifecycle_lock_test",
+      "path": "cmd/baha/application_lifecycle_lock_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ],
+      "required_test_names": [
+        "TestStaleDestructionConsentRequiresRepreview",
+        "TestSharedBackendReconcileRejectsSecondProcess",
+        "TestTargetSelectionMutationRejectsSecondProcess",
+        "TestSharedConsumersSerializeOnAppOwner",
+        "TestProductionTargetWideMutationCannotOverlapLocalAppLifecycle",
+        "TestProductionAppCannotBeginDuringTargetWideScan",
+        "TestProductionTargetWideScanFailsClosedOnScanError",
+        "TestIndependentAppsDoNotSerializeOnSharedTarget",
+        "TestDestroyNotStarvedByBoundedRetry",
+        "TestTargetLifecycleLockRejectsSecondProcess",
+        "TestUnenforcingFilesystemFailsClosedWithoutRetry",
+        "TestGenuineContentionStillEntersBoundedRetry"
+      ]
+    },
+    {
+      "id": "cmd.baha.app_init_source_neutral_test",
+      "path": "cmd/baha/app_init_source_neutral_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.docker.guided",
+        "source.gate.atomic.podman.data.capabilities",
+        "source.gate.atomic.podman.guided"
+      ],
+      "required_test_names": [
+        "TestManifestFromCreateArgsSourceNeutralWorkloadPositive",
+        "TestParseWorkloadSourceArgPositive",
+        "TestParseWorkloadSourceArgRejectsUnknownKindNegative",
+        "TestDeterministicInitRejectsAmbiguousSourcesWithoutSelectionNegative",
+        "TestDeterministicInitDoesNotPersistUnneededSourceSelection",
+        "TestDeterministicInitPersistsAmbiguousSourceSelectionPositive",
+        "TestParseWorkloadSourceArgRejectsDuplicateNegative"
+      ]
+    },
+    {
+      "id": "cmd.baha.app_init_wizard_test",
+      "path": "cmd/baha/app_init_wizard_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.docker.guided",
+        "source.gate.atomic.podman.data.capabilities",
+        "source.gate.atomic.podman.guided"
+      ],
+      "required_test_names": [
+        "TestDetectAppProjectFindsComposeBackendsWorkloadAndSecretNames",
+        "TestGuidedInitQuickDoesNotPromoteHeuristicSecrets",
+        "TestGuidedInitInteractiveCanAcceptDetectedDefaults",
+        "TestGuidedInitDeterministicPathRequiresExplicitContract",
+        "TestGuidedInitDeterministicCapabilitiesFailClosedWhenRepositoryWorkloadExists",
+        "TestGuidedInitDeterministicExplicitWorkloadSelectionSucceeds",
+        "TestGuidedInitExplicitFlagsKeepDeterministicPath",
+        "TestGuidedInitQuickFailsClosedOnAmbiguousCompose",
+        "TestQuickInitPreservesWorkloadOnlyRepository",
+        "TestQuickInitDoesNotPromoteSuggestedCapability",
+        "TestQuickInitIsolatesMixedComposeInfrastructureAndGeneratesDetectedIntent",
+        "TestQuickInitFailsClosedOnAmbiguousMetricsTarget",
+        "TestQuickInitScopesConcreteRuntimePermissionToSingleWorkload",
+        "TestQuickInitFailsClosedOnAmbiguousComposeServiceRole",
+        "TestPromptCapabilityListNonTTYKeepsDetectedDefaults",
+        "TestPromptCapabilityListNonTTYAcceptsExplicitSelection",
+        "TestPromptAmbiguousComposeServicesConfirmsWorkloadSelection",
+        "TestPromptSecretPoliciesSupportsRenameOptionalGenerateAndSkip",
+        "TestGuidedSecretSummaryShowsPolicyWithoutValues",
+        "TestAdoptionSummaryMinimal",
+        "TestAdoptionSummaryFullyPopulated",
+        "TestBuildGuidedInitManifestIncludesAllV0419ServiceFamilies",
+        "TestBuildGuidedInitManifestPreservesExplicitHTTPSExposureEvidence",
+        "TestGuidedInitDeterministicPositionalEnvironmentAliases"
+      ]
+    },
+    {
+      "id": "cmd.baha.app_perses_host_containers_cli_test",
+      "path": "cmd/baha/app_perses_host_containers_cli_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.docker.guided",
+        "source.gate.atomic.podman.data.capabilities",
+        "source.gate.atomic.podman.guided"
+      ],
+      "required_test_names": [
+        "TestBahaStatusHostContainersDashboardsExposesUnavailable"
+      ]
+    },
+    {
+      "id": "cmd.baha.app_perses_infra_dashboards_cli_test",
+      "path": "cmd/baha/app_perses_infra_dashboards_cli_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.docker.guided",
+        "source.gate.atomic.podman.data.capabilities",
+        "source.gate.atomic.podman.guided"
+      ],
+      "required_test_names": [
+        "TestBahaStatusInfrastructureDashboardsExposesEveryPanel",
+        "TestBahaStatusInfrastructureDashboardsNotSelectedOmitsFace"
+      ]
+    },
+    {
+      "id": "cmd.baha.repository_up_init_test",
+      "path": "cmd/baha/repository_up_init_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.docker.guided",
+        "source.gate.atomic.podman.data.capabilities",
+        "source.gate.atomic.podman.guided"
+      ],
+      "required_test_names": [
+        "TestInitializeRepositoryManifestForUpQuickCreatesDetectedContract",
+        "TestInitializeRepositoryManifestForUpIgnoresDirectoryWithoutProjectSignals",
+        "TestInitializeRepositoryManifestForUpQuickFailsClosedOnAmbiguousCompose"
+      ]
+    },
+    {
+      "id": "cmd.baha.runtime_integration_test_support_test",
+      "path": "cmd/baha/runtime_integration_test_support_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.docker.guided",
+        "source.gate.atomic.podman.data.capabilities",
+        "source.gate.atomic.podman.guided",
+        "source.gate.integration.docker.coreless.lifecycle",
+        "source.gate.integration.podman.coreless.lifecycle"
+      ],
+      "required_test_names": [
+        "TestIntegrationRuntimeProviderSelection",
+        "TestMissingRuntimeIsolationCannotFallBackToBootstrap"
+      ]
+    },
+    {
+      "id": "cmd.baha.test_operator_context_test",
+      "path": "cmd/baha/test_operator_context_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "cmd.baha.app.env.test.go",
+      "path": "cmd/baha/app_env_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "cmd.baha.app.export.command.test.go",
+      "path": "cmd/baha/app_export_command_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "cmd.baha.target.definition.change.test.go",
+      "path": "cmd/baha/target_definition_change_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "internal.operatorauth.test.operator.go",
+      "path": "internal/operatorauth/test_operator.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "internal.operatorauth.local_runtime.go",
+      "path": "internal/operatorauth/local_runtime.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "internal.operatorauth.local_runtime_test.go",
+      "path": "internal/operatorauth/local_runtime_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "cmd.baha.control_plane_single_native_ci_test.go",
+      "path": "cmd/baha/control_plane_single_native_ci_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "cmd.baha.target.go",
+      "path": "cmd/baha/target.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "cmd.baha.target.runtime.access.provider.test.go",
+      "path": "cmd/baha/target_runtime_access_provider_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "cmd.baha.ci_integration_operator_enabled",
+      "path": "cmd/baha/ci_integration_operator_enabled.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "cmd.baha.ci_integration_operator_disabled",
+      "path": "cmd/baha/ci_integration_operator_disabled.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "cmd.baha.ci_integration_operator_enabled_test",
+      "path": "cmd/baha/ci_integration_operator_enabled_test.go",
+      "runtime_specific": true,
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ],
+      "required_test_names": [
+        "TestCIIntegrationOperatorTraceKeepsMachineErrorStreamClean",
+        "TestCIIntegrationOperatorIsLimitedToRemoteCoreAndTargetBootstrap",
+        "TestCIIntegrationOperatorAllowsOnlyGuidedCoreRebootstrapRoot",
+        "TestCIIntegrationOperatorIsExplicitlyScopedToManagedLocalGate",
+        "TestCIIntegrationOperatorAllowsRootDestroyOnlyForGuidedGate",
+        "TestCIIntegrationOperatorAllowsOnlyGuidedDeveloperDomainAndAppNew",
+        "TestCIIntegrationGuidedMCPPrincipalCanOnlySeeFootprintTool",
+        "TestCIIntegrationOperatorAllowsOnlyObservabilityLogProbe"
+      ]
+    },
+    {
+      "id": "source.cmd_baha_app_observe_go",
+      "path": "cmd/baha/app_observe.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd_baha_app_status_versions_test_go",
+      "path": "cmd/baha/app_status_versions_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd_baha_app_tls_go",
+      "path": "cmd/baha/app_tls.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd_baha_app_version_unified_test_go",
+      "path": "cmd/baha/app_version_unified_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd_baha_app_version_view_go",
+      "path": "cmd/baha/app_version_view.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd_baha_app_versions_backend_test_go",
+      "path": "cmd/baha/app_versions_backend_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd_baha_app_versions_command_go",
+      "path": "cmd/baha/app_versions_command.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd_baha_app_versions_view_go",
+      "path": "cmd/baha/app_versions_view.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd_baha_app_versions_view_parity_test_go",
+      "path": "cmd/baha/app_versions_view_parity_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd_baha_app_workspace_source_model_go",
+      "path": "cmd/baha/app_workspace_source_model.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd_baha_management_core_git_candidate_test_go",
+      "path": "cmd/baha/management_core_git_candidate_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal_machinereadmodels_release_go",
+      "path": "internal/machinereadmodels/release.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd_baha_app_exec_go",
+      "path": "cmd/baha/app_exec.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd_baha_app_access_urls_go",
+      "path": "cmd/baha/app_access_urls.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd_baha_app_interact_go",
+      "path": "cmd/baha/app_interact.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd_baha_app_interact_test_go",
+      "path": "cmd/baha/app_interact_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.cmd_baha_app_logs_go",
+      "path": "cmd/baha/app_logs.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd_baha_human_open_go",
+      "path": "cmd/baha/human_open.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.cmd_baha_operator_auth_boundary_go",
+      "path": "cmd/baha/operator_auth_boundary.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal_cli_cli_go",
+      "path": "internal/cli/cli.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal_cli_cli_test_go",
+      "path": "internal/cli/cli_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.internal_operatorauth_context_go",
+      "path": "internal/operatorauth/context.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+    {
+      "id": "source.internal_operatorauth_interaction_operations_test_go",
+      "path": "internal/operatorauth/interaction_operations_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ],
+      "runtime_specific": true
+    },
+    {
+      "id": "source.cmd_baha_app_candidate_consent_go",
+      "path": "cmd/baha/app_candidate_consent.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.docker.guided",
+        "source.gate.atomic.podman.data.capabilities",
+        "source.gate.atomic.podman.guided"
+      ]
+    },
+    {
+      "id": "source.cmd_baha_app_input_resolver_go",
+      "path": "cmd/baha/app_input_resolver.go",
+      "surfaces": [
+        "source.gate.atomic.docker.guided",
+        "source.gate.atomic.podman.guided"
+      ]
+    },
+    {
+      "id": "source.cmd_baha_runtime_ports_test_go",
+      "path": "cmd/baha/runtime_ports_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.guided",
+        "source.gate.atomic.podman.guided"
+      ]
+    }
+  ],
+  "gates": [
+    {
+      "id": "atomic/static/config-matrix",
+      "runtime": "static",
+      "class": "static",
+      "scope": "pr",
+      "covers": [
+        "capability.profile.contracts",
+        "gate.config-matrix"
+      ],
+      "kind": "static",
+      "selection_scope": "focused",
+      "demo_contract": {
+        "profile": "contracts",
+        "capabilities": []
+      }
+    },
+    {
+      "id": "atomic/static/init",
+      "runtime": "static",
+      "class": "static",
+      "scope": "pr",
+      "covers": [
+        "capability.profile.repository-adoption",
+        "gate.init"
+      ],
+      "kind": "static",
+      "selection_scope": "focused",
+      "demo_contract": {
+        "profile": "repository-adoption",
+        "capabilities": []
+      }
+    },
+    {
+      "id": "atomic/static/mcp",
+      "runtime": "static",
+      "class": "static",
+      "scope": "pr",
+      "covers": [
+        "capability.profile.machine-interface",
+        "gate.mcp"
+      ],
+      "kind": "static",
+      "selection_scope": "focused",
+      "demo_contract": {
+        "profile": "machine-interface",
+        "capabilities": []
+      }
+    },
+    {
+      "id": "atomic/static/agent",
+      "runtime": "static",
+      "class": "static",
+      "scope": "pr",
+      "covers": [
+        "capability.profile.machine-interface",
+        "gate.agent"
+      ],
+      "kind": "static",
+      "selection_scope": "focused",
+      "demo_contract": {
+        "profile": "machine-interface",
+        "capabilities": []
+      }
+    },
+    {
+      "id": "atomic/static/shell-ux",
+      "runtime": "static",
+      "class": "static",
+      "scope": "pr",
+      "covers": [
+        "capability.profile.shell-interface",
+        "gate.shell-ux"
+      ],
+      "kind": "static",
+      "selection_scope": "focused",
+      "demo_contract": {
+        "profile": "shell-interface",
+        "capabilities": []
+      }
+    },
+    {
+      "id": "atomic/static/ci-fast-check",
+      "runtime": "static",
+      "class": "static",
+      "scope": "pr",
+      "covers": [
+        "source.gate.atomic.static.ci.fast.check"
+      ],
+      "kind": "static",
+      "selection_scope": "release-only",
+      "demo_contract": {
+        "profile": "shell-interface",
+        "capabilities": []
+      }
+    },
+    {
+      "id": "atomic/docker/guided",
+      "runtime": "docker",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.development-gateway",
+        "capability.profile.workload-only",
+        "capability.workload",
+        "gate.guided",
+        "source.gate.atomic.docker.guided"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "workload-only",
+        "capabilities": [
+          "workload",
+          "development-gateway"
+        ],
+        "management_ui": "none"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/docker/lifecycle",
+      "runtime": "docker",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.development-gateway",
+        "capability.profile.workload-only",
+        "capability.workload",
+        "gate.lifecycle",
+        "source.gate.atomic.docker.lifecycle",
+        "source.package.atomic.docker.lifecycle"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "workload-only",
+        "capabilities": [
+          "workload",
+          "development-gateway"
+        ],
+        "management_ui": "none"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/docker/policy",
+      "runtime": "docker",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.development-gateway",
+        "capability.profile.workload-only",
+        "capability.workload",
+        "gate.policy"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "workload-only",
+        "capabilities": [
+          "workload",
+          "development-gateway"
+        ],
+        "management_ui": "none"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/docker/connectivity",
+      "runtime": "docker",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.application-connectivity",
+        "capability.development-gateway",
+        "capability.profile.workload-only",
+        "capability.workload",
+        "gate.connectivity"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "workload-only",
+        "capabilities": [
+          "workload",
+          "development-gateway",
+          "application-connectivity"
+        ],
+        "management_ui": "none"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/docker/reconciliation",
+      "runtime": "docker",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.database.sql",
+        "capability.profile.sql-reconcile",
+        "capability.workload",
+        "gate.reconciliation"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "sql-reconcile",
+        "capabilities": [
+          "database.sql",
+          "workload"
+        ],
+        "guided_selection": "1",
+        "management_ui": "none"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/docker/failure",
+      "runtime": "docker",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.metrics.openmetrics",
+        "capability.profile.metrics-failure",
+        "capability.workload",
+        "gate.failure"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "metrics-failure",
+        "capabilities": [
+          "metrics.openmetrics",
+          "workload"
+        ],
+        "guided_selection": "11",
+        "management_ui": "none"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/docker/full-destroy",
+      "runtime": "docker",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.development-gateway",
+        "capability.profile.workload-only",
+        "capability.workload",
+        "gate.full-destroy"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "workload-only",
+        "capabilities": [
+          "workload",
+          "development-gateway"
+        ],
+        "management_ui": "none"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/docker/data-capabilities",
+      "runtime": "docker",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.cache.key-value",
+        "capability.database.sql",
+        "capability.object-storage.s3",
+        "capability.profile.data",
+        "capability.runtime-resource",
+        "capability.secrets",
+        "gate.data-capabilities",
+        "source.gate.atomic.docker.data.capabilities"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "data",
+        "capabilities": [
+          "database.sql",
+          "cache.key-value",
+          "object-storage.s3",
+          "secrets",
+          "runtime-resource"
+        ],
+        "guided_selection": "1,2,8,9",
+        "management_ui": "none"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/docker/observability",
+      "runtime": "docker",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.logs",
+        "capability.metrics.openmetrics",
+        "capability.profile.observability",
+        "capability.telemetry.otlp",
+        "gate.observability",
+        "source.gate.atomic.docker.observability"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "observability",
+        "capabilities": [
+          "metrics.openmetrics",
+          "telemetry.otlp",
+          "logs"
+        ],
+        "guided_selection": "11,12,13",
+        "management_ui": "none"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/docker/identity",
+      "runtime": "docker",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.development-gateway",
+        "capability.identity-management-ui",
+        "capability.identity.oidc",
+        "capability.profile.identity",
+        "gate.identity",
+        "source.package.atomic.docker.identity"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "identity",
+        "capabilities": [
+          "identity.oidc",
+          "identity-management-ui",
+          "development-gateway"
+        ],
+        "guided_selection": "10",
+        "management_ui": "identity"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/docker/security",
+      "runtime": "docker",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.cache.key-value",
+        "capability.database.sql",
+        "capability.identity.oidc",
+        "capability.object-storage.s3",
+        "capability.profile.binding-security",
+        "capability.runtime-mtls",
+        "capability.telemetry.otlp",
+        "gate.security"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "binding-security",
+        "capabilities": [
+          "database.sql",
+          "cache.key-value",
+          "object-storage.s3",
+          "identity.oidc",
+          "telemetry.otlp",
+          "runtime-mtls"
+        ],
+        "guided_selection": "1,2,8,10,12",
+        "management_ui": "none"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/docker/backup-restore",
+      "runtime": "docker",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.cache.key-value",
+        "capability.database.sql",
+        "capability.logs",
+        "capability.object-storage.s3",
+        "capability.profile.recovery",
+        "capability.secrets",
+        "capability.workload.storage",
+        "gate.backup-restore",
+        "source.gate.atomic.docker.backup.restore"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "recovery",
+        "capabilities": [
+          "database.sql",
+          "cache.key-value",
+          "object-storage.s3",
+          "secrets",
+          "logs",
+          "workload.storage"
+        ],
+        "guided_selection": "1,2,3,4,5,6,7,8,9,10,11,12,13",
+        "management_ui": "all"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/docker/rabbitmq-runtime",
+      "runtime": "docker",
+      "class": "integration",
+      "scope": "pr",
+      "covers": [
+        "capability.messaging-management-ui",
+        "capability.messaging.pubsub",
+        "capability.messaging.queue",
+        "capability.messaging.stream",
+        "capability.profile.messaging",
+        "gate.rabbitmq-runtime"
+      ],
+      "kind": "integration",
+      "demo_contract": {
+        "profile": "messaging",
+        "capabilities": [
+          "messaging.queue",
+          "messaging.pubsub",
+          "messaging.stream",
+          "messaging-management-ui"
+        ]
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/docker/mongodb-runtime",
+      "runtime": "docker",
+      "class": "integration",
+      "scope": "pr",
+      "covers": [
+        "capability.database.document",
+        "capability.document-database-management-ui",
+        "capability.profile.document-database",
+        "gate.mongodb-runtime"
+      ],
+      "kind": "integration",
+      "demo_contract": {
+        "profile": "document-database",
+        "capabilities": [
+          "database.document",
+          "document-database-management-ui"
+        ]
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/docker/durable-key-value",
+      "runtime": "docker",
+      "class": "integration",
+      "scope": "pr",
+      "covers": [
+        "capability.database.key-value",
+        "capability.key-value-management-ui",
+        "capability.profile.durable-key-value",
+        "gate.durable-key-value"
+      ],
+      "kind": "integration",
+      "demo_contract": {
+        "profile": "durable-key-value",
+        "capabilities": [
+          "database.key-value",
+          "key-value-management-ui"
+        ]
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/docker/control-plane-recovery",
+      "runtime": "docker",
+      "class": "integration",
+      "scope": "pr",
+      "covers": [
+        "capability.control-plane",
+        "capability.openbao",
+        "capability.operator-recovery",
+        "capability.profile.control-plane-recovery",
+        "gate.control-plane-recovery",
+        "source.gate.atomic.docker.control.plane.recovery"
+      ],
+      "kind": "integration",
+      "demo_contract": {
+        "profile": "control-plane-recovery",
+        "capabilities": [
+          "control-plane",
+          "openbao",
+          "operator-recovery"
+        ]
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/docker/loki-runtime",
+      "runtime": "docker",
+      "class": "integration",
+      "scope": "pr",
+      "covers": [
+        "capability.alloy",
+        "capability.logs",
+        "capability.loki",
+        "capability.profile.logs-ingestion",
+        "gate.loki-runtime"
+      ],
+      "kind": "integration",
+      "demo_contract": {
+        "profile": "logs-ingestion",
+        "capabilities": [
+          "logs",
+          "loki",
+          "alloy"
+        ]
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/docker/tempo-runtime",
+      "runtime": "docker",
+      "class": "integration",
+      "scope": "pr",
+      "covers": [
+        "capability.profile.trace-ingestion",
+        "capability.telemetry.otlp",
+        "capability.tempo",
+        "capability.traces",
+        "gate.tempo-runtime"
+      ],
+      "kind": "integration",
+      "demo_contract": {
+        "profile": "trace-ingestion",
+        "capabilities": [
+          "telemetry.otlp",
+          "traces",
+          "tempo"
+        ]
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/podman/guided",
+      "runtime": "podman",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.development-gateway",
+        "capability.profile.workload-only",
+        "capability.workload",
+        "gate.guided",
+        "source.gate.atomic.podman.guided"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "workload-only",
+        "capabilities": [
+          "workload",
+          "development-gateway"
+        ],
+        "management_ui": "none"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/podman/lifecycle",
+      "runtime": "podman",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.development-gateway",
+        "capability.profile.workload-only",
+        "capability.workload",
+        "gate.lifecycle",
+        "source.gate.atomic.podman.lifecycle",
+        "source.package.atomic.podman.lifecycle"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "workload-only",
+        "capabilities": [
+          "workload",
+          "development-gateway"
+        ],
+        "management_ui": "none"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/podman/policy",
+      "runtime": "podman",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.development-gateway",
+        "capability.profile.workload-only",
+        "capability.workload",
+        "gate.policy"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "workload-only",
+        "capabilities": [
+          "workload",
+          "development-gateway"
+        ],
+        "management_ui": "none"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/podman/connectivity",
+      "runtime": "podman",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.application-connectivity",
+        "capability.development-gateway",
+        "capability.profile.workload-only",
+        "capability.workload",
+        "gate.connectivity"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "workload-only",
+        "capabilities": [
+          "workload",
+          "development-gateway",
+          "application-connectivity"
+        ],
+        "management_ui": "none"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/podman/reconciliation",
+      "runtime": "podman",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.database.sql",
+        "capability.profile.sql-reconcile",
+        "capability.workload",
+        "gate.reconciliation"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "sql-reconcile",
+        "capabilities": [
+          "database.sql",
+          "workload"
+        ],
+        "guided_selection": "1",
+        "management_ui": "none"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/podman/failure",
+      "runtime": "podman",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.metrics.openmetrics",
+        "capability.profile.metrics-failure",
+        "capability.workload",
+        "gate.failure"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "metrics-failure",
+        "capabilities": [
+          "metrics.openmetrics",
+          "workload"
+        ],
+        "guided_selection": "11",
+        "management_ui": "none"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/podman/full-destroy",
+      "runtime": "podman",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.development-gateway",
+        "capability.profile.workload-only",
+        "capability.workload",
+        "gate.full-destroy"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "workload-only",
+        "capabilities": [
+          "workload",
+          "development-gateway"
+        ],
+        "management_ui": "none"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/podman/data-capabilities",
+      "runtime": "podman",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.cache.key-value",
+        "capability.database.sql",
+        "capability.object-storage.s3",
+        "capability.profile.data",
+        "capability.runtime-resource",
+        "capability.secrets",
+        "gate.data-capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "data",
+        "capabilities": [
+          "database.sql",
+          "cache.key-value",
+          "object-storage.s3",
+          "secrets",
+          "runtime-resource"
+        ],
+        "guided_selection": "1,2,8,9",
+        "management_ui": "none"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/podman/observability",
+      "runtime": "podman",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.logs",
+        "capability.metrics.openmetrics",
+        "capability.profile.observability",
+        "capability.telemetry.otlp",
+        "gate.observability",
+        "source.gate.atomic.podman.observability"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "observability",
+        "capabilities": [
+          "metrics.openmetrics",
+          "telemetry.otlp",
+          "logs"
+        ],
+        "guided_selection": "11,12,13",
+        "management_ui": "none"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/podman/identity",
+      "runtime": "podman",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.development-gateway",
+        "capability.identity-management-ui",
+        "capability.identity.oidc",
+        "capability.profile.identity",
+        "gate.identity",
+        "source.package.atomic.podman.identity"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "identity",
+        "capabilities": [
+          "identity.oidc",
+          "identity-management-ui",
+          "development-gateway"
+        ],
+        "guided_selection": "10",
+        "management_ui": "identity"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/podman/security",
+      "runtime": "podman",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.cache.key-value",
+        "capability.database.sql",
+        "capability.identity.oidc",
+        "capability.object-storage.s3",
+        "capability.profile.binding-security",
+        "capability.runtime-mtls",
+        "capability.telemetry.otlp",
+        "gate.security"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "binding-security",
+        "capabilities": [
+          "database.sql",
+          "cache.key-value",
+          "object-storage.s3",
+          "identity.oidc",
+          "telemetry.otlp",
+          "runtime-mtls"
+        ],
+        "guided_selection": "1,2,8,10,12",
+        "management_ui": "none"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/podman/backup-restore",
+      "runtime": "podman",
+      "class": "runtime",
+      "scope": "pr",
+      "covers": [
+        "capability.cache.key-value",
+        "capability.database.sql",
+        "capability.logs",
+        "capability.object-storage.s3",
+        "capability.profile.recovery",
+        "capability.secrets",
+        "capability.workload.storage",
+        "gate.backup-restore",
+        "source.gate.atomic.podman.backup.restore"
+      ],
+      "kind": "runtime",
+      "demo_contract": {
+        "profile": "recovery",
+        "capabilities": [
+          "database.sql",
+          "cache.key-value",
+          "object-storage.s3",
+          "secrets",
+          "logs",
+          "workload.storage"
+        ],
+        "guided_selection": "1,2,3,4,5,6,7,8,9,10,11,12,13",
+        "management_ui": "all"
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/podman/rabbitmq-runtime",
+      "runtime": "podman",
+      "class": "integration",
+      "scope": "pr",
+      "covers": [
+        "capability.messaging-management-ui",
+        "capability.messaging.pubsub",
+        "capability.messaging.queue",
+        "capability.messaging.stream",
+        "capability.profile.messaging",
+        "gate.rabbitmq-runtime"
+      ],
+      "kind": "integration",
+      "demo_contract": {
+        "profile": "messaging",
+        "capabilities": [
+          "messaging.queue",
+          "messaging.pubsub",
+          "messaging.stream",
+          "messaging-management-ui"
+        ]
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/podman/mongodb-runtime",
+      "runtime": "podman",
+      "class": "integration",
+      "scope": "pr",
+      "covers": [
+        "capability.database.document",
+        "capability.document-database-management-ui",
+        "capability.profile.document-database",
+        "gate.mongodb-runtime"
+      ],
+      "kind": "integration",
+      "demo_contract": {
+        "profile": "document-database",
+        "capabilities": [
+          "database.document",
+          "document-database-management-ui"
+        ]
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/podman/durable-key-value",
+      "runtime": "podman",
+      "class": "integration",
+      "scope": "pr",
+      "covers": [
+        "capability.database.key-value",
+        "capability.key-value-management-ui",
+        "capability.profile.durable-key-value",
+        "gate.durable-key-value"
+      ],
+      "kind": "integration",
+      "demo_contract": {
+        "profile": "durable-key-value",
+        "capabilities": [
+          "database.key-value",
+          "key-value-management-ui"
+        ]
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/podman/control-plane-recovery",
+      "runtime": "podman",
+      "class": "integration",
+      "scope": "pr",
+      "covers": [
+        "capability.control-plane",
+        "capability.openbao",
+        "capability.operator-recovery",
+        "capability.profile.control-plane-recovery",
+        "gate.control-plane-recovery",
+        "source.gate.atomic.podman.control.plane.recovery"
+      ],
+      "kind": "integration",
+      "demo_contract": {
+        "profile": "control-plane-recovery",
+        "capabilities": [
+          "control-plane",
+          "openbao",
+          "operator-recovery"
+        ]
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/podman/loki-runtime",
+      "runtime": "podman",
+      "class": "integration",
+      "scope": "pr",
+      "covers": [
+        "capability.alloy",
+        "capability.logs",
+        "capability.loki",
+        "capability.profile.logs-ingestion",
+        "gate.loki-runtime"
+      ],
+      "kind": "integration",
+      "demo_contract": {
+        "profile": "logs-ingestion",
+        "capabilities": [
+          "logs",
+          "loki",
+          "alloy"
+        ]
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "atomic/podman/tempo-runtime",
+      "runtime": "podman",
+      "class": "integration",
+      "scope": "pr",
+      "covers": [
+        "capability.profile.trace-ingestion",
+        "capability.telemetry.otlp",
+        "capability.tempo",
+        "capability.traces",
+        "gate.tempo-runtime"
+      ],
+      "kind": "integration",
+      "demo_contract": {
+        "profile": "trace-ingestion",
+        "capabilities": [
+          "telemetry.otlp",
+          "traces",
+          "tempo"
+        ]
+      },
+      "selection_scope": "focused"
+    },
+    {
+      "id": "adoption/conformance",
+      "runtime": "static",
+      "class": "adoption",
+      "scope": "pr",
+      "covers": [
+        "adoption.conformance"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "adoption/realworld-compose",
+      "runtime": "static",
+      "class": "adoption",
+      "scope": "pr",
+      "covers": [
+        "adoption.realworld-compose"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "adoption/realworld-quadlet",
+      "runtime": "static",
+      "class": "adoption",
+      "scope": "pr",
+      "covers": [
+        "adoption.realworld-quadlet"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "adoption/realworld-kubernetes",
+      "runtime": "static",
+      "class": "adoption",
+      "scope": "pr",
+      "covers": [
+        "adoption.realworld-kubernetes"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "ha/docker/data",
+      "runtime": "docker",
+      "class": "ha",
+      "scope": "pr",
+      "covers": [
+        "capability.cache.key-value",
+        "capability.database.sql",
+        "capability.object-storage.s3",
+        "capability.runtime-resource",
+        "capability.secrets",
+        "ha.data"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "ha/docker/identity",
+      "runtime": "docker",
+      "class": "ha",
+      "scope": "pr",
+      "covers": [
+        "capability.identity-management-ui",
+        "capability.identity.oidc",
+        "ha.identity"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "ha/docker/observability",
+      "runtime": "docker",
+      "class": "ha",
+      "scope": "pr",
+      "covers": [
+        "capability.logs",
+        "capability.metrics.openmetrics",
+        "capability.telemetry.otlp",
+        "ha.observability"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "ha/docker/routing",
+      "runtime": "docker",
+      "class": "ha",
+      "scope": "pr",
+      "covers": [
+        "capability.application-connectivity",
+        "ha.routing"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "ha/podman/data",
+      "runtime": "podman",
+      "class": "ha",
+      "scope": "pr",
+      "covers": [
+        "capability.cache.key-value",
+        "capability.database.sql",
+        "capability.object-storage.s3",
+        "capability.runtime-resource",
+        "capability.secrets",
+        "ha.data"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "ha/podman/identity",
+      "runtime": "podman",
+      "class": "ha",
+      "scope": "pr",
+      "covers": [
+        "capability.identity-management-ui",
+        "capability.identity.oidc",
+        "ha.identity"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "ha/podman/observability",
+      "runtime": "podman",
+      "class": "ha",
+      "scope": "pr",
+      "covers": [
+        "capability.logs",
+        "capability.metrics.openmetrics",
+        "capability.telemetry.otlp",
+        "ha.observability"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "ha/podman/routing",
+      "runtime": "podman",
+      "class": "ha",
+      "scope": "pr",
+      "covers": [
+        "capability.application-connectivity",
+        "ha.routing"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "journey/docker",
+      "runtime": "docker",
+      "class": "journey",
+      "scope": "release-only",
+      "covers": [
+        "capability.alloy",
+        "capability.application-connectivity",
+        "capability.cache.key-value",
+        "capability.control-plane",
+        "capability.database.document",
+        "capability.database.key-value",
+        "capability.database.sql",
+        "capability.development-gateway",
+        "capability.document-database-management-ui",
+        "capability.identity-management-ui",
+        "capability.identity.oidc",
+        "capability.key-value-management-ui",
+        "capability.logs",
+        "capability.loki",
+        "capability.messaging-management-ui",
+        "capability.messaging.pubsub",
+        "capability.messaging.queue",
+        "capability.messaging.stream",
+        "capability.metrics.openmetrics",
+        "capability.object-storage.s3",
+        "capability.openbao",
+        "capability.operator-recovery",
+        "capability.runtime-mtls",
+        "capability.runtime-resource",
+        "capability.secrets",
+        "capability.telemetry.otlp",
+        "capability.tempo",
+        "capability.traces",
+        "capability.workload",
+        "capability.workload.storage",
+        "release.journey"
+      ],
+      "kind": "journey",
+      "selection_scope": "release-only"
+    },
+    {
+      "id": "journey/podman",
+      "runtime": "podman",
+      "class": "journey",
+      "scope": "release-only",
+      "covers": [
+        "capability.alloy",
+        "capability.application-connectivity",
+        "capability.cache.key-value",
+        "capability.control-plane",
+        "capability.database.document",
+        "capability.database.key-value",
+        "capability.database.sql",
+        "capability.development-gateway",
+        "capability.document-database-management-ui",
+        "capability.identity-management-ui",
+        "capability.identity.oidc",
+        "capability.key-value-management-ui",
+        "capability.logs",
+        "capability.loki",
+        "capability.messaging-management-ui",
+        "capability.messaging.pubsub",
+        "capability.messaging.queue",
+        "capability.messaging.stream",
+        "capability.metrics.openmetrics",
+        "capability.object-storage.s3",
+        "capability.openbao",
+        "capability.operator-recovery",
+        "capability.runtime-mtls",
+        "capability.runtime-resource",
+        "capability.secrets",
+        "capability.telemetry.otlp",
+        "capability.tempo",
+        "capability.traces",
+        "capability.workload",
+        "capability.workload.storage",
+        "release.journey"
+      ],
+      "kind": "journey",
+      "selection_scope": "release-only"
+    },
+    {
+      "id": "integration/static/public-contracts",
+      "runtime": "static",
+      "class": "integration",
+      "scope": "pr",
+      "covers": [
+        "contracts.public-api",
+        "source.gate.integration.static.public.contracts",
+        "source.package.integration.static.public.contracts"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "integration/static/configuration-policy",
+      "runtime": "static",
+      "class": "integration",
+      "scope": "pr",
+      "covers": [
+        "configuration.policy"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "integration/static/browser-terminal",
+      "runtime": "static",
+      "class": "integration",
+      "scope": "pr",
+      "covers": [
+        "interface.browser-terminal"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "integration/docker/core-bootstrap",
+      "runtime": "docker",
+      "class": "integration",
+      "scope": "pr",
+      "covers": [
+        "control-plane.bootstrap"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "integration/podman/core-bootstrap",
+      "runtime": "podman",
+      "class": "integration",
+      "scope": "pr",
+      "covers": [
+        "control-plane.bootstrap"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "integration/docker/coreless-lifecycle",
+      "runtime": "docker",
+      "class": "integration",
+      "scope": "pr",
+      "covers": [
+        "runtime.coreless-lifecycle",
+        "source.gate.integration.docker.coreless.lifecycle"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "integration/podman/coreless-lifecycle",
+      "runtime": "podman",
+      "class": "integration",
+      "scope": "pr",
+      "covers": [
+        "runtime.coreless-lifecycle",
+        "source.gate.integration.podman.coreless.lifecycle"
+      ],
+      "selection_scope": "focused"
+    }
+  ],
+  "native_checks": [
+    {
+      "id": "native/podman/installation-destroy",
+      "runtime": "podman",
+      "covers": [
+        "installation.destroy-retry"
+      ],
+      "source_components": [
+        "podman.installation-destroy",
+        "podman.installation-destroy-tests"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "native/docker/greenfield",
+      "runtime": "docker",
+      "covers": [
+        "core.greenfield"
+      ],
+      "source_components": [
+        "core.greenfield-tests"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "native/docker/onboarding",
+      "runtime": "docker",
+      "covers": [
+        "workstation.onboarding"
+      ],
+      "source_components": [
+        "workstation.onboarding-tests",
+        "workstation.operator-api-runbook",
+        "workstation.remote-workstation-runbook",
+        "workstation.onboarding-contract"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "native/podman/workstation-onboarding",
+      "runtime": "podman",
+      "covers": [
+        "workstation.onboarding"
+      ],
+      "source_components": [
+        "workstation.onboarding-tests",
+        "workstation.operator-api-runbook",
+        "workstation.remote-workstation-runbook",
+        "workstation.onboarding-contract"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "native/docker/perses-runtime-smoke",
+      "runtime": "docker",
+      "covers": [
+        "gate.perses-runtime-smoke"
+      ],
+      "source_components": [
+        "source.internal.application.perses.runtime.go",
+        "source.internal.application.perses.runtime.test.go"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "native/podman/second-target-conflict",
+      "runtime": "podman",
+      "covers": [
+        "installation.second-target-conflict"
+      ],
+      "source_components": [
+        "podman.second-target-conflict-tests"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "native/docker/data-capabilities",
+      "runtime": "docker",
+      "covers": [
+        "source.gate.atomic.docker.data.capabilities"
+      ],
+      "source_components": [
+        "cmd.baha.application_lifecycle_lock_test",
+        "cmd.baha.app_init_source_neutral_test",
+        "cmd.baha.app_init_wizard_test",
+        "cmd.baha.app_perses_host_containers_cli_test",
+        "cmd.baha.app_perses_infra_dashboards_cli_test",
+        "cmd.baha.repository_up_init_test",
+        "cmd.baha.test_operator_context_test",
+        "cmd.baha.ci_integration_operator_enabled",
+        "cmd.baha.ci_integration_operator_disabled",
+        "cmd.baha.ci_integration_operator_enabled_test",
+        "cmd.baha.runtime_integration_test_support_test",
+        "source.scripts.ci.native.pr.gate",
+        "source.cmd.baha.app.footprint.presenter.go",
+        "source.cmd.baha.local.workload.authority.go",
+        "source.cmd.baha.local.workload.authority.test.go",
+        "source.cmd.baha.main.go",
+        "source.cmd.baha.app.broker.diagnostics.test.go",
+        "source.cmd.baha.app.workload.ports.go",
+        "source.cmd.baha.workload.port.local.regression.test.go",
+        "source.cmd.baha.core.installation.runtime.test.go"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "native/podman/data-capabilities",
+      "runtime": "podman",
+      "covers": [
+        "source.gate.atomic.podman.data.capabilities"
+      ],
+      "source_components": [
+        "cmd.baha.application_lifecycle_lock_test",
+        "cmd.baha.app_init_source_neutral_test",
+        "cmd.baha.app_init_wizard_test",
+        "cmd.baha.app_perses_host_containers_cli_test",
+        "cmd.baha.app_perses_infra_dashboards_cli_test",
+        "cmd.baha.repository_up_init_test",
+        "cmd.baha.test_operator_context_test",
+        "cmd.baha.ci_integration_operator_enabled",
+        "cmd.baha.ci_integration_operator_disabled",
+        "cmd.baha.ci_integration_operator_enabled_test",
+        "cmd.baha.runtime_integration_test_support_test",
+        "source.scripts.ci.native.pr.gate",
+        "source.cmd.baha.app.footprint.presenter.go",
+        "source.cmd.baha.local.workload.authority.go",
+        "source.cmd.baha.local.workload.authority.test.go",
+        "source.cmd.baha.main.go",
+        "source.cmd.baha.app.broker.diagnostics.test.go",
+        "source.cmd.baha.app.workload.ports.go",
+        "source.cmd.baha.workload.port.local.regression.test.go",
+        "source.cmd.baha.core.installation.runtime.test.go"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "native/docker/guided",
+      "runtime": "docker",
+      "covers": [
+        "source.gate.atomic.docker.guided"
+      ],
+      "source_components": [
+        "cmd.baha.app_init_source_neutral_test",
+        "cmd.baha.app_init_wizard_test",
+        "cmd.baha.app_perses_host_containers_cli_test",
+        "cmd.baha.app_perses_infra_dashboards_cli_test",
+        "cmd.baha.repository_up_init_test",
+        "cmd.baha.runtime_integration_test_support_test"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "native/podman/guided",
+      "runtime": "podman",
+      "covers": [
+        "source.gate.atomic.podman.guided"
+      ],
+      "source_components": [
+        "cmd.baha.app_init_source_neutral_test",
+        "cmd.baha.app_init_wizard_test",
+        "cmd.baha.app_perses_host_containers_cli_test",
+        "cmd.baha.app_perses_infra_dashboards_cli_test",
+        "cmd.baha.repository_up_init_test",
+        "cmd.baha.runtime_integration_test_support_test"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "native/docker/coreless-lifecycle",
+      "runtime": "docker",
+      "covers": [
+        "source.gate.integration.docker.coreless.lifecycle"
+      ],
+      "source_components": [
+        "cmd.baha.runtime_integration_test_support_test",
+        "source.cmd.baha.app.backend.selective.runtime.test.go",
+        "source.cmd.baha.app.application.backend.runtime.test.go",
+        "source.cmd.baha.app.capability.runtime.test.go",
+        "source.cmd.baha.app.https.selective.runtime.test.go",
+        "source.cmd.baha.application.otlp.handoff.runtime.test.go"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "native/podman/coreless-lifecycle",
+      "runtime": "podman",
+      "covers": [
+        "source.gate.integration.podman.coreless.lifecycle"
+      ],
+      "source_components": [
+        "cmd.baha.runtime_integration_test_support_test",
+        "source.cmd.baha.app.backend.selective.runtime.test.go",
+        "source.cmd.baha.app.application.backend.runtime.test.go",
+        "source.cmd.baha.app.capability.runtime.test.go",
+        "source.cmd.baha.app.https.selective.runtime.test.go",
+        "source.cmd.baha.application.otlp.handoff.runtime.test.go"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "native/docker/environment-destroy",
+      "runtime": "docker",
+      "covers": [
+        "source.gate.integration.docker.coreless.lifecycle"
+      ],
+      "source_components": [
+        "source.cmd.baha.env.destroy.integration.test"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "native/podman/environment-destroy",
+      "runtime": "podman",
+      "covers": [
+        "source.gate.integration.podman.coreless.lifecycle"
+      ],
+      "source_components": [
+        "source.cmd.baha.env.destroy.integration.test"
+      ],
+      "selection_scope": "focused"
+    },
+    {
+      "id": "native/podman/service-stop",
+      "runtime": "podman",
+      "covers": [
+        "source.gate.atomic.podman.lifecycle"
+      ],
+      "source_components": [
+        "runtime.podman-service-stop",
+        "runtime.podman-service-stop-tests"
+      ],
+      "selection_scope": "focused"
+    }
+  ]
+}

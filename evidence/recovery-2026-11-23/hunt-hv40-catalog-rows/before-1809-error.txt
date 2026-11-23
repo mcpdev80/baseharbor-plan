@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/tmp/opencode/hv40/runs-1809/pr-gate-plan.py", line 1947, in <module>
+    main()
+    ~~~~^^
+  File "/tmp/opencode/hv40/runs-1809/pr-gate-plan.py", line 1940, in main
+    result = plan(diff, requirements, mapping,
+                  context_repository=context_repository,
+                  context_target_branch=context_target_branch, conservative_fallback=True)
+  File "/tmp/opencode/hv40/runs-1809/pr-gate-plan.py", line 1836, in plan
+    raise ValueError(
+        'invalid trusted PR gate coverage catalog: '
+        + _coverage_module().unresolved_source_error(source_unowned))
+ValueError: invalid trusted PR gate coverage catalog: uncataloged source change, no declared runtime gate owner: cmd/baha/secret_audit_test.go (id source.cmd_baha_secret_audit_test_go): add this source with its surfaces to scripts/pr-gate-coverage.json, e.g. {"id": "source.cmd_baha_secret_audit_test_go", "path": "cmd/baha/secret_audit_test.go", "surfaces": ["source.gate.atomic.docker.data.capabilities", "source.gate.atomic.podman.data.capabilities"]}; cmd/baha/secret_operations.go (id source.cmd_baha_secret_operations_go): add this source with its surfaces to scripts/pr-gate-coverage.json, e.g. {"id": "source.cmd_baha_secret_operations_go", "path": "cmd/baha/secret_operations.go", "surfaces": ["source.gate.atomic.docker.data.capabilities", "source.gate.atomic.podman.data.capabilities"]}

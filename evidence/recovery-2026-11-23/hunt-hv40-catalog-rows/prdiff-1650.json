@@ -1,0 +1,47 @@
+{
+  "base_tip_sha": null,
+  "broad_required": false,
+  "changes": [
+    {
+      "path": "cmd/baha/app_status_result.go",
+      "status": "modified"
+    },
+    {
+      "path": "cmd/baha/app_status_result_test.go",
+      "status": "modified"
+    },
+    {
+      "path": "internal/identityprovider/keycloak_files.go",
+      "status": "modified"
+    },
+    {
+      "path": "internal/identityprovider/keycloak_realization.go",
+      "status": "modified"
+    },
+    {
+      "path": "internal/metrics/perses_dashboards.go",
+      "status": "modified"
+    },
+    {
+      "path": "internal/metrics/perses_dashboards_keycloak.go",
+      "status": "added"
+    },
+    {
+      "path": "internal/metrics/perses_dashboards_test.go",
+      "status": "modified"
+    },
+    {
+      "path": "internal/metrics/realization.go",
+      "status": "modified"
+    },
+    {
+      "path": "internal/metrics/testdata/perses-dashboards/keycloak-identity.json",
+      "status": "added"
+    }
+  ],
+  "head_sha": "cc4fc36f3f0732c1b50e1a9ccf8b453e1f971ce5",
+  "integration_sha": "994ec6640e5577e246be68da3e4142bfa9471c65",
+  "merge_base_sha": "dc8626e9c52be07a8ea5b87b468c5991b7540c4f",
+  "reasons": [],
+  "target_base_sha": "dc8626e9c52be07a8ea5b87b468c5991b7540c4f"
+}

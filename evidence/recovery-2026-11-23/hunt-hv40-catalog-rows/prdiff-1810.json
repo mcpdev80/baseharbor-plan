@@ -1,0 +1,31 @@
+{
+  "base_tip_sha": null,
+  "broad_required": false,
+  "changes": [
+    {
+      "path": "cmd/baha/app_perses_cli_test.go",
+      "status": "modified"
+    },
+    {
+      "path": "internal/application/perses_lifecycle_test.go",
+      "status": "modified"
+    },
+    {
+      "path": "internal/application/perses_runtime_test.go",
+      "status": "modified"
+    },
+    {
+      "path": "internal/capability/perses.go",
+      "status": "modified"
+    },
+    {
+      "path": "internal/capability/perses_test.go",
+      "status": "modified"
+    }
+  ],
+  "head_sha": "168d40950bae5b8fb31862b36ceaffbdd1862207",
+  "integration_sha": "3aae1c02deec40fbf3f2afa27e73aa924575148c",
+  "merge_base_sha": "dc8626e9c52be07a8ea5b87b468c5991b7540c4f",
+  "reasons": [],
+  "target_base_sha": "dc8626e9c52be07a8ea5b87b468c5991b7540c4f"
+}
