@@ -55,3 +55,7 @@ Role: REVIEW.
 VERDICT: APPROVE — the scope-additional files are additive and neutral to underlying selection/consent semantics; no revert is required. The package-shard receipt and mapping satisfy the mission's stated package-receipt rule.
 
 END DONE codex-rev-1747: APPROVE #1801 post-merge delta; merged commit b41103867e370f6588a396cb08ab0b3013e209ac; no revert required.
+
+## Published evidence path witness
+
+evidence/r28-welle5-2026-11-23/sweep-1801/review-merge-delta.md
