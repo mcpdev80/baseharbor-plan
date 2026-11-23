@@ -439,6 +439,16 @@ Board file: `workers/todos/w37-0428-235-hvtrustedplan.json` (tick as worked:
 remote/zone resolve → develop attestation → failing logs → planner read + file:line →
 touched files → ancestry verdict → cause classification → fix proposal → evidence+push → END).
 
+## Evidence delivery proof (before END)
+
+```
+$ git -C baseharbor-plan fetch origin main && \
+  git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/recovery-2026-11-23/hunt-hv37-trusted-plan-planner
+evidence/recovery-2026-11-23/hunt-hv37-trusted-plan-planner/round-1.md
+$ git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main
+b849f6c37ed7299c1b285494ba166fd444b652ce	refs/heads/main
+```
+
 ## END
 
 END_DONE w37-0428-235-hvtrustedplan: Trusted Plan reds are the 0428-242 catalog guardian
