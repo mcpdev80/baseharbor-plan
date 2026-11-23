@@ -46,6 +46,7 @@ Repair recipe: on the next owner-authorized v0.4.28 Pre-Release Runtime Suite ex
 
 - Product GitHub `ls-remote` after review: `fdced23de19866d9cdc435c009c9c069350dffb5 refs/heads/develop`; `76ad7a733797d86ab7e0d878d1afe4bb1ddd20ed refs/pull/1805/head`.
 - Planning GitHub `ls-remote` before publication: `5cf1249cdf8ec26475c14f38746246dea71dec31 refs/heads/main`.
+- Planning delivery witness after the first evidence push: `40b59ef97b5fbf03c24cad0747ed4612c54f589a refs/heads/main`.
 - Exact output of `git fetch origin main && git ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-23/sweep-1805/review-merge.md$'`:
   `evidence/r28-welle5-2026-11-23/sweep-1805/review-merge.md`
 
