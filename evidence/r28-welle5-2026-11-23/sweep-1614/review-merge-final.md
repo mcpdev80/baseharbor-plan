@@ -67,3 +67,9 @@ END_BLOCKED codex-rev2-1736: PR #1614 not merged; required app-edit lifecycle ex
 ## Planning evidence validation
 
 - `python3 scripts/plan.py check`: 694 tasks, 7 epics, 13 releases, 24 decisions; 0 errors and 10 pre-existing dependency warnings.
+
+## Origin publication witness
+
+- `git ls-remote origin refs/heads/main` after the first evidence push returned exactly: `0ff4850d92f1c37f5f2d833c035f07ecfb5d2157\trefs/heads/main`.
+- Required `git fetch origin main && git ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-23/sweep-1614/review-merge-final.md$'` output, copied exactly:
+  `evidence/r28-welle5-2026-11-23/sweep-1614/review-merge-final.md`
