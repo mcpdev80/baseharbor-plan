@@ -62,6 +62,14 @@ Row B — the metrics product file that carries the folded identity-witness:
 - No subagents spawned. All steps run inside this session.
 - Evidence lives only under `baseharbor-plan/evidence/...`, never in the product repo.
 
+## CI execution (hosted, run 45115221208 — terminal success)
+
+- GitHub Actions run for PR #1794: run_id `45115221208`, status `completed`, conclusion `success`.
+- Required jobs (all terminal, pass): `Workflow policy` (success), `PR · Trusted Plan` (success — the exact trusted-plan job that failed on PR #1650, now resolved), `PR · Native gate plan` (success), `PR · Source format` (success), `PR · Focused Python` (success), `PR · Candidate-added checks (advisory)` (success), `PR · Validation · pr-planner-tests` (success), `PR · Validation · ci-planner-tests` (success), `PR · Validation · ci-executor-tests` (success).
+- Skipped (correct: this PR touches only the catalog, no product/runtime paths): targeted HA, pre-release, main-release, Go unit, native family, public contracts, consumer pins.
+- PR Selected Checks aggregate for run 45115221208: `completed` / `success`.
+- Local `bash scripts/ci-fast-check.sh`: all Go/format/readability/workflow-policy gates PASS (timed out only on the final GitHub CI aggregate poll, which needs live PR event context — the hosted run above is the authoritative terminal result).
+
 ## CLEANLINESS
 
 - docker ps -a before/after with own pid: to be recorded at END.
