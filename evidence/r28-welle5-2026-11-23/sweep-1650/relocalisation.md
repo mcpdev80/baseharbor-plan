@@ -52,9 +52,11 @@ Non-admissible NEW files (must be eliminated by relocation, net zero added files
 - go test ./internal/metrics -run 'TestIdentityWitness|TestIdentityAvailability' (skip RunsRealLifecycle|RequiresORAS|RejectsSecondProcess|PinsCanonicalApplication): ok 0.013s, 9 tests PASS
 - go test ./cmd/baha -run 'TestIdentityDashboard' (same skip): ok, 5 tests PASS
 - gofmt -l on all 6 changed files: clean
-- push to PR #1650 backing branch lane-0428-078-perses-identity-on-resolver: forced 28c18f02 -> 3126bf05e (delivered)
-- git ls-remote refs/pull/1650/head AFTER push (prove delivery): 3126bf05ea445684c52f231a4fbd588953fb52af
-- CI state for PR head 3126bf05e: pending (GitHub-hosted runners, triggered by push — no rerun/trigger authored)
+- controller CI pipeline (local repro, cd9cc4836 base): pr-diff-base -> pr-gate-plan (coverage=resolved, fallback_used=true, go-unit-tests selected) -> pr-gate-dependencies (mode=demo, deps=[core,demo]) -> pr-stage-boundary (self-contained; deferred integration: none) — all pass
+- push to PR #1650 backing branch lane-0428-078-perses-identity-on-resolver: 3126bf05e -> 9acf1d33f (delivered)
+- git ls-remote refs/pull/1650/head AFTER push (prove delivery): 3126bf05ea445684c52f231a4fbd588953fb52af; PR API head: 9acf1d33f54c5715e51d50de17664682bcc98157, base: cd9cc4836
+- CI run 45106588850 (head 3126bf05e): PR Plan step 4 'Resolve exact immutable PR inputs' failed in ~1s — diagnosed push-propagation race (head_sha was still propagating when the job fetched it). PR Selected Checks failed only by cascade from that race.
+- Re-pin commit 9acf1d33f pushed to trigger a clean CI run (diagnosed race = legitimate exception per CI execution discipline); no rerun/workflow_dispatch authored by hand
 
 ## CLEANLINESS
 
