@@ -8,34 +8,34 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w249-0428-249-runtime-image-fix
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-249 · light-runtime blob unknown
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1812]
 sources: []
-blocker: "OWNER RE-DISPATCH: run 45251664813 executed against develop dc8626e9c5, NOT candidate 69de976f1e (verified gh run headSha=dc8626e9c5), and its log fails with 'runtime_light_gates_docker: expected success, got failure' across the 14 atomic docker+podman light gates. Develop light-runtime is RED = exactly the bug #1812 fixes, so the dispatch did not test the candidate. Lane write-set is clean (diff = ONLY .github/workflows/pre-release-runtime-suite.yml; scripts/ci-local-oci-registry.sh reverted; ci.yml byte-identical; local gates + test_targeted_gate_ref green). ACTION: re-dispatch Release·Pre-Release Validation for 0428-249 so it checks out candidate 69de976f1e (inputs/checkout ref, not develop); if the 14 light gates then go green on the candidate, that proves the fix and Codex can review. No lane fault. Next trigger: Owner re-dispatch on candidate ref."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/testing #kind/bug
+- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/active #view/active #area/ci #area/testing #kind/bug
     <!-- generated:card -->
     **Owner:** w249-0428-249-runtime-image-fix · **Priority:** high  
-    **Blocker:** OWNER RE-DISPATCH: run 45251664813 executed against develop dc8626e9c5, NOT candidate 69de976f1e (verified gh run headSha=dc8626e9c5), and its log fails with 'runtime\_light\_gates\_docker: expected success, got failure' across the 14 atomic…  
+    **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w249-0428-249-runtime-image-fix  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -59,3 +59,7 @@ fix done in write-set; tests green; not merged (frost+pending)
 OWNER ACTION DONE 19:4xZ: dispatched Release·Pre-Release Validation run 45251664813 (7 light gates Docker+Podman). Scope crossing RESOLVED: #1812 head now 69de976f1e, diff = ONLY .github/workflows/pre-release-runtime-suite.yml (+20/-0), scripts/** clean (verified ls-remote+gh pr diff). Lane finish: reconcile PR body (still describes discarded scripts fix), watch OWN dispatched run to terminal, verify it tested candidate 69de976f1e (run headSha shows develop dc8626e9c5 - flag if candidate not built), republish evidence, END only when run green. No merge (frost+acceptance).
 
 fix landed YAML-only, scope clean, lane held (no scripts/** re-cross); blocked pending owner re-dispatch on correct ref
+
+OWNER re-dispatched Hosted Pre-Release Validation run 45255981415 on exact candidate 69de976f1e (ref lane-0428-249-runtime-image-fix, Demo pin f23b6e09, 14 light gates; verified gh run headSha=69de976f1e). w249 resume: watch OWN run to terminal + reconcile PR body (still describes discarded scripts fix). #1812 write-set clean (diff = ONLY .github yaml). No merge (frost).
+
+OWNER re-dispatched Hosted Pre-Release Validation run 45255981415 on exact candidate 69de976f1e (verified gh run headSha). w249: watch OWN run to terminal + reconcile PR body (still describes discarded scripts fix). diff = ONLY .github yaml. No merge.

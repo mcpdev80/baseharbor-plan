@@ -15,7 +15,7 @@ kanban_title: 0428-058 · Audit secret and Env actions
 priority: high
 depends_on: [t-20261114-r28-cli2-env-delete, t-20261114-r28-cli2-env-policy, t-20261114-r28-cli2-env-registry, t-20261114-r28-cli2-identity-secrets]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1809]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,6 +26,7 @@ evidence: []
 - [ ] t-20261114-r28-cli2-audit-events · CLI redesign: Audit secret and environment actions #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** w058-0428-058-cli2-audit-events · **Priority:** high  
+    **PR:** [baseharbor#1809](https://github.com/mcpdev80/baseharbor/pull/1809)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +36,7 @@ evidence: []
 **Required by:** [t-20261114-r28-cli2-app-data](t-20261114-r28-cli2-app-data.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md)  
 **Owner:** w058-0428-058-cli2-audit-events  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1809](https://github.com/mcpdev80/baseharbor/pull/1809)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -71,3 +72,5 @@ Success/denial/failed reveal and mutations, exact resource context, no credentia
 Planned and unassigned. No product implementation or acceptance yet.
 
 dispatched post-recovery 2026-11-23
+
+reconcile per Owner sweep: #1809 open under w058. Trusted Plan block = 0428-242 fail-loud catalog guardian on uncataloged cmd/baha/secret_audit_test.go + secret_operations.go (owner/CI-scope, card gate-catalog-residual-unblock-prs). H-V37: Draft Go reds on #1809 = STALE runs, not content. Lane: hold product, blocked on catalog card for the gate.
