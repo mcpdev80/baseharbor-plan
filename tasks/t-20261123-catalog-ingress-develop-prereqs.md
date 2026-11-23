@@ -7,15 +7,15 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: f0f6c8b4 (branch lane-0428-ingress-catalog, PR folgt) / Coordinator
-kanban_status: active
-kanban_lane: active
+owner: f0f6c8b4 / Coordinator
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One develop-only catalog PR registers the base rows that Trusted Plan needs to admit already-existing product sources in #1753…"
 kanban_title: 0428-252 · register existing-path sources
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1790]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,18 +23,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261123-catalog-ingress-develop-prereqs · Catalog ingress: register existing-path sources in develop base catalog #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261123-catalog-ingress-develop-prereqs · Catalog ingress: register existing-path sources in develop base catalog #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** f0f6c8b4 (branch lane-0428-ingress-catalog, PR folgt) / Coordinator  
+    **Owner:** f0f6c8b4 / Coordinator  
+    **PR:** [baseharbor#1790](https://github.com/mcpdev80/baseharbor/pull/1790)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** f0f6c8b4 (branch lane-0428-ingress-catalog, PR folgt) / Coordinator  
+**Owner:** f0f6c8b4 / Coordinator  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1790](https://github.com/mcpdev80/baseharbor/pull/1790)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -81,3 +82,5 @@ One develop-only catalog PR registers the base rows that Trusted Plan needs to a
 abhaengige: #1753 (227) und #1765 (209) blockiert auf diesen base-ingress. Row-form analog internal.operatorauth.test.operator.go.
 
 arbeit beginnt: drei base-rows, lokale validator-pflicht, dann PR + exact-head run. package-root-kapitel gestrichen (owner-schienenroute).
+
+kandidat complete: PR #1790 head b103495b6, base develop ef73b50b, ready, diff exakt +27/0 (drei component-rows, KEIN package-root  scope-gemaess; title fix wurde lane aufgetragen). Exact-head run 45086017941 COMPLETED/SUCCESS (alle jobs inkl. executor/planner tests). Uebergabe an CODEX (REVIEW dann MERGE, owner-autorisiert durch diese karte + ingress-entscheidung 2026-11-23).
