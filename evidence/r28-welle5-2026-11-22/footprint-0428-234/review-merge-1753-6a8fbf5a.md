@@ -97,3 +97,11 @@ origin https://github.com/mcpdev80/baseharbor-plan.git (push)
 Before review, shell PID `3347110` ran `docker ps -a`; output contained only the header and no containers. After review, shell PID `3385467` ran `docker ps -a`; output contained only the header and no containers. No compose project was created.
 
 END_DONE codex-rev2-1736: PR #1753 merged at `1b7598aef8c4cae33b77c8523872637090d0f2bf`; exact head `6a8fbf5aa9cfe483151af16b3def3702fc96456e` passed required selected checks and both native data-capabilities runtimes.
+
+## origin/main evidence-path witness
+
+Exact matching output from `git fetch origin main && git ls-tree -r --name-only origin/main | grep 'evidence/r28-welle5-2026-11-22/footprint-0428-234/review-merge-1753-6a8fbf5a.md'`:
+
+```text
+evidence/r28-welle5-2026-11-22/footprint-0428-234/review-merge-1753-6a8fbf5a.md
+```
