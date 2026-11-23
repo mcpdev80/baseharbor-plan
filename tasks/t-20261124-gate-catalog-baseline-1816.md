@@ -15,12 +15,12 @@ kanban_title: 0428-261 · add 3 Trusted Plan rows to
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1817]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: [evidence/2026-11-24/0428-261-gate-catalog-baseline-1816/round-1.md]
 ---
 
 - [ ] t-20261124-gate-catalog-baseline-1816 · CI/catalog: add 3 Trusted Plan rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/active #view/active #kind/task
