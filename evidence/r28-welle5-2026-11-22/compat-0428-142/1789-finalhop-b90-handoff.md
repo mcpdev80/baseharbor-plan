@@ -94,7 +94,7 @@ en exact hosted meten.
 ## cleanliness
 
 cleanliness: `docker ps -a` BEFORE = 0 entries (pid 3066585), AFTER = 0
-entries (pid 3097479). Geen compose/container gestart op deze host. Scratch
+entries (pid 3104101). Geen compose/container gestart op deze host. Scratch
 (/var/tmp/0428-223-fc1789.log) vóór END verwijderd. Werktree
 workers/0428-223-1789-wt houdt de kandidaat (0 delta); deze hop-werktree is
 voor deze fanoutklus en mag daarna opgeruimd worden.
