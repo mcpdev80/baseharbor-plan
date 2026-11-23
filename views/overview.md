@@ -14,7 +14,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | review | 4 |
 | wait | 15 |
 | blocked | 1 |
-| ready | 12 |
+| ready | 13 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
@@ -83,13 +83,14 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261122-static-cell-local-workload-grant-access](../tasks/t-20261122-static-cell-local-workload-grant-access.md) | Static cells: --access local-docker rejected at local_workload_authority.go:62 | ready | high | — | — | — |
 | [t-20261123-edit-toggle-ack](../tasks/t-20261123-edit-toggle-ack.md) | Bug (hunt H-P1): app-edit: space-toggle lacks on-screen acknowledgement | ready | not set | — | — | — |
 | [t-20261123-planner-deleted-source-advisory](../tasks/t-20261123-planner-deleted-source-advisory.md) | CI: candidate planner mishandles deleted source rows (advisory job red) | ready | not set | — | — | — |
+| [t-20261123-shared-backends-unit-receipt](../tasks/t-20261123-shared-backends-unit-receipt.md) | Bug (post-merge #1725): TestSharedBackendState* lack hosted unit receipt (coverage maps sources only to podman data-caps surface) | ready | not set | — | — | — |
 | [t-20261123-wizard-org-default-usageerror](../tasks/t-20261123-wizard-org-default-usageerror.md) | Bug (hunt H-P1): app-new wizard: org-default missing-stack must return usageError parity, not hard error | ready | not set | — | — | — |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 4 open, 165 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 56 open, 215 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 57 open, 215 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 16 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
