@@ -104,3 +104,11 @@ leeg, 1 rij, dup id/path 0, validator VALID). EXACT hosted run
 (uncataloged-source opgelost, base-zijdig via #1790), native 6/6, selected
 data-caps + guided docker/podman, selected coreless integrations, Go unit
 shards + Focused Python, PR Selected Checks GROEN. cleanliness: besenrein.
+
+## origin/main witness
+
+Exact: `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep 1765-rehop-c6a7138-dedup` (plan main = 9669fbfbda7fe7787db4d7ff08247c779e608ec5):
+
+```
+evidence/r28-welle5-2026-11-22/testctx-0428-223/1765-rehop-c6a7138-dedup.md
+```
