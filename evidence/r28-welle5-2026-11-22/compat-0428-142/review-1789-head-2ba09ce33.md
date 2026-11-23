@@ -76,3 +76,11 @@ No merge was performed; the mission reserves merge for a later owner-started act
 Planning validation: `python3 scripts/plan.py check` completed with 0 errors and 11 warnings (existing dependency/status warnings). Evidence contains no Markdown checkbox lines.
 
 END_DONE codex-rev-1747: REVIEW APPROVE #1789 exact head 146ccf6fd67c285a33dbc06a7d061806228550ce; required run 45089780959 green; candidate-added failure is advisory and tracked by 0428-253; no merge.
+
+## origin/main witness
+
+Exact output of `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep 'evidence/r28-welle5-2026-11-22/compat-0428-142/review-1789-head-2ba09ce33.md'` after fetching origin/main:
+
+```text
+evidence/r28-welle5-2026-11-22/compat-0428-142/review-1789-head-2ba09ce33.md
+```
