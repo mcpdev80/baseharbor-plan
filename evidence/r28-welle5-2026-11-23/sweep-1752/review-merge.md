@@ -116,4 +116,18 @@ No Docker/Podman compose project was started.
 
 Planning repository validation: `python3 scripts/plan.py render` completed; `python3 scripts/plan.py check` completed with 0 errors and 10 pre-existing dependency warnings across unrelated task notes. `git diff --check` passed. The evidence file contains no Markdown checkbox lines.
 
+## Planning publication
+
+The first evidence push was delivered to the verified Planning GitHub remote:
+
+```text
+e14a137c536cc3f01599e243368f6c6654fe4c92 refs/heads/main
+```
+
+After fetching `origin main`, `git ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-23/sweep-1752/review-merge.md$'` returned this exact path:
+
+```text
+evidence/r28-welle5-2026-11-23/sweep-1752/review-merge.md
+```
+
 END codex-rev-1747 DONE
