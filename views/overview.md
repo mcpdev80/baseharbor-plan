@@ -33,7 +33,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-base-branch-provenance-loss](../tasks/t-20261121-base-branch-provenance-loss.md) | 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened | active | high | coordinator | — | — |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
 | [t-20261122-ci-operator-fixture-allowlist-gap](../tasks/t-20261122-ci-operator-fixture-allowlist-gap.md) | Add the missing command forms to the test-only CI-operator fixture allow-list so static/core gates stamp the synthetic operator instead of failing closed | active | high | w50-0428-250-corefixture | — | [baseharbor-demo#170](https://github.com/mcpdev80/baseharbor-demo/pull/170), [baseharbor#1815](https://github.com/mcpdev80/baseharbor/pull/1815) |
-| [t-20261124-gate-catalog-baseline-1816](../tasks/t-20261124-gate-catalog-baseline-1816.md) | CI/catalog: add 3 Trusted Plan rows to develop pr-gate-coverage.json | active | not set | w51-0428-261-catalog | — | — |
+| [t-20261124-gate-catalog-baseline-1816](../tasks/t-20261124-gate-catalog-baseline-1816.md) | CI/catalog: add 3 Trusted Plan rows to develop pr-gate-coverage.json | active | not set | w51-0428-261-catalog | — | [baseharbor#1817](https://github.com/mcpdev80/baseharbor/pull/1817) |
 
 ## Ready for review
 

@@ -20,12 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: [evidence/2026-11-24/0428-261-gate-catalog-baseline-1816/round-1.md]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-24/0428-261-gate-catalog-baseline-1816/round-1.md"]
 ---
 
 - [ ] t-20261124-gate-catalog-baseline-1816 · CI/catalog: add 3 Trusted Plan rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** w51-0428-261-catalog  
+    **PR:** [baseharbor#1817](https://github.com/mcpdev80/baseharbor/pull/1817)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-24/0428-261-gate-catalog-baseline-1816/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -34,7 +36,7 @@ evidence: [evidence/2026-11-24/0428-261-gate-catalog-baseline-1816/round-1.md]
 **Depends on:** none  
 **Owner:** w51-0428-261-catalog  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1817](https://github.com/mcpdev80/baseharbor/pull/1817)  
 **Source:** 
 <!-- /generated:links -->
 
