@@ -81,3 +81,5 @@
 Exact output from the required origin/main tree check:
 
 `evidence/r28-welle5-2026-11-23/sweep-1763/review-merge.md`
+- After review `docker ps -a` returned only the header (`CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES`); no containers were started. Post-review command PID: `447167`.
+- Planning `origin/main` delivery witness after evidence publication: `faf2e02cfc0b833289328d056700ad80e316622f refs/heads/main`.
