@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 6 |
+| active | 7 |
 | review | 4 |
 | wait | 10 |
 | blocked | 1 |
-| ready | 10 |
+| ready | 9 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
@@ -30,6 +30,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261120-r28-valkey-dashboard-unavailable-only](../tasks/t-20261120-r28-valkey-dashboard-unavailable-only.md) | Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable | active | not set | Codex (Marcel, active wait sweep 2026-11-21) | [t-20261121-loki-verify-probe](../tasks/t-20261121-loki-verify-probe.md), [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) | [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714) |
 | [t-20261121-base-branch-provenance-loss](../tasks/t-20261121-base-branch-provenance-loss.md) | 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened | active | high | coordinator | — | — |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
+| [t-20261122-static-cell-local-workload-grant-access](../tasks/t-20261122-static-cell-local-workload-grant-access.md) | Static cells: --access local-docker rejected at local_workload_authority.go:62 | active | high | w243-0428-243-static-cell-grant-access | — | — |
 
 ## Ready for review
 
@@ -73,7 +74,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261120-r28-perses-status-never-verified](../tasks/t-20261120-r28-perses-status-never-verified.md) | No source API yields verified: status --json can never report true | ready | not set | — | — | — |
 | [t-20261121-candidate-commit-identity](../tasks/t-20261121-candidate-commit-identity.md) | Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) | ready | not set | — | — | — |
 | [t-20261122-native-plan-self-selection](../tasks/t-20261122-native-plan-self-selection.md) | CI: catalog and planner self-change selects zero gates | ready | not set | — | — | — |
-| [t-20261122-static-cell-local-workload-grant-access](../tasks/t-20261122-static-cell-local-workload-grant-access.md) | Static cells: --access local-docker rejected at local_workload_authority.go:62 | ready | high | — | — | — |
 | [t-20261123-planner-deleted-source-advisory](../tasks/t-20261123-planner-deleted-source-advisory.md) | CI: candidate planner mishandles deleted source rows (advisory job red) | ready | not set | — | — | — |
 
 ## By release

@@ -7,9 +7,9 @@ areas: [testing, identity]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w243-0428-243-static-cell-grant-access
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-243 · static cell local-docker grant
 priority: high
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-static-cell-local-workload-grant-access · Static cells: --access local-docker rejected at local_workload_authority.go:62 #task #release/v0-4-28 #status/planned #view/ready #area/identity #area/testing #kind/bug
+- [ ] t-20261122-static-cell-local-workload-grant-access · Static cells: --access local-docker rejected at local_workload_authority.go:62 #task #release/v0-4-28 #status/active #view/active #area/identity #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w243-0428-243-static-cell-grant-access · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w243-0428-243-static-cell-grant-access  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -60,3 +59,5 @@ Secondary: the static cell builds `go build ./cmd/baha` without the `baseharbor_
 
 `cmd/baha/local_workload_authority.go` plus its existing shard tests. This is a SEPARATE mission from card 0428-231 / PR #1761
 (helper fan-out, write-set `internal/operatorauth/**`), so it carries its own branch and PR; #1761 is untouched.
+
+dispatched post-recovery 2026-11-23
