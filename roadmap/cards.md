@@ -16,8 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 191/272 · **Blocked:** 1 · **Waiting:** 20  
-    **Blocker:** [t-20261120-r28-perses-status-never-verified](../tasks/t-20261120-r28-perses-status-never-verified.md) — OWNER ACTION: remote push rejected with 'fatal error in commit\_refs\_rules' (GitHub repo ruleset fault). Candidate 168d40950 implemented + locally verified, pre…  
+    **Accepted tasks:** 191/272 · **Blocked:** 0 · **Waiting:** 20  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next
