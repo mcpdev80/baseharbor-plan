@@ -62,3 +62,5 @@ candidate 168d40950 PR #1810 base develop clean (develop ancestor); verified-sta
 CODEX-REVIEW #1810 = REQUEST_CHANGES (422 self-review, routed to worker): PersesStatusVerified derived from hostProviderMetricsNativeVerified() = static ReferenceIntegrations inspection, no target/provider input, no probe; violates acceptance 1+3 (never static 'true'). Route to w186.
 
 Gate dependency: #1810 Trusted Plan clears via card 0428-260 (catalog guardian rows for internal/capability + internal/application/perses_lifecycle_test.go). INDEPENDENT of that: w186 still owes the REQUEST_CHANGES code fix (static verified -> fail-closed configured_unverified); head 168d40950 unchanged 5 ticks -> seat escalated to Owner.
+
+develop d4fa8c589 (#1813) cataloged #1810's paths -> gate guardian clears after the additive hop (routed to w186). STILL owed regardless: the CODEX REQUEST_CHANGES fail-closed code fix (head stuck 168d40950 many briefs). Last chance sent; unchanged head next tick -> Owner seat force-release.
