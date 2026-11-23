@@ -74,3 +74,5 @@ Planned and unassigned. No product implementation or acceptance yet.
 dispatched post-recovery 2026-11-23
 
 reconcile per Owner sweep: #1809 open under w058. Trusted Plan block = 0428-242 fail-loud catalog guardian on uncataloged cmd/baha/secret_audit_test.go + secret_operations.go (owner/CI-scope, card gate-catalog-residual-unblock-prs). H-V37: Draft Go reds on #1809 = STALE runs, not content. Lane: hold product, blocked on catalog card for the gate.
+
+reconcile Owner sweep: #1809 open under w058. Trusted Plan block = 0428-242 catalog guardian on uncataloged cmd/baha/secret_audit_test.go+secret_operations.go (owner/CI scope, card 0428-260). H-V37: Draft Go reds = STALE. Lane hold product; gate blocked on 0428-260.
