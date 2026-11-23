@@ -75,3 +75,8 @@ END_BLOCKED codex-rev2-1736: PR #1725 already merged at b517b279c9533669c104dc64
 - Planning repository remote output before this evidence commit:
   `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)`
   `origin https://github.com/mcpdev80/baseharbor-plan.git (push)`
+
+## Origin evidence-path witness
+
+- Final required `git fetch origin main && git ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-23/sweep-1725/review-merge.md$'` output before this evidence push:
+  `evidence/r28-welle5-2026-11-23/sweep-1725/review-merge.md`
