@@ -5,27 +5,29 @@ type: task
 release: v0.4.26
 version: ""
 parent: v0.4.26
-owner: "mcpdev80 (core-914)"
+owner: Coordinator (owner-delegierter merge) / 0847d100
 kanban_lane: closed
 kanban_summary: "The New/Edit preview explains required services and incremental resource needs in a few lines. Lane: read-only presentation."
 kanban_status: closed
 kanban_title: "Preview: present the actual footprint concisely"
 depends_on: [core-910, t-20261016-wizard-task-ci-readiness]
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#962"]
+prs: [mcpdev80/baseharbor#962, mcpdev80/baseharbor#1773]
 sources: ["mcpdev80/baseharbor#914"]
 source_updated: "2026-10-15T16:46:40Z"
 labels: [area/dx]
 blocker: ""
 resolution: accepted
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/962", "https://github.com/mcpdev80/baseharbor/commit/30d635b827e86d233030746abc65ce9475516ce0", "https://github.com/mcpdev80/baseharbor/actions/runs/38892885506"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/962", "https://github.com/mcpdev80/baseharbor/commit/30d635b827e86d233030746abc65ce9475516ce0", "https://github.com/mcpdev80/baseharbor/actions/runs/38892885506", "https://github.com/mcpdev80/baseharbor/pull/1773"]
+wait_reason: ""
+
 ---
 
 - [x] core-914 · Preview: present the actual footprint concisely #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/wizard #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 (core-914)  
-    **PR:** [baseharbor#962](https://github.com/mcpdev80/baseharbor/pull/962)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/962), [proof 2](https://github.com/mcpdev80/baseharbor/commit/30d635b827e86d233030746abc65ce9475516ce0), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38892885506)  
+    **Owner:** Coordinator (owner-delegierter merge) / 0847d100  
+    **PR:** [baseharbor#962](https://github.com/mcpdev80/baseharbor/pull/962), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/962), [proof 2](https://github.com/mcpdev80/baseharbor/commit/30d635b827e86d233030746abc65ce9475516ce0), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38892885506), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1773)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -33,9 +35,9 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/962", "https://github.co
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
 **Required by:** [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md), [core-919](core-919-footprint-cli-json-one-projection.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
-**Owner:** mcpdev80 (core-914)  
+**Owner:** Coordinator (owner-delegierter merge) / 0847d100  
 **Priority:** not set  
-**PRs:** [baseharbor#962](https://github.com/mcpdev80/baseharbor/pull/962)  
+**PRs:** [baseharbor#962](https://github.com/mcpdev80/baseharbor/pull/962), [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773)  
 **Source:** [baseharbor#914](https://github.com/mcpdev80/baseharbor/issues/914)
 <!-- /generated:links -->
 
@@ -79,3 +81,5 @@ The New/Edit preview explains required services and incremental resource needs i
 
 
 The [standard v0.4.26 task rules](../releases/v0.4.26.md#standard-rules-for-v0426-tasks) apply.
+
+CLOSED: #1773 merged als b3df96348a (07:04:03Z) nach exaktem pull_request-run 45125532868 SUCCESS (TP + Selected) am head e5a82c2e, files == [cmd/baha/app_footprint_presenter.go] nach scope-bereinigung; base f50b118f2.
