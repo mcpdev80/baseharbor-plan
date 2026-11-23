@@ -71,3 +71,9 @@ c3e49f3cc1959db68d57e52db0408bd48a043292 refs/heads/develop
 
 - VERDICT: PASS — accept PR #1800. The one-file diff contains exactly the two requested normalized source records, with the expected `cmd/baha/` paths and Docker/Podman guided surfaces; the comparison has 16 additions and 0 deletions. Exact-head Trusted Plan and terminal PR Selected Checks passed. Squash merge `c3e49f3cc1959db68d57e52db0408bd48a043292` is already verified on `develop`.
 - END DONE codex-rev-1747: #1800 post-merge review PASS; exact diff, hosted checks, and squash merge verified. Merge SHA `c3e49f3cc1959db68d57e52db0408bd48a043292`.
+
+## Planning publication witness
+
+Exact output from the required origin/main tree check before the final evidence push:
+
+evidence/r28-welle5-2026-11-23/sweep-1800/review-merge.md
