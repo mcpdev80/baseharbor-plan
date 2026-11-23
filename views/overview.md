@@ -11,8 +11,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 7 |
-| review | 3 |
-| wait | 16 |
+| review | 4 |
+| wait | 15 |
 | blocked | 3 |
 | ready | 10 |
 | queued | 25 |
@@ -38,6 +38,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | review | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
 | [t-20261122-ci-operator-fixture-allowlist-gap](../tasks/t-20261122-ci-operator-fixture-allowlist-gap.md) | Add the missing command forms to the test-only CI-operator fixture allow-list so static/core gates stamp the synthetic operator instead of failing closed | review | high | 0847d100 (baseharbor-demo fix) | — | [baseharbor-demo#170](https://github.com/mcpdev80/baseharbor-demo/pull/170) |
+| [t-20261122-footprint-human-surface-doc-gaps](../tasks/t-20261122-footprint-human-surface-doc-gaps.md) | Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract | review | normal | 0847d100 (finalhop 7880a8f6 laeuft) / Coordinator | — | [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783) |
 | [t-20261122-runtime-broker-health-unhealthy](../tasks/t-20261122-runtime-broker-health-unhealthy.md) | CI: data-capabilities native gate fails on secure runtime broker readiness | review | not set | ffe7611b (#1770 62f4ab0d combined, 0 fail / 22 pass / 1 pending = ~terminal; alle 3 Poorten job-belegt gruen) / Owner (step4 develop merge) / Coordinator | [t-20261122-gate-catalog-missing-app-broker-component](../tasks/t-20261122-gate-catalog-missing-app-broker-component.md) | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783) |
 
 ## Waiting for resources
@@ -57,7 +58,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-destroy-authority-stamp](../tasks/t-20261121-destroy-authority-stamp.md) | installation.destroy authorization assertion runs on a stamped context | wait | high | f0f6c8b4 (#1738 own diff complete/correct) / Coordinator (wait prereq) / 1450c201 (reviewed own diff) | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738), [baseharbor#1781](https://github.com/mcpdev80/baseharbor/pull/1781), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783) |
 | [t-20261121-trust-uninstall-false-green](../tasks/t-20261121-trust-uninstall-false-green.md) | trust-uninstall EOF tests are green on the auth gate error | wait | high | coordinator (karte) / erster freier worker-sitz (ausfuehrung) | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737) |
 | [t-20261122-broker-diagnostics-empty](../tasks/t-20261122-broker-diagnostics-empty.md) | CLI: name the failing dependency in broker readiness diagnostics | wait | not set | Owner (hop 1d661942) / Coordinator (trigger 241) | — | [baseharbor#1763](https://github.com/mcpdev80/baseharbor/pull/1763) |
-| [t-20261122-footprint-human-surface-doc-gaps](../tasks/t-20261122-footprint-human-surface-doc-gaps.md) | Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract | wait | normal | ffe7611b (#1773 beobachtet run 45076500862) / Coordinator | — | [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783) |
 | [t-20261122-impact-consent-after-preview-contract](../tasks/t-20261122-impact-consent-after-preview-contract.md) | Env destroy: impact consent validated after preview is structurally stale (five fixture rounds) | wait | not set | w21-pr1702-0428-142-compat | — | [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627) |
 | [t-20261122-target-create-operator-auth-decision](../tasks/t-20261122-target-create-operator-auth-decision.md) | target create reaches the managed-operator auth boundary with no local-workload hook; owner decides the consent/auth path | wait | high | Owner / Core | — | — |
 
