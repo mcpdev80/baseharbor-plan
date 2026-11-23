@@ -7,34 +7,36 @@ areas: ["cli"]
 release: v0.4.28
 version: ""
 parent: ""
-owner: f0f6c8b4
-kanban_status: active
-kanban_lane: active
+owner: Coordinator / f0f6c8b4
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: "0428-257 · app-edit: space-toggle lacks"
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1801]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1801"]
 ---
 
-- [ ] t-20261123-edit-toggle-ack · Bug (hunt H-P1): app-edit: space-toggle lacks on-screen acknowledgement #task #release/v0-4-28 #status/active #view/active #area/cli #kind/task
+- [ ] t-20261123-edit-toggle-ack · Bug (hunt H-P1): app-edit: space-toggle lacks on-screen acknowledgement #task #release/v0-4-28 #status/review #view/review #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** f0f6c8b4  
+    **Owner:** Coordinator / f0f6c8b4  
+    **PR:** [baseharbor#1801](https://github.com/mcpdev80/baseharbor/pull/1801)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1801)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** f0f6c8b4  
+**Owner:** Coordinator / f0f6c8b4  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1801](https://github.com/mcpdev80/baseharbor/pull/1801)  
 **Source:** 
 <!-- /generated:links -->
 
