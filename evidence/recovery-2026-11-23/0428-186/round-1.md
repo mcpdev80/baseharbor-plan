@@ -83,9 +83,35 @@ Local results: `go test ./internal/capability/`, `./cmd/baha/ -run Perses`, `./i
 ## PR state
 
 - Branch: lane-0428-186-verified-status-source (cut from origin/develop dc8626e9...).
-- PR: #1810 (DRAFT, base develop). Push delivered after the ruleset was resolved: `git ls-remote origin refs/heads/lane-0428-186-verified-status-source` = 168d40950bae5b8fb31862b36ceaffbdd1862207 (== local HEAD).
+- PR: #1810 (OPEN / ready-for-review, base develop). Push delivered after the ruleset was resolved: `git ls-remote origin refs/heads/lane-0428-186-verified-status-source` = 168d40950bae5b8fb31862b36ceaffbdd1862207 (== local HEAD).
 - Local candidate SHA: 168d40950bae5b8fb31862b36ceaffbdd1862207
-- CI run #7541: completed `success`. On the DRAFT PR only the Draft Go checks run and pass (`PR · Draft Go · cli-0/cli-2/cli-3 -> success`); `PR Selected Checks` and the other required jobs report `skipped` because a draft does not run the selected-checks gate. Per the CI policy the required "PR Selected Checks" run when the PR is marked ready. The PR stays DRAFT until the gate is run (handoff), then flips to review.
+
+## CI gate — TRUSTED PLAN FAILURE (owner-scope, not my candidate)
+
+Marked #1810 ready-for-review (PR now OPEN, not draft) to trigger PR Selected Checks. Watched run #45247799528 (#7543) to terminal.
+
+Non-skipped results:
+- PR Source format -> success
+- Workflow policy -> success
+- PR Native gate plan -> success
+- PR · Native · native/docker/perses-runtime-smoke -> success (my native gate, green)
+- PR Trusted Plan -> **failure**
+- PR Selected Checks -> **failure** (downstream dependency of Trusted Plan)
+- All other jobs skipped (draft mode; selected-checks gate not yet green)
+
+Failing job line captured (job 137949084179, "PR · Trusted Plan", `CI · PR #1810 #7543`):
+> Step **"Resolve exact immutable PR inputs using trusted base policy" → failure** (failed Nov 23, 2026 in 13s).
+The detailed step log text is not API-accessible without repo admin; the failing-step identity above is the authoritative failing line.
+
+Root cause (owner scope, card 0428-235 — planner selects zero gates for these paths):
+- The failing step is the base-precedence CI planner (`scripts/pr-gate-plan.py`), an Owner-scope file OUTSIDE this lane's write-set. Do NOT edit `scripts/**` and DO NOT fabricate a gate-catalog row.
+- My changed path IS covered by an existing gate: `internal/capability` maps to `capability-package-tests` (`scripts/pr-gate-plan.py:404-407`, owner `internal/capability`, command `go test ./internal/capability/... -count=1`), which passes locally. So this is NOT a "my path has no admission row" gap on the candidate — it is the shared planner bug where Trusted Plan fails at input resolution and selects zero gates.
+- Corroboration: PR #1809 (a different, unrelated card) shows the IDENTICAL pattern — `PR Trusted Plan -> failure` + `PR Selected Checks -> failure` (same job 137949084179-style "Resolve exact immutable PR inputs" step). #1809 head 034c0c7d also fails Trusted Plan. This is one shared owner-scope CI-planner gap, not my candidate.
+
+## PR state (updated)
+
+- PR #1810 is **OPEN**, held ready-for-review, candidate verified clean.
+- Blocked on the owner-scope 0428-235 planner fix. Once the planner selects gates again, PR Selected Checks should go green (the Draft Go checks already PASS: 9 PASS) and Codex review dispatches. Do NOT re-run hoping it clears; do NOT edit scripts/**; do NOT start a second branch.
 
 ## Cleanliness
 
