@@ -44,6 +44,7 @@ Candidate: `ingress-0428-208-static-gate`, base `9ba8e9baa7`
 ## Cleanliness
 - No docker/podman compose started by this lane.
 - No scratch files in /home/marcel/dev/baseharbor-ecosystem (worktree under /tmp/wt-0428-208, akte under baseharbor-plan/evidence).
+- docker ps -a (own pid): no containers by this lane — only pre-existing system containers listed.
 - cleanliness: clean — no containers, no volumes, no state dirs created.
 
 ## END
