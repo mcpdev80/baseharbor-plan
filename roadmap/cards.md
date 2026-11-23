@@ -16,10 +16,9 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 178/268 · **Blocked:** 3 · **Waiting:** 20  
+    **Accepted tasks:** 179/268 · **Blocked:** 2 · **Waiting:** 20  
     **Blocker:** [t-20261121-static-gate-registration](../tasks/t-20261121-static-gate-registration.md) — release-tag tension (LANE-ERKENT, zeugen in akte): release-requirements.json ci-fast-check required\_for \[v0.4.28\] aber validator/mapping release-FELD = v0.4.27…  
     **Blocker:** [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) — Owner-Entscheidung 2026-11-22: Freigabe für eine Ursachenprüfung und genau einen PR mit der eng begrenzten Reparatur, soweit durch Befund belegt: Reihenfolge u…  
-    Plus 1 further blockers in the task list.  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next

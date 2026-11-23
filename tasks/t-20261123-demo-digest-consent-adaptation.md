@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: Coordinator (kein Lane-Dispatch,Entscheid-frei hinfällig)
-kanban_status: blocked
-kanban_lane: blocked
+owner: Coordinator (merge 1450) / 9b7683b5
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: The baseharbor-demo footprint consent test passes with the explicit candidate digest while the product-side fail-closed Consent…
 kanban_title: 0428-251 · pass explicit candidate digest
 priority: ""
@@ -17,24 +17,24 @@ depends_on: []
 repos: [mcpdev80/baseharbor-demo]
 prs: [mcpdev80/baseharbor#1780]
 sources: []
-blocker: "owner-befund 2026-11-23: keine Demo-aenderung noetig  baseharbor-demo main extrahiert das candidate-digest bereits und ruft 'baha app apply --confirm-candidate <hash>' (tests/guided/new_edit.py::resume_confirmed_edit_apply, data-capabilities/new_edit.py::apply_created_application; demo-ref 98e4d549). #1780s selected docker+podman fails sind dieselbe #1753-admission-klasse (app footprint show -o json, ci-operator-testonly command admission; footprint show hat gar kein --confirm-candidate), die vier native-fails sind die broker-unhealthy/local-registry-blob-klasse (0428-237). Karte wird nur aktiv, falls der Owner eine separate harness-Aenderung beschliesst. Kein Lane-Dispatch von mir."
+blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1780"]
 ---
 
-- [ ] t-20261123-demo-digest-consent-adaptation · Demo: pass explicit candidate digest in footprint consent test (fail-closed kept) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [x] t-20261123-demo-digest-consent-adaptation · Demo: pass explicit candidate digest in footprint consent test (fail-closed kept) #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
-    **Owner:** Coordinator (kein Lane-Dispatch,Entscheid-frei hinfällig)  
+    **Owner:** Coordinator (merge 1450) / 9b7683b5  
     **PR:** [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780)  
-    **Blocker:** owner-befund 2026-11-23: keine Demo-aenderung noetig baseharbor-demo main extrahiert das candidate-digest bereits und ruft 'baha app apply --confirm-candidate \<hash\>' (tests/guided/new\_edit.py::resume\_confirmed\_edit\_apply, data-capabilitie…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1780)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** Coordinator (kein Lane-Dispatch,Entscheid-frei hinfällig)  
+**Owner:** Coordinator (merge 1450) / 9b7683b5  
 **Priority:** not set  
 **PRs:** [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780)  
 **Source:** 
@@ -80,3 +80,5 @@ The baseharbor-demo footprint consent test passes with the explicit candidate di
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+
+CLOSED: #1780 gemergt als fcccf7a205 nach delta-re-review; PR-run 45117979213 terminal success am head 4825f89c, files == 0428-241 write-set.
