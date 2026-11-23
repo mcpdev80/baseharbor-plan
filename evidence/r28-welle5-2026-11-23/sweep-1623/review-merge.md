@@ -120,3 +120,26 @@ END_BLOCKED codex-rev2-1736: PR #1623 no longer has the mission head and lacks t
 Immediately before this evidence update, `git fetch origin main && git ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-23/sweep-1623/review-merge.md$'` emitted this exact output:
 
 evidence/r28-welle5-2026-11-23/sweep-1623/review-merge.md
+
+## PLAN — re-dispatch at 2eb6f40bd
+
+1. Record this re-dispatch plan and read the prior blocked review plus current task contract.
+2. Refresh GitHub remote refs, PR head/base, exact-head run, and all requested receipts.
+3. Review the exact candidate diff for card scope, gate routing, and source/security behavior.
+4. Document the exact-head verdict and cleanliness; do not merge under this mission.
+5. Publish the updated evidence to baseharbor-plan origin/main, synchronize the board, and post final status.
+
+## Re-dispatch observation hold — awaiting lane 0847
+
+- Current PR #1623 remote refs at this re-dispatch: `develop` is `ff4cdf509dd00df81f90ecd0eb0bff17696ca9bb`; PR/branch head is `2eb6f40bd3a5724f11c655621c8b5bc99c48b022` (the mission short SHA `2eb6f40bd`).
+- Run `45182759775` is for exact head `2eb6f40bd3a5724f11c655621c8b5bc99c48b022`, pull_request event, and remains `pending` with zero registered checks. The older run `45178624184` is for head `213ca519527b3bfa295c618d0364b221013a6796` and remains `in_progress`; it is not evidence for the new head.
+- Coordinator correction: the earlier 0/0 interpretation was not terminal success; it reflected no registered checks on the new head. Lane 0847 owns observation. This review is paused until that lane delivers an END with terminal status; only then resume against its final SHA.
+- No review verdict is issued in this interim note. No product tests, CI reruns, workflow dispatch, product edits, or merge actions were performed during this pause.
+
+Planning remote verification before this evidence update: `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)` and `origin https://github.com/mcpdev80/baseharbor-plan.git (push)`.
+
+## Required origin/main path witness before this interim publication
+
+Immediately before this evidence update, `git fetch origin main && git ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-23/sweep-1623/review-merge.md$'` emitted this exact output:
+
+evidence/r28-welle5-2026-11-23/sweep-1623/review-merge.md
