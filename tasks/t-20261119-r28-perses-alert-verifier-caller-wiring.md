@@ -9,9 +9,9 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w41-0428-152-alertverifier
-kanban_status: active
-kanban_lane: active
-blocker: ""
+kanban_status: blocked
+kanban_lane: blocked
+blocker: "CI/catalog owner must land 3 baseline rows on develop scripts/pr-gate-coverage.json (ids source.cmd_baha_app_status_collect_go/_app_status_perses_alert_evaluator_0428_152_test_go/_perses_lifecycle_go, surfaces docker+podman.data.capabilities). Trusted Plan resolves vs trusted develop base; in-PR rows cannot authorize. Next trigger: rows land on develop -> rebase #1816 -> exact-head Hosted green."
 wait_reason: ""
 depends_on: [t-20261119-r28-perses-status-backend-witness]
 repos: [mcpdev80/baseharbor]
@@ -24,15 +24,16 @@ resolution: ""
 created: 2026-11-19
 ---
 
-- [ ] t-20261119-r28-perses-alert-verifier-caller-wiring · alert-verifier haengt in der luft #task #release/v0-4-28 #status/active #view/active #area/cli #area/metrics #area/observability #kind/task
+- [ ] t-20261119-r28-perses-alert-verifier-caller-wiring · alert-verifier haengt in der luft #task #release/v0-4-28 #status/blocked #view/blocked #area/cli #area/metrics #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w41-0428-152-alertverifier  
     **PR:** [baseharbor#1816](https://github.com/mcpdev80/baseharbor/pull/1816)  
+    **Blocker:** CI/catalog owner must land 3 baseline rows on develop scripts/pr-gate-coverage.json (ids source.cmd\_baha\_app\_status\_collect\_go/\_app\_status\_perses\_alert\_evaluator\_0428\_152\_test\_go/\_perses\_lifecycle\_go, surfaces docker+podman.data.capabiliti…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-review-wave/1704-0428-073.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261119-r28-perses-status-backend-witness](t-20261119-r28-perses-status-backend-witness.md)  
 **Owner:** w41-0428-152-alertverifier  
@@ -85,3 +86,5 @@ run 45286659035: surfaces now correct; 3 catalog id fields must change dot-separ
 Trusted Plan base-policy blocker (run 45287020021): resolves vs trusted develop catalog 0d29c2a9, which lacks the 3 rows, so in-PR self-catalog cannot authorize. Lane told to strip scripts/pr-gate-coverage.json from #1816 (product-code-only). OWNER/CI-catalog must land baseline rows on develop FIRST, then #1816 rebases+green. No local tests; no merge; no Codex.
 
 Blocked on develop catalog baseline (run at 70ab77ad: Trusted Plan + selected checks FAIL, correct-by-design — lane removed in-PR self-catalog per base-policy rule). #1816 is now product-code-only. OWNER/CI-catalog must add 3 rows to develop scripts/pr-gate-coverage.json (all surfaces docker.data.capabilities+podman.data.capabilities): source.cmd_baha_app_status_collect_go/_app_status_perses_alert_evaluator_0428_152_test_go/_perses_lifecycle_go; then #1816 rebases to green develop. #1809/#1650 new paths already have develop rows (verified) — not catalog-blocked.
+
+#1816 70ab77ad product-code-only (consumer+3-state+tests delivered, scripts/** out of diff); run 45287538708 red ONLY on the missing develop baseline. No lane defect; no merge; no Codex.
