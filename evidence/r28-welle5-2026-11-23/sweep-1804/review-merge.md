@@ -84,3 +84,72 @@ From https://github.com/mcpdev80/baseharbor-plan
  * branch                main       -> FETCH_HEAD
 evidence/r28-welle5-2026-11-23/sweep-1804/review-merge.md
 ```
+
+
+## PLAN — follow-up review #1804b
+
+1. Read `/tmp/opencode/m_rev_1804b.md.g` and capture exact candidate, base, review criteria, and evidence location.
+2. Verify the authorized GitHub remote, current PR/develop refs, PR diff, and exact-head CI run.
+3. Confirm all three required test names appear in the named job log and verify the selector-only scope.
+4. Recheck the prior accepted usageError formatting correction and identify any remaining blocker.
+5. Record the literal verdict, remote witnesses, session identity, and cleanliness in this evidence file.
+6. Publish evidence on Planning origin/main, tick the board, and post the required END.
+
+
+## Follow-up review #1804b
+
+ROLE: REVIEW
+Session: codex-rev-1747, ID fecbada9-9fd8-4df4-9305-d49b53a6e7a7, GPT-6-Luna (screen-reported model)
+Review time: 2026-11-23
+
+### Exact candidate and scope
+
+The follow-up payload identifies PR #1804 head `c67ea34e6dc280bdbc5e40e50c5c902cc271db68`. Live PR state was open, not draft, not merged. The current PR base and develop head are `f3d84787462f324a6311e2e95928441c64a09296`, the #1623 integration. The compare against this current base reports `diverged`, merge base `ff4cdf509dd00df81f90ecd0eb0bff17696ca9bb`, ahead by 2 and behind by 1; commits in the PR range are `854c7cefff1e4483b2885026b91354944312522f` and `c67ea34e6dc280bdbc5e40e50c5c902cc271db68`.
+
+The complete current diff has four files:
+
+- `cmd/baha/app_new_wizard.go`
+- `cmd/baha/app_new_wizard_org_default_test.go`
+- `scripts/pr-check-runner.py`
+- `scripts/pr-gate-plan.py`
+
+The selector change is one line in `scripts/pr-check-runner.py`: check `wizard-app-new-tests` now matches `^TestAppNewWizard`, `^TestGuidedStackProfile`, and `^TestOrgDefault`. The test file has an explicit `wizard-app-new-tests` route in `scripts/pr-gate-plan.py`. No `.github/**` files or release catalog files changed. The accepted `fmt.Sprintf` usageError correction and quoted-name/literal-`%q` assertions remain intact.
+
+### Required named test receipt
+
+Completed run #7511, run ID `45186409688`, is on exact head `c67ea34e6dc280bdbc5e40e50c5c902cc271db68`; the run and its `PR Selected Checks` aggregate completed successfully. The named job `PR · Validation · wizard-app-new-tests`, job ID `137734108480`, also completed successfully. Its log reports `BASE_SHA: ff4cdf509dd00df81f90ecd0eb0bff17696ca9bb` and fetches `scripts/pr-check-runner.py` from that trusted base (`git show "$BASE_SHA":scripts/pr-check-runner.py`), rather than executing the candidate's changed selector. The receipt's `matched_tests` contains 17 existing `TestAppNewWizard...` names. It omits all three required org-default tests:
+
+- `TestGuidedStackProfileOrgDefaultMissingStackUsageError`
+- `TestGuidedStackProfileOrgDefaultPresentStackResolves`
+- `TestOrgDefaultStackNotInCatalog`
+
+Therefore the selector delta is in the candidate, but the named job's successful receipt does not demonstrate those tests ran. This does not meet the stated requirement for all three names to appear in that job's log.
+
+Run #7515, run ID `45191572848`, is also on the exact candidate head and was still `pending`, with no jobs reported, when checked at 2026-11-23 14:18 UTC. It has no terminal result or test receipt and cannot count as a pass. The earlier #7511 success is the #1623 pre-hop-base witness; the PR is now behind current develop by one commit. No rerun or dispatch was initiated by this review.
+
+### Verdict and repair recipe
+
+The requested selector-only scope and source formatting checks pass, but the required receipt criterion fails. The selector change is not active in the named job's run because that job executes the trusted base version of `scripts/pr-check-runner.py`; the three target tests are absent from its receipt.
+
+Repair: make the three regression tests execute through `wizard-app-new-tests` under the trusted/current base policy. A minimal route is to name the tests with the existing trusted `^TestAppNewWizard` prefix and ensure their file remains selected by the existing check, or otherwise establish an authorized same-PR route whose exact job log names all three tests. Then provide a terminal exact-head run where `wizard-app-new-tests` explicitly lists and executes all three. Reconcile the one-commit current-base lag via the authorized next-hop path before any merge decision. The review did not merge, retarget, or otherwise mutate the PR.
+
+### Follow-up cleanliness and remote witnesses
+
+Product GitHub remote: `lane-origin` resolves to `https://github.com/mcpdev80/baseharbor.git`; Planning remote `origin` resolves to `https://github.com/mcpdev80/baseharbor-plan.git`.
+
+Before review, `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1804/head` returned:
+
+```text
+f3d84787462f324a6311e2e95928441c64a09296	refs/heads/develop
+c67ea34e6dc280bdbc5e40e50c5c902cc271db68	refs/pull/1804/head
+```
+
+Before review, `docker ps -a` was run by PID `3384491`; it showed only the header and no containers. No local test, compose project, workflow dispatch, rerun, PR mutation, or merge was performed.
+
+## Follow-up VERDICT
+
+REQUEST CHANGES
+
+The three required tests are absent from the named `wizard-app-new-tests` receipt; run #7515 is pending and has no jobs. Require an exact-head terminal receipt listing and executing all three tests, and reconcile the current one-commit base lag before merge.
+
+END codex-rev-1747 DONE — REQUEST CHANGES for `c67ea34e6dc280bdbc5e40e50c5c902cc271db68`.
