@@ -10,17 +10,24 @@
 
 ## Role and verdict
 
-ROLLE: REVIEW, danach MERGE versucht unter der expliziten Owner-Autorisierung vom 2026-11-23 („finish AND merge“). REVIEW: APPROVE für den geprüften Code und den Neutralitätstest. MERGE: BLOCKED durch den aktiven strikten GitHub-Required-Status-Check. Kein Bypass und keine Produktänderung vorgenommen.
+ROLE LABELS: ROLLE: REVIEW, followed by a MERGE attempt under the explicit Owner authorization from 2026-11-23 (“finish AND merge”). REVIEW: APPROVE the reviewed code and the base-neutrality finding. MERGE: BLOCKED by GitHub's active strict required-status check. No bypass or product change was made.
 
 ## Contract and authority
 
-Task: `t-20261114-r28-cli2-wizard-platform` (0428-067), PR #1620. Der Task-Status war `blocked`; sein dokumentierter nächster Trigger war die Catalog-Ingress-Karte für `cmd/baha/app_access.go` und `cmd/baha/app_access_test.go`, dann ein Hop und ein exakter Lauf. Die Ingress-Karte `t-20261123-catalog-ingress-app-access` ist `closed` und nennt Merge-SHA `15c652136b0fce19dd0ae286b341b38cac3f7854`. Der geprüfte PR-Lauf verwendet Base `e8acf740553f7218b259f4855f5b79f83f21ab6b`, die nachweislich Nachfolger dieser Catalog-Ingress-Änderung ist.
+Task: `t-20261114-r28-cli2-wizard-platform` (0428-067), PR #1620. The task state was `blocked`; its recorded next trigger was the catalog-ingress card for `cmd/baha/app_access.go` and `cmd/baha/app_access_test.go`, followed by one hop and an exact run. The ingress card `t-20261123-catalog-ingress-app-access` is `closed` and records merge SHA `15c652136b0fce19dd0ae286b341b38cac3f7854`. The reviewed PR run uses base `e8acf740553f7218b259f4855f5b79f83f21ab6b`, which is confirmed to descend from that catalog-ingress change.
 
-Die Planung-Tasknote und die Owner-Mission `/tmp/opencode/m_rev_1620e8b.md.g` wurden gelesen. Die Mission autorisiert die Prüfung und den normalen Squash-Merge nur, wenn der Kandidat neutral gegenüber der nachfolgenden develop-Änderung ist. Workflow-Dateien blieben unangetastet. Keine lokalen Produkt-Tests, Workflow-Reruns, VM-Tests oder Container wurden gestartet.
+I read the Planning task note and Owner mission `/tmp/opencode/m_rev_1620e8b.md.g`. The mission authorizes review and a normal squash merge only if the candidate is neutral to the subsequent develop change. Workflow files were left untouched. I started no local product tests, workflow reruns, VM tests, or containers.
+
+Before the first evidence commit, I verified the Planning remote. Exact `git -C baseharbor-plan remote -v` output:
+
+```text
+origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)
+origin https://github.com/mcpdev80/baseharbor-plan.git (push)
+```
 
 ## Candidate and base neutrality
 
-Remote `lane-origin` wurde anhand der URL `https://github.com/mcpdev80/baseharbor.git` als GitHub-Remote identifiziert. Frische Remote-Witnesses vor und nach dem Mergeversuch:
+I identified `lane-origin` as the GitHub remote from URL `https://github.com/mcpdev80/baseharbor.git`. Fresh remote witnesses before and after the merge attempt:
 
 ```text
 1b7598aef8c4cae33b77c8523872637090d0f2bf refs/heads/develop
@@ -28,36 +35,36 @@ ad5859916d54bfb218a4c04f1cd41de44df0bb62 refs/heads/w067-cli2-wizard-platform
 ad5859916d54bfb218a4c04f1cd41de44df0bb62 refs/pull/1620/head
 ```
 
-PR head ist unverändert `ad5859916d54bfb218a4c04f1cd41de44df0bb62`; aktuelle Base ist `1b7598aef8c4cae33b77c8523872637090d0f2bf`. GitHub Compare `e8acf...1b759` meldet genau einen Base-Commit, `1b7598aef8c4cae33b77c8523872637090d0f2bf`, „fix(0428-227): admit canonical footprint show on data-capabilities gate“, mit diesen fünf Dateien: `cmd/baha/app_broker.go`, `cmd/baha/ci_integration_operator_enabled.go`, `cmd/baha/ci_integration_operator_enabled_test.go`, `internal/operatorauth/local_runtime.go`, `internal/operatorauth/local_runtime_test.go`. Es gibt keine Catalog-Datei oder Trusted Plan Datei im Base-seitigen Diff.
+The PR head remains `ad5859916d54bfb218a4c04f1cd41de44df0bb62`; the current base is `1b7598aef8c4cae33b77c8523872637090d0f2bf`. GitHub Compare `e8acf...1b759` reports exactly one base commit, `1b7598aef8c4cae33b77c8523872637090d0f2bf`, “fix(0428-227): admit canonical footprint show on data-capabilities gate”, changing these five files: `cmd/baha/app_broker.go`, `cmd/baha/ci_integration_operator_enabled.go`, `cmd/baha/ci_integration_operator_enabled_test.go`, `internal/operatorauth/local_runtime.go`, and `internal/operatorauth/local_runtime_test.go`. The base-side diff contains no catalog or Trusted Plan file.
 
-GitHub Compare `1b759...ad585` meldet 10 Kandidaten-Commits, 1 Commit Rückstand und nur zwei Dateien im PR-Diff: `cmd/baha/app_access.go` (+40/-0) und `cmd/baha/app_access_test.go` (+165/-1). `scripts/pr-gate-coverage.json` ist nicht Teil des Kandidaten-Diffs. Die Einträge für beide `app_access`-Pfade sind bereits in den Catalog-Inhalten an `e8acf` und `1b759` vorhanden, mit den beiden atomic data-capabilities-Surfaces; der Testeintrag hat `runtime_specific: true`. Der Catalog-Delta ist leer.
+GitHub Compare `1b759...ad585` reports 10 candidate commits, one commit behind, and only two files in the PR diff: `cmd/baha/app_access.go` (+40/-0) and `cmd/baha/app_access_test.go` (+165/-1). `scripts/pr-gate-coverage.json` is not part of the candidate diff. Entries for both `app_access` paths are already present in the catalog at `e8acf` and `1b759`, with both atomic data-capabilities surfaces; the test entry has `runtime_specific: true`. The catalog delta is empty.
 
-Neutralität: bestanden. #1753 fügt die Operation `app.footprint.show` in `internal/operatorauth/local_runtime.go` hinzu und bearbeitet nicht `app_access.go`, `app_access_test.go`, oder den Catalog. #1620 schreibt ein Audit-Event für `app.connection` nach erfolgreicher Autorisierung und vor der Credential-Ausgabe. Diese Operation und der Footprint-Show-Pfad haben weder Datei- noch Gate-/Catalog-Konflikt; die base-seitige Änderung widerspricht nicht dem Access-Reveal-Verhalten. Der exakte PR-Lauf basiert zudem auf `e8acf`, dessen Catalog-Vorgänger `15c652` bereits den Ingress für beide Pfade enthält.
+Neutrality: PASS. #1753 adds the `app.footprint.show` operation in `internal/operatorauth/local_runtime.go` and does not modify `app_access.go`, `app_access_test.go`, or the catalog. #1620 writes an audit event for `app.connection` after authorization succeeds and before credentials are emitted. These operations and paths have no file, gate, or catalog conflict; the base-side change does not conflict with the credential-reveal behavior. The exact PR run also uses `e8acf`, whose catalog ancestry already contains ingress for both paths from `15c652`.
 
 ## Exact-head checks and execution sample
 
-Run `45099073208` ist für den exakten head `ad5859916d54bfb218a4c04f1cd41de44df0bb62` ein Pull-Request-Run, `completed/success`, attempt 1. Check `PR Selected Checks` (job `137452731937`, GitHub Actions integration `15368`) ist `completed/success`; dessen Terminal-Logzeile lautet `2026-11-23T02:38:35.5979705Z PR Selected Checks: PASS`. Das Log zeigt `trusted_base_sha` `e8acf740553f7218b259f4855f5b79f83f21ab6b` und die ausgewählten Runtime-Ziele `atomic/docker/data-capabilities` sowie `atomic/podman/data-capabilities`.
+Run `45099073208` is a pull-request run for exact head `ad5859916d54bfb218a4c04f1cd41de44df0bb62`, `completed/success`, attempt 1. Check `PR Selected Checks` (job `137452731937`, GitHub Actions integration `15368`) is `completed/success`; its terminal log line is `2026-11-23T02:38:35.5979705Z PR Selected Checks: PASS`. The log shows `trusted_base_sha` `e8acf740553f7218b259f4855f5b79f83f21ab6b` and selected runtime targets `atomic/docker/data-capabilities` and `atomic/podman/data-capabilities`.
 
-Beide erforderlichen Runtime-Jobs liefen tatsächlich und waren erfolgreich: Docker job `137445999430` und Podman job `137445999443`, jeweils `completed/success`. Die Logs enthalten jeweils die Zeile `demo-data-capabilities       PASS`. Der Go-Unit-Job `PR · Go unit · cli-0` (`137445560998`) meldet `PASS cli-0: 468 passed / 13 intentionally skipped / 481 discovered; CLI inventory total=1865`. Der sharder am geprüften Kandidaten selektiert `TestAppCredsRevealWritesPerRevealAuditEvent` in `cli-0` (SHA-256-Modulo-4-Regel); `TestAppCredsRevealFailsClosedWhenAuditWriteFails` fällt in `cli-3`, dessen Job `137445560919` meldet `PASS cli-3: 434 passed / 16 intentionally skipped / 450 discovered; CLI inventory total=1865`. Der Sharder prüft für jeden ausgewählten Test, dass er ausgeführt wurde und passierte oder absichtlich übersprungen wurde; beide kartenspezifischen Tests sind nicht als Skip markiert. Die native Docker/Podman-Ausführung für data-capabilities ist in den beiden oben genannten Jobs belegt.
+Both required runtime jobs actually ran and succeeded: Docker job `137445999430` and Podman job `137445999443`, each `completed/success`. Each log contains `demo-data-capabilities       PASS`. Go unit job `PR · Go unit · cli-0` (`137445560998`) reports `PASS cli-0: 468 passed / 13 intentionally skipped / 481 discovered; CLI inventory total=1865`. The shard selector at the reviewed candidate assigns `TestAppCredsRevealWritesPerRevealAuditEvent` to `cli-0` (SHA-256 modulo 4); `TestAppCredsRevealFailsClosedWhenAuditWriteFails` maps to `cli-3`, whose job `137445560919` reports `PASS cli-3: 434 passed / 16 intentionally skipped / 450 discovered; CLI inventory total=1865`. The shard runner checks that every selected test ran and passed or was intentionally skipped; neither card-specific test is skipped. The native Docker/Podman execution for data-capabilities is evidenced in the two jobs above.
 
-Die PR Selected Checks-Auswahl ist grün, einschließlich der Trusted-Plan-Auswahl und beider Native data-capabilities Runtime-Jobs. Andere nicht erforderliche oder nicht betroffene Jobs in diesem Run sind `skipped`; sie werden nicht als Erfolg gezählt.
+The PR Selected Checks selection is green, including Trusted Plan selection and both native data-capabilities runtime jobs. Other non-required or unaffected jobs in this run are `skipped`; they are not counted as passing.
 
 ## Merge attempt and required next action
 
-Ruleset `25223521` `develop - required checks` wurde live gelesen: `active`, `strict_required_status_checks_policy: true`, verlangt `PR Selected Checks` von integration `15368`, ohne Bypass actor. Ruleset `23754541` `develop - integration branch` ist `disabled`. PR #1620 blieb `open`, `draft: false`, `mergeable: true`, `mergeable_state: behind`, Base `e8acf...`, head `ad585...`.
+Ruleset `25223521` `develop - required checks` was read live: `active`, `strict_required_status_checks_policy: true`, requires `PR Selected Checks` from integration `15368`, and has no bypass actor. Ruleset `23754541` `develop - integration branch` is `disabled`. PR #1620 remained `open`, `draft: false`, `mergeable: true`, `mergeable_state: behind`, base `e8acf...`, head `ad585...`.
 
-Der normale Squash-Merge wurde mit expected-head guard `ad5859916d54bfb218a4c04f1cd41de44df0bb62` versucht. GitHub lehnte den Merge mit HTTP 405 ab: `Repository rule violations found — Required status check "PR Selected Checks" is expected.` Es wurde kein Bypass verwendet. Der PR ist danach weiterhin offen und nicht gemerged. Damit ist der Code-Review-Verdict approve, aber der Merge durch den aktiven Required-Status-Check blockiert; der grüne alte-base Check kann die aktuelle Strict-Base-Bedingung nicht erfüllen.
+I attempted a normal squash merge with expected-head guard `ad5859916d54bfb218a4c04f1cd41de44df0bb62`. GitHub rejected it with HTTP 405: `Repository rule violations found — Required status check "PR Selected Checks" is expected.` No bypass was used. The PR remains open and unmerged. The code-review verdict is approve, but merge is blocked by the active required-status check; the green old-base check does not satisfy the current strict-base condition.
 
-Nächste Aktion: #1620 einmal monoton auf den aktuellen `develop`-Head `1b7598aef8c4cae33b77c8523872637090d0f2bf` hoppen, den PR-Selected-Checks-Lauf am neuen exakten Head bis zum terminalen Zustand beobachten und nur bei tatsächlich grünem erforderlichem Check normal squash-merken. Den bestehenden Kandidatenbranch weiterverwenden; keine Workflow-Datei ändern und keinen Bypass einsetzen.
+Next action: hop #1620 once, monotonically, to current `develop` head `1b7598aef8c4cae33b77c8523872637090d0f2bf`, observe the PR Selected Checks run for the new exact head through terminal status, and use a normal squash merge only if the required check is green. Keep the existing candidate branch; do not edit workflow files or bypass the rule.
 
 ## Repo-rule compliance
 
-Nur der hier angegebene Evidence-Entwurf wurde erstellt. Produktdateien, `.github/**`, Task-Metadaten und generierte Planungsaussichten wurden von dieser Review-Session nicht geändert. Keine Subagenten, keine lokalen Produkt-Tests, keine Workflow-Reruns und keine Container wurden gestartet. Die einzige PR-Mutation war der normale Squash-Mergeversuch mit expected-head-Schutz; GitHub lehnte ihn ab und Remote-PR-Head sowie develop blieben unverändert.
+Only this evidence file was created in the planning repository. This review session did not modify product files, `.github/**`, task metadata, or generated Planning views. No subagents, local product tests, workflow reruns, or containers were started. The only PR mutation attempted was the normal squash merge with expected-head guard; GitHub rejected it and the remote PR head and develop remained unchanged.
 
 ## cleanliness
 
-Vor Review: `docker ps -a` (PID 3446891) zeigte nur die Header-Zeile `CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES` und keine Container. Nach dem Mergeversuch: `docker ps -a` (PID 3506035) zeigte dieselbe Header-Zeile und keine Container.
+Before review: `docker ps -a` (PID 3446891) showed only header `CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES` and no containers. After the merge attempt: `docker ps -a` (PID 3506035) showed the same header and no containers.
 
 ## END
 
-END_BLOCKED codex-rev2-1736: REVIEW APPROVE, Merge durch aktiven strikten PR Selected Checks-Status blockiert; final-hop auf develop `1b7598aef8c4cae33b77c8523872637090d0f2bf` erforderlich, Kandidat `ad5859916d54bfb218a4c04f1cd41de44df0bb62`.
+END_BLOCKED codex-rev2-1736: REVIEW APPROVE; merge blocked by active strict PR Selected Checks status, final hop to develop `1b7598aef8c4cae33b77c8523872637090d0f2bf` required, candidate `ad5859916d54bfb218a4c04f1cd41de44df0bb62`.
