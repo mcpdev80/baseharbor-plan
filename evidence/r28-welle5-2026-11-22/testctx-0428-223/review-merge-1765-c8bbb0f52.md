@@ -67,3 +67,10 @@ Evidence is stored only in baseharbor-plan. Product files and `.github/**` were 
 ## END
 
 END_BLOCKED codex-rev2-1736: PR #1765 is merged at `b9e69b14a7c8c7e1ccf9176b0762bacecdecee5`, but mission-required proof that the changed tests ran in the native data-capability cells is missing from their inspected logs.
+## Origin main evidence-path witness
+
+Exact output of `git ls-tree -r --name-only origin/main | grep <evidence-path>` after fetch:
+
+```text
+evidence/r28-welle5-2026-11-22/testctx-0428-223/review-merge-1765-c8bbb0f52.md
+```
