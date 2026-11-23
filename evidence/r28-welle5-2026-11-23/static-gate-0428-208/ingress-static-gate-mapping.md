@@ -84,7 +84,8 @@ Route: ROUTEN-ENTSCHEID (coordinator) — INGRESS, NOT owner-scope (scripts/** i
 ## - The correct mapping classifies mcp as DEFERRED release-only in stage() (no ValueError) and does NOT
 ##   add any required PR-check in verify() (no PR executor exists). The gate is visible in the deferred
 ##   list, never disguised as a passing PR check. The real proof still runs only at release/qualify via
-##   docker-runtime-acceptance.yml:630.
+##   pre-release.yml:663 (static_gates) -> pre-release-runtime-suite.yml:267 (mcp run.sh). The
+##   app.edit native provider-edit proof at docker-runtime-acceptance.yml:630 is a different gate.
 
 ## KORREKTUR #1793 — EVIDENCE ROUTINE (coordinator, 2026-11-23)
 A follow-up instruction (KRITISCHE KORREKTUR #1793) claimed `atomic/static/mcp` must map to
@@ -153,7 +154,13 @@ above). Candidate: `48488e65bd5ed2d35518285a23a88758a148b1d`, base `9ba8e9baa7` 
     `test_release_only_atomic_static_mcp_with_native_gate_stays_deferred` (mixed with native gate the
     mcp deferral stands, native stays selected). Old focused-job regression tests for shell-ux/ci-
     fast-check/mcp removed (they asserted the wrong pr_focused mapping).
-- Both files cite the only executor: `docker-runtime-acceptance.yml:630`.
+- Both files cite the only executor: `pre-release.yml:663` (the `static_gates` job, matrix
+  `include: ${{ fromJSON(needs.source.outputs.static) }}`) →
+  `pre-release-runtime-suite.yml:267` (`case "$GATE" in ... mcp) bash "$workdir/tests/mcp/run.sh"`)
+  — a release/qualify workflow (push:develop / workflow_call / workflow_dispatch), never a PR CI
+  job. NOTE (owner audit #1793 corr 2): `docker-runtime-acceptance.yml:630` is the `app.edit`
+  native provider-edit proof, NOT the `mcp` static gate; the correct executor citations are the two
+  lines above.
 
 ### Local verification (before push)
 - `scripts/test_pr_stage_boundary.py` 12/12 OK.
@@ -169,7 +176,21 @@ above). Candidate: `48488e65bd5ed2d35518285a23a88758a148b1d`, base `9ba8e9baa7` 
   success` (runs the modified scripts), `PR Selected Checks => success`.
 - #1752-TP crash resolved: `PR · Trusted Plan` no longer blocks on `unclassified gate`.
 
+### v0.4.28 propagation (owner #1793 corr 2)
+- `scripts/release-requirements.json`: added `v0.4.28` to the `releases` intake array (after
+  `v0.4.27`) and to `atomic/static/mcp.required_for` (after `v0.4.27`). The selector
+  `pr-gate-plan.py:838` is `release in g['required_for']` (no auto-inheritance); the guard
+  `pr-gate-plan.py:836` / `pre-release-check-plan.py:21` / `validator:122` require the release in
+  the catalog. v0.4.28 was absent, so mcp's release-only requirement would not carry into the next
+  release. The v0.4.28 releases-array intake is authorized by the #1746 owner carry-forward.
+- Planner regression before/after: v0.4.27 already selected mcp (62 gates); v0.4.28 now selects
+  mcp too. `validator:122` accepts `release: v0.4.28` (previously rejected as not in catalog).
+- Idempotent vs the #1746 blanket carry-forward (its candidate already carries v0.4.28 over the
+  66 gates): set-union on hop, no revert, no revert of the mcp line. Only the two `v0.4.28` lines
+  of `release-requirements.json` changed in this lane.
+- No `.github` edit, no requirement drop.
+
 ### FINAL STATE
-- #1793 `ingress-0428-208-static-gate`: head `48488e65bd5ed2d35518285a23a88758a148b1d` (base
+- #1793 `ingress-0428-208-static-gate`: head `949b418d580d7b0f5790e529b543352e76522fdc` (base
   `9ba8e9baa7`), ready, pushed (ls-remote witness on branch + refs/pull/1793/head).
 - #1793 ready for coordinator review → merge (run green, evidence above).
