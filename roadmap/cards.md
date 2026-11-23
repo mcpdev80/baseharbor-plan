@@ -16,10 +16,10 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 176/268 · **Blocked:** 6 · **Waiting:** 20  
+    **Accepted tasks:** 176/268 · **Blocked:** 5 · **Waiting:** 20  
     **Blocker:** [t-20261114-r28-cli2-wizard-platform](../tasks/t-20261114-r28-cli2-wizard-platform.md) — trusted BASE c6a7138 lacks owners fuer cmd/baha/app\_access.go + app\_access\_test.go (PR touches beide, same-PR edit wirkt nicht base-precedence). naechster trig…  
-    **Blocker:** [t-20261120-shared-backend-state-version-message](../tasks/t-20261120-shared-backend-state-version-message.md) — route BESTATIGT (owner-vorschlag, coord-uebernommen): die 108 zeilen regression in die bereits base-katalogisierte internal/application/shared\_backends\_test.go…  
-    Plus 4 further blockers in the task list.  
+    **Blocker:** [t-20261121-static-gate-registration](../tasks/t-20261121-static-gate-registration.md) — release-tag tension (LANE-ERKENT, zeugen in akte): release-requirements.json ci-fast-check required\_for \[v0.4.28\] aber validator/mapping release-FELD = v0.4.27…  
+    Plus 3 further blockers in the task list.  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next
