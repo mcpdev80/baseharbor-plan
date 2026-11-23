@@ -7,7 +7,7 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w078-0428-078-identity-gate-fix
+owner: w078-0428-078-hop
 kanban_status: active
 kanban_lane: active
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 - [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** w078-0428-078-identity-gate-fix · **Priority:** normal  
+    **Owner:** w078-0428-078-hop · **Priority:** normal  
     **PR:** [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md), [t-20261120-r28-prune-key-too-coarse](t-20261120-r28-prune-key-too-coarse.md), [t-20261120-r28-registerprovider-signal-failclosed](t-20261120-r28-registerprovider-signal-failclosed.md), [t-20261120-r28-restart-persist-signal-dump](t-20261120-r28-restart-persist-signal-dump.md), [t-20261120-r28-runtimetarget-failclosed](t-20261120-r28-runtimetarget-failclosed.md), [t-20261120-r28-signal-one-active-write-path](t-20261120-r28-signal-one-active-write-path.md), [t-20261120-r28-signalregistry-race](t-20261120-r28-signalregistry-race.md)  
-**Owner:** w078-0428-078-identity-gate-fix  
+**Owner:** w078-0428-078-hop  
 **Priority:** normal  
 **PRs:** [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
 **Source:** 
@@ -225,3 +225,5 @@ dispatched post-recovery 2026-11-23
 H-V39 finding: #1650 Trusted Plan FAILS on the 0428-242 catalog guardian for NEW file internal/metrics/perses_dashboards_keycloak.go (split from perses_dashboards.go; #1650 ingress commit 0c1b8ca2 registered 2 rows but missed this new file). So #1650 gate-red = card 0428-260 (1 catalog row / package row), INDEPENDENT of the Owner double-writer question. Lane frozen pending Owner ownership decision; gate clears via 0428-260 regardless.
 
 Owner routed the additive hop to the existing owner (w078): develop d4fa8c589 (#1813) registers internal/metrics/perses_dashboards_keycloak.go (the file that aborted #1650 Trusted Plan). w078 re-engaged for ONE safe additive merge of develop + exact Headed rerun (no force-push, no double-writer conflict resolution -> STOP+QUESTION on conflict). Gate clears via catalog; ownership concern superseded by this additive routing.
+
+RESTART (71ff001a) of dead bbf9d49f. ONE safe additive hop of develop d4fa8c589 (registers perses_dashboards_keycloak.go) into lane-0428-078-perses-identity-on-resolver; abort+QUESTION on conflict with owner commits.
