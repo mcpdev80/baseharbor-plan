@@ -80,3 +80,13 @@ Planning repo current HEAD before this evidence edit was `8ad6b4443d885f4d12392c
 END_BLOCKED codex-rev2-1736: PR #1725 cannot merge until the owning hosted Go shard executes the regression and the regression uses the real command surface; candidate `3d32bc489646023b9e3a7460bbd9b62e96163e48`.
 
 After-review cleanliness witness: shell PID 3298290; `docker ps -a` returned the header only (no containers). Planning validation: `python3 scripts/plan.py render && python3 scripts/plan.py check` completed with 0 errors and 11 existing warnings; `git diff --check` passed; evidence checkbox scan was clean.
+
+## origin/main evidence-path witness
+
+Command: `git fetch origin main && git ls-tree -r --name-only origin/main | grep 'evidence/r28-welle5-2026-11-22/shared-backend-0428-201/review-merge-1725-3d32bc489.md'`
+
+Exact matching output:
+
+```text
+evidence/r28-welle5-2026-11-22/shared-backend-0428-201/review-merge-1725-3d32bc489.md
+```
