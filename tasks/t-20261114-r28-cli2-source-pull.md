@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: Owner (promote ci.yml) / Coordinator (queued refresh) / a lane (hop+CI nach shared-fix)
-kanban_status: wait
-kanban_lane: wait
+owner: f0f6c8b4 (hop+run) / Owner auto-merge
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Implement guided source pull. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-061 · Implement guided source pull
 priority: high
@@ -18,25 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1752]
 sources: []
 blocker: ""
-wait_reason: "Draft+BEHIND, run 44987053069 SUCCESS nur DRAFT; diff .github/ci.yml(owner)+uncataloged sources; QUEUED: promote nur mit owner-scope + normal exact CI ERST nach shared-gate fixes (optionA #1780 + catalog)."
-resolution: ""
+wait_reason: ""
+resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1752"]
 ---
 
-- [ ] t-20261114-r28-cli2-source-pull · CLI redesign: Implement guided source pull #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
+- [x] t-20261114-r28-cli2-source-pull · CLI redesign: Implement guided source pull #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** Owner (promote ci.yml) / Coordinator (queued refresh) / a lane (hop+CI nach shared-fix) · **Priority:** high  
+    **Owner:** f0f6c8b4 (hop+run) / Owner auto-merge · **Priority:** high  
     **PR:** [baseharbor#1752](https://github.com/mcpdev80/baseharbor/pull/1752)  
-    **Waiting:** Draft+BEHIND, run 44987053069 SUCCESS nur DRAFT; diff .github/ci.yml(owner)+uncataloged sources; QUEUED: promote nur mit owner-scope + normal exact CI ERST nach shared-gate fixes (optionA \#1780 + catalog).  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1752)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-app-lifecycle](t-20261114-r28-cli2-app-lifecycle.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** Owner (promote ci.yml) / Coordinator (queued refresh) / a lane (hop+CI nach shared-fix)  
+**Owner:** f0f6c8b4 (hop+run) / Owner auto-merge  
 **Priority:** high  
 **PRs:** [baseharbor#1752](https://github.com/mcpdev80/baseharbor/pull/1752)  
 **Source:** 
@@ -106,3 +105,5 @@ EIGENTUER-ENTSCHEID LIEGT VOR UND IST HINTERLEGT (option A, dokumentierte ausnah
 EIGENTUER-ENTSCHEID LIEGT VOR UND IST HINTERLEGT (option A, dokumentierte ausnahme): die commits b010dabcb, e7df5ab4a6c und 7b3c65880 (author worker@example.invalid) BLEIBEN unveraendert - kein re-author, kein umschreiben, kein force. Fuer die lanen heisst das: der PR darf NUR additiv gehopft werden (merge --no-ff auf die develop-spitze, ziel-sha direkt aus refs/heads/develop), die geschichte bleibt, wie sie ist; ein 'git commit --amend --author' waere jetzt ein VERSTOSS gegen den eigentumer-vertrag. Damit ist der blocker-text der karte GELST. STAND gemessen: state OPEN, draft=true, head 34feb493480, base develop, rueckstand 39 commits, 19 dateien davon 8 in cmd/baha. FRUEHERER gruener durchgang 44987053069 galt einem ALTEN head und ist keine merge-probe. ZEITFENSTER: nach 0428-237, 1753 und 1762 - dieser kandidat teilt die machine-registry-/docs-dateien mit 1623 und mit 1614 (kanten in coordinator/board/integration-order.md).
 
 EIGENTUER-ENTSCHEID HINTERLEGT (option A, dokumentierte ausnahme): b010dabcb, e7df5ab4a6c und 7b3c65880 (author worker@example.invalid) BLEIBEN unveraendert - kein re-author, kein umschreiben, kein force. Fuer lanen heisst das: nur additiver hop (merge --no-ff auf die develop-spitze), 'git commit --amend --author' waere ein VERSTOSS gegen den eigentumer-vertrag. Der blocker der karte ist damit GELST. STAND: OPEN, draft=true, head 34feb493480, 39 zurueck, 19 dateien (8 cmd/baha). Der alte gruene durchgang 44987053069 galt einem ALTEN head und ist keine merge-probe. ZEITFENSTER nach 0428-237, 1753 und 1762 (kanten zu 1623 und 1614).
+
+CLOSED: merged dc8626e9c (exact-base 7b45db92d terminal 0/0, 30/30, named receipts); fecb post-merge record laeuft.
