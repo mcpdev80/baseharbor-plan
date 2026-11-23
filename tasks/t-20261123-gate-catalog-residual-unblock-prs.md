@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: mcpdev80 CI/coverage owner (sweep-assigned apply; owner-scope scripts/**)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-260 · register residual uncataloged
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261123-gate-catalog-residual-unblock-prs · CI gate catalog: register residual uncataloged cmd/internal paths so the 0428-242 fail-loud guardian stops blocking Trusted Plan for PRs 1810/1809 #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261123-gate-catalog-residual-unblock-prs · CI gate catalog: register residual uncataloged cmd/internal paths so the 0428-242 fail-loud guardian stops blocking Trusted Plan for PRs 1810/1809 #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** mcpdev80 CI/coverage owner (sweep-assigned apply; owner-scope scripts/\*\*)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** mcpdev80 CI/coverage owner (sweep-assigned apply; owner-scope scripts/**)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -78,3 +77,5 @@ One or two sentences: the observable outcome.
 - Current state, branch, PR and evidence links. Newest first.
 
 H-V38 DELIVERED proven patch (baseharbor-plan origin/main ed1032734, evidence/recovery-2026-11-23/hunt-hv38-catalog-patch/round-1.md): 5-row pr-gate-coverage.json additions clear the 0428-242 guardian rc=1->0 for #1810 (3 gates) and #1809 (2 gates), validate rc=0; 3-row catch-all variant also proven. APPLY=owner/CI scope. Shared unblocker for both PRs' Trusted Plan.
+
+ASSIGNED per sweep routing request: H-V38 proven 5-row scripts/pr-gate-coverage.json patch (origin/main ed1032734) is ready to apply directly to develop. Single owner scripts/** edit; unblocks PR · Trusted Plan for #1810 (3 gates) and #1809 (2 gates), validate rc=0. No worker lane (reserved CI/coverage scope). Owner applies + re-runs both PRs.
