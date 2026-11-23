@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: b90e4ba1 (kandidat delivered) / Coordinator
-kanban_status: review
-kanban_lane: review
+owner: Coordinator (owner-verifizierter merge) / b90e4ba1
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One develop-only catalog PR registers cmd/baha/appaccess.go and cmd/baha/appaccesstest.go in the trusted BASE so #1620…"
 kanban_title: 0428-254 · register cmd/baha/app_access
 priority: ""
@@ -19,21 +19,22 @@ prs: [mcpdev80/baseharbor#1791]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/15c652136b0fce19dd0ae286b341b38cac3f7854"]
 ---
 
-- [ ] t-20261123-catalog-ingress-app-access · Catalog ingress 2: register cmd/baha/app_access source rows in base #task #release/v0-4-28 #status/review #view/review #kind/task
+- [x] t-20261123-catalog-ingress-app-access · Catalog ingress 2: register cmd/baha/app_access source rows in base #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
-    **Owner:** b90e4ba1 (kandidat delivered) / Coordinator  
+    **Owner:** Coordinator (owner-verifizierter merge) / b90e4ba1  
     **PR:** [baseharbor#1791](https://github.com/mcpdev80/baseharbor/pull/1791)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/15c652136b0fce19dd0ae286b341b38cac3f7854)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** b90e4ba1 (kandidat delivered) / Coordinator  
+**Owner:** Coordinator (owner-verifizierter merge) / b90e4ba1  
 **Priority:** not set  
 **PRs:** [baseharbor#1791](https://github.com/mcpdev80/baseharbor/pull/1791)  
 **Source:** 
@@ -81,3 +82,5 @@ One develop-only catalog PR registers cmd/baha/app_access.go and cmd/baha/app_ac
 EXAKT-GRUEN: head d3eed85ab, run 45091676596 failed=0 (TP gruen 137422407321; native/Go structuur... 
 
 EXAKT-GRUEN: head d3eed85ab, run 45091676596 failed=0, TP gruen (job 137422407321); zwei rows rein additiv (app_access.go ohne rs nach app_edit-muster, test.go mit rs nach provider-muster  begruendung in akte); dup 0, validator lokal gruen, release v0.4.27. Uebergabe an CODEX 1450c201 (review->merge laeuft).
+
+INGRESS-2 CLOSED: #1791 gemergt 01:06:49Z als 15c652136 (= develop-tipp), exact run 45091676596 success am head d3eed85ab, review->merge durch 1450c201 rollenkonform. #1620 kann base-seitig admitieren; re-hop dispatched bei sitzfrei.
