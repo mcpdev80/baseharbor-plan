@@ -7,9 +7,9 @@ areas: [ci, testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: blocked
-kanban_lane: blocked
+owner: w249-0428-249-runtime-image-fix
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-249 · light-runtime blob unknown
 priority: high
@@ -17,23 +17,22 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: "Owner-Entscheidung 2026-11-22: Freigabe für eine Ursachenprüfung und genau einen PR mit der eng begrenzten Reparatur, soweit durch Befund belegt: Reihenfolge und Registry-Verfügbarkeit in .github/workflows/pre-release-runtime-suite.yml; der fehlende scripts/acceptance.sh-Vertrag in den drei Workflows, die ihn referenzieren (pre-release-runtime-suite.yml, pre-release.yml, targeted-demo-acceptance.yml), sowie scripts/pre-release-runtime-impact.json. Eine frühere Fassung von acceptance.sh nur aus belegbarer Git-Historie wiederherstellen; andernfalls die Verweise auf den vorhandenen Einstiegspunkt anpassen. Keine Ersatzlogik erfinden. .github/workflows/ci.yml und der normale CI-Pfad bleiben unverändert. Vor dem Merge müssen die Light-Runtime-Gates für Docker und Podman auf dem exakten PR-Head grün sein. Erfordert der belegte Fix weiteren Umfang, erneut Owner-Entscheidung einholen."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/testing #kind/bug
+- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/active #view/active #area/ci #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Blocker:** Owner-Entscheidung 2026-11-22: Freigabe für eine Ursachenprüfung und genau einen PR mit der eng begrenzten Reparatur, soweit durch Befund belegt: Reihenfolge und Registry-Verfügbarkeit in .github/workflows/pre-release-runtime-suite.yml; de…  
+    **Owner:** w249-0428-249-runtime-image-fix · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w249-0428-249-runtime-image-fix  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -51,3 +50,5 @@ The 'blob/manifest unknown' seen by the light-runtime cells comes from causes ou
 This is an Owner `.github` + missing-file decision; a lane must not fabricate a scripts workaround.
 
 Die Freigabe ist auf den belegten Pre-Release-Fix begrenzt. ci.yml und der normale CI-Pfad bleiben unverändert.
+
+owner release 2026-11-22/23: one narrow PR (.github pre-release workflows + acceptance.sh + impact.json, ci.yml untouched), Docker+Podman light gates green before merge
