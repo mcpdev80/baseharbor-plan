@@ -7,9 +7,9 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: Coordinator (ingress-wartend) / b90e4ba1 eingefroren
-kanban_status: blocked
-kanban_lane: blocked
+owner: b90e4ba1 (candidate delivered) / Coordinator
+kanban_status: review
+kanban_lane: review
 kanban_summary: "controlplanesinglenativecitest.go stops failing with prepare BaseHarbor integration trust plane: because the native-cell test…"
 kanban_title: 0428-209 · 0428-209 native cell seam
 priority: high
@@ -17,7 +17,7 @@ depends_on: [t-20261120-cli-operator-entrypoints]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1740, mcpdev80/baseharbor#1765, mcpdev80/baseharbor#1766]
 sources: []
-blocker: "dieselbe klasse: control_plane_single_native_ci_test.go existiert bereits in develop, base-row fehlt im katalog. Naechster trigger: merge der ingress-karte t-20261123-catalog-ingress-develop-prereqs, dann re-run #1765 ohne branch-seitige katalog-edits. Kein dritter blindrow-push."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1740", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md", "https://github.com/mcpdev80/baseharbor/pull/1765", "https://github.com/mcpdev80/baseharbor/actions/runs/45021008989"]
@@ -25,19 +25,18 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1740", "https://github.c
   - "https://github.com/mcpdev80/baseharbor/actions/runs/44868911131"
 ---
 
-- [ ] t-20261121-native-cell-operator-seam · 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/cli #kind/bug
+- [ ] t-20261121-native-cell-operator-seam · 0428-209 stamp the native Keycloak/Core cell through the runWithIO seam #task #release/v0-4-28 #status/review #view/review #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** Coordinator (ingress-wartend) / b90e4ba1 eingefroren · **Priority:** high  
+    **Owner:** b90e4ba1 (candidate delivered) / Coordinator · **Priority:** high  
     **PR:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740), [baseharbor#1765](https://github.com/mcpdev80/baseharbor/pull/1765), [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766)  
-    **Blocker:** dieselbe klasse: control\_plane\_single\_native\_ci\_test.go existiert bereits in develop, base-row fehlt im katalog. Naechster trigger: merge der ingress-karte t-20261123-catalog-ingress-develop-prereqs, dann re-run \#1765 ohne branch-seitige k…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/operator-auth-helper/carrier-census-1737-1738-1740-1741.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1765), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45021008989), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1740), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/44868911131)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-cli-operator-entrypoints](t-20261120-cli-operator-entrypoints.md)  
-**Owner:** Coordinator (ingress-wartend) / b90e4ba1 eingefroren  
+**Owner:** b90e4ba1 (candidate delivered) / Coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1740](https://github.com/mcpdev80/baseharbor/pull/1740), [baseharbor#1765](https://github.com/mcpdev80/baseharbor/pull/1765), [baseharbor#1766](https://github.com/mcpdev80/baseharbor/pull/1766)  
 **Source:** 
@@ -122,3 +121,5 @@ Nach #1766 ist die stale assertion KEIN #1765-blocker mehr (beide native keycloa
 TP-fund von b90e: eigene neue source cmd/baha/control_plane_single_native_ci_test.go war nie katalogisiert -> fail-loud guardian. Lane-fix im selben PR (test-to-CI-Aufnahmepflicht, katalog ist Codeman-owned): b90e ergaenzt die source-entry (analog target_runtime_access_provider_test.go: runtime_specific + beide data-capabilities surfaces) + hoppt final auf develop b48ac03ef, ein Push, ein exact-head run.
 
 stand: components-eintrag formgleich platziert (+9, nur eigene zeilen), TP dennoch uncataloged -> inbox-hint gegeben: praezedenz #1786 (978a0f90) dateiuebergreifend replizieren + base-vs-head-lesepfad des guardians belegen. Zweiter identischer failure = eskalation der guardian-diagnose an codex (planned karte 0428-249 grenze beachten: kein .github).
+
+EXAKT-GRUEN: head c8bbb0f52, run 45087109688 SUCCESS (required: TP+selected+native+Go), mergeState CLEAN, dedup-hop korrekt (katalog byteidentisch develop, base-row aus #1790). Uebergeben an CODEX 1450c201 (REVIEW->MERGE, owner-anweisung 02:0x).
