@@ -92,3 +92,55 @@ END_BLOCKED codex-rev2-1736: PR #1614 not merged; required app-edit lifecycle ex
 3. Reinspect exact-head diff, security paths, CI receipts, and required lineage evidence.
 4. Complete only the authorized review/merge action if all gates pass; otherwise record a repair recipe.
 5. Publish refreshed evidence on baseharbor-plan origin/main, update the board, and post status.
+
+
+## Fresh review update — current remote state
+
+This update supersedes older candidate, base, and run identifiers in the historical review sections above. The current PR head and receipts were re-read from GitHub on 2026-11-23 after the mission's claimed SHA was found not to exist on the PR remote. This session did not modify product files, the PR, workflows, branches, or protection settings, and did not dispatch or rerun CI.
+
+- Mission candidate `7a155768719316f119dc42531cf02615771244e0` was not found by GitHub's commit check lookup. The current remote PR #1614 head is `fbc501b64851121a9080eae4bdca0278d28561ef` on `lane-0428-062-cli2-app-status`.
+- Fresh `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1614/head` returned `304b3ad1d88647377ea647d0d94174bfc9298e14 refs/heads/develop` and `fbc501b64851121a9080eae4bdca0278d28561ef refs/pull/1614/head`.
+- GitHub PR API reports state `open`, `draft=false`, base ref `develop`, base SHA `a3bbc689e4da70da73a0dcf5370d9a9e2e81d24d`, head SHA `fbc501b64851121a9080eae4bdca0278d28561ef`, `mergeable=true`, `mergeable_state=behind`. Compare `c3e49f3cc1959db68d57e52db0408bd48a043292...a3bbc689e4da70da73a0dcf5370d9a9e2e81d24d` reports `status=behind`, `ahead_by=0`, `behind_by=1`. The later develop tip is `304b3ad1d88647377ea647d0d94174bfc9298e14`; the PR has not been updated to it.
+- The current PR files API reports 23 changed paths, zero `.github/**` paths, and zero catalog paths. No CI/workflow ownership conflict was introduced by this current diff.
+
+## Exact-head CI review
+
+- Existing run `45149713215` is terminal `completed/success` on exact head `fbc501b64851121a9080eae4bdca0278d28561ef`. Its `PR Selected Checks` aggregate is terminal success. I observed the existing run; I did not initiate it.
+- The trusted-plan job `137607751558` completed success and its log explicitly says `No narrow mapping: conservative checks selected.` It identifies `VERIFIED_BASE=c3e49f3cc1959db68d57e52db0408bd48a043292`, the run's current develop target at dispatch. The PR API still names older base `a3bbc689e4da70da73a0dcf5370d9a9e2e81d24d`, so a green check against the newer trusted target does not make the PR base current or remove GitHub's `behind` state.
+- Wizard validation job `137607847719` completed success. Its log executes the existing validation owner dispatcher and contains no execution output or PASS line for `TestAppEditCommandCompleteProviderEditRunsRealLifecycle`. The grep for that exact test name in the complete job log returned no match. The job's successful status is not proof that the mission's named test ran.
+- Docker selected coreless lifecycle jobs for `foundation`, `application`, `identity-backend`, and `core-capability` all completed success. The `core-capability` job was terminal success. This records those cells only; it does not satisfy the missing named app-edit test.
+- The current run has a successful Podman observability runtime job, but no Podman coreless lifecycle cell. The Podman coreless application-backup selected cell was skipped. A Podman observability result cannot substitute for the mission's required Podman coreless result.
+- The run is green as an aggregate but the required named wizard test and Podman coreless cell are not evidenced as executed. Skipped jobs do not count as passing evidence.
+
+## Current code finding
+
+At exact head `fbc501b64851121a9080eae4bdca0278d28561ef`, GitHub source for `cmd/baha/app_versions_view.go` lines 164–186 still shows this behavior: on `ResolveWorkspace` failure, the code calls `partialWorkspaceResolution`, discards the returned unresolved-component list, uses the fallback resolution, projects `component.Identity` when no resolved root exists, and returns projections without an unresolved warning/state. This can display a configured local source identity as if it were a resolved source. It remains a provenance correctness blocker. Preserve each component's resolution state, render an explicit unresolved/unclear observation and warning, and add a mixed-model regression with one resolvable and one unresolved local source. The new regression must be selected by a durable CI path in the same PR.
+
+## Current decision and repair recipe
+
+END_BLOCKED codex-rev2-1736: PR #1614 not merged; current candidate fbc501b64851121a9080eae4bdca0278d28561ef lacks the named lifecycle test receipt and Podman coreless execution, retains unresolved local provenance fallback, and its PR base is behind.
+
+1. Fix the unresolved local-source projection and add the mixed-model regression. Keep the displayed source from implying a successful resolution when resolution failed.
+2. Establish a real CI route for `TestAppEditCommandCompleteProviderEditRunsRealLifecycle` and the required Podman coreless cell, then obtain exact-head logs showing both actually executed and passing. Do not count the broad aggregate alone or skipped jobs as a pass.
+3. Bring the PR base to the required current develop base through the authorized candidate workflow and wait for the terminal exact-head aggregate. Do not merge while GitHub reports `behind` or the required receipts are missing.
+4. Review the corrected exact head and its remote evidence before any merge decision.
+
+## Cleanliness — current review
+
+- Shell PID `1785625`, after CI observation and source review: `docker ps -a` returned only `CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES`; no containers were listed.
+- This review started no containers and no compose projects.
+
+## Evidence repository verification
+
+- Verified planning remote before evidence commit: `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)` and `origin https://github.com/mcpdev80/baseharbor-plan.git (push)`.
+- Current product remote witnesses above were obtained only from the GitHub URL `https://github.com/mcpdev80/baseharbor.git`.
+
+## Final origin/main path witness
+
+The required `git fetch origin main && git ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-23/sweep-1614/review-merge-final.md$'` was run immediately before this evidence update. Exact grep output:
+
+`evidence/r28-welle5-2026-11-23/sweep-1614/review-merge-final.md`
+
+## Role and verdict
+
+CODEX-REVIEW: BLOCKED. No merge performed. The current exact-head terminal run does not prove the named app-edit lifecycle test or Podman coreless cell; the unresolved local provenance finding remains; PR #1614 base is behind.
