@@ -60,3 +60,5 @@ external repo-admin blocker, not a lane defect (#1809/#1650 pushed OK so it is b
 candidate 168d40950 PR #1810 base develop clean (develop ancestor); verified-state source via hostProviderMetricsNativeVerified witness, predicate untouched; ruleset blocker moot (push succeeded). full gate pending draft->ready
 
 CODEX-REVIEW #1810 = REQUEST_CHANGES (422 self-review, routed to worker): PersesStatusVerified derived from hostProviderMetricsNativeVerified() = static ReferenceIntegrations inspection, no target/provider input, no probe; violates acceptance 1+3 (never static 'true'). Route to w186.
+
+Gate dependency: #1810 Trusted Plan clears via card 0428-260 (catalog guardian rows for internal/capability + internal/application/perses_lifecycle_test.go). INDEPENDENT of that: w186 still owes the REQUEST_CHANGES code fix (static verified -> fail-closed configured_unverified); head 168d40950 unchanged 5 ticks -> seat escalated to Owner.
