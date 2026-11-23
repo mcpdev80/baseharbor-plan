@@ -143,3 +143,11 @@ Planning remote verification before this evidence update: `origin https://github
 Immediately before this evidence update, `git fetch origin main && git ls-tree -r --name-only origin/main | grep '^evidence/r28-welle5-2026-11-23/sweep-1623/review-merge.md$'` emitted this exact output:
 
 evidence/r28-welle5-2026-11-23/sweep-1623/review-merge.md
+
+## PLAN — m_rev_1623pm follow-up
+
+1. Record this mission plan, then read m_rev_1623pm and determine its scope against the current hold.
+2. Check whether the required lane 0847 terminal END and final SHA are available, then refresh exact remote refs.
+3. Review the specified final candidate and verify test, gate, scope, and provenance evidence.
+4. Publish the verdict and actionable findings without merging unless explicitly authorized.
+5. Publish updated evidence to baseharbor-plan origin/main, synchronize the board, and post the required lane status.
