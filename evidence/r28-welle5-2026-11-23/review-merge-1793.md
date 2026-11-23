@@ -76,8 +76,17 @@ Repair recipe for a new owner-authorized correction:
 ## cleanliness
 
 - Before evidence publication, PID 4093377 ran `docker ps -a --no-trunc`; output was only `CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES`.
-- A post-publication Docker inventory will be recorded before END.
+- After the first evidence push, PID 4102304 ran `docker ps -a --no-trunc`; output was only `CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES`. No containers were started.
 
 ## END codex-rev-1747 BLOCKED
 
 PR #1793 is already merged as `fc3eecbf4b65330bf0643dcde4136ca6d9620665`, but independent post-merge review found the required shell-ux/ci-fast-check final-verifier routing missing at candidate `6d39cc8aafc2512ffdc1420e42e315eb89a4fb8a`. Keep 0428-208 blocked pending the repair recipe and exact-head hosted evidence above.
+
+
+## origin/main evidence-path witness
+
+After fetching origin/main, the exact output from `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle5-2026-11-23/review-merge-1793.md` was:
+
+```text
+evidence/r28-welle5-2026-11-23/review-merge-1793.md
+```
