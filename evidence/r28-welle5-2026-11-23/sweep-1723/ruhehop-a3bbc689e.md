@@ -152,11 +152,27 @@ a3bbc689e4da70da73a0dcf5370d9a9e2e81d24d  refs/heads/develop
 - Earlier delivered chain this shift stands as evidence: 340e66a88 @ 304b3ad1d, run 45153328164
   completed/success with TP log `BASE_SHA: 304b3ad1d…` (section above).
 
+## GO letzter hop (post-1801) — b41103867
+
+- Pre-check: delta `f6ab22b7d..b41103867` = app_edit.go, app_edit_apply_test.go,
+  app_wizard_controller.go — write-set grep (app_apply|workload_ports|cmd/baha/runtime.go|
+  workload_port_local) → **no touch** (preserve rule honored; #1801 content is in base now).
+- ONE additive `git merge --no-ff --no-edit lane-origin/develop` on 12bf50c4c →
+  **9627763bd68018e962237b49d05450a7bf1348a9** (parents 12bf50c4c + b41103867), zero conflicts;
+  ancestry exit 0; catalog diff vs develop **0 lines (byte-equal)**;
+  `git diff lane-origin/develop...HEAD --name-only` == exactly the 4 write-set files; 0 .github;
+  `go build ./...` ok.
+- Push `12bf50c4c..9627763bd`; ls-remote: branch + `refs/pull/1723/head` == 9627763bd,
+  develop == b41103867.
+- Run **45163965244** (pull_request, head 9627763bd) watched to terminal: `completed / success`,
+  23 executed-and-green jobs, 0 non-success; **TP BASE_SHA-zeige (log line):**
+  `BASE_SHA: b41103867e370f6588a396cb08ab0b3013e209ac` — exact post-1801 base.
+
 ## END
 
-- HEAD: 12bf50c4c8dbeadeb5fa9324fdafa4069e267d8d (lane-0428-199-workloadport; hop work STOPPED per
-  owner-ordering — further hop awaits #1801 merge and coordinator release)
-- STATUS: BLOCKED (extern: #1801 merge must land first; lane idle, no push/run until release)
+- HEAD: 9627763bd68018e962237b49d05450a7bf1348a9 (lane-0428-199-workloadport, base EXAKT b41103867)
+- Run-id: 45163965244 — completed/success, TP BASE_SHA b41103867e370f6588a396cb08ab0b3013e209ac
+- STATUS: DONE — no merge by lane.
 
 ## Evidence-on-origin/main verification (second-to-last action)
 
