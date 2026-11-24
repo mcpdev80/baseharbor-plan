@@ -73,3 +73,24 @@ Make the `configured` verdict of `PersesBackendWitness` reachable through real o
 ## Handoff
 
 Claimed by Codex (w118-0428-265) and published as Planning commit ac53222e9. No product files changed. The current selector treats the status source paths as unresolved CLI runtime impact (`scripts/pr-gate-plan.py:1421`), so satisfying the mission CI-routing requirement with existing hosted Go checks requires a `scripts/**` change. The mission explicitly requires STOP+QUESTION in that case. Waiting for the Owner decision on whether to add an exact status-only mapping to existing checks.
+
+
+## Befund — Hosted CI routing
+
+- Test selection is already proven for the regression test when it is added to an existing `cmd/baha/*_test.go` file: `scripts/pr-gate-plan.py:1407-1414` selects `CLI_PACKAGE_CHECKS`; the check is defined at `scripts/pr-gate-plan.py:90-91` as `cli-package-tests`, running `go test ./cmd/baha -count=1`. This executes the package's tests, including the added witness cases.
+- The product source paths are not resolved by that test rule. `scripts/pr-gate-plan.py:1420-1424` routes `cmd/baha/*.go` sources to `cli-unresolved-runtime-impact` and records unresolved native coverage.
+- Proposed selector diff only (NOT applied; scripts/** remains Owner-scope):
+
+```diff
+--- a/scripts/pr-gate-plan.py
++++ b/scripts/pr-gate-plan.py
+@@
+-        elif path.startswith('cmd/baha/') and path.endswith('.go'):
++        elif path in ('cmd/baha/perses_lifecycle.go',
++                      'cmd/baha/app_status_result.go'):
++            area = 'perses-status-witness'
++            require(CLI_PACKAGE_CHECKS + CODE_CHECKS + CLI_CHECKS + WIZARD_BASE_CHECKS)
++        elif path.startswith('cmd/baha/') and path.endswith('.go'):
+```
+
+Product-side implementation and tests may proceed without this registration under the Owner ruling because the existing `cli-package-tests` selection rule above executes the `cmd/baha` regression tests. The card remains blocked on the Owner-CI-mapping dependency; hosted CI results and any unresolved selector coverage will be reported as such.
