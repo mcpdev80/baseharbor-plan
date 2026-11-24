@@ -1,7 +1,7 @@
 ---
 id: t-20261124-gate-catalog-baseline-1819
 card_number: "0428-273"
-card_short_title: "add #1819 catalog rows to develop"
+card_short_title: "add #1819 catalog rows"
 type: task
 areas: []
 release: v0.4.28
@@ -11,13 +11,13 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: "Unblock #1819 / card 0428-181 (identity dashboard catalog consumer). Exact head 69f76b94 fails Trusted Plan because three…"
-kanban_title: "0428-273 · add #1819 catalog rows to develop"
+kanban_title: "0428-273 · add #1819 catalog rows"
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: "Owner/CI scope: edit scripts/pr-gate-coverage.json (add source rows), not a product PR change. Do not add rows inside #1819 (breaks the trusted base, #1817 precedent)."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45320885286"]
@@ -26,7 +26,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45320885286"]
 - [ ] t-20261124-gate-catalog-baseline-1819 · CI/catalog: add #1819 source rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/planned #view/ready #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Blocker:** Owner/CI scope: edit scripts/pr-gate-coverage.json (add source rows), not a product PR change. Do not add rows inside \#1819 (breaks the trusted base, \#1817 precedent).  
     **Ready to assign** · prerequisites accepted  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45320885286)  
     <!-- /generated:card -->
