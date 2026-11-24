@@ -19,3 +19,7 @@ Record the exact Core checkout SHA, resolved Demo SHA, hosted run ID and URL, te
 - Even on a passing run, **do not silently close #170**. The Kanban card must first contain an owner-visible confirmation line naming the supersession witness and disposition. Until that line is present, #170 remains open.
 
 Current evidence: no Leg-B dispatch has been run under this order. The previous CLEAN-MERGE label and zero-job startup-failure run do not qualify.
+
+## BLOCKED (round-8, 2026-11-24)
+
+The authorized order cannot run for v0.4.28. `atomic/static/config-matrix` is `required_for` v0.4.22–v0.4.27 but NOT v0.4.28 (dropped after v0.4.27; the v0.4.28 block keeps only `atomic/static/mcp` + `atomic/static/ci-fast-check`). `pre-release-check-plan.py` on `origin/develop` rejects any `only_gates` containing `atomic/static/config-matrix` with `selected checks must be unique exact required check IDs` (exit 2) before scheduling jobs. Root cause = Core release-catalog catalog decision, not Demo content. Owner decision required (re-add gate / accept superseded / alternate gate). Evidence: evidence/r28-welle6-2026-11-25/170-ci-route/round-8.md.
