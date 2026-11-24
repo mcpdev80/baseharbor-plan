@@ -34,7 +34,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1822"]
 **State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Required by:** [t-20261122-runtime-image-registry-artifact-unknown](t-20261122-runtime-image-registry-artifact-unknown.md)  
 **Owner:** w65-0428-269-batchbaseline  
 **Priority:** high  
 **PRs:** [baseharbor#1822](https://github.com/mcpdev80/baseharbor/pull/1822)  
