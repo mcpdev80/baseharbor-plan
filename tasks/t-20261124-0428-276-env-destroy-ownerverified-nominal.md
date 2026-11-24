@@ -1,7 +1,7 @@
 ---
 id: t-20261124-0428-276-env-destroy-ownerverified-nominal
 card_number: "0428-276"
-card_short_title: "env destroy OwnerVerified marker"
+card_short_title: "env destroy OwnerVerified"
 type: bug
 areas: []
 release: v0.4.28
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: ""
-kanban_title: 0428-276 · env destroy OwnerVerified marker
+kanban_title: 0428-276 · env destroy OwnerVerified
 priority: low
 depends_on: []
 repos: [mcpdev80/baseharbor]

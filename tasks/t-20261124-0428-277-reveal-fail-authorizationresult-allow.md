@@ -1,7 +1,7 @@
 ---
 id: t-20261124-0428-277-reveal-fail-authorizationresult-allow
 card_number: "0428-277"
-card_short_title: "reveal fail records allow"
+card_short_title: "reveal fail allow"
 type: bug
 areas: []
 release: v0.4.28
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: ""
-kanban_title: 0428-277 · reveal fail records allow
+kanban_title: 0428-277 · reveal fail allow
 priority: low
 depends_on: []
 repos: [mcpdev80/baseharbor]
