@@ -50,13 +50,18 @@ Prior #1834 track (card 0428-286) closed-superseded; this lane does not merge.
   are the affected selectors' own unit assertions run pre-push as the mission's "minimal
   expectation update" verification, full CI is the acceptance path.
 
-## Hosted CI (exact head d57a8253b…)
+## Hosted CI (exact head d57a8253b478f461e616d5058c42331d50c4662e)
 
-- Run A: 45511970224 attempt 1 (CI · Source & Quality, pull_request) — observed to terminal:
-  success. Watched by this lane (Eigenes-Run-Pflicht).
+- Run A: 45511970224 attempt 1 (CI · Source & Quality, pull_request) — SUCCESS, watched to
+  terminal by this lane (Eigenes-Run-Pflicht).
 - Run B: 45511970224 attempt 2 (independent rerun of the same required workflow on the exact
-  head, launched via `gh run rerun`; second Run-ID per mission) — terminal state recorded below
-  when the watcher completes.
+  head, launched via `gh run rerun`) — SUCCESS, watched to terminal, including
+  PR · Validation · pr-planner-tests and PR Selected Checks.
+- Two exact-head runs green: https://github.com/mcpdev80/baseharbor/actions/runs/45511970224/attempts/1
+  and .../attempts/2
+- `gh pr checks 1837`: 0 failing/pending non-skipped checks (remainder skipped by path rules).
+- PR merge-ref SHA e9ff7c05b9d5ad0d2ae0a7d2ba351a7851820a4e verified to contain head
+  d57a8253b as ancestor (merge commit into 9d7e22902; no extra content diff).
 
 ## repo-rule compliance
 
