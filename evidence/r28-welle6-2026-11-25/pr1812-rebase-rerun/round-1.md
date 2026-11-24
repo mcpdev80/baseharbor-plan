@@ -63,6 +63,13 @@
 - Owner to run the AgGATE dispatch (Docker Light + Podman Light) on 9140b2cbd if the runtime matrix gates must execute for this serial link; report the operator-OIDC per-gate verdict from that run.
 - Do NOT start #1819 until #1812 is green AND accepted (serial chain).
 
+## Round-2 Ledger (run 45440440221 — CANCELLED, superseded)
+- Dispatched AgGATE run 45440440221 (workflow Release · Pre-Release Validation, id 362658451; ref lane-0428-249-runtime-image-fix = 9140b2cb; tag v0.4.27; demo_ref f23b6e09be34601ba542a3087e19b80764a4165d).
+- light_docker_count = 7, light_podman_count = 7 (14 Light gates); 8 HA-aggregator jobs succeeded (data/identity/observability/routing x docker/podman); 2 integration core-bootstrap jobs failed (integration gates, NOT the operator-OIDC path, NOT a Light gate); 6 Light gates still pending on scarce hosted runners.
+- CANCELLED per owner sequence: #1812 requalification is gated behind 0428-283/284/285 landing; current demo develop is 7d9eb21a (merged demo #169/#172), so tag v0.4.27/demo f23b6e09 pre-date the current demo state and this run tested a superseded state. Cancelled to free the pre-release.yml:7 concurrency window that lane w112 needs.
+- `gh run cancel 45440440221`: submitted; confirmed terminal completed/cancelled. Concurrency window released. No re-dispatch.
+- Implementation STOP: #1812 ledger is complete (head 9140b2cb, rebase clean, run record above). Next #1812 action waits on the 0428-283/284/285 sequence.
+
 ## cleanliness
 - No containers / compose projects started this lane (workflow-only rebase; no docker/podman run).
 - git ps / container ps witness:
