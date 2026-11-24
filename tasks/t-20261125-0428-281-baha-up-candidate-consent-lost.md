@@ -59,3 +59,5 @@ evidence:
 - Write-set is cmd/baha product code ONLY (app_input_resolver.go + runtime_repository_up_test.go). No .github/** or scripts/** change. This is a hard dependency for #1812's Docker+Podman Light gates and therefore for the serial chain #1812 -> #1819 -> #1820.
 
 Owner-authorized SEPARATE consent PR (minimal 2-file shape of ref commit 5f9c671, re-derived on develop 46d3dccc1). FIRST dependency of the chain: consent PR green -> merge -> rebase #1812 -> Docker then Podman Light gates. #1812 stays blocked until this merges. Hosted CI only.
+
+RESCOPED diagnosis-first: consent defect is DISTINCT from merged #1807 (7b45db92 in develop base) — #1807 threads up-path consent but 'record deployment before mutation' still refuses (Docker Light jobs 138466518597/674/757/939, run 45398943139). w85 read-only inspecting git show 7b45 + the record-deployment consent path to pinpoint the file:line gap; NO PR/commit until owner re-confirms a minimal new fix.
