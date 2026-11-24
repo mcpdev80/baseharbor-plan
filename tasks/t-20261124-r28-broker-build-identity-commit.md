@@ -60,3 +60,5 @@ The apply/verify readiness probe either proves the runtime broker is the exact c
 
 - bughunt-hv26 F4 rated this low/medium: a documented by-design weakening rather than a crash or false-green in the normal path. It is filed as a card so the provenance-strength decision is explicit instead of a discarded parameter.
 - Source: bughunt-hv26 F4 dossier `evidence/r28-welle6-2026-11-24/bughunt-hv26-candidate-consent-gate/round-1.md` (develop 3ebfb90d).
+
+Dispatched w60 (ornith, dep-free). Fix verifyRuntimeBrokerBuildIdentity to prove exact candidate commit (currently drops both SHAs; wrong-commit broker passes on semver). Write-set disjoint check first; scripts/.github untouched (catalog owner-scope). Hosted, merge-frost.
