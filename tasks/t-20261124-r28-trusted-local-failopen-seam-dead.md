@@ -7,9 +7,9 @@ areas: [security, access, cli]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w61-0428-270-failopen
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Either the trusted-local fail-open branch in authorizeMachineOperation becomes a live, policy-driven path for trusted host-local…"
 kanban_title: 0428-270 · trusted-local seam dead
 priority: normal
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261124-r28-trusted-local-failopen-seam-dead · ManagedEnvironment always reports managed, so the trusted-local fail-open branch in authorizeMachineOperation is unreachable for every production caller. #task #release/v0-4-28 #status/planned #view/ready #area/access #area/cli #area/security #kind/bug
+- [ ] t-20261124-r28-trusted-local-failopen-seam-dead · ManagedEnvironment always reports managed, so the trusted-local fail-open branch in authorizeMachineOperation is unreachable for every production caller. #task #release/v0-4-28 #status/active #view/active #area/access #area/cli #area/security #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w61-0428-270-failopen · **Priority:** normal  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-trusted-local-operation-grant](t-20261120-trusted-local-operation-grant.md)  
-**Owner:** unassigned  
+**Owner:** w61-0428-270-failopen  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 

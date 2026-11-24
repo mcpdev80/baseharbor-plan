@@ -34,6 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45322832347"]
 **State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
+**Required by:** [t-20261124-r28-broker-build-identity-commit](t-20261124-r28-broker-build-identity-commit.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  
