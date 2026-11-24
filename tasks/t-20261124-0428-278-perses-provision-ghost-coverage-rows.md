@@ -51,3 +51,7 @@ evidence:
 
 - Decide: either (a) confirm forward-registration is intended and add a one-line comment tying the two rows to card 0428-181/#1819, or (b) add a fail-loud guard in scripts/pr-gate-plan.py that errors when a declared row's source file is absent from the candidate tree.
 - This card resolves when #1819 merges (rows go live) IF option (a) is chosen; option (b) needs a scripts/** PR by the owner.
+
+## Handoff
+
+- **Lösung (Codex-Lane w118):** Befund: Kartenloesung = ghost-Zeilen in scripts/pr-gate-plan.py entfernen/fixen -> scripts/** Owner-Scope; Lane hat keine Aenderung gesetzt (Disjunktheit zu 0428-265-Selector-Konflikt gewahrt). Owner-Entscheidung noetig, dann Re-Kommissionierung.
