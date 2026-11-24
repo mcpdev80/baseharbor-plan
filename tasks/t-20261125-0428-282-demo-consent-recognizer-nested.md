@@ -7,9 +7,9 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w92-0428-282-democonsent
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-282 · demo consent recognizer
 priority: high
@@ -25,18 +25,17 @@ evidence:
   - https://github.com/mcpdev80/baseharbor/actions/runs/45398943139
 ---
 
-- [ ] t-20261125-0428-282-demo-consent-recognizer-nested · demo consent recognizer nested #task #release/v0-4-28 #status/planned #view/ready #area/cli #kind/bug
+- [ ] t-20261125-0428-282-demo-consent-recognizer-nested · demo consent recognizer nested #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w92-0428-282-democonsent · **Priority:** high  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-25/0428-281-consent/diagnosis.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w92-0428-282-democonsent  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -57,3 +56,5 @@ evidence:
 - The v0.4.28 Docker Light gates policy + connectivity + reconciliation + full-destroy go GREEN against a demo_ref that contains this demo fix (previously failing only because the consent wrapper did not recognize the nested refusal).
 - baseharbor-demo tests exercise run_consented on the nested refusal and assert a digest retry + fail-closed-when-no-consent.
 - OWNER AUTHORIZATION REQUIRED before any edit: this is a baseharbor-demo repo/write-set change, OUT OF SCOPE of the prior baseharbor-product consent authorization. Do not implement until the owner grants the repo/write-set change.
+
+Owner-AUTHORIZED separate baseharbor-demo consent PR. w92 dispatching. Scope tests/fixture-consent.py + regression; pull ci-operator.log from run 45398943139 first; merge by lane after green CI + required checks; then #1812 qualified, then serial #1819->#1820. #1812 stays workflow-only/blocked.
