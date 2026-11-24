@@ -88,8 +88,9 @@ Cause: `Candidate · Runtime Image` on f2433d7fd ran pre-release.yml whose line 
 
 ## cleanliness
 
-- No containers/networks/volumes were created by this lane: all execution happened on GitHub-hosted runners; nothing ran locally on the coordinator host (no `go test`, no docker/podman). `docker ps -a` on this host was not touched by this lane. The lane worktree under workers/ holds only the rebased branch (no untracked product edits).
-- Side effects on remotes: branch force-push (witnessed above); cancel request for run 45397880292 (already owner-started and already ending; outcome recorded as cancelled — this lane's last action against it, done to prevent a duplicate consuming the owner's dispatch slot unintentionally; state re-read after: `{"conclusion":"cancelled","status":"completed"}`).
+- No containers/networks/volumes were created by this lane: all execution happened on GitHub-hosted runners; nothing ran locally on the coordinator host (no `go test`, no docker/podman). The lane worktree under workers/ holds only the rebased branch (no untracked product edits).
+- Planning-repo note: the shared baseharbor-plan checkout had a parallel lane's uncommitted edits (card 0428-278 task + generated views); this lane did NOT touch or commit them. My evidence commit landed on origin/main (24ce334d2) via a temporary worktree off origin/main, which was then removed (git worktree remove). Local main was fast-forwarded to origin/main; a stray backup branch was deleted.
+- Side effects on remotes: branch force-push (witnessed above); cancel request for run 45397880292 (an owner-dispatched v0.4.27 run on the exact new head 475902075 that appeared at 12:53Z and was already being cancelled by its dispatcher; this lane's request confirmed terminal state `{"conclusion":"cancelled","status":"completed"}` before any gate executed). The owner must dispatch a fresh run.
 
 ## Handoff / decision needed from coordinator
 
