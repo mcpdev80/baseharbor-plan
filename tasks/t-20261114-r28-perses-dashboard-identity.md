@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w55-0428-078-probehop
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
 kanban_title: 0428-078 · Perses identity dashboard
 priority: normal
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w55-0428-078-probehop · **Priority:** normal  
     **PR:** [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650), [baseharbor#1818](https://github.com/mcpdev80/baseharbor/pull/1818)  
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md), [t-20261120-r28-prune-key-too-coarse](t-20261120-r28-prune-key-too-coarse.md), [t-20261120-r28-registerprovider-signal-failclosed](t-20261120-r28-registerprovider-signal-failclosed.md), [t-20261120-r28-restart-persist-signal-dump](t-20261120-r28-restart-persist-signal-dump.md), [t-20261120-r28-runtimetarget-failclosed](t-20261120-r28-runtimetarget-failclosed.md), [t-20261120-r28-signal-one-active-write-path](t-20261120-r28-signal-one-active-write-path.md), [t-20261120-r28-signalregistry-race](t-20261120-r28-signalregistry-race.md)  
@@ -259,3 +259,5 @@ EXACT head advanced to 20fc1cb7 (owner rebased the same 4 commits onto develop 3
 CI GREEN on exact head 20fc1cb7 (base develop 3ebfb90d, run 45316544436): PR checks 0 fail, MERGEABLE. keycloak-identity test retargeted to #1819 identity producer (not observability catalog); consent satisfied without weakening Consent validation. Candidate complete -> awaiting OWNER exact-diff acceptance + #1819 dependency resolution. Owner keeps PR open; no merge (frost). Do NOT close until owner accept + #1819 accepted.
 
 VERIFIED GREEN final head 20fc1cb7d496 (develop 3ebfb90d) run 45316544436 completed/success: go unit/packages, build/vet, all 5 selected Docker/Podman gates, PR Selected Checks -> 23 pass / 0 fail, MERGEABLE. keycloak-identity test targets the #1819 identity producer (not observability catalog); consent satisfied without weakening. GATED behind dependency #1819 (still DRAFT, owner target-bound ruling pending). Dependency order (AGENTS 3.3.8): accept+merge #1819 (0428-181 producer) FIRST, then Owner exact-diff accept #1818. Keep #1818 OPEN until both; no merge (frost + owner-direct channel).
+
+REOPENED review->active: #1818 green CI (run 45316544436) is achieved by a SCOPE VIOLATION — diff adds keycloak-identity to persesDashboardCatalog() (perses_dashboards.go), forbidden by owner ruling (identity excluded from observability catalog). Not a valid candidate. Correction required: remove the catalog addition + retarget TestPersesKeycloakDashboardQueriesSelectRealProviderLabels to the real identity producer. Fork A (local metrics assembler) vs C (consume #1819/0428-181 producer seam, no dup) routed to OWNER; coordinator recommends C (single producer; aligns with #1818->#1819 dependency). w55 holds; do not touch observability catalog. Depends on #1819 merge for C.
