@@ -7,7 +7,7 @@ areas: [ci, testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w81-0428-249-1812gates
+owner: 
 kanban_status: blocked
 kanban_lane: blocked
 kanban_summary: ""
@@ -17,7 +17,7 @@ depends_on: [t-20261124-r28-release-candidate-testonly-binary]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812]
 sources: []
-blocker: "Separate consent PR card 0428-281 (baha up --confirm-candidate propagation) must merge to develop first; then rebase #1812 and run exact-head Docker then Podman Light gates (owner sequence). Current #1812 Docker Light run 45398943139 = 3 PASS / 4 FAIL (consent), operator-auth admission fixed; PR CI 45397265257 green. Rebase lane resumes after consent merge."
+blocker: "Root cause of the 4 failing Docker Light gates is NOT consent (0428-282 disproved/dropped: consented retry ACCEPTED in run 45398943139; failure is LATER). Triaging post-retry failure via card 0428-284 before requalification. #1812 head 475902075 (base was develop 46d3dccc, now advanced to f14fb87c8) will be rebased onto the corrected develop only AFTER 0428-284 names a fix and (if .github/product-contract scope) the owner authorizes it; then Docker then Podman Light gates on exact head."
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -25,16 +25,16 @@ evidence: []
 
 - [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** w81-0428-249-1812gates · **Priority:** high  
+    **Owner:** unassigned · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
-    **Blocker:** Separate consent PR card 0428-281 (baha up --confirm-candidate propagation) must merge to develop first; then rebase \#1812 and run exact-head Docker then Podman Light gates (owner sequence). Current \#1812 Docker Light run 45398943139 = 3 P…  
+    **Blocker:** Root cause of the 4 failing Docker Light gates is NOT consent (0428-282 disproved/dropped: consented retry ACCEPTED in run 45398943139; failure is LATER). Triaging post-retry failure via card 0428-284 before requalification. \#1812 head 475…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261124-r28-release-candidate-testonly-binary](t-20261124-r28-release-candidate-testonly-binary.md)  
-**Owner:** w81-0428-249-1812gates  
+**Owner:** unassigned  
 **Priority:** high  
 **PRs:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
 **Source:** 
