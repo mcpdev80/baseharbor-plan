@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: ""
-kanban_status: planned
-kanban_lane: ready
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: ""
 kanban_title: 0428-283 · static-mcp operator gap
 priority: high
@@ -25,16 +25,15 @@ evidence:
   - https://github.com/mcpdev80/baseharbor/blob/develop/cmd/baha/ci_integration_operator_enabled.go
 ---
 
-- [ ] t-20261125-0428-283-static-mcp-gate-operator-gap · static-mcp operator gap #task #release/v0-4-28 #status/planned #view/ready #area/ci #kind/bug
+- [ ] t-20261125-0428-283-static-mcp-gate-operator-gap · static-mcp operator gap #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **Blocker:** Owner decision required: how to provision the CI integration operator for the static/mcp gate. Options: (A) build the testonly-tagged binary for static/mcp too (extend pre-release-runtime-suite.yml static/mcp branch like the runtime branch…  
-    **Ready to assign** · prerequisites accepted  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45413604588), [proof 2](https://github.com/mcpdev80/baseharbor/blob/develop/cmd/baha/ci_integration_operator_enabled.go)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** unassigned  
