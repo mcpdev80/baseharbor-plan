@@ -136,9 +136,10 @@ change (grep witness: no hits for MachineActorRef{Mode: "trusted-local" in the p
 
 Runs observed (self-run duty, one per pushed head):
 - 45324910613 (draft phase): "PR · Draft source and routing => pass", selected checks skipping.
-- 45324986963 (head 898aa98ac): FAILURE "PR · Trusted Plan": ValueError uncataloged source change
-  for internal/operatorauth/authorization.go + config.go; "PR Selected Checks" then REJECT:
-  Go test selection missing or invalid.
+- 45324986963 (head 898aa98ac): FAILURE "PR · Trusted Plan" — ValueError uncataloged source change
+  for internal/operatorauth/authorization.go + config.go (plan aborts BEFORE the broad fallback);
+  "PR Selected Checks" then REJECT: Go test selection missing or invalid. These are setup errors,
+  reported as such; the candidate was never compiled/tested by this run.
 - 45325419457, 45325931810, 45326111547 (heads cff1b5538/341faa693/ba4276969, comment-scope
   refinements): same "PR · Trusted Plan" uncataloged-source failure (the planner never reaches a
   selection when a changed cmd/ or internal/ source has no catalog owner).
