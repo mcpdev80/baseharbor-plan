@@ -68,6 +68,18 @@ cleanliness: besenrein — nothing started or stopped by this lane on this host.
 
 ## Publication witness
 
-(pasted after the push, per mission: fetch + ls-tree output)
+Push: `35fd37ee6..177f7af4e  main -> main` to https://github.com/mcpdev80/baseharbor-plan.git
+(`git ls-remote origin refs/heads/main` → `177f7af4ebd6f8913b990ef62038d699b35d5c64`).
+
+`git -C baseharbor-plan fetch origin main && git ls-tree -r --name-only origin/main | grep -E 'hunt-intake-w57|20261124-r28'`:
+```
+evidence/hunt-intake-w57-2026-11-24/round-1.md
+tasks/t-20261124-r28-alert-evaluator-live-health-wiring.md
+tasks/t-20261124-r28-app-status-unauthorized-live-probe.md
+tasks/t-20261124-r28-perses-backend-status-real-probe.md
+tasks/t-20261124-r28-perses-state-spelling-drift.md
+tasks/t-20261124-r28-perses-two-status-faces-disagree.md
+tasks/t-20261124-r28-perses-witness-producer-cli.md
+```
 
 END_DONE w57-0428-266-huntintake: 6 new bug cards 0428-263..268 for F1-F9 (F5→265, F6→268, F8→267 cross-ref); render/check 0 errors; published to baseharbor-plan main.
