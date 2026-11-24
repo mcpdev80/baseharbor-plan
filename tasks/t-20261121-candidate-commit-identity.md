@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w119
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Sweeps show that most open candidates carry commits whose user.name belongs to a different lane, because lanes share…"
 kanban_title: 0428-224 · candidate commits carry
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-candidate-commit-identity · Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261121-candidate-commit-identity · Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w119  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w119  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
