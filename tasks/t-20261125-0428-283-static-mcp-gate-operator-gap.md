@@ -57,7 +57,7 @@ evidence:
 
 ## Acceptance
 
-- OWNER-SOPE decision first (see blocker). Worker implements only after the owner names the mechanism (A tag the static/mcp build, and/or B operator env/target contract, touching .github and possibly demo + the product env gate). No merge of #1826's static/mcp qualification until this antecedent is resolved; #1826's own code (contract set + #171 destructiveHint annotation) is correct.
+- RESOLVED by owner grants 2026-11-24 (19:0xZ scope note + 23:5xZ restatement): the previously open scope decision is made — mechanism (A): operator build-tag on the static/mcp path in .github/workflows/pre-release-runtime-suite.yml ONLY (the single authorized file; ci.yml and the normal CI path untouched; no third provisioning kind), plus minimal demo configuration; the affected sources are catalogued in the same step. Lane-Codex (w112) implements/verifies/merges within this grant; merge requires two exact-host green run IDs per the standing evidence rule. #1826's own code (contract set + #171 destructiveHint annotation) was already assessed correct.
 
 
 ## Handoff
