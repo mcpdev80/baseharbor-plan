@@ -82,6 +82,69 @@ VERIFIED against built binary + live tools/list:
 New demo commit: 025ce84e5d12838ca5622dc69161623350948f08 (demo lane-0428-279-mcpcontract-fix). Re-pinned v0.4.28 demo-ref to 025ce84.
 New candidate head on #1826: 6589a37b00273913e9e14fd9832e93b72630f106 (contains develop tip; two own commits only).
 
+## Side-ownership reconciliation (PR #171 vs product server)
+
+OWNER asked to reconcile demo PR #171 before further work. Read-only inspected PR #171 (repo mcpdev80/baseharbor-demo):
+
+- PR #171 title "test(mcp): add baseharbor.app.pull to demo MCP contract expectations". Live head 025ce84, base main, 8 additions / 0 deletions in tests/mcp/run.sh: it ADDS baseharbor.app.pull to the demo `expected`, `read_only` and `destructive` sets.
+- IMPORTANT: #171 ADDS app.pull to the demo `destructive` set — which is exactly the annotation error. app.pull is SafetyMutating (destructiveHint=FALSE per the product server), so it must be ABSENT from the demo destructive set. #171's destructive inclusion would re-introduce the same failure.
+- #171 is OPEN, DIRTY (base main ≠ its declared base df4867c), no CI checks, and its demo write-set needs owner authorization not yet granted. NOT touching it.
+
+OWNERSHIP DETERMINATION (authoritative evidence):
+
+- The demo static/mcp gate (tests/mcp/run.sh:198) only ASSERTS per tool: `readOnlyHint is (name in read_only) OR destructiveHint is (name in destructive)`. It reads the annotation the SERVER emits; it does not define product behavior.
+- The product's OWN authoritative annotation check is cmd/baha/agent_mcp_test.go:123,127: `ReadOnlyHint != (operation.Safety == SafetyReadOnly)` and `DestructiveHint != (operation.Safety == SafetyDestructive)`.
+- The product server derives the annotation in cmd/baha/mcp.go machineMCPTool: `destructive := operation.Safety == machine.SafetyDestructive`. app.pull = SafetyMutating → destructiveHint = FALSE.
+- Live tools/list from a built binary confirms baseharbor.app.pull emits readOnlyHint=FALSE, destructiveHint=FALSE, openWorldHint=TRUE, idempotentHint=FALSE.
+
+CONCLUSION: the annotation belongs to the PRODUCT MCP SERVER (#1826's domain), not the demo contract expectations (#171's domain). #1826 already declares app.pull correctly (destructiveHint=FALSE via SafetyMutating); the demo-side failure was a stale/wrong demo expectation (app.pull wrongly in the demo destructive set). Fix = remove app.pull from the demo destructive set (demo commit 025ce84). Do NOT assume #171 fixes it: #171 still adds app.pull to the demo destructive set and would re-break the gate. #171 needs rebasing/qualification first (demo write-set = owner authorization, not yet granted).
+
+Keep #1826 open/unmerged. Baseharbor #1826 fix stands as-is until the annotation owner is settled.
+
+## Second blocker (run 45413604588 / #347): new-edit-static.py `target create` fails operator boundary — FIXTURE/SETUP GAP, NOT a product defect and NOT caused by #1826
+
+The annotation fix WORKS: run 347 (exact head 6589a37b, demo 025ce84) reaches and passes the annotation assertion (run.sh:198). It then fails one step later in `tests/mcp/new-edit-static.py:83`:
+
+```
+subprocess.CalledProcessError: Command '['.../baha', 'target', 'create', 'mcp-static', '--provider', 'docker', '--access', 'local-docker', '--reference', 'local', '--scope', 'default', '--default']' returned non-zero exit status 1.
+Error: Managed-environment machine operations require an authenticated BaseHarbor operator.
+```
+
+CLASSIFICATION: preexisting gate-fixture/setup gap, independent of #1826.
+
+WHY — the product ships a CI integration operator, but it is disabled for this gate on two independent axes:
+
+1. Missing build tag. The operator seam lives in `cmd/baha/ci_integration_operator_enabled.go`:
+   `//go:build baseharbor_ci_operator_testonly`. The static `mcp` gate builds the candidate with a
+   plain `go build -trimpath` (no `-tags`): pre-release-runtime-suite.yml:276 (`go build -trimpath -o
+   "$RUNNER_TEMP/atomic-bin/baha" ./cmd/baha`). The tagged binary `baha-ci-operator-testonly` exists only
+   for the runtime gate, which sets `GOFLAGS: -tags=baseharbor_ci_operator_testonly` (pre-release-runtime-suite.yml:304).
+   The static `mcp` gate path uses the untagged atomic-bin binary — no synthetic operator.
+
+2. Missing required env. Even if the tagged binary were used, `ci_integration_operator_enabled.go`
+   `ciIntegrationManagedLocalGateReason` requires ALL of:
+   - `BASEHARBOR_DEMO_OPERATOR_GATE` non-empty and == `GATE`
+   - `BASEHARBOR_TEST_RUNTIME` in {docker,podman}
+   - resolved target.Name == `atomic-<runtime>-<gate>` and == `BASEHARBOR_TARGET`
+   - `target.AccessProvider == "local"`, `target.TenantID == ""`, `target.RuntimeProvider == runtime`
+   The static `mcp` gate sets `BASEHARBOR_TEST_RUNTIME: static` and `GATE: mcp` (run 347 log lines 79/541)
+   and never sets `BASEHARBOR_DEMO_OPERATOR_GATE`; `new-edit-static.py:75-77` sets `BASEHARBOR_TARGET: mcp-static`
+   and no `BASEHARBOR_DEMO_OPERATOR_GATE`. So the synthetic-operator path is not engaged.
+
+INDEPENDENT OF #1826: `tests/mcp/new-edit-static.py` exists on demo main since c23bd9a (PR #169) and at the
+original demo-ref df4867c used by run 346. It was present whenever the annotation assertion passed; the
+annotation error on run 346 simply masked it by dying first at run.sh:198. #1826's only diff is the demo
+destructive-set removal (025ce84) — it does not touch new-edit-static.py, run.sh, the workflow, or the build.
+Reproduces identically at df4867c. This is a demo-side fixture gap.
+
+MINIMAL FIX (owner to authorize; NOT implemented, NOT in #1826 or #171): wire the existing
+`baseharbor_ci_operator_testonly` synthetic operator into the static `mcp` gate — at minimum build the static
+gate's baha with `-tags=baseharbor_ci_operator_testonly` and export `BASEHARBOR_DEMO_OPERATOR_GATE=mcp`
+(matching `GATE: mcp`) so `new-edit-static.py:83`'s bootstrap `target create` is authorized by the exact
+gate-scoped test operator (same mechanism the runtime gate uses). This is a demo `tests/mcp` change (owner
+write-set) and/or a pre-release-runtime-suite.yml build-tag change (owner scope) — neither is authorized to
+#1826 or #171 yet.
+
 ## Required owner action to run the static/mcp gate
 
 The static/mcp gate is a Pre-Release (workflow_dispatch) gate on the product repo. Per the owner STOP-DISPATCH notice, the owner runs it (no run was in flight). The exact command to run it on the exact candidate head:
