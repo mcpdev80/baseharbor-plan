@@ -85,6 +85,7 @@ Loesung: Core test-only `up` fixture regression accepted; entschieden von Codex-
 - Owned files or areas:
 - Shared files: coordinate through the owning task.
 
+- **CI-Route-Befund (Owner 2026-11-25):** Branch lane-0428-250-demo-operator-root hat KEINE PR-Workflow-Runs: aktive Demo-Workflows triggern nur PRs gegen main bzw. Pushes auf release/work-Zweige, #170 zielt auf develop => das CLEAN-MERGE-Label ist keine Testevidence. Zaehlt wird nur ein tatsaechlich ausgefuehrter Hosted-Pfad: echte Core-Hosted-Qualifikation mit demo_ref auf #170 (derzeit durch Pin-Regel gesperrt, s. Leg-B) oder aquivalenter Run; der startup_failure-Lauf mit null Jobs zaehlt nicht.
 ## Handoff
 
 - **Leg-A/Befund (Codex-Lane w113b, #170-Demo-Route):** kein Input-Schema-Mismatch; Workflow-Blob zum letzten funktionierenden Lauf identisch (bbcff8dc6); startup_failure VOR Job-Scheduling (resolve ohne Condition, null Jobs/Logs) = Plattform-Klasse. Leg-B-Supersession streng gated auf Merge von Core #1830 (demo_ref weggelassen=Pin); #170 bleibt open.
