@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w92-0428-282-democonsent
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-282 · demo consent recognizer
 priority: high
@@ -17,23 +17,22 @@ depends_on: []
 repos: [mcpdev80/baseharbor-demo]
 prs: []
 sources: []
-blocker: "Premise DISPROVED: the doubly-nested demo consent recognizer + regression are ALREADY MERGED on demo develop c23bd9a (PR #169) and present in demo_ref f23b6e09 used by failing run 45398943139 -> a tests/fixture-consent.py PR would be an empty diff. The real cause of #1812's 4 Docker Light 'missing explicit --confirm-candidate' failures is being located (w92 read-only tracing the RUNTIME Light-gate harness: does it wrap baha up under run_consented / pass the digest). Owner decision pending on a correctly-scoped card once the true file:line is proven. #1812 stays blocked."
+blocker: ""
 wait_reason: ""
-resolution: ""
-evidence:
+resolution: dropped
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-25/0428-281-consent/diagnosis.md", "https://github.com/mcpdev80/baseharbor/actions/runs/45398943139"]
   - https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-25/0428-281-consent/diagnosis.md
   - https://github.com/mcpdev80/baseharbor/actions/runs/45398943139
 ---
 
-- [ ] t-20261125-0428-282-demo-consent-recognizer-nested · demo consent recognizer nested #task #release/v0-4-28 #status/blocked #view/blocked #area/cli #kind/bug
+- [x] t-20261125-0428-282-demo-consent-recognizer-nested · demo consent recognizer nested #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** w92-0428-282-democonsent · **Priority:** high  
-    **Blocker:** Premise DISPROVED: the doubly-nested demo consent recognizer + regression are ALREADY MERGED on demo develop c23bd9a (PR \#169) and present in demo\_ref f23b6e09 used by failing run 45398943139 -\> a tests/fixture-consent.py PR would be an em…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-25/0428-281-consent/diagnosis.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-25/0428-281-consent/diagnosis.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-25/0428-281-consent/diagnosis.md), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w92-0428-282-democonsent  
@@ -59,3 +58,5 @@ evidence:
 - OWNER AUTHORIZATION REQUIRED before any edit: this is a baseharbor-demo repo/write-set change, OUT OF SCOPE of the prior baseharbor-product consent authorization. Do not implement until the owner grants the repo/write-set change.
 
 Owner-AUTHORIZED separate baseharbor-demo consent PR. w92 dispatching. Scope tests/fixture-consent.py + regression; pull ci-operator.log from run 45398943139 first; merge by lane after green CI + required checks; then #1812 qualified, then serial #1819->#1820. #1812 stays workflow-only/blocked.
+
+DISPOSITION A (owner): consent recognizer + regression ALREADY PRESENT in demo_ref f23b6e09 (PR #169 nested_wrapped_message + test_fixture_consent nested/stale-rejection). A demo PR would be empty. Full logs of all 4 failed jobs in run 45398943139: nested refusal -> emitted digest -> [ci-operator-testonly] decision log RETRY ACCEPTED -> failure occurs AFTER the retry. Consent is NOT the cause. Causal record corrected; post-retry gate failure triaged separately (card 0428-284).
