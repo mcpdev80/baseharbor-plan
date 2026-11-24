@@ -91,6 +91,10 @@ Rebased onto develop 46d3dccc, exact head 47590207518, one-file diff pre-release
 
 Core fixture handoff (2026-11-24): BaseHarbor PR [#1827](https://github.com/mcpdev80/baseharbor/pull/1827) merged at `adf43709b8b37cd2b18a6bf4710019d7343d54b4` (source `83d7c7afc84740b565ff654562a178361c3522c8`) with two exact-head green Hosted CI runs: [45455276409](https://github.com/mcpdev80/baseharbor/actions/runs/45455276409) and [45460654225](https://github.com/mcpdev80/baseharbor/actions/runs/45460654225). This closes only the Core test-only fixture half; #1812 still needs its own requalification after merge, assigned to w112. Existing #1812 scope and blocker are unchanged.## Handoff
 
+- Catalog PR #1837 MERGED (develop f7540e591): 14 Light IDs required_for v0.4.28 (CI 45511970224 terminal green exact d57a8253; APPROVE stored as COMMENTED - same-account). #1812 final sequence resumed on this base (workflow-only diff).
+
+
+
 - CATALOG PR LIVE: #1837 head d57a8253b478f461e616d5058c42331d50c4662e - exactly the two approved files, 14 Light IDs required_for v0.4.28 only, v0.4.27 unchanged; run 45511970224 all-completed-green (pr-planner-tests pending). Terminal green -> independent Codex review/merge; after merge #1812 rebases for the 14-gate reruns.
 
 

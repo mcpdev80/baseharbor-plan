@@ -73,5 +73,8 @@ Use J-Commerce docker-compose.yaml including `vector_db`, and run `baha app init
 
 ## Handoff
 
+- BASE REFRESH 2026-11-26: run 45510613765 terminal green AT b9d312b but base 9d7e229 behind develop f7540e591 -> not merge-ready; w128 re-dispatched for merge-develop + requal (two IDs on new exact head).
+
+
 - Planned only. No implementation, PR, merge or acceptance claimed. Source: 2026-11-16 J-Commerce guided-init/apply/destroy/reset transcript supplied by Owner.
 - DECISION: YES — PR #1833 may add exactly the three source-classification rows under `scripts/pr-gate-coverage.json` `components`, using only the existing row keys `{id, path, surfaces}`. This is an existing-mechanism data correction: the component array begins at `scripts/pr-gate-coverage.json:138`, source paths resolve through component surfaces in `scripts/validate-pr-gate-coverage.py:21-55`, and the validator checks component `id`/`path`/`surfaces` at `scripts/validate-pr-gate-coverage.py:145-170`. The three rows may classify only `internal/application/manifest_validation.go`, `internal/application/workload.go`, and `internal/application/workload_test.go` to the existing `source.gate.atomic.{docker,podman}.data.capabilities` surfaces. No scripts code, gate-behavior, or `.github` change is authorized by this decision. Expires when PR #1833 is merged or closed; it grants no reusable authorization.
