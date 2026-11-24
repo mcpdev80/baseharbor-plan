@@ -17,7 +17,7 @@ depends_on: [t-20261124-r28-release-candidate-testonly-binary]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812]
 sources: []
-blocker: "CONFIRMED cause of the 4 Docker Light fails = OPERATOR-AUTH provisioning (run 45398943139 policy:1085 'requires authenticated BaseHarbor operator'; ZERO consent-refusal lines; target create fails before any consent fixture). NOT consent (0428-282 dropped), NOT #1807 (merged). Same family as card 0428-283 (static/mcp plain build + env contract) which ALSO blocks #1826. Owner: authorize ONE operator-provisioning fix (0428-283 scope: baseharbor .github build tag + demo Light-harness env/target) -> then #1812 rebase onto that develop (GUARD: preserve #1823 cmd/baha/secret_* deny+assertions; branch base pre-#1823) + Docker then Podman Light on exact head. #1812 workflow-only; ci.yml untouched."
+blocker: "Cause (owner-corrected, raw-log authoritative): target create SUCCEEDS ([acceptance] target: ready), gate RAN; policy's first in-gate failure = 'operator authentication needs interactive setup but input is not a terminal' -> CI operator-auth needs a NON-INTERACTIVE provisioning path. NOT consent (markers exist but retries not confirmed-all-four); NOT #1807 (merged). Per-job authority = w97 (0428-284). Fix mechanism (0428-283 build-tag+env OR w93 trusted-local fallback) is an OWNER decision pending w97. #1812 workflow-only; ci.yml untouched; rebase later must preserve #1823 secret_* fix."
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
-    **Blocker:** CONFIRMED cause of the 4 Docker Light fails = OPERATOR-AUTH provisioning (run 45398943139 policy:1085 'requires authenticated BaseHarbor operator'; ZERO consent-refusal lines; target create fails before any consent fixture). NOT consent (0…  
+    **Blocker:** Cause (owner-corrected, raw-log authoritative): target create SUCCEEDS (\[acceptance\] target: ready), gate RAN; policy's first in-gate failure = 'operator authentication needs interactive setup but input is not a terminal' -\> CI operator-au…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
