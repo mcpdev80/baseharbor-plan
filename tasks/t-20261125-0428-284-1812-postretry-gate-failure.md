@@ -7,7 +7,7 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: Codex (w115-0428-284-testcert)
+owner: w115-0428-284-testcert
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -15,7 +15,7 @@ kanban_title: 0428-284 · 1812 post-retry gate fail
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
-prs: []
+prs: [mcpdev80/baseharbor#173]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,7 +26,8 @@ evidence:
 
 - [ ] t-20261125-0428-284-1812-postretry-gate-failure · #1812 post-retry gate failure #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** Codex (w115-0428-284-testcert) · **Priority:** high  
+    **Owner:** w115-0428-284-testcert · **Priority:** high  
+    **PR:** [baseharbor#173](https://github.com/mcpdev80/baseharbor/pull/173)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139)  
     <!-- /generated:card -->
 
@@ -34,9 +35,9 @@ evidence:
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** Codex (w115-0428-284-testcert)  
+**Owner:** w115-0428-284-testcert  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#173](https://github.com/mcpdev80/baseharbor/pull/173)  
 **Source:** 
 <!-- /generated:links -->
 
