@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w67-0428-276-destroyverify
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-276 · env destroy OwnerVerified
 priority: low
@@ -19,19 +19,19 @@ prs: [mcpdev80/baseharbor#1824]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-24/0428-276-env-destroy-ownerverified/evidence.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-24/0428-276-env-destroy-ownerverified/evidence.md", "https://github.com/mcpdev80/baseharbor/pull/1824"]
 ---
 
-- [ ] t-20261124-0428-276-env-destroy-ownerverified-nominal · Bug-Hunt H-V27 intake: env destroy OwnerVerified marker is nominal #task #release/v0-4-28 #status/review #view/review #kind/bug
+- [x] t-20261124-0428-276-env-destroy-ownerverified-nominal · Bug-Hunt H-V27 intake: env destroy OwnerVerified marker is nominal #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/bug
     <!-- generated:card -->
     **Owner:** w67-0428-276-destroyverify · **Priority:** low  
     **PR:** [baseharbor#1824](https://github.com/mcpdev80/baseharbor/pull/1824)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-24/0428-276-env-destroy-ownerverified/evidence.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-24/0428-276-env-destroy-ownerverified/evidence.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1824)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w67-0428-276-destroyverify  
@@ -69,3 +69,5 @@ PR #1824 ready at bcfb13dc1; exact-head run 45383351496 PR Selected Checks pass
 PR #1824 ready at bcfb13dc1; exact-head run 45383351496 PR Selected Checks pass
 
 PR #1824 ready at bcfb13dc1; exact-head run 45383351496 PR Selected Checks pass
+
+merged by CODEX-MERGE; merge commit 2b9a2c6d (11:59:36Z), run 45383351496 green incl docker+podman coreless-lifecycle. OwnerVerified = genuine per-deployment VerifyDeploymentOwner re-check; fail-closed guard.

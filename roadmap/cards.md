@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 196/290 · **Blocked:** 1 · **Waiting:** 23  
+    **Accepted tasks:** 197/290 · **Blocked:** 1 · **Waiting:** 23  
     **Blocker:** [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) — All 14 v0.4.27 Light gates fail IDENTICALLY at the 'authenticated BaseHarbor operator' auth-harness setup step, not at \#1812 content (test -s baha-ci-operator-…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
