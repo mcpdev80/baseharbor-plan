@@ -6,13 +6,13 @@ Prior #1834 track (card 0428-286) closed-superseded; this lane does not merge.
 
 ## PLAN
 
-- [x] read mission; base worktree on develop tip (SHA reported below)
-- [x] add EXACTLY the 14 approved gate IDs to required_for v0.4.28 in scripts/release-requirements.json
-- [x] verify nothing added to v0.4.27 (count stays 62), no other files, no policy change
-- [x] minimal expectation update of the existing required-ID-set test (named below)
-- [x] focused local python unittest prechecks (data/planning only, not a test suite run)
-- [x] normal push, PR open, Hosted CI watched to terminal on exact head (two run IDs below)
-- [x] END_DONE with head + run IDs + the 14-ID list (no merge; separate Codex reviews)
+- read mission; base worktree on develop tip (SHA reported below)
+- add EXACTLY the 14 approved gate IDs to required_for v0.4.28 in scripts/release-requirements.json
+- verify nothing added to v0.4.27 (count stays 62), no other files, no policy change
+- minimal expectation update of the existing required-ID-set test (named below)
+- focused local python unittest prechecks (data/planning only, not a test suite run)
+- normal push, PR open, Hosted CI watched to terminal on exact head (two run IDs below)
+- END_DONE with head + run IDs + the 14-ID list (no merge; separate Codex reviews)
 
 ## Facts
 
