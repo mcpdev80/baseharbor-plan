@@ -7,7 +7,7 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: Lane-Codex (w112)
+owner: w112-0428-283-staticmcp
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -15,7 +15,7 @@ kanban_title: 0428-283 · static-mcp operator gap
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
-prs: []
+prs: [mcpdev80/baseharbor#1826]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -27,7 +27,8 @@ evidence:
 
 - [ ] t-20261125-0428-283-static-mcp-gate-operator-gap · static-mcp operator gap #task #release/v0-4-28 #status/active #view/active #area/ci #kind/bug
     <!-- generated:card -->
-    **Owner:** Lane-Codex (w112) · **Priority:** high  
+    **Owner:** w112-0428-283-staticmcp · **Priority:** high  
+    **PR:** [baseharbor#1826](https://github.com/mcpdev80/baseharbor/pull/1826)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45413604588), [proof 2](https://github.com/mcpdev80/baseharbor/blob/develop/cmd/baha/ci_integration_operator_enabled.go)  
     <!-- /generated:card -->
 
@@ -35,9 +36,9 @@ evidence:
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** Lane-Codex (w112)  
+**Owner:** w112-0428-283-staticmcp  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1826](https://github.com/mcpdev80/baseharbor/pull/1826)  
 **Source:** 
 <!-- /generated:links -->
 
