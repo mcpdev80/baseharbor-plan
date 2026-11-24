@@ -132,8 +132,15 @@ Read-only desk: no product-repo writes, no branches/PRs/CI actions (only `gh` re
 
 ## Evidence delivery witness
 
-TODO — paste `git -C baseharbor-plan fetch origin main && git ls-tree` output before END.
+Command run as second-to-last action (output verbatim):
+
+    $ git -C baseharbor-plan fetch origin main && git ls-tree -r --name-only origin/main | grep evidence/r28-welle6-2026-11-25/1812-prerequisite-map
+    From https://github.com/mcpdev80/baseharbor-plan
+     * branch                main       -> FETCH_HEAD
+    evidence/r28-welle6-2026-11-25/1812-prerequisite-map/round-1.md
+
+Evidence commit: 76a6c39fcbacb7b969b85766376102b44b61282a, pushed 4d5b8f8dc..76a6c39fc HEAD -> main to https://github.com/mcpdev80/baseharbor-plan.git.
 
 ## END
 
-TODO — END line filled as final action.
+END_DONE w94-0428-249-1812depcmap: prerequisite map done — develop 46d3dccc, demo develop c23bd9ac; consent recognizer ALREADY on develop and run-pinned f23b6e09 (#138/604c0d7 merged) so card-0428-282 is not the Light-gate blocker; primary blocker is the UNAUTHORIZED demo operator-auth harness fix (policy run.sh non-interactive auth + full-destroy cleanup auth, 0428-250 family); #1825 admission confirmed; #171/#1826 affect static/mcp only; next action = rerun #1812 gates (head 47590207, docker then podman) on demo_ref = demo develop tip containing the operator-auth fix; candidate SHA for chain unchanged 47590207518ce9501f1b1bbb115d72d64a206d14
