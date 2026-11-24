@@ -7,9 +7,9 @@ areas: [ci, testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w70-0428-249-rebase
-kanban_status: blocked
-kanban_lane: blocked
+owner: w81-0428-249-1812gates
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-249 · light-runtime blob unknown
 priority: high
@@ -17,24 +17,23 @@ depends_on: [t-20261124-r28-release-candidate-testonly-binary]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812]
 sources: []
-blocker: "All 14 v0.4.27 Light gates fail IDENTICALLY at the 'authenticated BaseHarbor operator' auth-harness setup step, not at #1812 content (test -s baha-ci-operator-testonly PASSED; diff is only the +20 runtime-image reload in .github/workflows/pre-release-runtime-suite.yml). Plain-develop validation run 45251664813 fails the SAME way (DOCKER_RESULT/PODMAN_RESULT failure, AssertionError runtime_light_gates_docker). This is an OWNER/CI-scope runtime-gate operator-auth harness condition (§3.8 auth/ENV from system/Owner) — no worker or #1812 can resolve it. Next trigger: owner confirms the Release·Pre-Release Validation operator-auth input/credential."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/testing #kind/bug
+- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/active #view/active #area/ci #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** w70-0428-249-rebase · **Priority:** high  
+    **Owner:** w81-0428-249-1812gates · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
-    **Blocker:** All 14 v0.4.27 Light gates fail IDENTICALLY at the 'authenticated BaseHarbor operator' auth-harness setup step, not at \#1812 content (test -s baha-ci-operator-testonly PASSED; diff is only the +20 runtime-image reload in .github/workflows/…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261124-r28-release-candidate-testonly-binary](t-20261124-r28-release-candidate-testonly-binary.md)  
-**Owner:** w70-0428-249-rebase  
+**Owner:** w81-0428-249-1812gates  
 **Priority:** high  
 **PRs:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
 **Source:** 
@@ -86,3 +85,5 @@ Lane correctly stopped, awaiting owner. No coordinator/worker edit. This is the 
 Unblocked: batch #1822 merged to develop 90086a1f9 (baha-ci-operator-testonly production landed). Rebase+14-light-gate rerun onto new develop by w66 (mechanical, no owner-scope edits). CODEX merges on green.
 
 Sequence step 1 (owner re-release): rebase #1812 onto develop 05ef48536; superseded files take develop version, only .github/workflows/pre-release-runtime-suite.yml (owner's existing delta) survives byte-for-byte. Trigger+verify exact-head run incl 14 runtime-suite gates. No merge. #1819/#1820 follow ONLY after #1812 terminal-green.
+
+Rebased onto develop 46d3dccc, exact head 47590207518, one-file diff pre-release-runtime-suite.yml. PR CI 45397265257 SUCCESS. Docker Light dispatch 45398943139 on head; w81 reports a .github resource-validation blocker (static_gates vs runtime_light_gates_* classification) at pre-release-runtime-suite.yml:237-246 — owner-scope, escalated (card 0428-280). Podman held until owner scope answer + Docker outcome.
