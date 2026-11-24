@@ -29,6 +29,9 @@
 
 - The mission authorizes `only_gates=atomic,static,config-matrix`. The pre-release gate selector is `scripts/pre-release-check-plan.py` on `origin/develop`. It validates `selected ⊆ required`, where `required = [row.id for row in gates if tag in row.required_for]`.
 - On `origin/develop` tip `9d7e2290`, the gates `required_for: v0.4.28` are **exactly two**: `atomic/static/mcp` and `atomic/static/ci-fast-check`. `atomic/static/config-matrix` is **not** in that set, so any `only_gates` containing `atomic/static/config-matrix` is rejected by the plan script with `selected checks must be unique exact required check IDs` (exit 2).
+- Exact reproduction (`python3 scripts/pre-release-check-plan.py --tag v0.4.28 --only-gates "..."`, run from the `scripts/` dir with `release-requirements.json` beside it):
+  - `--only-gates "atomic,static,config-matrix"` (mission's literal form) => `Pre-Release gate selection failed: selected checks must be unique exact required check IDs` (exit 2).
+  - `--only-gates "atomic/static/config-matrix"` (exact check-id form) => same rejection (exit 2).
 - `atomic/static/config-matrix` is `required_for: ['v0.4.22','v0.4.23','v0.4.24','v0.4.25','v0.4.26','v0.4.27']` — dropped after v0.4.27, never re-added to v0.4.28.
 - Provenance (git on `origin/develop`):
   - `scripts/release-requirements.json` at v0.4.27 tag `6c40fab4` still lists `config-matrix` as `required_for ... 'v0.4.27'`.
