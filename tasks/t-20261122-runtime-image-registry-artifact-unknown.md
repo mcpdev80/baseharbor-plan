@@ -7,9 +7,9 @@ areas: [ci, testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w249-0428-249-runtime-image-fix (SESSION GONE - no live owner; work complete)
-kanban_status: blocked
-kanban_lane: blocked
+owner: owner (0428-249 rebuild on develop 3ebfb90d)
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-249 · light-runtime blob unknown
 priority: high
@@ -17,24 +17,23 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812]
 sources: []
-blocker: "SCOPE DECISION RESOLVED by OWNER (recommended option (a) rejected): owner is dropping ONLY the out-of-scope optional prebuilt-binary fallback from .github/workflows/pre-release-runtime-suite.yml, restoring the mandatory exact-candidate binary checks; the two APPROVED runtime image archive reloads stay untouched. Owner executes the .github edit himself (owner scope; no coordinator/worker lane). Prepared in isolated worktree /var/tmp/baseharbor-1812-approved-scope, diff clean. REMAINING blocker = #1815 merge: owner will rebase #1812 onto develop after #1815 lands (to include its fixture coverage) then trigger exact-head Docker+Podman Light (14) gates. Prior run 45271268206 had Selected Runtime SKIPPED (not valid)."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/testing #kind/bug
+- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/active #view/active #area/ci #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** w249-0428-249-runtime-image-fix (SESSION GONE - no live owner; work complete) · **Priority:** high  
+    **Owner:** owner (0428-249 rebuild on develop 3ebfb90d) · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
-    **Blocker:** SCOPE DECISION RESOLVED by OWNER (recommended option (a) rejected): owner is dropping ONLY the out-of-scope optional prebuilt-binary fallback from .github/workflows/pre-release-runtime-suite.yml, restoring the mandatory exact-candidate bin…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w249-0428-249-runtime-image-fix (SESSION GONE - no live owner; work complete)  
+**Owner:** owner (0428-249 rebuild on develop 3ebfb90d)  
 **Priority:** high  
 **PRs:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
 **Source:** 
@@ -74,3 +73,5 @@ reconciled per Owner: 1812 in-scope fix complete; gate-red external (0428-250 fi
 No live owner lane (w249 gone); parked at exact-scope review. No coordinator/worker edit, CI-acceptance, or merge until owner decides.
 
 Within 0428-249 approval; no alternate logic added. Owner-handled.
+
+Unblocked by #1815 merge. OWNER executing #1812 rebuild from develop 3ebfb90d with ONLY the two approved runtime image archive reloads (removing the unapproved optional-binary/build-from-source fallback per scope ruling), then running final Docker+Podman Light gates. Owner-handled .github/** scope; no worker lane.
