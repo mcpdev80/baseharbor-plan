@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: Codex w116 takeover 0428-285
+owner: w116-0428-285-takeover
 kanban_status: active
 kanban_lane: active
 kanban_summary: Make the test-only CI operator authenticate non-interactively so the Light policy/connectivity/reconciliation/full-destroy gates…
@@ -15,7 +15,7 @@ kanban_title: 0428-285 · CI operator Accept
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor-demo]
-prs: []
+prs: [mcpdev80/baseharbor-demo#1827]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -25,16 +25,17 @@ evidence: []
 
 - [ ] t-20261124-ci-operator-acceptance-nontty · CI operator acceptance non-interactive in CI #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** Codex w116 takeover 0428-285  
+    **Owner:** w116-0428-285-takeover  
+    **PR:** [baseharbor-demo#1827](https://github.com/mcpdev80/baseharbor-demo/pull/1827)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** Codex w116 takeover 0428-285  
+**Owner:** w116-0428-285-takeover  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor-demo#1827](https://github.com/mcpdev80/baseharbor-demo/pull/1827)  
 **Source:** 
 <!-- /generated:links -->
 
