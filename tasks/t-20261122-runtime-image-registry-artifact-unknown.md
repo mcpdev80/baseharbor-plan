@@ -7,9 +7,9 @@ areas: [ci, testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: owner (0428-249 rebuild on develop 3ebfb90d)
-kanban_status: blocked
-kanban_lane: blocked
+owner: w66-0428-249-rebase
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-249 · light-runtime blob unknown
 priority: high
@@ -17,25 +17,24 @@ depends_on: [t-20261124-r28-release-candidate-testonly-binary]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812]
 sources: []
-blocker: "Lane confirms #1812 head b1b31a59 matches the delegated scope EXACTLY (+20 only .github/workflows/pre-release-runtime-suite.yml, ci.yml untouched, no replacement logic). Hosted run 45313489014 failed BEFORE Docker/Podman Light gates: candidate artifact lacks mandatory baha-ci-operator-testonly (test -s fails in all 14 gates). Root-cause fix = add candidate build/install in .github/workflows/pre-release.yml = OUTSIDE delegated release scope + outside the exactly-one-PR scope. THIS IS OPTION A: implement the prerequisite SEPARATELY as owner-scope (card 0428-269, already filed) then rebase #1812 onto the resulting develop head + rerun. Coordinator RECOMMENDS A. Do not merge/close/expand until owner rules. No in-PR pre-release.yml change (that would expand #1812)."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/testing #kind/bug
+- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/active #view/active #area/ci #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** owner (0428-249 rebuild on develop 3ebfb90d) · **Priority:** high  
+    **Owner:** w66-0428-249-rebase · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
-    **Blocker:** Lane confirms \#1812 head b1b31a59 matches the delegated scope EXACTLY (+20 only .github/workflows/pre-release-runtime-suite.yml, ci.yml untouched, no replacement logic). Hosted run 45313489014 failed BEFORE Docker/Podman Light gates: candi…  
     **Needs:** [t-20261124-r28-release-candidate-testonly-binary](t-20261124-r28-release-candidate-testonly-binary.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261124-r28-release-candidate-testonly-binary](t-20261124-r28-release-candidate-testonly-binary.md)  
-**Owner:** owner (0428-249 rebuild on develop 3ebfb90d)  
+**Owner:** w66-0428-249-rebase  
 **Priority:** high  
 **PRs:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
 **Source:** 
@@ -83,3 +82,5 @@ Rebuilt on develop 3ebfb90d: ONLY the two approved runtime image archive reloads
 EXACT owner-approved 14 Docker+Podman Light acceptance gates running in workflow-dispatch run 45313489014 (head b1b31a59 / base 3ebfb90d, candidate SHA = exact PR head, demo pin f23b6e09). v0.4.27 gate catalog supplies the 14 light IDs; v0.4.28 release catalog (static-only) NOT edited. PR-triggered general run 45313094627 also active. Scope = exactly one file, 20 additions, ci.yml untouched, no optional fallback.
 
 Lane correctly stopped, awaiting owner. No coordinator/worker edit. This is the same artifact-availability root as #1818/#1810 (baha-ci-operator-testonly production).
+
+Unblocked: batch #1822 merged to develop 90086a1f9 (baha-ci-operator-testonly production landed). Rebase+14-light-gate rerun onto new develop by w66 (mechanical, no owner-scope edits). CODEX merges on green.
