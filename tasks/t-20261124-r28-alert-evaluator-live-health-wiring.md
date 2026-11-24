@@ -15,7 +15,7 @@ kanban_title: 0428-268 · evaluator health never probed
 priority: ""
 depends_on: [t-20261119-r28-perses-alert-verifier-caller-wiring]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1831]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,6 +26,7 @@ evidence: []
 - [ ] t-20261124-r28-alert-evaluator-live-health-wiring · VerifyPersesAlertEvaluatorHealth has no CLI/MCP caller and the applied alert face derives from the manifest alone, so applied-but-failing reads as configured_unverified. #task #release/v0-4-28 #status/active #view/active #area/cli #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** Codex (w120)  
+    **PR:** [baseharbor#1831](https://github.com/mcpdev80/baseharbor/pull/1831)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -34,7 +35,7 @@ evidence: []
 **Depends on:** [t-20261119-r28-perses-alert-verifier-caller-wiring](t-20261119-r28-perses-alert-verifier-caller-wiring.md)  
 **Owner:** Codex (w120)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1831](https://github.com/mcpdev80/baseharbor/pull/1831)  
 **Source:** 
 <!-- /generated:links -->
 
