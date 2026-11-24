@@ -93,7 +93,14 @@ Once the prerequisite fix(es) merge to develop producing new SHA X, the chain ru
 
 ## Evidence delivery witness
 
-(second-to-last action, verbatim output appended by the push commit below)
+Command run as second-to-last action (output verbatim):
+
+    $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle6-2026-11-25/0428-283-owner-decision-brief
+    From https://github.com/mcpdev80/baseharbor-plan
+     * branch                main       -> FETCH_HEAD
+    evidence/r28-welle6-2026-11-25/0428-283-owner-decision-brief/round-1.md
+
+Push delivery: d9e27750e..90ee6b3ab main -> main (evidence commit 90ee6b3ab). Untracked foreign directory evidence/r28-welle6-2026-11-25/1818-true-scope/ exists in this shared checkout and was NOT touched or committed by this lane (reported here so its owner can commit it).
 
 ## END
 
