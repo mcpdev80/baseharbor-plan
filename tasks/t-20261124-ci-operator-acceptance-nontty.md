@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w111-0428-285-operatorfix
+kanban_status: active
+kanban_lane: active
 kanban_summary: Make the test-only CI operator authenticate non-interactively so the Light policy/connectivity/reconciliation/full-destroy gates…
 kanban_title: 0428-285 · CI operator Accept
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261124-ci-operator-acceptance-nontty · CI operator acceptance non-interactive in CI #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261124-ci-operator-acceptance-nontty · CI operator acceptance non-interactive in CI #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w111-0428-285-operatorfix  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w111-0428-285-operatorfix  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
