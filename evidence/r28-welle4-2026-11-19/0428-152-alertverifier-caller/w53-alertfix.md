@@ -95,7 +95,38 @@ The tests live in cmd/baha/app_status_perses_alert_evaluator_0428_152_test.go an
 - Candidate: c1bc8d417. Runs observed (all "CI · PR #1816", pull_request):
   45300353124 (push-triggered) stayed QUEUED with no jobs and was cancelled;
   45301502234 (started by the PR close+reopen, same exact head) executed to
-  terminal — result recorded below.
+  TERMINAL GREEN: run conclusion success; Go unit shards cli-0/cli-1/cli-2/cli-3,
+  packages, owner all pass; Source format, Trusted Plan, Native gate plan,
+  Workflow policy, go-vet/go-build/cli-gofmt, Exact Candidate, Runner Interface,
+  Focused Python, Demo Pin and the Selected Runtime docker · data-capabilities
+  gate pass; "PR Selected Checks" aggregate pass. Release/HA matrix rows skipped
+  by selection (documented, not part of this PR's plan).
+    https://github.com/mcpdev80/baseharbor/actions/runs/45301502234
+
+## Develop refresh (coordinator directive 2026-11-24)
+
+- #1809 merged; develop advanced 6df6807e -> 951014e9 -> 840c4a6b. Lane rebased
+  lane-0428-152-alertverifier-caller onto 840c4a6b; new head 422e1f76f pushed to
+  the SAME branch (force-with-lease rebase delivery; one candidate per chain,
+  no second branch).
+    $ git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/heads/lane-0428-152-alertverifier-caller
+    840c4a6b6f012a2c698a3b0ee5863c7b82753200  refs/heads/develop
+    422e1f76f9ed48a5b745bed4599c9d9f96241e12  refs/heads/lane-0428-152-alertverifier-caller
+    $ gh pr view 1816 --json headRefOid,state
+    {"headRefOid":"422e1f76f9ed48a5b745bed4599c9d9f96241e12","state":"OPEN"}
+- Base attestation: `git merge-base --is-ancestor lane-origin/develop HEAD` (on
+  840c4a6b) => ANCESTOR_OK. Diff vs develop stays the three card files only:
+    $ git diff lane-origin/develop...HEAD --name-only
+    cmd/baha/app_status_collect.go
+    cmd/baha/app_status_perses_alert_evaluator_0428_152_test.go
+    cmd/baha/perses_lifecycle.go
+- `git log --oneline lane-origin/develop..HEAD` lists 14 commits, ALL titled
+  0428-152 (this chain's own history; `git cherry lane-origin/develop HEAD`
+  shows 14 "+" — no foreign commit content is carried).
+- The alert-evaluator state fix is kept unchanged through the rebase;
+  scripts/** and .github/** untouched.
+- Exact-head Hosted run on 422e1f76f — observed to terminal, result recorded
+  in this section when done.
 
 ## cleanliness
 
@@ -109,4 +140,4 @@ The tests live in cmd/baha/app_status_perses_alert_evaluator_0428_152_test.go an
 - scripts/** and .github/** untouched.
 - No local product test suite executed; verification is exact-head Hosted CI only.
 - No subagents.
-- No merge (Merge-Frost); PR #1816 open at c1bc8d417.
+- No merge (Merge-Frost); PR #1816 open at 422e1f76f (rebase onto develop 840c4a6b).
