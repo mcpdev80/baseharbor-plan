@@ -132,17 +132,21 @@ VERDICT: NO — the tag fix (#1825) is NECESSARY but NOT SUFFICIENT on its own. 
 Both root causes confirmed empirically against real failing run 45385372243:
 
 1. Binary tag (finding 2): develop builds `baha-ci-operator-testonly` without `-tags=baseharbor_ci_operator_testonly`; #1825 adds the flag. NECESSARY.
-2. Catalog readiness (finding 3): the `scripts/release-requirements.json` readiness predicate `(.jobs | index("static_gates"))` returns false for all 14 runtime Light gates, so every gate fails closed with `Missing release-gate catalog entry` BEFORE consuming any artifact. This is a `scripts/**` gap — separate from the tag, NOT fixed by #1825.
+2. Catalog readiness (finding 3): the `scripts/release-requirements.json` readiness predicate `(.jobs | index("static_gates"))` returned false for all 14 runtime Light gates on run 45385372243, so every gate failed closed with `Missing release-gate catalog entry` BEFORE consuming any artifact. This is a `scripts/**` gap — separate from the tag, NOT fixed by #1825.
 
-Therefore #1825 alone does NOT turn the gates green. Even with the tag correct, the gates still fail the catalog-readiness check. A further change is required in `scripts/release-requirements.json` (add `static_gates` to the runtime gates' `jobs`, or otherwise satisfy the predicate) — an OWNER-scope `scripts/**` change this read-only census does NOT make.
+HOWEVER (Owner clarification 2026-11-24, w81): w81 directly verified that the Pre-Release gate-resources.json branch already handles the Light classes, so the catalog-readiness concern is MOOT for the current Pre-Release branch — it does NOT block the 14 Light gates once w81 is in play. The finding stands as an Owner-observation of the failing-run log; it is not an outstanding blocker.
 
-De-risk of a repeat failed validation: if a later run still fails after BOTH the tag fix and the catalog fix, the remaining suspects (NOT these two) are the standard pre-release gate prerequisites — demo/consumer/console pins, workflow_version/catalog_version matrix, and the `Pre-Release Checks` aggregation. Those are Owner/coordination-scope; this desk does not touch them. No .github or scripts change is made by this desk.
+Therefore #1825 alone does NOT turn the gates green in the failing-run snapshot; the second gap is resolved by the w81 branch, not by #1825. No `scripts/**` change is made by this read-only census.
+
+De-risk of a repeat failed validation: if a later run still fails after BOTH the tag fix and the w81 branch is in play, the remaining suspects (NOT these two) are the standard pre-release gate prerequisites — demo/consumer/console pins, workflow_version/catalog_version matrix, and the `Pre-Release Checks` aggregation. Those are Owner/coordination-scope; this desk does not touch them. No .github or scripts change is made by this desk.
 
 ## FUND → KARTE (a real second gap WAS found — Fund→Karte applies)
 
 Per the Owner directive 2026-11-08, every hunt finding must be cast into a bug card. This census found a genuine SECOND gap (the `scripts/release-requirements.json` catalog-readiness predicate rejects all 14 runtime Light gates). I do NOT create the card and do NOT edit `scripts/**`/`.github/**` (both out of read-only scope).
 
-Proposed card: **0428-279** — "Light runtime gates fail closed: `scripts/release-requirements.json` readiness predicate requires `jobs:.*static_gates`, but runtime Light gates are cataloged only under `runtime_light_gates_{docker,podman}`". Contract: register `static_gates` (or otherwise satisfy the predicate at the pre-release-runtime-suite.yml gate-setup) so the 14 runtime gates pass the fail-closed catalog check; gated behind CI in the pre-release validation workflow. This is an Owner-scope `scripts/**` change — handed to the Owner, not implemented here.
+Proposed card: **0428-278** — the scripts/** Owner-scope gap for this census's 2nd finding. This is an Owner-scope `scripts/**` change this read-only census does NOT make and must NOT edit. Per Owner clarification 2026-11-24: the scripts/** owner-scope gap is ALREADY captured by card 0428-278 (owner-scope); do NOT open a separate card and do NOT edit `scripts/**`.
+
+Moot-for-gates resolution (Owner / w81): w81 directly verified that the Pre-Release gate-resources.json branch already handles the Light classes (docker/podman guided/lifecycle/policy/connectivity/reconciliation/failure/full-destroy), so the catalog-readiness concern does NOT block the 14 Light gates in the current Pre-Release branch — the census finding stands as an Owner-observation of the failing-run 45385372243 log, but is not an outstanding blocker once the w81 branch is in play. No action required by this desk.
 
 ## CLEANLINESS
 
