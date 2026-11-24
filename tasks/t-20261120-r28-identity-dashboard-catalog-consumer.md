@@ -17,7 +17,7 @@ depends_on: [t-20261114-r28-perses-datasources]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1819]
 sources: []
-blocker: "DRAFT #1819 (head 013a5646) carries an UNRESOLVED target-binding SCOPE question = the OWNER ruling 'target-bound IdentitySelectionWitness vs catalog-template' I escalated. w54 built the identity producer Option-2 (content in perses_dashboard_provision.go) but cannot finalize until owner rules whether identity output must be per-target (IdentitySelectionWitness) or may use the catalog template. #1818/0428-078 DEPENDS on this producer (#1819) being accepted, so both are held on the same owner decision. No merge. Do not expand until owner ruling."
+blocker: "EXACT-DIFF REVIEW finding (w54): perses_dashboard_provision.go:353 queries identity_selection_confirmed WITHOUT target/application/environment selectors; the exact series appears only at that line across develop/#1818/#1819 with NO producer in those trees; the positive test calls writePersesDashboardProjection DIRECTLY, bypassing the production eligibility filter + witness. So current #1819 is NOT secure-by-design / not target-bound. Secure+functional acceptance requires: (a) a REAL target-bound signal/query at :353, (b) an end-to-end test through persesDashboardProvisionForLifecycle (not a direct-projection bypass). Plus OWNER RULING on target binding. #1819 stays DRAFT; run 45313892257 ran Draft Go shards only, required+selected checks skipped. No scope change / no ready-for-review until owner direction + actual source/target evidence. Coordinator recommendation: rule TARGET-BOUND (fail-closed design; otherwise identity dashboard shows regardless of target eligibility = forgeable, matches H-V25 F4/F5 witness gap)."
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r7.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-24/w54-0428-181-export/0428-181-evidence.md"]
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
     <!-- generated:card -->
     **Owner:** w54-0428-181-export  
     **PR:** [baseharbor#1819](https://github.com/mcpdev80/baseharbor/pull/1819)  
-    **Blocker:** DRAFT \#1819 (head 013a5646) carries an UNRESOLVED target-binding SCOPE question = the OWNER ruling 'target-bound IdentitySelectionWitness vs catalog-template' I escalated. w54 built the identity producer Option-2 (content in perses\_dashboa…  
+    **Blocker:** EXACT-DIFF REVIEW finding (w54): perses\_dashboard\_provision.go:353 queries identity\_selection\_confirmed WITHOUT target/application/environment selectors; the exact series appears only at that line across develop/\#1818/\#1819 with NO produce…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r7.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-24/w54-0428-181-export/0428-181-evidence.md)  
     <!-- /generated:card -->
 
