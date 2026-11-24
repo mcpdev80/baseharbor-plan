@@ -20,14 +20,18 @@ SHA witnesses (real remotes):
 
 ## PLAN
 
-1. Done — Verify planning repo remote and fetch real SHAs (baseharbor + baseharbor-demo origin/develop).
-2. Done — Read baseharbor gate contract cmd/baha/ci_integration_operator_enabled.go and locate ciIntegrationManagedLocalGateReason.
+1. Done — Verify planning repo remote and fetch real SHAs (baseharbor + baseharbor-demo origin/develop).2. Done — Read baseharbor gate contract cmd/baha/ci_integration_operator_enabled.go and locate ciIntegrationManagedLocalGateReason.
 3. Done — Read .github/workflows/pre-release-runtime-suite.yml build paths — which binary builds carry the operator tag.
 4. Done — Inventory demo gate harnesses calling managed baha ops (static/mcp, Light, cleanup, connectivity/reconciliation/other gates).
 5. Done — Classify each gate: operator path ENGAGED vs NOT ENGAGED.
 6. Done — Derive consolidated single-fix scope, mark owner-scope (.github/product) vs demo-harness files.
-7. In progress — Write this evidence file in baseharbor-plan (no checkboxes), pull --rebase, commit+push atomically.
-8. Pending until pushed — Verify evidence on origin/main via ls-tree, then post END line.
+7. Done — Write this evidence file in baseharbor-plan (no checkboxes), pull --rebase, commit+push atomically.
+8. Done — Verify evidence on origin/main via ls-tree, then post END line.
+
+Evidence-on-origin witness (second-to-last action, exact output):
+
+    $ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle6-2026-11-25/0428-283-operator-inventory
+    evidence/r28-welle6-2026-11-25/0428-283-operator-inventory/round-1.md
 
 ## The gate contract being tested against
 
