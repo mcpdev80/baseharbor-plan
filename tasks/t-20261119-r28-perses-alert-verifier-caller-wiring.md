@@ -9,8 +9,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w53-0428-152-alertfix
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 blocker: ""
 wait_reason: ""
 depends_on: [t-20261119-r28-perses-status-backend-witness]
@@ -24,7 +24,7 @@ resolution: ""
 created: 2026-11-19
 ---
 
-- [ ] t-20261119-r28-perses-alert-verifier-caller-wiring · alert-verifier haengt in der luft #task #release/v0-4-28 #status/active #view/active #area/cli #area/metrics #area/observability #kind/task
+- [ ] t-20261119-r28-perses-alert-verifier-caller-wiring · alert-verifier haengt in der luft #task #release/v0-4-28 #status/review #view/review #area/cli #area/metrics #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w53-0428-152-alertfix  
     **PR:** [baseharbor#1816](https://github.com/mcpdev80/baseharbor/pull/1816)  
@@ -32,7 +32,7 @@ created: 2026-11-19
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261119-r28-perses-status-backend-witness](t-20261119-r28-perses-status-backend-witness.md)  
 **Owner:** w53-0428-152-alertfix  
@@ -101,3 +101,5 @@ Rotated from stalled w52 (reclaimed; branch b21d144e + PR #1816 preserved, Trust
 New head 916dccc8 (w53 pushed after rotation). run 45298447080 cli-1: FIX1 over-corrected — (A) unselected Detail must carry verifier reason "Perses is not selected" (not generic wording); (B) selected+contract+silent must be configured_unverified, NOT not_configured (gate not_configured strictly on real non-selection). Routed w53 precise. exact-head rerun; #1816 UNMERGED until green; no Codex; owner keeps running gates.
 
 w53 delivered: heads 4bfa655ef/a80dd26aa/c1bc8d417 landed both fixes (state machine derives from ONE BuildPersesAlertEvaluator call; unselected keeps the verifier reason verbatim; selected+contract reaches configured_unverified; test seeds the authenticated operator via testOperatorContext). Exact-head run 45301502234 GREEN at c1bc8d417 (cli-0/cli-1/cli-2/cli-3 all pass). Develop refresh (#1809 -> 840c4a6b): branch rebased, head 422e1f76f, exact-head run 45304549358 completed/success with "PR Selected Checks" pass and the docker data-capabilities runtime gate pass. PR #1816 OPEN, not merged (Merge-Frost). Evidence: evidence/r28-welle4-2026-11-19/0428-152-alertverifier-caller/w53-alertfix.md.
+
+GREEN exact-head candidate: head 422e1f76 rebased onto develop 840c4a6b; run 45304549358 completed/success, PR Selected Checks + cli-0/1/2/3 pass (both state-machine fixes landed: unapplied->not configured; status test authenticated-operator context). Evidence origin/main 08c92a22f. Ready for Owner exact-diff acceptance; merge held (frost + acceptance channel). No Codex contact.
