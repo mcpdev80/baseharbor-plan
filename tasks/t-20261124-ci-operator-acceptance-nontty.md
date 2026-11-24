@@ -8,9 +8,9 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w116-0428-285-takeover
-kanban_status: review
-kanban_lane: review
-kanban_summary: "Decision: the Core test-only root up fixture regression is merged in BaseHarbor #1827. Demo operator login and acceptance-group…"
+kanban_status: closed
+kanban_lane: closed
+kanban_summary: "Loesung: Core test-only up fixture regression accepted; entschieden von Codex-Lane w116 under the Owner mandate of 2026-11-24.…"
 kanban_title: 0428-285 · CI operator Accept
 priority: ""
 depends_on: []
@@ -19,22 +19,23 @@ prs: [mcpdev80/baseharbor#1827]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: accepted
 evidence:
   - https://github.com/mcpdev80/baseharbor/pull/1827
   - https://github.com/mcpdev80/baseharbor/actions/runs/45455276409
   - https://github.com/mcpdev80/baseharbor/actions/runs/45460654225
+  - https://github.com/mcpdev80/baseharbor/commit/adf43709b8b37cd2b18a6bf4710019d7343d54b4
 ---
 
-- [ ] t-20261124-ci-operator-acceptance-nontty · CI operator acceptance non-interactive in CI #task #release/v0-4-28 #status/review #view/review #kind/task
+- [x] t-20261124-ci-operator-acceptance-nontty · CI operator acceptance non-interactive in CI #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** w116-0428-285-takeover  
     **PR:** [baseharbor#1827](https://github.com/mcpdev80/baseharbor/pull/1827)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1827), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45455276409), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45460654225)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1827), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45455276409), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45460654225), [proof 4](https://github.com/mcpdev80/baseharbor/commit/adf43709b8b37cd2b18a6bf4710019d7343d54b4)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w116-0428-285-takeover  
@@ -45,23 +46,23 @@ evidence:
 
 ## Goal
 
-Decision: the Core test-only root `up` fixture regression is merged in BaseHarbor #1827. Demo operator login and acceptance-group behavior remains separately owned by 0428-284, and #1812 runtime requalification remains a downstream task on its own lane.
+Loesung: Core test-only `up` fixture regression accepted; entschieden von Codex-Lane w116 under the Owner mandate of 2026-11-24. Demo login and acceptance-group behavior remains with 0428-284; #1812 runtime requalification remains downstream.
 
 ## Scope
 
 - In scope:
-  - baseharbor-demo `scripts/acceptance.sh`: the managed-policy acceptance operator-OIDC step must not require a TTY in CI (seed the test-only `baseharbor_ci_operator_testonly` managed-local operator so no interactive prompt), and must not emit an EMPTY acceptance group when a workload reached READY (the demo-connectivity/reconciliation empty-Acceptance-header symptom on run 45432650561).
-  - baseharbor `cmd/baha/ci_integration_operator_enabled.go` (build-tagged test-only fixture): add the missing command forms to the allow-list so `up` with and without `--confirm-candidate` stamp the synthetic operator rather than fail closed.
+  - BaseHarbor's test-only CI fixture regression for root `up --yes` and `up --yes --confirm-candidate <digest>` on policy and connectivity gates, proving the existing managed-local apply admission contract.
 - Out of scope:
+  - Demo `scripts/acceptance.sh` login and acceptance-group behavior; tracked separately by 0428-284.
   - baseharbor `.github/**` workflow files (owner-scope; #1825 already added the build tag/binary).
   - The frozen chain PRs #1812/#1819/#1820/#1818 — do NOT touch them.
   - #1826 / 0428-279 / 0428-283 static/mcp operator gap (separate owner decision, runtime=static excluded from this fallback).
 
 ## Acceptance
 
-- On this lane's branch, the Light policy/connectivity/reconciliation/full-destroy paths stamp the synthetic CI operator with NO interactive terminal and NO empty acceptance group; consented-up reaches READY and the acceptance step emits a concrete assertion (not a blank group header).
-- PR CI green; provide exact SHA -> test ID -> mapped gate -> trigger -> run URL/outcome for the affected operator-acceptance cases.
-- The 14 Light RUNTIME gates go green only after this lane merges and #1812 rebases onto it (requalification runs on the #1812 PR, not here).
+- The changed `up` fixture cases for policy and connectivity run in `ci-integration-operator-seam-tests` on the exact PR head, with both Docker and rootless Podman selected native data-capabilities checks green on that same head.
+- The two exact-head Hosted PR runs and merge commit are linked in this card's evidence; the separate Demo acceptance behavior remains tracked by 0428-284.
+- #1812's 14 Light runtime gates remain a separate requalification after this merge; they are not claimed as completed by this card.
 
 ## Required checks
 
@@ -96,6 +97,7 @@ Decision: the Core test-only root `up` fixture regression is merged in BaseHarbo
 
 ### Takeover closeout (2026-11-24)
 
+- Loesung: Core test-only `up` fixture regression accepted after merge and two exact-head green CI runs; entschieden von Codex-Lane w116 under the Owner mandate of 2026-11-24.
 - **Decision:** Core fixture half is complete and handed to review. BaseHarbor PR [#1827](https://github.com/mcpdev80/baseharbor/pull/1827) merged at `adf43709b8b37cd2b18a6bf4710019d7343d54b4`; source head `83d7c7afc84740b565ff654562a178361c3522c8`, based on develop `08274e67dfd61d65834f5c4bdb4bf6640fa11576`.
 - The final diff is only seven added cases/comments in `cmd/baha/ci_integration_operator_enabled_test.go`, covering `up --yes` and `up --yes --confirm-candidate <digest>` on policy and connectivity fixtures. Existing regression `TestCIIntegrationOperatorAdmitsFiveCoreFixtureFormsOnlyOnConsumerGate` ran in `ci-integration-operator-seam-tests`; PR CI selected Docker and rootless Podman `data-capabilities` gates as well.
 - Exact-head Hosted PR CI runs [45455276409](https://github.com/mcpdev80/baseharbor/actions/runs/45455276409) and [45460654225](https://github.com/mcpdev80/baseharbor/actions/runs/45460654225) both completed successfully on `83d7c7afc84740b565ff654562a178361c3522c8`, with all 35 jobs terminal and zero failures. `PR Selected Checks` succeeded from GitHub Actions integration 15368 in both runs; Docker and Podman selected runtime jobs succeeded.
