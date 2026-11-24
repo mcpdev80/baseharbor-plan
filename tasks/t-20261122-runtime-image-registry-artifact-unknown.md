@@ -17,7 +17,7 @@ depends_on: [t-20261124-r28-release-candidate-testonly-binary]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812]
 sources: []
-blocker: "Hunt H-V26 F1 PINS the root cause with file:line: baha-ci-operator-testonly is NEVER built in the release/candidate artifact workflow (pre-release.yml 0 hits) while the runtime gates demand it under set -e at pre-release-runtime-suite.yml:316 (ci.yml:1141-1153 builds it only for CI, not the release artifact). Owner decision A/B now concrete: (A) add baha-ci-operator-testonly production to the candidate-artifact path (new OWNER-scope card being filed by w59 intake) -> #1812 rebases onto it; or (B) authorize source-build fallback (earlier rejected). Do NOT expand/merge #1812 until owner picks; 12/14 light gates fail until the binary is produced."
+blocker: "Lane confirms #1812 head b1b31a59 matches the delegated scope EXACTLY (+20 only .github/workflows/pre-release-runtime-suite.yml, ci.yml untouched, no replacement logic). Hosted run 45313489014 failed BEFORE Docker/Podman Light gates: candidate artifact lacks mandatory baha-ci-operator-testonly (test -s fails in all 14 gates). Root-cause fix = add candidate build/install in .github/workflows/pre-release.yml = OUTSIDE delegated release scope + outside the exactly-one-PR scope. THIS IS OPTION A: implement the prerequisite SEPARATELY as owner-scope (card 0428-269, already filed) then rebase #1812 onto the resulting develop head + rerun. Coordinator RECOMMENDS A. Do not merge/close/expand until owner rules. No in-PR pre-release.yml change (that would expand #1812)."
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** owner (0428-249 rebuild on develop 3ebfb90d) · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
-    **Blocker:** Hunt H-V26 F1 PINS the root cause with file:line: baha-ci-operator-testonly is NEVER built in the release/candidate artifact workflow (pre-release.yml 0 hits) while the runtime gates demand it under set -e at pre-release-runtime-suite.yml:…  
+    **Blocker:** Lane confirms \#1812 head b1b31a59 matches the delegated scope EXACTLY (+20 only .github/workflows/pre-release-runtime-suite.yml, ci.yml untouched, no replacement logic). Hosted run 45313489014 failed BEFORE Docker/Podman Light gates: candi…  
     **Needs:** [t-20261124-r28-release-candidate-testonly-binary](t-20261124-r28-release-candidate-testonly-binary.md)  
     <!-- /generated:card -->
 
