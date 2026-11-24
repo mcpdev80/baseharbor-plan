@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w50-0428-250-corefixture
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-250 · ci operator fixture allow-list
 priority: high
@@ -19,18 +19,19 @@ prs: [mcpdev80/baseharbor-demo#170, mcpdev80/baseharbor#1815]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/3ebfb90daaf472a1f98a7fe648589bd3e15fb1cd"]
 ---
 
-- [ ] t-20261122-ci-operator-fixture-allowlist-gap · Add the missing command forms to the test-only CI-operator fixture allow-list so static/core gates stamp the synthetic operator instead of failing closed #task #release/v0-4-28 #status/active #view/active #area/ci #area/testing #kind/bug
+- [x] t-20261122-ci-operator-fixture-allowlist-gap · Add the missing command forms to the test-only CI-operator fixture allow-list so static/core gates stamp the synthetic operator instead of failing closed #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/testing #kind/bug
     <!-- generated:card -->
     **Owner:** w50-0428-250-corefixture · **Priority:** high  
     **PR:** [baseharbor-demo#170](https://github.com/mcpdev80/baseharbor-demo/pull/170), [baseharbor#1815](https://github.com/mcpdev80/baseharbor/pull/1815)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/3ebfb90daaf472a1f98a7fe648589bd3e15fb1cd)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w50-0428-250-corefixture  
@@ -82,3 +83,5 @@ Rebased/corrected head bb06696 — both prior bugs verified FIXED in code: (1) c
 Corrected matchers green at bb06696 BUT base stale (6df6807e vs develop 951014e9 after #1810) -> required context PR Selected Checks missing on new base. Routed w50: rebase lane-0428-250 onto develop 951014e9 + exact-head Hosted rerun. #1812 refreshes after #1815 lands. no merge; no force; no Codex.
 
 OWNER took over #1815: rebased the single commit onto develop cd2fcda7, force-with-lease push = new head d54bced8 (identical 2-file/292-line scope). Prior run 45304374778 completed SUCCESS (both Docker+Podman data-capabilities selected gates green). New exact-head Hosted CI on d54bced8 is REQUIRED (owner will trigger/or lane watches). w50 (0428-250) STOPPED on #1815 to avoid concurrent push. #1812 downstream still awaits #1815 merge + owner scope decision.
+
+Owner merged #1815 (squash 3ebfb90d) after exact-head run 45309374778+45309392763 SUCCESS. Core operator-fixture allowlist gap closed; develop now 3ebfb90d. Downstream: #1818/#1650 inherit shared ci_integration_operator_enabled.go fixture from develop.
