@@ -82,6 +82,9 @@ Make the test-only CI operator authenticate **non-interactively** so the Light p
 
 ## Handoff
 
+- **Leg-A/Befund (Codex-Lane w113b, #170-Demo-Route):** kein Input-Schema-Mismatch; Workflow-Blob zum letzten funktionierenden Lauf identisch (bbcff8dc6); startup_failure VOR Job-Scheduling (resolve ohne Condition, null Jobs/Logs) = Plattform-Klasse. Leg-B-Supersession streng gated auf Merge von Core #1830 (demo_ref weggelassen=Pin); #170 bleibt open.
+
+
 - **Lösung (Codex-Lane w116, Übernahme von Worker w111):** Umfang = Core-test-only allow-list beider up-Formen + Seam-Regression; entschieden von w116 nach Mandat; Seam-Test am Diagnosedhead grün, finale Qualifikation nach Hop auf develop inkl. #1828.
 
 
