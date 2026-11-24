@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w119
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "Sweeps show that most open candidates carry commits whose user.name belongs to a different lane, because lanes share…"
 kanban_title: 0428-224 · candidate commits carry
 priority: ""
@@ -17,19 +17,22 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: ""
+blocker: "Owner decision required: deterministic lane identity must be injected in coordinator/scripts/dispatch-lane.sh:41-44; mission requires STOP + QUESTION for scripts/**-only fixes."
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence:
+  - "https://github.com/mcpdev80/baseharbor-plan/commit/3b85964a0"
 ---
 
-- [ ] t-20261121-candidate-commit-identity · Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261121-candidate-commit-identity · Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
     **Owner:** w119  
+    **Blocker:** Owner decision required: deterministic lane identity must be injected in coordinator/scripts/dispatch-lane.sh:41-44; mission requires STOP + QUESTION for scripts/\*\*-only fixes.  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/commit/3b85964a0)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w119  
@@ -74,7 +77,7 @@ Sweeps show that most open candidates carry commits whose `user.name` belongs to
 
 ## Handoff
 
-- Current state, branch, PR and evidence links. Newest first.
+- 2026-11-24 · w119 · QUESTION / blocked. Claim published in planning commit `3b85964a0` (https://github.com/mcpdev80/baseharbor-plan/commit/3b85964a0). No product candidate or Hosted CI run was created. A shared checkout's repository-local `user.name` cannot be lane-deterministic when concurrent lanes overwrite it. The dispatch prompt has the canonical lane at `coordinator/scripts/dispatch-lane.sh:19` and is assembled at `:41`; minimal proposed change: append a requirement to create each candidate commit with `git -c user.name="$lane" -c user.email="$lane@baseharbor.local" commit ...`, and verify `git show -s --format=%an HEAD` equals `$lane` before push. This is a scripts-only coordinator fix, and the mission explicitly requires STOP + QUESTION. Owner: authorize this exact `scripts/dispatch-lane.sh` prompt change or direct another solution. No CI run IDs exist because no candidate was made; the planning claim commit is the only published witness.
 
 ## Recorded exception (coordinator, 2026-11-21)
 
