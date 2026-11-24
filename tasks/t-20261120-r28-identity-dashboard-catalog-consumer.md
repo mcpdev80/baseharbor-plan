@@ -8,19 +8,19 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w54-0428-181-export
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-181 · identity catalog consumer
 priority: ""
 depends_on: [t-20261114-r28-perses-datasources]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["https://github.com/mcpdev80/baseharbor/pull/1819"]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r7.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r7.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-24/w54-0428-181-export/0428-181-evidence.md"]
 ---
 
 - [ ] t-20261120-r28-identity-dashboard-catalog-consumer · Identity dashboard catalog has zero production consumers (P4 of review 1650) #task #release/v0-4-28 #status/active #view/active #kind/bug
