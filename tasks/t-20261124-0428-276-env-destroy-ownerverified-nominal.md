@@ -8,33 +8,35 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w67-0428-276-destroyverify
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-276 · env destroy OwnerVerified
 priority: low
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1824]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-24/0428-276-env-destroy-ownerverified/evidence.md"]
 ---
 
-- [ ] t-20261124-0428-276-env-destroy-ownerverified-nominal · Bug-Hunt H-V27 intake: env destroy OwnerVerified marker is nominal #task #release/v0-4-28 #status/active #view/active #kind/bug
+- [ ] t-20261124-0428-276-env-destroy-ownerverified-nominal · Bug-Hunt H-V27 intake: env destroy OwnerVerified marker is nominal #task #release/v0-4-28 #status/review #view/review #kind/bug
     <!-- generated:card -->
     **Owner:** w67-0428-276-destroyverify · **Priority:** low  
+    **PR:** [baseharbor#1824](https://github.com/mcpdev80/baseharbor/pull/1824)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-24/0428-276-env-destroy-ownerverified/evidence.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w67-0428-276-destroyverify  
 **Priority:** low  
-**PRs:** none  
+**PRs:** [baseharbor#1824](https://github.com/mcpdev80/baseharbor/pull/1824)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -57,3 +59,13 @@ evidence: []
 - No change to the shared `ListDeployments` fail-closed behavior.
 
 Per-deployment VerifyDeploymentOwner re-check for OwnerVerified marker (was nominal always-true); fail-closed guard in applyEnvironmentDestroyScope. Conflict-free write-set.
+
+PR #1824 ready at bcfb13dc1; exact-head run 45383351496 PR Selected Checks pass
+
+PR #1824 ready at bcfb13dc1; exact-head run 45383351496 PR Selected Checks pass
+
+PR #1824 ready at bcfb13dc1; exact-head run 45383351496 PR Selected Checks pass
+
+PR #1824 ready at bcfb13dc1; exact-head run 45383351496 PR Selected Checks pass
+
+PR #1824 ready at bcfb13dc1; exact-head run 45383351496 PR Selected Checks pass
