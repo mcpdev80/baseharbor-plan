@@ -126,3 +126,19 @@ lane excluded it: `5852bcb34` contains ONLY this evidence file (`1 file changed,
 
 That registry container is ambient (also listed in the H-V26 dossier, same id) and is NOT this lane's; it was
 left untouched. This lane created no container, network, volume or compose project.
+## Final publication witness (second-to-last action, fresh fetch)
+
+    git -C baseharbor-plan ls-remote origin refs/heads/main
+    ce1d061c012a5eadc9c62cc5fa3e5cb55b06c2a0  refs/heads/main
+
+    git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep -E 'hunt-intake-w59|t-20261124-r28-(release-candidate|trusted-local|broker-build|runtime-authority)'
+    evidence/hunt-intake-w59-2026-11-24/round-1.md
+    tasks/t-20261124-r28-broker-build-identity-commit.md
+    tasks/t-20261124-r28-release-candidate-testonly-binary.md
+    tasks/t-20261124-r28-runtime-authority-gate-routing.md
+    tasks/t-20261124-r28-trusted-local-failopen-seam-dead.md
+
+    git merge-base --is-ancestor ce1d061c012a5eadc9c62cc5fa3e5cb55b06c2a0 origin/main
+    yes: the evidence commit ce1d061c0 is an ancestor of origin/main
+
+END_DONE w59-0428-269-huntintake26: planning candidate ce1d061c012a5eadc9c62cc5fa3e5cb55b06c2a0 (cards in a1f1ff16d) on baseharbor-plan main; F1->0428-269 (+0428-249 blocked-behind), F2->cross-refs in 0428-189..194, F3->0428-270, F4->0428-271, F5->0428-272; render/check 0 errors; no product/CI/scripts file touched.
