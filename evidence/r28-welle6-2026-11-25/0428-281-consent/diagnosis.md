@@ -356,6 +356,36 @@ refs/heads/lane-0428-281-consent refs/pull/1812/head`:
 (the `refs/heads/lane-0428-281-consent` line is absent — this lane created no product branch and no PR;
 #1812 head is unchanged by this lane.)
 
+## retracted pivot (owner hard stop, 2026-11-24)
+
+A pivot instruction authorized "the minimal consent fix" in the product repo. I ran the read-only part
+of that trace and stopped before any write, then the owner retracted it. What the trace established:
+
+- The hint is NOT lost product-side. `cmd/baha/deployment_record.go:550` returns
+  `missingCandidateConsentError` (app_candidate_consent.go:156-161), which is
+  `%w: %w` of `errConsentRequiredForCandidateSubmission` and a `*cli.UsageError` whose `Hint` carries
+  `Re-run with --confirm-candidate <64hex> to acknowledge this exact submission.`; `main.go:65` →
+  `classifyMachineCLIError` (main.go:300-305) uses `errors.As`, so the digest hint survives any number
+  of honest `fmt.Errorf` wrappings, including app_apply.go:204.
+- The product path stays intact end to end: app_apply.go:203 feeds
+  `candidateConsentOverride(ctx)` into the choke, and no non-test code clears the value
+  (`clearCandidateConsentDigest` appears only in cmd/baha/app_backup_runtime_fixture_test.go).
+- Consequence: a product-side "fix" would be an empty or wrong diff, exactly as the owner states. The
+  defect stays in `baseharbor-demo/tests/fixture-consent.py:38-53`, which keys on three
+  string-concatenated messages and cannot match the doubly-nested form.
+
+Witnesses at the stop, `git ls-remote https://github.com/mcpdev80/baseharbor.git
+refs/heads/lane-0428-281-consent refs/pull/1812/head refs/heads/develop` and
+`gh pr list --search "0428-281 in:title" --state all`:
+
+    46d3dccc1f6fc65c027f5c2a28e9d17b29c5fed2        refs/heads/develop
+    47590207518ce9501f1b1bbb115d72d64a206d14        refs/pull/1812/head
+    (refs/heads/lane-0428-281-consent: absent)
+    []
+
+Local: 0 worktrees matching 281, no `lane-0428-281-consent` branch, 0 containers, zero product-file
+edits at any point in this session. #1812 untouched.
+
 ## END
 
 END_DONE w85-0428-281-consent: read-only diagnosis complete — no candidate SHA by design (owner hold: no
