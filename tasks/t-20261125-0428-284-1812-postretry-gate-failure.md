@@ -79,3 +79,5 @@ evidence:
 ### Core fixture handoff (2026-11-24)
 
 - BaseHarbor Core fixture half landed via PR [#1827](https://github.com/mcpdev80/baseharbor/pull/1827), merge commit `adf43709b8b37cd2b18a6bf4710019d7343d54b4`, exact source head `83d7c7afc84740b565ff654562a178361c3522c8`. Exact-head CI runs [45455276409](https://github.com/mcpdev80/baseharbor/actions/runs/45455276409) and [45460654225](https://github.com/mcpdev80/baseharbor/actions/runs/45460654225) both completed successfully. This covers only the test-only `up` fixture admission regression; Demo login/acceptance-group work remains in this card's separate PRs. #1812 still requires its own rebase and runtime requalification; owner assigned that step to w112.
+
+- **Digest-Hinweis (Owner 2026-11-25):** Der Digest-Fix ist bereits in Demo #169 gemergt — keinen leeren oder duplizierten Digest-PR anlegen.

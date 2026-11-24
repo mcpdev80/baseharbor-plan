@@ -61,3 +61,7 @@ Add to `scripts/pr-gate-coverage.json` on develop, each with surfaces docker + p
 - Product files (runtime_postgres.go, perses_dashboard_provision*.go) are owned by #1819 (0428-181), not this card.
 
 Realized by owner-authorized batch baseline PR (w65): 6 catalog rows + pre-release.yml baha-ci-operator-testonly production. Lands on develop -> unblocks #1819/#1820/#1821/#1812 rebase+rerun.
+
+## Handoff
+
+- AUTGELÖST 2026-11-25 (Owner-Lesart zur Mehrdeutigkeit #1819): disjunkte Vorarbeit darf parallel laufen; Rebase/Qualifikation/Merge bleiben strikt NACH #1812 (Serie #1812->#1819->#1820). Kein Freeze, keine Umordnung.
