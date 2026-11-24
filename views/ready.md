@@ -11,6 +11,8 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | [t-20261121-candidate-commit-identity](../tasks/t-20261121-candidate-commit-identity.md) | Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) | ready | not set | — | — | — |
 | [t-20261122-native-plan-self-selection](../tasks/t-20261122-native-plan-self-selection.md) | CI: catalog and planner self-change selects zero gates | ready | not set | — | — | — |
 | [t-20261123-planner-deleted-source-advisory](../tasks/t-20261123-planner-deleted-source-advisory.md) | CI: candidate planner mishandles deleted source rows (advisory job red) | ready | not set | — | — | — |
+| [t-20261124-0428-276-env-destroy-ownerverified-nominal](../tasks/t-20261124-0428-276-env-destroy-ownerverified-nominal.md) | Bug-Hunt H-V27 intake: env destroy OwnerVerified marker is nominal | ready | low | — | — | — |
+| [t-20261124-0428-277-reveal-fail-authorizationresult-allow](../tasks/t-20261124-0428-277-reveal-fail-authorizationresult-allow.md) | Bug-Hunt H-V27 intake: reveal failure records AuthorizationResult=allow | ready | low | — | — | — |
 | [t-20261124-gate-catalog-baseline-0428-270](../tasks/t-20261124-gate-catalog-baseline-0428-270.md) | CI/catalog: add operatorauth rows to develop pr-gate-coverage.json | ready | not set | — | — | — |
 | [t-20261124-gate-catalog-baseline-1819](../tasks/t-20261124-gate-catalog-baseline-1819.md) | CI/catalog: add #1819 source rows to develop pr-gate-coverage.json | ready | not set | — | — | — |
 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) | CI/catalog: add #1820 source row to develop pr-gate-coverage.json | ready | not set | — | — | — |

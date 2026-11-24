@@ -1,0 +1,57 @@
+---
+id: t-20261124-0428-277-reveal-fail-authorizationresult-allow
+card_number: "0428-277"
+card_short_title: "reveal fail records allow"
+type: bug
+areas: []
+release: v0.4.28
+version: ""
+parent: ""
+owner: ""
+kanban_status: planned
+kanban_lane: ready
+kanban_summary: ""
+kanban_title: 0428-277 · reveal fail records allow
+priority: low
+depends_on: []
+repos: [mcpdev80/baseharbor]
+prs: []
+sources: []
+blocker: ""
+wait_reason: ""
+resolution: ""
+evidence: []
+---
+
+- [ ] t-20261124-0428-277-reveal-fail-authorizationresult-allow · Bug-Hunt H-V27 intake: reveal failure records AuthorizationResult=allow #task #release/v0-4-28 #status/planned #view/ready #kind/bug
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** low  
+    **Ready to assign** · prerequisites accepted  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** ready  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** none  
+**Owner:** unassigned  
+**Priority:** low  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
+
+## Problem (audit-precision nuance, non-blocker)
+
+- Where: `cmd/baha/environment_operations.go`, Z. 39-44: a failed `inspectApplicationEnvironment` (e.g. `os.Stat(files.ApplicationEnv)` missing at Z. 39) calls `recordRevealFailed`, which reads the stored `AuthorizationDecision` and sets `AuthorizationResult=allow` (the human reveal was authorized) while `Outcome=failed`.
+- Expected: an audit event that carries both a consistent authorization-result and outcome.
+- Actual: the event records `outcome=failed` (the material fact is correct) but `AuthorizationResult=allow` because the human-operator + secret.reveal decision was already granted upstream (`authorizeHumanReveal`, `cmd/baha/secret_operations.go`, Z. 111-130). The `outcome` field correctly signals the failure; only the authorization-result sub-field is arguably inconsistent with a failed release.
+- Severity: Low. Non-blocker; the reveal success path is recorded only after a genuine successful read (`cmd/baha/environment_operations.go`, Z. 52-55) and the H-V14 secret-reveal-paths evidence already validated the reveal seams.
+- Ref: H-V14 / 0428-171, finding source `bughunt-hv27 F2` dossier.
+
+## Regression
+
+- A failed reveal must NOT record `AuthorizationResult=allow` for a failed release (fail-closed) or must explicitly record the discrepancy. Either the failing `recordRevealFailed` derives `AuthorizationResult` from the actual reveal outcome (deny on `outcome=failed`), or it records a distinct `AuthorizationResult`/discrepancy value flagging that authorization was granted upstream but the release failed.
+
+## Acceptance
+
+- A failed reveal no longer records an inconsistent `AuthorizationResult=allow` paired with `Outcome=failed`.
+- A regression test asserts that a failed reveal records the fail-closed authorization-result (deny) or a clearly-marked discrepancy, and never a spurious `allow` for a failed release.

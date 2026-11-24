@@ -14,7 +14,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | review | 5 |
 | wait | 10 |
 | blocked | 4 |
-| ready | 13 |
+| ready | 15 |
 | queued | 25 |
 | waiting | 180 |
 | backlog | 7 |
@@ -74,6 +74,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-candidate-commit-identity](../tasks/t-20261121-candidate-commit-identity.md) | Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) | ready | not set | — | — | — |
 | [t-20261122-native-plan-self-selection](../tasks/t-20261122-native-plan-self-selection.md) | CI: catalog and planner self-change selects zero gates | ready | not set | — | — | — |
 | [t-20261123-planner-deleted-source-advisory](../tasks/t-20261123-planner-deleted-source-advisory.md) | CI: candidate planner mishandles deleted source rows (advisory job red) | ready | not set | — | — | — |
+| [t-20261124-0428-276-env-destroy-ownerverified-nominal](../tasks/t-20261124-0428-276-env-destroy-ownerverified-nominal.md) | Bug-Hunt H-V27 intake: env destroy OwnerVerified marker is nominal | ready | low | — | — | — |
+| [t-20261124-0428-277-reveal-fail-authorizationresult-allow](../tasks/t-20261124-0428-277-reveal-fail-authorizationresult-allow.md) | Bug-Hunt H-V27 intake: reveal failure records AuthorizationResult=allow | ready | low | — | — | — |
 | [t-20261124-gate-catalog-baseline-0428-270](../tasks/t-20261124-gate-catalog-baseline-0428-270.md) | CI/catalog: add operatorauth rows to develop pr-gate-coverage.json | ready | not set | — | — | — |
 | [t-20261124-gate-catalog-baseline-1819](../tasks/t-20261124-gate-catalog-baseline-1819.md) | CI/catalog: add #1819 source rows to develop pr-gate-coverage.json | ready | not set | — | — | — |
 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) | CI/catalog: add #1820 source row to develop pr-gate-coverage.json | ready | not set | — | — | — |
@@ -87,7 +89,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 4 open, 165 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 57 open, 231 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 59 open, 231 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 16 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
