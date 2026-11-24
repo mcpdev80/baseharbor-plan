@@ -12,4 +12,3 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | [t-20261121-candidate-commit-identity](../tasks/t-20261121-candidate-commit-identity.md) | Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) | ready | not set | — | — | — |
 | [t-20261122-native-plan-self-selection](../tasks/t-20261122-native-plan-self-selection.md) | CI: catalog and planner self-change selects zero gates | ready | not set | — | — | — |
 | [t-20261123-planner-deleted-source-advisory](../tasks/t-20261123-planner-deleted-source-advisory.md) | CI: candidate planner mishandles deleted source rows (advisory job red) | ready | not set | — | — | — |
-| [t-20261124-gate-catalog-baseline-1650](../tasks/t-20261124-gate-catalog-baseline-1650.md) | CI/catalog: add 3 #1650 rows to develop pr-gate-coverage.json | ready | not set | — | — | — |

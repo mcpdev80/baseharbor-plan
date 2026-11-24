@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: ""
-kanban_status: planned
-kanban_lane: ready
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: "0428-262 · add 3 #1650 rows to develop"
 priority: ""
@@ -19,18 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: dropped
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45297432220"]
 ---
 
-- [ ] t-20261124-gate-catalog-baseline-1650 · CI/catalog: add 3 #1650 rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [x] t-20261124-gate-catalog-baseline-1650 · CI/catalog: add 3 #1650 rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45297432220)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** unassigned  
@@ -76,3 +76,5 @@ One or two sentences: the observable outcome.
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+
+Moot: #1650 head 84943695 Trusted Plan + Source Format PASS after .ci_touch_1 removed; develop catalog (post #1817) accepts all paths. No new coverage rows needed. Never dispatched (no seat consumed).
