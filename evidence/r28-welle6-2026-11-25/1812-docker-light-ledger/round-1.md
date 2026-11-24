@@ -114,6 +114,23 @@ ORAS publish — is evidenced working (step 14 "Load prebuilt runtime image" and
 candidate image for ORAS verification" succeeded in all 7 executed jobs, and all gates reached real
 runtime execution).
 
+## Evidence delivery witness
+
+Final command run as second-to-last action (output verbatim):
+
+```
+$ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle6-2026-11-25/1812-docker-light-ledger
+evidence/r28-welle6-2026-11-25/1812-docker-light-ledger/round-1.md
+$ git -C baseharbor-plan rev-parse HEAD origin/main
+9a0c0525860847b1a699f430bb51aef2a8d95c3f
+9a0c0525860847b1a699f430bb51aef2a8d95c3f
+```
+
+Evidence commits on origin/main: 75699f971 (file) + 9a0c05258 (this witness section, delivered
+75699f971..9a0c05258). Note: the shared checkout's plan-sync stash machinery interleaved during
+delivery; the foreign lane's unstaged 0428-279 edit remains parked at stash@{0} in this checkout for
+its owner to restore (this lane never committed it).
+
 ## Cleanliness
 
 Read-only desk: created nothing in any product repo; no containers/networks/volumes started on this
