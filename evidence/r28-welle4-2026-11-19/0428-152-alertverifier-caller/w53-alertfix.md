@@ -77,20 +77,25 @@ The tests live in cmd/baha/app_status_perses_alert_evaluator_0428_152_test.go an
 
 ## Hosted CI (self-run duty §4.6)
 
-- Prior run 45294765410 (head b21d144e) failed cli-0 and cli-2.
-- Run 45298447080 (exact head 916dccc85): cli-0 and cli-1 failed. cli-1 received
-  the generic not-applied Detail instead of the verifier's "Perses is not
-  selected" reason; cli-2 was pending in that run.
-- Head 4bfa655ef pinned the manifest-only cases to the applied face.
-- Head a80dd26aa moved the three manifest-only contract cases to the applied
-  face but left cli-0's unapplied Detail without the verifier reason.
-- Head c1bc8d417 (candidate): the unapplied+unselected Detail now carries the
-  verifier's "Perses is not selected" fail-closed reason; the applied+selected
-  path stays configured_unverified (unavailable when owner-gated contract
-  missing); all three states remain distinct and OK=false. The unused
-  collection-observer helper was removed.
-- Exact-head run 45300353124 ("CI · Source & Quality", pull_request, head
-  c1bc8d417) observed to terminal — see below.
+- Prior run 45294765410 (head b21d144e) failed cli-0 and cli-2 (the two shards
+  this mission names).
+- Run 45298447080 (exact head 916dccc85): cli-0 and cli-1 failed — the
+  unselected case lost the verifier's "Perses is not selected" reason (generic
+  not-applied Detail) and cli-2's auth seeding was still short-circuiting.
+- Head 4bfa655ef (first w53 fix): pinned the manifest-only cases to the applied
+  face. Superseded runs (45299407643, 45299655032) cancelled/failure; cli-1 in
+  45298447080 additionally showed the selected+pinned case reporting "not
+  configured" instead of configured_unverified.
+- Head a80dd26aa (second w53 fix): routed the unselected state through the
+  verifier, but discarded the first BuildPersesAlertEvaluator result.
+- Head c1bc8d417 (third w53 fix, candidate): ONE BuildPersesAlertEvaluator call
+  decides again; not-applied+unselected keeps the verifier fail-closed reason
+  verbatim; applied+selected+pinned reaches configured_unverified (unavailable
+  when owner-gated contract missing); all three states stay distinct, OK=false.
+- Candidate: c1bc8d417. Runs observed (all "CI · PR #1816", pull_request):
+  45300353124 (push-triggered) stayed QUEUED with no jobs and was cancelled;
+  45301502234 (started by the PR close+reopen, same exact head) executed to
+  terminal — result recorded below.
 
 ## cleanliness
 
