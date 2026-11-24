@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w65-0428-269-batchbaseline
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Unblock #1820 / card 0428-271 (verifyRuntimeBrokerBuildIdentity commit check). Exact head f5e50f5a fails Trusted Plan because…"
 kanban_title: "0428-274 · add #1820 catalog row"
 priority: ""
@@ -23,19 +23,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45322832347"]
 ---
 
-- [ ] t-20261124-gate-catalog-baseline-1820 · CI/catalog: add #1820 source row to develop pr-gate-coverage.json #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261124-gate-catalog-baseline-1820 · CI/catalog: add #1820 source row to develop pr-gate-coverage.json #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w65-0428-269-batchbaseline  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45322832347)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261124-r28-broker-build-identity-commit](t-20261124-r28-broker-build-identity-commit.md)  
-**Owner:** unassigned  
+**Owner:** w65-0428-269-batchbaseline  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -54,3 +53,5 @@ Add to scripts/pr-gate-coverage.json on develop, surfaces docker + podman data.c
 
 - OWNER/CI scope (scripts/** + gate catalog). Land as a separate baseline on develop, NOT inside #1820 (#1817 precedent; cf. 0428-261/262/273).
 - After it lands: w60 rebases #1820 onto the new develop head + reruns exact-head; then #1820 -> Owner accept+merge.
+
+Realized by owner-authorized batch baseline PR (w65): 6 catalog rows + pre-release.yml baha-ci-operator-testonly production. Lands on develop -> unblocks #1819/#1820/#1821/#1812 rebase+rerun.
