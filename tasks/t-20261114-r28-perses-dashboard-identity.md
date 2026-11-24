@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w55-0428-078-probehop
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
 kanban_title: 0428-078 · Perses identity dashboard
 priority: normal
@@ -17,21 +17,22 @@ depends_on: [t-20261114-r28-perses-dashboard-selection]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1650]
 sources: []
-blocker: ""
+blocker: "Sequenced BEHIND #1815 merge: #1650 must inherit the shared ci_integration_operator_enabled.go fixture from #1815, not duplicate it (dup commit 378ff1afa dropped in detached prep cab3812d). Rebase #1650 onto #1815's merged base once #1815 lands on develop, then exact-head Hosted. Remote stays 84943695/DIRTY meanwhile; no concurrent push (owner reconciliation). #1650 also needs #1810 probe (on develop) + 0428-181 export consumer (w54) for full Option-A delivery."
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/blocked #view/blocked #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w55-0428-078-probehop · **Priority:** normal  
     **PR:** [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
+    **Blocker:** Sequenced BEHIND \#1815 merge: \#1650 must inherit the shared ci\_integration\_operator\_enabled.go fixture from \#1815, not duplicate it (dup commit 378ff1afa dropped in detached prep cab3812d). Rebase \#1650 onto \#1815's merged base once \#1815…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md), [t-20261120-r28-prune-key-too-coarse](t-20261120-r28-prune-key-too-coarse.md), [t-20261120-r28-registerprovider-signal-failclosed](t-20261120-r28-registerprovider-signal-failclosed.md), [t-20261120-r28-restart-persist-signal-dump](t-20261120-r28-restart-persist-signal-dump.md), [t-20261120-r28-runtimetarget-failclosed](t-20261120-r28-runtimetarget-failclosed.md), [t-20261120-r28-signal-one-active-write-path](t-20261120-r28-signal-one-active-write-path.md), [t-20261120-r28-signalregistry-race](t-20261120-r28-signalregistry-race.md)  
@@ -243,3 +244,5 @@ Head 84943695: .ci_touch_1 removed -> Trusted Plan + Source Format GREEN (no cat
 Head 84943695 CONFLICTING/DIRTY vs develop 951014e9 (#1810 merged after my base 6df6807). Routed w078 (existing lane, no overlap): rebase onto 951014e9 + resolve + integrate #1810 probe in app_status_result.go:313 (consume PersesBackendAnswersStatusNow, not static PersesStatusNow) + keep keycloak provider-label fix. exact-head Hosted rerun (old 45297432220 predates integration). Full 0428-181 delivery still required. No merge; no Codex.
 
 Rotated from stalled w078 (reclaimed; branch head 84943695 + PR #1656 preserved). Fresh laptop lane w55 dispatched with concrete rebase+probe-integrate mission: rebase onto develop 840c4a6b, resolve conflicts, replace static capability.PersesStatusNow at app_status_result.go:313 with merged metricsprovider.PersesBackendAnswersStatusNow so eligibility requires the real probe, keep keycloak label fix, exact-head Hosted. Full Option-A also needs 0428-181 (w54). no merge; no Codex.
+
+Parked by owner stop; w55 confirmed no-push. New dep edge: #1650 -> #1815 (fixture ownership).
