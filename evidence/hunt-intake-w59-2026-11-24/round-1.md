@@ -141,4 +141,4 @@ left untouched. This lane created no container, network, volume or compose proje
     git merge-base --is-ancestor ce1d061c012a5eadc9c62cc5fa3e5cb55b06c2a0 origin/main
     yes: the evidence commit ce1d061c0 is an ancestor of origin/main
 
-END_DONE w59-0428-269-huntintake26: planning candidate ce1d061c012a5eadc9c62cc5fa3e5cb55b06c2a0 (cards in a1f1ff16d) on baseharbor-plan main; F1->0428-269 (+0428-249 blocked-behind), F2->cross-refs in 0428-189..194, F3->0428-270, F4->0428-271, F5->0428-272; render/check 0 errors; no product/CI/scripts file touched.
+END_DONE w59-0428-269-huntintake26: planning candidate 22d0f323012c0b5c8ee08fa09ce6a2a5a0143233 (cards in a1f1ff16d) on baseharbor-plan main; F1->0428-269 (+0428-249 blocked-behind), F2->cross-refs in 0428-189..194, F3->0428-270, F4->0428-271, F5->0428-272; render/check 0 errors; no product/CI/scripts file touched.
