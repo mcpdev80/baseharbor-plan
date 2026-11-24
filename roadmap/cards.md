@@ -16,9 +16,10 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 195/285 · **Blocked:** 2 · **Waiting:** 23  
+    **Accepted tasks:** 195/286 · **Blocked:** 3 · **Waiting:** 23  
     **Blocker:** [t-20261120-r28-identity-dashboard-catalog-consumer](../tasks/t-20261120-r28-identity-dashboard-catalog-consumer.md) — 7 CI failures on 69f76b94 are NOT code defects: Trusted Plan rejects UNCATALOGED new source files. \#1819 introduces internal/application/runtime\_postgres.go, i…  
     **Blocker:** [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) — Lane confirms \#1812 head b1b31a59 matches the delegated scope EXACTLY (+20 only .github/workflows/pre-release-runtime-suite.yml, ci.yml untouched, no replaceme…  
+    Plus 1 further blockers in the task list.  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next
