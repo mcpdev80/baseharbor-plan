@@ -15,9 +15,9 @@ kanban_title: 0428-270 · trusted-local seam dead
 priority: normal
 depends_on: [t-20261120-trusted-local-operation-grant]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#0]
+prs: [mcpdev80/baseharbor#0, mcpdev80/baseharbor#1821]
 sources: []
-blocker: "Exact-head CI run 45326369749 (head 88f5c7f05) aborts in Trusted Plan: internal/operatorauth/authorization.go + config.go changed here for the FIRST time on develop -> no rows in scripts/pr-gate-coverage.json (fail-loud). Product fix is COMPLETE + fail-closed (dead branch removed, comments corrected, deny pinned by TestAuthorizeMachineOperationNameOnlyPolicyFailsClosed, no new test files). BLOCKED behind owner catalog baseline 0428-275 (authorization.go + config.go rows). After 0428-275 lands: w61 rebase + rerun -> Owner accept+merge. w61 held scripts/** (correct)."
+blocker: "Exact-head run 45326369749 (PR #1821, head 88f5c7f05, branch lane-0428-270-trustedlocal-seam) fails ONLY on Trusted Plan: operatorauth/authorization.go + config.go (first-ever change) lack rows in scripts/pr-gate-coverage.json. Product fix COMPLETE + fail-closed (dead trusted-local arm removed, comments corrected, no new test files). BLOCKED behind owner catalog baseline 0428-275. Wake: 0428-275 lands on develop -> w61 rebases + force-with-lease same branch + observes exact-head -> Owner accept+merge #1821."
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -26,8 +26,8 @@ evidence: []
 - [ ] t-20261124-r28-trusted-local-failopen-seam-dead · ManagedEnvironment always reports managed, so the trusted-local fail-open branch in authorizeMachineOperation is unreachable for every production caller. #task #release/v0-4-28 #status/blocked #view/blocked #area/access #area/cli #area/security #kind/bug
     <!-- generated:card -->
     **Owner:** w61-0428-270-failopen · **Priority:** normal  
-    **PR:** [baseharbor#0](https://github.com/mcpdev80/baseharbor/pull/0)  
-    **Blocker:** Exact-head CI run 45326369749 (head 88f5c7f05) aborts in Trusted Plan: internal/operatorauth/authorization.go + config.go changed here for the FIRST time on develop -\> no rows in scripts/pr-gate-coverage.json (fail-loud). Product fix is CO…  
+    **PR:** [baseharbor#0](https://github.com/mcpdev80/baseharbor/pull/0), [baseharbor#1821](https://github.com/mcpdev80/baseharbor/pull/1821)  
+    **Blocker:** Exact-head run 45326369749 (PR \#1821, head 88f5c7f05, branch lane-0428-270-trustedlocal-seam) fails ONLY on Trusted Plan: operatorauth/authorization.go + config.go (first-ever change) lack rows in scripts/pr-gate-coverage.json. Product fix…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -36,7 +36,7 @@ evidence: []
 **Depends on:** [t-20261120-trusted-local-operation-grant](t-20261120-trusted-local-operation-grant.md)  
 **Owner:** w61-0428-270-failopen  
 **Priority:** normal  
-**PRs:** [baseharbor#0](https://github.com/mcpdev80/baseharbor/pull/0)  
+**PRs:** [baseharbor#0](https://github.com/mcpdev80/baseharbor/pull/0), [baseharbor#1821](https://github.com/mcpdev80/baseharbor/pull/1821)  
 **Source:** 
 <!-- /generated:links -->
 
