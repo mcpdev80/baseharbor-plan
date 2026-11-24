@@ -73,6 +73,9 @@ Init original J-Commerce, accept default metrics service and port 8080; inspect 
 
 ## Handoff
 
+- REVIEW FINDING (independent Codex, COMMENTED - no merge): endpoint tuple must be CARRIED from detection (service/source, port, HTTP path; /metrics hardcode in quick-init removed); fail-closed/ask on ambiguity; exact-path assertions (/q/metrics Quarkus, /actuator/prometheus Spring, /metrics conventional); module-service attribution exact with path boundaries (api vs api-old leak). Implementation re-routed to local worker w126; exact-head CI rerun + separate re-review required. (GitHub cannot record REQUEST_CHANGES: reviewer account == author account mcpdev80.)
+
+
 - Active implementation on product branch `lane-0428-290-metrics-discovery`, PR [#1832](https://github.com/mcpdev80/baseharbor/pull/1832). The current remote head is red-first test-only `a442738cb5600975662aed5440755a942b4bee3b`; do not merge it. After its terminal baseline run, the isolated worktree integrated `origin/develop` at `145b4a20f35179a0ac6bc0a66666a846c1ae35c0` with normal merge commit `07355c3e78a1355a5af265c835b439fc44400db2`. The fixed candidate will be pushed from that merge. Acceptance, independent review and merge remain open.
 
 Source reproduction: 2026-11-16 J-Commerce guided-init/apply/destroy/reset transcript supplied by Owner.
