@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 201/305 · **Blocked:** 5 · **Waiting:** 23  
+    **Accepted tasks:** 202/305 · **Blocked:** 5 · **Waiting:** 23  
     **Blocker:** [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) — Reset-to-0f20a3b9 + C (test consumes \#1819 producer seam + target-bound regression) requires: (1) \#1819 merged, but \#1819 is strictly sequence-gated behind \#18…  
     **Blocker:** [t-20261121-candidate-commit-identity](../tasks/t-20261121-candidate-commit-identity.md) — Owner decision required: deterministic lane identity must be injected in coordinator/scripts/dispatch-lane.sh:41-44; mission requires STOP + QUESTION for scrip…  
     Plus 3 further blockers in the task list.  

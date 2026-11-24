@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w112-0428-283-staticmcp
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-283 · static-mcp operator gap
 priority: high
@@ -19,21 +19,26 @@ prs: [mcpdev80/baseharbor#1826]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: accepted
 evidence:
-  - https://github.com/mcpdev80/baseharbor/actions/runs/45413604588
-  - https://github.com/mcpdev80/baseharbor/blob/develop/cmd/baha/ci_integration_operator_enabled.go
+  - https://github.com/mcpdev80/baseharbor/actions/runs/45474619605
+  - https://github.com/mcpdev80/baseharbor/actions/runs/45480707229
+  - https://github.com/mcpdev80/baseharbor/actions/runs/45480707229/job/138756755764
+  - https://github.com/mcpdev80/baseharbor/actions/runs/45482875408
+  - https://github.com/mcpdev80/baseharbor/actions/runs/45482875373
+  - https://github.com/mcpdev80/baseharbor/commit/145b4a20f35179a0ac6bc0a66666a846c1ae35c0
+  - https://github.com/mcpdev80/baseharbor/pull/1826#issuecomment-7143836376
 ---
 
-- [ ] t-20261125-0428-283-static-mcp-gate-operator-gap · static-mcp operator gap #task #release/v0-4-28 #status/active #view/active #area/ci #kind/bug
+- [x] t-20261125-0428-283-static-mcp-gate-operator-gap · static-mcp operator gap #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #kind/bug
     <!-- generated:card -->
     **Owner:** w112-0428-283-staticmcp · **Priority:** high  
     **PR:** [baseharbor#1826](https://github.com/mcpdev80/baseharbor/pull/1826)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45413604588), [proof 2](https://github.com/mcpdev80/baseharbor/blob/develop/cmd/baha/ci_integration_operator_enabled.go)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45474619605), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45480707229), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45480707229/job/138756755764), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/45482875408), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/45482875373), [proof 6](https://github.com/mcpdev80/baseharbor/commit/145b4a20f35179a0ac6bc0a66666a846c1ae35c0), [proof 7](https://github.com/mcpdev80/baseharbor/pull/1826#issuecomment-7143836376)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w112-0428-283-staticmcp  
@@ -62,4 +67,7 @@ evidence:
 
 ## Handoff
 
-- **Lösung (Codex-Lane w112):** Umfang = test-only operator admission am static/mcp-Gate analog Runtime-Muster (build-tag im Static-Build + minimale Demo-Konfiguration); entschieden von Codex-Lane w112 im freigegebenen Scope; keine dritte Bereitstellungsart; ci.yml unverändert.
+- **Decision (Owner mandate 2026-11-24): ACCEPTED and MERGED.** PR [#1826](https://github.com/mcpdev80/baseharbor/pull/1826) merged to `develop` as `145b4a20f35179a0ac6bc0a66666a846c1ae35c0`.
+- **Pre-merge exact-head pair:** PR CI [45474619605](https://github.com/mcpdev80/baseharbor/actions/runs/45474619605) and Hosted qualification [45480707229](https://github.com/mcpdev80/baseharbor/actions/runs/45480707229) both succeeded on Core head `0b391f01a77d55ff5fd1e767c729d51f5ce3748c`. The Hosted planner log records `static_execute_count: 1`, `reuse_from: ""`; executed job [138756755764](https://github.com/mcpdev80/baseharbor/actions/runs/45480707229/job/138756755764) checked out that exact SHA and passed `Static · mcp`.
+- **Post-merge witnesses:** Docker [45482875408](https://github.com/mcpdev80/baseharbor/actions/runs/45482875408) and Podman [45482875373](https://github.com/mcpdev80/baseharbor/actions/runs/45482875373) both succeeded on merge SHA `145b4a20f35179a0ac6bc0a66666a846c1ae35c0`, which matches remote `develop`.
+- **Scope decision:** use the existing test-only operator build/tag and minimal Demo MCP environment; no third provisioning kind, no production authorization/consent changes, `.github/workflows/ci.yml` untouched. The only changed `.github` file is `.github/workflows/pre-release-runtime-suite.yml`; all four changed Core files and related Demo harness/contract/catalog sources were catalogued in the PR evidence. Independent scope review passed: [PR review note](https://github.com/mcpdev80/baseharbor/pull/1826#issuecomment-7143836376).
