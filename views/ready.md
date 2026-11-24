@@ -9,7 +9,6 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | [t-20261114-r28-cli2-coordination](../tasks/t-20261114-r28-cli2-coordination.md) | CLI redesign: coordinate five workers | ready | high | coord | — | — |
 | [t-20261116-r28-bug-apply-consent-ux](../tasks/t-20261116-r28-bug-apply-consent-ux.md) | Clarify apply candidate consent | ready | normal | — | — | — |
 | [t-20261116-r28-bug-capability-permissions](../tasks/t-20261116-r28-bug-capability-permissions.md) | Scope inferred provider grants | ready | high | — | — | — |
-| [t-20261116-r28-bug-compose-service-ids](../tasks/t-20261116-r28-bug-compose-service-ids.md) | Preserve Compose service IDs | ready | high | — | — | — |
 | [t-20261116-r28-bug-destroy-diagnostics](../tasks/t-20261116-r28-bug-destroy-diagnostics.md) | Explain destroy owner failures | ready | normal | — | — | — |
 | [t-20261116-r28-bug-failed-apply-destroy](../tasks/t-20261116-r28-bug-failed-apply-destroy.md) | Recover failed apply destroy | ready | critical | — | — | — |
 | [t-20261116-r28-bug-installation-reset-recovery](../tasks/t-20261116-r28-bug-installation-reset-recovery.md) | Unblock full installation reset | ready | critical | — | — | — |
