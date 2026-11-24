@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 198/292 · **Blocked:** 1 · **Waiting:** 23  
+    **Accepted tasks:** 198/293 · **Blocked:** 1 · **Waiting:** 23  
     **Blocker:** [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) — Reset-to-0f20a3b9 + C (test consumes \#1819 producer seam + target-bound regression) requires: (1) \#1819 merged, but \#1819 is strictly sequence-gated behind \#18…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
