@@ -90,6 +90,9 @@ Loesung: Core test-only `up` fixture regression accepted; entschieden von Codex-
 
 - **Leg-A/Befund (Codex-Lane w113b, #170-Demo-Route):** kein Input-Schema-Mismatch; Workflow-Blob zum letzten funktionierenden Lauf identisch (bbcff8dc6); startup_failure VOR Job-Scheduling (resolve ohne Condition, null Jobs/Logs) = Plattform-Klasse. Leg-B-Supersession streng gated auf Merge von Core #1830 (demo_ref weggelassen=Pin); #170 bleibt open.
 
+- **Post-#1830 Leg-B Auftrag (Owner):** erst nachdem Core #1830 mit dem finalen Pin `b41127723e523134a1c14ee3c36cf133237162ce` gemergt ist, die autorisierte `pre-release.yml`-Supersession-Dispatch ausführen: `ref=develop-tip`, `demo_ref` OMITTED (damit der Pin inkl. Demo #174 verwendet wird), `only_gates=atomic,static,config-matrix`. Den terminalen Run und das Ergebnis des `config-matrix`-Gates als Supersession-Witness auf dieser Karte sowie in `evidence/r28-welle6-2026-11-25/170-ci-route/close-proposal.md` dokumentieren. Vor #1830-Merge keine Dispatches/CI-Ausgaben für Leg-B.
+- **Close boundary:** auch bei grünem `config-matrix`-Gate #170 nicht stillschweigend schließen. #170 bleibt offen, bis eine owner-sichtbare Bestätigungszeile in der Kanban-Karte steht; der Close-Proposal hält diese Bedingung und die tatsächliche Run-Evidence fest.
+
 
 - **Lösung (Codex-Lane w116, Übernahme von Worker w111):** Umfang = Core-test-only allow-list beider up-Formen + Seam-Regression; entschieden von w116 nach Mandat; Seam-Test am Diagnosedhead grün, finale Qualifikation nach Hop auf develop inkl. #1828.
 
