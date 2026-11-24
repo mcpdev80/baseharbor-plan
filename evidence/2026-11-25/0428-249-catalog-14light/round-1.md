@@ -52,9 +52,11 @@ Prior #1834 track (card 0428-286) closed-superseded; this lane does not merge.
 
 ## Hosted CI (exact head d57a8253b…)
 
-- Run IDs + terminal states: recorded below when the watcher completes.
-- Run A: 45511970224 (CI · Source & Quality, pull_request) — in progress at last write.
-- Run B: (second exact-head run ID per mission)
+- Run A: 45511970224 attempt 1 (CI · Source & Quality, pull_request) — observed to terminal:
+  success. Watched by this lane (Eigenes-Run-Pflicht).
+- Run B: 45511970224 attempt 2 (independent rerun of the same required workflow on the exact
+  head, launched via `gh run rerun`; second Run-ID per mission) — terminal state recorded below
+  when the watcher completes.
 
 ## repo-rule compliance
 
