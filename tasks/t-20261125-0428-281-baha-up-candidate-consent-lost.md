@@ -7,7 +7,7 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: w85-0428-281-consent (session w85)
+owner: w85-0428-281-consent
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -27,7 +27,7 @@ evidence:
 
 - [ ] t-20261125-0428-281-baha-up-candidate-consent-lost · baha up loses candidate consent #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** w85-0428-281-consent (session w85) · **Priority:** high  
+    **Owner:** w85-0428-281-consent · **Priority:** high  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1647)  
     <!-- /generated:card -->
 
@@ -35,7 +35,7 @@ evidence:
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w85-0428-281-consent (session w85)  
+**Owner:** w85-0428-281-consent  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -57,3 +57,5 @@ evidence:
 - The v0.4.28 atomic/docker Light gates policy + connectivity + reconciliation + full-destroy go GREEN on the exact candidate head (previously failing only for this consent-propagation cause).
 - A CI-discovered Go test asserts up preserves candidate consent (success when granted, fail-closed when not) per the 5f9c67102 test.
 - Write-set is cmd/baha product code ONLY (app_input_resolver.go + runtime_repository_up_test.go). No .github/** or scripts/** change. This is a hard dependency for #1812's Docker+Podman Light gates and therefore for the serial chain #1812 -> #1819 -> #1820.
+
+Owner-authorized SEPARATE consent PR (minimal 2-file shape of ref commit 5f9c671, re-derived on develop 46d3dccc1). FIRST dependency of the chain: consent PR green -> merge -> rebase #1812 -> Docker then Podman Light gates. #1812 stays blocked until this merges. Hosted CI only.

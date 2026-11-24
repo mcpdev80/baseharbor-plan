@@ -37,7 +37,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261124-gate-catalog-baseline-1819](../tasks/t-20261124-gate-catalog-baseline-1819.md) | CI/catalog: add #1819 source rows to develop pr-gate-coverage.json | active | not set | w65-0428-269-batchbaseline | — | — |
 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) | CI/catalog: add #1820 source row to develop pr-gate-coverage.json | active | not set | w65-0428-269-batchbaseline | — | — |
 | [t-20261124-r28-broker-build-identity-commit](../tasks/t-20261124-r28-broker-build-identity-commit.md) | verifyRuntimeBrokerBuildIdentity discards both commit SHAs, so a runtime broker at the wrong commit passes readiness whenever the semver matches. | active | normal | w69-0428-271-brokerid2 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) (open) | [baseharbor#1820](https://github.com/mcpdev80/baseharbor/pull/1820) |
-| [t-20261125-0428-281-baha-up-candidate-consent-lost](../tasks/t-20261125-0428-281-baha-up-candidate-consent-lost.md) | baha up loses candidate consent | active | high | w85-0428-281-consent (session w85) | — | — |
+| [t-20261125-0428-281-baha-up-candidate-consent-lost](../tasks/t-20261125-0428-281-baha-up-candidate-consent-lost.md) | baha up loses candidate consent | active | high | w85-0428-281-consent | — | — |
 
 ## Ready for review
 
