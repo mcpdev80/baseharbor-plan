@@ -75,3 +75,9 @@
 - Conclude verdict (a/b/c) and record minimal owner-authorized change if (b)
 - Write evidence round-1.md, commit + push to origin/main (pull --rebase first), verify path on origin/main
 - Post END_DONE to Coordinator
+
+## Handoff
+
+- END_DONE w93-0428-249-1812opauth posted to Coordinator (00d66002) at 2026-11-24.
+- Verdict (c) N/A. Evidence: evidence/r28-welle6-2026-11-25/1812-operatorauth-commonality/round-1.md, SHA 442396bd5 on baseharbor-plan origin/main (path verified present on origin/main).
+- No product/demo edits, no PR, no merge, no CI trigger. Read-only.
