@@ -10,9 +10,9 @@ parent: ""
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: "v0.4.28 static/mcp runtime gate reports MCP contract mismatch unexpected=['baseharbor.app.pull'] (missing=[]): the MCP server exposes baseharbor.app.pull but the contract's expected method set does not include it (or app.pull must not be exposed). Independent of #1825."
+kanban_summary: ""
 kanban_title: 0428-279 · MCP contract drift: app.pull
-priority: medium
+priority: normal
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -21,8 +21,25 @@ blocker: ""
 wait_reason: ""
 resolution: ""
 evidence:
-  - hosted v0.4.28 static/mcp gate job 138450101757 on Pre-Release run 45394505629 (head 844987ded88b1c365f5b660e3f700af69e52bb5a): RuntimeError: MCP contract mismatch: missing=[] unexpected=['baseharbor.app.pull']
+  - https://github.com/mcpdev80/baseharbor/actions/runs/45394505629
 ---
+
+- [ ] t-20261124-0428-279-mcp-contract-app-pull-unexpected · MCP contract drift: app.pull #task #release/v0-4-28 #status/planned #view/ready #area/cli #kind/bug
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** normal  
+    **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45394505629)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** ready  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** none  
+**Owner:** unassigned  
+**Priority:** normal  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Problem
 

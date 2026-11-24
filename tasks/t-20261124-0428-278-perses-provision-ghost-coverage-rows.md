@@ -1,7 +1,7 @@
 ---
 id: t-20261124-0428-278-perses-provision-ghost-coverage-rows
 card_number: "0428-278"
-card_short_title: "gate-plan accepts ghost source rows"
+card_short_title: "gate-plan ghost source rows"
 type: bug
 areas: [ci]
 release: v0.4.28
@@ -10,19 +10,36 @@ parent: ""
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: "scripts/pr-gate-plan.py silently absorbs a declared source row whose file is absent on develop, mapping it to the parent internal/metrics gate (effectively no owner). Post-merge desk found #1822's two perses_dashboard_provision rows are ghosts until #1819 lands."
-kanban_title: 0428-278 · gate-plan accepts ghost source rows
+kanban_summary: ""
+kanban_title: 0428-278 · gate-plan ghost source rows
 priority: low
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: "Owner-scope: fix would edit scripts/pr-gate-plan.py (validation) — confirm whether the current behaviour is intended forward-registration for the stacked #1819 producer or needs a fail-loud missing-file guard."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence:
-  - baseharbor-plan evidence/r28-welle6-2026-11-24/postmerge-verify-2b9a2c6d.md (commit 6bd78abf)
+  - https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-24/postmerge-verify-2b9a2c6d.md
 ---
+
+- [ ] t-20261124-0428-278-perses-provision-ghost-coverage-rows · gate-plan ghost source rows #task #release/v0-4-28 #status/planned #view/ready #area/ci #kind/bug
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** low  
+    **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-24/postmerge-verify-2b9a2c6d.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** ready  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** none  
+**Owner:** unassigned  
+**Priority:** low  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Problem (read-only post-merge desk finding, §3.3.5 Fund→Karte)
 

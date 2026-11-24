@@ -11,12 +11,12 @@ remote via `git ls-remote`, `git fetch <sha>` + `git show`, and `gh pr view` /
 
 ## PLAN
 
-- [ ] Reality witness: planning repo = `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan`, origin = `https://github.com/mcpdev80/baseharbor-plan.git`; `workers/baseharbor-plan` is the quarantined bookkeeping checkout (NEVER commit there).
-- [ ] Verify branch/PR #1818 clean vs contaminated head + voided runs.
-- [ ] Compute exact `origin/develop..0f20a3b9` diff; consumer-file map; catalog-row question.
-- [ ] C-retarget plan: `TestPersesKeycloakDashboardQueriesSelectRealProviderLabels` + `persesDashboardProvisionForLifecycle` seam + target-bound eligibility regression.
-- [ ] Precondition checklist for the reset.
-- [ ] Write + atomically commit + push the single evidence file to `origin/main`.
+- Reality witness: planning repo = `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan`, origin = `https://github.com/mcpdev80/baseharbor-plan.git`; `workers/baseharbor-plan` is the quarantined bookkeeping checkout (NEVER commit there).
+- Verify branch/PR #1818 clean vs contaminated head + voided runs.
+- Compute exact `origin/develop..0f20a3b9` diff; consumer-file map; catalog-row question.
+- C-retarget plan: `TestPersesKeycloakDashboardQueriesSelectRealProviderLabels` + `persesDashboardProvisionForLifecycle` seam + target-bound eligibility regression.
+- Precondition checklist for the reset.
+- Write + atomically commit + push the single evidence file to `origin/main`.
 
 Reality witnesses (remote truth, via `git ls-remote` / `git fetch` / `gh`):
 
