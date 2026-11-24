@@ -7,9 +7,9 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: 
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: ""
 kanban_title: 0428-284 · 1812 post-retry gate fail
 priority: high
@@ -17,22 +17,22 @@ depends_on: []
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
-blocker: ""
+blocker: "Consent Demo-PR authorization is MOOT (the nested-refusal/digest-retry fix already exists in merged demo #169 + the demo ref #1812 uses -> an empty PR must NOT be created). Authoritative root cause (w97 eeda96c91): consented up reaches READY, then acceptance FAILS at INTERACTIVE OIDC operator authentication (baseharbor-demo scripts/acceptance.sh policy-acceptance step). This demo/operator-harness scope is NOT covered by the earlier narrow consent authorization -> FRESH OWNER DECISION required before any implementation. No lane dispatched. Preserve #1812->#1819->#1820."
 wait_reason: ""
 resolution: ""
 evidence:
   - https://github.com/mcpdev80/baseharbor/actions/runs/45398943139
 ---
 
-- [ ] t-20261125-0428-284-1812-postretry-gate-failure · #1812 post-retry gate failure #task #release/v0-4-28 #status/planned #view/ready #area/ci #area/cli #kind/bug
+- [ ] t-20261125-0428-284-1812-postretry-gate-failure · #1812 post-retry gate failure #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Blocker:** Consent Demo-PR authorization is MOOT (the nested-refusal/digest-retry fix already exists in merged demo \#169 + the demo ref \#1812 uses -\> an empty PR must NOT be created). Authoritative root cause (w97 eeda96c91): consented up reaches REA…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** unassigned  
