@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w54-0428-181-export
-kanban_status: review
-kanban_lane: review
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: ""
 kanban_title: 0428-181 · identity catalog consumer
 priority: ""
@@ -17,21 +17,22 @@ depends_on: [t-20261114-r28-perses-datasources]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1819]
 sources: []
-blocker: ""
+blocker: "DRAFT #1819 (head 013a5646) carries an UNRESOLVED target-binding SCOPE question = the OWNER ruling 'target-bound IdentitySelectionWitness vs catalog-template' I escalated. w54 built the identity producer Option-2 (content in perses_dashboard_provision.go) but cannot finalize until owner rules whether identity output must be per-target (IdentitySelectionWitness) or may use the catalog template. #1818/0428-078 DEPENDS on this producer (#1819) being accepted, so both are held on the same owner decision. No merge. Do not expand until owner ruling."
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r7.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-24/w54-0428-181-export/0428-181-evidence.md"]
 ---
 
-- [ ] t-20261120-r28-identity-dashboard-catalog-consumer · Identity dashboard catalog has zero production consumers (P4 of review 1650) #task #release/v0-4-28 #status/review #view/review #kind/bug
+- [ ] t-20261120-r28-identity-dashboard-catalog-consumer · Identity dashboard catalog has zero production consumers (P4 of review 1650) #task #release/v0-4-28 #status/blocked #view/blocked #kind/bug
     <!-- generated:card -->
     **Owner:** w54-0428-181-export  
     **PR:** [baseharbor#1819](https://github.com/mcpdev80/baseharbor/pull/1819)  
+    **Blocker:** DRAFT \#1819 (head 013a5646) carries an UNRESOLVED target-binding SCOPE question = the OWNER ruling 'target-bound IdentitySelectionWitness vs catalog-template' I escalated. w54 built the identity producer Option-2 (content in perses\_dashboa…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r7.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-24/w54-0428-181-export/0428-181-evidence.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
 **Owner:** w54-0428-181-export  
@@ -75,3 +76,5 @@ lands, or report the conflict instead of editing the same file twice (AGENTS 4.3
 Dep-free now (#1810 probe merged 951014e9; 0428-083 on develop). w54 dispatched: wire PersesDashboardCatalog/identity selection witness into production provision/export path in internal/application/perses_runtime.go + regression proving keycloak identity dashboard reaches Perses. Write-set CONSTRAINED to perses_runtime.go; MUST NOT edit internal/metrics/perses_dashboards* / app_status_result.go (#1650/w078 owns them) — post QUESTION if needed there. This is the Option-A full-delivery consumer #1650 depends on. no merge; no Codex.
 
 Design decision made (contract silent on export target): Option 1 — provisioning/dashboards/ under providers/management-ui/perses (mirrors globaldatasource/), registered via config.yaml file provider so Perses LOADS them; gated by #1810 PersesBackendAnswersStatusNow + identity witness. Option 2 rejected (Owner Option-A = real delivery, not status-only). Write-set constrained vs #1650/w078. Documented in evidence for Owner/CODEX review. exact-head Hosted; no merge; no Codex.
+
+Owner keeps PR open; coordinator books accepted/closed only on owner exact-diff accept+merge. Target-bound ruling is the linchpin for #1819 + #1818.
