@@ -76,13 +76,21 @@ Rows must reach develop for the trusted-plan step to read them. Two options:
 No other scripts/** or code change is authorized by the decision. No merges by
 this lane. PR #1833 stays DRAFT until Trusted Plan is green.
 
-## END STATE
-END_BLOCKED w124-0428-288-compose-ids: root-caused — Trusted Plan reads
-coverage from the immutable controller base (develop 145b4a20f), so the
-decision-authorized catalog rows in PR #1833 are structurally ignored; they
-must enter develop (Owner scope: merge PR #1833 or add rows to develop) before
-a fresh exact-head Hosted run can pass. PR #1833 head 3926495324. No
-scripts/**/code change, no merges.
+## END STATE (final, 2026-11-24)
+END_BLOCKED w124-0428-288-compose-ids. Run 45491333208 at exact head 3926495324
+reran against my committed tree and STILL failed with the same source_unowned
+ValueError. CI step .github/workflows/ci.yml:859-867 reads
+scripts/pr-gate-coverage.json via `git show "$controller:scripts/..."` where
+controller=$effective_base=develop (migration controller 8596548 IS ancestor of
+develop). develop's coverage registry has ZERO of my three rows. My PR rows are
+structurally invisible to this step. Everything else done: canonicalComposeServiceID
+relocated (workload.go 787 lines, source-format GREEN); 3 decision-authorized rows
+{id,path,surfaces}=data.capabilities in PR #1833 head 3926495324 (data-only, no
+scripts/**/code/.github change). Local planner with rows: coverage_status=resolved.
+DECISION NEEDED (Owner scope): rows must enter develop — (a) Owner merge PR #1833
+then fresh exact-head CI resolves, or (b) Owner adds rows to develop directly. This
+lane will NOT merge or touch develop; PR #1833 stays OPEN/DRAFT pending green
+Trusted Plan. No other scripts/** or code change authorized by the card decision.
 
 ## Acceptance (from card)
 - Use literal Compose service identifiers at all runtime lookup and manifest references,
