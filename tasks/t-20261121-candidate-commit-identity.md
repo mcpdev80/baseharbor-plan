@@ -77,6 +77,9 @@ Sweeps show that most open candidates carry commits whose `user.name` belongs to
 
 ## Handoff
 
+- **Lösung (Codex-Lane w119):** ESCALATION - durchsetzbarer Punkt ist nur scripts/dispatch-lane.sh (geteilte Checkout-Identität, last-writer-wins); Doku allein verhindert den Fehler nicht. Entscheidung beim Owner: scripts/**-Änderung freigeben oder Karte neu klassifizieren.
+
+
 - 2026-11-24 · w119 · QUESTION / blocked. Claim published in planning commit `3b85964a0` (https://github.com/mcpdev80/baseharbor-plan/commit/3b85964a0). No product candidate or Hosted CI run was created. A shared checkout's repository-local `user.name` cannot be lane-deterministic when concurrent lanes overwrite it. The dispatch prompt has the canonical lane at `coordinator/scripts/dispatch-lane.sh:19` and is assembled at `:41`; minimal proposed change: append a requirement to create each candidate commit with `git -c user.name="$lane" -c user.email="$lane@baseharbor.local" commit ...`, and verify `git show -s --format=%an HEAD` equals `$lane` before push. This is a scripts-only coordinator fix, and the mission explicitly requires STOP + QUESTION. Owner: authorize this exact `scripts/dispatch-lane.sh` prompt change or direct another solution. No CI run IDs exist because no candidate was made; the planning claim commit is the only published witness.
 
 ## Recorded exception (coordinator, 2026-11-21)

@@ -1,3 +1,4 @@
+<!-- AMENDED 2026-11-24: execution of the named chain cards follows the Owner-Mandat '25.11' (Lane-Codex rebase/normal --force-with-lease hop/rerun/merge on exact-head green, two run IDs; refs: develop incl. #1828, tag v0.4.28; see coordinator/missions/w99 header). READ-ONLY framing below is the desk-phase historical text. -->
 # 0428-284 — Serial Execution Runbook (read-only plan/runbook)
 
 **Mission:** `coordinator/missions/w99-0428-284-serial-runbook.txt`

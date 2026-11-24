@@ -61,6 +61,9 @@ evidence:
 
 ## Handoff
 
+- **Lösung (Codex-Lane w115):** Umfang ergänzt um demo-only non-interactive Test-Zertifikat-Anmeldung (Produkt-Auth/Consent unverändert); Entscheidungsstand: Nachweis läuft, Produkt-Delta nur als Eskalation; Header-Fix bereits via #173 gemergt (2 Run-Zeugen).
+
+
 - Owner question sent by session w115: provide the existing CI IdP issuer/client and cert/CA inputs, plus the Keycloak X.509 flow mapping the certificate to the test operator. Current demo source contains no such realm/client/certificate fixture. No synthetic testonly route, product-auth change, or consent edit is in scope.
 - Demo PR [#173](https://github.com/mcpdev80/baseharbor-demo/pull/173) merged to develop at `87f5b28dc6a3447092389eb7d2790b76a2958bba`; source head `07a12287bf2c22717d9196d91d00217aba86cc12`. Scope is only concrete acceptance-group failure reporting (`scripts/acceptance.sh`, `scripts/report.sh`, `tests/lib.sh`, `tests/policy/run.sh`, and the reporting regression test). No product-auth, consent, or `.github/**` changes.
 - PR-triggered workflow diagnosis per owner: failed run 45447956490 was on old candidate `8f706b7d2c0aad81287c0229868850e7157e2077`; first failure was the stale expected diagnostic string in `tests/test_fixture_consent.py:56` (`test_policy_gate_has_secret_safe_unexpected_error_diagnostic`). This was a test assertion mismatch caused by the new diagnostic format, not a certificate probe and not a guided-consent regression. Updated the assertion; focused regression passed.

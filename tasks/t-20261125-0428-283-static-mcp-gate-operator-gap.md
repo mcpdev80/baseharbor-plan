@@ -58,3 +58,8 @@ evidence:
 ## Acceptance
 
 - OWNER-SOPE decision first (see blocker). Worker implements only after the owner names the mechanism (A tag the static/mcp build, and/or B operator env/target contract, touching .github and possibly demo + the product env gate). No merge of #1826's static/mcp qualification until this antecedent is resolved; #1826's own code (contract set + #171 destructiveHint annotation) is correct.
+
+
+## Handoff
+
+- **Lösung (Codex-Lane w112):** Umfang = test-only operator admission am static/mcp-Gate analog Runtime-Muster (build-tag im Static-Build + minimale Demo-Konfiguration); entschieden von Codex-Lane w112 im freigegebenen Scope; keine dritte Bereitstellungsart; ci.yml unverändert.

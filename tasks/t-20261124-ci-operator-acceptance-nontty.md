@@ -82,4 +82,7 @@ Make the test-only CI operator authenticate **non-interactively** so the Light p
 
 ## Handoff
 
+- **Lösung (Codex-Lane w116, Übernahme von Worker w111):** Umfang = Core-test-only allow-list beider up-Formen + Seam-Regression; entschieden von w116 nach Mandat; Seam-Test am Diagnosedhead grün, finale Qualifikation nach Hop auf develop inkl. #1828.
+
+
 - Current state, branch, PR and evidence links. Newest first.
