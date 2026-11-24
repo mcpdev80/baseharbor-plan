@@ -7,9 +7,9 @@ areas: [metrics, observability, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: Codex (w118-0428-265)
+kanban_status: active
+kanban_lane: active
 kanban_summary: Make the configured verdict of PersesBackendWitness reachable through real observation instead of a hard-coded empty witness.…
 kanban_title: 0428-265 · backend witness never proven
 priority: ""
@@ -23,18 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261124-r28-perses-witness-producer-cli · PersesBackendSignalWitness is passed as a zero-value literal at every CLI call site, so the configured verdict is unreachable on every status surface. #task #release/v0-4-28 #status/planned #view/ready #area/cli #area/metrics #area/observability #kind/bug
+- [ ] t-20261124-r28-perses-witness-producer-cli · PersesBackendSignalWitness is passed as a zero-value literal at every CLI call site, so the configured verdict is unreachable on every status surface. #task #release/v0-4-28 #status/active #view/active #area/cli #area/metrics #area/observability #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** Codex (w118-0428-265)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261119-r28-perses-status-backend-witness](t-20261119-r28-perses-status-backend-witness.md)  
 **Required by:** [t-20261124-r28-app-status-unauthorized-live-probe](t-20261124-r28-app-status-unauthorized-live-probe.md), [t-20261124-r28-perses-state-spelling-drift](t-20261124-r28-perses-state-spelling-drift.md)  
-**Owner:** unassigned  
+**Owner:** Codex (w118-0428-265)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
