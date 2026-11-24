@@ -62,3 +62,5 @@ Either the `trusted-local` fail-open branch in `authorizeMachineOperation` becom
 - Depends on 0428-188 (`t-20261120-trusted-local-operation-grant`, closed accepted, baseharbor#1717): that card bound local operation grants to one typed operation and removed the dev-to-trusted-local auto-admit; this finding is the residue of that removal.
 - Qualification gap: changes to this seam are routed to package checks only, never to a native runtime gate — Owner card [0428-272](t-20261124-r28-runtime-authority-gate-routing.md).
 - Source: bughunt-hv26 F3 dossier `evidence/r28-welle6-2026-11-24/bughunt-hv26-candidate-consent-gate/round-1.md` (develop 3ebfb90d).
+
+Dispatched w61 (flash). Fix dead trusted-local fail-open seam (config.go:89-110 ManagedEnvironment always true -> authorization.go:276-282 branch unreachable). Resolve fail-closed (policy-driven live path only if real trust signal, else remove seam). Colinearity guard: stop if owner editing operatorauth. Regression in existing package (avoid new catalog row). Merge-frost.
