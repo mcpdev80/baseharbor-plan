@@ -15,9 +15,9 @@ kanban_title: 0428-284 · 1812 post-retry gate fail
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
-prs: [mcpdev80/baseharbor-demo#173]
+prs: [mcpdev80/baseharbor-demo#173, mcpdev80/baseharbor#173]
 sources: []
-blocker: "Non-interactive test-certificate login remains pending owner-provided IdP issuer/client, certificate/CA inputs and Keycloak X.509 mapping; no demo fixture exists and product-auth changes are out of scope."
+blocker: "Header half DELIVERED: demo #173 merged 87f5b28d, exact-head hosted runs 45448531969+45448729972 both green (2 run ids). Remaining half = OWNER ESCALATION per mandate: non-interactive test-certificate login needs issuer/client/certificate/Keycloak X.509 inputs (external certificate/production-prep class) - Lane-Codex may not self-authorize. #1812 policy gate stays red until this lands."
 wait_reason: ""
 resolution: ""
 evidence:
@@ -30,8 +30,8 @@ evidence:
 - [ ] t-20261125-0428-284-1812-postretry-gate-failure · #1812 post-retry gate failure #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** w115-0428-284-testcert · **Priority:** high  
-    **PR:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173)  
-    **Blocker:** Non-interactive test-certificate login remains pending owner-provided IdP issuer/client, certificate/CA inputs and Keycloak X.509 mapping; no demo fixture exists and product-auth changes are out of scope.  
+    **PR:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor#173](https://github.com/mcpdev80/baseharbor/pull/173)  
+    **Blocker:** Header half DELIVERED: demo \#173 merged 87f5b28d, exact-head hosted runs 45448531969+45448729972 both green (2 run ids). Remaining half = OWNER ESCALATION per mandate: non-interactive test-certificate login needs issuer/client/certificate/…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139), [proof 2](https://github.com/mcpdev80/baseharbor-demo/pull/173), [proof 3](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448531969), [proof 4](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448729972)  
     <!-- /generated:card -->
 
@@ -41,7 +41,7 @@ evidence:
 **Depends on:** none  
 **Owner:** w115-0428-284-testcert  
 **Priority:** high  
-**PRs:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173)  
+**PRs:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor#173](https://github.com/mcpdev80/baseharbor/pull/173)  
 **Source:** 
 <!-- /generated:links -->
 
