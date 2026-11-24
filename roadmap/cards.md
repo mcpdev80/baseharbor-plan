@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 195/275 · **Blocked:** 2 · **Waiting:** 20  
+    **Accepted tasks:** 195/281 · **Blocked:** 2 · **Waiting:** 23  
     **Blocker:** [t-20261120-r28-identity-dashboard-catalog-consumer](../tasks/t-20261120-r28-identity-dashboard-catalog-consumer.md) — DRAFT \#1819 (head 013a5646) carries an UNRESOLVED target-binding SCOPE question = the OWNER ruling 'target-bound IdentitySelectionWitness vs catalog-template'…  
     **Blocker:** [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) — EXACT run 45313489014 (b1b31a59) TERMINAL FAILURE. 12/14 Light gates fail within seconds at the mandatory 'test -s RUNNER\_TEMP/pre-release-candidate/baha-ci-op…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)

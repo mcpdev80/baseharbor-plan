@@ -34,6 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/951014e98b2fcdbbb870ed
 **State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
+**Required by:** [t-20261124-r28-app-status-unauthorized-live-probe](t-20261124-r28-app-status-unauthorized-live-probe.md), [t-20261124-r28-perses-backend-status-real-probe](t-20261124-r28-perses-backend-status-real-probe.md)  
 **Owner:** w186-0428-186-hop  
 **Priority:** not set  
 **PRs:** [baseharbor#1810](https://github.com/mcpdev80/baseharbor/pull/1810)  

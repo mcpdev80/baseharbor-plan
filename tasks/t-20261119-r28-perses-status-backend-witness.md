@@ -42,7 +42,7 @@ a fresh exact-head run; it is not ready to merge.
 **State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Required by:** [t-20261119-r28-perses-alert-verifier-caller-wiring](t-20261119-r28-perses-alert-verifier-caller-wiring.md)  
+**Required by:** [t-20261119-r28-perses-alert-verifier-caller-wiring](t-20261119-r28-perses-alert-verifier-caller-wiring.md), [t-20261124-r28-perses-witness-producer-cli](t-20261124-r28-perses-witness-producer-cli.md)  
 **Owner:** w21-pr1702-0428-142-compat  
 **Priority:** not set  
 **PRs:** [baseharbor#1702](https://github.com/mcpdev80/baseharbor/pull/1702)  

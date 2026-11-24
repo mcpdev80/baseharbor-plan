@@ -35,6 +35,7 @@ created: 2026-11-19
 **State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261119-r28-perses-status-backend-witness](t-20261119-r28-perses-status-backend-witness.md)  
+**Required by:** [t-20261124-r28-alert-evaluator-live-health-wiring](t-20261124-r28-alert-evaluator-live-health-wiring.md)  
 **Owner:** w53-0428-152-alertfix  
 **Priority:** not set  
 **PRs:** [baseharbor#1816](https://github.com/mcpdev80/baseharbor/pull/1816)  
