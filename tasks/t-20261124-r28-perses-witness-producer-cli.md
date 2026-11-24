@@ -17,7 +17,7 @@ depends_on: [t-20261119-r28-perses-status-backend-witness]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: "Hosted CI selection has no read-only status mapping for cmd/baha/perses_lifecycle.go or cmd/baha/app_status_result.go; scripts/pr-gate-plan.py:1421 routes them to unresolved CLI runtime impact. Mission requires stopping before scripts/** changes."
+blocker: "Owner-CI-mapping dependency: scripts/pr-gate-coverage.json:147 requires an Owner-owned source coverage row for internal/metrics/perses_dashboards_hosts.go before Trusted Plan can select checks; cmd/baha status sources also remain unresolved at scripts/pr-gate-plan.py:1420-1424."
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -26,7 +26,7 @@ evidence: []
 - [ ] t-20261124-r28-perses-witness-producer-cli · PersesBackendSignalWitness is passed as a zero-value literal at every CLI call site, so the configured verdict is unreachable on every status surface. #task #release/v0-4-28 #status/blocked #view/blocked #area/cli #area/metrics #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** Codex (w118-0428-265)  
-    **Blocker:** Hosted CI selection has no read-only status mapping for cmd/baha/perses\_lifecycle.go or cmd/baha/app\_status\_result.go; scripts/pr-gate-plan.py:1421 routes them to unresolved CLI runtime impact. Mission requires stopping before scripts/\*\* c…  
+    **Blocker:** Owner-CI-mapping dependency: scripts/pr-gate-coverage.json:147 requires an Owner-owned source coverage row for internal/metrics/perses\_dashboards\_hosts.go before Trusted Plan can select checks; cmd/baha status sources also remain unresolve…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -72,13 +72,13 @@ Make the `configured` verdict of `PersesBackendWitness` reachable through real o
 
 ## Handoff
 
-Claimed by Codex (w118-0428-265) and published as Planning commit ac53222e9. No product files changed. The current selector treats the status source paths as unresolved CLI runtime impact (`scripts/pr-gate-plan.py:1421`), so satisfying the mission CI-routing requirement with existing hosted Go checks requires a `scripts/**` change. The mission explicitly requires STOP+QUESTION in that case. Waiting for the Owner decision on whether to add an exact status-only mapping to existing checks.
+Claimed by Codex (w118-0428-265) and published as Planning commit ac53222e9. A product candidate at `e8cf352e25e2d8c3ce2e34e29f2de6a3c753b74f` was briefly evaluated in PR #1829, then closed without merge and its branch deleted after Hosted CI showed that the implementation's test route was not operational. No product changes are retained.
 
 
 ## Befund — Hosted CI routing
 
-- Test selection is already proven for the regression test when it is added to an existing `cmd/baha/*_test.go` file: `scripts/pr-gate-plan.py:1407-1414` selects `CLI_PACKAGE_CHECKS`; the check is defined at `scripts/pr-gate-plan.py:90-91` as `cli-package-tests`, running `go test ./cmd/baha -count=1`. This executes the package's tests, including the added witness cases.
-- The product source paths are not resolved by that test rule. `scripts/pr-gate-plan.py:1420-1424` routes `cmd/baha/*.go` sources to `cli-unresolved-runtime-impact` and records unresolved native coverage.
+- Static rule only: `scripts/pr-gate-plan.py:1407-1414` maps `cmd/baha/*_test.go` to `CLI_PACKAGE_CHECKS`; `scripts/pr-gate-plan.py:90-91` defines `cli-package-tests` as `go test ./cmd/baha -count=1`. That selection rule alone does not prove an operational Hosted CI test route.
+- The product source paths are not resolved by that test rule. `scripts/pr-gate-plan.py:1420-1424` routes `cmd/baha/*.go` sources to `cli-unresolved-runtime-impact`. In addition, `scripts/pr-gate-coverage.json:147` starts the `components` catalog, and the candidate's `internal/metrics/perses_dashboards_hosts.go` change has no source row. Trusted Plan therefore rejects the candidate before Go unit checks execute.
 - Proposed selector diff only (NOT applied; scripts/** remains Owner-scope):
 
 ```diff
@@ -93,4 +93,20 @@ Claimed by Codex (w118-0428-265) and published as Planning commit ac53222e9. No 
 +        elif path.startswith('cmd/baha/') and path.endswith('.go'):
 ```
 
-Product-side implementation and tests may proceed without this registration under the Owner ruling because the existing `cli-package-tests` selection rule above executes the `cmd/baha` regression tests. The card remains blocked on the Owner-CI-mapping dependency; hosted CI results and any unresolved selector coverage will be reported as such.
+The earlier continuation claim was disproven by this actual Hosted CI result. Implementation remains held because the existing route was not proven to execute tests for this candidate.
+
+- Hosted CI evidence: [run 45459222545](https://github.com/mcpdev80/baseharbor/actions/runs/45459222545), candidate `e8cf352e25e2d8c3ce2e34e29f2de6a3c753b74f`, PR [#1829](https://github.com/mcpdev80/baseharbor/pull/1829). `PR · Trusted Plan` and `PR Selected Checks` failed. Trusted Plan reported `uncataloged source change, no declared runtime gate owner: internal/metrics/perses_dashboards_hosts.go` and suggested source id `source.internal_metrics_perses_dashboards_hosts_go`, path `internal/metrics/perses_dashboards_hosts.go`, surfaces `source.gate.atomic.docker.data.capabilities` and `source.gate.atomic.podman.data.capabilities`. `PR · Go unit` shards were skipped, so `cli-package-tests` and the regression tests did not run. PR #1829 was closed unmerged, the branch was deleted, and the product candidate was removed from the working tree.
+- Owner-scope catalog mapping proposal (NOT applied): add the source row above to `scripts/pr-gate-coverage.json` at the `components` catalog beginning at line 147. Owner-CI-mapping dependency remains blocking.
+- Exact proposed selector-line diff (NOT applied; `scripts/**` remains Owner-scope):
+
+```diff
+--- a/scripts/pr-gate-plan.py
++++ b/scripts/pr-gate-plan.py
+@@ -1420,1 +1420,5 @@
+-        elif path.startswith('cmd/baha/') and path.endswith('.go'):
++        elif path in ('cmd/baha/perses_lifecycle.go',
++                      'cmd/baha/app_status_result.go'):
++            area = 'perses-status-witness'
++            require(CLI_PACKAGE_CHECKS + CODE_CHECKS + CLI_CHECKS + WIZARD_BASE_CHECKS)
++        elif path.startswith('cmd/baha/') and path.endswith('.go'):
+```
