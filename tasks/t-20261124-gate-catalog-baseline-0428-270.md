@@ -10,8 +10,8 @@ parent: ""
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: "0428-270 exact-head CI aborts in Trusted Plan: internal/operatorauth/authorization.go and config.go have no gate-coverage rows (first-ever change to these files). Add both rows to develop pr-gate-coverage.json (owner-scope, #1817 pattern) so 0428-270 can pass."
-kanban_title: "0428-275 · add operatorauth catalog rows to develop"
+kanban_summary: "Unblock 0428-270 (PR head 88f5c7f05, w61). Exact-head CI run 45326369749 aborts in 'PR Trusted Plan' with fail-loud 'uncataloged…"
+kanban_title: "0428-275 · add #1820-sib catalog rows"
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
@@ -24,6 +24,21 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45326369749"]
 ---
 
 - [ ] t-20261124-gate-catalog-baseline-0428-270 · CI/catalog: add operatorauth rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/planned #view/ready #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned  
+    **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45326369749)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** ready  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** none  
+**Owner:** unassigned  
+**Priority:** not set  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 Unblock 0428-270 (PR head 88f5c7f05, w61). Exact-head CI run 45326369749 aborts in 'PR Trusted Plan' with fail-loud 'uncataloged source change' because scripts/pr-gate-plan.py has no gate owner for two files changed here for the first time on develop.

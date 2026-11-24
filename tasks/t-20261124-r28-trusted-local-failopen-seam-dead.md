@@ -8,33 +8,35 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w61-0428-270-failopen
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "Either the trusted-local fail-open branch in authorizeMachineOperation becomes a live, policy-driven path for trusted host-local…"
 kanban_title: 0428-270 · trusted-local seam dead
 priority: normal
 depends_on: [t-20261120-trusted-local-operation-grant]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#0]
 sources: []
-blocker: ""
+blocker: "Exact-head CI run 45326369749 (head 88f5c7f05) aborts in Trusted Plan: internal/operatorauth/authorization.go + config.go changed here for the FIRST time on develop -> no rows in scripts/pr-gate-coverage.json (fail-loud). Product fix is COMPLETE + fail-closed (dead branch removed, comments corrected, deny pinned by TestAuthorizeMachineOperationNameOnlyPolicyFailsClosed, no new test files). BLOCKED behind owner catalog baseline 0428-275 (authorization.go + config.go rows). After 0428-275 lands: w61 rebase + rerun -> Owner accept+merge. w61 held scripts/** (correct)."
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261124-r28-trusted-local-failopen-seam-dead · ManagedEnvironment always reports managed, so the trusted-local fail-open branch in authorizeMachineOperation is unreachable for every production caller. #task #release/v0-4-28 #status/active #view/active #area/access #area/cli #area/security #kind/bug
+- [ ] t-20261124-r28-trusted-local-failopen-seam-dead · ManagedEnvironment always reports managed, so the trusted-local fail-open branch in authorizeMachineOperation is unreachable for every production caller. #task #release/v0-4-28 #status/blocked #view/blocked #area/access #area/cli #area/security #kind/bug
     <!-- generated:card -->
     **Owner:** w61-0428-270-failopen · **Priority:** normal  
+    **PR:** [baseharbor#0](https://github.com/mcpdev80/baseharbor/pull/0)  
+    **Blocker:** Exact-head CI run 45326369749 (head 88f5c7f05) aborts in Trusted Plan: internal/operatorauth/authorization.go + config.go changed here for the FIRST time on develop -\> no rows in scripts/pr-gate-coverage.json (fail-loud). Product fix is CO…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-trusted-local-operation-grant](t-20261120-trusted-local-operation-grant.md)  
 **Owner:** w61-0428-270-failopen  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#0](https://github.com/mcpdev80/baseharbor/pull/0)  
 **Source:** 
 <!-- /generated:links -->
 

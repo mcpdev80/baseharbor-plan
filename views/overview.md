@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 7 |
+| active | 6 |
 | review | 5 |
 | wait | 10 |
-| blocked | 3 |
-| ready | 12 |
+| blocked | 4 |
+| ready | 13 |
 | queued | 25 |
 | waiting | 180 |
 | backlog | 7 |
@@ -30,7 +30,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261120-r28-valkey-dashboard-unavailable-only](../tasks/t-20261120-r28-valkey-dashboard-unavailable-only.md) | Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable | active | not set | Codex (Marcel, active wait sweep 2026-11-21) | [t-20261121-loki-verify-probe](../tasks/t-20261121-loki-verify-probe.md), [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) | [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714) |
 | [t-20261121-base-branch-provenance-loss](../tasks/t-20261121-base-branch-provenance-loss.md) | 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened | active | high | coordinator | — | — |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
-| [t-20261124-r28-trusted-local-failopen-seam-dead](../tasks/t-20261124-r28-trusted-local-failopen-seam-dead.md) | ManagedEnvironment always reports managed, so the trusted-local fail-open branch in authorizeMachineOperation is unreachable for every production caller. | active | normal | w61-0428-270-failopen | [t-20261120-trusted-local-operation-grant](../tasks/t-20261120-trusted-local-operation-grant.md) | — |
 
 ## Ready for review
 
@@ -64,6 +63,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261120-r28-identity-dashboard-catalog-consumer](../tasks/t-20261120-r28-identity-dashboard-catalog-consumer.md) | Identity dashboard catalog has zero production consumers (P4 of review 1650) | blocked | not set | w54-0428-181-export | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | [baseharbor#1819](https://github.com/mcpdev80/baseharbor/pull/1819) |
 | [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) | Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) | blocked | high | owner (0428-249 rebuild on develop 3ebfb90d) | [t-20261124-r28-release-candidate-testonly-binary](../tasks/t-20261124-r28-release-candidate-testonly-binary.md) (open) | [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812) |
 | [t-20261124-r28-broker-build-identity-commit](../tasks/t-20261124-r28-broker-build-identity-commit.md) | verifyRuntimeBrokerBuildIdentity discards both commit SHAs, so a runtime broker at the wrong commit passes readiness whenever the semver matches. | blocked | normal | w60-0428-271-brokerid | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) (open) | [baseharbor#1820](https://github.com/mcpdev80/baseharbor/pull/1820) |
+| [t-20261124-r28-trusted-local-failopen-seam-dead](../tasks/t-20261124-r28-trusted-local-failopen-seam-dead.md) | ManagedEnvironment always reports managed, so the trusted-local fail-open branch in authorizeMachineOperation is unreachable for every production caller. | blocked | normal | w61-0428-270-failopen | [t-20261120-trusted-local-operation-grant](../tasks/t-20261120-trusted-local-operation-grant.md) | [baseharbor#0](https://github.com/mcpdev80/baseharbor/pull/0) |
 
 ## Ready to assign
 
@@ -74,6 +74,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-candidate-commit-identity](../tasks/t-20261121-candidate-commit-identity.md) | Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) | ready | not set | — | — | — |
 | [t-20261122-native-plan-self-selection](../tasks/t-20261122-native-plan-self-selection.md) | CI: catalog and planner self-change selects zero gates | ready | not set | — | — | — |
 | [t-20261123-planner-deleted-source-advisory](../tasks/t-20261123-planner-deleted-source-advisory.md) | CI: candidate planner mishandles deleted source rows (advisory job red) | ready | not set | — | — | — |
+| [t-20261124-gate-catalog-baseline-0428-270](../tasks/t-20261124-gate-catalog-baseline-0428-270.md) | CI/catalog: add operatorauth rows to develop pr-gate-coverage.json | ready | not set | — | — | — |
 | [t-20261124-gate-catalog-baseline-1819](../tasks/t-20261124-gate-catalog-baseline-1819.md) | CI/catalog: add #1819 source rows to develop pr-gate-coverage.json | ready | not set | — | — | — |
 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) | CI/catalog: add #1820 source row to develop pr-gate-coverage.json | ready | not set | — | — | — |
 | [t-20261124-r28-alert-evaluator-live-health-wiring](../tasks/t-20261124-r28-alert-evaluator-live-health-wiring.md) | VerifyPersesAlertEvaluatorHealth has no CLI/MCP caller and the applied alert face derives from the manifest alone, so applied-but-failing reads as configured_unverified. | ready | not set | — | [t-20261119-r28-perses-alert-verifier-caller-wiring](../tasks/t-20261119-r28-perses-alert-verifier-caller-wiring.md) | — |
@@ -86,7 +87,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 4 open, 165 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 56 open, 231 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 57 open, 231 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 16 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
