@@ -16,7 +16,8 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 195/285 · **Blocked:** 1 · **Waiting:** 23  
+    **Accepted tasks:** 195/285 · **Blocked:** 2 · **Waiting:** 23  
+    **Blocker:** [t-20261120-r28-identity-dashboard-catalog-consumer](../tasks/t-20261120-r28-identity-dashboard-catalog-consumer.md) — 7 CI failures on 69f76b94 are NOT code defects: Trusted Plan rejects UNCATALOGED new source files. \#1819 introduces internal/application/runtime\_postgres.go, i…  
     **Blocker:** [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) — Hunt H-V26 F1 PINS the root cause with file:line: baha-ci-operator-testonly is NEVER built in the release/candidate artifact workflow (pre-release.yml 0 hits)…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
