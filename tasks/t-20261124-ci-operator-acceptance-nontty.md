@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w111-0428-285-operatorfix
+owner: Codex w116 takeover 0428-285
 kanban_status: active
 kanban_lane: active
 kanban_summary: Make the test-only CI operator authenticate non-interactively so the Light policy/connectivity/reconciliation/full-destroy gates…
@@ -25,14 +25,14 @@ evidence: []
 
 - [ ] t-20261124-ci-operator-acceptance-nontty · CI operator acceptance non-interactive in CI #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w111-0428-285-operatorfix  
+    **Owner:** Codex w116 takeover 0428-285  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w111-0428-285-operatorfix  
+**Owner:** Codex w116 takeover 0428-285  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
