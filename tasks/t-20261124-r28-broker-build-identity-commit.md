@@ -13,14 +13,15 @@ kanban_lane: blocked
 kanban_summary: The apply/verify readiness probe either proves the runtime broker is the exact candidate commit or surfaces the commit…
 kanban_title: 0428-271 · broker identity version-only
 priority: normal
-depends_on: []
+depends_on: [t-20261124-gate-catalog-baseline-1820]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1820]
 sources: []
 blocker: "run 45322832347 (head f5e50f5a) fails Trusted Plan: source cmd/baha/app_broker_compat_test.go has no row in scripts/pr-gate-coverage.json (owner-scope) -> PR Selected Checks fail + runtime jobs skip. Blocked behind new owner card 0428-274 (gate-catalog-baseline-1820). Commit-verify impl otherwise complete. After 0428-274 lands on develop, w60 rebases + reruns; then Owner accept+merge #1820. No in-PR catalog rows (#1817 precedent)."
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence:
+  - https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-24/broker-build-identity-w60/evidence.md
 ---
 
 - [ ] t-20261124-r28-broker-build-identity-commit · verifyRuntimeBrokerBuildIdentity discards both commit SHAs, so a runtime broker at the wrong commit passes readiness whenever the semver matches. #task #release/v0-4-28 #status/blocked #view/blocked #area/cli #area/lifecycle #area/runtime #kind/bug
@@ -28,12 +29,14 @@ evidence: []
     **Owner:** w60-0428-271-brokerid · **Priority:** normal  
     **PR:** [baseharbor#1820](https://github.com/mcpdev80/baseharbor/pull/1820)  
     **Blocker:** run 45322832347 (head f5e50f5a) fails Trusted Plan: source cmd/baha/app\_broker\_compat\_test.go has no row in scripts/pr-gate-coverage.json (owner-scope) -\> PR Selected Checks fail + runtime jobs skip. Blocked behind new owner card 0428-274…  
+    **Needs:** [t-20261124-gate-catalog-baseline-1820](t-20261124-gate-catalog-baseline-1820.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-24/broker-build-identity-w60/evidence.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** none  
+**Depends on:** [t-20261124-gate-catalog-baseline-1820](t-20261124-gate-catalog-baseline-1820.md)  
 **Owner:** w60-0428-271-brokerid  
 **Priority:** normal  
 **PRs:** [baseharbor#1820](https://github.com/mcpdev80/baseharbor/pull/1820)  
@@ -63,4 +66,4 @@ The apply/verify readiness probe either proves the runtime broker is the exact c
 - bughunt-hv26 F4 rated this low/medium: a documented by-design weakening rather than a crash or false-green in the normal path. It is filed as a card so the provenance-strength decision is explicit instead of a discarded parameter.
 - Source: bughunt-hv26 F4 dossier `evidence/r28-welle6-2026-11-24/bughunt-hv26-candidate-consent-gate/round-1.md` (develop 3ebfb90d).
 
-Dispatched w60 (ornith, dep-free). Fix verifyRuntimeBrokerBuildIdentity to prove exact candidate commit (currently drops both SHAs; wrong-commit broker passes on semver). Write-set disjoint check first; scripts/.github untouched (catalog owner-scope). Hosted, merge-frost.
+Dispatched w60 (ornith, dep-free). Fix verifyRuntimeBrokerBuildIdentity to prove exact candidate commit (currently drops both SHAs; wrong-commit broker passes on semver). Write-set disjoint check first; scripts/.github untouched (catalog owner-scope). Hosted, merge-frost. Card BLOCKED on 0428-274 catalog owner-baseline: the regression test file needs a coverage-catalog row (scripts/ = #1817 owner-scope); fix + regression + build/vet + PR #1820 (head f5e50f5a) complete. On 0428-274 landing: rebase fix/broker-build-identity onto develop, push, mark #1820 ready, re-run exact-head CI.
