@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812]
 sources: []
-blocker: "EXACT run 45313489014 (b1b31a59) TERMINAL FAILURE. 12/14 Light gates fail within seconds at the mandatory 'test -s RUNNER_TEMP/pre-release-candidate/baha-ci-operator-testonly' (before scripts/acceptance.sh) — the prebuilt binary is NEVER PRODUCED in candidate artifact setup (setup only chmods it if present), so restoring the mandatory check (removing the optional fallback per scope ruling) fails ALL gates. The removed fallback was masking a genuine artifact-production gap. OWNER DECISION REQUIRED (do not self-expand): (A) fix candidate artifact production to actually build/install baha-ci-operator-testonly within scope (root-cause; the correct fix) — likely touches candidate build (.github/scripts/CI scope), or (B) explicitly authorize the optional binary/source-build fallback (scope expansion owner earlier rejected). Coordinator recommends (A). 2 jobs still active pending terminal."
+blocker: "Hunt H-V26 F1 PINS the root cause with file:line: baha-ci-operator-testonly is NEVER built in the release/candidate artifact workflow (pre-release.yml 0 hits) while the runtime gates demand it under set -e at pre-release-runtime-suite.yml:316 (ci.yml:1141-1153 builds it only for CI, not the release artifact). Owner decision A/B now concrete: (A) add baha-ci-operator-testonly production to the candidate-artifact path (new OWNER-scope card being filed by w59 intake) -> #1812 rebases onto it; or (B) authorize source-build fallback (earlier rejected). Do NOT expand/merge #1812 until owner picks; 12/14 light gates fail until the binary is produced."
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** owner (0428-249 rebuild on develop 3ebfb90d) · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
-    **Blocker:** EXACT run 45313489014 (b1b31a59) TERMINAL FAILURE. 12/14 Light gates fail within seconds at the mandatory 'test -s RUNNER\_TEMP/pre-release-candidate/baha-ci-operator-testonly' (before scripts/acceptance.sh) — the prebuilt binary is NEVER P…  
+    **Blocker:** Hunt H-V26 F1 PINS the root cause with file:line: baha-ci-operator-testonly is NEVER built in the release/candidate artifact workflow (pre-release.yml 0 hits) while the runtime gates demand it under set -e at pre-release-runtime-suite.yml:…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
