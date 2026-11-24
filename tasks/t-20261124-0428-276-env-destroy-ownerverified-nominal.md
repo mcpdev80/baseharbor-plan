@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w67-0428-276-destroyverify
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-276 · env destroy OwnerVerified
 priority: low
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261124-0428-276-env-destroy-ownerverified-nominal · Bug-Hunt H-V27 intake: env destroy OwnerVerified marker is nominal #task #release/v0-4-28 #status/planned #view/ready #kind/bug
+- [ ] t-20261124-0428-276-env-destroy-ownerverified-nominal · Bug-Hunt H-V27 intake: env destroy OwnerVerified marker is nominal #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** low  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w67-0428-276-destroyverify · **Priority:** low  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w67-0428-276-destroyverify  
 **Priority:** low  
 **PRs:** none  
 **Source:** 
@@ -56,3 +55,5 @@ evidence: []
 - The `OwnerVerified` field on scoped `EnvironmentDestroyDeployment` values is populated by a per-deployment owner re-check, not hardcoded true.
 - A regression test asserts that an unverified scoped deployment is not marked `OwnerVerified` until verified, and that the `applyEnvironmentDestroyScope` guard rejects it when `OwnerVerified` is false (fail-closed).
 - No change to the shared `ListDeployments` fail-closed behavior.
+
+Per-deployment VerifyDeploymentOwner re-check for OwnerVerified marker (was nominal always-true); fail-closed guard in applyEnvironmentDestroyScope. Conflict-free write-set.
