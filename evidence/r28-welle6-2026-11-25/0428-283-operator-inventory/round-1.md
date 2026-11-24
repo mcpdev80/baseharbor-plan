@@ -20,7 +20,8 @@ SHA witnesses (real remotes):
 
 ## PLAN
 
-1. Done — Verify planning repo remote and fetch real SHAs (baseharbor + baseharbor-demo origin/develop).2. Done — Read baseharbor gate contract cmd/baha/ci_integration_operator_enabled.go and locate ciIntegrationManagedLocalGateReason.
+1. Done — Verify planning repo remote and fetch real SHAs (baseharbor + baseharbor-demo origin/develop).
+2. Done — Read baseharbor gate contract cmd/baha/ci_integration_operator_enabled.go and locate ciIntegrationManagedLocalGateReason.
 3. Done — Read .github/workflows/pre-release-runtime-suite.yml build paths — which binary builds carry the operator tag.
 4. Done — Inventory demo gate harnesses calling managed baha ops (static/mcp, Light, cleanup, connectivity/reconciliation/other gates).
 5. Done — Classify each gate: operator path ENGAGED vs NOT ENGAGED.
