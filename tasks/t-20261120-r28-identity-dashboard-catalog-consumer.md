@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w54-0428-181-export
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-181 · identity catalog consumer
 priority: ""
@@ -17,22 +17,21 @@ depends_on: [t-20261114-r28-perses-datasources]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1819]
 sources: []
-blocker: "7 CI failures on 69f76b94 are NOT code defects: Trusted Plan rejects UNCATALOGED new source files. #1819 introduces internal/application/runtime_postgres.go, internal/metrics/perses_dashboard_provision.go + perses_dashboard_provision_test.go with no rows in scripts/pr-gate-coverage.json -> 'PR Selected Checks: Go test selection missing or invalid' + Draft Go cli-0..3/packages fail transitively. This is the #1817 pattern: needs an OWNER-scope catalog baseline PR adding the 3 source rows (surfaces source.gate.atomic.docker.data.capabilities + podman.data.capabilities) to develop BEFORE #1819 can pass. Lane must NOT add catalog rows in-PR (that duplicates the trusted base, broke #1817). Once catalog rows land on develop, rebase #1819 + rerun. Target-bound impl itself looks complete."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r7.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-24/w54-0428-181-export/0428-181-evidence.md"]
 ---
 
-- [ ] t-20261120-r28-identity-dashboard-catalog-consumer · Identity dashboard catalog has zero production consumers (P4 of review 1650) #task #release/v0-4-28 #status/blocked #view/blocked #kind/bug
+- [ ] t-20261120-r28-identity-dashboard-catalog-consumer · Identity dashboard catalog has zero production consumers (P4 of review 1650) #task #release/v0-4-28 #status/review #view/review #kind/bug
     <!-- generated:card -->
     **Owner:** w54-0428-181-export  
     **PR:** [baseharbor#1819](https://github.com/mcpdev80/baseharbor/pull/1819)  
-    **Blocker:** 7 CI failures on 69f76b94 are NOT code defects: Trusted Plan rejects UNCATALOGED new source files. \#1819 introduces internal/application/runtime\_postgres.go, internal/metrics/perses\_dashboard\_provision.go + perses\_dashboard\_provision\_test.…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r7.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-24/w54-0428-181-export/0428-181-evidence.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
 **Owner:** w54-0428-181-export  
@@ -82,3 +81,5 @@ Owner keeps PR open; coordinator books accepted/closed only on owner exact-diff 
 TARGET-BOUND RESOLVED (owner question ruled target-bound, secure-by-design; matches coordinator recommendation). Head 69f76b94: exact canonical Keycloak source selector + documented http_server_requests_seconds_count, REAL production eligibility path + fail-closed witness regression (replaces :353 unqualified query + direct-projection bypass). Next: lane marks PR ready -> full hosted checks. Once green -> Owner exact-diff accept+merge #1819 (producer), THEN #1818 (consumer) dependency satisfied. No merge (frost).
 
 Exact JSON entries are in run 45320885286 Trusted Plan log (the error prints them). Owner: file a #1817-style catalog PR; then w54 rebases + reruns.
+
+Rebased onto develop 90086a1f9, head ff261fce9 terminal-green (18 PASS/0 FAIL), MERGEABLE. Handed to CODEX-REVIEW+MERGE. target-bound producer; keycloak-identity NOT in observability catalog.
