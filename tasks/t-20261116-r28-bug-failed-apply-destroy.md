@@ -7,9 +7,9 @@ areas: [deployment]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w128
+kanban_status: active
+kanban_lane: active
 kanban_summary: A failed baha app apply may register a DEGRADED deployment without a materialized application runtime; baha app destroy --yes…
 kanban_title: 0428-286 · Recover failed apply destroy
 priority: critical
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261116-r28-bug-failed-apply-destroy · Recover failed apply destroy #task #release/v0-4-28 #status/planned #view/ready #area/deployment #kind/bug
+- [ ] t-20261116-r28-bug-failed-apply-destroy · Recover failed apply destroy #task #release/v0-4-28 #status/active #view/active #area/deployment #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** critical  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w128 · **Priority:** critical  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w128  
 **Priority:** critical  
 **PRs:** none  
 **Source:** 
