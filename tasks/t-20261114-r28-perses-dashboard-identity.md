@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w55-0428-078-probehop
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: review
+kanban_lane: review
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
 kanban_title: 0428-078 · Perses identity dashboard
 priority: normal
@@ -17,22 +17,21 @@ depends_on: [t-20261114-r28-perses-dashboard-selection]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1650, mcpdev80/baseharbor#1818]
 sources: []
-blocker: "#1818 correctly parked (head unchanged 0f20a3b, w55 did NOT push). Three blockers: (1) DEPENDENCY on card 0428-181 (w54) identity-panel producer — the keycloak-identity catalog test must target that separate producer (observability persesDashboardCatalog excludes identity BY DESIGN), which is still being built/unmerged. (2) OWNER AUTHORIZATION: Docker identity gate exit 41 needs explicit --confirm-candidate operator consent (do NOT weaken Consent validation) — owner decision pending. (3) OWNER DECISION: target-bound IdentitySelectionWitness vs catalog-template for the identity content (w54 proceeding template-based). Next trigger: w54 producer lands + owner grants consent + owner answers target-bound -> w55 retargets test + exact-head rerun."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/blocked #view/blocked #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w55-0428-078-probehop · **Priority:** normal  
     **PR:** [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650), [baseharbor#1818](https://github.com/mcpdev80/baseharbor/pull/1818)  
-    **Blocker:** \#1818 correctly parked (head unchanged 0f20a3b, w55 did NOT push). Three blockers: (1) DEPENDENCY on card 0428-181 (w54) identity-panel producer — the keycloak-identity catalog test must target that separate producer (observability persesD…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md), [t-20261120-r28-prune-key-too-coarse](t-20261120-r28-prune-key-too-coarse.md), [t-20261120-r28-registerprovider-signal-failclosed](t-20261120-r28-registerprovider-signal-failclosed.md), [t-20261120-r28-restart-persist-signal-dump](t-20261120-r28-restart-persist-signal-dump.md), [t-20261120-r28-runtimetarget-failclosed](t-20261120-r28-runtimetarget-failclosed.md), [t-20261120-r28-signal-one-active-write-path](t-20261120-r28-signal-one-active-write-path.md), [t-20261120-r28-signalregistry-race](t-20261120-r28-signalregistry-race.md)  
@@ -252,3 +251,5 @@ Vehicle moved to PR #1818 (branch lane-0428-078-cf-fix, base cd2fcda) which carr
 Scope ruling (owner): persesDashboardCatalog is observability-only by design (Prometheus/Loki/Tempo) and excludes identity dashboards -> keycloak-identity must NOT be added there. #1818 Go test TestPersesKeycloakDashboardQueriesSelectRealProviderLabels must target the SEPARATE identity-panel producer (0428-181 export consumer path) OR 0428-078 needs a target-bound IdentitySelectionWitness on the identity producer, never gated through backendForKey/PersesDashboardAvailability. w55 resolving package ownership, no catalog-availability edits until decided. Docker consent exit-41 = OWNER authorization (held). #1818 still has #181 (w54) dependency for the identity producer.
 
 w55 kept as same-candidate correction seat (idle, no push). Not a stall to rotate — genuine dep+auth block.
+
+GREEN exact-head candidate: head 306a2b1ea (base develop), PR checks 23 pass / 0 fail incl Podman data-capabilities. keycloak-identity test retargeted to the 0428-181 identity producer (#1819), NOT added to observability catalog (per owner scope ruling); consent gate satisfied without weakening Consent validation. Depends on #1819 (0428-181) being accepted — identity producer is the seam. Ready for Owner exact-diff acceptance; merge held (frost + Owner-direct channel).

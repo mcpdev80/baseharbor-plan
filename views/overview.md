@@ -11,9 +11,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 6 |
-| review | 5 |
+| review | 6 |
 | wait | 10 |
-| blocked | 2 |
+| blocked | 1 |
 | ready | 5 |
 | queued | 25 |
 | waiting | 177 |
@@ -35,6 +35,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) | Perses identity dashboard | review | normal | w55-0428-078-probehop | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650), [baseharbor#1818](https://github.com/mcpdev80/baseharbor/pull/1818) |
 | [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | review | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
 | [t-20261120-r28-identity-dashboard-catalog-consumer](../tasks/t-20261120-r28-identity-dashboard-catalog-consumer.md) | Identity dashboard catalog has zero production consumers (P4 of review 1650) | review | not set | w54-0428-181-export | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | [baseharbor#1819](https://github.com/mcpdev80/baseharbor/pull/1819) |
 | [t-20261122-footprint-human-surface-doc-gaps](../tasks/t-20261122-footprint-human-surface-doc-gaps.md) | Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract | review | normal | 0847d100 (finalhop 7880a8f6 laeuft) / Coordinator | — | [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783) |
@@ -60,7 +61,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) | Perses identity dashboard | blocked | normal | w55-0428-078-probehop | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650), [baseharbor#1818](https://github.com/mcpdev80/baseharbor/pull/1818) |
 | [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) | Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) | blocked | high | owner (0428-249 rebuild on develop 3ebfb90d) | — | [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812) |
 
 ## Ready to assign
