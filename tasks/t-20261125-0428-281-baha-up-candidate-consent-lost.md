@@ -25,6 +25,21 @@ evidence:
   - https://github.com/mcpdev80/baseharbor/pull/1647
 ---
 
+## Handoff
+
+- w85-0428-281-consent (2026-11-24): stopped on an owner hold, then ran a read-only diagnosis.
+  Result: the consent propagation the Problem section describes is already on develop —
+  `cmd/baha/app_input_resolver.go:536` (from merged PR #1807 / `7b45db92`, an ancestor of
+  `46d3dccc1`) plus `cmd/baha/runtime_repository_up.go:60-61` and `cmd/baha/app_apply.go:71-72` carry
+  the digest on every documented local `up` route into the `record deployment before mutation` choke.
+  The remaining failure is a consent-handshake string-contract gap in the Demo acceptance wrapper
+  (`baseharbor-demo/tests/fixture-consent.py:38-46` does not recognize the nested refusal that
+  `missingCandidateConsentError` emits), not a product-side propagation defect. Only the named
+  regression test is genuinely missing on develop. Full trace, witnesses and proposal:
+  evidence/r28-welle6-2026-11-25/0428-281-consent/diagnosis.md
+  No product branch or PR was created by this lane.
+
+
 - [ ] t-20261125-0428-281-baha-up-candidate-consent-lost · baha up loses candidate consent #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** w85-0428-281-consent · **Priority:** high  
