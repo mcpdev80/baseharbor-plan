@@ -336,6 +336,14 @@ Delivery witness, `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git
 
     b5c7e114e1e323e29f3bcb921662e1e5665c9c9f        refs/heads/main
 
+Final re-run of the same pair after the last planning commit (`d283ec19d`, verbatim):
+
+    $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main
+    From https://github.com/mcpdev80/baseharbor-plan
+     * branch                main       -> FETCH_HEAD
+    $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep 0428-281-consent
+    evidence/r28-welle6-2026-11-25/0428-281-consent/diagnosis.md
+
 Content witness, `git show origin/main:evidence/r28-welle6-2026-11-25/0428-281-consent/diagnosis.md | head -3`
 returns this file's title and lane header (shown in the pushed tree above).
 
