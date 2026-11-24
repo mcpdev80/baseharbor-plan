@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w186-0428-186-hop
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-186 · no verified status source
 priority: ""
@@ -19,18 +19,19 @@ prs: [mcpdev80/baseharbor#1810]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/951014e98b2fcdbbb870ed4355c6fca7106654c4"]
 ---
 
-- [ ] t-20261120-r28-perses-status-never-verified · No source API yields verified: status --json can never report true #task #release/v0-4-28 #status/active #view/active #kind/bug
+- [x] t-20261120-r28-perses-status-never-verified · No source API yields verified: status --json can never report true #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/bug
     <!-- generated:card -->
     **Owner:** w186-0428-186-hop  
     **PR:** [baseharbor#1810](https://github.com/mcpdev80/baseharbor/pull/1810)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/951014e98b2fcdbbb870ed4355c6fca7106654c4)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w186-0428-186-hop  
@@ -76,3 +77,5 @@ Probe LANDED head 5c2e97f3 (off fail-closed 02c9b960). Ordering bug (Owner revie
 TWO blockers (head 5c2e97f3, run 45292103046): (1) Trusted Plan red — catalog lacks 3 rows (internal/application/perses_lifecycle_go, internal/metrics/perses_backend_status_go + _test_go, all data.capabilities) -> routed to catalog PR #1817 (owner merges to develop, then rebase #1810). (2) STILL OPEN — production wrapper PersesBackendAnswersStatusNow setup-before-guards ordering (selection+release FIRST, then endpoint setup) + production-entry Hosted regression. Native docker Perses smoke still running. #1650 verified-dep stays held until #1810 lands green. No merge; no Codex.
 
 Run 45294330024 Trusted Plan FAIL = duplicate catalog rows: #1810 still edits scripts/pr-gate-coverage.json (3 rows) which #1817 already merged onto develop 6df6807. Routed w186: rebase 3604a96->develop 6df6807 + strip scripts/pr-gate-coverage.json from PR (product-code-only: perses_backend_status probe + guard-ordering + prod regression). exact-head rerun. Selection-guard ordering finding still applies. No merge; no Codex.
+
+MERGED 951014e9: real per-target probe metricsprovider.PersesBackendAnswersStatusNow on develop; run 45296102750 all green (TP + cli-0/1/2/3/owner/packages + validation + native runtime gates). Unblocks #1650 eligibility + enables 0428-181 export consumer.
