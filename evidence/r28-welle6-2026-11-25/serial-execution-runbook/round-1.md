@@ -7,11 +7,11 @@
 
 ## PLAN
 
-- [x] Read mission file + coordinator-runtime.toml; run basics-check + events-check --ack
-- [x] Witness remote state via `git ls-remote` + `gh api`: develop f14fb87c8, demo c23bd9ac, PR heads
-- [x] Verify #1823 deny-override present on develop (guard); verify #1820 branch contaminated 28803d11
-- [x] Write this evidence file only — no product/plan edits, no branch, no PR, no CI trigger
-- [x] Post END_DONE to coordinator lane
+- Read mission file + coordinator-runtime.toml; run basics-check + events-check --ack
+- Witness remote state via `git ls-remote` + `gh api`: develop f14fb87c8, demo c23bd9ac, PR heads
+- Verify #1823 deny-override present on develop (guard); verify #1820 branch contaminated 28803d11
+- Write this evidence file only — no product/plan edits, no branch, no PR, no CI trigger
+- Post END_DONE to coordinator lane
 
 ## Remote witnesses (measured, read-only)
 
