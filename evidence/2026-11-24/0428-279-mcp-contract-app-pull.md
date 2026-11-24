@@ -55,6 +55,13 @@ Two Pre-Release runs were attempted before the drift was fixed:
 - Run 343 (45402677135) and run 344 (45403768879) on head 080ea830 both FAILED in "Source · Candidate and Gate Plan" BEFORE gate selection, with REJECT: pre-release candidate does not contain develop tip 46d3dccc... (drift). head 080ea830 was cut before the upstream develop tip had advanced, so the candidate was behind develop. The static/mcp gate never executed. This was a candidate-provenance failure, NOT a contract failure.
 - The earlier run 45402677135 also carried a stale INPUT_DEMO_REF (c23bd9ac) mismatch per owner report; the correct demo_ref for the pinned v0.4.28 is df4867c.
 
+## Run 345 (45407381550) — non-qualifying, root-caused
+
+- Run 345 head_sha was c000c5db2560c471fe84842136e03d6e54d96779 = **origin/main**, NOT my candidate head a4dffedb. The owner's `gh workflow run --ref a4dffedb` resolved the branch name against the default branch, so the checkout ran develop/main.
+- Its failure was `Source · Go Tests · cli-3` (job 138492151180) with `zsh: executable file not found` — a **transient apt failure** in the runner/workflow layer, unrelated to #1826. The static/mcp gate was skipped (candidate never qualified).
+- Confirmed the cli-3 zsh/fish install block IS present in a4dffedb `.github/workflows/pre-release.yml:339-346`: `if: matrix.shard == 'cli-3'` -> `sudo apt-get update && sudo apt-get install --no-install-recommends -y zsh fish` -> `echo zsh/fish command -v`. Byte-identical to develop's block (the block predates this card; card r28-shell-wrapper-tests-not-skippable is closed/accepted). So the gap is the transient apt failure, not a missing install.
+- No workflow file edited by this lane. No rerun issued by this lane.
+
 ## Required owner action to run the static/mcp gate
 
 The static/mcp gate is a Pre-Release (workflow_dispatch) gate on the product repo. Per the owner STOP-DISPATCH notice, the owner runs it (no run was in flight). The exact command to run it on the exact candidate head:
