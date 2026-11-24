@@ -41,28 +41,48 @@ IDs through the affected path. `docker compose config --services` yields an unde
   the candidate; positive tests for underscores, dashes and mixed graphs. Register in existing package
   test selection (no scripts/** change needed).
 
-## Catalog fix (814/800 readability gate + trusted coverage) — HELD for Codex decision slot w122
-Adding the helper pushed workload.go to 814 lines, failing the trusted-catalog
-source-format/readability gate. Moved canonicalComposeServiceID into
-manifest_validation.go (next to validateComposeServiceName) so workload.go is
-787 lines and BOTH sources catalogue cleanly. No behavior change.
+## Catalog fix (814/800 readability gate + trusted coverage) — ROOT-CAUSED, OWNERSHIP DECISION PENDING
 
-The trusted base policy rejects ANY uncataloged source: all three changed files
-manifest_validation.go, workload.go, workload_test.go must be added to
-scripts/pr-gate-coverage.json in ONE step with surfaces resolving to a real
-release gate. I verified locally (planner coverage_status=resolved,
-unresolved_coverage=[], selected_gates=[atomic/docker/data-capabilities],
-validate() clean) that adding the three component rows with atomic
-docker/podman data.capabilities surfaces resolves it. PRECEDENT: card 0428-278
-(ghost coverage rows) — same fix in-scope in baseharbor-plan registry.
+### root-cause (definitive, run 45491333208 at exact head 3926495324)
+The CI "Trusted Plan" step (.github/workflows/ci.yml:856-868) sets
+`controller=$effective_base` and reads `scripts/pr-gate-coverage.json` from
+`$controller:scripts/` (ci.yml:860-866). For PR #1833 the PR base is develop
+(145b4a20f), so `effective_base=145b4a20f` and the migration controller
+(8596548) IS an ancestor of develop -> `controller=145b4a20f`. Therefore the
+runner reads the coverage file from **develop**, NOT from my PR head. My PR's
+catalog rows are structurally ignored.
 
-ROUTING (Owner 2026-11-24): the data-only catalog delta goes through Codex
-decision slot w122 NOW. HELD: w122 records DECISION_RECORDED on card 0428-288,
-then the lane implements exactly that delta. No other scripts/** touch.
+Verified: develop (145b4a20f) has 278 component rows and ZERO of the three
+sources; 14 existing internal/application/*_test.go rows ARE catalogued, so
+test-file cataloguing is the norm. My local planner run against the current
+head diff reports coverage_status=resolved, unresolved_coverage=[],
+selected_gates=[atomic/docker/data-capabilities]; the runner reads develop's
+stale file -> source_unowned=[manifest_validation.go, workload.go,
+workload_test.go] -> ValueError.
 
-PR #1833 head 3926495324 (moved helper + cataloged coverage — NOT yet the fix
-that the w122 decision will author; see below). Two prior exact-head runs
-45487951503 + 45491333208 failed only on trusted-plan coverage attribution.
+### what is already in place (verified, data-only, decision-authorized)
+- canonicalComposeServiceID relocated from workload.go (787 lines) into
+  manifest_validation.go; source-format gate GREEN.
+- PR #1833 head 3926495324 carries the 3 catalog rows with {id,path,surfaces}
+  = source.gate.atomic.{docker,podman}.data.capabilities (decision RECORDED on
+  card 0428-288, 2026-11-24).
+- No scripts code, gate-behavior, or .github change.
+
+### Owner decision needed (out of scope / Owner scope)
+Rows must reach develop for the trusted-plan step to read them. Two options:
+(a) Owner merges PR #1833 so the rows enter develop, then a fresh exact-head CI
+    run reads the resolved catalog; or
+(b) Owner adds the 3 rows to develop directly.
+No other scripts/** or code change is authorized by the decision. No merges by
+this lane. PR #1833 stays DRAFT until Trusted Plan is green.
+
+## END STATE
+END_BLOCKED w124-0428-288-compose-ids: root-caused — Trusted Plan reads
+coverage from the immutable controller base (develop 145b4a20f), so the
+decision-authorized catalog rows in PR #1833 are structurally ignored; they
+must enter develop (Owner scope: merge PR #1833 or add rows to develop) before
+a fresh exact-head Hosted run can pass. PR #1833 head 3926495324. No
+scripts/**/code change, no merges.
 
 ## Acceptance (from card)
 - Use literal Compose service identifiers at all runtime lookup and manifest references,
