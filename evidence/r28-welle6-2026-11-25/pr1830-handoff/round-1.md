@@ -33,3 +33,5 @@ The v0.4.28 validation above is for the source pin's catalog-required static che
 5. Keep #1812's 14 Light-gate qualification explicitly separate; the two #1830 runs above do not claim those Docker/Podman gates passed.
 
 END handoff. No Core source or PR mutation was made after head `3e80fb90`; #1830 remains unmerged in this handoff.
+
+Author note: PR #1830 branch `w115-0428-284-demopin` is green at exact head `3e80fb90171ce8f45f2efa0f1a50c26b65fd20d2`; hosted PR-CI run [45483027348](https://github.com/mcpdev80/baseharbor/actions/runs/45483027348) and required v0.4.28 validation run [45484190794](https://github.com/mcpdev80/baseharbor/actions/runs/45484190794) both completed successfully on that head, with `docs/releases/v0.4.28.demo-ref` pinned to `b41127723e523134a1c14ee3c36cf133237162ce`.
