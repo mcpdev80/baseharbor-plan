@@ -15,7 +15,7 @@ kanban_title: 0428-286 · Recover failed apply destroy
 priority: critical
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1834]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,6 +26,7 @@ evidence: []
 - [ ] t-20261116-r28-bug-failed-apply-destroy · Recover failed apply destroy #task #release/v0-4-28 #status/active #view/active #area/deployment #kind/bug
     <!-- generated:card -->
     **Owner:** w128-0428-286-apply-destroy · **Priority:** critical  
+    **PR:** [baseharbor#1834](https://github.com/mcpdev80/baseharbor/pull/1834)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -34,7 +35,7 @@ evidence: []
 **Depends on:** none  
 **Owner:** w128-0428-286-apply-destroy  
 **Priority:** critical  
-**PRs:** none  
+**PRs:** [baseharbor#1834](https://github.com/mcpdev80/baseharbor/pull/1834)  
 **Source:** 
 <!-- /generated:links -->
 
