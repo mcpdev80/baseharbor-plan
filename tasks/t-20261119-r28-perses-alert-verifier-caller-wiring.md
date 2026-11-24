@@ -8,7 +8,7 @@ areas: [metrics, observability, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: w52-0428-152-rebase
+owner: w53-0428-152-alertfix
 kanban_status: active
 kanban_lane: active
 blocker: ""
@@ -26,7 +26,7 @@ created: 2026-11-19
 
 - [ ] t-20261119-r28-perses-alert-verifier-caller-wiring · alert-verifier haengt in der luft #task #release/v0-4-28 #status/active #view/active #area/cli #area/metrics #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** w52-0428-152-rebase  
+    **Owner:** w53-0428-152-alertfix  
     **PR:** [baseharbor#1816](https://github.com/mcpdev80/baseharbor/pull/1816)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-review-wave/1704-0428-073.md)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ created: 2026-11-19
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261119-r28-perses-status-backend-witness](t-20261119-r28-perses-status-backend-witness.md)  
-**Owner:** w52-0428-152-rebase  
+**Owner:** w53-0428-152-alertfix  
 **Priority:** not set  
 **PRs:** [baseharbor#1816](https://github.com/mcpdev80/baseharbor/pull/1816)  
 **Source:** 
@@ -95,3 +95,5 @@ Rebase onto develop 6df6807 WORKED — Trusted Plan PASSES at b21d144e. NEW func
 Two Go shards failing at b21d144e (Trusted Plan green post-rebase): cli-0 unapplied->not configured (was configured_unverified, :300); cli-2 PersesStatusSurface :204 reportPersesSurfaceStatus needs authenticated BaseHarbor operator/session the TEST context lacks -> both selected+unselected auth short-circuit. Routed w52: fix 3-state mapping + seed proper auth in test (do NOT assert the auth error), fresh exact-head Hosted. #1816 OPEN; no merge; no Codex.
 
 Head still b21d144e (fix not pushed). run 45294765410 two Go failures (cli-0 unapplied state mismatch -> not configured; cli-2 test lacks authenticated BaseHarbor operator for reportPersesSurfaceStatus at :204). Firm re-routed to w52: push both fixes to a NEW head off b21d144e + fresh exact-head Hosted. Only old runtime job left. No merge; no Codex.
+
+Rotated from stalled w52 (reclaimed; branch b21d144e + PR #1816 preserved, Trusted Plan green). Fresh flash lane w53 dispatched with both fixes baked-in: cli-0 unapplied->not configured 3-state mapping; cli-2 test must seed authenticated BaseHarbor operator (runWithIOAsTestOperator) so reportPersesSurfaceStatus evaluates selected+unselected (not assert auth-error). exact-head Hosted; PR open; no merge; no Codex.
