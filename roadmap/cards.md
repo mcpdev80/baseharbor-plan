@@ -16,8 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 196/290 · **Blocked:** 1 · **Waiting:** 23  
-    **Blocker:** [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) — Only surviving diff = .github/workflows/pre-release-runtime-suite.yml +27/-4 (@@ -338) = OWNER scope (RUNBOOK 4.0); all product content superseded by \#1822. Ne…  
+    **Accepted tasks:** 196/290 · **Blocked:** 0 · **Waiting:** 23  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next
