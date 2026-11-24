@@ -189,15 +189,13 @@ No containers, networks, volumes or compose projects were started by this lane (
 hosted verification only). docker ps -a on this host was never invoked from this session; the VM
 hosts were not touched. State directories: none created outside the worktree.
 
-## Blocked-on + follow-up handoff
+## Parked state (coordinator directive 2026-11-24)
 
-Coordinator already opened card 0428-275 (t-20261124-gate-catalog-baseline-0428-270) on
-baseharbor-plan main for exactly this owner fix (the two catalog rows). My QUESTION posted before
-that card was seen; it stands as the finding record.
+Coordinator ACK received: candidate 88f5c7f05 accepted as the right approach (option (b),
+remove-seam, fail-closed); ROUTED the catalog fix as owner card 0428-275 to develop. Lane parks
+0428-270: PR #1821 stays open untouched, scripts/** untouched. Wake trigger: 0428-275 rows land on
+develop -> rebase lane-0428-270-trustedlocal-seam onto the new develop head, force-with-lease push
+the same branch, observe the exact-head run to terminal, record it here and report.
 
-When the 0428-275 rows land on develop, this lane (or whoever the coordinator assigns) must:
-- rebase lane-0428-270-trustedlocal-seam onto the new develop, force-with-lease push the same
-  branch (single candidate, no second branch),
-- observe the exact-head run to terminal and record it here.
-
-END_BLOCKED w61-0428-270-failopen: candidate 88f5c7f05 complete/pushed/PR #1821 open; exact-head CI run 45326369749 fails ONLY on the missing pr-gate-coverage.json rows (owner scope, now card 0428-275); awaiting catalog baseline on develop, then rebase+rerun.
+END_BLOCKED w61-0428-270-failopen: parked, awaiting 0428-275. Candidate 88f5c7f05 complete/pushed,
+PR #1821 open; the only blocker is the owner catalog baseline on develop.
