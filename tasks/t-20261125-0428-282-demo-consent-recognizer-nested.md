@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor-demo]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "awaiting OWNER authorization for the baseharbor-demo repo/write-set change (prior consent PR authorization covered baseharbor product only)"
+wait_reason: ""
 resolution: ""
 evidence:
   - https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-25/0428-281-consent/diagnosis.md
@@ -28,7 +28,6 @@ evidence:
 - [ ] t-20261125-0428-282-demo-consent-recognizer-nested · demo consent recognizer nested #task #release/v0-4-28 #status/planned #view/ready #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **Waiting:** awaiting OWNER authorization for the baseharbor-demo repo/write-set change (prior consent PR authorization covered baseharbor product only)  
     **Ready to assign** · prerequisites accepted  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-25/0428-281-consent/diagnosis.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139)  
     <!-- /generated:card -->
