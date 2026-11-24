@@ -15,7 +15,7 @@ kanban_title: 0428-249 · light-runtime blob unknown
 priority: high
 depends_on: [t-20261124-r28-release-candidate-testonly-binary]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1812]
+prs: [mcpdev80/baseharbor#1812, mcpdev80/baseharbor#1837]
 sources: []
 blocker: catalog PR IN FLIGHT (owner YES 2026-11-26; worker w128; 14 Light IDs required_for v0.4.28 only + minimal test expectation; #1812 stays workflow-only) — see Handoff AUTHORIZATION GAP. "ROOT CAUSE NOT YET DETERMINED (run 45432650561 head 9140b2cb still active: 7 fail / 5 pass / 2 running). >=3 distinct failure signatures, NOT one consent cause: (1) Docker policy job 138587494655 = consent refusal (--confirm-candidate) AND operator-auth 'not a terminal'; (2) Podman connectivity job 138587494809 = digest retry issued + guided-up-consented reached READY + repo workload ready, then EMPTY Acceptance group header + demo-connectivity FAIL with NO concrete assertion (possibly a distinct harness/acceptance bug, not consent); that job also logs ci-operator-testonly managed-local-gate decisions for up with and without --confirm-candidate. Classification HELD until all 14 Light jobs reach terminal + artifacts/logs inspected. Merge held; #1819/#1820 parked. develop f14fb87c8."
 wait_reason: ""
@@ -26,7 +26,7 @@ evidence: []
 - [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/testing #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
+    **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812), [baseharbor#1837](https://github.com/mcpdev80/baseharbor/pull/1837)  
     **Blocker:** catalog PR IN FLIGHT (owner YES 2026-11-26; worker w128; 14 Light IDs required\_for v0.4.28 only + minimal test expectation; \#1812 stays workflow-only) — see Handoff AUTHORIZATION GAP. "ROOT CAUSE NOT YET DETERMINED (run 45432650561 head 91…  
     <!-- /generated:card -->
 
@@ -36,7 +36,7 @@ evidence: []
 **Depends on:** [t-20261124-r28-release-candidate-testonly-binary](t-20261124-r28-release-candidate-testonly-binary.md)  
 **Owner:** unassigned  
 **Priority:** high  
-**PRs:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
+**PRs:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812), [baseharbor#1837](https://github.com/mcpdev80/baseharbor/pull/1837)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -90,6 +90,9 @@ Sequence step 1 (owner re-release): rebase #1812 onto develop 05ef48536; superse
 Rebased onto develop 46d3dccc, exact head 47590207518, one-file diff pre-release-runtime-suite.yml. PR CI 45397265257 SUCCESS. Docker Light dispatch 45398943139 on head; w81 reports a .github resource-validation blocker (static_gates vs runtime_light_gates_* classification) at pre-release-runtime-suite.yml:237-246 — owner-scope, escalated (card 0428-280). Podman held until owner scope answer + Docker outcome.
 
 Core fixture handoff (2026-11-24): BaseHarbor PR [#1827](https://github.com/mcpdev80/baseharbor/pull/1827) merged at `adf43709b8b37cd2b18a6bf4710019d7343d54b4` (source `83d7c7afc84740b565ff654562a178361c3522c8`) with two exact-head green Hosted CI runs: [45455276409](https://github.com/mcpdev80/baseharbor/actions/runs/45455276409) and [45460654225](https://github.com/mcpdev80/baseharbor/actions/runs/45460654225). This closes only the Core test-only fixture half; #1812 still needs its own requalification after merge, assigned to w112. Existing #1812 scope and blocker are unchanged.## Handoff
+
+- CATALOG PR LIVE: #1837 head d57a8253b478f461e616d5058c42331d50c4662e - exactly the two approved files, 14 Light IDs required_for v0.4.28 only, v0.4.27 unchanged; run 45511970224 all-completed-green (pr-planner-tests pending). Terminal green -> independent Codex review/merge; after merge #1812 rebases for the 14-gate reruns.
+
 
 - AUTHORIZATION GAP (2026-11-25): the 14 Docker/Podman Light-gate IDs are not required IDs in the current v0.4.28 catalog (only static/ci-fast-check + atomic/static/mcp; #1746/#1805 covered ci-fast-check). Catalog authorization decision = Owner. PR #1812 stays OPEN/nonqualifying; runs 45504224635/45505198117/45506742327 void.
 -20261122-runtime-image-registry-artifact-unknown
