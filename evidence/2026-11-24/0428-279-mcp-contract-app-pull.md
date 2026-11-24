@@ -62,6 +62,26 @@ Two Pre-Release runs were attempted before the drift was fixed:
 - Confirmed the cli-3 zsh/fish install block IS present in a4dffedb `.github/workflows/pre-release.yml:339-346`: `if: matrix.shard == 'cli-3'` -> `sudo apt-get update && sudo apt-get install --no-install-recommends -y zsh fish` -> `echo zsh/fish command -v`. Byte-identical to develop's block (the block predates this card; card r28-shell-wrapper-tests-not-skippable is closed/accepted). So the gap is the transient apt failure, not a missing install.
 - No workflow file edited by this lane. No rerun issued by this lane.
 
+## Run 346 (45409353255) — ROOT CAUSE: wrong destructiveHint on baseharbor.app.pull
+
+Run 346 ran on the exact candidate head a4dffedb, source+qualified GREEN, and the Static·mcp gate EXECUTED. It FAILED at the annotation assertion:
+`RuntimeError: incorrect MCP safety annotations: baseharbor.app.pull` (job 138503029846).
+
+This is NOT the missing/unexpected method-set error anymore. The gate (tests/mcp/run.sh:198) asserts per tool:
+`readOnlyHint is (name in read_only) OR destructiveHint is (name in destructive)`.
+The live server emits for baseharbor.app.pull: readOnlyHint=FALSE, destructiveHint=FALSE (Safety=SafetyMutating, from cmd/baha/mcp.go machineMCPTool: destructive = (Safety==SafetyDestructive)).
+Run 346 used the OLD demo code where baseharbor.app.pull was still in the demo `destructive` set, so `destructiveHint(false) is (name in destructive=true)` => FALSE => gate FAIL.
+
+FIX (demo repo, 0428-279): remove baseharbor.app.pull from the demo tests/mcp/run.sh `destructive` set. baseharbor.app.pull is SafetyMutating (destructiveHint=false), correctly absent from BOTH read_only and destructive sets.
+
+VERIFIED against built binary + live tools/list:
+- expected set == live product surface: 99/99 tools, exact set equality.
+- baseharbor.app.pull: in expected=True, in read_only=FALSE, in destructive=FALSE.
+- Full annotation parity across ALL 99 tools: 0 mismatches (readOnlyHint/destructiveHint match product Safety-derived hints for every tool).
+
+New demo commit: 025ce84e5d12838ca5622dc69161623350948f08 (demo lane-0428-279-mcpcontract-fix). Re-pinned v0.4.28 demo-ref to 025ce84.
+New candidate head on #1826: 6589a37b00273913e9e14fd9832e93b72630f106 (contains develop tip; two own commits only).
+
 ## Required owner action to run the static/mcp gate
 
 The static/mcp gate is a Pre-Release (workflow_dispatch) gate on the product repo. Per the owner STOP-DISPATCH notice, the owner runs it (no run was in flight). The exact command to run it on the exact candidate head:
