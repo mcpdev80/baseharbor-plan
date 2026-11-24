@@ -307,6 +307,40 @@ Scratch zone: /tmp/opencode/w85-0428-281-consent/ (this evidence file, the CI lo
 
 ## evidence-on-origin proof
 
-Run as the second-to-last action, pasted verbatim after pushing:
+Planning-repo push remote guard (must resolve to github.com/mcpdev80):
+
+    origin  https://github.com/mcpdev80/baseharbor-plan.git (push)
+
+`git -C baseharbor-plan fetch origin main && git ls-tree -r --name-only origin/main | grep <evidence-path>`
+(verbatim output, after pushing commit `b5c7e114e`):
+
+    From https://github.com/mcpdev80/baseharbor-plan.git
+     * branch                main       -> FETCH_HEAD
+    evidence/r28-welle6-2026-11-25/0428-281-consent/diagnosis.md
+
+Delivery witness, `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main`:
+
+    b5c7e114e1e323e29f3bcb921662e1e5665c9c9f        refs/heads/main
+
+Content witness, `git show origin/main:evidence/r28-welle6-2026-11-25/0428-281-consent/diagnosis.md | head -3`
+returns this file's title and lane header (shown in the pushed tree above).
+
+Product repo untouched, `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop
+refs/heads/lane-0428-281-consent refs/pull/1812/head`:
+
+    46d3dccc1f6fc65c027f5c2a28e9d17b29c5fed2        refs/heads/develop
+    47590207518ce9501f1b1bbb115d72d64a206d14        refs/pull/1812/head
+
+(the `refs/heads/lane-0428-281-consent` line is absent — this lane created no product branch and no PR;
+#1812 head is unchanged by this lane.)
 
 ## END
+
+END_DONE w85-0428-281-consent: read-only diagnosis complete — no candidate SHA by design (owner hold: no
+branch, no PR). Verdict: the `--confirm-candidate` propagation is already on develop `46d3dccc1`
+(cmd/baha/app_input_resolver.go:536 from merged #1807 `7b45db92`, plus runtime_repository_up.go:60-61),
+so a digest-threading PR would be an empty diff and duplicate #1807; the 4 failing Docker Light gates
+(policy/connectivity/reconciliation/full-destroy) fail instead because baseharbor-demo
+tests/fixture-consent.py:38-46 does not match the nested candidate-refusal message and so never re-runs
+with the digest. Evidence: evidence/r28-welle6-2026-11-25/0428-281-consent/diagnosis.md (b5c7e114e).
+Proposed fix is in another repository (demo harness) and needs a new card + owner authorization.
