@@ -17,7 +17,7 @@ depends_on: [t-20261124-r28-release-candidate-testonly-binary]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812]
 sources: []
-blocker: "Owner job-API read (authoritative): Hosted run 45432650561 on #1812 head 9140b2cb, all 14 Light jobs executing. FIRST terminal gate failure = Docker policy job 138587494655; its captured original failure includes BOTH candidate consent refusal AND operator-auth 'input is not a terminal' -> reconciles w97(OIDC) vs w101(consent interplay): the policy gate fails on BOTH classes. Hold #1812 merge; let the other 13 jobs reach terminal for complete diagnosis before any fix scope. #1819/#1820 serially parked. develop f14fb87c8."
+blocker: "ROOT CAUSE NOT YET DETERMINED (run 45432650561 head 9140b2cb still active: 7 fail / 5 pass / 2 running). >=3 distinct failure signatures, NOT one consent cause: (1) Docker policy job 138587494655 = consent refusal (--confirm-candidate) AND operator-auth 'not a terminal'; (2) Podman connectivity job 138587494809 = digest retry issued + guided-up-consented reached READY + repo workload ready, then EMPTY Acceptance group header + demo-connectivity FAIL with NO concrete assertion (possibly a distinct harness/acceptance bug, not consent); that job also logs ci-operator-testonly managed-local-gate decisions for up with and without --confirm-candidate. Classification HELD until all 14 Light jobs reach terminal + artifacts/logs inspected. Merge held; #1819/#1820 parked. develop f14fb87c8."
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
-    **Blocker:** Owner job-API read (authoritative): Hosted run 45432650561 on \#1812 head 9140b2cb, all 14 Light jobs executing. FIRST terminal gate failure = Docker policy job 138587494655; its captured original failure includes BOTH candidate consent ref…  
+    **Blocker:** ROOT CAUSE NOT YET DETERMINED (run 45432650561 head 9140b2cb still active: 7 fail / 5 pass / 2 running). \>=3 distinct failure signatures, NOT one consent cause: (1) Docker policy job 138587494655 = consent refusal (--confirm-candidate) AND…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
