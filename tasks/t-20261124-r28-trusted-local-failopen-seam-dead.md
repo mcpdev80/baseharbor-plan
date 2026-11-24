@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w61-0428-270-failopen
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Either the trusted-local fail-open branch in authorizeMachineOperation becomes a live, policy-driven path for trusted host-local…"
 kanban_title: 0428-270 · trusted-local seam dead
 priority: normal
@@ -17,21 +17,20 @@ depends_on: [t-20261120-trusted-local-operation-grant]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#0, mcpdev80/baseharbor#1821]
 sources: []
-blocker: "Exact-head run 45326369749 (PR #1821, head 88f5c7f05, branch lane-0428-270-trustedlocal-seam) fails ONLY on Trusted Plan: operatorauth/authorization.go + config.go (first-ever change) lack rows in scripts/pr-gate-coverage.json. Product fix COMPLETE + fail-closed (dead trusted-local arm removed, comments corrected, no new test files). BLOCKED behind owner catalog baseline 0428-275. Wake: 0428-275 lands on develop -> w61 rebases + force-with-lease same branch + observes exact-head -> Owner accept+merge #1821."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261124-r28-trusted-local-failopen-seam-dead · ManagedEnvironment always reports managed, so the trusted-local fail-open branch in authorizeMachineOperation is unreachable for every production caller. #task #release/v0-4-28 #status/blocked #view/blocked #area/access #area/cli #area/security #kind/bug
+- [ ] t-20261124-r28-trusted-local-failopen-seam-dead · ManagedEnvironment always reports managed, so the trusted-local fail-open branch in authorizeMachineOperation is unreachable for every production caller. #task #release/v0-4-28 #status/review #view/review #area/access #area/cli #area/security #kind/bug
     <!-- generated:card -->
     **Owner:** w61-0428-270-failopen · **Priority:** normal  
     **PR:** [baseharbor#0](https://github.com/mcpdev80/baseharbor/pull/0), [baseharbor#1821](https://github.com/mcpdev80/baseharbor/pull/1821)  
-    **Blocker:** Exact-head run 45326369749 (PR \#1821, head 88f5c7f05, branch lane-0428-270-trustedlocal-seam) fails ONLY on Trusted Plan: operatorauth/authorization.go + config.go (first-ever change) lack rows in scripts/pr-gate-coverage.json. Product fix…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-trusted-local-operation-grant](t-20261120-trusted-local-operation-grant.md)  
 **Owner:** w61-0428-270-failopen  
@@ -66,3 +65,5 @@ Either the `trusted-local` fail-open branch in `authorizeMachineOperation` becom
 - Source: bughunt-hv26 F3 dossier `evidence/r28-welle6-2026-11-24/bughunt-hv26-candidate-consent-gate/round-1.md` (develop 3ebfb90d).
 
 Dispatched w61 (flash). Fix dead trusted-local fail-open seam (config.go:89-110 ManagedEnvironment always true -> authorization.go:276-282 branch unreachable). Resolve fail-closed (policy-driven live path only if real trust signal, else remove seam). Colinearity guard: stop if owner editing operatorauth. Regression in existing package (avoid new catalog row). Merge-frost.
+
+Rebased onto develop 90086a1f9, head 229d59083 terminal-green (run 45369190884, 19 PASS/0 FAIL, PR Selected Checks aggregate PASS, Trusted Plan green on 0428-275), MERGEABLE. Handed to CODEX-REVIEW+MERGE. dead trusted-local fail-open seam removed fail-closed.
