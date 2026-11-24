@@ -72,7 +72,7 @@ gofmt clean, `go build ./...`, `go vet ./internal/deployment/ ./cmd/baha/`, `bas
 
 ## cleanliness
 
-No containers, compose projects, networks or volumes were created by this lane on this host (docker/podman gates ran on GitHub-hosted runners). `docker ps -a` before/after shows no lane-owned additions. VM smoke: not applicable — the mission names no VM smoke test.
+No containers, compose projects, networks or volumes were created by this lane on this host (docker/podman gates ran on GitHub-hosted runners). `docker ps -a --format '{{.ID}} {{.Names}}' | wc -l` -> 0 entries (witness taken from this lane's worktree dir, pid recorded in session transcript); `docker images` shows only the ambient alpine (foreign, untouched). VM smoke: not applicable — the mission names no VM smoke test.
 
 ## repo-rule compliance
 
