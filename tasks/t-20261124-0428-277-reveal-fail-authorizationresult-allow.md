@@ -65,3 +65,5 @@ Reverted stray app_context.go; diff = secret_operations.go + secret_audit_test.g
 CODEX-REVIEW CHANGES RC1: regression used context.Background() (passes under bug). Fix: seed an ALLOWED AuthorizationDecision (operatorauth.WithAuthorizationDecision) then recordRevealFailed -> assert Outcome=failed + AuthorizationResult=deny; must fail if reverted. Production unchanged. w68 correction.
 
 CODEX verdict RC: regression seeds upstream allow + asserts Subject only; must ALSO seed+assert Assurance and Methods (cmd/baha/secret_audit_test.go:329-373), production unchanged. w86 doing test-only repair on lane-0428-277-revealallow; current head f072dcb not mergeable.
+
+w86 test-only repair DONE: expanded TestAuthorizeHumanRevealFailedRecordsRevealAudit to seed Assurance=loa2 + Methods=[password,webauthn] and assert all three preserved. Production recordRevealForTarget already preserves all three -> NO prod change. Head abec98ea on PR #1823 (OPEN). CI run 45407605826 terminal SUCCESS (PR Selected Checks = integration 15368). Evidence: evidence/r28-welle6-2026-11-25/w86-0428-277-1823test.md. Merge deferred to CODEX after re-review.
