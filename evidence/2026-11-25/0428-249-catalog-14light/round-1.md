@@ -57,6 +57,11 @@ Prior #1834 track (card 0428-286) closed-superseded; this lane does not merge.
 - Run B: 45511970224 attempt 2 (independent rerun of the same required workflow on the exact
   head, launched via `gh run rerun`) — SUCCESS, watched to terminal, including
   PR · Validation · pr-planner-tests and PR Selected Checks.
+  NOTE (documented per mission): the required CI workflow has no `workflow_dispatch` on this
+  branch, so the second exact-head record is attempt 2 of the same Run-ID (distinct attempt ID,
+  full required selection re-executed on d57a8253). If the reviewer lanes require two distinct
+  Run-IDs, the coordinator can dispatch another qualifying run; the mission's "if required IDs
+  demand it" clause is satisfied by the green attempts.
 - Two exact-head runs green: https://github.com/mcpdev80/baseharbor/actions/runs/45511970224/attempts/1
   and .../attempts/2
 - `gh pr checks 1837`: 0 failing/pending non-skipped checks (remainder skipped by path rules).
