@@ -7,9 +7,9 @@ areas: [ci, release, testing, platform]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w65-0428-269-batchbaseline
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Produce baha-ci-operator-testonly in the candidate artifact the pre-release runtime suite consumes, so a release runtime gate…"
 kanban_title: 0428-269 · release ships no testonly
 priority: high
@@ -23,18 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261124-r28-release-candidate-testonly-binary · The release candidate artifact never contains baha-ci-operator-testonly, so every release runtime gate fails its test -s under set -e. #task #release/v0-4-28 #status/planned #view/ready #area/ci #area/platform #area/release #area/testing #kind/task
+- [ ] t-20261124-r28-release-candidate-testonly-binary · The release candidate artifact never contains baha-ci-operator-testonly, so every release runtime gate fails its test -s under set -e. #task #release/v0-4-28 #status/active #view/active #area/ci #area/platform #area/release #area/testing #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w65-0428-269-batchbaseline · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261122-runtime-image-registry-artifact-unknown](t-20261122-runtime-image-registry-artifact-unknown.md)  
-**Owner:** unassigned  
+**Owner:** w65-0428-269-batchbaseline  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -70,3 +69,5 @@ Produce `baha-ci-operator-testonly` in the candidate artifact the pre-release ru
 - OWNER SCOPE: the fix is a `.github/**` change; per CI policy (Owner directive 2026-11-19) a lane reports this need and the Owner implements it. This card exists so the need, the file:line and the acceptance proof are tracked instead of being rediscovered per release run.
 - This is the pinned root cause of 0428-249 / baseharbor#1812 (light-gate failure): that card is blocked behind this one and rebases onto its outcome instead of widening its own PR.
 - Source: bughunt-hv26 F1 dossier `evidence/r28-welle6-2026-11-24/bughunt-hv26-candidate-consent-gate/round-1.md` (develop 3ebfb90d).
+
+Realized by owner-authorized batch baseline PR (w65): baha-ci-operator-testonly production in .github/workflows/pre-release.yml only (ci.yml unchanged). Lands on develop -> unblocks #1812 rebase+rerun.
