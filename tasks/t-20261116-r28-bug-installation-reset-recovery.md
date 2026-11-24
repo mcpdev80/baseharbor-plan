@@ -7,7 +7,7 @@ areas: [lifecycle]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w105
+owner: w105-0428-279-audit
 kanban_status: active
 kanban_lane: active
 kanban_summary: "baha destroy --yes selects all owned resources, asks for two current-plan confirmations plus deletion consent, but aborts…"
@@ -25,14 +25,14 @@ evidence: []
 
 - [ ] t-20261116-r28-bug-installation-reset-recovery · Unblock full installation reset #task #release/v0-4-28 #status/active #view/active #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** w105 · **Priority:** critical  
+    **Owner:** w105-0428-279-audit · **Priority:** critical  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w105  
+**Owner:** w105-0428-279-audit  
 **Priority:** critical  
 **PRs:** none  
 **Source:** 
