@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w70-0428-249-rebase
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: ""
 kanban_title: 0428-249 · light-runtime blob unknown
 priority: high
@@ -17,21 +17,22 @@ depends_on: [t-20261124-r28-release-candidate-testonly-binary]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812]
 sources: []
-blocker: ""
+blocker: "All 14 v0.4.27 Light gates fail IDENTICALLY at the 'authenticated BaseHarbor operator' auth-harness setup step, not at #1812 content (test -s baha-ci-operator-testonly PASSED; diff is only the +20 runtime-image reload in .github/workflows/pre-release-runtime-suite.yml). Plain-develop validation run 45251664813 fails the SAME way (DOCKER_RESULT/PODMAN_RESULT failure, AssertionError runtime_light_gates_docker). This is an OWNER/CI-scope runtime-gate operator-auth harness condition (§3.8 auth/ENV from system/Owner) — no worker or #1812 can resolve it. Next trigger: owner confirms the Release·Pre-Release Validation operator-auth input/credential."
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/active #view/active #area/ci #area/testing #kind/bug
+- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/testing #kind/bug
     <!-- generated:card -->
     **Owner:** w70-0428-249-rebase · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
+    **Blocker:** All 14 v0.4.27 Light gates fail IDENTICALLY at the 'authenticated BaseHarbor operator' auth-harness setup step, not at \#1812 content (test -s baha-ci-operator-testonly PASSED; diff is only the +20 runtime-image reload in .github/workflows/…  
     **Needs:** [t-20261124-r28-release-candidate-testonly-binary](t-20261124-r28-release-candidate-testonly-binary.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261124-r28-release-candidate-testonly-binary](t-20261124-r28-release-candidate-testonly-binary.md)  
 **Owner:** w70-0428-249-rebase  
