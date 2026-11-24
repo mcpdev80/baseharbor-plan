@@ -11,9 +11,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 13 |
-| review | 4 |
+| review | 5 |
 | wait | 10 |
-| blocked | 6 |
+| blocked | 5 |
 | ready | 16 |
 | queued | 25 |
 | waiting | 180 |
@@ -46,6 +46,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261122-footprint-human-surface-doc-gaps](../tasks/t-20261122-footprint-human-surface-doc-gaps.md) | Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract | review | normal | 0847d100 (finalhop 7880a8f6 laeuft) / Coordinator | — | [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783) |
 | [t-20261122-runtime-broker-health-unhealthy](../tasks/t-20261122-runtime-broker-health-unhealthy.md) | CI: data-capabilities native gate fails on secure runtime broker readiness | review | not set | ffe7611b (#1770 62f4ab0d combined, 0 fail / 22 pass / 1 pending = ~terminal; alle 3 Poorten job-belegt gruen) / Owner (step4 develop merge) / Coordinator | [t-20261122-gate-catalog-missing-app-broker-component](../tasks/t-20261122-gate-catalog-missing-app-broker-component.md) | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783) |
 | [t-20261124-gate-catalog-baseline-1816](../tasks/t-20261124-gate-catalog-baseline-1816.md) | CI/catalog: add 3 Trusted Plan rows to develop pr-gate-coverage.json | review | not set | w51-0428-261-catalog | — | [baseharbor#1817](https://github.com/mcpdev80/baseharbor/pull/1817) |
+| [t-20261125-0428-284-1812-postretry-gate-failure](../tasks/t-20261125-0428-284-1812-postretry-gate-failure.md) | #1812 post-retry gate failure | review | high | w115-0428-284-testcert | — | [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174) |
 
 ## Waiting for resources
 
@@ -71,7 +72,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) | Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) | blocked | high | — | [t-20261124-r28-release-candidate-testonly-binary](../tasks/t-20261124-r28-release-candidate-testonly-binary.md) | [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812) |
 | [t-20261124-0428-279-mcp-contract-app-pull-unexpected](../tasks/t-20261124-0428-279-mcp-contract-app-pull-unexpected.md) | MCP contract drift: app.pull | blocked | normal | w80-0428-279-mcpcontract | — | [baseharbor#1826](https://github.com/mcpdev80/baseharbor/pull/1826) |
 | [t-20261124-r28-perses-witness-producer-cli](../tasks/t-20261124-r28-perses-witness-producer-cli.md) | PersesBackendSignalWitness is passed as a zero-value literal at every CLI call site, so the configured verdict is unreachable on every status surface. | blocked | not set | Codex (w118-0428-265) | [t-20261119-r28-perses-status-backend-witness](../tasks/t-20261119-r28-perses-status-backend-witness.md) | — |
-| [t-20261125-0428-284-1812-postretry-gate-failure](../tasks/t-20261125-0428-284-1812-postretry-gate-failure.md) | #1812 post-retry gate failure | blocked | high | w115-0428-284-testcert | — | [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor#173](https://github.com/mcpdev80/baseharbor/pull/173) |
 
 ## Ready to assign
 
