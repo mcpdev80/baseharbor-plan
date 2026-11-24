@@ -12,11 +12,11 @@ Remote branch head at start: 916dccc856ae33fa2927ae27f1ec55014a293068
 1. Read mission file and register plan in board JSON and evidence — done
 2. Verify remotes and claim task via scripts/plan.py claim in baseharbor-plan — claim already published (card active, owner w53-0428-152-alertfix, db5aaec34)
 3. Inspect branch lane-0428-152-alertverifier-caller and create worktree — done
-4. FIX 1: make alert-evaluator state derivation return not configured / configured_unverified / unavailable distinct states in cmd/baha/perses_lifecycle.go — present at remote head 916dccc85
-5. FIX 2: seed authenticated operator context in TestPersesAlertEvaluatorObservationPersesStatusSurface via runWithIOAsTestOperator / testOperatorContext — present at remote head 916dccc85
-6. Commit, prove branch provenance, push new head and update PR #1816 — no new commit needed (remote head already contains both fixes)
+4. FIX 1: make alert-evaluator state derivation return not configured / configured_unverified / unavailable distinct states in cmd/baha/perses_lifecycle.go — final shape at head 422e1f76f
+5. FIX 2: seed authenticated operator context in TestPersesAlertEvaluatorObservationPersesStatusSurface via runWithIOAsTestOperator / testOperatorContext — delivered at 916dccc85
+6. Commit, prove branch provenance, push new head and update PR #1816 — candidates 4bfa655ef, a80dd26aa, c1bc8d417; develop refresh rebase onto 840c4a6b -> head 422e1f76f (PR head)
 7. Write evidence file in baseharbor-plan and push to origin/main — this file
-8. Monitor exact-head Hosted CI to terminal and post END — pending
+8. Monitor exact-head Hosted CI to terminal and post END — run 45304549358 completed/success; END posted
 
 ## Planning repo witness (before first evidence commit)
 
@@ -125,8 +125,22 @@ The tests live in cmd/baha/app_status_perses_alert_evaluator_0428_152_test.go an
   shows 14 "+" — no foreign commit content is carried).
 - The alert-evaluator state fix is kept unchanged through the rebase;
   scripts/** and .github/** untouched.
-- Exact-head Hosted run on 422e1f76f — observed to terminal, result recorded
-  in this section when done.
+- Exact-head Hosted run on 422e1f76f: 45304549358 ("CI · PR #1816",
+  pull_request) observed to TERMINAL GREEN (status completed, conclusion
+  success):
+    https://github.com/mcpdev80/baseharbor/actions/runs/45304549358
+  Passed: Workflow policy, PR · Source format, PR · Trusted Plan, PR · Native
+  gate plan, go-vet/go-build/cli-gofmt, Exact Candidate, Demo Pin, Runner
+  Interface, Focused Python, all Go unit shards (cli-0 pass 3m18s, cli-1 pass
+  2m15s, cli-2 pass 4m46s, cli-3 pass 3m26s, packages pass, owner pass), the
+  Selected Runtime docker · data-capabilities gate (pass 18m55s) and the
+  aggregate "PR Selected Checks" pass. Skipped rows are the release/HA matrix
+  rows outside this PR's plan (documented skips, not part of selection).
+- Delivery witness: PR head == branch head == my local candidate SHA.
+    $ git ls-remote lane-origin refs/pull/1816/head refs/heads/lane-0428-152-alertverifier-caller
+    422e1f76f9ed48a5b745bed4599c9d9f96241e12    refs/pull/1816/head
+    422e1f76f9ed48a5b745bed4599c9d9f96241e12    refs/heads/lane-0428-152-alertverifier-caller
+- PR #1816 stays OPEN (Merge-Frost: no merge, no develop write).
 
 ## cleanliness
 
@@ -138,6 +152,16 @@ The tests live in cmd/baha/app_status_perses_alert_evaluator_0428_152_test.go an
 
 - Write set: cmd/baha/app_status_collect.go, cmd/baha/perses_lifecycle.go, cmd/baha/app_status_perses_alert_evaluator_0428_152_test.go only.
 - scripts/** and .github/** untouched.
-- No local product test suite executed; verification is exact-head Hosted CI only.
+- Product tests ran only in the exact-head Hosted CI (no local suite runs). Two
+  transient named-test go invocations under the TEST RUNNER RULE skip pattern
+  (-run TestPersesAlertEvaluator* -skip RunsRealLifecycle|...) used only to
+  compare a single case between candidates; candidate verification is exclusively
+  the terminal green 45304549358.
 - No subagents.
 - No merge (Merge-Frost); PR #1816 open at 422e1f76f (rebase onto develop 840c4a6b).
+
+END_DONE w53-0428-152-alertfix: both fixes landed and PR #1816 is green at exact
+head 422e1f76f9ed48a5b745bed4599c9d9f96241e12 (run 45304549358 completed/success,
+PR Selected Checks pass; cli-0/cli-1/cli-2/cli-3 all pass). Branch
+lane-0428-152-alertverifier-caller rebased onto develop 840c4a6b; diff stays the
+three card files; scripts/** and .github/** untouched. PR OPEN, not merged.
