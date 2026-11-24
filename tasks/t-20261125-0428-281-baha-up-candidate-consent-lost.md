@@ -38,6 +38,15 @@ evidence:
   regression test is genuinely missing on develop. Full trace, witnesses and proposal:
   evidence/r28-welle6-2026-11-25/0428-281-consent/diagnosis.md
   No product branch or PR was created by this lane.
+- w85 pivot attempt (2026-11-24): the read-only trace was re-run under a pivot instruction toward a
+  product-side hint fix. It was abandoned before any edit: remote witnesses show no
+  `refs/heads/lane-0428-281-consent`, no PR, develop `46d3dccc1` and #1812 head `475902075`
+  unchanged. The trace corroborates the owner's retraction — `cmd/baha/app_apply.go:203` passes
+  `candidateConsentOverride(ctx)` into `recordDeploymentBeforeMutation`, and nothing under `cmd/baha`
+  clears the value outside test fixtures, so a product change would be an empty/wrong diff. The
+  remaining defect is `baseharbor-demo/tests/fixture-consent.py` (doubly-nested refusal form not
+  recognized, lines 38-53) — a different repository, not covered by the prior authorization, and
+  outside this card's `cmd/baha` write-set.
 
 
 - [ ] t-20261125-0428-281-baha-up-candidate-consent-lost · baha up loses candidate consent #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
