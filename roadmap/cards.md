@@ -16,8 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 194/275 · **Blocked:** 2 · **Waiting:** 20  
-    **Blocker:** [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) — Sequenced BEHIND \#1815 merge: \#1650 must inherit the shared ci\_integration\_operator\_enabled.go fixture from \#1815, not duplicate it (dup commit 378ff1afa dropp…  
+    **Accepted tasks:** 194/275 · **Blocked:** 1 · **Waiting:** 20  
     **Blocker:** [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) — SCOPE HOLD awaiting Owner direction (lane correctly stopped, no edits). head 7bce1838 touches ONLY .github/workflows/pre-release-runtime-suite.yml (ci.yml unto…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
