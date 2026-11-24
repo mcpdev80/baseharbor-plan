@@ -89,3 +89,5 @@ Blocked on develop catalog baseline (run at 70ab77ad: Trusted Plan + selected ch
 #1816 70ab77ad product-code-only (consumer+3-state+tests delivered, scripts/** out of diff); run 45287538708 red ONLY on the missing develop baseline. No lane defect; no merge; no Codex.
 
 UNBLOCKED: Owner merged #1817 -> develop 6df6807e carries the 3 baseline rows. Fresh lane w52 rebases lane-0428-152 (from 70ab77ad, product-code-only) onto develop + exact-head Hosted; Trusted Plan should pass now. Deliverable unchanged: reportPersesSurfaceStatus alert-evaluator observation + command-face assertion. No scripts/** in PR; no merge; no Codex.
+
+Rebase onto develop 6df6807 WORKED — Trusted Plan PASSES at b21d144e. NEW functional fail: cli-0 TestPersesAlertEvaluatorObservationUnappliedReportsNotConfigured (test :300) — unapplied surface returns configured_unverified but must be "not configured". Routed w52: fix alert-evaluator 3-state mapping (unapplied->not configured; applied-unprobed->configured_unverified; owner-gated->unavailable; OK false), don't weaken test. exact-head Hosted; #1816 open until green; no merge; no Codex.
