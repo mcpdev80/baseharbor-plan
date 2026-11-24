@@ -72,4 +72,14 @@ Init original J-Commerce, accept default metrics service and port 8080; inspect 
 
 ## Handoff
 
-- Planned only. No implementation, PR, merge or acceptance claimed. Source: 2026-11-16 J-Commerce guided-init/apply/destroy/reset transcript supplied by Owner.
+- Active implementation on product branch `lane-0428-290-metrics-discovery`, PR [#1832](https://github.com/mcpdev80/baseharbor/pull/1832). The current remote head is red-first test-only `a442738cb5600975662aed5440755a942b4bee3b`; do not merge it. Corrected mapping and tests are being prepared in the isolated product worktree. After the baseline run reaches terminal, integrate `145b4a20f35179a0ac6bc0a66666a846c1ae35c0` from `develop`, then push and verify the resulting exact head. Acceptance, independent review and merge remain open.
+
+Source reproduction: 2026-11-16 J-Commerce guided-init/apply/destroy/reset transcript supplied by Owner.
+
+## Baseline CI classification (2026-11-24)
+
+- Red-first test-only head `a442738cb5600975662aed5440755a942b4bee3b`, run [45478910054](https://github.com/mcpdev80/baseharbor/actions/runs/45478910054), base `d0a6f370bdab87386819b61c0a85ae64e7814caf`. This is intentionally intermediate and is not merge evidence. `PR · Validation · cli-guided-tests` job `138750850316` executed `go test ./cmd/baha -run '^TestGuided'` and failed.
+- `TestGuidedQuickInitDoesNotTreatBrunoRequestAsMetricsSource` and `TestGuidedQuickInitBindsQuarkusMetricsServicePortAndPath` both stopped before their assertions: `mustWriteWizardTestFile` uses `os.WriteFile` without creating parent directories. The helper behavior predates this card on develop; the new nested fixtures exposed the setup gap. Classification: test-fixture setup defects, not product mapping regressions. Fix the helper to create parent directories.
+- `TestGuidedAdoptionSummaryFullyPopulated` changes the old green `TestAdoptionSummaryFullyPopulated` expectation from generic `/metrics` wording to the discovered source tuple. The develop witness only asserted generic wording, so its green result did not prove source mapping (too-weak assertion). The Owner also flagged the test input as an unproven mapping fixture; although the current diff calls `WithMetricsSource`, add an explicit precondition asserting the service, port and path before checking rendered output. The test-only head lacks the implementation that prints the tuple, so this failure is expected red-first evidence once that precondition is explicit.
+- Baseline witness: these Bruno and Quarkus regressions do not exist at develop `d0a6f370`; `mustWriteWizardTestFile` exists there with the same plain `os.WriteFile` behavior; `TestAdoptionSummaryFullyPopulated` exists there with only the generic metrics assertion. Candidate implementation must land with the corrected fixture and regressions together.
+- Before the candidate push, merge the current `origin/develop` tip `145b4a20f35179a0ac6bc0a66666a846c1ae35c0` normally. Collect two exact-head hosted CI run IDs for the integrated candidate; preserve independent Docker and rootless Podman evidence.
