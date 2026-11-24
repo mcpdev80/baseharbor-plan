@@ -14,7 +14,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | review | 4 |
 | wait | 10 |
 | blocked | 5 |
-| ready | 10 |
+| ready | 11 |
 | queued | 25 |
 | waiting | 180 |
 | backlog | 7 |
@@ -80,6 +80,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261122-native-plan-self-selection](../tasks/t-20261122-native-plan-self-selection.md) | CI: catalog and planner self-change selects zero gates | ready | not set | — | — | — |
 | [t-20261123-planner-deleted-source-advisory](../tasks/t-20261123-planner-deleted-source-advisory.md) | CI: candidate planner mishandles deleted source rows (advisory job red) | ready | not set | — | — | — |
 | [t-20261124-0428-278-perses-provision-ghost-coverage-rows](../tasks/t-20261124-0428-278-perses-provision-ghost-coverage-rows.md) | gate-plan ghost source rows | ready | low | — | — | — |
+| [t-20261124-ci-operator-acceptance-nontty](../tasks/t-20261124-ci-operator-acceptance-nontty.md) | CI operator acceptance non-interactive in CI | ready | not set | — | — | — |
 | [t-20261124-r28-alert-evaluator-live-health-wiring](../tasks/t-20261124-r28-alert-evaluator-live-health-wiring.md) | VerifyPersesAlertEvaluatorHealth has no CLI/MCP caller and the applied alert face derives from the manifest alone, so applied-but-failing reads as configured_unverified. | ready | not set | — | [t-20261119-r28-perses-alert-verifier-caller-wiring](../tasks/t-20261119-r28-perses-alert-verifier-caller-wiring.md) | — |
 | [t-20261124-r28-perses-backend-status-real-probe](../tasks/t-20261124-r28-perses-backend-status-real-probe.md) | PersesBackendAnswersStatusNow runs the dashboard build while the app-status comment names VerifyPersesInfraDashboard as the real probe. | ready | not set | — | [t-20261120-r28-perses-status-never-verified](../tasks/t-20261120-r28-perses-status-never-verified.md) | — |
 | [t-20261124-r28-perses-witness-producer-cli](../tasks/t-20261124-r28-perses-witness-producer-cli.md) | PersesBackendSignalWitness is passed as a zero-value literal at every CLI call site, so the configured verdict is unreachable on every status surface. | ready | not set | — | [t-20261119-r28-perses-status-backend-witness](../tasks/t-20261119-r28-perses-status-backend-witness.md) | — |
@@ -89,7 +90,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 4 open, 165 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 59 open, 237 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 60 open, 237 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 16 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
