@@ -95,3 +95,34 @@ cleanliness: besenrein — nothing started or stopped by this lane; only plannin
 
 `git -C baseharbor-plan ls-remote origin refs/heads/main`:
     a1f1ff16dda3e76c43970644897ac9f42cdc2e0c	refs/heads/main
+## Witness correction (same lane, appended after the first publication)
+
+The first publication witness in this file was taken before a further `plan-sync` cycle, so it showed
+`origin/main` at the card commit `a1f1ff16d` and the evidence path not yet listed. Authoritative state
+at END, re-measured with a fresh fetch (this file is committed in `5852bcb34`):
+
+    git -C baseharbor-plan ls-remote origin refs/heads/main
+    5852bcb34dc71a394650be4bacdea8517ed5adb7  refs/heads/main
+
+    git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep hunt-intake-w59
+    evidence/hunt-intake-w59-2026-11-24/round-1.md
+
+`git merge-base --is-ancestor 5852bcb34dc71a394650be4bacdea8517ed5adb7 origin/main` → yes, so the card
+commit `a1f1ff16d` is an ancestor of `origin/main` and both commits are live. Card files verified
+individually on `origin/main` with `git cat-file -e origin/main:tasks/<file>`: 0428-269, 0428-270,
+0428-271, 0428-272 all present; 0428-249 `depends_on: [t-20261124-r28-release-candidate-testonly-binary]`
+present; the six consent cards 0428-189..194 carry the F2 cross-reference section.
+`python3 scripts/plan.py check` on the fetched tree: `711 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 warnings`.
+
+Extra plan-sync observation: `plan-sync.sh` also hard-resets the shared checkout *after* a lane pushes, so a
+`render`-touched derived file that belongs to another card (here `tasks/t-20261120-trusted-local-operation-grant.md`,
+whose links block was stale) gets picked up into the lane's next commit unless it is explicitly excluded. This
+lane excluded it: `5852bcb34` contains ONLY this evidence file (`1 file changed, 97 insertions(+)`).
+
+## cleanliness witness (this host, END)
+
+    docker ps -a   -> (no rows)
+    podman ps -a   -> a14be1e261a4 baseharbor-pre-release-registry  registry:2.8.3  Exited (0)
+
+That registry container is ambient (also listed in the H-V26 dossier, same id) and is NOT this lane's; it was
+left untouched. This lane created no container, network, volume or compose project.
