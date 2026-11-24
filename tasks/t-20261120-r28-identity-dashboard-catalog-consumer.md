@@ -70,3 +70,5 @@ consumer in one card, so the tree never again carries a dashboard file that noth
 Declared dependency `t-20261114-r28-perses-datasources` (#1684): that PR is open and its lane is writing
 `internal/application/perses_runtime.go` - the file this card's call-site work would also touch. Start here only after #1684
 lands, or report the conflict instead of editing the same file twice (AGENTS 4.3).
+
+Dep-free now (#1810 probe merged 951014e9; 0428-083 on develop). w54 dispatched: wire PersesDashboardCatalog/identity selection witness into production provision/export path in internal/application/perses_runtime.go + regression proving keycloak identity dashboard reaches Perses. Write-set CONSTRAINED to perses_runtime.go; MUST NOT edit internal/metrics/perses_dashboards* / app_status_result.go (#1650/w078 owns them) — post QUESTION if needed there. This is the Option-A full-delivery consumer #1650 depends on. no merge; no Codex.
