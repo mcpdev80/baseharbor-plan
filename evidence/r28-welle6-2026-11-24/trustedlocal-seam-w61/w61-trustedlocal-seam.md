@@ -188,4 +188,15 @@ No containers, networks, volumes or compose projects were started by this lane (
 hosted verification only). docker ps -a on this host was never invoked from this session; the VM
 hosts were not touched. State directories: none created outside the worktree.
 
-END_DONE w61-0428-270-failopen: <filled at handoff>
+## Blocked-on + follow-up handoff
+
+Coordinator already opened card 0428-275 (t-20261124-gate-catalog-baseline-0428-270) on
+baseharbor-plan main for exactly this owner fix (the two catalog rows). My QUESTION posted before
+that card was seen; it stands as the finding record.
+
+When the 0428-275 rows land on develop, this lane (or whoever the coordinator assigns) must:
+- rebase lane-0428-270-trustedlocal-seam onto the new develop, force-with-lease push the same
+  branch (single candidate, no second branch),
+- observe the exact-head run to terminal and record it here.
+
+END_BLOCKED w61-0428-270-failopen: candidate 88f5c7f05 complete/pushed/PR #1821 open; exact-head CI run 45326369749 fails ONLY on the missing pr-gate-coverage.json rows (owner scope, now card 0428-275); awaiting catalog baseline on develop, then rebase+rerun.
