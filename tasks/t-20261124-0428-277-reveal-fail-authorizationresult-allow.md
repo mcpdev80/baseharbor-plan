@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w68-0428-277-revealallow
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-277 · reveal fail allow
 priority: low
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261124-0428-277-reveal-fail-authorizationresult-allow · Bug-Hunt H-V27 intake: reveal failure records AuthorizationResult=allow #task #release/v0-4-28 #status/planned #view/ready #kind/bug
+- [ ] t-20261124-0428-277-reveal-fail-authorizationresult-allow · Bug-Hunt H-V27 intake: reveal failure records AuthorizationResult=allow #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** low  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w68-0428-277-revealallow · **Priority:** low  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w68-0428-277-revealallow  
 **Priority:** low  
 **PRs:** none  
 **Source:** 
@@ -55,3 +54,5 @@ evidence: []
 
 - A failed reveal no longer records an inconsistent `AuthorizationResult=allow` paired with `Outcome=failed`.
 - A regression test asserts that a failed reveal records the fail-closed authorization-result (deny) or a clearly-marked discrepancy, and never a spurious `allow` for a failed release.
+
+Failed reveal must not record AuthorizationResult=allow with Outcome=failed (fail-closed or discrepancy marker). Conflict-free write-set.
