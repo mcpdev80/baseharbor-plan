@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w61-0428-270-failopen
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Either the trusted-local fail-open branch in authorizeMachineOperation becomes a live, policy-driven path for trusted host-local…"
 kanban_title: 0428-270 · trusted-local seam dead
 priority: normal
@@ -19,18 +19,19 @@ prs: [mcpdev80/baseharbor#0, mcpdev80/baseharbor#1821]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1821"]
 ---
 
-- [ ] t-20261124-r28-trusted-local-failopen-seam-dead · ManagedEnvironment always reports managed, so the trusted-local fail-open branch in authorizeMachineOperation is unreachable for every production caller. #task #release/v0-4-28 #status/review #view/review #area/access #area/cli #area/security #kind/bug
+- [x] t-20261124-r28-trusted-local-failopen-seam-dead · ManagedEnvironment always reports managed, so the trusted-local fail-open branch in authorizeMachineOperation is unreachable for every production caller. #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/access #area/cli #area/security #kind/bug
     <!-- generated:card -->
     **Owner:** w61-0428-270-failopen · **Priority:** normal  
     **PR:** [baseharbor#0](https://github.com/mcpdev80/baseharbor/pull/0), [baseharbor#1821](https://github.com/mcpdev80/baseharbor/pull/1821)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1821)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261120-trusted-local-operation-grant](t-20261120-trusted-local-operation-grant.md)  
 **Owner:** w61-0428-270-failopen  
@@ -67,3 +68,5 @@ Either the `trusted-local` fail-open branch in `authorizeMachineOperation` becom
 Dispatched w61 (flash). Fix dead trusted-local fail-open seam (config.go:89-110 ManagedEnvironment always true -> authorization.go:276-282 branch unreachable). Resolve fail-closed (policy-driven live path only if real trust signal, else remove seam). Colinearity guard: stop if owner editing operatorauth. Regression in existing package (avoid new catalog row). Merge-frost.
 
 Rebased onto develop 90086a1f9, head 229d59083 terminal-green (run 45369190884, 19 PASS/0 FAIL, PR Selected Checks aggregate PASS, Trusted Plan green on 0428-275), MERGEABLE. Handed to CODEX-REVIEW+MERGE. dead trusted-local fail-open seam removed fail-closed.
+
+merged by CODEX-MERGE; develop 90086a1f9->05ef48536, merge commit 05ef48536, run 45369190884 green, codex-merge-1821.md. Trusted-local fail-open dead seam removed fail-closed.
