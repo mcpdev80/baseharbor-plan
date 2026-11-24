@@ -7,9 +7,9 @@ areas: [cli, observability]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: Codex (w120)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "The alert-evaluator face must distinguish applied-but-failing from configured-unverified, from the real runtime, not from the…"
 kanban_title: 0428-268 · evaluator health never probed
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261124-r28-alert-evaluator-live-health-wiring · VerifyPersesAlertEvaluatorHealth has no CLI/MCP caller and the applied alert face derives from the manifest alone, so applied-but-failing reads as configured_unverified. #task #release/v0-4-28 #status/planned #view/ready #area/cli #area/observability #kind/bug
+- [ ] t-20261124-r28-alert-evaluator-live-health-wiring · VerifyPersesAlertEvaluatorHealth has no CLI/MCP caller and the applied alert face derives from the manifest alone, so applied-but-failing reads as configured_unverified. #task #release/v0-4-28 #status/active #view/active #area/cli #area/observability #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** Codex (w120)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261119-r28-perses-alert-verifier-caller-wiring](t-20261119-r28-perses-alert-verifier-caller-wiring.md)  
-**Owner:** unassigned  
+**Owner:** Codex (w120)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

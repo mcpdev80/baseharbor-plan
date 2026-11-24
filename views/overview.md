@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 13 |
+| active | 14 |
 | review | 5 |
 | wait | 10 |
 | blocked | 5 |
-| ready | 16 |
+| ready | 15 |
 | queued | 25 |
 | waiting | 180 |
 | backlog | 7 |
@@ -35,6 +35,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261124-gate-catalog-baseline-0428-270](../tasks/t-20261124-gate-catalog-baseline-0428-270.md) | CI/catalog: add operatorauth rows to develop pr-gate-coverage.json | active | not set | w65-0428-269-batchbaseline | — | — |
 | [t-20261124-gate-catalog-baseline-1819](../tasks/t-20261124-gate-catalog-baseline-1819.md) | CI/catalog: add #1819 source rows to develop pr-gate-coverage.json | active | not set | w65-0428-269-batchbaseline | — | — |
 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) | CI/catalog: add #1820 source row to develop pr-gate-coverage.json | active | not set | w65-0428-269-batchbaseline | — | — |
+| [t-20261124-r28-alert-evaluator-live-health-wiring](../tasks/t-20261124-r28-alert-evaluator-live-health-wiring.md) | VerifyPersesAlertEvaluatorHealth has no CLI/MCP caller and the applied alert face derives from the manifest alone, so applied-but-failing reads as configured_unverified. | active | not set | Codex (w120) | [t-20261119-r28-perses-alert-verifier-caller-wiring](../tasks/t-20261119-r28-perses-alert-verifier-caller-wiring.md) | — |
 | [t-20261124-r28-broker-build-identity-commit](../tasks/t-20261124-r28-broker-build-identity-commit.md) | verifyRuntimeBrokerBuildIdentity discards both commit SHAs, so a runtime broker at the wrong commit passes readiness whenever the semver matches. | active | normal | w69-0428-271-brokerid2 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) (open) | [baseharbor#1820](https://github.com/mcpdev80/baseharbor/pull/1820) |
 | [t-20261125-0428-283-static-mcp-gate-operator-gap](../tasks/t-20261125-0428-283-static-mcp-gate-operator-gap.md) | static-mcp operator gap | active | high | w112-0428-283-staticmcp | — | [baseharbor#1826](https://github.com/mcpdev80/baseharbor/pull/1826) |
 
@@ -90,7 +91,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261122-native-plan-self-selection](../tasks/t-20261122-native-plan-self-selection.md) | CI: catalog and planner self-change selects zero gates | ready | not set | — | — | — |
 | [t-20261123-planner-deleted-source-advisory](../tasks/t-20261123-planner-deleted-source-advisory.md) | CI: candidate planner mishandles deleted source rows (advisory job red) | ready | not set | — | — | — |
 | [t-20261124-0428-278-perses-provision-ghost-coverage-rows](../tasks/t-20261124-0428-278-perses-provision-ghost-coverage-rows.md) | gate-plan ghost source rows | ready | low | — | — | — |
-| [t-20261124-r28-alert-evaluator-live-health-wiring](../tasks/t-20261124-r28-alert-evaluator-live-health-wiring.md) | VerifyPersesAlertEvaluatorHealth has no CLI/MCP caller and the applied alert face derives from the manifest alone, so applied-but-failing reads as configured_unverified. | ready | not set | — | [t-20261119-r28-perses-alert-verifier-caller-wiring](../tasks/t-20261119-r28-perses-alert-verifier-caller-wiring.md) | — |
 | [t-20261124-r28-perses-backend-status-real-probe](../tasks/t-20261124-r28-perses-backend-status-real-probe.md) | PersesBackendAnswersStatusNow runs the dashboard build while the app-status comment names VerifyPersesInfraDashboard as the real probe. | ready | not set | — | [t-20261120-r28-perses-status-never-verified](../tasks/t-20261120-r28-perses-status-never-verified.md) | — |
 | [t-20261124-r28-runtime-authority-gate-routing](../tasks/t-20261124-r28-runtime-authority-gate-routing.md) | PR-Gate-Plan routes the runtime-authority seam to package checks only, so a fail-open regression there is never qualified by a native runtime gate. | ready | normal | — | — | — |
 
