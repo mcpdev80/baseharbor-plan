@@ -78,14 +78,19 @@ The tests live in cmd/baha/app_status_perses_alert_evaluator_0428_152_test.go an
 ## Hosted CI (self-run duty §4.6)
 
 - Prior run 45294765410 (head b21d144e) failed cli-0 and cli-2.
-- Run 45298447080 (exact head 916dccc85): cli-1 failed because the unselected
-  manifest-only case received the generic not-applied detail instead of the
-  verifier's "Perses is not selected" reason.
+- Run 45298447080 (exact head 916dccc85): cli-0 and cli-1 failed. cli-1 received
+  the generic not-applied Detail instead of the verifier's "Perses is not
+  selected" reason; cli-2 was pending in that run.
 - Head 4bfa655ef pinned the manifest-only cases to the applied face.
-- Head a80dd26aa routes the unselected not-configured state THROUGH the verifier
-  so the fail-closed reason is preserved verbatim, and restores the
-  `persesAlertEvaluatorStatusObservation` helper for the manifest-only cases.
-  Exact-head Hosted CI run — pending.
+- Head a80dd26aa moved the three manifest-only contract cases to the applied
+  face but left cli-0's unapplied Detail without the verifier reason.
+- Head c1bc8d417 (candidate): the unapplied+unselected Detail now carries the
+  verifier's "Perses is not selected" fail-closed reason; the applied+selected
+  path stays configured_unverified (unavailable when owner-gated contract
+  missing); all three states remain distinct and OK=false. The unused
+  collection-observer helper was removed.
+- Exact-head run 45300353124 ("CI · Source & Quality", pull_request, head
+  c1bc8d417) observed to terminal — see below.
 
 ## cleanliness
 
@@ -99,4 +104,4 @@ The tests live in cmd/baha/app_status_perses_alert_evaluator_0428_152_test.go an
 - scripts/** and .github/** untouched.
 - No local product test suite executed; verification is exact-head Hosted CI only.
 - No subagents.
-- No merge (Merge-Frost); PR #1816 open at 916dccc85.
+- No merge (Merge-Frost); PR #1816 open at c1bc8d417.
