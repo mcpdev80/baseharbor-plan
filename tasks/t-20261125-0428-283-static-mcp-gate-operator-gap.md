@@ -7,9 +7,9 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: blocked
-kanban_lane: blocked
+owner: Lane-Codex (w112)
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-283 · static-mcp operator gap
 priority: high
@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
-blocker: "Owner decision required: how to provision the CI integration operator for the static/mcp gate. Options: (A) build the testonly-tagged binary for static/mcp too (extend pre-release-runtime-suite.yml static/mcp branch like the runtime branch :304), and/or (B) extend the operator env contract / demo static-mcp harness so BASEHARBOR_DEMO_OPERATOR_GATE + an atomic-<runtime>-<gate> target (or a static-equivalent) is set. Both touch owner-scope .github and the product env contract + demo; prior consent/#171 authorizations do NOT cover this."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence:
@@ -25,18 +25,17 @@ evidence:
   - https://github.com/mcpdev80/baseharbor/blob/develop/cmd/baha/ci_integration_operator_enabled.go
 ---
 
-- [ ] t-20261125-0428-283-static-mcp-gate-operator-gap · static-mcp operator gap #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #kind/bug
+- [ ] t-20261125-0428-283-static-mcp-gate-operator-gap · static-mcp operator gap #task #release/v0-4-28 #status/active #view/active #area/ci #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Blocker:** Owner decision required: how to provision the CI integration operator for the static/mcp gate. Options: (A) build the testonly-tagged binary for static/mcp too (extend pre-release-runtime-suite.yml static/mcp branch like the runtime branch…  
+    **Owner:** Lane-Codex (w112) · **Priority:** high  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45413604588), [proof 2](https://github.com/mcpdev80/baseharbor/blob/develop/cmd/baha/ci_integration_operator_enabled.go)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** Lane-Codex (w112)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
