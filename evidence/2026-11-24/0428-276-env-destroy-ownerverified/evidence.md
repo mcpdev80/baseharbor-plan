@@ -89,5 +89,7 @@ No containers, compose projects, networks or volumes were created by this lane o
 ### publish witness
 
     $ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/2026-11-24/0428-276
+    evidence/2026-11-24/0428-276-env-destroy-ownerverified/evidence.md
+    (planning commit f7d1d324a, pushed 642f1b636..f7d1d324a main -> main)
 
 END_DONE — w67-0428-276-destroyverify: PR #1824 ready, head bcfb13dc1, exact-head run 45383351496 aggregate "PR Selected Checks" pass; handed off for CODEX review.
