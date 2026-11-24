@@ -15,7 +15,7 @@ kanban_title: 0428-277 · reveal fail allow
 priority: low
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1823]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,6 +26,7 @@ evidence: []
 - [ ] t-20261124-0428-277-reveal-fail-authorizationresult-allow · Bug-Hunt H-V27 intake: reveal failure records AuthorizationResult=allow #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
     **Owner:** w68-0428-277-revealallow · **Priority:** low  
+    **PR:** [baseharbor#1823](https://github.com/mcpdev80/baseharbor/pull/1823)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -34,7 +35,7 @@ evidence: []
 **Depends on:** none  
 **Owner:** w68-0428-277-revealallow  
 **Priority:** low  
-**PRs:** none  
+**PRs:** [baseharbor#1823](https://github.com/mcpdev80/baseharbor/pull/1823)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -56,3 +57,5 @@ evidence: []
 - A regression test asserts that a failed reveal records the fail-closed authorization-result (deny) or a clearly-marked discrepancy, and never a spurious `allow` for a failed release.
 
 Failed reveal must not record AuthorizationResult=allow with Outcome=failed (fail-closed or discrepancy marker). Conflict-free write-set.
+
+END_BLOCKED at CI: stray cmd/baha/app_context.go change (gofmt-only, OUTSIDE write-set) forced a 7th pr-gate-coverage row (owner scope). Correction: revert app_context.go, ensure fix is in environment_operations.go/secret_operations.go (card files), rerun. NOT an owner catalog decision unless an in-write-set file still needs a row.
