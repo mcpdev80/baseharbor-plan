@@ -17,7 +17,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
     **Accepted tasks:** 194/275 · **Blocked:** 1 · **Waiting:** 20  
-    **Blocker:** [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) — SCOPE HOLD awaiting Owner direction (lane correctly stopped, no edits). head 7bce1838 touches ONLY .github/workflows/pre-release-runtime-suite.yml (ci.yml unto…  
+    **Blocker:** [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) — SCOPE DECISION RESOLVED by OWNER (recommended option (a) rejected): owner is dropping ONLY the out-of-scope optional prebuilt-binary fallback from .github/work…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next

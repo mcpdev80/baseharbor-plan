@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812]
 sources: []
-blocker: "SCOPE HOLD awaiting Owner direction (lane correctly stopped, no edits). head 7bce1838 touches ONLY .github/workflows/pre-release-runtime-suite.yml (ci.yml untouched). APPROVED part: runtime-suite ordering/registry + missing-image references + archive reload after reset before publish. OUT-OF-SCOPE additions: (a) missing prebuilt baha-ci-operator-testonly downgraded from hard failure (test -s + version grep) to OPTIONAL (if [ -s ]), and (b) Demo installer builds candidate SOURCE as fallback. Both exceed owner's approval (no replacement/fallback logic). Also gated behind #1815 merge. Coordinator recommends REJECTING (a)+(b): silently making a missing required binary optional = skipping a gate (§5.4)."
+blocker: "SCOPE DECISION RESOLVED by OWNER (recommended option (a) rejected): owner is dropping ONLY the out-of-scope optional prebuilt-binary fallback from .github/workflows/pre-release-runtime-suite.yml, restoring the mandatory exact-candidate binary checks; the two APPROVED runtime image archive reloads stay untouched. Owner executes the .github edit himself (owner scope; no coordinator/worker lane). Prepared in isolated worktree /var/tmp/baseharbor-1812-approved-scope, diff clean. REMAINING blocker = #1815 merge: owner will rebase #1812 onto develop after #1815 lands (to include its fixture coverage) then trigger exact-head Docker+Podman Light (14) gates. Prior run 45271268206 had Selected Runtime SKIPPED (not valid)."
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w249-0428-249-runtime-image-fix (SESSION GONE - no live owner; work complete) · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
-    **Blocker:** SCOPE HOLD awaiting Owner direction (lane correctly stopped, no edits). head 7bce1838 touches ONLY .github/workflows/pre-release-runtime-suite.yml (ci.yml untouched). APPROVED part: runtime-suite ordering/registry + missing-image reference…  
+    **Blocker:** SCOPE DECISION RESOLVED by OWNER (recommended option (a) rejected): owner is dropping ONLY the out-of-scope optional prebuilt-binary fallback from .github/workflows/pre-release-runtime-suite.yml, restoring the mandatory exact-candidate bin…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -72,3 +72,5 @@ OWNER artifact gap FIXED in-scope (same authorized workflow): head 5ab9fe4a63, d
 reconciled per Owner: 1812 in-scope fix complete; gate-red external (0428-250 fixture allowlist). Lane holds, no edit to shared fixture on this branch.
 
 No live owner lane (w249 gone); parked at exact-scope review. No coordinator/worker edit, CI-acceptance, or merge until owner decides.
+
+Within 0428-249 approval; no alternate logic added. Owner-handled.
