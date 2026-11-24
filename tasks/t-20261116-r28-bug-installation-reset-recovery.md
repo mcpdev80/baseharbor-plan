@@ -15,7 +15,7 @@ kanban_title: 0428-287 · Unblock full installation rese
 priority: critical
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1835]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,6 +26,7 @@ evidence: []
 - [ ] t-20261116-r28-bug-installation-reset-recovery · Unblock full installation reset #task #release/v0-4-28 #status/active #view/active #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** w105-0428-279-audit · **Priority:** critical  
+    **PR:** [baseharbor#1835](https://github.com/mcpdev80/baseharbor/pull/1835)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -34,7 +35,7 @@ evidence: []
 **Depends on:** none  
 **Owner:** w105-0428-279-audit  
 **Priority:** critical  
-**PRs:** none  
+**PRs:** [baseharbor#1835](https://github.com/mcpdev80/baseharbor/pull/1835)  
 **Source:** 
 <!-- /generated:links -->
 

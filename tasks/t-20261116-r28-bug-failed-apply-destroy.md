@@ -74,4 +74,7 @@ Run `baha app init` in J-Commerce, select SQL/cache/queue/metrics, confirm candi
 
 ## Handoff
 
+- Follow-up tracked: #1834 CLOSED_UNMERGED (in-branch catalog edit violated trusted-base rule); work continues on #1835 (fresh branch, no scripts delta) - see installation-reset card prs link.
+
+
 - Planned only. No implementation, PR, merge or acceptance claimed. Source: 2026-11-16 J-Commerce guided-init/apply/destroy/reset transcript supplied by Owner.
