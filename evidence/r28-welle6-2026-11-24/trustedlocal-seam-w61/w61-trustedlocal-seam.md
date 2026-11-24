@@ -189,13 +189,52 @@ No containers, networks, volumes or compose projects were started by this lane (
 hosted verification only). docker ps -a on this host was never invoked from this session; the VM
 hosts were not touched. State directories: none created outside the worktree.
 
-## Parked state (coordinator directive 2026-11-24)
+## Wake-up: rebase onto develop 90086a1f9 (0428-275 landed) + exact-head green
 
-Coordinator ACK received: candidate 88f5c7f05 accepted as the right approach (option (b),
-remove-seam, fail-closed); ROUTED the catalog fix as owner card 0428-275 to develop. Lane parks
-0428-270: PR #1821 stays open untouched, scripts/** untouched. Wake trigger: 0428-275 rows land on
-develop -> rebase lane-0428-270-trustedlocal-seam onto the new develop head, force-with-lease push
-the same branch, observe the exact-head run to terminal, record it here and report.
+Coordinator directive 2026-11-24 (batch): #1822 merged, develop = 90086a1f938e106171b08c76e9bcbc98d89d1de4.
 
-END_BLOCKED w61-0428-270-failopen: parked, awaiting 0428-275. Candidate 88f5c7f05 complete/pushed,
-PR #1821 open; the only blocker is the owner catalog baseline on develop.
+    git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop
+    90086a1f938e106171b08c76e9bcbc98d89d1de4  refs/heads/develop
+    git merge-base --is-ancestor 3ebfb90daaf472a1f98a7fe648589bd3e15fb1cd origin/develop  -> 0 (lineage-ok)
+    git rebase origin/develop  -> 1 commit replayed cleanly, no conflict, no develop-content loss
+
+New candidate head (single own commit on top of 90086a1f9):
+    229d59083f5cc62f039579e129239b2888a4f417
+    git log --oneline origin/develop..HEAD  ->  229d59083 (only own commit)
+    git diff origin/develop...HEAD --name-only  ->  internal/operatorauth/authorization.go, internal/operatorauth/config.go
+    git merge-base --is-ancestor origin/develop HEAD  -> 0
+    push: --force-with-lease on the SAME branch lane-0428-270-trustedlocal-seam (no second branch)
+
+Delivery witness (after push):
+    git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/lane-0428-270-trustedlocal-seam refs/pull/1821/head
+    229d59083f5cc62f039579e129239b2888a4f417  refs/heads/lane-0428-270-trustedlocal-seam
+    gh pr view 1821 --json headRefOid  ->  229d59083f5cc62f039579e129239b2888a4f417 (PR head caught up)
+
+Catalog resolution pre-check against the NEW develop catalog (0428-275 rows present at
+scripts/pr-gate-coverage.json lines 1544/1549): resolve_covered_gates over both changed paths
+returns ['atomic/docker/data-capabilities'] with empty unowned set — the Trusted Plan fail-loud
+cannot fire anymore.
+
+Exact-head CI, run 45369190884 (workflow "CI · Source & Quality", pull_request, head
+229d59083, base develop 90086a1f9), observed by this session to TERMINAL:
+    gh run view 45369190884 -> completed success
+    Required jobs actually executed (none skipped as a pass-pretense):
+      PR · Trusted Plan success | PR · Native gate plan success | PR · Source format success
+      PR · Exact Candidate success | PR · Runner Interface / Demo Pin / Focused Python success
+      PR · Go unit cli-0..3, packages, owner success | Validation go-build/go-vet/authority-package-tests success
+      PR · Selected Runtime (atomic/docker/data-capabilities, docker) / Executed docker · data-capabilities success
+      PR · Selected Checks => pass (aggregate)  job 138371337498
+    gh pr view 1821 -> state OPEN, mergeable MERGEABLE. No merge performed (CODEX merges).
+
+## Parked state (superseded by the wake-up above)
+
+Coordinator already opened card 0428-275 (t-20261124-gate-catalog-baseline-0428-270) on
+baseharbor-plan main for exactly this owner fix (the two catalog rows). My QUESTION posted before
+that card was seen; it stands as the finding record.
+
+When the 0428-275 rows land on develop, this lane (or whoever the coordinator assigns) must:
+- rebase lane-0428-270-trustedlocal-seam onto the new develop, force-with-lease push the same
+  branch (single candidate, no second branch),
+- observe the exact-head run to terminal and record it here.
+
+END_DONE w61-0428-270-failopen: rebased onto develop 90086a1f9 (0428-275 landed), candidate head 229d59083, PR #1821 open (no merge), exact-hosted run 45369190884 TERMINAL: PR Selected Checks aggregate = pass; option (b) remove-seam fail-closed as accepted.
