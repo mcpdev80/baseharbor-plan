@@ -13,7 +13,7 @@ kanban_lane: blocked
 kanban_summary: ""
 kanban_title: 0428-249 · light-runtime blob unknown
 priority: high
-depends_on: []
+depends_on: [t-20261124-r28-release-candidate-testonly-binary]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812]
 sources: []
@@ -28,12 +28,13 @@ evidence: []
     **Owner:** owner (0428-249 rebuild on develop 3ebfb90d) · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
     **Blocker:** Hunt H-V26 F1 PINS the root cause with file:line: baha-ci-operator-testonly is NEVER built in the release/candidate artifact workflow (pre-release.yml 0 hits) while the runtime gates demand it under set -e at pre-release-runtime-suite.yml:…  
+    **Needs:** [t-20261124-r28-release-candidate-testonly-binary](t-20261124-r28-release-candidate-testonly-binary.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** none  
+**Depends on:** [t-20261124-r28-release-candidate-testonly-binary](t-20261124-r28-release-candidate-testonly-binary.md)  
 **Owner:** owner (0428-249 rebuild on develop 3ebfb90d)  
 **Priority:** high  
 **PRs:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
