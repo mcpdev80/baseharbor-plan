@@ -142,7 +142,7 @@ Command run as second-to-last action (output verbatim):
      * branch                main       -> FETCH_HEAD
     evidence/r28-welle6-2026-11-25/1812-prerequisite-map/round-1.md
 
-Evidence commit: 76a6c39fcbacb7b969b85766376102b44b61282a, pushed 4d5b8f8dc..76a6c39fc HEAD -> main to https://github.com/mcpdev80/baseharbor-plan.git.
+Evidence commits: 76a6c39fc (file) + da391133c (witness/END) + 9c9850d05cf648b0c15e06efdf66bd9ad2e019bd (log-proven correction), pushed 1f1536092..9c9850d05 HEAD -> main to https://github.com/mcpdev80/baseharbor-plan.git. Final re-fetch witness (origin/main == HEAD == 9c9850d05): `evidence/r28-welle6-2026-11-25/1812-prerequisite-map/round-1.md` present. `docker ps -a` on this host: 0 containers (this lane started none; pid witness 3702897).
 
 ## END
 
