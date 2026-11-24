@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: owner (0428-249 rebuild on develop 3ebfb90d)
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: ""
 kanban_title: 0428-249 · light-runtime blob unknown
 priority: high
@@ -17,20 +17,21 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812]
 sources: []
-blocker: ""
+blocker: "EXACT run 45313489014 (b1b31a59) TERMINAL FAILURE. 12/14 Light gates fail within seconds at the mandatory 'test -s RUNNER_TEMP/pre-release-candidate/baha-ci-operator-testonly' (before scripts/acceptance.sh) — the prebuilt binary is NEVER PRODUCED in candidate artifact setup (setup only chmods it if present), so restoring the mandatory check (removing the optional fallback per scope ruling) fails ALL gates. The removed fallback was masking a genuine artifact-production gap. OWNER DECISION REQUIRED (do not self-expand): (A) fix candidate artifact production to actually build/install baha-ci-operator-testonly within scope (root-cause; the correct fix) — likely touches candidate build (.github/scripts/CI scope), or (B) explicitly authorize the optional binary/source-build fallback (scope expansion owner earlier rejected). Coordinator recommends (A). 2 jobs still active pending terminal."
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/active #view/active #area/ci #area/testing #kind/bug
+- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/testing #kind/bug
     <!-- generated:card -->
     **Owner:** owner (0428-249 rebuild on develop 3ebfb90d) · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
+    **Blocker:** EXACT run 45313489014 (b1b31a59) TERMINAL FAILURE. 12/14 Light gates fail within seconds at the mandatory 'test -s RUNNER\_TEMP/pre-release-candidate/baha-ci-operator-testonly' (before scripts/acceptance.sh) — the prebuilt binary is NEVER P…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** owner (0428-249 rebuild on develop 3ebfb90d)  
@@ -79,3 +80,5 @@ Unblocked by #1815 merge. OWNER executing #1812 rebuild from develop 3ebfb90d wi
 Rebuilt on develop 3ebfb90d: ONLY the two approved runtime image archive reloads; optional-binary/build-from-source fallback removed; force-guarded against old head 7bce1838. New PR head b1b31a59 / base 3ebfb90d. General run 45313094627 started (planner queued; selected light gates not yet scheduled). Owner-handled .github scope.
 
 EXACT owner-approved 14 Docker+Podman Light acceptance gates running in workflow-dispatch run 45313489014 (head b1b31a59 / base 3ebfb90d, candidate SHA = exact PR head, demo pin f23b6e09). v0.4.27 gate catalog supplies the 14 light IDs; v0.4.28 release catalog (static-only) NOT edited. PR-triggered general run 45313094627 also active. Scope = exactly one file, 20 additions, ci.yml untouched, no optional fallback.
+
+Lane correctly stopped, awaiting owner. No coordinator/worker edit. This is the same artifact-availability root as #1818/#1810 (baha-ci-operator-testonly production).

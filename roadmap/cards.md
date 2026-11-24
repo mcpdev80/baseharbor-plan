@@ -16,8 +16,9 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 195/275 · **Blocked:** 1 · **Waiting:** 20  
+    **Accepted tasks:** 195/275 · **Blocked:** 2 · **Waiting:** 20  
     **Blocker:** [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) — \#1818 correctly parked (head unchanged 0f20a3b, w55 did NOT push). Three blockers: (1) DEPENDENCY on card 0428-181 (w54) identity-panel producer — the keycloak…  
+    **Blocker:** [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) — EXACT run 45313489014 (b1b31a59) TERMINAL FAILURE. 12/14 Light gates fail within seconds at the mandatory 'test -s RUNNER\_TEMP/pre-release-candidate/baha-ci-op…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next
