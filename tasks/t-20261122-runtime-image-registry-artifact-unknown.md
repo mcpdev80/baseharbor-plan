@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812]
 sources: []
-blocker: "#1812 write-set COMPLETE (head 5ab9fe4, diff = ONLY .github/workflows/pre-release-runtime-suite.yml). Its own lane session (w249/19017525) is GONE (oc-status) but NOTHING is left for it: remaining red is 0428-250 (Core cmd/baha/ci_integration_operator_enabled.go needs 5 test-only fixture command forms), which is NOT on #1812's branch. Additive hop to develop d4fa8c589 (picks up #1813) + re-run the 14 Hosted gates can ONLY go green AFTER 0428-250 Core fixture lands. No lane needed on #1812; do not restart it. Next trigger: 0428-250 Core fix merged + #1812 re-run."
+blocker: "SCOPE HOLD awaiting Owner direction (lane correctly stopped, no edits). head 7bce1838 touches ONLY .github/workflows/pre-release-runtime-suite.yml (ci.yml untouched). APPROVED part: runtime-suite ordering/registry + missing-image references + archive reload after reset before publish. OUT-OF-SCOPE additions: (a) missing prebuilt baha-ci-operator-testonly downgraded from hard failure (test -s + version grep) to OPTIONAL (if [ -s ]), and (b) Demo installer builds candidate SOURCE as fallback. Both exceed owner's approval (no replacement/fallback logic). Also gated behind #1815 merge. Coordinator recommends REJECTING (a)+(b): silently making a missing required binary optional = skipping a gate (§5.4)."
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w249-0428-249-runtime-image-fix (SESSION GONE - no live owner; work complete) · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
-    **Blocker:** \#1812 write-set COMPLETE (head 5ab9fe4, diff = ONLY .github/workflows/pre-release-runtime-suite.yml). Its own lane session (w249/19017525) is GONE (oc-status) but NOTHING is left for it: remaining red is 0428-250 (Core cmd/baha/ci\_integrat…  
+    **Blocker:** SCOPE HOLD awaiting Owner direction (lane correctly stopped, no edits). head 7bce1838 touches ONLY .github/workflows/pre-release-runtime-suite.yml (ci.yml untouched). APPROVED part: runtime-suite ordering/registry + missing-image reference…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -70,3 +70,5 @@ own-run terminal FAILURE at artifact preflight, not lane code; held pending CI-o
 OWNER artifact gap FIXED in-scope (same authorized workflow): head 5ab9fe4a63, diff = ONLY .github/workflows/pre-release-runtime-suite.yml (scripts/** + ci.yml clean, verified gh pr diff --name-only). Fallback: when baha-ci-operator-testonly absent, Demo installer builds it under the job GOFLAGS test-only tag for exact BASEHARBOR_SOURCE_REF; present-case version-SHA check stays fail-closed. PR hosted run 45258883468 = SUCCESS on 5ab9fe4. Fresh Pre-Release Validation 45259373990 in_progress on candidate ref 5ab9fe4 (14 Docker+Podman light gates). w249: watch OWN run 45259373990 to terminal + republish evidence/round-1.md to origin/main with head 5ab9fe4; END_DONE when the 14 gates go green. No merge (frost).
 
 reconciled per Owner: 1812 in-scope fix complete; gate-red external (0428-250 fixture allowlist). Lane holds, no edit to shared fixture on this branch.
+
+No live owner lane (w249 gone); parked at exact-scope review. No coordinator/worker edit, CI-acceptance, or merge until owner decides.
