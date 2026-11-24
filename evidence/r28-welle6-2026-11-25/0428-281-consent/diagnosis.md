@@ -289,7 +289,21 @@ Local artifacts removed on the hold:
 The worktree was never modified: `git -C <wt> status --short` was empty and its HEAD stayed exactly
 `46d3dccc1f6fc65c027f5c2a28e9d17b29c5fed2` with no commits above origin/develop.
 
-Scratch zone: /tmp/opencode/w85-0428-281-consent/ (this evidence file, the CI log capture).
+Scratch zone: /tmp/opencode/w85-0428-281-consent/ (this evidence file, the CI job-log captures, a
+read-only `cmd/baha` tree extraction and a shallow clone of baseharbor-demo).
+
+SIDEBAND FINDING (reported, not repaired): my read-only `git --work-tree=<scratch> checkout <sha> --
+cmd/baha` commands staged trees into the INDEX of the shared product checkout
+/home/marcel/dev/baseharbor-ecosystem/baseharbor, whose own HEAD is a foreign lane head
+(`306a2b1ea fix(0428-078): ...`, a lane that is not mine and that I did not touch otherwise). The index
+now shows 7 entries differing from that HEAD (cmd/baha/app_status_collect.go,
+app_status_perses_alert_evaluator_0428_152_test.go, app_status_result.go,
+ci_integration_operator_enabled{,_test}.go, env_destroy_integration_test.go, perses_lifecycle.go).
+Neither of my mission's write-set files is among them, and no commit, push or branch came from this
+lane. I left the index as found because unstaging could destroy that lane's staged work (AGENTS 4.3:
+do not overwrite another session's working state). Lesson recorded: in a shared checkout, read a
+foreign tree with `git show <sha>:<path>` into the scratch zone instead of `git --work-tree` checkout.
+Coordinator may want to tell the 0428-078 lane to re-stage before it commits.
 
 ## repo-rule compliance
 
