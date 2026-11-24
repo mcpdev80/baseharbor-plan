@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: Codex (ChatGPT lane w122)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Wizard found /metrics from a Bruno file and defaulted to caddy; generated source caddy:8080/metrics is not supported by Compose…"
 kanban_title: 0428-290 · Validate metrics source mappin
 priority: high
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261116-r28-bug-metrics-discovery · Validate metrics source mapping #task #release/v0-4-28 #status/planned #view/ready #area/observability #kind/bug
+- [ ] t-20261116-r28-bug-metrics-discovery · Validate metrics source mapping #task #release/v0-4-28 #status/active #view/active #area/observability #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** Codex (ChatGPT lane w122) · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** Codex (ChatGPT lane w122)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
