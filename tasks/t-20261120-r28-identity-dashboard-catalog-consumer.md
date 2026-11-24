@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w54-0428-181-export
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-181 · identity catalog consumer
 priority: ""
@@ -23,18 +23,17 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r7.md"]
 ---
 
-- [ ] t-20261120-r28-identity-dashboard-catalog-consumer · Identity dashboard catalog has zero production consumers (P4 of review 1650) #task #release/v0-4-28 #status/planned #view/ready #kind/bug
+- [ ] t-20261120-r28-identity-dashboard-catalog-consumer · Identity dashboard catalog has zero production consumers (P4 of review 1650) #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w54-0428-181-export  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r7.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
-**Owner:** unassigned  
+**Owner:** w54-0428-181-export  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

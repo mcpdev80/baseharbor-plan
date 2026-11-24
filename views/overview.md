@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 9 |
+| active | 10 |
 | review | 4 |
 | wait | 10 |
 | blocked | 1 |
-| ready | 6 |
+| ready | 5 |
 | queued | 25 |
 | waiting | 177 |
 | backlog | 7 |
@@ -29,6 +29,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-audit-events](../tasks/t-20261114-r28-cli2-audit-events.md) | CLI redesign: Audit secret and environment actions | active | high | w058-0428-058-hop | [t-20261114-r28-cli2-env-delete](../tasks/t-20261114-r28-cli2-env-delete.md), [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md), [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) | [baseharbor#1809](https://github.com/mcpdev80/baseharbor/pull/1809) |
 | [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) | Perses identity dashboard | active | normal | w078-0428-078-hop | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650) |
 | [t-20261119-r28-perses-alert-verifier-caller-wiring](../tasks/t-20261119-r28-perses-alert-verifier-caller-wiring.md) | alert-verifier haengt in der luft | active | not set | w53-0428-152-alertfix | [t-20261119-r28-perses-status-backend-witness](../tasks/t-20261119-r28-perses-status-backend-witness.md) | [baseharbor#1816](https://github.com/mcpdev80/baseharbor/pull/1816) |
+| [t-20261120-r28-identity-dashboard-catalog-consumer](../tasks/t-20261120-r28-identity-dashboard-catalog-consumer.md) | Identity dashboard catalog has zero production consumers (P4 of review 1650) | active | not set | w54-0428-181-export | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | — |
 | [t-20261120-r28-valkey-dashboard-unavailable-only](../tasks/t-20261120-r28-valkey-dashboard-unavailable-only.md) | Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable | active | not set | Codex (Marcel, active wait sweep 2026-11-21) | [t-20261121-loki-verify-probe](../tasks/t-20261121-loki-verify-probe.md), [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) | [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714) |
 | [t-20261121-base-branch-provenance-loss](../tasks/t-20261121-base-branch-provenance-loss.md) | 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened | active | high | coordinator | — | — |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
@@ -70,7 +71,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261114-r28-cli2-coordination](../tasks/t-20261114-r28-cli2-coordination.md) | CLI redesign: coordinate five workers | ready | high | coord | — | — |
 | [t-20261120-gate-catalog-ci-fast-check](../tasks/t-20261120-gate-catalog-ci-fast-check.md) | 0428-205 · Wire ci-fast-check into the release gate catalog | ready | normal | Codex (root-cause diagnose, NICHT worker) / Coordinator | — | [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774) |
-| [t-20261120-r28-identity-dashboard-catalog-consumer](../tasks/t-20261120-r28-identity-dashboard-catalog-consumer.md) | Identity dashboard catalog has zero production consumers (P4 of review 1650) | ready | not set | — | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | — |
 | [t-20261121-candidate-commit-identity](../tasks/t-20261121-candidate-commit-identity.md) | Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) | ready | not set | — | — | — |
 | [t-20261122-native-plan-self-selection](../tasks/t-20261122-native-plan-self-selection.md) | CI: catalog and planner self-change selects zero gates | ready | not set | — | — | — |
 | [t-20261123-planner-deleted-source-advisory](../tasks/t-20261123-planner-deleted-source-advisory.md) | CI: candidate planner mishandles deleted source rows (advisory job red) | ready | not set | — | — | — |
