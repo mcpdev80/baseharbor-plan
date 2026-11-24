@@ -28,7 +28,6 @@ evidence: []
     **Owner:** w70-0428-249-rebase · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
     **Blocker:** All 14 v0.4.27 Light gates fail IDENTICALLY at the 'authenticated BaseHarbor operator' auth-harness setup step, not at \#1812 content (test -s baha-ci-operator-testonly PASSED; diff is only the +20 runtime-image reload in .github/workflows/…  
-    **Needs:** [t-20261124-r28-release-candidate-testonly-binary](t-20261124-r28-release-candidate-testonly-binary.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

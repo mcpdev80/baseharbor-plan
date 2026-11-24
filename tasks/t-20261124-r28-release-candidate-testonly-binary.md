@@ -8,34 +8,36 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w65-0428-269-batchbaseline
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Produce baha-ci-operator-testonly in the candidate artifact the pre-release runtime suite consumes, so a release runtime gate…"
 kanban_title: 0428-269 · release ships no testonly
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1822]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1822"]
 ---
 
-- [ ] t-20261124-r28-release-candidate-testonly-binary · The release candidate artifact never contains baha-ci-operator-testonly, so every release runtime gate fails its test -s under set -e. #task #release/v0-4-28 #status/active #view/active #area/ci #area/platform #area/release #area/testing #kind/task
+- [x] t-20261124-r28-release-candidate-testonly-binary · The release candidate artifact never contains baha-ci-operator-testonly, so every release runtime gate fails its test -s under set -e. #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/platform #area/release #area/testing #kind/task
     <!-- generated:card -->
     **Owner:** w65-0428-269-batchbaseline · **Priority:** high  
+    **PR:** [baseharbor#1822](https://github.com/mcpdev80/baseharbor/pull/1822)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1822)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261122-runtime-image-registry-artifact-unknown](t-20261122-runtime-image-registry-artifact-unknown.md)  
 **Owner:** w65-0428-269-batchbaseline  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1822](https://github.com/mcpdev80/baseharbor/pull/1822)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -71,3 +73,5 @@ Produce `baha-ci-operator-testonly` in the candidate artifact the pre-release ru
 - Source: bughunt-hv26 F1 dossier `evidence/r28-welle6-2026-11-24/bughunt-hv26-candidate-consent-gate/round-1.md` (develop 3ebfb90d).
 
 Realized by owner-authorized batch baseline PR (w65): baha-ci-operator-testonly production in .github/workflows/pre-release.yml only (ci.yml unchanged). Lands on develop -> unblocks #1812 rebase+rerun.
+
+Merged to develop 90086a1f9 (6 catalog rows + baha-ci-operator-testonly production). Satisfies #1812's declared dependency.
