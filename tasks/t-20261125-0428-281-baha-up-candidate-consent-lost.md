@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w85-0428-281-consent
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-281 · up loses candidate consent
 priority: high
@@ -19,10 +19,12 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence:
+resolution: superseded
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45398943139", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-11-25/0428-281-consent/diagnosis.md"]
   - https://github.com/mcpdev80/baseharbor/actions/runs/45398943139
   - https://github.com/mcpdev80/baseharbor/pull/1647
+superseded_by: t-20261125-0428-282-demo-consent-recognizer-nested
+
 ---
 
 ## Handoff
@@ -49,14 +51,14 @@ evidence:
   outside this card's `cmd/baha` write-set.
 
 
-- [ ] t-20261125-0428-281-baha-up-candidate-consent-lost · baha up loses candidate consent #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
+- [x] t-20261125-0428-281-baha-up-candidate-consent-lost · baha up loses candidate consent #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** w85-0428-281-consent · **Priority:** high  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1647)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-11-25/0428-281-consent/diagnosis.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1647)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** superseded  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w85-0428-281-consent  
@@ -85,3 +87,5 @@ evidence:
 Owner-authorized SEPARATE consent PR (minimal 2-file shape of ref commit 5f9c671, re-derived on develop 46d3dccc1). FIRST dependency of the chain: consent PR green -> merge -> rebase #1812 -> Docker then Podman Light gates. #1812 stays blocked until this merges. Hosted CI only.
 
 RESCOPED diagnosis-first: consent defect is DISTINCT from merged #1807 (7b45db92 in develop base) — #1807 threads up-path consent but 'record deployment before mutation' still refuses (Docker Light jobs 138466518597/674/757/939, run 45398943139). w85 read-only inspecting git show 7b45 + the record-deployment consent path to pinpoint the file:line gap; NO PR/commit until owner re-confirms a minimal new fix.
+
+Product premise disproved: --confirm-candidate preserved to recordDeploymentBeforeMutation on develop 46d3dccc AND #1812 head 475902075 (#1807 merged). baseharbor PR would be empty/wrong. Real defect = baseharbor-demo fixture-consent.py doubly-nested refusal -> 0428-282. w85 created no branch/PR (read-only).
