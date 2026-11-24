@@ -73,3 +73,18 @@ return nil
 ## End
 
 END_DONE w60-0428-271-brokerid: CARD BLOCKED on 0428-274 catalog baseline. Fix + regression + build/vet complete; PR #1820 head f5e50f5a; CI Trusted Plan SKIPPED Go unit / FAILED on uncataloged test row (scripts/ owner-scope, #1817). Rebase + rerun on 0428-274 land.
+
+## Rebase + rerun (batch #1822 landed)
+
+- develop advanced 3ebfb90d -> 90086a1f (batch #1822 merged). `git merge-base --is-ancestor 3ebfb90d origin/develop` OK.
+- Rebased `fix/broker-build-identity` onto origin/develop; force-pushed. New heads f5e50f5a -> 9dc355a7 -> f0c6b869 (3 commits, all own, develop ancestor).
+- CI run 45370259707 (PR #7621, sha f0c6b869): `Trusted Plan => SUCCESS` (0428-274 row landed). `PR · Go unit · cli-3` initially FAILED the original kept test `TestVerifyRuntimeBrokerBuildIdentity` — it set `commit="none"` and expected the dev CLI to accept an arbitrary edge commit, which now conflicts with the fail-closed commit check. Fixed the test's edge-commit expectation (same commit passes, different commit fails), build+vet clean, force-pushed f0c6b869.
+- Run 45370259707 stuck `pending` / 0 jobs ~9 min (runner/dispatch, not a long test). No manual dispatch or runner repair (CI policy). Waiting on next push / runner recovery.
+
+## Rebase + rerun (batch #1821 lands — run 7622)
+
+- develop advanced 90086a1f -> 05ef48536 (#1821 merged, write-set disjoint from mine). `git merge-base --is-ancestor 90086a1f origin/develop` OK.
+- Rebased `fix/broker-build-identity` onto origin/develop 05ef48536; force-pushed. New head f0c6b869 -> 514084f3 (3 own commits, develop ancestor).
+- CI run 45374495706 (PR #7622, sha 514084f3): 30 jobs, 17 non-skipped completed, **0 failures**. `Trusted Plan => success`, all 6 `PR · Go unit` shards => success, `go-vet`/`go-build`/`cli-gofmt` => success, `Exact Candidate`/`Runner Interface`/`Demo Pin`/`Native gate plan`/`Focused Python` => success. Only skipped/in-flight: Docker/Podman/HA/release gates (runner-hosted, irrelevant for this CLI unit fix).
+- GitHub API reports run 45374495706 stuck `in_progress` (runner-agent hang on terminal state), same pattern as run 7621. All substantive jobs completed success. No manual dispatch/runner repair (CI policy 2026-11-19).
+- Final head: `514084f3c9be0a5890a78c5d6e86735e298804cf` (ls-remote: PR #1820 head 514084f3).
