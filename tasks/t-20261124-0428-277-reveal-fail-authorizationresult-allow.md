@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w68-0428-277-revealallow
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-277 · reveal fail allow
 priority: low
@@ -23,14 +23,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261124-0428-277-reveal-fail-authorizationresult-allow · Bug-Hunt H-V27 intake: reveal failure records AuthorizationResult=allow #task #release/v0-4-28 #status/active #view/active #kind/bug
+- [ ] t-20261124-0428-277-reveal-fail-authorizationresult-allow · Bug-Hunt H-V27 intake: reveal failure records AuthorizationResult=allow #task #release/v0-4-28 #status/review #view/review #kind/bug
     <!-- generated:card -->
     **Owner:** w68-0428-277-revealallow · **Priority:** low  
     **PR:** [baseharbor#1823](https://github.com/mcpdev80/baseharbor/pull/1823)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w68-0428-277-revealallow  
@@ -59,3 +59,5 @@ evidence: []
 Failed reveal must not record AuthorizationResult=allow with Outcome=failed (fail-closed or discrepancy marker). Conflict-free write-set.
 
 END_BLOCKED at CI: stray cmd/baha/app_context.go change (gofmt-only, OUTSIDE write-set) forced a 7th pr-gate-coverage row (owner scope). Correction: revert app_context.go, ensure fix is in environment_operations.go/secret_operations.go (card files), rerun. NOT an owner catalog decision unless an in-write-set file still needs a row.
+
+Reverted stray app_context.go; diff = secret_operations.go + secret_audit_test.go only (in-write-set), head 9afd3e6a terminal-green 19 PASS/0 FAIL MERGEABLE. Handed to CODEX-REVIEW (review-only; MERGE deferred so develop is not advanced while #1812 validation run 45385372243 is in flight).
