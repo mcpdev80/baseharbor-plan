@@ -38,7 +38,9 @@ All remote truth measured with `git ls-remote <real-url>` and `gh api` (never th
 
 ## Antecedent 1 — CONSENT handshake (card 0428-282)
 
-Verdict (corrected against direct code inspection — this REFINES the w92/w85 mission premise): the doubly-nested recognizer is ALREADY MERGED and present in EVERY relevant demo ref. Demo commit `42852efa` (branch `fix/fixture-consent-nested-up-error`, PR #138, MERGED 2026-11-14) is an ancestor of `f23b6e09` (the v0.4.27 pin, `git merge-base --is-ancestor` → true) and of demo develop `c23bd9ac`; the current form was completed by `604c0d7 fix(demo): accept exact wrapped candidate refusal` (2026-11-15). All three refs' `tests/fixture-consent.py` accept the set {direct, single-wrapped, doubly-nested `record deployment before mutation: X: X`}. The failing string from the gates is EXACTLY in that set (see quoted line below). w92's dedicated 0428-282 PR was NOT found open on demo at desk time (newest demo PRs = #171/#170). If w92's PR merges, it is content-equivalent or a no-op for these gates; **antecedent 1 as stated does NOT explain the 4 red gates on 45398943139 and should NOT be treated as a #1812 prerequisite** — flag this to the coordinator as a mapping correction.
+Verdict (corrected against direct code AND log inspection — this REFINES the w92/w85 mission premise): the doubly-nested recognizer is ALREADY MERGED and present in EVERY relevant demo ref. Demo commit `42852efa` (branch `fix/fixture-consent-nested-up-error`, PR #138, MERGED 2026-11-14) is an ancestor of `f23b6e09` (the v0.4.27 pin, `git merge-base --is-ancestor` → true) and of demo develop `c23bd9ac`; the current form was completed by `604c0d7 fix(demo): accept exact wrapped candidate refusal` (2026-11-15). All three refs' `tests/fixture-consent.py` accept the set {direct, single-wrapped, doubly-nested `record deployment before mutation: X: X`} — the exact string the gates emit (quoted below). PROOF the recognizer works at the pinned ref: reconciliation job 138466518674 log lines 2033 and 2059 show `isolated-demo-fixture: acknowledge the exact current application source candidate` (wrapper printed = extraction succeeded) and the ci-operator decision log shows the consented re-run `command="app apply --json --confirm-candidate fda4e72d…"` — yet the gate STILL fails at 13:15:08 with the same consent error, and the final `--confirm-candidate fda4e72d…` command REAPPEARS in the `Original failure (bounded, redacted)` block (line 2332), i.e. the consented retry itself failed closed again.
+
+w92's dedicated 0428-282 PR was NOT found open on demo at desk time (newest demo PRs = #171/#170). Conclusion: the recognizer-allow-list theory is FALSE as the sole explanation; the residual is wrapper behavior (digest staleness across retries / retry loop termination) or a product-recording interplay — exactly w85's "stale digest?" residual. Card 0428-282 (w92) is therefore the RIGHT investigation vehicle but its premise ("recognizer does not match") needs correction before merge.
 
 Exact failure string the fix must match, quoted verbatim from run 45398943139 job 138466518674 (reconciliation; identical in policy/connectivity/full-destroy jobs):
 
@@ -51,9 +53,9 @@ Comparison of recognizers (all verified by direct `git show <ref>:tests/fixture-
 - 42852efa (#138) built {direct, wrapped+wrapped} — same effective set; 604c0d7 finalized it.
 - `run_consented` (tests/lib harness) routes the failing ops THROUGH this wrapper (tests/reconciliation/run.sh:9,20,35; tests/connectivity/run.sh:15,34,73; tests/full-destroy/run.sh:12; scripts/acceptance.sh:93), and wrapper.py strips no output — so the digest extraction + `--confirm-candidate` re-run machinery IS engaged for these gates.
 
-Open residual (documented uncertainty): the consent lines at 13:13:10 in the full-destroy job come AFTER the 13:13:08 operator-auth cleanup failure; the in-gate consent refusal was visibly RE-TRIED (second `baha up` at 13:13:10), so whether the consent re-run itself terminates the gate green once operator-auth is fixed cannot be proven from logs alone — only the next exact-head gate run can. If it still fails closed there, the consent-wrapper's digest currency (stale-after-retry question from w85) is the first suspect, not the recognizer set.
+Open residual (now log-proven): consent extraction SUCCEEDS but the consented retry still fails closed in reconciliation/connectivity/full-destroy; policy fails additionally/differently with the interactive-auth error. So the four red gates have TWO distinct causes: (a) consent retry fails closed even when recognized (needs the 0428-282 investigation, premise corrected per Antecedent 1), and (b) operator authentication absent on the `policy check` path (Antecedent 2).
 
-Gates formerly attributed to antecedent 1: reconciliation, connectivity, full-destroy (+ policy consent phase) — RECLASSIFIED: they fail on the consent line surfacing inside phases driven by the missing operator authentication (antecedent 2), with the recognizer already in place. Confirmed: NO baseharbor product change needed — the digest hint survives wrapping product-side (#1807 merged as 7b45db92, ancestor of 46d3dccc; w85 diagnosis in evidence/r28-welle6-2026-11-25/0428-281-consent/diagnosis.md).
+Gates formerly attributed to antecedent 1's recognizer: reconciliation, connectivity, full-destroy (+ policy consent phase). Corrected classification: the recognizer IS engaged (acknowledge line logged) but the CONSENTED RETRY fails closed — this is the 0428-282 investigation territory with the corrected premise. Confirmed: NO baseharbor product change has been proven necessary (the digest hint survives wrapping product-side, #1807 merged as 7b45db92, ancestor of 46d3dccc; w85 diagnosis in evidence/r28-welle6-2026-11-25/0428-281-consent/diagnosis.md) — but note the reconciliation retry failure at 13:15:08 is a product-side behavior worth re-examining during 0428-282 before concluding "no product change" (the fail-closed-after-valid-consent pattern may indicate the digest IS stale after an intermediate mutation).
 
 ## Antecedent 2 — MCP-OPERATOR-AUTH class in the Light harness
 
@@ -86,10 +88,11 @@ Classification: this is a SEPARATE demo authorization beyond the consent PR (a s
     #1825 (merged, develop 46d3dccc) ──► operator-auth admission OK for every later rerun   [done]
     #1807 (merged, product digest-hint path) ──► no product change needed for consent        [done]
     demo consent-recognizer: ALREADY on develop + on the run-pinned f23b6e09 (via #138/604c0d7, merged Nov-14/15)
-        └─► NOT a #1812 prerequisite; w92's card-0428-282 PR is content-equivalent for these gates
-    demo operator-auth harness fix (policy + full-destroy cleanup; 0428-250 family)   [NOT YET AUTHORIZED] ◄── PRIMARY blocker
-        └─► unblocks policy (direct auth error) + full-destroy (auth error in cleanup) and, per residual above,
-            is the most-plausible driver of the consent lines in reconciliation/connectivity phases
+        └─► recognizer matches and extracts (log-proven in job 674); the CONSENTED RETRY still fails closed —
+            card 0428-282 (w92) must investigate wrapper/retry behavior, not the allow-list, for
+            reconciliation + connectivity + full-destroy consent fails
+    demo operator-auth harness fix (policy + full-destroy cleanup; 0428-250 family)   [NOT YET AUTHORIZED]
+        └─► unblocks policy (direct interactive-auth error) + full-destroy (auth error in cleanup path)
     demo #171 (app.pull destructive-set removal)  [open, CONFLICTING — needs rebase]
         └─► unblocks static mcp gate; #1826 re-pin consumes it (release pin, not #1812 blocker)
     #1812 rerun = f(develop 46d3dccc+, demo_ref = consent + operator-auth fixes merged to demo develop)
@@ -102,11 +105,11 @@ Classification: this is a SEPARATE demo authorization beyond the consent PR (a s
 4. baseharbor #1826 → merge after #171 lands (it re-pins v0.4.28.demo-ref to #171's head; re-pin to the final demo develop tip if steps merge out of order).
 5. #1812 qualification rerun on head 47590207 (develop 46d3dccc is already an ancestor; rebase only if develop moved).
 
-Exact demo_ref #1812 must pin after prerequisites: the final baseharbor-demo develop SHA containing the operator-auth harness fix (step 1) — and, if it merged, the 0428-282 commit. As of this desk no such tip exists; today's demo develop `c23bd9ac` already satisfies the CONSENT-recognizer condition (doubly-nested form accepted, and so does the currently-pinned `f23b6e09`) but NOT the operator-auth condition.
+Exact demo_ref #1812 must pin after prerequisites: the final baseharbor-demo develop SHA containing BOTH the 0428-282 retry fix (if it changes fixture-consent.py beyond the already-merged recognizer) and the operator-auth harness fix (step 1). As of this desk no such tip exists; today's demo develop `c23bd9ac` (and the currently-pinned `f23b6e09`) already satisfy the CONSENT-RECOGNIZER condition but neither the consent-retry condition (gates still fail closed after recognized consent) nor the operator-auth condition.
 
 ## Single next #1812 action (once prerequisites merge)
 
-Keep or rebase head 47590207 (develop 46d3dccc is already an ancestor; rebase only if develop moved) and dispatch the Pre-Release Runtime suite on the exact head with demo_ref = final demo-develop SHA containing the operator-auth fix; run the Docker Light gates first to green, then the Podman Light gates (never executed in 45398943139 — `ONLY_GATES` selected docker only).
+Keep or rebase head 47590207 (develop 46d3dccc is already an ancestor; rebase only if develop moved) and dispatch the Pre-Release Runtime suite on the exact head with demo_ref = final demo-develop SHA containing the consent-retry + operator-auth fixes; run the Docker Light gates first to green, then the Podman Light gates (never executed in 45398943139 — `ONLY_GATES` selected docker only).
 
 ## Pending owner decisions
 
@@ -117,8 +120,8 @@ Keep or rebase head 47590207 (develop 46d3dccc is already an ancestor; rebase on
 
 | antecedent | repo | PR/card | state | gates it unblocks | authorized? |
 | --- | --- | --- | --- | --- | --- |
-| consent handshake (nested recognizer) | baseharbor-demo | card 0428-282 (w92 PR) — recognizer content ALREADY merged via #138/604c0d7 | on develop AND on run-pinned f23b6e09; dedicated PR not yet seen open | formally none new (reclassification: not the blocker for the 4 red gates) | yes (owner-authorized in w92 mission) |
-| operator-auth harness seed | baseharbor-demo | 0428-250 family (#170 open = config-matrix only) | no PR covers policy/full-destroy | docker policy (direct), full-destroy (cleanup); most-plausible driver of the consent-phase fails in reconciliation/connectivity | NO — pending owner decision |
+| consent handshake (nested recognizer) | baseharbor-demo | card 0428-282 (w92 PR) — recognizer ALREADY merged (#138/604c0d7, on develop + f23b6e09) | allow-list matches and extracts (log-proven); consented RETRY still fails closed — investigate retry/digest-currency, not the recognizer | docker reconciliation, connectivity, full-destroy (consent phase) | yes (w92 mission) — but its premise needs correction |
+| operator-auth harness seed | baseharbor-demo | 0428-250 family (#170 open = config-matrix only) | no PR covers policy/full-destroy | docker policy (direct auth error), full-destroy (cleanup auth error) | NO — pending owner decision |
 | app.pull annotation set | baseharbor-demo + baseharbor | demo #171 / core #1826 | #171 open CONFLICTING; #1826 open, fails only on static mcp | static/mcp gate (not a Light gate) | covered by card 0428-279 |
 | testonly -tags binary | baseharbor | #1825 | MERGED at develop tip 46d3dccc | operator-auth admission in all gates (done) | done |
 
@@ -143,4 +146,4 @@ Evidence commit: 76a6c39fcbacb7b969b85766376102b44b61282a, pushed 4d5b8f8dc..76a
 
 ## END
 
-END_DONE w94-0428-249-1812depcmap: prerequisite map done — develop 46d3dccc, demo develop c23bd9ac; consent recognizer ALREADY on develop and run-pinned f23b6e09 (#138/604c0d7 merged) so card-0428-282 is not the Light-gate blocker; primary blocker is the UNAUTHORIZED demo operator-auth harness fix (policy run.sh non-interactive auth + full-destroy cleanup auth, 0428-250 family); #1825 admission confirmed; #171/#1826 affect static/mcp only; next action = rerun #1812 gates (head 47590207, docker then podman) on demo_ref = demo develop tip containing the operator-auth fix; candidate SHA for chain unchanged 47590207518ce9501f1b1bbb115d72d64a206d14
+END_DONE w94-0428-249-1812depcmap: prerequisite map done — develop 46d3dccc, demo develop c23bd9ac; consent recognizer ALREADY merged everywhere relevant (#138/604c0d7) and log-proven to extract+retry, but the consented retry STILL fails closed (reconciliation job 674) — 0428-282 must investigate retry/digest-currency, not the allow-list; separate UNAUTHORIZED blocker: demo operator-auth harness for policy (`run.sh:48` non-interactive `policy check`) + full-destroy cleanup (`acceptance.sh:93` path); #1825 admission confirmed green at 46d3dccc; #171/#1826 affect only static/mcp + release pin; #1812 next action = rerun gates on head 47590207 (docker then podman) with demo_ref = final demo develop tip after consent-retry + operator-auth fixes merge; candidate SHA unchanged 47590207518ce9501f1b1bbb115d72d64a206d14
