@@ -17,7 +17,7 @@ depends_on: [t-20261124-r28-release-candidate-testonly-binary]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812]
 sources: []
-blocker: "Root cause of the 4 failing Docker Light gates is NOT consent (0428-282 disproved/dropped: consented retry ACCEPTED in run 45398943139; failure is LATER). Triaging post-retry failure via card 0428-284 before requalification. #1812 head 475902075 (base was develop 46d3dccc, now advanced to f14fb87c8) will be rebased onto the corrected develop only AFTER 0428-284 names a fix and (if .github/product-contract scope) the owner authorizes it; then Docker then Podman Light gates on exact head."
+blocker: "CONFIRMED cause of the 4 Docker Light fails = OPERATOR-AUTH provisioning (run 45398943139 policy:1085 'requires authenticated BaseHarbor operator'; ZERO consent-refusal lines; target create fails before any consent fixture). NOT consent (0428-282 dropped), NOT #1807 (merged). Same family as card 0428-283 (static/mcp plain build + env contract) which ALSO blocks #1826. Owner: authorize ONE operator-provisioning fix (0428-283 scope: baseharbor .github build tag + demo Light-harness env/target) -> then #1812 rebase onto that develop (GUARD: preserve #1823 cmd/baha/secret_* deny+assertions; branch base pre-#1823) + Docker then Podman Light on exact head. #1812 workflow-only; ci.yml untouched."
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
-    **Blocker:** Root cause of the 4 failing Docker Light gates is NOT consent (0428-282 disproved/dropped: consented retry ACCEPTED in run 45398943139; failure is LATER). Triaging post-retry failure via card 0428-284 before requalification. \#1812 head 475…  
+    **Blocker:** CONFIRMED cause of the 4 Docker Light fails = OPERATOR-AUTH provisioning (run 45398943139 policy:1085 'requires authenticated BaseHarbor operator'; ZERO consent-refusal lines; target create fails before any consent fixture). NOT consent (0…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
