@@ -17,7 +17,7 @@ depends_on: [t-20261124-r28-release-candidate-testonly-binary]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812]
 sources: []
-blocker: "Cause (owner-corrected, raw-log authoritative): target create SUCCEEDS ([acceptance] target: ready), gate RAN; policy's first in-gate failure = 'operator authentication needs interactive setup but input is not a terminal' -> CI operator-auth needs a NON-INTERACTIVE provisioning path. NOT consent (markers exist but retries not confirmed-all-four); NOT #1807 (merged). Per-job authority = w97 (0428-284). Fix mechanism (0428-283 build-tag+env OR w93 trusted-local fallback) is an OWNER decision pending w97. #1812 workflow-only; ci.yml untouched; rebase later must preserve #1823 secret_* fix."
+blocker: "Owner job-API read (authoritative): Hosted run 45432650561 on #1812 head 9140b2cb, all 14 Light jobs executing. FIRST terminal gate failure = Docker policy job 138587494655; its captured original failure includes BOTH candidate consent refusal AND operator-auth 'input is not a terminal' -> reconciles w97(OIDC) vs w101(consent interplay): the policy gate fails on BOTH classes. Hold #1812 merge; let the other 13 jobs reach terminal for complete diagnosis before any fix scope. #1819/#1820 serially parked. develop f14fb87c8."
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
-    **Blocker:** Cause (owner-corrected, raw-log authoritative): target create SUCCEEDS (\[acceptance\] target: ready), gate RAN; policy's first in-gate failure = 'operator authentication needs interactive setup but input is not a terminal' -\> CI operator-au…  
+    **Blocker:** Owner job-API read (authoritative): Hosted run 45432650561 on \#1812 head 9140b2cb, all 14 Light jobs executing. FIRST terminal gate failure = Docker policy job 138587494655; its captured original failure includes BOTH candidate consent ref…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
