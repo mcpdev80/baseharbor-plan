@@ -1,0 +1,37 @@
+---
+id: t-20261124-gate-catalog-baseline-0428-270
+card_number: "0428-275"
+card_short_title: "add #1820-sib catalog rows"
+type: task
+areas: []
+release: v0.4.28
+version: ""
+parent: ""
+owner: ""
+kanban_status: planned
+kanban_lane: ready
+kanban_summary: "0428-270 exact-head CI aborts in Trusted Plan: internal/operatorauth/authorization.go and config.go have no gate-coverage rows (first-ever change to these files). Add both rows to develop pr-gate-coverage.json (owner-scope, #1817 pattern) so 0428-270 can pass."
+kanban_title: "0428-275 · add operatorauth catalog rows to develop"
+priority: ""
+depends_on: []
+repos: [mcpdev80/baseharbor]
+prs: []
+sources: []
+blocker: ""
+wait_reason: ""
+resolution: ""
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45326369749"]
+---
+
+- [ ] t-20261124-gate-catalog-baseline-0428-270 · CI/catalog: add operatorauth rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/planned #view/ready #kind/task
+
+## Goal
+Unblock 0428-270 (PR head 88f5c7f05, w61). Exact-head CI run 45326369749 aborts in 'PR Trusted Plan' with fail-loud 'uncataloged source change' because scripts/pr-gate-plan.py has no gate owner for two files changed here for the first time on develop.
+
+## Required catalog rows (from run 45326369749 Trusted Plan log)
+Add to scripts/pr-gate-coverage.json on develop, surfaces docker + podman data.capabilities:
+- internal/operatorauth/authorization.go (id source.internal_operatorauth_authorization_go)
+- internal/operatorauth/config.go (id source.internal_operatorauth_config_go)
+
+## Ownership / scope
+OWNER/CI scope (scripts/** + gate catalog), separate baseline on develop (#1817; cf. 0428-261/262/273/274). After it lands, w61 rebases 0428-270 + reruns exact-head, then Owner accept+merge.
