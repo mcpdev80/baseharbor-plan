@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w86-0428-277-1823test
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-277 · reveal fail allow
 priority: low
@@ -19,18 +19,19 @@ prs: [mcpdev80/baseharbor#1823]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1823"]
 ---
 
-- [ ] t-20261124-0428-277-reveal-fail-authorizationresult-allow · Bug-Hunt H-V27 intake: reveal failure records AuthorizationResult=allow #task #release/v0-4-28 #status/active #view/active #kind/bug
+- [x] t-20261124-0428-277-reveal-fail-authorizationresult-allow · Bug-Hunt H-V27 intake: reveal failure records AuthorizationResult=allow #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/bug
     <!-- generated:card -->
     **Owner:** w86-0428-277-1823test · **Priority:** low  
     **PR:** [baseharbor#1823](https://github.com/mcpdev80/baseharbor/pull/1823)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1823)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w86-0428-277-1823test  
@@ -67,3 +68,5 @@ CODEX-REVIEW CHANGES RC1: regression used context.Background() (passes under bug
 CODEX verdict RC: regression seeds upstream allow + asserts Subject only; must ALSO seed+assert Assurance and Methods (cmd/baha/secret_audit_test.go:329-373), production unchanged. w86 doing test-only repair on lane-0428-277-revealallow; current head f072dcb not mergeable.
 
 w86 test-only repair DONE: expanded TestAuthorizeHumanRevealFailedRecordsRevealAudit to seed Assurance=loa2 + Methods=[password,webauthn] and assert all three preserved. Production recordRevealForTarget already preserves all three -> NO prod change. Head abec98ea on PR #1823 (OPEN). CI run 45407605826 terminal SUCCESS (PR Selected Checks = integration 15368). Evidence: evidence/r28-welle6-2026-11-25/w86-0428-277-1823test.md. Merge deferred to CODEX after re-review.
+
+MERGED (owner-authorized after green). Rebased exact head 1a2c0d893effca92927d4000722b08f49f89db64, Hosted CI run 45412966378 SUCCESS (incl Docker data-capabilities + PR Selected Checks), PR CLEAN/not-draft/no-open-threads. Squash merge f14fb87c8f5afd91168e4f174d620c9f00e6341e @14:44:38Z. develop=f14fb87c8 (CODEX/owner merge + ls-remote witness). RC (Assurance+Methods assertions) satisfied. #1823 is independent, NOT counted in the #1812->#1819->#1820 chain.
