@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w92-0428-282-democonsent
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: ""
 kanban_title: 0428-282 · demo consent recognizer
 priority: high
@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor-demo]
 prs: []
 sources: []
-blocker: ""
+blocker: "Premise DISPROVED: the doubly-nested demo consent recognizer + regression are ALREADY MERGED on demo develop c23bd9a (PR #169) and present in demo_ref f23b6e09 used by failing run 45398943139 -> a tests/fixture-consent.py PR would be an empty diff. The real cause of #1812's 4 Docker Light 'missing explicit --confirm-candidate' failures is being located (w92 read-only tracing the RUNTIME Light-gate harness: does it wrap baha up under run_consented / pass the digest). Owner decision pending on a correctly-scoped card once the true file:line is proven. #1812 stays blocked."
 wait_reason: ""
 resolution: ""
 evidence:
@@ -25,14 +25,15 @@ evidence:
   - https://github.com/mcpdev80/baseharbor/actions/runs/45398943139
 ---
 
-- [ ] t-20261125-0428-282-demo-consent-recognizer-nested · demo consent recognizer nested #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
+- [ ] t-20261125-0428-282-demo-consent-recognizer-nested · demo consent recognizer nested #task #release/v0-4-28 #status/blocked #view/blocked #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** w92-0428-282-democonsent · **Priority:** high  
+    **Blocker:** Premise DISPROVED: the doubly-nested demo consent recognizer + regression are ALREADY MERGED on demo develop c23bd9a (PR \#169) and present in demo\_ref f23b6e09 used by failing run 45398943139 -\> a tests/fixture-consent.py PR would be an em…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-25/0428-281-consent/diagnosis.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w92-0428-282-democonsent  
