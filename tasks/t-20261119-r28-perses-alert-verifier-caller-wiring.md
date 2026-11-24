@@ -9,8 +9,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w53-0428-152-alertfix
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 blocker: ""
 wait_reason: ""
 depends_on: [t-20261119-r28-perses-status-backend-witness]
@@ -18,21 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1816]
 sources: []
 source_note: "befund aus der unabhaengigen review und der korrekturrunde von karte 0428-073 (PR #1704), fundstelle von MIR am develop 28fb427f nachgemessen; akte evidence/r28-welle4-2026-11-19/codex-review-wave/1704-0428-073.md P6"
-evidence:
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-review-wave/1704-0428-073.md", "https://github.com/mcpdev80/baseharbor/commit/cd2fcda7e6704781ee59a9b4c25a38afbd09560e"]
   - "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-review-wave/1704-0428-073.md"
-resolution: ""
+resolution: accepted
 created: 2026-11-19
 ---
 
-- [ ] t-20261119-r28-perses-alert-verifier-caller-wiring · alert-verifier haengt in der luft #task #release/v0-4-28 #status/review #view/review #area/cli #area/metrics #area/observability #kind/task
+- [x] t-20261119-r28-perses-alert-verifier-caller-wiring · alert-verifier haengt in der luft #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/cli #area/metrics #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w53-0428-152-alertfix  
     **PR:** [baseharbor#1816](https://github.com/mcpdev80/baseharbor/pull/1816)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-review-wave/1704-0428-073.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-review-wave/1704-0428-073.md), [proof 2](https://github.com/mcpdev80/baseharbor/commit/cd2fcda7e6704781ee59a9b4c25a38afbd09560e), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-19/codex-review-wave/1704-0428-073.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261119-r28-perses-status-backend-witness](t-20261119-r28-perses-status-backend-witness.md)  
 **Owner:** w53-0428-152-alertfix  
@@ -103,3 +103,5 @@ New head 916dccc8 (w53 pushed after rotation). run 45298447080 cli-1: FIX1 over-
 w53 delivered: heads 4bfa655ef/a80dd26aa/c1bc8d417 landed both fixes (state machine derives from ONE BuildPersesAlertEvaluator call; unselected keeps the verifier reason verbatim; selected+contract reaches configured_unverified; test seeds the authenticated operator via testOperatorContext). Exact-head run 45301502234 GREEN at c1bc8d417 (cli-0/cli-1/cli-2/cli-3 all pass). Develop refresh (#1809 -> 840c4a6b): branch rebased, head 422e1f76f, exact-head run 45304549358 completed/success with "PR Selected Checks" pass and the docker data-capabilities runtime gate pass. PR #1816 OPEN, not merged (Merge-Frost). Evidence: evidence/r28-welle4-2026-11-19/0428-152-alertverifier-caller/w53-alertfix.md.
 
 GREEN exact-head candidate: head 422e1f76 rebased onto develop 840c4a6b; run 45304549358 completed/success, PR Selected Checks + cli-0/1/2/3 pass (both state-machine fixes landed: unapplied->not configured; status test authenticated-operator context). Evidence origin/main 08c92a22f. Ready for Owner exact-diff acceptance; merge held (frost + acceptance channel). No Codex contact.
+
+Owner merged cd2fcda7 (exact-diff accepted). Real 3-state alert-evaluator observation on reportPersesSurfaceStatus delivered.
