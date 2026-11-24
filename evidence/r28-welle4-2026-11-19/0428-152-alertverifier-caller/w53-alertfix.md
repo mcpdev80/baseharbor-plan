@@ -144,9 +144,14 @@ The tests live in cmd/baha/app_status_perses_alert_evaluator_0428_152_test.go an
 
 ## cleanliness
 
-- No containers, networks, volumes or compose projects started by this lane on the coordinator host or any SSH host.
-- Worktree: /home/marcel/dev/baseharbor-ecosystem/workers/w53-0428-152-alertfix-wt
-- The prior w41 worktree was removed and the branch checked out here; no second branch exists.
+- No containers, networks, volumes or compose projects were started by this lane on the coordinator host or any SSH host; `docker ps -a` on this host at END lists zero entries (no test-eigenes stack present).
+- Worktree: /home/marcel/dev/baseharbor-ecosystem/workers/w53-0428-152-alertfix-wt (single branch lane-0428-152-alertverifier-caller; no second branch — an empty witness branch was created and deleted with before/after ls-remote witnesses above).
+- The prior w41 worktree was removed and the branch checked out here.
+
+## Evidence on origin/main (delivery witness)
+
+    $ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep w53-alertfix
+    evidence/r28-welle4-2026-11-19/0428-152-alertverifier-caller/w53-alertfix.md
 
 ## repo-rule compliance
 
