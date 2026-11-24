@@ -102,3 +102,5 @@ Reconciled head 41acb5f8 (run 45289726632 jobs green, workflow in_progress): fin
 Reveal-timing fix LANDED c92182b0 (success recorded AFTER env read/parse; recordRevealFailed on failure + post-auth read-failure regression — verified). Run 45292500773 terminal FAILURE is ONLY Trusted Plan: catalog missing source.cmd_baha_environment_operations_go (cmd/baha/environment_operations.go, data.capabilities) -> folded into catalog PR #1817 (7th row, w51). After #1817 merges to develop + #1809 rebases, exact-head Trusted Plan/selected must go green. Findings A/B/C resolved pending CI-green. No merge; no Codex.
 
 9a0419b4 near-green (22 pass/1 pending, MERGEABLE) but base lags develop 951014e9 (same stale-base merge-block as #1815). Routed w058: rebase onto 951014e9 + exact-head Hosted rerun so PR Selected Checks runs on current base. A/B/C fixes preserved. PR open; no merge; no Codex. Idle END acked.
+
+9a0419b4 green run 45298000296 but merge BLOCKED: base stale 6df6807 vs develop 951014e9 -> required 'PR Selected Checks' missing. Routed w058: rebase onto 951014e9 + exact-head rerun (no force/bypass). A/B/C preserved. PR open; no merge; no Codex.
