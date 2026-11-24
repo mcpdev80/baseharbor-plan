@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: Codex (w118-0428-265)
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: Make the configured verdict of PersesBackendWitness reachable through real observation instead of a hard-coded empty witness.…
 kanban_title: 0428-265 · backend witness never proven
 priority: ""
@@ -17,19 +17,20 @@ depends_on: [t-20261119-r28-perses-status-backend-witness]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: ""
+blocker: "Hosted CI selection has no read-only status mapping for cmd/baha/perses_lifecycle.go or cmd/baha/app_status_result.go; scripts/pr-gate-plan.py:1421 routes them to unresolved CLI runtime impact. Mission requires stopping before scripts/** changes."
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261124-r28-perses-witness-producer-cli · PersesBackendSignalWitness is passed as a zero-value literal at every CLI call site, so the configured verdict is unreachable on every status surface. #task #release/v0-4-28 #status/active #view/active #area/cli #area/metrics #area/observability #kind/bug
+- [ ] t-20261124-r28-perses-witness-producer-cli · PersesBackendSignalWitness is passed as a zero-value literal at every CLI call site, so the configured verdict is unreachable on every status surface. #task #release/v0-4-28 #status/blocked #view/blocked #area/cli #area/metrics #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** Codex (w118-0428-265)  
+    **Blocker:** Hosted CI selection has no read-only status mapping for cmd/baha/perses\_lifecycle.go or cmd/baha/app\_status\_result.go; scripts/pr-gate-plan.py:1421 routes them to unresolved CLI runtime impact. Mission requires stopping before scripts/\*\* c…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261119-r28-perses-status-backend-witness](t-20261119-r28-perses-status-backend-witness.md)  
 **Required by:** [t-20261124-r28-app-status-unauthorized-live-probe](t-20261124-r28-app-status-unauthorized-live-probe.md), [t-20261124-r28-perses-state-spelling-drift](t-20261124-r28-perses-state-spelling-drift.md)  
@@ -67,3 +68,8 @@ Make the `configured` verdict of `PersesBackendWitness` reachable through real o
 - F4 and F5 verified real on develop 3ebfb90d (see goal); the zero-value literal is the only witness any call site passes.
 - Sequel to 0428-142 (`perses status` backend witness, accepted): the shape landed there, this card lands the producer. The 0428-143 comment the dossier called stale is NOT this card's scope (that card closed accepted as #1729, Verification=none semantics); its witness deferral is resolved here.
 - Probe unification is card [0428-263](t-20261124-r28-perses-backend-status-real-probe.md); use whichever probe path it fixes.
+
+
+## Handoff
+
+Claimed by Codex (w118-0428-265) and published as Planning commit ac53222e9. No product files changed. The current selector treats the status source paths as unresolved CLI runtime impact (`scripts/pr-gate-plan.py:1421`), so satisfying the mission CI-routing requirement with existing hosted Go checks requires a `scripts/**` change. The mission explicitly requires STOP+QUESTION in that case. Waiting for the Owner decision on whether to add an exact status-only mapping to existing checks.
