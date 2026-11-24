@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w54-0428-181-export
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-181 · identity catalog consumer
 priority: ""
@@ -17,22 +17,21 @@ depends_on: [t-20261114-r28-perses-datasources]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1819]
 sources: []
-blocker: "EXACT-DIFF REVIEW finding (w54): perses_dashboard_provision.go:353 queries identity_selection_confirmed WITHOUT target/application/environment selectors; the exact series appears only at that line across develop/#1818/#1819 with NO producer in those trees; the positive test calls writePersesDashboardProjection DIRECTLY, bypassing the production eligibility filter + witness. So current #1819 is NOT secure-by-design / not target-bound. Secure+functional acceptance requires: (a) a REAL target-bound signal/query at :353, (b) an end-to-end test through persesDashboardProvisionForLifecycle (not a direct-projection bypass). Plus OWNER RULING on target binding. #1819 stays DRAFT; run 45313892257 ran Draft Go shards only, required+selected checks skipped. No scope change / no ready-for-review until owner direction + actual source/target evidence. Coordinator recommendation: rule TARGET-BOUND (fail-closed design; otherwise identity dashboard shows regardless of target eligibility = forgeable, matches H-V25 F4/F5 witness gap)."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r7.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-24/w54-0428-181-export/0428-181-evidence.md"]
 ---
 
-- [ ] t-20261120-r28-identity-dashboard-catalog-consumer · Identity dashboard catalog has zero production consumers (P4 of review 1650) #task #release/v0-4-28 #status/blocked #view/blocked #kind/bug
+- [ ] t-20261120-r28-identity-dashboard-catalog-consumer · Identity dashboard catalog has zero production consumers (P4 of review 1650) #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
     **Owner:** w54-0428-181-export  
     **PR:** [baseharbor#1819](https://github.com/mcpdev80/baseharbor/pull/1819)  
-    **Blocker:** EXACT-DIFF REVIEW finding (w54): perses\_dashboard\_provision.go:353 queries identity\_selection\_confirmed WITHOUT target/application/environment selectors; the exact series appears only at that line across develop/\#1818/\#1819 with NO produce…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r7.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-24/w54-0428-181-export/0428-181-evidence.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
 **Owner:** w54-0428-181-export  
@@ -78,3 +77,5 @@ Dep-free now (#1810 probe merged 951014e9; 0428-083 on develop). w54 dispatched:
 Design decision made (contract silent on export target): Option 1 — provisioning/dashboards/ under providers/management-ui/perses (mirrors globaldatasource/), registered via config.yaml file provider so Perses LOADS them; gated by #1810 PersesBackendAnswersStatusNow + identity witness. Option 2 rejected (Owner Option-A = real delivery, not status-only). Write-set constrained vs #1650/w078. Documented in evidence for Owner/CODEX review. exact-head Hosted; no merge; no Codex.
 
 Owner keeps PR open; coordinator books accepted/closed only on owner exact-diff accept+merge. Target-bound ruling is the linchpin for #1819 + #1818.
+
+TARGET-BOUND RESOLVED (owner question ruled target-bound, secure-by-design; matches coordinator recommendation). Head 69f76b94: exact canonical Keycloak source selector + documented http_server_requests_seconds_count, REAL production eligibility path + fail-closed witness regression (replaces :353 unqualified query + direct-projection bypass). Next: lane marks PR ready -> full hosted checks. Once green -> Owner exact-diff accept+merge #1819 (producer), THEN #1818 (consumer) dependency satisfied. No merge (frost).

@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1717", "https://github.c
 **State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-uid-environment](t-20261114-r28-cli2-uid-environment.md)  
-**Required by:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
+**Required by:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md), [t-20261124-r28-trusted-local-failopen-seam-dead](t-20261124-r28-trusted-local-failopen-seam-dead.md)  
 **Owner:** Codex (Marcel assigned)  
 **Priority:** high  
 **PRs:** [baseharbor#1717](https://github.com/mcpdev80/baseharbor/pull/1717)  

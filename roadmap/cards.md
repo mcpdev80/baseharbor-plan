@@ -16,8 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 195/285 · **Blocked:** 2 · **Waiting:** 23  
-    **Blocker:** [t-20261120-r28-identity-dashboard-catalog-consumer](../tasks/t-20261120-r28-identity-dashboard-catalog-consumer.md) — EXACT-DIFF REVIEW finding (w54): perses\_dashboard\_provision.go:353 queries identity\_selection\_confirmed WITHOUT target/application/environment selectors; the e…  
+    **Accepted tasks:** 195/285 · **Blocked:** 1 · **Waiting:** 23  
     **Blocker:** [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) — Hunt H-V26 F1 PINS the root cause with file:line: baha-ci-operator-testonly is NEVER built in the release/candidate artifact workflow (pre-release.yml 0 hits)…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
