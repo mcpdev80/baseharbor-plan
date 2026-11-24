@@ -47,11 +47,60 @@ Per mission + w85 diagnosis (evidence/r28-welle6-2026-11-25/0428-281-consent/dia
 - The recognizer raises and never extracts the 64-hex digest from error['next'], so run_consented never re-invokes with --confirm-candidate -> the v0.4.28 Docker Light gates fail closed.
 - Product path is CORRECT (#1807 merged, 7b45db92, ancestor of develop 46d3dccc). NO baseharbor product change warranted. Write-set is ONLY baseharbor-demo tests/fixture-consent.py + its regression test.
 
-## cleanliness
+### FINDING — CONFLICT WITH CARD PREMISE (blocks implementation)
 
-Baseline before any work, on the session host (pid TODO): `docker ps -a -q | wc -l` → TODO.
+I could NOT proceed to edit because the card's premise is contradicted by current source:
 
-TODO — fill before END.
+1. The exact doubly-nested refusal string the product emits (verified in baseharbor develop `46d3dccc` at `cmd/baha/deployment_record.go:369-371` and `cmd/baha/app_candidate_consent.go:160`, wrapped by `cmd/baha/app_apply.go:204`) is:
+   ```
+   record deployment before mutation: candidate submission requires an explicit operator/automation consent (--confirm-candidate); refusing to record deployment state: candidate submission requires an explicit operator/automation consent (--confirm-candidate); refusing to record deployment state
+   ```
+   i.e. `wrapped_message + ": " + direct_message` = the fixture's `nested_wrapped_message`.
+
+2. The demo develop HEAD (`c23bd9ac58919302ffad3a43f43afb1a34bfbc96`, base of THIS card's requested branch) ALREADY contains the full fix in `tests/fixture-consent.py`:
+   - `nested_wrapped_message` recognized (line matching the exact doubly-nested product string).
+   - digest extracted via `[0-9a-f]{64}` regex.
+   - fail-closed / stale-rejection preserved (unchanged).
+   - the file was created fresh at `c23bd9a` (PR #169, merged 2026-11-22) — before the failing run.
+
+3. The EXACT demo_ref used by the failing run 45398943139 (`demo_ref: f23b6e09be34601ba542a3087e19b80764a4165d`, merge of PR #163, 2026-11-16) ALREADY contains `nested_wrapped_message` in its `tests/fixture-consent.py`. So the fixture that fed the "failing" gates was already the fixed version.
+
+4. The regression test `tests/test_fixture_consent.py` at develop HEAD `c23bd9a` ALREADY asserts the nested form (line 242: `nested["error"]["message"] = "record deployment before mutation: " + direct + ": " + direct`) plus fail-closed/digest-exactness (lines 234-267).
+
+CONSEQUENCE: the write-set the card asks me to create ("recognizer matches doubly-nested + extract digest + retry once + regression test") is ALREADY present and merged on demo develop. There is no unfixed gap in the two files. Opening the card's PR against demo develop would therefore be an empty diff. This is exactly the kind of "product path already correct" situation that w85 flagged and the card's own acceptance implies must be reconciled with the owner before editing.
+
+I did NOT edit either file, did NOT cut a branch, did NOT open a PR. Standing by for an owner scope decision (see QUESTION line posted to coordinator).
+
+## CLEANLINESS
+
+Session host (pid unknown at this turn): `docker ps -a -q` → `0` containers. No container, compose
+project, network or volume was started by this lane. No local product test executed (Hosted-only
+rule respected: only git, gh read-only queries, curl against the GitHub API, and a read-only
+shallow clone under /tmp/opencode/w92-0428-282-democonsent/). No demo compose project was launched
+(Hosted-only: no containers on the coordinator host).
+
+Scratch zone: /tmp/opencode/w92-0428-282-democonsent/ (a blob-only clone of baseharbor-demo at
+demo develop HEAD c23bd9ac, used for read-only inspection only).
+
+## repo-rule compliance (so far)
+
+- Hosted-only: zero local test execution on the coordinator host. Compliant.
+- Workflow scope: no .github/** edits; no reruns or workflow_dispatch. Compliant.
+- One candidate per chain / no product branch: no branch cut, no PR opened (pending scope decision).
+- No subagents (AGENTS 4.8). Compliant.
+- Evidence lives only in baseharbor-plan under evidence/; nothing added to a product repo. Compliant.
+- Write-set untouched: neither baseharbor-demo file was modified. Compliant.
+- Reality witnesses taken only via git ls-remote / gh API. Compliant.
+
+## BLOCK STATUS
+
+Lane is BLOCKED pending an Owner scope decision (QUESTION posted to coordinator, ticket
+00d66002). Rationale: the card's write-set (demo tests/fixture-consent.py double-nested recognizer +
+digest extraction + regression test) is ALREADY MERGED on demo develop HEAD c23bd9a (PR #169,
+2026-11-22) and was ALREADY present in the exact demo_ref f23b6e09 that fed failing run
+45398943139 (2026-11-24T13:00Z). Opening the card's PR against demo develop is therefore an empty
+diff. No branch cut, no PR, no product edit, no local test. See ## diagnosis FINDINGS for the full
+witness set.
 
 ## repo-rule compliance
 
