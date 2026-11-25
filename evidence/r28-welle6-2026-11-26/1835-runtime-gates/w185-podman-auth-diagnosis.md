@@ -97,5 +97,11 @@ Consent-neutrality proof: the managed-environment operator-auth seam (`authoriza
 | [45611866489](https://github.com/mcpdev80/baseharbor/actions/runs/45611866489) | `72fc60a92`; podman | `failure`; same probe | Diagnosed auth/setup gap (runner lacks provisioned operator) |
 | [45608237959](https://github.com/mcpdev80/baseharbor/actions/runs/45608237959) | `2a141387d`; podman | `success`; same probe | Same probe PASSES when runner has an operator — proves code path correct, failure is runner state |
 
+## END status
+- END_BLOCKED: sequencing hold awaiting owner GO after #1842 merges. No further rebase/push now.
+- Candidate on record: `736750fb06e4c9a2cff22479756f6421cfb123a8` (one fleet-refresh, base `384d857b5`); PR #1835 head.
+- Pending after GO: ONE rebase onto then-current develop, fresh exact-head docker+podman evidence (two distinct full PR-run IDs), then w136/w182 review queue.
+- Evidence committed to baseharbor-plan and pushed to origin/main: `evidence/r28-welle6-2026-11-26/1835-runtime-gates/w185-podman-auth-diagnosis.md`.
+
 ## Cleanliness
 One rebased candidate branch pushed (fleet refresh): remote + PR #1835 head `736750fb06e4c9a2cff22479756f6421cfb123a8` on branch `lane-0428-287-install-reset-recovery`. No product write by this lane's rebase (only rebase-resolved shared file), no `.github/**` edit, no runner/runner-infra change, no containers/compose started. No `bh-*` stacks touched. No local containers/networks/volumes created. `docker ps -a` shows no lane-owned stack. HOLD active: no further rebase/push until owner GO after #1842.
