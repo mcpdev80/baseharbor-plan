@@ -34,5 +34,5 @@ The independent scope review is clean, but acceptance is blocked by two contract
 
 Actionable remedy: run a second full PR validation on the unchanged exact head through the supported Hosted CI route and preserve its distinct run ID and terminal `PR Selected Checks` success; do not count the cancelled run or the earlier `9f7da6d4` run. Reconcile the 40-row contract against the source inventory by identifying and repairing the two omitted rows within the docs-only scope, or have the task owner/coordinator correct the authoritative card and evidence count if the itemized 38-row inventory is complete. Hand the resulting exact candidate back for re-review. Stop condition: no merge until both conditions are evidenced.
 
-A PR comment with this verdict and recipe is to be posted after this akte is published. No merge, PR-head change, CI rerun, workflow edit, or code edit was performed by this reviewer.
+PR comment posted: https://github.com/mcpdev80/baseharbor/pull/1843#issuecomment-7162105566. Final live API read still showed the PR OPEN on exact head `7e1fc3a57dcd615f9d286b67393cae9a02763c81`, mergeable state `clean`. No merge, PR-head change, CI rerun, workflow edit, or code edit was performed by this reviewer.
 evidence/board-2026-11-27/w182-codex-1843-review.md
