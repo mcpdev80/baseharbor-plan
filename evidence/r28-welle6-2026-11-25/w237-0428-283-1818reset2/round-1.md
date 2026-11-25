@@ -114,10 +114,12 @@ No commit, no amend: gate not exercised because zero writes were authorized.
 
 ## Evidence delivery witness
 
-Published from isolated worktree `workers/w237-1818reset2-plan` (cut from origin/main), pushed to main branch via normal push; second-to-last action output (verbatim):
+Published from isolated worktree `workers/w237-1818reset2-plan` (cut from origin/main `261667467`), commit `81798b947` (author gate `git show -s --format=%an HEAD` = `w237-0428-283-1818reset2`), normal push `261667467..81798b947 HEAD -> main`; second-to-last action output (verbatim):
 
-    $ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle6-2026-11-25/w237-0428-283-1818reset2
-    (pasted below after push)
+    $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle6-2026-11-25/w237-0428-283-1818reset2
+    From https://github.com/mcpdev80/baseharbor-plan
+     * branch                main       -> FETCH_HEAD
+    evidence/r28-welle6-2026-11-25/w237-0428-283-1818reset2/round-1.md
 
 ## Status
 
