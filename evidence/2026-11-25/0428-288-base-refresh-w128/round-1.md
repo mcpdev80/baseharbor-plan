@@ -33,10 +33,12 @@ terminal on the new exact head, two IDs, HANDOFF (no merge by this lane).
   session) deliberately NOT committed.
 - Run A: 45513816046 attempt 1 (CI · Source & Quality, pull_request on a7b0a4804) — SUCCESS,
   watched to terminal by this lane (all required jobs green incl. PR · Selected Runtime
-  atomic/docker/data-capabilities native gate).
-- Run B (second exact-head ID): 45513816046 attempt 2 — independent rerun of the required
-  workflow on the same exact head (no new push; required workflow exposes workflow_dispatch,
-  rerun used per precedent #1837). Terminal state recorded below on completion.
+  atomic/docker/data-capabilities native gate). URL:
+  https://github.com/mcpdev80/baseharbor/actions/runs/45513816046/attempts/1
+- Run B: no second distinct Run-ID exists on this head (verified exhaustively: run list by
+  branch, by commit+workflow, and the a7b0a4804 check-run API all return exactly
+  45513816046). The rerun I launched is attempt 2 of the same Run-ID, now watched to TOP-LEVEL
+  terminal (state recorded below).
 - Previous-head history (context, not this candidate's evidence): b9d312bce run 45510613765
   SUCCESS; older heads 4064a6317/92d3267eb/392649532/9e6b2957f failed pre-catalog runs.
 
