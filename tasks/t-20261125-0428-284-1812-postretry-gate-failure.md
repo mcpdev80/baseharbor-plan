@@ -7,7 +7,7 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: w115-0428-284-testcert
+owner: w177-0428-284-demo-pin-1812
 kanban_status: review
 kanban_lane: review
 kanban_summary: ""
