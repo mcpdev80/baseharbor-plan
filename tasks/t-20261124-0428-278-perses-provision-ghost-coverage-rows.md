@@ -47,10 +47,17 @@ evidence:
 - Consequence: #1822 (6-row baseline) currently carries TWO ghost rows (perses_dashboard_provision.go + _test.go) that own no gate until #1819 (which adds those files) merges. A typo'd or stale path would likewise be tolerated instead of failing loud.
 - Severity: Low. The rows are intended forward-registration for the stacked #1819 producer; they become live on #1819 merge. Risk is the silent-tolerance of a wrong/missing path.
 
-## Acceptance (owner-scope; no worker may edit scripts/**)
+## Owner decision — 2026-11-25
 
-- Decide: either (a) confirm forward-registration is intended and add a one-line comment tying the two rows to card 0428-181/#1819, or (b) add a fail-loud guard in scripts/pr-gate-plan.py that errors when a declared row's source file is absent from the candidate tree.
-- This card resolves when #1819 merges (rows go live) IF option (a) is chosen; option (b) needs a scripts/** PR by the owner.
+Choose the fail-loud behavior. The planner must report a clear error when a coverage row points to a source absent from the candidate tree; it must not silently absorb a missing/typoed path into a parent gate. Forward registration is valid only when the declared source is present in the same candidate and its intended gate is selected.
+
+## Acceptance
+
+- Add the candidate-tree presence guard in `scripts/pr-gate-plan.py` and cover missing and present source rows.
+- The missing source case fails with the path and source ID; the present source case selects its declared gate.
+- Use the existing Trusted Plan and selected-check workflows; no new pipeline or self-hosted runner.
+- Prove positive selection for a relevant source change and that unrelated changes do not select unnecessary native gates.
+- Record exact candidate SHA, test, selected gate, trigger, and actual run.
 
 ## Handoff
 
