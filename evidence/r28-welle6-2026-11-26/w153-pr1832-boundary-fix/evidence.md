@@ -207,4 +207,9 @@ workers/w153-pr1832-boundary-wt.
 this candidate; this round's commit touches only the first two product files plus the two new
 test files — see `git log --oneline origin/lane-0428-290-metrics-discovery..HEAD` above.)
 
+Evidence-on-origin/main witness (second-to-last action):
+
+    git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep w153-pr1832-boundary-fix
+    evidence/r28-welle6-2026-11-26/w153-pr1832-boundary-fix/evidence.md
+
 END_BLOCKED w153-0428-290-pr1832-boundary-fix: candidate 813ef8991 pushed, all 4 native gates green on exact head, but Trusted Plan fails only on the uncataloged new test files; scripts/pr-gate-coverage.json rows must land on develop (outside this card write-set), then this lane rebases and re-qualifies.
