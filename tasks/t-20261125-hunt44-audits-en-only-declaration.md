@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w183-0428-audits-enonly
+owner: w183-0428-320-0428-audits-enonly
 kanban_status: active
 kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
@@ -25,14 +25,14 @@ evidence: []
 
 - [ ] t-20261125-hunt44-audits-en-only-declaration · 0428 hunt H-V44: declare internal-audits tree EN-only in STYLE_GUIDE (parity scope) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w183-0428-audits-enonly  
+    **Owner:** w183-0428-320-0428-audits-enonly  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w183-0428-audits-enonly  
+**Owner:** w183-0428-320-0428-audits-enonly  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 19 |
+| active | 20 |
 | review | 4 |
 | wait | 10 |
 | blocked | 2 |
-| ready | 32 |
+| ready | 31 |
 | queued | 25 |
 | waiting | 180 |
 | backlog | 7 |
@@ -42,6 +42,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) | CI/catalog: add #1820 source row to develop pr-gate-coverage.json | active | not set | w65-0428-269-batchbaseline | — | — |
 | [t-20261124-r28-broker-build-identity-commit](../tasks/t-20261124-r28-broker-build-identity-commit.md) | verifyRuntimeBrokerBuildIdentity discards both commit SHAs, so a runtime broker at the wrong commit passes readiness whenever the semver matches. | active | normal | w69-0428-271-brokerid2 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) (open) | [baseharbor#1820](https://github.com/mcpdev80/baseharbor/pull/1820) |
 | [t-20261125-0428-284-1812-postretry-gate-failure](../tasks/t-20261125-0428-284-1812-postretry-gate-failure.md) | #1812 post-retry gate failure | active | high | w177-0428-284-demo-pin-1812 | — | [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174) |
+| [t-20261125-hunt44-audits-en-only-declaration](../tasks/t-20261125-hunt44-audits-en-only-declaration.md) | 0428 hunt H-V44: declare internal-audits tree EN-only in STYLE_GUIDE (parity scope) | active | not set | w183-0428-320-0428-audits-enonly | — | — |
 | [t-20261125-hunt44-doclink-repair-sweep](../tasks/t-20261125-hunt44-doclink-repair-sweep.md) | 0428 hunt H-V44: repair broken docs cross-references (40 rows) | active | not set | w181-0428-doclink-sweep | — | — |
 
 ## Ready for review
@@ -110,7 +111,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261125-hunt43-docker-path-config](../tasks/t-20261125-hunt43-docker-path-config.md) | 0428 hunt H-V43: hunt43-docker-path-config | ready | not set | — | — | — |
 | [t-20261125-hunt43-env-leak-disk](../tasks/t-20261125-hunt43-env-leak-disk.md) | 0428 hunt H-V43: hunt43-env-leak-disk | ready | not set | — | — | — |
 | [t-20261125-hunt43-low-severity-pair](../tasks/t-20261125-hunt43-low-severity-pair.md) | 0428 hunt H-V43: hunt43-low-severity-pair | ready | not set | — | — | — |
-| [t-20261125-hunt44-audits-en-only-declaration](../tasks/t-20261125-hunt44-audits-en-only-declaration.md) | 0428 hunt H-V44: declare internal-audits tree EN-only in STYLE_GUIDE (parity scope) | ready | not set | — | — | — |
 
 ## By release
 
