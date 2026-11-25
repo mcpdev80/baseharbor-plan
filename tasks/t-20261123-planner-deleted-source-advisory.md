@@ -76,3 +76,5 @@ The candidate-added validation lane treats a DELETED product source with a remov
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+
+Erste zwei Übernahmen als gekürzte Identität der eigenen Bahn übernommen (w205 ≙ w205-0428-253), Eigentümer-Erkenntnis 25.11., keine Umschreibung.
