@@ -16,10 +16,10 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 202/317 · **Blocked:** 5 · **Waiting:** 23  
-    **Blocker:** [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) — PR \#1650 qualification depends on integration of PR \#1818 (adds identityDashboardBackendEligible + withIdentityDashboardStatus; \#1818 waits \#1819 \<- \#1812). Re…  
+    **Accepted tasks:** 202/317 · **Blocked:** 4 · **Waiting:** 23  
     **Blocker:** [t-20261121-candidate-commit-identity](../tasks/t-20261121-candidate-commit-identity.md) — Owner decision required: deterministic lane identity must be injected in coordinator/scripts/dispatch-lane.sh:41-44; mission requires STOP + QUESTION for scrip…  
-    Plus 3 further blockers in the task list.  
+    **Blocker:** [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) — catalog PR IN FLIGHT (owner YES 2026-11-26; worker w128; 14 Light IDs required\_for v0.4.28 only + minimal test expectation; \#1812 stays workflow-only) — see Ha…  
+    Plus 2 further blockers in the task list.  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next

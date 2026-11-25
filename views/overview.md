@@ -10,10 +10,10 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 16 |
+| active | 17 |
 | review | 5 |
 | wait | 10 |
-| blocked | 5 |
+| blocked | 4 |
 | ready | 18 |
 | queued | 25 |
 | waiting | 180 |
@@ -27,6 +27,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | active | normal | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261018-r27-team-proof](../tasks/t-20261018-r27-team-proof.md) | Acceptance: prove two workstations share one authoritative deployment | active | normal | worker-059-teamproof | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-maintenance-client](../tasks/t-20261018-r27-maintenance-client.md), [t-20261018-r27-public-surfaces](../tasks/t-20261018-r27-public-surfaces.md), [t-20261018-r27-stage-versions](../tasks/t-20261018-r27-stage-versions.md), [t-20261018-r27-state-recovery](../tasks/t-20261018-r27-state-recovery.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
 | [t-20261114-r28-cli2-audit-events](../tasks/t-20261114-r28-cli2-audit-events.md) | CLI redesign: Audit secret and environment actions | active | high | w058-0428-058-hop | [t-20261114-r28-cli2-env-delete](../tasks/t-20261114-r28-cli2-env-delete.md), [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md), [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) | [baseharbor#1809](https://github.com/mcpdev80/baseharbor/pull/1809) |
+| [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) | Perses identity dashboard | active | normal | w165-0428-078-pr1650-basehop | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650), [baseharbor#1818](https://github.com/mcpdev80/baseharbor/pull/1818) |
 | [t-20261116-r28-bug-compose-service-ids](../tasks/t-20261116-r28-bug-compose-service-ids.md) | Preserve Compose service IDs | active | high | w147-0428-288-pr1833-fix | — | [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833) |
 | [t-20261116-r28-bug-destroy-diagnostics](../tasks/t-20261116-r28-bug-destroy-diagnostics.md) | Explain destroy owner failures | active | normal | w127-0428-293-destroy-diag | — | — |
 | [t-20261116-r28-bug-failed-apply-destroy](../tasks/t-20261116-r28-bug-failed-apply-destroy.md) | Recover failed apply destroy | active | critical | w128-0428-286-apply-destroy | — | [baseharbor#1834](https://github.com/mcpdev80/baseharbor/pull/1834) |
@@ -70,7 +71,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) | Perses identity dashboard | blocked | normal | w165-0428-078-pr1650-basehop | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650), [baseharbor#1818](https://github.com/mcpdev80/baseharbor/pull/1818) |
 | [t-20261121-candidate-commit-identity](../tasks/t-20261121-candidate-commit-identity.md) | Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) | blocked | not set | w119 | — | — |
 | [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) | Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) | blocked | high | — | [t-20261124-r28-release-candidate-testonly-binary](../tasks/t-20261124-r28-release-candidate-testonly-binary.md) | [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812), [baseharbor#1837](https://github.com/mcpdev80/baseharbor/pull/1837) |
 | [t-20261124-0428-279-mcp-contract-app-pull-unexpected](../tasks/t-20261124-0428-279-mcp-contract-app-pull-unexpected.md) | MCP contract drift: app.pull | blocked | normal | w80-0428-279-mcpcontract | — | [baseharbor#1826](https://github.com/mcpdev80/baseharbor/pull/1826) |
