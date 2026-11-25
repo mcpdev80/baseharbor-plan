@@ -14,7 +14,7 @@ This is a repository integrity repair and evidence relocation; it creates no tas
 
 ## Source and base witnesses
 
-Planning remote verified before worktree creation: `origin https://github.com/mcpdev80/baseharbor-plan.git` (fetch and push). Fresh fetched base at worktree creation: `bc4689919f2cf8a1c7fdd7ddc817b39c14495fde` (`origin/main`). Before the first commit, live `main` advanced to `4ad5606273cba90b0c27aaeaf33c003124f067f8`; the branch will integrate that newer main before publication. The source root file at `b21824438` is w243's #1853 rundown; its blob is `e5736dfa23a769a6e86845584601d6e32b057bd3`, identical to the root blob on fresh main. The w228 H-V59 content is preserved in `272baad4384335f0a6d2501b48db39fdf75ee5b8^:akte.md`; its blob is `ad302f2a24f4a8d1e4ba1a1e0d0916acc6e7d395`. `git branch -r --contains 272baad43` returned no branches and `git merge-base --is-ancestor 272baad43 origin/main` failed: the rename commit is not on live main. The intended w228 path `evidence/w228-0428-216-huntv59/akte.md` was absent on main before repair. Both requested target paths were absent on the fresh base.
+Planning remote verified before worktree creation: `origin https://github.com/mcpdev80/baseharbor-plan.git` (fetch and push). Fresh fetched base at worktree creation: `bc4689919f2cf8a1c7fdd7ddc817b39c14495fde` (`origin/main`); the lane commit was rebased onto the subsequently fetched current `origin/main` `4ad5606273cba90b0c27aaeaf33c003124f067f8` before publication. The source root file at `b21824438` is w243's #1853 rundown; its blob is `e5736dfa23a769a6e86845584601d6e32b057bd3`, identical to the root blob on fresh main. The w228 H-V59 content is preserved in `272baad4384335f0a6d2501b48db39fdf75ee5b8^:akte.md`; its blob is `ad302f2a24f4a8d1e4ba1a1e0d0916acc6e7d395`. `git branch -r --contains 272baad43` returned no branches and `git merge-base --is-ancestor 272baad43 origin/main` failed: the rename commit is not on live main. The intended w228 path `evidence/w228-0428-216-huntv59/akte.md` was absent on main before repair. Both requested target paths were absent on the fresh base.
 
 ## Intended recovery
 
@@ -31,7 +31,36 @@ The validator test will live under `scripts/tests/` and run in the existing `.gi
 
 ## Publication witnesses
 
-Worktree base: `bc4689919f2cf8a1c7fdd7ddc817b39c14495fde`. Branch ancestry, commit log, changed-path diff, push witness, PR/run state, merge SHA, and final `origin/main` path checks will be appended after each corresponding action.
+Worktree cut SHA: `bc4689919f2cf8a1c7fdd7ddc817b39c14495fde`; integrated base at publication: `4ad5606273cba90b0c27aaeaf33c003124f067f8`. `git merge-base --is-ancestor origin/main HEAD` succeeded. `git log --oneline origin/main..HEAD` output:
+
+```text
+17c00f34a fix(plan): recover evidence paths and validate PR scope
+```
+
+`git diff origin/main...HEAD --name-only` output:
+
+```text
+.github/workflows/validate.yml
+evidence/r29-welle6-2026-11-28/0428-253/w243-1853-rundown.md
+evidence/r29-welle6-2026-11-28/plan-akte-collision/akte-recovery.md
+evidence/w228-0428-216-huntv59/akte.md
+scripts/tests/test_validate_pr_paths.py
+scripts/validate_pr_paths.py
+```
+
+`git diff --name-status --no-renames origin/main...HEAD` output:
+
+```text
+M	.github/workflows/validate.yml
+D	akte.md
+A	evidence/r29-welle6-2026-11-28/0428-253/w243-1853-rundown.md
+A	evidence/r29-welle6-2026-11-28/plan-akte-collision/akte-recovery.md
+A	evidence/w228-0428-216-huntv59/akte.md
+A	scripts/tests/test_validate_pr_paths.py
+A	scripts/validate_pr_paths.py
+```
+
+`python3 scripts/validate_pr_paths.py 4ad5606273cba90b0c27aaeaf33c003124f067f8` reported `planning PR path scope accepted: 7 changed paths`. Tip author gate passed: `git show -s --format=%an HEAD` equals `w200-plan-akte-recovery`.
 
 ## Validation
 
