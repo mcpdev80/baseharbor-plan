@@ -49,4 +49,6 @@ END w136-pr1836-rowsreview DONE
 
 - Exact plan `origin/main` base before this addendum: `ea9f7ab6583542ab3bd1b782e7652585ca567d04`. `git merge-base --is-ancestor ea9f7ab6583542ab3bd1b782e7652585ca567d04 HEAD` completed with exit 0.
 - `git show -s --format=%an HEAD` printed `w136-pr1836-rowsreview`.
-- Before publication, `git log --oneline origin/main..HEAD` listed only `13e973661 docs(evidence): finalize #1853 route ruling`.
+- After the ruling commit and before the provenance-only follow-up, `git log --oneline origin/main..HEAD` listed `13e973661 docs(evidence): finalize #1853 route ruling`. The provenance-only follow-up is also this lane’s commit.
+
+- Final pre-push `git log --oneline origin/main..HEAD` output: `1e734765f docs(evidence): record #1853 provenance`; `13e973661 docs(evidence): finalize #1853 route ruling`. Both commits are this lane’s evidence updates.
