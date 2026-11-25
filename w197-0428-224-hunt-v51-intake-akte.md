@@ -1,0 +1,120 @@
+# H-V51 Intake — Bug-Hunt Slice H-V51 -> Card Pour
+
+- Lane: w197-0428-224-hunt-v51-intake
+- Shift: r28-welle6-2026-11-27
+- Card: w197-0428-224
+- Date: 2026-11-25
+- Author: w197-0428-224-hunt-v51-intake
+- Base SHA (develop tip, verified via `git ls-remote`): 99d9ddebcfb6cbd107ec45a6ad5ca6656c04ac82
+- Write-set: READ-ONLY intake. No product files changed. No .github edits. No PR opened. No candidate commit.
+
+## VISIBLE ANSATZ BLOCK (before first commit)
+
+- Planning-remote (verified): `origin https://github.com/mcpdev80/baseharbor-plan.git`
+- Product remote (verified): `https://github.com/mcpdev80/baseharbor.git` (origin = github.com/mcpdev80)
+- develop tip (ls-remote): `99d9ddebcfb6cbd107ec45a6ad5ca6656c04ac82 refs/heads/develop`
+- Evidence path: `evidence/r28-welle6-2026-11-27/bughunt-hv51-config-env/w197-0428-224-intake.md`
+- Per-card frontmatter owner (fetched from origin/main at runtime, VERBATIM): w196-0428-224-hunt-v51 (author of the H-V51 akte; this intake lane is the pour, not the find)
+- Git identity to use for any plan worktree commit:
+  - user.name = w197-0428-224-hunt-v51-intake
+  - user.email = w197-0428-224-hunt-v51-intake@baseharbor.local
+- Literal commit invocation:
+  `git -C workers/w197-0428-224-plan -c user.name=w197-0428-224-hunt-v51-intake -c user.email=w197-0428-224-hunt-v51-intake@baseharbor.local commit -m "<message>"`
+- Pre-push gate (mechanical, must pass before push):
+  `git -C workers/w197-0428-224-plan show -s --format=%an HEAD` must equal `w197-0428-224-hunt-v51-intake`
+
+## Mission vs reality discrepancy (documented, not acted on)
+
+- Mission states akte at SHA `25753b5e9`. origin/main head at runtime is `7729d98f7962d05d61b504bfbe0382b023ada742`. The akte file exists at `evidence/r28-welle6-2026-11-27/bughunt-hv51-config-env/w196-0428-224-hunt-v51.md` on origin/main; read verbatim via `git show origin/main:...`. Cite origin/main head `7729d98f`, not the mission's `25753b5e9` (stale reference in the mission line).
+- This intake lane does NOT chase a phantom SHA. The akte content is authoritative for the 5 findings.
+
+## Scope
+
+Pure FINDING / card-intake pour. No product edits, no workflow edits, no CI triggers, no candidate commit. The single card is a maintenance/audit card that only adds a regression test + doc-note proposal in the product write-set; no .github/** change required.
+
+## Base attestation
+
+- Plan repo remote (verified): `origin https://github.com/mcpdev80/baseharbor-plan.git`
+- baseharbor GitHub remote: `https://github.com/mcpdev80/baseharbor.git` (origin and lane-origin both resolve to github.com/mcpdev80)
+- develop tip (ls-remote): `99d9ddebcfb6cbd107ec45a6ad5ca6656c04ac82 refs/heads/develop`
+- Evidence published via isolated worktree `workers/w197-0428-224-plan` (origin/main).
+
+## Reproduction vs current develop tip (SHA 99d9ddebcfb6cbd107ec45a6ad5ca6656c04ac82)
+
+Cloned read-only to `/tmp/hv51-verify` (outside the ecosystem root). Verified against the live tip:
+
+- F1 (config quality): `internal/runtime/config.go:50-95` confirms the finding. `port("BASEHARBOR_POSTGRES_PORT")` / `port("BASEHARBOR_OPENBAO_PORT")` emit per-key "%s is required" on empty; the credential keys `BASEHARBOR_POSTGRES_REPLICATION_USER`, `BASEHARBOR_POSTGRES_INTERNAL_USER`, `BASEHARBOR_OPENBAO_DB_USER` fall back to hardcoded defaults when unset; the completeness check at config.go:93-95 returns a single generic message `"runtime PostgreSQL configuration is incomplete"` that does NOT name the missing key. Reproduced in-source; no binary needed.
+- F3 (#1650 leakage class): raw `os.Setenv` calls with NO paired restore found via `grep -rn "os.Setenv" cmd/baha/*_test.go internal/telemetry/*_test.go internal/cli/terminal_test.go | grep -v "t.Setenv\|defer\|os.Getenv\|os.Unsetenv"`:
+  - `cmd/baha/runtime_integration_test_support_test.go:110` (BASEHARBOR_CI_RUNTIME_INTEGRATION)
+  - `cmd/baha/runtime_integration_test_support_test.go:123` (XDG_DATA_HOME)
+  - `cmd/baha/runtime_integration_test_support_test.go:692,696` (XDG_CONFIG_HOME / XDG_DATA_HOME)
+  - `cmd/baha/runtime_integration_test_support_test.go:747` (BASEHARBOR_TARGET)
+  - `cmd/baha/shared_core_dedup_runtime_test.go:124` (ProviderScopeEnv PostgreSQL) — wrapped in a deferred closure; restore only runs if the closure body reaches the defer
+  - `internal/telemetry/otlp_test.go:96` (OTLPEndpointEnv bad value, no restore shown)
+  These are ambient-env leaks across parallel/sequential tests (the #1650 class, medium).
+- F5 (validation error quality cross-ref): the akte's cited `internal/deployment/target.go:226-244` ErrConfigMissing/ErrConfigEmpty naming is NOT present at that line range in tip 99d9dde (LoadConfig at target.go:142 now returns a generic decode error). The F1/F5 contrast (generic vs targeted error quality) is still the substantive finding; the exact target.go precedent has moved. Documented for the card as "verify current target.go LoadConfig error shape before writing the card's expected-assertion".
+
+## Cross-check F3 vs in-flight #1650 (decided)
+
+- #1650 is OPEN (not merged), head branch `lane-0428-078-perses-identity-on-resolver`, diff touches `internal/metrics/identity_dashboard_witness.go`, `cmd/baha/app_status_result.go`, `cmd/baha/app_perses_cli_test.go`. Its domain is **Perses identity-keycloak dashboard availability** (real-metric witness), NOT test-isolation ambient-env leakage.
+- F3 is the test-suite ambient `os.Setenv` leakage class. F3 does NOT generalize into #1650's in-lane fix (different files, different defect class).
+- Mission umbrella condition ("if F3 generalizes beyond the Perses tests") is NOT met. Decision: file ONE umbrella maintenance card for the F3 #1650 class across ALL `_test.go` files; do NOT duplicate #1650's in-lane fix.
+
+## Findings -> Card mapping table + dispositions
+
+| Finding | Surface | file:line (tip 99d9dde) | Severity | Disposition |
+| --- | --- | --- | --- | --- |
+| F1 | config validation error quality | internal/runtime/config.go:59-95 | minor (DX) | Card A: per-key missing-credential error or ordered missing-keys list |
+| F2 | doc-vs-code drift of provider keys | docs/spec/service-access.md:30, docs/releases/v0.4.8.md:114 | minor (doc hygiene) | Card A: include as doc-hygiene note / generated env-key registry proposal |
+| F3 | #1650 leakage class (ambient os.Setenv) | cmd/baha/runtime_integration_test_support_test.go:110,123,692,696,747; shared_core_dedup_runtime_test.go:124; internal/telemetry/otlp_test.go:96 | medium (test isolation) | Card B: umbrella audit+fix of every raw os.Setenv in _test.go with paired restore |
+| F4 | env-var precedence explicit (Target) vs implicit (serve) | cmd/baha/context_terminal.go:204-236, serve.go:147-174 | fact (no bug) | No card: recorded precedence-surface fact; good precedent |
+| F5 | config validation error quality positive ref | internal/deployment/target.go:142 (LoadConfig) now generic | minor | No separate card; F1 is the distinct gap; F5 is the cross-ref |
+
+## H-V45 duplicate check
+
+F1/F5 are validation-error-quality within the H-V45 family but are a distinct gap (per-key required errors for credential keys) vs the positive target.go precedent. F2 is doc-hygiene. F3 is test-isolation. No overlap with any already-filed card's write-set.
+
+## One umbrella card (this pour)
+
+- Card title (proposed): "raw os.Setenv in _test.go without paired leak-checks leaks ambient BASEHARBOR_* state across tests (#1650 class)"
+- Scope: a lint/audit test that FAILS the build on any raw os.Setenv in a `_test.go` without a paired `t.Setenv`, `defer os.Setenv`, or `os.Unsetenv`; plus remediation of the six raw calls above.
+- Write-set: a new CI-native test in the cmd/baha test group + the six `_test.go` remediations. No .github/** change required (the existing cmd/baha test group already covers _test.go).
+- Gate route: the added regression test runs under the existing cmd/baha CI group (Owner: confirm the exact group/trigger and state it in the card). No .github edit.
+
+## Evidence on origin/main BEFORE END POST
+
+Command: `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep w197-0428-224`
+
+Output:
+```
+(will paste exact output before END)
+```
+
+## Repo identity / remote guard
+
+`git -C baseharbor-plan remote -v`:
+```
+origin	https://github.com/mcpdev80/baseharbor-plan.git (fetch)
+origin	https://github.com/mcpdev80/baseharbor-plan.git (push)
+```
+
+Real product remote (baseharbor, confirmed via ls-remote):
+```
+99d9ddebcfb6cbd107ec45a6ad5ca6656c04ac82	refs/heads/develop
+```
+
+## Worktree
+
+Isolated plan worktree: `git worktree add workers/w197-0428-224-plan origin/main`
+Product checkout: `/home/marcel/dev/baseharbor-ecosystem/baseharbor` (remote github.com/mcpdev80/baseharbor.git). Read-only; no changes committed here. Clone for verification: `/tmp/hv51-verify` (outside the ecosystem root).
+
+## Cleanliness
+
+- baseharbor worktree: no product file created or modified.
+- Verification clone at `/tmp/hv51-verify` (outside the ecosystem root); removed after END.
+- No docker/podman compose project started (read-only audit, no containers).
+- `docker ps -a`: empty (no containers).
+
+## END w197-0428-224-hunt-v51-intake DONE
+
+Intake complete. 5 findings reproduced vs develop tip 99d9ddeb. F3 cross-checked vs in-flight #1650 (Perses dashboard domain; not the test-leakage class) — umbrella condition NOT met; filed ONE umbrella maintenance card for the F3 #1650 class. No product changes, no .github edits, no PR opened. Card IDs pending pour confirmation.
