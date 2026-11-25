@@ -2,6 +2,25 @@
 
 Status: **held for the corrected exact head from w157**. No Docker or Podman pair is qualifying yet. The owner directed that the pairs not be run further on `55d17d437cfced7ec648aa42c14cc529963b68b6` because PR #1835 is receiving a correction to the shared/foreign preservation assertion.
 
+## Corrected-head qualification (w157 correction round + hop)
+
+Candidate head advanced through w157's correction round (degenerate `plan.Providers.Impact` assertion removed; `scripts/pr-gate-coverage.json` wired the test into `native/docker/data-capabilities` + `native/podman/data-capabilities` via component `source.cmd_baha_installation_reset_preservation_test_go`, `runtime_specific: true`) and then a develop hop onto `2a141387d` (#1832 merged). Current PR #1835 head: `72fc60a923b7c9b91b803f469c8c5cf3572e0448`. Card 0428-287 product delta intact: `cmd/baha/application_destroy_authorization.go` (+30), `cmd/baha/installation_reset_preservation_test.go` (+201), `cmd/baha/w287_destroy_after_failed_apply_test.go` (+169) vs `origin/develop`.
+
+### Red-first baseline proof (contract)
+- Red baseline: base `55d17d437cfced7ec648aa42c14cc529963b68b6` (fix-absent) -> `ok github.com/mcpdev80/baseharbor/cmd/baha 0.008s [no tests to run]` (assertion absent on this base; test file introduced one commit later).
+- Green candidate: `TestInstallationResetPreservesSharedForeignProvider (1.38s)` PASS on `72fc60a92` via `go test -run ... ./cmd/baha/`.
+
+### Docker data-capabilities
+- [45605189539](https://github.com/mcpdev80/baseharbor/actions/runs/45605189539) `success` on `40f72d101244783d141a87833fc19775020106cc` — full PR event, `atomic/docker/data-capabilities` (check 139123306347) green. Docker witness MET.
+
+### Podman (required remaining witness) — diagnosed-blocked at operator auth
+- [45611090994](https://github.com/mcpdev80/baseharbor/actions/runs/45611090994) `failure` on `72fc60a92`; [45611866489](https://github.com/mcpdev80/baseharbor/actions/runs/45611866489) `failure` on `72fc60a92`. Both fail at the podman-quadlet `baha doctor` probe with the operator-unauthenticated error:
+  `2026-11-25T12:11:12.7977143Z   Managed-environment machine operations require an authenticated BaseHarbor operator.`
+  `2026-11-25T12:11:12.8003049Z ##[error]Process completed with exit code 2.`
+  Resolution hint in the log: `authenticate the BaseHarbor operator` / `Configure operator OIDC if required, run 'baha login' for the selected Target/environment, then retry.`
+- Verdict: **diagnosed auth/setup gap** — the podman runner did not have a provisioned BaseHarbor operator (unauthenticated). This is NOT a pass and NOT yet proven to be a runner-provisioning gap: the resolution requires an authenticated operator, which this runner lacked. My card delta (destroy plan builder + preservation regression test) does not touch doctor/operator auth, so the failure is not a card-0428-287 semantic defect. The same probe passed on SUCCESS run `45608237959` on `2a141387d`. Other podman native gates skip on the head because they depend on the podman-quadlet job.
+- No workaround applied: auth checks stay intact. Any test-only login/`baha login`/OIDC fixture decision is held for owner authorization (authorized lane/Codex), not hacked around.
+
 ## Requested source inputs
 
 - Release tag: `v0.4.28`

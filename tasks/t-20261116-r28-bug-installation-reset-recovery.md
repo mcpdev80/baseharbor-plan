@@ -7,7 +7,7 @@ areas: [lifecycle]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w157-0428-287-pr1835-preservation
+owner: w185-0428-287-pr1835-podman
 kanban_status: active
 kanban_lane: active
 kanban_summary: "baha destroy --yes selects all owned resources, asks for two current-plan confirmations plus deletion consent, but aborts…"
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261116-r28-bug-installation-reset-recovery · Unblock full installation reset #task #release/v0-4-28 #status/active #view/active #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** w157-0428-287-pr1835-preservation · **Priority:** critical  
+    **Owner:** w185-0428-287-pr1835-podman · **Priority:** critical  
     **PR:** [baseharbor#1835](https://github.com/mcpdev80/baseharbor/pull/1835)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w157-0428-287-pr1835-preservation  
+**Owner:** w185-0428-287-pr1835-podman  
 **Priority:** critical  
 **PRs:** [baseharbor#1835](https://github.com/mcpdev80/baseharbor/pull/1835)  
 **Source:** 
