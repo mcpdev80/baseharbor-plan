@@ -49,3 +49,10 @@ Pending evidence commit and origin/main path verification.
 - The evidence author gate returned `w136-pr1836-rowsreview`; email was `w136-pr1836-rowsreview@baseharbor.local`.
 - After the evidence commit, `git log --oneline origin/main..HEAD` lists only this lane's evidence commit(s); `git diff origin/main...HEAD --name-only` lists only this evidence file.
 - Pre-push `git fetch origin main && git ls-tree -r --name-only origin/main | grep -F 'evidence/r29-welle6-2026-11-28/0428-307/w136-1852-requal-review.md'` returned no matching line because the evidence path had not yet been pushed.
+
+## Published evidence witness and lane END
+
+- Evidence commit `5c8b62a0ee6d7fdcfaffe12adab1f7430033dbd9` was pushed to plan origin/main; `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main` returned `5c8b62a0ee6d7fdcfaffe12adab1f7430033dbd9 refs/heads/main`.
+- Fresh fetch plus `git ls-tree -r --name-only origin/main | grep -F 'evidence/r29-welle6-2026-11-28/0428-307/w136-1852-requal-review.md'` returned exactly `evidence/r29-welle6-2026-11-28/0428-307/w136-1852-requal-review.md`.
+
+END w136-pr1836-rowsreview BLOCKED — #1852 exact-head review is CHANGES/HOLD at d3db4d898414ead953afcda530155fdef8b227cf; two exact-head greens pass, but owner admission remains unresolved; no merge. Card 0428-307 implementation closure criteria remain open.
