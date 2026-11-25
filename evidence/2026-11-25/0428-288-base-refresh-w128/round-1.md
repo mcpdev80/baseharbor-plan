@@ -22,10 +22,12 @@ terminal on the new exact head, two IDs, HANDOFF (no merge by this lane).
 - Push: normal push, no force, no cherry-pick. `gh pr view 1833 headRefOid` == a7b0a4804.
 - Worktree residue `scripts/pr-gate-coverage.json.tmp` (untracked, from the earlier lane w124
   session) deliberately NOT committed.
-- Run A: 45513816046 (CI · Source & Quality, pull_request on a7b0a4804) — in progress at last
-  write; terminal state + outcome recorded below.
-- Run B: second exact-head ID (rerun of the required workflow on a7b0a4804 if no new push):
-  recorded below.
+- Run A: 45513816046 attempt 1 (CI · Source & Quality, pull_request on a7b0a4804) — SUCCESS,
+  watched to terminal by this lane (all required jobs green incl. PR · Selected Runtime
+  atomic/docker/data-capabilities native gate).
+- Run B (second exact-head ID): 45513816046 attempt 2 — independent rerun of the required
+  workflow on the same exact head (no new push; required workflow exposes workflow_dispatch,
+  rerun used per precedent #1837). Terminal state recorded below on completion.
 - Previous-head history (context, not this candidate's evidence): b9d312bce run 45510613765
   SUCCESS; older heads 4064a6317/92d3267eb/392649532/9e6b2957f failed pre-catalog runs.
 
