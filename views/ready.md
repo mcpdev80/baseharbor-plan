@@ -24,3 +24,4 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | [t-20261125-hunt33-setup-node-sha-pin](../tasks/t-20261125-hunt33-setup-node-sha-pin.md) | 0428 hunt H-V33: hunt33-setup-node-sha-pin | ready | not set | — | — | — |
 | [t-20261125-hunt33-shell-failfast](../tasks/t-20261125-hunt33-shell-failfast.md) | 0428 hunt H-V33: hunt33-shell-failfast | ready | not set | — | — | — |
 | [t-20261125-hunt33-unguarded-git-sudo](../tasks/t-20261125-hunt33-unguarded-git-sudo.md) | 0428 hunt H-V33: hunt33-unguarded-git-sudo | ready | not set | — | — | — |
+| [t-20261125-hunt35-catalog-coverage-completion](../tasks/t-20261125-hunt35-catalog-coverage-completion.md) | 0428 hunt H-V35: complete coverage rows for the 3 release-requirements gates | ready | not set | — | — | — |
