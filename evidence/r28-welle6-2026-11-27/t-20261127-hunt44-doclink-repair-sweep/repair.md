@@ -84,9 +84,9 @@ origin	ssh://git@github.com/mcpdev80/baseharbor.git (push)
 | docs/releases/v0.4.28.md:23 | `…lives in docs/spec/management-access-v1.md.` |
 | docs/reference/releases.md:31 | `…lives in docs/spec/management-access-v1.md.` |
 | docs/how-to/observability.md:32 | `…lives in docs/spec/management-access-v1.md.` |
-| docs/de/releases/v0.4.28.md:13 | `…steht in [Management surface access v1](../spec/management-access-v1.md).` |
-| docs/de/reference/releases.md:30 | `…steht in [Management surface access v1](../spec/management-access-v1.md).` |
-| docs/de/how-to/observability.md:28 | `…steht in [Management surface access v1](../spec/management-access-v1.md).` |
+| docs/de/releases/v0.4.28.md:13 | `…steht in docs/spec/management-access-v1.md.` |
+| docs/de/reference/releases.md:30 | `…steht in docs/spec/management-access-v1.md.` |
+| docs/de/how-to/observability.md:28 | `…steht in docs/spec/management-access-v1.md.` |
 
 The DE link target is `docs/de/spec/management-access-v1.md`, which exists; this matches the
 established DE convention (`docs/de/spec/service-access.md:40`,
@@ -154,7 +154,7 @@ alone.
 `docs/spec/credential-access-v1.md:129` and `docs/de/spec/credential-access-v1.md:129` now read
 "previously documented under the retired path `docs/spec/management-access-profiles-v1.md`; that
 path never existed in this repository and its content now lives in
-[management-access-v1](management-access-v1.md)". The broken name stays visible as the historical
+`management-access-v1.md`". The broken name stays visible as the historical
 identifier (so the trace the hunt asked for is intact) but is no longer presented as a resolvable
 path.
 
