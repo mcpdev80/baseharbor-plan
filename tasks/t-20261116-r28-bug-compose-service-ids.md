@@ -73,6 +73,9 @@ Use J-Commerce docker-compose.yaml including `vector_db`, and run `baha app init
 
 ## Handoff
 
+- QUALIFIED (owner 2026-11-26): exact head a7b0a480 base f7540e59, hosted run 45513816046 TERMINAL SUCCESS (35/35 jobs terminal, 0 fail), mergeable/clean; old 45510613765 superseded-void. Independent Codex review dispatched (w136); merge on APPROVE.
+
+
 - BASE REFRESH 2026-11-26: run 45510613765 terminal green AT b9d312b but base 9d7e229 behind develop f7540e591 -> not merge-ready; w128 re-dispatched for merge-develop + requal (two IDs on new exact head).
 
 
