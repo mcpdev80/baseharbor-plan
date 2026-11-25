@@ -95,3 +95,11 @@ Owner policy confirms the identity criterion is exact equality between `.commit.
 The substantive hold also remains: the corrected preservation assertion and Podman proof must apply to the new w157 head. No new head or corrected audit was reviewed in this update.
 
 Owner policy reminder: exact Git author-name equality must be used at every merge decision. The owner reports live PR #1839 has head author `w124` despite a `w153` branch; that case reinforces checking `.commit.author.name` against the card frontmatter lane rather than inferring identity from branch or uploader.
+
+Exact output from the post-policy-update path check (`git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/2026-11-25/w156-0428-287-pr1835-review/evidence.md`):
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+evidence/2026-11-25/w156-0428-287-pr1835-review/evidence.md
+```
