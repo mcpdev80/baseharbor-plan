@@ -46,6 +46,15 @@ terminal on the new exact head, two IDs, HANDOFF (no merge by this lane).
   and .../attempts/2). Previous head b9d312bce also green (45510613765) — context only.
 - HANDOFF: PR #1833 base refresh complete and MERGEABLE, no failures, no pending checks.
   No review verdict, no merge performed by this lane (separate Codex lanes own both).
+
+## Final witness (2026-11-25, remote-fetched, not remembered)
+
+- ls-remote lane-0428-288-compose-ids = a7b0a48048c11d20234160eede941532ddc33156 (== PR head).
+- Base proven in lane history: merge-base --is-ancestor f7540e591 HEAD = true ("base f7540e").
+- gh run view 45513816046: completed success (watch-rc=0 by this lane's watcher; attempt 2).
+- gh pr checks 1833: fail-count 0, pending-count 0 (terminal, 0 fail; remainder skipped by
+  path rules). All required groups pass on exact head a7b0a4804.
+- Review duty moved to Codex slot w136 per coordinator; this lane performed no review/merge.
 - Previous-head history (context, not this candidate's evidence): b9d312bce run 45510613765
   SUCCESS; older heads 4064a6317/92d3267eb/392649532/9e6b2957f failed pre-catalog runs.
 
