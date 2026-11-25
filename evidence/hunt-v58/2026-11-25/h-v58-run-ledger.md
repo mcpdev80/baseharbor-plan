@@ -142,6 +142,18 @@ Completeness findings (gap list):
 - aggregate: `.../check-runs?check_name=PR Selected Checks` per head (conclusions table above).
 - log witnesses: Trusted Plan ValueError lines from job logs (139433831371, 139450992437, 139501551081, 139510287605), 1853 reds from jobs 139505586492/139505586177.
 
+## Publishing + ls-tree witness
+
+Candidate commit: `9a8b3af7686a7dca5b25354e279c69220ad0f9c4` (author gate `git show -s --format=%an HEAD` → `w225-0428-216-huntv58`).
+Base: origin/main tip at worktree creation `6b61a0e8c`, rebased cleanly onto `48ec76bea` before push (only own commit in `git log origin/main..HEAD`).
+
+Second-to-last action, exact output:
+
+```
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/hunt-v58
+evidence/hunt-v58/2026-11-25/h-v58-run-ledger.md
+```
+
 ## END marker
 
-END_DONE w225-0428-216-huntv58: H-V58 run-state ledger published (13 PRs classified; VOID-witness cross-check + 6 ledger defects); akte SHA see push below.
+END_DONE w225-0428-216-huntv58: H-V58 run-state ledger published at 9a8b3af76 (14 PR rows classified; VOID-witness cross-check + 6 ledger defects D1–D6). Read-only throughout; no PR/run actions.
