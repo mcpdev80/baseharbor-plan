@@ -107,5 +107,6 @@ All rows re-verified at the current tip 99d9ddebc (no anchor drift: mission itse
 
 - Plan remote (before first evidence commit): `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v` -> `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)` + `(push)`.
 - `origin/main` containment proof for the evidence commit runs as second-to-last action (fetch + ls-tree grep), output appended below by the push step.
+- Post-push witness (exact command + output, run second-to-last): `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle6-2026-11-27/bughunt-hv53-observability` -> `evidence/r28-welle6-2026-11-27/bughunt-hv53-observability/README.md`. Evidence commit `ff4dc59b7` (author `w202-0428-224-hunt-v53`, verified via `git show -s --format=%an HEAD` before push; single commit on top of origin/main via rebase-in-worktree after one fast-forward rejection).
 
 END_DONE w202-0428-224-hunt-v53: bundle filed (5 rows H-53-1..5 at product tip 99d9ddebc, novel vs H-V41/H-V47/H-V48/H-V52); no product changes; plan freeze honored.
