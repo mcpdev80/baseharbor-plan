@@ -135,3 +135,10 @@ Two distinct greens (mission requirement), both executed on ancestors of the fin
 ## END
 
 END_DONE w218-0428-181-0428-285-1819hop: PR #1819 new head b3c5055ad (ancestors: 394559e OK, develop 28296a2e OK); greens 45694363486 (exact head, pull_request, PR Selected Checks success) + 45691594250 (#1812 394559e).
+
+## origin/main verification (exact output)
+
+```
+git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle6-2026-11-25/w218-0428-181-0428-285-1819hop/1819-pr-hop-akte.md
+evidence/r28-welle6-2026-11-25/w218-0428-181-0428-285-1819hop/1819-pr-hop-akte.md
+```
