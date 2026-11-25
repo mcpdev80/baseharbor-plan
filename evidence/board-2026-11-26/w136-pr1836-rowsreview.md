@@ -4,7 +4,7 @@
 1. #175 exact-head review and two same-head Hosted runs — accepted and merged at `486c48be56f996fe976e0881a63e64bb7de92eb2`.
 2. #1835 runtime-gate batches — parked pending w157's qualification akte.
 3. #1832 exact-head review — accepted with no findings; merged after two terminal same-head greens as `2a141387dbbaf24f52501a0f66f1abf61cf8fcda`; PR comment posted.
-4. #1842 disposition B — ready PR checks are green, but Demo Pin was skipped; explicit-pin native validation pending. Head 317d2f259 is behind current develop 2a141387; w177 needs a fresh hop/head and run.
+4. #1842 gate-trigger decision — use explicit Pre-Release Validation dispatch as the pin validator; no CI YAML change. w177 should restore a data-only diff, then run the exact-head dispatch recipe in the new decision akte.
 5. #1650 — wait for w165 fixed-head green evidence before review.
 ## #175 review — CHANGES
 
@@ -86,3 +86,7 @@ The actual pin target `1a3c055cc0eef3f961722f12d843e33f6c1ca43e` exists in Demo,
 At re-review, BaseHarbor develop had advanced to `2a141387dbbaf24f52501a0f66f1abf61cf8fcda` after #1832 merged, while #1842 still had base `a87da7d179e08d43e8987885c38ab459ff1d887d` and `mergeState=behind`. Acceptance and merge remain withheld.
 
 Concrete coordinator-to-w177 validation task: hop the one-file pin candidate onto current develop `2a141387dbbaf24f52501a0f66f1abf61cf8fcda` with author lane unchanged; on the new exact head, complete ready PR CI and require `PR Selected Checks` green from integration 15368. Then dispatch `Release · Pre-Release Validation` with `ref=<new exact PR head>`, `tag=v0.4.28`, `demo_ref=1a3c055cc0eef3f961722f12d843e33f6c1ca43e`, `only_gates=atomic/docker/guided,atomic/docker/lifecycle,atomic/podman/guided,atomic/podman/lifecycle`. Record terminal top-level SUCCESS and per-gate EXECUTED proof on that exact head and explicit demo SHA; skipped/reused results do not qualify. The workflow supports these fields at `.github/workflows/pre-release.yml:2152-2179`, validates explicit Demo SHA against the candidate pin at `:175-194`, and requires the candidate to contain current develop at `:153-158`. No CI workflow edit is authorized.
+
+## #1842 pin-specific validation decision
+
+Verdict and w177 recipe are recorded in [w136-decision.md](../r28-welle6-2026-11-27/pr1842-pin-selection/w136-decision.md). The ready PR check passed on head `8b172f7c5`, but the named Demo Pin validator did not execute. Decision: use the existing explicit-`demo_ref` pre-release dispatch contract; keep the final PR data-only, require an exact-head ready PR check plus executed Docker/Podman guided/lifecycle gates on the pin SHA. No `.github` or product auth/consent change.
