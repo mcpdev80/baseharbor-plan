@@ -68,11 +68,14 @@ No foreign commit carried on top. CONFIRMED.
   `8f6b2444bdc9baabf4f492e930533c7c36406979  refs/pull/1820/head`
 - Candidate SHA = `8f6b2444b` — both the branch head and PR #1820 head match. §4.6 met.
 
-## CI (Hosted) — PENDING
+## CI (Hosted) — CENSUSED (run 45710380590, event pull_request)
 
-- Fresh pull_request CI runs to terminal + executed census NOT yet started.
-- Next: run `bash scripts/ci-fast-check.sh`, wait for the TERMINAL 'PR Selected Checks' aggregate, record run IDs.
-- NOTE: `.github/**` is Owner scope — no reruns, no workflow_dispatch. A failing check is reported as STATE (check name + failing log line), not repaired.
+- Run: `repos/mcpdev80/baseharbor/actions/runs/45710380590`, event `pull_request`, head `8f6b2444b`.
+- Job census (own witness via `gh api .../runs/45710380590/jobs`): total 30, **success 19, failed 0, skipped 11, in_progress 0**.
+- 0 failed; the 11 non-success jobs are all `skipped` (release/draft/HA gates non-applicable to this PR: Main release source, Targeted HA docker/podman, Draft source/routing, Exact full Pre-Release, Main/Draft Go shards, validate, Workstation onboarding, Release Source Preflight, Native matrix).
+- Required/qualifying jobs completed SUCCESS: Workflow policy, PR · Trusted Plan, PR · Source format, PR · Native gate plan, PR · Runner Interface, PR · Exact Candidate, PR · Focused Python, PR · Demo Pin, PR · Validation · ci-policy, PR · Go unit (cli-0/1/2, owner, packages), PR · Validation · go-vet, ci-executor-tests, ci-actionlint, go-build, PR · Candidate-added checks (advisory).
+- CI triggered by the push (no workflow_dispatch / rerun; Owner `.github/**` scope untouched).
+- NOTE: a failing check is reported as STATE (check name + failing log line), NOT repaired (.github/** = Owner scope).
 
 ## Boundaries honored
 
