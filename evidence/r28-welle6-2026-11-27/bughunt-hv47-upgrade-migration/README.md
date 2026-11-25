@@ -314,8 +314,10 @@ surface and does NOT restate those. Structural overlap is marked where a row wou
   test host). `docker ps -a` before/after recorded; before-list file empty of new entries (daemon lists
   ambient stacks only, untouched): pid 1420817.
 - Build artifact written to `/tmp/baha-w190` only.
-- Worktree `workers/w190-0428-224-hunt-v47-wt` will be removed by the lane cleanup after END
-  (read-only, detached HEAD, no commits, no stray files).
+- Worktree `workers/w190-0428-224-hunt-v47-wt` removed as the final workspace action
+  (`git worktree remove`, read-only, detached HEAD, no commits, no stray files).
+- `docker ps -a` before (table form) vs after (names form) diff shows only the header line difference:
+  no container was started or stopped by this lane; ambient stacks untouched.
 - besenrein: no test-owned containers/networks/volumes/state dirs created.
 
 ## Evidence on origin/main witness
