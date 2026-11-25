@@ -33,3 +33,4 @@ Hosted Actions verification for exact head (links identify attempts of one workf
 - Important identity detail: GitHub reports the same workflow run ID for attempts 2 and 3; they are two successful attempts, not two distinct run IDs. The only distinct earlier successful run found on this PR branch was `45582189971`, whose head was `cee9ff8a1938647375bad90c7d1a0f996eef10e1`; it is not exact-head evidence and is not counted as such. Thus the mission wording “two runs” is supported as attempts 2 and 3, while a requirement for two unique same-head run IDs is not supported by the API record.
 
 This is retrospective scope and CI evidence after merge, not a completed pre-merge independent verdict. The original `END_BLOCKED` was accepted because owner stand-down preceded that verdict.
+evidence/board-2026-11-27/w182-codex-1832-review.md
