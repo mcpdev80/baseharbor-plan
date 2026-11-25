@@ -46,3 +46,9 @@ END w136-pr1836-rowsreview DONE
 - `git merge-base --is-ancestor 132ee736b0fabfb55a2f8488ae25b677be5f35f1 HEAD` completed with exit 0.
 - `git show -s --format=%an HEAD` printed `w136-pr1836-rowsreview`.
 - `git log --oneline origin/main..HEAD` printed `9ad740853 docs(evidence): record #1842 review disposition`; the only commit ahead of the exact base is this evidence commit.
+
+## Origin main path witness
+
+Exact `git ls-tree -r --name-only origin/main | grep evidence/r29-welle6-2026-11-28/0428-284/w136-1842-final-review.md` output after publication:
+
+`evidence/r29-welle6-2026-11-28/0428-284/w136-1842-final-review.md`
