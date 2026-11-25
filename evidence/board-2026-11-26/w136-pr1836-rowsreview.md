@@ -32,3 +32,24 @@ Parked for w157's corrected exact head. Run 45571397690 remains void (zero jobs)
 ## #1832 next review
 
 Wait for w162's handoff of the new hop head. The prior `cee9ff8a` single green is history only; the final head needs two full same-head green runs and an identity check before the same-session review resumes.
+
+## #175 re-review — head 49328fbc (2026-11-27)
+
+PR: https://github.com/mcpdev80/baseharbor-demo/pull/175
+Head: `49328fbc8047f4997545dcb1ba9a3e68d1e42bed`
+Base: `develop` @ `b41127723e523134a1c14ee3c36cf133237162ce`
+
+Ownership was transferred for card 0428-249 to `w170-0428-249-demo-pr175-fixup` in the coordinator mission and w170 evidence. `gh api repos/mcpdev80/baseharbor-demo/commits/49328fbc... --jq '.commit.author.name'` returned `w170-0428-249-demo-pr175-fixup`, an exact match. PR head is unchanged; it remains a draft and mergeable/clean. Demo main is `df4867c7540774eba8b8811cb64946b4adc0c8ab`, distinct from base develop, so the owner-approved workflow-dispatch qualification path applies.
+
+Both exact-head qualification runs passed and executed `Run local fixture and real guided decision-path regressions`:
+
+- [45593701391](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45593701391) — terminal success, head `49328fbc...`, test step success.
+- [45593726801](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45593726801) — terminal success, same head, test step success.
+
+Scope remains exactly two files, `tests/fixture-consent.py` and `tests/test_fixture_consent.py`; the identity fixup commit changes no tree content. No product consent/auth delta was found.
+
+**Remaining review finding:** `tests/fixture-consent.py:75-76` checks whether two phrases occur anywhere in `error.message`; it does not require the full documented immutability message. A prefix, suffix, or inserted text can therefore still be accepted as a successful no-op when the contract is `v1` and code is `internal_error`. This contradicts the helper's “only the exact documented immutability message” statement at lines 68-69 and the test's `accepts_only_documented_message` contract at `tests/test_fixture_consent.py:406` (the current negative cases at lines 409-416 do not cover near-matches).
+
+Fix-forward recipe: compare the complete `error.message` to the documented full string; add negative cases with extra prefix, suffix, and inserted text; then run the hosted guided-consent workflow twice on the resulting exact head. Do not rewrite history.
+
+Verdict: **CHANGES; no ready transition and no merge.** The head fails the exact-message acceptance requirement despite correct identity, test-only scope, and two green runs. No product code was changed by the reviewer.
