@@ -6,7 +6,7 @@
 2. Compare head commit author name with the owning lane on card 0428-287.
 3. Record findings and blocked status in baseharbor-plan evidence.
 4. Publish the evidence and post terminal coordinator status.
-5. When w158's corrected audit lands, re-check the head author against the card frontmatter before considering identity hold removal.
+5. Hand off the future w158 identity recheck and w157 substantive gate review to the successor flow; preserve the hold.
 
 ## Exact-head and owner identity
 
@@ -115,3 +115,9 @@ From https://github.com/mcpdev80/baseharbor-plan
  * branch                main       -> FETCH_HEAD
 evidence/2026-11-25/w156-0428-287-pr1835-review/evidence.md
 ```
+
+## Lane succession and closeout
+
+Owner confirms w156's #1835 review duty is succeeded by the w136/w182 flow. The recorded verdict remains blocked: identity exact-match failed, and preservation plus Podman evidence remain required on the new w157 head. The successor flow owns any later recheck against the card frontmatter and new-head gate evidence. This closes w156's duty only; it does not accept or merge #1835.
+
+END_DONE w156-0428-287-pr1835-review: review verdict and blocker evidence published; follow-up handed to w136/w182; PR #1835 remains blocked pending corrected identity audit and substantive gates.
