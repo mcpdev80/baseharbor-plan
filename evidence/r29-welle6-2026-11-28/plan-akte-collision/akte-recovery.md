@@ -65,3 +65,5 @@ A	scripts/validate_pr_paths.py
 ## Validation
 
 `python3 -m unittest discover -s scripts/tests -v`: 72 tests passed, including four new changed-path policy tests. `python3 scripts/plan.py check`: 776 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 existing accepted-task dependency warnings. The path check is registered in `.github/workflows/validate.yml` for `pull_request`; its module tests run in the existing `Unit tests` step.
+
+First branch push delivery witness: `fed044693b251ae81ebad6d635b355a273d24abc refs/heads/codex/w200-plan-akte-recovery-20261126` from `git ls-remote origin refs/heads/codex/w200-plan-akte-recovery-20261126`.
