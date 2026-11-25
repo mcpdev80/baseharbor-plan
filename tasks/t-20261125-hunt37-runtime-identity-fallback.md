@@ -10,7 +10,7 @@ parent: ""
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: "One or two sentences: the observable outcome."
+kanban_summary: Remove the shared legacy app-token fallback for broker-consuming services that lack an explicit runtime permission. Each service…
 kanban_title: 0428-307 · runtime-identity fallback
 priority: ""
 depends_on: []
@@ -89,3 +89,4 @@ Remove the shared legacy app-token fallback. Require an explicit, narrowly scope
 ## Task
 
 Cast from hunt H-V37 (akte plan main 687af1678, evidence/r28-welle6-2026-11-26/bughunt-hv37-compose-identity/): H-V37-D (MEDIUM) - broker-consuming services WITHOUT explicit runtime permission silently fall back to the SHARED legacy app token instead of a per-service runtime identity. Fail-closed or explicit consented fallback per secure-by-design; product-adjacent to consent surfaces - implementation must NOT weaken consent checks; add regression proving per-service scoping.
+
