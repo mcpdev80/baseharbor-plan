@@ -26,7 +26,7 @@ evidence: []
 - [ ] t-20261122-target-create-operator-auth-decision · target create reaches the managed-operator auth boundary with no local-workload hook; owner decides the consent/auth path #task #release/v0-4-28 #status/wait #view/wait #area/cli #area/security #kind/task
     <!-- generated:card -->
     **Owner:** Owner / Core · **Priority:** high  
-    **Waiting:** Owner decision recorded; implementation and #1746 verification remain pending  
+    **Waiting:** Owner decision recorded 2026-11-25: target.create requires the existing authenticated operator authority path; implementation and \#1746 verification remain pending.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -58,3 +58,4 @@ Select the product path: `target.create` is a mutating operation and requires an
 Owner/Core decision record only. No lane edits to mcp.go / local_workload_authority.go / main.go guard logic. Blocks #1746 static/mcp acceptance until ruled.
 
 Scope durch H-V27+H-V28 belegt: target.create only. app footprint show/list/mcp-reads OK.
+
