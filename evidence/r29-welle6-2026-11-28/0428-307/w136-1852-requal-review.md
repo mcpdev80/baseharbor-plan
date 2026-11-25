@@ -42,3 +42,10 @@ The catalog carrier does not close the task. Card acceptance still requires the 
 ## Delivery
 
 Pending evidence commit and origin/main path verification.
+
+## Evidence commit provenance
+
+- `git merge-base --is-ancestor origin/main HEAD` succeeded before the evidence commit; plan origin/main base was `3f176040fd8ccf4b3208c3b8201c283f0f2196ab`.
+- The evidence author gate returned `w136-pr1836-rowsreview`; email was `w136-pr1836-rowsreview@baseharbor.local`.
+- After the evidence commit, `git log --oneline origin/main..HEAD` lists only this lane's evidence commit(s); `git diff origin/main...HEAD --name-only` lists only this evidence file.
+- Pre-push `git fetch origin main && git ls-tree -r --name-only origin/main | grep -F 'evidence/r29-welle6-2026-11-28/0428-307/w136-1852-requal-review.md'` returned no matching line because the evidence path had not yet been pushed.
