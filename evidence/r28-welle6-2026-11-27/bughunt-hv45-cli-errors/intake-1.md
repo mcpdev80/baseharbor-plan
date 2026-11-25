@@ -103,15 +103,12 @@ Severity: the plan-repo schema has no severity field; the closest sanctioned slo
 ## Evidence-on-origin witness
 
 ```text
-$ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep hunt45
-tasks/t-20261125-hunt45-app-exec-exit-collision.md
-tasks/t-20261125-hunt45-cli-unknown-command-hardening.md
-tasks/t-20261125-hunt45-error-surface-consistency.md
-tasks/t-20261125-hunt45-exit-code-taxonomy-docs.md
-tasks/t-20261125-hunt45-secret-hygiene-error-path.md
+$ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep -E "bughunt-hv45|intake"
+evidence/r28-welle6-2026-11-27/bughunt-hv45-cli-errors/hunt-1.md
+evidence/r28-welle6-2026-11-27/bughunt-hv45-cli-errors/intake-1.md
 ```
 
-(intake-1.md and hunt-1.md ride the same commit 1321c6284; ls-tree grep narrowed to the card slugs.)
+(the five card notes ride the same history; final origin/main head after publishing this witness: fda8d3221.)
 
 Intake commits on origin/main: 588c1033d (cards + akte) and 1321c6284 (scan wording), both author `w187-0428-224-hunt-v45-intake`; prior origin/main a3c361135 verified ancestor of both (pull-rebase integrated one foreign kanban commit, no foreign authorship in this lane's commits).
 
