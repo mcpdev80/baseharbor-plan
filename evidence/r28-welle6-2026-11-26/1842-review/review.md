@@ -80,3 +80,5 @@ Exact `git diff origin/main...HEAD --name-only` output before recording this wit
 ```text
 evidence/r28-welle6-2026-11-26/1842-review/review.md
 ```
+
+Planning validation: `python3 scripts/plan.py check` reported `776 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 warnings`. The ten warnings are existing accepted-task dependency warnings; this evidence-only change updates no task metadata.
