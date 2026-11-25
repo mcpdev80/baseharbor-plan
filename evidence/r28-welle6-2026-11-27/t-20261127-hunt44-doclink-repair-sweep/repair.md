@@ -81,9 +81,9 @@ origin	ssh://git@github.com/mcpdev80/baseharbor.git (push)
 
 | file:line | fix |
 | --- | --- |
-| docs/releases/v0.4.28.md:23 | `…lives in [Management access v1](../spec/management-access-v1.md).` |
-| docs/reference/releases.md:31 | `…lives in [Management access v1](../spec/management-access-v1.md).` |
-| docs/how-to/observability.md:32 | `…lives in [Management access v1](../spec/management-access-v1.md).` |
+| docs/releases/v0.4.28.md:23 | `…lives in docs/spec/management-access-v1.md.` |
+| docs/reference/releases.md:31 | `…lives in docs/spec/management-access-v1.md.` |
+| docs/how-to/observability.md:32 | `…lives in docs/spec/management-access-v1.md.` |
 | docs/de/releases/v0.4.28.md:13 | `…steht in [Management surface access v1](../spec/management-access-v1.md).` |
 | docs/de/reference/releases.md:30 | `…steht in [Management surface access v1](../spec/management-access-v1.md).` |
 | docs/de/how-to/observability.md:28 | `…steht in [Management surface access v1](../spec/management-access-v1.md).` |
