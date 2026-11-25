@@ -46,6 +46,18 @@ No merge; re-review belongs to w136.
   origin/develop there. The foreign zone's local branch ref still occupies the shared checkout
   (git branch -D blocked: "used by worktree"); no ref of mine depends on it.
 
+## Planning-repo remote verification (before first evidence commit)
+
+```
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v
+origin	https://github.com/mcpdev80/baseharbor-plan.git (fetch)
+origin	https://github.com/mcpdev80/baseharbor-plan.git (push)
+```
+
+This is the real planning repo (github.com/mcpdev80/baseharbor-plan), NOT the workers/baseharbor-plan
+bookkeeping directory. Evidence committed on a topic branch (shared main working tree is held by
+other lanes' uncommitted work) and merged forward to fetched origin/main for the push.
+
 ## Base attestation and remote witnesses
 
 Remote resolution (first git action in the shared checkout, per REMOTE GUARD):
@@ -240,7 +252,24 @@ Rerun witness: `gh run rerun 45591459360` → attempt 2,
 (full rerun of the complete job set; no --failed-only). Develop tip re-checked at rerun time:
 still a87da7d17 (my head's base), so attempt 2 remains the qualification run on this exact head.
 
-## cleanliness
+## Attempt-2 GREEN (qualification ID #1) + rerun-policy Befund (2026-11-26)
+
+Attempt 2, run 45591459360, exact head 976a258c1a170bbaa55ce030ac292a879a11e526: watched by this
+lane to top-level TERMINAL via `GET /actions/runs/45591459360/attempts/2` →
+`{"attempt":2,"status":"completed","conclusion":"success"}`.
+Rollup: 31 success / 16 skipped (release-path jobs not selected) / 0 failure; red-job list empty.
+This is qualification GREEN #1 on the final head (full job set re-executed; the attempt-1
+x/text proxy fetch recovered; all four selected docker/podman runtime gates executed green).
+
+**Befund (rerun-attempt-2 precedent does not transfer to PR CI):** a full rerun of a run in
+`pull_request` context re-attaches to the SAME checks-suite context and OVERWRITES the previous
+attempt's check output; only the latest attempt's conclusion is surfaceable to the merge box
+(check-runs on 976a258c1 show a single `PR · Exact Candidate` entry, the attempt-2 one).
+Consequence: red attempt 1 cannot coexist as evidence with green attempt 2 in the merge box,
+which is why the coordinator/owner ordered the same-SHA attempts as the two full greens.
+
+Develop tip re-checked after attempt 2 terminal (spared polling due to global gh API rate limit):
+a87da7d17 -> newer tip (BEHIND at accept time per strict up-to-date policy).
 
 No containers or compose projects were started by this lane on any host (no docker/podman work in
 this mission; docker-free by design). Coordinator-host witness (pid of the check shell: 346864):
@@ -250,10 +279,39 @@ $ docker ps -a --format '{{.Names}} {{.Status}}'   (before and after; identical,
 (empty — no containers on this host)
 ```
 
+Attempt 3 queued and running (`{"attempt":3,"head":"976a258c1...","status":"in_progress"}`).
+Observation against the rerun-policy Befund: the check-runs list on 976a258c1 now carries
+BOTH attempt sets under distinct check-run IDs — attempt-2 set (ids 1391680xxxxx, e.g.
+`PR · Exact Candidate` id 139168064828 = success) and the in-flight attempt-3 set (ids
+1391686xxxxx). Green #1 remains attempt 2; green #2 will be attempt 3 at terminal.
+Note: an additive commit on the branch mid-attempt would re-key the suite and could void the
+in-flight attempt (branch is held; coordinate timing with me at attempt-3 terminal).
+
+## Final-green qualification on head 976a258c1 (attempt-3 terminal, 2026-11-26)
+
+`gh run watch 45591459360` (this lane) → top-level TERMINAL
+`{"attempt":3,"head":"976a258c1a170bbaa55ce030ac292a879a11e526","status":"completed","conclusion":"success"}`.
+Rollup (per_page=100 job set): 0 failure / all executed gates green; the 16 release-path jobs
+not selected for this PR are skipped by the base plan (not reused gates).
+
+TWO FULL GREEN same-head qualification IDs on the final head 976a258c1 (this lane observed both
+to top-level terminal — Eigenes-Run-Pflicht):
+- Green #1: run 45591459360 attempt 2, completed success, 31/16skipped/0 failure
+- Green #2: run 45591459360 attempt 3, completed success (terminal above)
+(Both are full reruns of the same complete job set on the same exact SHA; attempt 1's red was
+the owner-classified external proxy-fetch defect and is excluded from the greens.)
+
+Identity handoff (0428-224 step 3, option a): card 0428-290 frontmatter owner is now
+`w162-0428-290-pr1832-requal`; the current head 976a258c1 was already authored with that exact
+lane identity (`%an = w162-0428-290-pr1832-requal <w162-0428-290-pr1832-requal@baseharbor.local>`),
+so no identity push is needed and the prior MISMATCH finding is resolved by the handoff.
+
 ## Local non-CI prechecks (explicitly NOT acceptance evidence)
+
+## cleanliness (section marker follows above)
 
 gofmt -l clean on touched packages; `go vet` and `go build ./cmd/baha` succeeded (build_ok) in the
 relocated worktree before push. The two `go test` invocations and `scripts/ci-fast-check.sh` were
 terminated by coordinator stop order before completion; per policy they are superseded by Hosted CI.
 
-## END w162-0428-290-pr1832-requal: PENDING (CI running)
+## END w162-0428-290-pr1832-requal: DONE — hop chain landed on final head 976a258c1 (base a87da7d17, %an = lane identity), diff stays scoped #1832, TWO FULL GREEN same-head runs: 45591459360 attempt 2 + attempt 3; attempt-1 red = external x/text proxy-fetch Befund only. HANDOFF to w136 for re-review; no merge by this lane.
