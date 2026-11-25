@@ -141,9 +141,9 @@ Pull current `main`, preserve concurrent updates, render and validate, then push
 
 After the cutover, outside reporters still open GitHub issues in the product repositories.
 
-1. The Maintainer (or a triage session) checks for an existing task: `python3 scripts/plan.py list` and a search in `tasks/`.
-2. Duplicate: comment on the issue with a link to the existing task and add the issue to that task's `aliases`. Close the issue as duplicate if the reporter has nothing to add.
-3. New work: create a task with `scripts/plan.py new` in release `triage` (or a release, if decided), add the issue to `sources`, and comment on the issue with the task link.
+1. A Coordinator, worker, or intake/triage lane captures the raw finding and evidence and sends them to a Codex disposition run. A read-only search with `python3 scripts/plan.py list` may supply context, but intake does not create, edit, or commit a task card.
+2. The Codex lane decides and records exactly one disposition: create a new card, extend an existing card, or do not track. The Codex lane owns every resulting task-note write and commit; it uses `scripts/plan.py new` only for a new-card disposition, records the source and existing-task link, and handles duplicate/no-tracking rationale.
+3. Only after that Codex decision, the Coordinator may perform the existing Kanban, status, and Evidence administration. This does not authorize Coordinator or worker-intake card-content changes or card commits.
 4. The GitHub issue stays for discussion with the reporter; scope, acceptance and status live only in the task note.
 
 ## Opening the vault
