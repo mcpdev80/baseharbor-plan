@@ -52,3 +52,7 @@ END w136-pr1836-rowsreview DONE
 - After the ruling commit and before the provenance-only follow-up, `git log --oneline origin/main..HEAD` listed `13e973661 docs(evidence): finalize #1853 route ruling`. The provenance-only follow-up is also this lane’s commit.
 
 - Final pre-push `git log --oneline origin/main..HEAD` output: `1e734765f docs(evidence): record #1853 provenance`; `13e973661 docs(evidence): finalize #1853 route ruling`. Both commits are this lane’s evidence updates.
+
+## Concurrent plan-main update
+
+The first push was rejected because plan `origin/main` advanced from `ea9f7ab6583542ab3bd1b782e7652585ca567d04` to `baeb87e761e1dcea69e8999f1fc77bcf7d369925`, which contains the unrelated w239 #1833 state-assessment evidence commit. The isolated worktree rebased only this lane's three evidence commits with `git rebase --onto origin/main ea9f7ab6583542ab3bd1b782e7652585ca567d04`; it completed without conflicts. Current `git log --oneline origin/main..HEAD` is limited to this lane's three evidence commits: `6b120bc01 docs(evidence): clarify #1853 provenance log`, `c7902e03f docs(evidence): record #1853 provenance`, and `34f620835 docs(evidence): finalize #1853 route ruling`. No foreign commit is included in the pending push.
