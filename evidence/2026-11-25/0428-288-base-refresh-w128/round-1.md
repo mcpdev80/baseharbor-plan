@@ -6,12 +6,12 @@ terminal on the new exact head, two IDs, HANDOFF (no merge by this lane).
 
 ## PLAN
 
-- [x] reality check: PR #1833 open, head b9d312bce, worktree w124-0428-288-compose-ids-wt pulled to head
-- [x] git merge origin/develop (f7540e591) — clean, no conflicts
-- [x] non-test prechecks on merged tree: go build, gofmt, go vet — clean
-- [x] normal push: new exact head a7b0a48048c11d20234160eede941532ddc33156 (ls-remote == PR head verified)
-- [ ] Hosted CI run 45513816046 watched to terminal (ID 1); second exact-head run ID (ID 2)
-- [ ] END_DONE / HANDOFF (no review, no merge)
+- reality check: PR #1833 open, head b9d312bce, worktree w124-0428-288-compose-ids-wt pulled to head
+- git merge origin/develop (f7540e591) — clean, no conflicts
+- non-test prechecks on merged tree: go build, gofmt, go vet — clean
+- normal push: new exact head a7b0a48048c11d20234160eede941532ddc33156 (ls-remote == PR head verified)
+- Hosted CI run 45513816046 watched to terminal (ID 1); second exact-head run ID (ID 2)
+- END_DONE / HANDOFF (no review, no merge)
 
 ## Facts
 
