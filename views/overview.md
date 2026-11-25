@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 14 |
+| active | 15 |
 | review | 2 |
 | wait | 14 |
 | blocked | 2 |
-| ready | 48 |
+| ready | 47 |
 | queued | 25 |
 | waiting | 179 |
 | backlog | 7 |
@@ -34,6 +34,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-base-branch-provenance-loss](../tasks/t-20261121-base-branch-provenance-loss.md) | 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened | active | high | coordinator | — | — |
 | [t-20261121-candidate-commit-identity](../tasks/t-20261121-candidate-commit-identity.md) | Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) | active | not set | w119b-0428-224-step4 | — | — |
 | [t-20261121-stale-pr-hop-and-baserefs](../tasks/t-20261121-stale-pr-hop-and-baserefs.md) | 0428-216 hop the stale PRs of our cards and fix their base refs | active | normal | w233-0428-216-prsweep | — | — |
+| [t-20261123-planner-deleted-source-advisory](../tasks/t-20261123-planner-deleted-source-advisory.md) | CI: candidate planner mishandles deleted source rows (advisory job red) | active | not set | w205 (lane w205-0428-253) | — | — |
 | [t-20261124-gate-catalog-baseline-0428-270](../tasks/t-20261124-gate-catalog-baseline-0428-270.md) | CI/catalog: add operatorauth rows to develop pr-gate-coverage.json | active | not set | w65-0428-269-batchbaseline | — | — |
 | [t-20261124-gate-catalog-baseline-1819](../tasks/t-20261124-gate-catalog-baseline-1819.md) | CI/catalog: add #1819 source rows to develop pr-gate-coverage.json | active | not set | w65-0428-269-batchbaseline | — | — |
 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) | CI/catalog: add #1820 source row to develop pr-gate-coverage.json | active | not set | w65-0428-269-batchbaseline | — | — |
@@ -82,7 +83,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261116-r28-bug-provider-discovery](../tasks/t-20261116-r28-bug-provider-discovery.md) | Detect mixed Compose providers | ready | high | — | — | — |
 | [t-20261120-gate-catalog-ci-fast-check](../tasks/t-20261120-gate-catalog-ci-fast-check.md) | 0428-205 · Wire ci-fast-check into the release gate catalog | ready | normal | Codex (root-cause diagnose, NICHT worker) / Coordinator | — | [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774) |
 | [t-20261122-native-plan-self-selection](../tasks/t-20261122-native-plan-self-selection.md) | CI: catalog and planner self-change selects zero gates | ready | not set | — | — | — |
-| [t-20261123-planner-deleted-source-advisory](../tasks/t-20261123-planner-deleted-source-advisory.md) | CI: candidate planner mishandles deleted source rows (advisory job red) | ready | not set | — | — | — |
 | [t-20261124-0428-278-perses-provision-ghost-coverage-rows](../tasks/t-20261124-0428-278-perses-provision-ghost-coverage-rows.md) | gate-plan ghost source rows | ready | low | — | — | — |
 | [t-20261124-r28-perses-backend-status-real-probe](../tasks/t-20261124-r28-perses-backend-status-real-probe.md) | PersesBackendAnswersStatusNow runs the dashboard build while the app-status comment names VerifyPersesInfraDashboard as the real probe. | ready | not set | — | [t-20261120-r28-perses-status-never-verified](../tasks/t-20261120-r28-perses-status-never-verified.md) | — |
 | [t-20261124-r28-runtime-authority-gate-routing](../tasks/t-20261124-r28-runtime-authority-gate-routing.md) | PR-Gate-Plan routes the runtime-authority seam to package checks only, so a fail-open regression there is never qualified by a native runtime gate. | ready | normal | — | — | — |
