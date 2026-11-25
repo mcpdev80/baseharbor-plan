@@ -41,16 +41,20 @@ evidence: []
 
 ## Goal
 
-One or two sentences: the observable outcome.
+Remove the shared legacy app-token fallback for broker-consuming services that lack an explicit runtime permission. Each service must use an explicit, authorized runtime identity scoped to its own application/service.
 
 ## Scope
 
-- In scope:
-- Out of scope:
+- In scope: the broker identity selection/fallback path and focused identity authorization tests.
+- Out of scope: changing candidate consent rules, adding a new identity store, or broad authorization redesign.
 
 ## Acceptance
 
-- Each criterion as a plain bullet. Do not use checkboxes here: only the card line above is a checkbox.
+- A missing per-service runtime identity fails closed; it never falls back to a shared legacy app token.
+- A valid explicit identity remains scoped to its authorized service/application and cannot access a sibling service.
+- Errors explain the missing authorization without exposing token values or secret material.
+- Add focused positive and negative regressions, including the prior fallback case; bind them to the existing package/gate that actually runs them.
+- Preserve all existing consent and operator-authorization checks.
 
 ## Required checks
 
@@ -72,6 +76,11 @@ One or two sentences: the observable outcome.
 
 - Owned files or areas:
 - Shared files: coordinate through the owning task.
+
+
+## Owner decision — 2026-11-25
+
+Remove the shared legacy app-token fallback. Require an explicit, narrowly scoped runtime identity; do not retain an implicit compatibility fallback.
 
 ## Handoff
 
