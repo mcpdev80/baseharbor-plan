@@ -454,6 +454,26 @@ origin	https://github.com/mcpdev80/baseharbor-plan.git (push)
   (`900b572f3`) contains only its evidence file; `git status --porcelain` in the planning repo is
   empty.
 
+## Ancestry and delivery witnesses (final head)
+
+- Measured at the final head `7e1fc3a57dcd615f9d286b67393cae9a02763c81`:
+
+```
+$ git merge-base --is-ancestor a87da7d179e08d43e8987885c38ab459ff1d887d HEAD && echo CUT_BASE_ANCESTOR_OK
+CUT_BASE_ANCESTOR_OK
+$ git merge-base --is-ancestor 2a141387dbbaf24f52501a0f66f1abf61cf8fcda HEAD && echo REFRESH_BASE_ANCESTOR_OK
+REFRESH_BASE_ANCESTOR_OK
+$ git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/heads/lane-0428-319-doclink-sweep refs/pull/1843/head
+2a141387dbbaf24f52501a0f66f1abf61cf8fcda	refs/heads/develop
+7e1fc3a57dcd615f9d286b67393cae9a02763c81	refs/heads/lane-0428-319-doclink-sweep
+7e1fc3a57dcd615f9d286b67393cae9a02763c81	refs/pull/1843/head
+```
+
+- Exactly one candidate branch per chain: `git ls-remote … refs/heads/lane-0428-319-doclink-sweep2
+  refs/heads/w181-doclink-sweep` returned no rows, i.e. no second branch exists for this card
+  (nothing was deleted, none was ever created).
+- `git show -s --format=%an HEAD` before the delivery push = `w181-0428-doclink-sweep`.
+
 ## cleanliness
 
 - Host this session runs on is the coordinator/codeman server: no container, image, volume, network
