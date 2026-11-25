@@ -26,5 +26,4 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | [t-20261125-hunt33-unguarded-git-sudo](../tasks/t-20261125-hunt33-unguarded-git-sudo.md) | 0428 hunt H-V33: hunt33-unguarded-git-sudo | ready | not set | — | — | — |
 | [t-20261125-hunt34-cli-docs-drift](../tasks/t-20261125-hunt34-cli-docs-drift.md) | 0428 hunt H-V34: three doc-drift spots in cli.md examples/flags | ready | not set | — | — | — |
 | [t-20261125-hunt34-cli-json-flag-contract](../tasks/t-20261125-hunt34-cli-json-flag-contract.md) | 0428 hunt H-V34: document single --json/--output contract across subcommands | ready | not set | — | — | — |
-| [t-20261125-hunt34-ghost-subcommand-app-show](../tasks/t-20261125-hunt34-ghost-subcommand-app-show.md) | 0428 hunt H-V34: remove ghost subcommand 'baha app show' from docs | ready | not set | — | — | — |
 | [t-20261125-hunt35-catalog-coverage-completion](../tasks/t-20261125-hunt35-catalog-coverage-completion.md) | 0428 hunt H-V35: complete coverage rows for the 3 release-requirements gates | ready | not set | — | — | — |
