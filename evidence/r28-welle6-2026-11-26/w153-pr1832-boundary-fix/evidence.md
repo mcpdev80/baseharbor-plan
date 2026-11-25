@@ -237,8 +237,47 @@ Rows PR: **#1839** https://github.com/mcpdev80/baseharbor/pull/1839
   "uncataloged source change" (reproduces #1832's Trusted Plan failure); POSITIVE pilot same diff +
   new catalog -> planner exits 0, no source_unowned raise, native gates select
   docker/podman data-capabilities + guided (matching what already passed green on #1832 813ef8991)
-- CI: run 45577423387 on exact head 91ce77dba, tracked to terminal below; HANDOFF for Codex
-  review/merge (worker does not merge)
+- CI on final head: tracked to top-level terminal.
+
+## Identity correction (owner order 2026-11-25, additive)
+
+Commit 91ce77dba carried stale shared-checkout author `w124 <w124@baseharbor.local>` — identity
+defect (branch/PR mine, author not). Fixed ADDITIVELY per order (no rewrite, no force):
+
+    git -c user.name='w153-0428-290-pr1832-boundary-fix' -c user.email='w153-0428-290-pr1832-boundary-fix@baseharbor.local' \
+      commit --allow-empty -m 'identity: assert owning lane for admission rule (additive, card t-20261121)'
+    -> d335a2aec
+    git show -s --format='%an <%ae>' HEAD
+    -> w153-0428-290-pr1832-boundary-fix <w153-0428-290-pr1832-boundary-fix@baseharbor.local>   (verified; GitHub API confirms on the remote commit)
+    git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/w153-pr1832-coverage-rows refs/pull/1839/head
+    d335a2aec058487f7cf142a69c2e653bdbdf5b58  (both refs — delivery witness)
+
+Exact-head run history on branch w153-pr1832-coverage-rows:
+- run 45577423387 (head 91ce77dba) — CANCELLED by same-branch concurrency when the ready-for-review
+  event scheduled 45577446013; does NOT count.
+- run 45577446013 (head 91ce77dba) — terminal SUCCESS (11 success / 21 skipped / 0 failure, incl.
+  PR · Trusted Plan + PR Selected Checks green); old (pre-correction) head, does not count toward
+  the two-run requirement on the final head.
+- run 45577933691 (FINAL head d335a2aec) — TERMINAL SUCCESS at top level: 11 jobs success
+  (Workflow policy, PR · Trusted Plan, PR · Source format, PR · Native gate plan,
+  Candidate-added checks (advisory), Focused Python, Validation pr-planner-tests /
+  receipt-execution-tests / ci-policy / ci-executor-tests, PR Selected Checks), 0 failure,
+  21 skipped (release/integration matrix — this PR changes only catalog data, native gates
+  legitimately not selected for a scripts-only diff).
+- rollup witness: `gh pr view 1839 --json statusCheckRollup` -> 11 SUCCESS / 21 SKIPPED / 0 FAILURE;
+  mergeable=MERGEABLE, mergeStateStatus=CLEAN (observed 09:02Z).
+
+Second terminal SUCCESS run ID on final head d335a2aec: (tracked below — I will not re-dispatch or
+touch the head while waiting; if a second run is scheduled by policy I record it here, otherwise
+the coordinator/Codex decides whether the re-dispatcher must schedule one.)
+
+## HANDOFF
+
+#1839 final head d335a2aec058487f7cf142a69c2e653bdbdf5b58 — data-only rows + additive identity
+assert; run 45577933691 terminal SUCCESS on that exact head. HANDOFF to Codex for review/merge
+(no self-merge). #1832 stays untouched at 813ef8991 until #1839 lands on develop; then this lane
+does `git merge origin/develop` + normal push -> new exact head -> its own terminal green CI ->
+re-review by w136.
 
 Evidence-on-origin/main witness (second-to-last action):
 
