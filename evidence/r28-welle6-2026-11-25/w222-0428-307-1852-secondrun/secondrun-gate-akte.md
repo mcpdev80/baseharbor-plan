@@ -121,3 +121,12 @@ Executed-not-skipped census for 45699760220 (job listing, all `completed`; obser
 END_DONE w222-0428-307-1852run2: second Hosted runs delivered for BOTH PRs, heads unchanged, no commits/pushes/merges/cards touched.
 - PR #1852: head d3db4d898414ead953afcda530155fdef8b227cf unchanged (before/after witnesses above); new run **45699226646** (pull_request, completed/success) joins prior run **45693544910** = two distinct exact-head IDs; Trusted Plan + PR Selected Checks green; diff develop...HEAD = +27/0, exactly the 3 runtime-identity rows in scripts/pr-gate-coverage.json.
 - PR #1819: head b3c5055ad2566b639c2b0d4f4c2848b045221ebf unchanged (before/after witnesses above); new run **45699760220** (pull_request, completed/success) joins prior run **45694363486** = two distinct exact-head IDs; no required gate skipped (Consumer Pins skipped as before, reported as STATE above).
+
+## Publishing proof
+```
+$ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep w222-0428-307-1852-secondrun
+evidence/r28-welle6-2026-11-25/w222-0428-307-1852-secondrun/secondrun-gate-akte.md
+$ git ls-remote origin refs/heads/main
+43900085d94d449b28e5ec2693ce33690bf54281	refs/heads/main
+```
+Evidence commit 43900085d94d449b28e5ec2693ce33690bf54281 (author w222-0428-307-1852run2; pre-push gate: git show -s --format=%an HEAD -> w222-0428-307-1852run2). Planning remote: git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v -> https://github.com/mcpdev80/baseharbor-plan.git (origin/upstream2).
