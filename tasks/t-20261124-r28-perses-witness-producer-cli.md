@@ -75,6 +75,11 @@ Make the `configured` verdict of `PersesBackendWitness` reachable through real o
 Claimed by Codex (w118-0428-265) and published as Planning commit ac53222e9. A product candidate at `e8cf352e25e2d8c3ce2e34e29f2de6a3c753b74f` was briefly evaluated in PR #1829, then closed without merge and its branch deleted after Hosted CI showed that the implementation's test route was not operational. No product changes are retained.
 
 
+
+## Owner decision — 2026-11-25
+
+Use the existing `PR · Go unit` check for the `cmd/baha` regression and the existing Trusted Plan selector/catalog for source routing. The same implementation PR must add the missing source and path mapping needed to execute the test, prove positive selection for this change and non-selection for unrelated paths, and record the actual run. Do not add a parallel pipeline, self-hosted runner, or separate owner-mapping prerequisite. Until the mapped check executes on the exact candidate, acceptance remains blocked.
+
 ## Befund — Hosted CI routing
 
 - Static rule only: `scripts/pr-gate-plan.py:1407-1414` maps `cmd/baha/*_test.go` to `CLI_PACKAGE_CHECKS`; `scripts/pr-gate-plan.py:90-91` defines `cli-package-tests` as `go test ./cmd/baha -count=1`. That selection rule alone does not prove an operational Hosted CI test route.
