@@ -7,7 +7,7 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w126-0428-290-pr1832-worker
+owner: w162-0428-290-pr1832-requal
 kanban_status: active
 kanban_lane: active
 kanban_summary: "Wizard found /metrics from a Bruno file and defaulted to caddy; generated source caddy:8080/metrics is not supported by Compose…"
