@@ -178,11 +178,12 @@ file: line `cmd/baha/app_tls.go:496-504, 186-188`, `cmd/baha/app_secret_tls.go:9
 
 ## Cleanliness
 
-docker ps -a before: (no containers started — read-only hunt, no compose/daemon)
-docker ps -a after:  (none)
-worktree removed: `git worktree remove --force /tmp/opencode/w195-hunt-v50-wt`
-cleanliness: worktree gone, no containers/networks/volumes/state created, no stray files under the
-ecosystem root.
+- Product worktree `/tmp/opencode/w195-hunt-v50-wt` (at `99d9ddebc`, detached) removed after read-only mapping.
+- Plan evidence committed in isolated worktree `/tmp/opencode/w195-0428-224-hunt-v50-plan` (at `origin/main` `61121311b`), committed `81a36f7f7`, pushed to `origin/main`, verified present via `git ls-tree -r --name-only origin/main | grep bughunt-hv50-tls-cert-rot`.
+- Commit author verified: `git show -s --format=%an HEAD` => `w195-0428-224-hunt-v50`.
+- docker ps -a before: (no containers started — read-only hunt, no compose/daemon)
+- docker ps -a after:  (none)
+- cleanliness: no product worktree, no plan worktree, no containers/networks/volumes/state created, no stray files under the ecosystem root.
 
 ## END
 
