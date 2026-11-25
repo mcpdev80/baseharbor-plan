@@ -7,7 +7,7 @@ areas: [wizard]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w124-0428-288-compose-ids
+owner: w146-0428-288-pr1833-fix
 kanban_status: active
 kanban_lane: active
 kanban_summary: "docker compose config --services yields vectordb, but baha app init persisted vector-db in workload.components and Runtime API…"
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261116-r28-bug-compose-service-ids · Preserve Compose service IDs #task #release/v0-4-28 #status/active #view/active #area/wizard #kind/bug
     <!-- generated:card -->
-    **Owner:** w124-0428-288-compose-ids · **Priority:** high  
+    **Owner:** w146-0428-288-pr1833-fix · **Priority:** high  
     **PR:** [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w124-0428-288-compose-ids  
+**Owner:** w146-0428-288-pr1833-fix  
 **Priority:** high  
 **PRs:** [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
 **Source:** 
