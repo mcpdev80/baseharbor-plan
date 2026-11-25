@@ -126,3 +126,14 @@ Open conflict (why I do not commit a fix): the mission says "all EXECUTED, ident
 What is needed to unblock (route decision): confirm whether the fix is (a) to harden `tests/fixture-consent.py` so its `app apply` re-run reliably binds the candidate digest before the IN_SYNC apply (route 2, demo repo, my scope — I will implement + Draft PR + hosted CI), or (b) a Befund that the call site is the workflow bootstrap in `.github/workflows/pre-release-runtime-suite.yml` (route 3, Owner scope). My lean: (a), `fixture-consent.py` `app apply` re-bind, since the reproducible fail is there.
 
 Candidate SHA: none pushed (branch `w140-0428-249-demo-confirm-candidate-fix` @ b4112772, 0 commits). No PR opened, awaiting the coordinator decision above to avoid a blind consent-behavior change.
+
+## origin/main presence witness
+
+This evidence file is committed on baseharbor-plan `main` and verified present on origin/main:
+```
+git fetch origin main && git -C . ls-tree -r --name-only origin/main | grep 1812-demo-confirm-fix
+  -> evidence/r28-welle6-2026-11-26/1812-demo-confirm-fix/evidence.md
+git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main
+  -> 23f1756bec0729e369aba4b7b310ac68b9ad70be  refs/heads/main
+git merge-base --is-ancestor 23f1756be origin/main -> confirmed
+```
