@@ -50,11 +50,15 @@ Decide and enforce the `baha app exec` exit-status passthrough contract so a chi
 
 ## Acceptance
 
-- Each criterion as a plain bullet.
-- Either docs state explicitly that exit 2 (or 1) may come from the child for `baha app exec`, or the command emits a machine-readable result envelope that distinguishes baha failures from child passthrough; the comment at cmd/baha/app_exec.go:266-270 is corrected to describe the chosen contract.
-- A regression test runs `baha app exec` against a command exiting 2 and asserts the chosen disambiguation (documented collision or envelope field).
-- The design comment in cmd/baha/app_exec.go ("never maps to the usage exit code") no longer overclaims.
-- Hunt akte finding F3.
+- `baha app exec` passes through the child process exit code unchanged, including 1 and 2; CLI invocation failures remain separately described by their command context and diagnostics.
+- Document this contract in `docs/reference/cli.md` and correct the comment that claims the child can never return a reserved usage code.
+- Add a regression for a child returning exit code 2 and assert the exact passthrough result.
+- Use the existing CLI Go test check; no new CI pipeline.
+
+
+## Owner decision — 2026-11-25
+
+The child process exit code is passed through unchanged. Exit values 1 and 2 may therefore also originate from the child; document that fact and keep BaseHarbor invocation failures distinguishable by their diagnostic/context rather than changing the child status.
 
 ## Required checks
 
