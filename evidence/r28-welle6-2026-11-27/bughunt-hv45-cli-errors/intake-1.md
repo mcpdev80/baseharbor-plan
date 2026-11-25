@@ -13,8 +13,8 @@ Mission: coordinator/missions/hunt-v45-intake.txt. Card Intake only — no produ
 - Step 4: Cluster coherent defect cards; mapping table below. DONE.
 - Step 5: File cards via scripts/plan.py new (type: bug, kanban_status: planned, severity where repo rules allow) and fill Goal/Scope/Acceptance/Handoff. DONE.
 - Step 6: Per-finding disposition lines in this akte. DONE (below).
-- Step 7: render + check + publish (pull --rebase, own files only). IN PROGRESS.
-- Step 8: Evidence-on-origin/main witness, END post.
+- Step 7: render + check + publish (pull-rebase, own files only). DONE (check: 0 errors, 11 pre-existing warnings; published as 588c1033d + amendments).
+- Step 8: Evidence-on-origin/main witness, END post. DONE.
 
 ## Anchoring and remote witnesses
 
@@ -116,4 +116,4 @@ Product-side witnesses (read-only worktree at 2a141387d): `git log --oneline ori
 
 Cleanliness witnesses: `docker ps -a` before and after END: header only, zero rows (this lane started zero containers/compose projects; pid noted at run time). Worktree removed via `git worktree remove` after this file's final commit.
 
-END w187-0428-224-hunt-v45-intake DONE — cards 0428-321..325 filed on baseharbor-plan origin/main (intake commits 588c1033d + 1321c6284, author w187-0428-224-hunt-v45-intake); F1-F9 all live-cast (F1→321, F2/F4/F7/F8→323, F3→322, F5→324, F6/F9→325), F10 control no-card; two akte citation corrections documented (ci_integration_operator_gate.go nonexistent; F8 free-sentence count 4); no product changes.
+END w187-0428-224-hunt-v45-intake DONE — cards 0428-321..325 filed on baseharbor-plan origin/main (first intake commit 588c1033d, published head cbf2161a0, all commits authored w187-0428-224-hunt-v45-intake); F1-F9 all live-cast (F1→321, F2/F4/F7/F8→323, F3→322, F5→324, F6/F9→325), F10 control no-card; two akte citation corrections documented (ci_integration_operator_gate.go nonexistent; F8 free-sentence count 4); no product changes. Sequenced follow-on: PR #1844 refreshed to head 54a879b08, qualifying runs 45619972563 + 45620233713 (see evidence/r28-welle6-2026-11-27/pr1844-refresh/).
