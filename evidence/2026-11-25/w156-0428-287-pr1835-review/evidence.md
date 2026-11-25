@@ -55,7 +55,7 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 
 ## END
 
-END_BLOCKED w156-0428-287-pr1835-review: merge withheld; head author `w105` mismatches card owner `w105-0428-279-audit`, and exact-head Docker/Podman gate batches have no per-gate execution proof; candidate 55d17d437cfced7ec648aa42c14cc529963b68b6.
+END_BLOCKED w156-0428-287-pr1835-review: merge withheld; head author `w105` mismatches card owner `w105-0428-279-audit`, and preservation assertion plus Podman proof are required on the new w157 head; current PR head 55d17d437cfced7ec648aa42c14cc529963b68b6.
 
 ## Origin main path witness
 
@@ -66,3 +66,15 @@ From https://github.com/mcpdev80/baseharbor-plan
  * branch                main       -> FETCH_HEAD
 evidence/2026-11-25/w156-0428-287-pr1835-review/evidence.md
 ```
+
+## Owner precision recheck
+
+Authenticated GitHub account via `gh api user --jq '.login'`: `mcpdev80`. The requested exact field query `gh api repos/mcpdev80/baseharbor/commits/55d17d437cfced7ec648aa42c14cc529963b68b6 --jq '.commit.author.name'` returned:
+
+```text
+w105
+```
+
+The card owner lane is still `w105-0428-279-audit`. The equality check compares `.commit.author.name` to that card-owner lane, and remains false. GitHub uploader `.author.login` was not used for the identity decision.
+
+The refreshed PR is still open and unmerged at `55d17d437cfced7ec648aa42c14cc529963b68b6`; the w157 correction is not yet the PR head. The substantive acceptance hold remains the preservation assertion and Podman runtime proof on the new w157 head. Existing cancelled/void gate runs on `55d17d43` do not qualify that future head.
