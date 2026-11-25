@@ -1,7 +1,7 @@
 ---
 id: t-20261126-hunt46-damaged-state-reserved-namespace
 card_number: "0428-328"
-card_short_title: "skip reserved never-delivered in DamagedDeploymentNamespace"
+card_short_title: "skip reserved damaged scan"
 type: task
 areas: []
 release: v0.4.28
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: "DamagedDeploymentNamespace (internal/deployment/damagedstate.go:266) iterates deployments/ children and calls…"
-kanban_title: 0428-328 · skip reserved never-delivered in DamagedDeploymentNamespace
+kanban_title: 0428-328 · skip reserved damaged scan
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]

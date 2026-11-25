@@ -1,7 +1,7 @@
 ---
 id: t-20261126-hunt46-never-delivered-proof-leak
 card_number: "0428-326"
-card_short_title: "consume never-delivered proof on destroy/retire"
+card_short_title: "consume never-delivered proof"
 type: task
 areas: []
 release: v0.4.28
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: "The never-delivered proof at never-delivered/<applicationID>/<environment>.json is created by guided adoption…"
-kanban_title: 0428-326 · consume never-delivered proof on destroy/retire
+kanban_title: 0428-326 · consume never-delivered proof
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]

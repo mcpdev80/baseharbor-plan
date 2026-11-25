@@ -1,7 +1,7 @@
 ---
 id: t-20261126-hunt46-recovery-backup-volume-heuristic
 card_number: "0428-329"
-card_short_title: "tighten recovery/backup volume label match"
+card_short_title: "tighten recovery/backup match"
 type: task
 areas: []
 release: v0.4.28
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: Under the whole-installation full-destroy command — the most destructive command in the tool — the only thing standing between…
-kanban_title: 0428-329 · tighten recovery/backup volume label match
+kanban_title: 0428-329 · tighten recovery/backup match
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]

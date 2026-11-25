@@ -1,7 +1,7 @@
 ---
 id: t-20261126-hunt46-collectable-orphans-reserved-namespace
 card_number: "0428-327"
-card_short_title: "skip reserved never-delivered in CollectableOrphans"
+card_short_title: "collectable orphan skip dir"
 type: task
 areas: []
 release: v0.4.28
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: "CollectableOrphans (internal/deployment/deploymentlist.go:185) enumerates each direct child directory of deployments/ as a…"
-kanban_title: 0428-327 · skip reserved never-delivered in CollectableOrphans
+kanban_title: 0428-327 · collectable orphan skip dir
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
