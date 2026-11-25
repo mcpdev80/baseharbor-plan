@@ -23,6 +23,16 @@ Planning repository remote: `origin https://github.com/mcpdev80/baseharbor-plan.
 
 Planning origin/main base SHA: `4b20b5d36d0377916aa0b569a89a9eea53f35670`.
 
+Initial evidence push witness: `35b719b3999474043013aba03e3f036c6144661c refs/heads/w200-1851-carrier` from `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/w200-1851-carrier`.
+
+Evidence publication PR #32 merged at `2026-11-25T19:34:35Z`; merge SHA `cef612132866956b4f00a38e02902067f889b1ad`. `Plan · validate` run `45686425730` passed on PR head `35b719b3999474043013aba03e3f036c6144661c`.
+
+Required second-to-last main-path witness command output, after `git fetch origin main`:
+
+```text
+evidence/2026-11-25/w200-1851-carrier/disposition.md
+```
+
 ## Fresh ancestry and merge-tree evidence
 
 Verified GitHub Core remote: `origin https://github.com/mcpdev80/baseharbor.git (fetch)` and `(push)`.
