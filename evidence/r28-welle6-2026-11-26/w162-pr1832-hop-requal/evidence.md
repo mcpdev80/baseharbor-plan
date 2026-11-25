@@ -20,8 +20,23 @@ No merge; re-review belongs to w136.
 
 ## Stop-order events (coordinator, 2026-11-26)
 
-- Local `go test` and `scripts/ci-fast-check.sh` execution were STOPPED by the coordinator
-  (kill of PID 353501/353500). Local test execution is not acceptance evidence; qualification
+- STOP ORDER (coordinator, mid-mission): relocation directive and identity-leak report.
+  Confirmed: from that point I touch ONLY `lane-0428-290-metrics-discovery` in my own worktree
+  `/tmp/opencode/w162-wt`; no further commands in `/tmp/baseharbor-w122`.
+- Identity-leak forensics (reported, per "report, do not extend"): merge commit 69953fcce on
+  branch lane-0428-287-install-reset-recovery (#1835) carries author
+  `w162-0428-290-pr1832-requal <w162-0428-290-pr1832-requal@baseharbor.local>`,
+  committer date 2026-11-25 10:10:11 +0100. This lane's first action was mission execution on
+  2026-11-26, i.e. the commit PREDATES this session; the git identity of this lane name was
+  configured in the foreign zone before I ever opened it. Provenance of MY candidate:
+  `git merge-base --is-ancestor 69953fcce cee9ff8a1` → NOT an ancestor; my pushed head cee9ff8a1
+  contains only the remote head 813ef8991 plus my merge of c7f70b0c5. The leak is therefore a
+  foreign-branch bookkeeping defect to be fixed by the owning lane w157/coordinator on #1835,
+  not content contamination of #1832. The shared-checkout reflog shows
+  lane-0428-287-install-reset-recovery work (commits abc390d28, 2a4298672, 69953fcce) interleaved
+  in /tmp/baseharbor-w122 on 2026-11-25 — consistent with a prior lane using this lane's name.
+- Local test execution stop: `go test` and `scripts/ci-fast-check.sh` were TERMINATED by the
+  coordinator (kill of PID 353501/353500). Local test execution is not acceptance evidence; qualification
   is Hosted CI only. Local gofmt/vet/build outputs are recorded but are NOT CI evidence.
   Transcripts of the interrupted local runs are NOT included here as evidence.
 - Foreign abandoned worktree reported: `/tmp/baseharbor-w122` (an earlier w122/w53 zone held an
@@ -124,6 +139,30 @@ cee9ff8a1938647375bad90c7d1a0f996eef10e1	refs/heads/lane-0428-290-metrics-discov
 
 Run on exact head cee9ff8a1: https://github.com/mcpdev80/baseharbor/actions/runs/45582189971
 (monitored to top-level terminal by this lane — own-run duty; results appended below).
+
+ID #1 — run 45582189971 attempt 1, head cee9ff8a1: top-level TERMINAL conclusion **success**
+(gh run watch exit 0; `{attempt:1, status:"completed", conclusion:"success"}`).
+Job outcome rollup at completion: 30 success / 16 skipped (release-path jobs not selected) / 0 failure.
+Trusted Plan ran green on this head: the #1839 rows landed on develop c7f70b0c5, so the two
+boundary test files (`cmd/baha/app_init_metrics_boundary_test.go`,
+`internal/repositoryinspect/metrics_endpoint_boundary_test.go`) are cataloged — the previous
+"uncataloged source change" diagnosis (w153 evidence, run 45573926656) no longer reproduces.
+
+ID #2 — same head, same run: `gh run rerun 45582189971` (head untouched, precedent: w153 d335a2aec
+attempt-2) → attempt 2 queued with `{head: cee9ff8a1, attempt: 2}` (ls-remote of refs/pull/1832/head
+unchanged before rerun). Terminal state tracked below.
+
+## No-extra-hop decision (owner directive 2026-11-26)
+
+Current develop tip is a87da7d17 (moved past my base c7f70b0c5). I did NOT hop onto it: the
+directive requires a hop only if GitHub reports BEHIND (merge blocked for up-to-date) at accept
+time. Witness (2026-11-26, while attempt 2 ran):
+`gh pr view 1832 --json mergeable,mergeStateStatus` → mergeable=MERGEABLE,
+**mergeStateStatus=BEHIND**. Per the owner-condition this MAY force a hop at accept time; I am
+reporting it for the coordinator/w136 decision instead of launching a third green cycle —
+the BEHIND flag reflects base-movement bookkeeping and may flip at the merge attempt itself.
+If the hop becomes authorized: merge a87da7d17 (re-verified tip) into this same branch, normal
+push, two same-head greens on the NEW head, per directive.
 
 ## cleanliness
 
