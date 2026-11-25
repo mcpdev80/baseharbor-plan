@@ -34,7 +34,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44882903559", "h
 **State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Required by:** [t-20261120-r28-valkey-dashboard-unavailable-only](t-20261120-r28-valkey-dashboard-unavailable-only.md)  
 **Owner:** coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1734](https://github.com/mcpdev80/baseharbor/pull/1734)  

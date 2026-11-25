@@ -10,7 +10,7 @@ parent: ""
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: "Secret hygiene on the CLI error path: scrub external runtime stderr before it becomes a user-facing error message, and zero the…"
+kanban_summary: Scrub untrusted Docker/Podman Compose stderr before it becomes a user-facing CLI error. Hunt H-V45 F5 confirmed raw external…
 kanban_title: 0428-324 · scrub external runtime stderr
 priority: ""
 depends_on: []
@@ -20,13 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/runtime/compose_command.go#L12-L24","https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/runtime/compose_command.go#L57-L99","https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/runtime/compose_files.go#L330-L395","https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-27/bughunt-hv45-cli-errors/intake-1.md"]
 ---
 
-- [ ] t-20261125-hunt45-secret-hygiene-error-path · CLI: scrub external runtime stderr and zero dev credential buffers #task #release/v0-4-28 #status/planned #view/ready #kind/bug
+- [ ] t-20261125-hunt45-secret-hygiene-error-path · CLI: sanitize Compose error output #task #release/v0-4-28 #status/planned #view/ready #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned  
     **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/runtime/compose_command.go#L12-L24), [proof 2](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/runtime/compose_command.go#L57-L99), [proof 3](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/runtime/compose_files.go#L330-L395), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-27/bughunt-hv45-cli-errors/intake-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -41,19 +42,19 @@ evidence: []
 
 ## Goal
 
-Secret hygiene on the CLI error path: scrub external runtime stderr before it becomes a user-facing error message, and zero the dev credentials buffer after rendering, matching the export path's hygiene. Hunt H-V45 F5.
+Scrub untrusted Docker/Podman Compose stderr before it becomes a user-facing CLI error. Hunt H-V45 F5 confirmed raw external stderr is embedded in runtime errors; the explicit `baha dev credentials` password reveal remains an intentional stdout contract.
 
 ## Scope
 
-- In scope: internal/runtime/compose_command.go (the three stderr-embed sites: lines ~20-24, ~60-66, ~90-96), cmd/baha/dev_access.go credentials handling (zero after render, JSON branch at :203), a shared scrub helper in internal/cli or internal/apierror, leak-detection test with a poisoned secret value on failing compose and the reveal path.
-- Out of scope: changing the deliberate reveal seams themselves (app connect PASSWORD/URI masking, dev credentials stdout reveal by design - F5 positive controls stay); .github/** triggers.
+- In scope: every runtime error construction that turns captured Docker/Podman Compose stderr or process error text into a user-facing error, including `compose_command.go` and `compose_files.go`; one narrow sanitizer and fake-runtime leak tests.
+- Out of scope: changing explicit secret reveal on `baha dev credentials`, redesigning the Go string credential type to imply reliable memory zeroization, unrelated reveal/masking behavior, or `.github/**` triggers.
 
 ## Acceptance
 
-- Each criterion as a plain bullet.
-- A failing `docker/podman compose` invocation whose stderr contains a poisoned secret value renders without that value in the user-facing error (test asserts absence), while the command/args context is kept.
-- cmd/baha/dev_access.go zeroes the password buffer after rendering on all paths including --json (defer zeroBytes on the []byte form).
-- The scrub helper is used by every compose stderr-capture site (grep witness: no remaining raw `fmt.Errorf("compose %s: %s"` with unsanitized message).
+- A fake failing runtime emits a poisoned secret through each captured-stderr path; the returned error omits the secret while retaining safe operation context.
+- Every production path that embeds captured Compose stderr or subprocess error text uses the same focused sanitization function.
+- Sanitization tests cover obvious secret assignment forms and do not disclose the secret in verbose or JSON error output.
+- Do not claim reliable zeroization of immutable Go strings or alter the explicit developer-credential reveal command under this card.
 
 ## Required checks
 
@@ -64,7 +65,7 @@ Secret hygiene on the CLI error path: scrub external runtime stderr before it be
 - **Hard acceptance gate:** For every required test provide exact SHA -> test ID -> mapped check/native gate -> trigger -> actual run URL/outcome. Missing test, registration, mapping, selection, trigger or real passing execution BLOCKS acceptance. Docker/rootless Podman each require independent live evidence when applicable; do not rerun unaffected checks needlessly.
 
 
-- **Test binding:** normal (auto-discovered) Go unit tests in internal/runtime and cmd/baha packages.
+- **Test binding:** normal (auto-discovered) Go unit tests in the internal/runtime package.
 - Name every new or changed test (package, exact test ID, fixture/env and native runtime if applicable). Targeted checks for the changed area; broaden when impact is unknown.
 - Record the existing CI validation/check or Docker/Podman native gate that actually executes each test, and which PR paths, develop integration event or release candidate selection triggers it.
 - If coverage is absent, implement/register it in the owning CI lane before acceptance; prove positive selection for a relevant change and negative/non-selection for an unrelated change. Missing, skipped or failed mandatory execution is NOT PASS.

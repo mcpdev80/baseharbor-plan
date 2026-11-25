@@ -10,7 +10,7 @@ parent: ""
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: "One or two sentences: the observable outcome."
+kanban_summary: "Document the actual host and container prerequisites of the existing runtime acceptance lanes for maintainers, so local…"
 kanban_title: 0428-296 · hunt33-cell-prereq-docs
 priority: ""
 depends_on: []
@@ -20,13 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/.github/workflows/runtime-s3-acceptance.yml#L190-L198","https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/docs/development/pre-release-readiness.md#L1-L33"]
 ---
 
 - [ ] t-20261125-hunt33-cell-prereq-docs · 0428 hunt H-V33: hunt33-cell-prereq-docs #task #release/v0-4-28 #status/planned #view/ready #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
     **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/.github/workflows/runtime-s3-acceptance.yml#L190-L198), [proof 2](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/docs/development/pre-release-readiness.md#L1-L33)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -41,42 +42,16 @@ evidence: []
 
 ## Goal
 
-One or two sentences: the observable outcome.
+Document the actual host and container prerequisites of the existing runtime acceptance lanes for maintainers, so local reproduction distinguishes host Docker/Compose from utilities supplied inside provider images.
 
 ## Scope
 
-- In scope:
-- Out of scope:
+- In scope: add a short maintainer-facing prerequisite note to docs/development/pre-release-readiness.md, including the existing runtime gates and that SeaweedFS acceptance invokes weed shell inside the SeaweedFS container image.
+- Out of scope: product user documentation, changing workflow commands or images, new jobs/pipelines, and pinning the GitHub-hosted runner image.
 
 ## Acceptance
 
-- Each criterion as a plain bullet. Do not use checkboxes here: only the card line above is a checkbox.
-
-## Required checks
-
-- **Modified features:** Inventory and adapt all affected existing unit, contract, integration, regression, E2E and native-runtime tests; add missing cases.
-- **New features/providers (e.g. Perses Provider Contract):** Implement NEW dedicated positive, negative, authorization, ownership, error-path, compatibility and lifecycle tests wherever relevant. Passing unrelated existing suites is not sufficient.
-- **CI integration and mapping are part of implementation:** Register every new/changed test in its package/test inventory and update existing test-to-gate mapping, selectors, relevant `REQUIRED_CLIENT_TESTS`/package equivalent, `scripts/pr-gate-plan.py`, `scripts/release-requirements.json`, and CI workflow paths/triggers where applicable. Coordinate reserved CI files with their owner; no new CI framework.
-- **Mapping selection proof:** Verify affected paths select the required tests, unrelated paths do not unnecessarily select them, and the applicable stacked-PR, ready-for-review, develop and release workflows cannot silently bypass them. Unknown coverage broadens selection instead of failing open.
-- **Hard acceptance gate:** For every required test provide exact SHA -> test ID -> mapped check/native gate -> trigger -> actual run URL/outcome. Missing test, registration, mapping, selection, trigger or real passing execution BLOCKS acceptance. Docker/rootless Podman each require independent live evidence when applicable; do not rerun unaffected checks needlessly.
-
-
-- **Test binding (select exactly one):** ☐ normal (auto-discovered) · ☐ contract → add to `REQUIRED_CLIENT_TESTS` or the package equivalent in the same PR · ☐ new check → update `scripts/pr-gate-plan.py` and `scripts/release-requirements.json` in the same PR.
-- Name every new or changed test (package, exact test ID, fixture/env and native runtime if applicable). Targeted checks for the changed area; broaden when impact is unknown.
-- Record the existing CI validation/check or Docker/Podman native gate that actually executes each test, and which PR paths, develop integration event or release candidate selection triggers it.
-- If coverage is absent, implement/register it in the owning CI lane before acceptance; prove positive selection for a relevant change and negative/non-selection for an unrelated change. Missing, skipped or failed mandatory execution is NOT PASS.
-- For Docker/Podman tests, prove native Docker and rootless Podman/Quadlet separately where required; unit fakes do not replace live runtime evidence. Cross-repo tests run through existing develop/release acceptance, not a blocking independent PR gate.
-- Handoff must identify exact source SHA, test -> CI gate -> trigger -> actual run/outcome, or mark explicit CI coverage debt as blocking. No new CI framework or full automatic PR matrix.
-
-## Dependencies and file ownership
-
-- Owned files or areas:
-- Shared files: coordinate through the owning task.
-
-## Handoff
-
-- Current state, branch, PR and evidence links. Newest first.
-
-## Task
-
-Hunt H-V33 fund: provider-image dependency (weed, workflow l.196) not documented as cell prerequisite; host side docker-only assumption undocumented. Docs task (docs/ reference) - no workflow edit.
+- State the host requirements separately from tools provided by test containers.
+- Name the existing Docker and rootless Podman acceptance routes and identify the SeaweedFS image-provided weed shell dependency.
+- Keep the note consistent with workflow behavior; no workflow or product-code changes.
+- Run the existing documentation audit/build checks for the edited page only as selected by current CI routing.

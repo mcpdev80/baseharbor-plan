@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: Codex (w118-0428-265)
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: planned
+kanban_lane: ready
 kanban_summary: Make the configured verdict of PersesBackendWitness reachable through real observation instead of a hard-coded empty witness.…
 kanban_title: 0428-265 · backend witness never proven
 priority: ""
@@ -17,20 +17,20 @@ depends_on: [t-20261119-r28-perses-status-backend-witness]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: "Owner-CI-mapping dependency: scripts/pr-gate-coverage.json:147 requires an Owner-owned source coverage row for internal/metrics/perses_dashboards_hosts.go before Trusted Plan can select checks; cmd/baha status sources also remain unresolved at scripts/pr-gate-plan.py:1420-1424."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261124-r28-perses-witness-producer-cli · PersesBackendSignalWitness is passed as a zero-value literal at every CLI call site, so the configured verdict is unreachable on every status surface. #task #release/v0-4-28 #status/blocked #view/blocked #area/cli #area/metrics #area/observability #kind/bug
+- [ ] t-20261124-r28-perses-witness-producer-cli · PersesBackendSignalWitness is passed as a zero-value literal at every CLI call site, so the configured verdict is unreachable on every status surface. #task #release/v0-4-28 #status/planned #view/ready #area/cli #area/metrics #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** Codex (w118-0428-265)  
-    **Blocker:** Owner-CI-mapping dependency: scripts/pr-gate-coverage.json:147 requires an Owner-owned source coverage row for internal/metrics/perses\_dashboards\_hosts.go before Trusted Plan can select checks; cmd/baha status sources also remain unresolve…  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261119-r28-perses-status-backend-witness](t-20261119-r28-perses-status-backend-witness.md)  
 **Required by:** [t-20261124-r28-app-status-unauthorized-live-probe](t-20261124-r28-app-status-unauthorized-live-probe.md), [t-20261124-r28-perses-state-spelling-drift](t-20261124-r28-perses-state-spelling-drift.md)  
@@ -101,7 +101,7 @@ Use the existing `PR · Go unit` check for the `cmd/baha` regression and the exi
 The earlier continuation claim was disproven by this actual Hosted CI result. Implementation remains held because the existing route was not proven to execute tests for this candidate.
 
 - Hosted CI evidence: [run 45459222545](https://github.com/mcpdev80/baseharbor/actions/runs/45459222545), candidate `e8cf352e25e2d8c3ce2e34e29f2de6a3c753b74f`, PR [#1829](https://github.com/mcpdev80/baseharbor/pull/1829). `PR · Trusted Plan` and `PR Selected Checks` failed. Trusted Plan reported `uncataloged source change, no declared runtime gate owner: internal/metrics/perses_dashboards_hosts.go` and suggested source id `source.internal_metrics_perses_dashboards_hosts_go`, path `internal/metrics/perses_dashboards_hosts.go`, surfaces `source.gate.atomic.docker.data.capabilities` and `source.gate.atomic.podman.data.capabilities`. `PR · Go unit` shards were skipped, so `cli-package-tests` and the regression tests did not run. PR #1829 was closed unmerged, the branch was deleted, and the product candidate was removed from the working tree.
-- Owner-scope catalog mapping proposal (NOT applied): add the source row above to `scripts/pr-gate-coverage.json` at the `components` catalog beginning at line 147. Owner-CI-mapping dependency remains blocking.
+- Owner-scope catalog mapping proposal (NOT applied): add the source row above to `scripts/pr-gate-coverage.json` at the `components` catalog beginning at line 147. Per the owner decision below, the same implementation PR owns the required selector/catalog mapping; there is no separate Owner-CI-mapping prerequisite.
 - Exact proposed selector-line diff (NOT applied; `scripts/**` remains Owner-scope):
 
 ```diff

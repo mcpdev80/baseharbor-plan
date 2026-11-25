@@ -8,9 +8,9 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: ""
-kanban_status: planned
-kanban_lane: ready
-kanban_summary: "One or two sentences: the observable outcome."
+kanban_status: closed
+kanban_lane: closed
+kanban_summary: ""
 kanban_title: 0428-315 · unify/align timeout constant
 priority: ""
 depends_on: []
@@ -19,18 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: dropped
+evidence: ["https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/metrics/perses_tempo_datasource.go#L65-L66","https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/metrics/perses_tempo_verify.go#L90-L102","https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/logs/query.go#L150-L180","https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-27/bughunt-hv42-timeout-retry/hv42-findings.md"]
 ---
 
-- [ ] t-20261125-hunt42-timeout-constant-matrix · 0428 hunt H-V42: unify/align timeout constant matrix (tempo 10s vs verify; reconcile/readiness values) #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [x] t-20261125-hunt42-timeout-constant-matrix · 0428 hunt H-V42: timeout budgets for distinct operations #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/metrics/perses_tempo_datasource.go#L65-L66), [proof 2](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/metrics/perses_tempo_verify.go#L90-L102), [proof 3](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/logs/query.go#L150-L180), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-27/bughunt-hv42-timeout-retry/hv42-findings.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** unassigned  
@@ -39,18 +39,9 @@ evidence: []
 **Source:** 
 <!-- /generated:links -->
 
-## Goal
+## Disposition
 
-One or two sentences: the observable outcome.
-
-## Scope
-
-- In scope:
-- Out of scope:
-
-## Acceptance
-
-- Each criterion as a plain bullet. Do not use checkboxes here: only the card line above is a checkbox.
+DROP after current-source recheck at `3a2ae6b1139570c98b8924e3b19975c56a289400`. The evidence compares budgets for different operations: a Tempo trace query and log-history query are not the same probe, and provider reconciliation/readiness budgets belong to different providers and phases. A difference in duration alone does not establish a bug or justify a shared constant. The Tempo datasource and verifier already share `tempoTraceQueryTimeout`; no failed deadline, caller-cancellation defect, or owner-defined uniform timeout contract was established for this finding. Do not change production timeouts under this card.
 
 ## Required checks
 

@@ -7,15 +7,15 @@ areas: [deployment]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w128-0428-286-apply-destroy
-kanban_status: active
-kanban_lane: active
+owner: ""
+kanban_status: planned
+kanban_lane: ready
 kanban_summary: A failed baha app apply may register a DEGRADED deployment without a materialized application runtime; baha app destroy --yes…
 kanban_title: 0428-286 · Recover failed apply destroy
 priority: critical
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1834]
+prs: []
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,19 +23,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261116-r28-bug-failed-apply-destroy · Recover failed apply destroy #task #release/v0-4-28 #status/active #view/active #area/deployment #kind/bug
+- [ ] t-20261116-r28-bug-failed-apply-destroy · Recover failed apply destroy #task #release/v0-4-28 #status/planned #view/ready #area/deployment #kind/bug
     <!-- generated:card -->
-    **Owner:** w128-0428-286-apply-destroy · **Priority:** critical  
-    **PR:** [baseharbor#1834](https://github.com/mcpdev80/baseharbor/pull/1834)  
+    **Owner:** unassigned · **Priority:** critical  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w128-0428-286-apply-destroy  
+**Owner:** unassigned  
 **Priority:** critical  
-**PRs:** [baseharbor#1834](https://github.com/mcpdev80/baseharbor/pull/1834)  
+**PRs:** none  
 **Source:** 
 <!-- /generated:links -->
 
@@ -74,7 +74,7 @@ Run `baha app init` in J-Commerce, select SQL/cache/queue/metrics, confirm candi
 
 ## Handoff
 
-- Follow-up tracked: #1834 CLOSED_UNMERGED (in-branch catalog edit violated trusted-base rule); work continues on #1835 (fresh branch, no scripts delta) - see installation-reset card prs link.
+- PR #1834 was closed without merge because its in-branch coverage-catalog edit violated the trusted-base rule. PR #1835 belongs to the separate installation-wide destroy card 0428-287; its `reset`-only recovery branch does not resolve this `baha app destroy` defect. No active implementation PR remains for 0428-286. Keep this card planned for a fresh exact-base implementation after the catalog rows from #1836 are on develop; preserve the app-scoped ownership and foreign-resource safeguards.
 
 
 - Planned only. No implementation, PR, merge or acceptance claimed. Source: 2026-11-16 J-Commerce guided-init/apply/destroy/reset transcript supplied by Owner.

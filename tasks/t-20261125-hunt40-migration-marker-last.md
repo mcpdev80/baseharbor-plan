@@ -1,7 +1,7 @@
 ---
 id: t-20261125-hunt40-migration-marker-last
 card_number: "0428-310"
-card_short_title: "orgconfig migrateToCanonical"
+card_short_title: "migration marker retry"
 type: task
 areas: []
 release: v0.4.28
@@ -10,8 +10,8 @@ parent: ""
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: "One or two sentences: the observable outcome."
-kanban_title: 0428-310 · orgconfig migrateToCanonical
+kanban_summary: "Make the one-time migration from a world-writable legacy organization-selection file fail closed across failures and retries,…"
+kanban_title: 0428-310 · migration marker retry
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
@@ -23,7 +23,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt40-migration-marker-last · 0428 hunt H-V40: orgconfig migrateToCanonical writes marker LAST (crash-window) #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261125-hunt40-migration-marker-last · 0428 hunt H-V40: migration marker failure can permit legacy re-adoption #task #release/v0-4-28 #status/planned #view/ready #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
     **Ready to assign** · prerequisites accepted  
@@ -41,42 +41,30 @@ evidence: []
 
 ## Goal
 
-One or two sentences: the observable outcome.
+Make the one-time migration from a world-writable legacy organization-selection file fail closed across failures and retries, without writing the migration marker before the canonical selection is safely stored.
 
 ## Scope
 
-- In scope:
-- Out of scope:
+- In scope: `internal/orgconfig/store.go` and focused tests in the `internal/orgconfig` Go package.
+- Keep the safe ordering: atomically write the canonical selection first, then record the durable once-only marker. Do not implement the old marker-first suggestion; that can strand a marker without the migrated selection.
+- Out of scope: general organization-config redesign, filesystem-wide migration framework, and unrelated target/identity changes.
 
 ## Acceptance
 
-- Each criterion as a plain bullet. Do not use checkboxes here: only the card line above is a checkbox.
-
-## Required checks
-
-- **Modified features:** Inventory and adapt all affected existing unit, contract, integration, regression, E2E and native-runtime tests; add missing cases.
-- **New features/providers (e.g. Perses Provider Contract):** Implement NEW dedicated positive, negative, authorization, ownership, error-path, compatibility and lifecycle tests wherever relevant. Passing unrelated existing suites is not sufficient.
-- **CI integration and mapping are part of implementation:** Register every new/changed test in its package/test inventory and update existing test-to-gate mapping, selectors, relevant `REQUIRED_CLIENT_TESTS`/package equivalent, `scripts/pr-gate-plan.py`, `scripts/release-requirements.json`, and CI workflow paths/triggers where applicable. Coordinate reserved CI files with their owner; no new CI framework.
-- **Mapping selection proof:** Verify affected paths select the required tests, unrelated paths do not unnecessarily select them, and the applicable stacked-PR, ready-for-review, develop and release workflows cannot silently bypass them. Unknown coverage broadens selection instead of failing open.
-- **Hard acceptance gate:** For every required test provide exact SHA -> test ID -> mapped check/native gate -> trigger -> actual run URL/outcome. Missing test, registration, mapping, selection, trigger or real passing execution BLOCKS acceptance. Docker/rootless Podman each require independent live evidence when applicable; do not rerun unaffected checks needlessly.
-
-
-- **Test binding (select exactly one):** ☐ normal (auto-discovered) · ☐ contract → add to `REQUIRED_CLIENT_TESTS` or the package equivalent in the same PR · ☐ new check → update `scripts/pr-gate-plan.py` and `scripts/release-requirements.json` in the same PR.
-- Name every new or changed test (package, exact test ID, fixture/env and native runtime if applicable). Targeted checks for the changed area; broaden when impact is unknown.
-- Record the existing CI validation/check or Docker/Podman native gate that actually executes each test, and which PR paths, develop integration event or release candidate selection triggers it.
-- If coverage is absent, implement/register it in the owning CI lane before acceptance; prove positive selection for a relevant change and negative/non-selection for an unrelated change. Missing, skipped or failed mandatory execution is NOT PASS.
-- For Docker/Podman tests, prove native Docker and rootless Podman/Quadlet separately where required; unit fakes do not replace live runtime evidence. Cross-repo tests run through existing develop/release acceptance, not a blocking independent PR gate.
-- Handoff must identify exact source SHA, test -> CI gate -> trigger -> actual run/outcome, or mark explicit CI coverage debt as blocking. No new CI framework or full automatic PR matrix.
+- Preserve canonical-file-before-marker ordering so a crash cannot leave a marker that falsely claims the selection was adopted when no canonical selection exists.
+- Handle marker-creation failure after the canonical rename so a later load/save cannot silently re-adopt the stale legacy selection if the canonical file is subsequently absent.
+- Add a deterministic package regression for the marker-write failure/retry window, using an injectable filesystem seam or equivalent controlled fault; assert fail-closed behavior and preserve the successfully migrated selection.
+- Keep the existing successful migration guarantees: the canonical value loads, the durable marker is written, and later deletion of canonical state does not revive the legacy value.
+- Bind the regression to normal Go package test discovery for `internal/orgconfig`; do not create a per-test catalog row or a new CI gate.
+- Record the exact candidate SHA, test command, selected existing check and actual run result in the implementation handoff.
 
 ## Dependencies and file ownership
 
-- Owned files or areas:
-- Shared files: coordinate through the owning task.
+- Owned files: `internal/orgconfig/store.go` and the package's migration tests.
+- No dependency on the real-version Core provider migration qualification card; these are separate migrations with separate runtime and risk boundaries.
 
-## Handoff
+## Audit disposition — REWRITE
 
-- Current state, branch, PR and evidence links. Newest first.
+Rechecked BaseHarbor `develop` at `3a2ae6b1139570c98b8924e3b19975c56a289400`. The finding's proposed marker-first fix is unsafe and is rejected: the code deliberately writes the canonical file before the marker. The actual narrow gap is that a marker-write error is returned after canonical state has landed, while the loader only checks the marker when canonical state is absent; a later loss of that canonical file can therefore permit legacy re-adoption. The existing tests cover successful marker creation and later state deletion, but not controlled marker-write failure and retry. This card stays open with that corrected scope; no product fix is claimed here.
 
-## Task
-
-Cast from hunt H-V40 (akte evidence/w173/hunt-v40-upgrade-migration.md, plan 77f681922): internal/orgconfig/store.go migrateToCanonical:305-320 writes the once-only migration marker AFTER canonical file moves - crash in between re-runs or loses canonicalization. Make marker-first or transactional + regression for interrupted migration.
+Evidence: [current migration implementation](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/orgconfig/store.go), [current orgconfig migration tests](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/orgconfig/orgconfig_test.go), [H-V40 source dossier](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/w173/hunt-v40-upgrade-migration.md).

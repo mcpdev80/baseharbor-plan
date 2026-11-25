@@ -1,7 +1,7 @@
 ---
 id: t-20261125-hunt39-volume-recovery-manifest
 card_number: "0428-312"
-card_short_title: "assert recovery-manifest"
+card_short_title: "manifest volume coverage"
 type: task
 areas: []
 release: v0.4.28
@@ -10,8 +10,8 @@ parent: ""
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: "One or two sentences: the observable outcome."
-kanban_title: 0428-312 · assert recovery-manifest
+kanban_summary: "Pin existing recovery behavior with tests: selected application-owned workload volumes must appear in the archive manifest and…"
+kanban_title: 0428-312 · manifest volume coverage
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
@@ -20,13 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/cmd/baha/app_recovery_selection.go#L48-L58","https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/cmd/baha/app_recovery_selection.go#L148-L240","https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/cmd/baha/app_backup_restore_data.go#L110-L120","https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/cmd/baha/app_backup_restore_data.go#L197-L254","https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-26/bughunt-hv39-backup-restore/akte.md"]
 ---
 
 - [ ] t-20261125-hunt39-volume-recovery-manifest · 0428 hunt H-V39: assert recovery-manifest coverage for workload volumes #task #release/v0-4-28 #status/planned #view/ready #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
     **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/cmd/baha/app_recovery_selection.go#L48-L58), [proof 2](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/cmd/baha/app_recovery_selection.go#L148-L240), [proof 3](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/cmd/baha/app_backup_restore_data.go#L110-L120), [proof 4](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/cmd/baha/app_backup_restore_data.go#L197-L254), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-26/bughunt-hv39-backup-restore/akte.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -41,16 +42,19 @@ evidence: []
 
 ## Goal
 
-One or two sentences: the observable outcome.
+Pin existing recovery behavior with tests: selected application-owned workload volumes must appear in the archive manifest and payload, while external or bind-mounted data remains explicitly excluded. A manifest/payload mismatch must fail before restore mutation.
 
 ## Scope
 
-- In scope:
-- Out of scope:
+- In scope: tests for workload-volume discovery, manifest encoding, and manifest-to-payload validation using existing unit or CLI test seams.
+- Out of scope: changing which storage is owned or selected by default, altering destroy semantics, or adding a new native CI pipeline.
 
 ## Acceptance
 
-- Each criterion as a plain bullet. Do not use checkboxes here: only the card line above is a checkbox.
+- A declared, materialized application-owned workload volume is represented as a selected supported contributor and its logical resource is included in the recovery payload.
+- Bind mounts and external named volumes remain explicit excluded/external contributors and are not treated as application-owned backup data.
+- Missing or unexpected workload-storage payload entries relative to the selected manifest are rejected before mutation.
+- Bind the focused tests to their existing package/gate and record the exact source SHA and execution evidence in handoff.
 
 ## Required checks
 

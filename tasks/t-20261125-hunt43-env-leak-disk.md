@@ -1,7 +1,7 @@
 ---
 id: t-20261125-hunt43-env-leak-disk
 card_number: "0428-316"
-card_short_title: "hunt43-env-leak-disk"
+card_short_title: "scoped Compose environment"
 type: task
 areas: []
 release: v0.4.28
@@ -10,8 +10,8 @@ parent: ""
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: "One or two sentences: the observable outcome."
-kanban_title: 0428-316 · hunt43-env-leak-disk
+kanban_summary: Stop unrelated host-environment secrets from entering rendered application configuration through Compose interpolation on either…
+kanban_title: 0428-316 · scoped Compose environment
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
@@ -20,13 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/providers/runtime/podman/quadlet_project.go#L338-L403","https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/providers/runtime/podman/quadlet_render.go#L254-L275","https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/runtime/command_env.go#L9-L23","https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/runtime/compose_files.go#L276-L302","https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/runtime/docker_engine.go#L284-L315","https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-27/bughunt-hv43-config-injection/hv43-findings.md"]
 ---
 
 - [ ] t-20261125-hunt43-env-leak-disk · 0428 hunt H-V43: hunt43-env-leak-disk #task #release/v0-4-28 #status/planned #view/ready #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
     **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/providers/runtime/podman/quadlet_project.go#L338-L403), [proof 2](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/providers/runtime/podman/quadlet_render.go#L254-L275), [proof 3](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/runtime/command_env.go#L9-L23), [proof 4](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/runtime/compose_files.go#L276-L302), [proof 5](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/runtime/docker_engine.go#L284-L315), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-27/bughunt-hv43-config-injection/hv43-findings.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -41,38 +42,25 @@ evidence: []
 
 ## Goal
 
-One or two sentences: the observable outcome.
+Stop unrelated host-environment secrets from entering rendered application configuration through Compose interpolation on either runtime. Preserve only values intentionally supplied through the selected application's project-scoped environment inputs and required runtime-control variables.
 
 ## Scope
 
-- In scope:
-- Out of scope:
+- In scope: Podman Quadlet interpolation and owner-only service .env generation; Docker Compose subprocess environment and interpolation; explicit project-scoped environment inputs; focused tests for both adapters.
+- Out of scope: broad environment-variable registry documentation (0428-318), logging redaction outside these paths, unrelated runtime process environment changes, and new CI pipelines.
 
 ## Acceptance
 
-- Each criterion as a plain bullet. Do not use checkboxes here: only the card line above is a checkbox.
+- Do not seed Compose interpolation from the entire ambient os.Environ set. Pass only explicitly selected project environment inputs plus the minimum runtime-control variables required to invoke the chosen engine.
+- An unrelated host secret sentinel cannot appear in a Quadlet service .env file or in Docker Compose's application-service environment, even when the host defines a variable with the same name.
+- Explicitly selected project environment values still reach the intended service; do not silently discard declared application configuration.
+- Keep generated Quadlet secret-bearing env files owner-only and never print their values in diagnostics.
+- Add focused positive and negative tests for both Podman/Quadlet and Docker Compose. Bind them to existing runtime acceptance routes; no parallel pipeline.
+- Document the new source and precedence of project environment values in the implementation handoff.
 
-## Required checks
+## Evidence
 
-- **Modified features:** Inventory and adapt all affected existing unit, contract, integration, regression, E2E and native-runtime tests; add missing cases.
-- **New features/providers (e.g. Perses Provider Contract):** Implement NEW dedicated positive, negative, authorization, ownership, error-path, compatibility and lifecycle tests wherever relevant. Passing unrelated existing suites is not sufficient.
-- **CI integration and mapping are part of implementation:** Register every new/changed test in its package/test inventory and update existing test-to-gate mapping, selectors, relevant `REQUIRED_CLIENT_TESTS`/package equivalent, `scripts/pr-gate-plan.py`, `scripts/release-requirements.json`, and CI workflow paths/triggers where applicable. Coordinate reserved CI files with their owner; no new CI framework.
-- **Mapping selection proof:** Verify affected paths select the required tests, unrelated paths do not unnecessarily select them, and the applicable stacked-PR, ready-for-review, develop and release workflows cannot silently bypass them. Unknown coverage broadens selection instead of failing open.
-- **Hard acceptance gate:** For every required test provide exact SHA -> test ID -> mapped check/native gate -> trigger -> actual run URL/outcome. Missing test, registration, mapping, selection, trigger or real passing execution BLOCKS acceptance. Docker/rootless Podman each require independent live evidence when applicable; do not rerun unaffected checks needlessly.
-
-
-- **Test binding (select exactly one):** ☐ normal (auto-discovered) · ☐ contract → add to `REQUIRED_CLIENT_TESTS` or the package equivalent in the same PR · ☐ new check → update `scripts/pr-gate-plan.py` and `scripts/release-requirements.json` in the same PR.
-- Name every new or changed test (package, exact test ID, fixture/env and native runtime if applicable). Targeted checks for the changed area; broaden when impact is unknown.
-- Record the existing CI validation/check or Docker/Podman native gate that actually executes each test, and which PR paths, develop integration event or release candidate selection triggers it.
-- If coverage is absent, implement/register it in the owning CI lane before acceptance; prove positive selection for a relevant change and negative/non-selection for an unrelated change. Missing, skipped or failed mandatory execution is NOT PASS.
-- For Docker/Podman tests, prove native Docker and rootless Podman/Quadlet separately where required; unit fakes do not replace live runtime evidence. Cross-repo tests run through existing develop/release acceptance, not a blocking independent PR gate.
-- Handoff must identify exact source SHA, test -> CI gate -> trigger -> actual run/outcome, or mark explicit CI coverage debt as blocking. No new CI framework or full automatic PR matrix.
-
-## Dependencies and file ownership
-
-- Owned files or areas:
-- Shared files: coordinate through the owning task.
-
-## Handoff
-
-- Current state, branch, PR and evidence links. Newest first.
+- Quadlet reads the ambient process environment and expands it into Compose data: https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/providers/runtime/podman/quadlet_project.go#L338-L403
+- Rendered service environment is written into the project files: https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/providers/runtime/podman/quadlet_render.go#L254-L275
+- Docker runtime process environment and Compose overrides: https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/runtime/command_env.go#L9-L23, https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/runtime/compose_files.go#L276-L302, https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/runtime/docker_engine.go#L284-L315
+- Original H-V43 findings and rationale: https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-27/bughunt-hv43-config-injection/hv43-findings.md

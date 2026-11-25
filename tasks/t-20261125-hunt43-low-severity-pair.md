@@ -1,7 +1,7 @@
 ---
 id: t-20261125-hunt43-low-severity-pair
 card_number: "0428-318"
-card_short_title: "hunt43-low-severity-pair"
+card_short_title: "serve config docs"
 type: task
 areas: []
 release: v0.4.28
@@ -10,8 +10,8 @@ parent: ""
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: "One or two sentences: the observable outcome."
-kanban_title: 0428-318 · hunt43-low-severity-pair
+kanban_summary: Document the baha serve control-plane and runtime-executor environment variables in the English and German runtime…
+kanban_title: 0428-318 · serve config docs
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
@@ -20,13 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/cmd/baha/serve.go#L145-L193","https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/docs/spec/control-plane-runtime.md#L17-L30","https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/docs/de/spec/control-plane-runtime.md#L17-L32","https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-27/bughunt-hv43-config-injection/hv43-findings.md"]
 ---
 
 - [ ] t-20261125-hunt43-low-severity-pair · 0428 hunt H-V43: hunt43-low-severity-pair #task #release/v0-4-28 #status/planned #view/ready #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
     **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/cmd/baha/serve.go#L145-L193), [proof 2](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/docs/spec/control-plane-runtime.md#L17-L30), [proof 3](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/docs/de/spec/control-plane-runtime.md#L17-L32), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-27/bughunt-hv43-config-injection/hv43-findings.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -41,16 +42,18 @@ evidence: []
 
 ## Goal
 
-One or two sentences: the observable outcome.
+Document the `baha serve` control-plane and runtime-executor environment variables in the English and German runtime specifications, including purpose, defaults, and secret-file handling.
 
 ## Scope
 
-- In scope:
-- Out of scope:
+- In scope: inventory the variables read by `controlPlaneConfigFromEnv` and `runtimeExecutorConfigFromEnv`, describe defaults and which values contain credentials versus file paths, in both language versions.
+- Out of scope: changing runtime behavior, adding environment-variable aliases, or changing CLI target-selection precedence.
 
 ## Acceptance
 
-- Each criterion as a plain bullet. Do not use checkboxes here: only the card line above is a checkbox.
+- English and German docs list the same control-plane and runtime-executor variables and explain their purpose, defaults, and secret-file handling.
+- Documented defaults match the current configuration code; credential-bearing values are identified without sample secrets.
+- Documentation examples do not contain real credentials or secrets.
 
 ## Required checks
 

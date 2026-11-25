@@ -10,7 +10,7 @@ parent: ""
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: "Two differently-named destructive scopes both delete owned volumes, but the data-loss severity wording is split across…"
+kanban_summary: "Installation-wide baha destroy --all and selected-Core control-plane destroy --delete-data have different deletion scopes, but…"
 kanban_title: 0428-330 · unify destroy data-loss words
 priority: ""
 depends_on: []
@@ -39,14 +39,18 @@ evidence: []
 **Source:** 
 <!-- /generated:links -->
 
+## Owner decision — 2026-11-25
+
+0428-329 owns `baha app destroy`: delete every resource and volume inside the selected application's scope, including recovery- or backup-labelled volumes; retaining them would be app deletion. This card covers the separate installation-wide `baha destroy --all` scope, which deletes the installation-owned resources and volumes in its selected installation scope, and selected-Core `control-plane destroy --delete-data`, which remains limited to canonical Core resources and explicitly selected Core volumes. Warnings must name each command's actual data-loss scope; do not conflate application, installation, and selected-Core destruction.
+
 ## Goal
 
-Two differently-named destructive scopes both delete owned volumes, but the data-loss severity wording is split across `full-destroy` (installation) and `delete-data` (Core), so an operator (and the MCP/JSON surfaces) can conflate them. This card unifies the "delete owned volumes permanently" warning so it is surfaced identically for both scopes, or explicitly documents that they are distinct scopes.
+Installation-wide `baha destroy --all` and selected-Core `control-plane destroy --delete-data` have different deletion scopes, but their data-loss warnings can be conflated across CLI and structured surfaces. Make the consequences clear for both without changing either scope. `baha app destroy` semantics are defined separately by 0428-329.
 
 ## Scope
 
 - In scope:
-  - Review the "after" consequence text in `cmd/baha/control_plane_destroy.go` (`buildSelectedCoreDestroyPlan`, DeleteData branch) and the `full-destroy` discovery/reporting surface (`cmd/baha/runtime_destroy_discovery.go`), and surface the "owned volumes permanently lost" consequence identically, or add an explicit shared "DESTRUCTIVE DATA LOSS" tag in one place.
+  - Review the "after" consequence text in `cmd/baha/control_plane_destroy.go` (`buildSelectedCoreDestroyPlan`, DeleteData branch) and the installation-wide `full-destroy` discovery/reporting surface (`cmd/baha/runtime_destroy_discovery.go`); clearly state the distinct scope and permanent-loss consequence in each.
   - Low severity: intended behavior; risk is operator conflation. Scope the change to wording/consent surface, not to what either scope deletes.
 - Out of scope:
   - The recovery/backup volume provenance heuristic: 0428-329.
@@ -54,8 +58,8 @@ Two differently-named destructive scopes both delete owned volumes, but the data
 
 ## Acceptance
 
-- Both destructive scopes surface the owned-volumes-permanently-lost consequence with identical wording (or an explicit shared tag), with no silent divergence.
-- The actual deletion scope of each command is unchanged (full-destroy deletes all owned; selected-core --delete-data deletes only canonical Core volumes).
+- Both commands clearly surface the permanent-loss consequence, with wording appropriate to each scope; no operator can mistake selected-Core deletion for full installation destruction or vice versa.
+- The actual deletion scope is unchanged: installation-wide `destroy --all` deletes resources and volumes owned by the selected installation; selected-Core `--delete-data` deletes only canonical Core resources and explicitly selected Core volumes. App-scoped `baha app destroy` remains governed by 0428-329.
 - No product behavior delta beyond the consequence/consent wording.
 - Every required test is reachable by a real CI check in the same PR where the change warrants a regression (consent-surface/JSON contract path). Docker/Podman: n/a.
 - Exact source SHA -> test ID -> mapped CI gate -> trigger -> actual run recorded in handoff.
@@ -69,6 +73,16 @@ Two differently-named destructive scopes both delete owned volumes, but the data
 
 - Current state, branch, PR and evidence links. Newest first.
 
+## Current-source recheck — 2026-11-25
+
+At `mcpdev80/baseharbor/develop`, commit `119d12a5952ef48146dba129a7d1f03f8df36e8e`, `cmd/baha/runtime_destroy_impact.go` distinguishes installation-wide destruction from selected-Core destruction, and `cmd/baha/control_plane_destroy.go` describes permanent loss for explicitly selected canonical Core volumes. The installation destroy report also lists preserved external recovery locations separately. Align warnings with these scopes and the separate application-owned scope in 0428-329; do not imply that in-scope volumes are retained.
+
 ## Task
 
-Cast from hunt H-V46 (akte evidence/r28-welle6-2026-11-27/bughunt-hv46-state-lifecycle/ on origin/main 62de9bb74, anchor develop 2a141387d; re-verified against develop 384d857b5 at intake). BF-46-1 LIVE. The whole-installation `destroy --all` path is discovered/reported as `full-destroy` (runtime_destroy_discovery.go: discoverFullDestroyTargets, discoverFullDestroyDeployments, fullDestroyResult). The single Core module path, `control-plane destroy`, is gated by a different context key `selectedCoreDataDeletionKey` / `DeleteData` flag, not by `full-destroy` (control_plane_destroy.go:19, 39, 70-72). Vocabulary gap: the "after" consequence text is built conditionally on `p.DeleteData`; full-destroy names "continuing to preserve application-owned workload data volumes" (CHANGELOG.md:473) while the selected-core `--delete-data` path (line 71) says "Volume contents are permanently lost". Neither surfaces a shared "DESTRUCTIVE DATA LOSS" tag in one place. Fix: unify the data-loss consequence vocabulary, or explicitly document that they are distinct scopes.
+- Review the full-application and selected-Core destroy consequence/consent surfaces, including CLI and JSON/MCP output.
+- State that installation-wide `baha destroy --all` permanently deletes every installation-owned resource and volume inside its selected scope; distinguish it from application-scoped `baha app destroy` (0428-329).
+- State that selected-Core `--delete-data` deletes only canonical Core resources and explicitly selected Core volumes; preserve the rest of its narrower scope.
+- Keep external recovery files, source repositories, foreign resources, and out-of-scope data clearly separate from both selected installation and selected-Core scopes.
+- Add focused wording/contract regression coverage for both commands and their structured output.
+- Run existing mapped checks and record the exact candidate SHA, test IDs, mapped gates, triggers, and results.
+

@@ -61,4 +61,4 @@ Choose the fail-loud behavior. The planner must report a clear error when a cove
 
 ## Handoff
 
-- **Lösung (Codex-Lane w118):** Befund: Kartenloesung = ghost-Zeilen in scripts/pr-gate-plan.py entfernen/fixen -> scripts/** Owner-Scope; Lane hat keine Aenderung gesetzt (Disjunktheit zu 0428-265-Selector-Konflikt gewahrt). Owner-Entscheidung noetig, dann Re-Kommissionierung.
+- **Handoff (Codex-Lane w118):** No product change was made; the earlier separate CI-owner prerequisite is superseded by the owner decision above. Add the candidate-tree presence guard and its regression in the same implementation PR. Coordinate edits to the shared CI planner with its owner, while preserving the existing Trusted Plan and selected-check workflows; no parallel pipeline is authorized. 0428-265's source/path mapping belongs to its own implementation PR.

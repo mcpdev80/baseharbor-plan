@@ -7,34 +7,34 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: Codex (Marcel, active wait sweep 2026-11-21)
-kanban_status: active
-kanban_lane: active
+owner: ""
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-183 · valkey dashboards gate
 priority: ""
-depends_on: [t-20261121-loki-verify-probe, t-20261120-r28-cli-shard-operator-env]
+depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1714]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md", "https://github.com/mcpdev80/baseharbor/pull/1734", "https://github.com/mcpdev80/baseharbor/actions/runs/44853938826"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1714", "https://github.com/mcpdev80/baseharbor/actions/runs/44989324573"]
 ---
 
-- [ ] t-20261120-r28-valkey-dashboard-unavailable-only · Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable #task #release/v0-4-28 #status/active #view/active #kind/bug
+- [x] t-20261120-r28-valkey-dashboard-unavailable-only · Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/bug
     <!-- generated:card -->
-    **Owner:** Codex (Marcel, active wait sweep 2026-11-21)  
+    **Owner:** unassigned  
     **PR:** [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1734), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44853938826)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1714), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44989324573)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261121-loki-verify-probe](t-20261121-loki-verify-probe.md), [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
-**Owner:** Codex (Marcel, active wait sweep 2026-11-21)  
+**Depends on:** none  
+**Owner:** unassigned  
 **Priority:** not set  
 **PRs:** [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714)  
 **Source:** 
@@ -96,5 +96,9 @@ review -> wait: verdict REQUEST CHANGES measured at ecff7e2f575, no live session
 REQUEST CHANGES der abnahme, ausschliesslich fuer die commit-identitaet (akte evidence/r28-welle4-2026-11-21/valkey-dashboard-unavailable/review-2-headecff7e2f.md): der kandidat traegt zwei autoren ('worker' und '0428-183-realpos') bei einem committer, karte 0428-224 verlangt genau eine identitaet. KEIN inhaltlicher befund: die valkey-verfuegbarkeits-semantik ('unavailable-only') ist geprueft und in ordnung, die vier commits sind linear. entscheidung noetig, wie bei #1596: dokumentierte owner-ausnahme (praedez: evidence/r28-welle4-2026-11-21/org-env-reconciliation/owner-exception-identity-1596.md) ODER history-normalisierung mit frischem exaktem hosted run. rueckstand: back=19 gegen develop 42da7128e72, der gehostete run 44940738791 war auf dem alten head. keine lane schreibt an diesem branch, die lane-sitzung ist freigegeben.
 
 PR 1714 exact run 44981355459 success at head 731302e9a7a (35 jobs, PR Selected Checks success) but base is the previous develop; second additive hop onto 82825e95 dispatched before review
+
+## Acceptance and merge evidence — 2026-11-25
+
+PR #1714 merged at `5ca8420c1814f25bea6404e55fd054c60746eae5`; the merged head is `67495fde96837846d9d2b26e8db5ad93b7b7c988`. Exact-head PR run [44989324573](https://github.com/mcpdev80/baseharbor/actions/runs/44989324573) completed successfully. The merged implementation adds a real Valkey status producer, a verified-only availability branch, and regressions for the shipped catalog status, positive verified dashboard/query, fail-closed unverified status, and both gate directions. Closing 0428-183 as accepted; later Valkey signal-support changes remain governed by their own provider-contract scope.
 
 independent review at exact head 277ff976395 gave REQUEST CHANGES: internal/application/runtime_observability.go:253 always passes ObservabilityVerifyNone so the production path cannot reach the verified valkey dashboard; correction round dispatched to seat f0f6c8b4

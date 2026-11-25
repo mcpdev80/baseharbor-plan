@@ -1,17 +1,17 @@
 ---
 id: t-20261125-hunt37-cross-perm-dup
 card_number: "0428-308"
-card_short_title: "reject cross-permission"
+card_short_title: "cross-capability grants"
 type: task
 areas: []
 release: v0.4.28
 version: ""
 parent: ""
 owner: ""
-kanban_status: planned
-kanban_lane: ready
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
-kanban_title: 0428-308 · reject cross-permission
+kanban_title: 0428-308 · cross-capability grants
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
@@ -19,18 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: dropped
+evidence: ["https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/application/manifest_validation.go","https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/application/runtime_identity_workload.go"]
 ---
 
-- [ ] t-20261125-hunt37-cross-perm-dup · 0428 hunt H-V37: reject cross-permission service duplication #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [x] t-20261125-hunt37-cross-perm-dup · 0428 hunt H-V37: cross-permission service duplication is not a defect #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/application/manifest_validation.go), [proof 2](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/application/runtime_identity_workload.go)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** unassigned  
@@ -80,3 +80,9 @@ One or two sentences: the observable outcome.
 ## Task
 
 Cast from hunt H-V37: H-V37-A (LOW) - duplicate service entries across permissions are not rejected; add validation + test.
+
+## Audit disposition — DROP
+
+Rechecked BaseHarbor `develop` at `3a2ae6b1139570c98b8924e3b19975c56a289400`. Runtime permissions are separate capability grants; the current validator rejects a duplicate capability and a repeated service within one grant, while allowing the same workload service to receive different capabilities. `RuntimeAuthorizedServices` then intentionally deduplicates service names into one stable per-service runtime identity. Treating a cross-capability repeat as a duplicate would prevent a service from combining distinct grants, and the hunt provides no evidence that this is an authorization leak or invalid state. Drop this low-severity optional proposal; preserve the original H-V37 record above and make no product change.
+
+Current evidence: [capability-scoped manifest validation](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/application/manifest_validation.go), [per-service identity projection](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/application/runtime_identity_workload.go), [manifest permission tests](https://github.com/mcpdev80/baseharbor/blob/3a2ae6b1139570c98b8924e3b19975c56a289400/internal/application/manifest_test.go).
