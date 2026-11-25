@@ -311,8 +311,9 @@ surface and does NOT restate those. Structural overlap is marked where a row wou
 ## cleanliness
 
 - No docker/podman containers or compose projects were started on this host (coordinator host is not a
-  test host). `docker ps -a` before/after recorded; before-list file empty of new entries (daemon lists
-  ambient stacks only, untouched): pid 1420817.
+  test host). `docker ps -a` before/after witness: the daemon lists NO containers at all (both before
+  and after runs are empty; the diff artifact earlier showed only the table-header line of the
+  `--format`-less before run). Nothing was started or stopped; ambient state untouched. pid 1420817.
 - Build artifact written to `/tmp/baha-w190` only.
 - Worktree `workers/w190-0428-224-hunt-v47-wt` removed as the final workspace action
   (`git worktree remove`, read-only, detached HEAD, no commits, no stray files).
