@@ -15,7 +15,7 @@ kanban_title: 0428-284 · 1812 post-retry gate fail
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
-prs: [mcpdev80/baseharbor-demo#173, mcpdev80/baseharbor-demo#174]
+prs: [mcpdev80/baseharbor-demo#173, mcpdev80/baseharbor-demo#174, mcpdev80/baseharbor#1842, mcpdev80/baseharbor#1812]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -33,7 +33,7 @@ evidence:
 - [ ] t-20261125-0428-284-1812-postretry-gate-failure · #1812 post-retry gate failure #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** w177-0428-284-demo-pin-1812 · **Priority:** high  
-    **PR:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174)  
+    **PR:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1842](https://github.com/mcpdev80/baseharbor/pull/1842), [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139), [proof 2](https://github.com/mcpdev80/baseharbor-demo/pull/173), [proof 3](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448531969), [proof 4](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448729972), [proof 5](https://github.com/mcpdev80/baseharbor-demo/pull/174), [proof 6](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45455975242), [proof 7](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45456155783)  
     <!-- /generated:card -->
 
@@ -43,7 +43,7 @@ evidence:
 **Depends on:** none  
 **Owner:** w177-0428-284-demo-pin-1812  
 **Priority:** high  
-**PRs:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174)  
+**PRs:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1842](https://github.com/mcpdev80/baseharbor/pull/1842), [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -81,3 +81,5 @@ evidence:
 - BaseHarbor Core fixture half landed via PR [#1827](https://github.com/mcpdev80/baseharbor/pull/1827), merge commit `adf43709b8b37cd2b18a6bf4710019d7343d54b4`, exact source head `83d7c7afc84740b565ff654562a178361c3522c8`. Exact-head CI runs [45455276409](https://github.com/mcpdev80/baseharbor/actions/runs/45455276409) and [45460654225](https://github.com/mcpdev80/baseharbor/actions/runs/45460654225) both completed successfully. This covers only the test-only `up` fixture admission regression; Demo login/acceptance-group work remains in this card's separate PRs. #1812 still requires its own rebase and runtime requalification; owner assigned that step to w112.
 
 - **Digest-Hinweis (Owner 2026-11-25):** Der Digest-Fix ist bereits in Demo #169 gemergt — keinen leeren oder duplizierten Digest-PR anlegen.
+
+- **Ownership-transfer record (coordinator, owner ledger 2026-11-28):** #1812 requalification executes UNDER THIS CARD (0428-284) as its governing card - explicit accepted transfer: original linked card 0428-249 is CLOSED with owner `w170-0428-249-demo-pr175-fixup` and cannot own new commits; this card's frontmatter owner `w177-0428-284-demo-pin-1812` (ACTIVE) is therefore the EXACT identity for every new #1812 commit (%an gate). #1812's PR body gains the 0428-284 link in the hop step (executor note in akte). prs list extended with core #1842/#1812 accordingly.
