@@ -9,6 +9,8 @@
 
 ## Verdict: choose the existing dispatch-era validation contract (no CI YAML change)
 
+**Terminology:** “existing Hosted pre-release validation dispatch” means the `Release · Pre-Release Validation` `workflow_dispatch` entry in `.github/workflows/pre-release.yml`, invoked with explicit `ref=<PR head>` and `demo_ref=<pin>` inputs (Leg-B precedent style, e.g. run 45570395768). `.github/workflows/pre-release-runtime-suite.yml` is `workflow_call`-only and is not directly dispatched.
+
 For a data-only pin PR, `ci.yml:1080` only runs `PR · Demo Pin` if runtime, integration, or public-contract selection is true. The pin-only candidate sets none, so this job cannot fire through the current predicate. The final `PR Selected Checks` can succeed while that job is skipped; do not treat its success or the local red-first tests as pin-validation evidence.
 
 The proposed planner-only change also does not qualify itself on this PR: `ci.yml:865-869` loads `pr-gate-plan.py` and `pr-check-runner.py` from the trusted base/controller, not from the candidate head. Moreover, the trusted `scripts/pr-check-runner.py:383-393` still validates the literal `docs/releases/v0.4.27.demo-ref`, not v0.4.28. A current-head test showing that the candidate planner selects `demo-source-pin-validation` therefore does not prove that the hosted PR run executes a v0.4.28 pin check.
