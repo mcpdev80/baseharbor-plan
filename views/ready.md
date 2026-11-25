@@ -24,3 +24,4 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | [t-20261125-hunt33-setup-node-sha-pin](../tasks/t-20261125-hunt33-setup-node-sha-pin.md) | 0428 hunt H-V33: hunt33-setup-node-sha-pin | ready | not set | — | — | — |
 | [t-20261125-hunt33-shell-failfast](../tasks/t-20261125-hunt33-shell-failfast.md) | 0428 hunt H-V33: hunt33-shell-failfast | ready | not set | — | — | — |
 | [t-20261125-hunt33-unguarded-git-sudo](../tasks/t-20261125-hunt33-unguarded-git-sudo.md) | 0428 hunt H-V33: hunt33-unguarded-git-sudo | ready | not set | — | — | — |
+| [t-20261125-hunt36-golden-help-guard](../tasks/t-20261125-hunt36-golden-help-guard.md) | 0428 hunt H-V36: add golden --help snapshot CI guard for config/flag surface | ready | not set | — | — | — |
