@@ -26,7 +26,7 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | [t-20261125-hunt33-unguarded-git-sudo](../tasks/t-20261125-hunt33-unguarded-git-sudo.md) | 0428 hunt H-V33: hunt33-unguarded-git-sudo | ready | not set | — | — | — |
 | [t-20261125-hunt36-golden-help-guard](../tasks/t-20261125-hunt36-golden-help-guard.md) | 0428 hunt H-V36: add golden --help snapshot CI guard for config/flag surface | ready | not set | — | — | — |
 | [t-20261125-hunt37-cross-perm-dup](../tasks/t-20261125-hunt37-cross-perm-dup.md) | 0428 hunt H-V37: reject cross-permission service duplication | ready | not set | — | — | — |
-| [t-20261125-hunt37-runtime-identity-fallback](../tasks/t-20261125-hunt37-runtime-identity-fallback.md) | 0428 hunt H-V37: runtime-identity fallback silently downgrades to shared legacy app token (medium) | ready | not set | — | — | — |
+| [t-20261125-hunt37-runtime-identity-fallback](../tasks/t-20261125-hunt37-runtime-identity-fallback.md) | 0428 hunt H-V37: runtime-identity fallback silently downgrades to shared legacy app token (medium) | ready | not set | w211-0428-307-fallback | — | — |
 | [t-20261125-hunt38-go-base-pin-build-stage](../tasks/t-20261125-hunt38-go-base-pin-build-stage.md) | 0428 hunt H-V38: pin unpinned Go base image in build-stage Dockerfile | ready | not set | — | — | — |
 | [t-20261125-hunt39-volume-recovery-manifest](../tasks/t-20261125-hunt39-volume-recovery-manifest.md) | 0428 hunt H-V39: assert recovery-manifest coverage for workload volumes | ready | not set | — | — | — |
 | [t-20261125-hunt40-migration-marker-last](../tasks/t-20261125-hunt40-migration-marker-last.md) | 0428 hunt H-V40: orgconfig migrateToCanonical writes marker LAST (crash-window) | ready | not set | — | — | — |
