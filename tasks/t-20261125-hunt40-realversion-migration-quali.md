@@ -1,7 +1,7 @@
 ---
 id: t-20261125-hunt40-realversion-migration-quali
 card_number: "0428-311"
-card_short_title: "real-version runtime"
+card_short_title: "Core update runtime qualification"
 type: task
 areas: []
 release: v0.4.28
@@ -10,8 +10,8 @@ parent: ""
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: "One or two sentences: the observable outcome."
-kanban_title: 0428-311 · real-version runtime
+kanban_summary: "Qualify the documented Core provider-update path against real pinned provider versions and native runtime checks."
+kanban_title: 0428-311 · Core update runtime qualification
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
@@ -23,7 +23,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt40-realversion-migration-quali · 0428 hunt H-V40: real-version runtime qualification of Core Keycloak/PostgreSQL 0.4.27->0.4.28 migration path #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261125-hunt40-realversion-migration-quali · 0428 hunt H-V40: qualify the supported Core provider-update runtime path #task #release/v0-4-28 #status/planned #view/ready #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
     **Ready to assign** · prerequisites accepted  

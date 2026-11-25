@@ -1,7 +1,7 @@
 ---
 id: t-20261125-hunt40-migration-marker-last
 card_number: "0428-310"
-card_short_title: "orgconfig migrateToCanonical"
+card_short_title: "migration marker retry"
 type: task
 areas: []
 release: v0.4.28
@@ -10,8 +10,8 @@ parent: ""
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: "One or two sentences: the observable outcome."
-kanban_title: 0428-310 · orgconfig migrateToCanonical
+kanban_summary: "Keep migrated organization selection fail closed when durable marker creation fails."
+kanban_title: 0428-310 · migration marker retry
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
@@ -23,7 +23,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt40-migration-marker-last · 0428 hunt H-V40: orgconfig migrateToCanonical writes marker LAST (crash-window) #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261125-hunt40-migration-marker-last · 0428 hunt H-V40: migration marker failure can permit legacy re-adoption #task #release/v0-4-28 #status/planned #view/ready #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
     **Ready to assign** · prerequisites accepted  
