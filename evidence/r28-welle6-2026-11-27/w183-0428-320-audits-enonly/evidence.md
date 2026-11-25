@@ -14,6 +14,8 @@ Docs-only: declare the internal-audits tree explicitly EN-only in `docs/STYLE_GU
 - Step 8: Evidence commit to baseharbor-plan main. IN PROGRESS
 - Step 9: origin/main ls-tree witness; END post. PENDING
 
+- Post-push witness (evidence on origin/main before END): `git -C baseharbor-plan fetch origin main && git ls-tree -r --name-only origin/main | grep evidence/r28-welle6-2026-11-27/w183-0428-320-audits-enonly` output: `evidence/r28-welle6-2026-11-27/w183-0428-320-audits-enonly/evidence.md`. Evidence commit a98f5df90 (author `w183-0428-320-0428-audits-enonly`), pushed to main; sits directly on origin/main 0f035ef4b.
+
 ## END w183-0428-320-0428-audits-enonly DONE — candidate 2c19c945786da8dd1065f96bfef33bf8fbbdf722, PR https://github.com/mcpdev80/baseharbor/pull/1844 (ready for review), Hosted CI same-head greens: runs 45613935675 and 45614592648 (PR Selected Checks pass, job 139207172390)
 
 ## Witnesses
