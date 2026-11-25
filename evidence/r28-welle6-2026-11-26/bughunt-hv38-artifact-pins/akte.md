@@ -111,6 +111,13 @@ Total proposed cards: 2 (F4 real, F5 Owner-scope report). No product edits made.
 - No volumes, networks, state directories created. ambient-core/ images untouched.
 - cleanliness: clean.
 
+## Evidence witnesses
+
+- planning remote: `origin	https://github.com/mcpdev80/baseharbor-plan.git` (fetch/push)
+- evidence commit: `d45e6646d` (author `w169-0428-224-hunt-v38`, verified via `git show -s --format=%an HEAD`)
+- push: `7cc76700e..d45e6646d  main -> main`
+- origin/main existence witness: `git ls-tree -r --name-only origin/main | grep bughunt-hv38-artifact-pins` -> `evidence/r28-welle6-2026-11-26/bughunt-hv38-artifact-pins/akte.md`
+
 ## END
 
 END_DONE w169-0428-224-hunt-v38: H-V38 artifact pin & digest integrity audit complete; 2 proposed cards (F4 real build, F5 Owner-scope workflow pin), rest confirmed OK; no product/workflow edits.
