@@ -53,3 +53,11 @@ Do not target Demo main tip `6381a67f58e067358ef54dce7f4cff2106f8a623`: the comp
 ## Result
 
 END w136-pr1836-rowsreview DONE — #1842 target is Demo develop tip `5ca92a7cd2f746934890cfd7096a48068bdf218e`; Hosted gates can fetch it by SHA despite its absence from Demo main. The final release audit still requires intended implementation on Demo main.
+
+## Required origin/main evidence-path witness
+
+Command: evidence/r28-welle6-2026-11-27/0428-284/w136-pin-disposition.md
+
+Exact output:
+
+
