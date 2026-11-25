@@ -16,10 +16,9 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 203/327 · **Blocked:** 3 · **Waiting:** 23  
-    **Blocker:** [t-20261121-candidate-commit-identity](../tasks/t-20261121-candidate-commit-identity.md) — Owner decision required: deterministic lane identity must be injected in coordinator/scripts/dispatch-lane.sh:41-44; mission requires STOP + QUESTION for scrip…  
+    **Accepted tasks:** 203/327 · **Blocked:** 2 · **Waiting:** 23  
     **Blocker:** [t-20261124-0428-279-mcp-contract-app-pull-unexpected](../tasks/t-20261124-0428-279-mcp-contract-app-pull-unexpected.md) — static/mcp gate qualification blocked on owner-scope card 0428-283 (the gate builds a plain baha without the baseharbor\_ci\_operator\_testonly operator tag + doe…  
-    Plus 1 further blockers in the task list.  
+    **Blocker:** [t-20261124-r28-perses-witness-producer-cli](../tasks/t-20261124-r28-perses-witness-producer-cli.md) — Owner-CI-mapping dependency: scripts/pr-gate-coverage.json:147 requires an Owner-owned source coverage row for internal/metrics/perses\_dashboards\_hosts.go befo…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next

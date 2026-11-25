@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w119
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Sweeps show that most open candidates carry commits whose user.name belongs to a different lane, because lanes share…"
 kanban_title: 0428-224 · candidate commits carry
 priority: ""
@@ -17,22 +17,22 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: "Owner decision required: deterministic lane identity must be injected in coordinator/scripts/dispatch-lane.sh:41-44; mission requires STOP + QUESTION for scripts/**-only fixes."
-wait_reason: ""
+blocker: ""
+wait_reason: "worker seat capacity - w119 vorgemerkt in dispatch queue; owner decision DELIVERED 2026-11-27 (no longer owner-blocked)"
 resolution: ""
 evidence:
   - "https://github.com/mcpdev80/baseharbor-plan/commit/3b85964a0"
 ---
 
-- [ ] t-20261121-candidate-commit-identity · Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261121-candidate-commit-identity · Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** w119  
-    **Blocker:** Owner decision required: deterministic lane identity must be injected in coordinator/scripts/dispatch-lane.sh:41-44; mission requires STOP + QUESTION for scripts/\*\*-only fixes.  
+    **Waiting:** worker seat capacity - w119 vorgemerkt in dispatch queue; owner decision DELIVERED 2026-11-27 (no longer owner-blocked)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/commit/3b85964a0)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w119  
