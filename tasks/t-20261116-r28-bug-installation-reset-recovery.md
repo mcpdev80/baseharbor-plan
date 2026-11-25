@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w185-0428-287-pr1835-podman
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "baha destroy --yes selects all owned resources, asks for two current-plan confirmations plus deletion consent, but aborts…"
 kanban_title: 0428-287 · Unblock full installation rese
 priority: critical
@@ -18,19 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1835]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "sequencing gate: exact-base refresh + red-first + serial docker->podman evidence only after #1842 merge (coordinator GO); lane w185 released, candidate 736750fb0 BEHIND (live PR #1835)"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261116-r28-bug-installation-reset-recovery · Unblock full installation reset #task #release/v0-4-28 #status/active #view/active #area/lifecycle #kind/bug
+- [ ] t-20261116-r28-bug-installation-reset-recovery · Unblock full installation reset #task #release/v0-4-28 #status/wait #view/wait #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** w185-0428-287-pr1835-podman · **Priority:** critical  
     **PR:** [baseharbor#1835](https://github.com/mcpdev80/baseharbor/pull/1835)  
+    **Waiting:** sequencing gate: exact-base refresh + red-first + serial docker-\>podman evidence only after \#1842 merge (coordinator GO); lane w185 released, candidate 736750fb0 BEHIND (live PR \#1835)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w185-0428-287-pr1835-podman  

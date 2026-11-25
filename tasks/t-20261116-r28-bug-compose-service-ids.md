@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w147-0428-288-pr1833-fix
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "docker compose config --services yields vectordb, but baha app init persisted vector-db in workload.components and Runtime API…"
 kanban_title: 0428-288 · Preserve Compose service IDs
 priority: high
@@ -18,19 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1833]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "sequencing gate: #1833 head a7b0a4804 BEHIND + failed runs void; requal after Demo pin advance + #1842 merge; lane w147 released"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261116-r28-bug-compose-service-ids · Preserve Compose service IDs #task #release/v0-4-28 #status/active #view/active #area/wizard #kind/bug
+- [ ] t-20261116-r28-bug-compose-service-ids · Preserve Compose service IDs #task #release/v0-4-28 #status/wait #view/wait #area/wizard #kind/bug
     <!-- generated:card -->
     **Owner:** w147-0428-288-pr1833-fix · **Priority:** high  
     **PR:** [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
+    **Waiting:** sequencing gate: \#1833 head a7b0a4804 BEHIND + failed runs void; requal after Demo pin advance + \#1842 merge; lane w147 released  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w147-0428-288-pr1833-fix  
