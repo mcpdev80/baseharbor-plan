@@ -14,7 +14,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | review | 4 |
 | wait | 10 |
 | blocked | 2 |
-| ready | 31 |
+| ready | 36 |
 | queued | 25 |
 | waiting | 180 |
 | backlog | 7 |
@@ -111,12 +111,17 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261125-hunt43-docker-path-config](../tasks/t-20261125-hunt43-docker-path-config.md) | 0428 hunt H-V43: hunt43-docker-path-config | ready | not set | — | — | — |
 | [t-20261125-hunt43-env-leak-disk](../tasks/t-20261125-hunt43-env-leak-disk.md) | 0428 hunt H-V43: hunt43-env-leak-disk | ready | not set | — | — | — |
 | [t-20261125-hunt43-low-severity-pair](../tasks/t-20261125-hunt43-low-severity-pair.md) | 0428 hunt H-V43: hunt43-low-severity-pair | ready | not set | — | — | — |
+| [t-20261125-hunt45-app-exec-exit-collision](../tasks/t-20261125-hunt45-app-exec-exit-collision.md) | CLI: decide app exec exit-status passthrough collision with reserved codes | ready | not set | — | — | — |
+| [t-20261125-hunt45-cli-unknown-command-hardening](../tasks/t-20261125-hunt45-cli-unknown-command-hardening.md) | CLI: unknown-command exit-2 guarantee and suggestion construction under runnable parents | ready | not set | — | — | — |
+| [t-20261125-hunt45-error-surface-consistency](../tasks/t-20261125-hunt45-error-surface-consistency.md) | CLI: centralize error classification, canonical auth hints and Next/Remediation discipline | ready | not set | — | — | — |
+| [t-20261125-hunt45-exit-code-taxonomy-docs](../tasks/t-20261125-hunt45-exit-code-taxonomy-docs.md) | CLI: document baha exit-code taxonomy and machine coverage check | ready | not set | — | — | — |
+| [t-20261125-hunt45-secret-hygiene-error-path](../tasks/t-20261125-hunt45-secret-hygiene-error-path.md) | CLI: scrub external runtime stderr and zero dev credential buffers | ready | not set | — | — | — |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 4 open, 165 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 86 open, 246 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 91 open, 246 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 16 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))

@@ -37,3 +37,8 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | [t-20261125-hunt43-docker-path-config](../tasks/t-20261125-hunt43-docker-path-config.md) | 0428 hunt H-V43: hunt43-docker-path-config | ready | not set | — | — | — |
 | [t-20261125-hunt43-env-leak-disk](../tasks/t-20261125-hunt43-env-leak-disk.md) | 0428 hunt H-V43: hunt43-env-leak-disk | ready | not set | — | — | — |
 | [t-20261125-hunt43-low-severity-pair](../tasks/t-20261125-hunt43-low-severity-pair.md) | 0428 hunt H-V43: hunt43-low-severity-pair | ready | not set | — | — | — |
+| [t-20261125-hunt45-app-exec-exit-collision](../tasks/t-20261125-hunt45-app-exec-exit-collision.md) | CLI: decide app exec exit-status passthrough collision with reserved codes | ready | not set | — | — | — |
+| [t-20261125-hunt45-cli-unknown-command-hardening](../tasks/t-20261125-hunt45-cli-unknown-command-hardening.md) | CLI: unknown-command exit-2 guarantee and suggestion construction under runnable parents | ready | not set | — | — | — |
+| [t-20261125-hunt45-error-surface-consistency](../tasks/t-20261125-hunt45-error-surface-consistency.md) | CLI: centralize error classification, canonical auth hints and Next/Remediation discipline | ready | not set | — | — | — |
+| [t-20261125-hunt45-exit-code-taxonomy-docs](../tasks/t-20261125-hunt45-exit-code-taxonomy-docs.md) | CLI: document baha exit-code taxonomy and machine coverage check | ready | not set | — | — | — |
+| [t-20261125-hunt45-secret-hygiene-error-path](../tasks/t-20261125-hunt45-secret-hygiene-error-path.md) | CLI: scrub external runtime stderr and zero dev credential buffers | ready | not set | — | — | — |

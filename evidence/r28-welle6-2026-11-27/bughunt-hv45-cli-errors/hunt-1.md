@@ -183,3 +183,7 @@ evidence/r28-welle6-2026-11-27/bughunt-hv45-cli-errors/hunt-1.md
 Evidence commit on origin/main: `077edc8f9` (author `w186-0428-224-hunt-v45`).
 
 END w186-0428-224-hunt-v45 DONE — 9 actionable findings (F1-F9) + 1 positive-control row (F10); candidate SHA n/a (read-only hunt anchored at develop 2a141387dbbaf24f52501a0f66f1abf61cf8fcda).
+
+## Intake addendum (2026-11-25, w187-0428-224-hunt-v45-intake)
+
+All nine findings were re-verified against develop 2a141387d (unchanged tip) and cast into cards: F1 -> 0428-321, F2/F4/F7/F8 -> 0428-323, F3 -> 0428-322, F5 -> 0428-324, F6/F9 -> 0428-325; F10 stays a control row (no card). Corrections found during intake: F2's `ci_integration_operator_gate.go:16` citation does not exist at the anchor (no such file, message or env var in the tree) — the dual-message defect reproduces with the other named sites instead; F8 counts four free-sentence Remediation values, not three (application_provider_plan.go:146 was missed). Full per-finding disposition and mapping table: [intake-1.md](intake-1.md).
