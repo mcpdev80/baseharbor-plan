@@ -38,3 +38,7 @@ evidence: []
 **PRs:** none  
 **Source:** 
 <!-- /generated:links -->
+
+## Owner decision — 2026-11-25
+
+Before v1.0, BaseHarbor may make breaking API-contract changes; no migration or backward-compatibility shim is required. Define an explicit bounded pagination contract for runtime list endpoints and update the specification, EN/DE documentation, and focused contract tests in the same change.
