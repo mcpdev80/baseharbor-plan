@@ -7,7 +7,7 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: w177-0428-284-demo-pin-1812
+owner: w198-0428-284-demo-parser
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -32,7 +32,7 @@ evidence:
 
 - [ ] t-20261125-0428-284-1812-postretry-gate-failure · #1812 post-retry gate failure #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** w177-0428-284-demo-pin-1812 · **Priority:** high  
+    **Owner:** w198-0428-284-demo-parser · **Priority:** high  
     **PR:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1842](https://github.com/mcpdev80/baseharbor/pull/1842), [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139), [proof 2](https://github.com/mcpdev80/baseharbor-demo/pull/173), [proof 3](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448531969), [proof 4](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448729972), [proof 5](https://github.com/mcpdev80/baseharbor-demo/pull/174), [proof 6](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45455975242), [proof 7](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45456155783)  
     <!-- /generated:card -->
@@ -41,7 +41,7 @@ evidence:
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w177-0428-284-demo-pin-1812  
+**Owner:** w198-0428-284-demo-parser  
 **Priority:** high  
 **PRs:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1842](https://github.com/mcpdev80/baseharbor/pull/1842), [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812)  
 **Source:** 
@@ -83,3 +83,5 @@ evidence:
 - **Digest-Hinweis (Owner 2026-11-25):** Der Digest-Fix ist bereits in Demo #169 gemergt — keinen leeren oder duplizierten Digest-PR anlegen.
 
 - **Ownership-transfer record (coordinator, owner ledger 2026-11-28):** #1812 requalification executes UNDER THIS CARD (0428-284) as its governing card - explicit accepted transfer: original linked card 0428-249 is CLOSED with owner `w170-0428-249-demo-pr175-fixup` and cannot own new commits; this card's frontmatter owner `w177-0428-284-demo-pin-1812` (ACTIVE) is therefore the EXACT identity for every new #1812 commit (%an gate). #1812's PR body gains the 0428-284 link in the hop step (executor note in akte). prs list extended with core #1842/#1812 accordingly.
+
+- **Recovery transfer (coordinator decision, owner path 2026-11-28 06:5xZ):** w177 lane stopped after false commit/migration claim (git-verified: isolated worktree clean @df4867c, sole 115-line copy preserved in coordinator-side workers/w177-incidence-115.patch; shared w152 checkout untouched). Canonical owner = w198-0428-284-demo-parser for ALL future 0428-284 commits (demo repo + core pin-advance + #1812 hop identity). Historical w177-authored commits on #1842 remain under their original authorship - accepted transfer recorded here; the NEXT commit on those branches must carry the new verbatim string (fix-forward, no rewrite). PR-body link updates (#1842/#1812 -> this card) are part of w198's first steps.
