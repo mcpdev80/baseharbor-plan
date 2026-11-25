@@ -61,3 +61,11 @@ Command: evidence/r28-welle6-2026-11-27/0428-284/w136-pin-disposition.md
 Exact output:
 
 
+
+Correction to the prior witness block: the prior command was quoted incorrectly and produced an empty output section. The correct command and exact output are:
+
+Command: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/workers/w136-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/workers/w136-plan ls-tree -r --name-only origin/main | grep -F evidence/r28-welle6-2026-11-27/0428-284/w136-pin-disposition.md`
+
+```
+evidence/r28-welle6-2026-11-27/0428-284/w136-pin-disposition.md
+```
