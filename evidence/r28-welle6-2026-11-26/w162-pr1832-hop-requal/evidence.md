@@ -229,6 +229,17 @@ downloading golang.org/x/text@v0.41.0 from proxy.golang.org. No source or test e
 product-code change is made for this network error (it is not in this card's failure semantics).
 Consequence: attempt 1 carries a red job and does NOT count as one of the two required greens.
 
+Attempt 1 top-level TERMINAL: `{"attempt":1,"head":"976a258c1","status":"completed","conclusion":"failure"}`
+(gh run watch exit 1, observed by this lane). Final rollup: 29 success / 16 skipped / 2 failure.
+Both failures are the same external-fetch defect in the two `inspect-consumer-build`-family
+validation jobs (x/text@v0.41.0 proxy stream error; all four selected docker/podman runtime
+gates SUCCESS, 0 product-test failures). Owner instruction: full rerun on the SAME head.
+
+Rerun witness: `gh run rerun 45591459360` → attempt 2,
+`{"attempt":2,"head":"976a258c1a170bbaa55ce030ac292a879a11e526","status":"queued"}`
+(full rerun of the complete job set; no --failed-only). Develop tip re-checked at rerun time:
+still a87da7d17 (my head's base), so attempt 2 remains the qualification run on this exact head.
+
 ## cleanliness
 
 No containers or compose projects were started by this lane on any host (no docker/podman work in
