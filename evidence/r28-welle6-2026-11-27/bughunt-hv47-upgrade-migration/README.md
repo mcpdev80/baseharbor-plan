@@ -332,6 +332,15 @@ git -C baseharbor-plan fetch origin main
 git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle6-2026-11-27/bughunt-hv47-upgrade-migration
 ```
 
-(output filled below after push)
+Actual output:
+
+```
+$ git -C baseharbor-plan fetch origin main
+ * branch                main       -> FETCH_HEAD
+$ git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle6-2026-11-27/bughunt-hv47-upgrade-migration
+evidence/r28-welle6-2026-11-27/bughunt-hv47-upgrade-migration/README.md
+```
+
+origin/main head after push: `29be97154` (this file committed and confirmed on origin/main BEFORE END).
 
 END w190-0428-224-hunt-v47 DONE — 9 actionable findings (1 medium-high, 3 medium), read-only, no product changes, anchored at develop tip 99d9ddebc.
