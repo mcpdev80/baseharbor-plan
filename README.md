@@ -1,54 +1,101 @@
-# baseharbor-plan
+# w249-0428-284-gateids — Read-only 14-gate id pre-flight audit
 
-**Native Obsidian Kanban:** [BaseHarbor.base](BaseHarbor.base) (Obsidian 1.14+) — [Bedienung und sichere Statuswechsel](BASES-KANBAN.md). CardBoard is no longer required.
+**Card:** 0428-284 (release-ops support — 14-gate id pre-flight)
+**Mission:** READ-ONLY. No writes, no pushes, no CI triggers, no workflow_dispatch.
+**Base witness (ls-remote):** `origin/develop` HEAD = `ae70964d7b80b779822b76107b70ea76782f998e`
+**Base checkout HEAD (depth-1 clone):** `cddc81b34fe13d8befdde4c487b365a0309ba428` (fetched origin/develop at task start)
+**Planning remote (verified github.com/mcpdev80):** `origin https://github.com/mcpdev80/baseharbor-plan.git`
 
-Planning for [BaseHarbor](https://github.com/mcpdev80/baseharbor): roadmap, releases, epics, tasks, decisions and handoffs as plain Markdown. Code, PRs, reviews, CI execution and releases stay in the product repositories. Starting with v0.4.27, bounded sanitized CI evidence is also automatically archived under this planning repository's `evidence/` tree; source artifacts and trusted CI authorities remain in the product repositories.
+## PLAN
+- Gather witnesses: ls-remote current origin/develop HEAD; confirm planning remote
+- Gate 1: scripts/release-requirements.json — list every gate id, verify 14 required IDs
+- Gate 2: pre-release.yml — quote file:line ref/tag/demo_ref/only_gates consumption + unknown-id behavior
+- Gate 3: resolve demo ref at fire time from develop docs/releases/v0.4.28.demo-ref; state #1842 implication
+- Gate 4: cross-check gate->job mapping (each of 14 ids → runnable job)
+- Write akte via baseharbor-plan PR branch path with git show witness
+- Verify evidence on origin/main via ls-tree, then post END_DONE witness
 
-> **Status: planning authority on `main`.** Maintain scope, dependencies, ownership and handoffs here. Source GitHub issues retain discussion/history. See the [activation record](migration/cutover-checklist.md); actual Obsidian UI behavior remains unverified.
+## Read-only 14-gate pre-flight audit
 
-## Start here
+### Witness: base
+- origin/develop HEAD (ls-remote): `ae70964d7b80b779822b76107b70ea76782f998e`
+- Clone HEAD (fresh depth-1 of origin/develop): `cddc81b34fe13d8befdde4c487b365a0309ba428`
 
-- [HOME.md](HOME.md) — current release, navigation and generated views.
-- [ROADMAP.md](ROADMAP.md) — release sequence.
-- [WORKFLOW.md](WORKFLOW.md) — task model, lifecycle, ownership protocol, intake.
-- [AGENTS.md](AGENTS.md) — entry point for coding agents.
-- [views/overview.md](views/overview.md) — read-only overview of all tasks (works on GitHub without Obsidian).
+### Gate 1 — scripts/release-requirements.json gate ids
+`gates` is a **list** of `{id, schema, jobs[], required_for[], dependencies[]}`. Every gate id found on develop (cddc81b):
 
-## Use without Obsidian
-
-Everything is Markdown with relative links. Python 3.9+ (standard library only):
-
-```bash
-python3 scripts/plan.py check            # validate the vault (CI runs this)
-python3 scripts/plan.py list --ready     # tasks whose dependencies are accepted
-python3 scripts/plan.py show core-912    # one task with derived state
-python3 scripts/plan.py render           # refresh generated links and views
-python3 -m unittest discover -s scripts/tests
+```
+atomic/static/config-matrix, atomic/static/init, atomic/static/mcp, atomic/static/agent, atomic/static/shell-ux
+atomic/docker/guided, atomic/docker/lifecycle, atomic/docker/policy, atomic/docker/connectivity,
+atomic/docker/reconciliation, atomic/docker/failure, atomic/docker/full-destroy,
+atomic/docker/data-capabilities, atomic/docker/observability, atomic/docker/identity, atomic/docker/security,
+atomic/docker/backup-restore, atomic/docker/rabbitmq-runtime, atomic/docker/mongodb-runtime,
+atomic/docker/durable-key-value, atomic/docker/control-plane-recovery, atomic/docker/loki-runtime, atomic/docker/tempo-runtime
+atomic/podman/{same 7 as docker above + data-capabilities, observability, identity, security, backup-restore,
+rabbitmq-runtime, mongodb-runtime, durable-key-value, control-plane-recovery, loki-runtime, tempo-runtime}
+adoption/{conformance, realworld-compose, realworld-quadlet, realworld-kubernetes}
+ha/docker/{data, identity, observability, routing}
+ha/podman/{data, identity, observability, routing}
+journey/{docker, podman}
+integration/static/{public-contracts, configuration-policy, browser-terminal}
+integration/{docker,podman}/remote-target, integration/static/live-console
+integration/{docker,podman}/core-bootstrap, integration/{docker,podman}/coreless-lifecycle
 ```
 
-## Open the vault in Obsidian
+**The 14 required IDs — EXACT match check (PASS):**
+- `atomic/docker/{guided,lifecycle,policy,connectivity,reconciliation,failure,full-destroy}` (7) → **all present**
+- `atomic/podman/{guided,lifecycle,policy,connectivity,reconciliation,failure,full-destroy}` (7) → **all present**
+- Missing id strings: **none**
+- Extra id strings relative to the 14: the file legitimately contains many more gate ids (static, ha, adoption, integration, heavy, journey); this is expected catalog breadth, not a defect. The 14 required ids are present verbatim.
 
-1. Clone the repository and open its directory as an Obsidian vault.
-2. Use **BaseHarbor.base** (native Obsidian Bases Kanban, Obsidian 1.15+). This is the current board; the historical CardBoard plugin is not needed.
-3. Move a card by editing/dragging the native Kanban property `kanban_lane` in Obsidian. The canonical lifecycle is `kanban_status`; see [BASES-KANBAN.md](BASES-KANBAN.md) for conflict reconciliation, Wait vs Blocked, ownership and acceptance rules.
-4. Run `python3 scripts/plan.py render && python3 scripts/plan.py check` after changes, review the diff, then commit and push. Generated views, card previews and compatibility tags are not maintained by hand.
-5. The optional Obsidian Git plugin can synchronize changes; it is not a workflow/acceptance gate. The old CardBoard configuration is rollback-only.
+### Gate 2 — .github/workflows/pre-release.yml consumption
+Definition source vs candidate semantics, quoted with file:line (on cddc81b):
 
-## Repository map
+- `inputs.ref` → checkout ref: line 37 `ref: ${{ inputs.ref || github.sha }}`. In `develop_mode`, line 59 enforces `[[ "${{ inputs.ref }}" =~ ^[0-9a-f]{40}$ ]]` then line 61 `test "$core_sha" = "${{ inputs.ref }}"` — `inputs.ref` **IS** the candidate core SHA in develop mode (exact-40 SHA, must equal fetched develop tip). In release mode line 134 `if [ -n "$INPUT_TAG" ]` else derive tag from CHANGELOG.
+- `inputs.tag` → line 125 `INPUT_TAG: ${{ inputs.tag }}`; line 128-129 selects tag or falls back to CHANGELOG `## [x.y.z]`; line 132 validates tag format. Tag is the **release identity**, candidate source is the checked-out SHA.
+- `inputs.demo_ref` → line 60 `INPUT_DEMO_REF: ${{ inputs.demo_ref }}`; resolution at line 205 `pinned_demo_ref="$(tr -d '[:space:]' < "$demo_ref_file")"` from `docs/releases/${tag}.demo-ref` (line 200). In non-24/25/26 tags the pinned file is the **definition source**; `inputs.demo_ref` is only *validated* to equal the pin (line 209-214: mismatch → `exit 1`). For 24/25/26 the pin comes from `ecosystem_release_pins.py` consumer pins (line 169-181).
+- `inputs.only_gates` → line 327 `ONLY_GATES: ${{ inputs.only_gates }}`; when the validation ref is `validation/pre-release/selected/gates/*` it overrides from the branch name (line 313-315); otherwise from `docs/releases/$TAG.selected-gates.json` (line 316-318). Passed to `pre-release-check-plan.py --only-gates` (line 321).
+- **Unknown-id in `only_gates`: line that decides → `scripts/pre-release-check-plan.py` line 32:**
+  ```python
+  if (any(not key or key.strip() != key for key in selected) or
+          len(selected) != len(set(selected)) or not set(selected) <= set(required)):
+      raise ValueError('selected checks must be unique exact required check IDs')
+  ```
+  An unknown id is **not** silently skipped — `set(selected) <= set(required)` fails and the job **errors out (fail-closed, exit 1)**. Verified by executing the script with `--only-gates "atomic/docker/guided,atomic/docker/does-not-exist"` → `ValueError: selected checks must be unique exact required check IDs`, exit 1.
 
-| Path | Content |
-| --- | --- |
-| `releases/` | One note per release or release series |
-| `epics/` | Coordination notes |
-| `tasks/` | One note per executable task |
-| `decisions/` | Short decisions with rationale |
-| `templates/` | Note templates (`scripts/plan.py new` uses `templates/task.md`) |
-| `views/` | Generated summaries — do not edit |
-| `migration/` | Source inventory, snapshot, manifest, coverage, cutover checklist |
-| `scripts/` | Validator/generator, snapshot tool and tests |
+### Gate 3 — demo ref resolution at fire time
+- **Correction to mission premise:** `docs/releases/v0.4.28.demo-ref` does **NOT** exist on develop (cddc81b / ae70964). The highest existing pin is `docs/releases/v0.4.27.demo-ref` = `f23b6e09be34601ba542a3087e19b80764a4165d`. The mission's v0.4.28.demo-ref / "develop pin is still b41127723 until #1842" refers to #1842, which is **still OPEN** (gh pr 1842: state=OPEN, mergeable=MERGEABLE, changes `docs/releases/v0.4.28.demo-ref` bumping the pin to `1a3c055`).
+- What the workflow resolves at fire time for the current candidate (tag v0.4.27): `docs/releases/v0.4.27.demo-ref` = `f23b6e09...`. Verified `f23b6e09` is a real commit in baseharbor-demo and `git merge-base --is-ancestor f23b6e09 HEAD` against demo develop tip `5ca92a7c` → **reachable**.
+- **Implication for a fire before #1842 merges:** the pinned demo ref is `f23b6e09` (the pre-#1842 pin, i.e. the #175 consent-retry-era commit), NOT the merged develop tip `1a3c055`. The workflow binds and validates exactly `f23b6e09`; it is a concrete, reachable demo SHA, so a fire before #1842 is **not void** — it fires against `f23b6e09`. The implication is that gate evidence is bound to the *older* demo revision `f23b6e09`; after #1842 merges the pin would move to `1a3c055` and a subsequent fire would bind to that instead. No fire today can resolve `1a3c055` (it exists only on #1842).
 
-## Roadmap and topic badges
+### Gate 4 — gate -> job mapping (each of the 14 ids maps to a runnable job)
 
-CardBoard **Roadmap** shows one generated card per release/series: current, next, later and qualified/published. Cards link to scope and tasks; accepted-task counts never qualify a release. Markdown equivalent: [roadmap/cards.md](roadmap/cards.md). No dates are invented.
+| id | jobs in release-requirements.json | exists in workflow? |
+| --- | --- | --- |
+| atomic/docker/guided | runtime_candidate, runtime_light_gates_docker | YES (job at line 694, depends runtime_candidate) |
+| atomic/docker/lifecycle | runtime_candidate, runtime_light_gates_docker | YES |
+| atomic/docker/policy | runtime_candidate, runtime_light_gates_docker | YES |
+| atomic/docker/connectivity | runtime_candidate, runtime_light_gates_docker | YES |
+| atomic/docker/reconciliation | runtime_candidate, runtime_light_gates_docker | YES |
+| atomic/docker/failure | runtime_candidate, runtime_light_gates_docker | YES |
+| atomic/docker/full-destroy | runtime_candidate, runtime_light_gates_docker | YES |
+| atomic/podman/guided | runtime_candidate, runtime_light_gates_podman | YES (job at line 723, depends runtime_candidate) |
+| atomic/podman/lifecycle | runtime_candidate, runtime_light_gates_podman | YES |
+| atomic/podman/policy | runtime_candidate, runtime_light_gates_podman | YES |
+| atomic/podman/connectivity | runtime_candidate, runtime_light_gates_podman | YES |
+| atomic/podman/reconciliation | runtime_candidate, runtime_light_gates_podman | YES |
+| atomic/podman/failure | runtime_candidate, runtime_light_gates_podman | YES |
+| atomic/podman/full-destroy | runtime_candidate, runtime_light_gates_podman | YES |
 
-Task cards show `#area/…` and `#kind/…` badges with the `baseharbor-board` CSS snippet enabled. Maintain `areas: [ci]` (lowercase slugs) and the existing `type` in task frontmatter, then run `python3 scripts/plan.py render`. Routing tags stay hidden. Pull with CardBoard disabled, then enable it again to reload shared board settings without overwriting them with cached settings.
+All 14 ids map to runnable jobs. `runtime_light_gates_docker`/`runtime_light_gates_podman` are aggregated into the final required `checks` job (line 2064, needs runtime_candidate + both light gates, line 2071-2072). The `select()` function (line 39-46) routes `atomic/{docker,podman}/` light gates into `light_<runtime>` arrays with a fail-closed "no executor" guard (line 49).
+
+## readiness verdict
+**FIRE-READY after #1842 (content-prepared): the 14 required gate ids are present verbatim and map to runnable jobs; unknown `only_gates` ids fail-closed. Caveat: the mission's `v0.4.28.demo-ref`/pin `b41127723` does not exist on develop — current pin is `v0.4.27.demo-ref = f23b6e09` (reachable, real commit); a fire today binds to `f23b6e09`, and gate evidence is bound to that demo revision until #1842 (#1842 OPEN, would bump pin to `1a3c055`) merges.**
+
+## cleanliness
+- No containers, compose projects, or daemon work started. Pure read-only inspection via `git clone` (depth-1) into `/tmp/w249-wt`, `/tmp/w249-demo` and a planning isolated worktree `workers/w249-0428-284-gateids-plan`.
+- `docker ps -a`: n/a (no daemon started). No containers created.
+
+## END
+- status: END_DONE
+- candidate SHA: ae70964d7b80b779822b76107b70ea76782f998e (origin/develop head)
