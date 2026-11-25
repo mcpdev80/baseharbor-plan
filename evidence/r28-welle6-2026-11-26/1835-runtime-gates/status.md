@@ -16,7 +16,7 @@ Status: **held for the corrected exact head from w157**. No Docker or Podman pai
 | Run | Head / selection | Terminal result | Per-gate execution | Disposition |
 | --- | --- | --- | --- | --- |
 | [45571397690](https://github.com/mcpdev80/baseharbor/actions/runs/45571397690) | `55d17d437cfced7ec648aa42c14cc529963b68b6`; Docker pair | `cancelled`; zero jobs | Neither gate ran | **Void; nonqualifying.** |
-| [45572854473](https://github.com/mcpdev80/baseharbor/actions/runs/45572854473) | `55d17d437cfced7ec648aa42c14cc529963b68b6`; Docker pair | `cancelled` | No runtime jobs were created | **Stopped on owner instruction before runtime gates; nonqualifying.** |
+| [45572854473](https://github.com/mcpdev80/baseharbor/actions/runs/45572854473) | `55d17d437cfced7ec648aa42c14cc529963b68b6`; Docker pair | `cancelled` | The two selected Light matrix jobs were skipped; neither executed `Run runtime gate`. Two Go test shards (`cli-2`, `cli-3`) were cancelled. | **VOID — neither failure nor green; nonqualifying.** |
 | [45570395768](https://github.com/mcpdev80/baseharbor/actions/runs/45570395768) | `f7540e591609e0db6453e9b690fbb5d6686448a2`; develop Leg-B Podman pair | `success` | `atomic/podman/guided`: `Run runtime gate` success; reuse steps skipped. `atomic/podman/lifecycle`: `Run runtime gate` success; reuse steps skipped. | Terminal watch satisfied, but wrong candidate SHA; **not evidence for PR #1835**. |
 | [45571699415](https://github.com/mcpdev80/baseharbor/actions/runs/45571699415) | `a7b0a48048c11d20234160eede941532ddc33156`; queued validation push | `failure` in `Plan fail-closed reuse for runtime matrix gates` | No runtime jobs ran | Unrelated queue occupant; no gate evidence. |
 
@@ -26,7 +26,9 @@ The run record at `GET /repos/mcpdev80/baseharbor/actions/runs/45571397690` repo
 
 The workflow file at the exact candidate SHA contains a workflow concurrency group named `baseharbor-release-qualification` and `cancel-in-progress: false`. Run 45571699415 entered `pending` at 07:53:40 UTC; run 45571397690 was updated to `cancelled` at 07:53:42 UTC. This timing strongly suggests the earlier pending run was displaced by the newer pending run in the group’s single pending slot. This is an evidence-based diagnosis, not an explicit GitHub cancellation reason.
 
-Run 45572854473 was a later redispatch after the queue cleared. On owner direction to hold for w157’s corrected head, I explicitly canceled it before either Docker runtime job was created. It had no Docker or Podman runtime jobs, so it provides no runtime gate evidence.
+Run 45572854473 was a later redispatch after the queue cleared. On owner direction to hold for w157’s corrected head, I explicitly requested cancellation. Its run metadata exposes no cancel-actor field. Two Go test shards (`cli-2`, `cli-3`) were cut; the selected Light runtime matrix jobs were skipped, and no native Docker or Podman gate executed. This run is VOID and counts as neither failure nor green.
+
+Run 45573394850 belongs to the #1833 lane per the owner and was not used as evidence for this batch.
 
 ## Next action
 
