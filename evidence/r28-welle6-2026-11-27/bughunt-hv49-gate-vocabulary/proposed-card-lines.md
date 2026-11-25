@@ -9,9 +9,9 @@ Card title (proposed): "pr-gate-coverage.json diverges from release-requirements
 Bug Hunt H-V49 akte: `evidence/r28-welle6-2026-11-27/bughunt-hv49-gate-vocabulary/w192-0428-224-hunt-v49.md` (Finding F1).
 
 ## Acceptance criteria
-- [ ] A catalog-regression test asserts `set(release-requirements.gates) == set(coverage.gates)` EXCLUDING the three named archived consumer gates, so a future release bump of any archived gate trips red.
-- [ ] The three archived gates keep an explicit, comment-documented status ("archived, do not select for v0.4.27") in both files.
-- [ ] No `.github/**` change required for the test-only assertion (Owner scope untouched).
+- A catalog-regression test asserts `set(release-requirements.gates) == set(coverage.gates)` EXCLUDING the three named archived consumer gates, so a future release bump of any archived gate trips red.
+- The three archived gates keep an explicit, comment-documented status ("archived, do not select for v0.4.27") in both files.
+- No `.github/**` change required for the test-only assertion (Owner scope untouched).
 
 ## Scope / write-set
 - `scripts/test_ci_v0427_gate_catalog.py` (add a new test method) — within card write-set.
