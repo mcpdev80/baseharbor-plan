@@ -45,5 +45,11 @@ findings + proposed card lines.
 - Build artifact /tmp/baha-v36 (temporary).
 - gh clean: no orphans.
 
+## Evidence push (on origin/main before END)
+- git -C baseharbor-plan remote -v: origin https://github.com/mcpdev80/baseharbor-plan.git
+- commit b9967e849 pushed main -> main (a9b964a17..b9967e849)
+- git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep bughunt-hv36-config-surface:
+  evidence/r28-welle6-2026-11-26/bughunt-hv36-config-surface/index.md
+
 ## END
 w167-0428-224-hunt-v36 DONE - find count 0 (surface clean), 1 proposed guard card for coordinator.
