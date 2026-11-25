@@ -55,7 +55,19 @@ evidence: []
 
 - Current state, branch, PR and evidence links. Newest first.
 
+## Owner decision — 2026-11-25
+
+For `baha app destroy`, all resources inside the selected application's destruction scope are deleted, including persistent, recovery-labelled, and backup-labelled volumes. Retaining those volumes would be app deletion, not destroy. Resources outside the selected scope remain untouched. A recovery/backup label is not an ownership boundary and must not override the selected destroy scope.
+
+## Current-source recheck — 2026-11-25
+
+At `mcpdev80/baseharbor/develop`, commit `7bdeae95ccf0ce0d2fe39ae6d4c884402268995d`, `internal/runtime/repository_volume_inventory.go` marks a volume shared/preserved when any label key contains `recovery` or `backup`, or any label value contains `recovery`. This conflicts with the owner decision for volumes otherwise inside the selected application's destroy scope. Keep this card open to remove that label-based preservation exception and verify scope-based deletion. Do not broaden destruction to foreign or out-of-scope volumes.
+
 ## Task
 
-Cast from hunt H-V46 (akte evidence/r28-welle6-2026-11-27/bughunt-hv46-state-lifecycle/ on origin/main 62de9bb74, anchor develop 2a141387d; re-verified against develop 384d857b5 at intake). BF-46-6 LIVE. `InventoryRepositoryVolumes` returns `RepositoryVolume{Shared bool}`; a volume is `Shared=true` (preserved) when mounted-shared, foreign/conflicting, unlabeled, or carries a recovery/backup label. The recovery/backup preservation (repository_volume_inventory.go:73-77) is a heuristic: `strings.Contains(strings.ToLower(key), "recovery")` plus a value substring check — a case-insensitive substring search, not an authoritative ownership record. A volume whose recovery data is labeled with a non-"recovery"/"backup" substring is classified as exclusively owned and deleted under full-destroy. Fix: tighten to an authoritative label-key match so full-destroy cannot delete recovery/backup data via a mislabeled volume.
-
+- Treat the selected application's authoritative destruction scope as the deletion boundary.
+- Delete every volume in that scope, regardless of recovery/backup labels.
+- Leave foreign and out-of-scope volumes untouched; labels alone must neither add a volume to the scope nor remove an in-scope volume from it.
+- Add focused regressions for an in-scope recovery/backup-labelled volume being deleted and a foreign/out-of-scope volume being retained.
+- Use existing mapped unit and native runtime gates; add no parallel CI framework.
+- Record exact candidate SHA, tests, selected gates, triggers, and actual results.
