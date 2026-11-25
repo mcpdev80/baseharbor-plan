@@ -61,7 +61,7 @@ Once the v0.4.28 CLI consolidation and final command ordering/hierarchy are comp
 
 ## Acceptance
 
-1. Command names, hierarchy, examples and flags match the **final approved** v0.4.31 CLI (no legacy pre-freeze aliases introduced for documentation convenience).
+1. Command names, hierarchy, examples and flags match the **final approved** v0.4.28 CLI (no legacy pre-freeze aliases introduced for documentation convenience).
 2. `man baha` renders correctly and is installed by the supported package/distribution path; source and generated artifact are versioned/reproducible.
 3. Automated CI checks generate/validate the man page and detect command/flag/help drift, including newly added/removed command groups; `mandoc`/equivalent lint when available.
 4. Smoke proof for installed package or release candidate: `man baha`, command inventory parity and at least one documented task-oriented path validated against the CLI.

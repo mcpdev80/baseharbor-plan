@@ -33,7 +33,6 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | [t-20261125-hunt39-volume-recovery-manifest](../tasks/t-20261125-hunt39-volume-recovery-manifest.md) | 0428 hunt H-V39: assert recovery-manifest coverage for workload volumes | ready | not set | — | — | — |
 | [t-20261125-hunt40-migration-marker-last](../tasks/t-20261125-hunt40-migration-marker-last.md) | 0428 hunt H-V40: orgconfig migrateToCanonical writes marker LAST (crash-window) | ready | not set | — | — | — |
 | [t-20261125-hunt40-realversion-migration-quali](../tasks/t-20261125-hunt40-realversion-migration-quali.md) | 0428 hunt H-V40: real-version runtime qualification of Core Keycloak/PostgreSQL 0.4.27->0.4.28 migration path | ready | not set | — | — | — |
-| [t-20261125-hunt42-cancel-in-loop-audit](../tasks/t-20261125-hunt42-cancel-in-loop-audit.md) | 0428 hunt H-V42: cancel()-not-deferred loop contexts (leak class) in telemetry/observer/session | ready | not set | — | — | — |
 | [t-20261125-hunt42-timeout-constant-matrix](../tasks/t-20261125-hunt42-timeout-constant-matrix.md) | 0428 hunt H-V42: unify/align timeout constant matrix (tempo 10s vs verify; reconcile/readiness values) | ready | not set | — | — | — |
 | [t-20261125-hunt43-docker-path-config](../tasks/t-20261125-hunt43-docker-path-config.md) | 0428 hunt H-V43: hunt43-docker-path-config | ready | not set | — | — | — |
 | [t-20261125-hunt43-env-leak-disk](../tasks/t-20261125-hunt43-env-leak-disk.md) | 0428 hunt H-V43: hunt43-env-leak-disk | ready | not set | — | — | — |

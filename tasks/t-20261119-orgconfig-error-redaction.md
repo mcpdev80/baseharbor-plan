@@ -7,9 +7,9 @@ areas: [architecture, security]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: Codex team (current thread)
-kanban_status: review
-kanban_lane: review
+owner: ""
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: Reject secret-like organization environment references without copying their contents into validation errors. Keep error…
 kanban_title: 0428-149 · Redact secret-like
 priority: high
@@ -19,23 +19,23 @@ prs: [mcpdev80/baseharbor#1596]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1596", "https://github.com/mcpdev80/baseharbor/actions/runs/44847161507"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1596", "https://github.com/mcpdev80/baseharbor/actions/runs/44945468909", "https://github.com/mcpdev80/baseharbor/commit/1080986fe73cb3d6e283fd9ef61c05c02b9260af"]
 ---
 
-- [ ] t-20261119-orgconfig-error-redaction · Redact secret-like organization references in validation errors #task #release/v0-4-28 #status/review #view/review #area/architecture #area/security #kind/task
+- [x] t-20261119-orgconfig-error-redaction · Redact secret-like organization references in validation errors #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/architecture #area/security #kind/task
     <!-- generated:card -->
-    **Owner:** Codex team (current thread) · **Priority:** high  
+    **Owner:** unassigned · **Priority:** high  
     **PR:** [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1596), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44847161507)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1596), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44945468909), [proof 3](https://github.com/mcpdev80/baseharbor/commit/1080986fe73cb3d6e283fd9ef61c05c02b9260af)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md)  
 **Required by:** [t-20261120-redact-invalid-org-environment-key](t-20261120-redact-invalid-org-environment-key.md)  
-**Owner:** Codex team (current thread)  
+**Owner:** unassigned  
 **Priority:** high  
 **PRs:** [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596)  
 **Source:** 
@@ -80,6 +80,8 @@ Reject secret-like organization environment references without copying their con
 - Preserve all commits and worktree state on the 0428-056 branch; deliver a standalone commit for its owner to cherry-pick. No `.github/**` or `security.go` edits.
 
 ## Handoff
+
+- Accepted 2026-11-25: #1596 is merged at `1080986fe73cb3d6e283fd9ef61c05c02b9260af`; its PR head `c27158567c0ebc370fc6c97390a561846305738f` contains both the original identity-reference redaction and the adjacent invalid environment-map-key regression/fix. Exact-head run [44945468909](https://github.com/mcpdev80/baseharbor/actions/runs/44945468909) completed successfully; `PR · Go unit · packages` and `PR Selected Checks` passed. The adjacent invalid-key requirement is therefore included in this accepted card; 0428-162 is superseded by this result.
 
 - 2026-11-20: User supplied an adjacent leak in the same validation surface: `Config.Validate` interpolates a secret-like `Environments` map key with `%q` in its invalid-name error (`internal/orgconfig/model.go:149-152` at PR head `c90c3b89`). This is within the card's goal of keeping secret-like organization values out of validation errors and within its owned validation/test files. Added `TestSecretLikeEnvironmentMapKeyIsRedactedFromValidationError`; it fails on `c90c3b89` by printing the sentinel `token=environment-map-key-sentinel-7f3a`. Fix returns a useful generic secret-like environment-name error, while ordinary invalid names retain the previous detailed message. Focused identity/map-key tests, full `go test ./internal/orgconfig -count=1`, `go vet ./internal/orgconfig`, and `git diff --check` pass. Standalone local additive commit `f113baf57aef9e24de5083740decdf84b361f8d8` is in `/var/tmp/baseharbor-sweep-1596` branch `codex/0428-149-map-key-redact`, parent `c90c3b89`; not pushed/integrated because the parent PR is still Draft and its stack hop is pending. Existing prior exact-head CI evidence above covers only `c90c3b89`, not this local commit.
 

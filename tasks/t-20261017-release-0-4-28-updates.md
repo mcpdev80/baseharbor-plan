@@ -20,7 +20,7 @@ prs: []
 sources: []
 blocker: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/issues/889"]
 early: true
 ---
 
@@ -29,6 +29,7 @@ early: true
     **Owner:** unassigned · **Priority:** high  
     **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-28-cleanup](t-20261017-release-0-4-28-cleanup.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/issues/889)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -63,5 +64,7 @@ Existing trusted dependency/lockfile/build/security/compatibility checks by impa
 - Owner updates this task, its release-specific audit/evidence and existing authorized PRs; coordinate product files through their normal owners. Planning goes directly to main.
 
 ## Handoff
+
+- 2026-11-25 disposition review: keep this release-stage card planned. No open Renovate pull requests were found in BaseHarbor, BaseHarbor Demo, or this planning repository, so there is no dependency batch to merge now. BaseHarbor Renovate Dashboard issue #889 remains open with a grouped-update branch failure and failed fixture lookups; resolve that intake before Prepare/release qualification. This stage gates release readiness only and does not prevent independent feature work. Cleanup remains its prerequisite.
 
 Not started. Record actual source SHAs, outcomes, authorization where required, evidence and remaining blockers; do not infer acceptance from card creation.

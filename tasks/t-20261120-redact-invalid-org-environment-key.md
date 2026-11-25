@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: ""
-kanban_status: planned
-kanban_lane: planned
+kanban_status: closed
+kanban_lane: closed
 priority: high
 depends_on: [t-20261114-r28-cli2-org-env, t-20261119-orgconfig-error-redaction]
 repos: [mcpdev80/baseharbor]
@@ -17,21 +17,20 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/blob/c90c3b89007e87a4bf277c8c9015fab3ac65728e/internal/orgconfig/model.go#L171-L174"]
+resolution: superseded
+superseded_by: t-20261119-orgconfig-error-redaction
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1596", "https://github.com/mcpdev80/baseharbor/actions/runs/44945468909", "https://github.com/mcpdev80/baseharbor/commit/1080986fe73cb3d6e283fd9ef61c05c02b9260af"]
 kanban_title: 0428-162 · Redact env key errors
 ---
 
-- [ ] t-20261120-redact-invalid-org-environment-key · Redact secret-like invalid environment keys #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/architecture #area/security #kind/task
+- [x] t-20261120-redact-invalid-org-environment-key · Redact secret-like invalid environment keys #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/architecture #area/security #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261119-orgconfig-error-redaction](t-20261119-orgconfig-error-redaction.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/blob/c90c3b89007e87a4bf277c8c9015fab3ac65728e/internal/orgconfig/model.go#L171-L174)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1596), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44945468909), [proof 3](https://github.com/mcpdev80/baseharbor/commit/1080986fe73cb3d6e283fd9ef61c05c02b9260af)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** superseded  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md), [t-20261119-orgconfig-error-redaction](t-20261119-orgconfig-error-redaction.md)  
 **Owner:** unassigned  
@@ -71,6 +70,8 @@ Ensure `Config.Validate` never copies secret-like environment map keys into erro
 - Do not modify `security.go`, `.github/**`, or another worker's branch. The task stays unassigned/planned until dependencies are accepted and the shared write path is explicitly released.
 
 ## Handoff
+
+- Superseded 2026-11-25 by 0428-149. The merged #1596 diff includes `TestSecretLikeEnvironmentMapKeyIsRedactedFromValidationError` and the corresponding safe diagnostic; exact-head run [44945468909](https://github.com/mcpdev80/baseharbor/actions/runs/44945468909) passed the Go package and selected-check jobs. No second implementation is needed.
 
 - ZWEIFEL, observed at PR #1596 exact head `c90c3b89007e87a4bf277c8c9015fab3ac65728e`: `Config.Validate` formats an invalid environment key with `%q` (`internal/orgconfig/model.go`, lines 171–174 at that SHA), which can echo secret-like input. Evidence: [exact source](https://github.com/mcpdev80/baseharbor/blob/c90c3b89007e87a4bf277c8c9015fab3ac65728e/internal/orgconfig/model.go#L171-L174). A local red-green fix exists on isolated branch `codex/0428-149-map-key-redact` at `f113baf57aef9e24de5083740decdf84b361f8d8`, based on #1596 head; it has not been pushed or integrated. This card records the issue and preserves that candidate for coordinated handoff. Do not interpret it as accepted or CI-qualified.
 - Current state: planned/unassigned with dependencies on 0428-056 and 0428-149. Start only after both are accepted and the current owner releases the shared files; then verify the exact candidate through the mapped Go package job and record its run.

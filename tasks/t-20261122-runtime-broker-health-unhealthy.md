@@ -8,36 +8,36 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ffe7611b (#1770 62f4ab0d combined, 0 fail / 22 pass / 1 pending = ~terminal; alle 3 Poorten job-belegt gruen) / Owner (step4 develop merge) / Coordinator
+owner: ""
 tags: [#task, #release/v0.4-28]
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-237 · data-capabilities native gate
 priority: ""
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1753, mcpdev80/baseharbor#1761, mcpdev80/baseharbor#1770, mcpdev80/baseharbor#1780, mcpdev80/baseharbor#1762, mcpdev80/baseharbor#1783]
+prs: [mcpdev80/baseharbor#1770]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/44994268323", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/45000121766", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md", "https://github.com/mcpdev80/baseharbor/actions/runs/44998846458", "https://github.com/mcpdev80/baseharbor/actions/runs/45008538769", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-3.md", "https://github.com/mcpdev80/baseharbor/actions/runs/45011764715"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1770", "https://github.com/mcpdev80/baseharbor/actions/runs/45069601227", "https://github.com/mcpdev80/baseharbor/commit/66ce00557ef44acc0ca2ec4c4f7173357af6e2f7"]
 ---
 
-- [ ] t-20261122-runtime-broker-health-unhealthy · CI: data-capabilities native gate fails on secure runtime broker readiness #task #release/v0-4-28 #status/review #view/review #kind/task
+- [x] t-20261122-runtime-broker-health-unhealthy · CI: data-capabilities native gate fails on secure runtime broker readiness #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
-    **Owner:** ffe7611b (\#1770 62f4ab0d combined, 0 fail / 22 pass / 1 pending = ~terminal; alle 3 Poorten job-belegt gruen) / Owner (step4 develop merge) / Coordinator  
-    **PR:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/44994268323), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45000121766), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-2.md), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44998846458), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/45008538769), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle5-2026-11-22/runtime-broker-0428-237/round-3.md), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/45011764715)  
+    **Owner:** unassigned  
+    **PR:** [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1770), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45069601227), [proof 3](https://github.com/mcpdev80/baseharbor/commit/66ce00557ef44acc0ca2ec4c4f7173357af6e2f7)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261122-gate-catalog-missing-app-broker-component](t-20261122-gate-catalog-missing-app-broker-component.md)  
-**Owner:** ffe7611b (#1770 62f4ab0d combined, 0 fail / 22 pass / 1 pending = ~terminal; alle 3 Poorten job-belegt gruen) / Owner (step4 develop merge) / Coordinator  
+**Owner:** unassigned  
 **Priority:** not set  
-**PRs:** [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783)  
+**PRs:** [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -76,6 +76,8 @@ One or two sentences: the observable outcome.
 - Shared files: coordinate through the owning task.
 
 ## Handoff
+
+- Accepted 2026-11-25: the narrow SHA-pinned native runtime image fix merged as #1770 (`66ce00557ef44acc0ca2ec4c4f7173357af6e2f7`). Exact-head run [45069601227](https://github.com/mcpdev80/baseharbor/actions/runs/45069601227) executed and passed Docker and rootless Podman `data-capabilities` plus the selected runtime checks. The earlier PRs in the evidence trail were blockers or unrelated follow-ups; they are not this card's implementation proof.
 
 - Current state, branch, PR and evidence links. Newest first.
 

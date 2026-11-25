@@ -224,9 +224,9 @@ class Vault:
 
     def rel(self, path):
         try:
-            return str(pathlib.Path(path).relative_to(self.root))
+            return pathlib.Path(path).relative_to(self.root).as_posix()
         except ValueError:
-            return str(path)
+            return pathlib.Path(path).as_posix()
 
     def load(self):
         for folder, store, loader in (
@@ -1169,7 +1169,7 @@ def render(vault):
         original = release["path"].read_text(encoding="utf-8")
         updated = update_roadmap_frontmatter(vault, release, original)
         if updated != original:
-            release["path"].write_text(updated, encoding="utf-8")
+            release["path"].write_text(updated, encoding="utf-8", newline="\n")
             changed.append(release["path"])
     for t in vault.tasks.values():
         text = t["path"].read_text(encoding="utf-8")
@@ -1194,12 +1194,12 @@ def render(vault):
             head = re.sub(r"(?m)^kanban_summary:.*$", "kanban_summary: " + dump_value(kanban_summary(t)), head, count=1)
         new = head + apply_card(vault, t, apply_block(body, links_block(vault, t)))
         if new != text:
-            t["path"].write_text(new, encoding="utf-8")
+            t["path"].write_text(new, encoding="utf-8", newline="\n")
             changed.append(t["path"])
     for path, content in render_views(vault).items():
         path.parent.mkdir(parents=True, exist_ok=True)
         if not path.exists() or path.read_text(encoding="utf-8") != content:
-            path.write_text(content, encoding="utf-8")
+            path.write_text(content, encoding="utf-8", newline="\n")
             changed.append(path)
     for p in changed:
         print("updated", vault.rel(p))
@@ -1318,7 +1318,7 @@ def cmd_claim(root, args):
 
 
 def vault_rel(root, path):
-    return str(path.relative_to(root))
+    return pathlib.Path(path).relative_to(root).as_posix()
 
 
 def main(argv=None):

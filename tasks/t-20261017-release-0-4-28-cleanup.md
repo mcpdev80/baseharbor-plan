@@ -19,7 +19,7 @@ repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "The previously accepted cleanup inventory (plan commit 2ab26e5f) is delivered. The 0.4.28 cleanup stage remains sequenced after 0427-010. Round-2 evidence resolves the actual BuildKit source binding but identifies a published OCI `org.opencontainers.image.revision` mismatch (workflow SHA c000c5db vs packaged source/tag SHA 6c40fab4); 0427-010 also remains gated by the active 0427-189 release-scope task. Do not rewrite immutable v0.4.27 tags."
+wait_reason: "The previously accepted cleanup inventory (plan commit 2ab26e5f) is delivered. The 0.4.28 cleanup stage remains sequenced after 0427-010. Round-2 evidence resolves the actual BuildKit source binding but identifies a published OCI `org.opencontainers.image.revision` mismatch (workflow SHA c000c5db vs packaged source/tag SHA 6c40fab4). The former 0427-189 dependency is closed; only 0427-010 remains. Do not rewrite immutable v0.4.27 tags."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/commit/2ab26e5f"]
 early: true
