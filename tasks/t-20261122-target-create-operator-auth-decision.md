@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "Owner/Core ruling. H-V28 schaerft: DEFekt ist AUSSCHLIESSLICH die 'target create'-MUTATION ohne local-workload hook; READS sind korrekt (CLI reads exempt bzw. per verified local grant geklaert, local_workload_authority.go:45/57 clear boundary mcp.go:316-320). Also NICHT breiter auth-bruch. #1746 static/mcp cell haelt genau daran + perses-expected-list (H-V29). Option B1 = target-fall main.go:158-175 + target-CLI hook; Option B2 = gate/test-contract. Guard nicht angetastet."
+wait_reason: "Owner decision recorded 2026-11-25: target.create requires the existing authenticated operator authority path; implementation and #1746 verification remain pending."
 resolution: ""
 evidence: []
 ---
@@ -26,7 +26,7 @@ evidence: []
 - [ ] t-20261122-target-create-operator-auth-decision · target create reaches the managed-operator auth boundary with no local-workload hook; owner decides the consent/auth path #task #release/v0-4-28 #status/wait #view/wait #area/cli #area/security #kind/task
     <!-- generated:card -->
     **Owner:** Owner / Core · **Priority:** high  
-    **Waiting:** Owner/Core ruling. H-V28 schaerft: DEFekt ist AUSSCHLIESSLICH die 'target create'-MUTATION ohne local-workload hook; READS sind korrekt (CLI reads exempt bzw. per verified local grant geklaert, local\_workload\_authority.go:45/57 clear bound…  
+    **Waiting:** Owner decision recorded; implementation and #1746 verification remain pending  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -49,9 +49,9 @@ Exact chain (file:line, read-only verified):
 - `--access local-docker` resolves to `accessProvider=local` (`target.go:118-119`) only — satisfying the access condition, not the managed-operator boundary.
 - Path: `createTarget` target.go:286 → `createTargetDefinition` target_mutation.go:583 → `authorizeTargetCreation`:64 → `authorizeMCPOperation` mcp.go:419 → managed boundary.
 
-## Decision needed from Owner/Core (do NOT implement in a lane)
+## Owner decision — 2026-11-25
 
-Either rule the consent/auth mechanism for the static `target create` gate (Option B product path: e.g. add a `target` case at `main.go:158-175` returning `target.create` + an app_context-style local-workload hook on the target CLI path, if product-intended), or change the gate/test contract so target create is not exercised against the managed boundary in this lane. No auth bypass.
+Select the product path: `target.create` is a mutating operation and requires an authenticated, authorized operator through the existing managed-operator/local-workload authority seam. Add the target-create route and authorization hook; do not weaken the shared authorization guard or carve out a managed-boundary exception. Reads remain unchanged. #1746 must verify that an authorized operator can create the target and an unauthorized caller is denied.
 
 ## Boundaries
 
