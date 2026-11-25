@@ -51,7 +51,7 @@ Two same-head greens, both observed to terminal by this lane (watched via `gh ru
 ## cleanliness
 
 - No containers/compose started by this lane; no docker/podman on this host.
-- `docker ps -a` before: only the ambient `codeman-app` (Up About an hour); after: identical (see below for terminal witness). Lane pid at check: shell pid recorded in transcript.
+- `docker ps -a` before and after (this host): only the ambient codeman-app; no containers added or removed by this lane. Witness files: /tmp/opencode/w183-ps-before.txt, /tmp/opencode/w183-ps-after.txt.
 - Worktree: `/home/marcel/dev/baseharbor-ecosystem/workers/0428-320-audits-enonly-wt` (lane-owned).
 
 ## repo-rule compliance
