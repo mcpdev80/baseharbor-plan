@@ -82,3 +82,11 @@ evidence/r28-welle6-2026-11-26/1842-review/review.md
 ```
 
 Planning validation: `python3 scripts/plan.py check` reported `776 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 warnings`. The ten warnings are existing accepted-task dependency warnings; this evidence-only change updates no task metadata.
+
+## Routing authority addendum
+
+Owner scope correction: the standing delegation permits Codex to decide test-environment and classification/mapping corrections; the prior Batch-Baseline workflow restriction does not govern this PR. I rule option (i): add the minimal routes within #1842's purpose-bound release-pin test completion. At `.github/workflows/ci.yml:1363`, add `scripts/test_pr_gate_coverage.py` to the `pr-planner-tests` unittest command. Add a trusted selector mapping for `docs/releases/v0.4.28.demo-ref` into the `pr_validations` matrix so `PR · Validation · demo-source-pin-validation` executes; the workflow dispatch implementation is `.github/workflows/ci.yml:1323-1326` and the matrix consumer is `:1267-1273`. Keep the separate runtime `PR · Demo Pin` job unchanged. The worker may make these CI changes inside #1842; no owner escalation is needed.
+
+The resolver source and fixture prescription remains as Finding B above: use the real `release-requirements.json['releases']` catalog, derive the current/highest semantic release (`v0.4.28` here), update the fixture to the actual `schema`/`releases`/`gates` shape, and test the v0.4.28 pin. Exact-head Hosted qualification requires both the `pr-planner-tests` command to execute `scripts/test_pr_gate_coverage.py` and `PR · Validation · demo-source-pin-validation` to execute and pass. Aggregate green without either execution is not qualifying.
+
+The plan evidence branch was rebased only over its own commits onto current `origin/main` `ea9f7ab6583542ab3bd1b782e7652585ca567d04`. Current `git merge-base --is-ancestor origin/main HEAD` succeeded. `git log --oneline origin/main..HEAD` lists only this lane's commits. `git diff origin/main...HEAD --name-only` lists only `evidence/r28-welle6-2026-11-26/1842-review/review.md`. The current tip author gate passed: `git show -s --format=%an HEAD` equals `w200-1842-final-review`.
