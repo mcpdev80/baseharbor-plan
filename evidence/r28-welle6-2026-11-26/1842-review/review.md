@@ -96,3 +96,5 @@ evidence/r28-welle6-2026-11-26/1842-review/review.md
 ```
 
 `git log --oneline origin/main..HEAD` lists only commits authored by `w200-1842-final-review`. The current tip author gate passed: `git show -s --format=%an HEAD` equals `w200-1842-final-review`. The planning validation `python3 scripts/plan.py check` completed with zero errors and ten pre-existing dependency warnings.
+
+First branch push delivery witness: `0d5fbf68de1dbc41baed4b39120a22bf1f8431c3 refs/heads/codex/w200-1842-review-20261126` from `git ls-remote origin refs/heads/codex/w200-1842-review-20261126`.
