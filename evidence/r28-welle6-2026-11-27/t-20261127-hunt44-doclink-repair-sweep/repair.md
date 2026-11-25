@@ -74,6 +74,9 @@ origin	ssh://git@github.com/mcpdev80/baseharbor.git (push)
   Both names resolve to `github.com/mcpdev80`; every fetch, ls-remote and push in this lane used the
   explicit `https://github.com/mcpdev80/baseharbor.git` URL or the `lane-origin` remote. The
   quarantined `/home/marcel/dev/baseharbor-ecosystem/workers/baseharbor` refs were never cited.
+- Candidate chain: `a87da7d1` (cut base) → `9f7da6d4` (the 40-row docs fix) → `2a141387` (develop
+  head at refresh time, second parent of) → `7e1fc3a5` (current head, merge).
+  `git merge-base --is-ancestor a87da7d1… HEAD` and `… 2a141387… HEAD` both exit 0.
 
 ## Row-by-row resolution (40 rows)
 
@@ -257,6 +260,40 @@ instruction takes precedence: report the row-check as a finding instead of editi
 - No Go build/test needed: zero Go files in the diff. No Docker/Podman or VM usage; no compose
   project started (mission names none).
 
+## Base refresh witness (why head moved from `9f7da6d4` to `7e1fc3a5`)
+
+- After run 1, `git ls-remote lane-origin refs/heads/develop` reported the tip had moved to
+  `2a141387dbbaf24f52501a0f66f1abf61cf8fcda`. That new tip introduced the same F1 sentence in a file
+  I had not touched at my base and the naive `oldString`-replace loop asserted there, so the
+  base-refresh merge was verified content-wise rather than assumed:
+  `git diff lane-origin/develop...HEAD --name-only` → 15 files, **all** under `docs/**` (zero
+  non-docs files), i.e. the merge introduced no product-code delta from this lane.
+- The merge introduced no conflict (`Automatic merge went well`), and the merge commit is this lane's
+  (`git show -s --format=%an HEAD` = `w181-0428-doclink-sweep`).
+- Provenance after refresh: `git merge-base HEAD lane-origin/develop` =
+  `2a141387dbbaf24f52501a0f66f1abf61cf8fcda` (the exact current develop head), and
+  `git log --oneline lane-origin/develop..HEAD` →
+
+```
+7e1fc3a5 Merge develop 2a141387 into lane-0428-319-doclink-sweep (base refresh for docs-only candidate)
+9f7da6d4 docs: repair 40 stale cross-references from bug-hunt H-V44
+```
+
+  Both commits are this lane's; the merge line is a base refresh, not a foreign candidate carried on
+  top (the AGENTS 3.8 transport rule: `git merge origin/develop` + normal push, no force, no
+  cherry-pick).
+- New-run trigger check per the CI policy:
+  `git diff --name-only a87da7d1 2a141387 | grep -E '^\.github/workflows/ci\.yml$|^scripts/(test_pr_|test_ci_)'`
+  → no matches (exit 1). The base move alone therefore would **not** have required a new run; run 2
+  exists because the PR had to leave DRAFT for handoff, which is the prescribed review-state gate.
+- Delivery witness after the refresh push (`git ls-remote lane-origin
+  refs/heads/lane-0428-319-doclink-sweep refs/pull/1843/head`):
+
+```
+7e1fc3a57dcd615f9d286b67393cae9a02763c81	refs/heads/lane-0428-319-doclink-sweep
+7e1fc3a57dcd615f9d286b67393cae9a02763c81	refs/pull/1843/head
+```
+
 ## PR and Hosted CI (self-run duty)
 
 - Branch pushed: `lane-0428-319-doclink-sweep`.
@@ -268,11 +305,38 @@ instruction takes precedence: report the row-check as a finding instead of editi
 9f7da6d420c1a9f35a83b1d1771956e4781ab667	refs/pull/1843/head
 ```
 
-- PR: https://github.com/mcpdev80/baseharbor/pull/1843 — base `develop`, `isDraft: true`,
-  `state: OPEN`, `headRefOid: 9f7da6d420c1a9f35a83b1d1771956e4781ab667`.
-- CI run observed by this lane on the exact head: run `45608051338`
-  (`gh run list --branch lane-0428-319-doclink-sweep` → `headSha 9f7da6d4…`, name
-  `CI · PR #1843`). (Terminal state and per-job outcome recorded in the next section.)
+- PR: https://github.com/mcpdev80/baseharbor/pull/1843 — base `develop`; created as DRAFT at head
+  `9f7da6d4…` and moved to **review** at handoff (`isDraft: false`, `state: OPEN`,
+  `headRefOid: 7e1fc3a57dcd615f9d286b67393cae9a02763c81`).
+- CI run observed by this lane on head `9f7da6d4…`: run `45608051338`
+  (`gh run list --branch lane-0428-319-doclink-sweep` → `headSha 9f7da6d4…`, name `CI · PR #1843`).
+- Run 1 terminal state (`gh run view 45608051338 --json status,conclusion,jobs`): `completed` /
+  `success`. Executed (non-skipped) jobs, all `success`: `PR · Draft source and routing`,
+  `PR · Draft Go · cli-0`, `cli-1`, `cli-2`, `cli-3`, `PR · Draft Go · packages`. Every other job,
+  including `PR · Trusted Plan` and `PR Selected Checks`, was `skipped` because the PR was still
+  DRAFT, so per the proof rule run 1 is the draft-lane pass and **not** an exact-head required-gate
+  pass; run 2 below is the required-gate pass.
+
+- Run 2 (review-state, exact head `7e1fc3a57dcd615f9d286b67393cae9a02763c81`): run `45609710215`
+  — `completed` / `success`. A sibling run `45609692069` on the same head was superseded and is
+  `cancelled`; it is recorded, not counted. Executed jobs (9, all `success`):
+  `PR · Source format`, `Workflow policy`, `PR · Trusted Plan`, `PR · Native gate plan`,
+  `PR · Focused Python`, `PR · Validation · documentation-audit`,
+  `PR · Validation · mkdocs-en-strict`, `PR · Validation · mkdocs-de-strict`,
+  `PR · Validation · pages-candidate-build`.
+  Terminal `PR Selected Checks` aggregate (job `139190326815`) present and `success`, with the
+  fail-closed reconciliation lines from its log:
+
+```
+NATIVE_SELECTION: success   NATIVE_REQUIRED: false   NATIVE_RESULT: skipped   -> pass
+UNIT_SCOPE: none            UNIT_RESULT: skipped                             -> pass
+```
+
+  i.e. the trusted planner classified this docs-only diff as requiring **no** native gate and **no**
+  Go unit shard, and the aggregate accepted that classification (it would have exited 1 on any other
+  combination). So the docs gates that actually executed are `documentation-audit` plus strict EN/DE
+  mkdocs builds and the Pages candidate build; the natives skipped **legitimately, by the base plan's
+  classification** — cited here per the mission's w136/#1842 precedent note.
 
 ## Witnesses
 
@@ -284,8 +348,22 @@ origin	https://github.com/mcpdev80/baseharbor-plan.git (fetch)
 origin	https://github.com/mcpdev80/baseharbor-plan.git (push)
 ```
 
-- Base for evidence: `origin/main` at `88e070c79d086d7c36ae46afe0b7f7b6a369ef55` (the evidence
-  commit's parent).
+- Base for evidence: `origin/main` at `88e070c79d086d7c36ae46afe0b7f7b6a369ef55` (the parent of this
+  lane's first evidence commit `08545c3fb`).
+- **Second evidence commit base (corrected after an external-reflow collision, see below):**
+  `origin/main` at `e1ff4e2660d0e058d08d9dcea8597ec8975725b2`;
+  `git merge-base --is-ancestor e1ff4e266 HEAD` exits 0 for the final evidence head.
+- Evidence transport used the prescribed rule: `git pull --rebase origin main` (fast-forward to
+  `e1ff4e266`, which carried another lane's own-card file reflow), then re-apply this lane's edit,
+  re-verify and normal push — no force-push, no cherry-pick.
+- Foreign dirt in the planning checkout at lane start (7 modified files, all other sessions' work:
+  `evidence/board-2026-11-26/w136-pr1836-rowsreview.md`, `releases/v0.4.28.md`, `roadmap/cards.md`,
+  `views/kanban-dashboard.md`, `views/overview.md`, `views/ready.md`,
+  `views/releases/v0.4.28.md`) was preserved with `git stash push -m "w181-protect-foreign-dirt-*"`
+  and restored unstaged after this lane's commit; none of it is in this lane's commit.
+- Evidence post-push witness (`git -C baseharbor-plan fetch origin main &&
+  git -C baseharbor-plan ls-tree -r --name-only origin/main | grep <this path>`) is recorded at the
+  end of this file before the push, per the delivery rule.
 - Foreign state observed in the shared `workers/` checkout (NOT this lane's work, recorded so it is
   not mistaken for this candidate): `/home/marcel/dev/baseharbor-ecosystem/workers` is a git repo
   whose HEAD is the baseharbor tip `a87da7d1` with author `Marcel Pfingstgräf`, and whose
@@ -297,14 +375,11 @@ origin	https://github.com/mcpdev80/baseharbor-plan.git (push)
   This lane's candidate commits were created exclusively with
   `git -c user.name='w181-0428-doclink-sweep' -c user.email='w181-0428-doclink-sweep@baseharbor.local'`,
   and `git show -s --format=%an HEAD` was verified before each push.
-- Foreign dirt in the planning checkout at lane start (7 modified files, all other sessions' work:
-  `evidence/board-2026-11-26/w136-pr1836-rowsreview.md`, `releases/v0.4.28.md`, `roadmap/cards.md`,
-  `views/kanban-dashboard.md`, `views/overview.md`, `views/ready.md`,
-  `views/releases/v0.4.28.md`) was preserved with `git stash push -m "w181-protect-foreign-dirt-*"`
-  and restored unstaged after this lane's commit; none of it is in this lane's commit.
-- Evidence post-push witness (`git -C baseharbor-plan fetch origin main &&
-  git -C baseharbor-plan ls-tree -r --name-only origin/main | grep <this path>`) is recorded at the
-  end of this file before the push, per the delivery rule.
+- Collision note (why the first evidence push was rejected and the file was re-applied): another lane
+  had just reflowed `evidence/…/t-20261123-061-ci-scope-audit/**` so that `origin/main` no longer
+  contained this lane's first evidence commit; the stash of the 7 foreign dirty files was **not**
+  dropped and remains recoverable at `stash@{0}` (`w181-protect-foreign-dirt-*`), and all 7 files are
+  restored unstaged in the working tree exactly as found.
 
 ## cleanliness
 
@@ -317,4 +392,4 @@ origin	https://github.com/mcpdev80/baseharbor-plan.git (push)
 - Lane zone: `/tmp/opencode/w181-0428-319-0428-doclink-sweep-wt` (worktree `bh` + this scan output
   only). Nothing was created in `/home/marcel/dev/baseharbor-ecosystem` itself.
 
-## END w181-0428-319-0428-doclink-sweep DONE — PR #1843, head 9f7da6d420c1a9f35a83b1d1771956e4781ab667, CI run 45608051338 on that exact head; 40 rows repaired docs-only; link-check job FINDING recorded (owner scope); no merge
+## END w181-0428-319-0428-doclink-sweep DONE — PR #1843 (review), head 7e1fc3a57dcd615f9d286b67393cae9a02763c81, CI runs 45608051338 (draft head 9f7da6d4) and 45609710215 (exact head, PR Selected Checks success) ; 40 rows repaired docs-only; link-check row-check recorded as FINDING (owner scope, .github/**); no merge
