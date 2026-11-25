@@ -48,3 +48,18 @@ Exact output of the required `git fetch origin main && git ls-tree -r --name-onl
 From https://github.com/mcpdev80/baseharbor-plan
  * branch                main       -> FETCH_HEAD
 ```
+
+## Final disposition
+
+- Verdict: ACCEPT.
+- PR comment: https://github.com/mcpdev80/baseharbor/pull/1844#issuecomment-7163456719
+- Normal merge completed at `2026-11-25T13:12:42Z`, with exact-head guard for `54a879b08674778310efc72d2018dfdf3774aa2c`.
+- Merge commit: `99d9ddebcfb6cbd107ec45a6ad5ca6656c04ac82`.
+- Independent GitHub PR API reports MERGED; fresh `git ls-remote` reports the merge commit as `refs/heads/develop` and the reviewed commit remains `refs/pull/1844/head`.
+- END_DONE — w182-codex-1844-review: accepted and merged PR #1844 at `99d9ddebcfb6cbd107ec45a6ad5ca6656c04ac82`.
+
+Exact output of the final pre-push origin/main lookup for this akte:
+
+```text
+evidence/board-2026-11-27/w182-codex-1844-rereview.md
+```
