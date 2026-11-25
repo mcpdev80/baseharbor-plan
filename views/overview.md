@@ -14,11 +14,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | review | 2 |
 | wait | 14 |
 | blocked | 2 |
-| ready | 47 |
+| ready | 46 |
 | queued | 25 |
 | waiting | 178 |
 | backlog | 7 |
-| closed | 486 |
+| closed | 487 |
 
 ## Active
 
