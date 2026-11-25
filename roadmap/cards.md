@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 210/349 · **Blocked:** 1 · **Waiting:** 21  
+    **Accepted tasks:** 210/349 · **Blocked:** 1 · **Waiting:** 22  
     **Blocker:** [t-20261124-0428-279-mcp-contract-app-pull-unexpected](../tasks/t-20261124-0428-279-mcp-contract-app-pull-unexpected.md) — static/mcp gate qualification blocked on owner-scope card 0428-283 (the gate builds a plain baha without the baseharbor\_ci\_operator\_testonly operator tag + doe…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
