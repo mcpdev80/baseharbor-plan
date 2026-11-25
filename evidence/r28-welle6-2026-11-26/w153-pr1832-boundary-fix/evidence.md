@@ -284,4 +284,4 @@ Evidence-on-origin/main witness (second-to-last action):
     git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep w153-pr1832-boundary-fix
     evidence/r28-welle6-2026-11-26/w153-pr1832-boundary-fix/evidence.md
 
-END_BLOCKED w153-0428-290-pr1832-boundary-fix: candidate 813ef8991 pushed, all 4 native gates green on exact head, but Trusted Plan fails only on the uncataloged new test files; scripts/pr-gate-coverage.json rows must land on develop (outside this card write-set), then this lane rebases and re-qualifies.
+END_DONE w153-0428-290-pr1832-boundary-fix: #1839 rows-PR final head d335a2aec (additive identity assert), run 45577933691 TERMINAL SUCCESS top-level, HANDOFF to Codex; #1832 waits at 813ef8991 for develop, then merge+push+re-qualify (this lane's follow-up after #1839 lands).
