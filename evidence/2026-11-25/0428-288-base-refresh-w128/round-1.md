@@ -15,6 +15,15 @@ terminal on the new exact head, two IDs, HANDOFF (no merge by this lane).
 
 ## Facts
 
+- **Evidence correction (2026-11-25, before HANDOFF):** my earlier "watch-rc=0/success"
+  reading belonged to the FIRST execution (attempt 1) of run 45513816046. The rerun I launched
+  as Run B is attempt 2 of the SAME Run-ID. The CI record for the base refresh therefore has
+  exactly ONE Run-ID (45513816046) on head a7b0a4804, not two distinct IDs. The coordinator's
+  "BASE-OK, PR CI in progress" observation is that attempt 2 (go unit cli jobs running), not a
+  second Run-ID. If the acceptance rule demands two distinct Run-IDs, the cheapest compliant
+  transport is a fresh push on this branch (e.g. the lane's own merge-commit re-verify or a
+  trivial docs touch only with card-owner consent) or a maintainer workflow_dispatch; I will
+  not fabricate a second ID from an attempt.
 - Merge commit: a7b0a48048c11d20234160eede941532ddc33156 ("Merge remote-tracking branch
   'origin/develop' into lane-0428-288-compose-ids"), carrying develop f7540e591 (the 14-gate
   v0.4.28 catalog) into the lane; lane content (compose service-ID fix + catalog rows, prior
