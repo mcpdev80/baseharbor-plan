@@ -30,3 +30,10 @@ The live `PR Selected Checks` check run on the exact commit is completed/success
 
 ACCEPT — exact-head scope, task identity, reconciled inventory, and both full required-gate runs pass. Merge pending.
 
+## Merge outcome
+
+- Final live PR API state: `closed`, `merged: true`, head `1c73aa6e2a22affc1d408b9f4632693888d509a1`.
+- Normal merge performed with `gh pr merge --merge --match-head-commit 1c73aa6e2a22affc1d408b9f4632693888d509a1`. Merge SHA: `384d857b556908e4377c6f26e81127c7d48fb838`.
+- Fresh remote witness: `384d857b556908e4377c6f26e81127c7d48fb838\trefs/heads/develop`.
+- PR comment with ACCEPT verdict and both run IDs: https://github.com/mcpdev80/baseharbor/pull/1843#issuecomment-7163143032
+- No release, tag, or deployment performed.
