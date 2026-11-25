@@ -28,3 +28,6 @@ Direct GitHub API witnesses for head `2c19c945786da8dd1065f96bfef33bf8fbbdf722`:
 The exact-head scope and content review pass. The candidate cannot merge now because `develop` advanced after the runs and PR #1844 is `behind`. Active ruleset `25223521` requires `PR Selected Checks` from app 15368 with `strict_required_status_checks_policy: true`. The green runs are valid for the old base/head pair; they do not qualify the candidate after an integration refresh. No merge, rebase, push, rerun, or ruleset bypass was performed by this reviewer.
 
 Actionable remedy: the owning worker should integrate current `origin/develop` into the existing PR branch with the normal merge transport, push the updated candidate, then produce two distinct full-green hosted runs on that new exact head (including successful `PR Selected Checks` and docs jobs). Return the final SHA for a fresh independent review. Stop condition: do not merge the old head or reuse these runs for a new head.
+
+PR comment posted: https://github.com/mcpdev80/baseharbor/pull/1844#issuecomment-7163210524.
+evidence/board-2026-11-27/w182-codex-1844-review.md
