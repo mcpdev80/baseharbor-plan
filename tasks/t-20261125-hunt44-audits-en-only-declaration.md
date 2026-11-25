@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w183-0428-320-0428-audits-enonly
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-320 · declare internal-audits tree
 priority: ""
@@ -19,17 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1844", "https://github.com/mcpdev80/baseharbor/actions/runs/45619972563", "https://github.com/mcpdev80/baseharbor/actions/runs/45620233713"]
 ---
 
-- [ ] t-20261125-hunt44-audits-en-only-declaration · 0428 hunt H-V44: declare internal-audits tree EN-only in STYLE_GUIDE (parity scope) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261125-hunt44-audits-en-only-declaration · 0428 hunt H-V44: declare internal-audits tree EN-only in STYLE_GUIDE (parity scope) #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** w183-0428-320-0428-audits-enonly  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1844), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45619972563), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45620233713)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w183-0428-320-0428-audits-enonly  

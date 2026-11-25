@@ -10,15 +10,15 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 19 |
+| active | 18 |
 | review | 4 |
 | wait | 10 |
 | blocked | 2 |
-| ready | 36 |
+| ready | 40 |
 | queued | 25 |
 | waiting | 180 |
 | backlog | 7 |
-| closed | 480 |
+| closed | 481 |
 
 ## Active
 
@@ -42,7 +42,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) | CI/catalog: add #1820 source row to develop pr-gate-coverage.json | active | not set | w65-0428-269-batchbaseline | — | — |
 | [t-20261124-r28-broker-build-identity-commit](../tasks/t-20261124-r28-broker-build-identity-commit.md) | verifyRuntimeBrokerBuildIdentity discards both commit SHAs, so a runtime broker at the wrong commit passes readiness whenever the semver matches. | active | normal | w69-0428-271-brokerid2 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) (open) | [baseharbor#1820](https://github.com/mcpdev80/baseharbor/pull/1820) |
 | [t-20261125-0428-284-1812-postretry-gate-failure](../tasks/t-20261125-0428-284-1812-postretry-gate-failure.md) | #1812 post-retry gate failure | active | high | w177-0428-284-demo-pin-1812 | — | [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174) |
-| [t-20261125-hunt44-audits-en-only-declaration](../tasks/t-20261125-hunt44-audits-en-only-declaration.md) | 0428 hunt H-V44: declare internal-audits tree EN-only in STYLE_GUIDE (parity scope) | active | not set | w183-0428-320-0428-audits-enonly | — | — |
 
 ## Ready for review
 
@@ -115,12 +114,16 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261125-hunt45-error-surface-consistency](../tasks/t-20261125-hunt45-error-surface-consistency.md) | CLI: centralize error classification, canonical auth hints and Next/Remediation discipline | ready | not set | — | — | — |
 | [t-20261125-hunt45-exit-code-taxonomy-docs](../tasks/t-20261125-hunt45-exit-code-taxonomy-docs.md) | CLI: document baha exit-code taxonomy and machine coverage check | ready | not set | — | — | — |
 | [t-20261125-hunt45-secret-hygiene-error-path](../tasks/t-20261125-hunt45-secret-hygiene-error-path.md) | CLI: scrub external runtime stderr and zero dev credential buffers | ready | not set | — | — | — |
+| [t-20261126-hunt46-collectable-orphans-reserved-namespace](../tasks/t-20261126-hunt46-collectable-orphans-reserved-namespace.md) | 0428 hunt H-V46: CollectableOrphans lists the reserved never-delivered dir as a collectable orphan UUID (medium) | ready | not set | — | — | — |
+| [t-20261126-hunt46-damaged-state-reserved-namespace](../tasks/t-20261126-hunt46-damaged-state-reserved-namespace.md) | 0428 hunt H-V46: DamagedDeploymentNamespace flags the reserved never-delivered namespace as damaged (low) | ready | not set | — | — | — |
+| [t-20261126-hunt46-never-delivered-proof-leak](../tasks/t-20261126-hunt46-never-delivered-proof-leak.md) | 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) | ready | not set | — | — | — |
+| [t-20261126-hunt46-recovery-backup-volume-heuristic](../tasks/t-20261126-hunt46-recovery-backup-volume-heuristic.md) | 0428 hunt H-V46: recovery/backup volume preservation uses a case-insensitive substring search (medium) | ready | not set | — | — | — |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 4 open, 165 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 90 open, 247 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 93 open, 248 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 16 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
