@@ -115,6 +115,14 @@ Proposed card: declare the internal-audits tree explicitly EN-only in docs/STYLE
 - `docs/reference/releases.md:142` "provider conformance/fault injection" — prose wording, not a path reference; verified false positive (no `conformance/fault` path claimed).
 - Root README.md / AGENTS.md / CLAUDE.md / CONTRIBUTING.md / COMPATIBILITY.md / SECURITY.md relative links: 0 broken.
 
+## Witnesses
+
+- Planning repo remote (before first evidence commit): `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v` = `origin  https://github.com/mcpdev80/baseharbor-plan.git (fetch)` / `(push)`.
+- Base attestation: evidence commits sit on `origin/main` e9e948125; own commit 5a9057baf (author `w180-0428-224-hunt-v44`), pushed to main.
+- Post-push witness: `git -C baseharbor-plan fetch origin main && git ls-tree -r --name-only origin/main | grep ...` output: `evidence/r28-welle6-2026-11-27/bughunt-hv44-doc-links/hunt-1.md` (present on origin/main before END post).
+- Product repo read-only: no branches, no pushes, no commits to baseharbor; anchor clone in /tmp/opencode only.
+- Foreign working-tree file in baseharbor-plan (`evidence/board-2026-11-26/w136-pr1836-rowsreview.md`, modified by another session before this lane started) was preserved via stash and restored unstaged; it is not part of this lane's commit.
+
 ## Cleanliness
 
 - Read-only hunt: no containers started, no compose projects, no state written on this host.
