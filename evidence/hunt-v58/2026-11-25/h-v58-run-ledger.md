@@ -157,3 +157,7 @@ evidence/hunt-v58/2026-11-25/h-v58-run-ledger.md
 ## END marker
 
 END_DONE w225-0428-216-huntv58: H-V58 run-state ledger published at 9a8b3af76 (14 PR rows classified; VOID-witness cross-check + 6 ledger defects D1–D6). Read-only throughout; no PR/run actions.
+
+## Late witness (post-akte, before END)
+
+#1850 run 45707682812 reached completed/success at END time — that is now ONE green on head 6b153b8da1 (current-base); second same-head green still owed. Classification for #1850: NEEDS-SECOND.
