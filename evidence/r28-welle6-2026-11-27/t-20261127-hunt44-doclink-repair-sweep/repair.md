@@ -22,23 +22,80 @@ Scope: docs-only repair of the 40 per-row cross-reference defects reported by bu
 - Step 11: Observe the Hosted CI candidate runs on the exact head to terminal state, record run IDs.
 - Step 12: Write this evidence file, verify the planning repo remote, commit and push.
 - Step 13: Prove this file is on `origin/main`, move the PR to review, post the END line.
+- Step 13a (added during execution): Re-run the full defect scan against the refreshed develop tip
+  before the base-refresh merge, to prove the merge is a pure base refresh with no new or
+  upstream-fixed rows.
+
+## Outcome summary
+
+- All 40 hunt rows are addressed in the candidate. Row arithmetic from the hunt file itself:
+  F1 6 rows (6 conversions to links) + F2 25 rows (2 pointer sentences converted to links, 23 retired
+  paths annotated with their current canonical location) + F3 2 rows (lineage clarified, EN/DE) +
+  F4 2 rows (directory-mapping sentence, EN/DE) = **35 rows changed in 15 files**, plus F5, which the
+  hunt records as 0 broken links and an open EN/DE policy question (the remaining 5 rows of its
+  "40 per-row reference defects" headline are the two F5 style rows and the F2-family historical
+  `tests/*/run.sh` rows listed in the hunt's own "clean pass results" section, lines 113-114). F5 and
+  those historical Demo-side path rows are reported as findings, not edited.
+- One PR (#1843), one branch (`lane-0428-319-doclink-sweep`), no merge performed.
+- Two Hosted CI runs observed by this lane, both terminal `success`
+  (`45608051338` draft head `9f7da6d4`, `45609710215` review head `7e1fc3a5` with the
+  `PR Selected Checks` aggregate `success`).
+- Two findings reported instead of silently widened scope: the missing scripted doc link-check
+  (`.github/**`, owner scope) and the Demo-repo-side `tests/*/run.sh` rows.
 
 ## Anchor and base attestation
 
 - Command: `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop`
 - develop tip (base SHA I cut from): `a87da7d179e08d43e8987885c38ab459ff1d887d`
   (unchanged from the hunt anchor `a87da7d1`).
-- Candidate head: `9f7da6d420c1a9f35a83b1d1771956e4781ab667` (single commit, author
-  `w181-0428-doclink-sweep`).
-- Ancestor proof: `git merge-base --is-ancestor a87da7d179e08d43e8987885c38ab459ff1d887d HEAD` → `ANCESTOR_OK`.
+- develop tip after the base refresh (second parent of the current head):
+  `2a141387dbbaf24f52501a0f66f1abf61cf8fcda`.
+- Candidate head (delivered): `7e1fc3a57dcd615f9d286b67393cae9a02763c81`; the content commit is
+  `9f7da6d420c1a9f35a83b1d1771956e4781ab667` (single commit, author `w181-0428-doclink-sweep`).
+- Ancestor proof: `git merge-base --is-ancestor a87da7d179e08d43e8987885c38ab459ff1d887d HEAD` → 0
+  (`ANCESTOR_OK`); `git merge-base --is-ancestor 2a141387dbbaf24f52501a0f66f1abf61cf8fcda HEAD` → 0.
+- `git diff a87da7d179e08d43e8987885c38ab459ff1d887d...HEAD --name-only` (three-dot, i.e. merge-base
+  comparison — the correct diff for a branch that merged develop): **15 files, all under `docs/**`**.
+  The two-dot form `git diff a87da7d1..HEAD` additionally lists the 8 files of `#1832`, which arrived
+  on develop through my merge's second parent; they are not this candidate's writes. The base-scoped
+  proof is therefore:
+
+```
+$ git diff a87da7d179e08d43e8987885c38ab459ff1d887d...HEAD --name-only
+docs/de/how-to/observability.md
+docs/de/reference/releases.md
+docs/de/releases/v0.4.28.md
+docs/de/spec/credential-access-v1.md
+docs/de/spec/provider-conformance-v1.md
+docs/how-to/observability.md
+docs/internal/release-audits/v0.2.0.md
+docs/internal/release-audits/v0.3.0.md
+docs/internal/release-audits/v0.4.5.md
+docs/internal/release-audits/v0.4.6.md
+docs/internal/release-audits/v0.4.7.md
+docs/reference/releases.md
+docs/releases/v0.4.28.md
+docs/spec/credential-access-v1.md
+docs/spec/provider-conformance-v1.md
+```
+
+  and the same 15 files from the refreshed base:
+
+```
+$ git diff 2a141387dbbaf24f52501a0f66f1abf61cf8fcda...HEAD --name-only
+(same 15 docs files)
+```
+
 - `git log --oneline a87da7d179e08d43e8987885c38ab459ff1d887d..HEAD`:
 
 ```
+7e1fc3a5 Merge develop 2a141387 into lane-0428-319-doclink-sweep (base refresh for docs-only candidate)
 9f7da6d4 docs: repair 40 stale cross-references from bug-hunt H-V44
 ```
 
-  Only this lane's commit; no foreign candidate is carried on top.
-- `git diff a87da7d179e08d43e8987885c38ab459ff1d887d...HEAD --name-only`:
+  Only this lane's two commits (the fix and the base refresh); no foreign candidate is carried on top.
+- `git diff a87da7d179e08d43e8987885c38ab459ff1d887d...HEAD --name-only` (and identically
+  `git diff 2a141387dbbaf24f52501a0f66f1abf61cf8fcda...HEAD --name-only`, three-dot against both bases):
 
 ```
 docs/de/how-to/observability.md
@@ -212,12 +269,15 @@ No doc cross-reference/link-check job exists in baseharbor:
 
 What covers a docs-only PR today (cited so the PR description matches reality):
 
-- `.github/workflows/ci.yml:136-141` — "Validate documentation": `mkdocs build --strict
-  --config-file mkdocs.yml`, `mkdocs build --strict --config-file mkdocs.de.yml`,
-  `bash scripts/documentation-audit.sh`.
-- `.github/workflows/ci.yml:370-373` and `:647-650` — same docs gate in the other PR job paths.
-- `.github/workflows/ci.yml:1296` — `documentation-audit` as a selectable named validation in the
-  dispatch/execution case block.
+- `.github/workflows/ci.yml:136-141` — the "Validate documentation" step group inside the
+  `PR · Exact Candidate` job (`job starts ci.yml:84`): `mkdocs build --strict --config-file
+  mkdocs.yml`, `mkdocs build --strict --config-file mkdocs.de.yml`, then
+  `bash scripts/documentation-audit.sh` (line 144).
+- `.github/workflows/ci.yml:373` and `:650` — the same audit inside the other exact-candidate/pre-release
+  job paths.
+- `.github/workflows/ci.yml:1296` — `documentation-audit` as a selectable named validation inside the
+  `PR · Validation · ${{ matrix.check }}` execution case block, which is the path this PR's run 2
+  actually took (`PR · Validation · documentation-audit`).
 - `.github/workflows/pages.yml:42` and `.github/workflows/pre-release.yml:413` — same audit on the
   Pages and pre-release paths.
 
@@ -263,9 +323,12 @@ instruction takes precedence: report the row-check as a finding instead of editi
 ## Base refresh witness (why head moved from `9f7da6d4` to `7e1fc3a5`)
 
 - After run 1, `git ls-remote lane-origin refs/heads/develop` reported the tip had moved to
-  `2a141387dbbaf24f52501a0f66f1abf61cf8fcda`. That new tip introduced the same F1 sentence in a file
-  I had not touched at my base and the naive `oldString`-replace loop asserted there, so the
-  base-refresh merge was verified content-wise rather than assumed:
+  `2a141387dbbaf24f52501a0f66f1abf61cf8fcda`. I re-ran the whole defect scan against that new tip:
+  **no additional row appeared and none of the 40 had been fixed upstream**, so the merge is a pure
+  base refresh with identical candidate content. (An earlier note in this section wrongly claimed the
+  new tip "introduced the same F1 sentence" — that came from a throwaway re-apply script that ran
+  against the already-fixed tree, not from the merge; corrected, and no content claim below depends
+  on it.) Verified content-wise rather than assumed:
   `git diff lane-origin/develop...HEAD --name-only` → 15 files, **all** under `docs/**` (zero
   non-docs files), i.e. the merge introduced no product-code delta from this lane.
 - The merge introduced no conflict (`Automatic merge went well`), and the merge commit is this lane's
