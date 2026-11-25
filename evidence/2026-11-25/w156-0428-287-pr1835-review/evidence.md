@@ -121,3 +121,11 @@ evidence/2026-11-25/w156-0428-287-pr1835-review/evidence.md
 Owner confirms w156's #1835 review duty is succeeded by the w136/w182 flow. The recorded verdict remains blocked: identity exact-match failed, and preservation plus Podman evidence remain required on the new w157 head. The successor flow owns any later recheck against the card frontmatter and new-head gate evidence. This closes w156's duty only; it does not accept or merge #1835.
 
 END_DONE w156-0428-287-pr1835-review: review verdict and blocker evidence published; follow-up handed to w136/w182; PR #1835 remains blocked pending corrected identity audit and substantive gates.
+
+Exact output from the path check after this closeout update (`git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/2026-11-25/w156-0428-287-pr1835-review/evidence.md`):
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+evidence/2026-11-25/w156-0428-287-pr1835-review/evidence.md
+```
