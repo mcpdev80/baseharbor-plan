@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w181-0428-doclink-sweep
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-319 · repair broken docs
 priority: ""
@@ -19,17 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1843", "https://github.com/mcpdev80/baseharbor/actions/runs/45616264741", "https://github.com/mcpdev80/baseharbor/actions/runs/45617441437"]
 ---
 
-- [ ] t-20261125-hunt44-doclink-repair-sweep · 0428 hunt H-V44: repair broken docs cross-references (40 rows) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261125-hunt44-doclink-repair-sweep · 0428 hunt H-V44: repair broken docs cross-references (40 rows) #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** w181-0428-doclink-sweep  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1843), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45616264741), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45617441437)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w181-0428-doclink-sweep  

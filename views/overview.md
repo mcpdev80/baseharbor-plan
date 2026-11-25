@@ -10,7 +10,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 20 |
+| active | 19 |
 | review | 4 |
 | wait | 10 |
 | blocked | 2 |
@@ -18,7 +18,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | queued | 25 |
 | waiting | 180 |
 | backlog | 7 |
-| closed | 479 |
+| closed | 480 |
 
 ## Active
 
@@ -43,7 +43,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261124-r28-broker-build-identity-commit](../tasks/t-20261124-r28-broker-build-identity-commit.md) | verifyRuntimeBrokerBuildIdentity discards both commit SHAs, so a runtime broker at the wrong commit passes readiness whenever the semver matches. | active | normal | w69-0428-271-brokerid2 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) (open) | [baseharbor#1820](https://github.com/mcpdev80/baseharbor/pull/1820) |
 | [t-20261125-0428-284-1812-postretry-gate-failure](../tasks/t-20261125-0428-284-1812-postretry-gate-failure.md) | #1812 post-retry gate failure | active | high | w177-0428-284-demo-pin-1812 | — | [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174) |
 | [t-20261125-hunt44-audits-en-only-declaration](../tasks/t-20261125-hunt44-audits-en-only-declaration.md) | 0428 hunt H-V44: declare internal-audits tree EN-only in STYLE_GUIDE (parity scope) | active | not set | w183-0428-320-0428-audits-enonly | — | — |
-| [t-20261125-hunt44-doclink-repair-sweep](../tasks/t-20261125-hunt44-doclink-repair-sweep.md) | 0428 hunt H-V44: repair broken docs cross-references (40 rows) | active | not set | w181-0428-doclink-sweep | — | — |
 
 ## Ready for review
 
@@ -121,7 +120,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 4 open, 165 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 91 open, 246 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 90 open, 247 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 16 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
