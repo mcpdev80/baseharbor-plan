@@ -320,6 +320,18 @@ surface and does NOT restate those. Structural overlap is marked where a row wou
 
 ## Evidence on origin/main witness
 
-(filled at push time below)
+- Commit identity (admission rule): `git show -s --format=%an HEAD` => `w190-0428-224-hunt-v47`
+  (evidence commit `979e3c541`, planning repo only).
+- A foreign pre-existing working-tree edit in this checkout
+  (`evidence/r28-welle6-2026-11-26/w165-0428-078-pr1650-basehop.md`, not this lane's file) was preserved
+  untouched via `git stash push` before the commit and restored immediately after.
+- Push + verification (second-to-last action):
+
+```
+git -C baseharbor-plan fetch origin main
+git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle6-2026-11-27/bughunt-hv47-upgrade-migration
+```
+
+(output filled below after push)
 
 END w190-0428-224-hunt-v47 DONE — 9 actionable findings (1 medium-high, 3 medium), read-only, no product changes, anchored at develop tip 99d9ddebc.
