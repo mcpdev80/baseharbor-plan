@@ -78,3 +78,11 @@ w105
 The card owner lane is still `w105-0428-279-audit`. The equality check compares `.commit.author.name` to that card-owner lane, and remains false. GitHub uploader `.author.login` was not used for the identity decision.
 
 The refreshed PR is still open and unmerged at `55d17d437cfced7ec648aa42c14cc529963b68b6`; the w157 correction is not yet the PR head. The substantive acceptance hold remains the preservation assertion and Podman runtime proof on the new w157 head. Existing cancelled/void gate runs on `55d17d43` do not qualify that future head.
+
+Exact output from the post-precision-publication path check (`git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/2026-11-25/w156-0428-287-pr1835-review/evidence.md`):
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+evidence/2026-11-25/w156-0428-287-pr1835-review/evidence.md
+```
