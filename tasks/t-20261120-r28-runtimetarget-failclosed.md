@@ -53,6 +53,11 @@ base witnessed against develop `f5ce95afce1cfec053dd7717ed05e89bfe153535`.
 2. Regression in both directions: valid target registers; empty target and foreign target each produce the named error.
 3. Name the CI job that runs the test.
 
+
+## Owner decision — 2026-11-25
+
+Registration must fail closed when the target is empty or when the registering scope cannot prove ownership of that target. The registry may mutate only targets proven to belong to the registering scope; no implicit foreign-target access or ownership bypass is allowed.
+
 ## Boundaries
 
 internal/observability/registry.go plus its test. Do NOT restructure registryPath and do NOT add target-uid/root fields - that schema work is the owner 0428-078 card (see sequel note).
