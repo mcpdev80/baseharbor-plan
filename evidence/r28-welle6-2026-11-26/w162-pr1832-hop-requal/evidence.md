@@ -164,6 +164,71 @@ the BEHIND flag reflects base-movement bookkeeping and may flip at the merge att
 If the hop becomes authorized: merge a87da7d17 (re-verified tip) into this same branch, normal
 push, two same-head greens on the NEW head, per directive.
 
+## FINAL-HEAD hop (owner directive 2026-11-26, executed)
+
+Hop onto develop a87da7d17 performed in my own worktree /tmp/opencode/w162-wt (foreign zone
+untouched). Base + delivery witnesses:
+
+```
+$ git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop
+a87da7d179e08d43e8987885c38ab459ff1d887d	refs/heads/develop
+
+$ git merge origin/develop --no-edit -m "Merge origin/develop (a87da7d17) into lane-0428-290-metrics-discovery for #1832 final-head requalification"
+Merge made by the 'ort' strategy.        # touched only scripts/pr-gate-coverage.json (develop side)
+$ git merge-base --is-ancestor origin/develop HEAD && echo ANC_OK
+ANC_OK
+
+$ git show -s --format='%H %an <%ae>' HEAD      # %an identity admission verified BEFORE push
+976a258c1a170bbaa55ce030ac292a879a11e526 w162-0428-290-pr1832-requal <w162-0428-290-pr1832-requal@baseharbor.local>
+
+$ git log --oneline origin/develop..HEAD         # only this chain's commits
+976a258c1 Merge origin/develop (a87da7d17) into lane-0428-290-metrics-discovery for #1832 final-head requalification
+cee9ff8a1 Merge origin/develop (c7f70b0c5) into lane-0428-290-metrics-discovery for #1832 requalification
+813ef8991 0428-290: fail closed on arbitrary metrics paths (proven-endpoint registry)
+80ea092bc Merge remote-tracking branch 'origin/develop' into HEAD
+67a1eb3a1 fix(0428-290): gofmt app_init_detection.go (import order)
+ef7e58eb8 fix(0428-290): carry proven metrics endpoint tuple and assert exact paths
+
+$ git diff origin/develop...HEAD --name-only     # still exactly the scoped #1832 files
+cmd/baha/app_init_detection.go
+cmd/baha/app_init_metrics_boundary_test.go
+cmd/baha/app_init_prompts.go
+cmd/baha/app_init_selection.go
+cmd/baha/app_init_wizard.go
+cmd/baha/app_init_wizard_test.go
+internal/repositoryinspect/capability_detectors.go
+internal/repositoryinspect/metrics_endpoint_boundary_test.go
+
+$ git push origin HEAD:refs/heads/lane-0428-290-metrics-discovery   # normal push, no force
+To https://github.com/mcpdev80/baseharbor.git
+   cee9ff8a1..976a258c1  HEAD -> lane-0428-290-metrics-discovery
+$ git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/lane-0428-290-metrics-discovery refs/pull/1832/head
+976a258c1a170bbaa55ce030ac292a879a11e526	refs/heads/lane-0428-290-metrics-discovery
+(then: refs/pull/1832/head -> 976a258c1 after the PR event caught up)
+```
+
+Final candidate head: **976a258c1a170bbaa55ce030ac292a879a11e526**.
+Qualification on this exact head: run https://github.com/mcpdev80/baseharbor/actions/runs/45591459360
+(ID #1, event pull_request, observed queued->terminal by this lane — own-run duty) plus a second
+full terminal pass on the same head (attempt-2 rerun, ID #2), both appended below.
+
+## Befund: external dependency-fetch failure on attempt 1 (owner-confirmed classification)
+
+Run 45591459360 (head 976a258c1), job `PR · Validation · inspect-consumer-build`
+(job id 139126554942, step "Execute existing validation owner without publication") FAILED.
+Verbatim failing log lines:
+
+```
+2026-11-25T10:05:10.6874328Z ##[error]../../../go/pkg/mod/github.com/jackc/pgx/v5@v5.11.0/pgconn/auth_scram.go:33:2: golang.org/x/text@v0.41.0: read "https://proxy.golang.org/golang.org/x/text/@v/v0.41.0.zip": stream error: stream ID 137; INTERNAL_ERROR; received from peer
+2026-11-25T10:05:10.6884532Z ##[error]../../../go/pkg/mod/github.com/xdg-go/stringprep@v1.0.4/profile.go:4:2: golang.org/x/text@v0.41.0: read "https://proxy.golang.org/golang.org/x/text/@v/v0.41.0.zip": stream error: stream ID 137; INTERNAL_ERROR; received from peer
+2026-11-25T10:05:10.6891063Z ##[error]Process completed with exit code 1.
+```
+
+Classification (owner): EXTERNAL FETCH defect only — transient HTTP/2 stream INTERNAL_ERROR
+downloading golang.org/x/text@v0.41.0 from proxy.golang.org. No source or test error; NO
+product-code change is made for this network error (it is not in this card's failure semantics).
+Consequence: attempt 1 carries a red job and does NOT count as one of the two required greens.
+
 ## cleanliness
 
 No containers or compose projects were started by this lane on any host (no docker/podman work in
