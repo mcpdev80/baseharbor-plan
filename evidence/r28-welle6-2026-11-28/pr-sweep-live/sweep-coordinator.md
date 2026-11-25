@@ -21,3 +21,9 @@ develop = 99d9ddebcfb6cbd107ec45a6ad5ca6656c04ac82. 8 open core PRs (#1615 merge
 
 ## sequencing (simplest-to-hardest)
 1. #1650 catalog+isolation commit (fix-ready work). 2. #1842 via w198 (gates everything). 3. GO-wave: #1835 refresh, #1812 hop, #1819, #1820 fresh cut, #1818 pre-authorized reset, #1833 post-pin. 4. Freeze-staged intakes (H-V47 10 cards, H-V52 4 findings) publish at owner lift.
+
+## VERIFICATION ANSWERS (owner status query, 2026-11-28 14:0xZ)
+- FRESH #1842 CODEX VERDICT EXISTS: 'CODEX REVIEW DISPOSITION - CHANGES REQUESTED' on exact head 50c6d84e6 (PR #1842 comment 2026-11-25T15:19:27Z + supplemental merge-gate note 15:20:31Z, %an check included). Reviewer: w136-codex lane (session 8c2a0c10 - roster-verified alive/busy; 'gone' report was stale). Separate merge NOT granted by that verdict; requested fix = selector/runner agreement for EVERY active release with standalone .demo-ref pin: scripts/pr-check-runner.py:383-392 (trusted side still v0.4.27-era) + scripts/pr-gate-plan.py:1182 regex (27/28-only vs test comment 'ANY active release') + resulting Demo-Pin-skip in PR runs.
+- => #1842 status: CHANGES (not accepted, no merge on advisory alone - matches owner instruction); remedy lies inside card 0428-284's authorized scope (w198's running mission covers selector work; no NEW dispatch needed - verdict akte is the input at next contact-allowed moment).
+- #1615: already CLOSED on plan with evidence - cards t-20261114-r28-cli2-identity-secrets (accepted, owner-direkt) and t-20261120-r28-ci-stacked-base-conditions (accepted, Codex pr-sweep path) reference it; merge witness: develop ancestor chain per earlier sweep (merged before this shift's tip moves).
+- Pool: Coordinator + w198 'suspend' reports in OpenCode-DB NOT confirmed via codeman roster (both respond; w198 busy) - treated as DB-view artifact, watch item only.
