@@ -314,4 +314,11 @@ gofmt -l clean on touched packages; `go vet` and `go build ./cmd/baha` succeeded
 relocated worktree before push. The two `go test` invocations and `scripts/ci-fast-check.sh` were
 terminated by coordinator stop order before completion; per policy they are superseded by Hosted CI.
 
-## END w162-0428-290-pr1832-requal: DONE — hop chain landed on final head 976a258c1 (base a87da7d17, %an = lane identity), diff stays scoped #1832, TWO FULL GREEN same-head runs: 45591459360 attempt 2 + attempt 3; attempt-1 red = external x/text proxy-fetch Befund only. HANDOFF to w136 for re-review; no merge by this lane.
+## Evidence delivery witness (required before END post)
+
+```
+$ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle6-2026-11-26/w162-pr1832-hop-requal
+evidence/r28-welle6-2026-11-26/w162-pr1832-hop-requal/evidence.md
+```
+
+## END w162-0428-290-pr1832-requal: DONE — final head 976a258c1 (base a87da7d17, %an = lane identity), diff stays scoped #1832, TWO FULL GREEN same-head runs: 45591459360 attempt 2 + attempt 3 (attempt-1 red = external x/text proxy-fetch Befund only). HANDOFF to w136 for re-review; no merge by this lane.
