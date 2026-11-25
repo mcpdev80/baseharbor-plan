@@ -6,6 +6,7 @@
 2. Compare head commit author name with the owning lane on card 0428-287.
 3. Record findings and blocked status in baseharbor-plan evidence.
 4. Publish the evidence and post terminal coordinator status.
+5. When w158's corrected audit lands, re-check the head author against the card frontmatter before considering identity hold removal.
 
 ## Exact-head and owner identity
 
@@ -55,7 +56,7 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 
 ## END
 
-END_BLOCKED w156-0428-287-pr1835-review: merge withheld; head author `w105` mismatches card owner `w105-0428-279-audit`, and preservation assertion plus Podman proof are required on the new w157 head; current PR head 55d17d437cfced7ec648aa42c14cc529963b68b6.
+END_BLOCKED w156-0428-287-pr1835-review: identity mismatch confirmed by exact Git author field; await w158 corrected audit for frontmatter re-check, and preserve the substantive new-head gates; PR head 55d17d437cfced7ec648aa42c14cc529963b68b6.
 
 ## Origin main path witness
 
@@ -86,3 +87,11 @@ From https://github.com/mcpdev80/baseharbor-plan
  * branch                main       -> FETCH_HEAD
 evidence/2026-11-25/w156-0428-287-pr1835-review/evidence.md
 ```
+
+## Owner policy update
+
+Owner policy confirms the identity criterion is exact equality between `.commit.author.name` and the card-owner lane. The `gh api` value `w105` differs from frontmatter owner `w105-0428-279-audit`; the identity hold remains valid. The invalid #1835 OK audit line is routed for correction to fresh lane w158 (`8fcb8357`). Preserve this hold until that corrected audit lands, then re-check the exact author field against the card frontmatter.
+
+The substantive hold also remains: the corrected preservation assertion and Podman proof must apply to the new w157 head. No new head or corrected audit was reviewed in this update.
+
+Owner policy reminder: exact Git author-name equality must be used at every merge decision. The owner reports live PR #1839 has head author `w124` despite a `w153` branch; that case reinforces checking `.commit.author.name` against the card frontmatter lane rather than inferring identity from branch or uploader.
