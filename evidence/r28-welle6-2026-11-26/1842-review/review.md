@@ -72,3 +72,11 @@ Verdict: **CHANGES**. Finding A and Finding B are independent acceptance blocker
 This evidence is being published through one planning PR branch with current base `origin/main` `ea9f7ab6583542ab3bd1b782e7652585ca567d04` after a fast-forward from the branch-cut SHA recorded above. Before opening or updating a PR, prove `git merge-base --is-ancestor origin/main HEAD` and record `git diff origin/main...HEAD --name-only`; the diff must contain only this evidence path. Push delivery and final origin/main tree membership will be recorded after the plan PR is opened and merged.
 
 ## END w200-1842-final-review BLOCKED
+
+Pre-PR provenance command: `git merge-base --is-ancestor origin/main HEAD` -> exit 0.
+
+Exact `git diff origin/main...HEAD --name-only` output before recording this witness:
+
+```text
+evidence/r28-welle6-2026-11-26/1842-review/review.md
+```
