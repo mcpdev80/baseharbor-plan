@@ -207,6 +207,39 @@ workers/w153-pr1832-boundary-wt.
 this candidate; this round's commit touches only the first two product files plus the two new
 test files — see `git log --oneline origin/lane-0428-290-metrics-discovery..HEAD` above.)
 
+## Update: diagnosis CONFIRMED + routed (coordinator directive 2026-11-25)
+
+Confirmed rejection data (Trusted Plan job 139067056143, step 4 "Resolve exact immutable PR
+inputs using trusted base policy"): the TWO changed test sources of this round lack
+pr-gate-coverage.json rows:
+- cmd/baha/app_init_metrics_boundary_test.go (id source.cmd_baha_app_init_metrics_boundary_test_go)
+- internal/repositoryinspect/metrics_endpoint_boundary_test.go (id source.internal_repositoryinspect_metrics_endpoint_boundary_test_go)
+Required surfaces: the docker+podman data-capabilities pair this card's gates own. UNIT_SCOPE came
+back empty -> UNIT_RESULT=skipped -> "Require complete selected Go shard coverage" fails closed.
+This is a missing trusted CLASSIFICATION, not a test red. The unchanged head 813ef8991 is NOT
+rerun. Routed fix: a SEPARATE data-only rows PR onto develop (the #1836 pattern, commit
+9d7e22902 "docs(ci): classify 13 uncataloged source rows in trusted gate catalog"), adding
+EXACTLY those two source rows mirroring existing test-source conventions; after it merges, this
+lane does `git merge origin/develop` + normal push -> new exact head -> Hosted CI to terminal.
+
+Rows PR: **#1839** https://github.com/mcpdev80/baseharbor/pull/1839
+- branch `w153-pr1832-coverage-rows`, cut from develop f7540e591 (attested:
+  `git ls-remote ... refs/heads/develop` = f7540e591; `git merge-base --is-ancestor f7540e591 HEAD`
+  = YES; `git log --oneline origin/develop..HEAD` = only 91ce77dba, my own commit)
+- commit 91ce77dba `ci(0428-290): catalog the two #1832 boundary-test sources (data-only coverage rows)`
+  — diff: scripts/pr-gate-coverage.json ONLY (+17): row
+  `source.cmd_baha_app_init_metrics_boundary_test_go` (data-capabilities pair) and row
+  `source.internal_repositoryinspect_metrics_endpoint_boundary_test_go` (runtime_specific,
+  data-capabilities pair), mirroring existing test-source conventions
+- precheck witnesses (non-test): `validate-pr-gate-coverage.py` -> "catalog is valid";
+  `resolve_covered_gates` on the two paths -> covered=[atomic/docker+podman data-capabilities],
+  unowned=[]; NEGATIVE pilot on fresh base clone f7540e591 -> planner exits 1 with
+  "uncataloged source change" (reproduces #1832's Trusted Plan failure); POSITIVE pilot same diff +
+  new catalog -> planner exits 0, no source_unowned raise, native gates select
+  docker/podman data-capabilities + guided (matching what already passed green on #1832 813ef8991)
+- CI: run 45577423387 on exact head 91ce77dba, tracked to terminal below; HANDOFF for Codex
+  review/merge (worker does not merge)
+
 Evidence-on-origin/main witness (second-to-last action):
 
     git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep w153-pr1832-boundary-fix
