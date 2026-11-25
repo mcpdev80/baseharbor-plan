@@ -32,3 +32,8 @@ No containers or compose projects were started by this session. Product workspac
 
 ## END
 END_DONE w150-codex-1835-review: independent review posted; merge withheld pending native Docker/Podman and provider-preservation evidence; candidate 55d17d437cfced7ec648aa42c14cc529963b68b6.
+
+## Evidence path witness
+Exact output from `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/2026-11-25/w150-codex-1835-review/evidence.md`:
+
+`evidence/2026-11-25/w150-codex-1835-review/evidence.md`
