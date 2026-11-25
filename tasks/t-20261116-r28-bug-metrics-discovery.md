@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w162-0428-290-pr1832-requal
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Wizard found /metrics from a Bruno file and defaulted to caddy; generated source caddy:8080/metrics is not supported by Compose…"
 kanban_title: 0428-290 · Validate metrics source mappin
 priority: high
@@ -19,18 +19,19 @@ prs: [mcpdev80/baseharbor#1832]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1832"]
 ---
 
-- [ ] t-20261116-r28-bug-metrics-discovery · Validate metrics source mapping #task #release/v0-4-28 #status/active #view/active #area/observability #kind/bug
+- [ ] t-20261116-r28-bug-metrics-discovery · Validate metrics source mapping #task #release/v0-4-28 #status/review #view/review #area/observability #kind/bug
     <!-- generated:card -->
     **Owner:** w162-0428-290-pr1832-requal · **Priority:** high  
     **PR:** [baseharbor#1832](https://github.com/mcpdev80/baseharbor/pull/1832)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1832)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w162-0428-290-pr1832-requal  

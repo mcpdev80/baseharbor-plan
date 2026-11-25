@@ -38,4 +38,3 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | [t-20261125-hunt43-env-leak-disk](../tasks/t-20261125-hunt43-env-leak-disk.md) | 0428 hunt H-V43: hunt43-env-leak-disk | ready | not set | — | — | — |
 | [t-20261125-hunt43-low-severity-pair](../tasks/t-20261125-hunt43-low-severity-pair.md) | 0428 hunt H-V43: hunt43-low-severity-pair | ready | not set | — | — | — |
 | [t-20261125-hunt44-audits-en-only-declaration](../tasks/t-20261125-hunt44-audits-en-only-declaration.md) | 0428 hunt H-V44: declare internal-audits tree EN-only in STYLE_GUIDE (parity scope) | ready | not set | — | — | — |
-| [t-20261125-hunt44-doclink-repair-sweep](../tasks/t-20261125-hunt44-doclink-repair-sweep.md) | 0428 hunt H-V44: repair broken docs cross-references (40 rows) | ready | not set | — | — | — |

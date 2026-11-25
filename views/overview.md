@@ -11,10 +11,10 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 19 |
-| review | 4 |
+| review | 5 |
 | wait | 10 |
 | blocked | 2 |
-| ready | 33 |
+| ready | 32 |
 | queued | 25 |
 | waiting | 180 |
 | backlog | 7 |
@@ -32,7 +32,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261116-r28-bug-destroy-diagnostics](../tasks/t-20261116-r28-bug-destroy-diagnostics.md) | Explain destroy owner failures | active | normal | w127-0428-293-destroy-diag | — | — |
 | [t-20261116-r28-bug-failed-apply-destroy](../tasks/t-20261116-r28-bug-failed-apply-destroy.md) | Recover failed apply destroy | active | critical | w128-0428-286-apply-destroy | — | [baseharbor#1834](https://github.com/mcpdev80/baseharbor/pull/1834) |
 | [t-20261116-r28-bug-installation-reset-recovery](../tasks/t-20261116-r28-bug-installation-reset-recovery.md) | Unblock full installation reset | active | critical | w157-0428-287-pr1835-preservation | — | [baseharbor#1835](https://github.com/mcpdev80/baseharbor/pull/1835) |
-| [t-20261116-r28-bug-metrics-discovery](../tasks/t-20261116-r28-bug-metrics-discovery.md) | Validate metrics source mapping | active | high | w162-0428-290-pr1832-requal | — | [baseharbor#1832](https://github.com/mcpdev80/baseharbor/pull/1832) |
 | [t-20261120-r28-identity-dashboard-catalog-consumer](../tasks/t-20261120-r28-identity-dashboard-catalog-consumer.md) | Identity dashboard catalog has zero production consumers (P4 of review 1650) | active | not set | w54-0428-181-export | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | [baseharbor#1819](https://github.com/mcpdev80/baseharbor/pull/1819) |
 | [t-20261120-r28-valkey-dashboard-unavailable-only](../tasks/t-20261120-r28-valkey-dashboard-unavailable-only.md) | Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable | active | not set | Codex (Marcel, active wait sweep 2026-11-21) | [t-20261121-loki-verify-probe](../tasks/t-20261121-loki-verify-probe.md), [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) | [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714) |
 | [t-20261121-base-branch-provenance-loss](../tasks/t-20261121-base-branch-provenance-loss.md) | 0428-221 base content of closed-unmerged lane branches must be recovered or the cards reopened | active | high | coordinator | — | — |
@@ -43,11 +42,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) | CI/catalog: add #1820 source row to develop pr-gate-coverage.json | active | not set | w65-0428-269-batchbaseline | — | — |
 | [t-20261124-r28-broker-build-identity-commit](../tasks/t-20261124-r28-broker-build-identity-commit.md) | verifyRuntimeBrokerBuildIdentity discards both commit SHAs, so a runtime broker at the wrong commit passes readiness whenever the semver matches. | active | normal | w69-0428-271-brokerid2 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) (open) | [baseharbor#1820](https://github.com/mcpdev80/baseharbor/pull/1820) |
 | [t-20261125-0428-284-1812-postretry-gate-failure](../tasks/t-20261125-0428-284-1812-postretry-gate-failure.md) | #1812 post-retry gate failure | active | high | w177-0428-284-demo-pin-1812 | — | [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174) |
+| [t-20261125-hunt44-doclink-repair-sweep](../tasks/t-20261125-hunt44-doclink-repair-sweep.md) | 0428 hunt H-V44: repair broken docs cross-references (40 rows) | active | not set | w181-0428-doclink-sweep | — | — |
 
 ## Ready for review
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [t-20261116-r28-bug-metrics-discovery](../tasks/t-20261116-r28-bug-metrics-discovery.md) | Validate metrics source mapping | review | high | w162-0428-290-pr1832-requal | — | [baseharbor#1832](https://github.com/mcpdev80/baseharbor/pull/1832) |
 | [t-20261119-orgconfig-error-redaction](../tasks/t-20261119-orgconfig-error-redaction.md) | Redact secret-like organization references in validation errors | review | high | Codex team (current thread) | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | [baseharbor#1596](https://github.com/mcpdev80/baseharbor/pull/1596) |
 | [t-20261122-footprint-human-surface-doc-gaps](../tasks/t-20261122-footprint-human-surface-doc-gaps.md) | Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract | review | normal | 0847d100 (finalhop 7880a8f6 laeuft) / Coordinator | — | [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783) |
 | [t-20261122-runtime-broker-health-unhealthy](../tasks/t-20261122-runtime-broker-health-unhealthy.md) | CI: data-capabilities native gate fails on secure runtime broker readiness | review | not set | ffe7611b (#1770 62f4ab0d combined, 0 fail / 22 pass / 1 pending = ~terminal; alle 3 Poorten job-belegt gruen) / Owner (step4 develop merge) / Coordinator | [t-20261122-gate-catalog-missing-app-broker-component](../tasks/t-20261122-gate-catalog-missing-app-broker-component.md) | [baseharbor#1753](https://github.com/mcpdev80/baseharbor/pull/1753), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1770](https://github.com/mcpdev80/baseharbor/pull/1770), [baseharbor#1780](https://github.com/mcpdev80/baseharbor/pull/1780), [baseharbor#1762](https://github.com/mcpdev80/baseharbor/pull/1762), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783) |
@@ -111,7 +112,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261125-hunt43-env-leak-disk](../tasks/t-20261125-hunt43-env-leak-disk.md) | 0428 hunt H-V43: hunt43-env-leak-disk | ready | not set | — | — | — |
 | [t-20261125-hunt43-low-severity-pair](../tasks/t-20261125-hunt43-low-severity-pair.md) | 0428 hunt H-V43: hunt43-low-severity-pair | ready | not set | — | — | — |
 | [t-20261125-hunt44-audits-en-only-declaration](../tasks/t-20261125-hunt44-audits-en-only-declaration.md) | 0428 hunt H-V44: declare internal-audits tree EN-only in STYLE_GUIDE (parity scope) | ready | not set | — | — | — |
-| [t-20261125-hunt44-doclink-repair-sweep](../tasks/t-20261125-hunt44-doclink-repair-sweep.md) | 0428 hunt H-V44: repair broken docs cross-references (40 rows) | ready | not set | — | — | — |
 
 ## By release
 
