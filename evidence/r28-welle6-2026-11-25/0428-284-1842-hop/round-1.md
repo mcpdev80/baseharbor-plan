@@ -131,4 +131,14 @@ Executed census, run 45712217182 (39 jobs): EXECUTED and passed (19): Workflow p
 - Card frontmatter (`owner: w198-0428-284-demo-parser`) and the PR branch name (`w177-0428-284-demo-pin-1812`) diverge; per the card's recovery-transfer record the w198 string is canonical for new commits — applied here.
 - The eight develop-inherited catalog rows pointing at nonexistent files (see payload proof) are a catalog-owner maintenance item; `PR · Trusted Plan` passed, so they are not currently gate-blocking.
 
-END_DONE w232-0428-284-1842hop: hop head 996fe5ffa (merge of origin/develop fcd449117 into w177-0428-284-demo-pin-1812), pushed normally, PR #1842 head updated; pull_request runs 45712217182 (exact head, terminal success) + 45666678375 (pre-hop head) with executed census above; no gate dispatches, no merges, no .github changes.
+## Evidence delivery proof (origin/main)
+
+`git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep <path>` output:
+
+```
+evidence/r28-welle6-2026-11-25/0428-284-1842-hop/round-1.md
+```
+
+Committed via isolated worktree `workers/w232-0428-284-plan` (author `w198-0428-284-demo-parser`), pushed `d9d168063..d3f717bc7` to main.
+
+END_DONE w232-0428-284-1842hop: hop head 996fe5ffa (merge of origin/develop fcd449117 into w177-0428-284-demo-pin-1812), pushed normally, PR #1842 head updated (ls-remote witness above); pull_request run 45712217182 on the EXACT head terminal success with executed census above; second exact-head PR-event run is w234's close/reopen duty (coordinator relays its run ID; not triggered by this lane per collision guard); no gate dispatches, no merges, no .github changes.
