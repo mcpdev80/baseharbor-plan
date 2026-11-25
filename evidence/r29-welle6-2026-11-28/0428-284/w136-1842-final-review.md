@@ -40,3 +40,9 @@ Planning remote witness: `origin	https://github.com/mcpdev80/baseharbor-plan.git
 Plan base at worktree creation: 132ee736b0fabfb55a2f8488ae25b677be5f35f1 (origin/main); this was the exact fetched ref used to create the isolated worktree.
 
 END w136-pr1836-rowsreview DONE
+
+## Pre-push proof
+
+- `git merge-base --is-ancestor 132ee736b0fabfb55a2f8488ae25b677be5f35f1 HEAD` completed with exit 0.
+- `git show -s --format=%an HEAD` printed `w136-pr1836-rowsreview`.
+- `git log --oneline origin/main..HEAD` printed `9ad740853 docs(evidence): record #1842 review disposition`; the only commit ahead of the exact base is this evidence commit.
