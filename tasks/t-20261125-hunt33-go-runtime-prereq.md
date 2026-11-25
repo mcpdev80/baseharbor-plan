@@ -41,42 +41,33 @@ evidence: []
 
 ## Goal
 
-One or two sentences: the observable outcome.
+Keep the cross-process lifecycle-lock probe fail-closed and make the Go toolchain fallback explicit on platforms where the embedded Linux/AMD64 probe is unavailable.
+
+## Current-source recheck — 2026-11-25
+
+Rechecked BaseHarbor `develop` at `7bdeae95ccf0ce0d2fe39ae6d4c884402268995d`. `internal/stableid/lock_probe.go` embeds a probe binary and uses it on Linux/AMD64. Other platform/architecture cases call `runToolchainProbe`, which executes `go build` without first checking whether `go` is available. The lock probe is a safety check: an unavailable probe must not be treated as a verified lock.
+
+Evidence: [current lock probe](https://github.com/mcpdev80/baseharbor/blob/7bdeae95ccf0ce0d2fe39ae6d4c884402268995d/internal/stableid/lock_probe.go).
 
 ## Scope
 
-- In scope:
-- Out of scope:
+- Preserve the embedded helper path on Linux/AMD64; do not add a Go dependency to that path.
+- On fallback platforms, detect a missing Go executable and return a clear prerequisite error that preserves the fail-closed result.
+- State the toolchain requirement only for fallback platforms that are in the supported-host contract. Do not expand support to WSL2 or macOS through this card.
+- Do not replace the embedded helper or add a new runtime framework.
 
 ## Acceptance
 
-- Each criterion as a plain bullet. Do not use checkboxes here: only the card line above is a checkbox.
-
-## Required checks
-
-- **Modified features:** Inventory and adapt all affected existing unit, contract, integration, regression, E2E and native-runtime tests; add missing cases.
-- **New features/providers (e.g. Perses Provider Contract):** Implement NEW dedicated positive, negative, authorization, ownership, error-path, compatibility and lifecycle tests wherever relevant. Passing unrelated existing suites is not sufficient.
-- **CI integration and mapping are part of implementation:** Register every new/changed test in its package/test inventory and update existing test-to-gate mapping, selectors, relevant `REQUIRED_CLIENT_TESTS`/package equivalent, `scripts/pr-gate-plan.py`, `scripts/release-requirements.json`, and CI workflow paths/triggers where applicable. Coordinate reserved CI files with their owner; no new CI framework.
-- **Mapping selection proof:** Verify affected paths select the required tests, unrelated paths do not unnecessarily select them, and the applicable stacked-PR, ready-for-review, develop and release workflows cannot silently bypass them. Unknown coverage broadens selection instead of failing open.
-- **Hard acceptance gate:** For every required test provide exact SHA -> test ID -> mapped check/native gate -> trigger -> actual run URL/outcome. Missing test, registration, mapping, selection, trigger or real passing execution BLOCKS acceptance. Docker/rootless Podman each require independent live evidence when applicable; do not rerun unaffected checks needlessly.
-
-
-- **Test binding (select exactly one):** ☐ normal (auto-discovered) · ☐ contract → add to `REQUIRED_CLIENT_TESTS` or the package equivalent in the same PR · ☐ new check → update `scripts/pr-gate-plan.py` and `scripts/release-requirements.json` in the same PR.
-- Name every new or changed test (package, exact test ID, fixture/env and native runtime if applicable). Targeted checks for the changed area; broaden when impact is unknown.
-- Record the existing CI validation/check or Docker/Podman native gate that actually executes each test, and which PR paths, develop integration event or release candidate selection triggers it.
-- If coverage is absent, implement/register it in the owning CI lane before acceptance; prove positive selection for a relevant change and negative/non-selection for an unrelated change. Missing, skipped or failed mandatory execution is NOT PASS.
-- For Docker/Podman tests, prove native Docker and rootless Podman/Quadlet separately where required; unit fakes do not replace live runtime evidence. Cross-repo tests run through existing develop/release acceptance, not a blocking independent PR gate.
-- Handoff must identify exact source SHA, test -> CI gate -> trigger -> actual run/outcome, or mark explicit CI coverage debt as blocking. No new CI framework or full automatic PR matrix.
+- Linux/AMD64 uses the embedded helper and succeeds without `go` or a module cache.
+- Fallback platforms with a working Go toolchain keep the current build-and-probe behavior.
+- Fallback platforms without `go` produce a stable actionable error and never report that cross-process locking was verified.
+- Focused tests cover helper selection, missing-Go fallback, and fail-closed behavior through normal package discovery.
+- Record the exact test/package, existing CI check and trigger, and actual candidate-SHA result; no new CI gate.
 
 ## Dependencies and file ownership
 
-- Owned files or areas:
-- Shared files: coordinate through the owning task.
+- Product area: `internal/stableid` and its lifecycle-lock callers. Keep the change narrow and coordinate if shared lock-probe files are already owned.
 
 ## Handoff
 
-- Current state, branch, PR and evidence links. Newest first.
-
-## Task
-
-Hunt H-V33 fund: `go` invoked on targets without documenting it as a target prerequisite (product runtime path). Clarify docs + fail-closed error message if go absent (product code, in scope).
+Open for implementation. No product code or test was changed in this planning audit.
