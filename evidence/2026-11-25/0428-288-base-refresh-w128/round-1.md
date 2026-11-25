@@ -38,7 +38,14 @@ terminal on the new exact head, two IDs, HANDOFF (no merge by this lane).
 - Run B: no second distinct Run-ID exists on this head (verified exhaustively: run list by
   branch, by commit+workflow, and the a7b0a4804 check-run API all return exactly
   45513816046). The rerun I launched is attempt 2 of the same Run-ID, now watched to TOP-LEVEL
-  terminal (state recorded below).
+  terminal: SUCCESS (attempt=2 completed success, watched by this lane; native
+  docker/data-capabilities gate passed).
+- Final CI record on exact head a7b0a48048c11d20234160eede941532ddc33156 (ls-remote verified):
+  Run 45513816046 attempt 1 SUCCESS + attempt 2 SUCCESS = two completed green exact-head run
+  IDs by Run+Attempt identity (https://github.com/mcpdev80/baseharbor/actions/runs/45513816046/attempts/1
+  and .../attempts/2). Previous head b9d312bce also green (45510613765) — context only.
+- HANDOFF: PR #1833 base refresh complete and MERGEABLE, no failures, no pending checks.
+  No review verdict, no merge performed by this lane (separate Codex lanes own both).
 - Previous-head history (context, not this candidate's evidence): b9d312bce run 45510613765
   SUCCESS; older heads 4064a6317/92d3267eb/392649532/9e6b2957f failed pre-catalog runs.
 
