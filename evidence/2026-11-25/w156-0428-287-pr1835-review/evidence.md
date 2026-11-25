@@ -68,6 +68,14 @@ From https://github.com/mcpdev80/baseharbor-plan
 evidence/2026-11-25/w156-0428-287-pr1835-review/evidence.md
 ```
 
+Exact output from the path check after the fresh frontmatter identity recheck (`git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/2026-11-25/w156-0428-287-pr1835-review/evidence.md`):
+
+```text
+From https://github.com/mcpdev80/baseharbor-plan
+ * branch                main       -> FETCH_HEAD
+evidence/2026-11-25/w156-0428-287-pr1835-review/evidence.md
+```
+
 ## Owner precision recheck
 
 Authenticated GitHub account via `gh api user --jq '.login'`: `mcpdev80`. The requested exact field query `gh api repos/mcpdev80/baseharbor/commits/55d17d437cfced7ec648aa42c14cc529963b68b6 --jq '.commit.author.name'` returned:
