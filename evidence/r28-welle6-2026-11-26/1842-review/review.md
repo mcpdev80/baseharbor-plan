@@ -47,7 +47,7 @@ The `PR · Demo Pin` workflow job is not the release-pin validator: it validates
 
 The PR changes `scripts/test_pr_gate_coverage.py`, including the v0.4.28 selector regression. Neither exact-head Hosted run executed that file. The `pr-planner-tests` Hosted branch at `.github/workflows/ci.yml:1362-1363` invokes only `scripts/test_pr_gate_plan.py` and `scripts/test_pre_release_runtime_reuse.py`. The Focused Python job also omitted `scripts/test_pr_gate_coverage.py`.
 
-Minimal correction: add `scripts/test_pr_gate_coverage.py` to the Hosted `pr-planner-tests` command at `.github/workflows/ci.yml:1363` or to an existing selected Hosted Python suite that runs this path. This workflow change is owner scope; Codex did not edit it. Requalification must show the file executing on the repaired exact head, not merely a green aggregate.
+Disposition: this is purpose-bound test-path completion for #1842, so the route can be included in this PR under the standing delegation for test-environment and classification/mapping corrections. The minimal change is to extend the `pr-planner-tests` unittest command at `.github/workflows/ci.yml:1363` to include `scripts/test_pr_gate_coverage.py` alongside the two current modules. Requalification must show that module actually executing on the repaired exact head; a green aggregate without it is insufficient.
 
 ## Finding B — runtime resolver fails against the real catalog, and no Hosted job executed it
 
@@ -59,13 +59,13 @@ Minimal in-scope correction: make `release-requirements.json['releases']` the au
 
 Correct the fixture at `scripts/test_pr_check_runner.py:24-28`: use the real catalog shape (`schema`, `releases`, `gates`) with a v0.4.28 entry and assert that the validator reads the v0.4.28 pin. Add a negative case for an empty or malformed release catalog. The current fixture invents `{'release': 'v0.4.27'}` and masks the production-schema failure.
 
-Hosted proof required: the exact repaired PR head must execute `PR · Validation · demo-source-pin-validation` through the `pr_validations` matrix and pass against the candidate's v0.4.28 pin. The corresponding dispatch implementation is `.github/workflows/ci.yml:1323-1326`; the matrix is consumed at `:1267-1273`. Neither exact-head run included that job. Owner-scope routing finding: the trusted base-plan selector currently does not place this check in the matrix for the v0.4.28 pin path. Add a trusted diff-selection route for `docs/releases/v0.4.28.demo-ref` so the named validation executes. Do not repurpose `PR · Demo Pin` at `.github/workflows/ci.yml:1075-1098`; it checks a different Demo/Core runtime pairing.
+Hosted proof required: the exact repaired PR head must execute `PR · Validation · demo-source-pin-validation` through the `pr_validations` matrix and pass against the candidate's v0.4.28 pin. The corresponding dispatch implementation is `.github/workflows/ci.yml:1323-1326`; the matrix is consumed at `:1267-1273`. Neither exact-head run included that job. Under the same purpose-bound test-path completion authority, the worker should add a trusted diff-selection route for `docs/releases/v0.4.28.demo-ref` so the named validation enters the matrix and executes. Do not repurpose `PR · Demo Pin` at `.github/workflows/ci.yml:1075-1098`; it checks a different Demo/Core runtime pairing. This is an actionable CI routing change within #1842's release-pin validation purpose, not an escalation finding.
 
 ## Verdict and merge state
 
 Verdict: **CHANGES**. Finding A and Finding B are independent acceptance blockers. Neither exact-head green aggregate is sufficient because A's changed suite did not execute and B's validator both has an input-schema defect and lacks Hosted execution. No approve review was submitted and no product merge was performed. The complete Codex CHANGES review is GitHub review `6066258782` (`COMMENTED`, commit-bound to the reviewed head); an earlier comment `6066220597` covered Finding A only. The PR author and authenticated reviewer login are both `mcpdev80`, so GitHub records a comment review rather than a self-approval. The akte is the durable review rationale, not a substitute for CI.
 
-#1842 remains open at the reviewed head until the worker correction and the owner-scope routing change are complete, followed by exact-head Hosted evidence. No merge SHA exists. #1812 re-hop remains sequenced after a later #1842 merge and is not started here. #1853 remains untouched.
+#1842 remains open at the reviewed head until the worker correction and the purpose-bound CI routing changes above are complete, followed by exact-head Hosted evidence. No merge SHA exists. #1812 re-hop remains sequenced after a later #1842 merge and is not started here. #1853 remains untouched while this prescription is published.
 
 ## Publication / provenance
 
