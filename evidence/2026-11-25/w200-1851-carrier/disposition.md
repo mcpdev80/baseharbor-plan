@@ -35,10 +35,10 @@ Run `45683813229` is a failed `pull_request` run on head `f89f506f`. Trusted Pla
 
 ## Ruling B and w212 sequence
 
-Reject the merge-tip carrier as a qualifying PR: the graph would absorb both SHAs, but the resulting tree equals develop, so the candidate has no independently executable diff and Trusted Plan cannot pass. Do not merge or push #1851. Do not create another card or change product content merely to manufacture a diff.
+Reject the merge-tip carrier as a qualifying PR: the graph would absorb both SHAs, but the resulting tree equals develop, so the candidate has no independently executable diff and Trusted Plan cannot pass. The lane clarification that f89 is six commits behind develop, including the +189/modified-18 work from 0428-313, is reflected: those changes enter the merge tree relative to f89, but because the PR targets that same develop tip, they are not a PR delta. Do not merge or push #1851. Do not create another card or change product content merely to manufacture a diff.
 
 1. w212 performs only fresh-read verification: `git remote -v`; fetch current `develop` and `refs/pull/1851/head` from the verified GitHub remote; verify the expected SHAs and `git merge-base origin/develop origin/pr/1851`.
-2. Preview the proposed merge with `git merge-tree --write-tree origin/pr/1851 origin/develop`; compare its returned tree SHA to `git rev-parse origin/develop^{tree}`. When equal, stop without creating a merge commit, branch update, push, or PR merge.
+2. Confirm the develop lag with `git diff --stat origin/pr/1851..origin/develop`, including the six missing commits and the 0428-313 +189/modified-18 work. Preview the proposed merge with `git merge-tree --write-tree origin/pr/1851 origin/develop`; compare its returned tree SHA to `git rev-parse origin/develop^{tree}`. When equal, stop without creating a merge commit, branch update, push, or PR merge. Do not open a PR whose result tree equals its develop base.
 3. Report the blocker to the Owner/Coordinator: the ancestry-only carrier needs an independently executable validation route. The exact present failure site is `scripts/pr-stage-boundary.py:51`; shared planner routing is outside card 0428-078's write-set and requires coordinator disposition. Workflow files remain Owner-owned.
 4. Alternate route is an explicit Owner provenance ruling for the exact two content-neutral documentation commits, after which w165's existing #1650 branch can normally base-hop to current develop and get a fresh exact-head pull_request qualification. No release is inferred by this akte.
 
