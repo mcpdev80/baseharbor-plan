@@ -230,6 +230,13 @@ The slice "re-arms later" per the order — no further hunt work taken by this s
 
 ## END
 
+Origin/main delivery witness (second-to-last action):
+
+    $ git fetch origin main && git ls-tree -r --name-only origin/main | grep bughunt-hv33-runner-census
+    evidence/r28-welle6-2026-11-26/bughunt-hv33-runner-census/akte.md
+
+Akte commit: 32d0eec204b124379bd4e0a8b1b0ab33ea554b4d (author w159-0428-224-hunt-v33).
+
 END_DONE w159-0428-224-hunt-v33: H-V33 runner census complete (delivered at stop per window-release order, slice
 full, not partial): 8 findings (H-33-01..08) + 1 no-gap check (H-33-09); no candidate SHA (findings-only),
-source develop f7540e591609e0db6453e9b690fbb5d6686448a2; cleanliness: 0 containers before and after.
+source develop f7540e591609e0db6453e9b690fbb5d6686448a2; evidence commit 32d0eec20; cleanliness: 0 containers before and after.
