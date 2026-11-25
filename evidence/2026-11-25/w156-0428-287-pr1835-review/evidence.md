@@ -96,6 +96,10 @@ The substantive hold also remains: the corrected preservation assertion and Podm
 
 Owner policy reminder: exact Git author-name equality must be used at every merge decision. The owner reports live PR #1839 has head author `w124` despite a `w153` branch; that case reinforces checking `.commit.author.name` against the card frontmatter lane rather than inferring identity from branch or uploader.
 
+## Fresh frontmatter identity recheck
+
+The current remote card file `tasks/t-20261116-r28-bug-installation-reset-recovery.md` has frontmatter `owner: w105-0428-279-audit`. Fresh `gh api` reads authenticated as `mcpdev80`, report PR #1835 head `55d17d437cfced7ec648aa42c14cc529963b68b6`, and return `.commit.author.name = w105` for that exact head. Exact equality is false; the identity hold is preserved. This comparison uses the card frontmatter owner, not a summary or GitHub uploader login.
+
 Exact output from the post-policy-update path check (`git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/2026-11-25/w156-0428-287-pr1835-review/evidence.md`):
 
 ```text
