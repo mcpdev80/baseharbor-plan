@@ -53,3 +53,17 @@ Scope remains exactly two files, `tests/fixture-consent.py` and `tests/test_fixt
 Fix-forward recipe: compare the complete `error.message` to the documented full string; add negative cases with extra prefix, suffix, and inserted text; then run the hosted guided-consent workflow twice on the resulting exact head. Do not rewrite history.
 
 Verdict: **CHANGES; no ready transition and no merge.** The head fails the exact-message acceptance requirement despite correct identity, test-only scope, and two green runs. No product code was changed by the reviewer.
+
+## #175 re-review and merge witness — final head 1a3c055c
+
+The exact-message finding from the previous review is resolved on final PR head `1a3c055cc0eef3f961722f12d843e33f6c1ca43e`. `tests/fixture-consent.py` now requires exact equality with the full documented immutability message, and `tests/test_fixture_consent.py` rejects prefix, suffix, and inserted-text near-misses. The diff remains limited to these two test files; no product consent/auth change. Exact identity check: author name `w170-0428-249-demo-pr175-fixup` equals the transferred card owner lane.
+
+Two terminal same-head Hosted runs executed `Run local fixture and real guided decision-path regressions` and succeeded: [45598194194](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45598194194) and [45598209141](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45598209141). PR base `develop` was current at `b41127723e523134a1c14ee3c36cf133237162ce`; demo `main` remained at `df4867c7540774eba8b8811cb64946b4adc0c8ab`, so the documented workflow-dispatch qualification path applied.
+
+PR #175 was marked ready and merged with the normal merge method using expected head `1a3c055cc0eef3f961722f12d843e33f6c1ca43e`.
+
+- Merge commit: `486c48be56f996fe976e0881a63e64bb7de92eb2`
+- Current demo `develop` tip: `486c48be56f996fe976e0881a63e64bb7de92eb2`
+- GitHub merge witness: https://github.com/mcpdev80/baseharbor-demo/pull/175#issuecomment-7160252828
+
+Review verdict: **ACCEPTED**. The merge is ready for the coordinator-owned demo pin bump and #1812 requalification.
