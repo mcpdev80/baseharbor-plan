@@ -286,6 +286,17 @@ origin	https://github.com/mcpdev80/baseharbor-plan.git (push)
 
 - Base for evidence: `origin/main` at `88e070c79d086d7c36ae46afe0b7f7b6a369ef55` (the evidence
   commit's parent).
+- Foreign state observed in the shared `workers/` checkout (NOT this lane's work, recorded so it is
+  not mistaken for this candidate): `/home/marcel/dev/baseharbor-ecosystem/workers` is a git repo
+  whose HEAD is the baseharbor tip `a87da7d1` with author `Marcel Pfingstgräf`, and whose
+  `user.name`/`user.email` are set to `0428-061-sourcepull` / `0428-061@baseharbor.local` — a
+  different lane's identity. It also contains a stray `.evidence/` directory
+  (`.evidence/w165-0428-078-pr1650-basehop.md`), which the mission forbids in a product repo. This
+  lane committed nothing there, changed no refs or config there and deleted nothing; it only read
+  `git log`/`git config`/`find` output. **REPORTED to the coordinator as a cleanliness finding.**
+  This lane's candidate commits were created exclusively with
+  `git -c user.name='w181-0428-doclink-sweep' -c user.email='w181-0428-doclink-sweep@baseharbor.local'`,
+  and `git show -s --format=%an HEAD` was verified before each push.
 - Foreign dirt in the planning checkout at lane start (7 modified files, all other sessions' work:
   `evidence/board-2026-11-26/w136-pr1836-rowsreview.md`, `releases/v0.4.28.md`, `roadmap/cards.md`,
   `views/kanban-dashboard.md`, `views/overview.md`, `views/ready.md`,
