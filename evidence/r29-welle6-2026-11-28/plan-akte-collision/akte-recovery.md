@@ -14,7 +14,7 @@ This is a repository integrity repair and evidence relocation; it creates no tas
 
 ## Source and base witnesses
 
-Planning remote verified before worktree creation: `origin https://github.com/mcpdev80/baseharbor-plan.git` (fetch and push). Fresh fetched base at worktree creation: `bc4689919f2cf8a1c7fdd7ddc817b39c14495fde` (`origin/main`); the lane commit was rebased onto the subsequently fetched current `origin/main` `4ad5606273cba90b0c27aaeaf33c003124f067f8` before publication. The source root file at `b21824438` is w243's #1853 rundown; its blob is `e5736dfa23a769a6e86845584601d6e32b057bd3`, identical to the root blob on fresh main. The w228 H-V59 content is preserved in `272baad4384335f0a6d2501b48db39fdf75ee5b8^:akte.md`; its blob is `ad302f2a24f4a8d1e4ba1a1e0d0916acc6e7d395`. `git branch -r --contains 272baad43` returned no branches and `git merge-base --is-ancestor 272baad43 origin/main` failed: the rename commit is not on live main. The intended w228 path `evidence/w228-0428-216-huntv59/akte.md` was absent on main before repair. Both requested target paths were absent on the fresh base.
+Planning remote verified before worktree creation: `origin https://github.com/mcpdev80/baseharbor-plan.git` (fetch and push). Fresh fetched base at worktree creation: `bc4689919f2cf8a1c7fdd7ddc817b39c14495fde` (`origin/main`); the candidate was integrated with current `origin/main` `4ad5606273cba90b0c27aaeaf33c003124f067f8`, then current `main` advanced to `4e1ab652f141cd57466d741ae91d2e3fbdd92c6e` (#45). That update added w244's correctly located evidence file; root `akte.md` remains w243's original blob `e5736dfa23a769a6e86845584601d6e32b057bd3`, so deleting the root still removes only the duplicate w243 placement. The source root file at `b21824438` is w243's #1853 rundown and has that same blob. The w228 H-V59 content is preserved in `272baad4384335f0a6d2501b48db39fdf75ee5b8^:akte.md`; its blob is `ad302f2a24f4a8d1e4ba1a1e0d0916acc6e7d395`. `git branch -r --contains 272baad43` returned no branches and `git merge-base --is-ancestor 272baad43 origin/main` failed: the rename commit is not on live main. The intended w228 path `evidence/w228-0428-216-huntv59/akte.md` was absent on main before repair. Both requested target paths were absent on the fresh base.
 
 ## Intended recovery
 
@@ -31,9 +31,15 @@ The validator test will live under `scripts/tests/` and run in the existing `.gi
 
 ## Publication witnesses
 
-Worktree cut SHA: `bc4689919f2cf8a1c7fdd7ddc817b39c14495fde`; integrated base at publication: `4ad5606273cba90b0c27aaeaf33c003124f067f8`. `git merge-base --is-ancestor origin/main HEAD` succeeded. `git log --oneline origin/main..HEAD` output:
+Worktree cut SHA: `bc4689919f2cf8a1c7fdd7ddc817b39c14495fde`; integrated base at publication: `4e1ab652f141cd57466d741ae91d2e3fbdd92c6e`. The branch retains the already-pushed history and merges newer `origin/main` normally; no force push or remote rewrite was used. `git merge-base --is-ancestor origin/main HEAD` succeeded. `git log --oneline origin/main..HEAD` output:
 
 ```text
+f426a917d integrate previously pushed evidence history
+7f6727793 evidence(plan): record akte recovery push witness
+94fa78933 evidence(plan): record akte recovery provenance
+217d1497b fix(plan): recover evidence paths and validate PR scope
+481451072 evidence(plan): record akte recovery push witness
+fed044693 evidence(plan): record akte recovery provenance
 17c00f34a fix(plan): recover evidence paths and validate PR scope
 ```
 
