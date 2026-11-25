@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w166-0428-302-coverage-rows
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-302 · complete coverage rows for the
 priority: ""
@@ -19,17 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: dropped
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/commit/d3923d76b"]
 ---
 
-- [ ] t-20261125-hunt35-catalog-coverage-completion · 0428 hunt H-V35: complete coverage rows for the 3 release-requirements gates #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261125-hunt35-catalog-coverage-completion · 0428 hunt H-V35: complete coverage rows for the 3 release-requirements gates #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** w166-0428-302-coverage-rows  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/commit/d3923d76b)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w166-0428-302-coverage-rows  
