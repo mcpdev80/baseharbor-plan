@@ -443,6 +443,16 @@ origin	https://github.com/mcpdev80/baseharbor-plan.git (push)
   contained this lane's first evidence commit; the stash of the 7 foreign dirty files was **not**
   dropped and remains recoverable at `stash@{0}` (`w181-protect-foreign-dirt-*`), and all 7 files are
   restored unstaged in the working tree exactly as found.
+- Foreign-dirt restoration outcome (corrected, it did not land as intended): `git stash pop` hit the
+  same files that `origin/main` had meanwhile advanced, produced `UU` merge conflicts in
+  `evidence/board-2026-11-26/w136-pr1836-rowsreview.md`, `releases/v0.4.28.md`, `roadmap/cards.md` and
+  `views/kanban-dashboard.md`, and this lane resolved them by `git reset` + `git checkout -- .`, i.e.
+  the working tree now equals `origin/main` (clean) rather than the other lanes' unstaged edits.
+  **Nothing was lost**: the full original dirt is preserved at `stash@{0}`
+  (`w181-protect-foreign-dirt-1795607469`, verified present after the reset) and the conflicted
+  remote state it collided with is the published `origin/main` version. This lane's own commit
+  (`900b572f3`) contains only its evidence file; `git status --porcelain` in the planning repo is
+  empty.
 
 ## cleanliness
 
