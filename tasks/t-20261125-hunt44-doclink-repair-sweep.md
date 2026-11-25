@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w181-0428-doclink-sweep
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-319 · repair broken docs
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt44-doclink-repair-sweep · 0428 hunt H-V44: repair broken docs cross-references (40 rows) #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261125-hunt44-doclink-repair-sweep · 0428 hunt H-V44: repair broken docs cross-references (40 rows) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w181-0428-doclink-sweep  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w181-0428-doclink-sweep  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
