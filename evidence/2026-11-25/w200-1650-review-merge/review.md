@@ -81,3 +81,9 @@ Card contract was read fresh from baseharbor-plan `origin/main`: card `t-2026111
 Verdict: CHANGES / merge blocked by candidate provenance. Do not rewrite foreign commits. The candidate is already up to date with current develop, so no further base-hop is needed and no base-hop run is ordered. Since the two commits remain unrelated to 0428-078 and outside current develop, resolve through owner escalation or the authorized fix-forward/transfer process; do not merge until the foreign-history disposition is resolved. No PR review or merge action was submitted.
 
 END w200-1650-review-merge BLOCKED — foreign commits remain outside current develop; exact head 1c33e910070a07a6d4105f0d38e3c89988a788a3.
+
+Planning evidence publication: PR #27 merged on 2026-11-25T18:05:32Z as `e44cdcbc34c94df6392a2f6475547a5cad349fc3`. After fetching origin/main, exact requested tree witness output:
+
+```text
+evidence/2026-11-25/w200-1650-review-merge/review.md
+```
