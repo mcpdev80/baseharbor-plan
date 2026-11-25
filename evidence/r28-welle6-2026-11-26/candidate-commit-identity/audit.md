@@ -133,3 +133,6 @@ That is **19** candidates under the exact-equality rule (the previous audit's "1
 - `docker ps -a` witness (own pid): not run — no stack started this shift.
 
 END w158-0428-224-audit-correction DONE
+
+Candidate SHA: 52b6ecc56832baacc9539b4bdc65747d8c88771a (baseharbor-plan origin/main tip, commit d3949296c-amended, author w158-0428-224-audit-correction)
+Changed rows: #1835 OK->MISMATCH (owning-lane column fixed to exact frontmatter 'w105-0428-279-audit'), #1837 OK->MISMATCH; counts open PRs 8->9, PR-linked cards 11->12, cited/symptom 14->19; new row #1839 (MISMATCH, pending w153 additive fix).

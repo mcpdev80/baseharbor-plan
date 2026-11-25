@@ -267,9 +267,18 @@ Exact-head run history on branch w153-pr1832-coverage-rows:
 - rollup witness: `gh pr view 1839 --json statusCheckRollup` -> 11 SUCCESS / 21 SKIPPED / 0 FAILURE;
   mergeable=MERGEABLE, mergeStateStatus=CLEAN (observed 09:02Z).
 
-Second terminal SUCCESS run ID on final head d335a2aec: (tracked below — I will not re-dispatch or
-touch the head while waiting; if a second run is scheduled by policy I record it here, otherwise
-the coordinator/Codex decides whether the re-dispatcher must schedule one.)
+Second terminal SUCCESS run ID on final head d335a2aec: **45577933691 attempt 2** — obtained per
+coordinator/owner instruction via `gh run rerun 45577933691` WITHOUT touching the head (no new
+commits; attempt semantics per catalog precedent d57a8253b a1+a2). Witness from
+`gh api repos/.../actions/runs/45577933691/attempts/2`: run_id 45577933691, attempt 2, head
+d335a2aec058487f7cf142a69c2e653bdbdf5b58 (author = lane identity, confirmed in the attempt object),
+status completed, conclusion **success**, started 08:41:54Z, tracked to top-level terminal by this
+lane (own-run duty). Same job set as attempt 1: 11 success (Trusted Plan, Source format, Native gate
+plan, Selected Checks, validations, advisory) / 0 failure / 21 skipped.
+
+Both exact-head IDs for the record (run+attempt semantics):
+- ID#1: run 45577933691 attempt 1 (completed success)
+- ID#2: run 45577933691 attempt 2 (completed success)
 
 ## HANDOFF
 
