@@ -38,3 +38,7 @@ evidence: []
 **PRs:** none  
 **Source:** 
 <!-- /generated:links -->
+
+## Owner decision — 2026-11-25
+
+Before v1.0, BaseHarbor may make breaking API-contract changes; no migration or backward-compatibility shim is required. If implementation unifies the error envelopes, define one intentional canonical shape and update the specification, EN/DE documentation, and focused contract tests in the same change.
