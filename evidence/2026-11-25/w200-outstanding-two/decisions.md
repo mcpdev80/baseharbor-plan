@@ -54,3 +54,9 @@ Content-neutrality by itself is insufficient. Proceed without a separate provena
 ## END
 
 END w200-outstanding-two DONE — #1850 carrier-first surfaces and qualification order decided; #1650 is acceptable only after both exact foreign SHAs are in updated develop and the hopped exact head passes CI.
+
+Evidence publication: planning PR #30 merged at `2026-11-25T19:06:25Z` as `332e953ba99a64ed6cba4061f16724c32343f04a`. Exact output of `git fetch origin main && git ls-tree -r --name-only origin/main | grep 'evidence/2026-11-25/w200-outstanding-two/decisions.md'` before this follow-up push:
+
+```text
+evidence/2026-11-25/w200-outstanding-two/decisions.md
+```
