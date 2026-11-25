@@ -69,7 +69,7 @@ Verdict: **CHANGES**. Finding A and Finding B are independent acceptance blocker
 
 ## Publication / provenance
 
-This evidence is being published through one planning PR branch with current base `origin/main` `ea9f7ab6583542ab3bd1b782e7652585ca567d04` after a fast-forward from the branch-cut SHA recorded above. Before opening or updating a PR, prove `git merge-base --is-ancestor origin/main HEAD` and record `git diff origin/main...HEAD --name-only`; the diff must contain only this evidence path. Push delivery and final origin/main tree membership will be recorded after the plan PR is opened and merged.
+This evidence is being published through one planning PR branch rebased onto the freshly fetched `origin/main` `b21824438290dccb6aa29479844b38aeccd42f42`. Fresh remote check before worktree creation reported `refs/heads/main` at that SHA. The prior user-supplied expected tip `261667467` was not the remote tip at fetch time; the fetched live main is the provenance base.
 
 ## END w200-1842-final-review BLOCKED
 
@@ -89,6 +89,10 @@ Owner scope correction: the standing delegation permits Codex to decide test-env
 
 The resolver source and fixture prescription remains as Finding B above: use the real `release-requirements.json['releases']` catalog, derive the current/highest semantic release (`v0.4.28` here), update the fixture to the actual `schema`/`releases`/`gates` shape, and test the v0.4.28 pin. Exact-head Hosted qualification requires both the `pr-planner-tests` command to execute `scripts/test_pr_gate_coverage.py` and `PR · Validation · demo-source-pin-validation` to execute and pass. Aggregate green without either execution is not qualifying.
 
-The plan evidence branch was rebased only over its own commits onto current `origin/main` `ea9f7ab6583542ab3bd1b782e7652585ca567d04`. Current `git merge-base --is-ancestor origin/main HEAD` succeeded. `git log --oneline origin/main..HEAD` lists only this lane's commits. `git diff origin/main...HEAD --name-only` lists only `evidence/r28-welle6-2026-11-26/1842-review/review.md`. The current tip author gate passed: `git show -s --format=%an HEAD` equals `w200-1842-final-review`.
+The clean publication worktree was created from freshly fetched `origin/main` and the existing lane branch was rebased over that current base, preserving only its own evidence commits. Current `git merge-base --is-ancestor origin/main HEAD` succeeded. Exact `git diff origin/main...HEAD --name-only` output:
 
-Publication gate state: the required command `bash scripts/ci-fast-check.sh` was attempted in the planning checkout and failed with exit 127: `bash: scripts/ci-fast-check.sh: No such file or directory`. Therefore this akte update is committed locally but has not been pushed or opened as a plan PR. The required publishing check is unavailable in this checkout; do not treat the earlier successful `python3 scripts/plan.py check` as a substitute for that explicit pre-push gate.
+```text
+evidence/r28-welle6-2026-11-26/1842-review/review.md
+```
+
+`git log --oneline origin/main..HEAD` lists only commits authored by `w200-1842-final-review`. The current tip author gate passed: `git show -s --format=%an HEAD` equals `w200-1842-final-review`. The planning validation `python3 scripts/plan.py check` completed with zero errors and ten pre-existing dependency warnings.
