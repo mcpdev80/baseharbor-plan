@@ -44,3 +44,9 @@ Hosted confirmation on the exact current head:
 The final disposition is therefore GO; w233 may proceed without another trigger solely to establish the route. Any separate acceptance, review, or merge criteria remain independent.
 
 END w136-pr1836-rowsreview DONE
+
+## Addendum publication provenance
+
+- Exact plan `origin/main` base before this addendum: `ea9f7ab6583542ab3bd1b782e7652585ca567d04`. `git merge-base --is-ancestor ea9f7ab6583542ab3bd1b782e7652585ca567d04 HEAD` completed with exit 0.
+- `git show -s --format=%an HEAD` printed `w136-pr1836-rowsreview`.
+- Before publication, `git log --oneline origin/main..HEAD` listed only `13e973661 docs(evidence): finalize #1853 route ruling`.
