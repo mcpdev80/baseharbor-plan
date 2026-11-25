@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: ""
-kanban_status: planned
-kanban_lane: planned
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-193 · two write paths one signal
 priority: ""
@@ -19,19 +19,19 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: dropped
+evidence: ["https://github.com/mcpdev80/baseharbor/blob/99d9ddebcfb6cbd107ec45a6ad5ca6656c04ac82/internal/observability/registry.go#L268-L270"]
 ---
 
-- [ ] t-20261120-r28-signal-one-active-write-path · Update and UpdateSignal are two live paths that write the same signal with different guarantees. #task #release/v0-4-28 #status/planned #view/waiting #board/planned #kind/bug
+- [x] t-20261120-r28-signal-one-active-write-path · Update and UpdateSignal are two live paths that write the same signal with different guarantees. #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Waiting for prerequisites**  
     **Needs:** [t-20261114-r28-perses-dashboard-identity](t-20261114-r28-perses-dashboard-identity.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/blob/99d9ddebcfb6cbd107ec45a6ad5ca6656c04ac82/internal/observability/registry.go#L268-L270)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-identity](t-20261114-r28-perses-dashboard-identity.md)  
 **Owner:** unassigned  
@@ -73,3 +73,8 @@ CLI/`up`/remote/MCP all routed through the one context override (`app_candidate_
 `cmd/baha/mcp_tools.go:486`). Managed-app create uses a non-repository source and is excluded by design.
 This card stays the owner of its own consent surface; see dossier
 `evidence/r28-welle6-2026-11-24/bughunt-hv26-candidate-consent-gate/round-1.md` (develop 3ebfb90d).
+
+## Audit disposition — 2026-11-25
+
+Dropped after rechecking current develop at `99d9ddebcfb6cbd107ec45a6ad5ca6656c04ac82`: `Update` delegates directly to `UpdateSignal` at lines 268–270, so the alleged pair of independent writers and caller-dependent validation no longer exists. A duplicate-path regression would assert equivalent behavior for a wrapper that has no separate implementation. Keep the historical H-V17 report and cross-references above; no product change is warranted.
+
