@@ -103,7 +103,20 @@ Severity: the plan-repo schema has no severity field; the closest sanctioned slo
 ## Evidence-on-origin witness
 
 ```text
-(to be filled by the final verification step before END)
+$ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep hunt45
+tasks/t-20261125-hunt45-app-exec-exit-collision.md
+tasks/t-20261125-hunt45-cli-unknown-command-hardening.md
+tasks/t-20261125-hunt45-error-surface-consistency.md
+tasks/t-20261125-hunt45-exit-code-taxonomy-docs.md
+tasks/t-20261125-hunt45-secret-hygiene-error-path.md
 ```
 
-END w187-0428-224-hunt-v45-intake — pending publish.
+(intake-1.md and hunt-1.md ride the same commit 1321c6284; ls-tree grep narrowed to the card slugs.)
+
+Intake commits on origin/main: 588c1033d (cards + akte) and 1321c6284 (scan wording), both author `w187-0428-224-hunt-v45-intake`; prior origin/main a3c361135 verified ancestor of both (pull-rebase integrated one foreign kanban commit, no foreign authorship in this lane's commits).
+
+Product-side witnesses (read-only worktree at 2a141387d): `git log --oneline origin/develop..HEAD` empty; `git diff origin/develop...HEAD --name-only` empty; `git rev-parse origin/develop HEAD` both 2a141387dbbaf24f52501a0f66f1abf61cf8fcda.
+
+Cleanliness witnesses: `docker ps -a` before and after END: header only, zero rows (this lane started zero containers/compose projects; pid noted at run time). Worktree removed via `git worktree remove` after this file's final commit.
+
+END w187-0428-224-hunt-v45-intake DONE — cards 0428-321..325 filed on baseharbor-plan origin/main (intake commits 588c1033d + 1321c6284, author w187-0428-224-hunt-v45-intake); F1-F9 all live-cast (F1→321, F2/F4/F7/F8→323, F3→322, F5→324, F6/F9→325), F10 control no-card; two akte citation corrections documented (ci_integration_operator_gate.go nonexistent; F8 free-sentence count 4); no product changes.
