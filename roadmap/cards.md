@@ -16,10 +16,10 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 202/320 · **Blocked:** 4 · **Waiting:** 23  
+    **Accepted tasks:** 202/320 · **Blocked:** 3 · **Waiting:** 23  
     **Blocker:** [t-20261121-candidate-commit-identity](../tasks/t-20261121-candidate-commit-identity.md) — Owner decision required: deterministic lane identity must be injected in coordinator/scripts/dispatch-lane.sh:41-44; mission requires STOP + QUESTION for scrip…  
-    **Blocker:** [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) — catalog PR IN FLIGHT (owner YES 2026-11-26; worker w128; 14 Light IDs required\_for v0.4.28 only + minimal test expectation; \#1812 stays workflow-only) — see Ha…  
-    Plus 2 further blockers in the task list.  
+    **Blocker:** [t-20261124-0428-279-mcp-contract-app-pull-unexpected](../tasks/t-20261124-0428-279-mcp-contract-app-pull-unexpected.md) — static/mcp gate qualification blocked on owner-scope card 0428-283 (the gate builds a plain baha without the baseharbor\_ci\_operator\_testonly operator tag + doe…  
+    Plus 1 further blockers in the task list.  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next

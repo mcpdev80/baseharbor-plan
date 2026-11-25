@@ -7,9 +7,9 @@ areas: [ci, testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 
-kanban_status: blocked
-kanban_lane: blocked
+owner: w170-0428-249-demo-pr175-fixup
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-249 · light-runtime blob unknown
 priority: high
@@ -17,24 +17,23 @@ depends_on: [t-20261124-r28-release-candidate-testonly-binary]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812, mcpdev80/baseharbor#1837]
 sources: []
-blocker: catalog PR IN FLIGHT (owner YES 2026-11-26; worker w128; 14 Light IDs required_for v0.4.28 only + minimal test expectation; #1812 stays workflow-only) — see Handoff AUTHORIZATION GAP. "ROOT CAUSE NOT YET DETERMINED (run 45432650561 head 9140b2cb still active: 7 fail / 5 pass / 2 running). >=3 distinct failure signatures, NOT one consent cause: (1) Docker policy job 138587494655 = consent refusal (--confirm-candidate) AND operator-auth 'not a terminal'; (2) Podman connectivity job 138587494809 = digest retry issued + guided-up-consented reached READY + repo workload ready, then EMPTY Acceptance group header + demo-connectivity FAIL with NO concrete assertion (possibly a distinct harness/acceptance bug, not consent); that job also logs ci-operator-testonly managed-local-gate decisions for up with and without --confirm-candidate. Classification HELD until all 14 Light jobs reach terminal + artifacts/logs inspected. Merge held; #1819/#1820 parked. develop f14fb87c8."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/testing #kind/bug
+- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/active #view/active #area/ci #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
+    **Owner:** w170-0428-249-demo-pr175-fixup · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812), [baseharbor#1837](https://github.com/mcpdev80/baseharbor/pull/1837)  
-    **Blocker:** catalog PR IN FLIGHT (owner YES 2026-11-26; worker w128; 14 Light IDs required\_for v0.4.28 only + minimal test expectation; \#1812 stays workflow-only) — see Handoff AUTHORIZATION GAP. "ROOT CAUSE NOT YET DETERMINED (run 45432650561 head 91…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261124-r28-release-candidate-testonly-binary](t-20261124-r28-release-candidate-testonly-binary.md)  
-**Owner:** unassigned  
+**Owner:** w170-0428-249-demo-pr175-fixup  
 **Priority:** high  
 **PRs:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812), [baseharbor#1837](https://github.com/mcpdev80/baseharbor/pull/1837)  
 **Source:** 
