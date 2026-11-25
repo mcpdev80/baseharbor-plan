@@ -175,6 +175,11 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS   NAMES
 
 ## Evidence-on-origin witness
 
-(filled as second-to-last action; see below)
+```text
+$ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle6-2026-11-27/bughunt-hv45-cli-errors
+evidence/r28-welle6-2026-11-27/bughunt-hv45-cli-errors/hunt-1.md
+```
+
+Evidence commit on origin/main: `077edc8f9` (author `w186-0428-224-hunt-v45`).
 
 END w186-0428-224-hunt-v45 DONE — 9 actionable findings (F1-F9) + 1 positive-control row (F10); candidate SHA n/a (read-only hunt anchored at develop 2a141387dbbaf24f52501a0f66f1abf61cf8fcda).
