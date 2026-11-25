@@ -56,6 +56,11 @@ Align the `baha app status --json` Perses probe with the operator-context contra
 2. One executable regression in `cmd/baha` (wired into the CI group covering `cmd/baha` — "PR · Go unit"): in an unauthorized context the probe seam is not invoked (or the verdict is the documented fail-closed one) — asserting the chosen contract, fail-closed.
 3. Evidence names the CI job and trigger that run the test (AGENTS 5.3).
 
+
+## Owner decision — 2026-11-25
+
+The live Perses probe requires an authenticated, authorized operator. An unauthorized `baha app status --json` call must return the documented fail-closed `configured_unverified` result without issuing the live HTTP probe. Do not add an anonymous-probe exception.
+
 ## Boundaries
 
 `cmd/baha/app_status_result.go` probe call site, `cmd/baha/app_observe.go`, `internal/capability/perses.go` comments or the spec doc. No change to the authorization implementation itself (owned by the operator-auth cards).
