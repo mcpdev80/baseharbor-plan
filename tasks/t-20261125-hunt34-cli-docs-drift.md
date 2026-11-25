@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w166-0428-302-coverage-rows
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-305 · three doc-drift spots in
 priority: ""
@@ -19,17 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: dropped
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/commit/fee364a59058c38e611ae7c4d5f4555a45df5dc1"]
 ---
 
-- [ ] t-20261125-hunt34-cli-docs-drift · 0428 hunt H-V34: three doc-drift spots in cli.md examples/flags #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261125-hunt34-cli-docs-drift · 0428 hunt H-V34: three doc-drift spots in cli.md examples/flags #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** w166-0428-302-coverage-rows  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/commit/fee364a59058c38e611ae7c4d5f4555a45df5dc1)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w166-0428-302-coverage-rows  

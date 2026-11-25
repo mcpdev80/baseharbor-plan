@@ -10,7 +10,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 18 |
+| active | 17 |
 | review | 5 |
 | wait | 10 |
 | blocked | 4 |
@@ -18,7 +18,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | queued | 25 |
 | waiting | 180 |
 | backlog | 7 |
-| closed | 476 |
+| closed | 477 |
 
 ## Active
 
@@ -41,7 +41,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261124-gate-catalog-baseline-1819](../tasks/t-20261124-gate-catalog-baseline-1819.md) | CI/catalog: add #1819 source rows to develop pr-gate-coverage.json | active | not set | w65-0428-269-batchbaseline | — | — |
 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) | CI/catalog: add #1820 source row to develop pr-gate-coverage.json | active | not set | w65-0428-269-batchbaseline | — | — |
 | [t-20261124-r28-broker-build-identity-commit](../tasks/t-20261124-r28-broker-build-identity-commit.md) | verifyRuntimeBrokerBuildIdentity discards both commit SHAs, so a runtime broker at the wrong commit passes readiness whenever the semver matches. | active | normal | w69-0428-271-brokerid2 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) (open) | [baseharbor#1820](https://github.com/mcpdev80/baseharbor/pull/1820) |
-| [t-20261125-hunt34-cli-docs-drift](../tasks/t-20261125-hunt34-cli-docs-drift.md) | 0428 hunt H-V34: three doc-drift spots in cli.md examples/flags | active | not set | w166-0428-302-coverage-rows | — | — |
 
 ## Ready for review
 
@@ -104,7 +103,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 4 open, 165 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 74 open, 243 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 73 open, 244 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 16 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
