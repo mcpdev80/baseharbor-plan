@@ -41,30 +41,15 @@ evidence: []
 
 ## Goal
 
-Under the whole-installation `full-destroy` command — the most destructive command in the tool — the only thing standing between deleting shared/application-owned volumes and deleting recovery/backup data is a provenance heuristic. This card tightens the recovery/backup preservation heuristic in the repository volume inventory to an authoritative match so full-destroy cannot delete recovery/backup data via a mislabeled volume.
-
-## Scope
-
-- In scope:
-  - `internal/runtime/repository_volume_inventory.go` recovery/backup detection (lines 73-77): replace the case-insensitive substring search (`strings.Contains(strings.ToLower(key), "recovery")` / `... "backup"` / value substring) with an authoritative, label-keyed match (exact label-key set for the recovery/backup preservation keys), so only volumes carrying a recognized recovery/backup label key are preserved.
-  - Positive regression: a volume with a recovery/backup label key is preserved under full-destroy.
-  - Negative regression: a volume whose recovery/backup substring appears only in an unrelated label value/key is NOT preserved (would previously have been misclassified as exclusively owned and deleted).
-- Out of scope:
-  - The `destroy --all` reuse / never-delivered proof leak (0428-326) — different seam.
-  - The `control-plane destroy --delete-data` vs `full-destroy` vocabulary gap (0428-330) — related but distinct.
+`destroy --all` removes every volume in the selected installation's destruction scope, including volumes labeled for recovery or backup. This is full destruction; retaining installation data would be app deletion rather than destroy. Ownership detection must still keep volumes outside the selected installation scope untouched.
 
 ## Acceptance
 
-- Recovery/backup preservation is keyed on authoritative label keys, not a case-insensitive substring of any key or value.
-- A mislabeled volume that only embeds "recovery"/"backup" in an unrelated label is no longer misclassified as exclusively owned for full-destroy.
-- Positive and negative regression on the inventory heuristic via the existing repository volume inventory test path.
-- Every required test is reachable by a real CI check in the same PR; test registered and mapped in the same PR (Gate Rule). Docker/Podman: prove native Docker and rootless Podman/Quadlet separately only if the volume inventory path has a native gate; unit evidence is insufficient for a live runtime gate.
-- Exact source SHA -> test ID -> mapped CI gate -> trigger -> actual run recorded in handoff.
-
-## Dependencies and file ownership
-
-- Owned files or areas: `internal/runtime/repository_volume_inventory.go`.
-- Shared files: n/a.
+- Full destroy deletes every installation-owned volume, including recovery/backup volumes; no label-based preservation exception applies within the destruction scope.
+- Ownership is determined by authoritative ownership/scope metadata, not substring heuristics. A foreign volume must not become part of the destroy scope because an unrelated label contains “backup” or “recovery”.
+- Add focused regressions proving an owned recovery/backup volume is deleted and a foreign volume remains untouched.
+- Bind the tests to existing checks and native runtime gates where the inventory path requires them; do not add a parallel CI framework.
+- Record exact candidate SHA, tests, selected gates, triggers, and actual results.
 
 ## Handoff
 
