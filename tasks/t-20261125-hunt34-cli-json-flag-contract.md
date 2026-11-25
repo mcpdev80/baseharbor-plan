@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: ""
-kanban_status: planned
-kanban_lane: ready
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-304 · document single
 priority: ""
@@ -19,18 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: dropped
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/commit/6a7bb2aca"]
 ---
 
-- [ ] t-20261125-hunt34-cli-json-flag-contract · 0428 hunt H-V34: document single --json/--output contract across subcommands #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [x] t-20261125-hunt34-cli-json-flag-contract · 0428 hunt H-V34: document single --json/--output contract across subcommands #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/commit/6a7bb2aca)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** unassigned  
