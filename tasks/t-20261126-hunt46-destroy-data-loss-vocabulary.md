@@ -39,6 +39,10 @@ evidence: []
 **Source:** 
 <!-- /generated:links -->
 
+## Owner decision — 2026-11-25
+
+A full application destroy deletes every resource and volume within the selected application's destruction scope, including recovery- or backup-labelled volumes. Otherwise the operation is app deletion. The selected-Core `control-plane destroy --delete-data` remains a narrower operation that deletes only its canonical Core resources and explicitly selected Core volumes. Warnings must state each scope's actual data-loss consequence clearly; use distinct wording where the scopes differ.
+
 ## Goal
 
 Two differently-named destructive scopes both delete owned volumes, but the data-loss severity wording is split across `full-destroy` (installation) and `delete-data` (Core), so an operator (and the MCP/JSON surfaces) can conflate them. This card unifies the "delete owned volumes permanently" warning so it is surfaced identically for both scopes, or explicitly documents that they are distinct scopes.
@@ -69,6 +73,16 @@ Two differently-named destructive scopes both delete owned volumes, but the data
 
 - Current state, branch, PR and evidence links. Newest first.
 
+## Current-source recheck — 2026-11-25
+
+At `mcpdev80/baseharbor/develop`, commit `7bdeae95ccf0ce0d2fe39ae6d4c884402268995d`, `cmd/baha/runtime_destroy_impact.go` distinguishes installation-wide destruction from selected-Core destruction, and `cmd/baha/control_plane_destroy.go` describes permanent loss for explicitly selected canonical Core volumes. The installation destroy report also lists preserved external recovery locations separately. Align warnings with these scopes and the owner decision for application-owned volumes; do not imply that an in-scope application volume is retained.
+
 ## Task
 
-Cast from hunt H-V46 (akte evidence/r28-welle6-2026-11-27/bughunt-hv46-state-lifecycle/ on origin/main 62de9bb74, anchor develop 2a141387d; re-verified against develop 384d857b5 at intake). BF-46-1 LIVE. The whole-installation `destroy --all` path is discovered/reported as `full-destroy` (runtime_destroy_discovery.go: discoverFullDestroyTargets, discoverFullDestroyDeployments, fullDestroyResult). The single Core module path, `control-plane destroy`, is gated by a different context key `selectedCoreDataDeletionKey` / `DeleteData` flag, not by `full-destroy` (control_plane_destroy.go:19, 39, 70-72). Vocabulary gap: the "after" consequence text is built conditionally on `p.DeleteData`; full-destroy names "continuing to preserve application-owned workload data volumes" (CHANGELOG.md:473) while the selected-core `--delete-data` path (line 71) says "Volume contents are permanently lost". Neither surfaces a shared "DESTRUCTIVE DATA LOSS" tag in one place. Fix: unify the data-loss consequence vocabulary, or explicitly document that they are distinct scopes.
+- Review the full-application and selected-Core destroy consequence/consent surfaces, including CLI and JSON/MCP output.
+- State that full application destroy permanently deletes all resources and volumes inside the selected application's scope, including recovery/backup-labelled volumes.
+- State that selected-Core `--delete-data` deletes only canonical Core resources and explicitly selected Core volumes; preserve the rest of its narrower scope.
+- Keep external recovery files, source repositories, foreign resources, and out-of-scope data clearly separate from the selected application volume scope.
+- Add focused wording/contract regression coverage for both commands and their structured output.
+- Run existing mapped checks and record the exact candidate SHA, test IDs, mapped gates, triggers, and results.
+
