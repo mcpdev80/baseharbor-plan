@@ -723,7 +723,7 @@ worktree left is `workers/w295-0428-251-planwt`, clean, to be removed after the 
 ## END (published)
 
 END_DONE w295-0428-251-recover6paths: plan PR #100 (https://github.com/mcpdev80/baseharbor-plan/pull/100),
-published head `fa902c0ec7cf3632afa5d4240f54df4697ea3b34`; plan main 1b9b2bc702 is an ancestor of it;
+published head `43f8a8d11d8dc33e41ee1ab5c22d1a5f2ad0b69f` (akte; PR #100 code head at END `6e98fdb553892e62d60ffde652462099d169847f`); plan main 1b9b2bc702 is an ancestor of it;
 `Plan · validate` SUCCESS on that exact head. Restored **5 of 6** residual paths byte-exactly from
 verified carrier blobs (carrier commit a47da84b8, blobs 5b04465f50 / 0095f9f0f7 / 788a600020 /
 34969233cf / 7c079d905b; 27,396 B) with the single permitted `card_number` re-allocation to numbers
@@ -737,3 +737,24 @@ CLOSED** by this PR alone (if the corrected census says non-loss, PR #100 is the
 product mutation; shared plan checkout and its 51 stashes untouched; cleanliness confirmed. Disclosure:
 one prohibited `git push --force` occurred mid-lane (documented above) and the branch continued
 forward-only from the restored head.
+
+## Evidence delivery attestation (mission's second-to-last-action rule, applied to a plan PR)
+
+```
+git -C baseharbor-plan fetch origin main
+git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/2026-04-26/w295-...
+  -> (no output, grep rc=1)   # the akte is NOT on plan main yet: main is PROTECTED and this lane must
+                              # not merge; the akte ships inside PR #100, exactly as the mission states
+                              # ("DELIVERABLE AKTE (in the same PR, at evidence/2026-11-26/...)" plus the
+                              # BRANCH-push + plan-PR + admin-squash-merge channel rule)
+gh pr diff 100 | grep '^+++'  -> 12 files, first one is
+  +++ b/evidence/2026-11-26/w295-0428-251-recover6paths/akte.md
+git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/lane-w295-0428-251-recover6paths
+  -> <this commit>  (delivered on the PR branch; refs/pull/100/head == branch head == validated head)
+Plan · validate SUCCESS on 6e98fdb553 (check-runs conclusion success, event pull_request, run_attempt 1),
+  and on every earlier exact head of this PR.
+```
+
+So the END-post precondition holds in the channel the mission prescribes for plan writes: the evidence is
+on the pushed PR branch, validated by hosted CI, and it reaches plan `origin/main` only through the
+merge this lane is forbidden to perform.
