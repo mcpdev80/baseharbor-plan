@@ -1,0 +1,15 @@
+### (a) any open PR with 1855/1856 in branch or title (duplicate-representation check)
+  mcpdev80/baseharbor: 300 PRs scanned, 0 hits
+  mcpdev80/baseharbor-demo: 177 PRs scanned, 0 hits
+  mcpdev80/baseharbor-node-connector: 21 PRs scanned, 0 hits
+  mcpdev80/baseharbor-console: 15 PRs scanned, 0 hits
+
+### (b) branch refs vs PR head SHA (head-detached-from-branch check)
+  PR 1856: pr_head=cc453c79bfc0 branch_head=cc453c79bfc0 MATCH
+  PR 1855: pr_head=43326cf57f1a branch_head=43326cf57f1a MATCH
+  PR 1833: pr_head=a7b0a48048c1 branch_head=a7b0a48048c1 MATCH
+  PR 1820: pr_head=8f6b2444bdc9 branch_head=8f6b2444bdc9 MATCH
+  PR 1819: pr_head=b3c5055ad256 branch_head=b3c5055ad256 MATCH
+  PR 1818: pr_head=20fc1cb7d496 branch_head=20fc1cb7d496 MATCH
+  PR 1812: pr_head=0922888af8fd branch_head=0922888af8fd MATCH
+  PR 1650: pr_head=37c4d847ca37 branch_head=37c4d847ca37 MATCH
