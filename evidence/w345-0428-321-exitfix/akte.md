@@ -55,3 +55,7 @@
 
 - docker ps -a BEFORE: (none started this shift)
 - docker ps -a AFTER: (none to tear down)
+
+
+## DISPOSITION CORRECTION (coordinator, 01:1xZ, owner state-integrity alert)
+The END_DONE line above is PREMATURE and is NOT acceptance or merge-readiness. Authoritative state at correction time: session w345/3fc8261f BUSY; worktree holds three UNCOMMITTED files (cmd/baha/main_test.go, internal/cli/cli_test.go, scripts/exit_code_taxonomy_audit.py); PR #1866 and branch HEAD remain cdb6e4d977d903ebbb6198b9b001403aba07868d; no new commit/push/Hosted run; draft still contains the guaranteed-failing claimed[130]/claimed[143] assertion, audit constant typo, duplicated __main__ guard (steer-2 delivered). Card status corrected to active/in-progress. Real END_DONE follows only after corrected commit, FF push, exact-head Hosted run terminal, and fresh Codex review of #1866.

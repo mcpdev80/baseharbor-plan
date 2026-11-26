@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w345-0428-321-exitfix (LIVE busy; akte a7e0a2e5a END_DONE was PREMATURE - correction round in progress, no push/run yet)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Document the baha process exit-code taxonomy at the user-facing surface: 0 success, 1 runtime failure, 2 usage error, 130…"
 kanban_title: 0428-321 · document baha exit-code
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt45-exit-code-taxonomy-docs · CLI: document baha exit-code taxonomy and machine coverage check #task #release/v0-4-28 #status/planned #view/ready #kind/bug
+- [ ] t-20261125-hunt45-exit-code-taxonomy-docs · CLI: document baha exit-code taxonomy and machine coverage check #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w345-0428-321-exitfix (LIVE busy; akte a7e0a2e5a END\_DONE was PREMATURE - correction round in progress, no push/run yet)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w345-0428-321-exitfix (LIVE busy; akte a7e0a2e5a END_DONE was PREMATURE - correction round in progress, no push/run yet)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
