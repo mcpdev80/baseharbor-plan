@@ -17,8 +17,7 @@ depends_on: [t-20261125-0428-284-1812-postretry-gate-failure]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1833]
 sources: []
-blocker: ""
-wait_reason: "W15 required next proof: hop PR #1833 onto current develop, then obtain two distinct fresh pull_request runs on the exact same head (attempt 1 each); run 45513816046 on a7b0a48048c11d20234160eede941532ddc33156 is attempt 2 and void as pair evidence. Wait for successor card 0428-284 / PR #1856, not closed #1842."
+blocker: "Catalog/gate scope decision pending (w267 comment 7196853372): trusted-base pr-gate-coverage row for internal/application lacks runtime_specific:true so six runtime families are never selected; NOT green - reruns frozen until baseline-family field change lands via Codex disposition"
 resolution: ""
 evidence: []
 ---
@@ -27,7 +26,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w332-0428-288-composeids · **Priority:** high  
     **PR:** [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
-    **Waiting:** W15 required next proof: hop PR \#1833 onto current develop, then obtain two distinct fresh pull\_request runs on the exact same head (attempt 1 each); run 45513816046 on a7b0a48048c11d20234160eede941532ddc33156 is attempt 2 and void as pair…  
+    **Blocker:** Catalog/gate scope decision pending (w267 comment 7196853372): trusted-base pr-gate-coverage row for internal/application lacks runtime\_specific:true so six runtime families are never selected; NOT green - reruns frozen until baseline-fami…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
