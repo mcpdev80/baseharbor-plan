@@ -1,0 +1,21 @@
+ROLLE: Worker (Lane w280). Coord a4573079. KARTE: t-20261018-r27-management-host RUNDE 4 (PR #1405 head
+64d93e94, urteil act-1405c REJECT — rezept wortlich auf main: management-host/act-1405c.md, 5 punkte).
+KERNARBEIT: (1) EINE eigentums-primitive fuehrt die root durchgehend von fresh-root-bootstrap ueber
+    server-lifetime UND valid-installation-attach — KEINE zwei unabhaengigen lock-dateien, die sich nicht
+    gegenseitig pruefen; sicherer handoff oder shared/atomares protokoll; kein zeitfenster ohne schutz;
+    root waehrend provisioning+server gepinnt. (2) ECHTE serveCommand-integration-regression: prozess A
+    auf fresh root + listen-address A, nachweislich gebunden/servend; prozess B gleicher root, ADRESSE B
+    => B FAELLT WEGEN EIGENTUM (nicht port), A bleibt erreichbar; valid-root-fall WHILE A lebt. (3)
+    serveCommand-zelle: managementHostForServe liefert non-nil fehler => command gibt fehler zurueck,
+    runtime startet NICHT; (nil,nil)-pfad bleibt getestet. (4) KAUSALE MUTANTE an der NEUEN
+    eigentums-uebergangs-/lock-lifetime-PRODUKTIONSZEILE: GRUEN->ROT->GRUEN mit 3 SHA256-stufen (vorher/
+    unterher/nachher); Verify()-guard-mutante des ALTEN bestands ist VERBOTEN als ersatz. (5) fokussierte
+    tests + build/vet + hosted checks TERMINAL am finalen kopf selbst beobachten.
+Claim via plan.py PRUEFEN (claim steht auf coord-welle5/w278 — fuehre plan.py claim aus, uebergabe ist
+durch coord-entlassung gedeckt); zweig work/r27-management-host (ein PR, kein zweiter); develop-merge nur
+wenn noetig; AKTE management-host/round-4.md (PUNKTE statt checkboxen; lsremote, run-ids, hashdrilling,
+## repo-rule compliance). Zone workers/w280-wt (persistent, NICHT .models), caches /tmp/opencode/w280*.
+GATES: KEINE subagenten, workers/baseharbor tabu (quarantaene), .github tabu, coordinator-host container tabu.
+END an a4573079: "END_DONE w280-mgmt-host-r4: head=<sha10> eigentum=ein primitiv
+regression=serveCommand-integration zwei prozesse/adressen mutante=<3 hashes> lauf=<id TERMINAL>
+lsremote=<sha10> akte=<pfad main> | <Satz>"

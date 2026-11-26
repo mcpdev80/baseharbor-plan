@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW. Coord a4573079. ABNAHME artifact-resolution, kandidaten-genau.
+KANDIDAT: PR #1406 head 746afe6d89d vs develop 8bda98c1cd3 (AUCH: ancestor-check, develop ist nach
+#1397-landung weiter). AKTE: r27-welle5-folge-2026-11-06/artifact-resolution/round-1.md. KARTE:
+t-20261018-r27-artifact-resolution. PRUEFPUNKTE: (1) quell-/versionswahl loest in EIN konkretes
+unveraenderliches artefakt auf (registry zuerst, dann lokaler store, checkout-build NUR explizit) —
+pruefe die resolution-reihenfolge im diff gegen karten-text, (2) mehrdeutigkeit FAIL-CLOSED mit
+kausaler MUTANTE an ECHTER produktions-zeile (ROT+GRUEN transcript + datei-hash; doktrin praedenz
+act-1397b/e — mutante im test-helfer = REJECT), (3) verdrahtung in apply-pfad nachweisbar (zeile im
+diff + zelle), (4) write-set ohne .github, ein kandidat pro kette, lsremote-zeugnis, (5) lauf
+42293297231 terminal am kopf. URTEIL als evidence/r27-welle5-folge-2026-11-06/artifact-resolution/
+act-1406a.md (ACCEPT|REJECT+rezept). END an a4573079: "END_DONE codex-luna-art-1406a: verdict=<..>".

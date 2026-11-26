@@ -1,0 +1,13 @@
+BUG-HUNT (read-only, Befundung NUR, KEINE Produkt-/Planungsänderungen, KEINE Commits/Pushes/PRs) — Slice H-V26, develop-Anker 3ebfb90d (v0.4.28, nur CLOSED/merged).
+
+Kontext: #1812 faellt, weil das Pflicht-Artefakt baha-ci-operator-testonly im Candidate-Setup nicht erzeugt wird; #1818 hat ein --confirm-candidate Consent-Gate. Du untersuchst NUR die Kandidaten-/Consent-/Runtime-Gate-Mechanik auf develop und melst echte Gaps. Aendere nichts.
+
+Zu pruefen (develop-Wahrheit, read-only):
+A. baha-ci-operator-testonly production: Wo wird das Binary im Candidate-/Release-Artefakt-Pfad gebaut/instaliert (oder eben nicht)? Folge RUNNER_TEMP/pre-release-candidate/ Setup, das prebuilt-Binary-Erzeugungs-Skript/Job. Identifiziere die exakte Luecke (welcher Job/Step es erzeugen muesste), Datei:Zeile. Melde NICHT als Fix, nur als Befund.
+B. record-deployment-before-mutation consent (--confirm-candidate): unter welchen develop-Bedingungen verlangt der Pfad Consent, wer setzt ihn legitim, und welche Aufrufe in Runtime-Gate-Szenarios ihn (nicht) setzen — ohne das Consent-Validation zu aendern. Datei:Zeile.
+C. operator-trust / fail-open im candidate/runtime-actor-Pfad: deploymentApplied, runtime-actor allow/verify, trusted-local — echte False-Green/False-Red-Gaps auf develop (nicht die schon verkarteten 0428-189..194 consent-flaeche; dort nur ANDERE stellen).
+
+Methodik: lies develop-Implementierung (git show/grep), folge echten CLI-/Build-Pfaden; VM nur kurzer Smoke zur Beobachtung; keine gehosteten runs auslösen (kein PR).
+Abgabe: baseharbor-plan evidence/r28-welle6-2026-11-24/bughunt-hv26-candidate-consent-gate/round-1.md — je Fund Datei:Zeile, reproduzierbarer Pfad, erwartet vs. tatsaechlich, Schweregrad, Ref-Karte. Doppelungsregel: bereits karten (0428-189..194, H-V25 F1-F9) nicht doppelt melden, Zusatz 'wie 0428-1xx, andere stelle'.
+Sauberkeit: keine test-eigenen container/netzwerke/volumes/state; vorher/nachher-Liste + 'cleanliness:'-Zeile; ambient baseharbor-*/bh-* fremder Karren unangetastet. Kein git add/commit/push. No subagents (AGENTS 4.8). No Codex. No merge.
+Ende: END_DONE mit Fundzaehler + Aktenpfad; Coordinator verkartet jeden Fund (§3.3.5 Fund->Karte).

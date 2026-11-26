@@ -1,0 +1,8 @@
+CODEX-REVIEW (RE-REVIEW) 0427-maintenance-client — PR #1428 head a3416743b179 gegen develop 06e4b1eaa. drift-frei, delta nur maintenance_* dateien (kollision mit #110 behoben), CI run 42395015763 terminal success 9-pass.
+Dein vorgehendes REQUEST-CHANGES (act-1428-review.md) hatte 3 punkte; pruefe NUR ob die jetzt behoben sind (sha-genauer diff gegen vorgehendes urteil):
+  1. local/remote destroy: maintenance-window wird COMMMITTED aus retained authority BEVOR teardown (kein fenster-verlust mehr) — beide pfade.
+  2. remote destroy enthaelt das window (vorher weggelassen).
+  3. history append fail-closed mit rollback + capacity preflight (kein stummer replay-kontinuitaets-verlust).
+plus: last-bearing kausale mutants fuer jede guard, write-set nur maintenance_*, keine .github, CI-Aufnahme der neuen tests.
+Vertrag: plan.py show t-20261018-r27-maintenance-client. Kandidat unveraendert (sha vor/nach). Kein eigenes gate, keine CI neu.
+Urteil APPROVE|REQUEST-CHANGES + rezept. END an 594fd2f5. APPROVE+vollstaendig => melde, ich gebe CODEX-MERGE frei.

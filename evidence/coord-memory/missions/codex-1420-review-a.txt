@@ -1,0 +1,18 @@
+ROLLE: CODEX-REVIEW (Abnahme-Sitz). Coord 594fd2f5. KARTE: t-20261018-r27-client-commands (0427-022 · route init/up/status/doctor/logs through one authority). Repo mcpdev80/baseharbor.
+Kandidat PR #1420 head 0c23adc56151b94f05916ffcc0cc13b061961107, base develop eee11d50 (is-ancestor rc0), MERGEABLE, draft=false. DELTA = GENAU EINE DATEI cmd/baha/client_commands_behaviors_test.go (kein produktcode — routing existiert schon auf develop, correct nicht angefasst). CI am kopf: cli-package-tests PASS (run 114754818058 job 128350778682), PR Selected Checks PASS (run 128352623844); Targeted-HA docker/podman + Selected-Runtime SKIPPED = owner ci.yml push-ref-gate (NICHT reject-grund).
+
+Karten-Required-check (woertlich): "Real CLI->TLS API tests with two independent homes/checkouts, same deployment, precedence, denial, server loss, stale consent and error parity." Die lane meldet (opt2): 5 behaviours, teils NEUE tests, teils cite auf bestehende.
+
+PRUEFE (nur-lesend; ls-remote refs/heads/develop refs/pull/1420/head zuerst; diff eee11d50...0c23adc56 = eine datei):
+ (1) ECHTHEIT: faehrt client_commands_behaviors_test.go einen WIRKLICHEN CLI->TLS uebergang ueber ZWEI unabhaengige homes/checkpoints gegen dieselbe deployment (nicht ein einzelner inline-harness der 'zwei homes' nur simuliert)? Prüfe: echter TLS-client, echter command-runner, zwei getrennte store/installation-root(s).
+ (2) DECKUNG je behavior mit datei:funktion:
+     precedence -> TestClientCommandsTwoHomesSameDeploymentPrecedence (cite TestCLIProductionPathAssignsServerIdentityProves — ist der cite eine ECHTE laufende abdeckung, nicht luft?)
+     denial -> TestClientCommandsDenialOverTwoHomes (cite TestRemoteApplyCannotPublishBeforeCurrentProviderAcknowledgement)
+     server-loss -> TestClientCommandsServerLossOverTwoHomes (cite TestRemoteApplicationStatusNeverInfersAbsenceFromLocalFiles)
+     stale-consent -> TestClientCommandsStaleConsentOverTwoHomes
+     error-parity -> TestClientCommandsErrorParityOverTwoHomes
+     Jeder MUSS fail-closed behaupten (lane sagt 'denial inverts under tamper' — prüfe das).
+ (3) NEIN-zu-schein-gruen: die 3 'cite'-behaviours — wenn ein bestehender test einen behavior nicht wirklich über zwei homes+TLS abdeckt, ist das ein REJECT_LANE_FIX (neuer test noetig), nicht durchcite-bar. Zitiere file:line des bestehenden tests und urteile ob er die kartenforderung wirklich erfuellt.
+ (4) der von der lane als 'pre-existing' deklarierte package-red TestAppEditCommandCompleteProviderEditRunsRealLifecycle unter no-runtime-cell: bestätige dass er ein runtime/owner-gate ist (skip), NICHT eine durch diese delta Introduced failure — gegenprobe: #1419 gleicher base 0 fails.
+LIEFERE: ACCEPT | REJECT_LANE_FIX <datei:line rezept>. KEIN merge.
+END an 594fd2f5: "CODEX-REVIEW 0427-022/#1420-review-a: verdict=<..> head=<..> zwei_home_tls=<echt|simuliert> deckung=<precedence/denial/server-loss/stale-consent/error-parity je file:func OK|LUFT|NEU> fail_closed=<ok|gebrochen> ci=<114754818058+128352623844 TERMINAL> delta=<one-file|...> preexisting_red=<owner-gate|lane-fault> rezept=<..>". Akte evidence/r27-welle5-folge-2026-11-07/client-commands/act-1420a-review.md ECHTE plan (remote -v; keine phantom).

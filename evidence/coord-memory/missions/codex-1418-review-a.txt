@@ -1,0 +1,20 @@
+ROLLE: CODEX-REVIEW (Abnahme-Sitz, kein Worker). Coord 594fd2f5. KARTE: t-20261018-r27-remote-material (0427-051 · project exposure serving cert to node).
+PRUEFE Kandidat PR #1418 (mcpdev80/baseharbor, head efb6c2d2cde4e4478bec55963f003fc4a860a88b, base develop 934be499b,
+draft=false) gegen den task-vertrag. UMFANG laut owner-abgeschnittener scheibe: serving-zertifikat einer exponierten
+deployment ueber den bestehenden PKI-owner in die managed publication projizieren und am KNOTEN verbrauchen (inkl.
+ROTATION). KEIN breiter remote-guard, KEINE shared-registry-edits.
+(1) Realitaet nur via `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1418/head`
+    + SHA-genauer `git diff 934be499b...efb6c2d2c` (name-only + inhalt). Nur-lesend, KEIN produkt-aenderung, KEIN merge.
+(2) Akten pruefen: evidence/r27-welle5-folge-2026-11-06/remote-material/round-1..4.md auf plan-main; verifiziere die
+    ls-remote- und run-zeugen, und dass die Aenderung exakt die oeffentliche-PKI->managed-publication->node-projektion
+    (+ rotation) traegt, NICHT mehr (scope).
+(3) PFLICHT-CI am genauen kopf efb6c2d2c: gh run/checks. BEURTEILE die SKIPPED runtime-zellen (Targeted HA docker/podman,
+    compose) ausdruecklich: fuer eine remote-exposure serving-TLS-/node-Konsum-Aenderung mit NEUEM internal/application
+    test muss die CI-Gruppe, die diesen Pfad abdeckt, den test tatsaechlich AUSFUEHREN (kein skip) — ist der
+    geforderte docker+podman-nachweis NUR skipped, ist das ein REJECT-Grund (AGENTS 5.3 CI-aufnahmepflicht). Nenne
+    run-id + ergebnis + welche zelle den test faehrt.
+(4) red-first/kausalitaet falls vertrag eine verlangt.
+LIEFERE: Verdict ACCEPT|REJECT + bei REJECT umsetzbares loesungsrezept (datei:line, aenderung, testanforderung,
+stop-kriterium). Poste als END an 594fd2f5: "CODEX-REVIEW 0427-051/#1418: verdict=<..> head=<..> ci=<run TERMINAL>
+nachweis=<zelle die test faehrt / SKIPPED-reject> rezept=<..>". Akte: evidence/.../remote-material/act-1418a-review.md
+in ECHTER plan (remote -v; KEINE worktree in baseharbor-plan/ oder workers/-phantom).

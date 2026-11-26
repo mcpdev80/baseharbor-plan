@@ -1,0 +1,13 @@
+ROLLE: CODEX-MERGE (Abnahme-Rolle Merge; dieselbe session die #1418 ACCEPTed hat). Coord 594fd2f5. KARTE: t-20261018-r27-remote-material (0427-051).
+AUFGABE: den ACCEPTEDen kandidat PR #1418 head a91debbb047d6ea7a0f258194c0a3474978687bd auf develop landen. SHA-GENAU, KEIN force, KEIN protection-bypass.
+WICHTIG: der kandidat ist auf develop 934be499b ACCEPTed; develop ist inzwischen 66310729 (036 gemergt). MERGE den
+akzeptierten HEAD a91debbb0 UNVERAENDERT (gh pr merge --merge erzeugt den merge-commit auf den aktuellen develop).
+NICHT den kandidaten re-basen/re-refreshen — das wuerde den ACCEPTEDEN sha aendern und die abnahme ungueltig machen.
+(1) belege grundlage: `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1418/head`
+    -> PR head MUSS a91debbb047d6ea7a0f258194c0a3474978687bd sein (der ACCEPTEDe). weicht ab -> STOP + melde (bewegt nach ACCEPT).
+(2) `gh pr merge 1418 --repo mcpdev80/baseharbor --merge` (merge-commit, KEIN squash/rebase/--force).
+(3) falls ein KONFLIKT den merge-commit blockt (develop 66310729 vs kandidat): NICHT selbst loesen durch re-base —
+    END_BLOCKED mit exakter konfliktdatei, dann beauftrage ich eine basis-auffrischungs-bahn + re-review.
+(4) landschafts-zeugnis: neuer develop-kopf via ls-remote; a91debbb0 ist ancestor von develop (rc0). KEIN release/tag.
+END an 594fd2f5: "CODEX-MERGE 0427-051/#1418: result=<MERGED|STOP-CONFLICT> develop_now=<sha> ancestry=<a91debbb0 ancestor rc0>
+akte=evidence/.../remote-material/act-1418c-merge.md". Akte ECHTE plan (remote -v, pull --rebase origin main, push).

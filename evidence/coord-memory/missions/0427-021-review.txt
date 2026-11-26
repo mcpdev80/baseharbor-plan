@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW
+KANDIDAT: PR #1424 head fc81fbc6b877b45c3ec96179e85c2110c46b05c5  base develop 4bcede9786c  repo mcpdev80/baseharbor
+TASK: t-20261018-r27-ci-lanes (v0.4.27 CI-Naht: Gate-Katalog + Test-Registrierung)
+PRUEFE GEGEN VERTRAG:
+- owner-decision #1+#2 verankert: v0.4.27 ist in release-requirements.json (65/65 gates required_for + releases) und pr-gate-map-v1.json registriert; pre-release-check-plan waehlt den v0.4.27 katalog.
+- dauerhafte katalog-regression: scripts/test_ci_v0427_gate_catalog.py existiert und ist in pr-check-runner.py CI_EXECUTION_SUITES aufgenommen (test-laeuft-in-CI grundregel).
+- write-set = NUR diese 4 CI-dateien (scripts/pr-check-runner.py, scripts/pr-gate-map-v1.json, scripts/release-requirements.json, scripts/test_ci_v0427_gate_catalog.py). KEIN cmd/baha, KEINE .github workflow datei.
+- fail-closed erhalten: pr-gate conservative fallback + native-runtime gates (kein fake pass/skip).
+- ancestry: merge-base --is-ancestor 4bcede9786c fc81fbc6 == rc0.
+- kein neuer fake-gate/receipt-chain, kein release/tag.
+Liefere VERDICT + umsetzbares loesungsrezept (datei, aenderung, testanforderung, stop-kriterium).

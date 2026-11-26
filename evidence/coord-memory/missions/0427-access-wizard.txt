@@ -1,0 +1,12 @@
+Auftrag 0427-access-wizard (lane fafba4b5, FRISCH).
+Karte: t-20261018-r27-access-wizard — Titel/Vertrag lies WORTWOERTLICH per  und im Kartenkoerper (baseharbor-plan/tasks/t-20261018-r27-access-wizard.md): scope, acceptance, erlaubte write-set. Repos-Regeln: baseharbor/AGENTS.md + docs/DEVELOPMENT_GUIDELINES.md.
+Produktziel kurz: gefundener CLI-Wizard: gefuehrte Profil-Zuweisung + bewusstes onboard/offboard einer Person auf einem target, fail-closed bei unvollstaendiger konfiguration.
+Pflichten:
+- Claim erst via scripts/plan.py claim t-20261018-r27-access-wizard --owner 0427-access-wizard (commit+push) BEVOR du aenderst.
+- Isolieter branch/worktree, exact-one-candidate PR gegen develop (fetch origin develop, ancestor rc0, kein drift).
+- write-set NUR die von der karte benannten dateien. KEINE .github/** (owner-scope), KEINE scripts/*-CI-naht (021 owned), KEINE cmd/baha/app_remote_lifecycle.go (116 owned), KEINE client_commands_behaviors/core_integration (022), KEINE broker/controlplaneruntime/source_oci (118). Bei needing einer .github-zeile: BEFUND file:line an coord, nicht selbst.
+- Neue tests MUESSEN von der CI erfasst sein (CI-Aufnahmepflicht §5.3): in bestehender passender suite verdrahten; wenn ein .github-trigger fehlt, als BEFUND melden.
+- eigenes-run: hosted pr-check auf finale sha selbst terminal beobachten (run-id+status in evidence). ls-remote-zeugnis. rot-first+gruen. kein fake pass/skip.
+- ## PLAN in evidence + native todowrite. keine subagenten (AGENTS 4.8). NICHT idle ohne END — festgefahren => QUESTION mit stelle.
+- evidence/r27-welle5-folge-2026-11-07/access-wizard/round-1.md.
+END an 594fd2f5.

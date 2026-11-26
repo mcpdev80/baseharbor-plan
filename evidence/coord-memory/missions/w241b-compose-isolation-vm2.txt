@@ -1,0 +1,28 @@
+ROLLE: Worker (Lane w241, KORREKTUR des auftrags — hosts berichtigt). Coord 841e7734.
+KOORD-KORREKTUR: mein erster auftrag nannte DIR die URSPRÜNGLICHEN hosts baha-docker/baha-podman.
+FALSCH. Der ganze sinn der beiden NEUEN VMs ist: isolationstests laufen auf dem FRISCHEN -2-POOL
+(kein go auf den VMs — das testbinary BAUST du in deiner session (go 1.26.8) und kopierst es auf den
+host, genau wie du es richtig vorgeschlagen hast). NEUER ZEITPLAN:
+KANDIDAT: PR #1383, zweig work/r27-compose-isolation, kopf 88d725e4b19 (ls-remote-zeug in akte).
+ISOLATIONSZELLEN (die zwei InCI-dateien app_repository_integration_test.go + app_workload_integration_test.go,
+zwei isolierte kompose-projekte gleichzeitig, getrennte netze/volumen/ports; inspect-beleg je host):
+HOST = -2-POOL, SERIELL ueber vm-lock (EIN host pro zeit, einer-nach-anderer, NIE zwei gleichzeitig):
+ (1) DOCKER-haelfte auf baha-docker-2 (192.168.6.205; AKTUELL haelt w252 — vm-lock claim; rc=3 BUSY =>
+     dann baha-docker (166) als fallback-fuer die CONTAINER (rootful daemon ist da, go brauchst du dort
+     nicht weil du das binary kopierst), ODER auf docker-2-freisabe warten — dokumentiere welche);
+ (2) PODMAN-haelfte auf baha-podman-2 (192.168.6.107; AKTUELL haelt w251 bis END — claim, rc=3 =>
+     warte-fall per frage an coord, NICHT still auf podman (148/w243) ausweichen ohne ruecksprache).
+ (3) FABRIKREGEL: deine projekte IMMER selbst downfahren (name+ps-zeug), container=0 fuer DEINE tags;
+     bh-*-shared stacks (falls auf 166) NICHT anfassen.
+MUTANTENPROBE (pflicht): echte isolations-waechter-zeile in QUELLE (cmd/baha/app_doctor_collect.go:322
+'postgres shared isolation' oder waechter in den InCI-tests) lokal entfernen => zelle faellt ROT durch
+AUSGELIEFERTEN pfad; restore => GRUEN. transcript rot+gruen + diff in akte. KEIN handhilfe-umweg (1397b).
+BAU/KOPIER-HINWEIS (dein weg war richtig): auf der VM KEIN go — `go test -c` in deiner session => testbinary,
+scp auf den host, dort gegen daemon ausfuehren. GO-VM-HEBEL nur wenn eine VM go hat (hat keine).
+AKTE: evidence/r27-welle5-2026-11-06/compose-host-isolation/round-5.md auf origin/main (fetch main, ls-tree,
+lsremote 88d725e, pro host zellen-transcript, mutante, PLAN-checkliste, ## repo-rule compliance).
+GATES: KEINE subagenten/zweiter PR/root-checkout/.github/quellanderung-am-finalkopf (mutante transient),
+container NIE auf coordinator-host (R1), caches /tmp/opencode/w241*.
+END an 841e7734: "END_DONE w241-compose-isolation: head=88d725e docker_host=<205|166> dockerzellen=<n/n green>
+podman_host=<107|ausstehend> podmanzellen=<n/n|ausstehend> mutante=<ROT+GRUEN> fabrikrein=<JA> akte=<pfad main>
+| <Satz>"

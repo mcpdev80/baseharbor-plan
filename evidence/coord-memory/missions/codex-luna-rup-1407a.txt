@@ -1,0 +1,14 @@
+ROLLE: CODEX-REVIEW. Coord a4573079. ABNAHME remote-up-cli-path, kandidaten-genau.
+KANDIDAT: PR #1407 head 2651a5c9869 vs develop 8bda98c1 (ANCESTRY-CHECK: zweig ist von 5e4fde71 geschnitten,
+develop ist weitergelaufen — pruefe ob diff aufaktuellem base tragt/merge noetig, rezept-zeile wenn nein).
+AKTE: evidence/w264-remote-up-cli/round-2.md + round-1.md. KARTE-ACCEPTANCE: `baha app up` funktioniert gegen
+per connector gebundene app auf Docker UND Podman, doctor danach health OK.
+PRUEFPUNKTE: (1) fix an app_remote_lifecycle.go:118-143 routeet pure-client NUR ueber connector, lokale
+Core-PKI nur bei requiresManagedServiceIssuer — kein skip, kein fallback (kartenwort); (2) red-first-unit
+TestRemoteFreshApplyPureClientNeverBootstrapsLocalCore kausal (mutante an produktions-zeile ROT+GRUEN +
+hashes — doktrin; ohne mutanten-transcript = REJECT); (3) VM-beleg: docker-seite auf baha-docker(166) mit
+drei-punkt-rueckbau (8 shared intakt, 0 eigene) — PODMAN-SEITE fehlt laut END (nur docker zelle) — bewerte
+ob karten-acceptance beide familien verlangt (tut sie) und ob die fehlende haelfte RECEPT-tauglich ist;
+(4) lauf 42297708975 terminal am kopf, pre-existing docker-daemon-fehler als solcher belegt? (5) write-set
+ohne .github. URTEIL als evidence/r27-welle5-folge-2026-11-06/remote-up-cli/act-1407a.md (ACCEPT|REJECT+rezept).
+END an a4573079: "END_DONE codex-luna-rup-1407a: verdict=<..>".

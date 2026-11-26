@@ -1,0 +1,11 @@
+Auftrag 0427-107-docker2-bughunt (lane 2cc3a33a, laptop). KARTE: t-20261104-r27-vm-integration-runs. OWNER-DIREKTIVE 2026-11-07 abend: HAND-FESTIVAL auf echtem docker — User-Erfahrung komplett durchspielen, NUR docker-2 (vm-lock.sh claim baha-docker-2 0427-107-docker2-bughunt; host ist der halb-frostige stack #114 — pruefe vorher per ssh dass er dir gehoert und frei ist).
+UMFANG (auf dem VM gegen echte docker-engine): 
+  A) GREENFIELD: frisches zuhause -> baha init, app new wizard KOMPLETT interaktiv durchspielen (alle schritte, back/cancel/EOF getestet), app up, status, logs/inspect falls vorhanden, down, reset. NOTIERE jede verwirrung, jede unklare nachricht, jeden fehlerhaften rat.
+  B) BROWNFIELD: zustand mit vorhandenen/anderweitigen containern+images auf dem host (vorher snapshot der namen!), dann nochmals init/up/status/down + wizards — nichts fremdes LOESCHEN (read-only respekt), nur beobachten wie sich baha verhaelt.
+  C) WIZARDS: access-wizard und onboarding-wizard und maintenance-fluss im interaktivem lauf (yes/no/abort/weiter-zurueck) — UX als produkt.
+  D) KEIN HA-SZENARI0 (owner-direktive), KEIN composes-ha, keine multi-control-plane faelle.
+Beweislast: jede szelle = befehl, ausgabe-kuendung (gekuerzt), datum, host, container-name-snapshot vorher/nachher. BEFUNDE = eigene section je fund (schwereklasse: blocker/ux/clone/doku), mit exaktem minimal-repro. 
+SCHREIBGRENZE: KEINE produkt-aenderungen, KEIN PR. Du aenderst NUR evidence-dateien (plan-repo) + das vm selbst (container/Images anlegen/loeschen auf dem HOST, nichts im repo). Funde mit fix-bedarf = befall, integration决定 der coord/owner.
+Akten: evidence/r27-welle5-folge-2026-11-07/vm-bughunt/docker2.md (PUNKTE statt checkboxen). ## PLAN + todowrite. keine subagenten (4.8).vm-lock beim END released. END an 594fd2f5: befehle总数, funde总数 je klasse, akte-pfad, ls-remote zeugnis akte.
+
+BISENS-PFLICHT (owner 2026-11-08): host beim END besenrein — eigene container/netze/volumes/state weg, ambient bleibt, vorher/nachher-liste + "cleanliness:"-zeile in der akte.

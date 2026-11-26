@@ -1,0 +1,14 @@
+Auftrag 0427-013-access-r3 (lane c3f838ed, laptop, FRISCH; kandidat PR#1430 head e651cb1c auf origin + review act-1430-review.md origin/main 403d3647 — dort ABHOLEN UND WÖRTLICH LESEN).
+Karte t-20261018-r27-access-wizard. CODEX-REVIEW = REQUEST-CHANGES, vier punkte:
+  1. PERSISTENZ: access-zuweisung und offboarding werden NICHT persistiert — der gewählte zustand muss den echten profil-/authoritäts-store erreichen (schreiben durch denselben pfad den das produkt nutzt), nicht nur im wizard-speicher landen.
+  2. CANCEL: ein abbruch NACH der auswahl ruft weiterhin schreibaktionen auf — cancel muss fail-closed sein: nach cancel darf KEIN write mehr stattfinden (regression: cancel vor commit => store unverändert).
+  3. MULTIPLE TARGETS: mehrere ausgewählte targets werden auf das erste gekürzt — alle gewählten targets müssen durchlaufen und persistiert werden (table-driven regression: 1, 2, 3 targets).
+  4. OFFBOARDING-KATEGORIEN: non-profile offboarding-kinds haben keine routes — jede im produkt definierte kind muss eine route haben (oder die oberfläche darf sie nicht anbieten); vollständige abdeckung + regression je kind.
+VORGEHEN:
+- claim: plan.py claim t-20261018-r27-access-wizard --owner 0427-013-access-r3 (commit+push) BEVOR aendern.
+- basis PR#1430 branch work/r27-access-wizard head e651cb1c; fetch origin develop, merge, ancestor rc0 verifizieren (ls-remote zeugnis in evidence).
+- delta NUR cmd/baha/access_wizard_command.go + commands.go + internal/accesswizard/* (root-registrierung/classification/command-index nur falls der review dort neu etwas verlangt). NICHT OCI/registry/lifecycle/fixture/node/maintenance-dateien anderer karten.
+- wenn persistenz oder offboarding-kinds datenpfade einer ANDEREN karte beruehren (z.B. connector/provisioning store): BEFUND/QUESTION an coord statt cross-edit.
+- lokal: go test ./cmd/baha ./internal/accesswizard -run 'Access|Wizard|Offboard|Cancel|Persist' + gofmt/vet/build, DANN push. hosted pr-check finale sha TERMINAL (run-id+status), ls-remote zeugnis. ## PLAN + todowrite. keine subagenten (4.8). NICHT idle ohne END.
+Evidence: evidence/r27-welle5-folge-2026-11-07/access-wizard/round-3.md
+END an 594fd2f5. karte->review wenn alle 4 behoben + drift-frei + CI terminal gruen.
