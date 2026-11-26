@@ -7,8 +7,8 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
+owner: "w333-0428-312-volrecovery"
+kanban_status: blocked
 kanban_lane: ready
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-312 · assert recovery-manifest
@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: ""
+blocker: "BLOCKED-BASE-CATALOG: Trusted Plan reads pr-gate-coverage.json from develop (plan.py:259,1869); a candidate cannot self-admit its source row (precedent #1859). Test + correct catalog row committed on PR #1860 head 6deab9f; develop-side baseline row owned by card 0428-329 under the freeze."
 wait_reason: ""
 resolution: ""
 evidence: []
