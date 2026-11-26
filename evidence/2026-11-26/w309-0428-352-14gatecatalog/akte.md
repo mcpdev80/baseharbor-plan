@@ -26,9 +26,9 @@
 6. Pilot catalog row + test — implemented, then REVERTED per coordinator 08:09Z stop directive (tree verified clean: `git diff origin/develop --name-only` = 0 files)
 7. Rule on (b): does a reviewed-head binding ALONE make the 14 gates select — done, answer NO (measured, below)
 8. Prepare smallest authorized patch for Codex/owner decision — done (below, not pushed)
-9. Non-test pre-checks / push / PR — N/A (stop directive: no PR)
-10. Watch own pull_request run — N/A (no PR opened)
-11. Publish this akte via scoped plan PR — in progress
+9. Non-test pre-checks / push / PR — N/A (stop directive: no product PR)
+10. Watch own pull_request run — N/A (no product PR; plan route observed instead)
+11. Publish this akte via scoped plan PR — done: plan PR #110 head bf20fb1fed, "Plan · validate" SUCCESS run 45778807085 + follow-up check on bf20fb1fed green; merge to plan main is the admin/coordinator act (precedents #52/#61/#62), direct push never
 12. END BLOCKED report — final action
 
 ## Questions answered (coordinator 08:05Z + 08:09Z)
