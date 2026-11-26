@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w65-0428-269-batchbaseline
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Unblock 0428-270 (PR head 88f5c7f05, w61). Exact-head CI run 45326369749 aborts in 'PR Trusted Plan' with fail-loud 'uncataloged…"
 kanban_title: "0428-275 · add #1820-sib catalog rows"
 priority: ""
@@ -18,19 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "stale claim reconciled at owner harvest 2026-11-26 (14:22Z roster: only w322+w327 live): no worker behind the active state; baseline rows re-evaluated together with #1859-era catalog work"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45326369749"]
 ---
 
-- [ ] t-20261124-gate-catalog-baseline-0428-270 · CI/catalog: add operatorauth rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261124-gate-catalog-baseline-0428-270 · CI/catalog: add operatorauth rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** w65-0428-269-batchbaseline  
+    **Waiting:** stale claim reconciled at owner harvest 2026-11-26 (14:22Z roster: only w322+w327 live): no worker behind the active state; baseline rows re-evaluated together with \#1859-era catalog work  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45326369749)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w65-0428-269-batchbaseline  

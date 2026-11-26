@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w65-0428-269-batchbaseline
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Unblock #1820 / card 0428-271 (verifyRuntimeBrokerBuildIdentity commit check). Exact head f5e50f5a fails Trusted Plan because…"
 kanban_title: "0428-274 · add #1820 catalog row"
 priority: ""
@@ -18,19 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "sequenced behind #1812 per owner chain #1812 -> #1819 -> #1820; stale w65 claim reconciled at harvest 2026-11-26, no live worker"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45322832347"]
 ---
 
-- [ ] t-20261124-gate-catalog-baseline-1820 · CI/catalog: add #1820 source row to develop pr-gate-coverage.json #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261124-gate-catalog-baseline-1820 · CI/catalog: add #1820 source row to develop pr-gate-coverage.json #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** w65-0428-269-batchbaseline  
+    **Waiting:** sequenced behind \#1812 per owner chain \#1812 -\> \#1819 -\> \#1820; stale w65 claim reconciled at harvest 2026-11-26, no live worker  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45322832347)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261124-r28-broker-build-identity-commit](t-20261124-r28-broker-build-identity-commit.md)  

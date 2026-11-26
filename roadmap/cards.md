@@ -11,7 +11,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 163/170 · **Blocked:** 0 · **Waiting:** 0  
+    **Accepted tasks:** 164/170 · **Blocked:** 0 · **Waiting:** 0  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
@@ -38,7 +38,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.x · Product readiness before the contract freeze (unscheduled v0.4.x work) #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 17/20 · **Blocked:** 0 · **Waiting:** 0  
+    **Accepted tasks:** 18/20 · **Blocked:** 0 · **Waiting:** 0  
     [Scope](../releases/v0.4.x.md) · [Tasks](../views/releases/v0.4.x.md)
 
 - [ ] v0.5.x · Contract freeze and compatibility #roadmap #roadmap-state/later
