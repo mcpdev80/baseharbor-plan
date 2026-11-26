@@ -47,3 +47,4 @@ Seats 5/5 after reconciliation: ornith 2/2 (w345, w346), laptop 2/2 (w341/w342 i
 | #1870 | d4e6b99c33d52868409df445ea76d83d21bd7543 | 45876467179 SUCCESS | ACCEPT 7202318240 HELD | #1833 |
 Rule: consumers requalify ONLY after actual baseline landing (owner merge at freeze lift) + fresh consumer exact-head Hosted CI. No double reviews, no new cards.
 - Plan-side evidence: baseharbor-plan PR #156 (head 91187c329, OPEN, hosted validate; freeze-lift hop+squash-merge pending - admin, not by lanes).
+- w354 chain-pos-2 hop record: #1867 aef85a81b6adff7370d26dc33807069c74d7a98a (transport merge onto develop fe64a510 by w354 identity), pull_request 45904137758 SUCCESS exact, CLEAN, 1 file; handed to w255 revalidate+merge. Lane released after delivery.
