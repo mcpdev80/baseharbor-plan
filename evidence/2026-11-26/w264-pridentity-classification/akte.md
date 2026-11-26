@@ -24,7 +24,7 @@ The expected identity is the exact `owner:` value in the owning card's frontmatt
 | #1650 | `lane-0428-078-perses-identity-on-resolver` | `37c4d847ca377d1555163ac4791c8ba08b85de77` | 0428-078 / `t-20261114-r28-perses-dashboard-identity` | `w165-0428-078-pr1650-basehop` | 8 canonical (`w165`); 2 foreign: `w181-0428-doclink-sweep` (2) |
 | #1842 | `w177-0428-284-demo-pin-1812` | `dfd3495858501fe49d9c331c056a4289b780e0f8` | 0428-284 / `t-20261125-0428-284-1812-postretry-gate-failure` | `w198-0428-284-demo-parser` | 8 canonical (`w198`); 3 foreign: `w177-0428-284-demo-pin-1812` (2), `w205-0428-253` (1) |
 
-**Result:** 0/7 heads are authored exclusively by their card's canonical lane. There are 51 genuinely foreign commits across the seven heads. No shortened-same-lane documented exception was found. The `w205` author on #1820/#1819 is not admitted as shortened documentation: its commit is a merge of PR #1812 into another candidate, not documentation of card 0428-253. The two `w177` commits on #1842 are a separate lane, not a shortened spelling of owner lane `w198`.
+**Result:** all seven PRs need Coordinator-led reissue because each head contains at least one genuinely foreign author. No shortened-same-lane formatting is admissible as documentation in these seven heads. The witness table contains 51 foreign-commit appearances across the seven PR histories, representing 35 unique commit SHAs because stacked PR histories repeat commits. The `w205` author on #1820/#1819 is not admitted as shortened documentation: its commit is a merge of PR #1812 into another candidate, not documentation of card 0428-253. The two `w177` commits on #1842 are a separate lane, not a shortened spelling of owner lane `w198`.
 
 ## Foreign commit witnesses
 
@@ -42,7 +42,7 @@ Short SHAs below are unique within the fetched PR histories. They preserve a dir
 
 ## Coordinator reissue missions
 
-These are dispositions only; no reissue was dispatched or product branch modified. Each reissue uses a fresh lane/branch and the card's exact `owner:` identity for every new commit. Keep the old PR head intact as audit evidence; do not rewrite, force-push, or cherry-pick. Recreate only the scoped changes on the appropriate current dependency base. A green run or base hop alone cannot close an identity finding.
+These are dispositions only; no reissue was dispatched or product branch modified. All seven PRs need Coordinator-led reissue; none is an admissible same-lane shortened-formatting case. Each reissue uses a fresh lane/branch and the card's exact `owner:` identity for every new commit. Keep the old PR head intact as audit evidence; do not rewrite, force-push, or cherry-pick. Recreate only the scoped changes on the appropriate current dependency base. A green run or base hop alone cannot close an identity finding.
 
 | PR | concrete reissue mission |
 | --- | --- |
