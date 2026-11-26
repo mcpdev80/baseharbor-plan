@@ -106,3 +106,9 @@ a8c9eedb6bb57928a0d809faa9e8b2425badc140 refs/heads/w255-0428-251-demo170codex
 ```
 
 The PR will carry only `evidence/w255-0428-251-demo170codex/decision.md`.
+
+Latest observed remote branch witness before the next evidence commit:
+
+```text
+d48f339e212d2c4dd055dbcb80c5bb8cb4ead8ec refs/heads/w255-0428-251-demo170codex
+```
