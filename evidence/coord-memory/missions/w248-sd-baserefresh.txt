@@ -1,0 +1,11 @@
+ROLLE: CODEX-WORKER. Coord 841e7734. KARTE: t-20261106-r27-control-plane-single-default (BASE-AUFFRISCHUNG).
+LAGE: act-1404b meldet 'out-of-scope deletion application_image_transfer.go' — GEMAESSEN: drei-dot diff
+zeigt nur 3 dateien + 1 commit; der 'loeschungs'-eindruck entsteht durch ALTEN BASE (zweig geschnitten
+78e78e66, develop inzwischen 5e4fde71 mit der #1402-landung). AUFGABE: (1) develop 5e4fde71 in
+work/r27-single-default einmerge (konfliktfrei expected; wenn konflikt: loesen ohne inhalt-verlust,
+name-only dokumentieren), (2) push, PR #1404 ready, (3) hosted gates am NEUEN kopf bis TERMINAL GRUEN
+selbst beobachten, (4) akte: round-2.md unter evidence/r27-welle5-2026-11-06/control-plane-single-default/
+mit drei-kopf-tabelle (6b37600/5e4fde7/final) + erklaerung des base-artefakts + ls-tree-zeug.
+KEIN inhalt-wechsel. GATES: KEINE subagenten/zweiter PR/root-checkout/.github/vm, caches /tmp/opencode/w248*.
+END an 841e7734: "END_DONE w248-sd-baserefresh: head=<sha10> conflict=<frei|loesungen> lauf=<id TERMINAL>
+lsremote=<sha10> | <Satz>"

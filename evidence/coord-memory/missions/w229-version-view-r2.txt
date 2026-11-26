@@ -1,0 +1,16 @@
+ROLLE: Worker (Lane w229). Coord 841e7734. KARTE: t-20261018-r27-version-view RUNDE 2 (REJECT-Korrektur).
+ZWEIG: work/r27-version-view (PR #1403, head 57cf82a0cfc) — derselbe zweig, KEIN zweiter PR.
+BEFUND (akte act-1403b.md auf origin/main, wortlich lesen): TestStagesViewMutationAgainstSeparationLine
+in cmd/baha/app_version_view_test.go:287-319 ist KEIN echter Mutantentest: fuehrt eine zweite
+fehlkonfigurierte Mapper-Kopie im TESTFILE ein; ihr haengt nicht kausal von
+internal/machinereadmodels/release.go ab; ein zweiter echter Produkt-Mutant (release.go:165 Kind)
+laesst die Zelle vollstaendig gruen.
+AUFGABE: (1) Gegenprobe KAUSAL an den ausgelieferten Mapper binden — echter Produkt-Mutant über
+Schnittstelle/Parameter, nicht Kopie im testfile; eigene Regression: nachgewiesener Produkt-Mutant
+(release.go Dimension UND Kind, je lokal, rueckgaengig) failt die Zelle; beide Zeugnisse in akte.
+(2) round-1.md Beschreibung des Mechanismus berichtigen (Luna-Befund: faktisch falsch).
+(3) PR bleibt EIN Antrag; hosted lauf am FINAL-KOPF bis TERMINAL selbst beobachten; akte round-2.md.
+GATES: gofmt/vet/build, race count=10 targetiert, ls-remote echt==head WORTLICH, KEINE subagenten/
+zweiter PR/root-checkout/.github/compose, name-only disjunkt, caches /tmp/opencode/w229*.
+END an 841e7734: "END_DONE w229-version-view-r2: head=<sha10> gegenprobe-kausal=<JA+2 mutantenbelege>
+lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"

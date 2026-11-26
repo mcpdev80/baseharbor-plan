@@ -1,0 +1,17 @@
+MISSION: H-V35 (fill desk, flash) — PR/branch liveness + supersession inventory. READ-ONLY, no product change.
+
+Why: post-recovery only #1650 is OPEN, but the coordinator needs machine-grade truth for cards 0428-216 (stale PR hops / base refs) and 0428-221 (base provenance loss): which lane/codex branches and closed PRs are ancestors of develop vs live vs lost-unmerged. This is DISTINCT from H-V34 (which checks whether the merged cluster's CONTENT landed). This desk maps BRANCH/PR ANCESTRY and base-refs only — no content diffing.
+
+Resolve the real GitHub remote (URL contains github.com/mcpdev80). develop head = refs/heads/develop (measure it, current value observed dc8626e9c but re-check).
+
+TASK (read-only, nothing beside it)
+1. `git fetch --all --prune` (refs only). List every remote ref matching `refs/heads/lane-*` and `refs/heads/codex/*`.
+2. For each such branch: run `git merge-base --is-ancestor <sha> origin/develop` → classify ANCESTOR(landed) / NOT-ancestor. For NOT-ancestor, `git rev-list --count origin/develop..<sha>` (commits ahead) and `git diff --name-only origin/develop...<sha> | head` so the coordinator sees WHAT would be lost if it is abandoned.
+3. Cross-reference open PRs: for each OPEN PR (expect ~#1650) report baseRefName + whether its head is ancestor of develop. For recently CLOSED PRs of v0.4.28 cards, note closedAt vs mergedAt (the closed-unmerged = provenance-loss class).
+4. Do NOT edit, push, merge, close, or comment on anything. Pure inventory.
+
+OUTPUT (baseharbor-plan ONLY, real repo, not workers/baseharbor-plan):
+  evidence/recovery-2026-11-23/hunt-hv35-pr-inventory/round-1.md
+with a ## PLAN list (no checkboxes), the branch table (branch | sha | ancestor? | ahead-count | sample files), the open/closed-PR table, and a `cleanliness:` line (no worktree/stack created that isn't removed; ambient images untouched). End with a short fund→card note: which cards 0428-216/0428-221 can now decide (re-land vs reopen) and the exact branch SHAs involved.
+
+END LAST ACTION: codeman agent post <coordinator> "END_DONE hunt-hv35: <one line + develop SHA + N branches inventoried>". Read-only; no subagents.

@@ -1,0 +1,10 @@
+Card 0428-277 / PR #1823 / repo mcpdev80/baseharbor. OWNER+CODEX: current head f072dcb58302 has green CI but the review regression is INCOMPLETE — it seeds an upstream allow decision and asserts only Actor.Subject; it does NOT assert Actor.Assurance or Actor.Methods. Verdict = RC (see baseharbor-plan evidence/r28-welle6-2026-11-25/codex-review-1823/verdict.md). This is a TEST-ONLY repair; production stays as is. develop = current origin/develop.
+
+Branch: reuse lane-0428-277-revealallow (single-writer = you now); do NOT branch a duplicate, do NOT touch #1812/#1819/#1820/#1818/#1826/#1650 or the consent PR.
+
+Do (CODEX correction recipe, verbatim):
+1. In cmd/baha/secret_audit_test.go:329-373 (TestRevealFailed...): set DISTINCTIVE non-empty Assurance AND Methods values in the seeded operatorauth.AuthorizationDecision.Actor, then assert the persisted audit event preserves Subject, Assurance, and the exact Methods list — IN ADDITION to the existing Outcome=failed and AuthorizationResult=deny assertions. Do NOT weaken the deny/fail-closed assertions.
+2. Production (cmd/baha/secret_operations.go recordRevealForTarget) is expected to ALREADY preserve all three fields — if your expanded test FAILS against current production, that is a real bug: fix recordRevealForTarget to preserve Assurance+Methods too, and report it.
+3. Hosted GitHub CI ONLY (never local go test). Push, keep PR #1823 OPEN (same PR, new head), monitor the exact-head PR CI (incl. PR Selected Checks / integration 15368) to TERMINAL green (Eigenes-Run-Pflicht §4.6).
+
+Rules: claim card 0428-277 via scripts/plan.py claim + push before editing; ## PLAN in evidence + native todos; write-set ONLY cmd/baha/secret_operations.go + cmd/baha/secret_audit_test.go; no .github/**, no scripts/**, no catalog rows; do NOT merge (CODEX merges after your green head). Report: new head SHA, the exact test lines you added (seed + assert for Assurance/Methods), the run id + terminal outcome, and whether production needed a change. No subagents (§4.8). Do not contact other sessions.

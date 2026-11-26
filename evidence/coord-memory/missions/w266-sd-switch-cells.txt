@@ -1,0 +1,20 @@
+ROLLE: Worker (Lane w266). Coord a4573079. KARTE: t-20261106-r27-control-plane-single-default RUNDE 4
+(PR #1404 head ed98ed1dde7, Kodex-urteil act-1404e REJECT — NUR fehlende Runtime-Zellen, KEIN code-change:
+kopf bleibt exakt ed98ed1dde7, andernfalls faellt die wiederverwendete lauf-evidence 42237544020).
+ZELLEN (vm-lock seriell; baha-docker-2 205 und baha-podman-2 107; NIE coordinator-host):
+(1) DOCKER restart/wiederholtes up auf BESTEHENDER SINGLE-Instanz: topology/service-zaehlungen + doctor
+    + installation.json-Modus VOR und NACH dem wiederholten `baha up` (ohne --ha) — unveraendert 1+1, READY.
+(2) MODUS-SCHALT-VERSUCH ohne teardown/Migration, auf BEIDEN Familien an der bestehenden SINGLE-Instanz:
+    `baha up --ha` (control-plane-only) => muss FAIL-CLOSED ablehnen; anschl. zaehlung+installation.json
+    UNVERAENDERT nachweisen (vorher/nachher-zeuge). Kein down+fresh-install als ersatz (wortlich im rezept).
+(3) PODMAN-seite: dieselbe schalt-zelle (zelle 3 der w251-run war idempotenz HA-auf-HA, nicht switch).
+(4) Rand: app-bind issuer-erreichbarkeit auf docker-2 nur diagnostic (keycloak-port aufloesbar machen via
+    korrektes resolved-port/hosts — wenn Aufwände hoch: als RANDBEFUND dokumentieren, nicht blockieren lassen;
+    die Core-topologie ist unabhaengig gruen).
+RUECKBAU nach jeder zelle: container/volume/network=0 auf dem je belegten host, vm-lock released.
+AKTE: evidence/r27-welle5-2026-11-06/control-plane-single-default/round-4.md — PUNKTE statt checkboxen;
+je zelle: commands, zaehlungen, doctor-zeile, installation.json-vor/nach; sha-pin ed98ed1dde7 erwahnen;
+## repo-rule compliance. Build des kandidaten: `go build` bei head ed98ed1 (checkout, kein cherry-pick).
+GATES: KEINE subagenten, kein PR/eigener branch (evidence-only lane), kein .github, caches /tmp/opencode/w266*.
+END an a4573079: "END_DONE w266-sd-switch-cells: zellen=<1|2|3 gruen je, 4 rand|gruen> switch_failclosed=<docker:ja podman:ja>
+host-clean=<beide 0> lsremote-aktuell | <Satz>"

@@ -1,0 +1,21 @@
+ROLLE: CODEX-REVIEW (Abnahme-Sitz, kein Worker). Coord 594fd2f5. KARTE: t-20261106-r27-remote-up-podman-owner-missing (0427-117 · podman-family Deploy owner).
+Kandidat PR #1419 (mcpdev80/baseharbor), head 8b5075d2554871ac58dd905c86d27a4bfdf798fc, base develop 934be499b
+(ancestor verifiziert), draft=false, MERGEABLE. Design=expliziter 'verleih' (owner-loan) am VerifyDeploymentOwner seam
+(deployment_store.go:107 / deployment_record.go:87). Die owner-loan-Logik ist zwecks Lesbarkeits-cap in Schwesterdatei
+deployment_owner_loan.go ausgelagert (deployment_store.go 824->776 <=800, refactor-only, KEINE verhaltensaenderung).
+PRUEFE gegen vertrag (nur-lesend, ls-remote refs/heads/develop refs/pull/1419/head zuerst, diff 934be499b...8b5075d2):
+ (1) red-first/regression: TestOwnerLoanRegression* (in deployment-package-tests, am kopf GRUEN) beweist
+     ErrDeploymentOwnerMissing wenn loan unbound -> GRUEN mit loan. Eecht verhaltenspruefend (kein compile). Akte
+     evidence/.../remote-up-cli/owner-missing-round-2.md auf main gegen vertrag pruefen (ls-remote+exit-zeugen).
+ (2) der PR-CI-run 42336410875 ist terminal, source-format+selected-checks+alle validation jobs gruen.
+ (3) WICHTIG — KEIN Schein-Reject fuer Owner-Gate: docker+podman TARGETED runtime cells sind am PR SKIPPED weil
+     .github/workflows/ci.yml runtime-zellen auf designated push refs beschraenkt (Owner-Scope, siehe act-1418a
+     derselbe grund fuer #1418). Wenn der EINZIGE restmangel diese skipped cells sind, dann URTEILE NICHT 'lane
+     muss korrigieren' (die lane kann .github nicht aendern, AGENTS 3.8/5.3), sondern Verdict
+     'REJECT_BLOCKED_ON_OWNER_CI' mit exaktem rezept = welche ci.yml zeilen die runtime-zelle auf PR pfad aktivieren
+     muessten, damit 117/110/116/051 nachweisbar werden. Wenn dagegen die durable unit-red-first + die manuelle
+     baha-podman-2 reproduction (in akte) den KARTEN-vertrag voll erfuellen, ist ACCEPT moeglich — entscheide nach
+     karte, nicht nach formellem cell-skip.
+LIEFERE: verdict=ACCEPT | REJECT_LANE_FIX <datei:line rezept> | REJECT_BLOCKED_ON_OWNER_CI <ci.yml zeilen>. KEIN merge.
+END an 594fd2f5: "CODEX-REVIEW 0427-117/#1419: verdict=<..> head=<..> redfirst=<ok> ci=<42336410875 TERMINAL>
+runtime_cells=<skipped-owner-gate|proven> rezept=<..>". Akte evidence/.../remote-up-cli/act-1419a-review.md ECHTE plan.

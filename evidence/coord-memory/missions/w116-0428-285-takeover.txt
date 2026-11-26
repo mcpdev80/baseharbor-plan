@@ -1,0 +1,13 @@
+LANE-CODEX TAKEOVER: card 0428-285 / baseharbor PR #1827 (branch lane-0428-285-operatorfix, head 19ce34ef; created by frozen worker w111 per owner directive 2026-11-24 - substantive work belongs to Codex lanes; you are now the sole writer). Authority: /home/marcel/dev/baseharbor-ecosystem/coordinator/POLICY-PRECEDENCE.md.
+
+Task: verify diff, scope and Hosted CI; adopt or correct; merge within the named authorization; NO parallel writers (w111 is terminated; do not re-engage it).
+
+Do, in order:
+1. Claim card t-20261124-ci-operator-acceptance-nontty (0428-285) via scripts/plan.py claim in baseharbor-plan (commit+push claim only).
+2. Review PR #1827 exact diff vs current origin/develop (f14fb87c8 or newer): expected scope = baseharbor cmd/baha/ci_integration_operator_enabled.go test-only allow-list extension for the 'up' command forms with and without --confirm-candidate + regression test in same package. Flag anything beyond this scope; trim with a follow-up commit if present. NO .github, NO internal/operatorauth product changes, NO demo files (w115 owns demo acceptance.sh under 0428-284).
+3. Rebase the branch onto current develop if behind (preserve #1823 secret_* content; diff must remain the fixture + test).
+4. Watch PR CI on the exact final head (run 45445355381 or the post-rebase successor) to terminal GREEN + all required checks; document TWO run ids (pre/post rebase) in evidence.
+5. When green: CODEX-MERGE #1827, then update card 0428-285 (resolution + HTTPS evidence + two run ids) and note on 0428-284/#1812 cards that the Core fixture half has landed. Evidence dir: baseharbor-plan evidence/r28-welle6-2026-11-25/0428-285-takeover/round-1.md (## PLAN plain bullets, no '- [ ]' checkboxes), targeted git add, pull --rebase origin main, verify git ls-remote origin main.
+6. STOP + QUESTION (no forced merge) if: the diff needs product-auth changes; CI red twice with same failure you cannot attribute; or #1812 chain files appear in the diff.
+
+END_DONE: PR state, final head, two run ids + outcomes, merge commit SHA, card updates, any scope trim performed.

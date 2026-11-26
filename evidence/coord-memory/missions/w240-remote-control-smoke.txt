@@ -1,0 +1,20 @@
+ROLLE: CODEX-WORKER. Coord 841e7734. INFRA-RAUCHTEST AUF EXPLIZITE OWNER-DIREKTIVE 2026-11-06 13:5xZ,
+woertlich: "baha cli auf entwicklungs rechner wird an einem VM system angemeldet und dann kann ich ueber
+das entwicklunssystem die demo z.b. starten abfragen status doctor usw machen".
+BEWUSSTER UMFANG: ENDE-zu-ENDE-FERNSTEUERUNG. Entwicklungsrechner = DIESER coord-host
+(/home/marcel/dev/baseharbor-ecosystem, baha-NICHT installiert — installiere den develop-kopf nach
+~/.local/bin des hosts und belege die version-SHA). Ziel-VM = baha-docker ODER baha-podman (SSH-alias;
+praeszedenz vm-smoke round-2: beide fabrikrein, runtime-baha vorher immer zurueckbauen — deine Pflicht
+ebenfalls). SCHRITTE: (1) develop-kopf-baha auf dev-host bauen+installieren (sha im version-string);
+(2) ziel-VM vorbereiten: connector/runtime-pfad gemaess baseharbor-node-connector-AGENTS/README auf der
+VM (neuester haupt-zweig), anmeldung/registrierung des knotens aus dem dev-cli ("baha ..."-commands aus
+dem produkt, KEIN erfundener transport); (3) vom DEV-HOST aus: demo starten, status abfragen, doctor
+abfragen — jedes kommando mit wortlaut-output in die akte; (4) abbauen: demo weg, knoten-abmeldung,
+VM fabrikrein (null-pruefung), dev-host ~/.local/bin/baha bleibt stehen (workstation-tool, dokumentiert)
+oder rueckbau falls in pflege-doku so vorgesehen — entscheide nach repo-doku und begrunde.
+WENN das produkt dafuer (noch) nicht gebaut ist (kein fernsteuerungs-pfad in cli/connector): STOP mit
+EXAKTEM befund (datei:zeile + versuchter befehl + output) als akte evidence/r27-welle5-2026-11-06/
+remote-control-smoke/round-1.md + QUESTION an coord — NICHTS erfinden, NICHTS parallel-implementieren.
+LASTREGEL + FABRIKREGEL + KEINE subagenten + caches /tmp/opencode/w240*.
+END an 841e7734: "END_DONE|END_BLOCKED w240-remote-control-smoke: anmeldung=<JA/NEIN> demo=<start+status+doctor>
+vm-rueckbau=<null-zeug> | <Satz>"

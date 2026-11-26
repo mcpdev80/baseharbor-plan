@@ -1,0 +1,38 @@
+DISPATCH w287-pr1410-remote-material — Karte t-20261018-r27-remote-material (release v0.4.27)
+
+Mission (voll): coordinator/missions/w287-pr1410-remote-material.txt
+Mission lesen; Write-Set, Testanforderung, BEWEISREGEL, STOP-KRITERIEN dort.
+
+Owner-Entscheidung 2026-11-07 (massgeblich, vor der Mission umsetzen):
+Die Karte heisst „project EXPOSURE material to the actual target" und ihr Outcome nennt
+PROVIDER- UND EXPOSURE-TLS getrennt. Genau EIN begrenzter Schnitt:
+das SERVING-Zertifikat einer Exposed-Deployment wird durch den bestehenden provider-owner
+(serviceaccess PKI: EnsureNativeTLS / EnsureTLSMaterial) in die managed publication
+projiziert und am NODE konsumiert (HTTPS-serving-pfad), inkl. rotation (neues material
+ wird ohne erneutes bootstrap verbraucht). Kartenwortlaut zwingt: „a standalone unused
+adapter is not complete" => der consumer muss es wirklich benutzen.
+
+Pflicht: positiver + negativer regression + „bounded protocol probe where cryptographic
+consumption cannot be proven by fixtures" (Required checks, RUNBOOK 5.6).
+„Do not enable the broad remote guard yet" => KEIN default-flip, kein shared registry/index
+(der gehoert t-20261018-r27-public-surfaces). Supported limit ausdruecklich benennen
+(z.B. ein serving-zertifikat je exposure, rotation ohne neustart).
+
+Write-set bleibt: internal/application/remote_runtime_projection.go,
+internal/application/remote_application_projection.go + bounded exposure/material-dateien
+und tests. NICHT: .github/** (Owner-scope), cmd/baha/deployment_record.go, management-host,
+compose/InCI-Isolation.
+
+Basis: develop dddf0d7823f6eec161ad518bbced626fa9efe52e.
+Beweisort: baseharbor-plan/evidence/r27-welle5-folge-2026-11-06/remote-material/round-2.md
+(round-1 ist auf main 2d04bd43).
+
+Arbeitsanweisungen:
+- Erster Arbeitsschritt: remote-remote-material in eigenem Worktree unter /tmp/opencode/<lane>-wt
+  von develop dddf0d782 (ls-remote vorher gegen diesen Kopf; bei drift: develop mergen, nicht loslegen).
+- todo-board + ## PLAN in der Akte (keine markdown checkboxes in Evidence!).
+- Jeder NEUE Test muss von einem GitHub-CI-Job ausgeführt werden. Wo .github/** geändert werden
+  müsste: NICHT selbst ändern — Befund mit file:line an a4573079 (owner), der owner setzt das um.
+- Runner sind GitHub-hosted shared runners nur; nie runner-infra bauen. VMs = smoke/validation nur.
+- Keine subagenten (§4.8); jeder schritt in der eigenen session. Braucht was → QUESTION an a4573079.
+- END an a4573079: "END_DONE w287-pr1410-remote-material: head=<sha> base=<sha> pr=<n> akte=<pfad>".
