@@ -83,3 +83,15 @@ Appended (forward-only, 10 lines, diff shows zero deletions) to `evidence/r29-we
 - Shared checkout `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan`: untouched — read-only fetch/show only; no rebase/reset/stash/checkout/add there. `docker ps -a` witness line appended below.
 
 END placeholder — replaced at the last action.
+
+## Commit / PR / run witnesses
+
+- Commit `dd09ca4dc95d8160498e344efddb632c20d003ef` on branch `w306-0428-253-rulingdoc`, cut from plan main `1b9b2bc70201d9da6615a9ec16942103c20e96a1`.
+- Identity gate: `git log --format='%h an=%an cn=%cn' -1` → `dd09ca4dc9 an=w306-0428-253-rulingdoc cn=w306-0428-253-rulingdoc` (author AND committer canonical, before push).
+- Ancestry: `git merge-base --is-ancestor 1b9b2bc70201d9da6615a9ec16942103c20e96a1 HEAD` → OK.
+- Log-line scope gate: `git log --oneline origin/main..HEAD` before the commit → empty (0 lines); after the commit → exactly `dd09ca4dc9 docs(plan): append forward-only correction block to 0428-253 admission ruling; fill card evidence refs` — only this lane's own commit.
+- Diff-name gate: `git diff origin/main...HEAD --name-only` → akte.md, w136-pr1853-admission-ruling.md, t-20261123-planner-deleted-source-advisory.md (exact three-file write set).
+- Forward-only gate: `git diff` on the ruling file shows `1 file changed, 10 insertions(+)`, zero deletion lines.
+- Delivery witness after push: `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/w306-0428-253-rulingdoc refs/heads/main` → `1b9b2bc70201d9da6615a9ec16942103c20e96a1 refs/heads/main` and `dd09ca4dc95d8160498e344efddb632c20d003ef refs/heads/w306-0428-253-rulingdoc`.
+- Plan PR: https://github.com/mcpdev80/baseharbor-plan/pull/108 (opened ready, not draft; this lane never merges it).
+- Own Hosted run (Eigenes-Run-Pflicht): workflow `Validate planning`, run `45770188193`, event pull_request, head `dd09ca4dc`, terminal `completed / SUCCESS`, observed by this lane to terminal.
