@@ -7,8 +7,8 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w334-0428-321-exitcodedocs (released; correction candidate owed - re-lane via coordinator)
-kanban_status: review
+owner: w345-0428-321-exitfix (fresh-lane correction per owner 23:2xZ; prior lane w334 released)
+kanban_status: active
 kanban_lane: review
 kanban_summary: "Document the baha process exit-code taxonomy at the user-facing surface: 0 success, 1 runtime failure, 2 usage error, 130…"
 kanban_title: 0428-321 · document baha exit-code
