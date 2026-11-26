@@ -1,6 +1,7 @@
 # w327-0428-078-dashwitness — PR #1855 Target-isolation correction (round 2)
 
-Card: t-20261019-r27-0428-078 (identity dashboard witness), PR mcpdev80/baseharbor#1855.
+Card: 0428-078 (identity dashboard witness; carrier tasks t-20261114-r28-perses-dashboard-identity /
+t-20261120-r28-keycloak-producer-target-mismatch), PR mcpdev80/baseharbor#1855.
 Mission: fix the residual Target-isolation defect w267 reported in the CHANGES review
 (comment 7194027071) on head 77bd785cb404c502443a78a56b9edb1d2b8eb4e2, push one ordinary
 commit as the lane identity, watch the exact-head pull_request run, comment on the PR,
@@ -92,7 +93,8 @@ the exact-head run watched to terminal (run id + 4 Selected Runtime job results 
 - 18ccd8ea80d462a71964fd95a1d0dab31e6a713f — dead-code cleanup of superseded helpers
   (same write-set, no behavior change).
 - 879655f07f5fb28aba4e37ce33fdb2a8e0cce046 — attribution comments aligned with the final
-  grammar (comments only, no behavior change). FINAL CANDIDATE HEAD.
+  grammar (comments only, no behavior change). FINAL CANDIDATE HEAD (see PR comment
+  7196660600).
 - `git show -s --format=%an` on all three: `w327-0428-078-dashwitness`.
 
 ## CI (hosted, exact head)
@@ -104,9 +106,11 @@ the exact-head run watched to terminal (run id + 4 Selected Runtime job results 
   Runtime jobs all SUCCESS: docker·observability, podman·observability,
   podman·data-capabilities, docker·data-capabilities. PR Selected Checks posted
   (.github#5). Superseded intermediate-head runs (NOT qualification): 45843285141
-  (f13d37d4 — every completed job green, cancelled after the two data-capabilities
-  runtime jobs had passed, to free runners for the final head), 45843907729 (18ccd8ea,
-  auto-cancelled by the branch concurrency group when 879655f0 was pushed).
+  (f13d37d4 — every completed job green incl. all 4 Selected Runtime jobs, cancelled
+  while only its final wrap-up steps remained, to free runners for the final head —
+  justified by the three-commit batch correction, not an automatic full-matrix rerun),
+  45843907729 (18ccd8ea, auto-cancelled by the branch concurrency group when 879655f0
+  was pushed).
 - `BASEHARBOR_PR_DEMO_SOURCE_SHA` untouched: no file in the delta (8635ba07..HEAD touches
   only internal/metrics/identity_dashboard_witness*.go) can set it; the PR · Demo Pin job
   consumed the trusted repository variable pin (demo_sha 98e4d549…, workflow-internal
@@ -116,7 +120,8 @@ the exact-head run watched to terminal (run id + 4 Selected Runtime job results 
 
 No containers, networks, volumes or state directories were created by this lane on this
 host (unit tests use `t.TempDir()`/isolated BASEHARBOR_STATE_DIR only).
-`docker ps -a` before: (empty) — after: (empty).
+`docker ps -a` before: (empty) — after: (empty). cleanliness: verified empty on both
+sides; lane worktrees/clones removed after this commit.
 
 ## END
 
