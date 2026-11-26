@@ -134,9 +134,78 @@ Docker consent --confirm-candidate (exit 41): still an OWNER-authorization STOP 
 - Planning repo: shared checkout left UNTOUCHED (stashes are pre-existing from plan-sync, not mine); my akte written to isolated worktree workers/w285-plan @ origin/main (1f3e0673f); never git add -A / stash / reset there
 - gh pr view used read-only for state/mergeable; no gh pr edit/close/ready
 
-## END
+## END_DONE — read-only clean-rebuild analysis complete; zero product mutation. Tables + base-coherence answer + compile-before-#1819 answer + verbatim authorization quote with file:line + zero-mutation proof + cleanliness below.
 
-END_DONE — read-only clean-rebuild analysis complete; zero product mutation. Tables + base-coherence answer + compile-before-#1819 answer + verbatim authorization quote with file:line + zero-mutation proof + cleanliness below.
+### Authoritative write-set census (git diff --name-status develop...20fc1cb7 — 66 files, 1368 ins / 2775 del; source = git, not the truncated pulls/1818/files API)
+
+```
+M	.github/workflows/ci.yml
+M	.github/workflows/pre-release-runtime-suite.yml
+M	.github/workflows/pre-release.yml
+M	AGENTS.md
+M	cmd/baha/app_init_detection.go
+D	cmd/baha/app_init_metrics_boundary_test.go
+M	cmd/baha/app_init_prompts.go
+M	cmd/baha/app_init_selection.go
+M	cmd/baha/app_init_wizard.go
+M	cmd/baha/app_init_wizard_test.go
+M	cmd/baha/app_status_collect.go
+M	cmd/baha/app_status_perses_alert_evaluator_0428_152_test.go
+M	cmd/baha/app_status_result.go
+M	cmd/baha/ci_integration_operator_enabled.go
+M	cmd/baha/ci_integration_operator_enabled_test.go
+M	cmd/baha/env_destroy_integration_test.go
+M	cmd/baha/perses_lifecycle.go
+M	cmd/baha/secret_audit_test.go
+M	cmd/baha/secret_operations.go
+M	docs/STYLE_GUIDE.md
+M	docs/cli/command-index.md
+M	docs/de/cli/command-index.md
+M	docs/de/how-to/observability.md
+M	docs/de/reference/releases.md
+M	docs/de/releases/v0.4.28.md
+M	docs/de/spec/credential-access-v1.md
+M	docs/de/spec/provider-conformance-v1.md
+M	docs/how-to/observability.md
+M	docs/internal/release-audits/v0.2.0.md
+M	docs/internal/release-audits/v0.3.0.md
+M	docs/internal/release-audits/v0.4.5.md
+M	docs/internal/release-audits/v0.4.6.md
+M	docs/internal/release-audits/v0.4.7.md
+M	docs/reference/releases.md
+M	docs/releases/v0.4.28.demo-ref
+M	docs/releases/v0.4.28.md
+M	docs/spec/credential-access-v1.md
+M	docs/spec/provider-conformance-v1.md
+M	internal/application/runtime_identity_workload.go
+D	internal/application/runtime_identity_workload_fallback_test.go
+M	internal/application/runtime_identity_workload_test.go
+D	internal/applicationbackup/identity_regression_test.go
+M	internal/deployment/environment_destroy_scope.go
+M	internal/deployment/environment_destroy_scope_test.go
+M	internal/identityprovider/keycloak_files.go
+M	internal/identityprovider/keycloak_realization.go
+M	internal/metrics/perses_backend_status.go
+M	internal/metrics/perses_dashboards.go
+A	internal/metrics/perses_dashboards_keycloak.go
+M	internal/metrics/perses_dashboards_test.go
+M	internal/metrics/realization.go
+A	internal/metrics/testdata/perses-dashboards/keycloak-identity.json
+M	internal/operatorauth/authorization.go
+M	internal/operatorauth/config.go
+M	internal/repositoryinspect/capability_detectors.go
+D	internal/repositoryinspect/metrics_endpoint_boundary_test.go
+M	scripts/pr-check-runner.py
+M	scripts/pr-gate-coverage.json
+M	scripts/pr-gate-plan.py
+M	scripts/release-requirements.json
+M	scripts/test_ci_check_routes.py
+M	scripts/test_pr_ci_fallback.py
+M	scripts/test_pr_gate_coverage.py
+M	scripts/test_pr_gate_plan.py
+M	scripts/test_pre_release_check_plan.py
+M	scripts/validate-pr-gate-coverage.py
+```
 
 ### Zero-mutation proof (ls-remote before/after identical — I never pushed)
 - BEFORE this mission, product remote tip confirm: `git ls-remote origin refs/heads/develop` = ac7c970fe91ad5fc3d8cb76336ddbbb7ecce04ee (cloned fresh).
