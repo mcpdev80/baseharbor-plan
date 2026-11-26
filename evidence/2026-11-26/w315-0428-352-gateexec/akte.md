@@ -119,6 +119,12 @@ For the two candidate commits this mission evaluates, the base heads were fetche
 - published via scoped plan PR (never direct push to protected main); identity commit witnesses below
 - `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/2026-11-26/w315-0428-352-gateexec` — exact output appended below this section after origin/main carries the merge.
 
+## STEP H — live post-merge witness (#1859 merged to develop 2026-11-26)
+
+- `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop` (11:5x local): 5a37ddbd9a06dd44f6068d3266ff2ed853a84a74. Ancestry: `git merge-base --is-ancestor b7855f78a 5a37ddbd9` TRUE; `git log --oneline b7855f78a..5a37ddbd9` = exactly one commit "feat(0428-352): trusted catalog row so runtime-suite candidates select Docker/Podman gates (#1859)". #1859's catalog files on develop are byte-identical to the head blob 4f6a4af85 (`git diff 0716d20be 5a37ddbd9` empty).
+- New develop push runs 45809297842/45809298052: both completed SUCCESS (push-path runs; not the pull_request Selected-Runtime path).
+- Live-execution status: the merge of #1859 itself makes the catalog row part of the TRUSTED BASE for every subsequent pull_request candidate (ci.yml:867-868 stages pr-gate-plan.py/validate-pr-gate-coverage.py/pr-gate-coverage.json from controller=effective base; measured replay of that exact trio gives 14 selected / include n=14 / required=true — STEP E). A workflow-modifying OPEN PR (e.g. #1812) needs one NEW pull_request event to show it: at this writing #1812 still has no run at base 5a37ddbd9 (`/actions/runs?head_sha=b962e6d2c…` lists only run 45771862723 from 06:58:04Z; PR updatedAt 06:58:00Z, state OPEN). No lane triggered anything (mission rule: lanes never rerun/toggle); that trigger is the coordinator/owner action.
+
 ## END line
 
 END_DONE w315-0428-251-0428-352-gateexec: 14 Light gates = PR-path Selected-Runtime family; one trusted-base catalog change (row + 10 cover tokens, #1859 as-is) EXECUTES them on a workflow-file pull_request candidate (measured replay 14/required=true); runtime-validation/ha push path NOT unavoidable for these gates and never reachable from pull_request; #1859's own runs executed 0 of them; precedent finding: plan-main graft into candidate 8b96407aa flagged for disposition.
