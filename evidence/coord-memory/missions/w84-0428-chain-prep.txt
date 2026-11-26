@@ -1,0 +1,18 @@
+READ-ONLY SERIAL-CHAIN PREP DESK (AGENTS §3.3.5 + owner directive 13:1xZ: "assign independent read-only review/preparation for eligible open PRs"). Do NOT touch the frozen chain #1812 in CI (no gh pr checks/run trigger/rerun). Do NOT start work on #1819/#1820/#1818 branches, do NOT push, do NOT merge, do NOT subagents (§4.8), do NOT contact other worker sessions. Your job = READ-ONLY PREPARATION: bring #1819 and #1820 candidates into a state where their serial steps can execute the instant #1812 is accepted/merged, and REPORT gaps (findings only).
+
+develop = current origin/develop (report SHA, expect 46d3dccc after #1825).
+
+1. #1819 / card 0428-181, branch w54-0428-181-export, last known head 17381017, RC1+RC2 implemented:
+   - git ls-remote the branch (current SHA), git merge-base with origin/develop, count commits behind.
+   - Read-only diff summary of the branch vs its intended write-set per card 0428-181: which files, does the diff touch scripts/** or .github/**? (must not)
+   - Cross-reference coordinator/evidence/codex-review-1819.md RC1+RC2 — are BOTH addressed in the current head (quote file:line for each)? Report VERIFIED vs MISSING. Do not push anything.
+   - Ghost-catalog note: card 0428-278 says the perses_dashboard_provision coverage rows go live ON this PR's merge — is the row already in scripts/pr-gate-coverage.json on develop (yes/no)? If yes, the ghost state means CI selects the file BEFORE its producer exists on develop → confirm the sequence is safe (i.e., the row exists but file path absent → gate-plan skips the absent file, no failure). Quote the current scripts/pr-gate-coverage.json line for the two rows.
+
+2. #1820 / card 0428-271, branch fix/broker-build-identity, prior run 45382404741 CANCELLED (void):
+   - git ls-remote the branch (current SHA), diff vs its base, does the CURRENT head already contain the missing regression: a dev/edge version-pair test that asserts EMPTY runtime commit TOGETHER with dev/edge (per codex-review-1820.md)? Quote file:line if it exists; else report MISSING with a precise recommendation.
+   - Note whether the branch base is up-to-date with origin/develop (behind? rebase needed?). Report but do not rebase.
+
+3. #1818 / card 0428-078, branch lane-0428-078-cf-fix, clean head 0f20a3b9, contaminated tip 20fc1cb7 (VOID):
+   - READ-ONLY: verify w75's reset-prep plan (evidence 8bbfe9945) is still consistent with current develop: (a) clean diff of 0f20a3b9 vs develop still shows the intended 19 files with NO catalog keycloak-identity row, (b) C-retarget seam still pinned to persesDashboardProvisionForLifecycle @ internal/metrics/perses_dashboard_provision.go + TestPersesKeycloakDashboardQueriesSelectRealProviderLabels at cmd/baha/perses_dashboards_test.go:766 (quote file:line), (c) confirm the #1818 gate depends on #1819 merge AND owner C-decision. Do not touch the branch.
+
+Deliver baseharbor-plan evidence/r28-welle6-2026-11-25/serial-chain-prep-1819-1820-1818/round-1.md (## PLAN + native todos): a three-column table per PR — current head / behind base / VERIFIED-vs-MISSING items — plus a next-action recommendation per PR that COORDINATOR can execute verbatim (specific rebase targets, gh workflow_dispatch invocation strings). Commit+push atomically (git add the single new file, pull --rebase origin main). NO PR-CI trigger, NO rebase/push on the branch, NO merge. Report inline + evidence SHA.

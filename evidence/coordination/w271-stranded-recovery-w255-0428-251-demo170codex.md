@@ -5,7 +5,7 @@
 1. Verify the 88-path w271 census from Plan PR #76 against current live main and revalidate each carrier and blob.
 2. Restore only unique, still-missing paths from their exact original refs or stash trees; classify content duplicates and task-ID collisions explicitly.
 3. Record post-merge #75 readback for all 13 expected paths and the 0428-273 card state.
-4. Restate direct-main findings in commits aea8cb430, 9e9e53cf, 053b2b6d1, 6480495f5, 9ff4e1108, and 1df17acef with true executing lanes and content verdicts; preserve every commit unchanged.
+4. Restate direct-main findings in commits aea8cb430, 9e9e53cf, 053b2b6d1, 6480495f5, 9ff4e1108, 1df17acef, and cfb2b6c8a with true executing lanes and content verdicts; preserve every commit unchanged.
 5. Record a row for every restored artifact with path, original carrier, original blob SHA and restored blob SHA; require `git diff --quiet <carrier> HEAD -- <path>` to exit 0.
 6. Self-review scope, ancestry, name-only diff, author identity and exact-head Hosted Plan validation; merge only this scoped Plan PR after validation succeeds.
 7. Read back every newly restored path from post-merge main, update the lane board and publish the final evidence witness.
@@ -278,8 +278,15 @@ These source akte bytes and commits remain untouched in history. Each finding is
 | evidence/w276-0428-284-1812fire/w276-0428-284-1812fire.md | 6480495f518eb83c4b1e01ecbfa3c48defd45fc1 | w276-0428-284-1812fire | Useful historical hop/source-coverage finding; its 14-gate accounting conflicts with its 17/18-name enumeration and b411277 pin statement is superseded by required target 5ca92a7cd2f746934890cfd7096a48068bdf218e. Authored coordinator and direct-main published; not qualified lane evidence. |
 | evidence/w275-0428-251-runaudit/w275-0428-251-runaudit.md | 9ff4e1108675f18350974a7757c420568a89f692 | w198 | Usable with corrected chronology: default-branch workflow landed at d512653aa2e5e69e734caf9b64b5043f409ade42 at 00:06:55Z, about two minutes before #170 close/reopen. Paths were not the cause; main workflow copy covers #179's four changed files. Fresh pull_request event is the route; no workflow edit. Direct-main commit used another lane identity. |
 | evidence/w282/0428-078/pr1855-census.md | 1df17acef6d40cdcd50c9e0b571e0921335630bb | w282-0428-078-1855census | Correct/useful: #1855 needed a second distinct pull_request run; run 45746255447 was in progress at the source read. #1855 PR Demo Pin executed and passed while #1856's was skipped. pr-native-gate-plan returned include:[] for #1855 and develop baseline, so #1856's required-route defect is outside card 0428-078's write-set and cannot justify broad ci.yml change on that card. Direct-main commit used card-owner identity w165-0428-078-pr1650-basehop instead of executing lane identity. |
+| evidence/2026-11-26/w293-0428-273-catalogbaseline/akte.md | cfb2b6c8a820bcc4062ec1f05657be595f9d37c8 | w293-0428-273-catalogbaseline | Content accurate: w293's census of the one-file catalog change is sound. The commit was published directly to main, so the publication channel is invalid and this is not qualified lane evidence; the commit and source akte remain unchanged. |
+
+This disposition was added forward-only on a branch cut from live Plan main `6c2ab2c00eb8bb59ac8efb954b91bde3b1ebe4aa`, under the executing lane identity `w255-0428-251-demo170codex`; the direct-main source commit has parent `4884849f787f77ad2cd22a3c244b3f734fe7ae6f` and remains unchanged. The w293 content is retained as an accurate census finding, but the direct-main publication is not counted as qualified lane evidence. This bookkeeping does not alter w271's 88-path census or its remaining-path count.
 
 The two w254 SHAs are separate commits for the same source path and finding. None of these commits is reverted or rewritten. The w282 source path is present on fetched main at 09e5e1b57.
+
+## Current follow-up status
+
+END_BLOCKED w255-0428-251-demo170codex: the cfb2b6c8a disposition is recorded in open Plan PR #97 for independent review; this author will not merge this correction.
 
 ### Policy-source conflict recorded
 

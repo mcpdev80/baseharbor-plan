@@ -1,0 +1,13 @@
+Auftrag 0427-039-node-cli-r4 (lane b9097188, flash, FRISCH; kandidat PR#1436 head eee54634a auf origin + review act-1436-review.md origin/main 0aff9a017 — dort abholen).
+Karte t-20261018-r27-node-cli. CODEX-REVIEW = REQUEST-CHANGES (mehrfache runde auf DEMSELBEN thema — grundlegend richtig machen, nicht nochmal daneben patchen):
+  1. FALSCHES FELF: der node status/ list-state wird aus GRANT expiry abgeleitet — das ist NICHT der maßgebliche wert. Die ENROLLED/EXPIRED/REVOKED entscheidung muss aus dem ECHTEN einschreibungs-/zertifikats-lifecycle kommen (certificate/enrollment expiry + revocation), nicht aus grant/session expiry.
+  2. TESTS UMBER PRODUKTIONSPFAD: die meisten der 7 regressionstests umgehen den echten state-pfad (testen eine parallele/künstliche rute). Die tests MUESSEN denselben produktions-code pfad durchlaufen, den `baha node status`/`node list` im echten betrieb nimmt (connector/enrollment store -> classify -> output), damit der test die echte zuordnung beweist.
+VORGEHEN:
+  a) grep/lese den connector + node-trust datenpfad: wo liegt ECHT certificate/enrollment expiry + revocation (nicht grant)? bestimme die authoritative quelle, referenziere sie in der evidence (datei:zeile).
+  b) leite PENDING/ENROLLED/EXPIRED/REVOKED daraus ab (fail-closed bei fehlender/unklarer quelle, kein still-pending, keine erfindung).
+  c) schreibe die regressionstests NEU sodass sie den PRODUKTIONS-pfad aufrufen (echtes classify aus dem store, kein fake state). table-driven: enrolled, cert-expired->EXPIRED, revoked->REVOKED, none->PENDING/fail-closed.
+- claim: plan.py claim t-20261018-r27-node-cli --owner 0427-039-node-cli-r4 (commit+push) BEVOR aendern.
+- basis PR#1436 branch work/r27-node-cli head eee54634a. fetch origin develop (8a3f58da9+), merge, ancestor rc0. delta NUR node.go/node_read.go + tests (KEINE grant/quart/datenmodelle anderer karten aendern — wenn die certificate-expiry quelle in einer datei liegt die eine ANDERE karte besitzt: BEFUND/QUESTION an coord, nicht cross-edit).
+- eigenes-run: hosted pr-check finale sha TERMINAL (run-id+status evidence), ls-remote zeugnis. ## PLAN + todowrite. keine subagenten (4.8). NICHT idle ohne END. Wenn die echte quelle nach <2 anlaeufen> nicht auffindbar/definiert ist: QUESTION an coord (dann kläre ich mit owner) — nicht raten.
+Evidence: evidence/r27-welle5-folge-2026-11-07/node-cli/round-4.md
+END an 594fd2f5.
