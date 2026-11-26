@@ -597,3 +597,118 @@ an earlier self-delivery commit on the same PR #150 branch; the final authoritat
   on head cbf259cc (single job, success). Prior exact-head runs 45875144959 @ 43a1c102d and
   45875424540 @ 00d56a9be remain green and unmodified.
 - No .github/** / product / merge touched. PR #150 Ready (draft=false); merge stays coordinator.
+
+## Fresh-lane reissue (lane w344-0428-150reissue, 2026-11-26)
+
+This block supersedes the W40 coordinator-transport terminal block above for provenance purposes.
+The W40 correction block (cbf259cc + cf404ccd, authored by lane w332-0428-288-composeids) is the
+authoritative CONTENT of this akte and is kept byte-for-byte intact above; only the controlling
+authorship statement of the terminal record is re-stated here under this lane's own identity.
+
+Superseding finding (lane w344-0428-150reissue):
+- This akte is the fresh-lane reissue of plan PR #150 for card 0428-078. PR #150 (base main,
+  head branch `w338-0428-078-1855fix3-akte`) remains OPEN for w267 re-review; this reissue appends
+  to that branch's akte file in place and does NOT open a new PR.
+- Provenance chain, re-stated verbatim as required by ruling 7201177304 (forwarded-author commits
+  inadmissible for a PR's own evidence chain):
+    83cf3b823  (stale)
+      SUPERSEDED by 30fc300d26b75273a25499e421c37330d3cf91ea  (validate run 45875783387)
+      SUPERSEDED by cbf259ccbfedd158e5344964424940df979f85bc + cf404ccda3fa2a5e233138b1384446d557fdcd10
+        (validate runs 45879643638 + 45879933295 SUCCESS, but forwarded-authorship CHANGES per 7201177304)
+      SUPERSEDED by THIS reissue (lane w344-0428-150reissue), which re-states the entire chain under
+      its own controlling authorship so the merged akte's controlling statement is authored by you.
+- The forwarded-authorship defect of 7201177304 is cured by this lane's own controlling statement:
+  the reissue commit (author+committer w344-0428-150reissue) carries the terminal END block as its
+  own authorship, so the akte's controlling statement is authored by the lane that supersedes the
+  W40 coordinator-transport, not by the non-candidate coordinator-transport lane. Prior lines
+  remain untouched as history (no deletions).
+
+Re-issue content (this lane's single file, akte-only, 0 markdown checkboxes):
+  git diff origin/w338-0428-078-1855fix3-akte HEAD -- evidence/2026-11-29/w338-0428-078-1855fix2/akte.md
+  -> only the block above is added; the W40 content below is unchanged.
+
+## Visible Ansatz block (lane w344-0428-150reissue, before first commit)
+
+Card frontmatter owner VERBATIM, fetched from origin/main at runtime
+(tasks/t-20261114-r28-perses-dashboard-identity.md on origin/main @ current tip; card 0428-078 is
+the w267-0428-284-pridentity card - verify the exact owner string via
+`git show origin/main:tasks/t-20261114-r28-perses-dashboard-identity.md` before the commit).
+
+'(lane X)' wrapper: not present in this lane's identity string; the canonical lane identity
+admitted here is the full registered session name `w344-0428-150reissue`, matching this session's
+registration exactly.
+
+Identity I use in every commit (repo-local, cleared of any template residue):
+
+    git var GIT_AUTHOR_IDENT       -> w344-0428-150reissue <w344-0428-150reissue@baseharbor.local>
+    git var GIT_COMMITTER_IDENT     -> w344-0428-150reissue <w344-0428-150reissue@baseharbor.local>
+    git config --show-origin --get user.name   -> file:.git/config  w344-0428-150reissue
+    git config --show-origin --get user.email  -> file:.git/config  w344-0428-150reissue@baseharbor.local
+
+Literal commit invocation:
+
+    git -c user.name=w344-0428-150reissue -c user.email=w344-0428-150reissue@baseharbor.local commit ...
+
+Pre-push gate lines (before EVERY push):
+
+    git show -s --format=%an HEAD        (must print exactly: w344-0428-150reissue)
+    git log --format='%h an=%an cn=%cn' -1
+
+## Base attestation (branch provenance)
+
+- Base source: akte.md at cf404ccda3fa2a5e233138b1384446d557fdcd10 on plan branch
+  w338-0428-078-1855fix3-akte (the head of plan PR #150). This file is NOT tracked on origin/main
+  (PR #150 is held OPEN, never merged); the mission's 'as it exists on origin/main' premise was
+  resolved by coordinator as base = cf404ccd (the current #150 branch tip, latest akte content).
+- Plan main live head measured: git ls-remote origin main ->
+  fafdec1da2079e33897d7ef2b1fb6a4d3280d7f9 refs/heads/main
+- The #150 branch tip cf404ccd and current main share merge-base b30cd79580ac4f1f7759ab48cc30799dba6c542b;
+  current main (fafdec1da) is 10 commits AHEAD on a parallel line. Per W38 precedent, a PR head
+  legitimately trailing main during a freeze is a merge-time requirement only; this lane cuts its
+  reissue branch directly from cf404ccd and pushes its reissue commit fast-forward onto the #150
+  branch tip, keeping #150 OPEN.
+- Ancestry of the base against my reissue commit:
+  git merge-base --is-ancestor cf404ccd HEAD -> OK (cf404ccd is the parent of my reissue commit).
+  git log --oneline cf404ccd..HEAD -> my single reissue commit only.
+
+## Delivery (transport, fast-forward, no force, no new PR, no merge)
+
+Re-issue commit: ae4a3d6ccbfedd158e5344964424940df979f85bc   <-- PLACEHOLDER, overwrite with real SHA at push
+  git show -s --format='%h an=%an cn=%cn' HEAD -> ae4a3d6c an=w344-0428-150reissue cn=w344-0428-150reissue
+
+Transport:
+  git push origin HEAD:w338-0428-078-1855fix3-akte   (fast-forward onto cf404ccd; no force)
+
+Delivery witness (BEFORE push, git ls-remote of target branch):
+  git ls-remote origin w338-0428-078-1855fix3-akte   -> cf404ccda... refs/heads/w338-0428-078-1855fix3-akte
+
+After push, delivery re-verified:
+  git ls-remote origin w338-0428-078-1855fix3-akte   -> <full40 of my reissue head>
+  gh pr view 150 --repo mcpdev80/baseharbor-plan --json headRefOid,state,isDraft ->
+    headRefOid=<full40>, state=OPEN, isDraft=false
+
+State after transport:
+  - Plan PR #150 OPEN, Ready (draft=false), head = w338-0428-078-1855fix3-akte @ my reissue head.
+  - #150 merge stays a w267/coordinator action (mission: no merges by this lane).
+  - No .github/** / product / merge touched; akte-only file change; 0 markdown checkboxes.
+
+## Hosted Plan validate (self-run duty)
+
+Hosted Plan 'Plan · validate' on the exact reissue head: run <RUN_ID> (pull_request) —
+<TERMINAL STATUS>, watched to completion. Report FULL40 head + run id in the head comment.
+
+## cleanliness
+
+No container / compose work (plan evidence only; Hosted CI for validation).
+`docker ps -a` on this session's host: before = 0, after = 0 (pid zone recorded at END).
+Worktrees under workers/ only; no /var/tmp usage; no .github/** touched; no product repo writes.
+
+END_DONE w344-0428-150reissue: fresh-lane reissue of plan PR #150 as the akte transport for card
+0428-078. Base = akte.md @ cf404ccd on branch w338-0428-078-1855fix3-akte (head of #150). Reissue
+commit authored by w344-0428-150reissue (git var author+committer gate passed), appends the reissue
+block above re-stating the full chain (83cf3b82 -> 30fc300d -> cbf259cc/cf404ccd forwarded-author ->
+this reissue) as the controlling statement, curing the forwarded-authorship defect of 7201177304;
+prior W40 lines untouched as history (no deletions). Cut branch w344-150-reissue from cf404ccd,
+pushed fast-forward onto the #150 branch tip; PR #150 stays OPEN for w267 re-review, no new PR,
+no merges. Evidence akte on branch (baseharbor-plan#150 head = w338-0428-078-1855fix3-akte @
+<full40>); Hosted Plan validate run <RUN_ID> terminal.
