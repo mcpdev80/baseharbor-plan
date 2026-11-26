@@ -44,7 +44,9 @@ and from already-finished runs.
    `e6ca7696-b1f8-492d-b226-876b16925fc5/` and record `git show <merged-sha>:<path>`
    plus the `origin/main` `ls-tree` witness (merged state alone is not presence proof).
 8. DONE Publish the table plus the one-line answer in baseharbor-plan and post the END
-   line to the coordinator.
+   line to the coordinator. Owner-stop correction round (local-execution ban) also
+   recorded: plan PRs #58 (merged `96fcfbdae`) and #59 (merged `1a21dd3ee`) put the policy
+   note into both akte copies; this file's transport section lists the whole chain.
 
 ## Reality witnesses (measured, not remembered)
 
@@ -293,3 +295,11 @@ https://github.com/mcpdev80/baseharbor-plan/pull/54 (candidate commit
   `evidence/e6ca7696-b1f8-492d-b226-876b16925fc5/w245-0428-284-1842alt/akte.md`
   and
   `evidence/r29-welle6-2026-11-26/0428-284-1842alt/routing-alternatives.md`
+- full transport chain (each step a NEW commit on the same branch, no amend, no force):
+  plan PR #53 merged `88f5f79519574c7b8c31316214f6001d4a492cc4` (r29 primary akte path),
+  #54 merged `12bff4d805c0ffbaddf4cd037a45b60460c05864` (session-path placement),
+  #55 merged `829f5d0063a3f4c0e6d1f9f83cc183cb33abca2d` (placement/presence witnesses),
+  #58 merged `96fcfbdaeeca5ebc835ed2a0ab39b40ff2c0269a` and #59 merged
+  `1a21dd3eebe93a5442383bfa08f050060e2bb974` (owner-stop local-execution note in both
+  copies). `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main`
+  after the last merge -> `1a21dd3eebe93a5442383bfa08f050060e2bb974	refs/heads/main`.
