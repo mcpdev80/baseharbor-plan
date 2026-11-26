@@ -653,3 +653,39 @@ Plan · validate  conclusion success  run 45763374782  job 139718384820
 event pull_request, run_attempt 1 (fresh PR run on the newest exact head, not a rerun)
 gh pr checks 100 -> "Plan · validate  pass"
 ```
+
+## Terminal witnesses (lane's last measurement, before the END post)
+
+```
+PR #100 published head  e17feee8937bf991a56889e8cb7a45cb9d8eb037
+  refs/heads/lane-w295-0428-251-recover6paths -> e17feee8937... (fast-forward pushes only)
+  refs/pull/100/head                          -> e17feee8937... (PR head == branch head)
+  refs/heads/main (plan)                      -> 1b9b2bc70201d9da6615a9ec16942103c20e96a1
+Hosted validator on that exact head: Plan · validate SUCCESS (gh pr checks 100 -> pass; check-runs on
+  e17feee893 conclusion success, event pull_request, run_attempt 1). Earlier exact heads of the same PR
+  were green at runs 45761088079, 45761294534, 45762926032, 45763097058, 45763374782.
+Local validator in the /var/tmp throwaway: 790 tasks, 7 epics, 13 releases, 24 decisions; 0 errors,
+  10 pre-existing warnings; plan.py render is a no-op on the head (fixed point).
+Byte re-check on the published tree, path 1: `git show e17feee89:tasks/t-20261125-hunt47-destroystep-v1-warning-kind.md
+  | diff - <(git cat-file -p 5b04465f50...)` -> hunks 3c3 and 14c14 only (card_number, derived kanban_title).
+Product remote, read-only witnesses: baseharbor develop e176a276b2f545e6a555e58997817d8c08570da8,
+  baseharbor main cddc81b34fe13d8befdde4c487b365a0309ba428 (at lane start develop read ac7c970fe91a...;
+  the movement is other lanes' merges — this lane performed no product fetch-for-write, branch, PR or push).
+Shared plan checkout after all work: HEAD 08b1f66bb (unchanged), `git stash list | wc -l` = 51
+  (unchanged, stash@{21} intact), no w295 entry added to its worktree list beyond my lane worktree.
+Cleanliness: all /var/tmp throwaway worktrees and scratch files removed; `git worktree list | grep -c w295`
+  in the shared checkout = 1 (workers/w295-0428-251-planwt, kept until the PR merges, working tree clean);
+  local trial branches tmp-fix and tmp-rebuild deleted; nothing created in the ecosystem root; no container,
+  compose project or VM session was ever started by this planning-only lane (docker witness N/A).
+```
+
+## END (final, terminal head)
+
+END_DONE w295-0428-251-recover6paths: plan PR #100, head `e17feee8937bf991a56889e8cb7a45cb9d8eb037`
+(plan main 1b9b2bc702 is an ancestor; `Plan · validate` SUCCESS on that exact head). Restored 5 of 6
+residual paths byte-exactly from the verified carriers with card_number re-allocated to proven-free
+0428-353..357 (27,396 B); path 6 (3,608 B, carrier stash@{21}^3 blob 36ba702478) withdrawn because audit
+PR #95 self-contradicts on it — decision, ls-tree/log/grep evidence and the full byte set are in the
+"Path 6" section. Recovery line: NOT CLOSED; residual 1 path / 3,608 B pending w298's corrected census.
+Zero product mutation; shared plan checkout and its 51 stashes untouched; scratch removed. Disclosure:
+one prohibited `git push --force` occurred mid-lane (documented above), branch continued forward-only.
