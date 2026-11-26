@@ -13,8 +13,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | active | 18 |
 | review | 2 |
 | wait | 15 |
-| blocked | 9 |
-| ready | 43 |
+| blocked | 10 |
+| ready | 42 |
 | queued | 25 |
 | waiting | 180 |
 | backlog | 7 |
@@ -41,7 +41,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) | CI/catalog: add #1820 source row to develop pr-gate-coverage.json | active | not set | w65-0428-269-batchbaseline | — | — |
 | [t-20261125-0428-284-1812-postretry-gate-failure](../tasks/t-20261125-0428-284-1812-postretry-gate-failure.md) | #1812 post-retry gate failure | active | high | w198-0428-284-demo-parser | — | [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1856](https://github.com/mcpdev80/baseharbor/pull/1856) |
 | [t-20261125-hunt39-restore-identity-regression](../tasks/t-20261125-hunt39-restore-identity-regression.md) | 0428 hunt H-V39: restore-identity regression test (identity preserved across restore) | active | not set | w208-0428-313-reident | — | — |
-| [t-20261125-hunt45-exit-code-taxonomy-docs](../tasks/t-20261125-hunt45-exit-code-taxonomy-docs.md) | CLI: document baha exit-code taxonomy and machine coverage check | active | not set | w345-0428-321-exitfix (LIVE busy; akte a7e0a2e5a END_DONE was PREMATURE - correction round in progress, no push/run yet) | — | [baseharbor#1866](https://github.com/mcpdev80/baseharbor/pull/1866) |
+| [t-20261125-hunt45-exit-code-taxonomy-docs](../tasks/t-20261125-hunt45-exit-code-taxonomy-docs.md) | CLI: document baha exit-code taxonomy and machine coverage check | active | not set | w345-0428-321-exitfix (LIVE busy; steer-5 route-a per w267: helper into catalogued cli.go, new exact head pending) | — | [baseharbor#1866](https://github.com/mcpdev80/baseharbor/pull/1866) |
 
 ## Ready for review
 
@@ -80,9 +80,10 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261125-hunt33-go-runtime-prereq](../tasks/t-20261125-hunt33-go-runtime-prereq.md) | 0428 hunt H-V33: hunt33-go-runtime-prereq | blocked | not set | — | — | [baseharbor#1863](https://github.com/mcpdev80/baseharbor/pull/1863) |
 | [t-20261125-hunt39-volume-recovery-manifest](../tasks/t-20261125-hunt39-volume-recovery-manifest.md) | 0428 hunt H-V39: assert recovery-manifest coverage for workload volumes | blocked | not set | — | — | [baseharbor#1860](https://github.com/mcpdev80/baseharbor/pull/1860) |
 | [t-20261125-hunt43-low-severity-pair](../tasks/t-20261125-hunt43-low-severity-pair.md) | 0428 hunt H-V43: hunt43-low-severity-pair | blocked | not set | — | — | [baseharbor#1862](https://github.com/mcpdev80/baseharbor/pull/1862) |
-| [t-20261126-hunt46-damaged-state-reserved-namespace](../tasks/t-20261126-hunt46-damaged-state-reserved-namespace.md) | 0428 hunt H-V46: DamagedDeploymentNamespace flags the reserved never-delivered namespace as damaged (low) | blocked | not set | — | — | [baseharbor#1869](https://github.com/mcpdev80/baseharbor/pull/1869) |
+| [t-20261126-hunt46-damaged-state-reserved-namespace](../tasks/t-20261126-hunt46-damaged-state-reserved-namespace.md) | 0428 hunt H-V46: DamagedDeploymentNamespace flags the reserved never-delivered namespace as damaged (low) | blocked | not set | w342-0428-331-damagedstate (parked idle; resume on pr-gate-map landing) | — | [baseharbor#1869](https://github.com/mcpdev80/baseharbor/pull/1869) |
 | [t-20261126-hunt46-never-delivered-proof-leak](../tasks/t-20261126-hunt46-never-delivered-proof-leak.md) | 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) | blocked | not set | w341-0428-326-proofleak (live lane; status per its akte commits ffa9a00d5/7592cdc00 carried by coordinator) | — | [baseharbor#1868](https://github.com/mcpdev80/baseharbor/pull/1868) |
 | [t-20261126-hunt46-recovery-backup-volume-heuristic](../tasks/t-20261126-hunt46-recovery-backup-volume-heuristic.md) | 0428 hunt H-V46: recovery/backup volume preservation uses a case-insensitive substring search (medium) | blocked | not set | — | — | [baseharbor#1861](https://github.com/mcpdev80/baseharbor/pull/1861) |
+| [t-20261128-hunt48-runtime-pagination-contract](../tasks/t-20261128-hunt48-runtime-pagination-contract.md) | 0428 hunt H-V48: runtime API list endpoints have no pagination contract | blocked | not set | "" (lane w343 released after END BLOCKED-BASE-CATALOG; re-dispatch after base act lands) | — | [baseharbor#1871](https://github.com/mcpdev80/baseharbor/pull/1871) |
 
 ## Ready to assign
 
@@ -126,7 +127,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261126-hunt46-destroy-data-loss-vocabulary](../tasks/t-20261126-hunt46-destroy-data-loss-vocabulary.md) | 0428 hunt H-V46: destroy --all and control-plane destroy --delete-data use split data-loss consequence vocabulary (low) | ready | not set | — | — | — |
 | [t-20261128-hunt48-metrics-endpoint-docs](../tasks/t-20261128-hunt48-metrics-endpoint-docs.md) | 0428 hunt H-V48: metrics endpoint registered but undocumented in any spec | ready | not set | — | — | — |
 | [t-20261128-hunt48-refresh-public-api-ownership-map](../tasks/t-20261128-hunt48-refresh-public-api-ownership-map.md) | 0428 hunt H-V48: internal/api/api-old precedent gone, surface-ownership map stale | ready | not set | — | — | — |
-| [t-20261128-hunt48-runtime-pagination-contract](../tasks/t-20261128-hunt48-runtime-pagination-contract.md) | 0428 hunt H-V48: runtime API list endpoints have no pagination contract | ready | not set | — | — | [baseharbor#1871](https://github.com/mcpdev80/baseharbor/pull/1871) |
 | [t-20261128-hunt48-source-transfers-contract](../tasks/t-20261128-hunt48-source-transfers-contract.md) | 0428 hunt H-V48: machine source-transfers routes registered but absent from machine-http-v1 contract | ready | not set | — | — | — |
 | [t-20261128-hunt48-unify-runtime-error-envelope](../tasks/t-20261128-hunt48-unify-runtime-error-envelope.md) | 0428 hunt H-V48: unify runtime HTTP error envelope (runtimeresourceapi writeProblem vs apierror.Error) | ready | not set | — | — | — |
 | [t-20261128-hunt48-workstation-bootstrap-contract](../tasks/t-20261128-hunt48-workstation-bootstrap-contract.md) | 0428 hunt H-V48: workstation bootstrap endpoint registered but undocumented as a discrete contract | ready | not set | — | — | — |
