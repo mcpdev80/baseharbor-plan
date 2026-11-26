@@ -25,3 +25,6 @@ Seats 5/5 after reconciliation: ornith 2/2 (w345, w346), laptop 2/2 (w341/w342 i
 
 ## W46 baseline act live (05:1xZ)
 - #1872 OPEN vs develop, head 2a645d157c1849778caf01d6fa2532479b0cb972 (author=committer w347-0428-344-baseline), Hosted run 45893486909 IN_PROGRESS; predecessor 45893473011 CANCELLED (Draft-Go failures there are NOT results). Single lane assignment per owner (w347, no duplicate). #1871 stays blocked until #1872 lands AND fresh exact-head requalification.
+
+### 1872 HOLD round (05:5xZ)
+- w255 REVIEW-HOLD comment 7203179302: 9 rows vs claim 10; >=5 further uncataloged #1871 sources (applicationruntimeapi/handler.go, applicationsecretapi/handler.go, machine/navigation.go, machinereadmodels/artifacts.go, sourcetransfer/transfer.go). w347 correction round dispatched (mechanical diff-list method). Family trail note: plan #147 comment 7203181689. #1871 stays blocked.
