@@ -37,3 +37,12 @@ Seats 5/5 after reconciliation: ornith 2/2 (w345, w346), laptop 2/2 (w341/w342 i
 
 ### 1872 ACCEPT (06:3xZ)
 - w255 ACCEPT merge-ready-HELD: #1872 comment 7203347331 (exact head 3ed6882e010f0e9a33011be71740f64675d57527, run 45894876938 SUCCESS, base 5a37ddbd ancestor, 15/15 paths mechanically matched, one-file shape). Family trail recorded at plan #147 comment 7203349796. Lane w347 released. #1871: blocked until #1872 lands (owner merge at freeze lift) + fresh exact-head requalification. No merges by lanes.
+
+## Owner-verified ACCEPT/dependency order (06:5xZ)
+| Baseline PR | exact head | hosted run | review verdict | consumer |
+| --- | --- | --- | --- | --- |
+| #1872 | 3ed6882e010f0e9a33011be71740f64675d57527 | 45894876938 SUCCESS | ACCEPT 7203347331 (merge FORBIDDEN by PR body) | #1871 |
+| #1865 | c651db35f34ae7f1d11279e0edb67171d2e3d200 | 45868149534 SUCCESS | ACCEPT 7199319282 HELD | #1864 |
+| #1867 | 8b0eb51a12320acb8987aee1729c9a820d4d573e | 45872485574 SUCCESS | ACCEPT HELD | #1855 |
+| #1870 | d4e6b99c33d52868409df445ea76d83d21bd7543 | 45876467179 SUCCESS | ACCEPT 7202318240 HELD | #1833 |
+Rule: consumers requalify ONLY after actual baseline landing (owner merge at freeze lift) + fresh consumer exact-head Hosted CI. No double reviews, no new cards.
