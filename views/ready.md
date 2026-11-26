@@ -7,7 +7,6 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261114-r28-cli2-coordination](../tasks/t-20261114-r28-cli2-coordination.md) | CLI redesign: coordinate five workers | ready | high | coord | — | — |
-| [t-20261116-r28-bug-apply-consent-ux](../tasks/t-20261116-r28-bug-apply-consent-ux.md) | Clarify apply candidate consent | ready | normal | — | — | — |
 | [t-20261116-r28-bug-capability-permissions](../tasks/t-20261116-r28-bug-capability-permissions.md) | Scope inferred provider grants | ready | high | w333-0428-291-capperms | — | — |
 | [t-20261116-r28-bug-provider-discovery](../tasks/t-20261116-r28-bug-provider-discovery.md) | Detect mixed Compose providers | ready | high | — | — | — |
 | [t-20261120-gate-catalog-ci-fast-check](../tasks/t-20261120-gate-catalog-ci-fast-check.md) | 0428-205 · Wire ci-fast-check into the release gate catalog | ready | normal | Codex (root-cause diagnose, NICHT worker) / Coordinator | — | [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774) |
