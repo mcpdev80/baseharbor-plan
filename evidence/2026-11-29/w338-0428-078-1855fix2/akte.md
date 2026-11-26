@@ -553,3 +553,9 @@ carries this block; Hosted Plan validate on THAT exact final head: run 458754245
 (pull_request) — TERMINAL SUCCESS, watched to terminal. Both heads green: 45875144959 @
 43a1c102d (the ordered forward hop) and 45875424540 @ 00d56a9be (akte delivery). PR #150
 head = 00d56a9be (gh pr view), Ready, merge awaits coordinator.
+
+Terminal state (last appendices): the two self-delivery commits each re-triggered the single
+plan workflow — 45875424540 SUCCESS @ 00d56a9be, 45875594902 SUCCESS @
+83cf3b823973480f75d6857f8fe68bb9781ef4c0 (no further edit after this line). PR #150 final
+head 83cf3b823973480f75d6857f8fe68bb9781ef4c0, Ready (draft=false), ls-remote-verified; merge
+stays a coordinator action (no merges by this lane).
