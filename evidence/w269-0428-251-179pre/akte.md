@@ -323,6 +323,34 @@ w269-0428-251-179pre
 w269-0428-251-179pre
 ```
 
+## Evidence-on-origin/main witness (second-to-last action, exactly as required)
+
+```text
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main
+   264e26323..05cb1f73f  main       -> origin/main
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/w269-0428-251-179pre
+(no output; grep exit status 1)
+```
+
+STATE AS OBSERVED, not presented as a pass: this akte is **absent from `origin/main`**, because publication of a
+Plan change requires a merged Plan PR and this lane is explicitly forbidden from merging
+("push YOUR OWN branch + gh pr create against baseharbor-plan, report the PR number; you do NOT merge (Codex
+publishes)"). My base was `264e2632319…`; live `origin/main` advanced to `05cb1f73f8a341ca36d2fc708e90d449870e9ac2`
+while this lane ran, so `git merge-base --is-ancestor origin/main HEAD` now exits 1 and `gh pr view 72` reports
+`mergeable=MERGEABLE` with head `f95bdc961b73ae69421125d117ad3b48c8c59e74`.
+
+Deliverable state that IS verifiable remotely, on the PR ref rather than `origin/main`:
+
+```text
+$ git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/lane/w269-0428-251-179pre refs/pull/72/head
+f95bdc961b73ae69421125d117ad3b48c8c59e74  refs/heads/lane/w269-0428-251-179pre
+f95bdc961b73ae69421125d117ad3b48c8c59e74  refs/pull/72/head
+```
+
+`evidence/w269-0428-251-179pre/akte.md` is therefore present on `refs/pull/72/head`. Publication (merge, or a
+base-refresh onto `05cb1f73f` followed by the exact-head Hosted Plan validation) is the publisher's step, which per
+the mission is Codex's, not this read-only lane's. I am not rebasing or force-pushing over foreign Plan commits.
+
 ## Zero-mutation confirmation
 
 - No writes to any product repo; `git status` in `/home/marcel/dev/baseharbor-ecosystem/baseharbor-demo` untouched
