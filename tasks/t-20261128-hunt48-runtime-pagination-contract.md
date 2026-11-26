@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: "" (lane w343 released after END BLOCKED-BASE-CATALOG; re-dispatch after base act lands)
-kanban_status: blocked
-kanban_lane: blocked
+owner: "w356-0428-288-1870hop"
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-344 · runtime list pagination
 priority: ""
@@ -23,18 +23,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261128-hunt48-runtime-pagination-contract · 0428 hunt H-V48: runtime API list endpoints have no pagination contract #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261128-hunt48-runtime-pagination-contract · 0428 hunt H-V48: runtime API list endpoints have no pagination contract #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** "" (lane w343 released after END BLOCKED-BASE-CATALOG; re-dispatch after base act lands)  
+    **Owner:** w356-0428-288-1870hop  
     **PR:** [baseharbor#1872](https://github.com/mcpdev80/baseharbor/pull/1872), [baseharbor#1871](https://github.com/mcpdev80/baseharbor/pull/1871)  
     **Blocker:** exact-head CI ca954c81 run 45908036965 FAILURE: (1) Go shards cli-0..3+packages - RemoteRepository consent/plan/decline/snapshot tests, likely attributable to pagination response changes (triage+fix, no waiver); (2) mkdocs strict broken re…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** "" (lane w343 released after END BLOCKED-BASE-CATALOG; re-dispatch after base act lands)  
+**Owner:** w356-0428-288-1870hop  
 **Priority:** not set  
 **PRs:** [baseharbor#1872](https://github.com/mcpdev80/baseharbor/pull/1872), [baseharbor#1871](https://github.com/mcpdev80/baseharbor/pull/1871)  
 **Source:** 

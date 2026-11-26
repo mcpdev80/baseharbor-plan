@@ -7,9 +7,9 @@ areas: [wizard]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w147-0428-288-pr1833-fix
-kanban_status: wait
-kanban_lane: wait
+owner: "w360-0428-288-1833fix"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "docker compose config --services yields vectordb, but baha app init persisted vector-db in workload.components and Runtime API…"
 kanban_title: 0428-288 · Preserve Compose service IDs
 priority: high
@@ -23,19 +23,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261116-r28-bug-compose-service-ids · Preserve Compose service IDs #task #release/v0-4-28 #status/wait #view/wait #area/wizard #kind/bug
+- [ ] t-20261116-r28-bug-compose-service-ids · Preserve Compose service IDs #task #release/v0-4-28 #status/active #view/active #area/wizard #kind/bug
     <!-- generated:card -->
-    **Owner:** w147-0428-288-pr1833-fix · **Priority:** high  
+    **Owner:** w360-0428-288-1833fix · **Priority:** high  
     **PR:** [baseharbor#1870](https://github.com/mcpdev80/baseharbor/pull/1870), [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
     **Waiting:** W15 required next proof: hop PR \#1833 onto current develop, then obtain two distinct fresh pull\_request runs on the exact same head (attempt 1 each); run 45513816046 on a7b0a48048c11d20234160eede941532ddc33156 is attempt 2 and void as pair…  
     **Needs:** [t-20261125-0428-284-1812-postretry-gate-failure](t-20261125-0428-284-1812-postretry-gate-failure.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261125-0428-284-1812-postretry-gate-failure](t-20261125-0428-284-1812-postretry-gate-failure.md)  
-**Owner:** w147-0428-288-pr1833-fix  
+**Owner:** w360-0428-288-1833fix  
 **Priority:** high  
 **PRs:** [baseharbor#1870](https://github.com/mcpdev80/baseharbor/pull/1870), [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
 **Source:** 
