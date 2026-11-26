@@ -15,7 +15,7 @@ kanban_title: 0428-291 · Scope inferred provider grants
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1865", "mcpdev80/baseharbor#1864"]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,6 +26,7 @@ evidence: []
 - [ ] t-20261116-r28-bug-capability-permissions · Scope inferred provider grants #task #release/v0-4-28 #status/planned #view/ready #area/security #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
+    **PR:** [baseharbor#1865](https://github.com/mcpdev80/baseharbor/pull/1865), [baseharbor#1864](https://github.com/mcpdev80/baseharbor/pull/1864)  
     **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
@@ -35,7 +36,7 @@ evidence: []
 **Depends on:** none  
 **Owner:** unassigned  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1865](https://github.com/mcpdev80/baseharbor/pull/1865), [baseharbor#1864](https://github.com/mcpdev80/baseharbor/pull/1864)  
 **Source:** 
 <!-- /generated:links -->
 

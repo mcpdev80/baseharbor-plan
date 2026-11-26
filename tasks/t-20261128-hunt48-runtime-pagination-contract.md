@@ -15,7 +15,7 @@ kanban_title: 0428-344 · runtime list pagination
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#1871", ]
+prs: ["mcpdev80/baseharbor#1871"]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,6 +26,7 @@ evidence: []
 - [ ] t-20261128-hunt48-runtime-pagination-contract · 0428 hunt H-V48: runtime API list endpoints have no pagination contract #task #release/v0-4-28 #status/planned #view/ready #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
+    **PR:** [baseharbor#1871](https://github.com/mcpdev80/baseharbor/pull/1871)  
     **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
@@ -35,7 +36,7 @@ evidence: []
 **Depends on:** none  
 **Owner:** unassigned  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1871](https://github.com/mcpdev80/baseharbor/pull/1871)  
 **Source:** 
 <!-- /generated:links -->
 

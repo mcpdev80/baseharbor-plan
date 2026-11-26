@@ -9,14 +9,14 @@ version: ""
 parent: ""
 owner: w341-0428-326-proofleak (live lane; status per its akte commits ffa9a00d5/7592cdc00 carried by coordinator)
 kanban_status: blocked
-blocker: "v0.4.28 release begin marker missing + catalog/pr-gate-map release label still v0.4.27 (w341 akte 20:11Z); rerun trigger: owner map decision (same class as 0428-328)"
+blocker: "STATE: Trusted Plan + PR Selected Checks FAILURE on 57320af6949e (coordinator api-verify 01:3xZ) - pr-gate-map release-label lag persists (same class as 0428-328/#1869); lane w341 parked; pair re-run at owner map landing; #1868 stays OPEN unmerged"
 kanban_lane: blocked
 kanban_summary: "The never-delivered proof at never-delivered/<applicationID>/<environment>.json is created by guided adoption…"
 kanban_title: 0428-326 · consume never-delivered proof
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1868"]
 sources: []
 wait_reason: ""
 resolution: ""
@@ -26,7 +26,8 @@ evidence: []
 - [ ] t-20261126-hunt46-never-delivered-proof-leak · 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
     **Owner:** w341-0428-326-proofleak (live lane; status per its akte commits ffa9a00d5/7592cdc00 carried by coordinator)  
-    **Blocker:** v0.4.28 release begin marker missing + catalog/pr-gate-map release label still v0.4.27 (w341 akte 20:11Z); rerun trigger: owner map decision (same class as 0428-328)  
+    **PR:** [baseharbor#1868](https://github.com/mcpdev80/baseharbor/pull/1868)  
+    **Blocker:** STATE: Trusted Plan + PR Selected Checks FAILURE on 57320af6949e (coordinator api-verify 01:3xZ) - pr-gate-map release-label lag persists (same class as 0428-328/\#1869); lane w341 parked; pair re-run at owner map landing; \#1868 stays OPEN…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +36,7 @@ evidence: []
 **Depends on:** none  
 **Owner:** w341-0428-326-proofleak (live lane; status per its akte commits ffa9a00d5/7592cdc00 carried by coordinator)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1868](https://github.com/mcpdev80/baseharbor/pull/1868)  
 **Source:** 
 <!-- /generated:links -->
 

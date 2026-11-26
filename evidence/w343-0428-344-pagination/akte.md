@@ -129,19 +129,60 @@ stays green by derivation).
     internal/machinereadmodels/artifacts.go, internal/sourcetransfer/transfer.go.
     (Note: `internal/machinehttp/source_transfer.go` is listed but `machinehttp` has no existing
     package row; the same single row form applies.)
-  - Run 3 (state): 45884719597 (event `pull_request`, second exact-head trigger via authorized
-    close+reopen on the same head 969362e39…) — observed terminal below.
+  - Run 3: 45884719597 (event `pull_request`, second exact-head trigger via coordinator-authorized
+    close+reopen on the same head 969362e39…) → same FAILURE (identical Trusted Plan log).
+    Pair evidence for the exact candidate head: run IDs 45884566859 + 45884719597, both
+    `pull_request` events on 969362e397a14d3f1e173697750386079aa4f5d2.
+- Plan PR: https://github.com/mcpdev80/baseharbor-plan/pull/151 (akte). Hosted Plan validation:
+  45884416530 failed on a stale-base render crash (foreign card `prs` line bug, since fixed on main);
+  rebased onto current main (ancestry proven): runs 45887227902 and 45887420277 SUCCESS on this
+  branch heads 53615a711 / 28990d16d. Awaiting admin squash merge (never a direct main write).
 
 ## Cleanliness
 
-- No containers/compose projects started (pure Go + docs lane). `docker ps -a` before/after: n/a for this lane's host — tests run only in Hosted CI.
-- Worktree: `/home/marcel/dev/baseharbor-ecosystem/workers/w343-0428-344-pagination-wt` (removed after END per coordinator policy).
+- Ambient `docker ps -a` on this host: empty (`docker ps -a --format '{{.ID}} {{.Names}}'` printed no
+  rows, own pid 1546726 witness). No container, network, volume or compose project was created by
+  this lane; VMs untouched.
+- Worktree: `/home/marcel/dev/baseharbor-ecosystem/workers/w343-0428-344-pagination-wt` (lane working
+  tree; coordinator releases it after disposition).
+- cleanliness: ok (no lane-owned container/network/volume/state directories exist)
 
 ## Handoff
 
-- PR: (pending)
-- Candidate SHA: (pending, FULL40)
-- Run IDs: (pending)
-- State: (pending)
+- PR: https://github.com/mcpdev80/baseharbor/pull/1871 — OPEN, ready (draft=false), NOT merged.
+- Candidate SHA (FULL40): `969362e397a14d3f1e173697750386079aa4f5d2`
+- Hosted CI run IDs on the exact head: 45884566859 (pull_request) and 45884719597
+  (pull_request, second trigger via coordinator-authorized close+reopen). Both terminate with the
+  SAME single failing check `PR · Trusted Plan` ("uncataloged source change, no declared runtime
+  gate owner" for the 10 changed `internal/**` files) and the dependent `PR Selected Checks` error.
+  `PR · Source format`, `Workflow policy`, `PR · Native gate plan` PASS; everything else skipped.
+- State: BLOCKED on one shared-catalog act outside this card's write-set
+  (`scripts/pr-gate-coverage.json`, the base required-plan catalog; AGENTS gate-catalog doctrine +
+  mission write-set "runtime pagination contract code + tests + akte"). No local route exists: the
+  catalog is read from the TRUSTED BASE at plan time (pr-gate-plan.py `_base_catalog_document`), so
+  a candidate-side addition would not apply to this PR.
+  The needed change, exactly (10 component rows in `scripts/pr-gate-coverage.json` → `components`):
+  id/path pairs `source.internal_apierror_pagination_go`/`internal/apierror/pagination.go`,
+  `source.internal_apierror_pagination_test_go`/`internal/apierror/pagination_test.go`,
+  `source.internal_applicationruntimeapi_handler_go`/`internal/applicationruntimeapi/handler.go`,
+  `source.internal_applicationruntimeapi_pagination_contract_test_go`/`internal/applicationruntimeapi/pagination_contract_test.go`,
+  `source.internal_applicationsecretapi_handler_go`/`internal/applicationsecretapi/handler.go`,
+  `source.internal_applicationsecretapi_pagination_contract_test_go`/`internal/applicationsecretapi/pagination_contract_test.go`,
+  `source.internal_machine_navigation_go`/`internal/machine/navigation.go`,
+  `source.internal_machine_pagination_contract_test_go`/`internal/machine/pagination_contract_test.go`,
+  `source.internal_machinehttp_source_transfer_go`/`internal/machinehttp/source_transfer.go`,
+  `source.internal_machinereadmodels_artifacts_go`/`internal/machinereadmodels/artifacts.go`,
+  `source.internal_sourcetransfer_transfer_go`/`internal/sourcetransfer/transfer.go`
+  with surfaces that select the package-discovery validation rather than heavyweight runtime gates
+  (the error-message example surfaces `source.gate.atomic.docker.data.capabilities` would bind
+  cmd/baha container gates to pure unit-test code; the doctrine for ordinary Go unit sources is
+  auto-discovery via `go test ./...` — precedent rows use `source.package.*` surfaces).
+  After the catalog lands on develop, this lane (or any follow-up on the same branch) absorbs
+  develop under the lane's canonical identity, pushes, and triggers the second exact-head run via
+  close+reopen; the pair rule then applies to the NEW head.
+- Follow-up (after this akte reaches plan main): set the card's `prs` field to `baseharbor#1871` and
+  the `blocker` to the pr-gate-coverage.json catalog route above, via a second plan PR. Not included
+  in this evidence PR because it edits the shared generated views (coordinator lane per mission).
 
-END: (pending)
+END: END_BLOCKED w343-0428-344-pagination (candidate green except the shared pr-gate-coverage.json
+catalog route above; see Handoff state)
