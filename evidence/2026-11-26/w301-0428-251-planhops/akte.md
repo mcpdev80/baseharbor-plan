@@ -1,6 +1,6 @@
 # w301-0428-251-planhops — forward-hop five plan PRs onto LIVE plan main + four content corrections
 
-- Shift: 2026-11-28
+- Shift: 2026-11-28 [SUPERSEDED in place, correction appended 2026-11-26 by w323-0428-078-pr1855gate per reviewer HOLD comment 7190688222 on plan PR #107: the actual shift was 2026-11-26 (date -u witness: Thu Nov 26 12:23:37 UTC 2026); 2026-11-28 was erroneous; no future-dated directory was ever created — the file lives under evidence/2026-11-26/.]
 - Card: 0428-251
 - Mission: `coordinator/missions/w301-0428-251-planhops.txt`
 - Lane canonical name (author + committer, set per commit): `w301-0428-251-planhops`, email `w301-0428-251-planhops@baseharbor.local`
@@ -40,7 +40,7 @@
    - Before (line 18 of `evidence/r28-welle6-2026-11-28/w265-0428-078-1818pre/akte.md`):
      `#1650 head: 37c4d847c … merged long ago (pre-date; not ancestor-checked).`
    - Live witness at correction time: `gh pr view 1650 --repo mcpdev80/baseharbor --json state,headRefOid` => `state=OPEN headRefOid=37c4d847ca377d1555163ac4791c8ba08b85de77`, title `fix(0428-078): wire Perses identity-keycloak into 080 resolver fan-in` = the contaminated-lineage AUDIT, not a merge.
-   - Correction appended: dated paragraph stating #1650 is OPEN at `37c4d847c`, is the contaminated-lineage AUDIT, and was never merged to develop/main; live checked via gh on 2026-11-28.
+   - Correction appended: dated paragraph stating #1650 is OPEN at `37c4d847c`, is the contaminated-lineage AUDIT, and was never merged to develop/main; live checked via gh on 2026-11-28. [SUPERSEDED in place, correction appended 2026-11-26 by w323-0428-078-pr1855gate per reviewer HOLD 7190688222: the live #1650 check happened on 2026-11-26, not 2026-11-28.]
 2. #81 — provenance for the `w281-coordinator` identity on its commits.
    - The two authored commits on PR #81 carry identity `w281-coordinator` (`git log --format='%an' origin/main..head` => `w294-0428-078-planhops`, `w281-coordinator`, `w281-coordinator`). Codex ruled `w281-coordinator` is NOT an admissible same-lane shorthand.
    - Correction appended: provenance paragraph naming sha `d84d660e21` (merge) and `fae1618057` (author) and the registered lane `w281-0428-181-1819rebuild`, and stating the forward-merge commits added now carry the canonical name `w301-0428-251-planhops`.
@@ -63,7 +63,7 @@ For each PR I: (1) re-fetch `origin/main`, (2) cut a branch at the PR's exact he
 
 ## EVIDENCE FILES ONLY IN baseharbor-plan
 
-- Evidence akte for THIS lane lives only in `baseharbor-plan` under `evidence/2026-11-28/w301-0428-251-planhops/` (never in a product repo; no `.evidence/` directory anywhere).
+- Evidence akte for THIS lane lives only in `baseharbor-plan` under `evidence/2026-11-28/w301-0428-251-planhops/` (never in a product repo; no `.evidence/` directory anywhere). [SUPERSEDED in place, correction appended 2026-11-26 by w323-0428-078-pr1855gate per reviewer HOLD 7190688222: the canonical evidence path is `evidence/2026-11-26/w301-0428-251-planhops/`; the 2026-11-28 path was erroneous and does not exist in main.]
 - The plan PR of my own (scoped, evidence-only) is published and reviewed by the coordinator — never merged by me, never direct to main.
 - Plan main is protected; publication = branch push + plan PR + admin squash merge (precedents #52/#61/#62).
 
