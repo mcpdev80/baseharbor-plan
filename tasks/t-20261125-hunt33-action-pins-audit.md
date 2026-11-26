@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w337-0428-251-unionhop129 (lane for t-20261125-hunt33-action-pins-audit)
-kanban_status: active
-kanban_lane: active
+owner: ""
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-298 · hunt33-action-pins-audit
 priority: ""
@@ -23,16 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt33-action-pins-audit · 0428 hunt H-V33: hunt33-action-pins-audit #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261125-hunt33-action-pins-audit · 0428 hunt H-V33: hunt33-action-pins-audit #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
-    **Owner:** w337-0428-251-unionhop129 (lane for t-20261125-hunt33-action-pins-audit)  
+    **Owner:** unassigned  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w337-0428-251-unionhop129 (lane for t-20261125-hunt33-action-pins-audit)  
+**Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

@@ -7,9 +7,9 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w337-0428-251-unionhop129 (lane for t-20261116-r28-bug-apply-consent-ux)
-kanban_status: active
-kanban_lane: active
+owner: ""
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Interactive baha app apply accepted [y/N] y but then required re-execution with --confirm-candidate; baha app apply j-commerce…"
 kanban_title: 0428-292 · Clarify apply candidate consen
 priority: normal
@@ -23,16 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261116-r28-bug-apply-consent-ux · Clarify apply candidate consent #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
+- [ ] t-20261116-r28-bug-apply-consent-ux · Clarify apply candidate consent #task #release/v0-4-28 #status/wait #view/wait #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** w337-0428-251-unionhop129 (lane for t-20261116-r28-bug-apply-consent-ux) · **Priority:** normal  
+    **Owner:** unassigned · **Priority:** normal  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w337-0428-251-unionhop129 (lane for t-20261116-r28-bug-apply-consent-ux)  
+**Owner:** unassigned  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
