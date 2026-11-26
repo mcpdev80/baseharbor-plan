@@ -1,0 +1,10 @@
+READ-ONLY DESK — #1812 Docker Light authoritative per-job ledger (AGENTS §3.3.5; Befund/evidence only; NO rebase/push/merge/CI-trigger on the chain #1812; do NOT touch #1819/#1820/#1818/#1826/#1650; no subagents §4.8; contact no other session). develop = current origin/develop (report SHA).
+
+Purpose: there were CONTRADICTORY reports about #1812's Docker Light run 45398943139 (skipped-matrix vs 3-PASS/4-FAIL; job IDs 138466518597/674/714/757/935/939 vs GitHub first-page-limit hiding them). Produce ONE neutral, reproducible ledger so the consent card 0428-282 + #1812 acceptance rest on facts, not memory.
+
+Do READ-ONLY via gh (each gh call SEPARATE, no shell loop/pipe into gh; write JSON to /tmp then parse):
+1. gh api repos/mcpdev80/baseharbor/actions/runs/45398943139/jobs?per_page=100 (paginate all) -> for EVERY job whose name contains 'Light' or a gate id (guided/lifecycle/policy/connectivity/reconciliation/failure/full-destroy), record: job id, name, matrix class (docker|podman), status, conclusion, and whether it actually EXECUTED (a log step present) vs SKIPPED. 
+2. For each Docker Light job that FAILED, pull its log tail and quote the exact failure line (expect 'record deployment ... missing explicit --confirm-candidate' or a consent refusal). Confirm which 3 passed / which 4 failed, matching w81/w85.
+3. State plainly: did run 45398943139 EXECUTE the 7 Docker Light gates (and Podman was the skipped family because only_gates=docker)? Reconcile the 'matrix skipped' claim: the skipped 'Light · ${{ matrix }}' job = podman family. 
+
+Deliver baseharbor-plan evidence/r28-welle6-2026-11-25/1812-docker-light-ledger/round-1.md (## PLAN + native todos): the per-job table (id | gate | docker/podman | status | conclusion | executed? | failure line) + a one-paragraph verdict reconciling the earlier confusion + a 'cleanliness' line (read-only, created nothing). Commit+push atomically (git add the single new file; pull --rebase origin main first). Report inline + evidence SHA. Hosted gh only; NO gh run cancel/rerun/dispatch; no merge.

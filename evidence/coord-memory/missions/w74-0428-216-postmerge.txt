@@ -1,0 +1,10 @@
+READ-ONLY POST-MERGE VERIFICATION DESK (BUG-HUNT fill, §3.3.5 — Befund only; no edits, no PRs, no merges, no subagents §4.8). Object: adversarially verify the three cards merged into develop THIS window and find any silent-skip / coverage gap they introduced. develop = current origin/develop (fetch; report SHA; expected >= 2b9a2c6d).
+
+Check each, file:line + a concrete repro (gh / read-only git), and state PASS or FINDING:
+1. #1821 / 0428-270 (internal/operatorauth/authorization.go + config.go): the dead trusted-local fail-OPEN seam is gone and the path is fail-CLOSED — construct a read-only test/reasoning that a trusted-local caller WITHOUT valid authorization gets NO access; confirm no other authorizer path silently changed.
+2. #1822 / 0428-273/274/275 (scripts/pr-gate-coverage.json 6 rows + pre-release.yml binary): each of the 6 source ids maps to a file that a SELECTED gate actually executes (no row that resolves to zero gates = silent-skip); run scripts/pr-gate-plan.py read-only against a touched-file simulation to show selection.
+3. #1824 / 0428-276 (env destroy): the per-deployment VerifyDeploymentOwner re-check genuinely gates applyEnvironmentDestroyScope (read-only trace cmd/baha/env_destroy.go guard + internal/deployment/environment_destroy_scope.go), not a nominal true.
+
+Also: list any cmd/baha/*.go or internal/*.go changed by these three that has NO required-gate admission row (new-file silent-skip risk), each with file:line.
+
+Deliver one Befundakte baseharbor-plan evidence/r28-welle6-2026-11-24/postmerge-verify-2b9a2c6d.md (## PLAN + todowrite): per-item PASS/FINDING, each FINDING gets a proposed card number (Fund→Karte) + file:line repro. Commit+push atomically (git add that single new file only; pull --rebase origin main first; never edit other plan files). Report the table inline + evidence commit SHA. Read-only product access only (git fetch/ls-remote/show, gh run/pr view, scripts/pr-gate-plan.py as a read-only probe).

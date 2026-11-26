@@ -1,0 +1,8 @@
+ROLLE: Worker (Lane w286). Coord a4573079. KARTE: t-20261018-r27-ci-lanes (ready). OWNER-TABELLE P3.
+ARBEIT: karte lesen (plan.py show), claim, zweig work/r27-ci-lanes von AKTUELLEM develop f3db942859c;
+querschnitt-CI-Integration pruefen: welche der in der karte benannten naht-prüfungen fehlen, gezielte
+tests ergaenzen; .github-NIEMALS anfassen (scope-des-besitzer-regel: workflow-dateien gehören dem owner —
+befunde dort nur ALS MELDUNG in die akte, keine aenderung); selected checks terminal am eigenen kopf.
+AKTE: r27-welle5-folge-2026-11-06/ci-lanes/round-1.md (PUNKTE). GATES: KEINE subagenten, zone
+workers/w286-wt, coordinator-host tabu. END an a4573079: "END_DONE w286-pr97-ci-lanes: head=<sha10>
+pr=<n> fehlende_zellen=<liste+status> checks=<id TERMINAL> akte=<pfad main> | <Satz>"

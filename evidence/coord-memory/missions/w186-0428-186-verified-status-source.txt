@@ -1,0 +1,27 @@
+MISSION: 0428-186 — Perses status has no source that can ever report `verified`.
+
+Card: t-20261120-r28-perses-status-never-verified (0428-186), release v0.4.28, repo mcpdev80/baseharbor.
+Read first: baseharbor-plan/tasks/t-20261120-r28-perses-status-never-verified.md (full contract), and AGENTS.md + docs/DEVELOPMENT_GUIDELINES.md of baseharbor.
+
+GOAL
+PersesStatusNow (internal/capability/perses_selection.go) currently has NO code path that yields the `verified` state, so 0428-078 acceptance item P1 (a positive verified case via `baha status --json` identity_dashboard_eligible=true) is unreachable. Introduce the real probe/source that can decide "the Perses backend answers for this selection" and wire it to the status path.
+
+ACCEPTANCE (from card)
+1. Name the real probe/source API that decides the selection, and wire it to the status path — or state in the plan evidence precisely why a health probe is the right instrument.
+2. Once a source exists, the positive case in 0428-078 (`status --json` identity_dashboard_eligible=true) must be reachable by test WITHOUT touching the verified-only predicate.
+3. NEVER a literal true: no hard-coded verified value, no `configured_unverified` acceptance to force a green test. The verified-only predicate's meaning must be preserved (owner ruling r7; reviewer stop-criterion 1).
+
+SCOPE / WRITE-SET
+- internal/capability/perses_selection.go and its tests. This file is the proposed change zone for THIS card (it was owner-closed under 0428-078; that is why this card exists).
+- Do NOT touch the verified-only predicate semantics. Do NOT touch 0428-078's files.
+- New test must be CI-reachable (a real check/native gate in this same PR). Report a `.github/**` need as a finding (file:line) instead of editing it.
+
+BRANCH
+Base = current develop (resolve the real GitHub remote URL first; use ONLY the remote whose URL contains github.com/mcpdev80). Show `git merge-base --is-ancestor origin/develop HEAD` and `git log --oneline origin/develop..HEAD` (only your commits) in evidence. Branch name lane-0428-186-verified-status-source. One candidate, one PR (keep DRAFT until impl+gate complete, then flip to review).
+
+EVIDENCE (baseharbor-plan only — the REAL repo at /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan, NOT workers/baseharbor-plan)
+Path: evidence/recovery-2026-11-23/0428-186/round-1.md — numbered ## PLAN first, results, `## repo-rule compliance`, base attestation, PR state + exact head SHA + your own observed CI run, and the origin/main ls-tree witness BEFORE your END post.
+
+STOP + post QUESTION/END to coordinator if: the correct probe is ambiguous (health vs data-source), the change would require editing the predicate (it must not), or a `.github/**`-only path is the only way to make the test CI-run.
+
+END LAST ACTION: codeman agent post <coordinator> "END_DONE 0428-186: <one line + candidate SHA>" (or END_BLOCKED/QUESTION). No subagents (AGENTS 4.8).

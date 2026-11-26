@@ -1,0 +1,7 @@
+ROLLE: CODEX-REVIEW. Coord a4573079. DELTA-ABNAHME control-plane-single-default RUNDE 7 (kopf UNVERAENDERT
+ed98ed1dde7). Rezept act-1404g/h punkt: KORREKTUR-TEXT fuer die reset-behauptung + verlust-bewertung —
+geliefert in control-plane-single-default/round-7.md (round-5/6 ergaenzt, records-only, endpoint read-only).
+PRUEFPUNKTE: (1) widerlegt round-7 die round-5/6-behauptung korrekt und laesst die verlust-frei-heit
+belegbar (volumen 0 laut round-3/4/6 zeilen, netzwerke definitionell), (2) KEINE neuen forderungen an
+runtime-zellen (dein eigenes rezept: preserve, kein repeat — §5.4), (3) sha-pin/lsremote. URTEIL als
+control-plane-single-default/act-1404i.md (ACCEPT|REJECT+rezept). END an a4573079: "END_DONE codex-luna-sd-1404i: verdict=<..>".

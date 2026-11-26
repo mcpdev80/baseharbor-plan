@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW. Coord 841e7734. ABNAHME managed-users RUNDE 6, kandidaten-genau.
+KANDIDAT: PR #1397 head fa2acd228ee vs develop; karte t-20261018-r27-managed-users; akte round-6.md;
+VORGESETZTEN-BEFUND act-1397d wortlich: stringarray-body, exakte array-asserts, password-key absent,
+version-bind 26.8.x fail-closed (skip verbotet als gruen), kausale mutante echte quellzeile.
+PRUEFPUNKTE: (1) diff zeigt array-body + asserts GEGEN die ECHTE quelle, (2) versionbindung im test
+nachvollziehbar (image-extraktion => guard), (3) mutante ROT+GRUEN transcript echt, (4) lauf 42263917253
+terminal am kopf (8ok/10 skip TESTONLY-policy — skipped-runtime-gates NICHT als pass werten, kartenwort
+pruefen ob runtime-zellen gefordert waren: falls ja => Befund), (5) write-set disjunkt keine .github.
+URTEIL als evidence/r27-welle5-2026-11-06/managed-users/act-1397e.md auf origin/main (ACCEPT|REJECT+rezept),
+END an 841e7734: "END_DONE codex-luna-mu-1397e: verdict=<..> aktedatei=<pfad>".

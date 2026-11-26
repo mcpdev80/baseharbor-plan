@@ -1,0 +1,13 @@
+ROLLE: CODEX-MERGE (Abnahme-Rolle Merge, dieselbe session die ACCEPTed hat — erlaubt laut AGENTS 2, nicht vermischt mit review). Coord 594fd2f5. KARTE: t-20261018-r27-management-host (0427-036).
+AUFGABE: fuehre den bereits ACCEPTEDen kandidat PR #1405 auf develop. SHA-GENAU, KEIN force, KEIN protection-bypass.
+(1) belege die akzeptierte grundlage: `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1405/head`
+    -> PR head MUSS 6014a8fcd2697f34ab0c52353d328dd55cc9a1a5 sein (der ACCEPTEDe kopf aus act-1405d). weicht er ab,
+    STOP melde (der kopf hat sich nach dem ACCEPT bewegt -> re-review noetig, NICHT blind mergen).
+(2) `gh pr merge 1405 --repo mcpdev80/baseharbor --merge` (merge-commit, NICHT squash, NICHT rebase, KEIN --force).
+(3) landschafts-zeugnis: `git ls-remote origin refs/heads/develop` zeigt den neuen develop-kopf; erfasse merge-sha +
+    dass 6014a8fc jetzt ancestor von develop ist.
+(4) KEIN release/tag/promotion. KEIN .github-aenderung.
+END an 594fd2f5: "CODEX-MERGE 0427-036/#1405: result=<MERGED|STOP> merged_head=<sha> develop_now=<sha>
+ancestry=<6014a8fc ancestor von develop rc0> akte=evidence/.../management-host/act-1405e-merge.md". Akte in ECHTER plan
+(remote -v; keine phantom/worktree-in-baseharbor-plan). Wenn ein konflikt/permission den merge blockiert: END_BLOCKED
+mit exakter gh/git-ausgabe, NICHT umgehen.

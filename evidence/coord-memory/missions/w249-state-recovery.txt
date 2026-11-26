@@ -1,0 +1,12 @@
+ROLLE: Worker (Lane w249). Coord 841e7734. KARTE: t-20261018-r27-state-recovery (state: ready, alle
+abhaengigkeiten akzeptiert). SUCHE: python3 scripts/plan.py show der karte in baseharbor-plan lesen +
+repo-regeln baseharbor/AGENTS.md. CLAIM: ueber scripts/plan.py claim (commit+push) BEVOR erste aenderung.
+ARBEIT: isolierter zweig work/r27-state-recovery von develop (aktueller kopf, heute mehrfach gelandet —
+fetch statt annehmen), implementierung NUR innerhalb des karten-scopes (zustand/wiederherstellung),
+kleinste passende tests zuerst, dann hosted PR gegen develop, selected checks am final-kopf bis TERMINAL
+selbst beobachten (Eigenes-Run-Pflicht). AKTE: evidence/r27-welle5-folge-2026-11-06/state-recovery/round-1.md
+mit PLAN-checkliste, fetch/beleg-zeilen, ls-remote-kopf, run-id+ergebnis, repo-rule compliance.
+GATES: KEINE subagenten, kein zweiter PR, root-checkout verboten, .github-anfassen VERBOTEN (ci-lanes-karte
+gehört dem coordinator), name-only disjunkt halten, VMs: keine (beide belegt), caches unter /tmp/opencode/w249*.
+END an 841e7734: "END_DONE w249-state-recovery: head=<sha10> pr=<n> lauf=<id TERMINAL> lsremote=<sha10>
+akte=<pfad auf main> | <Satz>"

@@ -1,0 +1,12 @@
+ROLLE: CODEX-REVIEW (Abnahme-Sitz). Coord 594fd2f5. KARTE: t-20261106-r27-remote-up-podman-owner-missing (0427-117).
+FOKUS-RE-REVIEW r6: Du hast in act-1419c den PRODUKTIONSPFAD bereits bestaetigt (prod_path=real-un-gated, fail_closed=ok) und NUR die positive regression beanstandet (saveThroughApplySeam bei deployment_owner_loan_regression_test.go:302 statt echtem CLI apply). Die lane hat GENAU das geaendert — delta ist TEST-ONLY.
+Kandidat PR #1419 head f69f2a6c2823b65240604685191ccb8ec6e78cb8, base develop eee11d50 (is-ancestor rc0), MERGEABLE, run 4991 TERMINAL-SUCCESS (cli-package-tests pass 6m52s + PR Selected Checks pass). delta 438895466..f69f2a6c = NUR cmd/baha/deployment_owner_loan_regression_test.go (113+/15-), KEIN produktcode, KEIN .github.
+
+PRUEFE (nur-lesend, eng — der code ist schon_accepted):
+ (1) ls-remote refs/heads/develop refs/pull/1419/head; git diff 438895466..f69f2a6c --stat BESTAETIGT nur die eine testdatei (sonst scope-creep belegen).
+ (2) KERN: treibt die positive regression jetzt den ECHTEN CLI app apply (runApplicationApplyLifecycle / production command runner) gegen ein isoliertes lokales Podman-target, statt saveThroughApplySeam? Lies cmd/baha/deployment_owner_loan_regression_test.go — die zeile ~302 saveThroughApplySeam muss DURCH echtes apply ersetzt/entfallen sein; assertiert wird das owner-record NACH dem echten apply.
+ (3) un-gated + verhalten: GRUEN am kandidat, ROT auf gestashtem base MIT woertlicher ErrDeploymentOwnerMissing sentinel (kein marker/trick). connector/unmarked fail-closed both sides bleibt.
+ (4) akte evidence/r27-welle5-folge-2026-11-06/remote-up-cli/owner-missing-round-6.md auf origin/main pruefen (ls-tree + red/green exit + woertliche ausgabe).
+ (5) docker/podman TARGETED runtime cells SKIPPED = owner ci.yml push-gate (NICHT reject-grund); wenn sonst alles passt und der code (bereits bestaetigt) + die jetzt echte regression den vertrag erfuellt -> ACCEPT.
+LIEFERE: ACCEPT | REJECT_LANE_FIX <datei:line rezept>. KEIN merge, KEIN code-aendern.
+END an 594fd2f5: "CODEX-REVIEW 0427-117/#1419-rereview-d: verdict=<..> head=f69f2a6c delta=<test-only-ok|creep> real_cli_apply=<ja-neu|immernoch-seam> regression=<un-gated GREEN + ROT-base verbatim sentinel> fail_closed=<ok> ci=<4991 TERMINAL> runtime_cells=<owner-gate> rezept=<..>". Akte evidence/r27-welle5-folge-2026-11-06/remote-up-cli/act-1419d-review.md ECHTE plan (remote -v).
