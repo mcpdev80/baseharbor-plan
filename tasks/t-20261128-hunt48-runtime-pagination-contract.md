@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w343-0428-344-pagination (live lane)
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-344 · runtime list pagination
 priority: ""
@@ -23,18 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261128-hunt48-runtime-pagination-contract · 0428 hunt H-V48: runtime API list endpoints have no pagination contract #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261128-hunt48-runtime-pagination-contract · 0428 hunt H-V48: runtime API list endpoints have no pagination contract #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
+    **Owner:** w343-0428-344-pagination (live lane)  
     **PR:** [baseharbor#1871](https://github.com/mcpdev80/baseharbor/pull/1871)  
-    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w343-0428-344-pagination (live lane)  
 **Priority:** not set  
 **PRs:** [baseharbor#1871](https://github.com/mcpdev80/baseharbor/pull/1871)  
 **Source:** 
