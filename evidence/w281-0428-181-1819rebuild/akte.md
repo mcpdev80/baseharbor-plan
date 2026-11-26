@@ -166,3 +166,14 @@ is carried by the reissue itself and #1822 catalog rows are already on develop.
 ## END_DONE
 Lane w281-0428-181-1819rebuild: read-only recipe authored; zero mutation; witnesses + write-set + dependency +
 gate-preview + verdict captured above.
+## FORWARD-HOP PROVENANCE (2026-11-26, w301-0428-251-planhops — forward-only dated addition)
+This akte was re-painted onto the LIVE plan main by lane w301-0428-251-planhops via a single forward merge
+commit on PR #81. The branch history carries two commits authored under `w281-coordinator`:
+- `fae1618057` — `w281-coordinator`: "w281: read-only clean-rebuild write-set recipe for PR #1819 reissue"
+- `d84d660e21` — `w281-coordinator`: "Merge remote-tracking branch 'origin/main' into codex/pr81-forward-main"
+
+Codex (w267 identity review) ruled that `w281-coordinator` is **not** an admissible same-lane shorthand. The
+registered lane for this card is **w281-0428-181-1819rebuild**. This provenance note documents that fact.
+The forward-merge commit(s) that w301-0428-251-planhops adds now carries its own canonical identity
+(`w301-0428-251-planhops` / `w301-0428-251-planhops@baseharbor.local`), not `w281-coordinator`. No product
+content or recipe text was altered — only this dated provenance paragraph.
