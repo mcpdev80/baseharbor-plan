@@ -118,3 +118,9 @@ Remote witness for the preceding evidence update:
 ```text
 d1529d87b713aaf134df65320f17821bb0a95bc9 refs/heads/w255-0428-251-demo170codex
 ```
+
+### Updated base integration for Planning PR #66
+
+After PR creation, live Planning `main` advanced to `4f3d2bda73d3b72e3248fa2eed723e2d85437c4f`. I fetched it and integrated it into this isolated branch with merge commit `0a1384b92`; no shared-worktree files were changed. `git merge-base --is-ancestor origin/main HEAD` exited 0 after integration. The refreshed diff remains limited to this evidence file. The refreshed `git log --oneline origin/main..HEAD` contains only this lane's four evidence commits and its own base-integration merge commit.
+
+The earlier hosted PR check passed on head `9439c7a94e29960f77a3e3b87b3e65e5936ed9e4`; that result is stale for the refreshed head and will not be used as current-head evidence.
