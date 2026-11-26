@@ -271,9 +271,9 @@ ten Hunt47 rows is a review instruction for the next recovery PR, not a finding 
   Nothing here needs a test route: this card adds no test and changes no product code, so the gate-catalog rule
   has nothing to register; the plan repository's ordinary validator is the only relevant check and it belongs to
   the plan PR, not to this lane's trigger rights.
-  Test -> check route for this card: NONE, because this card creates and changes zero tests (pure read-only
-  evidence). Nothing to register in a REQUIRED set or gate catalog; stated explicitly per the review-stop rule.
 - No `.github/**` change is needed, so no Owner-scope finding is raised.
+- Test -> check route for this card: NONE, because this card creates and changes zero tests (pure read-only
+  evidence). Nothing to register in a REQUIRED set or gate catalog; stated explicitly per the review-stop rule.
 - `git -c user.name=... commit` invocation and the `%an` pre-push gate are as declared in the ANSATZ block.
 
 ## cleanliness
@@ -284,17 +284,14 @@ in either. The canonical shared plan checkout keeps its original HEAD (`08b1f66b
 (this lane never ran a mutating git command inside it).
 
 - `git stash list` count observed in the shared checkout: unchanged (never written by this lane).
-- Stray worktree/branch cleanup: `w280-recount-plan` removed from the plan repository's worktree metadata and its
-  branch deleted, before any commit existed on it. `git worktree list | grep w280` now shows only
-  `workers/w280-plan-wt`.
+- Stray worktree/branch cleanup: `w280-recount-plan` and `w280-plan-wt` were both removed from the plan
+  repository's worktree metadata, and their branches deleted before any commit existed on them. Final
+  `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan worktree list | grep w280` shows exactly one
+  entry: `/tmp/opencode/w280-0428-284-recount-wt/plan`.
 - No VM/SSH work in scope for this mission.
 
-## END
 
-END_DONE w280-0428-284-recount: PR #75 merged at 02:37:44Z; 12/12 census paths restored (10 identical, 2 newer
-variants); missing count 88 -> 76 paths / 492119 bytes; restoring publication `7ae6d04bf` (author Marcel
-Pfingstgräf, committer GitHub, squash of `2340f07` by `w255-0428-251-demo170codex`); plan PR #82 open, not
-merged; live main tip identical before and after this lane's work.
+## Publish and closing witnesses
 
 ## Findings
 
@@ -365,3 +362,10 @@ $ docker ps -a --format '{{.Names}}' | grep -ci w280
   started here, per the CI policy stop).
 - no compose project, no network, no volume, no VM/SSH session in this mission.
 cleanliness: PASS - the lane leaves the host and both plan checkouts exactly as found.
+
+## END
+
+END_DONE w280-0428-284-recount: PR #75 merged at 02:37:44Z; 12/12 census paths restored (10 identical, 2 newer
+variants); missing count 88 -> 76 paths / 492119 bytes; restoring publication `7ae6d04bf` (author Marcel
+Pfingstgräf, committer GitHub, squash of `2340f07` by `w255-0428-251-demo170codex`); plan PR #82 open, not
+merged; live main tip identical before and after this lane's work.
