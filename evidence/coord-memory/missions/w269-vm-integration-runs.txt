@@ -1,0 +1,22 @@
+ROLLE: Worker (Lane w269). Coord a4573079. KARTE: t-20261104-r27-vm-integration-runs (HIGH, planned;
+nachweis-lastig, KEIN produkt-code als ziel — funde gehen als eigene karten/zellen zurueck).
+ZIEL: echte integration-laeufe auf den VMs, NICHT simuliert: core + demo + console + connector erzeugen
+je host eine pass/fail-zeile MIT exakter quell-revision (git ls-remote/rev-parse pro repo).
+VORGESCHICHTE: rebuild-akte evidence/r27-welle4-2026-11-04/vm-integration/rebuild-1.md (w150) war der
+letzte vollstandige lauf; seither sind state-recovery, single-default-kandidaten, managed-users (8bda98c
+AUF develop!) und vm-smoke-fernsteuerung gelandet — der lauf ist UEBERFALLIG.
+ABLAUF: claim via plan.py; develop-stand 8bda98c1cd3 als kern-revision nehmen (ls-remote-zeugnis);
+PHASE docker-2 (192.168.6.205, JETZT frei — vm-lock claim baha-docker-2 w269): core up (SINGLE default,
+ohne profil), demo-app gegen core, console- Pfad (read-only status/anmeldung), node-connector registrieren
+-> connect -> status -> disconnect je nach connector-README (baseharbor-node-connector/AGENTS.md beachten!).
+PHASE podman-2: dieselbe matrix, WENN der host frei ist (vm-lock rc=3 => NICHT warten, andere phase
+vorziehen/fertigmachen); baha-docker(166) hat PERMANENTEN bh-local-shared stack — nur lesen, NICHT antasten.
+RUECKBAU je host auf container/volume/network=0 (eigene bestaende), lock release mit journal-zeile.
+FUNDREGEL: produktfehler => neue karte via plan.py + verweis, NICHT still reparieren (scope!), ausser
+triviale test-helfer auf deinem eigenen write-set.
+AKTE: evidence/r27-welle5-folge-2026-11-06/vm-integration-runs/round-1.md — PUNKTE statt checkboxen; je
+host×komponente: befehl, revision, pass/fail-zeile, transkrit; ## repo-rule compliance.
+Caches /tmp/opencode/w269*, persistent zone workers/w269-wt. GATES: KEINE subagenten, coordinator-host
+tabu fuer container, .github tabu.
+END an a4573079: "END_DONE w269-vm-integration-runs: matrix=<docker: x/4 gruen|podman: y/4> revs=<core sha10>
+laeufe=<..> host-clean=<beide 0> journal=<claim+release zeilen> akte=<pfad main> | <Satz>"

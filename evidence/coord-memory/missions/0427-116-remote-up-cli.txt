@@ -1,0 +1,10 @@
+Auftrag 0427-116-remote-up-cli (Lane a807d1ab, ornith-desktop). Nimm BESTEHENDE arbeit auf, starte nicht neu.
+Ziel (karte t-20261106-r27-remote-up-cli-path): der remote CLI-STARTPFAD `baha app up` (und --confirm-candidate) funktioniert gegen eine per Connector gebundene App auf Docker UND Podman; doctor meldet danach health OK ohne Up-Gap-Befundzeile. Befundstellen: cmd/baha/app_remote_lifecycle.go:34 (up-gate), runtime_explorer_machine.go:55.
+Kontinuitaet: PR #1407, branch work/r27-remote-up-cli (head 86f990a6). `git fetch origin`; origin/develop (aktuell beb923fe6) in deinen ast mergen; ancestor rc0; delta nur deine dateien. PR #1407 ist dein exact-one-candidate.
+Scope-Grenze: KEINE .github dateien (021 owns CI-naht), NICHT cmd/baha/client_commands_behaviors_test.go oder die deployment_record/owner-loan dateien (022/117 territory), NICHT scripts/*. Nur der remote-up startpfad + seine tests.
+Tests: (1) rote-first-Zelle die den Up-Gap bei aktuellem stand zeigt, dann gruen mit fix; (2) echte VM-Transkripte Docker UND Podman SERIELL — vm-lock.sh claim/release, einer-nach-anderer, NIE beide gleichzeitig; baha-podman-2=192.168.6.107 und/oder baha-podman frei (baha-docker haelt 003, ausweichen). Rueckbau-null-pruefung als endzeugnis.
+CI-Aufnahmepflicht: die neue zelle muss von der GitHub-CI erfasst werden (trigger/auswahlregel der betroffenen CLI-/remote-gruppe). Wenn dafuer eine .github-triggerzeile geaendert werden muss: NICHT selbst aendern — melde den bedarf als BEFUND mit file:line an mich, 021/owner setzt ihn.
+EIGNES-RUN: beobachte deinen gehosteten pr-check auf dem finalen sha bis terminal (run-id + status in evidence). ls-remote-zeugnis.
+Evidence: baseharbor-plan/evidence/r27-welle5-folge-2026-11-07/remote-up-cli/ (neue frische lane, eigenverantworlich).
+Keine Subagenten (AGENTS 4.8). Stehe NICHT idle ohne END — wenn festgefahren: QUESTION mit exakter stelle.
+END an 594fd2f5 (alias coordinator).

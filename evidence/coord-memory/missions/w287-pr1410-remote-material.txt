@@ -1,0 +1,57 @@
+MISSION w287-pr1410-remote-material — Karte t-20261018-r27-remote-material (release v0.4.27)
+Coord a4573079. Repo: mcpdev80/baseharbor, Basis: develop dddf0d7823f6eec161ad518bbced626fa9efe52e
+(vor erster Änderung ls-remote gegen diesen Kopf prüfen; bei Drift: develop mergen, nicht loslegen).
+
+ZIEL (Produkt): Ein remote Provider/eine Exposure bekommt ihr TLS-Material und ihre Secrets dort,
+wo sie tatsächlich gebraucht werden — am echten Target — statt am Entwickler-Host zu erscheinen.
+Keys bleiben an der erforderlichen Ausführungsgrenze geschützt; kein Provider-Onboarding in develop.
+
+VERTRAG (bitte selbst lesen, wording ist maßgeblich):
+  python3 scripts/plan.py show t-20261018-r27-remote-material
+  baseharbor-plan/tasks/t-20261018-r27-remote-material.md — Abschnitte Outcome/Acceptance,
+  Inputs and output, Dependencies and file ownership, Required checks, Standards boundary.
+Voraussetzungen sind alle geschlossen (gemessen 01:1xZ): t-20261017-release-0-4-27-updates,
+t-20261018-r27-artifact-resolution, t-20261018-r27-candidate-ingress, t-20261018-r27-node-trust,
+t-20261022-r27-ci-runtime — je kanban_status=closed. Die Karte steht auf planned, Claim ist FREI —
+ Claim sofort veröffentlichen: python3 scripts/plan.py claim t-20261018-r27-remote-material (AGENTS 4.3).
+
+WRITE-SET (disjunkt zu den vier laufenden Bahnen — kein anderes Datei berühren):
+  internal/application/remote_application_projection.go
+  internal/application/remote_runtime_projection.go
+  zugehörige bounded exposure/material-Dateien + deren Tests
+  NICHT: internal/deployment/** (w286), cmd/baha/deployment_record.go, management-host-Dateien (w280),
+  compose/InCI-Isolation (w282), .github/** und keine Pflege-/Regeldateien (AGENTS 3.11 + RUNBOOK 4.0).
+
+TESTANFORDERUNG (AGENTS 5.3, Owner-Direktive 2026-11-07):
+  - fixtures für projection / ownership / secret-leak / TLS-material, wie die Karte sie nennt;
+  - jeder NEUE Test muss von einem GitHub-CI-Job ausgeführt werden (job-name + triggerregel in der
+    Akte benennen). Ein Test, der nur lokal oder nur in einer VM-Zelle läuft, ist keine Evidence.
+  - Wo eine Workflow-Datei oder ihre Triggerregel geändert werden müsste: NICHT selbst ändern —
+    Befund mit file:line an mich (a4573079), der Owner setzt das um.
+  - red-first: nenne den kranken Commit mit SHA und beleg die rote Ausgabe AUF IHM (RUNBOOK 5.6);
+    Mutante an der Produktionszeile, nicht am Helfer (RUNBOOK 4.3/Doktrin).
+  - Erhalt-Pflicht: git diff develop..HEAD -- <beruehrte testdatei> | grep '^-func Test' muss leer
+    sein, WÖRTLICH in der Akte (RUNBOOK 0.4).
+
+BEWEISREGEL: Pro Schritt ein Zeuge (ls-remote-Zeile, Run-ID + terminal status, Dateipfad der Akte).
+Aktenort: baseharbor-plan/evidence/r27-welle5-folge-2026-11-06/remote-material/round-1.md —
+NUR im echten Plan-Checkout committen (git add <datei>, NIE -A, NIE im workers/-Baum: Präzedenz
+w282 heute Nacht,Commit 9ca27c9f lag in der falschen Zone).
+
+VMs: nur wenn du eine echte Runtime-Behörde brauchst — Zugang ausschließlich über
+coordinator/scripts/vm-lock.sh claim|release <host> <lane>, ein Host pro Bahn, bei belegt ausweichen,
+Rückbau + Null-Prüfung als Endzeugnis (RUNBOOK R2/R3, "klare Regeln Ressourcenverwendung").
+Auf DIESER Maschine (Coordinator-Host) sind keine Container-Stacks erlaubt (R1).
+
+PROZESS: Branch work/r27-remote-material in eigenem Worktree; Draft-PR eröffnen (neue Karten immer
+draft — ich hebe auf ready, wenn der Kandidat plattenfest ist); PLAN als nummerierte Checkliste in der
+Akte UND in deinem todos-board (AGENTS 4.4 — basics-check meldet stale Boards).
+Keine Subagenten (AGENTS 4.8): jeder Schritt in deiner Session; brauchst du etwas → QUESTION-Post an
+a4573079, nicht delegieren.
+
+STOP-KRITERIEN: (1) Vorfahr-Konflikt mit einer anderen Bahn im selben Write-Set, (2) Voraussetzung
+entpuppt sich als nicht akzeptiert, (3) ein Pflicht-Check erfordert eine .github-Änderung,
+(4) zwei identische fehlgeschlagene Korrekturversuche. Dann: END_BLOCKED mit Ursache + Zeugen.
+
+END an a4573079: "END_DONE w287-pr1410-remote-material: head=<sha> base=<sha> pr=<n> zellen=<..>
+akte=<pfad> lauf=<id> < terminals status" — mit ls-remote-Zeile im Transcript.
