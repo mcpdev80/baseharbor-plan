@@ -28,7 +28,6 @@ evidence: []
     **Owner:** w147-0428-288-pr1833-fix · **Priority:** high  
     **PR:** [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
     **Waiting:** W15 required next proof: hop PR \#1833 onto current develop, then obtain two distinct fresh pull\_request runs on the exact same head (attempt 1 each); run 45513816046 on a7b0a48048c11d20234160eede941532ddc33156 is attempt 2 and void as pair…  
-    **Needs:** [t-20261125-0428-284-1812-postretry-gate-failure](t-20261125-0428-284-1812-postretry-gate-failure.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
