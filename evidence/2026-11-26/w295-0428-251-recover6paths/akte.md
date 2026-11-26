@@ -369,6 +369,63 @@ worktree); it is NOT fixed here because scripts/plan.py is outside this card's w
 
 ## Delivery witnesses
 
+Final published head (rebuilt deterministically in the throwaway worktree `/var/tmp/w295-final`;
+the intermediate trials 059eba65a / 533327b46 / ac8f1a1c3 exist only in my lane worktree, were never
+pushed, and are not ancestors of head):
+
+```
+head            8c3c70add parents = 2bb63ffc8 + 28297faff (live main tip)   an=cn=w295-0428-251-recover6paths
+content commit  2bb63ffc8 parent  = cfb2b6c8a (base attestation)            an=cn=w295-0428-251-recover6paths
+git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main -> 28297faffdd6be7781f4f994f6f6b6f53216b86b
+git merge-base --is-ancestor origin/main HEAD -> rc=0 (live main tip IS an ancestor of head)
+git log --oneline origin/main..HEAD -> 8c3c70add (merge), 2bb63ffc8 (recovery)  -> ONLY this lane's two commits
+git diff --name-only 2bb63ffc8 HEAD -> 8 files, all generated output + card 0428-352's own note as main has it; zero unrelated task rewrites
+python3 scripts/plan.py check  -> 791 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 warnings (rc=0)
+python3 scripts/plan.py render  -> no-op on head (fixed point, git status empty)
+git diff origin/main...HEAD --name-only -> the 14 paths listed in the PR file check below
+```
+
+## END
+
+
+
+## Main moved while working (rule 4 absorption) and how the conflicts were resolved
+
+`git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main` moved twice during
+this lane: `cfb2b6c8a` (base attestation) -> `6c2ab2c00` (PR #96, card 0428-352) ->
+`28297faffdd6be7781f4f994f6f6b6f53216b86b` (PR #97, evidence-only, 1 changed file). Neither new main
+commit lands any of the six paths (`git cat-file -e` on both tips: ABSENT for all six), so no
+competing recovery lane exists and this PR stays the recovery for card 0428-251.
+
+Absorption used exactly ONE ordinary merge commit, created with this lane's identity via
+`git -c user.name=... -c user.email=... merge --no-ff origin/main` (no rebase, no force, no
+cherry-pick, no rewrite). The merge conflicts were confined to four generated files
+(`releases/v0.4.28.md` `roadmap_progress` frontmatter, `roadmap/cards.md`, `views/kanban-dashboard.md`,
+`views/overview.md`); they were resolved to the main side and then recomputed by
+`python3 scripts/plan.py render`, so no generated line is hand-written and no main content is lost.
+
+### Renderer side-effect finding (documented, not fixed in this PR)
+
+Running `scripts/plan.py render` while a merge is uncommitted - with conflict markers still present
+in `releases/v0.4.28.md` frontmatter - rewrote the `generated:links` block of 363 task files, because
+`parse_frontmatter` (scripts/plan.py:58-80) silently accepts the marker lines and the release link
+target then fails to resolve, so the block loses its `[v0.4.28](../releases/v0.4.28.md)` link form and
+its trailing double space. Evidence:
+
+- scripts/plan.py:58-80 (`parse_frontmatter`, the `^([a-z_]+):(?: .*)?$` line regex that does not
+  reject `<<<<<<<`, `=======` or `>>>>>>>`), which is why a conflicted frontmatter renders at all.
+- scripts/plan.py:1187 region (`elif as_str(t["meta"].get("card_number")):` / links_block emission),
+  the writer of the affected block.
+- Reproduction witness: `render` on a clean `origin/main` worktree changes 0 files; `render` in the
+  same tree with the merge conflict unresolved changes 363 files.
+
+This lane therefore performed its render only on committed, marker-free states and its final merge
+commit shows exactly 8 changed files against its two parents, none of them an unrelated task note.
+The finding is a candidate follow-up card (make `render` refuse to run on an unmerged or marker-bearing
+worktree); it is NOT fixed here because scripts/plan.py is outside this card's write-set.
+
+## Delivery witnesses
+
 Final published head (rebuilt in a throwaway worktree after the akte edit, so the akte in the PR is
 the version that records the outcome, and the earlier trial commits 059eba65a/533327b46 exist only in
 my own lane worktree, never on the remote):
