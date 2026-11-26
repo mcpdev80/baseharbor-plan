@@ -9,9 +9,9 @@ version: v0.4.27
 release_stage: prepare
 parent: v0.4.27
 owner: owner-chatgpt-r27
-kanban_lane: ""
+kanban_lane: active
 kanban_summary: Prepare the v0.4.27 ecosystem release-readiness dossier while implementation progress is tracked by its own CardBoard tasks and…
-kanban_status: ""
+kanban_status: active
 kanban_title: "0427-006 · complete ecosystem readiness"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]

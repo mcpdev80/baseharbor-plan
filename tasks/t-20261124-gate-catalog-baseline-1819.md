@@ -7,8 +7,8 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: ""
+owner: w65-0428-269-batchbaseline
+kanban_status: active
 kanban_lane: active
 kanban_summary: "Unblock #1819 / card 0428-181 (identity dashboard catalog consumer). Exact head 69f76b94 fails Trusted Plan because three…"
 kanban_title: "0428-273 · add #1819 catalog rows"
