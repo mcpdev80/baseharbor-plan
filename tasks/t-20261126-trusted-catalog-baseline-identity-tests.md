@@ -15,7 +15,7 @@ kanban_title: 0428-352 · Trusted catalog baseline for
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1857]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,6 +26,7 @@ evidence: []
 - [ ] t-20261126-trusted-catalog-baseline-identity-tests · Trusted catalog baseline for identity dashboard tests #task #release/v0-4-28 #status/planned #view/ready #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
+    **PR:** [baseharbor#1857](https://github.com/mcpdev80/baseharbor/pull/1857)  
     **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
@@ -35,7 +36,7 @@ evidence: []
 **Depends on:** none  
 **Owner:** unassigned  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1857](https://github.com/mcpdev80/baseharbor/pull/1857)  
 **Source:** 
 <!-- /generated:links -->
 
