@@ -213,10 +213,11 @@ is an owner/Codex decision, not a lane invention, because the mission's rule tex
 | 3 | tasks/t-20261125-hunt47-recover-preflight-and-flag-route.md | 5,395 | a47da84b8 | 788a600020 | restored, 344→355 | RESTORED |
 | 4 | tasks/t-20261125-hunt47-deployment-record-v1-wall.md | 5,376 | a47da84b8 | 34969233cf | restored, 342→356 | RESTORED |
 | 5 | tasks/t-20261125-hunt47-keycloak-migration-docs.md | 5,221 | a47da84b8 | 7c079d905b | restored, 346→357 | RESTORED |
-| 6 | tasks/t-20261124-r28-alert-applied-face-stale-runtime.md | 3,608 | stash@{21} (a52298200, ^3-tree) | 36ba702478 | restored, 268→358 | RESTORED |
+| 6 | tasks/t-20261124-r28-alert-applied-face-stale-runtime.md | 3,608 | stash@{21} (a52298200, ^3-tree) | 36ba702478 | bytes verified (swap 268→358 tried) | WITHDRAWN — see 'Path 6' |
 
-The "BLOCKED" wording in that first table was the pre-decision state and is superseded by the
-Decision record below; all six land on this branch.
+The "BLOCKED" wording in the first table was the pre-decision state and is superseded by the Decision
+record below; and the sixth row was superseded again by the "Path 6" section after the Codex advisory.
+Five paths are restored by this PR; path 6 is verified in this akte but not landed.
 
 Restoration used `git cat-file -p <carrier-blob>` redirected to the census path, then one `sed`
 substitution anchored to the exact old line (`s/^card_number: "0428-<old>"$/card_number:
@@ -232,8 +233,10 @@ t-20261125-hunt47-keycloak-migration-docs:           3c3  < "0428-346" --- > "04
 t-20261124-r28-alert-applied-face-stale-runtime:     3c3  < "0428-268" --- > "0428-358"
 ```
 
-Total restored bytes 31,004, identical to w290's class-(c) figure; each file keeps its carrier size
-(5,745 / 5,659 / 5,395 / 5,376 / 5,221 / 3,608), confirming the single-line swap changed no length.
+Each file keeps its carrier size (5,745 / 5,659 / 5,395 / 5,376 / 5,221 / 3,608), so the swaps changed
+no length: 27,396 B restored for the five Hunt47 paths and 3,608 B verified-but-withdrawn for path 6,
+which reproduces w290's 31,004 B class-(c) figure exactly. The path-6 hunk list was measured against the
+withdrawn candidate `2bb63ffc84`, not against the published tree.
 
 ## Old absence + byte-equality proofs
 
@@ -269,9 +272,12 @@ Path 6 stash handling: read ONLY with `git -C <shared plan> stash list` (51 entr
 
 ## Residual figure and verdict
 
-- Restored by this lane: 6 of 6 (31,004 bytes), each with the single permitted `card_number` swap.
-- Blocked: 0 of 6. Recovery line: ready to CLOSE once this PR is merged, subject to the validator
-  run recorded as V2 below being green on the exact head.
+- Restored by this lane: 5 of 6 (27,396 bytes), each with the single permitted `card_number` swap.
+- Withdrawn: 1 of 6 (path 6, 3,608 bytes): the audit this list comes from classifies that very path as
+  non-loss at line 66 and as a class-(c) residual at line 91 (Codex advisory on PR #95). See "Path 6".
+- Recovery line: NOT closed by this PR alone. It closes when w298's corrected census decides — restore
+  (this akte holds the verified bytes and can land them unchanged) or non-loss (then this PR is the full
+  close, 5 of 5).
 - The re-allocation used (0428-353..358) is a documented, provably collision-free choice, not the
   owner's quoted rule text (which is absent from this repository at runtime). If the owner's rule
   names different free numbers, the follow-up is a mechanical six-line change: content, ids, paths
@@ -317,7 +323,7 @@ Number selection (documented, revisable by Codex without touching content): the 
 "highest + 1"; a repo-wide mention scan (not only the `card_number:` field) proves 0428-353 through
 0428-358 appear nowhere in `origin/main` in any file, and no stash in the shared checkout holds any
 `0428-35x`. They are the only candidate block that cannot belong to any retired or stranded card.
-Allocation is by path order:
+Allocation is by path order; the sixth row was a trial that the Path-6 decision withdrew:
 
 | path | old card_number | new card_number |
 | --- | --- | --- |
@@ -326,7 +332,7 @@ Allocation is by path order:
 | tasks/t-20261125-hunt47-recover-preflight-and-flag-route.md | 0428-344 | 0428-355 |
 | tasks/t-20261125-hunt47-deployment-record-v1-wall.md | 0428-342 | 0428-356 |
 | tasks/t-20261125-hunt47-keycloak-migration-docs.md | 0428-346 | 0428-357 |
-| tasks/t-20261124-r28-alert-applied-face-stale-runtime.md | 0428-268 | 0428-358 |
+| tasks/t-20261124-r28-alert-applied-face-stale-runtime.md | 0428-268 | 0428-358 (trial only, WITHDRAWN) |
 
 ## Hosted validation on the exact published head
 
@@ -356,6 +362,51 @@ git -C <shared plan checkout> rev-parse HEAD           -> 08b1f66bb733d4c1422135
 git -C <shared plan checkout> stash list | wc -l       -> 51 before, 51 after (stash@{21} carrier intact, never dropped or altered)
 plan refs added by this lane: refs/heads/lane-w295-0428-251-recover6paths = dd4c32b4b (and refs/pull/100/head); refs/heads/main still 28297faff (this lane never pushed main)
 ```
+
+## Path 6 — evidence decision after the Codex advisory on PR #95 (05:35Z)
+
+The advisory reports that w290's audit self-contradicts on
+`tasks/t-20261124-r28-alert-applied-face-stale-runtime.md`: line 66 of
+`evidence/coordination/w290-0428-251-recoveryverify.md` classifies it as superseded/non-loss
+(superseded by accepted 0428-268 via #1831) while line 91 lists it among the six class-(c) residuals.
+The lane decided by evidence in the order the advisory prescribes.
+
+(1) Already present on live main? No —
+
+```
+git ls-tree -r --name-only 28297faffdd6be7781f4f994f6f6b6f53216b86b | grep -F 't-20261124-r28-alert-applied-face-stale-runtime'
+  (no output, grep rc=1)
+git ls-tree -r --name-only 6f82c50e845c0c2758238a96bb0483d7626f9dfe | grep -F 't-20261124-r28-alert-applied-face-stale-runtime'
+  (no output, grep rc=1)   # 6f82c50e84 = payload commit of merged plan PR #97, whose merge is main's tip
+git diff --name-status 6f82c50e845c0c2758238a96bb0483d7626f9dfe^ 6f82c50e845c0c2758238a96bb0483d7626f9dfe
+  (empty: PR #97's payload touches only the w271/w255 provenance akte, so PR #97 neither restores nor deletes the path)
+```
+
+(2) Newer faithful variant, or a superseding card?
+
+```
+git log --oneline 28297faffdd6be7781f4f994f6f6b6f53216b86b -- tasks/t-20261124-r28-alert-applied-face-stale-runtime.md
+  (no output: the path never existed on main, so no newer variant exists)
+git grep -l '^card_number: "0428-268"' 28297faffdd6be7781f4f994f6f6b6f53216b86b -- 'tasks/*.md'
+  -> tasks/t-20261124-r28-alert-evaluator-live-health-wiring.md   # an existing, different card on the SAME number
+```
+
+So the class-(c) reading holds for the BYTES (nothing on main carries this text) while the non-loss
+reading has an independent basis (main does have an r28-alert card numbered 0428-268). Both readings
+cannot be true, and settling them is w298's correction of the audit, not a recovery lane's call. Landing
+path 6 would renumber a second live card on a contradiction and would silently fix the recovery line's
+closure figure from this lane's side.
+
+(3) Decision: path 6 is WITHDRAWN from the landed set; the five Hunt47 restores stand. Its verified
+bytes stay in this akte (carrier `stash@{21}^3` = `a52298200` in the shared plan checkout, blob
+`36ba702478f0f4895e28fba07beb82d420a9dd21`, 3,608 B, read with `git cat-file` only; the stash was never
+dropped, popped or altered), so whichever way the corrected census decides, the follow-up is one
+mechanical line. Mission rule 2 treatment (leave it out, report it), with the explicit figure the
+advisory asks for:
+
+- restored by this PR: **5 of 6** (27,396 B)
+- verified, not landed: **1 of 6** (path 6, 3,608 B)
+- recovery line: NOT CLOSED by this PR alone; closes on w298's corrected census
 
 ## END
 
@@ -412,7 +463,7 @@ commit shows exactly 8 changed files against its two parents, none of them an un
 The finding is a candidate follow-up card (make `render` refuse to run on an unmerged or marker-bearing
 worktree); it is NOT fixed here because scripts/plan.py is outside this card's write-set.
 
-## Delivery witnesses
+## Delivery witnesses (current build)
 
 Final published head (rebuilt deterministically in the throwaway worktree `/var/tmp/w295-final`;
 the intermediate trials 059eba65a / 533327b46 / ac8f1a1c3 exist only in my lane worktree, were never
