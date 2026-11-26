@@ -463,7 +463,41 @@ commit shows exactly 8 changed files against its two parents, none of them an un
 The finding is a candidate follow-up card (make `render` refuse to run on an unmerged or marker-bearing
 worktree); it is NOT fixed here because scripts/plan.py is outside this card's write-set.
 
-## Delivery witnesses (current build)
+## Delivery witnesses (final build, this akte's own commit)
+
+```
+head (published) f63a2135119bf05d4a5863338d9b2ab1f3dba952  parents = 9df287c2f2 + 1b9b2bc702 (live main)
+                 an=cn=w295-0428-251-recover6paths
+chain above main: 2bb63ffc84 (six restores + render, base cfb2b6c8a) -> dd4c32b4bd (merge main 28297faff)
+                  -> ae8e2e5ff7 (akte witnesses) -> cb61ebb835 (path 6 withdrawn + render)
+                  -> 9df287c2f2 (akte path-6 decision) -> f63a213511 (merge live main 1b9b2bc702)
+git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main                       -> 1b9b2bc70201d9da6615a9ec16942103c20e96a1
+git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/lane-w295-0428-251-recover6paths -> f63a213511 (fast-forward push, no force)
+git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/pull/100/head                    -> f63a213511 (PR head == pushed branch)
+git merge-base --is-ancestor origin/main HEAD                                                      -> rc=0, main tip IS an ancestor of head
+git log --oneline origin/main..HEAD -> five w295 commits + the akte, nothing foreign carried on top
+git diff --name-only origin/main...HEAD -> 12 files: this akte, five Hunt47 cards, generated roadmap/releases/views
+python3 scripts/plan.py check  -> 790 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 warnings (rc=0)
+python3 scripts/plan.py render -> no-op on head (fixed point, git status empty)
+Hosted: Plan · validate SUCCESS, run 45762926032 job 139716912886, head_sha f63a213511, event pull_request,
+        run_attempt 1 (no rerun, no workflow_dispatch, no .github/** change)
+Earlier heads of the same PR, both green: run 45761088079 on dd4c32b4bd, run 45761294534 on 703f79195
+```
+
+PR file-list guard (mission requirement), from `gh api repos/mcpdev80/baseharbor-plan/pulls/100/files`:
+no filename starts with `baseharbor-plan/`, and the only `tasks/` entries are the restored Hunt47 cards
+themselves — no tasks/ file was created as evidence.
+
+Additional main-move witnesses for the path-6 question (main moved again while this lane worked):
+
+```
+git ls-tree -r --name-only 1b9b2bc702 | grep -F 't-20261124-r28-alert-applied-face-stale-runtime' -> no output (rc=1)
+git ls-tree -r --name-only 6f82c50e84 | grep -F 't-20261124-r28-alert-applied-face-stale-runtime' -> no output (rc=1)
+  => PR #97's payload never carried the path, and neither 28297faff nor 1b9b2bc702 has it: on live main
+     the path is genuinely absent. The withdrawal rests on the audit's own contradiction, not on presence.
+```
+
+## Delivery witnesses (earlier build)
 
 Final published head (rebuilt deterministically in the throwaway worktree `/var/tmp/w295-final`;
 the intermediate trials 059eba65a / 533327b46 / ac8f1a1c3 exist only in my lane worktree, were never
