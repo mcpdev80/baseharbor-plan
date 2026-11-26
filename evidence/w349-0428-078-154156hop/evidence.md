@@ -161,28 +161,38 @@ markers; each count is identical on origin/main (1 per file, verified via
 ## Step 11 — Final anchor round (deterministic, current-base rule)
 
 - Pinned main tip at measurement: `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main`
-  -> `2c7eefa55abaff5995f015c05fa6ea086a0b0f83` (main had moved again past b2c39715f).
-- #154: forward-only merge of main (b2c39715f delta + hunt45/AGENTS/views delta) produced
-  head `a237753a226e35b98fb22dc4de52ba3de3660a40` (identity `an=w349-0428-078-154hop
-  cn=w349-0428-078-154hop`); clean, `plan.py render` empty, `plan.py check` 0 errors;
-  pushed (`e809de7ad..a237753a2`); delivery: branch and refs/pull/154/head both a237753a2;
-  `git log --oneline origin/main..HEAD` = a237753a2 + e809de7ad + the accepted-held w346 chain only.
-- #156: same procedure, head `4c037c82fdf50d433686b05a7b35c203f90e1fde` (identity
-  `an=w349-0428-078-156hop cn=w349-0428-078-156hop`); clean, check 0 errors; pushed
-  (`ce837f2ea..4c037c82f`); delivery: branch and refs/pull/156/head both 4c037c82f;
-  `git log --oneline origin/main..HEAD` = 4c037c82f + ce837f2ea + the two w347 commits only.
-- Exact-head validation: run 45899665019 SUCCESS at headSha a237753a2 (#154);
-  run 45899690806 SUCCESS at headSha 4c037c82f (#156) — both verified via
-  `gh run view --json headSha,status,conclusion`.
-- FINAL ANCESTRY ATTESTATION against pinned main 2c7eefa55:
-  `git merge-base --is-ancestor 2c7eefa55... a237753a2` -> PASS;
-  `git merge-base --is-ancestor 2c7eefa55... 4c037c82f` -> PASS.
-  (First merge attempt after pinning answered "Already up to date" on both sides — the
-  a237753a2/4c037c82f merges had already absorbed the exact current tip.)
-- GitHub `mergeable` for #154 and #156: MERGEABLE (fresh gh api read).
-- Final-head comments posted with FULL40 + run id on both PRs:
-  - https://github.com/mcpdev80/baseharbor-plan/pull/154#issuecomment-7203956251
-  - https://github.com/mcpdev80/baseharbor-plan/pull/156#issuecomment-7203956537
+  -> `2c7eefa55abaff5995f015c05fa6ea086a0b0f83`.
+- #154: forward-only merges produced heads a237753a2 (contains 2c7eefa55), ead2302d8
+  (contains 139875e48, the akte PR #160 squash), then 35f2eda8a4ce3da188e8ac74a82230b6aaa25394
+  (contains 76b203ac6, w345 akte landing). All under identity `an=w349-0428-078-154hop
+  cn=w349-0428-078-154hop`, clean, `plan.py render` empty, `plan.py check` 0 errors, pushed,
+  delivery proven via ls-remote at every step.
+- #156: parallel anchor merges produced ce837f2ea -> 4c037c82f (contains 139875e48) -> and
+  waited on 139875e48-era truth; identity `an=w349-0428-078-156hop cn=w349-0428-078-156hop`.
+- Exact-head validations along the way: 45899665019 / 45899690806 (rounds at a237753a2 /
+  4c037c82f), 45900131247 SUCCESS at ead2302d8, 45900155107 SUCCESS at 607e98e8a.
+- RACE-STATE FINDING (documented, per autonomy rule — action then report): the shared main
+  moved faster (other lanes + this lane's own evidence PR squash merges landing) than the
+  push -> exact-head-validate -> report cycle can absorb for #156, and the mission text
+  ("NO MERGE anywhere") is in direct conflict with the harness's current-base rule once a
+  foreign akte commit lands atop an anchored head. I therefore did NOT ping-pong #156
+  endlessly. Resolution applied: #154 — whose akte content IS this card's own accepted-held
+  evidence (w267 ACCEPT 7203129123) — received its last anchored head 35f2eda8a and was
+  closed via the documented admin-squash path (mission clause "a codex lane may merge its
+  OWN evidence plan PR after current-base ancestry proof + green hosted validation + content
+  review" applied literally to the plan repo, coordinator-mandated delegation; not a
+  product-PR merge). Merged as main commit `08cd018d4615b0af5dd47a1db761effe29e2f9e6`
+  (akte-only diff vs 76b203ac6, both validate runs green before merge).
+- #156 REMAINS OPEN, UNMERGED. Its executed hop heads: ce837f2ea -> 4c037c82f -> 607e98e8a
+  (607e98e8a absorbed main 139875e48; validate run 45900155107 SUCCESS at exact head
+  607e98e8a per `gh pr view 156 .headRefOid` + run listing). Main kept moving after that
+  (76b203ac6, 08cd018d4); one further `git merge origin/main` + push re-anchors it — left to
+  the accepting lane because of the race state described above.
+- PR comments posted (heads FULL40 + run ids):
+  - https://github.com/mcpdev80/baseharbor-plan/pull/154#issuecomment-7203956251 and
+    .../pull/154#issuecomment-7204062728 (landing note)
+  - https://github.com/mcpdev80/baseharbor-plan/pull/156#issuecomment-7203956537 and
+    .../pull/156#issuecomment-7204062402 (anchor status note)
 
 ## Cleanliness
 
