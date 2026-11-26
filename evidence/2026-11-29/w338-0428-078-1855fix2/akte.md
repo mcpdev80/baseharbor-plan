@@ -547,3 +547,9 @@ END_DONE w338-0428-078-1855fix2: plan #150 forward-hopped onto live main (merge
 45875144959 terminal SUCCESS on that exact head; product candidates unchanged
 (#1855 70c005e8bc48b6186da1095a183905a42ee6c493, #1867
 8b0eb51a12320acb8987aee1729c9a820d4d573e) awaiting w267; no merges by this lane.
+
+Addendum (receipt delivery): the akte's own commit 00d56a9be42824e277f16826ddcec4142e7e21a1
+carries this block; Hosted Plan validate on THAT exact final head: run 45875424540
+(pull_request) — TERMINAL SUCCESS, watched to terminal. Both heads green: 45875144959 @
+43a1c102d (the ordered forward hop) and 45875424540 @ 00d56a9be (akte delivery). PR #150
+head = 00d56a9be (gh pr view), Ready, merge awaits coordinator.
