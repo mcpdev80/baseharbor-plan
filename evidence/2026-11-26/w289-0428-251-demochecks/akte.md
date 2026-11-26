@@ -315,7 +315,7 @@ in the ecosystem root.
 
 `baseharbor-plan` `main` is PROTECTED: publishing means branch push + Plan PR + admin squash merge (precedents
 #52/#61/#62), never a direct push. The evidence path is therefore ALREADY on the remote branch
-`refs/heads/lane/w289-0428-251-demochecks` (Plan PR baseharbor-plan#93) and only reaches `origin/main` when the
+`refs/heads/lane/w289-0428-251-demochecks` (Plan PR baseharbor-plan#93 (head 220b186c0962e0f8acb97535438ad5a8df781532)) and only reaches `origin/main` when the
 Owner/Codex squash-merges that PR. Witnesses taken at 2026-11-26T04:31Z:
 
 ```text
@@ -323,7 +323,11 @@ $ git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/lane/
 704a2a80b908cfc2f498c8f70b43e2c2c882472a	refs/heads/lane/w289-0428-251-demochecks
 
 $ git fetch origin main && git ls-tree -r --name-only origin/main | grep w289-0428-251-demochecks
-(no rows: the path is not yet on origin/main; Plan PR #93 is the pending merge route — direct push is forbidden)
+exit=1
+(the last row is the required grep finding the path ABSENT from origin/main: the merge-gate PR check for plan PR
+#93 is red, so the squash merge is an Owner/Codex action and cannot be performed by this lane — direct pushes to
+main are forbidden. The evidence IS delivered on the remote branch, proved by the ls-remote line above and by
+git ls-tree origin/lane/w289-0428-251-demochecks)
 
 $ git ls-tree -r --name-only origin/lane/w289-0428-251-demochecks | grep w289-0428-251-demochecks
 evidence/2026-11-26/w289-0428-251-demochecks/akte.md
