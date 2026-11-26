@@ -328,7 +328,10 @@ in either. The canonical shared plan checkout keeps its original HEAD (`08b1f66b
 
 ## Publish and closing witnesses
 
-- Plan PR: **#82** — https://github.com/mcpdev80/baseharbor-plan/pull/82 (open, NOT merged by this lane).
+- Plan PR: **#82** — https://github.com/mcpdev80/baseharbor-plan/pull/82 (OPEN, not merged by this lane).
+- Final PR #82 head (candidate): `1e2c9341abb728b2aa5f03996430cd315045f436`, five commits, all `%an=w280-0428-284-recount`.
+- Hosted check on that exact head: `Plan · validate` (run `45746424096`, job `139663492586`), state `pending` when
+  captured; this lane observes its terminal state only through the PR page and does not rerun or dispatch anything.
 - Branch: `w280-recovery-presence-recount-own`, single commit `e88c7beef67ccdd583b5cdd87d2eea067532fc7e`,
   `git show -s --format=%an HEAD` gate printed `w280-0428-284-recount`.
 - Delivery proof (`git ls-remote ... refs/heads/main refs/heads/w280-recovery-presence-recount-own`):
