@@ -1,0 +1,9 @@
+181	lane-0428-250-config-matrix-workflow	6d06eab0ed0cd890ab9f818100ff84698e0347f5	main	false	CONFLICTING	w274-0428-251-binddiag: workflow PR zero-jobs diagnosis
+179	w198-1842-demo-fixture-fix-forward	cda6aa70e80bec1a1db06d85decdd8833cb63994	develop	true	MERGEABLE	fix(demo-fixture): repair 8 executed-FAILED Light gates on #1842 (test-only)
+170	lane-0428-250-demo-operator-root	b086cf58bb2f7aafee30edf52ac4b8199daf7d0d	develop	false	MERGEABLE	test(config-matrix): demo operator-allowlist root-name fix (0428-250)
+demo#170 state=OPEN draft=false base=develop head=lane-0428-250-demo-operator-root sha=b086cf58bb2f merged=null
+demo#173 state=MERGED draft=false base=develop head=lane-0428-284-testcert sha=07a12287bf2c merged=2026-11-24T17:30:27Z
+demo#174 state=MERGED draft=false base=develop head=lane-0428-284-testcert-login sha=b1e1a77bd0e2 merged=2026-11-24T18:10:04Z
+demo#175 state=MERGED draft=false base=develop head=w152-0428-249-demo-reconsent-fix sha=1a3c055cc0ee merged=2026-11-25T10:50:29Z
+demo#179 state=OPEN draft=true base=develop head=w198-1842-demo-fixture-fix-forward sha=cda6aa70e80b merged=null
+demo#181 state=OPEN draft=false base=main head=lane-0428-250-config-matrix-workflow sha=6d06eab0ed0c merged=null

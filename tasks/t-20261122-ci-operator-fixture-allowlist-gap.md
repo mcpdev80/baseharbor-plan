@@ -15,7 +15,7 @@ kanban_title: 0428-250 · ci operator fixture allow-list
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor-demo#170, mcpdev80/baseharbor#1815]
+prs: [mcpdev80/baseharbor-demo#170, mcpdev80/baseharbor#1815, mcpdev80/baseharbor-demo#181]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,7 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/3ebfb90daaf472a1f98a7f
 - [x] t-20261122-ci-operator-fixture-allowlist-gap · Add the missing command forms to the test-only CI-operator fixture allow-list so static/core gates stamp the synthetic operator instead of failing closed #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/testing #kind/bug
     <!-- generated:card -->
     **Owner:** w50-0428-250-corefixture · **Priority:** high  
-    **PR:** [baseharbor-demo#170](https://github.com/mcpdev80/baseharbor-demo/pull/170), [baseharbor#1815](https://github.com/mcpdev80/baseharbor/pull/1815)  
+    **PR:** [baseharbor-demo#170](https://github.com/mcpdev80/baseharbor-demo/pull/170), [baseharbor#1815](https://github.com/mcpdev80/baseharbor/pull/1815), [baseharbor-demo#181](https://github.com/mcpdev80/baseharbor-demo/pull/181)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/3ebfb90daaf472a1f98a7fe648589bd3e15fb1cd)  
     <!-- /generated:card -->
 
@@ -36,7 +36,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/3ebfb90daaf472a1f98a7f
 **Depends on:** none  
 **Owner:** w50-0428-250-corefixture  
 **Priority:** high  
-**PRs:** [baseharbor-demo#170](https://github.com/mcpdev80/baseharbor-demo/pull/170), [baseharbor#1815](https://github.com/mcpdev80/baseharbor/pull/1815)  
+**PRs:** [baseharbor-demo#170](https://github.com/mcpdev80/baseharbor-demo/pull/170), [baseharbor#1815](https://github.com/mcpdev80/baseharbor/pull/1815), [baseharbor-demo#181](https://github.com/mcpdev80/baseharbor-demo/pull/181)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -85,3 +85,7 @@ Corrected matchers green at bb06696 BUT base stale (6df6807e vs develop 951014e9
 OWNER took over #1815: rebased the single commit onto develop cd2fcda7, force-with-lease push = new head d54bced8 (identical 2-file/292-line scope). Prior run 45304374778 completed SUCCESS (both Docker+Podman data-capabilities selected gates green). New exact-head Hosted CI on d54bced8 is REQUIRED (owner will trigger/or lane watches). w50 (0428-250) STOPPED on #1815 to avoid concurrent push. #1812 downstream still awaits #1815 merge + owner scope decision.
 
 Owner merged #1815 (squash 3ebfb90d) after exact-head run 45309374778+45309392763 SUCCESS. Core operator-fixture allowlist gap closed; develop now 3ebfb90d. Downstream: #1818/#1650 inherit shared ci_integration_operator_enabled.go fixture from develop.
+
+## Related demo route note — W16
+
+This card remains closed on its accepted Core PR #1815 evidence. Related demo PR #170 remains OPEN behind the closed card. Demo PR #181 is also OPEN, targets `main`, and is `CONFLICTING`; this is a base-branch conflict recorded for routing. This Plan update did not change either PR.
