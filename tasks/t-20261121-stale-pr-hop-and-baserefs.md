@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w233-0428-216-prsweep
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Every open PR that belongs to a Codeman card is either a descendant of current develop, or carries the base ref its card…"
 kanban_title: 0428-216 · 0428-216 stale PR hops
 priority: normal
@@ -18,18 +18,19 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "roster reconciliation owner-audit 2026-11-26 14:3xZ: active claim without live busy session; moved to wait, no assignment to absent lane, card not closed"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-stale-pr-hop-and-baserefs · 0428-216 hop the stale PRs of our cards and fix their base refs #task #release/v0-4-28 #status/active #view/active #area/ci #area/coordination #kind/task
+- [ ] t-20261121-stale-pr-hop-and-baserefs · 0428-216 hop the stale PRs of our cards and fix their base refs #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/coordination #kind/task
     <!-- generated:card -->
     **Owner:** w233-0428-216-prsweep · **Priority:** normal  
+    **Waiting:** roster reconciliation owner-audit 2026-11-26 14:3xZ: active claim without live busy session; moved to wait, no assignment to absent lane, card not closed  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w233-0428-216-prsweep  
