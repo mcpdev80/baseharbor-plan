@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (eigene sitzung, queue-druck wegen paralleler merge-lane). Coord 841e7734.
+ABNAHME managed-users RUNDE 4, kandidaten-genau.
+KANDIDAT: PR #1397 head 8a4eb89ef86 vs develop; karte t-20261018-r27-managed-users; akten round-1..4.md;
+UPSTREAM-BEFUND act-1397b.md: mutant NICHT kausal (handgeschriebener helper umging produkt-guard).
+PRUEFPUNKTE: (1) der rot-zweig mutiert jetzt die ECHTE quelle (guard-entfernung => regression faellt
+durch den AUSGELIEFERTEN pfad; eigentums-prädikat im fixture erfuellt, nicht umgangen) — transcript in
+round-4.md nachvollziehen, (2) gruen-zweig = originalquelle, (3) lauf 42239734077 terminal success am
+exakten kopf nachmessen, (4) diff gegen develop ohne fremde ketten, write-set disjunkt keine .github,
+(5) karten-vertrag (anlage/rechte/lifecycle) punktuell erfuellt. URTEIL als evidence/r27-welle5-2026-11-06/
+managed-users/act-1397c.md auf origin/main (ACCEPT|REJECT+rezept), END an 841e7734:
+"END_DONE codex-luna-mu-1397c: verdict=<..> aktedatei=<pfad>".

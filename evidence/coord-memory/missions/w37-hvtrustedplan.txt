@@ -1,0 +1,15 @@
+MISSION: H-V37 (flash, READ-ONLY) — root-cause the "PR · Trusted Plan" fails-closed blocking #1810 & #1809.
+
+Why: #1810 (0428-186, capability) and #1809 (0428-058, cmd/baha) BOTH fail `PR · Trusted Plan` + `PR Selected Checks` while their Draft-Go/product checks pass. That signature matches owner-scope card 0428-235 "CI: catalog and planner self-change selects zero gates" — the planner appears to select ZERO gates so Trusted Plan fails closed. The coordinator needs machine-grade proof + the exact scripts/** line to decide the owner fix, and to know whether these two PRs are code-clean-but-gate-blocked.
+
+Resolve the real GitHub remote (URL contains github.com/mcpdev80). Do NOT edit ANYTHING (read-only; scripts/** and .github/** are owner scope — you are diagnosing, not fixing). No product change, no branch, no PR, no merge.
+
+TASK
+1. Pull the failing `PR · Trusted Plan` job log from runs for PR #1810 and #1809; capture the exact failing line + the gate-selection output (how many selected, which paths, why zero).
+2. Read scripts/pr-gate-plan.py + scripts/pr-gate-coverage.json + scripts/pre-release-runtime-impact.json on develop: find where a changed source path (the files #1810/#1809 touch) maps to gates; identify the precise condition that yields a zero-gate/empty plan → Trusted Plan fail. Cite file:line.
+3. Determine: is this the 0428-235 self-change bug (planner catalog has no row covering these paths) or a base-ancestry/rebase staleness (check each PR head is a descendant of current develop)? For each of #1810(168d40950) and #1809(034c0c7d): git merge-base --is-ancestor origin/develop <head>.
+4. Produce the MINIMAL owner-scope fix PROPOSAL (exact file + line + what row/condition to add) WITHOUT applying it — pure finding.
+
+OUTPUT (baseharbor-plan ONLY, real repo): evidence/recovery-2026-11-23/hunt-hv37-trusted-plan-planner/round-1.md — ## PLAN list (no checkboxes), the per-PR Trusted Plan failing line + selected-gate count, the planner file:line that returns zero gates, the ancestry verdict per PR, and the minimal fix proposal (file:line + change) for the Owner. cleanliness: read-only, no stack/worktree, ambient images untouched.
+
+END LAST ACTION: codeman agent post <coordinator> "END_DONE hunt-hv37: <one line + is-it-0428-235-confirmed yes/no + planner file:line>". Read-only; no subagents.

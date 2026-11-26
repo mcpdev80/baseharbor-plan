@@ -1,0 +1,13 @@
+INTAKE (planning-only, baseharbor-plan) — turn bug-hunt H-V27 findings F1-F2 into LOW-priority Bug-Karten. Dossier: baseharbor-plan evidence/r28-welle6-2026-11-24/bughunt-hv27-env-org-registry/round-1.md. NO product-code edits; write ONLY baseharbor-plan cards + render/check/publish.
+
+Create exactly two cards (next free numbers are 276, 277 — highest existing is 275):
+- 0428-276 from F1: env destroy `OwnerVerified` marker is nominal (audit precision, non-blocker). type: bug, release v0.4.28, priority: low, owner: "", kanban_status planned. Body: file:line from dossier, expected vs actual, one regression to make the marker reflect a genuine verification rather than nominal. depends_on: [] (or the env-destroy card if the dossier names one).
+- 0428-277 from F2: reveal failure records AuthorizationResult=allow (audit-precision nuance, non-blocker). Same shape. Regression: a failed reveal must NOT record allow (fail-closed) or must record the discrepancy.
+
+FORMAT RULES (a prior hunt tripped the validator — do NOT repeat):
+- Evidence files must NOT contain '- [ ]'/'- [x]' checkboxes. Only tasks/*.md may use the single generated task checkbox line. In your card bodies use plain '-' bullets for findings.
+- Each new card: copy an existing task-card frontmatter (mirror t-20261124-gate-catalog-baseline-1820.md shape). card_short_title <= 30 chars. Do NOT set `blocker` on a planned card. Cite 'Source: bughunt-hv27 F<n> dossier'.
+
+After both edits: python3 scripts/plan.py render && python3 scripts/plan.py check (MUST be 0 errors), then git add the 2 specific files + generated views (NOT git add -A), commit, pull --rebase origin main, push. If check reports checkbox errors from another lane's untracked evidence, ignore that other file (not yours) and ensure YOUR files are clean; do not edit files outside your 2 new cards.
+
+Rules: no subagents (AGENTS 4.8); no Codex; no product edits; never mark accepted/qualified. Reply with F1->0428-276, F2->0428-277 + final check error count.

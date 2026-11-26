@@ -1,0 +1,5 @@
+CODEX-REVIEW 0427-access-wizard (PR #1430, head e651cb1c29 gegen develop 8a3f58da9). drift-frei, delta nur cmd/baha/access_wizard_command.go + commands.go + internal/accesswizard/*. CI run terminal 14-pass.
+Vertrag: plan.py show t-20261018-r27-access-wizard. Ziel: gefuehrte profil-zuweisung + bewusstes on/offboarding.
+PRUEFPUNKTE: (1) gefuehrter zuweisungs-/offboarding-ablauf vollstaendig + fail-closed bei unvollstaendiger konfig, (2) root registration + machine classification + command-index fuer 'baha access assign' VOLLSTAENDIG (die drei registration tests — genau da waren die alten fails), (3) offboarding scope korrekt (#1433 offboard corrections), kausale regression last-bearing, (4) write-set nur wizard/accesswizard, keine .github/OCI/lifecycle/fixture, (5) CI-Aufnahme neuer tests. 
+Hinweis: PR#1433 ist ein veraltetes duplikat (drift+collision) — urteile ueber #1430, nicht #1433.
+sha vor/nach, kein eigenes gate, keine CI neu. END an 594fd2f5. APPROVE+vollstaendig => melde (ich merge #1430 + schliesse #1433).

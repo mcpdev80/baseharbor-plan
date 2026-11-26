@@ -1,0 +1,29 @@
+CLEAN CANONICAL SUCCESSOR FOR #1856 (card 0428-284; owner commission 2026-11-26T04:18Z; #1856 itself becomes a LINEAGE AUDIT - no more triggers, no merge, its head 67457cdb3 and run 45754203548 are records only).
+
+WHAT CODEX HELD ON (review 'ROLLE: REVIEW / Verdict: HOLD' on 67457cdb3, both blocking):
+1. UNSAFE CLEANUP PATH: scripts/pr-check-runner.py:495 runs `git init -q _demo_repo` with cwd=<repository>, and :503 uses `repo = str(Path(repository) / '_demo_repo')` - it creates the scratch demo repo INSIDE the checkout, where workflow-side cleanup (`git clean -fdx` / the rm -rf at scripts/ci-runtime-reset.sh:244) can destroy it, and where a lane's own scratch could destroy other content. develop does NOT behave this way (its validate_demo_source_pin at scripts/pr-check-runner.py:384 uses gh api and creates nothing in the tree), so this is introduced by this card's own write-set.
+2. FOREIGN LINEAGE: five carried commits on #1856 carry author=committer=w198-0428-284-demo-parser, a different lane; no admission exists. Your successor must therefore contain ONLY your own canonical commits on a fresh branch from develop.
+
+THE AUTHORIZED WRITE-SET IS EXACTLY THESE SIX FILES (from #1856's diff - re-apply them, change nothing else):
+  .github/workflows/ci.yml (+59 -4)
+  docs/releases/v0.4.28.demo-ref (+1 -1)
+  scripts/pr-check-runner.py (+156 -12)
+  scripts/pr-gate-plan.py (+14 -2)
+  scripts/test_pr_check_runner.py (+91 -8)
+  scripts/test_pr_gate_coverage.py (+162 -0)
+Read them from the audit branch (`git fetch origin refs/pull/1856/head`, then `git show <sha>:<path>`) - do NOT cherry-pick any commit of #1856 (cherry-pick is forbidden and would carry the foreign lineage).
+
+DO:
+1. FRESH BRANCH from the CURRENT develop tip: print `git ls-remote <github-remote> refs/heads/develop`, cut your branch from that exact SHA, write the SHA into your evidence, and prove ancestry with `git merge-base --is-ancestor <that sha> HEAD` plus `git log --oneline origin/develop..HEAD` showing ONLY YOUR COMMITS (any foreign line = stop and report).
+2. RE-APPLY the six-file payload onto that branch, keeping what #1856 already proved correct: the `docs/releases` requirement relocated v0.4.27 -> v0.4.28 (no criteria removed - owner ruling), the planned-ID route that makes 'PR · Demo Pin' execute as a REQUIRED job, and the fail-closed pin resolution (40-hex test, exact-commit fetch, rev-parse equality, non-empty baseharbor-core.ref).
+3. SAFETY FIX (the point of the reissue): resolve the demo source in a UNIQUE temporary directory OUTSIDE the checkout (tempfile.mkdtemp / TemporaryDirectory under the runner temp, never under `repository`), clone/fetch the pinned commit there, and verify fail-closed. Do not leave any path that creates or deletes `_demo_repo` inside a checkout.
+4. REGRESSION PROOF: add a test (inside scripts/test_pr_check_runner.py) that creates a sentinel directory named `_demo_repo` inside a temporary fake checkout, runs validate_demo_source_pin, and asserts the sentinel still exists UNCHANGED afterwards - so the destructive class can never come back. Name the exact job that runs it (Hosted CI, per the new-test-CI-intake rule) and do not add any new test the CI cannot execute.
+5. PRE-CHECKS: format + vet/build equivalents only. NO local test execution on this host (no python3 -m unittest, no pytest, no go test, no scripts/ci-fast-check.sh). All testing happens in Hosted CI.
+6. IDENTITY (this is the reason the predecessor died): EVERY commit and EVERY merge commit via git -c user.name=w292-0428-284-1856clean -c user.email=w292-0428-284-1856clean@baseharbor.local. Before pushing print `git log --format='%h an=%an cn=%cn' origin/develop..HEAD` and put it in the evidence. A shortened 'w292', 'coordinator', or any other lane's name blocks acceptance even with green CI.
+7. TRANSPORT: normal push of your own branch, ordinary `git merge origin/develop` if the tip moves - NO rebase, NO force-push, NO cherry-pick, NO rewrite. Payload guard: `git diff develop...HEAD --name-status` must be non-empty and list exactly the six files plus your regression addition inside them.
+8. OPEN YOUR OWN PR (one PR for this card, base develop, never a draft), then watch YOUR runs to terminal (Eigenes-Run-Pflicht) and report run ID + full job census (per_page=100 incl. attempts, executed vs skipped) + the validator log lines 'Running validation check: demo-source-pin-validation' and matched_tests=[5ca92a7cd2f746934890cfd7096a48068bdf218e]. Ask me for the second distinct pull_request trigger; reruns/attempt bumps are void.
+9. AKTE: your own plan branch + gh pr create (report the number, do NOT merge it, never push plan main). Content: the lineage statement (#1856 audit-only, five w198 commits, 67457cdb3 runs 45752147188/45754203548 preserved as records), the six-file mapping to your new commits, the safety fix with file:line, and the regression.
+
+SCOPE LIMITS: NO merges, NO closing of #1856 or any other PR, NO cards, NO plan-main pushes, nothing beyond the six files. STOP+STATE and report if: you find the payload cannot be applied without touching a seventh file (name it and stop - that is a scope question), or develop moves mid-flight.
+
+END_DONE: new PR number + head SHA + develop ancestry + identity census + payload guard + run IDs with the executed/skipped census + the validator log lines + plan PR number + zero local test execution + cleanliness line.

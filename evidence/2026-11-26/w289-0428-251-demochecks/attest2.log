@@ -1,0 +1,48 @@
+=== main pr-config-matrix.yml lines 1-20 numbered
+     1	name: Demo · PR config matrix
+     2	
+     3	on:
+     4	  pull_request:
+     5	    branches: [develop]
+     6	    paths:
+     7	      - .github/workflows/pr-config-matrix.yml
+     8	      - baseharbor-core.ref
+     9	      - compose.yaml
+    10	      - scripts/acceptance.sh
+    11	      - scripts/failure-runtime-diagnostics.sh
+    12	      - scripts/install-baseharbor.sh
+    13	      - tests/config-matrix/**
+    14	      - tests/connectivity/run.sh
+    15	      - tests/full-destroy/run.sh
+    16	      - tests/policy/operator-test-certificate.sh
+    17	      - tests/reconciliation/run.sh
+    18	      - tests/fixture-consent.py
+    19	      - tests/lib.sh
+    20	
+
+=== main pr-guided-consent.yml lines 1-12 numbered
+     1	name: Demo · PR guided consent regressions
+     2	
+     3	on:
+     4	  pull_request:
+     5	    branches: [main]
+     6	  workflow_dispatch:
+     7	
+     8	permissions:
+     9	  contents: read
+    10	
+    11	jobs:
+    12	  guided-consent:
+
+=== workflow files on develop
+.github/workflows/pr-config-matrix.yml
+.github/workflows/pr-guided-consent.yml
+.github/workflows/v0424-targeted.yml
+
+=== rollups
+--- #170 statusCheckRollup
+[]
+--- #179 statusCheckRollup
+[]
+--- #181 statusCheckRollup
+[]

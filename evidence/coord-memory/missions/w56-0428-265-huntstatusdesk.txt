@@ -1,0 +1,17 @@
+BUG-HUNT (read-only, Befundung NUR, KEINE Produktänderungen, KEINE Commits/Pushes, KEINE PRs) — Slice H-V25, develop-Anker 3ebfb90d (v0.4.28, nur CLOSED/merged Flächen).
+
+Auftrag: Übe den gerade gemergten Status-/Observability-/Env-Desk auf develop und melde echte Defekte/Gaps. Du änderst kein Produkt. Funde werden vom Coordinator verkartet.
+
+Zu prüfende Flächen (alle bereits gemergt = develop-Stand):
+A. #1816 (0428-152) Perses alert-verifier 3-State-Maschine in cmd/baha: unapplied → "not configured"; applied-but-failing → observed vs. configured_unverified; Status nur mit authentifiziertem Operator-Kontext. Verifiziere, dass keine Kombination zu False-Green/False-Red führt (Report-PersesSurfaceStatus-Pfad).
+B. #1810 (0428-186) echtes per-Target-Perses-Backend-Probe metricsprovider.PersesBackendAnswersStatusNow — prüfe Setup-vor-Guards-Reihenfolge, Fail-Closed (nicht geprüft → configured_unverified), Target-Bindung; app_status_result.go konsumentenseitig.
+C. #1809 (0428-058) env-operations: reveal-success-after-read, secret runtime-actor/allow, env_destroy trusted-local/allow + --confirm-delete-data Consent; Abbruch hinterlässt löschbaren/nicht-korrupten Zustand.
+
+Methodik:
+- Lies die tatsächliche develop-Implementierung (git show / grep), folge echten CLI-Pfaden. Darf VM nur als kurzem Smoke zur BEOBACHTUNG nutzen (kein Test-Erzeugen, keine dauerhaften VM-Tests). Hosted ist Referenz; du löst KEINE gehosteten Läufe aus (kein PR).
+- Pro Fund: Datei:Zeile, reproduzierbarer Auslöser (Kommando/Pfad), erwartetes vs. tatsächliches Verhalten, Schweregrad, betroffene Karte/PR-Referenz.
+- Doppelungsregel: registry.go-/consent-Flächen sind teils schon karten 0428-189..194 — nur ANDERE Stellen melden, mit Zusatz 'wie 0428-1xx, andere stelle'.
+
+Abgabe: Akte nach baseharbor-plan evidence/r28-welle6-2026-11-24/bughunt-hv25-status-obs-desk/round-1.md (read-only Fundliste, KEINE Produktdatei). Vorher/nachher-Liste von container/netzwerken/volumes + eine 'cleanliness:'-Zeile (besenrein; ambient-core/ Bilder fremder Karren unangetastet). Kein git add/commit/push. No subagents (AGENTS 4.8). No Codex. No merge.
+
+Ende: Melde END_DONE mit Fundzähler und Aktenpfad; Coordinator verkartet jeden Fund kurzfristig (§3.3.5 Fund→Karte-Pflicht).

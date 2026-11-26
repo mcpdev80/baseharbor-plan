@@ -1,0 +1,20 @@
+INTAKE (planning-only, baseharbor-plan) — turn the H-V25 bug-hunt findings F1-F9 into Bug-Karten. Dossier: baseharbor-plan evidence/r28-welle6-2026-11-24/bughunt-hv25-status-obs-desk/round-1.md (origin/main SHA adc07163d). NO product-code changes; you write ONLY baseharbor-plan task cards + render/check/publish.
+
+For EACH finding F1..F9:
+1. Verify it is REAL on develop 3ebfb90d (read the cited file:line; the dossier gives refs). If it is a misread or already-covered by an existing card, do NOT create a new card — add a one-line cross-reference in the existing card instead.
+2. Dedup check against existing cards: 0428-143 (perses backend-signal witness producer — likely F4/F5 belong here or are a gap that 0428-143 must close), 0428-152 (#1816 alert 3-state — F6/F7), 0428-186 (#1810 probe — F1/F2/F3/F8), and 0428-189..194 (registry/consent surface). Reuse an existing card when the finding is that card's scope; otherwise create a NEW bug card.
+3. New cards: copy an existing task-card frontmatter shape; set type: bug, release: v0.4.28, depends_on the relevant parent card, owner: "" (unassigned), kanban_status: planned, repos: [mcpdev80/baseharbor]; write a crisp Goal + Acceptance (one executable regression) + file:line from the dossier; in the body cite 'Source: bughunt-hv25 F<n> dossier adc07163d'. Use the next free 0428-NNN numbers.
+4. After each edit run: python3 scripts/plan.py render && python3 scripts/plan.py check (0 errors required), then commit + pull --rebase + push to main (planning repo publishes directly to main).
+
+Findings summary (read dossier for full text):
+- F1 med: PersesBackendAnswersStatusNow runs dashboard build, not the documented real HTTP probe (card 0428-186 gap).
+- F2 med: PersesBackendAnswersStatusNow vs PersesInfraDashboardAvailability can disagree on same manifest (0428-186).
+- F3 low/med: baha app status --json runs live probe with no operator context (0428-152/0428-186).
+- F4 med: PersesBackendSignalWitness in reportPersesSurfaceStatus always zero-value -> False-Red; comment claims 0428-143 which is UNLANDED (0428-143 gap).
+- F5 med: witness never populated on machine-JSON path either (0428-143 / #1816 witness producer).
+- F6 low/med: deploymentApplied fail-open on unreadable runtime tree (0428-152).
+- F7 med: VerifyPersesAlertEvaluatorHealth unreachable from CLI/MCP (0428-152).
+- F8 low: docs reference non-existent metrics.PersesBackendAnswers (0428-186).
+- F9 low: perses surface-status naming drift underscore vs hyphen (0428-152/0428-186).
+
+Rules: baseharbor-plan AGENTS.md — claim-free planning publish, never mark accepted/qualified, render+check before every push. No subagents (AGENTS 4.8). No Codex. No product edits. Reply with the list of created/updated card numbers mapped to each F<n>.

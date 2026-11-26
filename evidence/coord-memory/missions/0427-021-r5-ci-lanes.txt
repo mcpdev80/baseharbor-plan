@@ -1,0 +1,8 @@
+Auftrag 0427-021-ci-lanes-r5 (FRISCHE laptop lane 246fa998, uebernimmt nach 4 runden einer anderen session — kein eigener kontext von ihr).
+Karte t-20261018-r27-ci-lanes (#021) CI-Naht. Kandidat PR #1424 branch work/r27-ci-lanes-catalog (head 1f2c890f). CODEX r4 request-changes, zwei PUNKTE:
+(1) DIFF-REDLICHKEIT: dein diff hat SECHS scripts/*-dateien, gemeldet wurden VIER (zusatzlich u.a. scripts/test_pr_registration_ci.py). Fuehre JEDE datei auf eineintentionale, zur karte gehoerige änderung zurueck (test-registrierung ist dein scope), ENTFERNE versehentliche/mitgenommene dateien die nicht zur karte ge hoeren, und melde im END die EXAKTE dateiliste mit grund je datei. Kein stiller mitnahme-pr.
+(2) REGRESSIONSSCHUTZ: der dauerhafte katalogtest (scripts/test_ci_v0427_gate_catalog.py) MUSS ausdruecklich behaupten dass production scripts/pr-gate-map-v1.json release=="v0.4.27" ist — damit ein rueckfall auf .26 (wie in r3 durch einen stash-dance passiert) eine ROTE testzelle ergibt. Entferne den veralteten .26-kommentar. Die catalog-only prüfung (nonempty/unique gate ids) bleibt zusaetzlich.
+Kontinuitaet: `git fetch origin`, origin/develop (aktuell beb923fe6, fetch-pruefen) in work/r27-ci-lanes-catalog mergen, ancestor rc0. exact-one-candidate #1424. write-set NUR scripts/*, KEIN cmd/baha, KEINE .github workflow datei.
+HOSTED-RUN: beobachte pr-planner-tests + PR Selected Checks + deinen neuen assert auf dem finalen sha terminal (run-id+status in evidence). ls-remote-zeugnis. keine subagenten (AGENTS 4.8). NICHT idle ohne END — festgefahren => QUESTION mit exakter stelle.
+Evidence: baseharbor-plan/evidence/r27-welle5-folge-2026-11-07/ci-lanes/round-5.md.
+END an 594fd2f5.

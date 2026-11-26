@@ -1,0 +1,8 @@
+CODEX-REVIEW (RE-REVIEW) 0427-access-wizard — PR #1430 head 5ccb81472ef1 gegen develop 8a3f58da9. drift-frei, CI completed success auf sha, delta: wizard-dateien + persistence_cancel_test.go + access_wizard_persistence_test.go + offboard_scope_regression_test.go + commands.go/machine_coverage.go + docs/cli indices NEU generiert + additiver seam in internal/orgconfig/profiles.go (ErrDenied + SnapshotProfiles; merge-tree gegen #1407/#1429/#1432 = 0 konflikte, bewusst akzeptiert).
+Dein letztes urteil hatte 4 punkte — pruefe am sha-genauen diff:
+  1. PERSISTENZ: zuweisung/offboarding erreicht den echten aktiven state uber die production persistence (kein wizard-interner speicher) — regression last-bearing.
+  2. CANCEL: nach abbruch KEIN write mehr (persistence_cancel_test beweist store-unveraendert).
+  3. MULTIPLE TARGETS: alle gewaehlten targets werden durchlaufen+persistiert (parseTargetList, table-driven 1/2/3).
+  4. OFFBOARDING-KATEGORIEN: lane meldet das als BEFUND fuer t-20261018-r27-managed-users statt cross-edit — pruefe, dass die wizard-oberflaeche fuer nicht-unterstuetzte kinds FAIL-CLOSED antwortet (nicht silently first-kind); die eigentlichen routes liegen dann auf der anderen karte. Wenn die oberflaeche statt fail-closed einfach nur falsch routet -> REQUEST-CHANGES punkt.
+plus: write-set hygiene (keine betriebs-evidence im product-branch — ist entfernt), CI-Aufnahme der neuen tests, root registration + indices konsistent.
+Vertrag: plan.py show t-20261018-r27-access-wizard. sha vor/nach, kein eigenes gate, keine CI neu. END an 594fd2f5 mit APPROVE|REQUEST-CHANGES + rezept.

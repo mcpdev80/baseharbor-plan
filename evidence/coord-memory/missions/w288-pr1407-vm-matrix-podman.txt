@@ -1,0 +1,53 @@
+MISSION w288-pr1407-vm-matrix-podman — Karte t-20261104-r27-vm-integration-runs (podman-seite der matrix)
+Coord a4573079. Produkt-code: NICHT AENDERN. Das ist eine Validierungs-/Smoke-Mission auf den
+Pruef-VMs (RUNBOOK 4.0: Test-VMs sind Coordinator-Auftrag, Lanes fuehren sie aus; R1: auf diesem
+Host keine Container).
+
+ZIEL (Produkt): Eine BaseHarbor-Instanz muss auf einem Podman-Rechner genauso hochfahren koennen wie
+auf einem Docker-Rechner. Bis jetzt ist genau das NICHT nachgewiesen: w269 meldet die Docker-matrix
+2/4 gruen, die Podman-matrix 0/4 (akte evidence/r27-welle5-folge-2026-11-06/vm-integration-runs/
+round-1.md und docker-2-finding.md, beide auf plan main).
+
+VOR JEDEM SCHRITT — VERSIONSTOR (RUNBOOK QUEUE "Tor vor der Integrationsphase"):
+  beide Rechner muessen ein `baha` aus der geprueften Quellrevision melden. Gemessener Stand heute
+  Nacht: auf den Hosts lag wochenlang 0.4.23. Also ZUERST: `baha --version` auf jedem genutzten host
+  + revision der Quelle belegen; bei abweichender version: aus dem Kandidaten-AST neu bauen und unter
+  ~/.local/bin installieren (backup der alten binaerdatei, RUNBOOK R1 erlaubnis). Laege gegen eine
+  alte Version = zaehlt nicht als test, dann abbrechen und melden.
+
+KANDIDATEN-AST: work/r27-remote-up-cli (PR #1407) — der AST, fuer den die Docker-zelle schon 2/4
+gruen gemeldet hat. ACHTUNG: PR #1407 steht aktuell auf blocked (CODEX-REVIEW act-1407a verlangt
+BEIDE families am gleichen SHA). Dein Nachweis ist genau dieser fehlende halbe beweis. Basis develop
+ist dddf0d7823f (ls-remote vor abflug pruefen).
+
+ZUGANG ZU MASCHINEN (Pflicht, R2/R3):
+  coordinator/scripts/vm-lock.sh claim <host> w288-pr1407-vm-matrix-podman
+  coordinator/scripts/vm-lock.sh release <host> w288-pr1407-vm-matrix-podman
+  EIN host pro Bahn pro zeit. Bei belegt: AUSWEICHEN (baha-podman-2 ist frei, gemessen 0 container;
+  baha-podman hat 16 langlebige container von anderen — erst pruefen, dann ausweichen). Vor jedem
+  schritt containerzahl + last pruefen, nach jedem schritt RUECKBAU; shared-stapel
+  bh-*shared* / w169 ci-bootstrap NIEMALS anfassen.
+
+LIEFERUMFANG (4 zellen, so wie die Docker-seite sie gefahren ist):
+  core | console | demo | connector auf podman. Jede zelle: aufbau aus dem kandidaten-ast, kommando,
+  ausstieg, journal-zeile (claim+release), null-pruefung am ende (podman ps -a frei von lane-eigenen
+  namen + df-zeile). Was du NICHT schaffen willst, eroeffnet eine defekt-karte — nicht schweigen.
+  Bekannte vorbedingungen, die du mitbringst als Befund statt als Arbeit:
+   - demo-zelle braucht auf dem host das r27-w150-demo-repo UND ein provisioniertes managed backend
+     (sql/redis/s3). Fehlt beides auf baha-docker-2 (befund w269). Pruefe auf dem podman-host ebenso.
+   - connector-zelle ist ein TWO-HOST-flow; eine Bahn haelt nur EINEN host (R2/rc=5). Fahre, was mit
+     einem host moeglich ist und melde den rest als echten blocker mit grund — er liegt bei mir.
+
+NACHWEISE (AGENTS 5.3): pro zelle ein zeuge (kommando + ausstieg + version des hosts). Akte:
+  baseharbor-plan/evidence/r27-welle5-folge-2026-11-06/vm-integration-runs/round-2-podman.md
+  NUR im echten plan-checkout committen (gezieltes git add <datei>, NIE -A, NIE im workers/-baum).
+  Keine neuen tests erfinden, die die CI nicht ausfuehrt (5.3 CI-aufnahmepflicht); braucht es einen
+  CI-job dafuer: BEFUND mit file:line an mich, aendere keine .github-datei selbst (RUNBOOK 4.0).
+
+PROCESS: todos-board + ## PLAN-checkliste in der akte (AGENTS 4.4 — basics-check meldet stale boards).
+Keine Subagenten (AGENTS 4.8). Fragen an a4573079 per QUESTION-post, nicht selbst entscheiden.
+
+STOP-KRITERIEN: (1) host-version passt nicht zum kandidaten und neu bauen ist nicht moeglich,
+(2) beide podman-hosts gleichzeitig belegt, (3) ein blocker, der root/rechte braucht.
+END an a4573079: "END_DONE w288-pr1407-vm-matrix-podman: matrix=<podman: n/4> revs=<...>
+hosts=<claim/release zeugen> rueckbau=<null-pruefung> akte=<pfad>" (mit ls-remote/version-zeile).

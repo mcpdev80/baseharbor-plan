@@ -1,0 +1,17 @@
+ROLLE: Worker (Lane w271). Coord a4573079. KARTE: t-20261106-r27-control-plane-single-default RUNDE 6.
+EINZIGER OFFENER PUNKT (act-1404g rezept 1+2): w268 nutzte in zelle-3-ruestbau `podman system reset --force`
+auf baha-podman-2. Das urteil verlangt: NACHWEIS AUS BESTEHENDEN RECORDS, nicht neuen laufzoegen, dass zum
+zeitpunkt des resets KEINE fremden volumes/networke/images dort standen (sonst: korrektur der round-5-
+behauptung + meldung was weg war).
+ARBEIT (rein lesend + doku): (1) zeitlinie bauen aus: round-3.md (w251 inventar + rueckbau auf 0), round-4.md
+(w266 podman-zellen + inventar), journal.log (claim 20:31 release w266 / claim 21:06 w268), vm-audit-historie
+(coord-tick.log eintraege + audit-zeilen), round-5.md selbst. (2) ZEITFENSTER 20:31->21:06Z pruefen: lag
+irgendein claim/release/host-op in dieser luecke? (journal + koordinator-logs). (3)JETZT-ZUSTAND als endpunkt:
+ein einziger lesender ssh-run `podman volume ls / network ls / images` auf 107 (vm-lock claim nicht noetig fuer
+read-only, aber in akte vermerken dass read-only). (4) round-6.md: tabelle zeitachse, bewertung: reset hat
+NICHTS fremdes geloescht ODER korrektur-liste. Falls korrektur noetig: ebrigen lanen/owner-zeile.
+AKTE: control-plane-single-default/round-6.md (PUNKTE statt checkboxen; ## repo-rule compliance).
+KEINE runtime-zellen, KEIN code, KEIN reset, KEIN schreibender host-griff. Zone workers/w271-wt.
+GATES: KEINE subagenten, /tmp/opencode/w271*-caches.
+END an a4573079: "END_DONE w271-sd-hostledger: ergebnis=fremdloeschung=nein|ja(<liste>) fenster2031-2106=<leer/belegt>
+endpoint=<volumes|networks|images zaehlungen> akte=round-6.md-main | <Satz>"
