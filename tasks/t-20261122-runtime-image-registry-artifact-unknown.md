@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812, mcpdev80/baseharbor#1837]
 sources: []
 blocker: ""
-wait_reason: "owner roster reconciliation 14:3xZ: w322 idle pending owner variable BASEHARBOR_PR_DEMO_SOURCE_SHA and w255 pin decision; matcher fix head reviewed, no live busy worker"
+wait_reason: "#1812 parked for owner decisions: pin variable BASEHARBOR_PR_DEMO_SOURCE_SHA (98e4d549 predates demo fix 58ac70679efe) and runner-health W33; no qualification possible; lane w322 reassigned 2026-11-26 13:3xZ to H-V46 collectable-orphans hunt while parked"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-demo/pull/175"]
 ---
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-demo/pull/175"]
     <!-- generated:card -->
     **Owner:** w322-0428-249-pr1812gate · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812), [baseharbor#1837](https://github.com/mcpdev80/baseharbor/pull/1837)  
-    **Waiting:** owner roster reconciliation 14:3xZ: w322 idle pending owner variable BASEHARBOR\_PR\_DEMO\_SOURCE\_SHA and w255 pin decision; matcher fix head reviewed, no live busy worker  
+    **Waiting:** \#1812 parked for owner decisions: pin variable BASEHARBOR\_PR\_DEMO\_SOURCE\_SHA (98e4d549 predates demo fix 58ac70679efe) and runner-health W33; no qualification possible; lane w322 reassigned 2026-11-26 13:3xZ to H-V46 collectable-orphans hu…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-demo/pull/175)  
     <!-- /generated:card -->
 
