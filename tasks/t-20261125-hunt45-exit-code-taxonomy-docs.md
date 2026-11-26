@@ -7,15 +7,15 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w345-0428-321-exitfix (fresh-lane correction per owner 23:2xZ; prior lane w334 released)
-kanban_status: active
-kanban_lane: review
+owner: ""
+kanban_status: planned
+kanban_lane: ready
 kanban_summary: "Document the baha process exit-code taxonomy at the user-facing surface: 0 success, 1 runtime failure, 2 usage error, 130…"
 kanban_title: 0428-321 · document baha exit-code
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#1866", ]
+prs: []
 sources: []
 blocker: ""
 wait_reason: ""

@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: wait
-kanban_lane: wait
+owner: w65-0428-269-batchbaseline
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Unblock 0428-270 (PR head 88f5c7f05, w61). Exact-head CI run 45326369749 aborts in 'PR Trusted Plan' with fail-loud 'uncataloged…"
 kanban_title: "0428-275 · add #1820-sib catalog rows"
 priority: ""
@@ -23,17 +23,17 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45326369749"]
 ---
 
-- [ ] t-20261124-gate-catalog-baseline-0428-270 · CI/catalog: add operatorauth rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/wait #view/wait #kind/task
+- [ ] t-20261124-gate-catalog-baseline-0428-270 · CI/catalog: add operatorauth rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
+    **Owner:** w65-0428-269-batchbaseline  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45326369749)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w65-0428-269-batchbaseline  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

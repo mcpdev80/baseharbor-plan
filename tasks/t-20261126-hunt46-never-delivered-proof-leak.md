@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w341-0428-326-proofleak
-kanban_status: blocked
-kanban_lane: blocked
+owner: ""
+kanban_status: planned
+kanban_lane: ready
 kanban_summary: "The never-delivered proof at never-delivered/<applicationID>/<environment>.json is created by guided adoption…"
 kanban_title: 0428-326 · consume never-delivered proof
 priority: ""
@@ -17,24 +17,23 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: "release-window begin marker for v0.4.28 not set: catalog/pr-gate-map release label still v0.4.27 on develop 5a37ddbd9 and main cddc81b34; trusted-planner aborts on my two uncataloged sources (cmd/baha/app_runtime_retirement.go, cmd/baha/w341_never_delivered_retire_proof_test.go). Owner must bump release label to v0.4.28 before CI can execute the Go unit group."
+blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["evidence/w341/0428-326-proofleak/akte.md"]
+evidence: []
 ---
 
-- [ ] t-20261126-hunt46-never-delivered-proof-leak · 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261126-hunt46-never-delivered-proof-leak · 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) #task #release/v0-4-28 #status/planned #view/ready #kind/task
     <!-- generated:card -->
-    **Owner:** w341-0428-326-proofleak  
-    **Blocker:** release-window begin marker for v0.4.28 not set: catalog/pr-gate-map release label still v0.4.27 on develop 5a37ddbd9 and main cddc81b34; trusted-planner aborts on my two uncataloged sources (cmd/baha/app\_runtime\_retirement.go, cmd/baha/w3…  
-    **Evidence:** [proof 1](evidence/w341/0428-326-proofleak/akte.md)  
+    **Owner:** unassigned  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w341-0428-326-proofleak  
+**Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -74,5 +73,3 @@ The never-delivered proof at `never-delivered/<applicationID>/<environment>.json
 ## Task
 
 Cast from hunt H-V46 (akte evidence/r28-welle6-2026-11-27/bughunt-hv46-state-lifecycle/ on origin/main 62de9bb74, anchor develop 2a141387d; re-verified against develop 384d857b5 at intake). BF-46-2 LIVE. `VerifyNeverDeliveredProof` (internal/deployment/never_delivered_proof.go:72) confirms the never-delivered state before clean retire; on the never-delivered branch of `verifyOwnershipWhenNoDeploymentRecord` (cmd/baha/app_runtime_retirement.go:57-86) the code releases provider registry state and records audit but never calls `deployment.ConsumeNeverDeliveredProof`. `ConsumeNeverDeliveredProof` is only called from `internal/deployment/deployment_store.go:562` (SaveDeploymentRecord) and the test. The proof path (`never_deliveredProofPath`, never_delivered_proof.go:21) is `never-delivered/<applicationID>/<environment>.json`. Consequence: an app initialized but destroyed/downed before delivery leaves a stale one-shot proof; the next adoption with the same identity uses O_EXCL and fails "already exists" — a concrete state-dir race between guided adoption and lifecycle destroy. Fix once in `app_runtime_retirement.go`; the `destroy --all` gate (BF-46-5, 0428-329) is clean by reuse.
-
-blocked on v0.4.28 begin marker

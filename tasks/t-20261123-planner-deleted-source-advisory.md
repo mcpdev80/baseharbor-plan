@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: wait
-kanban_lane: wait
+owner: w205 (lane w205-0428-253)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "The candidate-added validation lane treats a DELETED product source with a removed catalog row as resolved-by-deletion, not as…"
 kanban_title: 0428-253 · candidate planner mishandles
 priority: ""
@@ -23,16 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261123-planner-deleted-source-advisory · CI: candidate planner mishandles deleted source rows (advisory job red) #task #release/v0-4-28 #status/wait #view/wait #kind/task
+- [ ] t-20261123-planner-deleted-source-advisory · CI: candidate planner mishandles deleted source rows (advisory job red) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
+    **Owner:** w205 (lane w205-0428-253)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w205 (lane w205-0428-253)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

@@ -7,9 +7,9 @@ areas: [lifecycle]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: wait
-kanban_lane: wait
+owner: w127-0428-293-destroy-diag
+kanban_status: active
+kanban_lane: active
 kanban_summary: baha app destroy --yes --verbose printed the same generic retained provider ownership error as nonverbose; neither affected…
 kanban_title: 0428-293 · Explain destroy owner failures
 priority: normal
@@ -23,16 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261116-r28-bug-destroy-diagnostics · Explain destroy owner failures #task #release/v0-4-28 #status/wait #view/wait #area/lifecycle #kind/bug
+- [ ] t-20261116-r28-bug-destroy-diagnostics · Explain destroy owner failures #task #release/v0-4-28 #status/active #view/active #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
+    **Owner:** w127-0428-293-destroy-diag · **Priority:** normal  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w127-0428-293-destroy-diag  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 

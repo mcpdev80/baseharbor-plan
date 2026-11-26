@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: wait
-kanban_lane: wait
+owner: w175-pr0428-175-publish-gate
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Every published planning text passes the same integrity gates a dispatched payload passes, and the watch registry can be cleaned…"
 kanban_title: 0428-175 · card-status.py bypasses the
 priority: ""
@@ -23,16 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261120-coord-publish-integrity-gaps · Coordinator tooling: card-status.py bypasses the payload integrity gates; watch.py rm signature unusable #task #release/v0-4-28 #status/wait #view/wait #kind/maintenance
+- [ ] t-20261120-coord-publish-integrity-gaps · Coordinator tooling: card-status.py bypasses the payload integrity gates; watch.py rm signature unusable #task #release/v0-4-28 #status/active #view/active #kind/maintenance
     <!-- generated:card -->
-    **Owner:** unassigned  
+    **Owner:** w175-pr0428-175-publish-gate  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w175-pr0428-175-publish-gate  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

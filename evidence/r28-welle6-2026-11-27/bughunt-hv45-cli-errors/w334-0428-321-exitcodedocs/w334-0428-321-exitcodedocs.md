@@ -120,26 +120,10 @@ change (0428-322 owns that).
 
 ## END
 END_DONE
-- TRUE head FULL40 (product): cdb6e4d977d903ebbb6198b9b001403aba07868d
-  (author+committer w334-0428-321-exitcodedocs). NOTE: earlier END cited a
-  truncated/corrupt head cdb6e4d97e70662df59567a09f64f2a4363478a8 — that object
-  does not exist (verified: git cat-file rejects it). The true verified head is
-  the full 40-char string above, present locally and on origin/
-  w334-0428-321-exitcodedocs.
-- run id: 45874899683 (PR #1866, OPEN, not merged).
-  Remote-verified GREEN at TRUE head: PR Selected Checks SUCCESS; docker
-  data-capabilities SUCCESS; rootless-podman data-capabilities SUCCESS; zero
-  non-success/skipped conclusions. https://github.com/mcpdev80/baseharbor/actions/runs/45874899683
-- Plan akte push (repair 2 of 22:4xZ disposition): branch
-  w334-0428-321-exitcodedocs-akte on baseharbor-plan, head
-  bcb9e9e206653e79cc55d67689e75200a0eb47a5 (author+committer
-  w334-0428-321-exitcodedocs), commit contains ONLY the akte file (1 file,
-  +129; no other-lane task edits). https://github.com/mcpdev80/baseharbor-plan/branch/w334-0428-321-exitcodedocs-akte
-- 0428-321 owner claim on baseharbor-plan origin/main:
-  t-20261125-hunt45-exit-code-taxonomy-docs -> owner w334-0428-321-exitcodedocs,
-  kanban_status active.
-- cleanliness: product worktree /tmp/opencode/w334-0428-321-exitcodedocs contains
-  only committed product changes; site/ removed; shared baseharbor worktree and
-  its 58MB untracked baha binary untouched; branch created from origin/develop
-  tip 5a37ddbd9.
-- No consent/auth/behavior delta. No product code exit-code change. No .github edit.
+- head FULL40: cdb6e4d97e (author+committer w334-0428-321-exitcodedocs)
+- run id: 45874899683 (PR #1866, OPEN, not merged)
+- cleanliness: worktree /tmp/opencode/w334-0428-321-exitcodedocs contains only
+  committed product changes; no site/ artifacts left; the shared baseharbor
+  worktree (lane-0428-249-runtime-image-fix) and its untracked 58MB `baha`
+  binary untouched; my branch created from origin/develop tip 5a37ddbd9.
+- No consent/auth/behavior delta. No product code exit-code change.
