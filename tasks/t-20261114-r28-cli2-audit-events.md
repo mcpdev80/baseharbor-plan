@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w058-0428-058-hop
-kanban_status: active
-kanban_lane: active
+owner: "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Audit secret and environment actions. Follow the owner working brief, command mapping and code entry index; revalidate current…"
 kanban_title: 0428-058 · Audit secret and Env actions
 priority: high
@@ -23,18 +23,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-audit-events · CLI redesign: Audit secret and environment actions #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-audit-events · CLI redesign: Audit secret and environment actions #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** w058-0428-058-hop · **Priority:** high  
+    **Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) · **Priority:** high  
     **PR:** [baseharbor#1809](https://github.com/mcpdev80/baseharbor/pull/1809)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-delete](t-20261114-r28-cli2-env-delete.md), [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
 **Required by:** [t-20261114-r28-cli2-app-data](t-20261114-r28-cli2-app-data.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md)  
-**Owner:** w058-0428-058-hop  
+**Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
 **Priority:** high  
 **PRs:** [baseharbor#1809](https://github.com/mcpdev80/baseharbor/pull/1809)  
 **Source:** 
@@ -104,3 +104,4 @@ Reveal-timing fix LANDED c92182b0 (success recorded AFTER env read/parse; record
 9a0419b4 near-green (22 pass/1 pending, MERGEABLE) but base lags develop 951014e9 (same stale-base merge-block as #1815). Routed w058: rebase onto 951014e9 + exact-head Hosted rerun so PR Selected Checks runs on current base. A/B/C fixes preserved. PR open; no merge; no Codex. Idle END acked.
 
 9a0419b4 green run 45298000296 but merge BLOCKED: base stale 6df6807 vs develop 951014e9 -> required 'PR Selected Checks' missing. Routed w058: rebase onto 951014e9 + exact-head rerun (no force/bypass). A/B/C preserved. PR open; no merge; no Codex.
+status_note: "linked PR #1809 MERGED on develop - close-disposition (resolution+evidence lines) reserved for Codex/Owner, coordinator records fact only"

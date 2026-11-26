@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: Codex (Marcel, active wait sweep 2026-11-21)
-kanban_status: active
-kanban_lane: active
+owner: "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: ""
 kanban_title: 0428-183 · valkey dashboards gate
 priority: ""
@@ -23,18 +23,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md", "https://github.com/mcpdev80/baseharbor/pull/1734", "https://github.com/mcpdev80/baseharbor/actions/runs/44853938826"]
 ---
 
-- [ ] t-20261120-r28-valkey-dashboard-unavailable-only · Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable #task #release/v0-4-28 #status/active #view/active #kind/bug
+- [ ] t-20261120-r28-valkey-dashboard-unavailable-only · Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable #task #release/v0-4-28 #status/wait #view/wait #kind/bug
     <!-- generated:card -->
-    **Owner:** Codex (Marcel, active wait sweep 2026-11-21)  
+    **Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
     **PR:** [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/hunt-signals-103/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1734), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44853938826)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261121-loki-verify-probe](t-20261121-loki-verify-probe.md), [t-20261120-r28-cli-shard-operator-env](t-20261120-r28-cli-shard-operator-env.md)  
-**Owner:** Codex (Marcel, active wait sweep 2026-11-21)  
+**Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
 **Priority:** not set  
 **PRs:** [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714)  
 **Source:** 
@@ -98,3 +98,4 @@ REQUEST CHANGES der abnahme, ausschliesslich fuer die commit-identitaet (akte ev
 PR 1714 exact run 44981355459 success at head 731302e9a7a (35 jobs, PR Selected Checks success) but base is the previous develop; second additive hop onto 82825e95 dispatched before review
 
 independent review at exact head 277ff976395 gave REQUEST CHANGES: internal/application/runtime_observability.go:253 always passes ObservabilityVerifyNone so the production path cannot reach the verified valkey dashboard; correction round dispatched to seat f0f6c8b4
+status_note: "linked PR #1714 MERGED on develop - close-disposition (resolution+evidence lines) reserved for Codex/Owner, coordinator records fact only"

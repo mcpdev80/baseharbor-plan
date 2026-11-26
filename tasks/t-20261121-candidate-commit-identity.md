@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w119b-0428-224-step4
-kanban_status: active
-kanban_lane: active
+owner: "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Sweeps show that most open candidates carry commits whose user.name belongs to a different lane, because lanes share…"
 kanban_title: 0428-224 · candidate commits carry
 priority: ""
@@ -24,17 +24,17 @@ evidence:
   - "https://github.com/mcpdev80/baseharbor-plan/commit/3b85964a0"
 ---
 
-- [ ] t-20261121-candidate-commit-identity · Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261121-candidate-commit-identity · Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
-    **Owner:** w119b-0428-224-step4  
+    **Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/commit/3b85964a0)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w119b-0428-224-step4  
+**Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

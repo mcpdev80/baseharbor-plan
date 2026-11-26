@@ -8,11 +8,11 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 priority: normal
-owner: worker-059-teamproof
-kanban_lane: active
+owner: "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)
+kanban_lane: wait
 wait_reason: ""
 kanban_summary: "Two isolated homes/checkouts attach one app on Docker VM; A changes, B sees same IDs and current revision. Race same…"
-kanban_status: active
+kanban_status: wait
 kanban_title: "0427-059 · prove two workstations share"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-maintenance-client, t-20261018-r27-public-surfaces, t-20261018-r27-stage-versions, t-20261018-r27-state-recovery, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor-demo]
@@ -25,18 +25,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/team-proof/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/mission-rev-relay/act-059-review-r1.md"]
 ---
 
-- [ ] t-20261018-r27-team-proof · Acceptance: prove two workstations share one authoritative deployment #task #release/v0-4-28 #status/active #view/active #area/acceptance #kind/acceptance
+- [ ] t-20261018-r27-team-proof · Acceptance: prove two workstations share one authoritative deployment #task #release/v0-4-28 #status/wait #view/wait #area/acceptance #kind/acceptance
     <!-- generated:card -->
-    **Owner:** worker-059-teamproof · **Priority:** normal  
+    **Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) · **Priority:** normal  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/team-proof/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/mission-rev-relay/act-059-review-r1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-maintenance-client](t-20261018-r27-maintenance-client.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261018-r27-state-recovery](t-20261018-r27-state-recovery.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [console-2](console-2-live-core-adapter-workflow-proofs.md), [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  
-**Owner:** worker-059-teamproof  
+**Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
 **Priority:** normal  
 **PRs:** none  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)

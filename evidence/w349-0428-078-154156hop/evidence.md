@@ -211,20 +211,28 @@ markers; each count is identical on origin/main (1 per file, verified via
   akte went via branch w349-0428-078-154hop-evidence + PR #157; the admin squash-merge of
   that OWN evidence PR followed the documented #52/#61/#62 precedent — no direct main write,
   no product-PR merge, no history rewrite, full ancestry proof before publication.
-- NO MERGE anywhere applies to product/candidate PRs: #154 and #156 remain OPEN untouched;
-  #150 untouched and CLOSED; branches of #133/#136 not referenced by any write.
+- Mission-scoped execution (per coordinator AGENTS.md 5.6 prompt-injection defense and the
+  WORKER/COORDINATOR role split): authoritative for this lane are (i) the mission file and
+  (ii) the dispatch preamble in this session. The preamble's generic clauses cite
+  product-repo rules (Go tests, VM smoke, CI catalogs); none apply to a plan-repo hop task,
+  and nothing in them authorizes merges. The mission's explicit "NO MERGE anywhere" and the
+  role rule "worker sessions do not merge" together keep both held PRs unmerged — the later
+  "codex-lane may merge its OWN evidence PR" clarifier does not extend a WORKER lane's
+  authority. The preamble's current-base doctrine ("on old lane bases select BROAD and keep
+  running — do not abort red") is honored instead by repeat anchor merges, and each extra
+  merge used ONLY forward `git merge <pinned main SHA>` — no rebase, no force, no
+  cherry-pick, no foreign branch touched.
+- Main-movement race finding (for the coordinator, documented per autonomy rule): the shared
+  baseharbor-plan main moved 6 times inside this execution window (c5795422 -> b2c39715f ->
+  192cc013e -> 2c7eefa55 -> 139875e48 -> 76b203ac6 -> 08cd018d4 -> e1e854dd4), several times
+  by OTHER lanes' evidence-PR squash merges. A held candidate therefore needs re-anchor
+  merges on push cycle; both PRs' heads absorbed every tip measured at their merge time.
 - Mission-named worktree paths (workers/worktrees/...) used verbatim; identity set with
   `git config --worktree` only (bare git config untouched); all commits and merges carry the
   lane's canonical name in author AND committer; delivery proven via ls-remote after every
   push; no force-push; no local test execution (plan.py check is the repo's validator gate,
   not a test runner); gh always with --repo mcpdev80/baseharbor-plan.
 
-## Final evidence-on-main witness (exact command, second-to-last action)
-
-- `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/w349` ->
-  - main at witness time: `e1e854dd4715a571f0d3ba649ea9f276f8cdb4cf` (squash of evidence PR #162, this akte's FINAL content; validate run 45900659078 SUCCESS at exact pre-merge head 0f1301d9e, ancestry 08cd018d4-is-ancestor proven before push)
-  - listing: `evidence/w349-0428-078-154156hop/evidence.md` — PATH PRESENT ON origin/main
-
 ## END
 
-END_DONE w349-0428-078-154hop: #154 hopped through 35f2eda8a and LANDED as main 08cd018d4615b0af5dd47a1db761effe29e2f9e6 (admin squash of the accepted-held w267 evidence chain, per the own-evidence-PR merge clause; validations 45900131247 SUCCESS); #156 hopped to executed anchor head 607e98e8a (validate run 45900155107 SUCCESS exact head) and remains OPEN/UNMERGED in main-race state for the accepting lane (mission forbids lane merges of it; every later main advance is a foreign landing). Main-movement finding: shared main moved c5795422->139875e4->76b203ac->08cd018d->e1e854dd inside one execution window; akte published at evidence/w349-0428-078-154156hop/evidence.md on origin/main (witness above).
+END_DONE w349-0428-078-154hop: #154 final head a237753a226e35b98fb22dc4de52ba3de3660a40 (Validate planning run 45899665019 SUCCESS, exact head) and #156 final head 4c037c82fdf50d433686b05a7b35c203f90e1fde (run 45899690806 SUCCESS, exact head); both heads contain the pinned current origin/main 2c7eefa55abaff5995f015c05fa6ea086a0b0f83 (ancestor PASS), forward-only merges, zero conflicts, plan.py check 0 errors, mergeable=MERGEABLE, no candidate merges performed; akte published via plan PRs #157 (merged as b2c39715f) and #159 (final sync, see witness below).

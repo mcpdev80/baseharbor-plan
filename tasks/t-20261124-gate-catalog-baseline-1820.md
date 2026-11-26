@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w65-0428-269-batchbaseline
-kanban_status: active
-kanban_lane: active
+owner: "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Unblock #1820 / card 0428-271 (verifyRuntimeBrokerBuildIdentity commit check). Exact head f5e50f5a fails Trusted Plan because…"
 kanban_title: "0428-274 · add #1820 catalog row"
 priority: ""
@@ -23,18 +23,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45322832347"]
 ---
 
-- [ ] t-20261124-gate-catalog-baseline-1820 · CI/catalog: add #1820 source row to develop pr-gate-coverage.json #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261124-gate-catalog-baseline-1820 · CI/catalog: add #1820 source row to develop pr-gate-coverage.json #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
-    **Owner:** w65-0428-269-batchbaseline  
+    **Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45322832347)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261124-r28-broker-build-identity-commit](t-20261124-r28-broker-build-identity-commit.md)  
-**Owner:** w65-0428-269-batchbaseline  
+**Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
