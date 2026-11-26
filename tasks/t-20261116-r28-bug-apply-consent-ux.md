@@ -7,8 +7,9 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
+owner: coordinator-codeman (unassigned; was w337-0428-251-unionhop129)
 kanban_status: wait
+wait_reason: "ghost-owner demotion: w337 retired; consent-surface behavior delta needs owner approval before dispatch"
 kanban_lane: wait
 kanban_summary: "Interactive baha app apply accepted [y/N] y but then required re-execution with --confirm-candidate; baha app apply j-commerce…"
 kanban_title: 0428-292 · Clarify apply candidate consen
@@ -18,21 +19,21 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
 - [ ] t-20261116-r28-bug-apply-consent-ux · Clarify apply candidate consent #task #release/v0-4-28 #status/wait #view/wait #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
+    **Owner:** coordinator-codeman (unassigned; was w337-0428-251-unionhop129) · **Priority:** normal  
+    **Waiting:** ghost-owner demotion: w337 retired; consent-surface behavior delta needs owner approval before dispatch  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** coordinator-codeman (unassigned; was w337-0428-251-unionhop129)  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 

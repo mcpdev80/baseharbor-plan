@@ -7,8 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
+owner: coordinator-codeman (unassigned; was w337-0428-251-unionhop129)
 kanban_status: wait
+wait_reason: "ghost-owner demotion: w337 retired; hunt33 CI-guard scope pending owner .github sequencing"
 kanban_lane: wait
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-298 · hunt33-action-pins-audit
@@ -18,21 +19,21 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
 - [ ] t-20261125-hunt33-action-pins-audit · 0428 hunt H-V33: hunt33-action-pins-audit #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
+    **Owner:** coordinator-codeman (unassigned; was w337-0428-251-unionhop129)  
+    **Waiting:** ghost-owner demotion: w337 retired; hunt33 CI-guard scope pending owner .github sequencing  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** coordinator-codeman (unassigned; was w337-0428-251-unionhop129)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
