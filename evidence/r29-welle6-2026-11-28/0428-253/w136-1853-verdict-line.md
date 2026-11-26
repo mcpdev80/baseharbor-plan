@@ -75,17 +75,46 @@ No foreign-lane author was found. The first two shortened authors are the only c
 - Distinct exact-head `pull_request` successes: run `45716254159` attempt 1 and run `45717496553` attempt 1. Run `45716254159` attempt 2 and `45717487430` were cancelled and do not count.
 - Current develop: `ae70964d7b80b779822b76107b70ea76782f998e`. Compare reports the candidate seven commits ahead of develop and zero behind; the PR changes `.github/workflows/ci.yml`, `scripts/pr-gate-plan.py`, and CI test definitions. The PR base equals current develop, and compare reports the candidate seven commits ahead, zero behind, with merge base equal to develop. No develop hop is required now; the two exact-head successes remain usable. Later develop movement that changes these workflow/planner/test inputs will require a hop and fresh qualification.
 - GitHub PR comment recording this identity decision and hold: https://github.com/mcpdev80/baseharbor/pull/1853#issuecomment-7178056642.
-- Disposition: identity is accepted; final merge remains held until the candidate absorbs current develop and obtains fresh exact-head Hosted qualification. No merge was executed.
+- At the initial live-main census, the owner-note restoration and final review were still pending. They were completed by plan PR #47, followed by the ACCEPT and normal merge recorded below.
 
 ### Live card-note verification discrepancy
 
 - Live plan `origin/main` is `76ab859144661e7fdabdc10e36b9cee5f3ce99ad`; GitHub contents API reports card blob `dca634c9139a413dc1873a1069433484d9ad4001` and frontmatter owner `w205 (lane w205-0428-253)`.
 - A fresh `rg -n 'Erste zwei|owner:'` over that live card returned only `10:owner: w205 (lane w205-0428-253)`; the owner-ruling sentence is absent from this current blob despite the earlier PR #43 merge witness. This is recorded as a plan-main content discrepancy, not as a reason to expand the ruling.
 
-END_DONE w136-pr1836-rowsreview: #1853 identity accepted by owner-specific and Codex same-lane rulings; final merge held pending current-base hop and fresh Hosted pair at `228ecc5bab28e5e6158ccc63160f442a6afc9ed3`.
+Checkpoint before plan PR #47: #1853 identity accepted by owner-specific and Codex same-lane rulings; card-note restoration and final disposition pending at exact head `228ecc5bab28e5e6158ccc63160f442a6afc9ed3`.
 
 
 ### Forward restoration of the owner ruling after live-main drift
 
 - Despite prior merge witness PR #43 / `549fc5de`, a fresh read of current plan main `76ab859144661e7fdabdc10e36b9cee5f3ce99ad` found the sentence absent from card blob `dca634c9139a413dc1873a1069433484d9ad4001` and the owner-ruling evidence path absent. This forward PR restores exactly the requested sentence and the historical ruling evidence; it does not extend the owner ruling to the two parenthetical-format commits.
 - The sentence is inserted without changing card metadata or status.
+
+
+## Final merge receipt
+
+- Current-head review verdict: ACCEPT on `228ecc5bab28e5e6158ccc63160f442a6afc9ed3`; final GitHub PR comment: https://github.com/mcpdev80/baseharbor/pull/1853#issuecomment-7178239661.
+- Accepted exact-head Hosted evidence: `45716254159` attempt 1 and `45717496553` attempt 1, both `pull_request` events on the exact head with terminal `PR Selected Checks` success. Attempt 2 of 45716254159 was cancelled and excluded.
+- Merge transport: normal merge-commit, no bypass. PR #1853 `merged_at=2026-11-25T23:57:23Z`; merge SHA `ac7c970fe91ad5fc3d8cb76336ddbbb7ecce04ee`.
+- Resulting `develop` tip: `ac7c970fe91ad5fc3d8cb76336ddbbb7ecce04ee`.
+- Owner note path was verified after plan PR #47 merge SHA `c11494fbd9c6b7b186f991a0ef988f099295a2ab`; the exact sentence was present at card line 80 and `w136-1853-owner-ruling.md` existed on live plan main.
+
+END_DONE w136-pr1836-rowsreview: #1853 accepted and merge-committed at `ac7c970fe91ad5fc3d8cb76336ddbbb7ecce04ee`.
+
+
+## Publication of final merge receipt
+
+### PLAN
+
+1. Refresh plan origin/main and verify the merged owner-note/evidence payload from PR #47.
+2. Add the final #1853 ACCEPT and merge-commit receipt to this akte.
+3. Validate the evidence diff, commit with the w136 lane identity, and publish via a plan PR.
+
+### Commit identity and base attestation
+
+- Card owner VERBATIM from live plan main: `w205 (lane w205-0428-253)`.
+- Exact plan branch base: `c11494fbd9c6b7b186f991a0ef988f099295a2ab`.
+- `user.name=w136-pr1836-rowsreview`; `user.email=w136-pr1836-rowsreview@baseharbor.local`.
+- Literal commit invocation: `git -c user.name='w136-pr1836-rowsreview' -c user.email='w136-pr1836-rowsreview@baseharbor.local' commit -m 'docs(evidence): record #1853 final merge receipt'`.
+- Pre-push gate: `git show -s --format=%an HEAD` must print exactly `w136-pr1836-rowsreview`.
+- Planning remote is `origin https://github.com/mcpdev80/baseharbor-plan.git` for fetch and push.
