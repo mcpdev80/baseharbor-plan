@@ -77,7 +77,14 @@ Apply the METADATA rows of w299's read-only PR<->board delta table (`evidence/20
 - Isolated plan worktree only (`workers/w302-0428-251-boardnotes-plan`); no container/compose started; no local test execution (no `go test`/`python -m unittest`/`pytest`/`ci-fast-check.sh`).
 - Evidence lives under the isolated worktree, published via plan PR #106.
 
-## 8. STOP / REPORT
+## 8. EVIDENCE-WITNESS (mission step, adapted for plan-PR workflow)
+
+- This lane publishes via plan PR #106 (not a direct main commit), so the akte lives on the pushed branch, NOT origin/main — origin/main grep returns empty by design (no direct-main write).
+- akte present on pushed branch: `git ls-tree -r --name-only origin/w302-0428-251-boardnotes | grep w302-0428-251-boardnotes` = `evidence/2026-11-26/w302-0428-251-boardnotes/akte.md`.
+- Pushed branch head (ls-remote): `ba5898099b1f64a1fe6c71b4ca86c65632d2363a`.
+- PR #106 path guard (`gh api repos/mcpdev80/baseharbor-plan/pulls/106/files`): 5 files, none under `baseharbor-plan/`, none a new `tasks/` card.
+
+## 9. STOP / REPORT
 
 - No card whose current state could not be verified remotely — all five rows re-verified against live GitHub.
 - No contamination: no other lane owns the same card files at commit 1b9b2bc702 (single isolated worktree, no concurrent writers observed in this worktree).
@@ -85,4 +92,4 @@ Apply the METADATA rows of w299's read-only PR<->board delta table (`evidence/20
 
 ## END STATUS
 
-- END_DONE. Board burn-down complete; plan PR #106 open, Plan validate SUCCESS on exact head f2c4e435f5.
+- END_DONE. Board burn-down complete; plan PR #106 open, Plan validate SUCCESS on exact head f2c4e435f5. Akte on pushed branch (ba5898099b), path guard clean.
