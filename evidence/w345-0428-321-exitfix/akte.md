@@ -52,14 +52,14 @@
 
 ## PLAN
 
-- [ ] Read mission w345-0428-321-exitfix + card; verify worktree identity + github remote
-- [ ] Paste git var gate + visible ansatz block before first commit
-- [ ] Convert tautology TestExitCodeTaxonomyLocked (cli_test.go:79-92) into a real passthrough test (assert ExitCode==child status across documented codes) plus a real SIGINT/SIGTERM->130/143 mapping test via main-level contract, not local map-key checks; zero behavior change
-- [ ] Harden exit_code_taxonomy_audit.py: reject undocumented codes including 256; distinguish child-status passthrough range (1-255) from named top-level taxonomy values
-- [ ] Precheck format/vet/build only (NO local test execution); prove 0428-322 untouched
-- [ ] Push to PR branch under w345 identity; ancestry + commit-identity gate
-- [ ] Trigger Hosted CI on exact head (draft toggle per doctrine); watch terminal run; capture FULL40+ run ids
-- [ ] PR head comment, evidence, END_DONE, cleanliness (docker ps witness), publish
+- Read mission w345-0428-321-exitfix + card; verify worktree identity + github remote
+- Paste git var gate + visible ansatz block before first commit
+- Convert tautology TestExitCodeTaxonomyLocked (cli_test.go:79-92) into a real passthrough test (assert ExitCode==child status across documented codes) plus a real SIGINT/SIGTERM->130/143 mapping test via main-level contract, not local map-key checks; zero behavior change
+- Harden exit_code_taxonomy_audit.py: reject undocumented codes including 256; distinguish child-status passthrough range (1-255) from named top-level taxonomy values
+- Precheck format/vet/build only (NO local test execution); prove 0428-322 untouched
+- Push to PR branch under w345 identity; ancestry + commit-identity gate
+- Trigger Hosted CI on exact head (draft toggle per doctrine); watch terminal run; capture FULL40+ run ids
+- PR head comment, evidence, END_DONE, cleanliness (docker ps witness), publish
 
 ## repo-rule compliance
 
@@ -72,3 +72,11 @@
 
 - docker ps -a BEFORE: (none started this shift)
 - docker ps -a AFTER: (none to tear down)
+
+## HOLD / BLOCKER (02:5xZ, coordinator)
+
+- Status: HOLD, lane open, worktree clean. Await exact correction mission.
+- Blocker: Trusted Plan reads the coverage catalog from trusted develop, so a same-PR `scripts/pr-gate-coverage.json` row cannot register `cmd/baha/main_test.go` for CI (confirmed by run 45888974142 on head c0c39f3b9). The gate route for the exit-code taxonomy test is unresolved.
+- Pending decision (w267): route (a) helper-in-catalogued-cli.go vs (b) separate baseline.
+- What is done and parked (NOT pushed as new head for #1866 beyond c0c39f3b9): the product candidate at head c0c39f3b9dada2b0671c14782b8d4ad98a4aa2448 (PR #1866) is complete per steer-3/steer-4: real passthrough test, ResolveSignalExitCode main-level contract entry, hardened audit, gofmt-clean, Docker + rootless Podman data-capabilities PASSED on exact head. The only open item is the CI coverage route, which is a shared-plan/w267 decision, outside this card's write-set.
+- Next trigger: the exact correction mission from the coordinator. Do not push further heads for #1866, do not rerun CI, do not open a second PR.
