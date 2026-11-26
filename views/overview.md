@@ -11,9 +11,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 18 |
-| review | 3 |
+| review | 2 |
 | wait | 15 |
-| blocked | 8 |
+| blocked | 9 |
 | ready | 43 |
 | queued | 25 |
 | waiting | 180 |
@@ -49,7 +49,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261122-footprint-human-surface-doc-gaps](../tasks/t-20261122-footprint-human-surface-doc-gaps.md) | Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract | review | normal | 0847d100 (finalhop 7880a8f6 laeuft) / Coordinator | — | [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783) |
 | [t-20261124-gate-catalog-baseline-1816](../tasks/t-20261124-gate-catalog-baseline-1816.md) | CI/catalog: add 3 Trusted Plan rows to develop pr-gate-coverage.json | review | not set | w51-0428-261-catalog | — | [baseharbor#1817](https://github.com/mcpdev80/baseharbor/pull/1817) |
-| [t-20261126-hunt46-never-delivered-proof-leak](../tasks/t-20261126-hunt46-never-delivered-proof-leak.md) | 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) | review | not set | w341-0428-326-proofleak (live lane; status per its akte commits ffa9a00d5/7592cdc00 carried by coordinator) | — | [baseharbor#1868](https://github.com/mcpdev80/baseharbor/pull/1868) |
 
 ## Waiting for resources
 
@@ -82,6 +81,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261125-hunt39-volume-recovery-manifest](../tasks/t-20261125-hunt39-volume-recovery-manifest.md) | 0428 hunt H-V39: assert recovery-manifest coverage for workload volumes | blocked | not set | — | — | [baseharbor#1860](https://github.com/mcpdev80/baseharbor/pull/1860) |
 | [t-20261125-hunt43-low-severity-pair](../tasks/t-20261125-hunt43-low-severity-pair.md) | 0428 hunt H-V43: hunt43-low-severity-pair | blocked | not set | — | — | [baseharbor#1862](https://github.com/mcpdev80/baseharbor/pull/1862) |
 | [t-20261126-hunt46-damaged-state-reserved-namespace](../tasks/t-20261126-hunt46-damaged-state-reserved-namespace.md) | 0428 hunt H-V46: DamagedDeploymentNamespace flags the reserved never-delivered namespace as damaged (low) | blocked | not set | — | — | [baseharbor#1869](https://github.com/mcpdev80/baseharbor/pull/1869) |
+| [t-20261126-hunt46-never-delivered-proof-leak](../tasks/t-20261126-hunt46-never-delivered-proof-leak.md) | 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) | blocked | not set | w341-0428-326-proofleak (live lane; status per its akte commits ffa9a00d5/7592cdc00 carried by coordinator) | — | [baseharbor#1868](https://github.com/mcpdev80/baseharbor/pull/1868) |
 | [t-20261126-hunt46-recovery-backup-volume-heuristic](../tasks/t-20261126-hunt46-recovery-backup-volume-heuristic.md) | 0428 hunt H-V46: recovery/backup volume preservation uses a case-insensitive substring search (medium) | blocked | not set | — | — | [baseharbor#1861](https://github.com/mcpdev80/baseharbor/pull/1861) |
 
 ## Ready to assign

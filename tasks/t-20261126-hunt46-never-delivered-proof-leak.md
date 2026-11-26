@@ -8,9 +8,9 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w341-0428-326-proofleak (live lane; status per its akte commits ffa9a00d5/7592cdc00 carried by coordinator)
-kanban_status: review
-status_note: "earlier map-lag blocker resolved by owner-side label landing (PR #1868 now in review)"
-kanban_lane: review
+kanban_status: blocked
+blocker: "STATE: Trusted Plan + PR Selected Checks FAILURE on 57320af6949e (coordinator api-verify 01:3xZ) - pr-gate-map release-label lag persists (same class as 0428-328/#1869); lane w341 parked; pair re-run at owner map landing; #1868 stays OPEN unmerged"
+kanban_lane: blocked
 kanban_summary: "The never-delivered proof at never-delivered/<applicationID>/<environment>.json is created by guided adoption…"
 kanban_title: 0428-326 · consume never-delivered proof
 priority: ""
@@ -23,14 +23,15 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261126-hunt46-never-delivered-proof-leak · 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261126-hunt46-never-delivered-proof-leak · 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
     **Owner:** w341-0428-326-proofleak (live lane; status per its akte commits ffa9a00d5/7592cdc00 carried by coordinator)  
     **PR:** [baseharbor#1868](https://github.com/mcpdev80/baseharbor/pull/1868)  
+    **Blocker:** STATE: Trusted Plan + PR Selected Checks FAILURE on 57320af6949e (coordinator api-verify 01:3xZ) - pr-gate-map release-label lag persists (same class as 0428-328/\#1869); lane w341 parked; pair re-run at owner map landing; \#1868 stays OPEN…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w341-0428-326-proofleak (live lane; status per its akte commits ffa9a00d5/7592cdc00 carried by coordinator)  
