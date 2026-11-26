@@ -835,8 +835,11 @@ State after transport:
 
 ## Hosted Plan validate (self-run duty)
 
-Hosted Plan 'Plan · validate' on the exact reissue-2 head: run <RUN_ID> (pull_request) —
-<TERMINAL STATUS>, watched to completion. Report FULL40 head + run id in the head comment.
+Hosted Plan 'Plan · validate' on the exact clean-reissue head: run **45890039820** (pull_request)
+head `0a9b169ea990782b0a4a1159b72fff0917c55354` — **TERMINAL SUCCESS** (job "Plan · validate",
+watched to completion). Follow-up run **45890177405** (pull_request) head
+`f31858b102a6e43dfd47491b5583454f8671ca4f` — **TERMINAL SUCCESS** (END-block update commit).
+Both terminal SUCCESS; head comment with FULL40 + run ids posted on PR #154.
 
 ## cleanliness
 
@@ -852,4 +855,4 @@ author+committer gate passed), appends the reissue-2 block re-stating the full c
 contaminated base CHANGES 7201991029 -> THIS clean reissue) as the controlling statement, curing
 the contaminated-base / forwarded-author defect of 7201177304 and superseding the coordinator
 variant-1 transport ruling as own error; prior lines untouched as history (no deletions). akte-only
-file change; 0 markdown checkboxes. Plan PR #154 (w346-150-clean, head 0a9b169ea990782b0a4a1159b72fff0917c55354) OPEN draft=false, base main, titled 'akte(0428-078): clean reissue of #150 on main base (w267 7201991029)'; single file diff (this akte.md only). #150 stays OPEN, untouched. Hosted Plan validate run <RUN_ID> pending on exact head.
+file change; 0 markdown checkboxes. Plan PR #154 (w346-150-clean, head f31858b102a6e43dfd47491b5583454f8671ca4f) OPEN draft=false, base main, titled 'akte(0428-078): clean reissue of #150 on main base (w267 7201991029)'; single file diff (this akte.md only). #150 stays OPEN, untouched. Hosted Plan validate runs 45890039820 (0a9b169ea) + 45890177405 (f31858b10) both terminal SUCCESS.
