@@ -172,6 +172,12 @@ atomic/{docker,podman}/{guided, lifecycle, policy, connectivity, reconciliation,
 - Only the approved surface changed: scripts/pr-gate-coverage.json rows/covers/surfaces + its regression test. No pr-gate-plan.py edit (the Codex-decision lane stays empty), no .github/** edit, no rerun/workflow_dispatch, no consent/authorization/authentication behaviour change (git diff --name-only above proves it).
 - One PR, one chain, named branch only; no second branch; no subagents; no local test execution; GitHub-hosted runners only; no containers/compose (cleanliness: docker ps -a unchanged, this lane started 0 containers).
 
-## END (supersedes the STOP END line above)
+## plan-pub delivery evidence (final publish witness)
+
+- plan branch `w309-0428-352-14gatecatalog-board` head = 2d1813c9d383a6b04f644816785e2d7642aea713 (delivered, `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/w309-0428-352-14gatecatalog-board refs/pull/112/head` → both 2d1813c9d3)
+- plan PR: https://github.com/mcpdev80/baseharbor-plan/pull/112 (card board delta + implementation akte); "Validate planning" pull_request SUCCESS run 45782719217 on the final head, watched to terminal by this lane
+- the diagnostic akte commit is already on origin/main via merged plan PR #110 (merge commit b7a1347fe5); the implementation-round akte section and the card's prs/evidence fields land with PR #112 — admin squash merge is the coordinator/Codex act (plan main protected, never direct-pushed by this lane); `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/w309-0428-352-14gatecatalog refs/pull/1859/head` → f6fc8a71f... on both branch head and PR head (delivery proven)
+
+## END (final)
 
 END DONE w309-0428-352-14gatecatalog: product PR https://github.com/mcpdev80/baseharbor/pull/1859 final head f6fc8a71f46d1b3813a13527c0edb6de560122af, own pull_request run 45782087038 (attempt 1) SUCCESS, census 11 executed / 21 skipped / 0 failed (runtime skip correct at stale base; catalog-in-base proof in the akte above). Codex reviews and merges; this lane merged nothing. #1812 stays unqualified until this catalog is in develop, then absorbs develop once.
