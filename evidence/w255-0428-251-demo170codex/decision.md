@@ -96,3 +96,13 @@ First-commit log from the fetched base:
 ```
 
 All listed branch commits are this evidence akte; no foreign candidate is included.
+
+### Initial branch delivery witness
+
+After the initial push, `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/w255-0428-251-demo170codex` returned:
+
+```text
+a8c9eedb6bb57928a0d809faa9e8b2425badc140 refs/heads/w255-0428-251-demo170codex
+```
+
+The PR will carry only `evidence/w255-0428-251-demo170codex/decision.md`.
