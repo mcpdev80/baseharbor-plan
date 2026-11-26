@@ -76,3 +76,11 @@ The candidate-added validation lane treats a DELETED product source with a remov
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+
+Erste zwei Übernahmen als gekürzte Identität der eigenen Bahn übernommen (w205 ≙ w205-0428-253), Eigentümer-Erkenntnis 25.11., keine Umschreibung.
+
+## Owner ruling
+
+The quoted admission note applies only to the first two historical records where `w205` is a shortened canonical formatting of this card's own lane, `w205-0428-253`. It does not admit any foreign-lane identity or authorize shortened identities for new commits. Foreign-lane evidence requires Coordinator recovery/republication; this exception is not generalized.
+
+Provenance: executing lane `w255-0428-251-demo170codex`; base SHA `053b2b6d1af11ad0f926949ef39c7fdbf0e400bf`; Hosted Plan validation run: exact-head `Plan · validate`, with the final run URL recorded in the accompanying akte.
