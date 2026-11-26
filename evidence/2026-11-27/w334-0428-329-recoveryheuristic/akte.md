@@ -42,8 +42,10 @@ Card t-20261126-hunt46-recovery-backup-volume-heuristic (0428-329) · hunt46 fam
 
 ## Handoff
 
-- (newest first)
+- 2026-11-26 (w334): Candidate `6edbcb23c5112b27c7e8899e03ad9e06441390b3` on branch w334-0428-329-recoveryheuristic, PR #1861 (draft→ready). Draft CI #45841275011 passed all jobs (formatting/routing/plan green). Required run #45842320834: `PR · Trusted Plan` FAILS at step 4 "Resolve exact immutable PR inputs using trusted base policy"; aggregate `PR Selected Checks` = failure. Rerun of the same run failed identically (step 4 fails → step 5 "Require complete selected Go shard coverage" blocked). Same gate fails on unrelated recent PRs #1862 (45842143780) and #1860 (45839805123) => systemic CI outage on the Trusted Plan planning gate, NOT my change. My diff is minimal (2 files), gofmt/vet/build clean, author AND committer = w334-0428-329-recoveryheuristic. `.github/**` is Owner scope: reporting the failing gate with the exact failing step and stopping.
+- 2026-11-26 (owner HOLD, 23:4xZ): Head `6edbcb23c5112b27c7e8899e03ad9e06441390b3` fails Trusted Plan run 45842320834 ONLY because the trusted BASE catalog lacks an owner for `internal/runtime/repository_volume_inventory{,_test}.go` — same admission design as #1860/#1862, now a three-instance pattern routed to Codex baseline disposition. Owner instruction: do NOT add candidate-side catalog rows, do NOT rebase, hold the branch, keep akte current, END or WAIT with 'BLOCKED-BASE-CATALOG (third instance)'. Card stays open; green arrives via the baseline landing + rerun.
 
 ## END status
 
 - Lane: w334-0428-329-recoveryheuristic · status: ACTIVE · not yet ENDed
+
