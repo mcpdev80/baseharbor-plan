@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w327-0428-272-gaterouting
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: A PR that changes the local-runtime / trusted-authority seam is qualified by at least one native runtime gate (Docker and…
 kanban_title: 0428-272 · authority seam no runtime gate
 priority: normal
@@ -23,14 +23,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261124-r28-runtime-authority-gate-routing · PR-Gate-Plan routes the runtime-authority seam to package checks only, so a fail-open regression there is never qualified by a native runtime gate. #task #release/v0-4-28 #status/active #view/active #area/ci #area/security #area/testing #kind/task
+- [ ] t-20261124-r28-runtime-authority-gate-routing · PR-Gate-Plan routes the runtime-authority seam to package checks only, so a fail-open regression there is never qualified by a native runtime gate. #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/security #area/testing #kind/task
     <!-- generated:card -->
     **Owner:** w327-0428-272-gaterouting · **Priority:** normal  
     **Blocker:** Awaiting routing answer (w267 dispositions a/b): release-requirements.json gates\[\] base rows (0428-275 re-point vs 0428-359 fold-in) and \#1860 held-catalog overlap. Next trigger: coordinator routing post, then rebase + dispatch.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w327-0428-272-gaterouting  
