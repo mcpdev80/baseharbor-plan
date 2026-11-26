@@ -82,7 +82,7 @@ Appended (forward-only, 10 lines, diff shows zero deletions) to `evidence/r29-we
 - Created: git worktree `workers/w306-0428-253-rulingdoc-plan` (removed at END) and the clean validation clone under `/var/tmp/w306-plan-verify` (removed after validation).
 - Shared checkout `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan`: untouched — read-only fetch/show only; no rebase/reset/stash/checkout/add there. `docker ps -a` witness line appended below.
 
-END placeholder — replaced at the last action.
+
 
 ## Commit / PR / run witnesses
 
@@ -95,3 +95,12 @@ END placeholder — replaced at the last action.
 - Delivery witness after push: `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/w306-0428-253-rulingdoc refs/heads/main` → `1b9b2bc70201d9da6615a9ec16942103c20e96a1 refs/heads/main` and `dd09ca4dc95d8160498e344efddb632c20d003ef refs/heads/w306-0428-253-rulingdoc`.
 - Plan PR: https://github.com/mcpdev80/baseharbor-plan/pull/108 (opened ready, not draft; this lane never merges it).
 - Own Hosted run (Eigenes-Run-Pflicht): workflow `Validate planning`, run `45770188193`, event pull_request, head `dd09ca4dc`, terminal `completed / SUCCESS`, observed by this lane to terminal.
+
+## Final head, second own run, cleanliness
+
+- Final head `0f8840b6772f6a2b12e4766c430b8b13896000c0` (`git log --format='%h an=%an cn=%cn' -1` → `0f8840b677 an=w306-0428-253-rulingdoc cn=w306-0428-253-rulingdoc`); `git log --oneline origin/main..HEAD` lists exactly this lane's two commits (`0f8840b677`, `dd09ca4dc9`) — no foreign commits.
+- `git diff origin/main...HEAD --name-only` at final head → exactly: `evidence/2026-11-26/w306-0428-253-rulingdoc/akte.md`, `evidence/r29-welle6-2026-11-28/0428-253/w136-pr1853-admission-ruling.md`, `tasks/t-20261123-planner-deleted-source-advisory.md`.
+- Second own run on final head: `Validate planning`, run `45770346080`, event pull_request, head `0f8840b67`, terminal `completed / SUCCESS` (observed by this lane). Run `45770188193` on `dd09ca4dc` was also SUCCESS; both watched to terminal per Eigenes-Run-Pflicht.
+- cleanliness: this lane ran no docker/podman commands and started no compose projects on this host or any SSH host; `docker ps -a` shows only pre-existing ambient stacks (untouched, e.g. bh-* development containers belonging to other lanes). No test-owned containers, networks, volumes or state directories exist from w306. Created paths: worktree `workers/w306-0428-253-rulingdoc-plan` (removed after publishing) and validation clone `/var/tmp/w306-plan-verify` (removed after validation). The shared plan checkout was never written to.
+
+END_DONE w306-0428-253-rulingdoc: ruling correction block + card evidence fill committed on plan PR #108 (head 0f8840b67), own Plan validate runs 45770188193 and 45770346080 SUCCESS; merge is not this lane's action.
