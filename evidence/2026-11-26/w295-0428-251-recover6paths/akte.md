@@ -952,8 +952,9 @@ its branch and both refs named. That is the honest scope of the claim, not a rep
 ### END (terminal head of correction round 2)
 
 END_DONE w295-0428-251-recover6paths (correction round on plan PR #100): PR #100 frozen head for
-re-review **`314ade2bc3ad6e8d246b6301f9643027b699bd6f`**, `Plan · validate` **run 45767312284**,
-event `pull_request`, `run_attempt` 1, conclusion **success** on that exact head; live plan main
+re-review **`b6d489e1841ac4175c8de8b1f45a5fd7a3c9c550`**, `Plan · validate` **run 45767551322**,
+event `pull_request`, conclusion **success** on that exact head (`gh run list --commit b6d489e184`;
+the immediately preceding head 314ade2bc3 was green too, at run 45767312284); live plan main
 `1b9b2bc702` is an ancestor (unchanged since the review, so no absorb merge was needed);
 `git diff --name-only 44fafa98b5 HEAD` = this akte only, i.e. the payload is byte-identical to the head
 Codex froze. Record corrected to the truth: **5 of 6 paths restored, 27,396 B**; per-file differences are
@@ -966,3 +967,9 @@ re-cutting (C4); force-push kept disclosed as a process deviation (C5); append-o
 Transport: three forward fast-forward pushes, no rebase, no force, no merge, no product write, no
 `.github/**` change, no local test execution; /var/tmp scratch and throwaway worktrees removed; shared
 plan checkout HEAD `08b1f66bb` with 51/51 stashes untouched.
+
+(One further forward commit lands after this line to carry the run id this lane observed for the head it
+publishes; the published head is the last commit of branch
+`lane-w295-0428-251-recover6paths` before the END post, verified by
+`git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/lane-w295-0428-251-recover6paths refs/pull/100/head`
+in the END post itself. The lane stops adding akte commits from here.)
