@@ -55,3 +55,18 @@ A fresh clone at `/var/tmp/w255-0428-251-284-check` was given the card and akte 
 The nine-blob consolidation candidate #104 was accepted and squash-merged as Plan main commit `44168d2d3cb5f11b1ac7c5d3f621d4644677b8aa` at `2026-11-26T07:49:38Z`. The exact candidate head `15ec0864eedd1bca54a9e55350db753642ff7422` passed Plan validation run `45776278633`; the only intervening main additions were two evidence akte files from separately green exact-head PRs #105 and #108. Post-merge main contains all nine #93 log blobs with the same blob IDs as `refs/pull/93/head`; it contains the canonical dated w291 path and not the placeholder path. PRs #93, #94, and #95 were closed after these witnesses at 07:50Z.
 
 The closure branch was fast-forwarded from its initially attested base `be672c215fc699fdaeffc44a8d8f7995087d42aa` to live `origin/main` `44168d2d3cb5f11b1ac7c5d3f621d4644677b8aa` before its first content commit. The refreshed main delta consisted of #104's evidence artifacts; the 0428-284 task itself had no concurrent edits since the prior task edit at `72f2c83aa8`.
+
+## Candidate provenance before publication
+
+Candidate source commit `370d6ac6f2` reports `w255-0428-251-demo170codex w255-0428-251-demo170codex` from `git show -s --format='%an %cn %s' HEAD`. Before the publication-record commit, `git merge-base --is-ancestor origin/main HEAD` succeeded with live origin/main at `44168d2d3cb5f11b1ac7c5d3f621d4644677b8aa`; `git log --oneline origin/main..HEAD` listed only `370d6ac6f2 w255 close card 0428-284`. The scoped name-only candidate diff is:
+
+- `evidence/2026-11-26/w255-0428-251-284-close/akte.md`
+- `releases/v0.4.28.md`
+- `roadmap/cards.md`
+- `tasks/t-20261116-r28-bug-compose-service-ids.md` (generated card display only)
+- `tasks/t-20261125-0428-284-1812-postretry-gate-failure.md`
+- `views/kanban-dashboard.md`
+- `views/overview.md`
+- `views/releases/v0.4.28.md`
+
+The task ID and owner fields are unchanged. The additional commit records the publication witnesses and uses the same lane identity.
