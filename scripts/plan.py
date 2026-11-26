@@ -563,7 +563,7 @@ class Vault:
     def check_stray_checkboxes(self):
         for path in self.markdown_files():
             rel = self.rel(path)
-            if rel.startswith(("tasks/", "evidence/", "workers/")) or rel == "roadmap/cards.md":
+            if rel.startswith("tasks/") or rel == "roadmap/cards.md":
                 continue
             for i, line in enumerate(path.read_text(encoding="utf-8").split("\n"), 1):
                 if TOP_CHECKBOX.match(line) and not rel.startswith("templates/"):

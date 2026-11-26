@@ -50,7 +50,7 @@ Source is w271's read-only census in Plan PR #76, exact head `97cf9672e11922025e
 
 Three paths are omitted as content duplicates, not silently lost: `evidence/r28-welle6-2026-11-27/bughunt-hv48-api-surface/w194-0428-224-intake.md` has the exact same blob `2157b2f48472e9dc76ada6e5a15e52185eae61ea` as existing root path `w194-0428-224-intake.md`; `evidence/w246-0428-284-1812diag/w246-1812gatefaildiag.md` has the exact same blob `9781ec653c1650702ab28613fbe3d8fa2dc27eca` as the canonical path restored by #75, `evidence/w246-1812diag/w246-1812gatefaildiag.md`; and `tasks/t-20261124-r28-alert-applied-face-stale-runtime.md` (0428-268) is superseded by the current accepted 0428-268 evaluator/live-health task delivered by #1831. The source blob and matching or superseding current path were checked before exclusion.
 
-Hunt47 task files are not duplicates. The initial scan found IDs 0428-341 through 0428-346 occupied by unrelated Hunt48 task files. The current ruling and reallocation below resolve 0428-345; five conflicts remain parked for Coordinator reissue. The four Hunt47 task IDs 0428-347 through 0428-350 are restored verbatim, along with unique tasks 0428-155, 0428-175, and the rcptlink task. Current tally: 68 unique paths restored, 3 duplicate-content exclusions, and 5 card-number conflicts parked; no unique source artifact in this selected set is unavailable.
+Hunt47 task files are not duplicates. The initial scan found IDs 0428-341 through 0428-346 occupied by unrelated Hunt48 task files. The current ruling resolves 0428-345; five conflicts remain parked. Four Hunt47 tasks 0428-347 through 0428-350 are restored verbatim, along with tasks 0428-155, 0428-175, and the rcptlink task.
 
 | Parked source task | Source card ID | Current main occupant |
 | --- | --- | --- |
@@ -74,7 +74,7 @@ The pair bar remains two distinct `pull_request` SUCCESS run IDs on the same exa
 
 ## Artifact equality table
 
-Pending restoration and exact per-path comparison. For a ref locator, restore with `git checkout <full-carrier-commit> -- <path>`. For stash-only rows where the file is stored in the stash's untracked third parent, restore with `git checkout <full-stash-commit>^3 -- <path>`; the stash index was resolved to its full SHA before use and no stash is consumed. For every row, compare `git rev-parse <carrier-tree>:<path>` with the staged/restored blob and require `git diff --quiet <carrier-tree> -- <path>` to exit 0.
+For each retained source row, compare the carrier tree blob with the staged restored blob and require git diff --quiet <carrier-tree> -- <path> to exit 0. The two checkbox exceptions are excluded from this equality table. For a ref locator, restore with `git checkout <full-carrier-commit> -- <path>`. For stash-only rows where the file is stored in the stash's untracked third parent, restore with `git checkout <full-stash-commit>^3 -- <path>`; the stash index was resolved to its full SHA before use and no stash is consumed. For every row, compare `git rev-parse <carrier-tree>:<path>` with the staged/restored blob and require `git diff --quiet <carrier-tree> -- <path>` to exit 0.
 
 | Path | Original carrier tree | Original blob SHA | Restored blob SHA |
 | --- | --- | --- | --- |
@@ -121,7 +121,6 @@ Pending restoration and exact per-path comparison. For a ref locator, restore wi
 | `evidence/2026-11-shift/cancelgroup/w200-cancelgroup-befund.md` | `cc9c96409a65be9a939e471e931f0f4621dfa355` (locator `ref:cc9c96409`) | `6362ffcbbf95369559194f8071bc0b675ab90499` | `6362ffcbbf95369559194f8071bc0b675ab90499` |
 | `tasks/t-20261125-hunt47-write-stamp-json-version.md` | `a47da84b82f2fd10294c934944566d4d935c61a1` (locator `ref:a47da84b8`) | `870c317cd74dc40a977eebcd572d568a4b75e81e` | `870c317cd74dc40a977eebcd572d568a4b75e81e` |
 | `tasks/t-20261125-hunt47-deleted-deployment-dangling-binding.md` | `a47da84b82f2fd10294c934944566d4d935c61a1` (locator `ref:a47da84b8`) | `ca54d0c1e6e35d6d7af1433feff93f1a543a71a1` | `ca54d0c1e6e35d6d7af1433feff93f1a543a71a1` |
-| `evidence/w186/0428-186-hop.md` | `adfb6c7b921b04e7ef073045b0cb6bbb210caee0^3` (locator `stash@{30}`) | `b1540def552cad23e6bb0997ce9f93762527a679` | `b1540def552cad23e6bb0997ce9f93762527a679` |
 | `evidence/2026-11-25/w213-0428-287-1835-refresh.md` | `e3877cd55e6d2f2e7e68905094c4c82c85c87b31^3` (locator `stash@{1}`) | `41fe11aa6af3d30b67f8834c3a61dcc1ab9e2495` | `41fe11aa6af3d30b67f8834c3a61dcc1ab9e2495` |
 | `tasks/t-20261125-hunt47-core-plan-version-message.md` | `a47da84b82f2fd10294c934944566d4d935c61a1` (locator `ref:a47da84b8`) | `f3873478549766942ebdbbf7077e84076e6c057c` | `f3873478549766942ebdbbf7077e84076e6c057c` |
 | `tasks/t-20261125-hunt47-config-mutation-migration-parity.md` | `a47da84b82f2fd10294c934944566d4d935c61a1` (locator `ref:a47da84b8`) | `edaa444b01f077dc2df8fe79b69517bee638fd99` | `edaa444b01f077dc2df8fe79b69517bee638fd99` |
@@ -137,7 +136,6 @@ Pending restoration and exact per-path comparison. For a ref locator, restore wi
 | `evidence/r28-welle4-2026-11-18/codex-welle3-review/1592-r2.md` | `fbce6e639342065daa0210ffef61f8d78f06cffc` (locator `ref:fbce6e639`) | `907c7f0e6b5ba889a07e5bb19f9e30c2f282bf7f` | `907c7f0e6b5ba889a07e5bb19f9e30c2f282bf7f` |
 | `evidence/r28-welle6-2026-11-25/0428-078/pr1847-review-merge.md` | `37320b0b8b1d8c9effcf198138b612b88d1b6dd3` (locator `ref:37320b0b8`) | `247b908ff979f592b37face431baae792723e202` | `247b908ff979f592b37face431baae792723e202` |
 | `evidence/board-2026-11-24/w68-0428-277-revealallow.md` | `1c649705a4b4cde684d6afc5d73278549ba1fa88^3` (locator `stash@{9}`) | `960135cddceae7bfae2657a837b9c2fa2968fed3` | `960135cddceae7bfae2657a837b9c2fa2968fed3` |
-| `evidence/w266-0428-285-1820pre/PLAN.md` | `8b46c5c20da3e8abaaa5210b80b7044576480067` (locator `ref:8b46c5c20`) | `e41b0dac261342505f5c8b550e51f3ef40dbcb39` | `e41b0dac261342505f5c8b550e51f3ef40dbcb39` |
 | `evidence/r29-welle6-2026-11-28/0428-1819/w136-1819-review.md` | `34b33010b401229a60c50f7a2acef7d3ed316c45` (locator `ref:34b33010b`) | `e63d2d387c110767c27752ebdee10e183a94c9ce` | `e63d2d387c110767c27752ebdee10e183a94c9ce` |
 | `evidence/r29-welle6-2026-11-28/0428-307/w136-1852-requal-review.md` | `34b33010b401229a60c50f7a2acef7d3ed316c45` (locator `ref:34b33010b`) | `6c9e3b3dd81c3a66f088e485be56f33c1c24f663` | `6c9e3b3dd81c3a66f088e485be56f33c1c24f663` |
 | `evidence/r28-welle5-2026-11-22/rev1756f/review.md` | `8110a053d9b7fa7f338fd82e8a91e90221fe3847^3` (locator `stash@{40}`) | `626c319ae0ed9c4dd0cd8acfc6abae0b50807943` | `626c319ae0ed9c4dd0cd8acfc6abae0b50807943` |
@@ -146,11 +144,20 @@ Pending restoration and exact per-path comparison. For a ref locator, restore wi
 | `evidence/r28-welle5-2026-11-22/publishB/review.md` | `8110a053d9b7fa7f338fd82e8a91e90221fe3847^3` (locator `stash@{40}`) | `7fb0a78d309a11ec1b1b91184e0479be8378a3cb` | `7fb0a78d309a11ec1b1b91184e0479be8378a3cb` |
 | `evidence/2026-11-25/w219-0428-271-0428-286-1820hop.md` | `541a07965d7d7f19e46a263ccc6145024fce2d37` (locator `ref:541a07965`) | `43bda27f6721e40af3e5d7d9ee135f2583c2a801` | `43bda27f6721e40af3e5d7d9ee135f2583c2a801` |
 
-Equality review: every row above was checked with `git rev-parse <carrier-tree>:<path>` against the staged blob and `git diff --quiet <carrier-tree> -- <path>` exited 0. Stash-only files were found in the stash third-parent tree; no stash was applied, popped or dropped. All 67 paths were absent at their exact path on fetched `origin/main` before restoration.
+Equality review: every row above was checked with `git rev-parse <carrier-tree>:<path>` against the staged blob and `git diff --quiet <carrier-tree> -- <path>` exited 0. Stash-only files were found in the stash third-parent tree; no stash was applied, popped or dropped. All 65 retained paths were absent at their exact path on fetched `origin/main` before restoration.
 
-## CardBoard scanner scope correction
+## Checkbox-path exceptions
 
-The coordinator authorized the minimal scanner fix in this same scoped forward-only PR. The original evidence bytes stay unchanged and retain exact source/restored blob equality. Census rows `evidence/w186/0428-186-hop.md` (original blob `b1540def552cad23e6bb0997ce9f93762527a679`; source lines 31-34) and `evidence/w266-0428-285-1820pre/PLAN.md` (original blob `e41b0dac261342505f5c8b550e51f3ef40dbcb39`; source lines 7-13) contain lane-plan checkboxes. The prior scanner treated those evidence notes as board cards, contrary to the Plan rule that CardBoard cards come from `tasks/`. `scripts/plan.py` now excludes `evidence/**` and `workers/**` from the stray-card scan while retaining task note validation and stray-card rejection elsewhere. `scripts/tests/test_plan.py` keeps the task-note extra-checkbox rejection and adds a regression proving the same checkbox in evidence and workers notes does not fail. Both are reached by the existing Hosted `Plan · validate` job's `Unit tests` step and subsequent `Validate vault and generated files` step on `pull_request`; no workflow change is needed. No evidence artifact bytes were changed.
+The two checkbox-bearing evidence items are parked and are not present in this PR. Their ignored workers/ source paths were not force-added. Original carrier blobs are preserved at their source refs/stash trees; no source bytes were altered. The Plan validator in the current main baseline rejects top-level checkbox lines outside tasks/ in check_stray_checkboxes at scripts/plan.py:563-570.
+
+| Parked source path | Excluded evidence destination | Carrier blob SHA | Blocker |
+| --- | --- | --- | --- |
+| workers/w186/0428-186-hop.md | evidence/w186/0428-186-hop.md | b1540def552cad23e6bb0997ce9f93762527a679 | TOP_CHECKBOX lines at source lines 31-34 trigger the check_stray_checkboxes rule at scripts/plan.py:563-570. |
+| workers/w266-0428-285-1820pre/PLAN.md | evidence/w266-0428-285-1820pre/PLAN.md | e41b0dac261342505f5c8b550e51f3ef40dbcb39 | TOP_CHECKBOX lines at source lines 7-13 trigger the check_stray_checkboxes rule at scripts/plan.py:563-570. |
+
+For both paths: disposition pending Codex validator/evidence-path ruling - not restored, not altered.
+
+The earlier scanner-scope experiment is removed from this candidate; scripts/plan.py and scripts/tests/test_plan.py match fetched live main. No workflow files were changed.
 
 ## Refreshed #75 presence readback on current main
 
@@ -256,9 +263,9 @@ Resumed on Coordinator direction after the failing run disposition. Freshly fetc
 
 ### Hunt47 card-number collision
 
-At fetched live origin/main 09e5e1b57e0880cfc45bc41f3c7f18f786e0ec87, a tree scan covered all 776 tasks/*.md files and found 701 card_number fields with no duplicate values. Hunt48 owns 0428-345 at tasks/t-20261128-hunt48-refresh-public-api-ownership-map.md. 0428-351 was absent from all live-main task blobs and from the pre-restoration candidate tree. The Hunt47 task retains stable ID t-20261125-hunt47-version-gate-error-surface; its ID-based dependencies and links remain unchanged. Only the display card number is reallocated to 0428-351, with the requested provenance paragraph. Original carrier a47da84b82f2fd10294c934944566d4d935c61a1; original blob 1eb4938b2204b83ebdd760e9123d1aec618dbffa. This resolves the double allocation without renumbering Hunt48. The final source blob will be recorded after rendering.
+At fetched live origin/main 9d2960c6a8244c719e21b4113bf43d875b646b37, a refreshed tree scan covered all 776 tasks/*.md files and found 701 card_number fields with no duplicate values. Hunt48 owns 0428-345 at tasks/t-20261128-hunt48-refresh-public-api-ownership-map.md. 0428-351 was absent from all live-main task blobs and from the pre-restoration candidate tree. The Hunt47 task retains stable ID t-20261125-hunt47-version-gate-error-surface; its ID-based dependencies and links remain unchanged. Only the display card number is reallocated to 0428-351, with the requested provenance paragraph. Original carrier a47da84b82f2fd10294c934944566d4d935c61a1; original blob 1eb4938b2204b83ebdd760e9123d1aec618dbffa. This resolves the double allocation without renumbering Hunt48. The final source blob will be recorded after rendering.
 
-The current census tally supersedes the earlier interim six-conflict statement: 68 paths restored by this PR plus 12 by #75 equals 80 restored; 3 duplicate-content paths excluded; 5 Hunt47 card-number conflicts remain parked. The w271 inventory total remains 88.
+The current tally is 66 restored paths in this PR (65 independent safe restores plus the reallocated Hunt47 task), plus 12 restored by #75 = 78 restored. Three content duplicates, five remaining Hunt47 card-number conflicts, and two checkbox exceptions complete the 88-path inventory. Of the original 76 follow-up paths, 74 continued dispositions remain after excluding the two checkbox exceptions. Actual index blob sizes for the 65 safe restores total 425,488 bytes; the reallocated Hunt47 task is 5,926 bytes; the 66 restored blobs total 431,414 bytes, summed from staged blob objects with git cat-file -s.
 
 ### Additional invalid-channel publication dispositions
 
@@ -288,99 +295,10 @@ The prior stop cited /home/marcel/.config/baseharbor-coordinator/COST_CONTROL.md
 
 The reallocated Hunt47 task final rendered working-tree blob is b52ca74e4eebf872a92332bb4c712ce2bf75e524. Relative to original carrier blob 1eb4938b2204b83ebdd760e9123d1aec618dbffa, the only semantic source edits are the authorized card_number reallocation and the required provenance paragraph; kanban_title is renderer-derived. Stable task ID, dependency IDs, and links are unchanged.
 
-## Exact candidate provenance after refresh merge
+## Candidate provenance snapshot superseded by checkbox-path ruling
 
-Fetched live base: 9d2960c6a8244c719e21b4113bf43d875b646b37
-Candidate: 9cadd8e5cd301132a81c1aed3db213e18aece2a3
-The command git merge-base --is-ancestor origin/main HEAD exited 0. Exact output of git diff origin/main...HEAD --name-only follows:
+The preceding candidate name-only diff and own-commit list describe the pre-exception head 9cadd8e5cd301132a81c1aed3db213e18aece2a3. They are retained as history only. This section will be replaced by the final exact-base provenance after the park/removal commit.
 
-evidence/2026-11-25/w200-1650-review-merge/review.md
-evidence/2026-11-25/w200-1851-carrier/disposition.md
-evidence/2026-11-25/w200-outstanding-two/decisions.md
-evidence/2026-11-25/w213-0428-287-1835-refresh.md
-evidence/2026-11-25/w214-0428-284-1812-hop.md
-evidence/2026-11-25/w219-0428-271-0428-286-1820hop.md
-evidence/2026-11-25/w234-0428-307-1842run2.md
-evidence/2026-11-25/w234-0428-307-1850run2.md
-evidence/2026-11-shift/0428-263/w200-1846-review.md
-evidence/2026-11-shift/0428-263/w210-0428-263-pr1846-hop.md
-evidence/2026-11-shift/0428-284/w200-1812-review.md
-evidence/2026-11-shift/0428-284/w241-0428-284-1812prehop.md
-evidence/2026-11-shift/1812-runtime-routing/w200-1812-runtime-routing.md
-evidence/2026-11-shift/cancelgroup/w200-cancelgroup-befund.md
-evidence/2026-11-shift/huntV55/w200-huntV55-disposition.md
-evidence/2026-11/w242-0428-285-1820census/akte.md
-evidence/board-2026-11-24/w68-0428-277-revealallow.md
-evidence/coordination/w271-stranded-recovery-w255-0428-251-demo170codex.md
-evidence/r28-welle4-2026-11-18/codex-welle3-review/1592-r2.md
-evidence/r28-welle4-2026-11-18/codex-welle3-review/1686.md
-evidence/r28-welle4-2026-11-21/cli-shard-runtime-tests/round-1.md
-evidence/r28-welle4-2026-11-24/w55-0428-078-probehop-hold.md
-evidence/r28-welle4-2026-11-24/w55-0428-078-probehop-stop.md
-evidence/r28-welle4-20261114/0428-065/round-rebase-1615.md
-evidence/r28-welle5-2026-11-22/0428-227/review-1753-head71deb610.md
-evidence/r28-welle5-2026-11-22/oras-0428-229/review-1750-head4bd779b1.md
-evidence/r28-welle5-2026-11-22/publishB/review.md
-evidence/r28-welle5-2026-11-22/redir1756/review.md
-evidence/r28-welle5-2026-11-22/rev1756f/review.md
-evidence/r28-welle5-2026-11-22/sourcepull-0428-223/review-1750-head17f471cd3fe9a41fbe5b4e2d3d2748f1e1bf9c99.md
-evidence/r28-welle5-2026-11-23/hunt39-v55/catalog-lifecycle-hunt.md
-evidence/r28-welle6-2026-11-24/broker-build-identity-w69/evidence.md
-evidence/r28-welle6-2026-11-25/0428-078/pr1847-review-merge.md
-evidence/r28-welle6-2026-11-25/0428-284-1842-hop/round-1.md
-evidence/r28-welle6-2026-11-25/w198-0428-284-demo-parser/round-0.md
-evidence/r28-welle6-2026-11-25/w211-0428-307-fallback.md
-evidence/r28-welle6-2026-11-25/w213-0428-287-1835-refresh/evidence.md
-evidence/r28-welle6-2026-11-25/w218-0428-181-0428-285-1819hop/1819-pr-hop-akte.md
-evidence/r28-welle6-2026-11-25/w222-0428-307-1852-secondrun/secondrun-gate-akte.md
-evidence/r28-welle6-2026-11-25/w226-0428-307-0428-283-1818reset.md
-evidence/r28-welle6-2026-11-25/w237-0428-283-1818reset2/round-1.md
-evidence/r28-welle6-2026-11-26/1842-review/review.md
-evidence/r28-welle6-2026-11-27/0428-284/w136-pin-disposition.md
-evidence/r28-welle6-2026-11-27/bughunt-hv47-upgrade-migration/intake-1.md
-evidence/r28-welle6-2026-11-27/bughunt-hv54-config-defaults/w209-0428-224-hunt-v54.md
-evidence/r28-welle6-2026-11-27/w198-0428-284-demo-parser/w198-dispatch-wave-48bac372.md
-evidence/r29-welle6-2026-11-25/w205-0428-253-planner-deleted-source/akte.md
-evidence/r29-welle6-2026-11-28/0428-1819/w136-1819-review.md
-evidence/r29-welle6-2026-11-28/0428-253/w136-pr1853-admission-ruling.md
-evidence/r29-welle6-2026-11-28/0428-253/w243-1853-rundown.md
-evidence/r29-welle6-2026-11-28/0428-287/w136-1835-redundancy.md
-evidence/r29-welle6-2026-11-28/0428-307/w136-1852-owner-admission-pr.md
-evidence/r29-welle6-2026-11-28/0428-307/w136-1852-requal-review.md
-evidence/r29-welle6-2026-11-28/plan-akte-collision/akte-recovery.md
-evidence/recovery-2026-11-23/0428-058/round-1.md
-evidence/shifts/2026-11/0428-288/w203-0428-288-diag-165-impl-170/akte.md
-evidence/w186/0428-186-hop.md
-evidence/w216-1852-hop/EVIDENCE.md
-evidence/w221-0428-253-1853fix/akte.md
-evidence/w228-0428-216-huntv59/akte.md
-evidence/w266-0428-285-1820pre/PLAN.md
-releases/v0.4.28.md
-releases/v0.4.x.md
-roadmap/cards.md
-scripts/plan.py
-scripts/tests/test_plan.py
-tasks/t-20261102-rcptlink-task.md
-tasks/t-20261119-coord-tooling-defects.md
-tasks/t-20261120-coord-publish-integrity-gaps.md
-tasks/t-20261122-runtime-broker-health-unhealthy.md
-tasks/t-20261125-hunt47-config-mutation-migration-parity.md
-tasks/t-20261125-hunt47-core-plan-version-message.md
-tasks/t-20261125-hunt47-deleted-deployment-dangling-binding.md
-tasks/t-20261125-hunt47-version-gate-error-surface.md
-tasks/t-20261125-hunt47-write-stamp-json-version.md
-views/kanban-dashboard.md
-views/overview.md
-views/ready.md
-views/releases/v0.4.28.md
-views/releases/v0.4.x.md
+## Card 0428-253 owner ruling
 
-Exact output of git log --oneline origin/main..HEAD follows:
-
-9cadd8e5c Merge remote-tracking branch 'origin/main' into w255-w271-stranded-recovery
-ed73b155a Record recovery provenance and reallocate Hunt47 card number
-17e2e15e6 Merge remote-tracking branch 'origin/main' into w255-w271-stranded-recovery
-267a60338 Record recovery candidate provenance
-e52220e17 Restore stranded evidence and scope card scanner
-
-Every listed commit, including both ordinary refresh merges, has author and committer w255-0428-251-demo170codex; verified with git log --format=%h %an | %cn | %s origin/main..HEAD. No foreign commit is carried on this candidate. The Plan remote is origin at https://github.com/mcpdev80/baseharbor-plan.git.
+The first two w205 commits are admitted as same-lane shortened identity: w205 = w205-0428-253. No rewrite; this ruling is narrowly scoped to those same-lane shortened-format commits. Rejection of foreign-lane identity remains unchanged. The dispatch start message now carries the full canonical identity requirement for all future lanes.
