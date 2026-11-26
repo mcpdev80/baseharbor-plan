@@ -69,6 +69,11 @@ Byte-for-byte guard: after the restore commit, `git diff origin/pr93-head -- <ea
 - Intermediate head `8bf8632eea...`: run id `45772381466` ("Validate planning"), created 2026-11-26T07:02:26Z → conclusion **success** (observed terminal via API).
 - FINAL head `ba33fceb0cf7475102380ad36b9ec7cb3c987c91`: check-run `Plan · validate`, actions run **45772679898**, started_at 2026-11-26T07:04:59Z, completed_at 2026-11-26T07:05:08Z, conclusion **success** (terminal state observed directly via API; no rerun, no toggle, no workflow_dispatch). Predecessor `3ae7ab0695` ran actions run 45772539975 (success, 07:03:47Z→07:03:58Z); `ba33fceb0c` is the terminal self-consistent head — since an akte cannot contain its own sha, the last witness commit's run is the authoritative pair and is ALSO posted as the PR comment on #104.
 
+## Scope preservation checks (no other lane's content touched)
+
+- Against the original PR head `b8595e0fe` (= `refs/pull/104/head` at handoff), all three w298-correction files are byte-identical on my final head: `evidence/2026-11-26/w289-0428-251-demochecks/akte.md`, `evidence/2026-11-26/0428-249/w291-posthopsim.md`, `evidence/coordination/w290-0428-251-recoveryverify.md` → all `IDENTICAL` (diff --quiet).
+- Against `refs/pull/93/head`, the ONLY change inside `evidence/2026-11-26/w289-0428-251-demochecks/` is the akte.md (w298's intended attribution correction, 13 added lines); the nine logs are untouched there, exactly as required.
+
 ## Cleanliness
 
 - No containers/networks/volumes were started (plan repo only; no docker/podman use at all).
