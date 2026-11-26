@@ -139,7 +139,7 @@ Proposed rows are intentionally NOT written to the catalog — scope is read-onl
 ## Step 7 — AKTE
 
 - Plan branch + plan PR created against live main.
-- Plan PR number: PENDING (set on create).
+- Plan PR number: #102 (set on create).
 - Commit identity: `git -c user.name=w297-0428-273-cataloggapscan -c user.email=w297-0428-273-cataloggapscan@baseharbor.local`.
 - NO path starts with `baseharbor-plan/` and none under `tasks/` (verified post-create via `gh api repos/mcpdev80/baseharbor-plan/pulls/<n>/files`).
 - Do NOT merge the plan PR.
@@ -150,7 +150,7 @@ Proposed rows are intentionally NOT written to the catalog — scope is read-onl
 
 ## END
 
-- Status: PENDING (END_DONE at the end)
+- Status: OPEN, reviewed under Hop-5 receipts (END_DONE at the end)
 
 ## ZERO-MUTATION PROOF
 
