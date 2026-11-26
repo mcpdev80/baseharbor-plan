@@ -1,0 +1,103 @@
+# 0428-253 owner ruling and admission note
+
+## PLAN
+
+1. Verify current origin/main and the live 0428-253 task owner.
+2. Add the exact owner-approved admission sentence to the existing task note, keep its owner field unchanged, and record the scoped Owner ruling in the card body.
+3. Record the authorship boundary verbatim and provenance in this akte.
+4. Prove current-base ancestry and one-card-plus-akte diff; commit under the executing lane's canonical identity and verify author/committer.
+5. Publish one Plan PR, wait for exact-head Hosted Plan validation, merge under scoped authority, and record the post-merge witness.
+
+## Exact admission note
+
+Erste zwei Übernahmen als gekürzte Identität der eigenen Bahn übernommen (w205 ≙ w205-0428-253), Eigentümer-Erkenntnis 25.11., keine Umschreibung.
+
+## Owner boundary (verbatim)
+
+admissible ONLY where authorship is conclusively the SAME lane with shortened canonical formatting; a FOREIGN lane identity is NOT admissible and goes through Coordinator recovery/republication; the exception is NOT generalized.
+
+## Identity and provenance
+
+Card frontmatter owner verbatim: `w205 (lane w205-0428-253)`; the owner field remains unchanged.
+
+Executing reviewer lane and commit author: `w255-0428-251-demo170codex`.
+
+Git user.name: `w255-0428-251-demo170codex`.
+
+Git user.email: `w255-0428-251-demo170codex@baseharbor.local`.
+
+Commit invocation: `git -c user.name='w255-0428-251-demo170codex' -c user.email='w255-0428-251-demo170codex@baseharbor.local' commit -m 'docs(0428-253): record shortened identity ruling'`.
+
+Pre-push author/committer gate: `git show -s --format=%an%n%cn HEAD`; both lines must equal `w255-0428-251-demo170codex`.
+
+The owner-authorized card content distinguishes the historical same-lane shortened formatting from foreign-lane authorship. The text does not authorize putting `w205-0428-253` in new commit metadata.
+
+Plan repository remotes were verified as:
+
+```text
+origin  https://github.com/mcpdev80/baseharbor-plan.git (fetch)
+origin  https://github.com/mcpdev80/baseharbor-plan.git (push)
+```
+
+The branch was cut from live `origin/main` `053b2b6d1af11ad0f926949ef39c7fdbf0e400bf`. After main advanced, current tip `8ae7436de854c4aa5c3ae55412390d91b4d6339e` was integrated with ordinary merge commit `fd3b8ba4da8f2f5521ab38d12079d4af00fd2f36` before the later exact-head validation. The target task path has no intervening main commits from `76ab859144661e7fdabdc10e36b9cee5f3ce99ad` through `8ae7436de854c4aa5c3ae55412390d91b4d6339e`.
+
+## Publication state
+
+The exact task sentence and Owner ruling are published in Plan PR #68. The candidate is based on live main `8ae7436de854c4aa5c3ae55412390d91b4d6339e`; exact-head Hosted validation has passed, and the scoped squash merge and live-main readback remain.
+
+## Publication status
+
+Hosted Plan validation is required for each final PR head. The run IDs and exact tested heads are recorded below and in PR #68 checks; the post-merge task-note readback is captured in the final handoff.
+
+## END
+
+END w255-0428-251-demo170codex DONE
+
+Planning precheck: `python3 scripts/plan.py render` and `python3 scripts/plan.py check` completed successfully with 0 errors and 10 existing dependency warnings. Render touched an unrelated generated task note, which was restored to the current base so the publication remains limited to the requested card and this akte.
+
+publication under the executing reviewer lane's own canonical identity per the coordinator's written correction; card owner w205-0428-253 remains unchanged; executing reviewer lane: w255-0428-251-demo170codex.
+
+## Candidate provenance before Plan PR
+
+- Current origin/main at commit time: `053b2b6d1af11ad0f926949ef39c7fdbf0e400bf`.
+- `git merge-base --is-ancestor origin/main HEAD` exited 0.
+- `git log --oneline origin/main..HEAD` before this provenance update listed only `5796f99ae docs(0428-253): record shortened identity ruling`, authored and committed by `w255-0428-251-demo170codex`.
+- `git diff origin/main...HEAD --name-only`:
+
+  ```text
+  evidence/w255-0428-253-authorship-boundary/akte.md
+  tasks/t-20261123-planner-deleted-source-advisory.md
+  ```
+
+- Initial push witness for branch `w255-0428-253-admission`:
+
+  ```text
+  5796f99aeeed2bdace38a6fe66d849fe03d01e0f refs/heads/w255-0428-253-admission
+  ```
+
+Second push delivery witness:
+
+```text
+2bf9101dcdcbe82ab619415c32763f0b2dc78020 refs/heads/w255-0428-253-admission
+```
+
+## Hosted validation witness
+
+Plan PR #68 head `a3f01dea035432376641f2eea485b54131c3a23e` was validated by Hosted run `45734311673` (`pull_request`, conclusion SUCCESS). The executed job was `Plan · validate` and its required steps, including unit tests and vault/generated-file validation, succeeded. Run: https://github.com/mcpdev80/baseharbor-plan/actions/runs/45734311673. This run validates the note and ruling; the PR will also validate the final akte update on its new exact head.
+
+## Live-base integration and validation
+
+Live `origin/main` advanced to `8ae7436de854c4aa5c3ae55412390d91b4d6339e` while PR #68 was open. Ordinary merge commit `fd3b8ba4da8f2f5521ab38d12079d4af00fd2f36` integrated it into the branch; `git merge-base --is-ancestor origin/main HEAD` succeeded. PR #68 validation run `45734657702` then completed SUCCESS on exact head `fd3b8ba4da8f2f5521ab38d12079d4af00fd2f36`, with the `Plan · validate` job executed. URL: https://github.com/mcpdev80/baseharbor-plan/actions/runs/45734657702. The task path had no commits between the prior base and this current main; the only historical main entry shown for that path remains the 76ab base commit.
+
+## Branch delivery receipts
+
+- Initial branch push: `5796f99aeeed2bdace38a6fe66d849fe03d01e0f refs/heads/w255-0428-253-admission`.
+- Provenance update push: `2bf9101dcdcbe82ab619415c32763f0b2dc78020 refs/heads/w255-0428-253-admission`.
+- Second-witness update push: `a3f01dea035432376641f2eea485b54131c3a23e refs/heads/w255-0428-253-admission`.
+- Hosted-run record push: `8099a2a5a1f84d0ed016948f69b3e6bfc7b84dd9 refs/heads/w255-0428-253-admission`; PR ref observed immediately afterward was `a3f01dea035432376641f2eea485b54131c3a23e refs/pull/68/head` and then advanced to the branch head.
+- Current-base integration push: `fd3b8ba4da8f2f5521ab38d12079d4af00fd2f36 refs/heads/w255-0428-253-admission`; PR ref observed immediately afterward was `8099a2a5a1f84d0ed016948f69b3e6bfc7b84dd9` and then advanced to the branch head.
+- Base/provenance receipt push: `2a52a61df41b623f8625365e1ca25c1d17476ae0 refs/heads/w255-0428-253-admission`; PR ref observed immediately afterward was `fd3b8ba4da8f2f5521ab38d12079d4af00fd2f36` and then advanced to the branch head.
+
+Latest exact-head validation before this receipt update: PR #68 run `45735080987` completed SUCCESS on `73d21d507f0a96539a5b1dbeaf5b5690893aa9ee`; job `Plan · validate` executed and passed. URL: https://github.com/mcpdev80/baseharbor-plan/actions/runs/45735080987.
+
+Latest branch push receipt before this update: `73d21d507f0a96539a5b1dbeaf5b5690893aa9ee refs/heads/w255-0428-253-admission`; the immediate PR-ref observation was `2a52a61df41b623f8625365e1ca25c1d17476ae0 refs/pull/68/head`, which then advanced to the branch head.
