@@ -74,7 +74,7 @@ Prerequisites (state → next concrete trigger):
 - #1819 merge (`b3c5055a`) → **unmerged**; next trigger: after #1812 merged.
 - Catalog rows on develop: the `keycloak-identity` catalog key already exists on develop/0f20a3b; #1819 delivers the CONSUMER. No new catalog row needed.
 - Owner-scope decisions: A-vs-C choice (seam-C = provisioner seam, already the chosen path in the board); Docker/Podman consent finding (container gates = owner/CI scope, report as finding).
-- #1833 (#1822 landed 90086a1f9) and #1650: already merged / landed — unblock the chain.
+- #1833 (#1822 landed 90086a1f9) and #1650: already merged / landed — unblock the chain. [SUPERSEDED in place, correction appended 2026-11-26 by w323-0428-078-pr1855gate per reviewer HOLD comment 7190730262 on plan PR #73: the original sentence is false for #1650. Correct statement: #1822's catalog rows landed at 90086a1f9; #1650 remains OPEN at 37c4d847ca377d1555163ac4791c8ba08b85de77 and is not a merged/landed prerequisite.]
 
 Write-set disjointness (files each sweep PR writes), proven by `git diff --name-only origin/develop..<head>`:
 - #1818 (clean rebuild) writes: `internal/metrics/perses_dashboards.go`, `internal/metrics/perses_dashboards_keycloak.go`, `internal/metrics/perses_dashboards_test.go`, `internal/metrics/realization.go`, `internal/metrics/testdata/perses-dashboards/keycloak-identity.json` (+ `cmd/baha/app_status_result.go`, `internal/identityprovider/keycloak_files.go`, `internal/identityprovider/keycloak_realization.go` from its base hops).
