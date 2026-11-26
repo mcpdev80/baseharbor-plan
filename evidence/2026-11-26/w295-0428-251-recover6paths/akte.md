@@ -904,7 +904,8 @@ zero product writes.
 
 ```
 Hosted validation of this correction round (self-run, observed to terminal by this lane):
-  run id 45766937424  "Validate planning"  event pull_request  run_attempt 1
+  run id 45767161754  "Validate planning"  event pull_request  run_attempt 1   (terminal head f80e70dbc2)
+  earlier run of this same round: 45766937424 on head 94da6a5687, conclusion success
   head_sha 94da6a568727d764b6fec86c4f65c5e0ede2fc4a  status completed  conclusion success
   job 139729975935   https://github.com/mcpdev80/baseharbor-plan/actions/runs/45766937424
   refs/heads/lane-w295-0428-251-recover6paths == refs/pull/100/head == 94da6a5687
@@ -917,3 +918,5 @@ Hosted validation of this correction round (self-run, observed to terminal by th
     — moved by other lanes only; this lane holds no product write (the lane's own earlier reads were
     ac7c970fe9 and e176a276b2); shared plan checkout HEAD 08b1f66bb with 51/51 stashes intact.
 ```
+
+NEW END_DONE w295-0428-251-recover6paths: PR #100 frozen head for re-review `f80e70dbc2c91f51082bf14420139adefb8aeacc`, Plan · validate run 45767161754 attempt 1 SUCCESS on that exact head; record now says 5 of 6 / 27,396 B with path 6 provisional (residual 1 path / 3,608 B, recovery line OPEN); payload byte-identical to the Codex-frozen 44fafa98b5 apart from this akte; forward-only transport (two fast-forward commits d873a8ae3a, 94da6a5687, f80e70dbc2 over the frozen head), no renumbering, no force-push, no product write.
