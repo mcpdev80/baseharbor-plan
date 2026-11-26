@@ -224,6 +224,32 @@ w200 prescribed.
   No scratch, cache or checkout was created under `/home/marcel/dev/baseharbor-ecosystem`.
 - No `.evidence/` directory was created anywhere; nothing was committed to a product repo.
 
+## Transport witnesses (planning transport)
+
+- plan remote (`git remote -v` in this worktree):
+  `origin	https://github.com/mcpdev80/baseharbor-plan.git (push)`
+- base attestation: this branch was cut from `origin/main` =
+  `75bbbb24c34342e8812c47a240cfc01d7e977474`, then rebased onto the freshly fetched
+  `origin/main` = `76ab859144661e7fdabdc10e36b9cee5f3ce99ad`;
+  `git merge-base --is-ancestor origin/main HEAD` -> OK.
+- candidate commit set at the time this section was authored:
+  `git log --oneline origin/main..HEAD` -> `5c8894f19 evidence(w245): read-only routing
+  alternatives for #1842 (0428-284 decision input)`; author gate
+  `git show -s --format=%an HEAD` -> `w245-0428-284-1842alt`.
+  The plan repo rejects history rewrites on a branch with an open PR
+  (`commit_refs_rules`), so `5c8894f19` stays the first candidate commit and each later
+  correction is a NEW commit on this same branch — no amend, no force.
+- `git diff --name-only origin/main...HEAD` ->
+  `evidence/r29-welle6-2026-11-26/0428-284-1842alt/routing-alternatives.md` (this file only).
+- plan PR: https://github.com/mcpdev80/baseharbor-plan/pull/53, base `main`, DRAFT until the
+  akte is final; `Plan · validate` run `45727031629`.
+- delivery proof, re-read as the LAST action of the commit that contains it
+  (`git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/w245-1842alt-routing refs/pull/53/head`);
+  GitHub settles `refs/pull/<n>/head` a few seconds after the branch push, so the value
+  below is the post-push pair:
+  `184b21f7d0c99b22ee318dcb26b7bcc360574a3b	refs/heads/w245-1842alt-routing`
+  `184b21f7d0c99b22ee318dcb26b7bcc360574a3b	refs/pull/53/head`
+
 ## END
 
 END_DONE w245-0428-284-1842alt: no no-`.github` route exists for #1842 (selector
