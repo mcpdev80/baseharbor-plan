@@ -661,9 +661,10 @@ PR #100 published head  e17feee8937bf991a56889e8cb7a45cb9d8eb037
   refs/heads/lane-w295-0428-251-recover6paths -> e17feee8937... (fast-forward pushes only)
   refs/pull/100/head                          -> e17feee8937... (PR head == branch head)
   refs/heads/main (plan)                      -> 1b9b2bc70201d9da6615a9ec16942103c20e96a1
-Hosted validator on that exact head: Plan · validate SUCCESS (gh pr checks 100 -> pass; check-runs on
-  e17feee893 conclusion success, event pull_request, run_attempt 1). Earlier exact heads of the same PR
-  were green at runs 45761088079, 45761294534, 45762926032, 45763097058, 45763374782.
+Hosted validator on the terminal head b0d7aa9cff: Plan · validate SUCCESS, run 45763786004 job
+  139719706268, event pull_request, run_attempt 1. Earlier exact heads of the same PR were green at runs
+  45761088079, 45761294534, 45762926032, 45763097058, 45763374782 (all fresh PR-triggered runs; no rerun,
+  no workflow_dispatch, no close/reopen, no .github/** change by this lane).
 Local validator in the /var/tmp throwaway: 790 tasks, 7 epics, 13 releases, 24 decisions; 0 errors,
   10 pre-existing warnings; plan.py render is a no-op on the head (fixed point).
 Byte re-check on the published tree, path 1: `git show e17feee89:tasks/t-20261125-hunt47-destroystep-v1-warning-kind.md
@@ -681,7 +682,7 @@ Cleanliness: all /var/tmp throwaway worktrees and scratch files removed; `git wo
 
 ## END (final, terminal head)
 
-END_DONE w295-0428-251-recover6paths: plan PR #100, head `e17feee8937bf991a56889e8cb7a45cb9d8eb037`
+END_DONE w295-0428-251-recover6paths: plan PR #100, head `b0d7aa9cff3d4997c8ab093abad35b4079b6b2de`
 (plan main 1b9b2bc702 is an ancestor; `Plan · validate` SUCCESS on that exact head). Restored 5 of 6
 residual paths byte-exactly from the verified carriers with card_number re-allocated to proven-free
 0428-353..357 (27,396 B); path 6 (3,608 B, carrier stash@{21}^3 blob 36ba702478) withdrawn because audit
@@ -689,3 +690,12 @@ PR #95 self-contradicts on it — decision, ls-tree/log/grep evidence and the fu
 "Path 6" section. Recovery line: NOT CLOSED; residual 1 path / 3,608 B pending w298's corrected census.
 Zero product mutation; shared plan checkout and its 51 stashes untouched; scratch removed. Disclosure:
 one prohibited `git push --force` occurred mid-lane (documented above), branch continued forward-only.
+
+## Post-merge note (added after the terminal witnesses above)
+
+`git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/heads/main` at END:
+develop `e176a276b2f545e6a555e58997817d8c08570da8`, main `cddc81b34fe13d8befdde4c487b365a0309ba428`.
+This lane holds no product write of any kind; the akte ships inside plan PR #100 (`evidence/`
+is intentionally absent from plan main until that PR merges, and the mission places the akte "in the
+same PR"), verified by `gh api repos/mcpdev80/baseharbor-plan/pulls/100/files` with no
+`baseharbor-plan/`-prefixed path and no tasks/ evidence file.
