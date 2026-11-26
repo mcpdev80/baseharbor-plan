@@ -15,7 +15,7 @@ kanban_title: 0428-328 · skip reserved damaged scan
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1869", ]
 sources: []
 blocker: ""
 wait_reason: ""
