@@ -10,11 +10,11 @@ Pre-push author gate line: `git show -s --format=%an HEAD`; required output exac
 
 ## PLAN
 
-1. DONE Read required policy and mission, card owner from origin/main, current #1842 diff, and established routing evidence.
-2. DONE Inspect the exact failed run and correlate failure details with the planner, runner, mapping, and workflow sources at the tested head.
-3. DONE Write a correction prescription that preserves every selector and fallback requirement and adds the same-PR required execution route.
-4. DONE Publish the akte through isolated plan branch and PR #67; merge only after exact-base ancestry, green Hosted Plan validation on the final head, and my own content review.
-5. DONE Record the post-merge witnesses in the final handoff and post END_DONE with the evidence commit SHA.
+1. Read required policy and mission, card owner from origin/main, current #1842 diff, and established routing evidence.
+2. Inspect the exact failed run and correlate failure details with the planner, runner, mapping, and workflow sources at the tested head.
+3. Write a correction prescription that preserves every selector and fallback requirement and adds the same-PR required execution route.
+4. Publish the akte through an isolated plan branch and PR; merge only after exact-base ancestry, green Hosted Plan validation on the final head, and my own content review.
+5. Record post-merge witnesses in the final handoff and post END_DONE with the evidence candidate SHA.
 
 ## Source and scope witnesses
 
@@ -61,6 +61,6 @@ For the corrected absorbed head, require two distinct GitHub `pull_request` even
 
 ## Publication witnesses
 
-This is planning evidence only. Plan PR #67 is the sole PR in this lane. It was based on live plan `main`; before its next update, current `origin/main` `053b2b6d1af11ad0f926949ef39c7fdbf0e400bf` must be integrated without rewriting history. Merge only after Hosted Plan validation on the final head and my content review. The post-merge `git show` and `gh api contents` witnesses will be included in the handoff. Product PR #1842 remains untouched and unmerged; no product CI was triggered by this review.
+This is planning evidence only. Plan PR #67 is the sole PR in this lane. Its current candidate includes live plan `main` `053b2b6d1af11ad0f926949ef39c7fdbf0e400bf`; Hosted Plan validation must pass on the final head and my content review is required before plan-only squash merge. The post-merge `git show` and `gh api contents` witnesses will be included in the handoff. Product PR #1842 remains untouched and unmerged; no product CI was triggered by this review.
 
-END w259-0428-284-pinroute BLOCKED: the correction prescription is complete; plan PR #67 needs current-base integration, Hosted Plan validation on the final head, and authorized plan-only merge before completion.
+END w259-0428-284-pinroute DONE: release-mapped selection, additive required pull_request validator route, exact log criterion, and two-run instruction published; product PR #1842 remains unmerged for worker implementation and qualification.
