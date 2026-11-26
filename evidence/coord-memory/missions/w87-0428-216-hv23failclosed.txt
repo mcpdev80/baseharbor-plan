@@ -1,0 +1,11 @@
+READ-ONLY BUG-HUNT FILL DESK H-V23 (AGENTS §3.3.5; Befund only; NO product/PR/merge/subagents §4.8; do NOT touch the frozen chain #1812/#1819/#1820/#1818; do NOT touch #1650; no CI triggers). develop = current origin/develop (report SHA).
+
+Mission: FAIL-CLOSED-HONESTY census. Two classes:
+1. Denial tests that are secretly authenticated. A test that asserts an operation is DENIED (AuthorizationResult deny / exit non-zero / fail-closed) but whose setup routes through the operator-seam stamp helper (runWithIOAsTestOperator / WithEnforcementIfAbsent / promptConfirmCandidate) so the denial is being satisfied by a TEST-ONLY code path that production never takes = a fake pass. For each such test you find, quote file:line + the seam it depends on + why production cannot reach the asserted denial. (Precedent: card 0428-218 'authorizeMCPOperation not routed through runWithIO'.)
+2. Silent-success: any place a CLI path treats 'no such file or directory' / a skipped sub-step / an empty result as SUCCESS. Quote file:line.
+
+Do NOT change anything. Befund = a real fake-pass or silent-success, with file:line and one-line fix idea. Do NOT repeat desks already run (H-V24 actionability, H-V26 numbers, H-V27 PR sweep, H-V29 seam, chain-prep, pr-sweep-ledger) — this is the fail-closed-HONESTY slice.
+
+Deliver baseharbor-plan evidence/r28-welle6-2026-11-25/bughunt-hv23-failclosed-honesty/round-1.md (## PLAN + native todos): the two tables (test | seam-dependent? Y/N | production-reachable denial? Y/N) and (silent-success | file:line). For a genuine finding file ONE Fund→Karte card (schema-correct: single anchor checkbox, #release/v0-4-28 [dashes], https evidence, no stray blocker field, priority normal/low) in a separate atomic commit; if befundlos, say so and invent nothing.
+
+Commit+push atomically (git add new files; pull --rebase origin main first; never edit others' files). Report inline: develop SHA, count scanned, Befunde (+card or 'befundlos'), evidence SHA. Cleanliness line: read-only, created nothing. No subagents; do not contact other sessions.

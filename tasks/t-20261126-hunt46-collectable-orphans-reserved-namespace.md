@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w322-0428-249-pr1812gate
+kanban_status: active
+kanban_lane: active
 kanban_summary: "CollectableOrphans (internal/deployment/deploymentlist.go:185) enumerates each direct child directory of deployments/ as a…"
 kanban_title: 0428-327 · collectable orphan skip dir
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261126-hunt46-collectable-orphans-reserved-namespace · 0428 hunt H-V46: CollectableOrphans lists the reserved never-delivered dir as a collectable orphan UUID (medium) #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261126-hunt46-collectable-orphans-reserved-namespace · 0428 hunt H-V46: CollectableOrphans lists the reserved never-delivered dir as a collectable orphan UUID (medium) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w322-0428-249-pr1812gate  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w322-0428-249-pr1812gate  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

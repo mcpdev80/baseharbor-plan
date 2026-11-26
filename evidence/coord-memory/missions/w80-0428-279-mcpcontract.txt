@@ -1,0 +1,11 @@
+Card 0428-279 / bug / repo mcpdev80/baseharbor / branch off current origin/develop (fetch; report SHA). Read python3 scripts/plan.py show t-20261124-0428-279-mcp-contract-app-pull-unexpected.
+
+Real bug: the v0.4.28 static/mcp runtime gate FAILS (evidence job 138450101757 on Pre-Release run 45394505629): RuntimeError: MCP contract mismatch: missing=[] unexpected=['baseharbor.app.pull']. The MCP server exposes baseharbor.app.pull but the contract's expected method set does not include it.
+
+Do:
+1. Locate the MCP contract source of truth + the live server tool-list assertion (grep baseharbor.app. and 'MCP contract mismatch' in cmd/baha/mcp.go and its tests/fixtures). Determine whether app.pull is an INTENDED method (matches the app pull/runtime-fetch capability) — if so, ADD it to the expected contract set; if not intended, remove its exposure from the server surface. Justify the choice in evidence under ## repo-rule compliance.
+2. Add/adjust a regression so the test asserts the live MCP exposed method set == the contract expected set (fail-loud on any drift, missing OR unexpected), explicitly covering baseharbor.app.pull. This is what the static/mcp gate must select and pass.
+
+Write-set: cmd/baha/mcp.go + its test/fixture (contract list lives in product Go if possible). If the contract list is in scripts/** or .github/**, STOP + post a QUESTION with file:line (owner scope) — do NOT edit owner-scope files.
+
+Hosted GitHub CI ONLY (never local go test). claim via scripts/plan.py claim + push before editing; ## PLAN in evidence + native todos; branch off develop; push, open ONE PR against develop, monitor the static/mcp selected check + relevant Go unit shards to TERMINAL via gh (Eigenes-Run-Pflicht §4.6). The candidate must show the static/mcp gate green. Reply: PR number, head SHA, the contract diff line for app.pull, run id + the static/mcp job outcome. No merge (CODEX/owner). No subagents (§4.8). This is independent of the frozen chain #1812/#1819/#1820/#1818 — do not touch those.

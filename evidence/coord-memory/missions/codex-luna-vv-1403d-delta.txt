@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (DELTA). Coord 841e7734. KANDIDAT: PR #1403 head f89cf7a5e6 — dein AKZEPTIERT-urteil
+ galt kopf 65ed48d60f7; dazwischen trieb ein GHOST (9e76da5a, autor w224-geisterbahn) den zweig, now
+ sauber geloest: develop bc8670c1 eingearbeitet, machine_coverage.go UNION, vv-BAUM nach angabe identisch
+ zum angenommenen (diff 0). AKTION NUR DREI SACHE pruefen und in act-1403d.md festhalten:
+ (1) git diff 65ed48d60f7..f89cf7a5e6 -- <vv-write-set> = leer (vv-inhalt unveraendert),
+ (2) die UNION in machine_coverage.go enthaelt beide seiten vollstaendig (vv-eintraege + secure-profile,
+     gegen round-4/3 akten halten),
+ (3) lauf 42216124051 terminal success am neuen kopf + mergeable CLEAN.
+Bei bestaetigung: ACCEPT (delta) — dann wird gemergt. Bei abweichung: REJECT mit rezept.
+END an 841e7734: "END_DONE codex-luna-vv-1403d-delta: verdict=<..> aktedatei=<pfad>".

@@ -1,0 +1,8 @@
+Auftrag 0427-013-access-r5 (lane c38f521b, ornith, FRISCH). Karte t-20261018-r27-access-wizard. Kandidat PR#1430 head be65de6d — recheck BESTAETIGT persistenz/cancel/kinds, ein restbefund (akte act-1430-review.md, neuester commit origin/main):
+  MULTI-TARGET ATOMARITAET: (a) assignment ueber mehrere ausgewaehlte targets ueberschreibt den jeweils vorherigen statt beide anzuwenden, (b) revoke ueber mehrere targets kann partiell persistieren (halber zustand).
+ARBEIT: batch-semantik je route: ALLE gewaehlten targets in EINER durable anwendung (alle-oder-nichts; ein fehler => nichts persistiert, klare rueckmeldung). Regressionen table-driven: 2+3 targets assign, 2 targets revoke, revoke mit fehler im zweiten target => store unveraendert (byte-vergleich), replay-konsistenz.
+- claim: plan.py claim t-20261018-r27-access-wizard --owner 0427-013-access-r5 (commit+push) BEVOR aendern; git-identitaet 0427-013-access-r5.
+- basis branch work/r27-access-wizard head be65de6d; develop ancestor rc0. write-set: wizard/accesswizard + orgconfig-seam NUR falls noetig (additiv, keine fremden pfade aendern).
+- push auf PR-branch (normal), ls-remote zeugnis, hosted CI selbst TERMINAL (run-id), ## PLAN + todowrite, keine subagenten, END PFLICHTIG bei lieferung.
+Evidence: evidence/r27-welle5-folge-2026-11-08/access-wizard/round-5.md
+END an 594fd2f5. karte->review bei behoben + drift-frei + CI terminal.

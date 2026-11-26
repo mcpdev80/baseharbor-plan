@@ -1,0 +1,16 @@
+ROLLE: Worker (Lane w234). Coord 841e7734. KARTE: t-20261018-r27-image-transfer RUNDE 2 (REJECT-Korrektur).
+ZWEIG: work/r27-image-transfer (PR #1402, head 68cd9ea59f6). URTEIL+REZEPT: act-1402b.md auf origin/main
+— alle fuenf gegenlesen und UMSETZEN:
+(1) platform-identitaet FAIL-CLOSED: inspectRuntimeImagePlatform darf nie leer durchreichen;quelle+ziel
+   arch UND OS vergleichspflicht, manifest-identitaet wo zutreffend; negative tests: befehl-fehlt,
+   leerer output, OS-drift. (2) ECHTER red-first mutantenbeleg der failure-record-zelle (mutante setzen,
+   zelle ROT, restoren, zelle GRUEN, transcript in akte). (3) Docker+Podman isolierte transfer-raeuche auf
+   baha-docker UND baha-podman MIT pane-zeugnissen und FABRIK-RUECKBAU + null-pruefung (praeszedenz w232:
+   rootful+rootless docker OK, rootless podman OK, hostnames OHREN buechsen-veraltet: NICHT baha-runner-*).
+   Vor jedem schritt containerzahl pruefen, bei last 90s pause. (4) developed 7c393b0d einmerge (ist NICHT
+   Ahn des kopfs!), push,ALLE Pflicht-Gates (go-unit-tests + PR Selected Checks) TERMINAL GRUEN am
+   FINAL-kopf selbst beobachten. (5) akte round-2.md mit fuenf-gegenueberstellungstabelle.
+GATES: write-set NUR application_image_transfer.{go,_test} (+akte), KEINE subagenten/zweiter PR/root-checkout/
+.github, ls-remote echt==head WORTLICH, caches /tmp/opencode/w234*.
+END an 841e7734: "END_DONE w234-image-transfer-r2: head=<sha10> failclosed=<JA> mutante=<rot+gruen belegt>
+rauche=<beide-hosts+teardown> lauf=<id TERMINAL GRUEN> lsremote=<sha10> | <Satz>"

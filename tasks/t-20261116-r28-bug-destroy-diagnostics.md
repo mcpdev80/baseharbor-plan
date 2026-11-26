@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w127-0428-293-destroy-diag
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: baha app destroy --yes --verbose printed the same generic retained provider ownership error as nonverbose; neither affected…
 kanban_title: 0428-293 · Explain destroy owner failures
 priority: normal
@@ -18,18 +18,19 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "roster reconciliation owner-audit 2026-11-26 14:3xZ: active claim without live busy session; moved to wait, no assignment to absent lane, card not closed"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261116-r28-bug-destroy-diagnostics · Explain destroy owner failures #task #release/v0-4-28 #status/active #view/active #area/lifecycle #kind/bug
+- [ ] t-20261116-r28-bug-destroy-diagnostics · Explain destroy owner failures #task #release/v0-4-28 #status/wait #view/wait #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** w127-0428-293-destroy-diag · **Priority:** normal  
+    **Waiting:** roster reconciliation owner-audit 2026-11-26 14:3xZ: active claim without live busy session; moved to wait, no assignment to absent lane, card not closed  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w127-0428-293-destroy-diag  

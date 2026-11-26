@@ -1,5 +1,7 @@
 ---
 id: t-20261102-rcptlink-task
+wait_reason: "owner harvest 2026-11-26 snapshot 14:22Z: 7 target PRs merged with one Resolves link each and 5 issues closed, but task has no evidence and no exact post-run Green witness - reopened for the missing witness; live lanes: w322+w327 busy, w255/w267 idle Codex, ornith:2 free, laptop:1/2 unavailable (132:4000 refused)"
+kanban_status: wait
 type: task
 areas: []
 release: v0.4.x
@@ -16,14 +18,15 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261102-rcptlink-task · Receipt post-run writer: add single `Resolves #<issue>` link to merged PRs so tasklink auto-resolves green #task #release/v0-4-x #status/active #view/active #kind/task
+- [ ] t-20261102-rcptlink-task · Receipt post-run writer: add single `Resolves #<issue>` link to merged PRs so tasklink auto-resolves green #task #release/v0-4-x #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** ornith (rcptlink)  
     **PR:** [baseharbor#1267](https://github.com/mcpdev80/baseharbor/pull/1267), [baseharbor#1268](https://github.com/mcpdev80/baseharbor/pull/1268), [baseharbor#1269](https://github.com/mcpdev80/baseharbor/pull/1269), [baseharbor#1270](https://github.com/mcpdev80/baseharbor/pull/1270), [baseharbor#1271](https://github.com/mcpdev80/baseharbor/pull/1271), [baseharbor#1274](https://github.com/mcpdev80/baseharbor/pull/1274), [baseharbor#1275](https://github.com/mcpdev80/baseharbor/pull/1275)  
+    **Waiting:** owner harvest 2026-11-26 snapshot 14:22Z: 7 target PRs merged with one Resolves link each and 5 issues closed, but task has no evidence and no exact post-run Green witness - reopened for the missing witness; live lanes: w322+w327 busy, w25…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** none  
 **Owner:** ornith (rcptlink)  

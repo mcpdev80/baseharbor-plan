@@ -1,0 +1,17 @@
+ROLLE: Worker (Lane w247). Coord 841e7734. KARTE: t-20261018-r27-managed-users RUNDE 4 (REJECT-KORREKTUR).
+BEFUND (act-1397b.md, wortlich lesen + rezept-abschnitt): der zwei-deutigkeiten-mutant in
+managed_user_invite_mutant_test.gofaehrt im rot-zweig eine HANDSCHRIFTLICHE helper-kopie
+(inviteManagedUserMutant) statt der PRODUKTIONSPFAD — die echte Wächter-zeile (len(users)>1 guard)
+kann entfernt bleiben und die zelle bleibt grün, weil ein späteres eigentums-prädikat unabhängig
+fehler liefert. PRAEZEDENZ: dieselbe klasse wie version-view 1403b (da repariert mit verweis auf
+ausgelieferten mapper — so geht es).
+AUFGABE: (1) roten zweig UMBAUEN: mutation der echten quelle (guard entfernen, lokal+rueckgaengig
+uepfen, datum im transcript) muss die regression durch den AUSGELIEFERTEN einladungspfad zum fallen
+bringen; eigentums-prädikat im fixture erfuellen (nicht umgehen); gruen-zweig = originalquelle.
+(2) transcript-zeilen in akte round-4.md (fetch main, ls-tree-zeug, keine checkboxes).
+(3) develop NEU einmerge (stand nach den heutigen landungen), push auf work/r27-managed-users (PR #1397,
+derselbe antrag), hosted gates am FINAL-kopf bis TERMINAL selbst beobachten.
+GATES: KEINE subagenten/zweiter PR/root-checkout/.github, name-only disjunkt, vm nicht noetig,
+caches /tmp/opencode/w247*.
+END an 841e7734: "END_DONE w247-managed-users-mutant-causal: head=<sha10> mutantKAUSAL=<JA rot+gruen>
+lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"

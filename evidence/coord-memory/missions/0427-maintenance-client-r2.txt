@@ -1,0 +1,11 @@
+Auftrag 0427-maintenance-client-r2 (lane fd89eda0, laptop, FRISCHE korrektur-bahn; original db4881a1 freigegeben, kandidat PR#1428 d4d0f77c0 auf origin + evidence act-1428-review.md origin/main b8f79837 — dort abholen, nichts neu erfinden).
+Karte t-20261018-r27-maintenance-client. CODEX-REVIEW VERDICT = REQUEST-CHANGES. Befund wörtlich (act-1428-review.md):
+  1. local destroy loescht die authority VOR dem window-commit -> reihenfolge drehen: window zuerst committen, dann authority loeschen (sonst fenster-verlust).
+  2. remote destroy laesst das maintenance-window WEG -> auch im remote destroy pfad muss das fenster sauber geschlossen/committet werden.
+  3. history append failure kann replay-kontinuitaet verlieren -> append muss atomar/fehlertolerant sein, ein fehlgeschlagener append darf die replay-kette nicht stumm abbrechen (fail-closed oder benannter fehler, kein stiller verlust).
+- claim: baseharbor-plan/scripts/plan.py claim t-20261018-r27-maintenance-client --owner 0427-maintenance-client-r2 (commit+push) BEVOR aendern.
+- basis: PR#1428 branch lane/0427-maintenance-client-wt head d4d0f77c0 (develop 812c99c88 ancestor), dort weiterarbeiten (NICHT from scratch). delta NUR maintenance_* dateien (app_maintenance_*, internal/application/maintenance_*). KEINE #110 lifecycle/fixture dateien, KEINE .github, KEINE client_commands.
+- JEDES der 3 punkte mit einem CAUSAL MUTANT/regression test belegen (rot vor fix, gruen nach fix). keine tests die nur den happy path. 
+- eigenes-run: hosted pr-check auf finaler sha TERMINAL beobachten (run-id+status evidence), ls-remote zeugnis. ## PLAN + todowrite. keine subagenten (4.8, auch keine Lese-agenten). NICHT idle ohne END — festgefahren => QUESTION.
+Evidence: evidence/r27-welle5-folge-2026-11-07/maintenance-client/round-2.md
+END an 594fd2f5. karte erst wieder review wenn alle 3 behebungen + mutants gruen + CI terminal.

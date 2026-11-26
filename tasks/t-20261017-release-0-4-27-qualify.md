@@ -28,7 +28,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/43991839986", "h
     <!-- generated:card -->
     **Owner:** mission-closeout27 · **Priority:** normal  
     **Waiting:** v0.4.27 is already published (run 43991839986), but publication does not itself qualify the release. Card 0427-191 is now accepted; 0427-189 remains active, and prerequisite 0427-006 remains active. The published runtime image also has an…  
-    **Needs:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/43991839986), [proof 2](https://github.com/mcpdev80/baseharbor/releases/tag/v0.4.27), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/43971466986)  
     <!-- /generated:card -->
 

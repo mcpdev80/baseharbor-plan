@@ -1,0 +1,11 @@
+TASK 0428-078 · #1650 rebase + integrate #1810 probe (Option A full delivery). A prior lane (w078) stalled without pushing. You continue the EXISTING branch lane-0428-078-perses-identity-on-resolver (current head 84943695, CONFLICTING/DIRTY against develop 840c4a6b).
+
+Develop now includes: #1810 merged (real per-target probe metricsprovider.PersesBackendAnswersStatusNow) and #1809 merged. Your base 6df6807 predates both.
+
+Steps:
+1. git fetch origin develop (head 840c4a6b). Claim via scripts/plan.py claim t-20261114-r28-perses-dashboard-identity.
+2. Rebase lane-0428-078-perses-identity-on-resolver onto develop 840c4a6b and RESOLVE all conflicts. Keep the keycloak provider-label query fix (job=baseharbor-providers, baseharbor_provider=keycloak; prometheus_files.go untouched).
+3. INTEGRATE #1810's probe in the eligibility derivation: cmd/baha/app_status_result.go:313 currently sets persesStatus via the STATIC capability.PersesStatusNow(selection) before identityDashboardBackendEligible (identityDashboardEligible at :321/:450, func :481). Replace the static status feeding eligibility with the merged metricsprovider.PersesBackendAnswersStatusNow (per-target real probe), so identity_dashboard_eligible=true is reachable ONLY when the probe verifies; fail-closed (silent/not-probed -> configured_unverified -> not eligible). Do NOT edit internal/metrics/prometheus_files.go or perses_dashboards* owned content beyond what #1650 already changes.
+4. Push a NEW head off 84943695; run exact-head Hosted CI to terminal (no local tests). The old green run 45297432220 predates this integration and does not count.
+
+Rules: scripts/**, .github/** untouched (no catalog rows in-PR — #1817 already provides the trusted base). Hosted CI ONLY. No subagents (AGENTS 4.8). No Codex contact. PLAN step0 todo + workers/todos/w55-0428-078-probehop.json + ## PLAN in evidence. MERGE-FROST: do NOT merge; keep PR OPEN; note that full Option-A delivery ALSO depends on card 0428-181 (export consumer, lane w54) — if a blocker there surfaces, post a QUESTION with exact file:line rather than spinning. Reply new head + ls-remote + run id.

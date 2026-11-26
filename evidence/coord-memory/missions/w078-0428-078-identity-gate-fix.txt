@@ -1,0 +1,24 @@
+MISSION: 0428-078 — correction: #1650 fails its docker·identity required check.
+
+Card: t-20261114-r28-perses-dashboard-identity (0428-078), release v0.4.28, repo mcpdev80/baseharbor.
+PR #1650 (OPEN, MERGEABLE, base develop, head 3600b6a0, branch lane-0428-078-perses-identity-on-resolver).
+Read first: the card file tasks/t-20261114-r28-perses-dashboard-identity.md and baseharbor AGENTS.md.
+
+STATE (measured)
+Run 45218819603 on this head: job "PR · Selected Runtime (atomic/docker/identity, docker, identity) / Executed docker · identity" = FAILURE, and "PR Selected Checks" = FAILURE. A newer run 45229820496 is currently in progress on the branch. This PR is NOT green-exact-head, so it cannot go to review yet.
+
+GOAL
+Make the docker·identity runtime check pass on this candidate WITHOUT weakening semantics and WITHOUT changing the verified-only predicate (that predicate belongs to card 0428-186 — do NOT touch it; if the real fix requires a 186-source change, STOP and post a QUESTION).
+
+STEPS
+1. Diagnose the failing run's log: find the exact assertion/container step that failed for identity (keycloak wiring in the docker identity cell).
+2. Fix the root cause in the existing 0428-078 write-set only (identity dashboard/permission wiring), amend commits onto the SAME branch lane-0428-078-perses-identity-on-resolver (one candidate per chain — do not open a second branch/PR).
+3. Push (resolve the real GitHub remote whose URL contains github.com/mcpdev80; prove delivery with ls-remote refs/pull/1650/head). WATCH your OWN new run to a terminal state (Eigenes-Run-Pflicht §4.6): record run id, status, and any failing lines.
+
+SCOPE / WRITE-SET
+- The 0428-078 identity files already on this branch. Do NOT touch internal/capability/perses_selection.go predicate (0428-186), do NOT touch cmd/baha/local_workload_authority.go (0428-243), do NOT touch internal/operatorauth/** (#1761).
+- No `.github/**` edits; a needed workflow change is a finding (file:line). No merge — CODEX-MERGE owns that after green + acceptance.
+
+EVIDENCE (baseharbor-plan ONLY, real repo): evidence/recovery-2026-11-23/0428-078/round-N.md — ## PLAN first, the failing→fixed run ids + terminal status, base attestation (develop ancestor), PR head SHA. origin/main ls-tree witness before END.
+
+END LAST ACTION: codeman agent post <coordinator> "END_DONE 0428-078: <one line + new candidate SHA + run status>" (or END_BLOCKED/QUESTION if the fix needs the 186 predicate). No subagents.

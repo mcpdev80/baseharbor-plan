@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w128-0428-286-apply-destroy
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: A failed baha app apply may register a DEGRADED deployment without a materialized application runtime; baha app destroy --yes…
 kanban_title: 0428-286 · Recover failed apply destroy
 priority: critical
@@ -18,19 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1834]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "roster reconciliation owner-audit 2026-11-26 14:3xZ: active claim without live busy session; moved to wait, no assignment to absent lane, card not closed"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261116-r28-bug-failed-apply-destroy · Recover failed apply destroy #task #release/v0-4-28 #status/active #view/active #area/deployment #kind/bug
+- [ ] t-20261116-r28-bug-failed-apply-destroy · Recover failed apply destroy #task #release/v0-4-28 #status/wait #view/wait #area/deployment #kind/bug
     <!-- generated:card -->
     **Owner:** w128-0428-286-apply-destroy · **Priority:** critical  
     **PR:** [baseharbor#1834](https://github.com/mcpdev80/baseharbor/pull/1834)  
+    **Waiting:** roster reconciliation owner-audit 2026-11-26 14:3xZ: active claim without live busy session; moved to wait, no assignment to absent lane, card not closed  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w128-0428-286-apply-destroy  

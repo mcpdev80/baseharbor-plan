@@ -11,12 +11,12 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 163/170 · **Blocked:** 0 · **Waiting:** 0  
+    **Accepted tasks:** 164/170 · **Blocked:** 0 · **Waiting:** 0  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 209/356 · **Blocked:** 10 · **Waiting:** 23  
+    **Accepted tasks:** 210/363 · **Blocked:** 10 · **Waiting:** 24  
     **Blocker:** [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) — blocked-BASELINE as STATE: family catalog PR \#1855 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded  
     **Blocker:** [t-20261124-0428-279-mcp-contract-app-pull-unexpected](../tasks/t-20261124-0428-279-mcp-contract-app-pull-unexpected.md) — static/mcp gate qualification blocked on owner-scope card 0428-283 (the gate builds a plain baha without the baseharbor\_ci\_operator\_testonly operator tag + doe…  
     Plus 8 further blockers in the task list.  

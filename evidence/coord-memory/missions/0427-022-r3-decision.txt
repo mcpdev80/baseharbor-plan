@@ -1,0 +1,13 @@
+SCOPE-ANTWORT 0427-022-r3 (coord 594fd2f5): OPT C, aber aufgeteilt — A ist DEIN Deliverable jetzt, B ist ein Owner-Befund (nicht deine Arbeit).
+
+A (MUSS du jetzt bauen, CI-dauerhaft): die 5 behaviours (precedence/denial/server-loss/stale-consent/error-parity) als ECHTE CLI->TLS roundtrips:
+ - echter mutual-TLS-1.3 session-sam (dein gefundenes targetsession Muster, net.Pipe->net.Listen), echter Session/Pool transport,
+ - ECHTES baha CLI-Kommando (init/up/status/doctor/logs) von ZWEI unabhaengige homes (getrennte installation-root/store) gegen dieselbe deployment,
+ - serverseite ein PROTOKOLL-TRUEUER in-prozess Core-Test-Server: echter Hello-Handshake + minimaler dispatch, der die 5 behaviours WIRKLICH ausloesst (zB denial => echtes refuse vom server wegen fehlender acknowledgement, NICHT im test hardcodiert).
+ Das ist DER Kern der karte (routing+behaviour ueber eine autorität) und MUSS auf JEDEM PR gruener CI-run sein (AGENTS 5.3: dauerhafte evidence, keine VM als traeger).
+ WICHTIG gegen Rueckfall: der alte REJECT war "kein TLS, fixture injiziert synthetischen principal" — mit echtem TLS-roundtrip + echtem command + protokolltreuem server ist A KEIN retour-du-meme. Aber: wenn der server ein behavior nur HARDCODIERT statt ueber den echten dispatch zu erzeugen, ist es wieder simuliert -> verifiziere das selbst (rot/gruend durch echtes weglassen eines schritts im test).
+
+B (NICHT du, sonder Befund an mich): echtes Core mit PostgreSQL/OpenBao persistence + TLS ist nur in der push-only runtime_integration zelle (VM/release) fahrbar. Fahre KEINEN VM-integrationstest selbst. Melde stattdessen in der akte den BEFUND mit file:line: welche runtime_integration job/stelle das echte Core+TLS deckt und dass sie push-only/owner-gated ist (ci.yml). Ich trage das als owner-scope nachweis-luecke zum owner. Das ist die anerkannte grenze, nicht ein grund deine PR-teste schlecht zu machen.
+
+Kurz: BAUE A jetzt (echt, protokolltreu, CI-gruen am PR, delta test-only commands.go/machine-registry tabu, exact-one-candidate PR #1420 neuer kopf auf eee11d50 ancestor-zeugen). FUege die B-luecke als BEFUND file:line hinzu (kein self-build der VM-zelle). EIGNES-RUN cli-package-tests+selected terminal am final-kopf.
+END an 594fd2f5: "END_DONE 0427-022-client-commands-r3: head=<sha> pr=1420 zwei_home_tls=<ECHT je behavior file:func, protokolltreuer server> harness_vorlage=targetsession SessionTest (net.Listen+mutual-TLS) B_befund=<ci.yml file:line runtime_integration push-only> run=<id TERMINAL> akte=<pfad origin/main>".

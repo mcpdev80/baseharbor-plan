@@ -9,9 +9,9 @@ version: v0.4.27
 release_stage: prepare
 parent: v0.4.27
 owner: owner-chatgpt-r27
-kanban_lane: active
+kanban_lane: closed
 kanban_summary: Prepare the v0.4.27 ecosystem release-readiness dossier while implementation progress is tracked by its own CardBoard tasks and…
-kanban_status: active
+kanban_status: closed
 kanban_title: "0427-006 · complete ecosystem readiness"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
@@ -19,20 +19,20 @@ repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
 blocker: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-07.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-12.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-13.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-full-card-audit-2026-11-13.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/releases/tag/v0.4.27"]
 wait_reason: ""
 
 ---
 
-- [ ] t-20261017-release-0-4-27-prepare · v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation #task #release/v0-4-27 #status/active #view/active #area/release #kind/acceptance
+- [x] t-20261017-release-0-4-27-prepare · v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/release #kind/acceptance
     <!-- generated:card -->
     **Owner:** owner-chatgpt-r27 · **Priority:** normal  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-07.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-12.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-13.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-full-card-audit-2026-11-13.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/releases/tag/v0.4.27)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md) (v0.4.27)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-qualify](t-20261017-release-0-4-27-qualify.md)  

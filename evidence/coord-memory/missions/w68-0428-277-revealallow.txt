@@ -1,0 +1,13 @@
+Card 0428-277 / bug / release v0.4.28 / repo mcpdev80/baseharbor / branch off develop 05ef48536. Task contract: python3 scripts/plan.py show t-20261124-0428-277-reveal-fail-authorizationresult-allow (read first).
+
+Problem (low severity, non-blocker): cmd/baha/environment_operations.go:39-44 a FAILED inspectApplicationEnvironment (e.g. os.Stat(files.ApplicationEnv) missing) calls recordRevealFailed, which sets AuthorizationResult=allow (human reveal was authorized upstream) while Outcome=failed — an inconsistent audit event.
+
+Fix (exactly the contract): a FAILED reveal must NOT pair Outcome=failed with a spurious AuthorizationResult=allow. Either derive AuthorizationResult from the actual reveal outcome (deny when outcome=failed), OR record a clearly-marked discrepancy value. Pick ONE, document the choice + rationale in evidence under ## repo-rule compliance.
+
+Write-set (disjoint from in-flight lanes): cmd/baha/environment_operations.go, cmd/baha/secret_operations.go (+ their tests). No scripts/**, no .github/**, no operatorauth package files.
+
+Regression test (auto-discovered via go test ./...; no catalog row): assert a failed reveal records the fail-closed authorization-result (deny) or a clearly-marked discrepancy, and NEVER a spurious allow for a failed release. Hosted GitHub CI only — NEVER run go test locally.
+
+Standard path: claim via scripts/plan.py claim + push before editing; ## PLAN checklist in evidence + native todos; implement in your own worktree; push, open ONE PR against develop, monitor PR Selected Checks to TERMINAL (Eigenes-Run-Pflicht §4.6). Reply: PR number, head SHA, run id + pass/fail, test->check->trigger line.
+
+Rules: no subagents (§4.8); no merge (CODEX merges); no force-push past develop; no owner-scope files. STOP + QUESTION if a file outside the write-set or a .github/** selector change is needed.

@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w208-0428-313-reident
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-313 · restore-identity regression
 priority: ""
@@ -18,18 +18,19 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "roster reconciliation owner-audit 2026-11-26 14:3xZ: active claim without live busy session; moved to wait, no assignment to absent lane, card not closed"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt39-restore-identity-regression · 0428 hunt H-V39: restore-identity regression test (identity preserved across restore) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261125-hunt39-restore-identity-regression · 0428 hunt H-V39: restore-identity regression test (identity preserved across restore) #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** w208-0428-313-reident  
+    **Waiting:** roster reconciliation owner-audit 2026-11-26 14:3xZ: active claim without live busy session; moved to wait, no assignment to absent lane, card not closed  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w208-0428-313-reident  

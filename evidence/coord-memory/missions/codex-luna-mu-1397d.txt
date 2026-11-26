@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW. Coord 841e7734. ABNAHME managed-users RUNDE 5, kandidaten-genau.
+KANDIDAT: PR #1397 head aa36af7324a vs develop; karte t-20261018-r27-managed-users; akten round-1..5.md;
+UPSTREAM-REZEPT act-1397c: undokumentierten PUT .../updateEmail ERSETZEN durch dokumentierten
+execute-actions-email mit requiredActions [VERIFY_EMAIL,UPDATE_PASSWORD], kein passwort.
+PRUEFPUNKTE: (1) managed_user_invite.go ruft JETZT execute-actions-email mit action-LISTE (datei:zeile
+im diff), (2) fixture assertiert METHODE+EXAKTE route+actions-payload+kein-passwort UND provider-version
+contract check (26.8.0), (3) kausale mutante: echte quell-zeile entfernt => ROUTEN-assert zelle ROT,
+restore => GRUEN (kein mock-204 auf erfundenem route, praeszedenz 1397c-REJECT genau das war),
+(4) lauf 42254738010 terminal success am exakten kopf nachmessen, (5) write-set disjunct keine .github.
+URTEIL als evidence/r27-welle5-2026-11-06/managed-users/act-1397d.md auf origin/main (ACCEPT|REJECT+rezept),
+END an 841e7734: "END_DONE codex-luna-mu-1397d: verdict=<..> aktedatei=<pfad>".
