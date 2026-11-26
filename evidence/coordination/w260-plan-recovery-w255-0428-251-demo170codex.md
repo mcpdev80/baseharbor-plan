@@ -145,3 +145,46 @@ The remaining planner failures are real coverage/selector-contract regressions, 
 Decision to w268: yes, relocate the active v0.4.27 registration and active demo-ref fixture to v0.4.28; preserve the historic v0.4.27 case only with an explicit v0.4.27 fixture mapping. Fix the genuine selector/fail-closed/runtime-coverage failures listed above before treating run 45739171543 as resolved. No Owner criteria are removed.
 
 Owner ruling for #1842 (already-authorized relocation, not an open question): “Resolve the v0.4.27 release-registration test from the already-recorded Owner ruling: remove its active requirement placement from v0.4.27 and carry the same requirement under v0.4.28, preserving all criteria and fail-closed/fallback behavior.” Thus the v0.4.27 active-registration assertion at `scripts/test_ci_v0427_gate_catalog.py:39` is stale for this candidate; move the identical requirement placement and active assertion to v0.4.28. The active v0.4.27 pin fixture at `scripts/test_pr_ci_fallback.py:176` also needs to reflect the current active release, or explicitly define a historical v0.4.27 fixture. Preserve all failure behavior and selection criteria. Any genuinely separate scope remains a finding with exact file:line and does not hold this authorized relocation.
+
+## Forward-only census expansion and current-head disposition
+
+Census source: w271 Plan PR #76, head `97cf9672e...`, Plan validation run `45741218805` GREEN. Its table identifies 76 paths beyond the 12 artifacts in this PR. Disposition: create one second scoped Plan PR after #75 is merged and fetch the then-current `origin/main`; do not overload this already-reviewed 12-artifact recovery PR with a separate 76-path census scope.
+
+Of the 76 census paths, restore 68 unique artifacts forward-only, each from its original carrier ref or a freshly verified, non-consuming stash locator. Classify two as content duplicates and do not publish another copy: (1) `evidence/w246-0428-284-1812diag/w246-1812gatefaildiag.md` has the same blob `9781ec653c...` as the canonical `evidence/w246-1812diag/w246-1812gatefaildiag.md` restored in this PR; (2) `tasks/t-20261124-r28-alert-applied-face-stale-runtime.md` is superseded by the current accepted 0428-268 task `tasks/t-20261124-r28-alert-evaluator-live-health-wiring.md` (#1831). Do not restore six Hunt47 task files with IDs 0428-341 through 0428-346: those IDs are already occupied on current main by six different tasks, so they are conflicts requiring coordinator reissue under unique IDs, not content duplicates. Restore the four other Hunt47 task files 0428-347 through 0428-350, plus unique 0428-155, 0428-175, and the broad rcptlink task; the remaining unique evidence files are included in the 68.
+
+Per-artifact proof in the follow-up akte: fetch and identify the exact source carrier (PR ref preferred; if a stash is the only carrier, record its content hash and verify the same stash entry remains present before and after without pop/drop); restore only the named path with `git checkout <carrier> -- <path>`; record source blob SHA and restored blob SHA from `git rev-parse`; require `git diff --quiet <carrier> HEAD -- <path>` to exit 0. Include a row for every restored artifact. No force push, history rewrite, direct-main write, stash consumption, or reconstruction from memory.
+
+The six card-ID conflicts are specifically `tasks/t-20261124-hunt47-provider-registry-migration.md` (0428-341), `tasks/t-20261124-hunt47-deployment-v1-record-wall.md` (0428-342), `tasks/t-20261124-hunt47-destroy-warning-kind.md` (0428-343), `tasks/t-20261124-hunt47-gate-recover-preflight-flag-route.md` (0428-344), `tasks/t-20261124-hunt47-version-gate-error-surface.md` (0428-345), and `tasks/t-20261124-hunt47-keycloak-migration-docs.md` (0428-346). Their current main occupants have distinct subjects; the exact files and conflicting card IDs are recorded here for coordinator reissue. No unique census artifact is presently identified as unrecoverable.
+
+## w274 route finding correction
+
+The w274 akte is present in current main at `dd851feb4`, but its publication was a one-parent direct-main commit by `coordinator` with no associated Plan PR; preserve it in history and do not count its channel as compliant lane evidence. The diagnosis that `branches: [develop]` excluded #170/#179 is factually wrong: both Demo PRs target `develop` (GitHub PR API `baseRefName=develop`). Current copies on Demo main and develop both select `branches: [develop]`. Historical absence of PR runs is explained by the workflow not yet existing on Demo default main at the original events; PR #180 later brought it to main at `2618b3962330509add5bf265522995da2a9034ce`.
+
+Current route prescription, based on the coordinator's recorded run/path witnesses: do not change the base-branch filter. The default-branch main copy covers #170 and #179 paths, but no PR runs/check-runs appeared; develop's copy covers #170 but misses the four #179 files, and both copies lack explicit `ready_for_review` activity. Owner-scope workflow normalization is needed: make main/develop copies agree on `types: [opened, synchronize, reopened, ready_for_review]`, and add `tests/connectivity/run.sh`, `tests/full-destroy/run.sh`, `tests/policy/operator-test-certificate.sh`, and `tests/reconciliation/run.sh` to the develop copy. Then trigger #170 first on its exact head via Owner-authorized PR event; for #179, Owner moves it out of draft after the change. Each requires two distinct `pull_request` SUCCESS run IDs on the same exact head, each with executed check jobs; use Owner-authorized close+reopen for the second run. Prior push runs with `jobs=[]` are not qualification. No workflow file was edited and no product event was triggered here.
+
+## Updated #1842 selector ruling
+
+Releases v0.4.24, v0.4.25, and v0.4.26 have no `.demo-ref`; these are valid no-pin releases. Never fabricate pins for them. Releases that do have a `.demo-ref` resolve against their own release tag. The active registration/pin requirement relocates from v0.4.27 to v0.4.28 with identical criteria under the Owner ruling; fail-closed unknown/non-cataloged behavior, conservative fallback, broad checks, and runtime coverage remain unchanged. The live v0.4.28 `.demo-ref` value `b41127723e523134a1c14ee3c36cf133237162ce` is stale; replace it within #1842 with the immutable validation target `5ca92a7cd2f746934890cfd7096a48068bdf218e`. The v0.4.24–26 parameter fixtures that demand a pin are fixture defects, not selector regressions; the genuine fail-closed/runtime failures and stale active v0.4.27 fixtures are classified in the preceding #1842 section.
+
+## Latest base integration and publication state
+
+The verified real remote is `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)` and `origin https://github.com/mcpdev80/baseharbor-plan.git (push)`. Latest fetched live main before this addendum was `4d7ef2aa50c36a41ef274dd1e30d421aee1d1d6a`; the branch integrates it with ordinary merge commit `20a38727bf210fac447b9c3f19e55e1651e159ea`. PR #75 still points at the earlier published head; the local candidate above is not yet pushed or Hosted-validated. Final status and run IDs will be appended after publication.
+
+PR provenance check at latest integration: `git merge-base --is-ancestor origin/main HEAD` exited 0 for base `4d7ef2aa50c36a41ef274dd1e30d421aee1d1d6a` and candidate `20a38727bf210fac447b9c3f19e55e1651e159ea`. `git diff origin/main...HEAD --name-only` output at this checkpoint:
+
+```text
+evidence/2026-11-26/w249-0428-284-gateids/akte.md
+evidence/2026-11-28/w247-0428-285-1820hop.md
+evidence/coordination/w260-plan-recovery-w255-0428-251-demo170codex.md
+evidence/e6ca7696-b1f8-492d-b226-876b16925fc5/w245-0428-284-1842alt/akte.md
+evidence/r28-welle6-2026-11-26/1851-carrier/disposition.md
+evidence/r28-welle6-2026-11-26/w252-1833-1835-disposition/disposition.md
+evidence/r29-welle6-2026-11-26/0428-284-1842alt/routing-alternatives.md
+evidence/r29-welle6-2026-11-28/0428-253/w136-1853-owner-ruling.md
+evidence/r29-welle6-2026-11-28/0428-284/w136-demo-prgate-availability.md
+evidence/verify/w253-demo170179-census.md
+evidence/w246-1812diag/w246-1812gatefaildiag.md
+evidence/w248-0428-284-boardscan/akte.md
+evidence/w255-0428-251-demo170codex/decision.md
+tasks/t-20261124-gate-catalog-baseline-1819.md
+```
