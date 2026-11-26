@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w208-0428-313-reident
-kanban_status: active
-kanban_lane: active
+owner: "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-313 · restore-identity regression
 priority: ""
@@ -23,16 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt39-restore-identity-regression · 0428 hunt H-V39: restore-identity regression test (identity preserved across restore) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261125-hunt39-restore-identity-regression · 0428 hunt H-V39: restore-identity regression test (identity preserved across restore) #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
-    **Owner:** w208-0428-313-reident  
+    **Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w208-0428-313-reident  
+**Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
