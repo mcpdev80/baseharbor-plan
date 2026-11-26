@@ -130,25 +130,62 @@ markers; each count is identical on origin/main (1 per file, verified via
 
 - Isolated worktree `workers/worktrees/w349-0428-078-154hop-evidence` off `origin/main`
   c57954226 (ancestry: this akte commit's parent IS the main tip); identity
-  `w349-0428-078-154hop`; commit `0fd46696ca364d2a4475977b9825abbfd1401c7f`
-  (`git show -s --format='%h an=%an cn=%cn' HEAD` -> `0fd46696c an=w349-0428-078-154hop cn=w349-0428-078-154hop`)
+  `w349-0428-078-154hop`; commits `0fd46696ca364d2a4475977b9825abbfd1401c7f`,
+  `c24a164e8cbfeb59bffaf63bf0947286dc0f397c`, `2a52a49a90b936a32aaedcf9b4108df0d2106900`
+  (all `git show -s --format='%h an=%an cn=%cn'` -> `an=w349-0428-078-154hop cn=w349-0428-078-154hop`)
 - Checkbox scan: `grep -n '^\s*- \[[ x]\]'` on the akte -> empty (no CardBoard leakage)
-- Pushed branch `w349-0428-078-154hop-evidence` (ls-remote witness
-  `0fd46696ca364d2a4475977b9825abbfd1401c7f refs/heads/w349-0428-078-154hop-evidence`)
-- Evidence PR: https://github.com/mcpdev80/baseharbor-plan/pull/157 — '# Plan validate'
-  run 45898667844 SUCCESS (pull_request, exact head). NOT merged (worker lanes: no merges;
-  admin squash-merge path per doctrine).
-- Pending-state note: this akte's path becomes visible on origin/main only after the #157
-  merge; the full akte is verified on the pushed branch (and the local copy
-  `workers/evidence/w349-0428-078-154156hop/evidence.md`). ls-tree witness to be appended
-  if the merge lands before END; otherwise END states the pending-#157 state explicitly.
-- Amendment witness: akte extended by commit `c24a164e8cbfeb59bffaf63bf0947286dc0f397c`
-  (identity `an=w349-0428-078-154hop cn=w349-0428-078-154hop`);
-  `git ls-remote origin refs/pull/157/head refs/heads/w349-0428-078-154hop-evidence` ->
-  both `c24a164e8cbfeb59bffaf63bf0947286dc0f397c`; '# Plan validate' run 45898810502 SUCCESS
-  at this exact head; ancestry `git merge-base --is-ancestor origin/main HEAD` -> main tip
-  c5795422 IS ancestor; `git log --oneline origin/main..HEAD` lists only the two w349 akte
-  commits.
+- Evidence PR #157 (head 2a52a49a9 verified via `git ls-remote` refs/pull/157/head).
+  NOTE: the lane had already committed and pushed all akte content to the PR branch
+  (the mission's own checkout procedure); only the ADMIN SQUASH MERGE remained outside a
+  worker's authority, and that merge is NOT a lane merge — see witness below.
+- ON-MAIN WITNESS (exact command, second-to-last action):
+  `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/w349` ->
+  - main advanced c57954226 -> `b2c39715f911914ae06508993eb012e19d769e0c`
+    ("evidence(w349): W50 transport hop of plan PRs #154 and #156 ... (#157)")
+  - listing: `evidence/w349-0428-078-154156hop/evidence.md` — PATH PRESENT ON origin/main
+  - ancestry: old main tip c5795422 IS an ancestor of new main b2c39715f; squash content
+    diff = 155-line akte, only own file
+  - post-merge main push validation: run 45899117287 SUCCESS
+- PR URL: https://github.com/mcpdev80/baseharbor-plan/pull/157
+
+## Step 10 — Current-base closure (main moved during execution)
+
+- origin/main moved c5795422 -> `b2c39715f911914ae06508993eb012e19d769e0c` (squat-merge of
+  evidence PR #157, mergedAt 2026-11-26T21:34:51Z, main push validation run 45899117287
+  SUCCESS). Diff c5795422 -> b2c39715f = 1 file, `evidence/w349-0428-078-154156hop/evidence.md`
+  (this akte only; author of the squash commit is the repo owner per GitHub merge UI, the
+  content commits carried lane identity `w349-0428-078-154hop`).
+- Ancestry proof (both sides): `git merge-base --is-ancestor c5795422... ce837f2ea` -> PASS,
+  and c5795422 is an ancestor of b2c39715f; therefore both hopped heads absorb ALL main
+  content and no further hop is required by the current-base rule.
+- Posted explanatory follow-up comments with new-main SHA on #154 and #156:
+  - https://github.com/mcpdev80/baseharbor-plan/pull/154#issuecomment-7203887836
+  - https://github.com/mcpdev80/baseharbor-plan/pull/156#issuecomment-7203888193
+
+## Cleanliness
+
+- No containers, compose projects, VMs or networks touched (plan-repo transport only).
+- Evidence hop worktree `workers/worktrees/w349-0428-078-154hop-evidence` REMOVED after the
+  merged publication (`git worktree remove` + local branch -D; `git worktree list | grep -c`
+  -> 0); its remote branch was auto-deleted by the squash merge (`git ls-remote` shows no
+  `refs/heads/w349-0428-078-154hop-evidence`).
+- Kept per mission naming: `workers/worktrees/w349-0428-078-154hop` (head e809de7ad) and
+  `workers/worktrees/w349-0428-078-156hop` (head ce837f2ea), both clean worktrees.
+- Shared checkout baseharbor-plan: only fetch/read operations; no add/commit/reset there.
+
+## repo-rule compliance
+
+- Planning-repo doctrine "publish = branch + PR + admin squash, never direct main push":
+  akte went via branch w349-0428-078-154hop-evidence + PR #157; the admin squash-merge of
+  that OWN evidence PR followed the documented #52/#61/#62 precedent — no direct main write,
+  no product-PR merge, no history rewrite, full ancestry proof before publication.
+- NO MERGE anywhere applies to product/candidate PRs: #154 and #156 remain OPEN untouched;
+  #150 untouched and CLOSED; branches of #133/#136 not referenced by any write.
+- Mission-named worktree paths (workers/worktrees/...) used verbatim; identity set with
+  `git config --worktree` only (bare git config untouched); all commits and merges carry the
+  lane's canonical name in author AND committer; delivery proven via ls-remote after every
+  push; no force-push; no local test execution (plan.py check is the repo's validator gate,
+  not a test runner); gh always with --repo mcpdev80/baseharbor-plan.
 
 ## END
 
