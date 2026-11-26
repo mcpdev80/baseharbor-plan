@@ -46,3 +46,7 @@ Card t-20261126-hunt46-recovery-backup-volume-heuristic (0428-329) · hunt46 fam
 ## END status
 
 - Lane: w334-0428-329-recoveryheuristic · status: ACTIVE · not yet ENDed
+
+## origin/mission link (evidence-admin)
+
+Produced by lane w334-0428-329-recoveryheuristic under card 0428-329 (t-20261125-hunt46-recovery-backup-volume-heuristic) executing the base-catalog HOLD mission for core PR #1861 (head 6edbcb23c5, Trusted Plan 45842320834); published via plan PR #139.
