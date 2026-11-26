@@ -1,0 +1,19 @@
+ROLLE: Worker (Lane 0427-117-podman-owner). Coord 594fd2f5. KARTE: t-20261106-r27-remote-up-podman-owner-missing (0427-117 · podman-family Deploy owner).
+UEBERNAHME nach system-reboot: die vorige bahn w286 ist tot. Dein ast work/r27-remote-up-owner-missing liegt
+NUR lokal im ueberlebenden arbeitsbaum /home/marcel/dev/baseharbor-ecosystem/workers/w286-wt2 (branch
+work/r27-remote-up-owner-missing, commits 14ec6674e fix + 5c2c71068 test, basis dddf0d782 = ALTER develop;
+ausstehende änderung cmd/baha/runtime_integration_test_support_test.go uncommittet). AST NOCH NIE GEPUSHT.
+ARBEIT: (1) karte + w286-akte remote-up-cli/owner-missing-round-1.md lesen (plan.py show). (2) im wt2:
+ausstehende änderung sichten, committen (gezieltes git add), ast auf AKTUELLEN develop 934be499b auffrischen
+(git merge, konfliktloesung dokumentieren; KEIN .github/**-inhalt an dir), push -u origin. (3) red-first-zelle
+die ErrDeploymentOwnerMissing (deployment_store.go:107 VerifyDeploymentOwner) exakt traegt; am kranken AST
+ROT, am kandidat GRUEN, verhaltenspruefend (kein compile-only). (4) PR gegen develop eroeffnen (gh pr create
+--base develop), DESIGN (inherit-vs-verleih) in akte. (5) native selected checks docker+podman terminal am
+final-kopf — EIGNES-RUN, du ueberwachst den run selbst. AKTE: baseharbor-plan evidence/r27-welle5-folge-2026-11-06/
+remote-up-cli/owner-missing-round-2.md (punkte statt checkboxen, ls-remote-vor-nach, run-id, ## repo-rule
+compliance, merge-base-ancestor + git log --oneline origin/develop..HEAD zeigt NUR deine commits).
+GATES: KEINE subagenten; .github tabu (befund mit file:line statt edit); coordinator-/dev-host tabu fuer tests
+(nur baha-docker/baha-podman/baha-podman-2 ssh); workers/baseharbor-plan phantom-zone tabu (echtes plan =
+/home/marcel/.../baseharbor-plan, remote -v in akte); KEIN self-merge. VM-compose eigener name, vor END down.
+END an 594fd2f5: "END_DONE 0427-117-podman-owner: head=<sha11> pr=<n> design=<inherit|verleih>
+zellen=<docker+podman GRUEN am kopf> run=<id TERMINAL> akte=<pfad auf origin/main>" bzw END_BLOCKED + fehlerzeile.

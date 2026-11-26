@@ -10,15 +10,15 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 19 |
+| active | 18 |
 | review | 2 |
 | wait | 15 |
 | blocked | 2 |
-| ready | 50 |
+| ready | 55 |
 | queued | 25 |
-| waiting | 180 |
+| waiting | 181 |
 | backlog | 7 |
-| closed | 485 |
+| closed | 486 |
 
 ## Active
 
@@ -40,9 +40,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261124-gate-catalog-baseline-0428-270](../tasks/t-20261124-gate-catalog-baseline-0428-270.md) | CI/catalog: add operatorauth rows to develop pr-gate-coverage.json | active | not set | w65-0428-269-batchbaseline | — | — |
 | [t-20261124-gate-catalog-baseline-1819](../tasks/t-20261124-gate-catalog-baseline-1819.md) | CI/catalog: add #1819 source rows to develop pr-gate-coverage.json | active | not set | w65-0428-269-batchbaseline | — | — |
 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) | CI/catalog: add #1820 source row to develop pr-gate-coverage.json | active | not set | w65-0428-269-batchbaseline | — | — |
-| [t-20261125-0428-284-1812-postretry-gate-failure](../tasks/t-20261125-0428-284-1812-postretry-gate-failure.md) | #1812 post-retry gate failure | active | high | w198-0428-284-demo-parser | — | [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1856](https://github.com/mcpdev80/baseharbor/pull/1856) |
+| [t-20261125-hunt33-go-runtime-prereq](../tasks/t-20261125-hunt33-go-runtime-prereq.md) | 0428 hunt H-V33: hunt33-go-runtime-prereq | active | not set | w336-0428-299-goprereq | — | — |
 | [t-20261125-hunt39-restore-identity-regression](../tasks/t-20261125-hunt39-restore-identity-regression.md) | 0428 hunt H-V39: restore-identity regression test (identity preserved across restore) | active | not set | w208-0428-313-reident | — | — |
-| [t-20261126-hunt46-recovery-backup-volume-heuristic](../tasks/t-20261126-hunt46-recovery-backup-volume-heuristic.md) | 0428 hunt H-V46: recovery/backup volume preservation uses a case-insensitive substring search (medium) | active | not set | w334-0428-329-recoveryheuristic | — | — |
 
 ## Ready for review
 
@@ -61,7 +60,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261017-release-0-4-28-cleanup](../tasks/t-20261017-release-0-4-28-cleanup.md) | v0.4.28 · Release start: reconcile old PRs, tasks and branches | wait | high | lane-0428-002-r28 | [t-20261017-release-0-4-27-verify](../tasks/t-20261017-release-0-4-27-verify.md) (open) | — |
 | [t-20261114-r28-perses-contact-routing](../tasks/t-20261114-r28-perses-contact-routing.md) | Define alert notification routing | wait | normal | coord | [t-20261114-r28-perses-alerts](../tasks/t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-secure-access](../tasks/t-20261114-r28-perses-secure-access.md) | — |
 | [t-20261114-r28-perses-log-trace-dash](../tasks/t-20261114-r28-perses-log-trace-dash.md) | Perses log and trace views | wait | normal | coord | [t-20261114-r28-perses-loki-source](../tasks/t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | [baseharbor#1619](https://github.com/mcpdev80/baseharbor/pull/1619) |
-| [t-20261116-r28-bug-compose-service-ids](../tasks/t-20261116-r28-bug-compose-service-ids.md) | Preserve Compose service IDs | wait | high | w147-0428-288-pr1833-fix | [t-20261125-0428-284-1812-postretry-gate-failure](../tasks/t-20261125-0428-284-1812-postretry-gate-failure.md) (open) | [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833) |
+| [t-20261116-r28-bug-compose-service-ids](../tasks/t-20261116-r28-bug-compose-service-ids.md) | Preserve Compose service IDs | wait | high | w147-0428-288-pr1833-fix | [t-20261125-0428-284-1812-postretry-gate-failure](../tasks/t-20261125-0428-284-1812-postretry-gate-failure.md) | [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833) |
 | [t-20261116-r28-bug-installation-reset-recovery](../tasks/t-20261116-r28-bug-installation-reset-recovery.md) | Unblock full installation reset | wait | critical | w185-0428-287-pr1835-podman | — | [baseharbor#1835](https://github.com/mcpdev80/baseharbor/pull/1835) |
 | [t-20261120-r28-identity-dashboard-catalog-consumer](../tasks/t-20261120-r28-identity-dashboard-catalog-consumer.md) | Identity dashboard catalog has zero production consumers (P4 of review 1650) | wait | not set | w54-0428-181-export | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | [baseharbor#1819](https://github.com/mcpdev80/baseharbor/pull/1819) |
 | [t-20261121-destroy-authority-stamp](../tasks/t-20261121-destroy-authority-stamp.md) | installation.destroy authorization assertion runs on a stamped context | wait | high | f0f6c8b4 (#1738 own diff complete/correct) / Coordinator (wait prereq) / 1450c201 (reviewed own diff) | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1738](https://github.com/mcpdev80/baseharbor/pull/1738), [baseharbor#1781](https://github.com/mcpdev80/baseharbor/pull/1781), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783) |
@@ -94,7 +93,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261125-hunt-v51-ambient-test-env-leak](../tasks/t-20261125-hunt-v51-ambient-test-env-leak.md) | 0428-192 · Ambient os.Setenv leaks BASEHARBOR_* across tests (#1650 class) | ready | normal | lane-0428-192-hunt-v51-testenv | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261125-hunt33-action-pins-audit](../tasks/t-20261125-hunt33-action-pins-audit.md) | 0428 hunt H-V33: hunt33-action-pins-audit | ready | not set | — | — | — |
 | [t-20261125-hunt33-cell-prereq-docs](../tasks/t-20261125-hunt33-cell-prereq-docs.md) | 0428 hunt H-V33: hunt33-cell-prereq-docs | ready | not set | — | — | — |
-| [t-20261125-hunt33-go-runtime-prereq](../tasks/t-20261125-hunt33-go-runtime-prereq.md) | 0428 hunt H-V33: hunt33-go-runtime-prereq | ready | not set | — | — | — |
 | [t-20261125-hunt33-jq-gh-guards](../tasks/t-20261125-hunt33-jq-gh-guards.md) | 0428 hunt H-V33: hunt33-jq-gh-guards | ready | not set | — | — | — |
 | [t-20261125-hunt33-runtime-pin-guards](../tasks/t-20261125-hunt33-runtime-pin-guards.md) | 0428 hunt H-V33: hunt33-runtime-pin-guards | ready | not set | — | — | — |
 | [t-20261125-hunt33-setup-node-sha-pin](../tasks/t-20261125-hunt33-setup-node-sha-pin.md) | 0428 hunt H-V33: hunt33-setup-node-sha-pin | ready | not set | — | — | — |
@@ -119,12 +117,18 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261125-hunt47-config-mutation-migration-parity](../tasks/t-20261125-hunt47-config-mutation-migration-parity.md) | 0428 hunt H-V47: config read path migrates TargetUIDs, mutation path does not (asymmetric UID handling) | ready | low | w193-0428-224-hunt-v47-intake | — | — |
 | [t-20261125-hunt47-core-plan-version-message](../tasks/t-20261125-hunt47-core-plan-version-message.md) | 0428 hunt H-V47: uncomparable prerelease suffix + downgrade-mislabeling in coreupdate version classification | ready | low | w193-0428-224-hunt-v47-intake | — | — |
 | [t-20261125-hunt47-deleted-deployment-dangling-binding](../tasks/t-20261125-hunt47-deleted-deployment-dangling-binding.md) | 0428 hunt H-V47: provider-registry bindings of deleted deployments are never collected (Validate-perpetuating garbage) | ready | low | w193-0428-224-hunt-v47-intake | — | — |
+| [t-20261125-hunt47-deployment-record-v1-wall](../tasks/t-20261125-hunt47-deployment-record-v1-wall.md) | 0428 hunt H-V47: deployment-record v1 records dead-end — unloadable, unlistable for removal, remedy binary refused by downgrade gate | ready | normal | w193-0428-224-hunt-v47-intake | — | — |
+| [t-20261125-hunt47-keycloak-migration-docs](../tasks/t-20261125-hunt47-keycloak-migration-docs.md) | 0428 hunt H-V47: managed Keycloak pin upgrades beyond the single reviewed 26.7.5→26.8.0 path are unsupported but undocumented (docs-accuracy bug) | ready | low | w193-0428-224-hunt-v47-intake | — | — |
+| [t-20261125-hunt47-provider-registry-v1-migration](../tasks/t-20261125-hunt47-provider-registry-v1-migration.md) | 0428 hunt H-V47: provider-registry v1 files hit a hard load wall; the documented v1→v2 migration does not exist | ready | normal | w193-0428-224-hunt-v47-intake | — | — |
+| [t-20261125-hunt47-recover-preflight-and-flag-route](../tasks/t-20261125-hunt47-recover-preflight-and-flag-route.md) | 0428 hunt H-V47: the documented HA recovery verb is unreachable through the dispatcher and unguarded by catalog/journal preflight | ready | normal | w193-0428-224-hunt-v47-intake | — | — |
 | [t-20261125-hunt47-version-gate-error-surface](../tasks/t-20261125-hunt47-version-gate-error-surface.md) | 0428 hunt H-V47: all state version gates emit directionless 'unsupported version' errors with no next-action; too-new config breaks unrelated surfaces | ready | low | w193-0428-224-hunt-v47-intake | — | — |
 | [t-20261126-hunt46-collectable-orphans-reserved-namespace](../tasks/t-20261126-hunt46-collectable-orphans-reserved-namespace.md) | 0428 hunt H-V46: CollectableOrphans lists the reserved never-delivered dir as a collectable orphan UUID (medium) | ready | not set | — | — | — |
 | [t-20261126-hunt46-damaged-state-reserved-namespace](../tasks/t-20261126-hunt46-damaged-state-reserved-namespace.md) | 0428 hunt H-V46: DamagedDeploymentNamespace flags the reserved never-delivered namespace as damaged (low) | ready | not set | — | — | — |
 | [t-20261126-hunt46-destroy-data-loss-vocabulary](../tasks/t-20261126-hunt46-destroy-data-loss-vocabulary.md) | 0428 hunt H-V46: destroy --all and control-plane destroy --delete-data use split data-loss consequence vocabulary (low) | ready | not set | — | — | — |
 | [t-20261126-hunt46-never-delivered-proof-leak](../tasks/t-20261126-hunt46-never-delivered-proof-leak.md) | 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) | ready | not set | — | — | — |
-| [t-20261126-trusted-catalog-baseline-identity-tests](../tasks/t-20261126-trusted-catalog-baseline-identity-tests.md) | Trusted catalog baseline for identity dashboard tests | ready | not set | — | — | [baseharbor#1857](https://github.com/mcpdev80/baseharbor/pull/1857) |
+| [t-20261126-hunt46-recovery-backup-volume-heuristic](../tasks/t-20261126-hunt46-recovery-backup-volume-heuristic.md) | 0428 hunt H-V46: recovery/backup volume preservation uses a case-insensitive substring search (medium) | ready | not set | — | — | — |
+| [t-20261126-runner-openssl-podman-generator](../tasks/t-20261126-runner-openssl-podman-generator.md) | Runtime CI cells guarantee OpenSSL and Podman Quadlet generator | ready | not set | — | — | — |
+| [t-20261126-trusted-catalog-baseline-identity-tests](../tasks/t-20261126-trusted-catalog-baseline-identity-tests.md) | Trusted catalog baseline for identity dashboard tests | ready | not set | — | — | [baseharbor#1857](https://github.com/mcpdev80/baseharbor/pull/1857), [baseharbor#1859](https://github.com/mcpdev80/baseharbor/pull/1859) |
 | [t-20261128-hunt48-metrics-endpoint-docs](../tasks/t-20261128-hunt48-metrics-endpoint-docs.md) | 0428 hunt H-V48: metrics endpoint registered but undocumented in any spec | ready | not set | — | — | — |
 | [t-20261128-hunt48-refresh-public-api-ownership-map](../tasks/t-20261128-hunt48-refresh-public-api-ownership-map.md) | 0428 hunt H-V48: internal/api/api-old precedent gone, surface-ownership map stale | ready | not set | — | — | — |
 | [t-20261128-hunt48-runtime-pagination-contract](../tasks/t-20261128-hunt48-runtime-pagination-contract.md) | 0428 hunt H-V48: runtime API list endpoints have no pagination contract | ready | not set | — | — | — |
@@ -137,7 +141,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 5 open, 165 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 105 open, 252 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 110 open, 253 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 16 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))

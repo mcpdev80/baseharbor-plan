@@ -1,0 +1,10 @@
+READ-ONLY BUG-HUNT FILL DESK H-V24 (AGENTS §3.3.5; Befund only; NO product/PR/merge/subagents §4.8; do NOT touch the frozen chain #1812/#1819/#1820/#1818; do NOT touch #1650 owner-parked). develop = current origin/develop (report SHA at start; expect 46d3ccccc-line after #1825).
+
+Mission: operator-auth ACTIONABILITY census. The recently-merged operator-auth messaging (internal/operatorauth/authorization.go around :285, the #1717 auto-admit removal) is meant to tell the OPERATOR what to do next. For each operator-facing denial / auth message on the develop surface:
+1. Grep the denial/error strings the CLI emits (cmd/baha app_commands.go + mcp.go + operatorauth paths). Quote each message + file:line.
+2. Judge whether the message names the CONCRETE next command/flag a user must run (actionable) vs a bare 'denied/unauthorized' (not actionable). Befund = a denial that is NOT actionable, with file:line and the exact string.
+3. Do NOT change anything. Draft (text only) what a one-line improvement would be, but file it as a card proposal, do not implement.
+
+Deliver baseharbor-plan evidence/r28-welle6-2026-11-25/bughunt-hv24-actionability/round-1.md (## PLAN + native todos): the message table (file:line | string | actionable Y/N), and for every NOT-actionable finding, a one-line card draft (title + regression idea). If you find real NOT-actionable denials, create a Fund→Karte card (next free 0428-NNN, schema-correct: single anchor checkbox, priority normal/low, https evidence link to the file/blob, no stray blocker field) in a separate atomic commit; if NONE found, report 'befundlos' and do NOT invent a card.
+
+Hosted-only (no local go test/docker). Commit+push atomically (git add the single new evidence file first, then any new card; pull --rebase origin main before push). Report inline: develop SHA, count scanned, Befunde found (+card numbers or 'befundlos'), evidence SHA. End cleanliness line: no containers/volumes/state dirs created by this desk (it is read-only — confirm). No subagents.

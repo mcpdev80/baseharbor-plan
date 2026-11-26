@@ -1,0 +1,29 @@
+ROLLE: Worker (Lane w253, KORREKTURRUNDE derselben arbeit). Coord 841e7734. KEIN neuer PR, KEIN neuer
+zweig — du fertigst DIESELBE provisioning der docker-pruefvm baha-docker-2 (=192.168.6.205) ab.
+FEHLER IM ALTEN AUFTRAG (coord-verschulden, dir nicht anzulasten): rootless war als 'nicht noetig'
+markiert — IST ABER PFLICHT. Die bestehende docker-VM (baha-docker) hat rootless, beide VMs muessen
+dasGLEICHE zielbild haben (beide runtime-pfade docker-rootful UND docker-rootless sind testgrund).
+GEMAESSENT AUF 205 JETZT: nur kontext 'default', rootless-daemon inactive, docker-ce-rootless-extras fehlt.
+VORBILD baha-docker (166): kontexte default(/var/run/docker.sock) + rootless(/run/user/1000/docker.sock),
+docker-ce-rootless-extras installiert, systemctl --user docker.socket active, subuid marcel gesetzt,
+'docker --context rootless run --rm alpine => OK'.
+
+AUFGABE (skript scp-en, NICHT verschachtelte heredocs — dein alter weg war ok):
+ (1) apt install docker-ce-rootless-extras uidmap slirp4netns (fehlende ergaenzen; docker-ce bleibt),
+ (2) /etc/subuid + /etc/subgid fuer marcel pruefen/setzen (dockerd-rootless-setuptool.sh braucht >=65536 range),
+ (3) dockerd-rootless-setuptool.sh install --force als marcel (NICHT sudo), docker context use default
+     lassen (rootless-kontext muss NUR vorhanden + nutzbar sein via --context rootless),
+ (4) systemctl --user enable --now docker.socket docker.service + loginctl enable-linger marcel (damit
+     rootless ohne offenen login laeuft — GENAU das ist der unterschied, pruefe nach erneutem ssh-login),
+ (5) NACHWEIS (wortlich in akte): NEUER ssh-login, dann
+     `docker run --rm hello-world`        => rootful OK, UND
+     `docker --context rootless run --rm hello-world` => "Hello from Docker!" (rootless),
+     `systemctl --user is-active docker.socket docker.service` => active,
+     `docker context ls` => default + rootless gelistet.
+ AKTE: die EINE datei evidence/r27-welle5-folge-2026-11-06/infra/provision-docker-vm-2.md UM section
+ 'rootless' ERWEITERN (same file, zielgerichtetes add, commit, push origin main; ls-tree-zeug).
+GATES: KEINE subagenten, NUR diese VM, andere VMs (docker/podman/podman-2) NICHT anfassen, root-checkout/
+.github verboten, caches /tmp/opencode/w253*. 
+END an 841e7734: "END_DONE w253b-docker2-rootless: rootful=OK rootless=OK kontext=rootless:gelistet
+linger=active akte=<pfad main> | <Satz>". Vorher war dein END zu frueh — diesmal ERST beide nachweise,
+DANN END.

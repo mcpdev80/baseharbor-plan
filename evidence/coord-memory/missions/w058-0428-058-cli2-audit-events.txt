@@ -1,0 +1,30 @@
+MISSION: 0428-058 — CLI redesign slice: audit secret and environment actions.
+
+Card: t-20261114-r28-cli2-audit-events (0428-058), release v0.4.28, repo mcpdev80/baseharbor.
+Read first: baseharbor-plan/tasks/t-20261114-r28-cli2-audit-events.md, then the owner working brief and maps:
+  baseharbor-plan/evidence/cli-redesign-20261114/brief.md
+  baseharbor-plan/evidence/cli-redesign-20261114/command-map.md
+  baseharbor-plan/evidence/cli-redesign-20261114/code-entry-index.md
+Revalidate CURRENT develop and the owner-approved contract before coding. This is a bounded slice of umbrella t-20261114-r28-cli-command-semantics, NOT a second independent product.
+
+GOAL
+Add auditable secret read/change and env edit/delete outcomes per configured policy: track who/what/where/result WITHOUT storing values; distinguish human vs runtime actor; define storage/failure behavior per the accepted contract.
+
+ACCEPTANCE (from card)
+- Success / denial / failed reveal and mutations, with exact resource context and NO credentials/secret values. Retention/integrity promised only with actual proof; trusted-local is not a person.
+- Preserve authorization, ownership, consent, plan/preflight/apply/verify and semantic parity across supported interfaces. Unimplemented/unverified capabilities must be explicit.
+- English CLI UX, actionable guided + noninteractive failures. Owner rule: as little as possible, as much as necessary.
+- No secret values in Git, logs, audit, or normal machine output.
+
+SCOPE / WRITE-SET
+- The audit command/event files for secret and env actions per the command-map. Do NOT touch cmd/baha/local_workload_authority.go (that is 0428-243) or internal/capability/perses_selection.go (0428-186) — separate lanes.
+- New tests must be CI-reachable in this same PR; a `.github/**` need is a finding (file:line), never an edit.
+
+BRANCH
+Resolve the real GitHub remote (URL contains github.com/mcpdev80) first. Base = current develop (the 4 cli2 base-dep cards 0428-env-delete/policy/registry/identity-secrets are all merged). Show ancestry + `git log --oneline origin/develop..HEAD` (only your commits). Branch lane-0428-058-cli2-audit-events. One candidate, one PR (DRAFT until impl+gate complete).
+
+EVIDENCE (baseharbor-plan ONLY, real repo): evidence/recovery-2026-11-23/0428-058/round-1.md — ## PLAN first, results, `## repo-rule compliance`, base attestation, PR + exact head SHA + your own observed CI run, origin/main ls-tree witness before END.
+
+STOP/QUESTION if: the command-map and current develop diverge (contract drift), or the audit-storage semantics are ambiguous — that needs a coordinator/owner decision, not a guess.
+
+END LAST ACTION: codeman agent post <coordinator> "END_DONE 0428-058: <one line + candidate SHA>". No subagents.

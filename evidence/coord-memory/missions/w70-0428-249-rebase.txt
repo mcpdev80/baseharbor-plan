@@ -1,0 +1,10 @@
+Card 0428-249 / PR #1812 / repo mcpdev80/baseharbor. OWNER-ORDERED sequence step 1 of the approved SEQUENTIAL order #1812->#1819->#1820->#1821. Batch #1822 and #1821 are already merged; current develop = 05ef48536. Branch = lane-0428-249-runtime-image-fix (owner-authored .github card).
+
+TASK (mechanical rebase + verify, NO new content authored):
+1. git fetch origin develop (05ef48536) and lane-origin the branch. Rebase lane-0428-249-runtime-image-fix onto origin/develop 05ef48536.
+2. RESOLVE the rebase by taking DEVELOP's version for every file that #1822/#1821 already changed: scripts/pr-gate-coverage.json, .github/workflows/pre-release.yml, internal/operatorauth/authorization.go, internal/operatorauth/config.go (these are superseded — develop wins, do NOT re-add your old versions). The ONLY genuine #1812 delta that must survive the rebase is .github/workflows/pre-release-runtime-suite.yml (the owner's +27/-4 at the backup_changed block) — preserve it byte-for-byte (replay the owner's existing commit, do NOT author any new .github content).
+3. After rebase, `git diff --name-only origin/develop HEAD` MUST equal ONLY .github/workflows/pre-release-runtime-suite.yml. If it shows any OTHER file (Go/source change), STOP + QUESTION — do not push.
+4. Force-push the rebased branch, then TRIGGER and monitor the PR #1812 exact-head Hosted run TO TERMINAL, INCLUDING the required runtime suite (the 14 v0.4.27 Docker+Podman light gates: guided/lifecycle/policy/connectivity/reconciliation/failure/full-destroy). Report head SHA + run id + every gate outcome + the mandatory `test -s baha-ci-operator-testonly` now succeeding (proves the #1822 artifact is present on the develop base).
+5. Do NOT merge (owner/CODEX merges). Hosted CI only — NEVER run go test or docker/podman locally. No subagents (§4.8).
+
+Rules: this PR is OWNER-scope .github; you are ONLY rebasing+replaying the owner's existing commit, not editing owner content. If a genuine .github content decision is needed, STOP + QUESTION with file:line. Reply: PR #1812 head SHA, run id, the 14-gate results, and the changed-file list (must be pre-release-runtime-suite.yml only).
