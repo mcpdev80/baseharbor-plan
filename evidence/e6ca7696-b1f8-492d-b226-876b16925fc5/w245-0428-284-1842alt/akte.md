@@ -283,6 +283,22 @@ local result is cited as evidence anywhere in this file.
   `184b21f7d0c99b22ee318dcb26b7bcc360574a3b	refs/heads/w245-1842alt-routing`
   `184b21f7d0c99b22ee318dcb26b7bcc360574a3b	refs/pull/53/head`
 
+## Closure round (corrections actually made)
+
+- What changed in this round: the (a) proof now names the executed `pr-planner-tests` job
+  ids of both #1842 exact heads and explains the two `Ran` blocks with file-level test
+  counts; the head-move note records that PR #1842 advanced to `8b8f0eb2d77c778e77b72d2411
+  52df7db31c1b6a` while this lane only read; and the local-execution ban section states
+  that no test module ran on this host.
+- Transport: plan PR #63, candidate `aaee56c29`, merged as
+  `8b699df9dfa53c89ffcbaebb21667a2c67a5430c` (`Plan · validate` run `45729479222`
+  completed/success). Presence proof after that merge:
+  `git ls-tree -r --name-only origin/main | grep <akte path>` -> the akte path, and
+  `git show 8b699df9dfa53c89ffcbaebb21667a2c67a5430c:<akte path>` -> 323 lines including
+  the new job ids and the head-move note.
+- Earlier receipts, unchanged: #53 `88f5f7951`, #54 `12bff4d80`, #55 `829f5d006`,
+  #58 `96fcfbdae`, #59 `1a21dd3ee`, #60 `7e9f37fd1`, #63 `8b699df9d`.
+
 ## END
 
 END_DONE w245-0428-284-1842alt: no no-`.github` route exists for #1842 (selector
