@@ -7,15 +7,15 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w339-0428-327-reissue132 (implementing lane for accepted akte; #132 closed via cross-link 7199785698)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "CollectableOrphans (internal/deployment/deploymentlist.go:185) enumerates each direct child directory of deployments/ as a…"
 kanban_title: 0428-327 · collectable orphan skip dir
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor-plan#147", ]
 sources: []
 blocker: ""
 wait_reason: ""
