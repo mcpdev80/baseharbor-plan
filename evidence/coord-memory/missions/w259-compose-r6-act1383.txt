@@ -1,0 +1,28 @@
+ROLLE: Worker (Lane w259). Coord 841e7734. KARTE: t-20261105-r27-compose-host-isolation RUNDE 6
+(REJECT-KORREKTUR, act-1383.md — WORTLICH LESEN, 5 befeund-felder). PR #1383, zweig
+work/r27-compose-isolation, claim via plan.py vor erster aenderung (vorgaenger w241 entlassen).
+PFLICHTEN AUS DEM REZEPT (keine abkuerzung):
+ (1) BASE: develop-NEU einmerge (kopf 5e4fde71+ — du bist 5 rueckstaendig), lsremote alt/neu in akte.
+ (2) MATRIX auf BEIDEN hosts (vm-lock seriell, 166+107 oder 205): die VIER lifecycle-zellen
+     `go test ./cmd/baha -run 'TestRepository(WorkflowRealLifecycle|Compose|BuildWorkload)' -count=2`
+     — je ZWEI durchlaeufe im SAEUBEREN zustand und ZWEI im BEWUSST VERschmutZTEN ambient-zustand
+     (fremde-reste absichtlich stehen lassen: anderer stack/netz/ports belegt — genau dafuer ist die
+     Isolations-zelle da). ROH-TRANSCRIPTS je zelle: befehl + Ausgabe + inspect + netz/DNS-probe +
+     volumen + db + cleanup + vorher/nachher-inventar. KEINE prose, KOMMANDO-AUSGABEN.
+ (3) MUTANTE WIE VORGESCHRIEBEN: PRODUKTIONSZEILE cmd/baha/app_doctor_collect.go:322 im disbessablen
+     checkout ENTFERNEN => ausgelaeferten testpfad fahren => ROT protokollieren; restore => GRUEN
+     dieselbe zelle. NICHT nur test-assertion/helper mutieren (das war der REJECT-punkt).
+ (4) build/vet/gofmt + alle required hosted checks am FINAL-kopf, PR Selected Checks terminal selbst
+     beobachten; keine skipped runtime-gates als gruen verkaufen.
+ (5) FABRIKZEUG: volles host-inventar vorher/nachher (ps -a + netz + volumen je host), shared-stacks
+     unbetroffen (compare-zeilen).
+AKTE: evidence/r27-welle5-2026-11-06/compose-host-isolation/round-6.md (PLAN-checkliste gegen die 5
+befundfelder, transcripts, lsremote, run-ids). GATES: KEINE subagenten/zweiter PR/root-checkout/.github,
+KEINE quell-aenderung ausser transienter mutante (finaler kopf = base-merge + tests falls noetig),
+container NIE coordinator-host (R1), caches /tmp/opencode/w259*.
+END an 841e7734: "END_DONE w259-compose-r6: head=<sha10> matrix=<2sauber+2verschmuert je host BEIDE>
+mutante=<produktionszeile ROT+GRUEN> lauf=<id TERMINAL> lsremote=<sha10> akte=<pfad main> | <Satz>"
+WIEDERANSATZ-HINWEIS (coord, 2026-11-06 nach tmux-unfall): deine vorgaenger-lane wurde im lauf
+ABRISSEN (kein verschulden der arbeit — laufende fenster-getoetet, gepushtes ist auf remote).
+Realitaetsabgleich VOR allem: ls-remote den zweig-kopf nennen (REMOTE-zeug in der akte), dann
+GENAU dort weiter, wo der remote steht — nichts dublieren, nichts zuruecksetzen.

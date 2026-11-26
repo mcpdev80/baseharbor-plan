@@ -1,0 +1,13 @@
+Auftrag 0427-116-r5 (lane c977fe82, Korrekturrunde DEINER bahn, reviewer hat act-1407-r4.md hinterlegt).
+CODEX-REVIEW VERDICT = REQUEST-CHANGES an head c4d528645. Der einzige maßgebliche blocker:
+  Dein CLI-discriminator-test assertet upErr!=nil (= fail-closed, wenn KEIN live enrolled connector). Das ist NICHT der erfolg. Es fehlt ein ECHTER err==nil `baha app up` SUCCESS + healthy doctor TRANSCRIPT auf Docker UND Podman, mit live enrolled-node connector. Hosted run 42381393714 hat NUR go-unit-tests; die Docker/Podman runtime+HA jobs waren SKIPPED (path rule).
+LOESUNGSREZEPT (reviewer, wörtlich): provide genuine connector-bound CLI app up success and healthy doctor transcripts on both baha-docker and baha-podman.
+Konkret:
+1. EINE zelle (oder bestehende erweitern) die mit live enrolled connector gegen docker UND podman: `baha app up` => err==nil + app reported up, danach `baha doctor` healthy. BEIDE läufe als ECHTE transcripts in evidence (keine assertions über fail-closed als success-ersatz).
+2. Die zelle MUSS von der CI tatsaechlich ausgefuehrt werden (nicht skipped): in der bestehenden develop-acceptance/docker-runtime-acceptance/podman-acceptance so verdrahten dass sie auf docker+podman laeuft. Wenn dafuer ein .github trigger fehlt => BEFUND file:line an coord (owner-scope), NICHT self-edit. Falls der test lokal/VM nur in einer zelle laeuft aber kein CI-job ihn erfasst => keine dauerhafte evidence (§5.3), dann CI-aufnahme als befund.
+3. VM-Zugriff SERIELL coordinator/scripts/vm-lock.sh (baha-docker / baha-podman). ACHTUNG: #110-lane (3a4d5d33) nutzt dieselben hosts parallel — vm-lock串行isiert; nicht auf demselben host gleichzeitig wie #110.
+4. write-set: nur 116-dateien (app_remote_lifecycle.go + remote_pureclient_* + neue success-zelle/test). KEINE .github, KEINE #1383 lifecycle/fixture.
+- basis bleibt develop 812c99c88 Vorfahr (fetch, ancestor rc0, drift-frei), exact-one-candidate PR #1407.
+- eigenes-run: hosted pr-check auf finale sha terminal beobachten (run-id+status + docker/podman cell IDs in evidence, NICHT skipped). ls-remote zeugnis. red-first wo zutreffend. ## PLAN + todowrite. keine subagenten (4.8). NICHT idle ohne END.
+Evidence: evidence/r27-welle5-folge-2026-11-06/remote-up-cli/act-1407-r5.md (neben act-1407-r4.md reviewer-urteil).
+END an 594fd2f5. erst wieder review wenn docker UND podman success+doctor transcripts ECHT (nicht skipped) in evidence + CI-run sie ausfuehrt.

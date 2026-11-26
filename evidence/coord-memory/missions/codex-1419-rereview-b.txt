@@ -1,0 +1,20 @@
+ROLLE: CODEX-REVIEW (Abnahme-Sitz). Coord 594fd2f5. KARTE: t-20261106-r27-remote-up-podman-owner-missing (0427-117). RE-REVIEW nach deiner act-1419a (REJECT_LANE_FIX: war marker-only, echter remote-podman apply fiel weiter auf ErrDeploymentOwnerMissing).
+Kandidat PR #1419 head c0ac3bef9e61b255b2fce97874ea7f4102ee6ce5, base develop eee11d50 (is-ancestor rc0), draft=false, MERGEABLE, run 42342771963 terminal SUCCESS incl PR-Selected-Checks.
+PRUEFE (nur-lesend; ls-remote refs/heads/develop refs/pull/1419/head zuerst; diff eee11d50...c0ac3bef):
+ (1) KERNPUNKT act-1419a: ist die owner-resolution jetzt ECHT (BASEHARBOR_TARGET-first / CLI-effective-target
+     aufloesung im apply-pfad), NICHT nur ein marker der den unit-seam tauscht? Lies cmd/baha/deployment_record.go
+     (war ~57-65/137-145 beanstandet) + deployment_owner_loan.go + deployment_store.go VerifyDeploymentOwner —
+     der loan/inherit muss den KONTEXT des echten deployment-targets tragen, sodass der remote-podman apply den
+     eigentuemmer real sieht.
+ (2) regression: TestPodmanOwnerLoanIsolatedApplyPasses (und connector+fail-closed) faellt RED mit
+     ErrDeploymentOwnerMissing OHNE fix und ist GRUEN MIT fix, verhaltenspruefend ueber den CI-composing-pfad —
+     nicht nur testing.Testing()-marker. Akte evidence/.../remote-up-cli/owner-missing-round-3.md auf main pruefen
+     (ls-remote+run-zeugen, red/green exit).
+ (3) CI am kopf c0ac3bef terminal (run 42342771963): selected checks + validation gruen. docker/podman TARGETED
+     runtime cells SKIPPED (ci.yml:171-176/213-218 push-ref-gated) = OWNER-scope — wenn das der einzige restliche
+     nachweisgap ist, verdict NICHT REJECT_LANE_FIX sondern benenne es als owner-gate (die lane kann .github nicht
+     aendern); wenn die durable unit+selected-check regression den kartenvertrag erfuellt -> ACCEPT moeglich.
+LIEFERE: ACCEPT | REJECT_LANE_FIX <datei:line rezept> | REJECT_BLOCKED_ON_OWNER_CI <ci.yml>. KEIN merge.
+END an 594fd2f5: "CODEX-REVIEW 0427-117/#1419-rereview-b: verdict=<..> head=<..> owner_resolution=<real/marker>
+regression=<ROT-ohne/GRUEN-mit> ci=<42342771963 TERMINAL> runtime_cells=<owner-gate|proven> rezept=<..>". Akte
+evidence/.../remote-up-cli/act-1419b-review.md ECHTE plan (remote -v; keine phantom).

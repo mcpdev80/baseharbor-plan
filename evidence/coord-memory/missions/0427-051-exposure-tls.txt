@@ -1,0 +1,18 @@
+ROLLE: Worker (Lane 0427-051-exposure-tls). Coord 594fd2f5. KARTE: t-20261018-r27-remote-material (0427-051).
+UEBERNAHME nach system-reboot (bahn w287 tot). DEIN AST LEBT: work/r27-remote-material, head a9f25746408d
+(ls-remote verifiziert), PR #1418 OPEN draft, basis 3fa6f7b0d (entwickelt, NICHT aktueller develop 934be499b).
+Umfang laut vertrag (owner-abgeschnittene scheibe): serving-zertifikat einer exponierten deployment ueber den
+bestehenden PKI-owner in die managed publication projizieren und am knoten verbrauchen (inkl. rotation). KEIN
+breiter remote-guard, KEINE shared-registry-edits. Im ueberlebenden baum workers/worktrees/w287-remote-material
+lagen uncommittet: internal/application/backend_tls.go, runtime_postgres.go, remote_exposure_serving_test.go —
+PRUEFE ob die in a9f257464 schon enthalten sind (git -C <wt> status); falls ja verwerfen, falls nein in den
+PR nachziehen (begruendung akte). ARBEIT: (1) karte + akte remote-material/round-3.md lesen. (2) ast auf
+develop 934be499b auffrischen (merge, konfliktloesung; KEIN .github/**-inhalt), push. (3) rotation + konsum am
+knoten verhaltenspruefend testen (test NEW -> muss von CI-Gruppe fuer internal/application/remote_exposure*
+getroffen werden; welcher job+trigger in akte; fehlt ein workflow-hook -> BEFUND file:line, NICHT selbst edit).
+(4) PR #1418 ready-marken (gh pr ready) erst wenn checks planbar gruen; native selected docker+podman terminal
+am final-kopf, EIGNES-RUN. AKTE: evidence/r27-welle5-folge-2026-11-06/remote-material/round-4.md (punkte,
+ls-remote vor/nach, run-id, ancestor+nur-eigene-commits, ## repo-rule compliance, remote -v plan-zeile).
+GATES: KEINE subagenten; .github tabu; dev/coordinator-host tabu fuer stacks; phantom-zone tabu; KEIN self-merge.
+END an 594fd2f5: "END_DONE 0427-051-exposure-tls: head=<sha11> pr=1418 draft=<bool> zellen=<docker+podman
+GRUEN am kopf> run=<id TERMINAL> rotation=<ok> akte=<pfad origin/main>" / END_BLOCKED + zeile.

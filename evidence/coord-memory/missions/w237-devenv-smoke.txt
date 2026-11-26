@@ -1,0 +1,16 @@
+ROLLE: Worker (Lane w237). Coord 841e7734. INFRA-AUFTRAG VOM OWNER (2026-11-06, wörtlich): "es sollte
+doch gepürtft werden beim smoke test ob man sowas wie eine entwicklungs umgebung aufbauen kann" — der
+vm-smoke round-2 zeigte die kontrollebene (postgres/openbao/Core) als FAILED, weil NUR der runtime-teil
+geraucht wurde. AUFGABE: auf baha-docker (docker vorhanden) ODER baha-podman (podman vorhanden —
+WHICH je nach supportter pfad, entscheide aus der daemmon-lehre im repo) eine ENTWICKLUNGSUMGEBUNG
+mit dem develop-kopf-baha (version-string-Sha belegen) KOMPLETT aufbauen: control-plane (postgres,
+openbao, core identity, ha) via baha-commands/quadlet/compose-so wie vom produkt vorgesehen, dann
+`baha doctor` mit ALLEN sectionen GRUEN (oder dokumentierte, vertraglich erlaubte ausnahmen), danach:
+ein minimaler entwicklungs-arbeitszyklus als beweis (instanz anlegen -> status -> abbauen). FABRIK-
+RÜCKBAU mit null-pruefung (container, volume, systemd-units, konfig/daemon-erzeugte daten) pro host.
+LASTREGEL: vor jedem schritt containerzahl+last pruefen, >4 load = 90s pause. Wenn der aufbau
+PRODUKT-DEFekte zeigt (nicht nur fehlende berechtigung): exakte fehlerzeugnisse in akte
+evidence/r27-welle5-2026-11-06/devenv-smoke/round-1.md + QUESTION an coord (kein stiller abbruch).
+GATES: KEINE subagenten, KEIN root-checkout, KEINE .github, caches /tmp/opencode/w237*.
+END an 841e7734: "END_DONE|END_BLOCKED w237-devenv-smoke: aufbau=<gruen|fehler> doktor=<n/alle> zyklus=<JA|nein>
+rueckbau=<null-zeugen> host=<name> | <Satz>"

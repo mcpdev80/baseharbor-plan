@@ -1,0 +1,9 @@
+ROLLE: CODEX-REVIEW. Coord 841e7734. ABNAHME compose-host-isolation, kandidaten-genau.
+KANDIDAT: PR #1383 head 1b02e8866dd4 vs develop 7c393b0d (ahn gemessen JA); zweig work/r27-compose-isolation;
+karte t-20261105-r27-compose-host-isolation; akte evidence/r27-welle5-2026-11-06/compose-host-isolation/
+round-2.md + welle4 round-3.md. PRUEFPUNKTE: (1) Wirt-Trennung der compose-projekte vertragsgemass
+(eigene projekt-namen/daemons, keine wechselseitige zerstoerung), (2) hosted gates terminal gruen am
+exakten kopf (42210404583), (3) red-first/mutantenbeleg der isolationszelle, (4) write-set ohne .github,
+(5) rootless+rootless-praeferenzen der mission eingehalten (akte w232-rauchzeugnisse duerfen zitiert sein).
+URTEIL als datei evidence/r27-welle5-2026-11-06/compose-host-isolation/act-1383b.md auf origin/main
+(ACCEPT|REJECT+rezept), END an 841e7734: "END_DONE codex-luna-comp-1383b: verdict=<..> aktedatei=<pfad>".

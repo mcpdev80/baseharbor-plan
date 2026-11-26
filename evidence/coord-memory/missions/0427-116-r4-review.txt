@@ -1,0 +1,11 @@
+CODEX-REVIEW 0427-116 (karte t-20261106-r27-remote-up-cli-path, PR #1407).
+Rolle REVIEW (nicht merge noch). Kandidat: head c4d528645ee433827900a298563d605b120eb24f gegen develop 812c99c88. ls-remote bestaetigt, develop IST Vorfahr (drift-frei), delta NUR cmd/baha/app_remote_lifecycle.go + app_remote_pureclient_apply_test.go + app_remote_up_success_discriminator_test.go + internal/application/remote_pureclient_apply_roundtrip_test.go. CI run 4238139371 terminal success (9 pass 0 fail).
+Task-Vertrag: `python3 baseharbor-plan/scripts/plan.py show t-20261106-r27-remote-up-cli-path` + r3 request-changes Kontext.
+PRUEFPUNKTE (gegen Vertrag, sha-genauer diff):
+1. r3-Kernpunkt: ein ECHTER CLI `baha app up` err==nil SUCCESS test fuer connector-bound broker-less pure-client app ueber Docker UND Podman — ist die erfolg-transcript ECHT vorhanden und gefahren (NICHT auf #117 delegiert; #117 ist fail-closed-only, gemergt). success-discriminator + round-trip cell: beweisen sie die unit-unreachable err==nil success seam, oder ist das nur fail-closed verkleidet?
+2. red-first: rot auf vorherigem develop-zustand, gruen auf kandidat, nachgewiesen (inject core bootstrap => rot).
+3. write-set: keine #1383 lifecycle/fixture dateien angefasst, kein .github, keine CI-naht.
+4. CI-Aufnahmepflicht: neuer test von bestehender acceptance erfasst (go-unit + runtime gate), kein fake pass/skip.
+5. keine abgeschwaechten lifecycle-expectations.
+Urteil APPROVE|REQUEST-CHANGES mit LOESUNGSREZEPT (datei, aenderung, testanforderung, stop-kriterium). Du setzt KEIN eigenes check-gate und faehrst KEINE CI neu. Review veraendert kandidat nicht (vor/nach sha verifizieren).
+END an 594fd2f5. Wenn APPROVE + alles passt: melde, ich gebe CODEX-MERGE frei.

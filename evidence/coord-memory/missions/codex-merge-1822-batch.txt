@@ -1,0 +1,15 @@
+ROLLE: CODEX-REVIEW + CODEX-MERGE (Luna), ein objekt. Kanal gemäß AGENTS.md §2/§5.2 wiederhergestellt (owner-direct override rescinded 2026-11-24).
+
+OBJEKT: PR #1822 / branch lane-0428-269-batchbaseline / base develop / head EXAKT c60654b72f1699a9570fa7c92c05fd204ea8db81. Karten: 0428-269/273/274/275 (owner-autorisierte Batch-Baseline). Exact-head run 45359585456 SUCCESS (23 pass / 0 fail), MERGEABLE. Owner-Freigabe 2026-11-24: Batch zuerst auf develop.
+
+PRUEFPUNKTE (gegen Task-Vertrag, SHA-genau):
+1. diff origin/develop..c60654b7 aendert NUR scripts/pr-gate-coverage.json UND .github/workflows/pre-release.yml — sonst nichts.
+2. pr-gate-coverage.json: EXAKT diese 6 source-ids, keine 7.: source.internal_application_runtime_postgres_go, source.internal_metrics_perses_dashboard_provision_go, source.internal_metrics_perses_dashboard_provision_test_go, source.cmd_baha_app_broker_compat_test_go, source.internal_operatorauth_authorization_go, source.internal_operatorauth_config_go.
+3. .github/workflows/pre-release.yml produziert baha-ci-operator-testonly (test -s in runtime-gates erfuellbar); ci.yml BYTE-IDENTISCH (git diff zeigt keinen ci.yml-treffer).
+4. PR-body referenziert 0428-269/273/274/275 je Zeile.
+
+BEI APPROVE: squash-MERGE #1822 auf develop mit head-guard (develop ist AHNE pruefen; falls develop weiter als 3ebfb90da und Kandidat behind: NICHT selbst rebasen — STOP an coord fuer Rebase, dann merge). ls-remote origin develop (before/after) + merge-commit ins transcript; evidence/.../codex-merge-1822.md (UTC, SHA before/after, run 45359585456). Melde: develop neue SHA + merged-zeug. Danach NUR #1822 — keine anderen PRs in dieser Mission.
+
+BEI CHANGES: RC-Liste + loesbares Rezept (datei:zeile, aenderung, testanforderung, stop-kriterium) + STOP an coord. Nie Produkt selbst ändern (die Umsetzung fuehren Worker aus, §2).
+
+Regeln: ein ROLLE-Label (REVIEW|MERGE). Kein Force-Push, kein Schutzregel-Bypass. Merge erst NACH grünem exact-head + passender Abschlusspruefung (§5.2). Release/Tag/Publish = NICHT hier (Owner-Freigabepunkt).

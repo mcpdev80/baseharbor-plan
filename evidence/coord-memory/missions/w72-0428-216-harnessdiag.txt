@@ -1,0 +1,8 @@
+READ-ONLY DIAGNOSTIC DESK (BUG-HUNT fill, §3.3.5 — Befund only, no changes, no PRs, no merges, no subagents §4.8). Question to localize: WHY do all 14 v0.4.27 runtime Light gates fail at the identical 'authenticated BaseHarbor operator' setup step — on PR #1812 exact-head run 45385372243 AND on plain develop run 45251664813 — when `test -s baha-ci-operator-testonly` PASSES?
+
+Investigate read-only:
+1. Find the gate harness step that establishes the 'authenticated BaseHarbor operator' (search .github/workflows/pre-release-runtime-suite.yml + .github/workflows/*.yml + scripts/pr-gate-plan.py + the reusable workflow these call) and quote file:line of the setup command + the env/token inputs it consumes.
+2. Determine whether the failure is (a) a missing owner-provided credential/env for the dispatch context (§3.8: auth/ENV from system/Owner), (b) a develop-side regression in operatorauth (the #1821 fail-open-removal changed internal/operatorauth/*), or (c) an artifact/path the harness expects but the candidate does not produce.
+3. Diff the operator-auth setup between a known-GREEN runtime-light run (find one via gh run list --workflow) and these failures, file:line level.
+4. Produce a Befundakte baseharbor-plan evidence/r28-welle6-2026-11-24/runtime-gate-auth-harness-census.md with ## PLAN + todowrite: the root-cause hypothesis ranked, exact repro (run ids 45385372243 / 45251664813 / a green reference), and whether it needs an OWNER CI/workflow fix vs a code card. Commit+push atomically (single new file, git add that file only, pull --rebase origin main first).
+Findings that warrant a code card → note the card number you propose (Fund→Karte). DO NOT edit scripts/** or .github/** — those are owner-scope; you only READ and report file:line.

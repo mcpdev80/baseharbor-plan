@@ -1,0 +1,16 @@
+ROLLE: Worker (Lane w264). Coord a4573079. KARTE: t-20261106-r27-remote-up-cli-path (NEU, planned).
+CONTEXT: fernsteuerungs-akte evidence/r27-welle5-2026-11-06/remote-control-smoke/round-3.md — anmeldung/
+plan/status funktionieren, ABER `baha app up` haelt am gate app_remote_lifecycle.go:34 (provider-bindings-
+pfad fuer CLI-start unvollstaendig; runtime_explorer_machine.go:55 als zeuge).
+ARBEIT: karte lesen (plan.py show), claim VOR erster aenderung (plan.py), zweig work/r27-remote-up-cli
+von AKTUELLEM develop, LUEGE SCHLIESSEN NICHT umgehen: up-pfad eroeffnet die provider-bindings korrekt
+ueber den connector-weg (kein lokales fallback, kein skip — karten-acceptance wort). red-first zelle.
+Wenn die Luecke ein ANDERES design verlangt als die karte annimmt: QUESTION an coord statt umdeklarierung.
+Host-ZELLEN: vm-lock seriell (baha-docker 166 FREI; podman-seite wenn 148/107 frei — rc=3 dann docker
+zuerst fertig, podman als zweiter schritt; NIE coordinator-host container). PR #-gegen-develop, selected
+checks am final-kopf terminal selbst beobachten. AKTE: evidence/r27-welle5-folge-2026-11-06/remote-up-cli/
+round-1.md (PLAN als PUNKTE, keine checkboxen — board-fehlerklasse heute zweimal aufgetreten; lsremote,
+run-ids, vm-transkripte, ## repo-rule compliance).
+GATES: KEINE subagenten/zweiter PR/root-checkout/.github, caches /tmp/opencode/w264*.
+END an a4573079: "END_DONE w264-remote-up-cli: head=<sha10> pr=<n> up=<GRUEN docker|podman je> lauf=<id
+TERMINAL> lsremote=<sha10> akte=<pfad main> | <Satz>"
