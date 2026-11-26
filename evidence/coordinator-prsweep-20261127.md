@@ -1,6 +1,6 @@
 # PR-sweep reconciliation 2026-11-27T03:0xZ (coordinator, owner sweep request)
 
-Census: 19 OPEN product PRs (baseharbor): 1650 1812 1818 1819 1820 1833 1855 1860-1871. #1615 MERGED. Plan main witness at publication: origin/main 41bfea7d8-era.
+Census: 20 OPEN product PRs (baseharbor): 1650 1812 1818 1819 1820 1833 1855 1860-1872 (#1872 = baseline catalog act for 0428-344, added 26.11 sweep). #1615 MERGED. Plan main witness at publication: origin/main 41bfea7d8-era.
 
 ## Lane assignments (live sessions reconciled)
 | Card | PR | Lane | State |
@@ -22,3 +22,6 @@ Seats 5/5 after reconciliation: ornith 2/2 (w345, w346), laptop 2/2 (w341/w342 i
 - Write-set: 10 catalog rows in scripts/pr-gate-coverage.json vs develop - belongs to EXISTING family 0428-359/#136 (card file t-20261126-trusted-catalog-baseline-recovery-manifest.md rides plan #136 branch; lands there on freeze-lift, no duplicate card).
 - Lane record: w347-0428-344-baseline (session 1580581f), parked worktree at 5a37ddbd9a06dd44f6068d3266ff2ed853a84a74, resumed 04:3xZ with corrected real-path mission.
 - #1871: remains BLOCKED + catalog-free until baseline PR lands on develop AND owner requalifies exact head. Precedent: #1865 ACCEPT 7199319282 (row-before-candidate supported); w255 verdict comment 7202869676.
+
+## W46 baseline act live (05:1xZ)
+- #1872 OPEN vs develop, head 2a645d157c1849778caf01d6fa2532479b0cb972 (author=committer w347-0428-344-baseline), Hosted run 45893486909 IN_PROGRESS; predecessor 45893473011 CANCELLED (Draft-Go failures there are NOT results). Single lane assignment per owner (w347, no duplicate). #1871 stays blocked until #1872 lands AND fresh exact-head requalification.
