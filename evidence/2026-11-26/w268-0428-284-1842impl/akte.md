@@ -92,3 +92,7 @@ Open via `gh pr create` from branch `w268-0428-284-1842impl-evidence`.
 - CI identity from `67457cdb3`: lane `w268-0428-284-1842impl` (per-command).
 - Zero local test execution (CI is the test surface).
 - Publish: own plan branch + `gh pr create`; never direct main, never merge.
+
+## Owner disposition on branch re-publication — 2026-11-26 04:51Z
+
+The abandoned PR #91 heads are preserved as audit-only history: `bf47bf3c2acb9b3b77d4dcf32a8144eedb89b31d` at 04:13:32Z, `d4d01b9f3acfa646e87409256340bb24360d554d` at 04:32:49Z, and `fafe6bd3520a56bc66d0d9ab75d65c87f566e9ae` at 04:39:33Z. The current branch was re-cut from Plan main `72f2c83aa8393ab757bf728564f72c31b8788d44` at 04:42:10Z under lane `w268-0428-284-1842impl`. The nested `baseharbor-plan/` prefix and the foreign w262 path are closed in the current PR publication by re-publication rather than by a forward commit; this re-publication is the Owner's disposition, not an accident. The abandoned heads remain audit-only; no further history rewrite or force-push is authorized.
