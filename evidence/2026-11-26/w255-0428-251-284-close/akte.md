@@ -74,3 +74,13 @@ The task ID and owner fields are unchanged. The additional commit records the pu
 ## First branch delivery witness
 
 The first normal push delivered commit `ac1f100d0d4f2ff255515b86a1e32e4f1bb66834`; direct GitHub transport witness from `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/w255-0428-251-284-close` was `ac1f100d0d4f2ff255515b86a1e32e4f1bb66834 refs/heads/w255-0428-251-284-close`.
+
+## Pull-request ref delivery witness
+
+After PR #111 was opened on head `dd37bf6eda6bbe4e49afe0361644b88c7ff62a65`, `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/pull/111/head refs/heads/w255-0428-251-284-close` returned:
+
+`dd37bf6eda6bbe4e49afe0361644b88c7ff62a65 refs/pull/111/head`
+
+`dd37bf6eda6bbe4e49afe0361644b88c7ff62a65 refs/heads/w255-0428-251-284-close`
+
+Hosted run `45779132358` completed SUCCESS on this exact head. The next forward commit records these post-push transport witnesses; final acceptance will use the new exact-head Hosted Plan validation after that commit.
