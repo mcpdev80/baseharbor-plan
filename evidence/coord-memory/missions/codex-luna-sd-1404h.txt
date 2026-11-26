@@ -1,0 +1,8 @@
+ROLLE: CODEX-REVIEW. Coord a4573079. DELTA-ABNAHME control-plane-single-default RUNDE 6 (kopf UNVERAENDERT
+ed98ed1dde7). Dein Vorgaenger-rezept act-1404g punkt 1 (reset-vs-untouched widerspruch) wurde NUR durch
+records beantwortet: NEUE AKTE control-plane-single-default/round-6.md — zeitachse journal 20:31->21:06 leer,
+endpoint podman-2 volumes=0 networks=0 images=5 base-only, reset traf nur foreign uid-100099 spilo-restschicht.
+PRUEFPUNKTE: (1) round-6s records gegen journal.log/platte verifizieren (du darfst host READ-ONLY pruefen),
+(2) ist der rezept-punkt damit erfuellt ohne neuen lauf (dein eigener punkt 2 sagt: keine zellen-wiederholung
+verlangen), (3) NEIN zu zusatzforderungen am unveraenderten kandidat (§5.4). URTEIL als
+control-plane-single-default/act-1404h.md (ACCEPT|REJECT+rezept). END an a4573079: "END_DONE codex-luna-sd-1404h: verdict=<..>".

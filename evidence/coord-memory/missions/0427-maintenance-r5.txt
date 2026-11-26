@@ -1,0 +1,10 @@
+Auftrag 0427-034-maintenance-r5 (lane 52277f38, laptop, FRISCH). Karte t-20261018-r27-maintenance-client. PRAEZEDENZ: 4.bounce derselben karte — fuehre EXAKT das rezept, keine eigeninterpretation, kein scope.
+Kandidat PR#1428 head 396529860e1f (drift-frei, CI terminal war gruen) — CODEX-REVIEW = REQUEST-CHANGES, zwei mechanische punkte:
+  1. INVERTED RETRY-ORACLE: der history-residue retry-pfad erwartet in deinem table-driven test das FALSCHE ergebnis (pruefe die matrix-zeile fuer 'owner failed destroy -> retry': retry muss gegen den TOMBSTONE/durable record laufen, nicht gegen live-state). Oracle-Richtung an dem rezept in act-1428-review.md (neuester commit auf origin/main, section 'actionable recipe') ausrichten und die mutation gegentesten (zeile muss rot werden, wenn das oracle zurueckgedreht wird).
+  2. TOMBSTONE REPLAY PATH FEHLT: es gibt keinen test UND keinen klar dokumentierten pfad fuer 'replay nach erfolgreichem tombstoned destroy'. Beide routen (local+remote) muessen replay konsistent beantworten (idempotent, querybarer window), mit last-bearing regression.
+VORGEHEN: lies zunaechst die AKTUELLE act-1428-review.md auf origin/main (git log -1 dazu) und stelle sicher, dass beide punkte wörtlich abgearbeitet sind — bei abweichung zwischen meiner zusammenfassung und der akte: AKTE GEWINNT.
+- claim: plan.py claim t-20261018-r27-maintenance-client --owner 0427-034-maintenance-r5 (commit+push) BEVOR aendern. git-identitaet user.name=0427-034-maintenance-r5.
+- basis PR#1428 branch lane/0427-maintenance-client-wt head 396529860e1f; develop-ancestor rc0 pruifen. delta NUR maintenance-dateien.
+- push auf denselben PR-branch (normal), ls-remote zeugnis, hosted CI selbst bis TERMINAL (run-id in evidence), ## PLAN + todowrite, keine subagenten (4.8), END PFLICHTIG (3.bahn-steht-ohne-END-fall in dieser woche — rotation droht).
+Evidence: evidence/r27-welle5-folge-2026-11-07/maintenance-client/round-5.md
+END an 594fd2f5. karte->review wenn beide punkte behoben + drift-frei + CI terminal gruen.

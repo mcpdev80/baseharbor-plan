@@ -1,0 +1,12 @@
+ROLLE: Worker (Lane 0427-107-docker-podman). Coord 594fd2f5. KARTE: t-20261104-r27-vm-integration-runs (0427-107).
+Bahn w288 durch system-reboot tot. ZIEL (Smoke/Validierung, KEIN neuer dauerhafter test): BaseHarbor-Instanz
+faehrt auf einem Podman-Rechner igual wie auf Docker hoch. NUTZE docker UND podman-2 (mehrere VMs sind die
+REGEL, owner-direktive 2026-11-07: fertigstellende integrations-bahn darf zwei hoste halten). (1) karte +
+w288-akte vm-integration-runs/round-2-podman.md lesen (liegt jetzt auf echter origin/main). (2) auf baha-docker
+UND baha-podman-2 (ssh) je eine instanz hochfahren, readiness + journal-provenienz belegen; eigene compose-
+projekte mit lane-namen, VOR END wieder down (ps-zeugnis in akte, hygiene RUNBOOK). KEINE stacks auf dem
+coordinator-/dev-host. (3) produkt-code nur wenn ein echter fehler auftritt, dann mit PR + CI-aufnahme; sonst
+findings only. AKTE: evidence/r27-welle5-folge-2026-11-06/vm-integration-runs/round-3-docker-podman2.md (punkte,
+beide host-befehle woertlich, ps-down-zeugnis, remote -v plan-zeile). GATES: KEINE subagenten; .github tabu;
+dev/coordinator-host tabu; phantom-zone tabu. END an 594fd2f5: "END_DONE 0427-107-docker-podman: docker=<ok>
+podman2=<ok> readiness=<belegt> down=<ps-zeile> akte=<pfad origin/main>" / END_BLOCKED + zeile.

@@ -1,0 +1,9 @@
+MISSION: 0428-058 / PR #1809 (RESTART, continue EXISTING branch). Prior lane session died (backend gone). Branch lane-0428-058-cli2-audit-events is preserved on lane-origin at head 034c0c7d.
+
+Step 0 — ATTACH, do NOT branch: git fetch lane-origin; git checkout lane-0428-058-cli2-audit-events (continue THIS branch; never create a new one; keep the existing commits).
+
+Step 1 — additive hop: git merge --no-edit lane-origin/develop (develop = d4fa8c589, which merged #1813 registering catalog rows for cmd/baha/secret_audit_test.go + cmd/baha/secret_operations.go). If the merge CONFLICTS, git merge --abort and post a QUESTION; do not self-resolve.
+
+Step 2 — the code is already complete (audit/secret/env in cmd/baha). H-V37 confirmed the old Draft Go reds were STALE runs, not content. After the hop, push to the SAME branch and watch YOUR OWN exact Headed CI to terminal (Eigenes-Run-Pflicht). Trusted Plan + PR Selected Checks + Draft Go should now clear since the paths are cataloged. New tests you add must be run by the PR · Go unit / Draft Go shard (CI-aufnahmepflicht §5.3); if a new test has no CI route, report the file:line as a finding — do NOT edit .github/** or scripts/**.
+
+Stop criteria: conflict -> QUESTION; no local go test as sole proof; no merge (Merge-Frost); one branch; no scripts/** or .github/** edits. END: post "END_DONE 0428-058: new head <sha>; CI <run id/result green>" or "END_BLOCKED 0428-058: <precise blocker with run/job line>".

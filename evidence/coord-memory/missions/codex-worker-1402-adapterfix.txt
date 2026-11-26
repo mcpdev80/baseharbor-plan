@@ -1,0 +1,15 @@
+ROLLE: CODEX-WORKER. Coord 841e7734. KARTE: t-20261018-r27-image-transfer RUNDE 5 (PRODUKTDEFEKT-BEHEBUNG).
+BEFUND (w244, act-getragen): application_image_transfer.go Zeilen 251-252,260,324-325,362-364 am kopf
+c8272e9f3d04654fb711fbc5a716eb538bdba6dd fahren podman-templates, die podman 5.7 ablehnt
+('[repo@digest]' form + .Config.Architecture pfad) — der adapter-kandidat scheitert auf der echten
+podman-runtime, docker-pfad nur manuell bewiesen. AUFGABE: adapter so korrigieren, dass die
+TATSAECHLICHEN podman-5.7-kommandos ({{(index .RepoDigests 0)}}-form, .Architecture/.Os felder —
+round-3/4 akten zeigen die funktionierenden wortlaute) BOTH runtimes sauber durchlaufen;
+red-first: podman-cell faellt gegen heutigen kopf (zeugnis), gruen nach fix; docker-cell bleibt gruen.
+ZWEIG work/r27-image-transfer (PR #1402) — derselbe antrag, neue commits oben drauf. develop ist jetzt
+78e78e6+ — einmerge. Hosted laeufe am FINAL-kopf terminal beobachten (rerun-bedarf -> coord, nie selbst).
+VM-NUTZUNG NUR MIT vm-lock (einer-nach-dem-anderen; docker haelt w237 bis dessen END). Akte round-5.md
+mit fuenf-kopf-tabelle + mutantenbeleg. GATES: KEIN zweiter PR, KEINE subagenten, .github nur wenn
+contract-golden (begruenden), caches /tmp/opencode/w245*.
+END an 841e7734: "END_DONE codex-worker-1402-adapterfix: head=<sha10> red-first=<rot+gruen> podman57=<JA>
+lauf=<id STATUS> | <Satz>"

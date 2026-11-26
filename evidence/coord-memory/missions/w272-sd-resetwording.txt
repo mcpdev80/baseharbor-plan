@@ -1,0 +1,22 @@
+ROLLE: Worker (Lane w272). Coord a4573079. KARTE: t-20261106-r27-control-plane-single-default RUNDE 7.
+Faktenlage (coord selbst gemessen, w266 round-4 wortlich): "podman-2: ... w251-leftover
+(baseharbor-podman-local*) unangetastet" — die Netzwerke existierten also NACH w266 (20:31Z) auf dem host.
+w268s `podman system reset --force` (~21:1xZ) loscht per definition ALLE netzwerke — round-5's
+"foreign leftovers UNTOUCHED" und round-6's "beim reset waren keine fremden netzwerke" sind damit WIDERLEGT
+(round-6 hatte nur post-reset + container-only beweise). REZEPT act-1404g/h punkt 2: KORREKTUR-TEXT statt
+behauptung, plus verlust-bewertung.
+ARBEIT (records + READ-ONLY host, KEINE zellen-wiederholung, KEIN reset, KEIN code, kopf bleibt ed98ed1):
+(1) round-7.md schreibt die korrektur: reset hat die w251-leftover-netzwerke baseharbor-podman-local*
+    entfernen MUESSEN (podman-doc Semantik); zeitachse wie round-6 aber EHRLICHE bewertung.
+(2) verlust-bewertung: w251-karte ist laengst accepted (zellen 3/3 gruen in round-3, akte auf main) — die
+    netzwerke waren nur laufzeit-definitionsreste; keine datenverlute (volumes waren 0 laut w266-rueckbau-
+    zeile). Beweis: round-3.md rueckbau-zeile + round-4 zeile + endpoint round-6. Ein netzwerk wird von
+    `baha up` bei Bedarf neu erzeugt — zaehle den heutigen zustand auf 107 (nur lesen: network ls) als
+    endpunkt-zeugnis.
+(3) round-5 und round-6 NICHT loeschen — ergaenze je einen 'KORREKTUR RUNDE 7'-vermerk-oben-abschnitt mit
+    verweis auf round-7 (historie bleibt lesbar, behauptung gilt berichtigt).
+AKTE: control-plane-single-default/round-7.md (PUNKTE statt checkboxen, ## repo-rule compliance).
+GATES: KEINE subagenten, /tmp/opencode/w272*, zone workers/w272-wt, read-only host-zugriff dokumentieren.
+END an a4573079: "END_DONE w272-sd-resetwording: korrektur=runde5+6 ergaenzt round-7 auf main
+verlust=nur netzwerk-definitionen (w251 accepted, keine daten) endpoint-107=<netzwerk-zaehlung>
+kopf=ed98ed1dde7 lsremote-akt | <Satz>"

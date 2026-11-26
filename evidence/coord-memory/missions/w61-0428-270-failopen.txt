@@ -1,0 +1,11 @@
+TASK 0428-270 · trusted-local fail-open seam is DEAD (bughunt-hv26 F3). Card t-20261124-r28-trusted-local-failopen-seam-dead (claimed). Dep (trusted-local-operation-grant) is CLOSED -> dep-free.
+
+On develop 3ebfb90d: internal/operatorauth/config.go:89-91 ManagedEnvironment(env) returns ManagedEnvironmentWithPolicy(env,false), and config.go:108-110 ManagedEnvironmentWithPolicy = return !trustedLocal, so ManagedEnvironment is true for EVERY env -> the branch in authorization.go:276-282 `if !ManagedEnvironment(...) && !ok { Allowed=true; Actor=trusted-local }` is dead for every caller. The documented contract (fail-open to trusted-local) and actual behaviour disagree.
+
+Steps:
+1. Claim already published; rebase isolated branch on develop 3ebfb90d. READ first: authorization.go:276-282 + config.go:89-110 + any production caller. COLLINEARITY GUARD: if the file shows the owner/#1819 active edits or is in another live lane's write-set (operatorauth witness producer restructure), post a QUESTION with file:line and STOP — do not race the owner.
+2. Resolve the dead seam so behaviour matches contract, FAIL-CLOSED: EITHER make the trusted-local fail-open branch a live, POLICY-DRIVEN path for genuinely trusted host-local operators (opt-in, never default-true for arbitrary env names), OR delete the dead branch + the misleading comment so no unreachable fail-open is claimed. Prefer the policy-driven live path ONLY if a real trust signal exists in the decision context; otherwise remove the seam. Never widen who is trusted by default.
+3. Regression: prove an arbitrary/untrusted env name does NOT silently become trusted-local-and-allowed; and (if live path chosen) prove a genuinely trusted local operator IS allowed. Put the regression in the EXISTING operatorauth package test file so no NEW source path needs a gate-catalog row; if a new file is unavoidable, do NOT add catalog rows — report the needed row (id+path+surfaces) as a QUESTION for the owner (scripts/ is owner-scope, #1817).
+4. Push exact head, run exact-head Hosted to terminal, record run id + outcome. Hosted ONLY.
+
+Rules: scripts/**, .github/** untouched. MERGE-FROST: no merge, PR OPEN. One PR per card. No subagents (AGENTS 4.8). No Codex. Reply head SHA + ls-remote + run id, and state which option (live policy vs remove seam) you chose + why.

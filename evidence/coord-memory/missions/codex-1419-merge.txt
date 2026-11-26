@@ -1,0 +1,10 @@
+ROLLE: CODEX-MERGE (fortfolgend auf dein CODEX-REVIEW approve desselben Kandidaten — nacheinander, nicht vermischt)
+PR #1419 head 5c08ed6be15eac7931441c9a78655aa67e2a50f8 base develop 4bcede9786c  repo mcpdev80/baseharbor
+FUEHRE DEN MERGE AUS nach Merge-Protokoll (RUNBOOK 3):
+- Live-Gates ZUERST: gh pr checks 1419 (erwartet 11 pass auf diesem head), head-SHA gegen ls-remote, mergeable=yes, rulesets (code-owner + last-push + squash-only + up-to-date) erfuellt.
+- KEIN force, KEIN branch-protection bypass, KEIN admin-override.
+- squash-merge in develop. Wenn ruleset einen squash-only merge verlangt, genau so.
+- POST-MERGE: develop-head neuen sha notieren, develop-checks verifizieren (kleine receipt-datei gemaess CI-Lebenszyklus 425).
+- Evidence: evidence/.../remote-up-cli/ codex-merge-1419-<UTC>.md (UTC-Zeit, sha before/after, run-ids).
+- Wenn ein Live-Gate NICHT gruen/erfuellt ist: NICHT mergen, END_BLOCKED mit exaktem fehlernden gate.
+END an 594fd2f5.

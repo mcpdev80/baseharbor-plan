@@ -1,0 +1,9 @@
+ROLLE: CODEX-REVIEW. Coord 841e7734. ABNAHME image-transfer RUNDE 5, kandidaten-genau.
+KANDIDAT: PR #1402 head 1c024d11bd6 vs develop; akten round-1..5.md + deine acts 1402b/c/d (alle
+befunde müssen nun geschlossen sein: fail-closed, echter red-first mutante, adapter-level docker+podman
+rauche mit host-zeugnissen+fabrik-rueckbau, develop-ahn, lauf terminal). PRUEFPUNKTE: (1) diff gegen
+c8272e9f3d0 = nur adapter TEMPLATE korrekturen? (begruendung noetig wenn mehr), (2) lauf 42226452453
+terminal success am exakten kopf, (3) round-5 rauch-zeugnisse beider runtimes wortlich + 0-container,
+(4) schreibset application_image_transfer.{go,_test}(+tests) ohne .github, (5) alle 1402d-punkte erledigt.
+URTEIL als evidence/r27-welle5-2026-11-06/image-transfer/act-1402e.md auf origin/main, END an 841e7734:
+"END_DONE codex-luna-img-1402e: verdict=<..> aktedatei=<pfad>".
