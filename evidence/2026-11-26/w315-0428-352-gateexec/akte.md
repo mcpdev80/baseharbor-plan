@@ -93,6 +93,14 @@ The 14 gates of card 0428-352 are the Light gates dispatched by the pull_request
 - scratch files confined to /tmp/opencode (w315-*.{json,py,yml,diff,tsv,log}, sim* replay dirs, a*.zip artifacts) and this evidence directory
 - worktree: workers/w315-0428-352-gateexec-plan (own isolated plan worktree, removed after merge per protocol)
 
+## STEP G1 — product merge witness (mission context check)
+
+- `gh pr view 1859 --json state,mergedAt`: state MERGED, mergedAt 2026-11-26T11:17:50Z → the catalog change is now part of the trusted BASE; the develop head moved b7855f78a → 5a37ddbd9a06dd44f6068d3266ff2ed853a84a74.
+- `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop` at END: 5a37ddbd9a06dd44f6068d3266ff2ed853a84a74.
+- `git log --oneline b7855f78a0253b9423e07da6ae92009b8f0fd1ae..5a37ddbd9a06dd44f6068d3266ff2ed853a84a74` = exactly one commit: "feat(0428-352): trusted catalog row so runtime-suite candidates select Docker/Podman gates (#1859)" — a merge/squash of #1859's own 3 commits; no foreign candidate is carried on top.
+- `git merge-base --is-ancestor b7855f78a 5a37ddbd9` = TRUE (base head is an ancestor of the new develop head, i.e., the attested SHA from which the merged-catalog state was cut).
+- `git diff --name-only b7855f78a 5a37ddbd9` = [scripts/pr-gate-coverage.json, scripts/test_pr_gate_coverage.py] and `git diff 0716d20be 5a37ddbd9` is empty — the catalog blob on develop is byte-identical to the head blob 4f6a4af85 this lane measured.
+
 ## STEP G — base-attestation replay witnesses (mission branch-provenance duty, applied to the read objects)
 
 For the two candidate commits this mission evaluates, the base heads were fetched from the real URL and attested:
@@ -127,4 +135,4 @@ For the two candidate commits this mission evaluates, the base heads were fetche
 
 ## END line
 
-END_DONE w315-0428-251-0428-352-gateexec: 14 Light gates = PR-path Selected-Runtime family; one trusted-base catalog change (row + 10 cover tokens, #1859 as-is) EXECUTES them on a workflow-file pull_request candidate (measured replay 14/required=true); runtime-validation/ha push path NOT unavoidable for these gates and never reachable from pull_request; #1859's own runs executed 0 of them; precedent finding: plan-main graft into candidate 8b96407aa flagged for disposition.
+END_DONE w315-0428-352-gateexec: 14 Light gates = PR-path Selected-Runtime family (ci.yml PR · Selected Runtime → pre-release-runtime-suite.yml), NOT the push-only Targeted HA family; #1859 (merged to develop 5a37ddbd9 at 11:17:50Z) makes the catalog row + 10 gate cover tokens EXECUTE-capable for any workflow-file pull_request candidate (measured replay 14 selected / required=true); its own runs executed 0 of them (census 11/21/0 confirmed, Selected Runtime SKIPPED); no runtime-validation/ha ref exists and that path is not needed for these gates; next trigger (coordinator/owner act): one new pull_request event on #1812 at the new base to show the executed 14.
