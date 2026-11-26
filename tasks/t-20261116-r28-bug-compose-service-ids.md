@@ -87,3 +87,9 @@ Use J-Commerce docker-compose.yaml including `vector_db`, and run `baha app init
 Before 0428-288 can qualify, hop PR #1833 onto current develop and obtain two distinct fresh `pull_request` runs on that exact same head, both attempt 1. Run 45513816046 is attempt 2 and is void as pair evidence. The sequencing dependency now points to successor card 0428-284 / PR #1856 rather than closed #1842.
 ## Owner authorisation 2026-11-26T19:1xZ (Block 1) - RECEIVED, status: QUEUED (no free seat this minute; dispatched at first release)
 Extend ONLY the three #1833 rows `source.internal_application_manifest_validation_go`, `source.internal_application_workload_go`, `source.internal_application_workload_test_go` in the existing trusted 0428-359 base for develop with `runtime_specific: true` (hint 7196853372). No gate selector, no workflow change, no product PR, no further catalog rows, no merge authorisation. Freeze note: no exception required - preparation/publish via branch+PR is unfrozen; only merges stay held. Transport: one catalog-only family PR (pattern #1865); if the three rows are absent on develop, their accepted 0428-359 content ships WITH the flag (still exactly these three rows).
+
+## Owner authorisation 2026-11-26T19:2xZ (Block 2) - RECEIVED, status: QUEUED (serial after Block 1 baseline, same write-set)
+- Compose override: use RAW KEY `vector_db`; REJECT `vector-db`.
+- Reject ambiguous mapping; ADD a materialization regression test (Hosted-CI-selected).
+- Shared write-sets serialize with existing #1833 work (one owner at a time on these files).
+- After Block-1 baseline is effective: run Docker AND rootless Podman gates on the IDENTICAL final head via Hosted CI per existing qualification rules. No merge authorisation.
