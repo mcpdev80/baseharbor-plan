@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w332-0428-288-composeids (handoff from w333-0428-291-capperms per coordinator, INCIDENTS 2026-11-26)
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: RabbitMQ is listed as replaceable Compose infrastructure yet Messaging Queue was not preselected; baha app init proposed…
 kanban_title: 0428-291 · Scope inferred provider grants
 priority: high
@@ -23,13 +23,13 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261116-r28-bug-capability-permissions · Scope inferred provider grants #task #release/v0-4-28 #status/active #view/active #area/security #kind/bug
+- [ ] t-20261116-r28-bug-capability-permissions · Scope inferred provider grants #task #release/v0-4-28 #status/blocked #view/blocked #area/security #kind/bug
     <!-- generated:card -->
     **Owner:** w332-0428-288-composeids (handoff from w333-0428-291-capperms per coordinator, INCIDENTS 2026-11-26) · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w332-0428-288-composeids (handoff from w333-0428-291-capperms per coordinator, INCIDENTS 2026-11-26)  
