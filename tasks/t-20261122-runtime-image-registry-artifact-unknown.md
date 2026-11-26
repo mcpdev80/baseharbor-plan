@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w170-0428-249-demo-pr175-fixup
-kanban_status: closed
-kanban_lane: closed
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: ""
 kanban_title: 0428-249 · light-runtime blob unknown
 priority: high
@@ -18,20 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812, mcpdev80/baseharbor#1837]
 sources: []
 blocker: ""
-wait_reason: ""
-resolution: accepted
+wait_reason: "Reopened per W16: #1812 is still OPEN at 0922888af8fd70be4049cec529c69aebc057a356; re-evaluate this card after its exact-head work is complete."
+resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-demo/pull/175"]
 ---
 
-- [x] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/testing #kind/bug
+- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/testing #kind/bug
     <!-- generated:card -->
     **Owner:** w170-0428-249-demo-pr175-fixup · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812), [baseharbor#1837](https://github.com/mcpdev80/baseharbor/pull/1837)  
+    **Waiting:** Reopened per W16: \#1812 is still OPEN at 0922888af8fd70be4049cec529c69aebc057a356; re-evaluate this card after its exact-head work is complete.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-demo/pull/175)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261124-r28-release-candidate-testonly-binary](t-20261124-r28-release-candidate-testonly-binary.md)  
 **Owner:** w170-0428-249-demo-pr175-fixup  
@@ -189,3 +190,7 @@ Sequence step 1 (owner re-release): rebase #1812 onto develop 05ef48536; superse
 Rebased onto develop 46d3dccc, exact head 47590207518, one-file diff pre-release-runtime-suite.yml. PR CI 45397265257 SUCCESS. Docker Light dispatch 45398943139 on head; w81 reports a .github resource-validation blocker (static_gates vs runtime_light_gates_* classification) at pre-release-runtime-suite.yml:237-246 — owner-scope, escalated (card 0428-280). Podman held until owner scope answer + Docker outcome.
 
 Core fixture handoff (2026-11-24): BaseHarbor PR [#1827](https://github.com/mcpdev80/baseharbor/pull/1827) merged at `adf43709b8b37cd2b18a6bf4710019d7343d54b4` (source `83d7c7afc84740b565ff654562a178361c3522c8`) with two exact-head green Hosted CI runs: [45455276409](https://github.com/mcpdev80/baseharbor/actions/runs/45455276409) and [45460654225](https://github.com/mcpdev80/baseharbor/actions/runs/45460654225). This closes only the Core test-only fixture half; #1812 still needs its own requalification after merge, assigned to w112. Existing #1812 scope and blocker are unchanged.
+
+## W16 status correction
+
+This card is reopened in `wait`: PR #1812 remains OPEN and unmerged, so the prior `accepted` closure is not supported by the current exact-head state. Existing evidence bytes and the task ID are unchanged.

@@ -1,0 +1,11 @@
+{"id":"w287","title":"Read-only gate-exposure matrix for chain PRs",
+"steps":[
+{"done":true,"text":"Read mission; establish real remotes (origin=github mcpdev80), cleanliness baseline"},
+{"done":true,"text":"ls-remote develop tip + list PRs #1856 #1812 #1819 #1820 #1818 #1833 #1855 #1650 #1842 with head SHAs, base, state, mergeable"},
+{"done":true,"text":"Compute per-candidate changed-file set via git diff --name-status origin/develop...head"},
+{"done":false,"text":"Read scripts/pr-gate-plan.py on develop and on heads that change it (1856,1842); derive runtime_required/integration_required/public_contracts_required/native include + decide file:line"},
+{"done":false,"text":"Compute matrix: write-set class | 3 booleans | native include | 'PR Demo Pin' executes? | evidence (file:line)"},
+{"done":false,"text":"Cross-check against real PR runs (per_page=100 incl attempts): name executed vs skipped; explain disagreements vs hypothesis (trusted-base planner ci.yml:865-876)"},
+{"done":false,"text":"Answer decision question (a) who NEEDS ci.yml:1080 clause, (b) already-admitted, (c) could clause manufacture red on non-resolvable pin via pr-check-runner.py:467-521"},
+{"done":false,"text":"AKTE: gh pr create against live main, report PR number (no merge); zero-mutation ls-remote before/after; cleanliness line; post END_DONE"}
+]}

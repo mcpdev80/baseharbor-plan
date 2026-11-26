@@ -1,0 +1,4 @@
+origin	https://github.com/mcpdev80/baseharbor-plan.git (fetch)
+origin	https://github.com/mcpdev80/baseharbor-plan.git (push)
+upstream2	https://github.com/mcpdev80/baseharbor-plan.git (fetch)
+upstream2	https://github.com/mcpdev80/baseharbor-plan.git (push)
