@@ -7,7 +7,7 @@ areas: [ci, testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w170-0428-249-demo-pr175-fixup
+owner: ""
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: ""

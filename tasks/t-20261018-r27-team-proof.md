@@ -12,7 +12,7 @@ owner: worker-059-teamproof
 kanban_lane: active
 wait_reason: ""
 kanban_summary: "Two isolated homes/checkouts attach one app on Docker VM; A changes, B sees same IDs and current revision. Race same…"
-kanban_status: active
+kanban_status: ""
 kanban_title: "0427-059 · prove two workstations share"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-maintenance-client, t-20261018-r27-public-surfaces, t-20261018-r27-stage-versions, t-20261018-r27-state-recovery, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor-demo]
