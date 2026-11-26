@@ -1,0 +1,14 @@
+ROLLE: CODEX-REVIEW + CODEX-MERGE (Luna), ein objekt. Kanal gemäß AGENTS.md §2/§5.2.
+
+OBJEKT: PR #1821 / card 0428-270 / branch lane-0428-270-trustedlocal-seam / base develop / head EXAKT 229d59083f5cc62f039579e129239b2888a4f417 (rebased onto develop 90086a1f9, single own commit, lineage 3ebfb90d ancestor-verified). Exact-head run 45369190884 TERMINAL: 19 PASS / 0 FAIL, PR Selected Checks aggregate PASS (Trusted Plan green on 0428-275 rows), MERGEABLE, no skipped-as-pass.
+
+PRUEFPUNKTE gegen Task-Vertrag 0428-270 (SHA-genau, read-only):
+1. Diff origin/develop..229d59083 = nur internal/operatorauth/authorization.go + config.go (Write-Set); keine scripts/**, keine .github/**, keine Produktdateien ausserhalb.
+2. Der dead trusted-local fail-open seam ist entfernt und der Pfad ist fail-closed: ein trusted-local Aufrufer ohne gueltige Autorisierung erhaelt KEINEN access mehr (positive fail-closed Regression im diff/test).
+3. Kein stillschweigender Verhaltenswechsel an anderen authorizer-Pfaden (diff ist minimal, genau der gemeldete seam).
+
+BEI APPROVE: squash-MERGE #1821 auf develop mit head-guard (develop ist AHNE pruefen; falls develop weiter als 90086a1f9 und Kandidat behind: NICHT selbst rebasen — STOP an coord fuer Rebase). ls-remote develop before/after + merged-commit ins transcript; evidence/.../codex-merge-1821.md (UTC, SHA before/after, run 45369190884). Melde neue develop-SHA.
+
+BEI CHANGES: RC-Liste + Rezept (datei:zeile, aenderung, testanforderung, stop-kriterium) in evidence/codex-review-1821.md + STOP an coord. Nie Produkt selbst aendern.
+
+Regeln: ROLLE-Label REVIEW|MERGE. Kein Force-Push, kein Schutzregel-Bypass. Merge erst NACH gruenem exact-head + passender Abschlusspruefung. Release/Tag/Publish = NICHT hier (Owner).

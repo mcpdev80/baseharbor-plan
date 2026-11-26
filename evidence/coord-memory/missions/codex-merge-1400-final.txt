@@ -1,0 +1,6 @@
+ROLLE: CODEX-MERGE. Coord 841e7734. Owner-autorisiert durch ACCEPT-Act:
+evidence/r27-welle5-2026-11-06/snapshot-flake/act-1400b.md auf origin/main (verdict=ACCEPT am
+kopf 6079ca200cc, PR #1400). AKTION: gh pr merge 1400 -R mcpdev80/baseharbor --admin (kein force-push,
+keine schutzregel-aenderung); VORHER pruefen: head immer 6079ca200cc, state OPEN. NACHHER: ls-remote
+develop zeigt 6079ca200cc als Ahn (merge-base --is-ancestor), meldung "END_DONE codex-merge-1400-final:
+merged=<sha7> develop-ahn=JA". Falls kopf sich geaendert hat: STOP + END_BLOCKED, NICHT mergen.

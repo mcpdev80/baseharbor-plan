@@ -1,0 +1,17 @@
+ROLLE: Worker (Lane 0427-036-mgmt-host). Coord 594fd2f5. KARTE: t-20261018-r27-management-host (0427-036), PR #1405 (head
+0f08b877f415, ast work/r27-management-host ls-remote-verifiziert). Bahn w289 ist durch system-reboot tot.
+KERN-STREIT (w289-befund, von coord uebernommen): der geforderte rot-auf-dem-kranken-stand-beleg ist auf dem
+kranken commit 64d93e94 NICHT fuehrbar, weil der test dort noch gar nicht existierte (kam erst mit 3a80ed04,
+ein DIRECT DESCENDANT). Ein compile-fehler (undefined ErrManagementHostBootstrapContended) ist KEIN
+verhaltens-rotnachweis (RUNBOOK 5.6). AUFGABE: TEST-ERST-WEG. (1) karte + w289-akte management-host/round-6*.md
+(achte: die liegt nur in der PHANTOM-ZONE workers/baseharbor-plan, auf echter origin/main FEHLT sie — lies sie
+dort nur als hinweis, liefere deine AKTE in die ECHTE plan-repo). (2) im EIGENEN frischen worktree (/tmp/opencode/
+0427-036-mgmt-host-wt): nimm den test aus kandidat 0f08b877 und setze NUR IHN auf den kranken stand 64d93e94 (ohne die
+behebung), zeige ROT verhaltenspruefend (exit!=0 + fehlernaeheregel, NICHT undefined-symbol), dann am kandidat
+0f08b877 GRUEN. Wenn der test dafuer ein NEUES oeffentliches API-symbol braucht: STOP + QUESTION an mich, baue
+NICHT selbst am oeffentlichen API. (3) ast = work/r27-management-host (PR #1405), keine zweite branch. (4) native
+selected checks terminal am final-kopf, EIGNES-RUN. AKTE: evidence/r27-welle5-folge-2026-11-06/management-host/
+round-7-redfirst.md in der ECHTEN plan (remote -v zeile), ls-remote vor/nach, beide kommandos woertlich+exit.
+GATES: KEINE subagenten; .github tabu; dev/coordinator-host tabu fuer stacks; phantom-zone tabu; KEIN self-merge.
+END an 594fd2f5: "END_DONE 0427-036-mgmt-host: sick=64d93e94 ROT(verhalten exit=..) cand=<sha> GRUEN
+run=<id TERMINAL> akte=<echter pfad origin/main>" / QUESTION / END_BLOCKED + zeile.

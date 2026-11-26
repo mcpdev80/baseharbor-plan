@@ -1,0 +1,26 @@
+ROLLE: Worker (Lane 0427-117-owner-resolve). Coord 594fd2f5. KARTE: t-20261106-r27-remote-up-podman-owner-missing (0427-117 · podman-family Deploy owner). PR #1419, ast work/r27-remote-up-owner-missing, bisheriger kopf 8b5075d2554 (base develop 934be499b).
+KORREKTURRUNDE nach CODEX act-1419a verdict REJECT_LANE_FIX (NICHT wegen skipped ci-cells — inhaltlich): die bisherige
+loesung verleiht am VerifyDeploymentOwner-seam nur einen MARKER-PROOF der den unit-seam-test gruen macht, aber der
+TATSAECHLICHE autorisierte remote-podman app-apply-pfad faellt weiterhin auf ErrDeploymentOwnerMissing (manuell auf
+baha-podman-2 reproduziert). REZEPT UMSETZEN:
+ (1) cmd/baha/deployment_record.go ~57-65 und ~137-145: fuehre die echte owner-resolution fuer den autorisierten
+     remote-podman deployment-pfad ein (nicht marker-only). Pruefe wo im apply-pfad der deployment eigentuemmer
+     gesetzt/geprueft wird (deployment_store.go:107 VerifyDeploymentOwner, deployment_record.go:87) und mache den
+     remote-podman fall dort real aufgeloeset sodass der loan/inherit den kontext TRAGFAEHIG deckt.
+ (2) regression die den BEWEIS traegt: ein test der den remote-podman app-apply-pfad (isolated target, boot-clone
+     owner) durchlaeuft und ERRDEPLOYMENTOWNERMISSING fails ohne fix / besteht mit fix — so gebaut dass die GitHub-CI
+     ihn faehrt (welcher job+trigger in akte; braucht es eine runtime-zelle die .github auf push-refs beschraenkt,
+     melde den ci.yml:171-176,213-218 bedarf als OWNER-BEFUND file:line, editiere NICHT .github).
+ (3) wo moeglich live: app up -> `doctor` health OK auf einem podman host (baha-podman; falls baha-podman-2 netz-defekt
+     das verhindert, nutze baha-podman oder melde host-block als befuND, nicht als dein versaeumnis).
+ARBEIT: (1) karte + act-1419a + owner-missing-round-2 lesen. (2) ast work/r27-remote-up-owner-missing holen, auf
+develop 934be499b auffrischen (ancestor-zeugnis), fix (1)+(2) im EIGENEN worktree /tmp/opencode/0427-117-owner-resolve-wt,
+gezieltes git add, KEIN git add -A, exact-one-candidate (KEIN zweiter ast; deployment_owner_loan.go aus r4 bleibt,
+erweitere/berichtige sie). (3) PR #1419 am neuen kopf; selected checks terminal am final-kopf, EIGNES-RUN.
+AKTE: evidence/r27-welle5-folge-2026-11-06/remote-up-cli/owner-missing-round-3.md (punkte; ls-remote vor/nach, run-id,
+ancestor + git log --oneline origin/develop..HEAD NUR eigene, ## repo-rule compliance, echte plan remote -v, der
+ci-wiring owner-befund). GATES: KEINE subagenten; .github tabu; dev/coordinator-host tabu fuer stacks; KEIN self-merge;
+dieser fix UNBLOCKT karten 0427-110 + 0427-116 — halte den kopf sauber.
+END an 594fd2f5: "END_DONE 0427-117-owner-resolve: head=<sha11> pr=1419 owner_res=<remote-podman real aufgeloeset>
+regression=<app-apply ROT-ohne-fix/GRUEN-mit-fix> doctor=<health OK belegt | host-block befuND> run=<id TERMINAL>
+akte=<pfad origin/main>" / QUESTION / END_BLOCKED + zeile.

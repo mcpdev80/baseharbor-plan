@@ -1,0 +1,13 @@
+Card 0428-271 / bug / repo mcpdev80/baseharbor. EXPLICIT HANDOFF from reclaimed w60 (same branch fix/broker-build-identity, PR #1820 head 514084f3c). Read python3 scripts/plan.py show t-20261124-r28-broker-build-identity-commit.
+
+CODEX-REVIEW verdict = CHANGES (one required regression missing; everything else green — run 45374495706 19 PASS/0 FAIL, develop 05ef48536 is ancestor, corrected write-set app_broker.go + app_broker_compat_test.go passes). Full recipe: /home/marcel/dev/baseharbor-ecosystem/coordinator/evidence/codex-review-1820.md (Re-review section).
+
+Do EXACTLY this single fix, no scope creep:
+- In cmd/baha/app_broker_compat_test.go add an explicit acceptance-criterion-2 case: CLI version="dev", CLI commit = documented empty/sentinel state, runtime version="edge", runtime commit empty -> assert NO error (the dev/edge + empty-commit combination, which the current tests do NOT assert together). Keep all existing cases.
+- Do NOT change app_broker.go further (the commit-comparison impl is already accepted) unless the new case fails against it — then STOP + QUESTION rather than expand the diff.
+
+Write-set: cmd/baha/app_broker_compat_test.go (+ app_broker.go read-only). No scripts/**, no .github/**.
+
+Then: work on the existing PR #1820 branch (rebase onto origin/develop 05ef48536 to stay up-to-date since #1821 landed after your base), force-push, monitor PR #1820 Selected Checks to TERMINAL (Eigenes-Run-Pflicht §4.6). Reply: new head SHA, run id + pass/fail, and the exact test-name of the new dev/edge-empty-commit case proving it runs in CI.
+
+Rules: claim via scripts/plan.py claim + push first; ## PLAN in evidence + todos; hosted CI only (no local go test); no subagents (§4.8); no merge (CODEX merges); no force-push past develop.

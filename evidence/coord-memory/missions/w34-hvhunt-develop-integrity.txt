@@ -1,0 +1,15 @@
+MISSION: H-V34 (fill desk) — post-recovery develop-integrity desk. READ-ONLY. No product changes.
+
+Why: a VM recovery just ran; the board collapsed from ~30 open PRs to 1 (#1650), and card 0428-221 found that PR #1726 was CLOSED UNMERGED with 11 commits absent from develop. This desk independently measures, on CURRENT develop (resolve real GitHub remote, URL contains github.com/mcpdev80; head = refs/heads/develop), whether the just-merged v0.4.28 cluster actually landed its content. Pure finding, no edits.
+
+TASK (one desk, nothing beside it)
+For each of these merged PRs, verify the merged commit is an ancestor of current develop AND its diff actually appears in develop (`git merge-base --is-ancestor <head> origin/develop`, plus `git log -S<distinctive-symbol> origin/develop` or a content grep): #1714 (67495fde), #1596 (c2715856), #1773 (e5a82c2e), #1753 (6a8fbf5a), #1761 (1e9c9b14), #1770 (62f4ab0d), #1780 (4825f89c), #1762 (3fe0954a).
+Then run the same ancestry+content check over the lane branches still on the remote for cards that are `accepted`/`closed` — flag any whose head is NOT an ancestor of develop (lost content) with datei:zeile-equivalent proof (commit list). Do not edit anything.
+
+OUTPUT (findings only; card drafts welcome, no cards written by you)
+baseharbor-plan evidence ONLY (real repo /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan, not workers/baseharbor-plan):
+  evidence/recovery-2026-11-23/hunt-hv34-develop-integrity/round-1.md
+with: a ## PLAN list (no checkboxes), the per-PR ancestry+content table, the list of any LOST/UNLANDED content (commit SHAs, files), and a `cleanliness:` line (no containers/net/volumes/state created — this desk must not start any stack; ambient-core images of other carts untouched).
+Every fund must be expressible as a future card (AGENTS 3.3.5 fund→card); list fund→draft-card-number suggestions.
+
+END LAST ACTION: codeman agent post <coordinator> "END_DONE hunt-hv34: <one line + develop SHA checked>". Read-only; no subagents.

@@ -1,0 +1,17 @@
+ROLLE: CODEX-REVIEW + CODEX-MERGE (Luna), ein objekt. Kanal gemäß AGENTS.md §2/§5.2.
+
+OBJEKT: PR #1819 / card 0428-181 / branch w54-0428-181-export / base develop / head EXAKT 92ce49501d700b9e948df8092fba39410f635af7 (RC1+RC2 correction round, rebased onto develop; base develop now 05ef48536). Exact-head 18 PASS / 0 FAIL, MERGEABLE. RE-REVIEW the two prior RC fixes in addition to the base criteria:
+  - RC1 (now): perses_dashboard_provision_test.go must include a producer-path regression calling persesDashboardProvisionForLifecycle with an UNQUALIFIED identity witness for a selected+probe-verified surface, asserting keycloak-identity.json ABSENT (+stale removed), plus a qualified positive producer-path case. Verify it fails if the producer bypasses/ignores the witness.
+  - RC2 (now): a deterministic byte/hash stability proof against the pinned Perses schema OR a real export, run in GitHub CI (not JSON-parse-only), evidence recorded on the card.
+
+PRUEFPUNKTE gegen Task-Vertrag (SHA-genau, read-only):
+1. Producer = internal/metrics/perses_dashboard_provision.go mit persesDashboardProvisionForLifecycle; identity-Dashboard wird TARGET-BOUND geliefert (via IdentitySelectionWitness / selected target), NICHT backendForKey/observability-catalog.
+2. keycloak-identity ist NICHT in persesDashboardCatalog() (internal/metrics/perses_dashboard.go) — grep muss 0 neue catalog-entry-Treffer fuer keycloak-identity ergeben (observability catalog untouched).
+3. Eligibility fail-closed: unqualifizierte Ziel-Kombination -> kein Dashboard (positive Regression im diff/test vorhanden).
+4. diff origin/develop..ff261fce9 = nur die Karten-Write-Set-Dateien (perses_dashboard_provision*.go, app_status consumers wie im Vertrag); keine scripts/**, keine .github/**.
+
+BEI APPROVE: squash-MERGE #1819 auf develop mit head-guard (develop ist AHNE pruefen; falls develop weiter als 90086a1f9 und Kandidat behind: NICHT selbst rebasen — STOP an coord fuer Rebase). ls-remote develop before/after + merged-commit ins transcript; evidence/.../codex-merge-1819.md (UTC, SHA before/after, run). Melde neue develop-SHA — das entsperrt #1818 (reset 0f20a3b9 + C).
+
+BEI CHANGES: RC-Liste + Rezept (datei:zeile, aenderung, testanforderung, stop-kriterium) + STOP an coord. Nie Produkt selbst aendern.
+
+Regeln: ROLLE-Label REVIEW|MERGE. Kein Force-Push, kein Schutzregel-Bypass. Merge erst NACH gruenem exact-head + passender Abschlusspruefung. Release/Tag/Publish = NICHT hier (Owner).
