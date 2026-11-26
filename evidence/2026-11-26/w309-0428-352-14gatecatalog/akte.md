@@ -117,6 +117,11 @@ plus — CRITICALLY — R2 alone does NOT dispatch gates (measured: selected_gat
 - no containers, networks, volumes or compose projects were created by this lane at any point
 - no product-repo files remain modified (git diff origin/develop --name-only → empty; verified 2026-11-26)
 
+## plan-pub delivery evidence (second-to-last action)
+
+- `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/2026-11-26/w309-0428-352-14gatecatalog` at publish time: (no output — akte is staged on plan PR #110 head dc124f0926029023b46e6f0fc880807a74b24a11, open, awaiting admin squash merge; plan main is protected, never direct-pushed)
+- Plan PR: https://github.com/mcpdev80/baseharbor-plan/pull/110 — "Plan · validate" SUCCESS, run 45778807085, observed to terminal by this lane (self-run duty for the plan route)
+
 ## END BLOCKED w309-0428-352-14gatecatalog
 
 STOP-AND-REPORT per mission + coordinator 08:09Z: no candidate, no PR, no CI run by this lane. Headline: a single pr-gate-coverage.json row (variant R1) IS sufficient to make the runtime gates select for a modified pre-release-runtime-suite.yml candidate — measured against develop b7855f78a; w308's "coverage.json row is inert" is incorrect for the final catalog step (correct only for the reviewed-head guard). A planner reviewed-head binding alone selects ZERO gates. Awaiting owner/Codex: authorize R1 (catalog-only PR on this card) and decide the #1812 base-refresh mechanism. #1812 stays unqualified; #1819/#1820 stay sequenced behind it.
