@@ -16,6 +16,7 @@ Shift: r28-welle6 (2026-11-26). Card: 0428-078. Mission: `coordinator/missions/w
 - #1842 head: `dfd3495858501fe49d9c331c056a4289b780e0f8` — NOT merged.
 - product PR #1833 head: `a7b0a48048c11d20234160eede941532ddc33156` — NOT merged.
 - product PR #1650 head: `37c4d847ca377d1555163ac4791c8ba08b85de77` — merged long ago (pre-date; not ancestor-checked).
+- **CORRECTION 2026-11-26 (w301-0428-251-planhops, forward-only dated addition; prior line left intact):** The line above is wrong. Product PR **#1650 is OPEN**, head `37c4d847ca377d1555163ac4791c8ba08b85de77`, title `fix(0428-078): wire Perses identity-keycloak into 080 resolver fan-in` — it is the **contaminated-lineage AUDIT**, not a merge, and it was **never merged** to develop or main. Live witness at correction time: `gh pr view 1650 --repo mcpdev80/baseharbor --json state,headRefOid` => `state=OPEN headRefOid=37c4d847ca377d1555163ac4791c8ba08b85de77`. The earlier "merged long ago" claim was an unverified pre-date assertion; corrected against the live GitHub state on 2026-11-26.
 - product PR #1820 head: `8f6b2444bdc9baabf4f492e930533c7c36406979` — NOT merged.
 - Clean base for reset: `0f20a3b97fa33a0c3ff1476ef32866b4fe008f5f` (commit `fix(0428-078): select real provider-class labels in Keycloak Perses dashboard queries`).
 
