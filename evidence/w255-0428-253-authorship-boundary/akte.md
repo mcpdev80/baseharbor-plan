@@ -74,3 +74,9 @@ publication under the executing reviewer lane's own canonical identity per the c
   ```text
   5796f99aeeed2bdace38a6fe66d849fe03d01e0f refs/heads/w255-0428-253-admission
   ```
+
+Second push delivery witness:
+
+```text
+2bf9101dcdcbe82ab619415c32763f0b2dc78020 refs/heads/w255-0428-253-admission
+```
