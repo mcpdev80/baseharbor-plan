@@ -15,7 +15,7 @@ kanban_title: 0428-344 · runtime list pagination
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1871", ]
 sources: []
 blocker: ""
 wait_reason: ""
