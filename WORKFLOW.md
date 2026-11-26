@@ -105,14 +105,14 @@ A task is assignable only when it can reach its own review handoff without unfin
 
 ## Owner-authorized Maintainer execution
 
-Marcel's explicit grant also applies to Codex/other designated agents acting through @mcpdev80 within their assigned work. Owner mandate 2026-11-24 ('25.11'): coordinator-spawned Lane-Codex sessions hold this grant for explicitly named cards, including assignment, acceptance and merge inside the authorized scope; outside named cards the Maintainer-assignment wording is unchanged. An Owner-authorized implementation, acceptance or merge does not need another repository review or a second Maintainer handoff. This exception supersedes review-only stop instructions in this workflow; ordinary implementation workers without that delegation retain the normal handoff. Document Owner-authorized acceptance rather than claiming independent/self approval. Required technical checks, real evidence, existing claims and actual required test execution and source identity enforced by CI remain binding; no release or unrelated destructive action is implied. [Current decision](decisions/2026-10-19-owner-delegated-maintainer-authority.md).
+Owner mandate 2026-11-26: the Coordinator assigns only existing authorized tasks; ready status alone is not an assignment. Local LLM worker sessions implement and transport changes. At most two Coordinator-spawned Codex sessions operate concurrently; Codex decides technical alternatives and card disposition, independently reviews exact worker candidates, and merges only after required checks and evidence pass. Codex does not implement product changes or assign/create/extend cards. Owner-only decisions remain with the Owner. Keep the normal claim, handoff, CI and evidence requirements binding.
 
 ## Ownership protocol
 
 A local `owner` field is not a lock: it only works when published before implementation starts.
 
 1. `git pull` — read the current remote planning state.
-2. Check the task: `python3 scripts/plan.py show <id>` (state and dependencies). Take only work the Maintainer assigned; one task per session.
+2. Check the task: `python3 scripts/plan.py show <id>` (state and dependencies). Take only work assigned by the Coordinator or Owner; ready status alone is not an assignment. One task per session.
 3. Claim: `python3 scripts/plan.py claim <id> --owner "<name> (<session>)"`, then `git commit -am "claim <id>: <owner>"` and `git push`.
 4. If the push is rejected: `git pull` (merge, no rebase of published commits), re-read the task. If someone else claimed it meanwhile, stop and resolve with them or the Maintainer before working. Never overwrite another claim.
 5. Only after the claim is on `main`, start the product work (branch/PR in the product repository per its guidelines).
