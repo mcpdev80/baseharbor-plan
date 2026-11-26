@@ -18,11 +18,11 @@
 
 ## PLAN
 
-- [x] Fetch latest review-disposition comments for each candidate PR 130 134 135 138 139 143 144 147; build accept/skip decision table
-- [x] For each accepted PR: cut fresh worktree, branch w350-hop-<n> off refs/pull/<n>/head, set lane identity
-- [x] Transport hop: git merge origin/main, resolve generated-only conflicts, render+check, commit
-- [x] Push to PR tracked ref, fresh '# Plan validate' per head, record head+run
-- [x] END: decision table, all heads+runs, cleanliness
+- DONE: Fetch latest review-disposition comments for each candidate PR 130 134 135 138 139 143 144 147; build accept/skip decision table
+- DONE: For each accepted PR: cut fresh worktree, branch w350-hop-<n> off refs/pull/<n>/head, set lane identity
+- DONE: Transport hop: git merge origin/main, resolve generated-only conflicts, render+check, commit
+- DONE: Push to PR tracked ref, fresh '# Plan validate' per head, record head+run
+- DONE: END: decision table, all heads+runs, cleanliness
 
 ## Decision Table (newest review-disposition comment per PR; hop where ACCEPT/merge-ready, HELD allowed)
 
