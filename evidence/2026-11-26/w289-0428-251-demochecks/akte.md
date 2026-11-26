@@ -344,7 +344,7 @@ evidence/2026-11-26/w289-0428-251-demochecks/ready179.log
 
 ## END
 
-END_DONE w289-0428-251-demochecks: 3 fresh pull_request events bound zero runs — root cause is the heads'
+END_DONE w289-0428-251-demochecks: candidate 4f77be994fbadbb237b0f342849192ff00d9de30 (plan PR baseharbor-plan#93, Plan·validate pass run 45756465354). 7 fresh pull_request events bound zero runs — root cause is the heads'
 DRAFT-only/zero-jobs `pr-config-matrix.yml` (develop blob `7108cf69e4f5…`), transport alone cannot qualify
 #170/#179/#181; akte + witnesses in this file, plan PR: #93
 
@@ -362,3 +362,8 @@ $ gh pr view 93 --repo mcpdev80/baseharbor-plan --json headRefOid,statusCheckRol
 So Plan PR #93 (head `e9019cbc4ecb558e22fd9e88977d8def9782d623`, verified by `git ls-remote` above) is green and
 ready for the Owner/Codex admin squash merge. The evidence path is on the remote branch; it enters `origin/main`
 with that merge. This lane does not merge it (mission scope limit).
+
+Final gate witness (2026-11-26T04:38Z): `gh pr checks 93 --repo mcpdev80/baseharbor-plan` →
+`Plan · validate  pass  9s  https://github.com/mcpdev80/baseharbor-plan/actions/runs/45756465354/job/139696124722`
+on head `4f77be994` (the head that `git ls-remote` shows). `origin/main` still lacks the path (grep -c → 0)
+because only the Owner/Codex admin squash merge of #93 lands it; this lane is now finished.
