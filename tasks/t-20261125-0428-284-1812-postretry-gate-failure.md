@@ -98,3 +98,8 @@ evidence:
 ## PR lineage disposition — W16
 
 PR #1856 replaces closed, unmerged PR #1842 as the current candidate. PR #1812 is omitted from this card's `prs` field because the w286 inventory assigns it to card 0428-249. The existing demo PR #173 and #174 references remain.
+
+### Demo PR check-binding blocker (Owner-scope workflow, W18 Variant A — recorded 2026-11-26)
+
+- The baseharbor-demo PR checks cannot bind to the demo PRs because `pr-config-matrix.yml` has never produced a `pull_request` run and GitHub evaluates the DEFAULT-BRANCH copy. This is an OWNER-SCOPE workflow change (W18, Variant A); it lives under `.github/**` and is outside this lane's write-set.
+- No `.github/**` file is edited, no rerun/workflow_dispatch is triggered, and no workaround is implemented here. The trigger to the Owner is: the workflow file `pr-config-matrix.yml` must be corrected so its `pull_request` run binds; until then the demo PR checks stay unbound. This is documented on the board, not fixed by this burn-down. [SUPERSEDED in place, correction appended 2026-11-26 by w323-0428-078-pr1855gate per reviewer HOLD comment 7190633460 on plan PR #106: the sentence contradicts the recorded route ruling. Correct statement per that ruling: #170/#179 need a fresh `pull_request` event and NO workflow change is required. Card 0428-284 is already closed and accepted for its scope; this is an evidence-record fix, not a status change and not a card edit.]
