@@ -139,9 +139,40 @@ stays green by derivation).
 
 ## Handoff
 
-- PR: (pending)
-- Candidate SHA: (pending, FULL40)
-- Run IDs: (pending)
-- State: (pending)
+- PR: https://github.com/mcpdev80/baseharbor/pull/1871 — OPEN, ready (draft=false), NOT merged.
+- Candidate SHA (FULL40): `969362e397a14d3f1e173697750386079aa4f5d2`
+- Hosted CI run IDs on the exact head: 45884566859 (pull_request) and 45884719597
+  (pull_request, second trigger via coordinator-authorized close+reopen). Both terminate with the
+  SAME single failing check `PR · Trusted Plan` ("uncataloged source change, no declared runtime
+  gate owner" for the 10 changed `internal/**` files) and the dependent `PR Selected Checks` error.
+  `PR · Source format`, `Workflow policy`, `PR · Native gate plan` PASS; everything else skipped.
+- State: BLOCKED on one shared-catalog act outside this card's write-set
+  (`scripts/pr-gate-coverage.json`, the base required-plan catalog; AGENTS gate-catalog doctrine +
+  mission write-set "runtime pagination contract code + tests + akte"). No local route exists: the
+  catalog is read from the TRUSTED BASE at plan time (pr-gate-plan.py `_base_catalog_document`), so
+  a candidate-side addition would not apply to this PR.
+  The needed change, exactly (10 component rows in `scripts/pr-gate-coverage.json` → `components`):
+  id/path pairs `source.internal_apierror_pagination_go`/`internal/apierror/pagination.go`,
+  `source.internal_apierror_pagination_test_go`/`internal/apierror/pagination_test.go`,
+  `source.internal_applicationruntimeapi_handler_go`/`internal/applicationruntimeapi/handler.go`,
+  `source.internal_applicationruntimeapi_pagination_contract_test_go`/`internal/applicationruntimeapi/pagination_contract_test.go`,
+  `source.internal_applicationsecretapi_handler_go`/`internal/applicationsecretapi/handler.go`,
+  `source.internal_applicationsecretapi_pagination_contract_test_go`/`internal/applicationsecretapi/pagination_contract_test.go`,
+  `source.internal_machine_navigation_go`/`internal/machine/navigation.go`,
+  `source.internal_machine_pagination_contract_test_go`/`internal/machine/pagination_contract_test.go`,
+  `source.internal_machinehttp_source_transfer_go`/`internal/machinehttp/source_transfer.go`,
+  `source.internal_machinereadmodels_artifacts_go`/`internal/machinereadmodels/artifacts.go`,
+  `source.internal_sourcetransfer_transfer_go`/`internal/sourcetransfer/transfer.go`
+  with surfaces that select the package-discovery validation rather than heavyweight runtime gates
+  (the error-message example surfaces `source.gate.atomic.docker.data.capabilities` would bind
+  cmd/baha container gates to pure unit-test code; the doctrine for ordinary Go unit sources is
+  auto-discovery via `go test ./...` — precedent rows use `source.package.*` surfaces).
+  After the catalog lands on develop, this lane (or any follow-up on the same branch) absorbs
+  develop under the lane's canonical identity, pushes, and triggers the second exact-head run via
+  close+reopen; the pair rule then applies to the NEW head.
+- Follow-up (after this akte reaches plan main): set the card's `prs` field to `baseharbor#1871` and
+  the `blocker` to the pr-gate-coverage.json catalog route above, via a second plan PR. Not included
+  in this evidence PR because it edits the shared generated views (coordinator lane per mission).
 
-END: (pending)
+END: END_BLOCKED w343-0428-344-pagination (candidate green except the shared pr-gate-coverage.json
+catalog route above; see Handoff state)
