@@ -1,0 +1,19 @@
+ROLLE: Worker (Lane w275). Coord a4573079. KARTE: t-20261018-r27-artifact-resolution (PR #1406 head
+9ee857387c, act-1406b ACCEPT, MERGE-BLOCKER act-merge: fehlende native artefakt-verfuegbarkeits-smoke am
+NEUEN resolver-pfad). Kartenwort: 'use existing OCI images/releases first when selected; verify artifact
+availability through image-transfer'; checkout-mode ONLY ueber bestehende docker/compose- bzw.
+podman/native-build-maschinerie.
+ZELLEN (vm-lock pro host, rc=3=wechsel statt warten; NIE coordinator-host):
+(1) IMAGE-PFAD: auf einem freien host (baha-podman 148 oder baha-docker 166 je nach lage) eine app mit
+    EXISTIERENDIM OCI-image: resolver waehlt registry/store-artefakt (image-transfer-pfad), veruegbarkeit
+    wird vor deploy geprueft (transcript: 'verify'/availability-zeile + digest-notiz), app laeuft.
+(2) CHECKOUT-PFAD: aktuelle revision NUR mit nativem baumechanismus (podman native build ODER docker
+    compose build — je host seine familie), KEIN BuildKit-service/build-farm; baumechanismus-identitaet im
+    transcript, resultierender digest + besitzer/provenenz-notiz.
+(3) Negativ-zeile (guenstig, unit genuegt NICHT — VM): mutable tag als exakte identitaet wird abgelehnt.
+Am genauen kopf 9ee857387c (lsremote-zeugnis). Wenn ein hostwaechsel noetig: journal-zeilen beilegen.
+RUECKBAU je host auf 0 eigene, dauer-stapel unangetastet. AKTE: artifact-resolution/round-3-native-smoke.md
+(PUNKTE statt checkboxen; je zelle befehle+transkript+digeste; ## repo-rule compliance). Zone workers/w275-wt.
+GATES: KEINE subagenten, KEIN product-code, KEIN .github, /tmp/opencode/w275*.
+END an a4573079: "END_DONE w275-artifact-native-smoke: image_zelle=<GRUEN host> checkout_zelle=<GRUEN host>
+negativzelle=<GRUEN> lsremote=9ee857387c host-clean=<beide 0> journal=<zeilen> akte=<pfad main> | <Satz>"

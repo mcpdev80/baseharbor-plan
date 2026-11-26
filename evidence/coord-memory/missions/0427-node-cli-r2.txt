@@ -1,0 +1,11 @@
+Auftrag 0427-node-cli-r2 (lane cf459f08, laptop, FRISCHE korrektur-bahn; orig 81b894a5 freigegeben, kandidat PR#1427 cc98ccad6 auf origin — dort abholen, nichts neu erfinden).
+Karte t-20261018-r27-node-cli. CODEX-REVIEW steht NICHT aus — der kandidat ist VOR abnahme kaputt: PR#1427 head cc98ccad6 hat (a) DRIFT (develop 812c99c88 NICHT Vorfahr), (b) 2 CI-FAILS, (c) SCHREIBSATZ-KOLLISION.
+- claim: baseharbor-plan/scripts/plan.py claim t-20261018-r27-node-cli --owner 0427-node-cli-r2 (commit+push) BEVOR aendern.
+- (a) rebase: git fetch origin develop; merge origin/develop(812c99c88) in work/r27-node-cli (PR#1427 branch); merge-base --is-ancestor 812c99c88 HEAD rc0.
+- (b) KOLLISION: diff beruehrt cmd/baha/app_repository_integration_test.go, app_workload_integration_test.go, repository_runtime_fixture_test.go = #110/#1383 OWNED. RAUS: git checkout origin/develop -- <die drei>. node-cli lebt NUR in cmd/baha/node.go + cmd/baha/node_cli_behaviors_test.go (+ eigne neue test-datei). Brauchst du eine der drei: STOP+QUESTION.
+- (c) die 2 CI-FAILS beheben: run-id der fails auf cc98ccad6 holen (gh run / gh pr checks 1427), fehlerzeile lesen, URSACHE fixen (vermutlich die lifecycle/fixture-kollision ODER node-behaviour test rot nach #1383 merges). Nach (a)+(b) pruefen ob fails weg; falls nein gezielt root-causen.
+- write-set NUR node-cli-dateien. KEINE .github (owner), KEINE lifecycle/fixture (#110), KEINE app_remote_lifecycle/remote_pureclient (116), KEINE accesswizard (access-wizard), KEINE maintenance_* (maint in korrektur).
+- neue tests von bestehender suite erfasst (CI-Aufnahmepflicht §5.3); fehlt trigger => BEFUND.
+- eigenes-run: hosted pr-check auf finale sha TERMINAL (run-id+status evidence, kein pending lassen), ls-remote zeugnis. ## PLAN + todowrite. keine subagenten (4.8, auch keine Lese-agenten). NICHT idle ohne END.
+Evidence: evidence/r27-welle5-folge-2026-11-07/node-cli/round-2.md (round-1 falls vorhanden referenzieren)
+END an 594fd2f5. karte erst review wenn drift-frei + kollisionsfrei + 0 fails terminal.

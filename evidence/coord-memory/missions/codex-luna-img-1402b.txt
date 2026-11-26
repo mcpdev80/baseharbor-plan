@@ -1,0 +1,8 @@
+ROLLE: CODEX-REVIEW. Coord 841e7734. ABNAHME image-transfer, kandidaten-genau.
+KANDIDAT: PR #1402 head 68cd9ea59f6 vs develop (base ea656d1f), karte t-20261018-r27-image-transfer,
+akte evidence/r27-welle5-2026-11-06/image-transfer/round-1.md. PRUEFPUNKTE: (1) identitaet/digest-treue
+des bildtransfers vertragsgemass, (2) fehlereintrag-zelle mit echtem mutantenbeleg (red-first),
+(3) VM-rauch docker+podman auf baha-docker/baha-podman mit fabrik-rueckbau bezeugt (pane-zeugnisse in
+akte), (4) write-set disjunkt, keine .github, (5) hosted gates am kopf. URTEIL als datei
+evidence/r27-welle5-2026-11-06/image-transfer/act-1402b.md auf origin/main (ACCEPT|REJECT+rezept),
+END an 841e7734: "END_DONE codex-luna-img-1402b: verdict=<..> aktedatei=<pfad>".

@@ -1,0 +1,9 @@
+Auftrag 0427-onboarding-wizard (lane 919f0210, flash, FRISCH).
+Karte t-20261018-r27-onboarding-wizard — vertrag lies WORTWOERTLICH: `python3 baseharbor-plan/scripts/plan.py show t-20261018-r27-onboarding-wizard` + Kartenkoerper + baseharbor/AGENTS.md + docs/DEVELOPMENT_GUIDELINES.md. Ziel: gefuehrter Onboarding-Fluss (ein neuer user/org kommt schrittweise zu einer funktionierenden baseharbor-instanz), konsistent mit client-commands/access-profiles/device-lifecycle (alle accepted).
+- Claim erst via baseharbor-plan/scripts/plan.py claim t-20261018-r27-onboarding-wizard --owner 0427-onboarding-wizard (commit+push) BEVOR du aenderst. (plan.py liegt in baseharbor-plan/, nicht repo-root.)
+- Isolated branch/worktree, exact-one-candidate PR gegen develop (fetch origin develop 812c99c88, ancestor rc0, drift-frei).
+- write-set NUR die von der karte benannten dateien (vermutlich cmd/baha/ + internal/... onboarding/). KEINE .github (owner-scope). KEINE parallelen owned-dateien: cmd/baha/app_remote_lifecycle.go+remote_pureclient_* (116), node.go+node_cli_behaviors (node-cli), app_maintenance_* + internal/application/maintenance_* (118-maintenance, in review), app_repository_integration_test.go/app_workload_integration_test.go/repository_runtime_fixture_test.go (ALLE #110/#1383 OWNED — fingers off), broker/source_oci (118/119), accesswizard/* (access-wizard lane laeuft parallel). Brauchst du eine davon: STOP+QUESTION, nicht selbst.
+- neue tests in bestehender suite, von CI erfasst (CI-Aufnahmepflicht §5.3); fehlt trigger => BEFUND file:line.
+- eigenes-run: hosted pr-check auf finale sha TERMINAL selbst beobachten (run-id+status evidence). ls-remote zeugnis. red-first+gruen, kein fake pass/skip. ## PLAN + native todowrite. keine subagenten (4.8). NICHT idle ohne END — festgefahren => QUESTION.
+Evidence: evidence/r27-welle5-folge-2026-11-07/onboarding-wizard/round-1.md
+END an 594fd2f5.

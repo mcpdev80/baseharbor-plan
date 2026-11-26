@@ -1,0 +1,24 @@
+ROLLE: Worker (Lane w241). Coord 841e7734. KARTE: t-20261105-r27-compose-host-isolation — GRUENLAUF
++ ECHTE HOST-ISOLATIONSZELLEN (Owner-Auflage 2026-11-06, wortlich: 'Die echten Isolationstests auf
+baha-docker und baha-podman ausfuehren, einschliesslich Mutantenprobe. Erst danach wuerde ich #1383
+mergen.').
+VORBEREITUNG PRUEFEN (sonst sofort END_BLOCKED 'single-default noch nicht in develop'): develop enthaelt
+den EINZELNEN default-aufbau (git log develop --grep single, merge-base mit single-default-pr).
+ZWEIG: work/r27-compose-isolation (PR #1383, head 1b02e8866dd4): develop einmerge, push, PR ready, die
+vier in-ci-zellen + selected-runtime am FINAL-kopf bis TERMINAL GRUEN selbst beobachten.
+HOST-ZELLEN (NEU, PFLICHT VOR ABNAHME): vm-lock SERIELL (immer EINE maschine, name w241; bereit:
+docker- oder podman-seite, nie beide gleichzeitig): auf BEIDEN pruefmaschinen die ISOLATIONSzellen
+echt ausfuehren — zwei isolierte kompose-projekte gleichzeitig, nachweis getrennte netze/voelume/
+portaeste (ps-/inspect-zeug pro host), rueckbau jeweils container=0 + projekt down (name+ps-zeug).
+MUTANTENPROBE: die echte isolations-waechter-zeile in der QUELLE lokal entfernen (datei:zeile + datum
+ins transcript) => die zelle MUSS ROT durch den AUSGELIEFERTEN pfad fallen; zuruecksetzen => GRUEN.
+Handgeschriebene helpsumwege sind verboten (praeszedenz managed-users 1397b: nicht-kausale mutantin
+= REJECT).
+AKTE: round-5.md auf origin/main (fetch main, zielgerichtetes add, ls-tree-zeug; pro host: kopf,
+befehle, status-flaggen; mutante: rot+gruen transcript-zeilen). KEINEQUELLENAENDERUNG ausser der
+rueckgaengigen mutante im transcript (finaler kopf = unveraendert). Kompose-projekte selbst IMMER
+downfahren. GATES: KEINE subagenten/zweiter PR/root-checkout/.github, FABRIKREGEL (host fabrikrein
+nach dir), container NIE auf dem coordinator-host (R1), caches /tmp/opencode/w241*.
+END an 841e7734: "END_DONE w241-compose-greenrun: head=<sha10> single-in-develop=JA lauf=<id TERMINAL>
+isolation=<docker:GRUEN|ROT> <podman:GRUEN|ROT> mutante=<ROT+GRUEN belegt> lsremote=<sha10> akte=<pfad>
+| <Satz>"

@@ -1,0 +1,14 @@
+## ATTESTATION 2026-11-26T03:56:50Z
+### git remote -v
+origin	https://github.com/mcpdev80/baseharbor-demo.git (fetch)
+origin	https://github.com/mcpdev80/baseharbor-demo.git (push)
+### gh api refs
+main: 2618b3962330509add5bf265522995da2a9034ce
+develop: 5ca92a7cd2f746934890cfd7096a48068bdf218e
+### gh pr view 170 179 181
+--- PR #170
+{"baseRefName":"develop","headRefOid":"b086cf58bb2f7aafee30edf52ac4b8199daf7d0d","isDraft":false,"mergeable":"MERGEABLE","number":170,"state":"OPEN"}
+--- PR #179
+{"baseRefName":"develop","headRefOid":"cda6aa70e80bec1a1db06d85decdd8833cb63994","isDraft":true,"mergeable":"MERGEABLE","number":179,"state":"OPEN"}
+--- PR #181
+{"baseRefName":"main","headRefOid":"6d06eab0ed0cd890ab9f818100ff84698e0347f5","isDraft":false,"mergeable":"CONFLICTING","number":181,"state":"OPEN"}

@@ -1,0 +1,16 @@
+READ-ONLY DESK — CONSOLIDATED owner-decision brief: the #1812 / #1826 operator-auth blocker (Befund/synthesis only; NO edits/PR/merge/CI-trigger/rebase; do NOT touch any branch; no subagents §4.8; contact no other session). develop = origin/develop (report SHA); demo = origin/develop (report SHA).
+
+Purpose: eight read-only analyses produced fragmented evidence on WHY the #1812 Docker Light gates and #1826 static/mcp gate fail (consent disproved; the real class = CI operator-auth must be NON-INTERACTIVE). Synthesize them into ONE page the owner can decide from.
+
+Read all of (baseharbor-plan evidence/r28-welle6-2026-11-25/ and the w81 0428-249 round-3, 0428-281 diagnosis): serial-execution-runbook, 0428-283-operator-inventory, 0428-283-operator-fix-proposal, 0428-283-fallback-applicability, 0428-284-postretry-triage, 1812-operatorauth-commonality, 1812-prerequisite-map, 1812-docker-light-ledger, 0428-281-consent/diagnosis. (If a file is not yet present, note it.)
+
+Produce, citing the source evidence SHA/file for each claim (do NOT invent):
+1. THE FACT (log-authoritative): #1812 run 45398943139 — for each of policy/connectivity/reconciliation/full-destroy, the FIRST in-gate failure + whether target-create succeeded ([acceptance] target: ready). Reconcile w92 ('create fails before fixture') vs the owner's raw-log correction ('create succeeds, gate ran, failure in-gate') — state the corrected fact.
+2. MECHANISM OPTIONS, with file:line + a fail-closed risk verdict for each:
+   (A) build the baseharbor_ci_operator_testonly-tagged binary for the static/mcp path (pre-release-runtime-suite.yml plain build ~:276) — does it cover the Light gates too or only static?
+   (B) seed the managed-local operator env/target contract (ci_integration_operator_enabled.go:96-103: BASEHARBOR_DEMO_OPERATOR_GATE + runtime in {docker,podman} + target atomic-<runtime>-<gate>) — note static gate has runtime=static (may be EXCLUDED) -> Light covered, static not?
+   (C) engage w93's trusted-local fallback (internal/operatorauth/authorization.go:247) non-interactively in CI — reconcile with w92's 'input is not a terminal' error: why does it not already apply?
+3. RECOMMENDATION: the MINIMAL change (or combination) that clears BOTH #1812 Light and #1826 static/mcp operator-auth WITHOUT weakening fail-closed, and which of (A/B/C) it is; whether it is ONE owner authorization or two; the exact repo/file(s) it touches + owner-scope flag (.github / product contract / demo harness).
+4. The downstream sequence once merged (rebase #1812 [preserve #1823], Docker->Podman, #1819->#1820, #1818 reset 8e2c50c1) — one paragraph, from the serial-execution-runbook evidence.
+
+Deliver baseharbor-plan evidence/r28-welle6-2026-11-25/0428-283-owner-decision-brief/round-1.md (## PLAN as PLAIN bullets, NO '- [ ]' checkbox syntax — it becomes a phantom card; use your native todo tool if present for checkboxes, else plain list). Commit+push atomically with TARGETED git add of ONLY your new file (never git add -A in a shared checkout). Report inline: develop+demo SHAs, the corrected fact, recommended option(s), one-vs-two authorization, evidence SHA. Read-only; created nothing product-side. No subagents.
