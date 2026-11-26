@@ -8,14 +8,14 @@ kanban_title: w285 read-only clean-rebuild analysis (PR #1818)
 kanban_summary: read-only reconciliation of the #1818 clean-rebuild recipe; NO mutation
 owner: w285-0428-078-1818rebuild
 depends_on: []
-evidence: ["evidence/2026-11-28/w285-0428-078-1818rebuild/akte.md"]
+evidence: ["evidence/2026-11-26/w285-0428-078-1818rebuild/akte.md"]
 ---
 
 # w285 read-only clean-rebuild analysis — PR #1818 (card 0428-078)
 
 ## Role
 
-Read-only clean-rebuild WRITE-SET RECIPE for PR #1818 (card 0428-078). Canonical lane context: `w165-0428-078-pr1650-basehop`. READ-ONLY mission: NO branch mutation, NO checkout-with-mutation, NO rebase, NO merge, NO push to the product repo, NO PR edits, NO CI trigger, NO workflow_dispatch, NO reruns, NO tests on this host, NO cards, NO `.github/**` writes, NO plan-main pushes (akte = my own plan branch + gh pr create, I do NOT merge).
+Read-only clean-rebuild WRITE-SET RECIPE for PR #1818 (card 0428-078). Canonical lane context: `w165-0428-078-pr1650-basehop`. READ-ONLY mission: NO branch mutation, NO checkout-with-mutation, NO rebase, NO merge, NO push to the product repo, NO PR edits, NO CI trigger, NO workflow_dispatch, NO reruns, NO tests on this host, NO cards, NO `.github/**` writes, NO plan-main pushes (akte = my own plan branch + gh pr create, I do NOT merge). This note is EVIDENCE, never a card — nothing under `tasks/` is authored by this lane.
 
 ## Verbatim Owner authorization (mission-authorize-this)
 
