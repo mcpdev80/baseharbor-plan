@@ -1,0 +1,18 @@
+{
+  "id": "w348-0428-359-batchhop",
+  "title": "w348 plan batch-hop PR133 + PR136 onto current main",
+  "steps": [
+    { "done": true, "text": "Read mission, verify planning repo origin URL (github.com/mcpdev80/baseharbor-plan) and confirm PR133/PR136 heads + current main tip" },
+    { "done": true, "text": "Create isolated plan worktree for PR133 branch, set per-worktree identity w348-0428-359-batchhop" },
+    { "done": true, "text": "Forward-merge origin/main into w348-hop-133 (forward-only via regular merge; --ff-only impossible, main ahead), resolve NOTHING in foreign files except owner 07:4xZ derived-file rule" },
+    { "done": true, "text": "Verify ancestry: origin/main ancestor of HEAD; origin/main..HEAD = w329 own commits + w348 merge commit" },
+    { "done": true, "text": "Pre-checks only: markers cleared, plan.py check 0 errors; push w348-hop-133, verify delivery with git ls-remote" },
+    { "done": true, "text": "Push w348-hop-133 -> transport PR #158; #Plan validate (Validate planning) run 45899136097 SUCCESS on 071616a4e2c768932491be4312b962aeed3e85d2; witness posted" },
+    { "done": true, "text": "Create isolated plan worktree for PR136 branch, set per-worktree identity w348-0428-359-batchhop" },
+    { "done": true, "text": "Forward-merge origin/main into w348-hop-136 (regular merge), resolve 6 derived + 4 task-frontmatter conflicts main-side per owner 07:4xZ + plan.py render" },
+    { "done": true, "text": "Verify ancestry + plan.py check 0 errors; push w348-hop-136, verify delivery with git ls-remote" },
+    { "done": true, "text": "Push w348-hop-136 -> transport PR #161; #Plan validate run 45900400111 SUCCESS on bcc30d9998aaa4735690e658e722664f0f8349f6; witness posted (#136 stays merge-ready-HELD)" },
+    { "done": true, "text": "Remove both isolated plan worktrees + git worktree prune; verify none remain" },
+    { "done": true, "text": "Publish board JSON + akte to origin/main via isolated plan worktree (no direct main push); post END_DONE" }
+  ]
+}
