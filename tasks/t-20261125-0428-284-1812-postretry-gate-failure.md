@@ -7,19 +7,19 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: w198-0428-284-demo-parser
-kanban_status: closed
-kanban_lane: closed
+owner: "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: ""
 kanban_title: 0428-284 · 1812 post-retry gate fail
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
-prs: [mcpdev80/baseharbor-demo#173, mcpdev80/baseharbor-demo#174, mcpdev80/baseharbor#1856, mcpdev80/baseharbor#1858]
+prs: [mcpdev80/baseharbor-demo#173, mcpdev80/baseharbor-demo#174, mcpdev80/baseharbor#1856]
 sources: []
 blocker: ""
-wait_reason: ""
-resolution: accepted
+wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"
+resolution: ""
 evidence:
   - https://github.com/mcpdev80/baseharbor/actions/runs/45398943139
   - https://github.com/mcpdev80/baseharbor-demo/pull/173
@@ -28,31 +28,24 @@ evidence:
   - https://github.com/mcpdev80/baseharbor-demo/pull/174
   - https://github.com/mcpdev80/baseharbor-demo/actions/runs/45455975242
   - https://github.com/mcpdev80/baseharbor-demo/actions/runs/45456155783
-  - https://github.com/mcpdev80/baseharbor/pull/1858
-  - https://github.com/mcpdev80/baseharbor/commit/b7855f78a0253b9423e07da6ae92009b8f0fd1ae
-  - https://github.com/mcpdev80/baseharbor/actions/runs/45764487288
-  - https://github.com/mcpdev80/baseharbor/actions/runs/45765519379
-  - https://github.com/mcpdev80/baseharbor/pull/1858#issuecomment-7184013952
-  - https://github.com/mcpdev80/baseharbor/pull/1858#issuecomment-7184154327
-  - https://github.com/mcpdev80/baseharbor/actions/runs/45766329247
-  - https://github.com/mcpdev80/baseharbor/actions/runs/45766329222
 ---
 
-- [x] t-20261125-0428-284-1812-postretry-gate-failure · #1812 post-retry gate failure #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/cli #kind/bug
+- [ ] t-20261125-0428-284-1812-postretry-gate-failure · #1812 post-retry gate failure #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** w198-0428-284-demo-parser · **Priority:** high  
-    **PR:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1856](https://github.com/mcpdev80/baseharbor/pull/1856), [baseharbor#1858](https://github.com/mcpdev80/baseharbor/pull/1858)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139), [proof 2](https://github.com/mcpdev80/baseharbor-demo/pull/173), [proof 3](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448531969), [proof 4](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448729972), [proof 5](https://github.com/mcpdev80/baseharbor-demo/pull/174), [proof 6](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45455975242), [proof 7](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45456155783), [proof 8](https://github.com/mcpdev80/baseharbor/pull/1858), [proof 9](https://github.com/mcpdev80/baseharbor/commit/b7855f78a0253b9423e07da6ae92009b8f0fd1ae), [proof 10](https://github.com/mcpdev80/baseharbor/actions/runs/45764487288), [proof 11](https://github.com/mcpdev80/baseharbor/actions/runs/45765519379), [proof 12](https://github.com/mcpdev80/baseharbor/pull/1858#issuecomment-7184013952), [proof 13](https://github.com/mcpdev80/baseharbor/pull/1858#issuecomment-7184154327), [proof 14](https://github.com/mcpdev80/baseharbor/actions/runs/45766329247), [proof 15](https://github.com/mcpdev80/baseharbor/actions/runs/45766329222)  
+    **Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) · **Priority:** high  
+    **PR:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1856](https://github.com/mcpdev80/baseharbor/pull/1856)  
+    **Waiting:** lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139), [proof 2](https://github.com/mcpdev80/baseharbor-demo/pull/173), [proof 3](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448531969), [proof 4](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448729972), [proof 5](https://github.com/mcpdev80/baseharbor-demo/pull/174), [proof 6](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45455975242), [proof 7](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45456155783)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261116-r28-bug-compose-service-ids](t-20261116-r28-bug-compose-service-ids.md)  
-**Owner:** w198-0428-284-demo-parser  
+**Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
 **Priority:** high  
-**PRs:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1856](https://github.com/mcpdev80/baseharbor/pull/1856), [baseharbor#1858](https://github.com/mcpdev80/baseharbor/pull/1858)  
+**PRs:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1856](https://github.com/mcpdev80/baseharbor/pull/1856)  
 **Source:** 
 <!-- /generated:links -->
 

@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w205 (lane w205-0428-253)
-kanban_status: active
-kanban_lane: active
+owner: "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "The candidate-added validation lane treats a DELETED product source with a removed catalog row as resolved-by-deletion, not as…"
 kanban_title: 0428-253 · candidate planner mishandles
 priority: ""
@@ -18,22 +18,22 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r29-welle6-2026-11-28/0428-253/w136-pr1853-admission-ruling.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r29-welle6-2026-11-25/w205-0428-253-planner-deleted-source/akte.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-26/w306-0428-253-rulingdoc/akte.md"]
+evidence: []
 ---
 
-- [ ] t-20261123-planner-deleted-source-advisory · CI: candidate planner mishandles deleted source rows (advisory job red) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261123-planner-deleted-source-advisory · CI: candidate planner mishandles deleted source rows (advisory job red) #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
-    **Owner:** w205 (lane w205-0428-253)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r29-welle6-2026-11-28/0428-253/w136-pr1853-admission-ruling.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r29-welle6-2026-11-25/w205-0428-253-planner-deleted-source/akte.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-26/w306-0428-253-rulingdoc/akte.md)  
+    **Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
+    **Waiting:** lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w205 (lane w205-0428-253)  
+**Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

@@ -7,15 +7,15 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w352-0428-321-exitfix2 (correction round after w255 HOLD 7204118575: context.Canceled:130 bypass regression through main-used helper; exact head 03354deb CI was green, review gap is test coverage)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Document the baha process exit-code taxonomy at the user-facing surface: 0 success, 1 runtime failure, 2 usage error, 130…"
 kanban_title: 0428-321 · document baha exit-code
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1866"]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,19 +23,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt45-exit-code-taxonomy-docs · CLI: document baha exit-code taxonomy and machine coverage check #task #release/v0-4-28 #status/planned #view/ready #kind/bug
+- [ ] t-20261125-hunt45-exit-code-taxonomy-docs · CLI: document baha exit-code taxonomy and machine coverage check #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w352-0428-321-exitfix2 (correction round after w255 HOLD 7204118575: context.Canceled:130 bypass regression through main-used helper; exact head 03354deb CI was green, review gap is test coverage)  
+    **PR:** [baseharbor#1866](https://github.com/mcpdev80/baseharbor/pull/1866)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w352-0428-321-exitfix2 (correction round after w255 HOLD 7204118575: context.Canceled:130 bypass regression through main-used helper; exact head 03354deb CI was green, review gap is test coverage)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1866](https://github.com/mcpdev80/baseharbor/pull/1866)  
 **Source:** 
 <!-- /generated:links -->
 
