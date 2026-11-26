@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w342-0428-331-damagedstate
+kanban_status: active
+kanban_lane: active
 kanban_summary: "DamagedDeploymentNamespace (internal/deployment/damagedstate.go:266) iterates deployments/ children and calls…"
 kanban_title: 0428-328 · skip reserved damaged scan
 priority: ""
@@ -23,7 +23,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261126-hunt46-damaged-state-reserved-namespace · 0428 hunt H-V46: DamagedDeploymentNamespace flags the reserved never-delivered namespace as damaged (low) #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261126-hunt46-damaged-state-reserved-namespace · 0428 hunt H-V46: DamagedDeploymentNamespace flags the reserved never-delivered namespace as damaged (low) #task #release/v0-4-28 #status/active #view/ready #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
     **Ready to assign** · prerequisites accepted  
