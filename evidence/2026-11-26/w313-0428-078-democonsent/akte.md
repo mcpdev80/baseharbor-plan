@@ -117,3 +117,6 @@ index 23650ee..21a8225 100644
 ## END line
 
 END_BLOCKED — implementation, push, and PR are complete and within scope; the task's runtime-gate evidence is gated on the Owner W18 demo-workflow change (owner scope). No further worker action without an explicit Owner re-dispatch.
+
+## coordinator evidence-admin addendum 2026-11-26T14:3xZ
+- Supersede stale narrative: demo #182 was NOT left draft - reviewed and MERGED as 58ac70679e (2026-11-26, ROLLE: REVIEW+MERGE 6073759006 / comment 7191421787), consent flag in effect; W18 workflow-gate question resolved per owner ruling and demo run 45814300899.
