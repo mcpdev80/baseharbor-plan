@@ -201,3 +201,9 @@ ac7c970fe91ad5fc3d8cb76336ddbbb7ecce04ee	refs/heads/develop
 - Worktree under /var/tmp/w296-wt (planning clone) + /var/tmp/w296-plan (isolated plan worktree). No /tmp/opencode usage, no /var/tmp scratch left after END.
 - No docker/podman projects started (read-only task). Cleanliness line: `docker ps -a` — N/A, no containers launched this shift.
 - No worktrees left under /var/tmp beyond w296-wt and w296-plan; both removed as the last action before END.
+## FORWARD-HOP OWNER-SCOPE NOTE (2026-11-26, w301-0428-251-planhops — forward-only dated addition)
+This proposal akte (PR #99) was re-painted onto the LIVE plan main by lane w301-0428-251-planhops via a single
+forward merge commit. This lane implemented **nothing** in #99 — it only re-hops the existing read-only proposal.
+The workflow change #99 proposes is **OWNER SCOPE**: the demo `.github/**` file `pr-config-matrix.yml`
+default-branch evaluation (W18 Variant A). No lane may implement it; it must be landed by an owner-authorized PR.
+Prior prose untouched.
