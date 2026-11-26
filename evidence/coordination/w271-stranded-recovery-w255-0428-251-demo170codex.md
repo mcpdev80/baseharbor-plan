@@ -295,10 +295,97 @@ The prior stop cited /home/marcel/.config/baseharbor-coordinator/COST_CONTROL.md
 
 The reallocated Hunt47 task final rendered working-tree blob is b52ca74e4eebf872a92332bb4c712ce2bf75e524. Relative to original carrier blob 1eb4938b2204b83ebdd760e9123d1aec618dbffa, the only semantic source edits are the authorized card_number reallocation and the required provenance paragraph; kanban_title is renderer-derived. Stable task ID, dependency IDs, and links are unchanged.
 
-## Candidate provenance snapshot superseded by checkbox-path ruling
+## Final candidate provenance before evidence-close commit
 
-The preceding candidate name-only diff and own-commit list describe the pre-exception head 9cadd8e5cd301132a81c1aed3db213e18aece2a3. They are retained as history only. This section will be replaced by the final exact-base provenance after the park/removal commit.
+Exact fetched live base: 9d2960c6a8244c719e21b4113bf43d875b646b37
+Candidate at this snapshot: 50082d7487150f7cfa3cbcb8cc7d512ee56af177
+The command git merge-base --is-ancestor origin/main HEAD exited 0. Exact output of git diff origin/main...HEAD --name-only follows:
 
-## Card 0428-253 owner ruling
+evidence/2026-11-25/w200-1650-review-merge/review.md
+evidence/2026-11-25/w200-1851-carrier/disposition.md
+evidence/2026-11-25/w200-outstanding-two/decisions.md
+evidence/2026-11-25/w213-0428-287-1835-refresh.md
+evidence/2026-11-25/w214-0428-284-1812-hop.md
+evidence/2026-11-25/w219-0428-271-0428-286-1820hop.md
+evidence/2026-11-25/w234-0428-307-1842run2.md
+evidence/2026-11-25/w234-0428-307-1850run2.md
+evidence/2026-11-shift/0428-263/w200-1846-review.md
+evidence/2026-11-shift/0428-263/w210-0428-263-pr1846-hop.md
+evidence/2026-11-shift/0428-284/w200-1812-review.md
+evidence/2026-11-shift/0428-284/w241-0428-284-1812prehop.md
+evidence/2026-11-shift/1812-runtime-routing/w200-1812-runtime-routing.md
+evidence/2026-11-shift/cancelgroup/w200-cancelgroup-befund.md
+evidence/2026-11-shift/huntV55/w200-huntV55-disposition.md
+evidence/2026-11/w242-0428-285-1820census/akte.md
+evidence/board-2026-11-24/w68-0428-277-revealallow.md
+evidence/coordination/w271-stranded-recovery-w255-0428-251-demo170codex.md
+evidence/r28-welle4-2026-11-18/codex-welle3-review/1592-r2.md
+evidence/r28-welle4-2026-11-18/codex-welle3-review/1686.md
+evidence/r28-welle4-2026-11-21/cli-shard-runtime-tests/round-1.md
+evidence/r28-welle4-2026-11-24/w55-0428-078-probehop-hold.md
+evidence/r28-welle4-2026-11-24/w55-0428-078-probehop-stop.md
+evidence/r28-welle4-20261114/0428-065/round-rebase-1615.md
+evidence/r28-welle5-2026-11-22/0428-227/review-1753-head71deb610.md
+evidence/r28-welle5-2026-11-22/oras-0428-229/review-1750-head4bd779b1.md
+evidence/r28-welle5-2026-11-22/publishB/review.md
+evidence/r28-welle5-2026-11-22/redir1756/review.md
+evidence/r28-welle5-2026-11-22/rev1756f/review.md
+evidence/r28-welle5-2026-11-22/sourcepull-0428-223/review-1750-head17f471cd3fe9a41fbe5b4e2d3d2748f1e1bf9c99.md
+evidence/r28-welle5-2026-11-23/hunt39-v55/catalog-lifecycle-hunt.md
+evidence/r28-welle6-2026-11-24/broker-build-identity-w69/evidence.md
+evidence/r28-welle6-2026-11-25/0428-078/pr1847-review-merge.md
+evidence/r28-welle6-2026-11-25/0428-284-1842-hop/round-1.md
+evidence/r28-welle6-2026-11-25/w198-0428-284-demo-parser/round-0.md
+evidence/r28-welle6-2026-11-25/w211-0428-307-fallback.md
+evidence/r28-welle6-2026-11-25/w213-0428-287-1835-refresh/evidence.md
+evidence/r28-welle6-2026-11-25/w218-0428-181-0428-285-1819hop/1819-pr-hop-akte.md
+evidence/r28-welle6-2026-11-25/w222-0428-307-1852-secondrun/secondrun-gate-akte.md
+evidence/r28-welle6-2026-11-25/w226-0428-307-0428-283-1818reset.md
+evidence/r28-welle6-2026-11-25/w237-0428-283-1818reset2/round-1.md
+evidence/r28-welle6-2026-11-26/1842-review/review.md
+evidence/r28-welle6-2026-11-27/0428-284/w136-pin-disposition.md
+evidence/r28-welle6-2026-11-27/bughunt-hv47-upgrade-migration/intake-1.md
+evidence/r28-welle6-2026-11-27/bughunt-hv54-config-defaults/w209-0428-224-hunt-v54.md
+evidence/r28-welle6-2026-11-27/w198-0428-284-demo-parser/w198-dispatch-wave-48bac372.md
+evidence/r29-welle6-2026-11-25/w205-0428-253-planner-deleted-source/akte.md
+evidence/r29-welle6-2026-11-28/0428-1819/w136-1819-review.md
+evidence/r29-welle6-2026-11-28/0428-253/w136-pr1853-admission-ruling.md
+evidence/r29-welle6-2026-11-28/0428-253/w243-1853-rundown.md
+evidence/r29-welle6-2026-11-28/0428-287/w136-1835-redundancy.md
+evidence/r29-welle6-2026-11-28/0428-307/w136-1852-owner-admission-pr.md
+evidence/r29-welle6-2026-11-28/0428-307/w136-1852-requal-review.md
+evidence/r29-welle6-2026-11-28/plan-akte-collision/akte-recovery.md
+evidence/recovery-2026-11-23/0428-058/round-1.md
+evidence/shifts/2026-11/0428-288/w203-0428-288-diag-165-impl-170/akte.md
+evidence/w216-1852-hop/EVIDENCE.md
+evidence/w221-0428-253-1853fix/akte.md
+evidence/w228-0428-216-huntv59/akte.md
+releases/v0.4.28.md
+releases/v0.4.x.md
+roadmap/cards.md
+tasks/t-20261102-rcptlink-task.md
+tasks/t-20261119-coord-tooling-defects.md
+tasks/t-20261120-coord-publish-integrity-gaps.md
+tasks/t-20261122-runtime-broker-health-unhealthy.md
+tasks/t-20261125-hunt47-config-mutation-migration-parity.md
+tasks/t-20261125-hunt47-core-plan-version-message.md
+tasks/t-20261125-hunt47-deleted-deployment-dangling-binding.md
+tasks/t-20261125-hunt47-version-gate-error-surface.md
+tasks/t-20261125-hunt47-write-stamp-json-version.md
+views/kanban-dashboard.md
+views/overview.md
+views/ready.md
+views/releases/v0.4.28.md
+views/releases/v0.4.x.md
 
-The first two w205 commits are admitted as same-lane shortened identity: w205 = w205-0428-253. No rewrite; this ruling is narrowly scoped to those same-lane shortened-format commits. Rejection of foreign-lane identity remains unchanged. The dispatch start message now carries the full canonical identity requirement for all future lanes.
+Exact output of git log --oneline origin/main..HEAD follows:
+
+50082d748 Park checkbox evidence paths per owner ruling
+e636db743 Record refreshed base ancestry and candidate scope
+9cadd8e5c Merge remote-tracking branch 'origin/main' into w255-w271-stranded-recovery
+ed73b155a Record recovery provenance and reallocate Hunt47 card number
+17e2e15e6 Merge remote-tracking branch 'origin/main' into w255-w271-stranded-recovery
+267a60338 Record recovery candidate provenance
+e52220e17 Restore stranded evidence and scope card scanner
+
+All listed commits are authored and committed by w255-0428-251-demo170codex, verified using git log --format=%h %an | %cn | %s origin/main..HEAD. The evidence-close commit appended after this snapshot is separately identity-checked; the final branch log is checked again before handoff. Neither parked checkbox path nor any workers/ or .github/ path appears in this final tree diff.
