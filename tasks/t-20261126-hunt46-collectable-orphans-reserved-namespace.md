@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
+owner: w339-0428-327-reissue132 (reissue lane, controlling per 90cb79d9 akte)
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: "CollectableOrphans (internal/deployment/deploymentlist.go:185) enumerates each direct child directory of deployments/ as a…"
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261126-hunt46-collectable-orphans-reserved-namespace · 0428 hunt H-V46: CollectableOrphans lists the reserved never-delivered dir as a collectable orphan UUID (medium) #task #release/v0-4-28 #status/planned #view/ready #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
+    **Owner:** w339-0428-327-reissue132 (reissue lane, controlling per 90cb79d9 akte)  
     **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w339-0428-327-reissue132 (reissue lane, controlling per 90cb79d9 akte)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
