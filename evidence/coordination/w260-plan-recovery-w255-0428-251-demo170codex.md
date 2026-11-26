@@ -188,3 +188,11 @@ evidence/w248-0428-284-boardscan/akte.md
 evidence/w255-0428-251-demo170codex/decision.md
 tasks/t-20261124-gate-catalog-baseline-1819.md
 ```
+
+## Identity-block disposition and refreshed PR provenance
+
+Before discarding local-only merge `97283409e25e65ad2b2567bec6685164361c86c6`, I verified the published PR #75 still pointed at `f6b7b608b1a1110d805418f9ae26b8af66a6d704`, `git ls-remote origin` advertised no ref at the offending SHA, and GitHub's commit API returned `No commit found for SHA: 97283409e25e65ad2b2567bec6685164361c86c6` (HTTP 422). It had never been pushed. I discarded that local-only commit and recreated the base absorption with `git -c user.name=w255-0428-251-demo170codex -c user.email=w255-0428-251-demo170codex@baseharbor.local merge --no-edit origin/main`.
+
+The replacement merge is `ab57e84d1`; `git show -s --format='%an %cn %s' HEAD` prints `w255-0428-251-demo170codex w255-0428-251-demo170codex Merge remote-tracking branch 'origin/main' into w255-w260-plan-recovery`. At this refreshed checkpoint, base `origin/main` is `3a9bfea66796e2c36795b9c3794cc24654743030` and `git merge-base --is-ancestor origin/main HEAD` exits 0. `git diff origin/main...HEAD --name-only` output remains the same 14 paths listed in the previous provenance section. `git log --oneline origin/main..HEAD` contains only this lane's candidate commits; author and committer verification for every listed commit returns `w255-0428-251-demo170codex <w255-0428-251-demo170codex@baseharbor.local>`. No PR push occurred while the invalid-identity merge was present.
+
+The PR scope restores 12 of the 88 paths counted by w271's census (PR #76 head `97cf9672e...`, Hosted Plan validation run `45741218805` GREEN). This PR records the forward-only disposition for the remaining paths; their 68 unique restorations, two duplicate exclusions, and six card-ID conflict reissues belong to one follow-up PR after this recovery PR is merged.
