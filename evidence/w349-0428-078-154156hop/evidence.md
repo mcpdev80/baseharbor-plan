@@ -227,6 +227,16 @@ markers; each count is identical on origin/main (1 per file, verified via
   192cc013e -> 2c7eefa55 -> 139875e48 -> 76b203ac6 -> 08cd018d4 -> e1e854dd4), several times
   by OTHER lanes' evidence-PR squash merges. A held candidate therefore needs re-anchor
   merges on push cycle; both PRs' heads absorbed every tip measured at their merge time.
+- DEFECT REPORT (correction of the earlier note — NOT plan.py check, NOT on main): the 16
+  "status wait requires wait_reason" lines are the validator's WARNINGS section in the
+  current schema (main e1e854dd4 reports "0 errors, 10 warnings"+these waits; identical on
+  my anchored hops — e.g. run 45900131247 and the main push runs all SUCCESS). The one
+  observed run reporting "16 errors" could not be reproduced on any exact head and coincided
+  with main 5f6f33326375fa0e1b99f113495465750d61ed52 being briefly the fetched tip — a
+  "claim reconcile" commit by lane w351-0428-359-bhop3 (16 cards -> owner blank + wait,
+  wait_reason left empty). It never reached origin/main (main is e1e854dd4). No akte
+  publication was blocked. If 5f6f33326 is later landed, the empty wait_reason fields need
+  completion (tasks/t-20261017-release-0-4-27-prepare.md and 15 siblings).
 - Mission-named worktree paths (workers/worktrees/...) used verbatim; identity set with
   `git config --worktree` only (bare git config untouched); all commits and merges carry the
   lane's canonical name in author AND committer; delivery proven via ls-remote after every
