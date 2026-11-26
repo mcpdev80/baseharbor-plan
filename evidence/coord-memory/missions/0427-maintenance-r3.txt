@@ -1,0 +1,12 @@
+Auftrag 0427-034-maintenance-r3 (lane ea81397a, laptop, FRISCHE korrektur-bahn; kandidat PR#1428 head a3416743b auf origin + review act-1428-review.md origin/main bcf251f25 — dort abholen).
+Karte t-20261018-r27-maintenance-client. 2. RE-REVIEW = REQUEST-CHANGES (ZWEITER bounce derselben stelle = destroy-ablauf). Deshalb STRATEGIE-WECHSEL, NICHT wieder punktweise patchen:
+  Modelliere destroy als EINE atomare zustandsmaschine: fenster-commit -> teardown -> history-append in FESTER transaktionaler reihenfolge mit klaren zustands-/error-aesten. Die drei beanstandeten punkte sind symptome EINER fehlenden transaktion:
+   (1) teardown loescht ein zu-frueh vorgelegtes window -> window darf erst NACH erfolgreichem teardown-loeschen verschwinden; autoritaet bleibt bis zum commit gehalten.
+   (2) failed destroy hinterlaesst history-residue -> append ist Teil derselben transaktion, bei fehler ROLLBACK (kein halber zustand).
+   (3) capacity preflight prueft ALTEN zustand -> preflight prueft den ZIEL-/post-zustand vor der anwendung.
+  LIEFERE EINE table-driven regression die JE DEN ausgang abdeckt: success, destroy-failed (rollback, keine residue), teardown-error (window bleibt bis commit), preflight-rejects. Jede zeile rot ohne die atomare sequenz, gruen damit.
+- claim: baseharbor-plan/scripts/plan.py claim t-20261018-r27-maintenance-client --owner 0427-034-maintenance-r3 (commit+push) BEVOR aendern.
+- basis PR#1428 branch work/r27-maintenance-client-wt (head a3416743b). fetch origin develop, merge, ancestor rc0, drift-frei. delta NUR maintenance_* dateien (#110/#119/.github NICHT).
+- eigenes-run: hosted pr-check finale sha TERMINAL (run-id+status evidence), ls-remote zeugnis. ## PLAN + todowrite. keine subagenten (4.8). NICHT idle ohne END — festgefahren/frustriert => QUESTION an coord (dann eskaliere ich, 3. bounce = strategie-owner-entscheid).
+Evidence: evidence/r27-welle5-folge-2026-11-07/maintenance-client/round-3.md
+END an 594fd2f5.

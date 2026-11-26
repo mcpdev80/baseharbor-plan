@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW. Coord 841e7734. ABNAHME secure-export, kandidaten-genau.
+KANDIDAT: PR #1396 head fb9a7bec286 vs develop 5f8b2985 (kur+registry drin); karte
+t-20261018-r27-secure-export; akten evidence/r27-welle5-2026-11-06/secure-export/round-3.md + round-4.md.
+PRUEFPUNKTE: (1) sicherer export laut vertrag (schluessel-material nie im klartext/args, dateirechte,
+fail-closed bei unklarheit), (2) runde-3-findings abgearbeitet (diff gegen e520ed60-artige vorgaengerkoepfe
+in den akten), (3) lauf 42210634495 terminal success am exakten kopf, (4) write-set ohne .github/fremd,
+(5) develop-ahn Ja vor deinem greenrun-merge. URTEIL als datei
+evidence/r27-welle5-2026-11-06/secure-export/act-1396b.md auf origin/main (ACCEPT|REJECT+rezept),
+END an 841e7734: "END_DONE codex-luna-exp-1396b: verdict=<..> aktedatei=<pfad>".
+HINWEIS ROLLEN: du warst an 1396 nur gruenlauf-ausfuehrender (kein inhalt), inhalt stammt von w220/w216 —
+review ist damit unabhaengig; bei zweifel: END_BLOCKED statt eigenurteil.

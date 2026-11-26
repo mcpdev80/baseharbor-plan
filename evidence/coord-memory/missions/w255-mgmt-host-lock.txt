@@ -1,0 +1,34 @@
+ROLLE: Worker (Lane w255). Coord 841e7734. KARTE: t-20261018-r27-management-host RUNDE 2 (REJECT-KORREKTUR,
+act-1405.md, PR #1405). DU reklamiert den claim (vorgaenger w250 entlassen) ueber scripts/plan.py claim
+(commit+push) BEVOR erste aenderung.
+BEFUND (act-1405, wortlich lesen): (A) FRISCHE root: internal/coreinstallation/management_host.go:94-100
+gibt bei fehlender root (bootstrap=true, unlock=nil, err=nil); cmd/baha/serve.go:57-69 erwirbt KEIN
+Bootstrap-Eigentums-lock und faehrt fort zu controlplaneruntime.Run => ZWEI frische prozesse koennen
+BEIDE binden (kein exklusiver schreiber). (B) ATTACHED install: der server haelt den lifecycle-lock die
+GANZE server-lebenszeit; bestehende core-lifecycle-arbeit will denselben lock erneut => der eigene
+management-host blockiert seine lifecycle-Operationen. (C) der context zur root-pinung wird vom
+executor/server NICH konsumiert (unbenutzter context-value).
+REZEPT (akt wortlich): (1) bootstrap erhaelt ATOMAR exklusiv-Eigentum an der neu angelegten protected
+root BEVOR bind — zwei konkurrierende bootstraps duerfen nicht beide durch. (2) lock/eigentums-flow der
+lifecycle-Operationen durch den bereits-eigentumhaltenden server AUSFUEHREN laesst, aber unabhaengige
+schreiber ausschliesst — KEIN nicht-reentranter per-operation-lock ueber die server-lebenszeit. Den
+verifizierten root/eigentum an den ECHTEN executor+server-pfad uebergeben (kontext erreicht jeden consumer).
+(3) shipped-path test: management-host starten => gleiche-host lifecycle-op GRUEN; zweiter schreiber
+abgelehnt; konkurrierender frischer bootstrap abgedeckt; ECHTE quell-Mutation des produktions-eigentums-
+waechters => dieselbe zelle ROT bei entfernung, GRUEN nach restore (beide + mutations-diff in akte;
+handhilfe-umweg verboten, praeszedenz 1397b). (4) fokussierte startup/ownership/restart tests + package
+checks, dann PR Selected Checks am EXAKTEN neuen kopf bis TERMINAL success selbst beobachten. (5) STOP:
+wenn bootstrap zwei schreiber laesst ODER lifecycle-op durch aktiven host den state-lock nicht bekommt =>
+REJECT lassen + fehlerzelle melden.
+ARBEIT: zweig work/r27-management-host (derselbe PR #1405, KEIN zweiter PR), develop einmerge, push.
+AKTE: evidence/r27-welle5-folge-2026-11-06/management-host/round-2.md auf origin/main (PLAN-checkliste,
+ls-remote-kopf, mutante rot+gruen transcript + diff, run-id TERMINAL, ## repo-rule compliance).
+GATES: KEINE subagenten, kein zweiter PR, root-checkout/.github VERBOTEN, write-set = coreinstallation+
+cmd/baha/serve (disjunkt zu anderen lanes), container NIE coordinator-host (R1), VM nur falls zelle sie
+braucht (vm-lock einer-nach-anderer, sonst keine), caches /tmp/opencode/w255*.
+END an 841e7734: "END_DONE w255-mgmt-host-lock: head=<sha10> bootstrap-eigentum=atomar lifecycle-unterm-host=<GRUEN> zweiter-schreiber=<abgelehnt> mutante=<ROT+GRUEN> lauf=<id TERMINAL> lsremote=<sha10> akte=<pfad main> | <Satz>"
+WIEDERANSATZ (coord): deine sitzung wurde im lauf abgerissen (tmux-unfall, kein verschulden);
+ls-remote zeigt work/r27-management-host NOCH auf cd336cf — deine runde-2-aenderung ist nicht auf
+remote. Fetch den zweig, pruefe deinen alten cache /tmp/opencode/w255* (kann leer sein), und
+fuehre die rezept-punkte (1)-(3) neu aus; akte round-2.md war lokal im coord-checkout und ist
+gesalvagt — darauf aufbauen statt neu erfinden.

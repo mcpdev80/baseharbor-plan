@@ -1,0 +1,9 @@
+Auftrag 0427-034-maintenance-r6 (lane 72cd7871, flash, FRISCH). Karte t-20261018-r27-maintenance-client. 6. anlauf auf DEMSELBEN karten-thema — der reviewer hat deinen widerspruch aus r5 nachprüfung EXPRES zurückgewiesen mit zwei konkreten code-befunden (akte act-1428-review.md, neuester commit origin/main, recheck-teil):
+  1. OWNER-FAILURE RETRY ORACLE ist INVERTIERT/DUPLIZIERT in deiner all-exit matrix (zeilen fuer owner-failure x retry pruefen das falsche/doppelte ergebnis).
+  2. TOMBSTONE hat KEINEN PRODUCTION REPLAY READER: es wird geschrieben aber nirgends im produktionspfad gelesen — replay laeuft nur im test, das ist der inhaltliche kern des vorwurfs.
+ARBEIT: (a) lies den recheck-text der akte wörtlich; (b) fuege einen ECHTEN reader-pfad ein: 'baha app maintenance status'/replay liest den commitierten tombstone und beantwortet idempotent (local+remote); (c) korrigiere die matrix-zeilen (oracle richtung, keine duplikate); (d) regressionstests rufen den reader-pfad auf, nicht die writer-helfer.
+- claim wie immer (plan.py claim t-20261018-r27-maintenance-client --owner 0427-034-maintenance-r6), git-identitaet 0427-034-maintenance-r6.
+- basis PR#1428 branch lane/0427-maintenance-client-wt head 396529860e1f; develop ancestor rc0. delta NUR maintenance-dateien.
+- PR-branch normal push (kein force), ls-remote zeugnis, hosted CI selbst TERMINAL, ## PLAN + todowrite, keine subagenten, END PFLICHTIG.
+Evidence: evidence/r27-welle5-folge-2026-11-07/maintenance-client/round-6.md
+Bei zweitem unbekannten (rezept unklar): QUESTION an coord statt raten — die karte steht bereits bei 5 bounces, ein sechster falscher kopft kostet den sitz.

@@ -1,0 +1,6 @@
+FORTSETZUNG 003 (quarkus-fix). Dein quarkus-fix 0d8639c3d ist SAUBER (nur internal/development/quarkusadapter/adapter.go + adapter_test.go) aber auf alter basis 0c4e59cdad = DRIFT (develop 812c99c88).
+(a) rebase/merge origin/develop auf den quarkus-fix (isolierter branch vom greenfield-ast), merge-base --is-ancestor 812c99c88 HEAD rc0, delta NUR die 2 quarkusadapter-dateien (kein lifecycle/fixture, das ist #110).
+(b) oeffne PR gegen develop (ornith kann gh), exakt-one-candidate quarkus healthcheck /q/health fix. Test TestQuarkusRoundTrip muss im CI ECHT laufen (CI-Aufnahmepflicht; runtime gate oder unit-suite). 
+(c) hosted CI auf finaler sha TERMINAL beobachten (run-id+status evidence), ls-remote zeugnis.
+(d) PODMAN-seite der greenfield stacks bleibt ausstehend bis #107/#110 podman readiness fertig ist — NICHT als host-blocker verbuchen, sondern als 'wartet auf #110'. Go/py/nextjs auf docker sind belegt (nextjs auf baha-docker-2 14GB, maschine bereitgestellt).
+Evidence greenfield-stacks/round-3.md. END an 594fd2f5. karte bleibt active bis alle 4 stacks docker+podman. keine subagenten. nicht idle ohne END.

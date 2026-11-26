@@ -1,0 +1,4 @@
+ROLLE: CODEX-MERGE. Coord 841e7734. Owner-autorisiert durch ACCEPT-Akte act-1402f.md (unabhaengige
+Lane, kopf 1c024d11bd6). AKTION: gh pr merge 1402 -R mcpdev80/baseharbor --admin; VORHER head==1c024d11bd6
++ state OPEN, sonst STOP+END_BLOCKED. NACHHER ls-remote develop + blob-vergleich der adapter-dateien
+(bei squash). END "END_DONE codex-merge-1402: merged=<sha7> inhalt-gleich=JA".

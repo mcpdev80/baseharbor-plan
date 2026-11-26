@@ -1,0 +1,16 @@
+ROLLE: Worker (Lane w233). Coord 841e7734. KARTE: t-20261105-r27-compose-host-isolation (NUR GRUENLAUF —
+DER BLOCKER IST WEG, gemessen: rootful+rootless docker auf baha-docker gruen, rootless podman auf
+baha-podman gruen, beide FABRIKREIN (coord-nullpruefung 12:1xZ), baha-entwicklungskopf 7c393b0d ist
+installierbar (rauchbeleg w232)).
+ZWEIG: work/r27-compose-host-isolation (PR #1383, head 3b2ec108b40, MERGEABLE). VORHER: develop(NEU inkl
+kur) einmerge falls nicht Ahn, push. DANN: die compose-tore am kopf selbst bis TERMINAL beobachten
+(auf baha-docker/baha-podman NICHTS selbst starten ausser der CI es verlangt — die LAEUFE sind gehostet;
+dir obliegt nur PR-ready + push; falls ein tor-anhangeln externe last zeigt: 90s-pause).
+FREMDES ROT: die compose/workload-validate-zellen (TestRepositoryWorkflowRealLifecycle + 3 workload) sind
+als Fremd-rot der ganzen weile bekannt — wortlichen zeugen (lauf-id + fehlerzeile) in die akte, beweite
+deine Aenderung NICHT dazu (praeszedenz w207/211/216/224 variante 2).
+AKTE: evidence/r27-welle5-2026-11-06/compose-host-isolation/round-2.md (fetch origin main vorher,
+zielgerichtetes add, ls-tree nachweis, keine checkboxes).
+GATES: ls-remote echt==head WORTLICH, name-only disjunkt, KEINE subagenten/zweiter PR/root-checkout/.github,
+caches /tmp/opencode/w233*.
+END an 841e7734: "END_DONE|END_BLOCKED w233-compose-greenrun: head=<sha10> lauf=<id STATUS> fremdrot=<zeug|nein> | <Satz>"

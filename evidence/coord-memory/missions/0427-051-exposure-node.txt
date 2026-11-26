@@ -1,0 +1,29 @@
+ROLLE: Worker (Lane 0427-051-exposure-node). Coord 594fd2f5. KARTE: t-20261018-r27-remote-material (0427-051). PR #1418, ast work/r27-remote-material, bisheriger kopf efb6c2d2c (base develop 934be499b).
+KORREKTURRUNDE nach CODEX-REVIEW act-1418a (verdict REJECT; go-unit ci=42333649344 success, aber docker+podman
+runtime-zellen SKIPPED + echte produkt-maengel). REZEPT PUNKT FÜR PUNKT UMSETZEN (nur-lesend bestaetigt, du
+aenderst produktcode):
+ (1) internal/application/runtime_postgres.go ~310-315: `RuntimeComposeYAMLForProject` liefert fuer
+     exposure-only workloads `services: {}` — KEIN gateway. Exposure-only muss einen gateway-service bekommen.
+ (2) writeExposureGatewayComposeService (runtime_postgres.go ~522-550): das generierte gateway haelt Caddy ohne
+     serving/proxy-config (kein routing auf den exponierten service). Caddy serving/reverse-proxy + TLS-material
+     aus der bestehenden PKI->managed-publication einbinden.
+ (3) NEUE verhaltens-regressionen: (a) exposure-only workload BEKOMMT gateway + serving-config, (b) node-side
+     rotation + runtime-consumption des serving-zertifikats werden verhaltenspruefend abgedeckt (nicht nur
+     projection/key-mode/missing-issuer wie bisher round-4).
+CI-AUFNAHME (AGENTS 5.3): deine neuen tests MUESSEN von einem GitHub-CI-job gefahren werden. Der runtime-beweis
+(Targeted HA docker/podman) ist am PR AKTUELL SKIPPED, weil .github/workflows/ci.yml:171-176,213-218 die runtime-
+zellen auf designated push refs beschraenkt — das ist OWNER-SOPE, NICHT von dir editieren. Melde den bentigten
+trigger-wechsel als BEFUND mit file:line in deiner akte + im END (koordinator->owner). Wo ein bestehender selected
+check (go-unit/go-vet) deine neuen unit-tests faehrt, benenne job+trigger in der akte.
+ARBEIT: (1) karte + act-1418a + round-1..4 lesen. (2) ast work/r27-remote-material holen (ls-remote), auf
+develop 934be499b auffrischen (merge; KEIN .github). (3) fix (1)+(2) + regression (3) im EIGENEN worktree
+(/tmp/opencode/0427-051-exposure-node-wt), gezieltes git add, KEIN git add -A, exact one candidate (kein zweiter ast).
+(4) PR #1418 am neuen kopf, draft=false; native selected checks terminal am final-kopf, EIGNES-RUN. (5) lies die
+karte — die scheibe bleibt NUR PKI->publication->node serving-zertifikat + rotation, KEIN breiter remote-guard.
+AKTE: evidence/r27-welle5-folge-2026-11-06/remote-material/round-5.md (punkte statt checkboxen; ls-remote vor/nach,
+run-id, ancestor origin/develop HEAD + git log --oneline origin/develop..HEAD NUR eigene; ## repo-rule compliance;
+`git -C baseharbor-plan remote -v` echte plan (NICHT workers/ phantom); + der CI-WIRING BEFUND file:line).
+GATES: KEINE subagenten; .github tabu (befund statt edit); dev/coordinator-host tabu fuer stacks; KEIN self-merge.
+END an 594fd2f5: "END_DONE 0427-051-exposure-node: head=<sha11> pr=1418 gateway=<exposure-only bekommt serving-config>
+rotation=<node-consumption verhaltens-GRUEN> run=<id TERMINAL> ci_wiring_befund=<ci.yml:171-176,213-218 owner-noetig>
+akte=<pfad origin/main>" / QUESTION / END_BLOCKED + zeile.

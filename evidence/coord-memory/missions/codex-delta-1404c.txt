@@ -1,0 +1,12 @@
+ROLLE: CODEX-REVIEW (Lane). Coord 841e7734. ABNAHME control-plane-single-default DELTA-BLICK.
+KANDIDAT: PR #1404 head ed98ed1dde7 vs develop 5e4fde7177e — GEMAESSEN: drei-dot diff = genau 3 dateien
+(path_prompt_context.go, runtime_ports_test.go, stack_test.go), commits = w242-fix + develop-merge.
+Der fruehere BLOCKED-Befund (image-transfer-loeschung) war ein BASE-ARTEFAKT und ist durch die auffri
+schsung behoben; akte round-2.md auf origin/main dokumentiert die drei koepfe. hosted lauf 42237544020
+terminal/success am exakten kopf (nachmessen).
+PRUEFPUNKTE (kartentext ist vertrag, critical): (1) default rendert/faehrt SINGLE ohne profil-datei,
+(2) HA nur opt-in, dann volles ensemble gesund, (3) red-first-zellen, (4) keine silenten moduswechsel,
+(5) write-set = genau die 3 dateien, keine .github, keine fremden ketten im diff, (6) die inhaltlichen
+lob-punkte deines vorgaengers (act-1404b: fix in-scope, rot-zuerst bewiesen) nur gegen den neuen kopf
+bestaetigen — kein neues steinwurf-terrain. URTEIL als evidence/r27-welle5-2026-11-06/control-plane-single-default/act-1404c.md
+auf origin/main (ACCEPT|REJECT+rezept), END an 841e7734: "END_DONE codex-delta-1404c: verdict=<..> aktedatei=<pfad>".
