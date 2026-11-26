@@ -1,0 +1,11 @@
+ROLLE: Worker (Lane w228). Coord 841e7734. KARTE: t-20261018-r27-local-registry (RUNDE 1 ENDE, NUR nach
+kur-r8-landung — ZUERST pruefen: git log develop --grep kur / merge-base mit kur-commits; wenn NICHT
+drin: sofort END_BLOCKED 'kur-r8 nicht in develop', kein warten).
+ZWEIG: work/r27-local-registry (PR #1401, head e520ed6096d) — derselbe zweig, KEIN zweiter PR, KEIN
+inhalt-wechsel (akte round-1.md belegte alle zellen; aenderung waere ein rueckfall).
+EINZIGE AUFGABE: develop(NEU) einmerge, konfliktfrei, hosted lauf bis TERMINAL GRUEN am neuen kopf SELBST
+beobachten (headSha==ls-remote wortlich), akte round-1.md um zeile 'kur-in-develop + gruenlauf <id>'
+erweitern (zielgerichtetes add, ls-tree vor END), drei-kopf-vergleichstabelle wie export-muster.
+GATES: race-20 lokal bleibt gruen, name-only, ls-remote echt==head WORTLICH, KEINE subagenten/zweiter
+PR/root-checkout/compose, caches /tmp/opencode/w228*.
+END an 841e7734: "END_DONE w228-local-registry-greenrun: head=<sha10> kur-in-develop=<JA> lauf=<id TERMINAL GRUEN> lsremote=<sha10> | <Satz>"

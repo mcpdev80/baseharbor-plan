@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW. Coord 841e7734. ABNAHME journal-wiring AUFFRISCHUNG, kandidaten-genau.
+KANDIDAT: PR #1393 head f2d522f0a00 (branch work/r27-journal-wiring; reset auf akzeptierten 67efc581 +
+develop-merge 7c393b0d, device-lifecycle-drift entfernt), karte t-20261018-r27-journal-wiring, akten
+evidence/r27-welle5-2026-11-06/journal-wiring/round-4.md (+ runde-3 akzeptierte basis). PRUEFPUNKTE:
+(1) der zweig traegt NUR die journal-kette (git log origin/develop..head --oneline — keine fremden commits),
+(2) name-only diff = ausschliesslich die 5 angebotenen journal-dateien,
+(3) lauf 42211922948 terminal success am exakten kopf, (4) inhalt == der damals akzeptierte stand
+(blob-vergleich 67efc581 vs f2d522f0a00 fuer die 3 unchanged testfiles), (5) force-push-dokumentation in
+akte vorhanden (warum reset statt rebase). URTEIL als evidence/r27-welle5-2026-11-06/journal-wiring/
+act-1393b.md auf origin/main, END an 841e7734: "END_DONE codex-luna-journal-1393b: verdict=<..> aktedatei=<pfad>".

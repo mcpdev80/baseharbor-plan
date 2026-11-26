@@ -1,0 +1,27 @@
+ROLLE: CODEX-REVIEW. Coord a4573079. ABNAHME remote-up-cli — PR #1407.
+KANDIDAT: PR #1407 (mcpdev80/baseharbor), branch work/r27-remote-up-cli, head c87c8b644cc,
+base = develop dddf0d7823f (Ancestor-JA, gemessen). Eigene Prüfung: ls-remote vor/nach dem Review.
+AKTE: baseharbor-plan/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md (origin/main).
+LIEFERER: Lane w285-pr1407-docker-cell (worker-ornith1.5). Gehostete Läufe am Kandidaten: alle
+completed-checks success, der Rest skipped nach Pfadregel; Run 42320398007 terminal success gemeldet.
+
+PRUEFPUNKTE:
+(1) SHA-genauer Diff origin/develop...HEAD — Write-Set ohne .github/** und ohne Pflege-/Regeldateien
+    (AGENTS 3.11: BetriebsText im Produktrepo ist ein Befund).
+(2) Akte enthält ls-remote-Zeuge + Run-ID + Ergebnis; END ohne diese Zeugen ist unvollständig (5.3).
+(3) Die Docker-Zelle meldet ErrDeploymentOwnerMissing als BEFUND (deployment_store.go:107 /
+    recordDeploymentBeforeMutation). Prüfe, dass dafür KEIN Test abgeschaltet, übersprungen oder
+    "grün gerechnet" wurde (5.4) und dass die Karte t-20261106-r27-remote-up-podman-owner-missing
+    als eigener Folgebefund steht statt in #1407 mitlaufen zu lassen (Scope-Grenze 4.2).
+(4) CI-Aufnahmepflicht (5.3, Owner-Direktive 2026-11-07): jeder neue Test des Kandidaten muss von
+    einem GitHub-CI-Job erfasst werden. Belege job-name + triggerregel (file:line); ein Test nur in
+    VM-Zelle oder lokal ist keine dauerhafte Evidence.
+(5) Erhalt-Pflicht (0.4): git diff <basis>..HEAD -- <beruehrte testdatei> | grep '^-func Test' muss
+    leer sein; wörtlichen Nachweis in der Akte fordern.
+(6) podman-zelle ist PARKTED mit Begründung — bewerte gegen den Kartenwortlaut (zitiere file:line),
+    ob #1407 ohne Podman-Nachweis annehmbar ist oder ob der fehlende Zellennachweis ein REJECT ist.
+
+URTEIL: baseharbor-plan/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/act-1407a.md,
+ACCEPT oder REJECT, IMMER mit REZEPT-BLOCK (datei, änderung, testanforderung, stop-kriterium).
+GRENZE: kein Merge und keine Produktänderung in dieser Mission (Merge erst als CODEX-MERGE nach ACCEPT).
+END an a4573079: "END_DONE codex-luna-review-1407a: verdict=<ACCEPT|REJECT> head=<sha> akte=<pfad>".

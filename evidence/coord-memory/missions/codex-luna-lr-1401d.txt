@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW. Coord 841e7734. ABNAHME local-registry, kandidaten-genau. (HINWEIS: die
+codex-luna-1401c mission fiel aus — sitz war voll; diese datei ist die einzige beauftragung.)
+KANDIDAT: PR #1401 head 9e1b905cfb5 vs develop; karte t-20261018-r27-local-registry; akte
+evidence/r27-welle5-2026-11-06/local-registry/round-1.md inkl. gruenlauf-zeile. PRUEFPUNKTE:
+(1) inhalt-drift-freiheit: diff e520ed6096d..9e1b905cfb5 muss NUR der develop-merge sein
+(git log --no-merges e520ed6096d..9e1b905cfb5 --excludes...pruefen; kein neuer inhalt),
+(2) lauf 42206688729 terminal success am exakten kopf, (3) fail-closed-resolver + M1/M7 matrix
+unveraendert zum seinerzeit akzeptierten stand, (4) write-set disjunkt, keine .github.
+URTEIL als datei evidence/r27-welle5-2026-11-06/local-registry/act-1401d.md auf origin/main,
+END an 841e7734: "END_DONE codex-luna-lr-1401d: verdict=<..> aktedatei=<pfad>".

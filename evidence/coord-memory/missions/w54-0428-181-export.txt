@@ -1,0 +1,11 @@
+TASK 0428-181 · Identity dashboard catalog consumer (P4 of review 1650). The keycloak identity Perses dashboard CATALOG is built (internal/metrics/perses_dashboards_keycloak.go) but has ZERO production consumers: internal/application/perses_runtime.go does not wire PersesDashboardCatalog / the identity selection witness into the provision/export path, so the dashboard never reaches Perses.
+
+Goal: add the missing production consumer so a selected identity surface actually EXPORTS/PROVISIONS its dashboard through the real apply/runtime path, and a regression proves the exported Perses content includes the keycloak identity dashboard.
+
+Dependencies now satisfied: #1810 (real per-target probe metricsprovider.PersesBackendAnswersStatusNow) is MERGED on develop (951014e9); 0428-083 datasource seam is on develop. Rebase onto current develop head.
+
+WRITE-SET (keep disjoint from PR #1650 / w078 to avoid collision):
+- ALLOWED: internal/application/perses_runtime.go + its tests (the export/provision consumer wiring).
+- FORBIDDEN (owned by #1650/w078 — do NOT edit): internal/metrics/perses_dashboards*.go and cmd/baha/app_status_result.go. If you believe a change is needed there, post a QUESTION instead of editing.
+
+Rules: scripts/** and .github/** untouched. Hosted CI ONLY (no local go test / ci-fast-check; VM=brief smoke). No subagents (AGENTS 4.8). No Codex contact. Claim via scripts/plan.py claim, PLAN step 0 todo + maintain workers/todos/<lane>.json and ## PLAN in evidence. Branch off develop (do NOT touch #1650's branch). MERGE-FROST: do NOT merge; open PR draft/ready, exact-head Hosted to terminal, post END with head+ls-remote+run when green.

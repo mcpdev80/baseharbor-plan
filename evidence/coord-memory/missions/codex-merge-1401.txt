@@ -1,0 +1,5 @@
+ROLLE: CODEX-MERGE. Coord 841e7734. Owner-autorisiert durch ACCEPT-Akte:
+evidence/r27-welle5-2026-11-06/local-registry/act-1401d.md (alle 4 Punkte ACCEPT, END postwortlich
+verdict=ACCEPT). AKTION: gh pr merge 1401 -R mcpdev80/baseharbor --admin; VORHER: head==9e1b905cfb5 und
+state OPEN, sonst STOP+END_BLOCKED. NACHHER: ls-remote develop, merge-base --is-ancestor 9e1b905cfb5
+develop; END "END_DONE codex-merge-1401: merged=<sha7> develop-ahn=JA".

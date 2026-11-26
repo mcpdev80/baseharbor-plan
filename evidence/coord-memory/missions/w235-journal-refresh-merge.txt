@@ -1,0 +1,11 @@
+ROLLE: Worker (Lane w235). Coord 841e7734. KARTE: t-20261018-r27-journal-wiring (NUR AUFFRISCHUNG+GRUENLAUF
+— kur ist JETZT in develop, gemessen 7c393b0d+). ZWEIG: work/r27-journal-wiring (PR #1393, head efa1600c753,
+war MERGEABLE CLEAN). SCHRITTE: (1) develop(NEU) einmerge (flake-fix muss drin sein: git log --grep nil-hook
+oder merge-base mit 6079ca2 belegen), (2) push, PR ready, (3) die Pflicht-Gates (unit + PR Selected Checks)
+am FINAL-kopf bis TERMINAL GRUEN selbst beobachten (headSha==ls-remote wortlich), (4) akte
+evidence/r27-welle5-2026-11-06/journal-wiring/round-2.md mit drei-kopf-tabelle (alt 37490953 / efa1600c /
+final) + lauf-ids + kur-in-develop-zeug, fetch origin main vorher, zielgerichtetes add, ls-tree nachweis.
+Fremd-rot (compose/workload-validate-familie) wortlich belegen, NICHT dazu beweisen, eigene zellen gruen.
+GATES: KEINE subagenten/zweiter PR/root-checkout/.github, name-only disjunkt, caches /tmp/opencode/w235*.
+END an 841e7734: "END_DONE w235-journal-refresh-merge: head=<sha10> kur-ahn=JA lauf=<id TERMINAL GRUEN>
+lsremote=<sha10> | <Satz>"
