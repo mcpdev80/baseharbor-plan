@@ -35,9 +35,9 @@ and from already-finished runs.
    and (b) the `_current_release` + Demo-pin validation path on a #1842-shaped diff.
 5. DONE Decide whether a route without editing `.github` is possible for #1842 and
    name the minimal change per candidate suite.
-6. IN PROGRESS Write this akte in an isolated baseharbor-plan worktree and open the
-   plan-PR branch.
-7. PENDING After the plan-PR merge, place the akte under
+6. DONE Write this akte in an isolated baseharbor-plan worktree and open the plan-PR
+   branch (plan PR https://github.com/mcpdev80/baseharbor-plan/pull/53, draft).
+7. IN PROGRESS After the plan-PR merge, place the akte under
    `e6ca7696-b1f8-492d-b226-876b16925fc5/` and record `git show <merged-sha>:<path>`
    plus the `origin/main` `ls-tree` witness (merged state alone is not presence proof).
 8. PENDING Publish the table plus the one-line answer and post the END line.
