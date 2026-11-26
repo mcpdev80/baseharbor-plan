@@ -12,7 +12,7 @@ owner: ""
 tags: [#task, #release/v0.4-28]
 kanban_status: closed
 kanban_lane: closed
-kanban_summary: "Pin native runtime images to the exact source SHA to prevent mutable edge-image drift."
+kanban_summary: "Ensure native runtime gate fixtures use the exact image built for the candidate SHA instead of a mutable :edge tag."
 kanban_title: 0428-237 · data-capabilities native gate
 priority: ""
 repos: [mcpdev80/baseharbor]

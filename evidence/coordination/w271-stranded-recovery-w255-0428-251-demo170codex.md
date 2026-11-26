@@ -5,7 +5,7 @@
 1. Verify the 88-path w271 census from Plan PR #76 against current live main and revalidate each carrier and blob.
 2. Restore only unique, still-missing paths from their exact original refs or stash trees; classify content duplicates and task-ID collisions explicitly.
 3. Record post-merge #75 readback for all 13 expected paths and the 0428-273 card state.
-4. Restate the read-only findings in direct-main commits 9ff4e1108 and 6480495f5 with true executing lanes, content verdicts, and invalid publication channels; preserve both commits unchanged.
+4. Restate direct-main findings in commits aea8cb430, 9e9e53cf, 053b2b6d1, 6480495f5, 9ff4e1108, and 1df17acef with true executing lanes and content verdicts; preserve every commit unchanged.
 5. Record a row for every restored artifact with path, original carrier, original blob SHA and restored blob SHA; require `git diff --quiet <carrier> HEAD -- <path>` to exit 0.
 6. Self-review scope, ancestry, name-only diff, author identity and exact-head Hosted Plan validation; merge only this scoped Plan PR after validation succeeds.
 7. Read back every newly restored path from post-merge main, update the lane board and publish the final evidence witness.
@@ -50,7 +50,7 @@ Source is w271's read-only census in Plan PR #76, exact head `97cf9672e11922025e
 
 Three paths are omitted as content duplicates, not silently lost: `evidence/r28-welle6-2026-11-27/bughunt-hv48-api-surface/w194-0428-224-intake.md` has the exact same blob `2157b2f48472e9dc76ada6e5a15e52185eae61ea` as existing root path `w194-0428-224-intake.md`; `evidence/w246-0428-284-1812diag/w246-1812gatefaildiag.md` has the exact same blob `9781ec653c1650702ab28613fbe3d8fa2dc27eca` as the canonical path restored by #75, `evidence/w246-1812diag/w246-1812gatefaildiag.md`; and `tasks/t-20261124-r28-alert-applied-face-stale-runtime.md` (0428-268) is superseded by the current accepted 0428-268 evaluator/live-health task delivered by #1831. The source blob and matching or superseding current path were checked before exclusion.
 
-Six Hunt47 task files are not duplicates: their card IDs 0428-341 through 0428-346 are occupied on current main by unrelated Hunt48 task files. Park them for Coordinator reissue under unique IDs; do not change their contents or publish an ID collision. The mappings are in the table below. The four remaining Hunt47 task IDs 0428-347 through 0428-350 are free and restored verbatim, along with unique tasks 0428-155, 0428-175, and the rcptlink task. All other still-missing census evidence paths are restored verbatim. Therefore 67 unique paths are restored in this PR, 3 are duplicate-content exclusions, and 6 card-ID conflicts are parked for reissue; no unique source artifact in this selected set was unavailable.
+Hunt47 task files are not duplicates. The initial scan found IDs 0428-341 through 0428-346 occupied by unrelated Hunt48 task files. The current ruling and reallocation below resolve 0428-345; five conflicts remain parked for Coordinator reissue. The four Hunt47 task IDs 0428-347 through 0428-350 are restored verbatim, along with unique tasks 0428-155, 0428-175, and the rcptlink task. Current tally: 68 unique paths restored, 3 duplicate-content exclusions, and 5 card-number conflicts parked; no unique source artifact in this selected set is unavailable.
 
 | Parked source task | Source card ID | Current main occupant |
 | --- | --- | --- |
@@ -58,19 +58,11 @@ Six Hunt47 task files are not duplicates: their card IDs 0428-341 through 0428-3
 | `tasks/t-20261125-hunt47-deployment-record-v1-wall.md` | 0428-342 | `tasks/t-20261128-hunt48-metrics-endpoint-docs.md` |
 | `tasks/t-20261125-hunt47-destroystep-v1-warning-kind.md` | 0428-343 | `tasks/t-20261128-hunt48-unify-runtime-error-envelope.md` |
 | `tasks/t-20261125-hunt47-recover-preflight-and-flag-route.md` | 0428-344 | `tasks/t-20261128-hunt48-runtime-pagination-contract.md` |
-| `tasks/t-20261125-hunt47-version-gate-error-surface.md` | 0428-345 | `tasks/t-20261128-hunt48-refresh-public-api-ownership-map.md` |
 | `tasks/t-20261125-hunt47-keycloak-migration-docs.md` | 0428-346 | `tasks/t-20261128-hunt48-source-transfers-contract.md` |
 
 ## Invalid publication-channel dispositions
 
-The following original commits and files remain untouched in history. Their reports are restated here through the scoped forward-only Plan PR path; neither commit is accepted as qualified lane publication evidence.
-
-| Source akte path | Invalid main commit | True executing lane | Content verdict |
-| --- | --- | --- | --- |
-| `evidence/w275-0428-251-runaudit/w275-0428-251-runaudit.md` | `9ff4e1108675f18350974a7757c420568a89f692` | `w198` (per akte and commit author; committer was coordinator) | Read-only mechanism finding is usable with a corrected chronology: default-branch `pr-config-matrix.yml` landed at `d512653aa2e5e69e734caf9b64b5043f409ade42` 00:06:55Z, about 2 minutes before #170's 00:09:09/10Z reopen events, not 57 minutes after. Current route is a fresh PR event; no workflow edit. The develop-copy path list lacks #179's four changed files and must be reviewed as part of its event preflight. |
-| `evidence/w276-0428-284-1812fire/w276-0428-284-1812fire.md` | `6480495f518eb83c4b1e01ecbfa3c48defd45fc1` | `w276-0428-284-1812fire` (per akte; author/committer were coordinator) | Point-in-time read-only hop and source-coverage findings are useful, but its “14 gate” accounting is internally inconsistent with its 17/18-name enumeration, and the b411277 demo-pin statement is stale under the Owner ruling to target `5ca92a7cd2f746934890cfd7096a48068bdf218e`. Treat it as historical analysis, not current qualification. |
-
-Both direct-main commits are one-parent commits with zero associated Plan PRs. The w275 report had author `w198 <w198@users.noreply.github.com>` and committer `coordinator <coordinator@baseharbor.local>`; w276 had author and committer `coordinator <coordinator@baseharbor.local>`. No force, rewrite, or revert was performed. Neither path was part of w271's already-verified 88-path inventory, so the original census count is unchanged.
+Original commits and akte files remain untouched in history. Their findings are restated through this scoped forward-only Plan PR with true executing lanes and content verdicts. The complete current disposition table is in the Current disposition updates section below; it supersedes the interim two-row table from the earlier recovery checkpoint. No direct-main publication is counted as qualified lane evidence.
 
 ## Demo PR-event route decision
 
@@ -249,3 +241,49 @@ tasks/t-20261125-hunt47-write-stamp-json-version.md
 e52220e17 Restore stranded evidence and scope card scanner
 ```
 Every entry above is a commit created by the executing lane; the final akte-close commit is created with the same canonical identity and verified immediately after creation.
+
+## END_BLOCKED
+
+Hosted exact-head `Plan · validate` run `45746601824` failed on candidate `267a6033852088539c17d52e6afb32c07018210a`. `Unit tests` reports `FAIL: test_repository_vault_is_valid (test_plan.RealVaultTest.test_repository_vault_is_valid)` and `FAILED (failures=1)`. The emitted vault errors include `tasks/t-20261125-hunt47-write-stamp-json-version.md: unknown dependency 't-20261125-hunt47-version-gate-error-surface'`, the corresponding broken link, and stale generated task/view files. The dependent restored card refers to the Hunt47 0428-345 task parked because that number conflicts with an unrelated current-main card. No further push, rerun, merge, or evidence rewrite was performed after this failing result.
+
+END_BLOCKED w255-0428-251-demo170codex: Hosted Plan validation 45746601824 failed on 267a603; unresolved dependency to parked 0428-345 task and generated drift block merge.
+
+## Resumption and live card-ID collision
+
+Resumed on Coordinator direction after the failing run disposition. Freshly fetched live main is `1f3e0673fa9f2265805c1291f794531c3876a9de`. Contrary to the reported premise, it contains `tasks/t-20261128-hunt48-refresh-public-api-ownership-map.md` with card number `0428-345` (current blob SHA recorded by `git rev-parse origin/main:tasks/t-20261128-hunt48-refresh-public-api-ownership-map.md`). The missing source sibling `tasks/t-20261125-hunt47-version-gate-error-surface.md` from carrier `a47da84b82f2fd10294c934944566d4d935c61a1` also uses card number `0428-345`, with original blob `1eb4938b2204b83ebdd760e9123d1aec618dbffa`. Their subjects are separate; the Hunt48 public API map does not supersede the Hunt47 version-gate error surface. Exact restoration at the source path would duplicate a live card number; changing the source card number would change the source bytes. No task content or dependency was changed while this collision is unresolved.
+
+## Current disposition updates
+
+### Hunt47 card-number collision
+
+At fetched live origin/main 09e5e1b57e0880cfc45bc41f3c7f18f786e0ec87, a tree scan covered all 776 tasks/*.md files and found 701 card_number fields with no duplicate values. Hunt48 owns 0428-345 at tasks/t-20261128-hunt48-refresh-public-api-ownership-map.md. 0428-351 was absent from all live-main task blobs and from the pre-restoration candidate tree. The Hunt47 task retains stable ID t-20261125-hunt47-version-gate-error-surface; its ID-based dependencies and links remain unchanged. Only the display card number is reallocated to 0428-351, with the requested provenance paragraph. Original carrier a47da84b82f2fd10294c934944566d4d935c61a1; original blob 1eb4938b2204b83ebdd760e9123d1aec618dbffa. This resolves the double allocation without renumbering Hunt48. The final source blob will be recorded after rendering.
+
+The current census tally supersedes the earlier interim six-conflict statement: 68 paths restored by this PR plus 12 by #75 equals 80 restored; 3 duplicate-content paths excluded; 5 Hunt47 card-number conflicts remain parked. The w271 inventory total remains 88.
+
+### Additional invalid-channel publication dispositions
+
+These source akte bytes and commits remain untouched in history. Each finding is restated here through this forward-only Plan PR. The w271 census count is unaffected.
+
+| Source akte path | Invalid commit SHA | True executing lane | Content verdict |
+| --- | --- | --- | --- |
+| evidence/w254-gate-catalog-rows/akte.md | aea8cb43088280678b53aea42ca07e25d996a5b8; 9e9e53cf775699b4ea80bd8e72e776e3bce61ad1 | w254-0428-273-gatecat | Correct: all four requested catalog rows were already present exactly once via #1822, so no catalog edit was needed. Authored under w65-0428-269-batchbaseline and direct-main published; retain for audit, not qualified lane evidence. |
+| evidence/w258-1819-preflight/akte.md | 053b2b6d1af11ad0f926949ef39c7fdbf0e400bf | w258-0428-273-1819preflight | Sound: #1819 payload was nonempty, three in-scope source paths resolved to focused runtime gates, and carried foreign commits/ancestry were correctly isolated as the blocker. Direct-main channel is invalid; history remains unchanged. |
+| evidence/w276-0428-284-1812fire/w276-0428-284-1812fire.md | 6480495f518eb83c4b1e01ecbfa3c48defd45fc1 | w276-0428-284-1812fire | Useful historical hop/source-coverage finding; its 14-gate accounting conflicts with its 17/18-name enumeration and b411277 pin statement is superseded by required target 5ca92a7cd2f746934890cfd7096a48068bdf218e. Authored coordinator and direct-main published; not qualified lane evidence. |
+| evidence/w275-0428-251-runaudit/w275-0428-251-runaudit.md | 9ff4e1108675f18350974a7757c420568a89f692 | w198 | Usable with corrected chronology: default-branch workflow landed at d512653aa2e5e69e734caf9b64b5043f409ade42 at 00:06:55Z, about two minutes before #170 close/reopen. Paths were not the cause; main workflow copy covers #179's four changed files. Fresh pull_request event is the route; no workflow edit. Direct-main commit used another lane identity. |
+| evidence/w282/0428-078/pr1855-census.md | 1df17acef6d40cdcd50c9e0b571e0921335630bb | w282-0428-078-1855census | Correct/useful: #1855 needed a second distinct pull_request run; run 45746255447 was in progress at the source read. #1855 PR Demo Pin executed and passed while #1856's was skipped. pr-native-gate-plan returned include:[] for #1855 and develop baseline, so #1856's required-route defect is outside card 0428-078's write-set and cannot justify broad ci.yml change on that card. Direct-main commit used card-owner identity w165-0428-078-pr1650-basehop instead of executing lane identity. |
+
+The two w254 SHAs are separate commits for the same source path and finding. None of these commits is reverted or rewritten. The w282 source path is present on fetched main at 09e5e1b57.
+
+### Policy-source conflict recorded
+
+The prior stop cited /home/marcel/.config/baseharbor-coordinator/COST_CONTROL.md, headed “Current owner clarification — 2026-11-22”, with the text “All coordinator implementation is stopped pending clarification of cost allocation” and “Codex may coordinate and perform necessary independent reviews only.” This file is outside the BaseHarbor ecosystem tree. The Coordinator has explicitly directed continuation of this bounded Plan-evidence recovery and identified the Plan-repository owner-delegated Maintainer authority in its AGENTS.md as governing this scope. This work follows that latest explicit scoped commission and does not authorize product implementation or release work.
+
+### Resumption plan
+
+8. Re-scan all 776 live-main task blobs and reallocate the Hunt47 version-gate task to a verified-free card number while preserving its stable task ID.
+9. Restate the invalid-channel dispositions for w254/w65, w258, w276/coordinator, w275/w198, and w282/w165, with path, commit, true lane, and content verdict.
+10. Render derived Plan views; verify original source hashes, reallocated task content, and the final recovery counts.
+11. Integrate the exact current origin/main with a lane-identity merge, commit only scoped files, and prove ancestry, name-only diff, own-commit log, author, and remote delivery.
+12. Mark PR #83 ready, wait for fresh exact-head Hosted Plan validation, review and merge the scoped PR, then read back every restored path from live main.
+
+The reallocated Hunt47 task final rendered working-tree blob is b52ca74e4eebf872a92332bb4c712ce2bf75e524. Relative to original carrier blob 1eb4938b2204b83ebdd760e9123d1aec618dbffa, the only semantic source edits are the authorized card_number reallocation and the required provenance paragraph; kanban_title is renderer-derived. Stable task ID, dependency IDs, and links are unchanged.
