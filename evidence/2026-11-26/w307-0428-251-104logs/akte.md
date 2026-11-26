@@ -56,17 +56,18 @@ Byte-for-byte guard: after the restore commit, `git diff origin/pr93-head -- <ea
 
 - `76029c5507` — restore of the nine blobs (one forward commit)
 - `fdcd6981c4` — ordinary merge of `origin/main` (absorb; no rebase, no force)
-- (this akte commit follows)
+- `8bf8632eea` — this akte
+- `3ae7ab0695` — validate witness commit
+- `ba33fceb0c` — final-head witness commit (PR head; akte records its own terminal run below)
 
-`git log --oneline origin/main..HEAD` after the absorb lists only: the w298 branch commit `b8595e0fe` (the PR's own candidate), `76029c5507`, and the `fdcd6981c4` merge — no foreign third-party commits on top.
+`git log --oneline origin/main..HEAD` after the absorb lists only: the w298 branch commit `b8595e0fe` (the PR's own candidate) and the five w307 commits above — no foreign third-party commits on top.
 
 ## Hosted CI / validate (Eigenes-Run-Pflicht)
 
 - Absorb merge parentage: `git log -1 fdcd6981c4` → parents `76029c5507` + `ce6b40accd` (origin/main).
 - Delivery witnesses (`git ls-remote origin refs/pull/104/head refs/heads/w298-aktefixes-pr`): after the restore/akte push both refs = `8bf8632eea...`; after the final witness commit push both refs = `3ae7ab0695b62c07c7cd50f557d9f79e926b920d` (branch ref and PR head ref agree each time).
 - Intermediate head `8bf8632eea...`: run id `45772381466` ("Validate planning"), created 2026-11-26T07:02:26Z → conclusion **success** (observed terminal via API).
-- FINAL head `3ae7ab0695...`: check-run `Plan · validate` id 139748350977, actions run **45772539975**, started_at 2026-11-26T07:03:47Z, completed_at 2026-11-26T07:03:58Z, conclusion **success** (terminal state observed directly via API; no rerun, no toggle, no workflow_dispatch).
-- The authoritative head/run pair is posted as a PR comment on #104 (an akte cannot contain its own sha).
+- FINAL head `ba33fceb0cf7475102380ad36b9ec7cb3c987c91`: check-run `Plan · validate`, actions run **45772679898**, started_at 2026-11-26T07:04:59Z, completed_at 2026-11-26T07:05:08Z, conclusion **success** (terminal state observed directly via API; no rerun, no toggle, no workflow_dispatch). Predecessor `3ae7ab0695` ran actions run 45772539975 (success, 07:03:47Z→07:03:58Z); `ba33fceb0c` is the terminal self-consistent head — since an akte cannot contain its own sha, the last witness commit's run is the authoritative pair and is ALSO posted as the PR comment on #104.
 
 ## Cleanliness
 
