@@ -1,0 +1,20 @@
+OWNER-AUTHORIZED batch baseline PR (v0.4.28 owner/CI scope) — the single unblocker for #1812/#1819/#1820/#1821. Owner ruling 2026-11-24 explicitly delegates this scripts/** + .github/** edit to your lane. Branch off develop 3ebfb90d.
+
+Make EXACTLY these changes, one PR:
+
+1. scripts/pr-gate-coverage.json — add these SIX (and ONLY six) source rows, each with surfaces ["source.gate.atomic.docker.data.capabilities","source.gate.atomic.podman.data.capabilities"], matching the file's existing schema:
+   - source.internal_application_runtime_postgres_go  -> internal/application/runtime_postgres.go
+   - source.internal_metrics_perses_dashboard_provision_go -> internal/metrics/perses_dashboard_provision.go
+   - source.internal_metrics_perses_dashboard_provision_test_go -> internal/metrics/perses_dashboard_provision_test.go
+   - source.cmd_baha_app_broker_compat_test_go -> cmd/baha/app_broker_compat_test.go
+   - source.internal_operatorauth_authorization_go -> internal/operatorauth/authorization.go
+   - source.internal_operatorauth_config_go -> internal/operatorauth/config.go
+   STOP + post a QUESTION if the validator (scripts/pr-gate-plan.py / ci-workflow-policy.sh) demands a SEVENTH row or a different id/surface — do NOT add any unlisted row, do NOT guess.
+
+2. .github/workflows/pre-release.yml — make the candidate artifact PRODUCE/INSTALL baha-ci-operator-testonly (build + chmod + place under RUNNER_TEMP/pre-release-candidate/ so the mandatory `test -s` in the runtime gates is satisfied). Touch ONLY pre-release.yml. ci.yml and the normal CI path MUST remain byte-identical (git diff must show no ci.yml change). Do NOT add fallback/optional logic.
+
+3. PR body: reference each row's owning card — 0428-269 (artifact production), 0428-273 (perses_dashboard_provision*/runtime_postgres), 0428-274 (app_broker_compat_test), 0428-275 (operatorauth authorization.go + config.go). State this is the owner-authorized trusted-base baseline (precedent #1817), lands on develop, and that NO feature PR carries catalog rows.
+
+4. Run scripts/pr-gate-plan.py / any local plan validator ONLY as the repo's precheck if documented; GitHub Hosted is the authority. Open the PR (base develop), keep it OPEN, exact-head Hosted to terminal, report run id + outcome.
+
+Rules: MERGE-FROST: no merge (owner merges). One PR. scripts/** and .github/** edits are authorized ONLY for the six rows + pre-release.yml binary production as above — any other file or any additional row => STOP + QUESTION. No subagents (AGENTS 4.8). No Codex. Reply: PR number, head SHA, the 6-row diff summary, pre-release.yml diff summary, ci.yml UNCHANGED proof (git diff pathspec), run id.

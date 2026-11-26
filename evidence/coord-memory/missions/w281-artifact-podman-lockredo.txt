@@ -1,0 +1,14 @@
+ROLLE: Worker (Lane w281). Coord a4573079. KARTE: t-20261018-r27-artifact-resolution (PR #1406 head
+9ee857387c, ACCEPT liegt, MERGE-VERSUCH 2 blockte an vm-lock-provenienz: die podman-native-zellen von
+w276 (round-3-native-smoke.md) haben KEINE claim/release-zeilen im journal — content war gruen, form fehlt).
+ARBEIT: exakt die drei podman-pflicht-zellen AMSELBEN kopf erneut, diesmal mit protokollierter exklusiver
+sperrung: vm-lock claim baha-podman (148) w281 VOR dem ersten host-griff (journal-zeile), dann (1) image-zelle
+use-existing mit digest-zeugnis, (2) checkout-zelle native podman/buildah build ohne BuildKit-service,
+(3) mutable-tag fail-closed. Je zelle transkrit + zaehlungen VOR/NACH. Rueckbau eigene=0, dauer: es gibt
+keinen dauer-stack auf 148 — host danach container=0. vm-lock release (journal-zeile).
+AKTE: artifact-resolution/round-5-native-podman-locked.md (PUNKTE statt checkboxen; JOURNAL-aelzungen als
+eigene sektion; lsremote-pin 9ee857387c; ## repo-rule compliance; verweis: wiederholung von w276s zellen
+wegen formfehls, inhalt unveraendert). Zone workers/w281-wt, caches /tmp/opencode/w281*.
+GATES: KEINE subagenten, coordinator-host container tabu (R1), workers/baseharbor tabu, KEIN code-touch.
+END an a4573079: "END_DONE w281-artifact-podman-lockredo: zellen=<1|2|3 GRUEN je> journal=<claim+release zeilen>
+host-clean=0 lsremote=9ee857387c akte=<pfad main> | <Satz>"

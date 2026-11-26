@@ -1,0 +1,22 @@
+READ-ONLY: MINIMAL DEMO-WORKFLOW CHANGE PROPOSAL FOR THE OWNER (card 0428-251; coordinator commission 2026-11-26. This exists because lane w289 PROVED by evidence that transport alone cannot bind demo PR checks: seven fresh pull_request events across baseharbor-demo #170/#179/#181 bound ZERO runs.)
+
+ESTABLISHED FACTS YOU MUST NOT RE-LITIGATE (verify them once, then build on them):
+- demo #170 head b086cf58b (base develop), #179 head cda6aa70e (base develop, was draft, now ready), #181 head 6d06eab0e (base MAIN) - 7 fresh pull_request events total, 0 runs, check-runs empty.
+- The heads carry .github/workflows/pr-config-matrix.yml whose line 1 reads '# DRAFT ONLY' with branches: [develop] (line 6 on the develop copy, line 5 on the main copy), and pr-guided-consent.yml line 5 branches: [main]; pr-config-matrix.yml has NEVER had a pull_request run (event=pull_request total_count=0).
+- New workflow files become active only through the DEFAULT BRANCH, and DRAFT PRs bind no checks (both proven earlier in this sweep).
+
+YOUR JOB: produce the smallest change that makes PR checks bind on a develop-based demo PR, as a PROPOSAL ONLY. HARD LIMITS: READ-ONLY. No edits to baseharbor-demo or any repo, NO PR close/reopen/ready, NO CI trigger, NO rerun, NO workflow_dispatch, NO merges, NO cards, NO plan-main pushes, NO local test execution (no python3 -m unittest, no pytest, no go test, no scripts/ci-fast-check.sh). Work in your own clone under /var/tmp (never /tmp/opencode - tmpfs quota; never the shared checkouts - occupied).
+
+DO:
+1. ATTEST the three demo PR states + heads + the two workflow copies (main vs develop) with `gh api repos/mcpdev80/baseharbor-demo/contents/.github/workflows/<f>?ref=<ref>` for ref in main, develop, and each PR head; print the first 12 lines of each copy with line numbers, and the full list of workflow files on main and on develop (name + the `on:` block lines).
+2. RUN THE ACTIVITY RULE EXPLICITLY: for each workflow file, state which ref GitHub evaluates it from for a pull_request event against a develop-based PR (default branch copy vs head copy) and cite the GitHub behaviour you rely on plus the evidence in THIS repo (a file that has never produced a pull_request run although branches match is your strongest witness - use total_count=0 for pr-config-matrix.yml).
+3. PROPOSE, in at most THREE variants ranked, the minimal diff (unified-diff-shaped snippet with file, line numbers, before/after) that would make a non-draft develop-based demo PR bind at least the config-matrix checks. Keep each variant to the smallest possible surface: e.g. removing the DRAFT-ONLY gating, or adding pull_request to the right trigger, or moving a file to the default branch. For each variant give: exact effect on the three open PRs, what it does NOT fix, the risk you can see (double-running gates, self-mutating checkout, secrets exposure), and the rollback.
+4. SAY WHICH VARIANT Codex should recommend to the owner and why in two lines. Do not implement any of them.
+5. AKTE: your own plan branch + gh pr create against live main at evidence/2026-11-26/w296-0428-251-demoflowdiff/akte.md (verify with gh api .../pulls/<n>/files that NO path starts with 'baseharbor-plan/' and none under tasks/ - a tasks/ path is a new CARD and only the owner/Codex create cards). Report the number; do NOT merge; a direct-main push is forbidden (eleven lanes have already had to be re-landed forward-only). Commit identity via git -c user.name=w296-0428-251-demoflowdiff -c user.email=w296-0428-251-demoflowdiff@baseharbor.local for every commit; never 'coordinator', never w289's or w255's names.
+
+STOP+STATE if: you cannot determine which copy GitHub uses without triggering something (then say exactly what evidence is missing - that is a legitimate finding), or a demo workflow file's `on:` block differs between main and develop in a way that makes any single variant insufficient.
+
+END_DONE: the attestation outputs, the activity-rule answer with its citation, the three ranked variants with their diffs, your recommendation, the plan PR number, zero-mutation proof (git ls-remote before == after for baseharbor-demo AND baseharbor AND baseharbor-plan) and a cleanliness line (no worktrees left under /var/tmp).
+
+--- CLOSED 2026-11-26 by w296 ---
+PR #99: https://github.com/mcpdev80/baseharbor-plan/pull/99 (read-only proposal, base=main, single evidence file, no product/card mutation)

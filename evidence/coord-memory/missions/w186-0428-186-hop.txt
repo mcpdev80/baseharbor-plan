@@ -1,0 +1,11 @@
+MISSION: 0428-186 / PR #1810 (RESTART, continue EXISTING branch). Prior lane session died (opencode backend gone). Your branch lane-0428-186-verified-status-source is preserved on lane-origin at head 168d40950.
+
+Step 0 — ATTACH, do NOT branch: cd the baseharbor worktree; git fetch lane-origin; git checkout lane-0428-186-verified-status-source (continue THIS branch; never create a new one; never reset the existing commits).
+
+Step 1 — additive hop: git merge --no-edit lane-origin/develop (develop is d4fa8c589, which merged #1813 registering the catalog rows for internal/capability/perses.go, perses_test.go, internal/application/perses_lifecycle_test.go). If the merge CONFLICTS, git merge --abort and post a QUESTION; do not resolve conflicts unilaterally.
+
+Step 2 — the substantive CODE fix CODEX-REVIEW requested (acceptance 1+3 of card 0428-186), which the old lane never pushed: in internal/capability/perses.go (~271-276) STOP deriving PersesStatusVerified from hostProviderMetricsNativeVerified() (a static ReferenceIntegrations scan that ignores target/provider and probes nothing). Core has NO health probe, so the verified signal must be fail-closed: a selected target yields configured_unverified unless a real probe reports it answered. Keep the verified-only predicate in perses_selection.go INTACT. Add tests covering BOTH an answering target (-> not silently false) and a silent/unknown target (-> configured_unverified, never a static true). No invented probe; no scripts/** ; one branch.
+
+Step 3 — push to lane-0428-186-verified-status-source, then watch YOUR OWN exact Headed CI to terminal (Eigenes-Run-Pflicht). Draft Go + PR · Trusted Plan + PR Selected Checks should pass once the hop brings the catalog rows.
+
+Stop criteria: conflict on merge -> QUESTION; do NOT merge anything to develop (Merge-Frost); no local go test as the only proof (hosted CI). END: post to coordinator "END_DONE 0428-186: new head <sha>; hop <yes>; fail-closed fix <yes>; CI <run id/terminal result>" or "END_BLOCKED 0428-186: <precise blocker>".

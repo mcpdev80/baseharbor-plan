@@ -1,0 +1,13 @@
+ROLLE: CODEX-REVIEW (Lane). Coord 841e7734. ABNAHME control-plane-single-default, kandidaten-genau.
+KANDIDAT: PR #1404 head 6b376000735 vs develop 78e78e66+; karte t-20261106-r27-control-plane-single-default
+(PRIORITY CRITICAL, acceptance-abschnitt ist vertrag); akte evidence/w242-single-default/w242-evidence.md.
+BEWUSST ZU PRUEFEN (karten-acceptance wort fuers wort): (1) default rendert/faehrt single OHNE profil-
+datei (deine eigene render-zelle), (2) live inventar docker+podman je 1 openbao/1 postgres — w242-zeugnis
++ wenn du die VM brauchst: vm-lock einer-nach-anderer, baha-docker ist FREI, podman haelt w243 bis dessen
+END, (3) HA nur mit opt-in und dann volles ensemble gesund (positive zelle), (4) red-first: zelle faellt
+gegen alten default (mutante ha-ohne-opt-in => ROT), (5) keine silenten moduswechsel bei bestehender
+installation (entscheidungszelle), (6) hosted lauf terminal am exakten kopf NACHMISSEN (42233955784 war
+in_progress; falls noch nicht terminal: pruef-punkt als pending dokumentieren und END_BLOCKED 'lauf offen'),
+(7) shellDisplayPath-fix begruendet (datei:zeile), (8) write-set = 3 dateien + tests, keine .github.
+URTEIL als evidence/r27-welle5-2026-11-06/control-plane-single-default/act-1404b.md auf origin/main,
+END an 841e7734: "END_DONE codex-luna-sd-1404b: verdict=<..> aktedatei=<pfad>".

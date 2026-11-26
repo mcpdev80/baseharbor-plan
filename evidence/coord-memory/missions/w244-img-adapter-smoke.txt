@@ -1,0 +1,13 @@
+ROLLE: CODEX-WORKER. Coord 841e7734. KARTE: t-20261018-r27-image-transfer RUNDE 4 (MIKRO, act-1402d.md
+zuerst lesen). OFFENER PUNKT NUR: die rauche muessen den KANDIDATEN SELBST fahren (adapter-level:
+baha-Kommando aus workers/... build bzw. der PR-code, NICHT manuell nachgebogene podman/docker-template).
+ROUND-3-ZEUGE zeigten: podman 5.7 lehnt die Kandidaten-templates ab ('[repo@digest]' form) — das ist
+entweder EIN PRODUKTDEFEKT (dann: exakter BEFUND datei:zeile im kandidaten + version, akte round-4.md,
+END_BLOCKED, Karte folgt) ODER die round-3-Notiz war irrefuehrend (dann: adapter-smoke mit kandidaten-eignen
+befehlen fahren, beide runtimes, wortlaut+teardown, akte round-4.md, END_DONE).
+KEINE workarounds im transcript-Titel verschleiern: was der kandidat sagt, wird gezeigt.
+VM: vm-lock claim je host NUR einer nach dem anderen (rc=5-regel); podman-halter ist w243 (laufen lassen,
+ausweichen/warten bis release), docker frei.
+GATES: KEINE quellanderung (diese lane beweist nur), KEINE subagenten, caches /tmp/opencode/w244*.
+END an 841e7734: "END_DONE|END_BLOCKED w244-img-adapter-smoke: ergebnis=<adapter-gruen|produktdefekt befund>
+befund=<datei:zeile oder -'> | <Satz>"

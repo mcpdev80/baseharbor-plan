@@ -1,0 +1,12 @@
+ROLLE: CODEX-REVIEW. Coord 841e7734. ABNAHME management-host, kandidaten-genau.
+KANDIDAT: PR #1405 head cd336cf734e vs develop 5e4fde71; karte t-20261018-r27-management-host; akte
+evidence/r27-welle5-folge-2026-11-06/management-host/round-1.md; lauf 42250538872 terminal/success (nachmessen).
+PRUEFPUNKTE (karten-acceptance wort fuers wort): (1) verwaltungs-host-binding beweist EINEN aktiven
+schreiber auf EINEM dauerhaften installations-zustands-wurzel VOR binding (deine zitierung
+internal/coreinstallation.ManagementHost), (2) bootstrap-vs-attach unterschieden, fail-closed belegt,
+(3) mutation kausal: waechter-zeile entfernt => zelle faellt durch AUSGELIEFERTEN pfad (rot+gruen in
+akte, kein handgeschriebener helper — praeszedenz 1397b), (4) hosted lauf terminal am exakten kopf,
+(5) write-set disjunkt, keine .github, keine fremden ketten (git log origin/develop..head --oneline),
+(6) keine VM-noetig — falls du eine willst: vm-lock einer-nach-anderer. URTEIL als evidence/r27-welle5-
+folge-2026-11-06/management-host/act-1405.md auf origin/main (ACCEPT|REJECT+rezept), END an 841e7734:
+"END_DONE codex-luna-mh-1405: verdict=<..> aktedatei=<pfad>".

@@ -1,0 +1,9 @@
+ROLLE: CODEX-REVIEW. Coord a4573079. DELTA-ABNAHME control-plane-single-default, kandidaten-genau.
+KANDIDAT: PR #1404 head ed98ed1dde7 UNVERAENDERT (evidence-only runde). DEIN Vorgaenger-rezept
+(act-1404e, REJECT) forderte: (1) DOCKER restart/repeat-up zelle am selben kopf, (2) live NO-SILENT-
+MODE-SWITCH auf BEIDEN familien ohne teardown mit vor/nach-zaehlungen + installation.json, (3) app-bind
+diagnostik separiert, (4) sha-pin. NEUE AKTE: control-plane-single-default/round-4.md (w266) — pruefe
+PUNKTWEISE erfuellung des rezepts, transcript-naehe (fehlende claim-zeile im vm-lock-journal fuer
+podman-2 gegen die vm-audit-spur halten), KEINE erneute VM-arbeit anfordern wenn belegt. URTEIL als
+evidence/r27-welle5-2026-11-06/control-plane-single-default/act-1404f.md (ACCEPT|REJECT+rezept).
+END an a4573079: "END_DONE codex-luna-sd-1404f: verdict=<..>".

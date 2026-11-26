@@ -1,0 +1,11 @@
+READ-ONLY PREP DESK — #1820 fresh-branch readiness (AGENTS §3.3.5; Befund/plan only; NO branch writes/push/merge/CI-trigger/subagents §4.8; do NOT touch #1812/#1819/#1818/#1826/#1650). develop = current origin/develop (report SHA, expect 46d3dccc1).
+
+Context: #1820 (card 0428-271, branch fix/broker-build-identity, head 28803d11) is CONTAMINATED — an inverted card 0428-276 env-destroy change (hardcoded OwnerVerified:true) was folded in from develop 2b9a2c6d. The clean 0428-271 regression IS present at cmd/baha/app_broker_compat_test.go:76-81. #1820 must be re-cut as a FRESH branch off develop carrying ONLY the 0428-271 change (owner: not before #1819).
+
+Do READ-ONLY:
+1. git ls-remote fix/broker-build-identity (current SHA); confirm the contamination by diffing the branch's env-destroy touch vs develop (quote the file:line that hardcodes OwnerVerified:true and the #1820-only commit(s) that are the real 0428-271 work).
+2. Identify the MINIMAL clean change set to reproduce on a fresh branch: which files/lines hold the genuine 0428-271 dev/edge + EMPTY-runtime-commit regression (app_broker_compat_test.go:76-81 + any non-test source it needs). Quote each file:line.
+3. Produce the EXACT command sequence a later lane will run (cut fresh branch off develop 46d3dccc1, cherry-pick ONLY the 0428-271 commit(s) or re-apply the regression cleanly, open PR against develop) — as a runbook, NOT executed.
+4. Confirm base/ancestry: is 0428-276 (env-destroy, merged 2b9a2c6d) an ancestor of develop now, and does a fresh-from-develop branch already contain the correct (non-inverted) 0428-276 behavior? (i.e. the contamination disappears on a clean rebase).
+
+Deliver baseharbor-plan evidence/r28-welle6-2026-11-25/1820-fresh-branch-readiness/round-1.md (## PLAN + native todos): the contamination quote, the clean 0428-271 change-set list, and the exact fresh-branch runbook. Commit+push atomically (git add the single new file; pull --rebase origin main first). NO git operations on the branch. Report inline + evidence SHA. No subagents; contact no other session.

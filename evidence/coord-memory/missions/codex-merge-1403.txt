@@ -1,0 +1,5 @@
+ROLLE: CODEX-MERGE. Coord 841e7734. Owner-autorisiert durch AKZEPTIERT-Akte act-1403c.md auf origin/main
+(kandidat PR #1403 head 65ed48d60f7). AKTION: gh pr merge 1403 -R mcpdev80/baseharbor --admin; VORHER:
+head==65ed48d60f7 und state OPEN, sonst STOP+END_BLOCKED (wenn develop nicht Ahn: develop einmerge ist
+LANE-hand — dann STOP mit vermerk, coord disposiert). NACHHER: ls-remote develop; bei squash: blob-vergleich
+der version-view-dateien kandidat-vs-develop. END "END_DONE codex-merge-1403: merged=<sha7> inhalt-gleich=JA".
