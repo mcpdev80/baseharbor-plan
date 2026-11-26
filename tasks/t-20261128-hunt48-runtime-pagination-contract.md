@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1872", "mcpdev80/baseharbor#1871"]
 sources: []
-blocker: "chain state 13:1xZ: #1865 MERGED fe64a510, #1867 MERGED f36d2930, #1870 MERGED dff8c9e3 (ACCEPT+email-variance classified per w267). #1872 re-hop LIVE on w355 (15-row set preserved); merge after green + w255/w267 exact-head review. #1871 stays BLOCKED until #1872 lands + fresh consumer exact-head CI + owner requalification"
+blocker: "exact-head CI ca954c81 run 45908036965 FAILURE: (1) Go shards cli-0..3+packages - RemoteRepository consent/plan/decline/snapshot tests, likely attributable to pagination response changes (triage+fix, no waiver); (2) mkdocs strict broken relative link ../../spec/runtime-list-pagination-v1.md in both spec files. Baselines #1865/#1867/#1870/#1872 ALL landed; w356 triaging. Blocked until docs+product fixes and fresh green exact-head CI + Codex review"
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** "" (lane w343 released after END BLOCKED-BASE-CATALOG; re-dispatch after base act lands)  
     **PR:** [baseharbor#1872](https://github.com/mcpdev80/baseharbor/pull/1872), [baseharbor#1871](https://github.com/mcpdev80/baseharbor/pull/1871)  
-    **Blocker:** chain state 13:1xZ: \#1865 MERGED fe64a510, \#1867 MERGED f36d2930, \#1870 MERGED dff8c9e3 (ACCEPT+email-variance classified per w267). \#1872 re-hop LIVE on w355 (15-row set preserved); merge after green + w255/w267 exact-head review. \#1871 s…  
+    **Blocker:** exact-head CI ca954c81 run 45908036965 FAILURE: (1) Go shards cli-0..3+packages - RemoteRepository consent/plan/decline/snapshot tests, likely attributable to pagination response changes (triage+fix, no waiver); (2) mkdocs strict broken re…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
