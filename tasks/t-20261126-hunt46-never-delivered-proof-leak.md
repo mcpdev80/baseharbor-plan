@@ -9,7 +9,7 @@ version: ""
 parent: ""
 owner: w341-0428-326-proofleak (live lane; status per its akte commits ffa9a00d5/7592cdc00 carried by coordinator)
 kanban_status: review
-blocker: "v0.4.28 release begin marker missing + catalog/pr-gate-map release label still v0.4.27 (w341 akte 20:11Z); rerun trigger: owner map decision (same class as 0428-328)"
+status_note: "earlier map-lag blocker resolved by owner-side label landing (PR #1868 now in review)"
 kanban_lane: review
 kanban_summary: "The never-delivered proof at never-delivered/<applicationID>/<environment>.json is created by guided adoption…"
 kanban_title: 0428-326 · consume never-delivered proof
@@ -27,7 +27,6 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w341-0428-326-proofleak (live lane; status per its akte commits ffa9a00d5/7592cdc00 carried by coordinator)  
     **PR:** [baseharbor#1868](https://github.com/mcpdev80/baseharbor/pull/1868)  
-    **Blocker:** v0.4.28 release begin marker missing + catalog/pr-gate-map release label still v0.4.27 (w341 akte 20:11Z); rerun trigger: owner map decision (same class as 0428-328)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
