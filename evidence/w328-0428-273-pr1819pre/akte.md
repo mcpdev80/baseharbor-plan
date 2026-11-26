@@ -68,3 +68,25 @@
 - Census table: above (§1).
 - Re-express verdict: YES, one ordinary merge + at most one forward-fix; 0 catalog rows to add.
 - Akte PR link: opened under baseharbor-plan, identity w328-0428-273-pr1819pre.
+
+---
+
+## Evidence witnesses (pre-END)
+
+- Planning repo (verified first): `origin -> https://github.com/mcpdev80/baseharbor-plan.git`
+- Evidence branch delivered: `e684b36fc74e27e487b2c5d6293e6e6dc7ef28b7  refs/heads/w328-0428-273-pr1819pre` (ls-remote origin)
+- PR: https://github.com/mcpdev80/baseharbor-plan/pull/129 (ordinary, OPEN, evidence-only)
+- Own pull_request CI run: **45827274740** event=pull_request conclusion=success headSha=e684b36fc74e27e487b2c5d6293e6e6dc7ef28b7 (Plan · validate, 17s)
+- PR comment with head+run: https://github.com/mcpdev80/baseharbor-plan/pull/129#issuecomment-7193102020
+- Note: origin/main has no direct writes (branch protection); akte is committed on the PR branch, delivered and validated on its exact head.
+
+## END
+w328-0428-273-pr1819pre END_DONE — census table (§1), re-express verdict (§2), akte PR #129 link.
+
+---
+
+## Evidence witnesses (post-forward-merge, pre-END)
+
+- Forward-merge of live `origin/main` into `w328-0428-273-pr1819pre`: ONE ordinary merge commit, UNION resolution of the single add/add conflict in this akte's Evidence-witnesses block. Both prior witnesses blocks kept intact (chronological order, nothing deleted, no weakening).
+- Behind count at merge: `origin/main` 5 ahead, branch 1 ahead (`git rev-list --left-right --count origin/main...w328-0428-273-pr1819pre` = `5	1`).
+- Conflict hunk: only `evidence/w328-0428-273-pr1819pre/akte.md` (add/add); no second conflicting file.
