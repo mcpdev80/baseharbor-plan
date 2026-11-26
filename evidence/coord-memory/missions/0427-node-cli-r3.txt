@@ -1,0 +1,12 @@
+Auftrag 0427-node-cli-r3 (lane 29380bc8, ornith, FRISCHE korrektur; kandidat PR#1427 head 0dc4c4d4f3 auf origin + review act-1427-review.md origin/main 20365953 — dort abholen).
+Karte t-20261018-r27-node-cli. CODEX-REVIEW r2 = REQUEST-CHANGES. Befund wörtlich:
+  1. node LIST bleibt PENDING aus NIE-GEFUELLTEN local fields — die trust/expiry/capability felder werden nicht gesetzt. Fuehre sie aus der echten quelle (connector/node-trust store) nach, damit state PENDING->ENROLLED/EXPIRED/REVOKED korrekt angezeigt wird.
+  2. Core status omits serial/capabilities — der status-output muss seriell + faehigkeiten fuellen/zeigen.
+  3. KEINE kausalen node-read regressions tests — fuege targeted regression tests hinzu die JEDES field (list state, serial, capabilities) kausal pruefen (rot ohne befuellung, gruen damit).
+- claim: baseharbor-plan/scripts/plan.py claim t-20261018-r27-node-cli --owner 0427-node-cli-r3 (commit+push) BEVOR aendern.
+- basis PR#1427 branch work/r27-node-cli (head 0dc4c4d4f3). fetch origin develop (06e4b1eaa+), merge, ancestor rc0, drift-frei. delta NUR node*.go (+ eigne tests). KEINE #110 lifecycle/fixture, KEINE .github, KEINE app_remote_lifecycle (116), KEINE maintenance/accesswizard.
+- feldquellen NICHT erfinden/hardcoden — echte node-trust/connector daten; wenn eine quelle im test-kontext nicht existiert, fail-closed benannter fehler statt still PENDING.
+- neue tests von bestehender suite erfasst (CI-Aufnahmepflicht §5.3); fehlt trigger => BEFUND.
+- eigenes-run: hosted pr-check finale sha TERMINAL (run-id+status evidence), ls-remote zeugnis. ## PLAN + todowrite. keine subagenten (4.8). NICHT idle ohne END — festgefahren => QUESTION.
+Evidence: evidence/r27-welle5-folge-2026-11-07/node-cli/round-3.md
+END an 594fd2f5. karte->review wenn alle 3 behebungen + kausale mutants gruen + drift-frei + CI terminal.

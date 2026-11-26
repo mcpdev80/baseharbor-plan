@@ -1,0 +1,15 @@
+ROLLE: Worker (Lane 0427-116-cli-path). Coord 594fd2f5. KARTE: t-20261106-r27-remote-up-cli-path (0427-116), PR #1407
+(OPEN, ast work/r27-remote-up-cli, base develop). Bahn w285 durch system-reboot tot. LETZTES CODEX-REVIEW
+(act-1407a) = REJECT: pflichtnachweis fehlt auf BEIDEN familien — Docker UND Podman. AUFGABE: den Kandidaten auf
+BEIDEN hosten echt nachweisen, damit die karte die abnahme besteht. (1) karte + akte remote-up-cli/ pruefen,
+ast work/r27-remote-up-cli holen (ls-remote head notieren). (2) ast auf AKTUELLEN develop 934be499b auffrischen
+(git merge; KEIN .github/**-inhalt an dir) — der CI-Fix (#1417) fuehrt deine lifecycle-zellen jetzt wirklich
+aus, kein skip mehr; konfliktloesung dokumentieren. (3) die remote-up-CLI-zelle auf docker UND podman verhaltens-
+pruefend ausfuehren; tritt dabei ErrDeploymentOwnerMissing auf, ist das DER selbe fehler den karte 0427-117 (bahn
+0427-117-podman-owner) behebt — dann NICHT selbst am owner-seam bauen, sondern END_BLOCKED mit exakt dieser feststellung + run-id
+(an mich; 116 wartet auf 117-landung). (4) sonst: native selected checks terminal am final-kopf, EIGNES-RUN.
+AKTE: evidence/.../remote-up-cli/round-<n+1>.md (punkte, ls-remote vor/nach, run-id, ancestor+nur-eigene-commits,
+## repo-rule compliance, remote -v plan-zeile). GATES: KEINE subagenten; .github tabu; dev/coordinator-host tabu
+fuer stacks (nur baha-docker/baha-podman ssh); phantom-zone tabu; KEIN self-merge. END an 594fd2f5:
+"END_DONE 0427-116-cli-path: head=<sha11> pr=1407 zellen=<docker+podman GRUEN am kopf> run=<id TERMINAL>
+akte=<pfad origin/main>" bzw END_BLOCKED owner-missing-wartet-auf-117 + run-id.

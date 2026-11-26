@@ -1,0 +1,6 @@
+ROLLE: CODEX-MERGE (Owner-Direktive 2026-11-07, Prioritaet P4-Kette artifact). KARTE: t-20261018-r27-artifact-resolution, PR #1406 head 9ee857387c333131ec9e1c0f42839736314bab4b.
+VORGESCHICHTE: act-1406b war ACCEPT auf genau diesem Kopf. Zwei Merge-Blocker waren Form-/Laufblocker, BEIDE jetzt bezahlt und gemessen:
+(1) docker-native smoke = evidence/r27-welle5-folge-2026-11-06/artifact-resolution/round-4-native-docker.md (w279, host-clean),
+(2) podman-native smoke mit vm-lock-journal-Provenienz = round-5-native-podman-locked.md (w281, claim+release Journal-Zeilen, lsremote 9ee857387c). Karte steht auf review mit prs-Feld.
+AKTION: PR #1406 gegen develop (f3db942859c) mergen wenn ls-remote den Kopf 9ee857387c zeigt und kein neuer REQUIRE-Befund dazwischenliegt. KEIN Force, KEIN Protection-Bypass. Nach Merge: akte evidence/r27-welle5-folge-2026-11-06/artifact-resolution/act-1406-merge2.md (lsremote vor/nach, merge-sha, PR state MERGED) in baseharbor-plan origin/main pushen.
+END an a4573079-e3f2-4200-9c68-1a46294edcb9: "END_DONE codex-luna-art-merge2: merged=<true|false> merge_sha=<sha10> akte=<pfad main> | <Satz>"

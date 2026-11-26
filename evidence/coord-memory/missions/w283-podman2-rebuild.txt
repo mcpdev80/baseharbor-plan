@@ -1,0 +1,12 @@
+ROLLE: Worker (Lane w283). Coord 594fd2f5. ZIEL (owner-direktive 2026-11-07 00:0xZ, zu #1404): saubere
+umgebung = NEUAUFBAU statt rekonstruktion. Baue baha-podman-2 (107) gemaess host-setup-skript neu auf
+(praezedenz w253b docker-2 + w150 rebuild-1.md — skript-abweichungen als diff dokumentieren, nicht still).
+SCHRITTE: vm-lock claim baha-podman-2 w283 (host MUSS frei+leer sein; w274 release abwarten, rc=3=andere
+arbeit vorziehen). dreipunkt-check vorzerstörung (shared-stapel? auf 107 gibt es keinen dauer-stapel —
+pruefe und belege), neuaufbau, rauchprobe: version, rootless run ohne sudo, port-mapping-test,
+build-cache-test (vier punkte wie karte t-20261104-r27-vm-rebuild-integration verlangt), rueckbau probe=0.
+AKTE: r27-welle5-folge-2026-11-06/infra/podman2-rebuild-2.md (PUNKTE statt checkboxen; journal-zeilen,
+protokollierueckgabe, ## repo-rule compliance). Zone workers/w283-wt. GATES: KEINE subagenten, 166-tabu,
+coordinator-host tabu, /tmp/opencode/w283*.
+END an 594fd2f5: "END_DONE w283-podman2-rebuild: aufbau=<skript rc=0> rauchprobe=<4/4 gruen>
+container-end=0 journal=<claim+release> skript-diff=<keine/liste> akte=<pfad main> | <Satz>"

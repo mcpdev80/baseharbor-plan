@@ -1,0 +1,14 @@
+ROLLE: Worker (Lane w238). Coord 841e7734. KARTE: t-20261018-r27-version-view (KONFLIKT-BESEITIGUNG).
+LAGE: PR #1403 zweig work/r27-version-view wurde NACH dem AKZEPTIERT-urteil ueber kopf 65ed48d60f7 von
+fremder hand auf 9e76da5adaf gezogen (merge origin/develop, author w224-ghost — geloeschte lane!).
+Folge: mergeable=CONFLICTING vs develop bc8670c1 in cmd/baha/machine_coverage.go. AUFGABE:
+(1) konfliktloesung machine_coverage.go: beiderseitige EINTRAEGE erhalte (union, sortiert; referenzen
+    round-3/4 der export/registry-akte lesen), KEIN rueckbau der angenommenen vv-aenderungen (ihr baum
+    muss 65ed48d6-Inhalt behalten), (2) develop bc8670c1 als Ahn einarbeiten, (3) gates go-build/vet/
+    gofmt + targeted vv/unit lokal, (4) push, PR ready, hosted PR-selected-checks bis TERMINAL beobachten
+    (nicht feuern? POST an coord — rerun ist coord-hand), (5) akte round-5.md: drift-zeugnis (commit
+    9e76da5a author w224 = GHOST, ls-remote vor/nach), loesungsdiff, lauf-id. 
+HINWEIS SICHERHEIT: geloeschte lanes duerfen NICHT nacharbeiten — melde jeden WEITEREN fremden push auf
+deinem zweig sofort als QUESTION, nicht selbst heilen.
+GATES: KEINE subagenten/zweiter PR/root-checkout/.github, caches /tmp/opencode/w238*.
+END an 841e7734: "END_DONE w238-vv-conflict-fix: head=<sha10> conflict-frei=JA lauf=<id STATUS> | <Satz>"

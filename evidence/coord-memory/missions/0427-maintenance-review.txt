@@ -1,0 +1,4 @@
+CODEX-REVIEW 0427-maintenance-client (PR #1428, head 165405832 gegen develop 8a3f58da9). drift-frei, CI terminal 9-pass, delta nur maintenance-dateien.
+Vertrag: plan.py show t-20261018-r27-maintenance-client. Deine vorgehenden urteile: act-1428-review.md (REQUEST-CHANGES zweimal, themen: atomarer destroy-ablauf, zustandsmaschine statt punkt-patches).
+PRUEFPUNKTE: (1) destroy/maintenance-ablauf ist JETZT eine echte atomare zustandsmaschine (keine punkt-patches), fehlerpfade fuehren zu definierten zustaenden, (2) table-driven regression ueber ALLE ausgaenge (inkl. failed-destroy history residue, round3-testdatei zaehlt), (3) mutation-probe: guards sind last-bearing (rote mutantin nachweisbar), (4) write-set nur maintenance-dateien, keine lifecycle/fixture/OCI-fremddateien, (5) kommando-/flags-vertrag konsistent mit docs, (6) kein weakening bestehender gates.
+sha vor/nach, kein eigenes gate, keine CI neu. END an 594fd2f5 mit APPROVE|REQUEST-CHANGES + rezept.

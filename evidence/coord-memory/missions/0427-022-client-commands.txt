@@ -1,0 +1,27 @@
+ROLLE: Worker (Lane 0427-022-client-commands). Coord 594fd2f5. KARTE: t-20261018-r27-client-commands (0427-022 · route init up status and operations through one authority). Repo mcpdev80/baseharbor. Parent core-777.
+REALITAET ZUERST (AGENTS 4.1): `git -C baseharbor fetch`, `git ls-remote origin refs/heads/develop` -> aktuellen develop-kopf notieren (eine stufe vor dir sind #036/#051 gemergt, develop >= eee11d50). Branch VON develop, ancestor-zeugnis in akte.
+ZIEL: Gewoehnliche lokale/remote CLI-Befehle (init/up/status/doctor/logs) rufen dieselben semantischen operationen
+ueber EINE autoritaet. init schreibt portables contract lokal + explizite registration bindet remote; up reicht
+exakten kandidat + scoped consent ein; status/doctor/logs loesen server-owned state; discovery meldet unsupported
+ops, KEINE rohen beliebigen server-pfade oder secret-args. KEINE maintenance-handler (spaetere maintenance-client scheibe).
+WRITE-SET (karte-linie 55): NUR cmd/baha/main.go dispatch-naht + abgegrenzte remote-command adapter dateien/tests.
+   TABU: commands.go, machine-registry, shared indexes (die gehoeren t-...-public-surfaces). Kein fremder slice-datei, kein draft-ast.
+VORGEHEN: (1) karte + release-plan + decision 2026-10-18-native-delivery lesen; predecessor interfaces pruefen.
+ (2) CLAIM publizieren: `python3 scripts/plan.py claim t-20261018-r27-client-commands` (baseharbor-plan), commit, push.
+ (3) implementiere dispatch-naht + adapter (reuse native tools/owners, KEIN privates release/registry/pipeline framework).
+ (4) REGRESSIONEN: positive+negative echte tests. PFLICHT (karte-linie 59): real CLI->TLS API tests mit zwei unabhaengigen
+     homes/checkouts gegen dieselbe deployment: precedence, denial, server-loss, stale-consent, error-parity. Diese
+     tests MUSS die GitHub-CI erfassen — benenne job+trigger die sie fahren. Wenn dafuer eine .github/**-Triggerregel
+     fehlt: BEFUND file:line an mich (owner-scope), NICHT selbst editieren. Predecessor-CI-readiness: identifiziere
+     die tatsaechlichen selected test commands BEVOR du als fertig meldest.
+ (5) PR gegen develop; native selected checks terminal am final-kopf, EIGNES-RUN (run-id im END).
+ARBEITSORT: eigener worktree /tmp/opencode/0427-022-client-commands-wt (NICHT der root), caches /tmp/opencode/0427-022*.
+NUR gezieltes git add (KEIN git add -A im worktree). KEINE checkboxes in der akte (punkte).
+GATES: KEINE subagenten (AGENTS 4.8); .github tabu (befund statt edit); coordinator-/dev-host tabu fuer stacks;
+workers/baseharbor-plan phantom-zone tabu (echte plan = /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan,
+`git -C baseharbor-plan remote -v` zeile in akte); exact-one-candidate; KEIN self-merge.
+AKTE: evidence/r27-welle5-folge-2026-11-07/client-commands/round-1.md (ls-remote vor/nach, run-id, ancestor +
+git log --oneline origin/develop..HEAD zeigt NUR eigene commits, zwei-home CLI->TLS test-zeugnisse, ## repo-rule compliance).
+END an 594fd2f5: "END_DONE 0427-022-client-commands: head=<sha11> pr=<n> dispatch=<init/up/status/doctor/logs eine
+autoritaet> tests=<real CLI->TLS zwei-home, job+trigger genannt> ci=<run TERMINAL> ci_wiring=<ok|befund file:line>
+akte=<pfad origin/main>" / QUESTION (wenn interface/lücke unklar) / END_BLOCKED + zeile.

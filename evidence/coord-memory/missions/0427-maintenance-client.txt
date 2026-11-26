@@ -1,0 +1,8 @@
+Auftrag 0427-maintenance-client (lane db4881a1, flash, FRISCH).
+Karte t-20261018-r27-maintenance-client — vertrag lies WORTWOERTLICH per `python3 baseharbor-plan/scripts/plan.py show t-20261018-r27-maintenance-client` und im Kartenkoerper. Ziel: Wartungs-/Maintenance-Client-Pfad (geplante wartungsfenster/handling), konsistent mit client-commands (gemergt) + managed-users.
+- Claim erst via scripts/plan.py claim --owner 0427-maintenance-client (commit+push) BEVOR aendern.
+- Isolated branch/worktree, exact-one-candidate PR gegen develop (fetch, ancestor rc0, drift-frei).
+- write-set NUR karten-eigene dateien. NICHT: .github/** (owner), scripts/*-CI-naht (021), cmd/baha/app_remote_lifecycle.go (116), client_commands_behaviors/core_integration (022), broker/controlplaneruntime/source_oci (118), access_wizard/node_cli dateien (parallel). Bei .github-bedarf: BEFUND file:line an coord.
+- neue tests in CI erfasst (CI-Aufnahmepflicht §5.3); fehlt ein trigger, BEFUND statt self-edit.
+- eigenes-run terminal beobachten, ls-zeugnis, rot-first+gruen, kein fake pass/skip. ## PLAN + todowrite. keine subagenten. NICHT idle ohne END.
+Evidence: evidence/r27-welle5-folge-2026-11-07/maintenance-client/round-1.md. END an 594fd2f5.
