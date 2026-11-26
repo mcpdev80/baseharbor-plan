@@ -367,3 +367,4 @@ Final gate witness (2026-11-26T04:38Z): `gh pr checks 93 --repo mcpdev80/basehar
 `Plan · validate  pass  9s  https://github.com/mcpdev80/baseharbor-plan/actions/runs/45756465354/job/139696124722`
 on head `4f77be994` (the head that `git ls-remote` shows). `origin/main` still lacks the path (grep -c → 0)
 because only the Owner/Codex admin squash merge of #93 lands it; this lane is now finished.
+cleanliness after final push: docker ps -aq count=0, my pid=2582759, no compose projects/networks/volumes created by this lane (all witness commands were gh/git reads; the earlier docker ps -a rows were zero both times)
