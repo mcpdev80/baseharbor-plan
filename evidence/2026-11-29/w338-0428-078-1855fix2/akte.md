@@ -431,6 +431,24 @@ compose work; Hosted CI only; pid zone 626183 chain, worktrees workers/w338-0428
 touched — catalog file is scripts/pr-gate-coverage.json (Owner-scope exclusion applies to
 .github/** only; the family route IS the ruling's prescribed mechanism for this row).
 
+## Transport witness (clone + ref-switches, §3.6 continuity)
+
+Round 3 continued in the EXISTING persistent clone workers/w338-0428-078-1855fix2-wt (fresh
+clone made in round 1, origin = https://github.com/mcpdev80/baseharbor.git only). Ref
+switches this round, in order, each verified by git rev-parse right after:
+- branch w338-0428-078-pr1650-reissue created from origin/w279-0428-078-pr1650-reissue @
+  fe940dc311192e81ea6fd3580d02f313dfe4e849 (mission-named candidate branch; no second branch
+  for the #1855 chain — the pre-existing local branch name w279-0428-078-pr1650-reissue was
+  kept as remote-tracking only),
+- commit 70c005e8 (embedded-row removal) -> pushed, ls-remote-verified,
+- branch w338-0428-078-projnames-row created from origin/develop @
+  5a37ddbd9a06dd44f6068d3266ff2ed853a84a74 (git ls-remote before creation: no w338* refs
+  existed) -> commit 8b0eb51a -> pushed, ls-remote-verified, PR #1867 opened,
+- back to w338-0428-078-pr1650-reissue @ 70c005e8 (final worktree state).
+ls-remote final (after all pushes): refs/heads/w279-0428-078-pr1650-reissue =
+70c005e8bc48b6186da1095a183905a42ee6c493, refs/heads/w338-0428-078-projnames-row =
+8b0eb51a12320acb8987aee1729c9a820d4d573e (both FULL40 above).
+
 ## Plan-main blocker (coordinator action; HOLD per mission-scope clarifier)
 
 Round-3 evidence PR baseharbor-plan#150 (branch w338-0428-078-1855fix3-akte, commit 865be307c,
