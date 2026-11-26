@@ -7,9 +7,9 @@ areas: [ci, testing, security]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w327-0428-272-gaterouting
+kanban_status: active
+kanban_lane: active
 kanban_summary: A PR that changes the local-runtime / trusted-authority seam is qualified by at least one native runtime gate (Docker and…
 kanban_title: 0428-272 · authority seam no runtime gate
 priority: normal
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261124-r28-runtime-authority-gate-routing · PR-Gate-Plan routes the runtime-authority seam to package checks only, so a fail-open regression there is never qualified by a native runtime gate. #task #release/v0-4-28 #status/planned #view/ready #area/ci #area/security #area/testing #kind/task
+- [ ] t-20261124-r28-runtime-authority-gate-routing · PR-Gate-Plan routes the runtime-authority seam to package checks only, so a fail-open regression there is never qualified by a native runtime gate. #task #release/v0-4-28 #status/active #view/active #area/ci #area/security #area/testing #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w327-0428-272-gaterouting · **Priority:** normal  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w327-0428-272-gaterouting  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
