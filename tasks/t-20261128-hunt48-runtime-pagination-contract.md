@@ -7,35 +7,36 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: "" (lane w343 released after END BLOCKED-BASE-CATALOG; re-dispatch after base act lands)
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: ""
 kanban_title: 0428-344 · runtime list pagination
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1872", "mcpdev80/baseharbor#1871"]
 sources: []
-blocker: ""
+blocker: "BASELINE ACT ACCEPTED: #1872 merge-ready-HELD (w255 7203347331, head 3ed6882e/run 45894876938 SUCCESS, 15/15 rows; PR body forbids merge). #1871 (969362e3) stays blocked: continue ONLY after actual #1872 landing on develop + fresh consumer exact-head CI; then lane absorbs develop and close+reopen per W46 recipe"
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261128-hunt48-runtime-pagination-contract · 0428 hunt H-V48: runtime API list endpoints have no pagination contract #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261128-hunt48-runtime-pagination-contract · 0428 hunt H-V48: runtime API list endpoints have no pagination contract #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** "" (lane w343 released after END BLOCKED-BASE-CATALOG; re-dispatch after base act lands)  
+    **PR:** [baseharbor#1872](https://github.com/mcpdev80/baseharbor/pull/1872), [baseharbor#1871](https://github.com/mcpdev80/baseharbor/pull/1871)  
+    **Blocker:** BASELINE ACT ACCEPTED: \#1872 merge-ready-HELD (w255 7203347331, head 3ed6882e/run 45894876938 SUCCESS, 15/15 rows; PR body forbids merge). \#1871 (969362e3) stays blocked: continue ONLY after actual \#1872 landing on develop + fresh consumer…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** "" (lane w343 released after END BLOCKED-BASE-CATALOG; re-dispatch after base act lands)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1872](https://github.com/mcpdev80/baseharbor/pull/1872), [baseharbor#1871](https://github.com/mcpdev80/baseharbor/pull/1871)  
 **Source:** 
 <!-- /generated:links -->
 

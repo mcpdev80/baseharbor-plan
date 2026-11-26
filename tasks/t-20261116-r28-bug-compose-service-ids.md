@@ -15,7 +15,7 @@ kanban_title: 0428-288 · Preserve Compose service IDs
 priority: high
 depends_on: [t-20261125-0428-284-1812-postretry-gate-failure]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1833]
+prs: ["mcpdev80/baseharbor#1870", mcpdev80/baseharbor#1833]
 sources: []
 blocker: ""
 wait_reason: "W15 required next proof: hop PR #1833 onto current develop, then obtain two distinct fresh pull_request runs on the exact same head (attempt 1 each); run 45513816046 on a7b0a48048c11d20234160eede941532ddc33156 is attempt 2 and void as pair evidence. Wait for successor card 0428-284 / PR #1856, not closed #1842."
@@ -26,7 +26,7 @@ evidence: []
 - [ ] t-20261116-r28-bug-compose-service-ids · Preserve Compose service IDs #task #release/v0-4-28 #status/wait #view/wait #area/wizard #kind/bug
     <!-- generated:card -->
     **Owner:** w147-0428-288-pr1833-fix · **Priority:** high  
-    **PR:** [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
+    **PR:** [baseharbor#1870](https://github.com/mcpdev80/baseharbor/pull/1870), [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
     **Waiting:** W15 required next proof: hop PR \#1833 onto current develop, then obtain two distinct fresh pull\_request runs on the exact same head (attempt 1 each); run 45513816046 on a7b0a48048c11d20234160eede941532ddc33156 is attempt 2 and void as pair…  
     <!-- /generated:card -->
 
@@ -36,7 +36,7 @@ evidence: []
 **Depends on:** [t-20261125-0428-284-1812-postretry-gate-failure](t-20261125-0428-284-1812-postretry-gate-failure.md)  
 **Owner:** w147-0428-288-pr1833-fix  
 **Priority:** high  
-**PRs:** [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
+**PRs:** [baseharbor#1870](https://github.com/mcpdev80/baseharbor/pull/1870), [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -86,3 +86,4 @@ Use J-Commerce docker-compose.yaml including `vector_db`, and run `baha app init
 ## W15 qualification requirement
 
 Before 0428-288 can qualify, hop PR #1833 onto current develop and obtain two distinct fresh `pull_request` runs on that exact same head, both attempt 1. Run 45513816046 is attempt 2 and is void as pair evidence. The sequencing dependency now points to successor card 0428-284 / PR #1856 rather than closed #1842.
+status_note: "#1870 ACCEPT d4e6b99/run 45876467179 merge-ready HELD (w267 7202318240); consumer chain #1833 <- #1870: runtime qualification NOT covered (runtime jobs skipped), continue only after landing + fresh consumer exact-head CI"
