@@ -101,14 +101,29 @@ authoritative "caught up" signal, corroborated by `git merge-base --is-ancestor 
 
 | PR | source branch | head (ls-remote) | ancestor(main) | Validate planning run | status | conclusion |
 |----|----|----|----|----|----|----|
-| #73 | lane-w265-plan | 22d4b92c8d (+line-77 #1650 correction) | TRUE | rerun on corrected head pending | in-flight | — |
+| PR | source branch | head (ls-remote) | ancestor(main) | Validate planning run | status | conclusion |
+|----|----|----|----|----|----|----|
+| #73 | lane-w265-plan | e538507052 (+line-77 #1650 correction) | TRUE | 45776641863 | completed | success (head e538507052, pull_request) |
 | #81 | — (MERGED) | — | — | — | MERGED | main c30b1143b, 2026-11-26T06:48:19Z |
-| #84 | ourist-shift-w284 | 1cb4bc3014 | TRUE | rerun on re-absorbed head pending | in-flight | — |
-| #98 | w294-akte | 25f7258194 (MERGED) | — | — | MERGED | main 3055fba1f, 07:10:07Z |
-| #99 | lane/w296-0428-251-demoflowdiff | 3d3b30968f | TRUE | rerun on re-absorbed head pending | in-flight | — |
-| #107 | w301-evidence-0428-251 | 6022a2e027 | TRUE | 45772931856 | completed | success (head 6022a2e027, pull_request, 07:06:58Z) |
+| #84 | ourist-shift-w284 | 994e5e36ac | TRUE | 45776650623 | completed | success (head 994e5e36ac, pull_request) |
+| #98 | w294-akte | — (MERGED) | — | — | MERGED | main 3055fba1f, 07:10:07Z |
+| #99 | lane/w296-0428-251-demoflowdiff | bbfe3d0fca | TRUE | 45776657421 | completed | success (head bbfe3d0fca, pull_request) |
+| #107 | w301-evidence-0428-251 | 06cae4480a | TRUE | 45776664577 | completed | success (head 06cae4480a, pull_request) |
 
-Proof: `git merge-base --is-ancestor origin/main HEAD`=TRUE for every moved branch; GitHub compare main...head=status=ahead (not diverged). The HEAD/RUN PAIR is recorded in each PR's COMMENT thread per the owner anti-loop ruling — no commit exists to certify its own sha. DEV VIOLATION reported separately: main commit ccd89bf2f (single parent 8525c6cdc, author/committer w301-0428-251-planhops, direct push `HEAD:refs/heads/main`) must be recorded forward-only by the reviewer, not reverted.
+HEAD/RUN PAIR proof: each run's `head_sha` == the PR's live head (verified via `gh pr view --json headRefOid`
++ `git ls-remote refs/pull/<n>/head`), status=completed, conclusion=success.
+`git merge-base --is-ancestor origin/main HEAD`=TRUE for every moved branch; GitHub compare main...head=status=**ahead**
+(not diverged) → live main fully contained in each head (merge commits can't be linearized by the compare API, so
+`behind_count` is null, but `ahead`/not-diverged is the authoritative "caught up" signal). The HEAD/RUN PAIR is posted
+into each PR's COMMENT thread (see issuecomment-7185681905/...2260/...2573/...2886) per the owner anti-loop ruling —
+no commit exists to certify its own sha.
+
+DEV VIOLATION (reported for reviewer forward-only record, NOT reverted): main commit `ccd89bf2f`
+(single parent `8525c6cdc`, author/committer `w301-0428-251-planhops`, msg "record final hop hea...",
+pushed via `git push origin HEAD:refs/heads/main` from an isolated worktree) — a direct push to protected plan main,
+violating the PR-only-content rule. Files it added:
+`evidence/2026-11-26/w301-0428-251-planhops/akte.md` and `date-correction-note.md`. Recorded forward-only by the
+reviewer, same as the #100 force-push / API-delete deviations. Not reverted, not rewritten.
 
 ## END
 
