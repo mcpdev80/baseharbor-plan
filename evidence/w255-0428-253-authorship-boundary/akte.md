@@ -88,3 +88,12 @@ Plan PR #68 head `a3f01dea035432376641f2eea485b54131c3a23e` was validated by Hos
 ## Live-base integration and validation
 
 Live `origin/main` advanced to `8ae7436de854c4aa5c3ae55412390d91b4d6339e` while PR #68 was open. Ordinary merge commit `fd3b8ba4da8f2f5521ab38d12079d4af00fd2f36` integrated it into the branch; `git merge-base --is-ancestor origin/main HEAD` succeeded. PR #68 validation run `45734657702` then completed SUCCESS on exact head `fd3b8ba4da8f2f5521ab38d12079d4af00fd2f36`, with the `Plan · validate` job executed. URL: https://github.com/mcpdev80/baseharbor-plan/actions/runs/45734657702. The task path had no commits between the prior base and this current main; the only historical main entry shown for that path remains the 76ab base commit.
+
+## Branch delivery receipts
+
+- Initial branch push: `5796f99aeeed2bdace38a6fe66d849fe03d01e0f refs/heads/w255-0428-253-admission`.
+- Provenance update push: `2bf9101dcdcbe82ab619415c32763f0b2dc78020 refs/heads/w255-0428-253-admission`.
+- Second-witness update push: `a3f01dea035432376641f2eea485b54131c3a23e refs/heads/w255-0428-253-admission`.
+- Hosted-run record push: `8099a2a5a1f84d0ed016948f69b3e6bfc7b84dd9 refs/heads/w255-0428-253-admission`; PR ref observed immediately afterward was `a3f01dea035432376641f2eea485b54131c3a23e refs/pull/68/head` and then advanced to the branch head.
+- Current-base integration push: `fd3b8ba4da8f2f5521ab38d12079d4af00fd2f36 refs/heads/w255-0428-253-admission`; PR ref observed immediately afterward was `8099a2a5a1f84d0ed016948f69b3e6bfc7b84dd9` and then advanced to the branch head.
+- Base/provenance receipt push: `2a52a61df41b623f8625365e1ca25c1d17476ae0 refs/heads/w255-0428-253-admission`; PR ref observed immediately afterward was `fd3b8ba4da8f2f5521ab38d12079d4af00fd2f36` and then advanced to the branch head.
