@@ -1,0 +1,29 @@
+ROLLE: Worker (Lane w241). Coord 841e7734. KARTE: t-20261105-r27-compose-host-isolation. OWNER-AUFLAG
+E 2026-11-06 wortlich: "Die echten Isolationstests auf baha-docker und baha-podman ausfuehren, einschli
+esslich Mutantenprobe. Erst danach wuerde ich #1383 mergen."
+KANDIDAT: PR #1383, zweig work/r27-compose-isolation, AKTUELLER kopf 88d725e4b19 (NICHT der alte
+1b02e886 — fetch origin, ls-remote-zeug in akte). develop einmerge falls rueckstaendig, push, PR ready.
+ISOLATIONSZELLEN (echt, auf PRUEFMASCHINE): die zwei InCI-dateien
+ cmd/baha/app_repository_integration_test.go und cmd/baha/app_workload_integration_test.go — mit den
+ echten runtime-gates laufen lassen (zwei isolierte kompose-projekte gleichzeitig; nachweis getrennte
+ netze/volume-names/port-saetze; kein projekt sieht des anderen zustand). pro host protokoll-zeile:
+ befehl + GO test ergebnis (PASS/FAIL) + zeit + inspect-beleg (netz(volume)-Namen beider projekte).
+HOST-SERIALISIERUNG (vm-lock, EIN host pro zeit, einer-nach-anderer, nie beide gleichzeitig):
+ (1) baha-docker (rootful+rootless docker) — FREI gemessen, der dortige bh-local-shared stack ist DAUER-
+     haft und NICHT anfassbar; deine zellen laufen als EIGENE bh-<dein-tag>-projekte daneben, du fahrst
+     sie selbst wieder down (name+ps-zeug, fabrikrein NUR fuer DEINE projekte).
+ (2) eine PODMAN-maschine: baha-podman (haelt w243 bis END) ODER warte-fall: beantrage per frage; claim
+     nie zwei. Wenn podman-seite blockiert: docker-seite TERMINAL vorlegen, podman als 'ausstehend bis
+     w243-freisabe' in akte, END_STATE docker-terminal.
+MUTANTENPROBE (pflicht): die echte isolations-waechter-zeile in der QUELLE (kandidat: cmd/baha/
+app_doctor_collect.go:322 'postgres shared isolation' check, oder die waechter-zeile in den zwei InCI-
+tests falls dort) LOKAL entfernen (datei:zeile + datum ins transcript) => die isolationszelle MUSS ROT
+durch den AUSGELIEFERTEN pfad fallen; zuruecksetzen => GRUEN. Handgeschriebener helper-umweg VERBOTEN
+(praezedenz managed-users act-1397b: nicht-kausale mutantin = REJECT).
+AKTE: evidence/r27-welle5-2026-11-06/compose-host-isolation/round-<n>.md auf origin/main (fetch main,
+ls-tree, zielgerichtetes add; pro host zellen-transcript; mutante rot+gruen; lsremote-kopf 88d725e-beleg;
+PLAN-checkliste; ## repo-rule compliance).
+GATES: KEINE subagenten/zweiter PR/root-checkout/.github/quellanderung-am-finalkopf (mutante nur transient),
+container NIE auf coordinator-host (R1), caches /tmp/opencode/w241*.
+END an 841e7734: "END_DONE w241-compose-isolation: head=<sha10> dockerzellen=<n/n green> podmanzellen=<n/n|
+ausstehend> mutante=<ROT+GRUEN belegt> lsremote=<sha10> akte=<pfad main> | <Satz>"

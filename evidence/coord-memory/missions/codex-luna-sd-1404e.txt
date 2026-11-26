@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW. Coord a4573079. ABNAHME control-plane-single-default, kandidaten-genau.
+KANDIDAT: PR #1404 head ed98ed1dde7 vs develop 5e4fde7177e. AKTE: control-plane-single-default/
+round-3.md — podman-Sektion (w251, 3/3 PASS rootless) UND docker-Sektion (w257, Zelle 1 SINGLE PASS,
+Zelle 2 HA core-healthy 3/3/3, app-bindenv-befund dokumentiert). Vorgaenger: act-1404b/c (base- Artefakt
++ ACCEPT). PRUEFPUNKTE: (1) beide VM-Sektionen decken die Karten-Acceptance (single default ohne Profil
+auf BEIDEN Runtime-Familien; HA opt-in); (2) app-bind-env-Block in docker Zelle 2 als Randbefund
+bewerten (nicht verschlucken): ist er diff-verursacht oder Host-Setup? (3) SHA-Genauigkeit ls-remote,
+(4) Write-set ohne .github, (5) kein STILLER single->HA-wechsel (Idempotenz-Zelle). URTEIL als
+evidence/r27-welle5-2026-11-06/control-plane-single-default/act-1404e.md (ACCEPT|REJECT+rezept).
+Bei ACCEPT: Merge-Bestaeligung (squash-auf-develop, PR-Referenz) pruefen koennen, Merge selbst fuehrt
+CODEX-MERGE. END an a4573079: "END_DONE codex-luna-sd-1404e: verdict=<..>".

@@ -1,0 +1,16 @@
+MISSION: H-V39 (flash, READ-ONLY) — gate-admission census: the COMPLETE list of paths that will hit the 0428-242 fail-loud catalog guardian, so the Owner can fix scripts/pr-gate-coverage.json once instead of PR-by-PR.
+
+Why: H-V38 proved the Trusted Plan reds on #1810/#1809 are the guardian aborting on uncataloged cmd/**+internal/** changes, and that the catalog leaves ~86.7% (2203/2542) of such files without a row. Every future product PR that touches an uncataloged path will silently fail Trusted Plan. The Owner needs the full enumeration to batch the fix.
+
+Resolve the real GitHub remote (URL contains github.com/mcpdev80). READ-ONLY: do NOT edit scripts/** or .github/** or any product file; no branch, no PR, no merge. Findings only.
+
+TASK
+1. On develop, read scripts/pr-gate-coverage.json (the 'components'/'packages' rows), scripts/pr-gate-plan.py (guardian at ~1833-1838; catch-all rows at ~1424/1449/1541-1544), and scripts/pre-release-runtime-impact.json.
+2. Build the set of every cmd/** and internal/** Go file that is ALREADY covered — either by an explicit catalog row OR by a catch-all prefix in pr-gate-plan.py. (A path that a catch-all already routes is NOT a gap.)
+3. Complement: list every cmd/** + internal/** Go file in develop's tree that has NEITHER an explicit row NOR catch-all coverage = the silent-skip / guardian-abort population. For each, give file:line-of-catalog-absence evidence (e.g. 'no row, and not under any catch-all prefix'). Group by directory and give per-directory counts, so the Owner can add a small number of well-scoped catch-all/rows instead of hundreds of per-path rows.
+4. Cross-reference OPEN product PRs (gh pr list --repo mcpdev80/baseharbor --state open): for each, pull its changed cmd/**+internal/** paths (gh pr diff --name-only) and mark whether each changed path is covered, guardian-would-abort, or already fixed by H-V38's 5-row patch. This tells the Owner which specific open PRs are currently gate-blocked for THIS reason.
+5. Recommend the MINIMAL catalog change (a small set of package-level catch-all rows vs per-path rows) that would cover the largest share of the population AND all open PRs, with the risk that a too-broad catch-all over-selects gates — state the tradeoff.
+
+OUTPUT (baseharbor-plan ONLY): evidence/recovery-2026-11-23/hunt-hv39-gate-admission-census/round-1.md — ## PLAN list (no checkboxes), the covered-set method, the uncovered population grouped by dir with counts, the per-open-PR gate-block verdict (blocker paths list), the H-V38-patch overlap, and the minimal catch-all recommendation. cleanliness: read-only, work in /tmp/opencode/hv39, no stack/worktree/branch, ambient images untouched.
+
+END LAST ACTION: codeman agent post <coordinator> "END_DONE hunt-hv39: <one line: N uncataloged paths + K open PRs gate-blocked by guardian + recommended minimal rows>". Read-only; no subagents.

@@ -1,0 +1,15 @@
+ROLLE: Worker (Lane w275-mh). Coord a4573079. KARTE: t-20261018-r27-management-host (PR #1405, blocked
+wegen zweig-anomalie — ursache vom coord geklaert: root-checkout-Quarantaene, reflog-zeugnis coord-tick 23:1xZ).
+AKTION (genau diese, nichts weiteres): 
+(1) ls-remote origin work/r27-management-host == cd336cf734e bestaetigen (anomlie-live-zeugnis in akte).
+(2) VON DEINEM FRIECHEN PERSISTENTEN ARBEITSORT (workers/w275mh-wt, NIE workers/baseharbor — tabu-zone):
+    git fetch origin; pruefe dass cd336cf7 direkter VATER von a87f8377 ist (merge-base --is-ancestor, rc-zeugnis).
+(3) Kraft-Wiederherstellung der akzeptierten pruefkette: push --force-with-lease=work/r27-management-host:cd336cf734e
+    origin a87f8377679:refs/heads/work/r27-management-host — exakt dieser eine wiederherstellungs-kraft-push,
+    autorisiert durch coord-befund (verlusstfrei: inhalt von cd336cf7 steckt VOLL in a87f8377).
+(4) lsremote-gegenprobe == a87f8377679; PR #1405 head-check (API-zeile).
+(5) NICHTS committen, NICHTS bauen, KEIN neuer commit. AKTE: management-host/round-3-restoration.md
+    (PUNKTE; reflog/lsremote/api-aezungen, ursatz-paragraph: root-checkout-tilgung, ## repo-rule compliance).
+END an a4573079: "END_DONE w275-mh: restored=a87f8377679 lsremote=<sha10> pr_head=<sha10> verlust=nein
+akte=<pfad main> | <Satz>"
+GATES: KEINE subagenten, workers/baseharbor NICHT betreten, /tmp/opencode/w275mh*.

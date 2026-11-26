@@ -1,0 +1,25 @@
+MISSION: 0428-249 — runtime-image/registry artifact unknown: narrowly scoped CI fix (OWNER-RELEASED).
+
+Card: t-20261122-runtime-image-registry-artifact-unknown (0428-249), release v0.4.28, repo mcpdev80/baseharbor.
+Read first: baseharbor-plan/tasks/t-20261122-runtime-image-registry-artifact-unknown.md (the `blocker:` field is the Owner release) + baseharbor AGENTS.md + docs/DEVELOPMENT_GUIDELINES.md.
+
+OWNER RELEASE (verbatim, this authorizes the .github/** edits below — a normal lane may not touch .github/** without this):
+"Owner-Entscheidung 2026-11-22: Freigabe für eine Ursachenprüfung und genau einen PR mit der eng begrenzten Reparatur: Reihenfolge und Registry-Verfügbarkeit in .github/workflows/pre-release-runtime-suite.yml; der fehlende scripts/acceptance.sh-Vertrag in den drei Workflows, die ihn referenzieren (pre-release-runtime-suite.yml, pre-release.yml, targeted-demo-acceptance.yml), sowie scripts/pre-release-runtime-impact.json. Eine frühere Fassung von acceptance.sh nur aus belegbarer Git-Historie wiederherstellen; andernfalls die Verweise auf den vorhandenen Einstiegspunkt anpassen. Keine Ersatzlogik erfinden. .github/workflows/ci.yml und der normale CI-Pfad bleiben unverändert. Vor dem Merge müssen die Light-Runtime-Gates für Docker und Podman auf dem exakten PR-Head grün sein. Erfordert der belegte Fix weiteren Umfang, erneut Owner-Entscheidung einholen."
+
+TASK (exactly one narrow PR)
+1. Correct the root-cause analysis in the evidence (why the runtime image/registry artifact is 'unknown': job ordering + registry availability in pre-release-runtime-suite.yml, and the dangling `scripts/acceptance.sh` references).
+2. Fix ONLY these paths:
+   - .github/workflows/pre-release-runtime-suite.yml — ordering + registry availability so the runtime image is present before the gate that needs it.
+   - the `scripts/acceptance.sh` contract in pre-release-runtime-suite.yml, pre-release.yml, targeted-demo-acceptance.yml: restore an earlier acceptance.sh from PROVEN git history (`git log --all --diff-filter=D -- scripts/acceptance.sh`, show the restoring commit as witness), OR if no proven prior version exists, repoint the three references to the existing entrypoint. Do NOT invent substitute logic.
+   - scripts/pre-release-runtime-impact.json — keep the path→gate mapping consistent with the above.
+3. `.github/workflows/ci.yml` and the normal CI path MUST stay byte-identical (prove: `git diff origin/develop...HEAD -- .github/workflows/ci.yml` empty).
+
+BRANCH / PR
+Resolve the real GitHub remote (URL contains github.com/mcpdev80). Base = current develop (re-check; dc8626e9c). One branch lane-0428-249-runtime-image-fix, one PR, status per existing rule. Show `git merge-base --is-ancestor origin/develop HEAD` + `git log --oneline origin/develop..HEAD` (only your commits). Keep the PR OPEN (non-draft) as released.
+
+VERIFY (hosted CI only — owner rule)
+Before any merge: the Docker AND Podman LIGHT-RUNTIME gates must be GREEN on the EXACT PR head. Trigger via the normal PR checks, watch YOUR OWN runs to terminal (Eigenes-Run-Pflicht), record run ids + status. Do not run the suite locally as the verification path. If a check needs more scope than the paths above → STOP and post a QUESTION to the coordinator (do not widen unilaterally).
+
+EVIDENCE (baseharbor-plan ONLY, real repo): evidence/recovery-2026-11-23/0428-249/round-1.md — ## PLAN first, root-cause, the ci.yml-unchanged witness, the acceptance.sh restore/provenance witness, PR + exact head SHA + the terminal Docker+Podman light-runtime run ids/status, origin/main ls-tree witness before END.
+
+END LAST ACTION: codeman agent post <coordinator> "END_DONE 0428-249: <one line + head SHA + Docker/Podman light-runtime gate status>". No subagents. No merge (Merge-Frost 0.4.27 + acceptance pending).

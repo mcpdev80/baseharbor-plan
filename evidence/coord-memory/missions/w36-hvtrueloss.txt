@@ -1,0 +1,16 @@
+MISSION: H-V36 (fill desk, flash) — finalise the TRUE content-loss subset. READ-ONLY, no product change.
+
+Why: H-V35 (decf00ef3) bucketed 6 cards as "closed-unmerged LOSS class" (085/091/198/202/213/244), but coordinator verification shows several are NOT losses: #1645 (091), #1734 (202), #1766 (244) are MERGED; 085/213 sit on `wait` (not falsely accepted). The coordinator needs the EXACT subset where a card is `accepted`/`superseded` yet its content is genuinely absent from develop, plus the recoverable commit range, so 0428-221 can re-land or reopen truthfully. This desk is DISTINCT from H-V34 (content of merged cluster) and H-V35 (branch ancestry inventory): it diffs each candidate card's lost branch delta against develop.
+
+Resolve the real GitHub remote (URL contains github.com/mcpdev80). develop = refs/heads/develop (re-measure; observed dc8626e9c).
+
+TASK (read-only, nothing beside it)
+For each of these card→PR/branch cases: 0428-085(#1619), 0428-091(#1610), 0428-198(#1726), 0428-202(#1732), 0428-213(#1737), 0428-244(#1766):
+1. Get the PR head sha + `git merge-base --is-ancestor <sha> origin/develop` (present?) and whether a SIBLING merged PR already delivered the same files.
+2. For a not-ancestor PR head, list the delta: `git diff --name-only origin/develop...<sha>` and `git rev-list --count origin/develop..<sha>` (the would-be-lost commits).
+3. Content-prove one or two distinctive symbols per card (like the #1726 `withoutOperatorAuthTestContext` case) with `git grep -c <symbol> origin/develop` vs the branch, to separate REAL loss from "delivered by the merged sibling."
+4. Verdict per card, 4 words max: LOST-RECOVER (delta present on branch, absent develop → re-landable), LANDED-VIA-SIBLING, WAIT-HOP (status wait), or NO-LOSS.
+
+OUTPUT (baseharbor-plan ONLY, real repo): evidence/recovery-2026-11-23/hunt-hv36-trueloss-subset/round-1.md — ## PLAN list (no checkboxes), the per-card verdict table (card | PR | ancestor? | ahead | sample symbol | verdict), the precise re-landable commit range for every LOST-RECOVER card (for 0428-221), and a `cleanliness:` line. End with the explicit recommendation: which cards 0428-221 must REOPEN vs which content to RE-LAND, by SHA.
+
+END LAST ACTION: codeman agent post <coordinator> "END_DONE hunt-hv36: <develop SHA + N LOST-RECOVER + list>". Read-only; no subagents; start no container/stack.
