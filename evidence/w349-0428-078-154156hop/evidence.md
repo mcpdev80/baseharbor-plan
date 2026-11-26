@@ -150,17 +150,39 @@ markers; each count is identical on origin/main (1 per file, verified via
 
 ## Step 10 — Current-base closure (main moved during execution)
 
-- origin/main moved c5795422 -> `b2c39715f911914ae06508993eb012e19d769e0c` (squat-merge of
+- origin/main moved c5795422 -> `b2c39715f911914ae06508993eb012e19d769e0c` (squash-merge of
   evidence PR #157, mergedAt 2026-11-26T21:34:51Z, main push validation run 45899117287
   SUCCESS). Diff c5795422 -> b2c39715f = 1 file, `evidence/w349-0428-078-154156hop/evidence.md`
-  (this akte only; author of the squash commit is the repo owner per GitHub merge UI, the
-  content commits carried lane identity `w349-0428-078-154hop`).
-- Ancestry proof (both sides): `git merge-base --is-ancestor c5795422... ce837f2ea` -> PASS,
-  and c5795422 is an ancestor of b2c39715f; therefore both hopped heads absorb ALL main
-  content and no further hop is required by the current-base rule.
-- Posted explanatory follow-up comments with new-main SHA on #154 and #156:
-  - https://github.com/mcpdev80/baseharbor-plan/pull/154#issuecomment-7203887836
-  - https://github.com/mcpdev80/baseharbor-plan/pull/156#issuecomment-7203888193
+  (this akte only; the content commits carried lane identity `w349-0428-078-154hop`).
+- First closure assessment (superseded by the final anchor round below): the b2c39715f delta
+  was akte-only, so heads e809de7ad / ce837f2ea were reported as needing no further hop.
+  That assessment was WRONG for the current-base rule as main kept moving; corrected here.
+
+## Step 11 — Final anchor round (deterministic, current-base rule)
+
+- Pinned main tip at measurement: `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main`
+  -> `2c7eefa55abaff5995f015c05fa6ea086a0b0f83` (main had moved again past b2c39715f).
+- #154: forward-only merge of main (b2c39715f delta + hunt45/AGENTS/views delta) produced
+  head `a237753a226e35b98fb22dc4de52ba3de3660a40` (identity `an=w349-0428-078-154hop
+  cn=w349-0428-078-154hop`); clean, `plan.py render` empty, `plan.py check` 0 errors;
+  pushed (`e809de7ad..a237753a2`); delivery: branch and refs/pull/154/head both a237753a2;
+  `git log --oneline origin/main..HEAD` = a237753a2 + e809de7ad + the accepted-held w346 chain only.
+- #156: same procedure, head `4c037c82fdf50d433686b05a7b35c203f90e1fde` (identity
+  `an=w349-0428-078-156hop cn=w349-0428-078-156hop`); clean, check 0 errors; pushed
+  (`ce837f2ea..4c037c82f`); delivery: branch and refs/pull/156/head both 4c037c82f;
+  `git log --oneline origin/main..HEAD` = 4c037c82f + ce837f2ea + the two w347 commits only.
+- Exact-head validation: run 45899665019 SUCCESS at headSha a237753a2 (#154);
+  run 45899690806 SUCCESS at headSha 4c037c82f (#156) — both verified via
+  `gh run view --json headSha,status,conclusion`.
+- FINAL ANCESTRY ATTESTATION against pinned main 2c7eefa55:
+  `git merge-base --is-ancestor 2c7eefa55... a237753a2` -> PASS;
+  `git merge-base --is-ancestor 2c7eefa55... 4c037c82f` -> PASS.
+  (First merge attempt after pinning answered "Already up to date" on both sides — the
+  a237753a2/4c037c82f merges had already absorbed the exact current tip.)
+- GitHub `mergeable` for #154 and #156: MERGEABLE (fresh gh api read).
+- Final-head comments posted with FULL40 + run id on both PRs:
+  - https://github.com/mcpdev80/baseharbor-plan/pull/154#issuecomment-7203956251
+  - https://github.com/mcpdev80/baseharbor-plan/pull/156#issuecomment-7203956537
 
 ## Cleanliness
 
@@ -189,4 +211,4 @@ markers; each count is identical on origin/main (1 per file, verified via
 
 ## END
 
-END_DONE w349-0428-078-154hop: #154 hopped to head e809de7ad73b02a6bdedc93dd1867396705d939c (Validate planning run 45898408112 SUCCESS) and #156 to head ce837f2ea0fcb313329e20a77c548c992eb0b1b4 (run 45898441518 SUCCESS); both = forward-only merges of origin/main c5795422, zero conflicts, plan.py check 0 errors, no merges performed; akte published via plan PR #157 (head c24a164e8, run 45898810502 SUCCESS, awaiting admin squash).
+END_DONE w349-0428-078-154hop: #154 final head a237753a226e35b98fb22dc4de52ba3de3660a40 (Validate planning run 45899665019 SUCCESS, exact head) and #156 final head 4c037c82fdf50d433686b05a7b35c203f90e1fde (run 45899690806 SUCCESS, exact head); both heads contain the pinned current origin/main 2c7eefa55abaff5995f015c05fa6ea086a0b0f83 (ancestor PASS), forward-only merges, zero conflicts, plan.py check 0 errors, mergeable=MERGEABLE, no candidate merges performed; akte published via plan PRs #157 (merged as b2c39715f) and #159 (final sync, see witness below).
