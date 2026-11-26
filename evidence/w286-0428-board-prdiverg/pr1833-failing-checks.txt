@@ -1,0 +1,10 @@
+Pre-Release Checks	completed	failure	https://github.com/mcpdev80/baseharbor/actions/runs/45573394850/job/139073324133
+Light · docker · policy / Executed docker · policy	completed	failure	https://github.com/mcpdev80/baseharbor/actions/runs/45573394850/job/139069249859
+Light · docker · reconciliation / Executed docker · reconciliation	completed	failure	https://github.com/mcpdev80/baseharbor/actions/runs/45573394850/job/139069249808
+Light · docker · connectivity / Executed docker · connectivity	completed	failure	https://github.com/mcpdev80/baseharbor/actions/runs/45573394850/job/139069249766
+Pre-Release Checks	completed	failure	https://github.com/mcpdev80/baseharbor/actions/runs/45571699415/job/139063239046
+runtime light gates · All runtime results	completed	failure	https://github.com/mcpdev80/baseharbor/actions/runs/45571699415/job/139063185422
+runtime heavy gates · All runtime results	completed	failure	https://github.com/mcpdev80/baseharbor/actions/runs/45571699415/job/139063185303
+HA groups · All runtime results	completed	failure	https://github.com/mcpdev80/baseharbor/actions/runs/45571699415/job/139063184714
+Source · Qualified	completed	failure	https://github.com/mcpdev80/baseharbor/actions/runs/45571699415/job/139063139203
+Source · Candidate and Gate Plan	completed	failure	https://github.com/mcpdev80/baseharbor/actions/runs/45571699415/job/139063038324
