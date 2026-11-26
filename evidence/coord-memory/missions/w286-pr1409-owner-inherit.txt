@@ -1,0 +1,17 @@
+ROLLE: Worker (Lane w286). Coord a4573079. KARTE: t-20261106-r27-remote-up-podman-owner-missing (P2 der
+owner-tabelle; praegenz: w282 misst denselben fehler ErrDeploymentOwnerMissing (deployment_store.go:107) in
+VIER inCI-szenarien auf der docker-family — ALSO FAMILIENUEBERGREIFEND, nicht nur podman).
+ARBEIT: (1) karte lesen + auf docker+podman erweitern (befund-fundstellen: w282-akte compose round-7 section
+'isolation gate gruen, owner-seam rot' + w273 round-2-podman.md; deployment_store.go:107 VerifyDeploymentOwner).
+(2) zweig work/r27-remote-up-podman-owner von AKTUELLEM develop f3db942859c. (3) red-first-zelle die den
+fall exakt traegt (isoliertes target ohne eigenschaft-owner, bootstrap-core vorhanden). (4) DESIGN-FRAGE vor
+code: inherited eigentümerschaft (isolated target eroeffnet besitz beim boot-clone) vs. expliziter
+set-owner-schritt im apply-pfad — pruefe welche variante die bestehenden tests (w273-podman-erwartung,
+inCI-4er-satz) EHRLICH gruen macht ohne neue skip-pfade; entscheidung + grund in akte, QUESTION wenn beide
+varianten die karten-vertraege brechen. (5) KAUSALE MUTANTE an der eigentlichen owner-pruef-/verleihzeile
+(3 hashes). (6) PR gegen develop, selected checks terminal am final-kopf (eignes-run). AKTE:
+remote-up-cli/owner-missing-round-1.md (PUNKTE statt checkboxen; lsremote, run-id, transkripte,
+## repo-rule compliance). Zone workers/w286-wt, caches /tmp/opencode/w286*.
+GATES: KEINE subagenten, .github tabu (meldungen nur), coordinator-host tabu, workers/baseharbor tabu.
+END an a4573079: "END_DONE w286-pr1409-owner-inherit: head=<sha10> pr=<n> design=<inherit|verleih>
+zellen=<inCI4 GRUEN + w273-fall GRUEN> mutante=<3 hashes> checks=<id TERMINAL> akte=<pfad main> | <Satz>"

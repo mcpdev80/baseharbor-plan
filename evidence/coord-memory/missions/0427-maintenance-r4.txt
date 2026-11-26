@@ -1,0 +1,11 @@
+Auftrag 0427-034-maintenance-r4 (lane 36e03dd3, laptop, FRISCH). Karte t-20261018-r27-maintenance-client. Kandidat PR#1428 head 165405832 (drift-frei, CI terminal 9-pass) — CODEX-REVIEW = REQUEST-CHANGES, dritter bounce. Review-akte WÖRTLICH lesen und als maßgebliches rezept behandeln: evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-review.md auf origin/main (commit 5eddad3b) — section 'Actionable recipe'.
+Die zwei kernpunkte:
+  1. STALE DESTROY TOMBSTONE: erfolgreicher local- UND remote-destroy muss ein dauerhaftes ergebnis (durable result/tombstone) hinterlassen, OHNE zustand neu zu laden — der aktuelle pfad loescht die deployment-root und laedt danach state, was einen gespenstischen 'stale'-zustand ergibt. Lies das rezept der akte (app_maintenance_client.go) genau: result erhalten, kein reload nach erfolg.
+  2. ALL-EXIT MATRIX FEHLT: table-driven regression ueber ALLE ausgaenge des destroy-/maintenance-ablaufs (local/remote x erfolg/fehler/abbruch/replay/history-write-fehler), jede zeile mit letzter tragender erwartung; history-write-fehler definieren einen klaren zustand statt luecke.
+ZUSATZ (aus dem rezept-stop-kriterium der akte): destroy-success und replay bleiben konsistent auf BEIDEN routen; jede history-write-fehlerpfad-zeile ist vertreten.
+- claim: plan.py claim t-20261018-r27-maintenance-client --owner 0427-034-maintenance-r4 (commit+push) BEVOR aendern.
+- basis PR#1428 branch lane/0427-maintenance-client-wt head 165405832; fetch origin develop, ancestor rc0 verifizieren. delta NUR maintenance-dateien (client/lifecycle_owner/mutant/round*/remote_safety/seam + internal/application/maintenance_*).
+- git-identitaet VOR dem ersten commit auf 0427-034-maintenance-r4 setzen (befund der letzten runde: falsches autor-feld). KEIN force-push auf fremde zweige; PR-branch normaler push.
+- lokal: go test ./cmd/baha ./internal/application -run 'Maintain|Destroy|History|Replay|Tombstone|Mutant' + gofmt/vet/build, DANN push. eigenes-run: hosted CI auf finaler sha TERMINAL (run-id+status), ls-remote zeugnis, ## PLAN + todowrite, keine subagenten (4.8), NICHT idle ohne END — END ist Teil der lieferung, zweimaliges vergesse fuehrt zu rotation.
+Evidence: evidence/r27-welle5-folge-2026-11-07/maintenance-client/round-4.md
+END an 594fd2f5. karte->review wenn beide punkte behoben + drift-frei + CI terminal gruen.

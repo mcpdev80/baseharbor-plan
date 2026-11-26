@@ -1,0 +1,18 @@
+ROLLE: Worker (Lane w267). Coord a4573079. KARTE: t-20261018-r27-management-host RUNDE 3 (PR #1405,
+kopf a87f8377679, urteil act-1405b REJECT). ZWEI FEHLER, wortlich aus dem rezept:
+(1) cmd/baha/serve.go gibt das bootstrap-lock FREI bevor bind/serve die dauerhafte eigentueterschaft
+    uebernimmt — kurz ohne herren. REZEPT: uebergang bootstrap->lifetime-ohne-luecke; verifizierte root
+    in den executor/server-kontext pinnen; lifecycle-op auf demselben host bleibt owned-authority,
+    ZWEITES lock ist falsch.
+(2) managementHostForserve-Fehler werden still ignoriert ((nil, nil) nur fuer gewollte remote/non-mgmt).
+    REZEPT: non-nil fehler => return; expliziter no-host-fall bleibt.
+TEST: serveCommand-ebene mit ZWEI fresh-root-PROZESSEN, verschiedene listen-adressen (port-kollision
+darf eigentum nicht ueberdecken): erster behaelt autoritaet waehrend bootstrap+serve, zweiter ABGEWIESEN.
+KAUSALE MUTANTE an der produktions-zeile (nicht helfer): ROT+GRUEN transcript + datei-hash vor/nach.
+STOP: zwei serve-prozesse erreichen BEIDE bind, oder host-fehler startet trotzdem => END_BLOCKED.
+Claim via plan.py; zweig work/r27-management-host (bestehender PR, KEIN zweiter PR); develop-merge falls
+noetig; selected checks terminal am FINAL-kopf selbst beobachten. AKTE: management-host/round-3.md
+(PUNKTE statt checkboxen; lsremote, run-id, mutanten-transcript, ## repo-rule compliance).
+GATES: KEINE subagenten, root-checkout tabu, .github tabu, caches /tmp/opencode/w267*.
+END an a4573079: "END_DONE w267-mgmt-host-r3: head=<sha10> gap_closed=<ja/nein> errors_surfaced=<ja/nein>
+lauf=<id TERMINAL> lsremote=<sha10> akte=<pfad main> | <Satz>"

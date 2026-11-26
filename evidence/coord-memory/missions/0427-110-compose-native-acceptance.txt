@@ -1,0 +1,22 @@
+Auftrag 0427-110-compose-native-acceptance (lane 3a4d5d33, FRISCH, ornith).
+Karte t-20261105-r27-compose-host-isolation. PR #1383 ist GEMERGT (develop 812c99c88). AUFGABE = NATIVE CI-ABNAHME VOLLSTENDIGEN, nicht neuer Produkt-PR um jeden Preis.
+Contract lies WORTWOERTLICH: `python3 baseharbor-plan/scripts/plan.py show t-20261105-r27-compose-host-isolation` + baseharbor/AGENTS.md + docs/DEVELOPMENT_GUIDELINES.md.
+
+ZIEL (owner-direktive 2026-11-07, Chefsache):
+Die VIER compose/lifecycle integration tests laufen ECHT in der BESTEHENDEN develop-acceptance auf Docker UND Podman — OHNE SKIP, OHNE Scheingruen.
+Tests: `go test ./cmd/baha -run 'TestRepository(WorkflowRealLifecycle|Compose|BuildWorkload)' -count=2` (PR#1383 hat app_repository_integration_test.go, app_workload_integration_test.go, repository_runtime_fixture_test.go geaendert).
+
+Szenarien, die ALLE belegt sein muessen (transkript je Zelle):
+(a) SAUBERER host-Zustand, (b) BEWUSST KONAMINERT — ein fremder live core/daemon laeuft auf dem host (isolation proven: tests bleiben bei korrektem produkt GREEN trotz shared live state). Beide auf Docker UND Podman.
+- SINGLE-default harness, explizites HA, und die ISOLATION-MUTANTE: baue eine Mutante ein, die isolation bricht => muss ROT sein; revert => GREEN. Damit ist bewiesen, der test erfasst kontamination echt (red-first).
+- Ohne container-capability: fail-closed mit benanntem error (NO skip), konsistent skip-sites-rule.
+
+WIE: nutze NUR bestehende develop-acceptance workflows (docker-runtime-acceptance.yml, podman-acceptance.yml, targeted-integration.yml) — KEINE neue pipeline, KEIN zusaetzlicher PR-gate (owner: PR-CI bleibt unveraendert). Basis = origin/develop 812c99c88 (fetch origin develop; ancestor rc0; kein drift).
+- VM-Zugriff SERIELL ueber coordinator/scripts/vm-lock.sh (ein host pro time). baha-docker/baha-docker-2 Docker; baha-podman/baha-podman-2 podman. baha-podman traegt gerade w169-ci-bootstrap-container = NATUERLICHE kontamination; fuer die SAUBERE zelle einen anderen host/clean nehmen (vm-audit). Freie VMs sind bereitgestellt (kein systemknappheits-blocker).
+
+BEFUNDBEHANDLUNG: findet die abnahme einen echten fehler (test SKIPT, ist fake-green auf kontaminiertem host, isolation bricht durch), BEHEBE ihn SELBSTSTAENDIG im produkt-code auf einem frischen PR gegen develop (exact-one-candidate), CI erneut bis terminal, dokumentiere PASS/FAIL mit EXAKTEM commit-SHA. Nur Doku/evidence ohne produkt-fix => kein neuer PR noetig.
+write-set: NUR die #1383 lifecycle/fixture-dateien + neue evidence. KEINE .github/** (owner-scope — bedarf => BEFUND file:line an coord), KEINE app_remote_lifecycle.go/remote_pureclient (116 owned), KEINE client_commands_behaviors/core_integration (022).
+- neues test-verhalten muss von bestehender acceptance erfasst sein (CI-Aufnahmepflicht §5.3); fehlt ein trigger => BEFUND nicht self-edit.
+- eigenes-run: jeder hosted/native lauf terminal selbst beobachten (run/cell-id + status in evidence). ls-remote-zeugnis der finalen sha. red-first+green. KEIN fake pass/skip. ## PLAN in evidence + native todowrite. keine subagenten (AGENTS 4.8). NICHT idle ohne END — festgefahren => QUESTION.
+Evidence: evidence/r27-welle5-folge-2026-11-07/compose-host-isolation/round-1.md
+END an 594fd2f5. Karte erst auf review wenn ALLE zellen (docker+podman × clean+kontaminiert + mutante) echt PASS/FAIL dokumentiert sind.

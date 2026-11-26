@@ -1,0 +1,23 @@
+ROLLE: Worker (Lane w277). Coord a4573079. KARTE: t-20261106-r27-control-plane-single-default (PR #1404,
+kopf ed98ed1dde7 UNVERAENDERT; urteil act-1404i REJECT — einziger streit: pre-reset VOLUMEN-Zustand von
+baha-podman-2 ist aus den TEXT-recordsnicht erweisbar; post-reset-zaehlung gilt NICHT als zeuge).
+STRATEGIE: PHYSICAL FORENSICS statt weiterer korrektur-prosa.
+(1) vm-lock claim baha-podman-2 w277 (107 steht FREI gemessen 23:2xZ).
+(2) Lesende spurensuche auf dem host (NICHTS loeschen/umbenennen/schreiben):
+    - rootless storage-wurzeln: ~/.local/share/containers/storage/volumes/ (existiert das verzeichnis?
+      inhalt? birth-/mtime der Eintraege — statx birth time wo moeglich),
+    - `podman system df` + `podman volume ls -a` IST-Zustand,
+    - overlay/layers-aeuserungen rund um 21:0x-21:2xZ (find -newermt fenster in storage-pfaden),
+    - journalctl -u podman / audit-spuren falls vorhanden,
+    - ~/.local/share/containers/storage/metadata.json falls vorhanden.
+    Ziel: zeitgleiche AUSSAGE ob VOR 21:06Z volumen existierten (und wenn ja: welche, wem zuordenbar
+    ueinamensmuster bh-w251-*/baseharbor-*), ODER der nachweis, dass das volumen-verzeichnis leer war.
+(3) AKTE-ENTSCHEIDUNG datenbasiert: spurenlage => round-8.md mit: fundtabelle (pfad, zeitstempel, deutung),
+    EHRLICHE schlussformel: 'belegt: volumen X vorhanden/nicht vorhanden' oder 'unklar — korrektur von
+    round-5/7 auf auswirkung unbekannt wie im rezept verlangt, incl. disposability-bewertung NUR wenn belegt'.
+    round-5/7 um vermerk-abschnitt ergaenzen (nicht loeschen).
+(4) vm-lock release (journal-zeile). KEIN reset, KEIN build, KEIN code, KEINE zellen.
+AKTE: control-plane-single-default/round-8.md (PUNKTE statt checkboxen; ## repo-rule compliance).
+GATES: KEINE subagenten, coordinator-host tabu, /tmp/opencode/w277*, zone workers/w277-wt.
+END an a4573079: "END_DONE w277-sd-volume-forensics: fund=<volumen-vorhanden|leer-belegt|unklar>
+spuren=<pfad:zeitstempel kurlliste> korrektur=<round8 auf main> lsremote-akt | <Satz>"

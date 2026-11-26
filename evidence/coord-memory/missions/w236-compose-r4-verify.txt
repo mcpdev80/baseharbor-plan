@@ -1,0 +1,14 @@
+ROLLE: Worker (Lane w236). Coord 841e7734. KARTE: t-20261105-r27-compose-host-isolation RUNDE 4.
+STOP-GRUND (codex-merge-1383, wortlich): die ACCEPT-Akte act-1383b.md laesst zwei Punkte UNVERIFIED —
+(a) das verseuchte Ensemble (vergiftete Umgebung -> isolations-nachweis) und (b) die echte
+Auslassungs-Mutante, beides wg. IPAM-Erschöpfung des netzwerks; plus: gehostete Runtime-Gates wurden
+uebersprungen. AUFGABE: genau diese drei punkte JETZT VERIFIZIEREN auf den gesunden hosts
+(baha-docker rootful+rootless, baha-podman rootless — rootless-netzwerk ist rebuilt, praeszedenz
+vm-smoke round-2.md): (1) ensemble-proof mit wortlichem transcript, (2) mutanten-proof der
+auslassungs-zelle (rot->restore->gruen), (3) die fehlenden runtime-gates am kopf 1b02e8866dd4 (PR #1383,
+branch work/r27-compose-isolation) nachholen: PR-ready reicht fuer die Tore; falls ein tor NIE feuert:
+POST an coord mit PR+kopf (rerun/dispatch = coord-handlung, nie lane). KEIN inhalt-aenderung ausser
+die zwei mutanten/ensembles sind WIRKLICH nicht beweisbar -> dann END_BLOCKED mit exaktzeugen.
+Fabrikregel: rueckbau + null-pruefung pro host. AKTE: round-4.md (fetch main vorher, ls-tree-zeug).
+GATES: KEINE subagenten/zweiter PR/root-checkout/.github, caches /tmp/opencode/w236*.
+END an 841e7734: "END_DONE w236-compose-r4-verify: ensemble=<JA zeuge> mutante=<rot+gruen> gates=<ids> | <Satz>"

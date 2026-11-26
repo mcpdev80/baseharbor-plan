@@ -1,0 +1,19 @@
+ROLLE: CODEX-REVIEW (Abnahme-Sitz, kein Worker). Coord 594fd2f5. KARTE: t-20261018-r27-management-host (0427-036). RE-REVIEW nach deiner eigenen act-1405b Korrektur-Anweisung.
+Kandidat PR #1405 (mcpdev80/baseharbor), head 5b8d0f5745c55fd8be89d5dc53edb4e9b145eede, base develop 934be499b,
+draft=false. Dein letztes REJECT (act-1405b) forderte: cmd/baha/serve.go `startup` VOR dem RuntimeAppName-Zweig
+nicht-nil initialisieren (startup:=ctx), connector target overrides + management-host-attachment auf den
+nicht-nil kontext, UND eine fokussierte regression fuer RuntimeAppName!='' die ohne fix verhaltens-ROT.
+PRUEFE PUNKTGENAU gegen diesen kopf (nur-lesend; ls-remote refs/heads/develop refs/pull/1405/head zuerst):
+ (1) `git diff 934be499b...5b8d0f5745` in cmd/baha/serve.go — ist startup jetzt in BEIDEN zweigen nicht-nil,
+     werden target-overrides/attachment auf denselben kontext angewendet? Kein neuer nil-pfad.
+ (2) regression am neuen kopf: der RuntimeAppName!='' fall faellt auf dem OHNE-fix stand verhaltens-ROT
+     (akzentuiert nil-context server_run.go:369, NICHT compile) und ist am kopf GRUEN. Akte
+     evidence/.../management-host/round-8-serve-startup.md gegen den vertrag pruefen (ls-remote + exit-zeugen).
+ (3) PFLICHT-CI am genauen kopf 5b8d0f5745: gh run/checks, run 42336074504 terminal; eine geforderte zelle
+     skipped statt ausgefuehrt = als BEFUND benennen (aber runtime-cells sind .github-push-ref-limitiert,
+     owner-scope — nicht automatisch dieser karte anlasten wenn unit+targeted am kopf gruen).
+ (4) rotnachweis round-6/7 gilt weiter (nicht neu verlangen).
+LIEFERE: Verdict ACCEPT|REJECT + bei REJECT neues umsetzbares rezept (datei:line). KEIN merge. Poste END an
+594fd2f5: "CODEX-REVIEW 0427-036/#1405-rereview: verdict=<..> head=<..> startup=<beid-pfade-nichtnil ok/reject>
+regression=<ROT-ohne-fix/GRUEN-mit-fix> ci=<42336074504 TERMINAL> rezept=<..>". Akte: evidence/.../management-host/
+act-1405c-review.md ECHTE plan (remote -v; KEINE phantom/worktree-in-repo).

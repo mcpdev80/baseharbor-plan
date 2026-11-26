@@ -1,0 +1,13 @@
+READ-ONLY PR-SWEEP (card 0428-216 family, t-20261121-stale-pr-hop-and-baserefs). Pure inventory — NO product changes, NO pushes, NO closes, NO merges. The owner closes/merges; you only produce sortier-material.
+
+Against CURRENT develop (fetch origin develop; report its SHA) and the open PRs (#1812, #1818, #1819, #1820, #1823, #1824, #1650 + any others from gh pr list), for EACH open PR report a row:
+  pr | branch | head SHA | base-ref-name | merge-base --is-ancestor develop head? (behind/up-to-date) | changed-file list | draft? | patch-id | does it duplicate another open PR's patch-id (dup) | commits authored with a DIFFERENT lane's git identity (feed to card 0428-224 finding) | supersession candidate (which other PR it may supersede and why).
+
+Specifically flag:
+- #1650 vs #1818: same card 0428-078 — is #1650 fully superseded by #1818 (diff-of-diffs / ancestry)? Verdict in <=4 words.
+- #1820 (fix/broker-build-identity) head 28803d11 was a VOID cancelled run — is its content now duplicated by anything? Note base freshness.
+- Any PR whose base-ref is not the current contract base (per §3.3.8 stacked bases).
+
+Deliver: a single evidence dossier baseharbor-plan evidence/r28-welle6-2026-11-24/pr-sweep-inventory-<date>.md (## PLAN + todowrite), commit+push atomically (write→git add <file>→commit in one step to avoid the plan-sync wipe). Do NOT edit any other plan file. Report the table inline + the evidence commit SHA.
+
+Rules: read-only on the product repo (git fetch/ls-remote/gh pr view only); never checkout-modify; no subagents (§4.8); no GitHub write actions (no close/comment/merge). VMs not needed. END when the dossier is published.

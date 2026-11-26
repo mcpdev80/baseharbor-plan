@@ -1,0 +1,5 @@
+CODEX-REVIEW 0427-node-cli (karte t-20261018-r27-node-cli, PR #1427).
+Rolle REVIEW (nicht merge). Kandidat head 0dc4c4d4f3e8 gegen develop 06e4b1eaa. ls-remote+ancestry bestaetigt drift-frei, delta NUR cmd/baha/node.go + cmd/baha/node_read.go (#110 lifecycle/fixture NICHT mehr drin — kollision behoben). CI run terminal success 8-pass (path-based skips).
+Vertrag: `python3 baseharbor-plan/scripts/plan.py show t-20261018-r27-node-cli`. Ziel: gefuehrtes node add/connect/status/disconnect, live trust+expiry+capabilities surface (serial/capabilities/state PENDING/ENROLLED/EXPIRED/REVOKED), konsistent node-trust/client-commands.
+PRUEFPUNKTE: (1) node list/status surfaced korrekt, state-machine PENDING/ENROLLED/EXPIRED/REVOKED, (2) fail-closed + kausale mutants, (3) write-set sauber (nur node*.go, keine #110/#116/maintenance/.github), (4) CI-Aufnahme neuer tests (go-unit, nicht skipped mandatory), (5) kein weakening. 
+Urteil APPROVE|REQUEST-CHANGES + rezept. Kein eigenes gate, keine CI neu, kandidat unveraendert (sha vor/nach). END an 594fd2f5. APPROVE => melde, ich gebe merge frei.

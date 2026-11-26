@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW
+KANDIDAT: PR #1420 head 4293b8803a7 base develop (aktuell beb923fe6) repo mcpdev80/baseharbor
+TASK: t-20261018-r27-client-commands (#022).
+PRUEFE sha-genau gegen vertrieb:
+- write-set cmd/baha/* (client_commands_behaviors_test.go), KEIN .github, KEINE scripts/*.
+- option-1 vereinbarung: EIN native-runtime-gated core-integration test (BASEHARBOR_CI_RUNTIME_INTEGRATION=1, muster app_repository_integration_test.go) der start/consent/publish-denial gegen echtes core faehrt, PLUS in-process A1 tests (status/restore echter TLS roundtrip). PRUEFE: ist der gated core-integration test WIRKLICH da und CI-erfasst, oder fehlt er (nur behaviors datei im delta)?
+- wenn core-integration test fehlt: request-changes mit exaktem rezept (welche datei, welche gate, CI-aufnahme).
+- hosted checks auf 4293b8803 == pass (10 pass/10 skip). ancestry rc0.
+- kein release/tag, kein fake pass/skip.
+Verdict + rezept. END an 594fd2f5.
