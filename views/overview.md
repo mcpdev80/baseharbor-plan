@@ -10,9 +10,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 4 |
+| active | 5 |
 | review | 2 |
-| wait | 30 |
+| wait | 29 |
 | blocked | 2 |
 | ready | 53 |
 | queued | 25 |
@@ -25,6 +25,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) | Perses identity dashboard | active | normal | w327-0428-078-dashwitness | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650), [baseharbor#1855](https://github.com/mcpdev80/baseharbor/pull/1855) |
+| [t-20261116-r28-bug-compose-service-ids](../tasks/t-20261116-r28-bug-compose-service-ids.md) | Preserve Compose service IDs | active | high | w332-0428-288-composeids | [t-20261125-0428-284-1812-postretry-gate-failure](../tasks/t-20261125-0428-284-1812-postretry-gate-failure.md) | [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833) |
 | [t-20261125-hunt43-env-leak-disk](../tasks/t-20261125-hunt43-env-leak-disk.md) | 0428 hunt H-V43: hunt43-env-leak-disk | active | not set | w331-0428-316-hunt43envleak | — | — |
 | [t-20261126-hunt46-collectable-orphans-reserved-namespace](../tasks/t-20261126-hunt46-collectable-orphans-reserved-namespace.md) | 0428 hunt H-V46: CollectableOrphans lists the reserved never-delivered dir as a collectable orphan UUID (medium) | active | not set | w322-0428-249-pr1812gate | — | — |
 | [t-20261126-hunt46-never-delivered-proof-leak](../tasks/t-20261126-hunt46-never-delivered-proof-leak.md) | 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) | active | not set | w329-0428-326-hunt46-proofleak | — | — |
@@ -49,7 +50,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-audit-events](../tasks/t-20261114-r28-cli2-audit-events.md) | CLI redesign: Audit secret and environment actions | wait | high | w058-0428-058-hop | [t-20261114-r28-cli2-env-delete](../tasks/t-20261114-r28-cli2-env-delete.md), [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md), [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) | [baseharbor#1809](https://github.com/mcpdev80/baseharbor/pull/1809) |
 | [t-20261114-r28-perses-contact-routing](../tasks/t-20261114-r28-perses-contact-routing.md) | Define alert notification routing | wait | normal | coord | [t-20261114-r28-perses-alerts](../tasks/t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-secure-access](../tasks/t-20261114-r28-perses-secure-access.md) | — |
 | [t-20261114-r28-perses-log-trace-dash](../tasks/t-20261114-r28-perses-log-trace-dash.md) | Perses log and trace views | wait | normal | coord | [t-20261114-r28-perses-loki-source](../tasks/t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | [baseharbor#1619](https://github.com/mcpdev80/baseharbor/pull/1619) |
-| [t-20261116-r28-bug-compose-service-ids](../tasks/t-20261116-r28-bug-compose-service-ids.md) | Preserve Compose service IDs | wait | high | w147-0428-288-pr1833-fix | [t-20261125-0428-284-1812-postretry-gate-failure](../tasks/t-20261125-0428-284-1812-postretry-gate-failure.md) | [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833) |
 | [t-20261116-r28-bug-destroy-diagnostics](../tasks/t-20261116-r28-bug-destroy-diagnostics.md) | Explain destroy owner failures | wait | normal | w127-0428-293-destroy-diag | — | — |
 | [t-20261116-r28-bug-failed-apply-destroy](../tasks/t-20261116-r28-bug-failed-apply-destroy.md) | Recover failed apply destroy | wait | critical | w128-0428-286-apply-destroy | — | [baseharbor#1834](https://github.com/mcpdev80/baseharbor/pull/1834) |
 | [t-20261116-r28-bug-installation-reset-recovery](../tasks/t-20261116-r28-bug-installation-reset-recovery.md) | Unblock full installation reset | wait | critical | w185-0428-287-pr1835-podman | — | [baseharbor#1835](https://github.com/mcpdev80/baseharbor/pull/1835) |
