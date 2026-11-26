@@ -239,6 +239,13 @@ w200 prescribed.
   The plan repo rejects history rewrites on a branch with an open PR
   (`commit_refs_rules`), so `5c8894f19` stays the first candidate commit and each later
   correction is a NEW commit on this same branch — no amend, no force.
+- Owner-stop correction round (local-execution ban, 2026-11-26): the akte now carries a
+  `## Local-execution policy note` section stating that no test module, no `pytest`, no
+  `go test` and no `scripts/ci-fast-check.sh` ran on this host, so nothing in this file
+  rests on a local result. The correction commits on branch `w245-1842alt-akte` are
+  `5c8894f19` -> `184b21f7d` -> `0f125d2cd` -> `93758c5b0` -> `8b7ad1157`, carried by plan
+  PRs #53 (merged `88f5f7951`), #54 (merged `12bff4d80`), #55 (merged `829f5d006`) and #58
+  (merged `96fcfbdae`, `Plan · validate` run `45728321362` pass).
 - `git diff --name-only origin/main...HEAD` ->
   `evidence/r29-welle6-2026-11-26/0428-284-1842alt/routing-alternatives.md` (this file only).
 - plan PR: https://github.com/mcpdev80/baseharbor-plan/pull/53, base `main`, DRAFT until the
