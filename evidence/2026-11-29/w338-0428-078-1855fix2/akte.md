@@ -509,3 +509,41 @@ with Trusted Plan + PR Selected Checks + candidate-added advisory green). Two bl
 OUTSIDE this lane's write-set: (1) merge #1867 + forward-merge develop into #1855 (ruling
 item 2 = coordinator/Codex action, freeze holds); (2) the one-line foreign-card fix on plan
 main that gates my evidence PR #150. No merges by me; #1812/#1819/#1820 untouched.
+
+## UNBLOCK re-validate (coordinator order 20:2xZ, final receipt)
+
+Forward hop: ordinary merge commit 43a1c102dcf9b8623b880cfdfe797a02ba842691
+('git merge origin/main') of live main (head 70d7d066b, coordinator fixes 55fda6956 + 70d7d0666
+booked) into branch w338-0428-078-1855fix3-akte. No force, no rewrite (85e7c702c remains an
+ancestor; git log origin/main..HEAD lists my four own commits + this merge only;
+git merge-base --is-ancestor origin/main HEAD -> OK). Merge-commit identity gate:
+git var author+committer = w338-0428-078-1855fix2 <w338-0428-078-1855fix2@baseharbor.local>
+(pin source file:.../baseharbor-plan/.git/worktrees/w338-0428-078-1855fix2-plan/config.worktree);
+git show -s --format='%h an=%an cn=%cn' HEAD -> 43a1c102d an=w338-0428-078-1855fix2
+cn=w338-0428-078-1855fix2. Pre-push non-test checks: plan.py render + check -> 0 errors
+(791 tasks, 10 pre-existing warnings).
+
+Delivery witness: git ls-remote https://github.com/mcpdev80/baseharbor-plan.git
+refs/heads/w338-0428-078-1855fix3-akte ->
+  43a1c102dcf9b8623b880cfdfe797a02ba842691 refs/heads/w338-0428-078-1855fix3-akte
+  (gh pr view 150 --json headRefOid after ref-sync =
+  43a1c102dcf9b8623b880cfdfe797a02ba842691)
+
+Hosted Plan validate on the resulting exact head: run 45875144959 (pull_request,
+43a1c102dcf9b8623b880cfdfe797a02ba842691) — TERMINAL SUCCESS (job 140100214584, 8s), watched
+to completion. The foreign hunt46 prs-line crash (coordinator-booked incident) is confirmed
+fixed on main: git show origin/main:tasks/t-20261126-hunt46-collectable-orphans-reserved-
+namespace.md -> prs: ["mcpdev80/baseharbor-plan#147"].
+
+State: PR #150 OPEN, Ready (draft=false), validate green — its merge stays a coordinator
+action (mission: no merges by this lane). #1855 (70c005e8) and #1867 (8b0eb51a) untouched per
+this order and routed to w267.
+
+cleanliness: docker ps -a after = 0 containers (host untouched; Hosted CI only; pid zone
+626183 chain; only the two lane worktrees used; no compose projects started or left).
+
+END_DONE w338-0428-078-1855fix2: plan #150 forward-hopped onto live main (merge
+43a1c102dcf9b8623b880cfdfe797a02ba842691, ordinary, no force), Hosted Plan validate run
+45875144959 terminal SUCCESS on that exact head; product candidates unchanged
+(#1855 70c005e8bc48b6186da1095a183905a42ee6c493, #1867
+8b0eb51a12320acb8987aee1729c9a820d4d573e) awaiting w267; no merges by this lane.
