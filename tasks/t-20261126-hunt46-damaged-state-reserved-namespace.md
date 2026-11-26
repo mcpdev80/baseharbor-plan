@@ -8,16 +8,16 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: ""
-kanban_status: planned
-kanban_lane: ready
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "DamagedDeploymentNamespace (internal/deployment/damagedstate.go:266) iterates deployments/ children and calls…"
 kanban_title: 0428-328 · skip reserved damaged scan
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1869", ]
 sources: []
-blocker: ""
+blocker: "blocked-BASELINE as STATE: family catalog PR #1869 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded"
 wait_reason: ""
 resolution: ""
 evidence: []

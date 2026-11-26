@@ -15,7 +15,7 @@ kanban_title: 0428-291 · Scope inferred provider grants
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1865", "mcpdev80/baseharbor#1864", ]
 sources: []
 blocker: ""
 wait_reason: ""

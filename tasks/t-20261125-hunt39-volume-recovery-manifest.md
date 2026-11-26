@@ -8,16 +8,16 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: ""
-kanban_status: planned
-kanban_lane: ready
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-312 · assert recovery-manifest
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1860", ]
 sources: []
-blocker: ""
+blocker: "blocked-BASELINE as STATE: family catalog PR #1860 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded"
 wait_reason: ""
 resolution: ""
 evidence: []
