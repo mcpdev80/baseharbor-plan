@@ -74,3 +74,27 @@ All `depends_on` decisions will remain tied to task IDs and explicit card relati
 - No task ID or existing evidence-file blob changed. The only new evidence artifact in this change is this W16 akte; no prior evidence path is modified. All generated card snippets and views were produced by `scripts/plan.py render`, including `roadmap/cards.md`, `views/overview.md`, `views/kanban-dashboard.md`, and release views; none were hand-edited.
 
 The first `scripts/plan.py check` found one error because the reopened 0428-249 still had a populated `blocker` with `kanban_status: wait`. The blocker field was cleared; the same reason remains in `wait_reason`. The subsequent check completed with zero errors and ten pre-existing dependency-acceptance warnings on unrelated r27 cards.
+
+## Branch provenance before publication
+
+`git merge-base --is-ancestor origin/main HEAD` succeeded (exit 0) for base `2eb677c1e994f0e79ffe5f6061863e553177664f`. The first candidate commit's parent is exactly that base. `git log --oneline origin/main..HEAD` before this provenance-record commit listed only the lane's own commit:
+
+```text
+6e700c224 w255 W16 card field corrections
+```
+
+`git diff origin/main...HEAD --name-only` before this provenance-record commit listed only this change set:
+
+```text
+evidence/2026-11-26/w16-card-field-corrections-w255/akte.md
+releases/v0.4.28.md
+roadmap/cards.md
+tasks/t-20261114-r28-perses-dashboard-identity.md
+tasks/t-20261116-r28-bug-compose-service-ids.md
+tasks/t-20261122-ci-operator-fixture-allowlist-gap.md
+tasks/t-20261122-runtime-image-registry-artifact-unknown.md
+tasks/t-20261125-0428-284-1812-postretry-gate-failure.md
+views/kanban-dashboard.md
+views/overview.md
+views/releases/v0.4.28.md
+```
