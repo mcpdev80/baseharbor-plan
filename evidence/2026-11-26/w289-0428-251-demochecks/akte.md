@@ -344,7 +344,7 @@ evidence/2026-11-26/w289-0428-251-demochecks/ready179.log
 
 ## END
 
-END_DONE w289-0428-251-demochecks: candidate 3841b5efa8dc5c0247241cd2a5da124e4897b354 (plan PR baseharbor-plan#93, Plan·validate pass run 45756465354). 7 fresh pull_request events bound zero runs — root cause is the heads'
+END_DONE w289-0428-251-demochecks: candidate ff1cd8c9cc5d69d4ecd15990913cf4a4be56c9df (plan PR baseharbor-plan#93, Plan·validate pass run 45756465354). 7 fresh pull_request events bound zero runs — root cause is the heads'
 DRAFT-only/zero-jobs `pr-config-matrix.yml` (develop blob `7108cf69e4f5…`), transport alone cannot qualify
 #170/#179/#181; akte + witnesses in this file, plan PR: #93
 
