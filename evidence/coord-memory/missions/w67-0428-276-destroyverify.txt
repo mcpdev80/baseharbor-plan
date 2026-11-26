@@ -1,0 +1,16 @@
+Card 0428-276 / bug / release v0.4.28 / repo mcpdev80/baseharbor / branch off develop 05ef48536. Task contract: python3 scripts/plan.py show t-20261124-0428-276-env-destroy-ownerverified-nominal (read first).
+
+Problem (low severity, non-blocker): internal/deployment/environment_destroy_scope.go:183-185 CollectEnvironmentDestroyScope sets OwnerVerified:true on EVERY scoped EnvironmentDestroyDeployment — a nominal always-true value reflecting only the shared ListDeployments pass, not a per-deployment re-check. The applyEnvironmentDestroyScope guard at cmd/baha/env_destroy.go:264 checks !dep.OwnerVerified but therefore always passes.
+
+Fix (exactly the contract, no scope creep):
+- Populate OwnerVerified from a GENUINE per-deployment VerifyDeploymentOwner re-check inside CollectEnvironmentDestroyScope (not hardcoded true).
+- Make applyEnvironmentDestroyScope actually gate on the per-deployment marker (fail-closed when false).
+- Do NOT change the shared ListDeployments fail-closed behavior (internal/deployment/deployment_list.go verifyDeploymentOwnerAtSeam stays as-is).
+
+Write-set (disjoint from all in-flight lanes): internal/deployment/environment_destroy_scope.go, cmd/baha/env_destroy.go (+ its test), and read-only ref internal/deployment/deployment_list.go. No scripts/**, no .github/**.
+
+Regression test (auto-discovered via go test ./... — existing packages; no catalog row needed): assert (1) an unverified scoped deployment is NOT OwnerVerified until verified; (2) applyEnvironmentDestroyScope rejects it when OwnerVerified=false (fail-closed); (3) the marker now reflects a real VerifyDeploymentOwner call. Hosted GitHub CI only — NEVER run go test locally.
+
+Standard path: claim via scripts/plan.py claim + push before editing; ## PLAN checklist in evidence + native todos; implement in your own worktree; targeted local prechecks only if the repo documents them (no full matrix per tweak). Push, open ONE PR against develop, monitor the PR's Selected Checks / relevant native gates to TERMINAL (Eigenes-Run-Pflicht §4.6), record run id + outcome. Reply: PR number, head SHA, run id + pass/fail, and the test->check->trigger line proving the new test runs in CI.
+
+Rules: no subagents (§4.8); no merge (CODEX merges); no force-push past develop; no owner-scope files. If the contract needs a file outside the write-set or a CI selector change in .github/**, STOP + post a QUESTION with file:line.

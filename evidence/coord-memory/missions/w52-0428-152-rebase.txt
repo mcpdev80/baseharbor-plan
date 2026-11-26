@@ -1,0 +1,9 @@
+TASK 0428-152 rebase+refresh (PR #1816). The catalog blocker is RESOLVED: Owner merged #1817 to develop (head 6df6807e), which landed the 3 baseline rows for cmd/baha/app_status_collect.go, cmd/baha/app_status_perses_alert_evaluator_0428_152_test.go, cmd/baha/perses_lifecycle.go (data.capabilities).
+
+Your job:
+1. Work on the EXISTING branch lane-0428-152-alertverifier-caller (currently head 70ab77ad5, product-code-only: reportPersesSurfaceStatus alert-evaluator observation + app_status/perses command-face tests; scripts/** is already OUT of this PR — keep it that way).
+2. Rebase that branch onto latest develop (6df6807e) so the merged catalog rows are in the base, preserving the product changes exactly (no new product scope).
+3. Push and run exact-head Hosted CI to terminal. Trusted Plan should now PASS (catalog rows are on develop). Required checks + native docker/podman gates must be green.
+4. The alert-evaluator observation must appear on the OUTPUT of reportPersesSurfaceStatus ('baha app perses status'), asserted by the command-face test — confirm that is what #1816 still delivers after rebase.
+
+Rules: Hosted CI ONLY (no local go test / ci-fast-check on VM; VM = brief smoke). One claim via scripts/plan.py claim before editing. No subagents (AGENTS 4.8). MERGE-FROST: do NOT merge, do NOT write develop; PR stays open until Owner accepts+merges. No Codex contact. Reply with new head sha + ls-remote + exact-head run id + result.

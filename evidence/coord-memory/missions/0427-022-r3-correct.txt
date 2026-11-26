@@ -1,0 +1,11 @@
+Auftrag 0427-022-client-cmds-r3 (FRISCHE lane d5ab38d0, uebernimmt; kein kontext der alten).
+Karte t-20261018-r27-client-commands (#022). Kandidat PR #1420 branch work/r27-client-commands (head be620d2b1). CODEX r2 request-changes — zweierlei:
+A) PRODUKT-/TESTQUALITAET (dein write-set cmd/baha/*):
+ (1) der core-integration test nutzt einen assumeVerifiedCoreForSourceTest BYPASS — entferne ihn, der test muss die echtes-core-verifikation durch den echten pfad durchlaufen lassen, nicht voraussetzen.
+ (2) TestClientCommandsStatusRestoreRoundtripInProcess ist bisher NUR empty-store status — mache einen ECHTEN roundtrip: datenstand mit inhalt setzen, restore, identitaet+inhalt vergleichen (kein leerer store).
+ (3) TestClientCommandsTwoHomesRealCoreOverTLS bleibt BASEHARBOR_CI_RUNTIME_INTEGRATION-gegate (muster app_repository_integration_test.go), faehrt start/consent/publish-denial gegen echtes core.
+B) CI-AUFNAHME — OWNER-SCOPE, DU AENDERST NICHT .github:
+ der gated core-test laeuft aktuell in KEINEM CI-pfad: ci.yml:255-256 `validate` hat if != pull_request (PR bekommt die BASEHARBOR_CI_RUNTIME_INTEGRATION-umgebung nie), und der runtime_integration -run allowlist ci.yml:349 nennt nur TestRepositoryWorkflow*, deine beiden TestClientCommands*-Namen fehlen. MELDE GENAU DIESEN bedarf als BEFUND mit file:line in deiner evidence (damit der owner die allowlist-zeile setzt). Versuche NICHT ci.yml zu aendern.
+Kontinuitaet: git fetch origin, develop (aktuell, fetch-pruefen) mergen, ancestor rc0. exact-one-candidate #1420. write-set NUR cmd/baha/*, KEINE .github/scripts, KEIN cmd/baha/client_commands_behaviors_test.go rueckgaengig loeschen (erhalt-pflicht: bestehende testnamen bleiben).
+Beobachte deinen hosted run terminal, ls-remote-zeugnis, END an 594fd2f5. Festgefahren => QUESTION, NICHT idle.
+Evidence: evidence/r27-welle5-folge-2026-11-07/client-commands/round-3.md.

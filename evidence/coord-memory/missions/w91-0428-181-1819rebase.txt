@@ -1,0 +1,11 @@
+READ-ONLY PREP DESK — #1819 rebase-qualification readiness (AGENTS §3.3.5; Befund/plan only; NO rebase/push/merge/CI-trigger on the chain #1819; do NOT touch #1812/#1820/#1818/#1826/#1650; no subagents §4.8; contact no other session). develop = current origin/develop (report SHA, expect 46d3dccc1).
+
+Context: #1819 (card 0428-181, branch w54-0428-181-export, head 1738101) has RC1+RC2 VERIFIED present (per w84) but is 2 commits BEHIND develop. It is the producer of the persesDashboardProvisionForLifecycle seam and the two perses_dashboard_provision coverage rows (card 0428-278 ghost rows go live on THIS merge). #1819 is serial-position 2 (after #1812, which is blocked on the demo consent fix 0428-282).
+
+Do READ-ONLY:
+1. git ls-remote w54-0428-181-export (current SHA) + git merge-base with develop; count behind; report which 2 develop commits it lacks and whether any touch its write-set (would force a real rebase vs fast forward).
+2. gh pr view 1819 (write to /tmp then parse): current base, latest exact-head run status, whether it's draft, reviewDecision. Confirm the write-set stays product code only (no scripts/**, no .github/**) via gh pr diff --name-only.
+3. Produce the EXACT rebase+rerun runbook a later lane will execute AT #1819's serial turn (rebase onto develop >= #1812/consent merged, force-push exact head, trigger Hosted CI, expect these checks incl. the 2 perses_dashboard_provision coverage rows now selecting the producer files) — as a runbook, NOT executed.
+4. Ghost-row check: are the two perses_dashboard_provision rows present in scripts/pr-gate-coverage.json on develop now, and does pr-gate-plan tolerate their (soon-live) producer files per card 0428-278? Quote file:line.
+
+Deliver baseharbor-plan evidence/r28-welle6-2026-11-25/1819-rebase-readiness/round-1.md (## PLAN + native todos): the current-SHA/behind/write-set table + the rebase runbook + the ghost-row safety statement. Commit+push atomically (git add the single new file; pull --rebase origin main first). NO git ops on the branch, NO CI trigger. Report inline + evidence SHA. No subagents.

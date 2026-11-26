@@ -1,0 +1,15 @@
+Auftrag 0427-043-e2e-podman2 (lane 175adce3, laptop). PRIORITÄT 1 (owner-direktive): E2E-ABNAHME des integrations-merges develop 0fe53052d (PR#1438: onboarding wizard, owner/tenant seeding, node enrollment, remote app up) ALS REALER LAUF auf baha-podman-2 (vm-lock claim baha-podman-2 0427-043-e2e-podman2; host frisch neu aufgebauten stack (w283, go-build ast, rootless, rauchprobe 4/4) — pruefe freiheit).
+AUFBAU: git clone/checkout develop @0fe53052d, go build baha, binary auf dem host verwenden (NICHTs aus offenen PRs testen).
+DURCHSPIELEN (protokollpflichtig, jede szelle mit befehl+auszug+urteil):
+ 1) SEEDING/#116: frische umgebung -> control-plane bootstrap -> pruefe Keycloak-realm HAT operator-client+benutzer (der alte blocker) -> baha app up reiner client-pfad endet ERFOLGREICH (err==nil, kein versteckter schritt).
+ 2) NODE-ENROLLMENT: dateibasierte einschreibung eines zweiten ziel-hosts (oder simulation via target-file), baha node list/status zeigt ENROLLED aus echtem zertifikats-lifecycle (kein grant-abgeleiteter wert); ablauf/expiry pfad probieren.
+ 3) ONBOARDING-WIZARD: gefuehrter ablauf neuer user/org -> funktionierende instanz, bundle-import wirksam, back/cancel/EOF ohne nebenwirkungen.
+ 4) DOWN/RESET: destroy loescht alles eigene (keycloak inklusive WIRD geprueft — bugkarte 122 referenz), host danach besenrein: cleanliness-zeile (eigene container=0, volumes=0, df), ambient bleibt.
+BEFUNDE je karte: PASS|FAIL mit datei-/befehlszeugnis. AKTE: evidence/r27-welle5-folge-2026-11-08/e2e-abnahme/podman2.md (origin/main, ls-remote zeugnis). vm-lock release. ## PLAN + todowrite. keine subagenten (4.8). END an 594fd2f5 mit je-karte-urteil + cleanliness-zeile. Kein product-edit, kein PR — nur echter lauf + urteil.
+FAIL einer szelle = END mit fehlerteilen (das ist ein ERGEBNIS, kein grund zum weiterbohren; max 2 gegenprobe-tries je szelle).
+
+--- lane-handoff-decision (0427-e2e-podman2, 2026-11-08) ---
+Zelle 2 NODE-ENROLLMENT blockt an: operator OIDC issuer=https://auth.baha.localhost:8443/realms/bh-operators-dev (gateway-cert deckt host nicht), baha loginoeffnet browser-pflicht PKCE-callback. node add/serve brauchen laufende baha serve(operator-api)+gueltige operator session.
+OWNER-ANTWORT 2026-11-08: PFAD 1 MIT echten Requests. issuer->127.0.0.1:42305 = zulaessige dokumentierte Test-Konfig (cert deckt host echt, kein Fake). browser-pflicht umgehen: PKCE-callback-url selbst mit curl gegen laufenden callback-listener adressieren (code verbatim aus redirect-location). Browser-Login NICHT echt durchspielt (dokumentiert).
+WENN Pfad 1 nach korrekter config + curl-callback trotzdem failt: KEIN Keycloak-Tiefensuche (Option 2 fuer diese Lane VERBOTEN, budget gehoert Zelle 3+4). Dann Option 3: Zelle 2 BLOCKED mit exakter Fehlerzeile, browser/headless-gap als eigene bug-karte melden.
+WEITER mit Zelle 3 (onboarding-wizard) + Zelle 4 (down/reset + cleanliness), END mit allen 4 urteilen + intake-sektion(120/121/122).

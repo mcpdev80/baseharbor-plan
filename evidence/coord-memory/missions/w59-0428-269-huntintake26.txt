@@ -1,0 +1,14 @@
+INTAKE (planning-only, baseharbor-plan) — turn bug-hunt H-V26 findings F1-F5 into cards. Dossier: baseharbor-plan evidence/r28-welle6-2026-11-24/bughunt-hv26-candidate-consent-gate/round-1.md (origin/main). NO product-code edits; write ONLY baseharbor-plan cards + render/check/publish.
+
+Findings (all STATE/Owner-scope or by-design, 0 product fixes per hunt):
+- F1 HIGH (STATE/.github): release workflow NEVER builds baha-ci-operator-testonly (pre-release.yml 0 hits) while release runtime gates REQUIRE it under set -e (pre-release-runtime-suite.yml:316; ci.yml:1141-1153 is where ci builds it). This is the ROOT CAUSE of #1812/0428-249 light-gate failure. ACTION: do NOT create a duplicate product card — add an OWNER-scope card 'produce baha-ci-operator-testonly in candidate artifact for pre-release runtime suite' referencing pre-release.yml + pre-release-runtime-suite.yml:316, set depends_on none, type: task, repos [mcpdev80/baseharbor], and cross-reference t-...runtime-image-registry-artifact-unknown (0428-249) as blocked-behind-it.
+- F2 INFO by-design: --confirm-candidate repository-source carve-out + context routing. Cross-reference existing consent cards 0428-189..194; no new card (by-design).
+- F3 MEDIUM (STATE/security): ManagedEnvironment() hard-codes managed=true -> trusted-local fail-open seam DEAD at operatorauth/authorization.go:279. Create a bug card (owner: '', status planned, depends_on the operatorauth/trusted-local card if one exists else none), file:line authorization.go:279, one regression proving fail-open is closed.
+- F4 LOW/MEDIUM: verifyRuntimeBrokerBuildIdentity checks version only, drops commit. Create a bug card (build-identity must verify commit, not just version) with file:line from dossier.
+- F5 MEDIUM (Owner scope, scripts/): pr-gate-plan.py routes operatorauth local_runtime.go to package checks only, no native runtime gate. Create an OWNER-scope card referencing scripts/pr-gate-plan.py routing (owner-scope = owner implements; card documents need + file:line).
+
+For each NEW card: copy an existing task-card frontmatter shape; release: v0.4.28; type per above; owner: ""; kanban_status: planned; cite 'Source: bughunt-hv26 F<n> dossier'. Use next free 0428-NNN. For CROSS-REFERENCES only (F2), edit the existing card body with a one-line pointer, do not create.
+
+After each edit: python3 scripts/plan.py render && python3 scripts/plan.py check (0 errors), then git add the specific files (NOT -A), commit, pull --rebase origin main, push. baseharbor-plan publishes directly to main; never mark accepted/qualified; never touch product repos.
+
+Rules: no subagents (AGENTS 4.8); no Codex; no product/.github/CI file edits (you create CARDS describing them, owner/lane implements). Reply with F1..F5 -> card-number mapping.

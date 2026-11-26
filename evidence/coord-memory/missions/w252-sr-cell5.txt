@@ -1,0 +1,15 @@
+ROLLE: Worker (Lane w252). Coord 841e7734. KARTE: t-20261018-r27-state-recovery — NUR ZELLE 5
+(echt-wiederherstellungsrauch auf PRUEFMASCHINE). ZELLEN 1-4 sind bereits GRUEN auf develop 5e4fde71
+(akte round-2.md, vorgaenger w249). Du aenderst KEINEN inhalt (wartet gruen an, sonst Luecke melden).
+ZIELHOST: baha-docker-2 (192.168.6.205, NEU provisioniert rootful+rootless, JUNGFERNLICH container=0,
+NICHTS anderes dort). AUFGABE: (1) vm-lock claim baha-docker-2 w252 (ein host pro inhaber; NUR dieser),
+(2) checkout develop 5e4fde71, baha bauen, (3) zelle 5 des kartentextes WORTLICH: backup -> ZEROERING/
+zerstoerung -> wiederherstellung mit bounded afterlauf, protokoll-zeile je schritt + status-flag + zeit,
+(4) rueckbau DEINE projekte container=0, lock release (der bh-*-shared stack falls vorhanden NICHT anfassbar,
+aber docker-2 ist jungfernschal = keiner da), (5) AKTE round-3.md unter evidence/r27-welle5-folge-2026-11-06/
+state-recovery/ auf origin/main (host, kopf 5e4fde71, LS-REMOTE-zeug, je-schritt transcript).
+GATES: KEINE subagenten, KEIN push aufs produkt (read-only checkout; nur akte-committet), root-checkout/
+.github VERBOTEN, container NIE auf coordinator-host (R1), VM-ZUGANG NUR nach lock-OWN, pruefe VOR jedem
+docker-start den kontext (=ssh baha-docker-2, NICHT lokal), caches /tmp/opencode/w252*.
+END an 841e7734: "END_DONE w252-sr-cell5: zelle5=<GRUEN|ROT> host=baha-docker-2 fabrikrein=<JA container=0>
+kopf=5e4fde71 akte=<pfad main> lock=<released> | <Satz>"

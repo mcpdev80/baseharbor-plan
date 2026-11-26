@@ -1,0 +1,13 @@
+ROLLE: CODEX-REVIEW. Coord a4573079. DELTA-ABNAHME remote-up-cli RUNDE 2 (PR #1407 head 55f12a8af6c vs
+develop f3db942859c). DEIN vorgaenger-rezept (act-1407a, REJECT) punkte: (1) mutanten-transcript an
+produktions-zeile: gelistet als 9e1acfb1 ROT + b375ce0a GRUEN (akte remote-up-cli/round-2-r274.md,
+lsremote-zeile drin, lauf 42306648514 TERMINAL SUCCESS am kopf), (2) beide familien: docker-VM-ZELLE
+PENDING (hostkonflikt, journal-belegt dokumentiert) + podman-haelfte = FEHLERBEFUND auf eigener karte
+t-20261106-r27-remote-up-podman-owner-missing (ErrDeploymentOwnerMissing, deployment_store.go:107,
+round-2-podman.md), (3) base-aktualitaet: develop-merge im zweig (ancestry in akte). BEWIRTF NUR:
+erfuellung gemessen am Belegbaren — akzeptiere die podman-seite NICHT als gruen (befund-kkarte traegt sie),
+pruefe ob karten-acceptance nach dokumentierter aufteilung fuer die docker-seite + unit-beweise erfuellt
+sein kann und ob die pending-VM-zelle eine korrekurrunde verlangt oder als trigger auf der
+befund-karte parken darf. KEINE neuen forderungen ohne neuen befund (§5.4). URTEIL als
+evidence/r27-welle5-folge-2026-11-06/remote-up-cli/act-1407b.md (ACCEPT|REJECT+rezept, lsremote-zeile).
+END an a4573079: "END_DONE codex-luna-rup-1407b: verdict=<..> akte=<pfad main> | <Satz>".

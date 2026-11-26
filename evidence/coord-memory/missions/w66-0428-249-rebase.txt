@@ -1,0 +1,9 @@
+Card 0428-249 / PR #1812 (branch lane-0428-249-runtime-image-fix, head b1b31a59). The batch baseline #1822 just merged to develop (now 90086a1f9) and now PRODUCES baha-ci-operator-testonly in .github/workflows/pre-release.yml — this was #1812's external blocker. Your job is a MECHANICAL rebase + verification, NOT new owner-scope edits.
+
+Do exactly:
+1. git fetch; rebase lane-0428-249-runtime-image-fix onto origin/develop 90086a1f9 (merge-base --is-ancestor 3ebfb90da origin/develop proves lineage). Force-push the rebased branch. NO new .github/workflows edits — keep only #1812's existing approved diff (the approved ordering/registry/image-ref changes). Do NOT re-add any optional/fallback binary logic (owner removed that; it is out of scope).
+2. After rebase: if `git diff origin/develop HEAD` for #1812 becomes EMPTY (everything already on develop via #1822), then STOP + post a QUESTION: #1812 is content-satisfied by develop, recommend close-not-merge. Do not open a no-op PR merge.
+3. Otherwise push and monitor the PR's 14 v0.4.27 Light gates (Docker+Podman x guided/lifecycle/policy/connectivity/reconciliation/failure/full-destroy) to TERMINAL via gh run. Report new head SHA + each run id + pass/fail + the mandatory `test -s baha-ci-operator-testonly` now succeeding (proves the artifact is present on develop base).
+4. Do NOT merge (CODEX merges). Do NOT touch scripts/** or .github/** beyond keeping #1812's existing diff. Reply: head SHA, run ids, gate outcomes, cleanliness line.
+
+Rules: Hosted CI only (no local go test); no subagents (AGENTS 4.8); no merge. If any gate needs a catalog row that is not already on develop, STOP + QUESTION (do not add rows).
