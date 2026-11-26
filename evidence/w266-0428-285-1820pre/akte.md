@@ -11,6 +11,16 @@
   `git -C /home/marcel/dev/baseharbor-ecosystem/workers/w266-plan commit --author="w198-0428-284-demo-parser <w198-0428-284-demo-parser@baseharbor.local>"`
 - pre-push gate that WOULD run (never executed here): `git show -s --format=%an` must equal `w198-0428-284-demo-parser`
 
+## PLAN
+
+1. Resolve remotes; inspect product refs in an isolated read-only worktree and plan state from `origin/main`.
+2. Capture live develop and PR heads for #1820, #1819, #1812, and #1842.
+3. Check develop ancestry, commit history, and payload retention on #1820 and #1819.
+4. Compare #1820's write-set with #1842, #1812, #1819, #1833, #1650, and #1818.
+5. Check exact-head CI jobs for the seam-C package/owner unit witness and record the qualification recipe after #1819.
+6. Publish this read-only evidence through a Planning PR; do not write directly to Planning `main`.
+7. Verify the akte is present on `origin/main` after publication and remove temporary worktrees.
+
 ## 0. REMOTE / WORKSPACE ATTESTATION
 
 - product remote (ONLY github.com/mcpdev80 one): `lane-origin ssh://git@github.com/mcpdev80/baseharbor.git` — `git remote -v` first action, verified.
