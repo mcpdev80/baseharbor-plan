@@ -49,3 +49,4 @@ Rule: consumers requalify ONLY after actual baseline landing (owner merge at fre
 - Plan-side evidence: baseharbor-plan PR #156 (head 91187c329, OPEN, hosted validate; freeze-lift hop+squash-merge pending - admin, not by lanes).
 - w354 chain-pos-2 hop record: #1867 aef85a81b6adff7370d26dc33807069c74d7a98a (transport merge onto develop fe64a510 by w354 identity), pull_request 45904137758 SUCCESS exact, CLEAN, 1 file; handed to w255 revalidate+merge. Lane released after delivery.
 - Chain: #1865 merged (fe64a510). #1867 MERGED by w255 (develop tip see PR comment). #1872 DIRTY -> w355 hop live (flash). #1870 -> w356 hop live (laptop:2). Both green => serial merges 1870 then 1872 (or order of landings), then consumer refresh dispatches (#1864/#1855/#1833/#1871).
+- #1867 merged at develop f36d29301e16845b5034a9c7103c053a6a869585 (w255, 11:3xZ). Card 0428-291 note refresh pending consumer #1864 requalification.
