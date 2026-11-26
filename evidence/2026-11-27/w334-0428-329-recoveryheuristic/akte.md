@@ -47,5 +47,6 @@ Card t-20261126-hunt46-recovery-backup-volume-heuristic (0428-329) · hunt46 fam
 
 ## END status
 
-- Lane: w334-0428-329-recoveryheuristic · status: ACTIVE · not yet ENDed
+- Lane: w334-0428-329-recoveryheuristic · status: BLOCKED (owner HOLD) · END_BLOCKED posted 2026-11-26
+- Evidence: akte on plan branch db0b06b7c; PR #1861 head 6edbcb23c5112b27c7e8899e03ad9e06441390b3 (ls-remote confirmed); Trusted Plan run 45842320834 + rerun failed at step 4 "Resolve exact immutable PR inputs using trusted base policy" (base catalog missing owner for internal/runtime/repository_volume_inventory{,_test}.go) — 3rd instance (#1860/#1862 also gated); systemic, not my change. Branch held, not rebased/merged; no candidate-side catalog rows added.
 
