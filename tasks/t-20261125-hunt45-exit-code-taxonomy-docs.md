@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w345-0428-321-exitfix (LIVE; exact-head CI 45895504172 GREEN on 03354deb876b, END/handoff outstanding; independent review next)
+owner: w352-0428-321-exitfix2 (correction round after w255 HOLD 7204118575: context.Canceled:130 bypass regression through main-used helper; exact head 03354deb CI was green, review gap is test coverage)
 kanban_status: active
 kanban_lane: active
 kanban_summary: "Document the baha process exit-code taxonomy at the user-facing surface: 0 success, 1 runtime failure, 2 usage error, 130…"
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261125-hunt45-exit-code-taxonomy-docs · CLI: document baha exit-code taxonomy and machine coverage check #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
-    **Owner:** w345-0428-321-exitfix (LIVE; exact-head CI 45895504172 GREEN on 03354deb876b, END/handoff outstanding; independent review next)  
+    **Owner:** w352-0428-321-exitfix2 (correction round after w255 HOLD 7204118575: context.Canceled:130 bypass regression through main-used helper; exact head 03354deb CI was green, review gap is test coverage)  
     **PR:** [baseharbor#1866](https://github.com/mcpdev80/baseharbor/pull/1866)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w345-0428-321-exitfix (LIVE; exact-head CI 45895504172 GREEN on 03354deb876b, END/handoff outstanding; independent review next)  
+**Owner:** w352-0428-321-exitfix2 (correction round after w255 HOLD 7204118575: context.Canceled:130 bypass regression through main-used helper; exact head 03354deb CI was green, review gap is test coverage)  
 **Priority:** not set  
 **PRs:** [baseharbor#1866](https://github.com/mcpdev80/baseharbor/pull/1866)  
 **Source:** 
