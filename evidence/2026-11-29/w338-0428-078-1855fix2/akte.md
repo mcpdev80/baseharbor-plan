@@ -483,3 +483,29 @@ coordinator/Codex action); evidence akte on branch (plan PR #150) held by a FORE
 tasks/t-20261126-hunt46-collectable-orphans-reserved-namespace.md:18 trailing comma crashes
 plan.py check on ALL main commits since e046c4729 — one-line fix needed, out of this lane's
 write-set.
+
+## Round-3 publication witness (END-turn measurement)
+
+git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only
+origin/main | grep w338-0428-078-1855fix2 ->
+  evidence/2026-11-29/w338-0428-078-1855fix2/akte.md   (main-side file EXISTS; its content is
+  the round-2 version: the round-3 sections live on plan branch w338-0428-078-1855fix3-akte,
+  head c9017bde60… = commits 865be307c + dad24f7f9 + c9017bde6, PR baseharbor-plan#150.)
+
+The final HEAD of this akte file (the round-3 version) becomes the main version exactly when
+#150 merges — which is BLOCKED by the plan-main validate break documented in
+'Plan-main blocker' above (foreign card tasks/t-20261126-hunt46-collectable-orphans-reserved-
+namespace.md:18 trailing comma in its prs list crashes scripts/plan.py short_ref; measured
+failure on main commits 05956216e/e046c4729/9986e8146 and on this PR's run 45873701539). I do
+not edit a foreign card, and per the mission-scope clarifier I HOLD the evidence merge with
+the concrete blocker instead of bypassing a red validate.
+
+END_BLOCKED (round 3, final line) w338-0428-078-1855fix2: mission fix3 steps 1-3 delivered —
+#1855 candidate head 70c005e8bc48b6186da1095a183905a42ee6c493 (embedded row removed
+forward-only, product payload intact, run 45872372065 terminal: Trusted Plan red ONLY on the
+base-catalog admission), family catalog PR baseharbor#1867 head
+8b0eb51a12320acb8987aee1729c9a820d4d573e (Ready, not merged; run 45872485574 terminal SUCCESS
+with Trusted Plan + PR Selected Checks + candidate-added advisory green). Two blockers remain
+OUTSIDE this lane's write-set: (1) merge #1867 + forward-merge develop into #1855 (ruling
+item 2 = coordinator/Codex action, freeze holds); (2) the one-line foreign-card fix on plan
+main that gates my evidence PR #150. No merges by me; #1812/#1819/#1820 untouched.
