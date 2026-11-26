@@ -328,7 +328,52 @@ Allocation is by path order:
 | tasks/t-20261125-hunt47-keycloak-migration-docs.md | 0428-346 | 0428-357 |
 | tasks/t-20261124-r28-alert-applied-face-stale-runtime.md | 0428-268 | 0428-358 |
 
+## Hosted validation on the exact published head
+
+```
+gh pr checks 100 -> Plan · validate  pass  11s
+run id 45761088079   name "Validate planning"   event pull_request
+head_sha dd4c32b4bdd57279951a6e9b3579b28384dac4cf   status completed   conclusion success
+https://github.com/mcpdev80/baseharbor-plan/actions/runs/45761088079/job/139710993589
+
+and, after the akte-witness commit landed on the same PR:
+run id 45761294534   head_sha 703f791950183be2cca8cfb752f9c96075a1311f  conclusion success
+https://github.com/mcpdev80/baseharbor-plan/actions/runs/45761294534/job/139711664800
+```
+
+Both runs are ordinary PR-triggered hosted runs on consecutive exact heads of PR #100; neither is a
+rerun (run_attempt stays 1). No workflow_dispatch, no rerun, no `.github/**` edit by this lane.
+
+Green on both exact heads of PR #100; no rerun, no workflow_dispatch, no `.github/**` change (Owner scope untouched).
+
+## Zero-mutation and hygiene witnesses (after all work)
+
+```
+git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop
+  before: ac7c970fe91ad5fc3d8cb76336ddbbb7ecce04ee
+  after : ac7c970fe91ad5fc3d8cb76336ddbbb7ecce04ee     -> product develop untouched, byte-identical
+git -C <shared plan checkout> rev-parse HEAD           -> 08b1f66bb733d4c1422135429e5bc29fbd67cd57 (unchanged from w290's witness)
+git -C <shared plan checkout> stash list | wc -l       -> 51 before, 51 after (stash@{21} carrier intact, never dropped or altered)
+plan refs added by this lane: refs/heads/lane-w295-0428-251-recover6paths = dd4c32b4b (and refs/pull/100/head); refs/heads/main still 28297faff (this lane never pushed main)
+```
+
 ## END
+
+END_DONE w295-0428-251-recover6paths: plan PR #100, head `703f791950183be2cca8cfb752f9c96075a1311f`
+(merge of live main 28297faff + content 2bb63ffc8 on base cfb2b6c8a). Validator: Hosted run
+45761088079 "Validate planning" SUCCESS on the exact head; local `plan.py check` in the /var/tmp
+throwaway: 791 tasks, 0 errors, 10 pre-existing warnings; `plan.py render` is a fixed point.
+Residual after this work: 0 of 6 paths missing — all six restored (31,004 bytes of carrier content,
+only `card_number` re-allocated to proven-free 0428-353..358) — so the card 0428-251 recovery line is
+ready to CLOSE once this PR merges. Ancestry: `git merge-base --is-ancestor origin/main HEAD` rc=0.
+Product mutation: zero (baseharbor develop identical before/after). Cleanliness: no containers
+(planning-only lane), throwaway worktrees under /var/tmp removed, shared plan checkout and its 51
+stashes untouched.
+
+Note on the two warnings in my mission: warning (i) resolved cleanly — path 6 was read from
+`stash@{21}^3` with `git cat-file` only, the stash survives (51 before, 51 after). Warning (ii) did
+not materialise as a blocker: no restored path trips the stray-checkbox or task-id validators; the
+only validator failure was the duplicate `card_number`, handled by the permitted re-allocation.
 
 
 
@@ -374,7 +419,8 @@ the intermediate trials 059eba65a / 533327b46 / ac8f1a1c3 exist only in my lane 
 pushed, and are not ancestors of head):
 
 ```
-head            8c3c70add parents = 2bb63ffc8 + 28297faff (live main tip)   an=cn=w295-0428-251-recover6paths
+head (published, final) 703f791950183be2cca8cfb752f9c96075a1311f  an=cn=w295-0428-251-recover6paths
+                            (chain: 703f79195 akte-witnesses -> dd4c32b4b merge(2bb63ffc8 + 28297faff) -> 2bb63ffc8 <- cfb2b6c8a base)
 content commit  2bb63ffc8 parent  = cfb2b6c8a (base attestation)            an=cn=w295-0428-251-recover6paths
 git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main -> 28297faffdd6be7781f4f994f6f6b6f53216b86b
 git merge-base --is-ancestor origin/main HEAD -> rc=0 (live main tip IS an ancestor of head)
