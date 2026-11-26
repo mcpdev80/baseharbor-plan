@@ -17,14 +17,14 @@ repo write, no CI rerun.
 
 ## PLAN
 
-- [ ] Reality witnesses: gh pr view 105, gh pr view 1858, run/comment evidence from GitHub
-- [ ] Verify w267 reviewer correction request comment 7184306048 and read it exactly
-- [ ] Correct PR #105 body to the merged fact with full evidence chain (gh pr edit)
-- [ ] Append dated correction block to akte.md (handoff note + stale wording line)
-- [ ] Absorb origin/main into branch with ONE merge commit if not already ancestor
-- [ ] Commit everything with lane identity w305-0428-251-105aktefix
-- [ ] render + check in a CLEAN clone under /var/tmp, 0 errors, warnings not grown
-- [ ] Watch own Plan validate run on new head to terminal, report run id + conclusion
-- [ ] Push branch with lane identity, prove delivery via ls-remote, paste evidence
+- Reality witnesses: gh pr view 105, gh pr view 1858, run/comment evidence from GitHub
+- Verify w267 reviewer correction request comment 7184306048 and read it exactly
+- Correct PR #105 body to the merged fact with full evidence chain (gh pr edit)
+- Append dated correction block to akte.md (handoff note + stale wording line)
+- Absorb origin/main into branch with ONE merge commit if not already ancestor
+- Commit everything with lane identity w305-0428-251-105aktefix
+- render + check in a CLEAN clone under /var/tmp, 0 errors, warnings not grown
+- Watch own Plan validate run on new head to terminal, report run id + conclusion
+- Push branch with lane identity, prove delivery via ls-remote, paste evidence
 
 Note: this akte uses plain bullets only in the PLAN section; no markdown checkboxes anywhere in the body.
