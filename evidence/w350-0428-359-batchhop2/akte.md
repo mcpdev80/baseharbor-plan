@@ -53,11 +53,11 @@
 
 | PR | verdict (newest disposition) | hop head | tracked branch | pair (hosted SUCCESS on hop head) |
 | --- | --- | --- | --- | --- |
-| 130 | ACCEPT (merge-ready, freeze HELD) | 4c7a73050 | harvest-round-20261126 | 45900293648 SUCCESS; 2nd pull_request pair could NOT re-fire on this repo (disclosed) |
+| 130 | ACCEPT (merge-ready, freeze HELD) | 4c7a73050 | harvest-round-20261126 | 45900293648 (pull_request) + 45910756299 (workflow_dispatch) both SUCCESS |
 | 134 | REVIEW/disposition only (no ACCEPT) | — SKIP — | — — | one line: not ACCEPT |
 | 135 | ACCEPT | 1f5777847 | w267-0428-291-rabbitmq-disposition | 45908548152 + 45908786095 both SUCCESS |
 | 138 | ACCEPTED/MERGE-READY (HELD) | d2cbe0a32 | w335-0428-318-lowpair | 45904961265 + 45905226038 both SUCCESS |
-| 139 | CONTENT ACCEPT / TRANSPORT HOLD | 9e238c7a2 | w334-0428-329-recoveryheuristic | one SUCCESS 45904961265 on older head; no run re-fired on final head 9e238c7a2 (disclosed) |
+| 139 | CONTENT ACCEPT / TRANSPORT HOLD | 9e238c7a2 | w334-0428-329-recoveryheuristic | 45910759360 + 45910914115 both SUCCESS (workflow_dispatch) |
 | 143 | CONTENT ACCEPTED (NO-MERGE HOLD) | f0b18be47 | fixnote-merge-boundary-139 | 45907967923 + 45908183581 both SUCCESS |
 | 144 | ACCEPT | 1f5777847 | w267-0428-291-rabbitmq-disposition | 45908548152 + 45908786095 both SUCCESS |
 | 147 | ACCEPT (merge-ready HELD) | 3a560adde | w339-0428-327-aktefix-v3 | 45909271127 + 45909532072 both SUCCESS |
@@ -67,4 +67,4 @@ Notes:
 - NO merges performed (no product-PR merges); NO new cards; no .github/** edits.
 - All hop commits authored by canonical lane identity w350-0428-359-bhop2 (@baseharbor.local), verified per push via `git show -s --format=%an`.
 - Base attestation: each worktree cut from origin/main HEAD at time of hop (b2c39715f → d81f44efc → e6da7041f → 76902fea → b9688a54d); PR head confirmed ancestor of merged head; `git log --oneline origin/<base>..HEAD` lists only this lane's commits.
-- CI trigger anomaly DISCLOSED: after the first push to each PR branch, subsequent re-render pushes and close+reopen did NOT always re-fire the `pull_request` run on this repo; two runs were obtained for 135/138/143/144/147 via close+reopen, one for 130/139. This is a repo CI behavior, not fixable without editing .github/** (Owner scope) — escalate to Coordinator.
+- CI trigger GAP RESOLVED via Option (b)-without-Owner: this repo's `pull_request` event stopped re-firing after the first push per PR branch. Per Owner 15:5xZ, used the third allowed trigger path `validate.yml` `workflow_dispatch` (`.github/**` NOT edited) to fire the two missing exact-head runs: `gh workflow run validate.yml --repo mcpdev80/baseharbor-plan --ref <branch>` (ref must be a branch, not a commit SHA). Run IDs 45910756299 (PR130, head 4c7a73050) and 45910759360 / 45910914115 (PR139, head 9e238c7a2), all SUCCESS. Full pairs now in place for all 6 hopped PRs. No secrets/tokens set by this lane, no force-push, no `.github` change.
