@@ -80,3 +80,7 @@ Second push delivery witness:
 ```text
 2bf9101dcdcbe82ab619415c32763f0b2dc78020 refs/heads/w255-0428-253-admission
 ```
+
+## Hosted validation witness
+
+Plan PR #68 head `a3f01dea035432376641f2eea485b54131c3a23e` was validated by Hosted run `45734311673` (`pull_request`, conclusion SUCCESS). The executed job was `Plan · validate` and its required steps, including unit tests and vault/generated-file validation, succeeded. Run: https://github.com/mcpdev80/baseharbor-plan/actions/runs/45734311673. This run validates the note and ruling; the PR will also validate the final akte update on its new exact head.
