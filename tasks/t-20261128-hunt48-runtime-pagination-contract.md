@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1871"]
 sources: []
-blocker: "exact heads 45884566859/45884719597 FAILURE: pr-gate-plan.py source_unowned (uncataloged pagination sources, Trusted Plan reads catalog from trusted develop -> candidate-side fix impossible). REQUIRED BASE ACT (owner routing, outside lane write-set): component rows on DEVELOP scripts/pr-gate-coverage.json for internal/apierror/pagination.go+pagination_test.go, machine/applicationsecretapi/list_handler.go, machine/applicationruntimeapi/capabilities_handler.go, machinehttp/sourcetransfer.go+store.go, domain/machine/navigation.go, query/machine/machinereadmodels/list.go + both spec markdown paths (NOT data.capabilities example). After base act: lane absorbs develop under lane identity, close+reopen #1871 for fresh exact-head pair" #1871 held ready unmerged"
+blocker: "BASE ACT DISPOSED by w255 (#1871 comment 7202869676, owner-confirmed): 10 catalog rows land as SEPARATE develop-side catalog-only write-set within existing 0428-359/#136 baseline family (row-before-candidate per #1865 precedent; Trusted Plan reads base catalog, candidate rows cannot self-authorize). Lane w347-0428-344-baseline executes under family assignment against real candidate paths (internal/apierror/pagination*.go, pagination_contract_test.go files, internal/machinehttp/source_transfer.go, docs/spec+docs/de/spec/runtime-list-pagination-v1.md). #1871 stays blocked + catalog-free until baseline act lands AND owner requalifies its exact head. No new card, no merge"
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** "" (lane w343 released after END BLOCKED-BASE-CATALOG; re-dispatch after base act lands)  
     **PR:** [baseharbor#1871](https://github.com/mcpdev80/baseharbor/pull/1871)  
-    **Blocker:** exact heads 45884566859/45884719597 FAILURE: pr-gate-plan.py source\_unowned (uncataloged pagination sources, Trusted Plan reads catalog from trusted develop -\> candidate-side fix impossible). REQUIRED BASE ACT (owner routing, outside lane…  
+    **Blocker:** BASE ACT DISPOSED by w255 (\#1871 comment 7202869676, owner-confirmed): 10 catalog rows land as SEPARATE develop-side catalog-only write-set within existing 0428-359/\#136 baseline family (row-before-candidate per \#1865 precedent; Trusted Pl…  
     <!-- /generated:card -->
 
 <!-- generated:links -->

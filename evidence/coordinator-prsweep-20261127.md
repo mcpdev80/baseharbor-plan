@@ -17,3 +17,8 @@ Census: 19 OPEN product PRs (baseharbor): 1650 1812 1818 1819 1820 1833 1855 186
 
 ## Free capacity
 Seats 5/5 after reconciliation: ornith 2/2 (w345, w346), laptop 2/2 (w341/w342 idle-PARKED on blocked cards 326/328 - external map gate, sessions alive), flash 1/1 (w347, NEW base-act lane replacing released w343). No free seat; no Ready card exists to reassign to (all backlog entries gated by freeze-lift, map landing, or owner chain holds). Codex: w267 idle after steer-5 decision; w255 idle RESERVED for #1866 exact-head review after w345 handoff + green. Two-Codex cap respected. candidate-count for Ready dispatch this minute = 0 (all non-conflicting backlog entries gated by freeze-lift, map landing, or owner chain holds); board-sha per table above.
+
+## Baseline-family assignment (w255 disposition b, owner-confirmed 04:3xZ)
+- Write-set: 10 catalog rows in scripts/pr-gate-coverage.json vs develop - belongs to EXISTING family 0428-359/#136 (card file t-20261126-trusted-catalog-baseline-recovery-manifest.md rides plan #136 branch; lands there on freeze-lift, no duplicate card).
+- Lane record: w347-0428-344-baseline (session 1580581f), parked worktree at 5a37ddbd9a06dd44f6068d3266ff2ed853a84a74, resumed 04:3xZ with corrected real-path mission.
+- #1871: remains BLOCKED + catalog-free until baseline PR lands on develop AND owner requalifies exact head. Precedent: #1865 ACCEPT 7199319282 (row-before-candidate supported); w255 verdict comment 7202869676.
