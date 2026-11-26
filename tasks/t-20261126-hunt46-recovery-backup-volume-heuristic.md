@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w334-0428-329-recoveryheuristic
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "destroy --all removes every volume in the selected installation's destruction scope, including volumes labeled for recovery or…"
 kanban_title: 0428-329 · tighten recovery/backup match
 priority: ""
@@ -17,19 +17,20 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: ""
+blocker: "trusted-base catalog admission for internal/runtime/repository_volume_inventory{,_test}.go, baseline plan #136 (0428-359) accepted at daf05433, green arrives via develop landing + rerun of core #1861 at 6edbcb23c5"
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261126-hunt46-recovery-backup-volume-heuristic · 0428 hunt H-V46: recovery/backup volume preservation uses a case-insensitive substring search (medium) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261126-hunt46-recovery-backup-volume-heuristic · 0428 hunt H-V46: recovery/backup volume preservation uses a case-insensitive substring search (medium) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
     **Owner:** w334-0428-329-recoveryheuristic  
+    **Blocker:** trusted-base catalog admission for internal/runtime/repository\_volume\_inventory{,\_test}.go, baseline plan \#136 (0428-359) accepted at daf05433, green arrives via develop landing + rerun of core \#1861 at 6edbcb23c5  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w334-0428-329-recoveryheuristic  
