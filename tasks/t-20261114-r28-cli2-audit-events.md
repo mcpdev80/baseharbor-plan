@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w058-0428-058-hop
-kanban_status: active
-kanban_lane: active
+owner: ""
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Audit secret and environment actions. Follow the owner working brief, command mapping and code entry index; revalidate current…"
 kanban_title: 0428-058 · Audit secret and Env actions
 priority: high
@@ -23,18 +23,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-audit-events · CLI redesign: Audit secret and environment actions #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-audit-events · CLI redesign: Audit secret and environment actions #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** w058-0428-058-hop · **Priority:** high  
+    **Owner:** unassigned · **Priority:** high  
     **PR:** [baseharbor#1809](https://github.com/mcpdev80/baseharbor/pull/1809)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-env-delete](t-20261114-r28-cli2-env-delete.md), [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
 **Required by:** [t-20261114-r28-cli2-app-data](t-20261114-r28-cli2-app-data.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md)  
-**Owner:** w058-0428-058-hop  
+**Owner:** unassigned  
 **Priority:** high  
 **PRs:** [baseharbor#1809](https://github.com/mcpdev80/baseharbor/pull/1809)  
 **Source:** 
