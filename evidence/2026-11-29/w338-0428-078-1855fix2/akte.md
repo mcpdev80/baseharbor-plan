@@ -852,4 +852,4 @@ author+committer gate passed), appends the reissue-2 block re-stating the full c
 contaminated base CHANGES 7201991029 -> THIS clean reissue) as the controlling statement, curing
 the contaminated-base / forwarded-author defect of 7201177304 and superseding the coordinator
 variant-1 transport ruling as own error; prior lines untouched as history (no deletions). akte-only
-file change; 0 markdown checkboxes. Plan PR #153 (w346-150-clean, head b1938b255957c5a4fc04938a3289f62bad1e756a) OPEN draft=false, base main, titled 'akte(0428-078): clean reissue of #150 on main base (w267 7201991029)'. Hosted Plan validate run <RUN_ID> pending on exact head.
+file change; 0 markdown checkboxes. Plan PR #153 (w346-150-clean, head 92bb2956d0b96253243238e640cfa4a686c6167f) OPEN draft=false, base main, titled 'akte(0428-078): clean reissue of #150 on main base (w267 7201991029)'. Hosted Plan validate run <RUN_ID> pending on exact head.
