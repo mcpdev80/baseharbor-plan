@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812, mcpdev80/baseharbor#1837]
 sources: []
 blocker: ""
-wait_reason: "Reopened per W16: #1812 is still OPEN at 0922888af8fd70be4049cec529c69aebc057a356; re-evaluate this card after its exact-head work is complete."
+wait_reason: "owner roster reconciliation 14:3xZ: w322 idle pending owner variable BASEHARBOR_PR_DEMO_SOURCE_SHA and w255 pin decision; matcher fix head reviewed, no live busy worker"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-demo/pull/175"]
 ---
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-demo/pull/175"]
     <!-- generated:card -->
     **Owner:** w322-0428-249-pr1812gate · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812), [baseharbor#1837](https://github.com/mcpdev80/baseharbor/pull/1837)  
-    **Waiting:** Reopened per W16: \#1812 is still OPEN at 0922888af8fd70be4049cec529c69aebc057a356; re-evaluate this card after its exact-head work is complete.  
+    **Waiting:** owner roster reconciliation 14:3xZ: w322 idle pending owner variable BASEHARBOR\_PR\_DEMO\_SOURCE\_SHA and w255 pin decision; matcher fix head reviewed, no live busy worker  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-demo/pull/175)  
     <!-- /generated:card -->
 
