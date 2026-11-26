@@ -1,18 +1,18 @@
 ---
 id: t-20261125-hunt43-env-leak-disk
 card_number: "0428-316"
-card_short_title: "hunt43-env-leak-disk"
-type: task
-areas: []
+card_short_title: "ambient runtime env boundary"
+type: bug
+areas: [runtime, security]
 release: v0.4.28
 version: ""
 parent: ""
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: "One or two sentences: the observable outcome."
-kanban_title: 0428-316 · hunt43-env-leak-disk
-priority: ""
+kanban_summary: Prevent secret-bearing ambient process environment values from being expanded into Podman Quadlet service .env files or passed…
+kanban_title: "0428-316 · ambient runtime env boundary"
+priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -20,13 +20,17 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence:
+  - "https://github.com/mcpdev80/baseharbor-plan/pull/134"
+  - "https://github.com/mcpdev80/baseharbor-plan/blob/9cd7c3d0588a441330827b102de1aa0aecfa0477/evidence/2026-11-27/w331-0428-316-hunt43envleak/hunt43-env-leak-disk.md"
+  - "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-27/bughunt-hv43-config-injection/hv43-findings.md"
 ---
 
-- [ ] t-20261125-hunt43-env-leak-disk · 0428 hunt H-V43: hunt43-env-leak-disk #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261125-hunt43-env-leak-disk · 0428-316 · Ambient runtime env boundary #task #release/v0-4-28 #status/planned #view/ready #area/runtime #area/security #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned  
+    **Owner:** unassigned · **Priority:** high  
     **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/pull/134), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/9cd7c3d0588a441330827b102de1aa0aecfa0477/evidence/2026-11-27/w331-0428-316-hunt43envleak/hunt43-env-leak-disk.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-27/bughunt-hv43-config-injection/hv43-findings.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -34,45 +38,56 @@ evidence: []
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** unassigned  
-**Priority:** not set  
+**Priority:** high  
 **PRs:** none  
 **Source:** 
 <!-- /generated:links -->
 
 ## Goal
 
-One or two sentences: the observable outcome.
+Prevent secret-bearing ambient process environment values from being expanded into Podman Quadlet service `.env` files or passed wholesale to Docker Compose. Preserve documented and explicitly configured runtime inputs while making unapproved inherited values unavailable to both runtime paths.
+
+## Disposition and source
+
+FUND-A (HIGH) and FUND-B (MEDIUM) from H-V43 are tracked together here because both arise from the same unfiltered ambient-environment inheritance, with separate Podman and Docker sinks and acceptance checks. The evidence extends the earlier H-V43 FUND-2/FUND-3 observations with the exact Podman plaintext file write and the Docker subprocess path.
+
+FUND-C (LOW, `BASEHARBOR_RUNTIME_IMAGE` YAML injection) is not tracked by this card: the hunt documents an operator-supplied override but does not establish an untrusted source or privilege boundary. Its disposition is recorded in PR #134 and the hunt evidence.
 
 ## Scope
 
 - In scope:
+  - Podman Quadlet: bound values collected from `os.Environ()` and substituted by `quadletComposeEnvironment` / `expandQuadletComposeString` before `quadletRenderServiceEnvironment` writes service `.env` files.
+  - Docker Compose: bound the ambient environment assembled by `mergeProcessEnvironment`, `commandEnvironment` and `runtimeCommandEnv` before invoking the Compose subprocess.
+  - Define and document the explicitly supported environment inputs for both paths; preserve those values and project-level configuration that is intentionally supported.
+  - Prevent arbitrary ambient secrets and unrelated inherited values from reaching generated service files or the Compose child/container environment.
 - Out of scope:
+  - `BASEHARBOR_RUNTIME_IMAGE` YAML-input validation (FUND-C; no tracking disposition).
+  - Product consent, authentication or authorization behavior.
+  - An unrelated environment-variable registry or broad configuration redesign.
 
 ## Acceptance
 
-- Each criterion as a plain bullet. Do not use checkboxes here: only the card line above is a checkbox.
+- Podman regression: set an ambient secret sentinel and render a Compose environment that references it; the resulting service `.env` and generated Quadlet files must not contain the secret. An explicitly supported non-secret input must still render as documented.
+- Docker regression: set an ambient secret sentinel and invoke the existing Compose command-environment path; the unsupported value must not be inherited by the child or reach the container, while explicitly supported inputs remain available.
+- Positive and negative tests cover both runtime paths independently; do not infer Docker behavior from Podman or vice versa. Keep current 0700 directory / 0600 file protections intact.
+- The supported-input policy is explicit in code/tests and fails closed for unapproved ambient values; no diagnostic emits secret material.
+- Documented/project-configured Compose behavior that is intentionally supported remains compatible. Any behavior change is covered by a focused regression.
+- No consent/auth/authorization changes and no unrelated runtime redesign.
 
 ## Required checks
 
-- **Modified features:** Inventory and adapt all affected existing unit, contract, integration, regression, E2E and native-runtime tests; add missing cases.
-- **New features/providers (e.g. Perses Provider Contract):** Implement NEW dedicated positive, negative, authorization, ownership, error-path, compatibility and lifecycle tests wherever relevant. Passing unrelated existing suites is not sufficient.
-- **CI integration and mapping are part of implementation:** Register every new/changed test in its package/test inventory and update existing test-to-gate mapping, selectors, relevant `REQUIRED_CLIENT_TESTS`/package equivalent, `scripts/pr-gate-plan.py`, `scripts/release-requirements.json`, and CI workflow paths/triggers where applicable. Coordinate reserved CI files with their owner; no new CI framework.
-- **Mapping selection proof:** Verify affected paths select the required tests, unrelated paths do not unnecessarily select them, and the applicable stacked-PR, ready-for-review, develop and release workflows cannot silently bypass them. Unknown coverage broadens selection instead of failing open.
-- **Hard acceptance gate:** For every required test provide exact SHA -> test ID -> mapped check/native gate -> trigger -> actual run URL/outcome. Missing test, registration, mapping, selection, trigger or real passing execution BLOCKS acceptance. Docker/rootless Podman each require independent live evidence when applicable; do not rerun unaffected checks needlessly.
+- Test binding: ordinary package-discovered Go tests for the modified runtime packages; register any tests requiring special fixtures with the existing package/gate equivalent in the same task.
+- Exact test scenarios: Podman ambient-secret materialization regression; Docker ambient-environment inheritance regression; positive compatibility checks for each supported-input path.
+- Hosted CI must execute the relevant Docker and rootless Podman/Quadlet gates on the exact final product head. Record test name/package, gate, trigger, run URL and result separately for each runtime. A skipped applicable gate is not evidence.
+- Keep the selected-check route impact-based. If an existing path-to-gate mapping or required workflow route is missing, repair it within this task and coordinate its shared-file owner; do not introduce a new CI framework or a blanket matrix.
 
+## Ownership and write set
 
-- **Test binding (select exactly one):** ☐ normal (auto-discovered) · ☐ contract → add to `REQUIRED_CLIENT_TESTS` or the package equivalent in the same PR · ☐ new check → update `scripts/pr-gate-plan.py` and `scripts/release-requirements.json` in the same PR.
-- Name every new or changed test (package, exact test ID, fixture/env and native runtime if applicable). Targeted checks for the changed area; broaden when impact is unknown.
-- Record the existing CI validation/check or Docker/Podman native gate that actually executes each test, and which PR paths, develop integration event or release candidate selection triggers it.
-- If coverage is absent, implement/register it in the owning CI lane before acceptance; prove positive selection for a relevant change and negative/non-selection for an unrelated change. Missing, skipped or failed mandatory execution is NOT PASS.
-- For Docker/Podman tests, prove native Docker and rootless Podman/Quadlet separately where required; unit fakes do not replace live runtime evidence. Cross-repo tests run through existing develop/release acceptance, not a blocking independent PR gate.
-- Handoff must identify exact source SHA, test -> CI gate -> trigger -> actual run/outcome, or mark explicit CI coverage debt as blocking. No new CI framework or full automatic PR matrix.
-
-## Dependencies and file ownership
-
-- Owned files or areas:
-- Shared files: coordinate through the owning task.
+- Podman runtime implementation and tests under `internal/providers/runtime/podman/`.
+- Docker Compose environment assembly and tests under `internal/runtime/`.
+- Existing test-to-gate mapping/selection needed for those source paths.
+- No workflow-wide or unrelated authentication changes.
 
 ## Handoff
 
-- Current state, branch, PR and evidence links. Newest first.
+Disposition authored by Codex lane w267-0428-284-pridentity on 2026-11-26 from H-V43 evidence in PR #134. This card extends the existing H-V43 task 0428-316 for remediation of FUND-A/FUND-B; it does not mark the hunt or implementation accepted. FUND-C remains no-tracking unless later evidence establishes an untrusted input boundary.
