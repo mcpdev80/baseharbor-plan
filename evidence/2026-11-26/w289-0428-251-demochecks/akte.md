@@ -110,8 +110,10 @@ plus three `disabled_manually` legacy workflows (`acceptance-harness-check.yml`,
 1. `gh pr ready 179 --repo mcpdev80/baseharbor-demo` → `✓ … is marked as "ready for review"` at 2026-11-26T03:59:26Z
    (`ready179.log`). Verified afterwards: `draft=false`, and ZERO check-runs / ZERO new workflow runs → ready alone bound nothing.
 2. Authorized fresh event, first attempt (`cr179.log`): close at 04:00:08Z + reopen at 04:00:15Z.
-3. Second authorized fresh event, after the paths diagnosis in step 6 (`cr179b.log` 04:02:33Z/04:02:40Z;
-   `cr179c.log` 04:21:24Z/04:21:33Z, comment `…paths_filter hypothesis`). Total: three pull_request events on this PR today.
+3. Second authorized fresh event, after the paths diagnosis in step 6 (`cr179b.log` 04:02:33Z/04:02:40Z; `cr179c.log` 04:21:24Z/04:21:33Z, comment
+   `…paths_filter hypothesis`). Total: three pull_request events on this PR today; all three transcripts are in the
+   witness files (`cr179.log`, `cr179b.log`, `cr179c.log`; the second attempt's transcript is recorded as the
+   terminal-state census in step 4 because that close/reopen ran as one chained command).
 4. Result: NO `pull_request` workflow run was created for `cda6aa70e` (run census in step 4).
    Final state: `OPEN`, `draft=false`, `base=develop`, head unchanged `cda6aa70e80bec1a1db06d85decdd8833cb63994`
    (no PR head moved underneath me at any point; verified per event).
@@ -119,7 +121,8 @@ plus three `disabled_manually` legacy workflows (`acceptance-harness-check.yml`,
 ### #170 (ready, base develop, head b086cf58b)
 
 Checks were not executed for its head, so the same authorized fresh event was used:
-`cr170.log` close 04:04:19Z / reopen 04:04:26Z, and `cr170d.log` close 04:22:26Z / reopen 04:22:35Z
+`cr170.log` close 04:04:19Z / reopen 04:04:26Z, `cr170c.log` close 04:14:30Z / reopen 04:14:37Z, and
+   `cr170d.log` close 04:22:26Z / reopen 04:22:35Z
 (second event = documented control for the paths-filter test in step 6).
 Result: NO `pull_request` workflow run created for `b086cf58b`; 0 check-runs. Final state `OPEN`, `draft=false`, head unchanged.
 
@@ -255,7 +258,8 @@ For #170 and #179 (base develop): the head must carry a parseable, non-placehold
 `.github/workflows/pr-config-matrix.yml` — i.e. the content of `d512653aa` (already on `main`) merged into
 develop, then `git merge origin/develop` into each lane branch and one normal push, which itself provides the
 qualifying `pull_request` event. Until the workflow content is fixed, ANY number of close/reopen fresh events on
-these heads is structurally incapable of binding checks (measured: 3 events on #179, 2 on #170, 1 on #181 → 0 runs).
+these heads is structurally incapable of binding checks (measured: 3 pull_request events on #179, 3 on #170,
+   1 on #181 today, all at unchanged heads → 0 runs).
 For #181 the same fix applies plus the base decision of step 3.
 Because the develop-copy workflow has zero valid jobs, the "second distinct run ID of the pull_request pair"
 cannot be produced by transport alone on today's heads; that is a finding for Codex/Owner, not a detail.
@@ -311,4 +315,4 @@ in the ecosystem root.
 
 END_DONE w289-0428-251-demochecks: 3 fresh pull_request events bound zero runs — root cause is the heads'
 DRAFT-only/zero-jobs `pr-config-matrix.yml` (develop blob `7108cf69e4f5…`), transport alone cannot qualify
-#170/#179/#181; akte + witnesses in this file, plan PR: PLACEHOLDER_PLANPR
+#170/#179/#181; akte + witnesses in this file, plan PR: #93
