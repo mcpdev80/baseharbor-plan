@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW. Coord a4573079. ABNAHME management-host RUNDE 3, kandidaten-genau.
+KANDIDAT: PR #1405 head 64d93e945ae vs develop (8bda98c1 oder neuer — lsremote). AKTE: management-host/
+act-1405b-round-3.md (fixbeschreibung, w267) + round-3-restoration.md (branch-anomalie) + round-3-landing.md
+(transport+checks, w278). DEIN VORGÄNGER-REZEPT act-1405b: (1) bootstrap-lock durchgehend bis bind,
+uebergang lifetime ohne herrenlose luecke, root gepinnt, lifecycle-op same-host owned-authority ohne
+zweitlock; (2) serveCommand- regression zwei fresh-root-prozesse VERSCHIEDENE listen-adressen, erster
+behaelt, zweiter abgewiesen; (3) managementHostForServe non-nil fehler => return, (nil,nil) nur gewollt;
+(4) KAUSALE MUTANTE an ECHTER produktions-zeile ROT+GRUEN + hashes (doktrin). PRUEFPUNKTE exakt gegen
+diese 4 + write-set ohne .github + checks terminal am kopf. URTEIL als management-host/act-1405c.md
+(ACCEPT|REJECT+rezept). END an a4573079: "END_DONE codex-luna-mh-1405c: verdict=<..>".

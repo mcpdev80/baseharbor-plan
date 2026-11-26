@@ -1,0 +1,8 @@
+WORKER MISSION: card 0428-249 / PR #1812 FULL requalification (owner mandate 25.11 bites 5+6, order: AFTER #1826+#1830 merged; authority POLICY-PRECEDENCE.md).
+Prereq verification FIRST: develop tip must include #1826 (145b4a20) AND #1830 (pin b41127723e523134a1c14ee3c36cf133237162ce in docs/releases/v0.4.28.demo-ref - show the file line). Report both SHAs.
+Transport: git merge origin/develop into lane-0428-249-runtime-image-fix + NORMAL push (no rebase/force/cherry-pick). GUARD: post-merge verify #1823's cmd/baha/secret_* deny+assertions present (content-reversal trap - check secret_operations.go + secret_audit_test.go).
+Qualification in HOSTED CI on the ONE final exact head: ALL 14 Docker/Podman Light gates via the v0.4.28 workflow_dispatch pair (Docker batch to terminal FIRST - serialized window, then Podman batch; tag v0.4.28, demo_ref OMITTED = pin). Record BOTH run IDs AND every one of the 14 gate outcomes (green per gate; skipped counts as NOT green) in evidence.
+Then: HANDOFF ONLY - write candidate state (head SHA, both run IDs, 14-gate table) into the evidence PLAN/file and END_DONE; a SEPARATE Codex session performs the independent review and the merge; the COORDINATOR closes card 0428-249 (resolution + decision line + two run IDs, render+check+push) after the merge witness. Do not merge or close the card yourself.
+Constraints: consent/auth untouched; no .github/scripts/** edits (if a needed input name mismatches, STOP+QUESTION file:line); no subagents; VM only brief smoke.
+
+ROLE (2026-11-25): local worker executes integration/push/CI; Codex (separate session, not the author) reviews the exact candidate and merges. Old witnesses VOID by definition: 45428812940 (stale), 45438096326 (failed), 45440440221 (cancelled).

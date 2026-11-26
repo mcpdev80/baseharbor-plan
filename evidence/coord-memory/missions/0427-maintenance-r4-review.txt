@@ -1,0 +1,6 @@
+CODEX-REVIEW (RE-REVIEW) 0427-maintenance-client — PR #1428 head 396529860e1f gegen develop 8a3f58da9. drift-frei, CI run 42416537555 terminal success, delta nur maintenance-dateien.
+Dein letztes urteil (act-1428-review.md, §'actionable recipe') hatte zwei kernpunkte — pruefe NUR deren behebung am sha-genauen diff:
+  1. STALE DESTROY TOMBSTONE: successful local AND remote destroy now preserve a durable committed record (destroy@1 tombstone) WITHOUT reloading state afterwards; no ghost 'stale' state; replay stays consistent on both routes.
+  2. ALL-EXIT MATRIX: table-driven lifecycle test covers EVERY exit (local/remote x success/owner-failure/history-failure); each history-write failure lands in a defined state; assertions are last-bearing (mutant probe shows red when the guard is removed).
+plus: write-set unchanged (nur maintenance-dateien), no weakening of prior gates, new tests are CI-picked-up.
+Vertrag: plan.py show t-20261018-r27-maintenance-client. sha vor/nach, kein eigenes gate, keine CI neu. END an 594fd2f5 mit APPROVE|REQUEST-CHANGES + rezept; bei APPROVE melde — ich gebe CODEX-MERGE frei.

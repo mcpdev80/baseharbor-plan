@@ -1,0 +1,19 @@
+ROLLE: Worker (Lane w256). Coord 841e7734. KARTE: t-20261018-r27-managed-users RUNDE 6 (REJECT-KORREKTUR
+act-1397d.md, PR #1397 head aa36af7324a). Claim ueber plan.py vor erster aenderung.
+BEFUND (wortlich): (A) body-TYPTREFFE: internal/identityprovider/managed_user_invite.go:239-242 serialisiert
+ein OBJEKT {to, requiredActions} — dokumentierter body ist eine JSON-STRINGARRAY ["VERIFY_EMAIL",
+"UPDATE_PASSWORD"] (ohne 'to' im body; empfaenger kommt aus dem profil des benutzers, parameter evtl.
+'prepend' query — am 26.8.0 katalog festmachen, beleg-link im akt). (B) fixture prueft nur 'key exists',
+nicht das EXAKTE array; passwort-check flags nur non-empty statt 'key absent'. (C) contractAcceptsShippedKeycloak
+prueft nur ROUTEN-SUFFIX, die extrahierte Keycloak-IMAGE-VERSION bindet den contract NICHT an 26.8.0.
+REZEPT: body = exakt stringarray; fixture assertiert EXAKTE actions-array + 'passwort-key fehlt ganz';
+contract-check an extrahierte version 26.8.x BINDEn (fail-closed bei abweichender version: SKIP statt
+gruen ist verboten — skip != pass, kartenwort). Mutante bleibt kausal (echte quell-zeile). PR Selected
+Checks am neuen kopf terminal selbst beobachten. STOP: katalog-beleg nicht erhaltbar => END_BLOCKED mit
+quellenangabe, kein mock-sieg.
+ARBEIT: zweig work/r27-managed-users, develop-merge falls rueckstaendig, push (PR #1397). AKTE:
+evidence/r27-welle5-2026-11-06/managed-users/round-6.md (lsremote, transcript rot+gruen, version-bind-beleg,
+dokument-zitat array-form, ## repo-rule compliance). GATES: KEINE subagenten/zweiter PR/root-checkout/.github,
+caches /tmp/opencode/w256*.
+END an 841e7734: "END_DONE w256-mu-payload-array: head=<sha10> body=<stringarray> versionbindung=<26.8.x fest>
+lauf=<id TERMINAL> lsremote=<sha10> akte=<pfad main> | <Satz>"

@@ -1,0 +1,10 @@
+TASK 0428-271 · verifyRuntimeBrokerBuildIdentity discards both commit SHAs, so a runtime broker at the WRONG commit passes readiness whenever the semver matches (bughunt-hv26 F4, witnessed on develop 3ebfb90d). Card: t-20261124-r28-broker-build-identity-commit (claimed, owner w60).
+
+Steps:
+1. Read scripts/plan.py show + the task note + product AGENTS.md. Claim already published (285a7193e). Rebase your isolated branch on current develop 3ebfb90d.
+2. WRITE-SET FIRST: locate verifyRuntimeBrokerBuildIdentity (apply/verify readiness probe). Confirm its file is DISJOINT from cmd/baha/app_status_result.go (#1818) and internal/metrics/perses_dashboard_provision.go (#1819) and operatorauth (owner is restructuring those). If it collides, post a QUESTION with file:line and STOP.
+3. Fix: the probe must PROVE the runtime broker is the exact candidate commit (compare the commit SHA, not just semver) OR surface commit divergence as a named readiness condition instead of silently dropping both SHAs. Fail-closed on mismatch. Do not weaken the semver check; add commit verification.
+4. Add a regression proving a broker with matching semver but WRONG commit is rejected/flagged. Register it so GitHub CI runs it (package-discovered); name test->check->trigger in evidence.
+5. Push exact head, run exact-head Hosted CI to terminal; record run id + outcome. Hosted ONLY (no local go test).
+
+Rules: scripts/** and .github/** UNTOUCHED (coverage catalog is owner-scope like #1817 — if your new test/source needs catalog rows, post the needed file:line as a QUESTION, do NOT add rows yourself). MERGE-FROST: no merge, keep PR OPEN. One PR for this card. No subagents (AGENTS 4.8). No Codex contact. Evidence: workers/todos + ## PLAN + repo-rule compliance in the task evidence. Reply head SHA + ls-remote + run id.
