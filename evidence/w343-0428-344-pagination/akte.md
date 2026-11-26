@@ -129,13 +129,22 @@ stays green by derivation).
     internal/machinereadmodels/artifacts.go, internal/sourcetransfer/transfer.go.
     (Note: `internal/machinehttp/source_transfer.go` is listed but `machinehttp` has no existing
     package row; the same single row form applies.)
-  - Run 3 (state): 45884719597 (event `pull_request`, second exact-head trigger via authorized
-    close+reopen on the same head 969362e39…) — observed terminal below.
+  - Run 3: 45884719597 (event `pull_request`, second exact-head trigger via coordinator-authorized
+    close+reopen on the same head 969362e39…) → same FAILURE (identical Trusted Plan log).
+    Pair evidence for the exact candidate head: run IDs 45884566859 + 45884719597, both
+    `pull_request` events on 969362e397a14d3f1e173697750386079aa4f5d2.
+- Plan PR: https://github.com/mcpdev80/baseharbor-plan/pull/151 (akte). Hosted Plan validation:
+  45884416530 failed on a stale-base render crash (foreign card `prs` line bug, since fixed on main);
+  rebased onto current main and re-triggered: run 45887227902 SUCCESS on this branch's head.
 
 ## Cleanliness
 
-- No containers/compose projects started (pure Go + docs lane). `docker ps -a` before/after: n/a for this lane's host — tests run only in Hosted CI.
-- Worktree: `/home/marcel/dev/baseharbor-ecosystem/workers/w343-0428-344-pagination-wt` (removed after END per coordinator policy).
+- Ambient `docker ps -a` on this host: empty (`docker ps -a --format '{{.ID}} {{.Names}}'` printed no
+  rows, own pid 1546726 witness). No container, network, volume or compose project was created by
+  this lane; VMs untouched.
+- Worktree: `/home/marcel/dev/baseharbor-ecosystem/workers/w343-0428-344-pagination-wt` (lane working
+  tree; coordinator releases it after disposition).
+- cleanliness: ok (no lane-owned container/network/volume/state directories exist)
 
 ## Handoff
 
