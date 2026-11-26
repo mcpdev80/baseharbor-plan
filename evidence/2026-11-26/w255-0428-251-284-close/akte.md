@@ -84,3 +84,7 @@ After PR #111 was opened on head `dd37bf6eda6bbe4e49afe0361644b88c7ff62a65`, `gi
 `dd37bf6eda6bbe4e49afe0361644b88c7ff62a65 refs/heads/w255-0428-251-284-close`
 
 Hosted run `45779132358` completed SUCCESS on this exact head. The next forward commit records these post-push transport witnesses; final acceptance will use the new exact-head Hosted Plan validation after that commit.
+
+## Current publication hold
+
+END_BLOCKED — PR #111 is open at the closure candidate; the owner freeze on additional plan merges is in effect until the direct-main provenance deviation akte lands. The pre-freeze review/merge record is preserved for audit but does not authorize a merge during this hold. The 0428-284 closure is not yet published on main.
