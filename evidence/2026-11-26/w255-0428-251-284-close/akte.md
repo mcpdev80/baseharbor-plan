@@ -88,3 +88,30 @@ Hosted run `45779132358` completed SUCCESS on this exact head. The next forward 
 ## Current publication hold
 
 END_BLOCKED — PR #111 is open at the closure candidate; the owner freeze on additional plan merges is in effect until the direct-main provenance deviation akte lands. The pre-freeze review/merge record is preserved for audit but does not authorize a merge during this hold. The 0428-284 closure is not yet published on main.
+
+
+## PLAN addendum: provenance freeze release and 0428-284 closure
+
+1. Read PR #113 at its frozen exact head and independently check each of its five claims against GitHub commit, compare, and workflow APIs.
+2. Include the lane-suffix versus commit-identity mismatch as a mechanical admission-rule finding; accept #113 only if the factual claims and exact-head validation pass.
+3. Post both the review comment and COMMENTED review record before a normal squash merge; verify the squash landing by mergedAt, mergeCommit, and blob equality.
+4. Recheck that #113's akte is present on live main, then recheck PR #111's exact head, hosted Plan validation, mergeability, and current-main ancestry.
+5. Merge #111 only after the deviation record is verified in main and the owner freeze is thereby lifted; record merge metadata and post-merge task/akte blob witnesses.
+
+## #113 deviation review and #111 refresh
+
+PR #113 was reviewed at frozen head `106f829b12d6bc0a38ab81c44d1d85c87c621878`. Its exact-head Plan validation was run `45782065086`, pull_request event, attempt 1, completed SUCCESS. The review comment was issue comment `7189959433`; the COMMENTED review record was `6072835794`. The normal squash merge completed at `2026-11-26T10:53:03Z` as `59ab8ee2552a88e3acb663525035636f63da0f1e`. `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main` returned that SHA. The akte blob on the reviewed head and on main is `6c1726a33351ec857ae1fffbd5443b69a2fccb62`.
+
+The five reviewed factual claims were checked against GitHub APIs and commit trees:
+
+1. Commit `2d17250b3f` is a direct child of `be672c215f` and changes only `evidence/2026-11-26/w308-0428-352-gateplanscan/akte.md`.
+2. Orphan `18cefad98288a7806bdb5e9a9ed78e6c536a7c34` is not reachable from main; its author is w308 and committer is w301. GitHub compare reports diverged with `ahead_by=3`, `behind_by=1`, confirming the non-main lineage and identity collision.
+3. Push runs `45777145407` (07:41:00Z, head `18cefad98`) and `45777293227` (07:42:13Z, head `2d17250b3`) match the reported replacement sequence. GitHub run metadata does not expose the force flag itself; the two timestamps and the orphan/replacement heads are the force-with-lease fingerprint recorded in the source akte.
+4. Commits `4f2e01876`, `8525c6cdc`, and `ccd89bf2f` are direct-main commits whose changed paths are all under `evidence/`; their respective tree deltas are 488, 1, and 2 paths.
+5. PR #1838 merged to main at `7bdeae95c` and changed only `evidence-r28/w142-0428-287-hop.md`; PR #1854 merged to main at `cddc81b34` and changed only `w219-0428-271-0428-286-1820hop-plan/evidence/2026-11-25/w219-0428-271-0428-286-1820hop.md`. Tag `v0.4.27` object `d94024608` peels to `6c40fab4d`; compare `6c40fab4d...main` reported ahead_by=5.
+
+Identity finding: the session lane was `w311-0428-251-planpubdev`, while the commit author and committer were `w311-0428-251-pubdeviation`. Lane/card number match but suffix differs. This supports mechanically checking the canonical identity during review; no identity rewrite was made.
+
+The merge lifted the previously recorded Plan-merge freeze. PR #111 was rechecked after #113 landed: its branch `w255-0428-251-284-close` started at `93a027518ba7ab6a2356edbdadd85a7566e5864b`, while current main was `59ab8ee2552a88e3acb663525035636f63da0f1e`. I fetched that exact `origin/main` and absorbed it with ordinary merge commit `2ac2ba4050`, author and committer both `w255-0428-251-demo170codex`. The card closure source change remains the only task source change; `python3 scripts/plan.py render` regenerated the derived views, and `python3 scripts/plan.py check` reported 785 tasks, 7 epics, 13 releases, 24 decisions, 0 errors, and 10 existing warnings. The PR remains open for independent review; this lane will not merge its own correction. A fresh Hosted Plan validation is required for the new exact head before that review.
+
+Current state: #113 is merged and its deviation akte is present on Plan main. #111 contains the 0428-284 closure and is awaiting an independent review after its refreshed exact-head validation; it has not been merged by this lane.
