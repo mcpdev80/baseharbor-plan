@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w65-0428-269-batchbaseline
+owner: w328-0428-273-pr1819pre
 kanban_status: active
 kanban_lane: active
 kanban_summary: "Unblock #1819 / card 0428-181 (identity dashboard catalog consumer). Exact head 69f76b94 fails Trusted Plan because three…"
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45320885286"]
 
 - [ ] t-20261124-gate-catalog-baseline-1819 · CI/catalog: add #1819 source rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w65-0428-269-batchbaseline  
+    **Owner:** w328-0428-273-pr1819pre  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45320885286)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45320885286"]
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w65-0428-269-batchbaseline  
+**Owner:** w328-0428-273-pr1819pre  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

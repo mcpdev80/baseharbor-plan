@@ -7,7 +7,7 @@ areas: [ci, testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w170-0428-249-demo-pr175-fixup
+owner: w322-0428-249-pr1812gate
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: ""
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-demo/pull/175"]
 
 - [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** w170-0428-249-demo-pr175-fixup · **Priority:** high  
+    **Owner:** w322-0428-249-pr1812gate · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812), [baseharbor#1837](https://github.com/mcpdev80/baseharbor/pull/1837)  
     **Waiting:** Reopened per W16: \#1812 is still OPEN at 0922888af8fd70be4049cec529c69aebc057a356; re-evaluate this card after its exact-head work is complete.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-demo/pull/175)  
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-demo/pull/175"]
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261124-r28-release-candidate-testonly-binary](t-20261124-r28-release-candidate-testonly-binary.md)  
-**Owner:** w170-0428-249-demo-pr175-fixup  
+**Owner:** w322-0428-249-pr1812gate  
 **Priority:** high  
 **PRs:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812), [baseharbor#1837](https://github.com/mcpdev80/baseharbor/pull/1837)  
 **Source:** 
