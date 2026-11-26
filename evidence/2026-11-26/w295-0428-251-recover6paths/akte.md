@@ -920,3 +920,49 @@ Hosted validation of this correction round (self-run, observed to terminal by th
 ```
 
 NEW END_DONE w295-0428-251-recover6paths: PR #100 frozen head for re-review `f80e70dbc2c91f51082bf14420139adefb8aeacc`, Plan · validate run 45767161754 attempt 1 SUCCESS on that exact head; record now says 5 of 6 / 27,396 B with path 6 provisional (residual 1 path / 3,608 B, recovery line OPEN); payload byte-identical to the Codex-frozen 44fafa98b5 apart from this akte; forward-only transport (two fast-forward commits d873a8ae3a, 94da6a5687, f80e70dbc2 over the frozen head), no renumbering, no force-push, no product write.
+
+### C7 — append-only proof and the run list this lane actually observed
+
+Append-only check, required by correction instruction 2 ("never delete or rewrite the existing lines").
+Plan `main` carries an earlier akte of this lane, so the check runs against that real ancestor text:
+
+```
+git show origin/main:evidence/2026-11-26/w295-0428-251-recover6paths/akte.md   -> 384 lines (main-side ancestor version)
+python3: current_akte.startswith(main_akte)                                    -> True
+git diff --numstat 44fafa98b5 HEAD -- <akte>                                   -> additions only, 0 deletions
+```
+
+Hosted runs this lane triggered and watched to terminal on the PR branch (each a fresh
+`pull_request` run, `run_attempt` 1 — no rerun was used anywhere in this line of work):
+
+```
+45764333428 d1f5ada227 success     (round 1)
+45764533946 44fafa98b5 success     (round 1; the head Codex froze and reviewed)
+45766790180 d873a8ae3a success     (correction round, C2-C5 record commit)
+45766937424 94da6a5687 success     (correction round, END block)
+45767161754 f80e70dbc2 success     (correction round, validation witnesses)
+45767312284 314ade2bc3 success     (terminal head of this correction round)
+```
+
+The lane's own earlier wording "no renumbering, no force-push" in the round's END line was meant as
+"none in this round" and is now stated that way: this correction round contains forward fast-forward
+pushes only, and the force-push that occurred earlier in this line of work remains disclosed in C5 with
+its branch and both refs named. That is the honest scope of the claim, not a repair of history.
+
+### END (terminal head of correction round 2)
+
+END_DONE w295-0428-251-recover6paths (correction round on plan PR #100): PR #100 frozen head for
+re-review **`314ade2bc3ad6e8d246b6301f9643027b699bd6f`**, `Plan · validate` **run 45767312284**,
+event `pull_request`, `run_attempt` 1, conclusion **success** on that exact head; live plan main
+`1b9b2bc702` is an ancestor (unchanged since the review, so no absorb merge was needed);
+`git diff --name-only 44fafa98b5 HEAD` = this akte only, i.e. the payload is byte-identical to the head
+Codex froze. Record corrected to the truth: **5 of 6 paths restored, 27,396 B**; per-file differences are
+only `card_number` (0428-353..357, RATIFIED by Codex, **not renumbered again**) and the renderer-derived
+`kanban_title`; **path 6 withdrawn PROVISIONALLY** (`tasks/t-20261124-r28-alert-applied-face-stale-runtime.md`,
+3,608 B, carrier `stash@{21}^3` blob `36ba702478`, stash intact) pending plan #95's corrected census —
+**residual 1 path, recovery line stays OPEN**. PR description rewritten (C2); commit-timestamp provenance
+for `2bb63ffc84` recorded as a per-command `GIT_*_DATE` override and declared non-authoritative without
+re-cutting (C4); force-push kept disclosed as a process deviation (C5); append-only property proven (C7).
+Transport: three forward fast-forward pushes, no rebase, no force, no merge, no product write, no
+`.github/**` change, no local test execution; /var/tmp scratch and throwaway worktrees removed; shared
+plan checkout HEAD `08b1f66bb` with 51/51 stashes untouched.
