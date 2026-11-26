@@ -1,0 +1,4 @@
+ROLLE: CODEX-REVIEW
+KANDIDAT: PR #1425 head f1af4cdedcb13d4d35d980c2c1ef36ec365ab1df base develop beb923fe6 repo mcpdev80/baseharbor
+TASK: t-20261107-r27-runtime-broker-oras-missing-edge-readiness (#118).
+PRUEFE sha-genau: (1) controlplaneruntime /readyz root-cause gefixt (server_run.go/server.go:240): READY bei vollstaendigen mounts, nicht pauschal not_ready. (2) oras fail-closed in cmd/baha/application_registry_source.go + internal/orgconfig/source_oci.go: fehlendes/nicht-verifizierbares OCI-sourcebild wird DICHT behandelt (kein generic fallthrough). (3) KEINE doppelarbeit mit bereits-gemergtem #1423 (broker management-host-lock) — pruefe ob readiness-aenderung gegen #1423 konsistent ist, nicht regressiv. (4) write-set cmd/baha/* + internal/{controlplaneruntime,orgconfig,runtimeexecutor}/*, KEINE .github/scripts. (5) hosted 9 pass run 42368956940, ancestry rc0. (6) rot/gruen regression real, kein fake. Verdict+rezept. END an 594fd2f5.

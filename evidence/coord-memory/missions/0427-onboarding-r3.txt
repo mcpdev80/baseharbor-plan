@@ -1,0 +1,10 @@
+Auftrag 0427-043-onboarding-r3 (lane 6e5091cb, FRISCH; kandidat PR#1435 head 09ec640b auf origin + review act-1435-review.md origin/main 845fdeae — dort abholen).
+Karte t-20261018-r27-onboarding-wizard. CODEX-REVIEW = REQUEST-CHANGES. Lies act-1435-review.md wörtlich; die zwei punkte:
+  1. BUNDLE-IMPORT DEAD END: ein bundle-import-pfad laeuft ins leere/nutzt sich nicht — verfolge den import und mache ihn wirksam (oder entferne den toten pfad begruendet), damit der gefuehrte onboarding-fluss vollstaendig durchlaeuft.
+  2. ROOT REGISTRATION / CLASSIFICATION / command-index FEHLT: dein onboarding-kommando haengt nicht sauber am root (wie beim access-wizard PR#1430 — 3 registration tests). Registriere das onboarding-kommando am root command tree + machine classification + docs/cli/command-index.md NEU generieren.
+- claim: plan.py claim t-20261018-r27-onboarding-wizard --owner 0427-043-onboarding-r3 (commit+push) BEVOR aendern.
+- basis develop 8a3f58da9+ Vorfahr (fetch/merge, ancestor rc0). delta NUR onboarding-dateien (onboarding.go, connection_profile_codec.go, internal/onboardingwizard/* + root/classification/command-index falls dort registriert wird — NICHT die OCI/registry/lifecycle/fixture/node/maintenance/accesswizard dateien anderer karten).
+- falls root-registrierung eine datei touched die eine ANDERE karte besitzt => BEFUND/QUESTION an coord (sequenzieren).
+- lokal: go test ./cmd/baha -run 'Command|Machine|Classif|Registration|Bundle|Onboard' + gofmt/vet/build, DANN push. hosted pr-check finale sha TERMINAL (run-id+status evidence), ls-remote zeugnis. ## PLAN + todowrite. keine subagenten (4.8). NICHT idle ohne END.
+Evidence: evidence/r27-welle5-folge-2026-11-07/onboarding-wizard/round-3.md
+END an 594fd2f5. karte->review wenn beide punkte behoben + drift-frei + CI terminal gruen.

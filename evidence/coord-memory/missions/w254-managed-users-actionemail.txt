@@ -1,0 +1,34 @@
+ROLLE: Worker (Lane w254, laptop-Sitz). Coord 841e7734.
+act-1397c.md). Du pruefe/merge NIE selbst — abnahme durch anderen kanal (codex/ornith-review).
+EIGENTUEMER-FELD der karte ist ein toter w247 — RECLAMIERE ueber scripts/plan.py claim (commit+push)
+BEVOR erste aenderung; ab dann owner=coord-welle5 (w254-codex).
+
+BEFUND (act-1397c, REJECT an 8a4eb89ef86): die produktions-aktivierung ruft einen UNDOKUMENTIERTEN
+Keycloak-Endpunkt auf. internal/identityprovider/managed_user_invite.go:221 sendet PUT
+/users/{id}/updateEmail mit {to,subject,body,ttl,repeatable}. Das dokumentierte Admin-REST-operations-
+feld fuer einlassungs-/aktionsmail ist PUT /admin/realms/{realm}/users/{user-id}/execute-actions-email
+mit einer required-actions LISTE (Keycloak 26.8.0 release notes + Admin REST katalog, im akt zitiert).
+Der fixture-204 auf den beliebigen /updateEmail-pfad beweist nur anfrage-konstruktion, NICHT kompatibilitaet.
+
+REZEPT (akt wortlich, uhrfest): (1) in managed_user_invite.go den DOKUMENTIERTEN action-email-pfad
+execute-actions-email verwenden, required-actions entprechen dem karten-Intent (z.B. VERIFY_EMAIL +
+UPDATE_PASSWORD), unterstuetzte query-parameter wo noetig; INVARIANTE keep: BaseHarbor sendet NIEMALS
+ein passwort. (2) fixture so umbauen, dass es METHODE + exakten route + actions-payload + "kein passwort"
+assertiert; provider-version-spezifischen contract-check ergaenzen/behalten; evidence muss zeigen, dass
+der GELIEFERTE Keycloak 26.8.0-pfad die anfrage annimmt und den gewollten action-flow ausloest (kein
+mock-204 auf erfundenem route). (3) fokussierte managed-user tests + package checks am korrigierten
+kandidaten, dann PR Selected Checks am EXAKTEN kopf bis TERMINAL success SELBST beobachten. (4) STOP:
+laesst sich der dokumentierte endpoint/flow gegen die gelieferte provider-version NICHT belegen, kandidat
+REJECT lassen und precise provider/API-inkompatibilitaet melden (kein stiller mock-sieg).
+
+ARBEIT: zweig work/r27-managed-users (derselbe antrag #1397, KEIN zweiter PR), develop-NEU einmerge,
+push. AKTE: evidence/r27-welle5-2026-11-06/managed-users/round-5.md auf origin/main (fetch main,
+ls-tree-zeug, PLAN-checkliste, endpunkt-beleg datei:zeile + doc-verweis, rot+gruen transcript, run-id
+TERMINAL, lsremote-kopf). ## repo-rule compliance abschnitt.
+
+GATES: KEINE subagenten, kein zweiter PR, root-checkout/.github VERBOTEN, write-set disjunkt zu
+identityprovider nur (keine anderen paekte), VMs nicht noetig (kein echt-keycloak-rauch — wenn du einen
+willst: vm-lock, einer-nach-anderer, aber rezept verlangt focus-tests + hosted gate), caches /tmp/opencode/w254*.
+END an 841e7734: "END_DONE w254-managed-users-actionemail: head=<sha10> endpunkt=execute-actions-email
+aktion=<VERIFY_EMAIL+UPDATE_PASSWORD> lauf=<id TERMINAL> lsremote=<sha10> akte=<pfad main> | <Satz>"
+Bei scheitern: END_BLOCKED mit exakter fehlerzeile + provider-version-beleg.

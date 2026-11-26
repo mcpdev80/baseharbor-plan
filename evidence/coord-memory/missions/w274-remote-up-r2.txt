@@ -1,0 +1,22 @@
+ROLLE: Worker (Lane w274). Coord a4573079. KARTE: t-20261106-r27-remote-up-cli-path RUNDE 2 (PR #1407,
+kopf 2651a5c9869, urteil act-1407a REJECT — rezept auf main: remote-up-cli/act-1407a.md, lies es wortlich).
+VIER PFLICHTEN:
+(1) develop-aktualisierung: merge develop (8bda98c1cd3) in work/r27-remote-up-cli => NEUER kopf, PR bleibt
+    dieselbe kette (kein zweiter PR).
+(2) KAUSALE MUTANTE an der ECHTEN produktions-routenzeile (die geaenderte zeile in app_remote_lifecycle.go):
+    in isolierter kopie: mutieren => exakt die red-first-zelle ROT; restore => GRUEN; SHA256 von quelle+zelle,
+    transcript-zeilen in die akte (doktrin; helfer-mutante = REJECT).
+(3) LAUFZEIT-ZELLEN beide familien an der connector-gebundenen deployment mit gesundem core: docker-haelfte
+    auf baha-docker-2 (205) WENN WEGEN FREI (vm-lock, rc=3 => warte nicht, doku 'pending'), podman-haelfte:
+    w273 faehrt sie gerade am ALTEN kopf — fuehre in der akte explizit die basis-differenz (base-only merge,
+    keine semantik-aenderung im lifecycle-pfad) als wiederverwendungs-begruendung AN, sonst selbst nachziehen.
+    Je zelle: up => GRUEN, doctor => health OK, terminal-output in der akte.
+(4) Docker-daemon-'vorbestehend'-aussage: beleg des identischen fehlers auf develop-lauf anhaengen, sonst als
+    UNVERIFIZIERTE lokale aussage umlabeln (hosted candidate run ist gruen).
+Am NEUEN kopf: selected checks (integration 15368 + pflicht) TERMINAL selbst beobachten (eignes-run-pflicht).
+AKTE: remote-up-cli/round-2-r274.md (PUNKTE statt checkboxen; lsremote alt+neu, run-ids, mutanten-hashpaar,
+## repo-rule compliance). Zone workers/w274-wt, caches /tmp/opencode/w274*.
+GATES: KEINE subagenten, .github tabu, root-checkout tabu, coordinator-host container tabu.
+END an a4573079: "END_DONE w274-remote-up-r2: head=<neuer sha10> mutante=<ROT+GRUEN hashpaar>
+docker_zelle=<GRUEN|pending> podman_zelle=<eigen|verweis w273+begruendung> lauf=<id TERMINAL> lsremote=<sha10>
+akte=<pfad main> | <Satz>"

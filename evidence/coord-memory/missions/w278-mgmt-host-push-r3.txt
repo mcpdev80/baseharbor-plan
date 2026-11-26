@@ -1,0 +1,18 @@
+ROLLE: Worker (Lane w278). Coord a4573079. KARTE: t-20261018-r27-management-host (PR #1405 head jetzt
+wieder a87f8377679 = gerundete-2 basis; dein job NUR die landung des fertigen runde-3-fixes).
+FIX-QUELLE: commit 64d93e94 (Eltern a87f8377) liegt UNPUBLISHED in der aufbewahrten arbeitsspur der
+entlassenen w267 — fundort: /home/marcel/dev/baseharbor-ecosystem/workers/.models/laptop (basis-objektbank
+dieser maschine enthaelt 64d93e94, reflog-zeugnis act-1405b-round-3.md auf main, b902c319).
+SCHRITTE: (1) git -C workers/.models/laptop cat-file -e 64d93e94 pruefen; content via `git fetch` aus dieser
+bank in DEINEN persistenten baum workers/w278-wt holen (clone von baseharbor, reference der bank).
+(2) Inzucht-check: 64d93e94 Eltern == a87f8377 (merge-base --is-ancestor rc=0) — sonst STOP+QUESTION.
+(3) push origin 64d93e94:refs/heads/work/r27-management-host (fast-forward auf die wiederhergestellte basis,
+KEIN kraft-mittel). (4) lsremote==neuer sha10, PR #1405 head gegenpruefen. (5) selected checks TERMINAL auf
+dem neuen kopf selbst beobachten (eignes-run-pflicht) — fehlende basis-aktualitaet (develop 8bda98c) NUR
+mergen wenn ein noetiger check meckert (dann merge develop commit, push, ab dann neuer kopf).
+(6) AKTE management-host/round-3.md NICHT — stattdessen round-3-landing.md (PUNKTE statt checkboxen):
+fundort-beweis (cat-file+reflog zeilen), ancestry rc, lsremote alt/neu, run-id TERMINAL,
+## repo-rule compliance. KEIN neuer content — reiner transport + check-beobachtung.
+GATES: KEINE subagenten, workers/baseharbor tabu (quarantaene), root-checkout tabu, /tmp/opencode/w278*.
+END an a4573079: "END_DONE w278-mgmt-host-push-r3: head=<sha10> ff=<ja> lauf=<id TERMINAL status>
+lsremote=<sha10> akte=round-3-landing.md-main | <Satz>"

@@ -1,0 +1,7 @@
+ROLLE: CODEX-MERGE. Coord 841e7734. Owner-autorisiert durch ACCEPT-Akte act-1404c.md (unabhaengige
+Lane, kopf ed98ed1dde7, karte critical, base-artefakt des vorgaenger-befunds geklaert). AKTION:
+gh pr merge 1404 -R mcpdev80/baseharbor --squash; VORHER head==ed98ed1dde7 + state OPEN + checks gruen,
+sonst STOP+END_BLOCKED mit grund. NACHHER: ls-remote develop (neuer kopf), drei-dot diff develop gegen
+den alten zweig = inhaltsgleich (3 dateien), develop-checks am neuen kopf bis terminal selbst beobachten,
+abschnitt in evidence/r27-welle5-2026-11-06/control-plane-single-default/codex-merge-1404.md (UTC, SHA
+before/after) auf origin/main. END an 841e7734: "END_DONE codex-merge-1404: merged=<sha10> inhalt-gleich=<JA|NEIN>".

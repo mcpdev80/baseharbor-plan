@@ -1,0 +1,9 @@
+Auftrag 0427-116-remote-up-cli-r4 (FRISCHE ornith lane c977fe82, uebernimmt; kein kontext der alten).
+Karte t-20261106-r27-remote-up-cli-path (#116). Kandidat PR #1407 branch work/r27-remote-up-cli (head 5900dc6b71). CODEX r3 request-changes — der ECHT-ERFOLGS-fall fehlt, genau das schliessen:
+(1) EIN Test, der das echte CLI `baha app up` (und den --confirm-candidate-pfad) gegen eine per connector gebundene app faehrt und err==nil + spaeter doctor-health-OK assertiert — NICHT Publish/ApplyApplication direkt aufrufen, der pfad muss durch die CLI-Command-oberflaeche (must: app_remote_lifecycle.go). docker UND podman.
+(2) realitaet: wenn ein nativer runtime-gated test (BASEHARBOR_CI_RUNTIME_INTEGRATION=1) docker+podman-abdeckung in der CI nicht leisten kann, liefere ein ECHTES VM-transkript (docker-VM UND podman-VM, vm-lock seriell einer-nach-anderer, rueckbau-null-pruefung) als dauerhafte evidence, und melde als BEFUND welche CI-zelle das spaeter fest uebernehmen muesste (.github owner-scope, NICHT selbst aendern).
+(3) PR-BODY + evidence muss #1419/#117 KORREKT referenzieren: #117=merged fail-closed owner-fix (NICHT ein erfolg-transkript). Behaupte nicht, ask-3 sei durch #117 erledigt — der erfolgsfall ist DEIN nachweis hier.
+Kontinuitaet: git fetch origin, develop (aktuell) mergen, ancestor rc0. exact-one-candidate #1407. write-set cmd/baha/app_remote_lifecycle.go + seine tests + internal/application/remote_pureclient_*, KEIN .github/scripts, KEINE deployment_record/owner-loan (#117/merged).
+Erhalt-pflicht: bestehende testnamen nicht loeschen. eigenes-run terminal beobachten, ls-remote-zeugnis. keine subagenten (AGENTS 4.8). NICHT idle ohne END — festgefahren => QUESTION mit stelle.
+Evidence: evidence/r27-welle5-folge-2026-11-07/remote-up-cli/round-4.md.
+END an 594fd2f5.

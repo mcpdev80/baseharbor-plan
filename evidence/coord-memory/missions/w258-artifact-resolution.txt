@@ -1,0 +1,13 @@
+ROLLE: Worker (Lane w258). Coord 841e7734. KARTE: t-20261018-r27-artifact-resolution (state: ready,
+abhaengigkeiten akzeptiert: ingress, image-transfer HEUTE gelandet, native-auth, registry-access, ci-delivery).
+SUCHE: karte via scripts/plan.py show + baseharbor/AGENTS.md. CLAIM: plan.py claim (commit+push) VOR
+erster aenderung. ARBEIT: zweig work/r27-artifact-resolution vom AKTUELLEN develop (fetch, lsremote-zeug),
+umsetzung streng im karten-scope (artikel-aufloesung: quelle/version -> konkretes artefakt, fail-closed
+bei mehrdeutigkeit), tests fokussiert (red-first wo karte es verlangt), PR gegen develop, hosted selected
+checks am final-kopf bis TERMINAL selbst beobachten (eigenes-run-pflicht). AKTE: evidence/r27-welle5-
+folge-2026-11-06/artifact-resolution/round-1.md (PLAN-checkliste, lsremote, run-id+ergebnis, zellen-
+transcripts, ## repo-rule compliance). GATES: KEINE subagenten, kein zweiter PR, root-checkout/.github
+VERBOTEN, write-set disjunkt (artikel-/registry-pfade; registry-dateien bitte name-only melden falls
+uberschneidung mit landed #1401 droht — dann konflikt-feld dokumentieren statt still), VMs nicht noetig,
+caches /tmp/opencode/w258*.
+END an 841e7734: "END_DONE w258-artifact-resolution: head=<sha10> pr=<n> lauf=<id TERMINAL> lsremote=<sha10> akte=<pfad main> | <Satz>"

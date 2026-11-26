@@ -1,0 +1,5 @@
+ROLLE: CODEX-REVIEW
+KANDIDAT: PR #1420 head be620d2b199ffd9e228745d3e24914095151953b base develop beb923fe6 repo mcpdev80/baseharbor
+TASK: t-20261018-r27-client-commands (#022) r2 — FRISCHE lane-uebernahme.
+PRUEFE sha-genau: (1) NATIVER core-gegart integationstest VORHANDEN und CE-erfasst: neue cmd/baha/client_commands_core_integration_test.go mit BASEHARBOR_CI_RUNTIME_INTEGRATION gate (muster app_repository_integration_test.go), faehrt start/consent/publish-denial gegen echtes core, TWO-HOME authority = production resolveApplication. (2) in-process A1 TLS status/restore roundtrip (serve targetsession.Pool). (3) CI-AUFNAHME: neuer test laeuft in CI — lane meldet aufnahme via go test ./cmd/baha (release_source_preflight/cli-package-tests run 128402008237); runtime_integration ist .github:349 push-only owner-gate (BEFUND, lane hat .github NICHT geaendert — korrekt). PRUEFE dass der gated test wirklich von einem CI-job erfasst wird und nicht nur lokal laeuft. (4) write-set NUR cmd/baha/*, KEIN .github/scripts. (5) hosted 10 pass auf be620d2b1, ancestry rc0, mergeable. (6) kein fake pass/skip.
+Verdict+rezept. END an 594fd2f5.
