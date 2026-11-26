@@ -1,0 +1,5 @@
+ROLLE: CODEX-MERGE. Coord 841e7734. Owner-autorisiert durch ACCEPT-Akte act-1383b.md auf origin/main
+(kandidat PR #1383 head 1b02e8866dd4, zweig work/r27-compose-isolation). AKTION: gh pr merge 1383
+-R mcpdev80/baseharbor --admin; VORHER: head==1b02e8866dd4 und state OPEN, sonst STOP+END_BLOCKED.
+NACHHER: ls-remote develop; bei squash: blob-hash-vergleich der compose-dateien kandidat-vs-develop;
+END "END_DONE codex-merge-1383: merged=<sha7> inhalt-gleich=JA".

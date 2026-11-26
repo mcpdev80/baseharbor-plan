@@ -1,0 +1,9 @@
+ROLLE: CODEX-REVIEW (Luna). Coord 841e7734. ABNAHME snapshot-flake KUR RUNDE 8, kandidaten-genau.
+KANDIDAT: PR #1400 head 6079ca200cc vs develop; Karte t-20261105-r27-snapshot-change-guard-deterministic;
+akte evidence/r27-welle5-2026-11-06/snapshot-flake/round-8.md; DEIN VORBEFUND 1400a (review-1400a.md):
+nil-hook ueberschrieb frischen Lstat-Wert -> Layer-1-Guard inert. PRUEFPUNKT ZENTRAL: r8 muss genau diesen
+Punkt heilen (nil-gate OHNE ueberschreiben; Lstat-erhaltend; regressionszelle die den 1400a-mutanten faengt),
+und develop ist ANCESTOR des kopfs (gemessen JA). Hosted: 42200820795 TERMINAL SUCCESS am exakten kopf.
+URTEIL als datei evidence/r27-welle5-2026-11-06/snapshot-flake/act-1400b.md auf origin/main
+(ACCEPT|REJECT + begruendung + rezept bei REJECT), dann END an 841e7734:
+"END_DONE codex-luna-1400b: verdict=<..> aktedatei=<pfad> | <Satz>".

@@ -1,0 +1,7 @@
+ROLLE: CODEX-WORKER. Coord 841e7734. KARTE: t-20261018-r27-local-registry (NUR GRUENLAUF, kur ist JETZT
+IN DEVELOP 7c393b0dd84 — vorher bestaetigen mit merge-base). ZWEIG work/r27-local-registry (PR #1401 head
+e520ed6096d): develop einmerge, push, hosted lauf bis TERMINAL GRUEN am neuen kopf SELBST beobachten,
+akte round-1.md um zeile 'kur-in-develop + gruenlauf <id> am kopf <sha>' erweitern (fetch origin main,
+zielgerichtetes add, ls-tree-Nachweis). KEIN inhalt-wechsel, KEIN zweiter PR, KEINE subagenten, KEINE
+.github/.root-checkout-edits, caches /tmp/opencode/w228*.
+END an 841e7734: "END_DONE codex-worker-1401-greenrun: head=<sha10> lauf=<id TERMINAL GRUEN> lsremote=<sha10>".

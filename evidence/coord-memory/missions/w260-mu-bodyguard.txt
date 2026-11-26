@@ -1,0 +1,22 @@
+ROLLE: Worker (Lane w260). Coord 841e7734. KARTE: t-20261018-r27-managed-users RUNDE 7 (REJECT act-1397e).
+PR #1397 head fa2acd228ee. Claim via plan.py vor erster aenderung.
+ZWEI PFLICHTEN AUS DEM REZEPT (wortlich):
+ (1) FIXTURE-HAERTUNG internal/identityprovider/managed_user_invite_test.go: aktivierungs-body lesen und
+     LEER =>sofort FAIL (vor jedem decode); exakter []string-vergleich, KEIN 'to', KEIN 'password'
+     UNBEDINGT (bedingungslos) fuer die aktivierungs-anfrage; eigene regression: leerer body wird
+     abgelehnt. (string-array-produktions-body + 26.8.x fail-closed version-guard BLEIBEN wie sie sind.)
+ (2) KAUSALE MUTANTEN-DOKTRIN (der REJECT-hauptpunkt): in ISOLERTER kandidat-kopie die ECHTE
+     PRODUKTIONS-ROUTENKONSTRUKTIONszeile (route-bau in managed_user_invite.go) neutralisieren =>
+     dieselbe aktivierungs-fixture faellt ROT; exakte quelle zurueck => GRUEN aus DERSSELBEN zelle.
+     Roh-transcript (befehle+ausgaben) + vorher/nachher-identitaet (hash der datei) in die akte.
+     NICHT die ambiguity-mutante, NICHT helper-only (beide waren schon REJECT-gruende).
+ (3) fokussierte identityprovider-checks + hosted PR Selected Checks am FINAL-kopf terminal selbst
+     beobachten. Live-runtime bleibt spaeterer access-gate (kartenwort) — nicht jetzt simulieren.
+AKTE: evidence/r27-welle5-2026-11-06/managed-users/round-7.md (PLAN-checkliste gegen die 2 pflichtfelder,
+lsremote, run-id, mutanten-transcript+hashes). GATES: KEINE subagenten/zweiter PR/root-checkout/.github,
+caches /tmp/opencode/w260* (isolierte kopie dort, nicht im produktzweig).
+END an 841e7734: "END_DONE w260-mu-bodyguard: head=<sha10> leerbody=<FAIL-regression drin> mutante=<produktions-route ROT+GRUEN + datei-hashes> lauf=<id TERMINAL> lsremote=<sha10> akte=<pfad main> | <Satz>"
+WIEDERANSATZ-HINWEIS (coord, 2026-11-06 nach tmux-unfall): deine vorgaenger-lane wurde im lauf
+ABRISSEN (kein verschulden der arbeit — laufende fenster-getoetet, gepushtes ist auf remote).
+Realitaetsabgleich VOR allem: ls-remote den zweig-kopf nennen (REMOTE-zeug in der akte), dann
+GENAU dort weiter, wo der remote steht — nichts dublieren, nichts zuruecksetzen.

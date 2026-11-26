@@ -1,0 +1,13 @@
+ROLLE: Worker (Lane w283). Coord a4573079. KARTE: t-20261105-r27-compose-host-isolation (hntersgrund-
+arbeit fuer die matrix auf baha-docker-2). BEFUND (vm-audit gemessen 23:5xZ): 12 container auf 205 ohne
+inhaber — die letzten claims (w274 22:42->23:31 und 23:52, w279 23:11->23:26) wurden released ohne
+vollstaendigen rueckbau. AKTION: vm-lock claim baha-docker-2 w283; INVENTUR zuerst (ps -a mit namen+
+creation-time, netz, volumes; jeder bestand gegen die drei lane-akten zuordnen: bh-w274*/w279*/compose-*
+muster; NICHTS fremdes loeschen — unklare fuege eine 'fremd-unklar'-liste bei und lass sie stehen);
+eigenmuellig-zuordenbare reste + totgut abgeeschlossener lanen tilgen (dreipunkt-check je löschaktion in
+der akte); zielbild: inhaber-FREI und container=0 ausser definierter dauer-stapel (auf 205: keiner —
+pruefe und notiere). Release mit journal-zeile. AKTE: compose-host-isolation/host-205-cleanup.md (PUNKTE
+statt checkboxen, inventur-tabelle, ## repo-rule compliance). Zone workers/w283-wt, /tmp/opencode/w283*.
+GATES: KEINE subagenten, coordinator-host tabu, nur 205 (andere hoste nicht anfassen — dort leben lanen).
+END an a4573079: "END_DONE w283-pr1383-clean205: inventur=<n bestaende> geloescht=<n> fremd-unklar=<n/liste>
+host-end=<0/dauer-liste> journal=<claim+release> akte=<pfad main> | <Satz>"
