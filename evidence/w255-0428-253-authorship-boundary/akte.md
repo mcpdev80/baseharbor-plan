@@ -41,9 +41,9 @@ origin  https://github.com/mcpdev80/baseharbor-plan.git (push)
 
 The branch is rebased onto current `origin/main` `053b2b6d1af11ad0f926949ef39c7fdbf0e400bf`. The target task path has no intervening commits from the prior fetched base `76ab859144661e7fdabdc10e36b9cee5f3ce99ad` to current main. Hosted Plan validation will be recorded after the PR runs.
 
-## Current local state
+## Publication state
 
-The exact task sentence and Owner ruling are prepared on a branch based on current main. No commit or push has occurred yet. END DONE will be recorded after the merged readback.
+The exact task sentence and Owner ruling are published for review in Plan PR #68. The remaining gate is Hosted Plan validation on the final exact PR head, followed by scoped squash merge and a readback from live main.
 
 ## Publication status
 
@@ -84,3 +84,7 @@ Second push delivery witness:
 ## Hosted validation witness
 
 Plan PR #68 head `a3f01dea035432376641f2eea485b54131c3a23e` was validated by Hosted run `45734311673` (`pull_request`, conclusion SUCCESS). The executed job was `Plan · validate` and its required steps, including unit tests and vault/generated-file validation, succeeded. Run: https://github.com/mcpdev80/baseharbor-plan/actions/runs/45734311673. This run validates the note and ruling; the PR will also validate the final akte update on its new exact head.
+
+## Live-base integration and validation
+
+Live `origin/main` advanced to `8ae7436de854c4aa5c3ae55412390d91b4d6339e` while PR #68 was open. Ordinary merge commit `fd3b8ba4da8f2f5521ab38d12079d4af00fd2f36` integrated it into the branch; `git merge-base --is-ancestor origin/main HEAD` succeeded. PR #68 validation run `45734657702` then completed SUCCESS on exact head `fd3b8ba4da8f2f5521ab38d12079d4af00fd2f36`, with the `Plan · validate` job executed. URL: https://github.com/mcpdev80/baseharbor-plan/actions/runs/45734657702. The task path had no commits between the prior base and this current main; the only historical main entry shown for that path remains the 76ab base commit.

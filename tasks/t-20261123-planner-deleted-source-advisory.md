@@ -83,4 +83,4 @@ Erste zwei Übernahmen als gekürzte Identität der eigenen Bahn übernommen (w2
 
 The quoted admission note applies only to the first two historical records where `w205` is a shortened canonical formatting of this card's own lane, `w205-0428-253`. It does not admit any foreign-lane identity or authorize shortened identities for new commits. Foreign-lane evidence requires Coordinator recovery/republication; this exception is not generalized.
 
-Provenance: executing lane `w255-0428-251-demo170codex`; base SHA `053b2b6d1af11ad0f926949ef39c7fdbf0e400bf`; Hosted Plan validation run: exact-head `Plan · validate`, with the final run URL recorded in the accompanying akte.
+Provenance: executing lane `w255-0428-251-demo170codex`; branch cut from `053b2b6d1af11ad0f926949ef39c7fdbf0e400bf`, then integrated live `origin/main` `8ae7436de854c4aa5c3ae55412390d91b4d6339e` by ordinary merge before validation; exact-head Hosted `Plan · validate` run is identified in the akte and PR #68 checks.
