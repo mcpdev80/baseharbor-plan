@@ -70,3 +70,7 @@ Candidate source commit `370d6ac6f2` reports `w255-0428-251-demo170codex w255-04
 - `views/releases/v0.4.28.md`
 
 The task ID and owner fields are unchanged. The additional commit records the publication witnesses and uses the same lane identity.
+
+## First branch delivery witness
+
+The first normal push delivered commit `ac1f100d0d4f2ff255515b86a1e32e4f1bb66834`; direct GitHub transport witness from `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/w255-0428-251-284-close` was `ac1f100d0d4f2ff255515b86a1e32e4f1bb66834 refs/heads/w255-0428-251-284-close`.
