@@ -80,7 +80,7 @@ Job | status | conclusion
 - PR · Validation · go-build | completed | success
 - PR · Runner Interface | completed | skipped
 
-Only 5 jobs executed as required; the 8 Go unit + runtime gates are skipped (PR run does not qualify them).
+18 of the 30 listed jobs executed (completed success or failure); 12 were skipped. The six listed Go-unit shards (`owner`, `cli-2`, `packages`, `cli-0`, `cli-1`, `cli-3`) completed successfully. The release, HA, native, and pre-release jobs marked skipped did not run, so this PR run does not qualify those runtime gates.
 
 ### Run 45728113999 (push) — 0 jobs / 0 steps (workflow never dispatched; conclusion=failure, start_failure=none)
 
