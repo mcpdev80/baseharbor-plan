@@ -8,8 +8,6 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261114-r28-cli2-coordination](../tasks/t-20261114-r28-cli2-coordination.md) | CLI redesign: coordinate five workers | ready | high | coord | — | — |
 | [t-20261116-r28-bug-apply-consent-ux](../tasks/t-20261116-r28-bug-apply-consent-ux.md) | Clarify apply candidate consent | ready | normal | — | — | — |
-| [t-20261116-r28-bug-capability-permissions](../tasks/t-20261116-r28-bug-capability-permissions.md) | Scope inferred provider grants | ready | high | — | — | — |
-| [t-20261116-r28-bug-provider-discovery](../tasks/t-20261116-r28-bug-provider-discovery.md) | Detect mixed Compose providers | ready | high | — | — | — |
 | [t-20261120-gate-catalog-ci-fast-check](../tasks/t-20261120-gate-catalog-ci-fast-check.md) | 0428-205 · Wire ci-fast-check into the release gate catalog | ready | normal | Codex (root-cause diagnose, NICHT worker) / Coordinator | — | [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774) |
 | [t-20261122-native-plan-self-selection](../tasks/t-20261122-native-plan-self-selection.md) | CI: catalog and planner self-change selects zero gates | ready | not set | — | — | — |
 | [t-20261124-0428-278-perses-provision-ghost-coverage-rows](../tasks/t-20261124-0428-278-perses-provision-ghost-coverage-rows.md) | gate-plan ghost source rows | ready | low | — | — | — |
@@ -18,7 +16,6 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | [t-20261125-hunt-v51-ambient-test-env-leak](../tasks/t-20261125-hunt-v51-ambient-test-env-leak.md) | 0428-192 · Ambient os.Setenv leaks BASEHARBOR_* across tests (#1650 class) | ready | normal | lane-0428-192-hunt-v51-testenv | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261125-hunt33-action-pins-audit](../tasks/t-20261125-hunt33-action-pins-audit.md) | 0428 hunt H-V33: hunt33-action-pins-audit | ready | not set | — | — | — |
 | [t-20261125-hunt33-cell-prereq-docs](../tasks/t-20261125-hunt33-cell-prereq-docs.md) | 0428 hunt H-V33: hunt33-cell-prereq-docs | ready | not set | — | — | — |
-| [t-20261125-hunt33-go-runtime-prereq](../tasks/t-20261125-hunt33-go-runtime-prereq.md) | 0428 hunt H-V33: hunt33-go-runtime-prereq | ready | not set | — | — | — |
 | [t-20261125-hunt33-jq-gh-guards](../tasks/t-20261125-hunt33-jq-gh-guards.md) | 0428 hunt H-V33: hunt33-jq-gh-guards | ready | not set | — | — | — |
 | [t-20261125-hunt33-runtime-pin-guards](../tasks/t-20261125-hunt33-runtime-pin-guards.md) | 0428 hunt H-V33: hunt33-runtime-pin-guards | ready | not set | — | — | — |
 | [t-20261125-hunt33-setup-node-sha-pin](../tasks/t-20261125-hunt33-setup-node-sha-pin.md) | 0428 hunt H-V33: hunt33-setup-node-sha-pin | ready | not set | — | — | — |
@@ -51,7 +48,6 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | [t-20261126-hunt46-damaged-state-reserved-namespace](../tasks/t-20261126-hunt46-damaged-state-reserved-namespace.md) | 0428 hunt H-V46: DamagedDeploymentNamespace flags the reserved never-delivered namespace as damaged (low) | ready | not set | — | — | — |
 | [t-20261126-hunt46-destroy-data-loss-vocabulary](../tasks/t-20261126-hunt46-destroy-data-loss-vocabulary.md) | 0428 hunt H-V46: destroy --all and control-plane destroy --delete-data use split data-loss consequence vocabulary (low) | ready | not set | — | — | — |
 | [t-20261126-hunt46-never-delivered-proof-leak](../tasks/t-20261126-hunt46-never-delivered-proof-leak.md) | 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) | ready | not set | — | — | — |
-| [t-20261126-hunt46-recovery-backup-volume-heuristic](../tasks/t-20261126-hunt46-recovery-backup-volume-heuristic.md) | 0428 hunt H-V46: recovery/backup volume preservation uses a case-insensitive substring search (medium) | ready | not set | — | — | — |
 | [t-20261126-runner-openssl-podman-generator](../tasks/t-20261126-runner-openssl-podman-generator.md) | Runtime CI cells guarantee OpenSSL and Podman Quadlet generator | ready | not set | — | — | — |
 | [t-20261126-trusted-catalog-baseline-identity-tests](../tasks/t-20261126-trusted-catalog-baseline-identity-tests.md) | Trusted catalog baseline for identity dashboard tests | ready | not set | — | — | [baseharbor#1857](https://github.com/mcpdev80/baseharbor/pull/1857), [baseharbor#1859](https://github.com/mcpdev80/baseharbor/pull/1859) |
 | [t-20261128-hunt48-metrics-endpoint-docs](../tasks/t-20261128-hunt48-metrics-endpoint-docs.md) | 0428 hunt H-V48: metrics endpoint registered but undocumented in any spec | ready | not set | — | — | — |
