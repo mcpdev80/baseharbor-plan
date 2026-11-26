@@ -165,3 +165,87 @@ The coordinator authorized the minimal scanner fix in this same scoped forward-o
 After the coordinator requested a fresh read, `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main` and `git rev-parse origin/main` both returned `1f3e0673fa9f2265805c1291f794531c3876a9de`. All 13 #75 paths again passed `git cat-file -e origin/main:<path>`; `git show origin/main:<path> | head -1` returned the same witnesses recorded in the preceding PR #75 table. The 0428-273 card also exists on this tip and still states the #1822 exact-once catalog result and that #1812's 14-gate preflight remains unqualified; `git cat-file -e origin/main:tasks/t-20261124-gate-catalog-baseline-1819.md` exited 0.
 
 Current fetched base for this follow-up candidate is `1f3e0673fa9f2265805c1291f794531c3876a9de`; `git merge-base --is-ancestor origin/main HEAD` exits 0 before candidate commits. This is a forward-only Plan PR based on the current main.
+
+## Candidate provenance before evidence close
+
+Base `origin/main` at this check is `1f3e0673fa9f2265805c1291f794531c3876a9de`; ancestry check exits 0. Exact `git diff origin/main...HEAD --name-only` output:
+
+```text
+evidence/2026-11-25/w200-1650-review-merge/review.md
+evidence/2026-11-25/w200-1851-carrier/disposition.md
+evidence/2026-11-25/w200-outstanding-two/decisions.md
+evidence/2026-11-25/w213-0428-287-1835-refresh.md
+evidence/2026-11-25/w214-0428-284-1812-hop.md
+evidence/2026-11-25/w219-0428-271-0428-286-1820hop.md
+evidence/2026-11-25/w234-0428-307-1842run2.md
+evidence/2026-11-25/w234-0428-307-1850run2.md
+evidence/2026-11-shift/0428-263/w200-1846-review.md
+evidence/2026-11-shift/0428-263/w210-0428-263-pr1846-hop.md
+evidence/2026-11-shift/0428-284/w200-1812-review.md
+evidence/2026-11-shift/0428-284/w241-0428-284-1812prehop.md
+evidence/2026-11-shift/1812-runtime-routing/w200-1812-runtime-routing.md
+evidence/2026-11-shift/cancelgroup/w200-cancelgroup-befund.md
+evidence/2026-11-shift/huntV55/w200-huntV55-disposition.md
+evidence/2026-11/w242-0428-285-1820census/akte.md
+evidence/board-2026-11-24/w68-0428-277-revealallow.md
+evidence/coordination/w271-stranded-recovery-w255-0428-251-demo170codex.md
+evidence/r28-welle4-2026-11-18/codex-welle3-review/1592-r2.md
+evidence/r28-welle4-2026-11-18/codex-welle3-review/1686.md
+evidence/r28-welle4-2026-11-21/cli-shard-runtime-tests/round-1.md
+evidence/r28-welle4-2026-11-24/w55-0428-078-probehop-hold.md
+evidence/r28-welle4-2026-11-24/w55-0428-078-probehop-stop.md
+evidence/r28-welle4-20261114/0428-065/round-rebase-1615.md
+evidence/r28-welle5-2026-11-22/0428-227/review-1753-head71deb610.md
+evidence/r28-welle5-2026-11-22/oras-0428-229/review-1750-head4bd779b1.md
+evidence/r28-welle5-2026-11-22/publishB/review.md
+evidence/r28-welle5-2026-11-22/redir1756/review.md
+evidence/r28-welle5-2026-11-22/rev1756f/review.md
+evidence/r28-welle5-2026-11-22/sourcepull-0428-223/review-1750-head17f471cd3fe9a41fbe5b4e2d3d2748f1e1bf9c99.md
+evidence/r28-welle5-2026-11-23/hunt39-v55/catalog-lifecycle-hunt.md
+evidence/r28-welle6-2026-11-24/broker-build-identity-w69/evidence.md
+evidence/r28-welle6-2026-11-25/0428-078/pr1847-review-merge.md
+evidence/r28-welle6-2026-11-25/0428-284-1842-hop/round-1.md
+evidence/r28-welle6-2026-11-25/w198-0428-284-demo-parser/round-0.md
+evidence/r28-welle6-2026-11-25/w211-0428-307-fallback.md
+evidence/r28-welle6-2026-11-25/w213-0428-287-1835-refresh/evidence.md
+evidence/r28-welle6-2026-11-25/w218-0428-181-0428-285-1819hop/1819-pr-hop-akte.md
+evidence/r28-welle6-2026-11-25/w222-0428-307-1852-secondrun/secondrun-gate-akte.md
+evidence/r28-welle6-2026-11-25/w226-0428-307-0428-283-1818reset.md
+evidence/r28-welle6-2026-11-25/w237-0428-283-1818reset2/round-1.md
+evidence/r28-welle6-2026-11-26/1842-review/review.md
+evidence/r28-welle6-2026-11-27/0428-284/w136-pin-disposition.md
+evidence/r28-welle6-2026-11-27/bughunt-hv47-upgrade-migration/intake-1.md
+evidence/r28-welle6-2026-11-27/bughunt-hv54-config-defaults/w209-0428-224-hunt-v54.md
+evidence/r28-welle6-2026-11-27/w198-0428-284-demo-parser/w198-dispatch-wave-48bac372.md
+evidence/r29-welle6-2026-11-25/w205-0428-253-planner-deleted-source/akte.md
+evidence/r29-welle6-2026-11-28/0428-1819/w136-1819-review.md
+evidence/r29-welle6-2026-11-28/0428-253/w136-pr1853-admission-ruling.md
+evidence/r29-welle6-2026-11-28/0428-253/w243-1853-rundown.md
+evidence/r29-welle6-2026-11-28/0428-287/w136-1835-redundancy.md
+evidence/r29-welle6-2026-11-28/0428-307/w136-1852-owner-admission-pr.md
+evidence/r29-welle6-2026-11-28/0428-307/w136-1852-requal-review.md
+evidence/r29-welle6-2026-11-28/plan-akte-collision/akte-recovery.md
+evidence/recovery-2026-11-23/0428-058/round-1.md
+evidence/shifts/2026-11/0428-288/w203-0428-288-diag-165-impl-170/akte.md
+evidence/w186/0428-186-hop.md
+evidence/w216-1852-hop/EVIDENCE.md
+evidence/w221-0428-253-1853fix/akte.md
+evidence/w228-0428-216-huntv59/akte.md
+evidence/w266-0428-285-1820pre/PLAN.md
+scripts/plan.py
+scripts/tests/test_plan.py
+tasks/t-20261102-rcptlink-task.md
+tasks/t-20261119-coord-tooling-defects.md
+tasks/t-20261120-coord-publish-integrity-gaps.md
+tasks/t-20261125-hunt47-config-mutation-migration-parity.md
+tasks/t-20261125-hunt47-core-plan-version-message.md
+tasks/t-20261125-hunt47-deleted-deployment-dangling-binding.md
+tasks/t-20261125-hunt47-write-stamp-json-version.md
+```
+
+`git log --oneline origin/main..HEAD` at this checkpoint:
+
+```text
+e52220e17 Restore stranded evidence and scope card scanner
+```
+Every entry above is a commit created by the executing lane; the final akte-close commit is created with the same canonical identity and verified immediately after creation.
