@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w341-0428-hunt46proofleak
+owner: w341-0428-326-proofleak
 kanban_status: active
 kanban_lane: active
 kanban_summary: "The never-delivered proof at never-delivered/<applicationID>/<environment>.json is created by guided adoption…"
@@ -25,14 +25,14 @@ evidence: []
 
 - [ ] t-20261126-hunt46-never-delivered-proof-leak · 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w341-0428-hunt46proofleak  
+    **Owner:** w341-0428-326-proofleak  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w341-0428-hunt46proofleak  
+**Owner:** w341-0428-326-proofleak  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
