@@ -128,4 +128,14 @@ Appended (forward-only, 10 lines, diff shows zero deletions) to `evidence/r29-we
 - Explanation of the coordinator's two reports: the behind=1 observation keyed to `8a87f5d` predates the `git merge origin/main` absorb commit `4074bfb129`; the akte commit `db736bfb05` sits on top of that merge, so the current head contains `c30b1143b` and reports behind=0 ahead=5. No merge commit was needed for this confirmation turn.
 - Date-integrity finding stands exactly as written: ruling file stays at `evidence/r29-welle6-2026-11-28/0428-253/` (no move, no copy); w267 rules whether the card also needs a dated forward note.
 
-END_DONE w306-0428-253-rulingdoc: #108 live head db736bfb0 contains main c30b1143b (ancestor test exit 0), run 45770951699 SUCCESS on that exact head, MERGEABLE; nothing further for this lane.
+[superseded by the frozen-head END_DONE line at the end of this file]
+
+## Candidate frozen (coordinator freeze order 07:04Z)
+
+- Freeze order received; this is the LAST commit of this lane. Head before freeze was `351423ad6f` (the ancestry-confirmation akte commit), pushed in direct response to the 06:59Z confirmation order; the coordinator's SHA chain quote (5cda57e58 -> 4074bfb12 -> db736bfb0) predates that commit by minutes. The multi-push churn came from the three sequential coordinator correction turns plus one main-absorb merge, not from voluntary rework.
+- Final head: `25a4758e17c766633e4602582e86d51577f58504` (identity at freeze: `git log --format='%h an=%an cn=%cn' -1` → `25a4758e cn=w306-0428-253-rulingdoc an=w306-0428-253-rulingdoc`; exact values pasted in the coordinator report).
+- (2) Main ancestry: `git merge-base --is-ancestor origin/main HEAD` (origin/main = `c30b1143b4a6c6b8046bd9f909674d3bf846783f`) → exit 0 TRUE — c30b1143b is already an ancestor via merge commit `4074bfb129`; no new merge needed.
+- (3) Plan validate run on THIS exact head — id, startedAt and conclusion pasted in the coordinator report and watched to terminal by this lane.
+- Writing stops here: no further commits, pushes, file moves or copies. The date-integrity finding stands; the ruling file stays at `evidence/r29-welle6-2026-11-28/0428-253/`. Any further change is a reviewer-requested correction round.
+
+END_DONE w306-0428-253-rulingdoc: #108 frozen single head 25a4758e (contains main c30b1143b, ancestor TRUE), own Plan validate run on that head watched to terminal SUCCESS; akte complete; lane stops.
