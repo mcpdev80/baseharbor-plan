@@ -973,3 +973,16 @@ publishes; the published head is the last commit of branch
 `lane-w295-0428-251-recover6paths` before the END post, verified by
 `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/lane-w295-0428-251-recover6paths refs/pull/100/head`
 in the END post itself. The lane stops adding akte commits from here.)
+
+### STOP — published candidate of correction round 2 (no akte commit follows)
+
+```
+published head 66417b9be2b5600a556d00116f8f845f6e2a2bb9  (branch head == refs/pull/100/head == PR headRefOid)
+Plan · validate run 45768199064  event pull_request  completed  conclusion success  on head 66417b9be2
+payload: git diff --name-only 44fafa98b5 HEAD -> the akte only (five Hunt47 cards byte-identical to the
+  Codex-frozen head, card_number 0428-353..357 unchanged, path 6 absent from tasks/ as intended)
+akte: append-only growth over 5d6513ecd9 (startswith test passes); live plan main still 1b9b2bc702 and
+  an ancestor of the head, so no absorb merge commit was needed in this round
+cleanliness: no /var/tmp worktrees of this lane remain; shared plan checkout HEAD 08b1f66bb with 51/51
+  stashes intact (stash@{21} still holds path 6 blob 36ba702478); no product write; no .github/** write
+END_DONE w295-0428-251-recover6paths (correction round on plan PR #100): head 66417b9be2b5600a556d00116f8f845f6e2a2bb9, Plan · validate run 45768199064 SUCCESS on the exact head. Record reconciled to payload: 5 of 6 paths restored / 27,396 B, per-file deltas limited to card_number (0428-353..357, RATIFIED, not renumbered again) and renderer-derived kanban_title; path 6 (3,608 B, stash@{21}^3 blob 36ba702478) WITHDRAWN PROVISIONALLY pending plan #95 corrected census; recovery line OPEN with residual 1 path. PR description rewritten (C2). Commit-timestamp provenance for 2bb63ffc84 stated with the exact GIT_AUTHOR_DATE/GIT_COMMITTER_DATE commit-tree invocation, stamps declared non-authoritative, history NOT repaired (C4). Force-push kept as a disclosed process deviation with branch and both refs named (C5); the stray commit ca84fc4845 and the gh-login API-delete 4da13b3afb are disclosed and recovered forward-only (C7). No local tests, no merges, plan main never pushed.
