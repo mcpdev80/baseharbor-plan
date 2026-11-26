@@ -1,9 +1,9 @@
 # H-V46 Befundung: never-delivered proof leak — w329-0428-326-hunt46-proofleak
 
-- [ ] Hunt H-V46, card 0428-326, medium severity
-- [ ] Pure Befundung only (evidence PR, no product edits)
-- [ ] base develop HEAD: 5a37ddbd9a06dd44f6068d3266ff2ed853a84a74 (confirmed via `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop`)
-- [ ] baseharbor-plan remote verified: baseharbor → https://github.com/mcpdev80/baseharbor.git ; plan origin → https://github.com/mcpdev80/baseharbor-plan.git
+- Hunt H-V46, card 0428-326, medium severity
+- Pure Befundung only (evidence PR, no product edits)
+- base develop HEAD: 5a37ddbd9a06dd44f6068d3266ff2ed853a84a74 (confirmed via `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop`)
+- baseharbor-plan remote verified: baseharbor -> https://github.com/mcpdev80/baseharbor.git ; plan origin -> https://github.com/mcpdev80/baseharbor-plan.git
 
 ## Visible Satanz-Block (owner directive, content attested in PROTOCOL history; fixed 2026-11-26)
 
