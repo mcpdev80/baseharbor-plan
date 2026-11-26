@@ -1,0 +1,19 @@
+ROLLE: Worker (Lane w282). Coord a4573079. KARTE: t-20261105-r27-compose-host-isolation (PR #1383 head
+b11eec12f90). OWNER-ENTSCHEIDUNG 2026-11-07 00:0xZ: karte AKTIV, isolationstests docker UND podman
+verpflichtend, WARTEN AUF #1404 IST GEFALLEN (ist laengst in develop, f3db942859c — bootstrap-timeout-
+vorbehalt von w259 damit hinfällig, ursache war single-default-abhaengigkeit).
+ARBEIT: (1) zweig work/r27-compose-isolation auf aktuellen develop f3db9428 mergen (ein PR, ein kandidat;
+lsremote-zeugnis alt/neu), push, NEUER kopf. (2) AM NEUEN KOPF: die verpflichtenden isolationstests auf
+BEIDEN familien mit vm-lock-PROVENIENZ (claim+release journal-zeilen VOR/NACH jedem host-griff — form ist
+inhalt, praedenz w276/w281): docker-pfad auf baha-docker-2 (205, frei seit w279-release), podman-pfad auf
+baha-podman (148; 107 ist belegt bis w274 released — rc=3=wechsel, nicht warten). (3) MUTANTENPROBE an der
+ECHTEN produktions Isolations-zeile (keycloak_driver/compose-pfad, datei:zeile in akte): ROT+GRUEN + 3
+SHA256-stufen (doktrin; helfer-mutante=REJECT). (4) hosted checks TERMINAL am neuen kopf selbst beobachten.
+RUECKBAU je host auf eigene=0, dauer-stapel (166 bh-local-shared) tabu. AKTE: compose-host-isolation/
+round-7.md (PUNKTE statt checkboxen; lsremote alt+neu, journal-zeilen, run-ids, hashdrilling, transkripte,
+## repo-rule compliance). Zone workers/w282-wt (NICHT .models), caches /tmp/opencode/w282*.
+GATES: KEINE subagenten, coordinator-host container tabu (R1-dossier w269 lesen!), workers/baseharbor tabu,
+.github tabu.
+END an a4573079: "END_DONE w282-compose-cells-now: head=<neuer sha10> docker_zellen=<n/n GRUEN>
+podman_zellen=<n/n GRUEN> mutante=<3 hashes> journal=<4 zeilen> lauf=<id TERMINAL> lsremote=<sha10>
+akte=<pfad main> | <Satz>"

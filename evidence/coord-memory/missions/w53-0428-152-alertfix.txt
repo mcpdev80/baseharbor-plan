@@ -1,0 +1,16 @@
+TASK 0428-152 (PR #1816). CONTINUE the existing branch lane-0428-152-alertverifier-caller (current head b21d144e; already rebased onto develop 6df6807, Trusted Plan + Source Format green, scripts/** correctly OUT of the diff). A prior lane stalled; you land the two exact fixes below and get a green exact-head run.
+
+Card: baha app perses status must show the alert-evaluator observation on reportPersesSurfaceStatus (cmd/baha/perses_lifecycle.go). Two Go shards still fail (run 45294765410):
+
+FIX 1 — cli-0 TestPersesAlertEvaluatorObservationUnappliedReportsNotConfigured (cmd/baha/app_status_perses_alert_evaluator_0428_152_test.go:300): an UNAPPLIED surface must report AlertEvaluator.State == "not configured", but the code returns "configured_unverified". In the perses-status alert-evaluator state derivation, make the three states distinct:
+  - surface not applied / no evaluator wired      -> "not configured"
+  - applied but not probed / silent               -> "configured_unverified"
+  - owner-gated evaluator contract missing        -> "unavailable (owner-gated evaluator contract)"
+  AlertEvaluator.OK must stay false in all three.
+
+FIX 2 — cli-2 TestPersesAlertEvaluatorObservationPersesStatusSurface (:~158/:~204): it calls reportPersesSurfaceStatus(ctx, resolved.Store, ...) with a BARE ctx := t.Context(); reportPersesSurfaceStatus requires an authenticated BaseHarbor operator/session, so it short-circuits with "Managed-environment machine operations require authenticated BaseHarbor operator" for BOTH selected and unselected. Fix the TEST by seeding the authenticated operator context the way sibling tests do — run through runWithIOAsTestOperator(ctx, []string{"app","perses","status",...,"--json"}, &out,&errOut) (see lines :211/:289/:413) and assert on that output, OR wrap ctx with the same test-operator principal before the direct seam call. Do NOT change the assertion to expect the auth error.
+
+Rules:
+- scripts/**, .github/** untouched (reserved). Hosted CI ONLY (no local go test / ci-fast-check; VM = brief smoke). No subagents (AGENTS 4.8). No Codex contact.
+- Claim via scripts/plan.py claim, PLAN step 0 todo, evidence file under baseharbor-plan evidence/, keep PR OPEN.
+- MERGE-FROST: do NOT merge, do NOT write develop. When exact-head Hosted run reaches terminal GREEN (both shards), post END with new head sha + ls-remote + run id.

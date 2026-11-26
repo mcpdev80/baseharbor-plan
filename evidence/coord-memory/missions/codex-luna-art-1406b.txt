@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW. Coord a4573079. DELTA-ABNAHME artifact-resolution RUNDE 2.
+KANDIDAT: PR #1406 head 9ee857387c (NEUER kopf, develop 8bda98c1 gemergt). Vorgaenger-rezept act-1406a:
+fehler war "registry-ok + build deklariert => native-build" (prio-umkehr); forderung: registry-prioritaet,
+red-first-zelle fuer genau diesen fall, KAUSALE MUTANTE AN PRODUKTIONS-ZEILE, runde-1 zellen am neuen kopf.
+PRUEFPUNKTE: (1) prio-Logik im diff (datei:zeile), (2) mutante ROT+GRUEN transcript + hashes 65809f4f/a70aa9bc
+gegen echte produktions-resolver-zeile (doktrin; helfer-mutante=REJECT), (3) red-first-zelle zeigt den
+exakten fall, (4) lsremote==9ee857387c, base-aktualitaet 8bda98c1 ancestor, (5) lauf 42297344340 terminal +
+run auf ALTEM base wurde nicht als neuer base-nachweis weiterverwendet (5.4: SHA-wechsel => neue checks),
+(6) write-set ohne .github. URTEIL als artifact-resolution/act-1406b.md (ACCEPT|REJECT+rezept).
+END an a4573079: "END_DONE codex-luna-art-1406b: verdict=<..>".

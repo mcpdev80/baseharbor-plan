@@ -1,0 +1,25 @@
+ROLLE: Worker (Lane 0427-036-serve-startup). Coord 594fd2f5. KARTE: t-20261018-r27-management-host (0427-036 · run one durable minimal management host). PR #1405, ast work/r27-management-host, bisheriger kopf 0f08b877f415.
+KORREKTURRUNDE nach CODEX-REVIEW act-1405b (verdict REJECT; rotnachweis=ok, ci=42322027058 success — der letzte rot-first-blocker IST erfuellt, NEUER befund ist ein echter code-defekt):
+BEFUND (file:line): cmd/baha/serve.go:41-43 und 97-103 deklarieren `var startup context.Context` und fuellen ihn
+NUR im zweig `cfg.RuntimeAppName == ""`. Fuer den unterstuetzten per-application broker-pfad (`RuntimeAppName != ""`)
+bleibt `startup == nil` und wird an den connector-target-/management-host-pfad uebergeben -> nil-context.
+REZEPT (so umsetzen): in cmd/baha/serve.go `startup := ctx` VOR dem RuntimeAppName-Zweig initialisieren, dann
+connector target overrides UND management-host-attachment auf DIESEN nicht-nil kontext anwenden (beide zweige
+uniform). Regressionstest NEU: fokussierter fall `RuntimeAppName != ""`, der behavioural beweist, dass der
+serve-startup-pfad keinen nil startup-context sieht (fail auf dem kopf ohne fix, pass mit fix). Der test muss von
+der GitHub-CI-Gruppe fuer cmd/baha/serve gefahren werden — welchen job+trigger, in der akte benennen; braucht das
+einen .github/**-hook, als BEFUND file:line melden, NICHT selbst editieren (owner-scope).
+ARBEIT: (1) karte + act-1405b + round-6/7 akten lesen. (2) ast work/r27-management-host holen, auf AKTUELLEN
+develop 934be499b auffrischen (merge, konfliktfrei dokumentieren; KEIN .github). (3) fix + regression im
+EIGENEN worktree (/tmp/opencode/0427-036-serve-startup-wt); gezieltes git add; KEIN git add -A. (4) PR #1405 am
+neuen kopf; native required checks docker+podman terminal am final-kopf — EIGNES-RUN (du ueberwachst den run).
+(5) rotnachweis NICHT erneut aufwaenden (round-6/7 gilt weiter), nur den neuen defekt fixen + regression.
+AKTE: evidence/r27-welle5-folge-2026-11-06/management-host/round-8-serve-startup.md (PUNKTE statt checkboxen;
+ls-remote vor/nach am neuen kopf, run-id, ## repo-rule compliance, merge-base-ancestor origin/develop HEAD +
+`git log --oneline origin/develop..HEAD` zeigt NUR eigene commits; `git -C baseharbor-plan remote -v` zeige
+echtes baseharbor-plan, NICHT workers/baseharbor-plan phantom-zone).
+GATES: KEINE subagenten; .github tabu; coordinator-/dev-host tabu fuer stacks; KEIN self-merge; exact one
+candidate (kein zweiter ast).
+END an 594fd2f5: "END_DONE 0427-036-serve-startup: head=<sha11> pr=1405 startup=<ctx-init fixed>
+regression=<RuntimeAppName!=.. GRUEN, sick-ohne-fix ROT> run=<id TERMINAL> akte=<pfad origin/main>" / QUESTION /
+END_BLOCKED + fehlerzeile.

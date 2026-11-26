@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW
+KANDIDAT: PR #1419 head 5c08ed6be15eac7931441c9a78655aa67e2a50f8  base develop 4bcede9786c  repo mcpdev80/baseharbor
+TASK: t-20261106-r27-remote-up-podman-owner-missing (#117) — EINER von 2 product-code kandidaten dieser welle.
+PRUEFE GEGEN VERTRAG:
+- Produktverhalten: CLI app apply loest podman-family deployment owner ueber den ECHTEN runner (runApplicationApplyLifecycle/executeApplicationApplyLifecycle -> productionLoanAuthorityForTarget via CLI effective target, BASEHARBOR_TARGET=iso). Vorher: ErrDeploymentOwnerMissing (fail-closed, owner fehlte).
+- Option-2 abdeckung: (a) seam/direct-call test als RED/GREEN-diskriminator der grant-logik, (b) ZWEITER echter-runner fail-closed test der ErrDeploymentOwnerMissing auf BEIDEN seiten assertiert (iso-target). Grant-seite ist strukturell nicht rot/gruen trennbar (dokumentiert).
+- write-set: cmd/baha/* + internal/deployment/*. KEINE .github workflow. delta 6 dateien (1141+ / 4-).
+- hosted CI auf head 5c08ed6be: cli-package-tests/build/gofmt/vet, deployment-package-tests, source-contracts, PR Selected Checks == pass. PRUEFE selbst via gh pr checks.
+- ancestry merge-base --is-ancestor 4bcede9786c 5c08ed6be rc0; base develop; mergeable.
+- kein release/tag/neue receipt-chain. Evidenz: evidence/.../remote-up-cli/owner-missing-round-7.md.
+Liefere VERDICT + umsetzbares rezept.

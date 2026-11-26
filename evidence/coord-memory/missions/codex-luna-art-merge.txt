@@ -1,0 +1,5 @@
+ROLLE: CODEX-MERGE. Coord a4573079. AKTION: PR #1406 (mcpdev80/baseharbor) head 9ee857387c exakt wie
+akzeptiert (urteil act-1406b ACCEPT, blob 75aff379) auf develop mergen. VORHER: ls-remote head==9ee857387c,
+state OPEN, checks terminal. Mechanik nach repo-regel (squash ok, kein force, kein bypass). NACHHER:
+ls-remote develop = neuer kopf, PR-STATE MERGED, keine schutzregel-verletzung. Karte NICHT anfassen
+(coord publiziert closed). END an a4573079: "END_DONE codex-luna-art-merge: merged=<sha10> develop-neu=<sha10> pr_state=<..>".

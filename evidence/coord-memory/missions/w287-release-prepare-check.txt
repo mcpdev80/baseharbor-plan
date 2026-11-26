@@ -1,0 +1,10 @@
+ROLLE: Worker (Lane w287). Coord 594fd2f5. KARTE: t-20261017-release-0-4-27-prepare (ready laut owner-
+tabelle P4; owner-weisung 2026-11-07 = pruefauftrag, KEINE veröffentlichung — tags/releases bleiben
+owner-aktion gemäss AGENTS 5.2).
+ARBEIT: rein lesende pruef-rechnung: (1) alle karten der release-liste auf abschlussstand pruefen
+(plan.py list/show; open-lücken namentlich), (2) develop f3db942859c gegen release-checkliste: versionen/
+pins/CHANGELOG-konsistenz, (3) was fehlt fuer ein 'vorbereitet'-urteil — als checkliste mit fundstellen,
+(4) NICHTS committen ausser der AKTE release-prepare/check-1.md im plan (PUNKTE statt checkboxen), KEIN
+product-branch, KEIN tag, KEIN .github. Zone workers/w287-wt (nur lesende clones). GATES: KEINE
+subagenten. END an 594fd2f5: "END_DONE w287-release-prepare-check:准备ungsstand=<prozent-liste>
+luecken=<karte:fund je> akte=<pfad main> | <Satz>"

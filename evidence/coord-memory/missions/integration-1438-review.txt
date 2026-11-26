@@ -1,0 +1,7 @@
+CODEX-REVIEW (INTEGRATIONSABNAHME) — PR #1438, MERGED nach develop als 0fe53052d (integration/0427-043-116-handover: onboarding wizard, owner tenant, node enrollment, remote up). Umfasste KARTE-VERTRÄGE: t-20261018-r27-onboarding-wizard, t-20261018-r27-node-cli, t-20261106-r27-remote-up-cli-path (#116) — je plan.py show lesen.
+PRUEFPUNKTE je vertrag sha-genau gegen develop 0fe53052d:
+  A) onboarding: gefuehrter ablauf komplett durchspielbar (kein toter pfad), bundle-import wirksam, kommando registriert (root/classification/command-index) — die früheren r2/r3-beanstandungen.
+  B) node-cli: status/list aus ECHTER einschreibungs-/zertifikatsquelle (nicht grant-expiry), tests auf dem echten produktionspfad (frühere kernvorwürfe), seriennr/capabilities ehrlich.
+  C) remote-up (#116): baha app up erreichbarer erfolgspfad inkl. tenant/operator-seeding (Keycloak-realm nicht mehr leer; #1437-familie), client-seitiger pfad ohne hidden prerequisites.
+  D) gesamt: keine regression in den shared flächen (orgconfig/enrollment/core lifecycle), CI auf develop HEAD (hosted lauf 0fe53052d) terminal, changelog-/release-note-stand.
+Kein eigenes gate, keine CI neu, sha vor/nach. END an 594fd2f5 je karte mit APPROVE|REQUEST-CHANGES + rezept. Bei APPROVE: melde — ich stelle karten auf accepted und loest die nachfolger (remote-docker-web, public-surfaces-zweig) im board.

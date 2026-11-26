@@ -1,0 +1,18 @@
+ROLLE: Worker (Lane w251). Coord 841e7734. KARTE: t-20261106-r27-control-plane-single-default — LAUFENDE
+ZELLEN AM EXAKTEN KANDIDATEN (critical-karte wortlich: realer Docker+Podman nachweis am final-kopf).
+GEMAESSEN VORAB: zweig work/r27-single-default head ed98ed1dde7 ist INHALTSGLEICH am getesteten fix
+(6b376000: alle 5 betroffenen dateien blob-identisch; diff = nur die #1402-landung). Du änderst KEINEN
+inhalt. NEUER PRUEFPOOL (owner, 2026-11-06): baha-docker / baha-podman / baha-podman-2 (192.168.6.107,
+frei gemessen, container=0). DOCKER-HAELFTE laeuft bereits parallel bei w246 auf baha-docker — DU:
+(1) vm-lock claim baha-podman-2 w251 (NUR dieser host; ein host pro inhaber; NICHTS auf den anderen),
+(2) checkout exakt ed98ed1dde7, baha bauen,
+(3) PODMAN-ZELLEN: default `baha up` OHNE profil-datei (rootless podman auf der VM) => inventar exakt
+1 openbao + 1 postgres, doctor gesund, installation.json ha=false; (4) `baha up --ha` opt-in => volles
+ensemble gesund; (5) restart-/idempotenz-/bestandszelle wie kartentext; (6) rueckbau container=0,
+lock release. pro zelle: protokoll-zeile mit befehl + status-flag + zeit. AKTE: append zu evidence/
+r27-welle5-2026-11-06/control-plane-single-default/round-3.md (neue section 'podman-2 (107)') auf
+origin/main mit ls-remote-kopf-VOR dem bau.
+GATES: KEINE subagenten, KEIN push auf den zweig (read-only checkout), root-checkout/.github verboten,
+container NIE auf dem coordinator-host (R1), VM-ZUGANG NUR nach lock-OWN, caches /tmp/opencode/w251*.
+END an 841e7734: "END_DONE w251-sd-runtime-cells: podman_zellen=<n>/<n> green host=baha-podman-2
+kopf=ed98ed1dde7 lsremote=<sha10> akte=<pfad section> lock=<released> | <Satz>"

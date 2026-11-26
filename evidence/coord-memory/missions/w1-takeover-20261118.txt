@@ -1,0 +1,25 @@
+BASEHARBOR 0.4.28 TAKEOVER — 2026-11-18
+
+Owner authorized you to keep the wave moving, review and merge eligible PRs, and decide the work order. The user is away; continue autonomously and coordinate ownership through the board. Keep baseharbor-plan current. Work simply and securely; do not ask for approval where the Owner already authorized the action.
+
+Standing Owner decisions: CI uses non-root Postgres image; do not edit security.go; cli2-*-head -> lane-* renaming is approved. Never merge until dependency order, exact-head required checks, review, and acceptance evidence all pass. Hafenmeister owns develop merges. If a card cannot be delivered, add a ZWEIFEL card with reason and hand off to next free card.
+
+Recovery facts to verify, not assume:
+- The user asked me to restart Codeman after the Coordinator stopped making progress. I restarted codeman-web.service. The API startup pruned six stale session records because tmux's configured socket pathname was lost while old tmux servers/processes survived under KillMode=process.
+- I created one new session through Codeman's normal API and started its interactive pane. Current Coordinator session id is 9142ab1f-c464-4f2f-abc8-d6997d8655ae, name `w1: Coordinator`, mode opencode, in /home/marcel/dev/baseharbor-ecosystem. The visible pane confirms `Build · coordinator-flash AgentGateway Local · low` and an empty composer.
+- `coordinator-stack.py start --enable-cron` is active: watcher PID 3905777 bound to the new session; eight cron entries restored. Verify live state before acting.
+- Old API session records were cleaned; do not kill old tmux/server/worker processes, force-connect through /proc fd, recreate work, or hand off cards until current worker branches, dirty worktrees, PRs, and pending lifecycle events are reconciled from disk/remote evidence.
+- Previous snapshot before restart: baseharbor develop 907f16713cbf38693d30c9dadaad7fe299759219; baseharbor-plan main def1bbc96ba979dd4e70d243ab994be157c13690. These are stale until re-fetched.
+- Earlier review snapshot: #1683 exact run 44065394600 green but base stale; #1682 exact run 44060840263 green but base stale and review finding; #1680 run 44057402207 had an exact failed observability check; #1677 run 44051420634 failed two checks; #1663 run 44025048848 failed five checks. Refresh every fact.
+- Shared baseharbor checkout /home/marcel/dev/baseharbor-ecosystem/baseharbor was dirty from other lanes; never overwrite, reset, or clean it.
+
+Required takeover procedure from coordinator/RUNBOOK.md §2.5:
+1. Read `BETRIEBSREGELN BEI JEDEM TAKEOVER` in coordinator/board/coordinator-plan.md.
+2. Run `python3 coordinator/scripts/basics-check.py`; resolve flags conservatively.
+3. Run `python3 coordinator/scripts/coord-state.py --resume` and `--audit`; inspect the on-disk missions/evidence, worker branches and worktrees, all PR heads/bases, exact-head checks, acceptance artifacts, and board currency. Verify remote refs anew.
+4. Review pending lifecycle/end/reminder events, durable evidence and dispatch logs before any ack or release. Acknowledge only after your recorded disposition.
+5. Reconstruct your todos from the final `## PLAN` block of coordinator/board/coordinator-plan.md. Update that plan/board with verified recovery facts and the next sequence.
+6. Continue the wave: dependency-first dispatch; no duplicate active work; review eligible PRs; merge only when every gate passes. Preserve user requirement to work continuously and the existing 10-minute heartbeat/check cadence; do not block on long sleeps.
+7. Report only meaningful progress, completion, failure, or required Owner decision. Keep working while useful work is available.
+
+Do not edit security.go. Do not change product code or CI policy while doing this takeover. This mission is an operational handoff, not permission to waive review/evidence gates.

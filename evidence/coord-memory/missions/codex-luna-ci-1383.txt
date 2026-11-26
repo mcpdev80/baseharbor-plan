@@ -1,0 +1,13 @@
+ROLLE: CODEX-REVIEW. Coord 841e7734. ABNAHME compose-host-isolation, kandidaten-genau.
+KANDIDAT: PR #1383 head 88d725e4b19 vs develop; karte t-20261105-r27-compose-host-isolation; akten
+round-01-local-mutant..round-04-mutant + round-5.md (final-dossier, w241).
+OWNER-AUFLAGE wortlich: 'Die echten Isolationstests auf baha-docker und baha-podman ausfuehren,
+einschliesslich Mutantenprobe. Erst danach wuerde ich #1383 mergen.' — dossier meldet beide hosts 2/2
+gruen + kausale mutante. PRUEFPUNKTE: (1) transcript-zeilen pro host (zellen, getrennte netze/volumen/
+ports, kreuz-DNS-fehlaufloesung) sind echt und vollstaendig (keine prose statt belegen), (2) mutante
+KAUSAL (echte quellzeile app_doctor_collect.go:322 entfernt => ROT durch ausgelaeferten pfad, restore
+=> GRUEN; kein helper-umweg, praeszedenz 1397b), (3) lauf 42244245719 terminal success am exakten kopf
+nachmessen, (4) write-set nur test-/fixture-dateien + keine .github, diff gegen develop ohne fremde
+ketten, (5) fabrikrein-zeug (beide hosts 0 lane-container) plausibel dokumentiert. URTEIL als evidence/
+r27-welle5-2026-11-06/compose-host-isolation/act-1383.md auf origin/main (ACCEPT|REJECT+rezept), END an
+841e7734: "END_DONE codex-luna-ci-1383: verdict=<..> aktedatei=<pfad>".

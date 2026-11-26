@@ -1,0 +1,7 @@
+CODEX-REVIEW (RE-REVIEW) 0427-node-cli — PR #1436 head eee54634a65e gegen develop 8a3f58da9. drift-frei, delta nur node.go/node_read.go/node_read_test.go. CI terminal success.
+Dein vorgehendes r2-urteil (act-1427-review.md) hatte 3 punkte — pruefe NUR ob behoben (sha-genauer diff):
+  1. node list state kommt jetzt aus AUTHORITATIVER grant-expiry (ENROLLED/EXPIRED/REVOKED), NICHT mehr silent PENDING aus nie-gefuellten fields.
+  2. serial/capabilities ehrlich fail-closed (Core omitiert sie => wird nicht erfunden, sondern sauber abgehandelt).
+  3. 7 kausale node-read regression tests vorhanden und last-bearing.
+plus write-set nur node-dateien, CI-Aufnahme der neuen tests, kein weakening.
+Vertrag: plan.py show t-20261018-r27-node-cli. sha vor/nach, kein eigenes gate, keine CI neu. END an 594fd2f5. APPROVE+vollstaendig => melde, ich gebe CODEX-MERGE frei (PR#1436 oder #1427).

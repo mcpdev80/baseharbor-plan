@@ -1,0 +1,10 @@
+OWNER-AUTHORIZED minimal follow-up to the test-only artifact production (root cause of #1812's 14 Light-gate auth denial). Owner ruling 2026-11-25: dispatch one minimal PR modifying ONLY .github/workflows/pre-release.yml.
+
+ROOT CAUSE (proven from Hosted run 45385372243 job 138415405209): both 'Build exact candidate binary' (line 443) and 'Produce baha-ci-operator-testonly candidate binary' (line 495) expand to the SAME `CGO_ENABLED=0 go build -trimpath -ldflags ... ./cmd/baha` WITHOUT `-tags=baseharbor_ci_operator_testonly`, so the named test-only artifact is an ordinary untagged binary → operator-auth denial at all 14 gates.
+
+Do EXACTLY:
+1. In .github/workflows/pre-release.yml ONLY, change the baha-ci-operator-testonly production step to compile WITH `-tags=baseharbor_ci_operator_testonly`. The normal `baha` candidate build command must remain BYTE-UNCHANGED. ci.yml MUST NOT change (git diff shows no ci.yml). No scripts/pr-gate-coverage.json change. No other file.
+2. Add a build-info proof to the step or its log so the produced artifact demonstrably carries the tag (e.g. `go version -m` / `go tool nm` evidence showing the testonly build tag, or an embedded marker the CI emits), so Hosted CI shows the tag is in the artifact.
+3. Branch off current develop (fetch origin develop; report its SHA), open ONE PR (base develop), keep it OPEN, monitor its exact-head Hosted CI to terminal, and verify the baha-ci-operator-testonly artifact now contains the tag (build-info proof line in the run). Report: PR number, head SHA, the one-line pre-release.yml diff, the artifact build-info tag proof, run id + outcome.
+
+Rules: .github/workflows/pre-release.yml edit is AUTHORIZED here ONLY for this single -tags addition (owner-approved test-only artifact scope; ci.yml/normal-CI byte-identical). Any other file, any catalog row, or any change to the normal baha build => STOP + post a QUESTION with file:line. No merge (owner/CODEX merges). No subagents (§4.8). This is CI/artifact scope, so verify via Hosted CI only (no local builds).
