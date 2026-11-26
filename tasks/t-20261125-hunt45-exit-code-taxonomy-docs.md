@@ -15,7 +15,7 @@ kanban_title: 0428-321 · document baha exit-code
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1866", ]
 sources: []
 blocker: ""
 wait_reason: ""
