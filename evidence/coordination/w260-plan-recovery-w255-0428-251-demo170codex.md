@@ -196,3 +196,32 @@ Before discarding local-only merge `97283409e25e65ad2b2567bec6685164361c86c6`, I
 The replacement merge is `ab57e84d1`; `git show -s --format='%an %cn %s' HEAD` prints `w255-0428-251-demo170codex w255-0428-251-demo170codex Merge remote-tracking branch 'origin/main' into w255-w260-plan-recovery`. At this refreshed checkpoint, base `origin/main` is `3a9bfea66796e2c36795b9c3794cc24654743030` and `git merge-base --is-ancestor origin/main HEAD` exits 0. `git diff origin/main...HEAD --name-only` output remains the same 14 paths listed in the previous provenance section. `git log --oneline origin/main..HEAD` contains only this lane's candidate commits; author and committer verification for every listed commit returns `w255-0428-251-demo170codex <w255-0428-251-demo170codex@baseharbor.local>`. No PR push occurred while the invalid-identity merge was present.
 
 The PR scope restores 12 of the 88 paths counted by w271's census (PR #76 head `97cf9672e...`, Hosted Plan validation run `45741218805` GREEN). This PR records the forward-only disposition for the remaining paths; their 68 unique restorations, two duplicate exclusions, and six card-ID conflict reissues belong to one follow-up PR after this recovery PR is merged.
+
+
+## PLAN — provenance exception and identity follow-up
+
+1. Check the live Plan ignore rule, tracked worker-root contents, and validator checkbox exceptions.
+2. Record the owner's disposition for the two parked paths without changing validator behavior.
+3. Record the narrowly scoped 0428-253 same-lane identity admission in the existing task note and quote the implemented start-message rule.
+4. Publish the two-file Plan change through an owned branch and PR; require Hosted `Plan · validate` on its exact final head.
+
+## Closing disposition — ignored lane-local worker scratch paths
+
+Owner disposition (choice **i**): these two paths stay permanently excluded from Plan `main` as lane-local scratch, exactly as parked by w255:
+
+- `workers/w186/0428-186-hop.md`
+- `workers/w266-0428-285-1820pre/PLAN.md`
+
+They are not restored byte-for-byte and are not relocated to `evidence/`. The live Plan `.gitignore:33` ignores `/workers`; the only existing tracked entry under that root is the specific forced-added `workers/0427-compose-native-acceptance/todos.json`, not a general scratch exception. The Owner-confirmed TOP_CHECKBOX lines in the two parked Markdown files would fail `scripts/plan.py`'s `check_stray_checkboxes` at lines 563–570: only `tasks/`, `roadmap/cards.md`, and `templates/` are exempt. Moving the same bytes under `evidence/` would still fail. No validator allowlist, Plan tooling change, or `.github/**` edit is authorized or needed. These two paths remain parked; w255 continues the other 65 scoped restores.
+
+This is a provenance exception only: it does not remove or weaken the CardBoard checkbox guard and does not classify either scratch file as lost recoverable evidence.
+
+## Commit identity rule recorded for the 0428-253 ruling
+
+The implemented start-message paragraph is `coordinator/scripts/dispatch-lane.sh:44`:
+
+```text
+COMMIT IDENTITY (Owner ruling 2026-11-26, generalises the w205/w254 findings): EVERY commit you create, AND EVERY merge commit you create (e.g. absorbing develop), must carry YOUR OWN lane's FULL canonical name in both author and committer, set per-command: git -c user.name=<your-lane-name> -c user.email=<your-lane-name>@baseharbor.local commit/merge ... . Use the complete name wNNN-<card>-<title> exactly as your session is registered: shortened forms (bare 'w205') are AMBIGUOUS and rejected, foreign lane names and the card owner's name are IMPERSONATION, and 'coordinator' is never a commit author (I write no code and you must not launder my name into yours). Before every push print git log --format='%h an=%an cn=%cn' -1 and put that line in your evidence; a mismatched identity blocks acceptance even when CI is green. The only admitted exception is historical: the first two w205 commits count as the same-lane shortened identity w205 = w205-0428-253 (owner ruling, no rewrite, scoped to those two commits and recorded on card 0428-253).
+```
+
+The 0428-253 task note names the two first chronological historical commits and admits only their shortened same-lane author formatting. No commit is rewritten; new commits use the full canonical lane identity, and foreign-lane rejection is unchanged.
