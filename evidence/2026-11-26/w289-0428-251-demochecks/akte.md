@@ -311,6 +311,33 @@ Working zone: `workers/w289-0428-251-demochecks-work/` (own clone + witnesses) a
 `workers/w289-0428-251-demochecks-plan/` (isolated plan worktree, removed after the push). Nothing was created
 in the ecosystem root.
 
+## Evidence publication note
+
+`baseharbor-plan` `main` is PROTECTED: publishing means branch push + Plan PR + admin squash merge (precedents
+#52/#61/#62), never a direct push. The evidence path is therefore ALREADY on the remote branch
+`refs/heads/lane/w289-0428-251-demochecks` (Plan PR baseharbor-plan#93) and only reaches `origin/main` when the
+Owner/Codex squash-merges that PR. Witnesses taken at 2026-11-26T04:31Z:
+
+```text
+$ git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/lane/w289-0428-251-demochecks
+704a2a80b908cfc2f498c8f70b43e2c2c882472a	refs/heads/lane/w289-0428-251-demochecks
+
+$ git fetch origin main && git ls-tree -r --name-only origin/main | grep w289-0428-251-demochecks
+(no rows: the path is not yet on origin/main; Plan PR #93 is the pending merge route — direct push is forbidden)
+
+$ git ls-tree -r --name-only origin/lane/w289-0428-251-demochecks | grep w289-0428-251-demochecks
+evidence/2026-11-26/w289-0428-251-demochecks/akte.md
+evidence/2026-11-26/w289-0428-251-demochecks/attest.log
+evidence/2026-11-26/w289-0428-251-demochecks/attest2.log
+evidence/2026-11-26/w289-0428-251-demochecks/cr170.log
+evidence/2026-11-26/w289-0428-251-demochecks/cr170c.log
+evidence/2026-11-26/w289-0428-251-demochecks/cr170d.log
+evidence/2026-11-26/w289-0428-251-demochecks/cr179.log
+evidence/2026-11-26/w289-0428-251-demochecks/cr179b.log
+evidence/2026-11-26/w289-0428-251-demochecks/cr179c.log
+evidence/2026-11-26/w289-0428-251-demochecks/ready179.log
+```
+
 ## END
 
 END_DONE w289-0428-251-demochecks: 3 fresh pull_request events bound zero runs — root cause is the heads'
