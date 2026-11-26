@@ -1,0 +1,44 @@
+MISSION w289-pr1405-redfirst — Korrekturrunde zu PR #1405 (karte t-20261018-r27-management-host)
+Coord a4573079. Basis develop dddf0d7823f6eec161ad518bbced626fa9efe52e; Kandidat
+work/r27-management-host head 0f08b877f4152c156b219ff6d13ab05ee6b082de (CI: 15 success / 10 skip).
+
+WAS DER PRUEFER BEANTRAGT (wörtliche grundlage, bitte selbst lesen):
+  baseharbor-plan/evidence/r27-welle5-folge-2026-11-06/management-host/act-1405a.md — verdict REJECT.
+  Grund: der red-first-nachweis ist eine "throwaway reproduction detached at 64d93e94..." — also nicht
+  inspectierbar aufbewahrt. RUNBOOK 5.6 verlangt: kranker Commit mit SHA benannt + die ROTE Ausgabe
+  WÖRTLICH AUF IHM in einer dauerhaften Akte. zusaetzlich Zeile 40: CI-routing der neuen tests
+  (`.github/workflows/ci.yml:12-16`) ist zu belegen — AGENTS 5.3 CI-aufnahmepflicht.
+
+AUFGAB 1 (rot-auf-dem-kranken-commit, dauerhafter beleg):
+  - eigenen arbeitsbaum auf den kranken stand stellen, OHNE fremde bäume anzufassen:
+    git -C baseharbor worktree add /tmp/opencode/w289-sick 64d93e945aed892d2457bf94ab360cc11cc1567a
+    (danach: worktree remove, §6.2c — nichts im produktverzeichnis hinterlassen)
+  - den regressionstest `TestManagementHostAttachContendedByBootstrapServer`
+    (internal/coreinstallation/management_host_test.go:88-123) auf DIESEM stand ausführen; die volle
+    rote ausgabe (kommando + exit-code + fehlernaufzählung) wörtlich in die neue Akte.
+  - GEGENPROBE: derselbe test am kandidaten 0f08b877f41 => GRUEN, ebenfalls wörtlich.
+  - bleibt der test auf dem kranken stand GRUEN, ist das ein ECHTER BEFUND (test deckt den fehler
+    nicht): STOP + QUESTION an a4573079 mit der ausgabe, keinen produktcode eigenmächtig umbauen.
+
+AUFGAB 2 (mutanten-erhalt): die verifizierten stufen L0 8422c938 / L1 553dfa1f / L2 8422c938 (L0==L2)
+  aus round-4.md am NEUEN kopf erneut belegen (skript management-host/scripts/mutation_mgmt_host.sh
+  existiert bereits — wiederverwenden, nicht neu erfinden).
+
+AUFGAB 3 (CI-aufnahme, AGENTS 5.3): belege für JEDEM neuen test des kandidaten den CI-job, der ihn
+  ausführt (job-name + triggerregel file:line, z.B. .github/workflows/ci.yml:12-16 + die group-Auswahl).
+  Fehltaufnahme? => BEFUND mit file:line an mich. .github/** NICHT selbst ändern (RUNBOOK 4.0: Owner-scope).
+
+SCHREIBRECHTE: diese runde ist EVIDENCE-only. Produkt-dateien bleiben wie sie sind; PR #1407 ist ein
+  anderer zweig — nicht anfassen. Akte:
+  baseharbor-plan/evidence/r27-welle5-folge-2026-11-06/management-host/round-6-redfirst.md
+  (gezieltes git add <datei>, NIE -A, NIE im workers/-baum committen; keine markdown-checkboxen in
+  evidence-dateien — OPS-4a/plan.py-check validator).
+
+NACHWEISE: ls-remote-zeile für develop + ast, beide SHA, beide testläufe mit exit-codes, worktree-pfad
+  + danach "worktree list" zeile (keine leiche). todos-board + ## PLAN in der akte (AGENTS 4.4).
+  Keine Subagenten (AGENTS 4.8).
+
+STOP-KRITERIEN: (1) test bleibt auf dem kranken stand grün, (2) der kranke commit existiert nicht mehr
+  in der linie (dann: melden, nicht erfinden), (3) ein zweiter fehler im selben primitiv auftaucht.
+END an a4573079: "END_DONE w289-pr1405-redfirst: sick=64d93e94 ROT(<exit>) cand=0f08b877 GRUEN(<exit>)
+  mutanten=<hashes> ci=<job/datei:zeile> akte=<pfad>" — mit ls-remote im transcript.

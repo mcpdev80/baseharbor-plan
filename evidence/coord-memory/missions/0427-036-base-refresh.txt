@@ -1,0 +1,17 @@
+ROLLE: Worker (Lane 0427-036-base-refresh). Coord 594fd2f5. KARTE: t-20261018-r27-management-host (0427-036). PR #1405, ast work/r27-management-host, kopf 5b8d0f5745.
+EINE MECHANISCHE BASIS-AUFFRISCHUNG — KEIN neuer produktcode. CODEX act-1405c: der serve.go-fix (startup nicht-nil
+in beiden zweigen) + die regression (ROT ohne fix / GRUEN mit fix) sind ANGENOMMEN, CI terminal success — der EINGIGE
+REJECT-Grund: merge-base mit develop ist dddf0d782, develop 934be499b ist NICHT Vorfahr des kandidaten. AUFGABE:
+ (1) ast work/r27-management-host holen (ls-remote head notieren), `git fetch origin develop` (934be499b),
+     `git merge origin/develop` in den ast (konfliktfall: loesungen sind rein mechanisch, KEINE produktlogik aendern;
+     bei echtem inhaltlichem konflikt in serve.go frage mich per QUESTION statt selbst zu entscheiden).
+ (2) `git merge-base --is-ancestor 934be499b HEAD` == rc0 BEVOR push; `git log --oneline origin/develop..HEAD` zeigt
+     NUR die card-commits (serve.go fix + regression + dieser merge). push origin work/r27-management-host (PR #1405
+     bewegt sich automatisch auf den neuen kopf).
+ (3) native selected checks terminal am NEUEN kopf — EIGNES-RUN (run-id im END). KEIN self-merge. KEIN zweiter ast.
+AKTE: evidence/r27-welle5-folge-2026-11-06/management-host/round-9-baserefresh.md (punkte; ls-remote VOR-und-NACH dem
+merge, die exakte `git merge-base --is-ancestor 934be499b HEAD` zeile rc0, run-id, ## repo-rule compliance, echte plan
+`git -C baseharbor-plan remote -v` zeile). GATES: KEINE subagenten; .github tabu; KEIN produktcode-aenderung (nur merge);
+dev/coordinator-host tabu fuer stacks.
+END an 594fd2f5: "END_DONE 0427-036-base-refresh: head=<sha11-neu> pr=1405 ancestry=<is-ancestor 934 rc0 belegt>
+run=<id TERMINAL> code=<unveraendert, nur merge> akte=<pfad origin/main>" / QUESTION / END_BLOCKED + zeile.

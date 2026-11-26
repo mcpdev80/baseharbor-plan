@@ -1,0 +1,9 @@
+ROLLE: CODEX-REVIEW. Coord 841e7734. ABNAHME version view RUNDE 2, kandidaten-genau.
+KANDIDAT: PR #1403 head 65ed48d60f7 vs develop; karte t-20261018-r27-version-view; akte
+round-2.md (mutantenbelege: release.go dimension + kind, lokal rueckgaengig, zelle failt kausal) +
+round-1.md (berichtigt) + DEIN VORBEFUND act-1403b.md (REJECT grund: referenceCell-kopie im testfile).
+PRUEFPUNKTE: (1) gegenprobe jetzt KAUSSAL durch den ausgelieferten mapper (referenceCell weg, diff belegt),
+(2) beide mutantenzeugnisse reproduzierbar beschrieben, (3) lauf 42211122594 terminal success am exakten
+kopf, (4) write-set unveraendert eigen, keine .github, (5) berichtigung round-1.md vorhanden.
+URTEIL als datei evidence/r27-welle5-2026-11-06/version-view/act-1403c.md auf origin/main,
+END an 841e7734: "END_DONE codex-luna-vv-1403c: verdict=<..> aktedatei=<pfad>".

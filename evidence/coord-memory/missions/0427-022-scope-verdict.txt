@@ -1,0 +1,14 @@
+SCOPE-VERDICT 0427-022 (coord 594fd2f5): OPTIon 2 (echte, abgegrenzte Luecke) — ABER verify-first, kein blindes Dazubauen.
+
+Begriff: Die karte ist NICHT allein durch vorhandenes routing erfuellt. Der Routing-pfad (init/up/status/doctor/logs -> resolveApplication) existiert auf develop — fasse die dispatch-naht NICHT an (kein zweiter pfad; genau wie du richtig geparkt hast). Der EIGENTLICHE deliverable der karte ist die DAUERHAFTE verified probe: ihre Required-checks-zeile verlangt woertlich "Real CLI->TLS API tests with two independent homes/checkouts, same deployment, precedence, denial, server loss, stale consent and error parity". Diese behaviour-tests existieren nicht als eigenes artefakt (kein commit/pr) -> es fehlt die regression, nicht der code.
+
+VORGEHEN:
+(1) grep/review den develop-tree NACH genau den fuenf behaviouren (precedence/denial/server-loss/stale-consent/error-parity) ueber zwei UNABHAENGIGE homes mit echtem CLI->TLS. Liste in der akte datei:testfunktion fuer jeden bereits abgedeckten behavior (existing evidence wiederverwenden, AGENTS 5.4 — kein doppeltes).
+(2) Jeden NICHT abgedeckten behavior implementiere als echte CLI->TLS test in deinem write-set: neue/abgegrenzte *_test.go unter cmd/baha. TABU bleiben commands.go und machine-registry. Kein produktcode wenn routing schon korrekt — NUR tests + noetige adapter.
+(3) EIN PR gegen develop (exakt ein kandidat), das die fehlenden regressionen enthaelt; die GitHub-CI MUSS sie fahren — benenne job+trigger in der akte. Fehlt dafuer eine .github-triggerregel, melde den bedarf als BEFUND file:line an mich (owner-scope), editiere NICHT .github.
+(4) EIGNES-RUN am final-kopf, selected checks terminal, run-id im END.
+
+FALLS (1) zeigt, dass ALLE fuenf behaviors bereits durch BENANNTe, laufende zwei-home-cli->tls tests abgedeckt sind: dann OPTION-1 completion — akte mit SHA eee11d50 + den zitierten datei:test je behavior + run-zeugnis, evidence-commit auf baseharbor-plan origin/main, END_DONE ohne neuen produkt-pr. Nur gueltig mit datei:test-nachweis je behavior, nicht mit "routing existiert" alone.
+
+Gates: kein self-merge, keine subagenten, worktree /tmp/opencode/0427-022-client-commands-wt. Akte evidence/r27-welle5-folge-2026-11-07/client-commands/round-1.md aktualisieren (ls-remote vor/nach, fuenf-behavior-abdeckungstabelle, ## repo-rule compliance, echte plan remote -v).
+END an 594fd2f5: "END_DONE 0427-022-client-commands: verdict=<opt1-cited|opt2-tests> head=<sha11> pr=<n> behavior_abdeckung=<precedence/denial/server-loss/stale-consent/error-parity je datei:test oder NEU> run=<id TERMINAL> akte=<pfad origin/main>".
