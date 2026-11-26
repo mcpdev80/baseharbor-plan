@@ -39,15 +39,15 @@ origin  https://github.com/mcpdev80/baseharbor-plan.git (fetch)
 origin  https://github.com/mcpdev80/baseharbor-plan.git (push)
 ```
 
-The branch is rebased onto current `origin/main` `053b2b6d1af11ad0f926949ef39c7fdbf0e400bf`. The target task path has no intervening commits from the prior fetched base `76ab859144661e7fdabdc10e36b9cee5f3ce99ad` to current main. Hosted Plan validation will be recorded after the PR runs.
+The branch was cut from live `origin/main` `053b2b6d1af11ad0f926949ef39c7fdbf0e400bf`. After main advanced, current tip `8ae7436de854c4aa5c3ae55412390d91b4d6339e` was integrated with ordinary merge commit `fd3b8ba4da8f2f5521ab38d12079d4af00fd2f36` before the later exact-head validation. The target task path has no intervening main commits from `76ab859144661e7fdabdc10e36b9cee5f3ce99ad` through `8ae7436de854c4aa5c3ae55412390d91b4d6339e`.
 
 ## Publication state
 
-The exact task sentence and Owner ruling are published for review in Plan PR #68. The remaining gate is Hosted Plan validation on the final exact PR head, followed by scoped squash merge and a readback from live main.
+The exact task sentence and Owner ruling are published in Plan PR #68. The candidate is based on live main `8ae7436de854c4aa5c3ae55412390d91b4d6339e`; exact-head Hosted validation has passed, and the scoped squash merge and live-main readback remain.
 
 ## Publication status
 
-Hosted Plan validation must succeed on the exact final PR head. The Plan PR number and actual hosted run are recorded in the final handoff; the post-merge task-note readback is captured there as well.
+Hosted Plan validation is required for each final PR head. The run IDs and exact tested heads are recorded below and in PR #68 checks; the post-merge task-note readback is captured in the final handoff.
 
 ## END
 
@@ -97,3 +97,7 @@ Live `origin/main` advanced to `8ae7436de854c4aa5c3ae55412390d91b4d6339e` while 
 - Hosted-run record push: `8099a2a5a1f84d0ed016948f69b3e6bfc7b84dd9 refs/heads/w255-0428-253-admission`; PR ref observed immediately afterward was `a3f01dea035432376641f2eea485b54131c3a23e refs/pull/68/head` and then advanced to the branch head.
 - Current-base integration push: `fd3b8ba4da8f2f5521ab38d12079d4af00fd2f36 refs/heads/w255-0428-253-admission`; PR ref observed immediately afterward was `8099a2a5a1f84d0ed016948f69b3e6bfc7b84dd9` and then advanced to the branch head.
 - Base/provenance receipt push: `2a52a61df41b623f8625365e1ca25c1d17476ae0 refs/heads/w255-0428-253-admission`; PR ref observed immediately afterward was `fd3b8ba4da8f2f5521ab38d12079d4af00fd2f36` and then advanced to the branch head.
+
+Latest exact-head validation before this receipt update: PR #68 run `45735080987` completed SUCCESS on `73d21d507f0a96539a5b1dbeaf5b5690893aa9ee`; job `Plan · validate` executed and passed. URL: https://github.com/mcpdev80/baseharbor-plan/actions/runs/45735080987.
+
+Latest branch push receipt before this update: `73d21d507f0a96539a5b1dbeaf5b5690893aa9ee refs/heads/w255-0428-253-admission`; the immediate PR-ref observation was `2a52a61df41b623f8625365e1ca25c1d17476ae0 refs/pull/68/head`, which then advanced to the branch head.
