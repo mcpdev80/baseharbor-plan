@@ -344,7 +344,7 @@ evidence/2026-11-26/w289-0428-251-demochecks/ready179.log
 
 ## END
 
-END_DONE w289-0428-251-demochecks: candidate 2c0d0e6cedc3d98adcbb54fa947e3015846e8cbd (plan PR baseharbor-plan#93, Plan·validate pass run 45756465354). 7 fresh pull_request events bound zero runs — root cause is the heads'
+END_DONE w289-0428-251-demochecks: candidate 3841b5efa8dc5c0247241cd2a5da124e4897b354 (plan PR baseharbor-plan#93, Plan·validate pass run 45756465354). 7 fresh pull_request events bound zero runs — root cause is the heads'
 DRAFT-only/zero-jobs `pr-config-matrix.yml` (develop blob `7108cf69e4f5…`), transport alone cannot qualify
 #170/#179/#181; akte + witnesses in this file, plan PR: #93
 
@@ -368,3 +368,24 @@ Final gate witness (2026-11-26T04:38Z): `gh pr checks 93 --repo mcpdev80/basehar
 on head `4f77be994` (the head that `git ls-remote` shows). `origin/main` still lacks the path (grep -c → 0)
 because only the Owner/Codex admin squash merge of #93 lands it; this lane is now finished.
 cleanliness after final push: docker ps -aq count=0, my pid=2582759, no compose projects/networks/volumes created by this lane (all witness commands were gh/git reads; the earlier docker ps -a rows were zero both times)
+
+## Final witness block (2026-11-26T04:47Z, terminal)
+
+- Plan PR baseharbor-plan#93: head `3841b5efa8dc5c0247241cd2a5da124e4897b354` (equals `git ls-remote` output above),
+  `Plan · validate` COMPLETED/SUCCESS on that exact head (run 45756465354 family; latest rollup read at 04:47Z).
+  The preceding SHA line was corrected by the final commit itself — the SHA quoted inside a file can only name its
+  own predecessor, so the canonical END candidate is this branch head as shown by ls-remote, not any SHA text
+  stored inside a commit.
+- Demo PRs at END: #170 OPEN draft=false base=develop head=b086cf58b checks=none; #179 OPEN draft=false
+  base=develop head=cda6aa70e checks=none; #181 OPEN draft=false base=main head=6d06eab0e checks=none.
+  Latest repo run is still 45726589547 (2026-11-26T00:08:38Z) → all 7 authorized fresh pull_request events today
+  created zero runs, final census.
+- `git ls-tree -r --name-only origin/main | grep w289-0428-251-demochecks` → exit 1 (ABSENT): main is protected and
+  the path reaches origin/main only through the Owner/Codex admin squash merge of #93 (mission: report PR number,
+  do NOT merge it). Delivered-on-remote proof: the two ls-remote outputs above plus
+  `git ls-tree -r --name-only origin/lane/w289-0428-251-demochecks` (10 evidence files, in the publication note).
+- Plan-side pre-checks: `python3 scripts/plan.py render` and `check` → 0 errors, 10 pre-existing warnings; no
+  markdown checkboxes anywhere in this akte (`grep -c '^- \[' → 0`).
+- cleanliness final: `docker ps -aq | wc -l` → 0; lane started and ended with zero containers/networks/volumes;
+  ambient images untouched; no VM access; no local test execution (zero `go test`/pytest/unittest/ci-fast-check
+  invocations by this session).
