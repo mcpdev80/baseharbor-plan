@@ -99,3 +99,4 @@ After scope correction, 181 cards remain in v0.4.27: 135 accepted, 20 superseded
 ## Maintainer scope correction — 2026-11-13
 
 The selected v0.4.27 journey is the developer workstation connecting to Core on a Docker/Podman VM, then deploying and managing the Demo through that Core. The VM Core manages its own runtime; no separate Connector daemon is involved. Connector enrollment/remote-node acceptance and Console/Grafana are v0.4.28. The candidate matrix is Core + Demo only. See [the corrected full audit](../evidence/v0.4.27-full-card-audit-2026-11-13.md).
+wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"

@@ -92,3 +92,4 @@ One documented exception exists so far: PR #1596 candidate
 success). Witness and scope: `evidence/r28-welle4-2026-11-21/org-env-reconciliation/owner-exception-identity-1596.md`.
 The rule itself is unchanged: any other candidate with more than one author, or any candidate with a content finding,
 still needs history normalization plus a fresh exact-head run.
+wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"

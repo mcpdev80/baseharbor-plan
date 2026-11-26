@@ -73,3 +73,4 @@ Use failed J-Commerce registration and compare normal/verbose destroy output.
 ## Handoff
 
 - Planned only. No implementation, PR, merge or acceptance claimed. Source: 2026-11-16 J-Commerce guided-init/apply/destroy/reset transcript supplied by Owner.
+wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"

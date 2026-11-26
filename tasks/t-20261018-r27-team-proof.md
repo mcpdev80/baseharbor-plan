@@ -75,3 +75,4 @@ The prior review accepted the two-home evidence, but the stated acceptance requi
 Two concurrent independent workstation sessions, revocation isolation and multi-user authority stress acceptance move to v0.4.28. v0.4.27 still requires real single-workstation authenticated management, ownership and denial proof.
 
 No implementation/acceptance is inferred; original stable card_number remains unchanged. Complete this through the normal v0.4.28 Coordinator/Worker/Codex merge process and current native tests.
+wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"

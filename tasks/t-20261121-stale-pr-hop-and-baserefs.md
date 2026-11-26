@@ -91,3 +91,4 @@ Evidence: `evidence/r28-welle4-2026-11-21/stale-pr-hop-and-baserefs/round-1.md`.
 expected; if one appears, the card was exceeded.
 
 COMMISSIONED from hunt H-V25: metadata + hop sweep over our own PRs, hard-bounded to PRs whose card has no live session (no force-push under a working lane).
+wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"

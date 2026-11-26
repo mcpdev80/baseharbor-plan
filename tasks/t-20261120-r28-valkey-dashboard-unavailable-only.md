@@ -99,3 +99,4 @@ PR 1714 exact run 44981355459 success at head 731302e9a7a (35 jobs, PR Selected 
 
 independent review at exact head 277ff976395 gave REQUEST CHANGES: internal/application/runtime_observability.go:253 always passes ObservabilityVerifyNone so the production path cannot reach the verified valkey dashboard; correction round dispatched to seat f0f6c8b4
 status_note: "linked PR #1714 MERGED on develop - close-disposition (resolution+evidence lines) reserved for Codex/Owner, coordinator records fact only"
+wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"

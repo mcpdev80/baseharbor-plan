@@ -79,3 +79,4 @@ One or two sentences: the observable outcome.
 ## Task
 
 Cast from hunt H-V39: F6 - no regression test proving identity survives a restore cycle; add test (create->backup->restore->identity check) on existing test scaffolding.
+wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"

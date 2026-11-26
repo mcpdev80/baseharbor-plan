@@ -80,3 +80,4 @@ Run `baha app init` in J-Commerce, select SQL/cache/queue/metrics, confirm candi
 - Planned only. No implementation, PR, merge or acceptance claimed. Source: 2026-11-16 J-Commerce guided-init/apply/destroy/reset transcript supplied by Owner.
 
 - Rows-PR #1836 MERGED (9d7e22902) - trusted-base unblock for all catalog-blocked candidates.
+wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"

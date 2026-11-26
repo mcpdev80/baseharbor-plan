@@ -90,3 +90,4 @@ evidence:
 ## PR lineage disposition — W16
 
 PR #1856 replaces closed, unmerged PR #1842 as the current candidate. PR #1812 is omitted from this card's `prs` field because the w286 inventory assigns it to card 0428-249. The existing demo PR #173 and #174 references remain.
+wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"
