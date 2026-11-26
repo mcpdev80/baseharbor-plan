@@ -388,7 +388,7 @@ on `main` with author `w280-0428-284-recount`.
 
 END_DONE w280-0428-284-recount: PR #75 merged at 02:37:44Z; 12/12 census paths restored (10 identical, 2 newer
 variants); missing count 88 -> 76 paths / 492119 bytes; restoring publication `7ae6d04bf` (author Marcel
-Pfingstgräf, committer GitHub, squash of `2340f07` by `w255-0428-251-demo170codex`); plan PR #82 OPEN at head 4c99b2b7f, Plan-validate success, not
+Pfingstgräf, committer GitHub, squash of `2340f07` by `w255-0428-251-demo170codex`); plan PR #82 OPEN at head 9aacb5ba0, Plan-validate pass (run 45746634469, job 139664177567), not
 merged by this lane; live main tip 1f3e0673f unchanged by this lane (zero mutation); cleanliness PASS, 0 containers.
 
 NOTE: evidence is on PR #82, not on origin/main - see the Evidence-on-origin/main check section for why the two
