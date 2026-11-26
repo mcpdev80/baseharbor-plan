@@ -2,6 +2,8 @@
 
 ## END_DONE
 
+## committed: w345-0428-321-exitfix evidence akte (plan main a62e9ce68)
+
 ## visible ansatz block
 
 - card frontmatter owner (fetched from origin/main at runtime): owner EMPTY (`t-20261125-hunt45-exit-code-taxonomy-docs` frontmatter `owner:` blank; coordinator assigned owner w345-0428-321-exitfix via kanban_status=active on plan main; provenance in commit messages).
