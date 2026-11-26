@@ -12,13 +12,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | ---: |
 | active | 17 |
 | review | 2 |
-| wait | 15 |
+| wait | 16 |
 | blocked | 2 |
 | ready | 56 |
 | queued | 25 |
 | waiting | 181 |
 | backlog | 7 |
-| closed | 486 |
+| closed | 485 |
 
 ## Active
 
@@ -57,6 +57,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261017-release-0-4-27-qualify](../tasks/t-20261017-release-0-4-27-qualify.md) | v0.4.27 · Pre-release: complete required candidate checks | wait | normal | mission-closeout27 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) (open) | — |
 | [t-20261017-release-0-4-27-verify](../tasks/t-20261017-release-0-4-27-verify.md) | v0.4.27 · Release: verify publication, artifacts, Pages and closeout | wait | normal | mission-closeout27 | [t-20261017-release-0-4-27-publish](../tasks/t-20261017-release-0-4-27-publish.md) (open) | — |
 | [t-20261017-release-0-4-28-cleanup](../tasks/t-20261017-release-0-4-28-cleanup.md) | v0.4.28 · Release start: reconcile old PRs, tasks and branches | wait | high | lane-0428-002-r28 | [t-20261017-release-0-4-27-verify](../tasks/t-20261017-release-0-4-27-verify.md) (open) | — |
+| [t-20261102-rcptlink-1272](../tasks/t-20261102-rcptlink-1272.md) | MCP authoring Workload.Compose optional in intent schema | wait | not set | ornith (rcptlink) | — | [baseharbor#1272](https://github.com/mcpdev80/baseharbor/pull/1272) |
 | [t-20261114-r28-perses-contact-routing](../tasks/t-20261114-r28-perses-contact-routing.md) | Define alert notification routing | wait | normal | coord | [t-20261114-r28-perses-alerts](../tasks/t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-secure-access](../tasks/t-20261114-r28-perses-secure-access.md) | — |
 | [t-20261114-r28-perses-log-trace-dash](../tasks/t-20261114-r28-perses-log-trace-dash.md) | Perses log and trace views | wait | normal | coord | [t-20261114-r28-perses-loki-source](../tasks/t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | [baseharbor#1619](https://github.com/mcpdev80/baseharbor/pull/1619) |
 | [t-20261116-r28-bug-compose-service-ids](../tasks/t-20261116-r28-bug-compose-service-ids.md) | Preserve Compose service IDs | wait | high | w147-0428-288-pr1833-fix | [t-20261125-0428-284-1812-postretry-gate-failure](../tasks/t-20261125-0428-284-1812-postretry-gate-failure.md) | [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833) |
@@ -145,7 +146,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 16 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
-- [v0.4.x](../releases/v0.4.x.md): Product readiness before the contract freeze (unscheduled v0.4.x work) — 1 open, 19 closed ([view](releases/v0.4.x.md))
+- [v0.4.x](../releases/v0.4.x.md): Product readiness before the contract freeze (unscheduled v0.4.x work) — 2 open, 18 closed ([view](releases/v0.4.x.md))
 - [v0.5.x](../releases/v0.5.x.md): Contract freeze and compatibility — 34 open, 0 closed ([view](releases/v0.5.x.md))
 - [v0.7.x](../releases/v0.7.x.md): Kubernetes runtime — 63 open, 0 closed ([view](releases/v0.7.x.md))
 - [v0.8.x](../releases/v0.8.x.md): Complete Kubernetes support — 56 open, 0 closed ([view](releases/v0.8.x.md))
