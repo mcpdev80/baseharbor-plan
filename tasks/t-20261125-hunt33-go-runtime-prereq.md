@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w336-0428-299-goprereq
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-299 · hunt33-go-runtime-prereq
 priority: ""
@@ -17,19 +17,20 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: ""
+blocker: "base-catalog 4th instance (#1863, runs 45844485360+45845364226); claim lane w336 retired; green awaits baseline plan #136 landing + rerun"
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt33-go-runtime-prereq · 0428 hunt H-V33: hunt33-go-runtime-prereq #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261125-hunt33-go-runtime-prereq · 0428 hunt H-V33: hunt33-go-runtime-prereq #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
     **Owner:** w336-0428-299-goprereq  
+    **Blocker:** base-catalog 4th instance (\#1863, runs 45844485360+45845364226); claim lane w336 retired; green awaits baseline plan \#136 landing + rerun  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w336-0428-299-goprereq  

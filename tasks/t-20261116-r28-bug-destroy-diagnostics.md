@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w127-0428-293-destroy-diag
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: baha app destroy --yes --verbose printed the same generic retained provider ownership error as nonverbose; neither affected…
 kanban_title: 0428-293 · Explain destroy owner failures
 priority: normal
@@ -18,18 +18,19 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "ghost-owner claim (session retired) - no live work; re-claim from ready when dispatched"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261116-r28-bug-destroy-diagnostics · Explain destroy owner failures #task #release/v0-4-28 #status/active #view/active #area/lifecycle #kind/bug
+- [ ] t-20261116-r28-bug-destroy-diagnostics · Explain destroy owner failures #task #release/v0-4-28 #status/wait #view/wait #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** w127-0428-293-destroy-diag · **Priority:** normal  
+    **Waiting:** ghost-owner claim (session retired) - no live work; re-claim from ready when dispatched  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w127-0428-293-destroy-diag  
