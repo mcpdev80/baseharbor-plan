@@ -17,7 +17,7 @@ depends_on: [t-20261125-0428-284-1812-postretry-gate-failure]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1833]
 sources: []
-blocker: "Catalog/gate scope decision pending (w267 comment 7196853372): trusted-base pr-gate-coverage row for internal/application lacks runtime_specific:true so six runtime families are never selected; NOT green - reruns frozen until baseline-family field change lands via Codex disposition"
+status_note: "W39 in progress (no blocker)"
 resolution: ""
 evidence: []
 ---
@@ -26,7 +26,6 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w332-0428-288-composeids (W39 Block1+2 executing) · **Priority:** high  
     **PR:** [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
-    **Blocker:** Catalog/gate scope decision pending (w267 comment 7196853372): trusted-base pr-gate-coverage row for internal/application lacks runtime\_specific:true so six runtime families are never selected; NOT green - reruns frozen until baseline-fami…  
     <!-- /generated:card -->
 
 <!-- generated:links -->

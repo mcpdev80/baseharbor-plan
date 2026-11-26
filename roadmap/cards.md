@@ -17,7 +17,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
     **Accepted tasks:** 210/363 · **Blocked:** 8 · **Waiting:** 24  
-    **Blocker:** [t-20261116-r28-bug-capability-permissions](../tasks/t-20261116-r28-bug-capability-permissions.md) —   
+    **Blocker:** [t-20261116-r28-bug-capability-permissions](../tasks/t-20261116-r28-bug-capability-permissions.md) — BLOCKED-BASELINE as STATE per w332 QUESTION (20:0xZ): Trusted Plan (.github\#122, uncataloged cmd/baha/app\_init\_runtime\_permission\_scope\_test.go) + downstream S…  
     **Blocker:** [t-20261124-0428-279-mcp-contract-app-pull-unexpected](../tasks/t-20261124-0428-279-mcp-contract-app-pull-unexpected.md) — static/mcp gate qualification blocked on owner-scope card 0428-283 (the gate builds a plain baha without the baseharbor\_ci\_operator\_testonly operator tag + doe…  
     Plus 6 further blockers in the task list.  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
