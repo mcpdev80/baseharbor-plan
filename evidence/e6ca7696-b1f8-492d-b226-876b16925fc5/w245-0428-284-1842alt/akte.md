@@ -215,9 +215,20 @@ w200 prescribed.
 - No PR-triggered `ci.yml` push run exists for `main`: the last 100 `push` events show
   only Docker/Podman runtime, pages and pre-release validation workflows.
 
+## Local-execution policy note (owner stop, 2026-11-26)
+
+Local test execution on this host is FORBIDDEN and any local result is NON-QUALIFYING.
+This lane ran NO test suite: no `python3 -m unittest`, no `pytest`, no `go test`, and
+`scripts/ci-fast-check.sh` was never invoked. The only local interpreter execution was
+in-place text editing of this akte file (file rewrite, no module import, no test
+collection) plus read-only `git show`/`grep` of develop trees. Every executed-what-where
+claim in this akte comes from Hosted CI job logs, plan artifacts and the GitHub API; no
+local result is cited as evidence anywhere in this file.
+
 ## cleanliness
 
-- pid of this lane's shell: 625955
+- pid of this lane's shell: 625955 (also the editing shells 879724 / this turn's pid; no
+  test process was ever started by any of them)
 - `docker ps -a` before: no containers listed on this host beyond the ambient stack; this
   lane started no container, no compose project, no podman quadlet, and touched no VM host.
 - `docker ps -a` after: unchanged (nothing added, nothing removed).
