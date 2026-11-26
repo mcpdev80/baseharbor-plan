@@ -430,3 +430,38 @@ compose work; Hosted CI only; pid zone 626183 chain, worktrees workers/w338-0428
 (product) + workers/w338-0428-078-1855fix2-plan (plan) only; no /var/tmp usage; no .github/**
 touched — catalog file is scripts/pr-gate-coverage.json (Owner-scope exclusion applies to
 .github/** only; the family route IS the ruling's prescribed mechanism for this row).
+
+## Plan-main blocker (coordinator action; HOLD per mission-scope clarifier)
+
+Round-3 evidence PR baseharbor-plan#150 (branch w338-0428-078-1855fix3-akte, commit 865be307c,
+single file: this akte) cannot be merged: hosted 'Plan · validate' FAILS identically on current
+plan main and on the PR — scripts/plan.py check raises
+ValueError: not enough values to unpack (expected 2, got 1)
+at plan.py:650 short_ref from the malformed prs list of FOREIGN card
+tasks/t-20261126-hunt46-collectable-orphans-reserved-namespace.md:18 on main:
+
+    prs: ["mcpdev80/baseharbor-plan#147", ]   (trailing empty entry)
+
+Measured witnesses: gh api check-runs on main commits 05956216e, e046c4729, 9986e8146 -> all
+'Plan · validate' = failure; run 45873701539 (PR #150) = same traceback. The card was last
+touched by main commit 05956216e ('fix misowner: hunt46-collectable owner restored empty');
+it is NOT in this lane's write-set (card edits belong to their owners/coordinator), so per the
+clarifier I HOLD the evidence merge and report the concrete blocker instead of editing a
+foreign card or force-merging a red validate. The fix is one line (drop the trailing comma /
+empty list entry, then render+check); after any such main fix I (or the coordinator) re-run
+validation on #150 and merge it.
+
+Product-side receipts stand independently of this plan-main blocker:
+- #1855 candidate head 70c005e8bc48b6186da1095a183905a42ee6c493 (delivered, run 45872372065
+  terminal; red ONLY on the base-catalog admission #1867 resolves).
+- #1867 head 8b0eb51a12320acb8987aee1729c9a820d4d573e (delivered, run 45872485574 terminal
+  SUCCESS incl. Trusted Plan + PR Selected Checks + advisory row validation).
+
+END_BLOCKED w338-0428-078-1855fix2: round-3 missions steps 1-3 complete (embedded row removed
+forward-only in 70c005e8bc48b6186da1095a183905a42ee6c493; family catalog PR baseharbor#1867 @
+8b0eb51a12320acb8987aee1729c9a820d4d573e Ready-not-merged, run 45872485574 SUCCESS; #1855 run
+45872372065 terminal, Trusted Plan red awaiting the #1867 base landing + forward merge =
+coordinator/Codex action); evidence akte on branch (plan PR #150) held by a FOREIGN main break:
+tasks/t-20261126-hunt46-collectable-orphans-reserved-namespace.md:18 trailing comma crashes
+plan.py check on ALL main commits since e046c4729 — one-line fix needed, out of this lane's
+write-set.
