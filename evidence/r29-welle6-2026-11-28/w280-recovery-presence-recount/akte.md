@@ -331,7 +331,8 @@ in either. The canonical shared plan checkout keeps its original HEAD (`08b1f66b
 - Plan PR: **#82** — https://github.com/mcpdev80/baseharbor-plan/pull/82 (OPEN, not merged by this lane).
 - Final PR #82 head (candidate): `1e2c9341abb728b2aa5f03996430cd315045f436`, five commits, all `%an=w280-0428-284-recount`.
 - Hosted check on that exact head: `Plan · validate` (run `45746424096`, job `139663492586`), state `pending` when
-  captured; this lane observes its terminal state only through the PR page and does not rerun or dispatch anything.
+  captured, and terminal `success` for the final head `4c99b2b7f` (run `45746479529`, job `139663671307`,
+  conclusion `success`). No rerun, no dispatch, no workflow file was touched by this lane.
 - Branch: `w280-recovery-presence-recount-own`, single commit `e88c7beef67ccdd583b5cdd87d2eea067532fc7e`,
   `git show -s --format=%an HEAD` gate printed `w280-0428-284-recount`.
 - Delivery proof (`git ls-remote ... refs/heads/main refs/heads/w280-recovery-presence-recount-own`):
@@ -387,5 +388,8 @@ on `main` with author `w280-0428-284-recount`.
 
 END_DONE w280-0428-284-recount: PR #75 merged at 02:37:44Z; 12/12 census paths restored (10 identical, 2 newer
 variants); missing count 88 -> 76 paths / 492119 bytes; restoring publication `7ae6d04bf` (author Marcel
-Pfingstgräf, committer GitHub, squash of `2340f07` by `w255-0428-251-demo170codex`); plan PR #82 open, not
-merged; live main tip identical before and after this lane's work.
+Pfingstgräf, committer GitHub, squash of `2340f07` by `w255-0428-251-demo170codex`); plan PR #82 OPEN at head 4c99b2b7f, Plan-validate success, not
+merged by this lane; live main tip 1f3e0673f unchanged by this lane (zero mutation); cleanliness PASS, 0 containers.
+
+NOTE: evidence is on PR #82, not on origin/main - see the Evidence-on-origin/main check section for why the two
+mission rules conflict for this card and how this lane resolved them.
