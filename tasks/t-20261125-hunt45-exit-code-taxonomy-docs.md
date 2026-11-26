@@ -26,7 +26,10 @@ evidence: []
 - [ ] t-20261125-hunt45-exit-code-taxonomy-docs · CLI: document baha exit-code taxonomy and machine coverage check #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
     **Owner:** w345-0428-321-exitfix (LIVE busy; akte a7e0a2e5a END\_DONE was PREMATURE - correction round in progress, no push/run yet)  
+<<<<<<< HEAD
     **PR:** [baseharbor#1866](https://github.com/mcpdev80/baseharbor/pull/1866)  
+=======
+>>>>>>> 65eab840a (disposition correction: w345 akte END_DONE was premature (state-integrity alert) - card active/in-progress, correction block appended (history intact))
     <!-- /generated:card -->
 
 <!-- generated:links -->

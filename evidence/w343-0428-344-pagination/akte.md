@@ -135,8 +135,7 @@ stays green by derivation).
     `pull_request` events on 969362e397a14d3f1e173697750386079aa4f5d2.
 - Plan PR: https://github.com/mcpdev80/baseharbor-plan/pull/151 (akte). Hosted Plan validation:
   45884416530 failed on a stale-base render crash (foreign card `prs` line bug, since fixed on main);
-  rebased onto current main (ancestry proven): runs 45887227902 and 45887420277 SUCCESS on this
-  branch heads 53615a711 / 28990d16d. Awaiting admin squash merge (never a direct main write).
+  rebased onto current main and re-triggered: run 45887227902 SUCCESS on this branch's head.
 
 ## Cleanliness
 
@@ -186,3 +185,18 @@ stays green by derivation).
 
 END: END_BLOCKED w343-0428-344-pagination (candidate green except the shared pr-gate-coverage.json
 catalog route above; see Handoff state)
+
+## Evidence-on-main witness (second-to-last action)
+
+```text
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main
+   a7e0a2e5a..b4df59348  main       -> origin/main
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/w343-0428-344-pagination
+evidence/w343-0428-344-pagination/akte.md
+```
+
+Plan PR #151 admin squash-merged (merge commit b4df5934887144e37e79e6bc38023b53b02fdcb8) after
+Hosted Plan validation 45888175450 SUCCESS on exact head 2c7ac4427. Product PR #1871 remains open,
+ready, unmerged, at candidate 969362e397a14d3f1e173697750386079aa4f5d2 with the run pair recorded.
+The coordinator is concurrently re-claiming the card (main moved owner/prs during this session);
+that board administration is theirs, per the mission.
