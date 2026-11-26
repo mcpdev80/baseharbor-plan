@@ -1,0 +1,20 @@
+ 1. `evidence/r28-welle4-2026-11-21/cli-shard-runtime-tests/round-1.md` | blob `afe8ceb520` | 22865 bytes | carrier: stash@{48} | in-a-stash: yes
+ 2. `evidence/r29-welle6-2026-11-25/w205-0428-253-planner-deleted-source/akte.md` | blob `7ef45a1f7d` | 15291 bytes | carrier: ref:cc9c96409 | in-a-stash: no
+ 3. `evidence/w228-0428-216-huntv59/akte.md` | blob `ad302f2a24` | 13114 bytes | carrier: ref:5ba20ff3e | in-a-stash: no
+ 4. `evidence/2026-11/w242-0428-285-1820census/akte.md` | blob `3d728a53fc` | 12910 bytes | carrier: ref:5ba20ff3e | in-a-stash: yes
+ 5. `evidence/r28-welle6-2026-11-27/bughunt-hv47-upgrade-migration/intake-1.md` | blob `1c7776c497` | 12396 bytes | carrier: ref:a47da84b8 | in-a-stash: no
+ 6. `evidence/r28-welle6-2026-11-26/1842-review/review.md` | blob `67c8c04077` | 12169 bytes | carrier: ref:5ba20ff3e | in-a-stash: no
+ 7. `evidence/r28-welle6-2026-11-25/0428-284-1842-hop/round-1.md` | blob `9ca0ab57ea` | 12041 bytes | carrier: ref:25262d41c | in-a-stash: no
+ 8. `evidence/r28-welle6-2026-11-27/bughunt-hv48-api-surface/w194-0428-224-intake.md` | blob `2157b2f484` | 11909 bytes | carrier: stash@{1} | in-a-stash: yes
+ 9. `evidence/w246-0428-284-1812diag/w246-1812gatefaildiag.md` | blob `9781ec653c` | 11909 bytes | carrier: stash@{0} | in-a-stash: yes
+10. `evidence/r28-welle6-2026-11-27/bughunt-hv54-config-defaults/w209-0428-224-hunt-v54.md` | blob `48f2e6cd25` | 11794 bytes | carrier: stash@{1} | in-a-stash: yes
+11. `evidence/r28-welle6-2026-11-25/w237-0428-283-1818reset2/round-1.md` | blob `40b457f731` | 11578 bytes | carrier: ref:5ba20ff3e | in-a-stash: no
+12. `evidence/r28-welle5-2026-11-23/hunt39-v55/catalog-lifecycle-hunt.md` | blob `6ee929ee0f` | 10252 bytes | carrier: stash@{1} | in-a-stash: yes
+13. `evidence/r28-welle6-2026-11-25/w222-0428-307-1852-secondrun/secondrun-gate-akte.md` | blob `5ffbe8726a` | 10088 bytes | carrier: ref:541a07965 | in-a-stash: no
+14. `evidence/r29-welle6-2026-11-28/0428-287/w136-1835-redundancy.md` | blob `fc815666ba` | 9495 bytes | carrier: ref:34b33010b | in-a-stash: no
+15. `evidence/r28-welle6-2026-11-25/w218-0428-181-0428-285-1819hop/1819-pr-hop-akte.md` | blob `a415abfb3b` | 8831 bytes | carrier: ref:541a07965 | in-a-stash: no
+16. `evidence/2026-11-shift/0428-263/w200-1846-review.md` | blob `909162bbab` | 8423 bytes | carrier: ref:cc9c96409 | in-a-stash: no
+17. `evidence/r28-welle4-20261114/0428-065/round-rebase-1615.md` | blob `41ce287917` | 8201 bytes | carrier: ref:b8bb8b7b1 | in-a-stash: no
+18. `evidence/r28-welle5-2026-11-22/sourcepull-0428-223/review-1750-head17f471cd3fe9a41fbe5b4e2d3d2748f1e1bf9c99.md` | blob `cd2edbe0ef` | 8154 bytes | carrier: stash@{41} | in-a-stash: yes
+19. `evidence/r28-welle6-2026-11-25/w226-0428-307-0428-283-1818reset.md` | blob `a8246229ff` | 7989 bytes | carrier: ref:37320b0b8 | in-a-stash: no
+20. `evidence/r28-welle6-2026-11-27/w198-0428-284-demo-parser/w198-dispatch-wave-48bac372.md` | blob `28fdbbbde8` | 7947 bytes | carrier: stash@{1} | in-a-stash: yes
