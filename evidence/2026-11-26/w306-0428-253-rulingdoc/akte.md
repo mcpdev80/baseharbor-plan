@@ -110,4 +110,13 @@ Appended (forward-only, 10 lines, diff shows zero deletions) to `evidence/r29-we
 - Own third run (Eigenes-Run-Pflicht): `Validate planning`, run `45770501800`, event pull_request, head `5cda57e58`, terminal `completed / SUCCESS`, observed by this lane. Earlier runs `45770188193` (`dd09ca4dc`) and `45770346080` (`0f8840b67`) were likewise observed SUCCESS.
 - Final identity gate: `git log --format='%h an=%an cn=%cn' -1` → `5cda57e58a an=w306-0428-253-rulingdoc cn=w306-0428-253-rulingdoc`; `git log --oneline origin/main..HEAD` lists exactly the three w306 commits; `git diff origin/main...HEAD --name-only` shows exactly the three write-set files. `plan.py render` fixed point, `plan.py check` → 0 errors, 10 pre-existing warnings.
 
-END_DONE w306-0428-253-rulingdoc: plan PR #108 head 5cda57e58 (runs 45770188193/45770346080/45770501800 SUCCESS), #108 finding+confirmation comment posted; akte pending origin/main verification; merge is w267/owner action, never this lane.
+[superseded by the final END_DONE line at the end of this file]
+
+## Main-refresh and origin/main existence gate (last actions before END)
+
+- New plan main `c30b1143b4a6c6b8046bd9f909674d3bf846783f` appeared (unrelated w281 content); absorbed via `git merge origin/main` under this lane's canonical identity (`git log --format='%h an=%an cn=%cn' -1` → `4074bfb129 an=w306-0428-253-rulingdoc cn=w306-0428-253-rulingdoc`), no force, no rebase, no cherry-pick. `git diff --name-only origin/main...HEAD` after the merge still shows exactly the three write-set files.
+- Fourth own run on final head `4074bfb12`: `Validate planning`, run `45770819061`, terminal `completed / SUCCESS` (observed by this lane). Runs now watched to terminal: 45770188193, 45770346080, 45770501800, 45770680218, 45770819061 — all SUCCESS.
+- Coordinator correction turn (06:50Z): #108 comment posted with the future-dated-path finding, no-move rationale, akte pointer, admitted-set {90c8017b, 3c1ebc6f} confirmation and the verbatim rejection-boundary sentence: https://github.com/mcpdev80/baseharbor-plan/pull/108#issuecomment-7184778295
+- The akte path is introduced by this PR and is therefore on the PR head branch until merge; it cannot appear on origin/main before an authorized merge (precedent recorded in w136-1853-owner-ruling.md). Post-merge, re-verify with: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/2026-11-26/w306-0428-253-rulingdoc/akte.md`.
+
+END_DONE w306-0428-253-rulingdoc: plan PR #108 final head 4074bfb12 (5 self-watched Plan-validate runs SUCCESS incl. 45770819061), finding+confirmation comment posted, merge is w267/owner action; no product repo touched, no new cards.
