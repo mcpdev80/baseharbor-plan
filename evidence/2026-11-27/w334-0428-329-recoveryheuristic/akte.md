@@ -57,3 +57,9 @@ Card t-20261126-hunt46-recovery-backup-volume-heuristic (0428-329) · hunt46 fam
 - HOLD position: do NOT push either repo further; #1861 reruns stay frozen until the baseline (#136, accepted, merge-ready-held) lands on develop per owner sequencing.
 - Status: IDLE. First in line if w267's verdict names a correction.
 
+## Reuse order execution (2026-11-27, owner routing, single defect — ancestry)
+
+- w267 HOLD #139 at `5011ede3`: content/card/diff PASS; only ancestry failed (live main `0e9c89b41` not ancestor, behind=1).
+- Executed exactly: (1) fetched origin main (live main was `0e9c89b41`; branch tip still `5011ede32`); (2) ONE ordinary merge commit `dc9c8d61e` `git -c user.name=w334-0428-329-recoveryheuristic -c user.email=w334-0428-329-recoveryheuristic@baseharbor.local merge --no-edit FETCH_HEAD` against live main `0e9c89b41` (no view conflict; unrelated w327 akte only); (3) separate evidence commit `1643a6672`; (4) normal push (no force) `5011ede32..1643a6672`; (5) Hosted Plan validate on exact head `1643a6672` → run 45851693344, job Plan · validate SUCCESS (terminal); (6) ancestry: `git merge-base --is-ancestor 0e9c89b41 HEAD` rc=0.
+- Remote head after push: `1643a66720a7947d0991c3a800a5f433dc2a2d9c` (ls-remote confirmed). Pushed main had already moved to `68b5b109e` (unrelated w327 akte) — did NOT re-merge (HOLD: no further pushes; #1861 reruns frozen). w267 re-reviews at final head `1643a6672`.
+
