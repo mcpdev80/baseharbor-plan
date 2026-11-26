@@ -142,7 +142,14 @@ markers; each count is identical on origin/main (1 per file, verified via
   merge; the full akte is verified on the pushed branch (and the local copy
   `workers/evidence/w349-0428-078-154156hop/evidence.md`). ls-tree witness to be appended
   if the merge lands before END; otherwise END states the pending-#157 state explicitly.
+- Amendment witness: akte extended by commit `c24a164e8cbfeb59bffaf63bf0947286dc0f397c`
+  (identity `an=w349-0428-078-154hop cn=w349-0428-078-154hop`);
+  `git ls-remote origin refs/pull/157/head refs/heads/w349-0428-078-154hop-evidence` ->
+  both `c24a164e8cbfeb59bffaf63bf0947286dc0f397c`; '# Plan validate' run 45898810502 SUCCESS
+  at this exact head; ancestry `git merge-base --is-ancestor origin/main HEAD` -> main tip
+  c5795422 IS ancestor; `git log --oneline origin/main..HEAD` lists only the two w349 akte
+  commits.
 
 ## END
 
-END_DONE w349-0428-078-154hop: #154 hopped to e809de7ad73b02a6bdedc93dd1867396705d939c (run 45898408112 SUCCESS) and #156 to ce837f2ea0fcb313329e20a77c548c992eb0b1b4 (run 45898441518 SUCCESS); both = merges of origin/main c5795422, no conflicts, plan.py check 0 errors, no merges performed.
+END_DONE w349-0428-078-154hop: #154 hopped to head e809de7ad73b02a6bdedc93dd1867396705d939c (Validate planning run 45898408112 SUCCESS) and #156 to head ce837f2ea0fcb313329e20a77c548c992eb0b1b4 (run 45898441518 SUCCESS); both = forward-only merges of origin/main c5795422, zero conflicts, plan.py check 0 errors, no merges performed; akte published via plan PR #157 (head c24a164e8, run 45898810502 SUCCESS, awaiting admin squash).
