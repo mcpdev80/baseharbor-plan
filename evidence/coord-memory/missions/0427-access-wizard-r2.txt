@@ -1,0 +1,14 @@
+Auftrag 0427-access-wizard-r2 (lane df554d91, laptop, FRISCHE korrektur-bahn; orig fafba4b5 freigegeben, kandidat PR#1430 head 3a699a287 auf origin — dort abholen, NICHTS neu bauen).
+Karte t-20261018-r27-access-wizard. Der wizard-code ist OK (drift-frei, write-set sauber: access_wizard_command.go, commands.go, internal/accesswizard/*). ABER PR#1430 haelt 3 CI-FAILS, alle NUR kommando-registrierung:
+  - TestMachineDocumentationTracksRegistryAndCommandTree (machine_documentation_test.go:48): 'unclassified product command: baha access assign'
+  - TestMachineCoverageCIRealTreeAndJSONClassification (registration_ci_readiness_test.go:82): 'unclassified command: baha access assign'
+  - TestHumanCommandIndexTracksExactCommandMetadata (human_documentation_test.go:101): docs/cli/command-index.md drift
+LOESUNG (nur das, kein umweg):
+  (a) 'baha access assign' in die machine classification eintragen (dieselbe datei/struktur wie die anderen zugeordneten befehle — grep nach bestehendem muster).
+  (b) docs/cli/command-index.md NEU generieren aus dem registry (das tool das die anderen befehle erzeugen; NICHT manuell raten).
+  (c) KEIN anderes verhalten aendern — nur registrierung. write-set = classification + command-index.md + (falls noetig) wizard command metadata. NICHT die 3 #110 lifecycle/fixture dateien, NICHT .github, NICHT app_remote_lifecycle (116), NICHT node*.go (node-cli, review), NICHT maintenance_* (in korrektur).
+- basis: develop 06e4b1eaa+ Vorfahr (fetch origin develop, merge, ancestor rc0 — develop laeuft ggf. weiter, immer frisch vor push ziehen).
+- lokal: go test ./cmd/baha -run 'Command|Machine|Classif|Registration|Human.*Doc' bis gruen, DANN push.
+- eigenes-run: hosted pr-check auf finaler sha TERMINAL beobachten (run-id+status evidence), ls-remote zeugnis. ## PLAN + todowrite. keine subagenten (4.8, auch keine Lese-agenten). NICHT idle ohne END.
+Evidence: evidence/r27-welle5-folge-2026-11-07/access-wizard/round-2.md
+END an 594fd2f5. karte->review wenn 3 registration-fails weg + drift-frei + CI terminal gruen.

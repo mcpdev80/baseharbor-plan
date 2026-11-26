@@ -1,0 +1,16 @@
+TASK: forward-hop product PR #1855 (card 0428-078, Perses identity dashboard) onto current develop. Baseharbor repo only. No new cards, no scope extension.
+
+STATE AT DISPATCH (verify, then act): develop tip e176a276b2f545e6a555e58997817d8c08570da8 (this is #1857 merged, 05:27:46Z, Runtime Docker/Podman push workflows SUCCESS). PR #1855 OPEN, head 572d64891, mergeable MERGEABLE but BEHIND develop, so its old runs qualify nothing. Codex w267 ruled at 05:44Z: the existing payload needs ONE ordinary forward merge of origin/develop, not a rebuild.
+
+DO EXACTLY THIS:
+1. In your own isolated worktree: git fetch origin develop && git -c user.name=w300-0428-078-pr1855hop -c user.email=w300-0428-078-pr1855hop@baseharbor.local merge origin/develop  (the CURRENT tip, re-read it; if develop moved past e176a276b, absorb that tip). Normal push to the existing #1855 branch. NO rebase, NO force-push, NO cherry-pick, NO branch re-cut.
+2. Content payload must survive untouched: the Perses dashboard definition, the no-data and real-queried fixtures, and the Target component of the registration ID (internal/metrics/identity_dashboard_witness.go:145-154). Prove it in the akte with: git diff origin/develop...HEAD --name-status (non-empty, only your card's files) and git log --format='%h %an %cn' origin/develop..HEAD (only your commits plus the original #1855 commits).
+3. Catalog dedup: if pr-gate-coverage.json is inside your write-set, compare your rows to develop's rows after #1857 landed and drop ONLY rows the baseline already carries, with file:line for each dropped row. If your write-set carries no catalog rows, remove nothing and state that in one line.
+4. Every commit you create carries YOUR canonical name in author AND committer via git -c (also on the merge commit). No other name, no 'coordinator'.
+5. Tests: Hosted CI only. Never run go test / pytest / unittest / scripts/ci-fast-check.sh locally. Pre-push checks = format, vet, build.
+6. Watch YOUR OWN new-head pull_request run to terminal (Eigenes-Run-Pflicht): report the new head SHA, the run id, and the per_page=100 census with executed vs skipped for every required job, including the 'PR · Exact Candidate' conditional skip via ci.yml:1178 (state it, do not hide it). Trigger NOTHING else and do NOT trigger a second event - the second distinct pull_request event is a Codex action after review.
+7. Publish your akte to a scoped plan PR (own branch, evidence path for this task, never merge it, never push plan main directly).
+
+STOP AND REPORT: any merge conflict in a product file (report file:line, do not resolve product semantics); any push rejection that would need force; any suggestion to rebuild or re-cut the branch (that was ruled out).
+
+DELIVERABLE: END post with new head SHA, run id + census, the catalog-dedup statement, payload guards, and the plan PR number for your akte.

@@ -1,0 +1,12 @@
+ROLLE: CODEX-REVIEW (Abnahme-Sitz, kein Worker). Coord 594fd2f5. KARTE: t-20261018-r27-management-host (0427-036). GEGENPROBE nach act-1405c (du hattest NUR basis-ahnenschaft beanstandet; serve.go-fix + regression waren ACCEPTED).
+Kandidat PR #1405 head 6014a8fcd2697f34ab0c52353d328dd55cc9a1a5, base develop 934be499b. NUR-LESEND.
+(1) ls-remote refs/heads/develop refs/pull/1405/head; `git merge-base --is-ancestor 934be499b 6014a8fcd26` == rc0
+    (der einzige act-1405c-rejectgrund, jetzt behoben). `git log --oneline origin/develop..6014a8fcd26` zeigt card-commits
+    (serve.go fix + regression + develop-merge), KEINEN fremden kandidaten.
+(2) BESTAETIGE der produkt-code ist IDENTISCH zum previously-accepted 5b8d0f5745 ausser dem develop-merge:
+    `git diff 5b8d0f5745 6014a8fcd26 -- cmd/baha/` zeigt NUR merge-/context-aenderungen, KEIN neuer serve.go-eingriff.
+(3) CI am neuen kopf: gh checks 6014a8fc terminal; required zellen gruen oder begruendet owner-gate-skipped.
+Kein neuer code = wenn (1)(2)(3) stimmen und deine act-1405c findings (startup nicht-nil beide zweige, regression
+ROT-ohne-fix/GRUEN-mit-fix) am inhalt unveraendert bleiben -> ACCEPT.
+END an 594fd2f5: "CODEX-REVIEW 0427-036/#1405-rereview-d: verdict=<ACCEPT|REJECT> head=<..> ancestry=<rc0 belegt>
+code_unchanged=<ok> ci=<TERMINAL>". Akte evidence/.../management-host/act-1405d-review.md ECHTE plan (remote -v).

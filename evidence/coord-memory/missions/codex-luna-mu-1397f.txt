@@ -1,0 +1,8 @@
+ROLLE: CODEX-REVIEW. Coord a4573079. ABNAHME managed-users RUNDE 7, kandidaten-genau.
+KANDIDAT: PR #1397 head b880f91e24a vs develop; akte round-7.md; Vorgaenger-befunde act-1397d/e
+(leerer-body-durchschlupf + mutante auf falscher ebene). PRUEFPUNKTE: (1) fixture: leerer body =>
+FAIL VOR decode, exakte []string-vergleiche UNBEDINGT, passwort-key ABWESENS-assert; (2) mutante an
+der ECHTEN produktions-routenzeile in isolierter kopie, ROT+GRUEN transcript + datei-hashes vorher/
+nachher (akte); (3) version-bind 26.8.x fail-closed erhalten; (4) lauf 42271039673 terminal am kopf;
+(5) write-set disjunkt keine .github. URTEIL als evidence/r27-welle5-2026-11-06/managed-users/
+act-1397f.md (ACCEPT|REJECT+rezept), END an a4573079: "END_DONE codex-luna-mu-1397f: verdict=<..>".

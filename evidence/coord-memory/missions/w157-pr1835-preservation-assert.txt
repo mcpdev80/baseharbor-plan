@@ -1,0 +1,7 @@
+WORKER MISSION (#1835 CORRECTION per Codex w156 END_BLOCKED, card t-20261116-r28-bug-installation-reset-recovery): PR #1835 candidate 55d17d437cfced7ec648aa42c14cc529963b68b6 withheld: (1) ADD the missing shared/foreign provider PRESERVATION ASSERTION: regression test proving that during installation reset / failed-apply destroy, providers NOT owned by the reset target (shared and foreign, incl. provider-preservation classes already modeled in cmd/baha/app_core_requirement*.go and provider_registry*.go) keep their state and are not re-planned; assert on materialized plan + post-state, red-first. (2) Keep existing CLI-2/CLI-3 fixes intact; no .github/scripts, no consent/auth delta. git merge origin/develop if behind, gofmt precheck, NORMAL push new exact head; Hosted PR CI to TOP-LEVEL terminal on that head; record run ID. Rootless PODMAN runtime proof is operated by the batch-runner lane, not you - note its run ID once visible (gh api runs on your new head with atomic/podman). Evidence: evidence/r28-welle6-2026-11-26/1835-preservation/. END_DONE/HANDOFF (re-review by w156). No merge.
+
+
+## ANSATZ (identity approach - BINDING before next commit)
+- All commits via: git -c user.name='w157-0428-287-pr1835-preservation' -c user.email='w157-0428-287-pr1835-preservation@baseharbor.local' commit ...
+- Pre-push gate: git show -s --format=%an HEAD must print EXACTLY 'w157-0428-287-pr1835-preservation' (= card 0428-287 frontmatter owner).
+- No commit/push until this block acknowledged.

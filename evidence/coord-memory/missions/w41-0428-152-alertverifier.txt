@@ -1,0 +1,16 @@
+MISSION: 0428-152 card t-20261119-r28-perses-alert-verifier-caller-wiring — give the Perses alert-evaluator verifier ONE honest consumer (flash seat).
+
+Read first: python3 scripts/plan.py show t-20261119-r28-perses-alert-verifier-caller-wiring and its card body. The verifier internal/metrics/perses_prometheus_alerts.go is a contract surface with NO caller. Goal: the 'baha app perses status' observation consumes the verifier result truthfully without inventing a state it cannot deliver.
+
+Resolve the real GitHub remote (github.com/mcpdev80). branch: git fetch lane-origin develop (develop is d4fa8c589 which already MERGED #1702 that previously touched this file — hop onto it, do NOT branch off another candidate); git checkout -b lane-0428-152-alertverifier-caller origin/develop. Show git merge-base --is-ancestor origin/develop HEAD + git diff origin/develop...HEAD --name-only + git log --oneline origin/develop..HEAD (only your commits) as witnesses.
+
+WRITE SET (in scope): ONLY cmd/baha/app_status_collect.go (the management-ui/perses observation via AddObservation ~line 401) + tests under cmd/baha/. OUT of scope (do NOT touch): internal/metrics/perses_prometheus_alerts.go (card 0428-073), internal/metrics/prometheus_files.go (0428-123), internal/capability/registry.go (0428-151), internal/application/provider_consent_authority.go (0428-119), and scripts/** + .github/** (owner scope).
+
+ACCEPTANCE:
+- The 'baha app perses status' observation for the alert-evaluator shows exactly one of: 'not configured' (not selected in the manifest), 'unavailable (owner-gated evaluator contract)' (selected but contract missing) — and NEVER 'healthy'/'verified' while persesAlertRealEvaluatorContractPresent() is false.
+- No new state holder, no new manifest field: derive the outcome from existing bindings/fields.
+- Add tests proving each state, wired so they run in the Hosted PR · Go unit / Draft Go shard (CI-aufnahmepflicht §5.3). If a new test has no CI route, report the job file:line as a finding — do NOT edit .github/**.
+
+Verify ONLY via exact-head Hosted CI (no local go test / ci-fast-check — Hosted-only, Owner direction 2026-11-23). Push, open a PR base develop, watch your own run to terminal. No merge (Merge-Frost). Bring down any VM/compose you started before END (cleanliness line).
+
+END: codeman agent post <coordinator> "END_DONE 0428-152: PR <num> head <sha>; consumer + states verified; Hosted <run/result>" or "END_BLOCKED 0428-152: <precise blocker>". No subagents.

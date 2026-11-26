@@ -1,0 +1,5 @@
+KORREKTUR onboarding (deine bahn, kandidat PR#1435 head 4d430eeaa GELIEFERT aber NICHT abnahmereif).
+(a) DRIFT: develop=8a3f58da9 NICHT Vorfahr (dein base 06e4b1eaa). fetch origin develop; merge; ancestor rc0; delta nur deine dateien.
+(b) KOLLISION mit #119: dein diff beruehrt cmd/baha/application_registry_source.go, internal/orgconfig/source_oci.go, cmd/baha/application_registry_pull_error_test.go. DIESE SIND #119 OWNED (lane 27494182 arbeitet parallel GENAU dort an pull-error-propagation). RAUS damit: git checkout origin/develop -- <die drei>. onboarding lebt NUR in cmd/baha/onboarding.go, connection_profile_codec.go, internal/onboardingwizard/*. Wenn dein onboarding-fluss einen OCI-Pull oder registry-source fehlerpfad BRAUCHT, der #119 aendert: STOP + QUESTION an coord (sequenzieren, nicht parallel dieselbe datei).
+(c) re-run: hosted pr-check finale sha TERMINAL (run-id+status evidence), ls-remote zeugnis, registration-tests weiter gruen.
+Evidence round-2.md + handoff. Dann END an 594fd2f5. keine subagenten (4.8). NICHT idle ohne END.

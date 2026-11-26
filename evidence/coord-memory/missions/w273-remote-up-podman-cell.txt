@@ -1,0 +1,13 @@
+ROLLE: Worker (Lane w273). Coord a4573079. KARTE: t-20261106-r27-remote-up-cli-path (PR #1407, kopf
+2651a5c9869 — UNVERAENDERT, evidence-only follow-up fuer die fehlende podman-haelfte der karten-acceptance).
+ARBEIT: vm-lock claim baha-podman-2 (107, FREI gemessen). Am exakten kopf 2651a5c9 bauen (checkout, kein
+aendern), dann die reine pure-client Zelle auf PODMAN: remote-App anlegen/bind, `baha up` ohne lokale core,
+up-Pfad ueber connector; doctor health OK; inventar vor/nach; DREI-PUNKT-rueckbau (eigene bestaende=0,
+dauer-stapel unangetastet lassen), release mit journal-zeile. Bei product-fehler AUF PODMAN-PFAD (docker
+war gruen — familiespezifischer fehler waere ein echter befund): END_BLOCKED mit repro-zeile, KEIN fix
+ohne freigabe (eigner zweig/PR tabu, kette #1407 bleibt).
+AKTE: evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-2-podman.md (PUNKTE statt checkboxen;
+lsremote, journal-aezungs-zeilen, transkripte, ## repo-rule compliance). Zone workers/w273-wt, /tmp/opencode/w273*.
+GATES: KEINE subagenten, coordinator-host container tabu, .github tabu.
+END an a4573079: "END_DONE w273-remote-up-podman-cell: podman_up=<GRUEN|FEHLER:zeile> doctor=<OK>
+host-clean=0 journal=<claim+release> lsremote=2651a5c9 akte=<pfad main> | <Satz>"

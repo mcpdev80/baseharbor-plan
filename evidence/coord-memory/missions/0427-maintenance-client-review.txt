@@ -1,0 +1,12 @@
+CODEX-REVIEW 0427-118-maintenance-client (karte t-20261018-r27-maintenance-client, PR #1428).
+Rolle REVIEW (nicht merge). Kandidat head d4d0f77c0cf0db675b603daaf22ea859fac4290a gegen develop 812c99c88. ls-remote+ancestry bestaetigt (drift-frei), delta NUR 9 maintenance_* dateien (app_maintenance_client.go, app_maintenance_lifecycle_owner.go, maintenance_remote_safety.go, internal/application/maintenance_authority.go, maintenance_history.go + tests), #110/#1383 lifecycle/fixture-dateien NICHT mehr im diff (kollision behoben). CI run 42386457934 terminal success (go-unit 8 success, 10 skipped by path rule).
+Vertrag: `python3 baseharbor-plan/scripts/plan.py show t-20261018-r27-maintenance-client`. Ziel: wartung laeuft durch die installations-autoritaet (kein direkter umweg), fail-closed, mutanten-belegt.
+PRUEFPUNKTE:
+1. routing durch die production/installation authority korrekt + fail-closed (kein core-bypass), consistent mit client-commands/managed-users (gemergt).
+2. causal mutants: jede guard ist last-bearing (red-first nachgewiesen).
+3. maintenance window / history持久化 korrekt (kein verlust, keine selbst-freigabe).
+4. write-set sauber (nur maintenance-dateien), keine .github, keine CI-naht, kein lifecycle/fixture.
+5. offene finding 1 (public-surfaces registrierung): blocking oder dokumentiert-nicht-blockierend? begruende.
+6. CI-Aufnahmepflicht: neue tests von bestehender acceptance erfasst (go-unit), nicht skipped wenn mandatory.
+Urteil APPROVE|REQUEST-CHANGES mit LOESUNGSREZEPT. Kein eigenes check-gate, keine CI neu, kandidat unveraendert (vor/nach sha). 
+END an 594fd2f5. APPROVE+komplett => melde, ich gebe CODEX-MERGE frei.
