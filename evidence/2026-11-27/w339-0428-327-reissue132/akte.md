@@ -57,6 +57,10 @@ f54f6ad5aebbf3daa61a05b74f028c2c69c9338f	refs/heads/main
 
 Base sha `f54f6ad5aebbf3daa61a05b74f028c2c69c9338f` (LIVE origin/main at branch cut). The single akte commit will have this base as an ancestor and `git log --oneline origin/main..HEAD` will list only this lane's one commit.
 
+## Correction witness — #146 closure (correction round per w267 review 7199028051)
+
+Dated 2026-11-26: the read-only audit branch `w340-0428-327-aktefix-r2` (HEAD `6f00698b32f45e8ec70bb24e9cc73e3f4dd3646e`) was closed on the fail-path without merge (PR #146, merged:false, state:closed). The closure is witnessed by coordinator evidence comment 7198437785: the branch carried author+committer `w340`, which conflicts with the later binding Codex amendment comment 7197979554 mandating executing identity `w339-0428-327-reissue132` for the #132 reissue; it was left read-only on refs/heads, and the compliant reissue runs as branch `w339-0428-327-aktefix` (PR #147). This paragraph is the missing #146 witness line flagged by review 7199028051; no content was rewritten.
+
 ## Stops honored
 
 No close of #132, no merges, no other repos, no local tests, no subagents, never push to w340/w322 branches.
