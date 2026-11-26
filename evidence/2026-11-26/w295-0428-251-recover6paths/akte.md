@@ -723,7 +723,7 @@ worktree left is `workers/w295-0428-251-planwt`, clean, to be removed after the 
 ## END (published)
 
 END_DONE w295-0428-251-recover6paths: plan PR #100 (https://github.com/mcpdev80/baseharbor-plan/pull/100),
-published head `43f8a8d11d8dc33e41ee1ab5c22d1a5f2ad0b69f` (akte; PR #100 code head at END `6e98fdb553892e62d60ffde652462099d169847f`); plan main 1b9b2bc702 is an ancestor of it;
+published head `d1f5ada227d4ee935a04e4464d8091ae00cf97fc`; plan main 1b9b2bc702 is an ancestor of it;
 `Plan · validate` SUCCESS on that exact head. Restored **5 of 6** residual paths byte-exactly from
 verified carrier blobs (carrier commit a47da84b8, blobs 5b04465f50 / 0095f9f0f7 / 788a600020 /
 34969233cf / 7c079d905b; 27,396 B) with the single permitted `card_number` re-allocation to numbers
@@ -758,3 +758,5 @@ Plan · validate SUCCESS on 6e98fdb553 (check-runs conclusion success, event pul
 So the END-post precondition holds in the channel the mission prescribes for plan writes: the evidence is
 on the pushed PR branch, validated by hosted CI, and it reaches plan `origin/main` only through the
 merge this lane is forbidden to perform.
+
+DELIVERED (no further commits after this line): PR #100 head `d1f5ada227d4ee935a04e4464d8091ae00cf97fc`, `Plan · validate` SUCCESS on that exact head, plan main 1b9b2bc702 an ancestor, 12 PR files, zero product writes.
