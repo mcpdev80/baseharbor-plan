@@ -113,9 +113,13 @@ plus — CRITICALLY — R2 alone does NOT dispatch gates (measured: selected_gat
 
 ## cleanliness
 
-- docker ps -a before: (checked) no containers started or stopped by this lane; ambient stacks left untouched (foreign bh-*/karren stacks not modified per owner directive)
-- no containers, networks, volumes or compose projects were created by this lane at any point
-- no product-repo files remain modified (git diff origin/develop --name-only → empty; verified 2026-11-26)
+- docker ps -a before/after: 0 containers at every check; this lane started, stopped or removed NO container, network, volume or compose project (all ambient stacks untouched).
+- no product-repo files remain modified beyond the two candidate commits on branch w309-0428-352-14gatecatalog (git status clean in workers/w309-0428-352-14gatecatalog-wt).
+- worktrees kept (lane-owned, beside my working dir as directed): workers/w309-0428-352-14gatecatalog-wt (product candidate), workers/w309-0428-352-14gatecatalog-plan (plan PR #112 branch), workers/w309-0428-352-14gatecatalog-scratch (read-only develop fetches + planner probes). Nothing created in the ecosystem root.
+
+## END DONE w309-0428-352-14gatecatalog (final)
+
+w309-0428-352-14gatecatalog DONE: product PR https://github.com/mcpdev80/baseharbor/pull/1859 non-draft; candidate commits 7549a503c + f6fc8a71f (+ same-lane identity-symmetry fix 0716d20be) on branch w309-0428-352-14gatecatalog, base b7855f78a; own pull_request runs 45782087038 (f6fc8a71f) and 45783262677 (0716d20be) both SUCCESS, each census 32 jobs = 11 executed / 21 skipped / 0 failed; catalog-only mechanism binds pre-release-runtime-suite.yml to the fourteen PR Light gates and is proven on the planner with NO pr-gate-plan.py edit (w308's reviewed-head-binding requirement does not apply); plan akte published via plan PR #112 (validate 45783807422 SUCCESS). #1812 stays unqualified until this catalog is in develop, then absorbs develop once. Codex reviews and merges; this lane merged nothing.
 
 ## plan-pub delivery evidence (second-to-last action)
 
@@ -125,3 +129,61 @@ plus — CRITICALLY — R2 alone does NOT dispatch gates (measured: selected_gat
 ## END BLOCKED w309-0428-352-14gatecatalog
 
 STOP-AND-REPORT per mission + coordinator 08:09Z: no candidate, no PR, no CI run by this lane. Headline: a single pr-gate-coverage.json row (variant R1) IS sufficient to make the runtime gates select for a modified pre-release-runtime-suite.yml candidate — measured against develop b7855f78a; w308's "coverage.json row is inert" is incorrect for the final catalog step (correct only for the reviewed-head guard). A planner reviewed-head binding alone selects ZERO gates. Awaiting owner/Codex: authorize R1 (catalog-only PR on this card) and decide the #1812 base-refresh mechanism. #1812 stays unqualified; #1819/#1820 stay sequenced behind it.
+
+---
+
+# Implementation round (owner directive 2026-11-26 08:16Z: implement the standalone catalog PR now)
+
+## PLAN delta
+
+13. Rebase branch on current develop (unchanged b7855f78a) — done
+14. Implement 14-gate catalog rows (no planner edits, no .github/**) — done
+15. Pre-checks (json/format only), commit with canonical identity, push — done
+16. Open product PR + watch own exact-head pull_request run to terminal + census — done (11/21/0, base still pre-catalog)
+17. Post head+run+attempt PR comment — done
+18. Publish implementation akte + board delta via plan PR — this commit
+
+## Product candidate
+
+- repo: mcpdev80/baseharbor, branch w309-0428-352-14gatecatalog, PR: https://github.com/mcpdev80/baseharbor/pull/1859 (non-draft, review)
+- commits: 7549a503c (first row, six heavy-surface variant) then f6fc8a71f46d1b3813a13527c0edb6de560122af (final head: 14 Light-gate binding). Ordinary commits/normal push, no rebase/force.
+- base attestation: develop b7855f78a0253b9423e07da6ae92009b8f0fd1ae via `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop`; `git merge-base --is-ancestor origin/develop HEAD` → OK; `git log --oneline origin/develop..HEAD` lists exactly the two w309 commits; `git diff origin/develop...HEAD --name-only` → scripts/pr-gate-coverage.json, scripts/test_pr_gate_coverage.py (proves no .github/**, no pr-gate-plan.py, no consent/auth/authorization path)
+- commit identity witness: `git log --format='%h an=%an cn=%cn' -1` → `f6fc8a71f an=w309-0428-352-14gatecatalog cn=w309-0428-352-14gatecatalog` (both commits; canonical lane name, no role suffix)
+- delivery witness after push: `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/w309-0428-352-14gatecatalog refs/pull/1859/head` → f6fc8a71f... on the branch head (PR refs/pull/1859/head lags until the workflow registers it; the pull_request run below is on the new head)
+
+## Hosted CI (own exact-head run, watched to terminal)
+
+- run 45782087038 (attempt 1) CI · PR #1859, head f6fc8a71f: completed/success. Census per_page=100: 32 jobs = 11 executed / 21 skipped / 0 failed. `PR · Selected Runtime` = skipped — CORRECT for this candidate because the trusted plan reads scripts/pr-gate-coverage.json from the BASE/controller checkout (ci.yml:867-869), which is still pre-catalog at base b7855f78a. The earlier run 45780763671 (head 7549a503c) was the first variant.
+- head 0716d20be (identity-symmetry fix): author AND committer = w309-0428-352-14gatecatalog <w309-0428-352-14gatecatalog@baseharbor.local> (`git cat-file -p 0716d20be`, `git log --format='%h an=%an cn=%cn' -1` → `0716d20be an=w309-0428-352-14gatecatalog cn=w309-0428-352-14gatecatalog`). Own pull_request run 45783262677 attempt 1 SUCCESS, census 32 jobs = 11 executed / 21 skipped / 0 failed, `PR · Validation · pr-planner-tests` executed the new test at this head (Ran 296 tests OK). Head/run pair posted in the PR comment; review reference pair = f6fc8a71f + 45782087038.
+- new test executed by hosted CI: `test_runtime_suite_workflow_selects_docker_and_podman_light_gates` in scripts/test_pr_gate_coverage.py, run by validation `pr-planner-tests` (`python3 -m unittest scripts/test_pr_gate_plan.py scripts/test_pr_gate_coverage.py ...`, ci.yml:1418), selected via the ci-executor/contract route whenever scripts/ change — trigger: pull_request on any scripts/ diff. No local test execution (AGENTS 4.5/CI policy); read-only function evaluation used only for the planner probes below.
+- correction of the first variant's record (head 7549a503c, run 45780763671): that round carried only a six-surface row and its test asserted six gates (the run's pr-planner-tests was OK); this round replaced it — the akte's "measured six" notes elsewhere refer to that variant and stand corrected to fourteen by the current round.
+
+## The decisive question, answered empirically
+
+Q: Do the catalog rows ALONE make the 14 gates select for a modified pre-release-runtime-suite.yml candidate, or does w308's reviewed-head-binding requirement still apply?
+
+A: The catalog rows alone are sufficient; the reviewed-head-binding requirement does NOT apply. Measured against develop b7855f78a with ONLY the scripts/pr-gate-coverage.json change applied (pr-gate-plan.py bit-identical):
+- `resolve_covered_gates(['.github/workflows/pre-release-runtime-suite.yml'])` → exactly the 14 Light gates (7 families × {docker,podman}: guided, lifecycle, policy, connectivity, reconciliation, failure, full-destroy), no unowned paths.
+- `planner.plan(diff, real release-requirements.json, real pr-gate-map-v1.json)` with the single modified-workflow diff shape → coverage_status=resolved, selected_gates=those 14, broad_required=False.
+- `pr-selected-runtime-matrix.py` → include n=14, required=true → `runtime_required='true'` → `PR · Selected Runtime` (ci.yml:1482) dispatches 14 matrix jobs via pre-release-runtime-suite.yml instead of skipping.
+- Mechanism: the planner's ci-workflow catch-all (pr-gate-plan.py:1702) only requires CI_CHECKS+WORKFLOW_SYNTAX_CHECKS and never marks the path unowned; afterwards plan() OVERWRITES selected_gates with the catalog's covered set ("The catalog is the sole authority for runtime gate selection", pr-gate-plan.py plan()). w308's STEP (a)-inert claim conflated the reviewed-head/elif stage (which indeed never reads coverage.json) with the final catalog step (which does) — its own STEP 4 line confirms the overwrite.
+- Caveat that is NOT a planner caveat: the selection only applies once the catalog is in the TRUSTED BASE (merged to develop). A candidate cannot self-authorize — proven on this very PR: run 45782087038 planned [not-required] from the base checkout while carrying the new rows (advisory job: "No candidate-added validation checks"). Hence #1812's pair must run on a final head whose base contains this catalog.
+
+## 14-gate set (from scripts/release-requirements.json, jobs containing runtime_light_gates_*)
+
+atomic/{docker,podman}/{guided, lifecycle, policy, connectivity, reconciliation, failure, full-destroy}. data-capabilities, observability, identity, security, backup-restore are heavy gates and were deliberately NOT bound (smallest sufficient scope; heavy-gate binding would also flip unrelated capability sources — e.g. any cmd/baha/app_edit.go-class change would start dispatching all 7 families — a behavior change beyond this card).
+
+## repo-rule compliance (implementation round)
+
+- Only the approved surface changed: scripts/pr-gate-coverage.json rows/covers/surfaces + its regression test. No pr-gate-plan.py edit (the Codex-decision lane stays empty), no .github/** edit, no rerun/workflow_dispatch, no consent/authorization/authentication behaviour change (git diff --name-only above proves it).
+- One PR, one chain, named branch only; no second branch; no subagents; no local test execution; GitHub-hosted runners only; no containers/compose (cleanliness: docker ps -a unchanged, this lane started 0 containers).
+
+## plan-pub delivery evidence (final publish witness)
+
+- plan branch `w309-0428-352-14gatecatalog-board` head = 26be4724aea3f3332369818ced458ad0b27b5d66 (delivered; PR #112 head = same; `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/w309-0428-352-14gatecatalog-board refs/pull/112/head` → both 26be4724ae)
+- plan PR: https://github.com/mcpdev80/baseharbor-plan/pull/112 (card board delta + implementation akte); "Validate planning" pull_request SUCCESS run 45782864582 on the final head 26be4724ae (earlier head run 45782719217 also SUCCESS), watched to terminal by this lane
+- the diagnostic akte commit is already on origin/main via merged plan PR #110 (merge commit b7a1347fe5); the implementation-round akte section and the card's prs/evidence fields land with PR #112 — admin squash merge is the coordinator/Codex act (plan main protected, never direct-pushed by this lane); `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/w309-0428-352-14gatecatalog refs/pull/1859/head` → f6fc8a71f... on both branch head and PR head (delivery proven)
+
+## END (final)
+
+END DONE w309-0428-352-14gatecatalog: product PR https://github.com/mcpdev80/baseharbor/pull/1859 final head f6fc8a71f46d1b3813a13527c0edb6de560122af, own pull_request run 45782087038 (attempt 1) SUCCESS, census 11 executed / 21 skipped / 0 failed (runtime skip correct at stale base; catalog-in-base proof in the akte above). Codex reviews and merges; this lane merged nothing. #1812 stays unqualified until this catalog is in develop, then absorbs develop once.
