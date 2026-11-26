@@ -15,19 +15,20 @@ kanban_title: 0428-352 · Trusted catalog baseline for
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1857]
+prs: [mcpdev80/baseharbor#1857, mcpdev80/baseharbor#1859]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-26/w309-0428-352-14gatecatalog/akte.md"]
 ---
 
 - [ ] t-20261126-trusted-catalog-baseline-identity-tests · Trusted catalog baseline for identity dashboard tests #task #release/v0-4-28 #status/planned #view/ready #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **PR:** [baseharbor#1857](https://github.com/mcpdev80/baseharbor/pull/1857)  
+    **PR:** [baseharbor#1857](https://github.com/mcpdev80/baseharbor/pull/1857), [baseharbor#1859](https://github.com/mcpdev80/baseharbor/pull/1859)  
     **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-26/w309-0428-352-14gatecatalog/akte.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -36,7 +37,7 @@ evidence: []
 **Depends on:** none  
 **Owner:** unassigned  
 **Priority:** not set  
-**PRs:** [baseharbor#1857](https://github.com/mcpdev80/baseharbor/pull/1857)  
+**PRs:** [baseharbor#1857](https://github.com/mcpdev80/baseharbor/pull/1857), [baseharbor#1859](https://github.com/mcpdev80/baseharbor/pull/1859)  
 **Source:** 
 <!-- /generated:links -->
 
