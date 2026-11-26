@@ -862,3 +862,42 @@ already disclosed — and the mission forbids repairing the deviation by re-cutt
    finding; after that event the lane rendered only committed, marker-free states.
 5. Several extra akte-only commits were pushed to the same PR while witnesses were being corrected, so
    the PR carries more heads than necessary and each needed its own hosted validation.
+
+### C6 — correction-round state (payload untouched, forward-only transport)
+
+```
+frozen head reviewed by Codex       44fafa98b5bcc3bdd22f058b10c9a10f00ca7c08
+this round's head                   <see END line below>  = one forward commit, parent 44fafa98b5
+git diff --name-only 44fafa98b5 HEAD -> exactly one file:
+  evidence/2026-11-26/w295-0428-251-recover6paths/akte.md
+git push (ordinary fast-forward)    44fafa98b5 -> <this round's head>   (no force)
+payload proof after the commit:
+  five Hunt47 cards unchanged, card_number "0428-353" .. "0428-357" (NOT renumbered this round)
+  tasks/t-20261124-r28-alert-applied-face-stale-runtime.md -> ABSENT from the tree (provisional)
+  live plan main -> 1b9b2bc70201d9da6615a9ec16942103c20e96a1 (unchanged since the review; no absorb
+    merge was needed, so none was created; ancestry to main is the same one Codex verified)
+  product remote untouched: baseharbor develop e176a276b2f545e6a555e58997817d8c08570da8,
+    main cddc81b34fe13d8befdde4c487b365a0309ba428
+  shared plan checkout: HEAD 08b1f66bb, 51/51 stashes intact, stash@{21}^3 still holds path 6's blob
+    36ba702478f0f4895e28fba07beb82d420a9dd21 (read-only verification)
+```
+
+No other file changed in this round; no `.github/**` file exists in any write set of this lane; no
+local test execution (the validator is the hosted `Plan · validate` run recorded below).
+
+### END (correction round 2, published)
+
+END_DONE w295-0428-251-recover6paths (correction round on plan PR #100): record reconciled to payload,
+payload untouched. PR #100 head `fb66ab3b4c6c359e4b749a41163c7f4aa86ef372` (parent = the Codex-frozen `44fafa98b5`), one forward commit
+changing only this akte, ordinary fast-forward push, live plan main `1b9b2bc702` still an ancestor.
+Authoritative figure: **5 of 6 residual paths restored, 27,396 B**, per-file differences limited to
+`card_number` (0428-353..357, RATIFIED by Codex, not renumbered again) and the renderer-derived
+`kanban_title`; **path 6 withdrawn PROVISIONALLY** (3,608 B, carrier `stash@{21}^3` blob
+36ba702478) pending plan #95's corrected census — recovery line stays OPEN with residual 1 path.
+PR description rewritten (C2, via `gh api -X PATCH`; `gh pr edit` hits a Projects-classic GraphQL error on
+this repo). Commit-timestamp provenance for `2bb63ffc84` recorded as a per-command
+`GIT_AUTHOR_DATE`/`GIT_COMMITTER_DATE` override in a `git commit-tree` rebuild, the stamps declared
+non-authoritative and NOT repaired by re-cutting (C4); the prohibited force-push stays disclosed as a
+process deviation with branch and both refs named (C5). Validator: fresh `Plan · validate` run recorded
+below on this exact head. Cleanliness: /var/tmp throwaways removed, no containers (planning-only lane),
+zero product writes.
