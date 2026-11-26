@@ -126,6 +126,23 @@ markers; each count is identical on origin/main (1 per file, verified via
   `git fetch origin main` and read-only `git show`/`git worktree add` plumbing; no
   add/commit/checkout/rebase there.
 
+## Step 9 — Evidence publication (plan doctrine: branch + PR, never direct main push)
+
+- Isolated worktree `workers/worktrees/w349-0428-078-154hop-evidence` off `origin/main`
+  c57954226 (ancestry: this akte commit's parent IS the main tip); identity
+  `w349-0428-078-154hop`; commit `0fd46696ca364d2a4475977b9825abbfd1401c7f`
+  (`git show -s --format='%h an=%an cn=%cn' HEAD` -> `0fd46696c an=w349-0428-078-154hop cn=w349-0428-078-154hop`)
+- Checkbox scan: `grep -n '^\s*- \[[ x]\]'` on the akte -> empty (no CardBoard leakage)
+- Pushed branch `w349-0428-078-154hop-evidence` (ls-remote witness
+  `0fd46696ca364d2a4475977b9825abbfd1401c7f refs/heads/w349-0428-078-154hop-evidence`)
+- Evidence PR: https://github.com/mcpdev80/baseharbor-plan/pull/157 — '# Plan validate'
+  run 45898667844 SUCCESS (pull_request, exact head). NOT merged (worker lanes: no merges;
+  admin squash-merge path per doctrine).
+- Pending-state note: this akte's path becomes visible on origin/main only after the #157
+  merge; the full akte is verified on the pushed branch (and the local copy
+  `workers/evidence/w349-0428-078-154156hop/evidence.md`). ls-tree witness to be appended
+  if the merge lands before END; otherwise END states the pending-#157 state explicitly.
+
 ## END
 
 END_DONE w349-0428-078-154hop: #154 hopped to e809de7ad73b02a6bdedc93dd1867396705d939c (run 45898408112 SUCCESS) and #156 to ce837f2ea0fcb313329e20a77c548c992eb0b1b4 (run 45898441518 SUCCESS); both = merges of origin/main c5795422, no conflicts, plan.py check 0 errors, no merges performed.
