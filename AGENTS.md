@@ -24,7 +24,7 @@ Marcel explicitly resumes Codeman. The binding work order is [CODEMAN-START.md](
 
 ## Owner-delegated Maintainer authority — current precedence
 
-Marcel explicitly authorizes Codex and other agents he designates to exercise his repository Maintainer authority through @mcpdev80 within the assigned work. Owner mandate 2026-11-24 (label '25.11'): for explicitly named cards, coordinator-spawned **Lane-Codex** sessions hold this delegated authority for decide/implement/review/merge within their authorized scope; outside those cards all assignment/acceptance wording above is unchanged. An Owner instruction to implement, accept or merge requires no additional repository reviewer, code-owner approval, self-approval or repeated confirmation. This exception takes precedence over review-only handoff/stop requirements below. Record Owner-authorized acceptance, exact source, actual checks and merge evidence; never label it independent review when none occurred. Technical Required Checks, genuine native test execution, existing protected work and unassigned release operations remain distinct requirements. See the [delegation decision](decisions/2026-10-19-owner-delegated-maintainer-authority.md) and product [Development process](https://github.com/mcpdev80/baseharbor/blob/develop/docs/DEVELOPMENT_GUIDELINES.md#development-process).
+Owner mandate 2026-11-26: local LLM worker sessions implement and transport assigned changes. At most two Coordinator-spawned Codex sessions run concurrently; they decide technical alternatives and card disposition, independently review exact worker candidates, and merge only after the required checks and evidence pass. Codex sessions do not implement product changes. Owner-only decisions remain with the Owner. Record the decision, exact source, actual checks and merge evidence; never describe an implementation session as an independent review. See the product [Development process](https://github.com/mcpdev80/baseharbor/blob/develop/docs/DEVELOPMENT_GUIDELINES.md#development-process).
 
 ## Historical v0.4.26 assignments
 
@@ -42,7 +42,7 @@ Do not read the whole vault. For an assigned task:
 2. Read that task note, its release note in `releases/`, and its epic in `epics/` if `parent` points to one. Follow links only as needed.
 3. For product work, read the product repository's own entry points (for BaseHarbor: [AGENTS.md](https://github.com/mcpdev80/baseharbor/blob/develop/AGENTS.md) and [DEVELOPMENT_GUIDELINES](https://github.com/mcpdev80/baseharbor/blob/develop/docs/DEVELOPMENT_GUIDELINES.md)). This vault links to them; it does not duplicate them.
 
-No task assigned? `python3 scripts/plan.py list --ready` shows candidates, but **ready is not assigned**: the Maintainer assigns work.
+No task assigned? The ready-list command shows candidates, but **ready is not assigned**. The Coordinator assigns only existing authorized work. The Coordinator must not create or extend BaseHarbor cards; new findings go to Codex for disposition (new card, existing card, or no tracking), with any Owner-only decision escalated to the Owner.
 
 ## CI execution discipline
 
