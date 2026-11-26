@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w333-0428-312-volrecovery
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-312 · assert recovery-manifest
 priority: ""
@@ -18,22 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt39-volume-recovery-manifest · 0428 hunt H-V39: assert recovery-manifest coverage for workload volumes #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261125-hunt39-volume-recovery-manifest · 0428 hunt H-V39: assert recovery-manifest coverage for workload volumes #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w333-0428-312-volrecovery  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w333-0428-312-volrecovery  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

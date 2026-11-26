@@ -11,10 +11,10 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 5 |
-| review | 2 |
+| review | 3 |
 | wait | 29 |
 | blocked | 2 |
-| ready | 53 |
+| ready | 52 |
 | queued | 25 |
 | waiting | 181 |
 | backlog | 7 |
@@ -26,9 +26,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) | Perses identity dashboard | active | normal | w327-0428-078-dashwitness | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) | [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650), [baseharbor#1855](https://github.com/mcpdev80/baseharbor/pull/1855) |
 | [t-20261116-r28-bug-compose-service-ids](../tasks/t-20261116-r28-bug-compose-service-ids.md) | Preserve Compose service IDs | active | high | w332-0428-288-composeids | [t-20261125-0428-284-1812-postretry-gate-failure](../tasks/t-20261125-0428-284-1812-postretry-gate-failure.md) | [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833) |
+| [t-20261125-hunt39-volume-recovery-manifest](../tasks/t-20261125-hunt39-volume-recovery-manifest.md) | 0428 hunt H-V39: assert recovery-manifest coverage for workload volumes | active | not set | w333-0428-312-volrecovery | — | — |
 | [t-20261125-hunt43-env-leak-disk](../tasks/t-20261125-hunt43-env-leak-disk.md) | 0428 hunt H-V43: hunt43-env-leak-disk | active | not set | w331-0428-316-hunt43envleak | — | — |
 | [t-20261126-hunt46-collectable-orphans-reserved-namespace](../tasks/t-20261126-hunt46-collectable-orphans-reserved-namespace.md) | 0428 hunt H-V46: CollectableOrphans lists the reserved never-delivered dir as a collectable orphan UUID (medium) | active | not set | w322-0428-249-pr1812gate | — | — |
-| [t-20261126-hunt46-never-delivered-proof-leak](../tasks/t-20261126-hunt46-never-delivered-proof-leak.md) | 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) | active | not set | w329-0428-326-hunt46-proofleak | — | — |
 
 ## Ready for review
 
@@ -36,6 +36,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261122-footprint-human-surface-doc-gaps](../tasks/t-20261122-footprint-human-surface-doc-gaps.md) | Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract | review | normal | 0847d100 (finalhop 7880a8f6 laeuft) / Coordinator | — | [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783) |
 | [t-20261124-gate-catalog-baseline-1816](../tasks/t-20261124-gate-catalog-baseline-1816.md) | CI/catalog: add 3 Trusted Plan rows to develop pr-gate-coverage.json | review | not set | w51-0428-261-catalog | — | [baseharbor#1817](https://github.com/mcpdev80/baseharbor/pull/1817) |
+| [t-20261126-hunt46-never-delivered-proof-leak](../tasks/t-20261126-hunt46-never-delivered-proof-leak.md) | 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) | review | not set | w329-0428-326-hunt46-proofleak | — | [baseharbor-plan#133](https://github.com/mcpdev80/baseharbor-plan/pull/133) |
 
 ## Waiting for resources
 
@@ -104,7 +105,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261125-hunt37-cross-perm-dup](../tasks/t-20261125-hunt37-cross-perm-dup.md) | 0428 hunt H-V37: reject cross-permission service duplication | ready | not set | — | — | — |
 | [t-20261125-hunt37-runtime-identity-fallback](../tasks/t-20261125-hunt37-runtime-identity-fallback.md) | 0428 hunt H-V37: runtime-identity fallback silently downgrades to shared legacy app token (medium) | ready | not set | — | — | — |
 | [t-20261125-hunt38-go-base-pin-build-stage](../tasks/t-20261125-hunt38-go-base-pin-build-stage.md) | 0428 hunt H-V38: pin unpinned Go base image in build-stage Dockerfile | ready | not set | — | — | — |
-| [t-20261125-hunt39-volume-recovery-manifest](../tasks/t-20261125-hunt39-volume-recovery-manifest.md) | 0428 hunt H-V39: assert recovery-manifest coverage for workload volumes | ready | not set | — | — | — |
 | [t-20261125-hunt40-migration-marker-last](../tasks/t-20261125-hunt40-migration-marker-last.md) | 0428 hunt H-V40: orgconfig migrateToCanonical writes marker LAST (crash-window) | ready | not set | — | — | — |
 | [t-20261125-hunt40-realversion-migration-quali](../tasks/t-20261125-hunt40-realversion-migration-quali.md) | 0428 hunt H-V40: real-version runtime qualification of Core Keycloak/PostgreSQL 0.4.27->0.4.28 migration path | ready | not set | — | — | — |
 | [t-20261125-hunt42-timeout-constant-matrix](../tasks/t-20261125-hunt42-timeout-constant-matrix.md) | 0428 hunt H-V42: unify/align timeout constant matrix (tempo 10s vs verify; reconcile/readiness values) | ready | not set | — | — | — |

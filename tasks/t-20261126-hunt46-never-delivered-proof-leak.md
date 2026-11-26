@@ -8,33 +8,33 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w329-0428-326-hunt46-proofleak
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "The never-delivered proof at never-delivered/<applicationID>/<environment>.json is created by guided adoption…"
 kanban_title: 0428-326 · consume never-delivered proof
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor-plan#133"]
 sources: []
 blocker: ""
-wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261126-hunt46-never-delivered-proof-leak · 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261126-hunt46-never-delivered-proof-leak · 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** w329-0428-326-hunt46-proofleak  
+    **PR:** [baseharbor-plan#133](https://github.com/mcpdev80/baseharbor-plan/pull/133)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w329-0428-326-hunt46-proofleak  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor-plan#133](https://github.com/mcpdev80/baseharbor-plan/pull/133)  
 **Source:** 
 <!-- /generated:links -->
 
