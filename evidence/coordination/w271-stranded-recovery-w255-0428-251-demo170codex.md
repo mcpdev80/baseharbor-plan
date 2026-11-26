@@ -491,9 +491,9 @@ Hosted Plan validation run 45751651127 completed success on pull_request head cd
 
 ## Recovery PR #83 post-merge witness table
 
-Recovery PR #83 squash merge: 27aff0b938df76bd4a7d0116a9b320e5d84123e3 (merged 2026-11-26 03:55:41Z). Its exact validated head was 5c0eec1a3ead14d245b78915736cdd70f4a85c7e; Hosted Plan validation run 45751900147 attempt 1 completed SUCCESS at 03:55:13Z, with Unit tests and Validate vault and generated files executed. The 65 retained source rows match their original carrier blob SHA; Hunt47 task is present with reallocated card_number 0428-351 at blob b52ca74e4eebf872a92332bb4c712ce2bf75e524.
+Recovery PR #83 squash merge: 27aff0b938df76bd4a7d0116a9b320e5d84123e3 (merged 2026-11-26 03:55:41Z). Its exact validated head was 5c0eec1a3ead14d245b78915736cdd70f4a85c7e; Hosted Plan validation run 45751900147 attempt 1 completed SUCCESS at 03:55:13Z, with Unit tests and Validate vault and generated files executed. The 65 retained source rows match their original carrier blob SHA; Hunt47 is present with card_number 0428-351 at blob b52ca74e4eebf872a92332bb4c712ce2bf75e524.
 
-Post-merge readback at current fetched origin/main tip dcda4843f8934d810ad361bf2dc2198b2366d830. Each path passed git cat-file -e origin/main:<path>; witness is the exact first line from git show origin/main:<path> | head -1.
+Post-merge readback refreshed at origin/main tip 0e189252c722b864e2f62203cb9846733fabe1a9. Each path below passed git cat-file -e origin/main:<path>; witness is exactly the first line from git show origin/main:<path> | head -1.
 
 | Restored path | Post-merge head -1 witness |
 | --- | --- |
@@ -579,10 +579,10 @@ Post-merge readback at current fetched origin/main tip dcda4843f8934d810ad361bf2
 
 The two checkbox exceptions remain absent: evidence/w186/0428-186-hop.md and evidence/w266-0428-285-1820pre/PLAN.md. Their carrier blobs were not altered.
 
-Late GitHub review record: comment https://github.com/mcpdev80/baseharbor-plan/pull/83#issuecomment-7182236549 states the lane review/merge verdict and acknowledges it was posted after the merge ordering gap.
+Late GitHub review record: https://github.com/mcpdev80/baseharbor-plan/pull/83#issuecomment-7182236549 states the lane review/merge verdict and acknowledges it was posted after the merge ordering gap.
 
 Exact output of git ls-tree -r --name-only origin/main | grep evidence/coordination/w271-stranded-recovery-w255-0428-251-demo170codex.md:
 
 evidence/coordination/w271-stranded-recovery-w255-0428-251-demo170codex.md
 
-END_DONE w255-0428-251-demo170codex: recovery PR #83 merged at 27aff0b938df76bd4a7d0116a9b320e5d84123e3; 79 restored-path witnesses verified on main dcda4843f8934d810ad361bf2dc2198b2366d830; Hosted Plan validation 45751900147 succeeded on exact head 5c0eec1a3ead14d245b78915736cdd70f4a85c7e. The 65 retained source blobs match carriers; Hunt47 remains 0428-351; both checkbox exceptions remain parked and unaltered.
+END_DONE w255-0428-251-demo170codex: recovery PR #83 merged at 27aff0b938df76bd4a7d0116a9b320e5d84123e3; 79 path witnesses verified on main 0e189252c722b864e2f62203cb9846733fabe1a9; Hosted Plan validation 45751900147 succeeded on exact head 5c0eec1a3ead14d245b78915736cdd70f4a85c7e. The 65 retained source blobs match carriers; Hunt47 remains 0428-351; both checkbox exceptions remain parked and unaltered.
