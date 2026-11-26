@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w332-0428-288-composeids (handoff from w333-0428-291-capperms per coordinator, INCIDENTS 2026-11-26)
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: RabbitMQ is listed as replaceable Compose infrastructure yet Messaging Queue was not preselected; baha app init proposed…
 kanban_title: 0428-291 · Scope inferred provider grants
 priority: high
@@ -17,19 +17,20 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: ""
+blocker: "BLOCKED-BASELINE as STATE per w332 QUESTION (20:0xZ): Trusted Plan (.github#122, uncataloged cmd/baha/app_init_runtime_permission_scope_test.go) + downstream Selected Checks (UNIT_SCOPE empty) are develop-side family rows; w267 ruling 7199390854 keeps candidate product+tests only; qualify after freeze-lift #136 hop -> #1865 (+ #1867 sibling) merge. Evidence: head c945b2fcb/70c-series, runs 45868769156; see #1864 comments"
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261116-r28-bug-capability-permissions · Scope inferred provider grants #task #release/v0-4-28 #status/active #view/active #area/security #kind/bug
+- [ ] t-20261116-r28-bug-capability-permissions · Scope inferred provider grants #task #release/v0-4-28 #status/blocked #view/blocked #area/security #kind/bug
     <!-- generated:card -->
     **Owner:** w332-0428-288-composeids (handoff from w333-0428-291-capperms per coordinator, INCIDENTS 2026-11-26) · **Priority:** high  
+    **Blocker:** BLOCKED-BASELINE as STATE per w332 QUESTION (20:0xZ): Trusted Plan (.github\#122, uncataloged cmd/baha/app\_init\_runtime\_permission\_scope\_test.go) + downstream Selected Checks (UNIT\_SCOPE empty) are develop-side family rows; w267 ruling 7199…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w332-0428-288-composeids (handoff from w333-0428-291-capperms per coordinator, INCIDENTS 2026-11-26)  

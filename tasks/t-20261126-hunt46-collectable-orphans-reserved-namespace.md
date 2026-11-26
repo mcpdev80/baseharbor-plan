@@ -15,7 +15,7 @@ kanban_title: 0428-327 · collectable orphan skip dir
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor-plan#147", ]
+prs: ["mcpdev80/baseharbor-plan#147"]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,19 +23,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261126-hunt46-collectable-orphans-reserved-namespace · 0428 hunt H-V46: CollectableOrphans lists the reserved never-delivered dir as a collectable orphan UUID (medium) #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261126-hunt46-collectable-orphans-reserved-namespace · 0428 hunt H-V46: CollectableOrphans lists the reserved never-delivered dir as a collectable orphan UUID (medium) #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** w339-0428-327-reissue132 (reissue lane, controlling per 90cb79d9 akte)  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w339-0428-327-reissue132 (implementing lane for accepted akte; \#132 closed via cross-link 7199785698)  
+    **PR:** [baseharbor-plan#147](https://github.com/mcpdev80/baseharbor-plan/pull/147)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w339-0428-327-reissue132 (reissue lane, controlling per 90cb79d9 akte)  
+**Owner:** w339-0428-327-reissue132 (implementing lane for accepted akte; #132 closed via cross-link 7199785698)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor-plan#147](https://github.com/mcpdev80/baseharbor-plan/pull/147)  
 **Source:** 
 <!-- /generated:links -->
 

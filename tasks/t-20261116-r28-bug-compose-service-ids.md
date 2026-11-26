@@ -7,9 +7,9 @@ areas: [wizard]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w332-0428-288-composeids
-kanban_status: blocked
-kanban_lane: blocked
+owner: w332-0428-288-composeids (W39 Block1+2 executing)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "docker compose config --services yields vectordb, but baha app init persisted vector-db in workload.components and Runtime API…"
 kanban_title: 0428-288 · Preserve Compose service IDs
 priority: high
@@ -17,23 +17,22 @@ depends_on: [t-20261125-0428-284-1812-postretry-gate-failure]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1833]
 sources: []
-blocker: "Catalog/gate scope decision pending (w267 comment 7196853372): trusted-base pr-gate-coverage row for internal/application lacks runtime_specific:true so six runtime families are never selected; NOT green - reruns frozen until baseline-family field change lands via Codex disposition"
+status_note: "W39 in progress (no blocker)"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261116-r28-bug-compose-service-ids · Preserve Compose service IDs #task #release/v0-4-28 #status/blocked #view/blocked #area/wizard #kind/bug
+- [ ] t-20261116-r28-bug-compose-service-ids · Preserve Compose service IDs #task #release/v0-4-28 #status/active #view/active #area/wizard #kind/bug
     <!-- generated:card -->
-    **Owner:** w332-0428-288-composeids · **Priority:** high  
+    **Owner:** w332-0428-288-composeids (W39 Block1+2 executing) · **Priority:** high  
     **PR:** [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
-    **Blocker:** Catalog/gate scope decision pending (w267 comment 7196853372): trusted-base pr-gate-coverage row for internal/application lacks runtime\_specific:true so six runtime families are never selected; NOT green - reruns frozen until baseline-fami…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261125-0428-284-1812-postretry-gate-failure](t-20261125-0428-284-1812-postretry-gate-failure.md)  
-**Owner:** w332-0428-288-composeids  
+**Owner:** w332-0428-288-composeids (W39 Block1+2 executing)  
 **Priority:** high  
 **PRs:** [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
 **Source:** 
