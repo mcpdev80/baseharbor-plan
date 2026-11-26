@@ -7,9 +7,9 @@ areas: [ci, testing, security]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w327-0428-272-gaterouting
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: A PR that changes the local-runtime / trusted-authority seam is qualified by at least one native runtime gate (Docker and…
 kanban_title: 0428-272 · authority seam no runtime gate
 priority: normal
@@ -17,23 +17,23 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: ""
+blocker: "Awaiting routing answer (w267 dispositions a/b): release-requirements.json gates[] base rows (0428-275 re-point vs 0428-359 fold-in) and #1860 held-catalog overlap. Next trigger: coordinator routing post, then rebase + dispatch."
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261124-r28-runtime-authority-gate-routing · PR-Gate-Plan routes the runtime-authority seam to package checks only, so a fail-open regression there is never qualified by a native runtime gate. #task #release/v0-4-28 #status/planned #view/ready #area/ci #area/security #area/testing #kind/task
+- [ ] t-20261124-r28-runtime-authority-gate-routing · PR-Gate-Plan routes the runtime-authority seam to package checks only, so a fail-open regression there is never qualified by a native runtime gate. #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/security #area/testing #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w327-0428-272-gaterouting · **Priority:** normal  
+    **Blocker:** Awaiting routing answer (w267 dispositions a/b): release-requirements.json gates\[\] base rows (0428-275 re-point vs 0428-359 fold-in) and \#1860 held-catalog overlap. Next trigger: coordinator routing post, then rebase + dispatch.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w327-0428-272-gaterouting  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
@@ -68,3 +68,11 @@ A PR that changes the local-runtime / trusted-authority seam is qualified by at 
 - OWNER SCOPE: `scripts/pr-gate-plan.py` is the trusted gate planner (Owner-adjacent per the H-V26 dossier note, and a `scripts/**` routing change binds later PRs under CI policy). The Owner implements; this card documents the need with file:line.
 - Pairs with [0428-270](t-20261124-r28-trusted-local-failopen-seam-dead.md), which fixes the seam itself: neither card substitutes for the other, and 0428-270's regression is only as strong as the gate that actually executes it.
 - Source: bughunt-hv26 F5 dossier `evidence/r28-welle6-2026-11-24/bughunt-hv26-candidate-consent-gate/round-1.md` (develop 3ebfb90d).
+
+## Handoff
+
+- BLOCKED (exact, w327-0428-272-gaterouting, 2026-11-27): STOP acknowledged and disposition routed by the coordinator (08:4xZ). Two write-set clashes on `scripts/pr-gate-coverage.json` / planner files, no safe lane route:
+  1. The 0428-272 route needs the `release-requirements.json` `gates[]` base rows (missing since the #1859 drift) so declared catalog gates resolve against the trusted release catalog; baseline-family rows belong to Codex disposition — w267 answers (a) whether 0428-275 (w65 ghost-held) is re-pointed to this card or the rows fold into the accepted 0428-359 baseline family, and (b) how #1860's held catalog edits avoid clashing with this card's candidate delta.
+  2. Open PR #1860 (lane `w333-0428-312-volrecovery`) edits `scripts/pr-gate-coverage.json` in its delta — same-file overlap with this card's write-set (merge-frost rule).
+- Reproduced on develop 5a37ddbd with the production planner: `internal/operatorauth/local_runtime.go` + `local_runtime_test.go` ALREADY select `atomic/docker/data-capabilities` + `atomic/podman/data-capabilities` via catalog rows (runtime_specific=True), so the seam half of acceptance item 1 holds on current develop; `authorization.go`/`context.go` remain unresolved ('unknown impact') and `config.go` selects only the Docker representative. The bughunt-hv26 F5 witness predates those rows (#1859 era).
+- Candidate planner/test delta prepared in lane worktree /var/tmp/w327-0428-272-gaterouting (uncommitted, NOTHING pushed, product code untouched): comment-corrected operatorauth branch (catalog is the gate authority) + catalog-authority regression `test_operatorauth_runtime_seam_selects_both_data_gates`. Rebase and dispatch after the routing answer and the #1860/0428-275/0428-359 dispositions land.
