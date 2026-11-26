@@ -80,11 +80,13 @@ Pure Befundung of the "never-delivered proof leak" surface on live develop 5a37d
 
 ## Evidence PR
 
-- akte PR: baseharbor-plan, branch w329-0428-326-hunt46-proofleak (ordinary scoped evidence PR, identity w329-0428-326-hunt46-proofleak as author AND committer, never HEAD:main). PR link recorded at END.
+- akte PR: baseharbor-plan #133, branch w329-0428-326-hunt46-proofleak (ordinary scoped evidence PR, identity w329-0428-326-hunt46-proofleak as author AND committer, never HEAD:main). PR link: https://github.com/mcpdev80/baseharbor-plan/pull/133
+- Exact head (full 40): af33c36895f85e2f40647cf5d613a387d458a01c (commit af33c36895 fix-forward dropping markdown checkboxes; commit 627dc42ddd initial akte). Ancestry `git merge-base --is-ancestor origin/main HEAD` OK; `git log --oneline origin/main..HEAD` lists only the two w329 commits.
 
-## Watched run
+## Watched run (hosted)
 
-- own pull_request run watched to terminal; head SHA + run-ID posted as PR comment.
+- Required check Plan dot validate (hosted, `python3 -m unittest discover -s scripts/tests`) on exact head af33c36895f85e2f40647cf5d613a387d458a01c: Actions run 45834644122, status completed, conclusion success, event pull_request.
+- Comment #7194228561 on #133 records head + run id.
 
 ## cleanliness:
 
@@ -93,4 +95,4 @@ Pure Befundung of the "never-delivered proof leak" surface on live develop 5a37d
 ## END
 
 - Status: END_DONE
-- Finding table + akte PR link above.
+- PR #133 head af33c36895f85e2f40647cf5d613a387d458a01c; hosted Plan dot validate run 45834644122 SUCCESS. Finding table + akte PR link above.
