@@ -625,15 +625,15 @@ run in it.
 ## END (final)
 
 END_DONE w295-0428-251-recover6paths: plan PR #100 (https://github.com/mcpdev80/baseharbor-plan/pull/100),
-published head `747feb52a69cfaea5df4c7c425a0dddaad82c6b1`, live plan main 1b9b2bc702 is an ancestor of it.
+published head `9e5604c17cd69b7a160ef455ad5da4c65eea3b32`, live plan main 1b9b2bc702 is an ancestor of it.
 Restored **5 of 6** residual paths byte-exactly from the verified carrier blobs (27,396 B) with the single
 permitted `card_number` re-allocation to proven-free 0428-353..357; **path 6**
 (`tasks/t-20261124-r28-alert-applied-face-stale-runtime.md`, 3,608 B, carrier stash@{21}^3 blob
 36ba702478) is **WITHDRAWN** because the source audit PR #95 classifies that same path both as non-loss
 (line 66) and as class-(c) residual (line 91) — evidence and decision recorded in the "Path 6" section,
 bytes preserved there so a corrected census by w298 makes the follow-up one mechanical line.
-Validator: `Plan · validate` SUCCESS run 45763097058 on the exact head (earlier heads green at runs
-45761088079 / 45761294534 / 45762926032, all fresh PR runs, no reruns, no workflow_dispatch, no
+Validator: `Plan · validate` SUCCESS run 45763374782 on the terminal exact head (earlier heads green at
+runs 45761088079 / 45761294534 / 45762926032 / 45763097058, all fresh PR runs, no reruns, no workflow_dispatch, no
 `.github/**` edit); local `plan.py check` 790 tasks / 0 errors / 10 pre-existing warnings in the /var/tmp
 throwaway. Recovery line: NOT CLOSED by this PR (residual 1 path / 3,608 B pending w298's corrected
 census; if that audit calls it non-loss, this PR is the full close). Ancestry proof
@@ -643,3 +643,13 @@ read-only witnesses above). Cleanliness: no containers or compose projects (plan
 /var/tmp throwaway worktrees removed, shared plan checkout untouched with 51/51 stashes intact, nothing
 created in the ecosystem root. Disclosure: one prohibited `git push --force` happened mid-lane (see the
 process-disclosure paragraph); the branch was continued forward-only and the remote history is intact.
+
+## Validator run on the terminal published head
+
+```
+head_sha 9e5604c17cd69b7a160ef455ad5da4c65eea3b32   (== refs/heads/lane-w295-0428-251-recover6paths
+                                                     == refs/pull/100/head, main still 1b9b2bc702)
+Plan · validate  conclusion success  run 45763374782  job 139718384820
+event pull_request, run_attempt 1 (fresh PR run on the newest exact head, not a rerun)
+gh pr checks 100 -> "Plan · validate  pass"
+```
