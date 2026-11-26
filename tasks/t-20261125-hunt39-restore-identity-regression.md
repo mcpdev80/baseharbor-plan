@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"
 resolution: ""
 evidence: []
 ---
@@ -26,6 +26,7 @@ evidence: []
 - [ ] t-20261125-hunt39-restore-identity-regression · 0428 hunt H-V39: restore-identity regression test (identity preserved across restore) #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
+    **Waiting:** lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -79,4 +80,3 @@ One or two sentences: the observable outcome.
 ## Task
 
 Cast from hunt H-V39: F6 - no regression test proving identity survives a restore cycle; add test (create->backup->restore->identity check) on existing test scaffolding.
-wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"

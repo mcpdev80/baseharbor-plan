@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45320885286"]
 ---
@@ -26,6 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45320885286"]
 - [ ] t-20261124-gate-catalog-baseline-1819 · CI/catalog: add #1819 source rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
+    **Waiting:** lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45320885286)  
     <!-- /generated:card -->
 
@@ -72,4 +73,3 @@ Realized by owner-authorized batch baseline PR (w65): 6 catalog rows + pre-relea
 - Catalog-row result: the requested #1819 catalog rows are already present exactly once through BaseHarbor PR [#1822](https://github.com/mcpdev80/baseharbor/pull/1822), merged at `90086a1f938e106171b08c76e9bcbc98d89d1de4`. No further catalog edit or dispatch is needed for those rows.
 - #1812 14-gate pre-flight: NOT qualified by the #1650 run. Live #1650 is open at head `37c4d847ca377d1555163ac4791c8ba08b85de77` on develop `ac7c970fe91ad5fc3d8cb76336ddbbb7ecce04ee`; run [45663047993](https://github.com/mcpdev80/baseharbor/actions/runs/45663047993) is green for old head `1c33e910070a07a6d4105f0d38e3c89988a788a3`. That run's four selected runtime jobs were Docker data-capabilities, Docker observability, Podman data-capabilities, and Podman observability; it is not the exact current PR head and does not establish the separate #1812 14-Light-gate qualification. Keep the #1812 pre-flight unqualified pending exact-head evidence.
 - w258's #1819 pre-flight content is sound for its stated point-in-time refs, including the catalog and ancestry findings, but its akte was published by direct-main commit `053b2b6d1` with no associated PR. It is not qualified acceptance evidence. The compliant recovery akte records the finding and channel disposition; the original commit and akte remain unchanged.
-wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"

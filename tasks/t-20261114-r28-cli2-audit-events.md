@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1809]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"
 resolution: ""
 evidence: []
 ---
@@ -27,6 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) · **Priority:** high  
     **PR:** [baseharbor#1809](https://github.com/mcpdev80/baseharbor/pull/1809)  
+    **Waiting:** lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -105,4 +106,3 @@ Reveal-timing fix LANDED c92182b0 (success recorded AFTER env read/parse; record
 
 9a0419b4 green run 45298000296 but merge BLOCKED: base stale 6df6807 vs develop 951014e9 -> required 'PR Selected Checks' missing. Routed w058: rebase onto 951014e9 + exact-head rerun (no force/bypass). A/B/C preserved. PR open; no merge; no Codex.
 status_note: "linked PR #1809 MERGED on develop - close-disposition (resolution+evidence lines) reserved for Codex/Owner, coordinator records fact only"
-wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"

@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"
 resolution: ""
 evidence: []
 ---
@@ -26,6 +26,7 @@ evidence: []
 - [ ] t-20261120-coord-publish-integrity-gaps · Coordinator tooling: card-status.py bypasses the payload integrity gates; watch.py rm signature unusable #task #release/v0-4-28 #status/wait #view/wait #kind/maintenance
     <!-- generated:card -->
     **Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
+    **Waiting:** lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -70,4 +71,3 @@ Every published planning text passes the same integrity gates a dispatched paylo
 second live instance measured 2026-11-20, by me: a non-latin token entered the note of card t-20261114-r28-perses-tempo-source through card-status.py and reached origin/main while plan.py check reported 0 errors. the token was stripped and republished (board-sha 232ff2cbfb1c). additionally the same call printed NOTHING and did not publish once, then published silently on retry with a token of the same class: the failure mode is inconsistent and must be pinned. implementation of both fixes is coordinator tooling (coordinator/scripts), not product code, and runs after the merge window clears unless a free seat appears first
 
 delegate statt selbst: die beiden defekte habe ich gemessen (card-status.py laesst den zeichensatz-gate von sanitize.py passieren — zweimal live belegt, board-sha 232ff2cbfb1c und die 091-note; watch.py rm nimmt keine short session id — 'error: argument c: invalid choice', zweimal belegt). write-set ist coordinator/scripts, damit keine beruehrung mit den laufenden produktkarten. abnahme macht eine andere session, nicht der coordinator ueber sich selbst
-wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"
