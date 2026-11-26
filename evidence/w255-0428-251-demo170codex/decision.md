@@ -78,3 +78,21 @@ No Docker/Podman containers or compose projects were started. No product/demo ch
 ## END
 
 END DONE w255-0428-251-demo170codex: decision recorded and evidence PR delivered; candidate SHA pending.
+
+### Verified candidate ancestry before publication
+
+`git merge-base --is-ancestor 5590aaabf9deb75ec3967396cfc20c9b2d5c522f HEAD` exited 0 before the first commit. The first commit is `0116aa684` and its author gate output was exactly `Coordinator (merge 1450) / 9b7683b5`.
+
+First-commit diff path:
+
+```text
+evidence/w255-0428-251-demo170codex/decision.md
+```
+
+First-commit log from the fetched base:
+
+```text
+0116aa684 evidence(w255): decide demo PR-event route
+```
+
+All listed branch commits are this evidence akte; no foreign candidate is included.
