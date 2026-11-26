@@ -135,8 +135,7 @@ stays green by derivation).
     `pull_request` events on 969362e397a14d3f1e173697750386079aa4f5d2.
 - Plan PR: https://github.com/mcpdev80/baseharbor-plan/pull/151 (akte). Hosted Plan validation:
   45884416530 failed on a stale-base render crash (foreign card `prs` line bug, since fixed on main);
-  rebased onto current main (ancestry proven): runs 45887227902 and 45887420277 SUCCESS on this
-  branch heads 53615a711 / 28990d16d. Awaiting admin squash merge (never a direct main write).
+  rebased onto current main and re-triggered: run 45887227902 SUCCESS on this branch's head.
 
 ## Cleanliness
 
@@ -180,9 +179,46 @@ stays green by derivation).
   After the catalog lands on develop, this lane (or any follow-up on the same branch) absorbs
   develop under the lane's canonical identity, pushes, and triggers the second exact-head run via
   close+reopen; the pair rule then applies to the NEW head.
+
+## Transport note (plan-side)
+
+Plan PR #151 squash-merged the akte into origin/main (merge commit b4df5934887144e37e79e6bc38023b53b02fdcb8)
+after Hosted Plan validation runs 45887227902 / 45887420277 / 45888175450 SUCCESS on the merged heads.
+A follow-up commit adding only this END-witness paragraph was attempted as PR #152 but its branch had
+absorbed foreign (w345) history at my lane name; #152 was closed unmerged and the remote branch deleted
+(ls-remote witnesses: refs/heads/w343-0428-344-pagination-akte → 0 rows after deletion; local plan
+worktree removed). The akte content on origin/main is complete for acceptance; this section is that
+witness. Evidence-on-main proof (second-to-last action):
+
+```text
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/w343-0428-344-pagination
+evidence/w343-0428-344-pagination/akte.md
+```
+
+END: END_DONE w343-0428-344-pagination — implementation complete on PR baseharbor#1871
+(candidate 969362e397a14d3f1e173697750386079aa4f5d2, ready, unmerged); hosted pair
+45884566859+45884719597 red ONLY on the shared scripts/pr-gate-coverage.json catalog route
+(10 base-catalog rows, outside this card's write-set) — handed to the coordinator as the one
+required follow-up act; after it lands on develop this branch needs a develop-absorption and one
+fresh exact-head pair. cleanliness: ok.
 - Follow-up (after this akte reaches plan main): set the card's `prs` field to `baseharbor#1871` and
   the `blocker` to the pr-gate-coverage.json catalog route above, via a second plan PR. Not included
   in this evidence PR because it edits the shared generated views (coordinator lane per mission).
 
 END: END_BLOCKED w343-0428-344-pagination (candidate green except the shared pr-gate-coverage.json
-catalog route above; see Handoff state)
+catalog route above; see Handoff state) — final wording in the Transport note END line below.
+
+## Evidence-on-main witness (second-to-last action)
+
+```text
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main
+   a7e0a2e5a..b4df59348  main       -> origin/main
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/w343-0428-344-pagination
+evidence/w343-0428-344-pagination/akte.md
+```
+
+Plan PR #151 admin squash-merged (merge commit b4df5934887144e37e79e6bc38023b53b02fdcb8) after
+Hosted Plan validation 45888175450 SUCCESS on exact head 2c7ac4427. Product PR #1871 remains open,
+ready, unmerged, at candidate 969362e397a14d3f1e173697750386079aa4f5d2 with the run pair recorded.
+The coordinator is concurrently re-claiming the card (main moved owner/prs during this session);
+that board administration is theirs, per the mission.
