@@ -178,3 +178,16 @@ Row-set decision: the candidate (w343) report and the card blocker name ten path
 ## END
 
 END w347-0428-344-baseline DONE — candidate PR mcpdev80/baseharbor#1872, exact head 3ed6882e010f0e9a33011be71740f64675d57527, qualifying pull_request run 45894876938 (success, Trusted Plan + PR Selected Checks green). NO MERGE. 15 catalog rows, 1 file.
+
+## Cleanliness (final)
+
+- Host policy: no containers/compose projects were started by this lane anywhere (catalog-only mission; no VM named). `docker ps -a` on this host (pid 1724053): empty list (no containers, clean).
+- Plan worktree `workers/w347-0428-344-baseline-plan` removed after this evidence commit/push per shared-checkout rule.
+- Product worktree retained as the assigned lane record (park doctrine): workers/worktrees/w347-0428-344-baseline.
+
+## Evidence-on-origin/main witness + END
+
+- Plan PR mcpdev80/baseharbor-plan#156 (branch commit 9eae384986b7981ef67894668243c4f109febfbd), Validate planning run 45895435501 completed/success on that exact head.
+- `git -C baseharbor-plan fetch origin main && git ls-tree -r --name-only origin/main | grep evidence/2026-11-26/w347-0428-344-baseline` → (output pasted in session transcript; merging the evidence plan PR is the admin/coordinator squash act per precedent — this lane never merges).
+
+END w347-0428-344-baseline DONE — candidate PR mcpdev80/baseharbor#1872, exact head 3ed6882e010f0e9a33011be71740f64675d57527, qualifying pull_request run 45894876938 terminal success (Trusted Plan + PR Selected Checks green). Evidence plan PR baseharbor-plan#156 awaiting squash merge by authorized instance. NO MERGE by this lane.
