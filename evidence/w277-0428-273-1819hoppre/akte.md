@@ -197,4 +197,21 @@ Legitimately doable TODAY for #1819: read-only preparation only — state witnes
 2. Catalog census at tip shows 7 dangling component rows (paths absent on develop); 2 are by-design #1819 seam rows, ~2 are #1650/#1819-side introduced, 3 (incl. cmd/baha/installation_reset_preservation_test.go, w128/w287 destroy tests) look like planner-deleted-source cases routed by #1853 — belongs to 0428-253 owner, outside this card's write-set.
 3. w258's author table vs git-log author field differ on 17381017 (gh commit-object vs git %an): documented as same-lane shortened form; no new foreign lane.
 
+## 9) Publication witnesses
+
+- Plan akte commit: `c1770a8ce84ff555c52b8440f5e91e9c59bf10fa` on branch `w277-0428-273-1819hoppre-akte`, author `w277-0428-273-1819hoppre <w277-0428-273-1819hoppre@baseharbor.local>` (pre-push gate printed exactly).
+- `git log --oneline origin/main..HEAD` = exactly one line: `c1770a8ce w277-0428-273-1819hoppre: read-only #1819 hop pre-stage akte on current tip`; base attestation: `origin/main` = `dd851feb461246865e265891a2c8f1d0c1c69517` (ls-remote at worktree creation), ancestor check `git merge-base --is-ancestor origin/main HEAD` = YES.
+- Plan PR: https://github.com/mcpdev80/baseharbor-plan/pull/80 (state OPEN, base main, head c1770a8ce) — created via `gh pr create`, NOT merged (admin squash-merge per precedent #52/#61/#62).
+- Branch delivery proof: `git ls-remote origin refs/heads/w277-0428-273-1819hoppre-akte` = `c1770a8ce84ff555c52b8440f5e91e9c59bf10fa`.
+- Zero-mutation AFTER (identical to §1 BEFORE):
+
+      ac7c970fe91ad5fc3d8cb76336ddbbb7ecce04ee refs/heads/develop
+      37c4d847ca377d1555163ac4791c8ba08b85de77 refs/pull/1650/head
+      0922888af8fd70be4049cec529c69aebc057a356 refs/pull/1812/head
+      20fc1cb7d49602dc7f8aa0004a7562a81311d78c refs/pull/1818/head
+      b3c5055ad2566b639c2b0d4f4c2848b045221ebf refs/pull/1819/head
+      8f6b2444bdc9baabf4f492e930533c7c36406979 refs/pull/1820/head
+      a7b0a48048c11d20234160eede941532ddc33156 refs/pull/1833/head
+      4f570ff966cd5e8d3043e8bd6363e1ea4e87d0d6 refs/pull/1842/head
+
 END_DONE w277-0428-273-1819hoppre: read-only pre-stage complete — carried 11 / foreign 8 unchanged at tip ac7c970fe; develop NOT ancestor (behind 14); catalog rows 1x each (2 by-design seam paths dangling); seam-C candidate-only (file:84), #1818 cannot compile it from bare tip; Kettenschutz quote recorded; plan PR reported below; zero product mutation witnessed by identical ls-remote before/after.
