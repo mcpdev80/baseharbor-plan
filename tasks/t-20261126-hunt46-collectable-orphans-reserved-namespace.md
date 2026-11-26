@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w339-0428-327-reissue132 (reissue lane, controlling per 90cb79d9 akte)
+owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: "CollectableOrphans (internal/deployment/deploymentlist.go:185) enumerates each direct child directory of deployments/ as a…"
