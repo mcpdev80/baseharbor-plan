@@ -56,3 +56,21 @@ END w255-0428-251-demo170codex DONE
 Planning precheck: `python3 scripts/plan.py render` and `python3 scripts/plan.py check` completed successfully with 0 errors and 10 existing dependency warnings. Render touched an unrelated generated task note, which was restored to the current base so the publication remains limited to the requested card and this akte.
 
 publication under the executing reviewer lane's own canonical identity per the coordinator's written correction; card owner w205-0428-253 remains unchanged; executing reviewer lane: w255-0428-251-demo170codex.
+
+## Candidate provenance before Plan PR
+
+- Current origin/main at commit time: `053b2b6d1af11ad0f926949ef39c7fdbf0e400bf`.
+- `git merge-base --is-ancestor origin/main HEAD` exited 0.
+- `git log --oneline origin/main..HEAD` before this provenance update listed only `5796f99ae docs(0428-253): record shortened identity ruling`, authored and committed by `w255-0428-251-demo170codex`.
+- `git diff origin/main...HEAD --name-only`:
+
+  ```text
+  evidence/w255-0428-253-authorship-boundary/akte.md
+  tasks/t-20261123-planner-deleted-source-advisory.md
+  ```
+
+- Initial push witness for branch `w255-0428-253-admission`:
+
+  ```text
+  5796f99aeeed2bdace38a6fe66d849fe03d01e0f refs/heads/w255-0428-253-admission
+  ```
