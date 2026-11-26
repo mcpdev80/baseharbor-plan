@@ -1,0 +1,20 @@
+TASK: implement the OWNER-APPROVED 14-gate catalog work for card 0428-352, so a candidate that changes .github/workflows/pre-release-runtime-suite.yml stops falling through to runtime_matrix=[not-required]. This is the authorized implementation, not another diagnosis: w304 proved on PR #1812 (run 45771862723, 30 jobs = 11 executed / 19 skipped / 0 failed) that the planner's reviewed-file guard excludes the workflow source and selects zero runtime gates, and PR #1812's aggregate SUCCESS must never be treated as green.
+
+SEQUENCE AND DEPENDENCY: w308-0428-352-gateplanscan is running the read-only code census RIGHT NOW (line numbers of every <NAME>_REVIEWED_HEAD / <NAME>_REVIEWED_FILES pair, the matching rule, and whether any existing entry already binds a modified pre-release-runtime-suite.yml to the runtime gates). You start from its akte once it is in main or on its PR - do not duplicate that scan, do not re-derive it, and do not edit anything before w308's akte exists. If w308's PR is not yet published when you are ready, wait and say so in your END rather than racing it.
+
+WHAT YOU MAY TOUCH, AND WHAT YOU MAY NOT:
+- Allowed: scripts/pr-gate-coverage.json (catalog rows) and the classification evidence for 0428-352. That is the approved surface.
+- Requires the Codex decision first: scripts/pr-gate-plan.py. If the minimal correct change is a new reviewed-head binding in that planner file, you prepare the exact diff (file, lines, before/after) and post it for Codex w255/w267 to decide; you do not merge it yourself and you do not smuggle it into the catalog PR.
+- Forbidden, absolutely: .github/workflows/ci.yml, .github/workflows/pre-release-runtime-suite.yml, any other .github/** file, and any change to consent, authorization or product authentication behaviour. Normal CI paths and consent checks stay bit-identical - state that explicitly in your akte and prove it with git diff --name-only against the base.
+
+QUALITY BAR:
+1. smallest sufficient scope - the fewest rows that make the 14 Docker/Podman-Light gates SELECT for a workflow-modifying candidate, no speculative extras;
+2. every new row must be picked up by the hosted CI (name the job and the selection path, because an untested catalog row is not permanent evidence);
+3. tests you add or change run through Hosted CI only - no local go test, no pytest, no scripts/ci-fast-check.sh; pre-push checks are format, vet, build;
+4. one ordinary commit or merge commit per step under git -c user.name=w309-0428-352-14gatecatalog -c user.email=w309-0428-352-14gatecatalog@baseharbor.local, normal push, no rebase, no force, no re-cut, no branch that only exists to certify a sha (the head/run pair goes in a PR comment);
+5. watch your own pull_request run to terminal and report the per_page=100 census EXECUTED versus skipped, with the explicit goal that the runtime gates now RUN rather than skip;
+6. #1812 then absorbs develop once with an ordinary merge commit and must show the 14 gates executing on its final head before any review or merge - that follow-on lane is separate, do not do it here.
+
+DELIVERABLES: a product PR (one PR, this card) with the catalog rows plus any needed test, an akte in baseharbor-plan at evidence/2026-11-26/w309-0428-352-14gatecatalog/akte.md published through your own scoped plan PR (never direct to plan main), the exact proposed pr-gate-plan.py diff as a reviewable patch in the PR description, and an END naming your final head and run ids.
+
+STOP AND REPORT instead of improvising: if w308's scan shows an existing binding already covers the workflow source (then the skip is a configuration bug, not a missing row); if making the gates select would also change normal CI or consent behaviour anywhere; if any part of the fix would need a .github/** edit. Those three cases come back to me for a Codex or owner decision.
