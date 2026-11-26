@@ -82,3 +82,11 @@
 
 ## END
 w328-0428-273-pr1819pre END_DONE — census table (§1), re-express verdict (§2), akte PR #129 link.
+
+---
+
+## Evidence witnesses (post-forward-merge, pre-END)
+
+- Forward-merge of live `origin/main` into `w328-0428-273-pr1819pre`: ONE ordinary merge commit, UNION resolution of the single add/add conflict in this akte's Evidence-witnesses block. Both prior witnesses blocks kept intact (chronological order, nothing deleted, no weakening).
+- Behind count at merge: `origin/main` 5 ahead, branch 1 ahead (`git rev-list --left-right --count origin/main...w328-0428-273-pr1819pre` = `5	1`).
+- Conflict hunk: only `evidence/w328-0428-273-pr1819pre/akte.md` (add/add); no second conflicting file.
