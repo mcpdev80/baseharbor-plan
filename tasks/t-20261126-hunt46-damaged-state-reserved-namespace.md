@@ -7,8 +7,8 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
+owner: w342-0428-331-damagedstate (claim backfilled by coordinator after occupancy audit; mission w342-0428-328-damagedstate.txt; PR #1869)
+kanban_status: blocked
 kanban_lane: ready
 kanban_summary: "DamagedDeploymentNamespace (internal/deployment/damagedstate.go:266) iterates deployments/ children and calls…"
 kanban_title: 0428-328 · skip reserved damaged scan
