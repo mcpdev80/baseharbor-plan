@@ -114,3 +114,10 @@ Live `origin/main` before hops: `4884849f787f77ad2cd22a3c244b3f734fe7ae6f` (4618
 
 ## cleanliness
 - no leftover worktrees under /var/tmp
+
+## FORWARD-HOP NOTE (2026-11-28, w301-0428-251-planhops — forward-only dated addition)
+This transport akte (PR #98) was re-painted onto the LIVE plan main by lane w301-0428-251-planhops via a single
+forward merge commit. #98 is evidence-only (no product mutation); its only file
+`evidence/2026-11-26/w294-0428-078-planhops/akte.md` was left byte-identical except for this dated provenance
+paragraph. The forward-merge commit carries the canonical identity `w301-0428-251-planhops` /
+`w301-0428-251-planhops@baseharbor.local`. Prior prose untouched.
