@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w342-0428-331-damagedstate (parked idle; resume on pr-gate-map landing)
+owner: "" (lane w342 idle-PARKED on external map gate; claim released for board truth, RESUME trigger = pr-gate-map landing)
 kanban_status: blocked
 kanban_lane: blocked
 kanban_summary: "DamagedDeploymentNamespace (internal/deployment/damagedstate.go:266) iterates deployments/ children and calls…"
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261126-hunt46-damaged-state-reserved-namespace · 0428 hunt H-V46: DamagedDeploymentNamespace flags the reserved never-delivered namespace as damaged (low) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
-    **Owner:** w342-0428-331-damagedstate (parked idle; resume on pr-gate-map landing)  
+    **Owner:** "" (lane w342 idle-PARKED on external map gate; claim released for board truth, RESUME trigger = pr-gate-map landing)  
     **PR:** [baseharbor#1869](https://github.com/mcpdev80/baseharbor/pull/1869)  
     **Blocker:** blocked-BASELINE as STATE: family catalog PR \#1869 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: []
 **State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w342-0428-331-damagedstate (parked idle; resume on pr-gate-map landing)  
+**Owner:** "" (lane w342 idle-PARKED on external map gate; claim released for board truth, RESUME trigger = pr-gate-map landing)  
 **Priority:** not set  
 **PRs:** [baseharbor#1869](https://github.com/mcpdev80/baseharbor/pull/1869)  
 **Source:** 

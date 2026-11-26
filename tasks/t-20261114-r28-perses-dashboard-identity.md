@@ -268,4 +268,4 @@ BRANCH CONTAMINATION confirmed by file evidence: #1818 PR head on lane-0428-078-
 ## PR lineage disposition — W16
 
 PR #1650 remains listed as the contaminated-lineage audit. Clean successor PR #1855 is the current candidate for this card. PR #1818 remains an old, stale head and is not qualifying evidence for this card.
-status_note: "#1818 OPEN + OWNER HOLD per evidence/w55-0428-078-probehop-hold.md (blocked by #1819 producer dependency, #1812 chain); plan-side akte reissue running on lane w346-0428-078-150reissue2; no qualification of #1818 by this card"
+status_note: "#1818 OPEN + OWNER HOLD (#1819 producer dep, #1812 chain); #1867 ACCEPT 8b0eb51/run 45872485574 merge-ready HELD; consumer chain #1855 <- #1867 (requalify after landing + fresh exact-head CI); plan-side: #150 CLOSED superseded by #154 (ACCEPT 7203129123, hop owed at freeze-lift)"
