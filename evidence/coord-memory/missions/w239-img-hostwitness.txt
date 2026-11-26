@@ -1,0 +1,12 @@
+ROLLE: Worker (Lane w239). Coord 841e7734. KARTE: t-20261018-r27-image-transfer RUNDE 3 (MIKRO-KORREKTUR).
+EINZIGER OFFENER PUNKT (act-1402c.md, lies sie zuerst): docker+podman transfer-rauche am zweig
+work/r27-image-transfer (PR #1402 head c8272e9f3d0) brauchen PANE-ZEUGNISSE MIT EINDEUTIGER
+HOST-IDENTITAET. ALLES ANDERE IST ACCEPTED — KEIN inhalt-wechsel, KEIN neuer commit wenn nicht noetig.
+AUFGABE: wiederhole die beiden isolierten transfer-raeuche auf baha-docker und baha-podman und
+schreibe pro rauch in die akte round-3.md: ausgabe von `hostname` + `ip -4 addr` (kurz) AUF DEM ZIEL-HOST
+VOR dem rauch, den rauch-kommando+output wortlich, und post-run 0-container-pruefung; fabrik-rueckbau
+wie gehabt. Wenn (und nur wenn) der kopf sich aendern muesste: develop einmerge + lauf am neuen kopf
+terminal beobachten, sonst NUR akte. fetch origin main vorher, ls-tree nachweis.
+GATES: KEINE subagenten/zweiter PR/root-checkout/.github, caches /tmp/opencode/w239*, last-pruefung vor
+jedem schritt (w237 devenv-laeuft parallel auf den hosts! wenn belegt: 90s pause, nicht dazwischenfunken).
+END an 841e7734: "END_DONE w239-img-hostwitness: akte=round-3.md hostidentitaeten=<beide benannt> | <Satz>"

@@ -1,0 +1,26 @@
+ROLLE: Worker (Lane w243). Coord 841e7734. FORTSETZUNG von w240 (akte round-1.md lesen — vorarbeit
+STEHT: develop-baha liegt im workspace unter workers/w240-build/bin/baha, SHA 46ea6c73 im version-string,
+remote-pfad im produkt belegt: cmd/baha/app_remote_binding.go:24-39 + connector README mTLS-enrollment).
+ZIEL (owner-direktive woertlich): "baha cli auf entwicklungs rechner wird an einem VM system angemeldet
+und dann kann ich ueber das entwicklunssystem die demo z.b. starten abfragen status doctor usw machen".
+SCHRITTE: (1) dev-host working-dir = /home/marcel/dev/baseharbor-ecosystem; DU darfst als worker
+~/.local/bin/baha durch den develop-build ersetzen (vorher ALTEN stand sichern: cp nach
+workers/w243-coord-backup/baha-old + sha-zeugnis; rueckbau optional dokumentiert). (2) ziel-VM
+baha-podman war frei (w240-zeugnis) — baue dort die control-plane EINZELN wenn der einzelne pfad schon
+in develop ist (pruefen: git log develop --grep single; falls NICHT: HA-default-umstand vermeiden und
+END_BLOCKED 'wartet auf w242-landung' — NICHTS erfinden). (3) Core Endpoint ERREICHBARKEIT: w240 fand
+nur 127.0.0.1-bindings — pruefe die dokumentierten bindings-optionen des produkts (compose/quadlet
+envs, datei:zeile in akte) und waehle den vom produkt vorgesehenen weg fuer netzwerk-reichweite;
+KEINE hand-gefrickelte port-forward-dauerloesung, nur dokumentierter pfad; wenn keiner existiert:
+BEFUND mit datei:zeile (das waere echte fehlende funktion — eigene karte folge). (4) anmeldung via
+baha node add mit tenant-id/core-url/ca-file aus dem enrollment-flow der connector-doku (tabelle der
+inputs in akte). (5) vom DEV-HOST: demo start, status, doctor — wortlaute in akte
+evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md. (6) RUECKBAU VM fabrikrein (null-zeug),
+dev-host baha = develop-stand LAESST stehen als arbeitswerkzeug (in akte vermerkt, owner kann rueckholen
+lassen — sicherung bleibt). LASTREGELN + KEINE subagenten + caches /tmp/opencode/w243*.
+END an 841e7734: "END_DONE|END_BLOCKED w243-remote-control-r2: anmeldung=<JA/NEIN> demo=<start+status+doctor>
+bindingsweg=<produktpfad|befund datei:zeile> vm-rueckbau=<null> | <Satz>"
+WIEDERANSATZ (coord nach tmux-unfall, arbeit war NUR zum teil gepusht): realitaetsabgleich zuerst —
+ls-remote work/r27-remote-control*, PR-State, und vm-lock baha-podman (der alte claim w243 wurde vom
+coord freigegeben, die maschine ist JETZT wieder zu beanspruchen: vm-lock claim baha-podman <dein name>).
+Dort laufende bh-*-shared stacks sind DAUER-Bestand und tabu. Mach weiter wo der remote steht.

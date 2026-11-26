@@ -1,0 +1,14 @@
+ROLLE: Worker (Lane w279). Coord a4573079. KARTE: t-20261018-r27-artifact-resolution (PR #1406 head
+9ee857387c, ACT ACCEPT, merge-blocker = native smoke; podman-haelfte ist gelb->gruen auf main in
+round-3-native-smoke.md; DIR FEHLT NUR DIE DOCKER-KOMPONENTE).
+ARBEIT: docker-compose-build-zelle auf einem FREIEN docker-host: pruefe vm-lock journal + agent-list in
+EINEM Atemzug (166 = w269, 205 = w274 — beide live koennen sein; rc=3 => WECHSEL host oder kurz verschachtelt
+warten bis ein claim released ist, max 3 blicke, sonst END_BLOCKED-host). Am kopf 9ee857387c: (1) image-zelle
+(use-existing, digest-zeugnis, kein build), (2) checkout-zelle ueber EXISTIERENDEN docker/compose-build (kein
+BuildKit-service), (3) mutable-tag-fail-closed am docker-pfad. Je zelle: befehl, revision, transkrit,
+container-zaehlung VOR/NACH, dreipunkt-rueckbau (eigene=0, dauer-stapel unangetastet), vm-lock claim+release
+mit journal-zeile. AKTE: artifact-resolution/round-4-native-docker.md (PUNKTE; lsremote; ## repo-rule compliance).
+GATES: KEINE subagenten, coordinator-host container tabu (R1 — w269-dossier lesen!), workers/baseharbor tabu,
+zone workers/w279-wt, caches /tmp/opencode/w279*.
+END an a4573079: "END_DONE w279-artifact-docker-cell: image=<GRUEN host> checkout=<GRUEN host> negativ=<GRUEN>
+host-clean=<0> journal=<zeilen> lsremote=9ee857387c akte=<pfad main> | <Satz>"

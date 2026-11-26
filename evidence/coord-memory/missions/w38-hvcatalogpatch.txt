@@ -1,0 +1,19 @@
+MISSION: H-V38 (flash, READ-ONLY) — build and PROVE the exact scripts/pr-gate-coverage.json additions that unblock "PR · Trusted Plan" for #1810 and #1809.
+
+Context (from H-V37, already verified): the Trusted Plan reds are the 0428-242 fail-loud catalog guardian (scripts/pr-gate-plan.py:1835-1838) aborting because the PRs' changed cmd/**+internal/** paths have NO row in scripts/pr-gate-coverage.json. Uncataloged paths:
+  #1810: internal/application/perses_lifecycle_test.go, internal/capability/perses.go, internal/capability/perses_test.go
+  #1809: cmd/baha/secret_audit_test.go, cmd/baha/secret_operations.go
+The catalog edit itself is OWNER/CI-reserved scope (do NOT edit the real repo). Your job is to produce a copy-paste-ready, machine-proven patch for the Owner.
+
+Resolve the real GitHub remote (URL contains github.com/mcpdev80). Work in /tmp/opencode/hv38 only; never edit the real baseharbor repo, no branch, no PR, no merge, no product change. Read-only against develop.
+
+TASK
+1. On develop, read scripts/pr-gate-coverage.json and copy it to /tmp/opencode/hv38/. Add a row for each of the 5 uncataloged paths, mirroring the structure of the NEAREST already-cataloged sibling for the same package (match the "id"/"path"/"surfaces"/gate fields exactly as existing entries do — derive gate ids from the package's existing catalog entries and pr-native-gate-plan.py catch-alls at scripts/pr-gate-plan.py:1424/1449/1541-1544). Keep ids consistent with the naming convention shown in the H-V37 evidence (source.<dotted_path_with_underscores>_go).
+2. Run the planner OFFLINE against the patched catalog for BOTH heads to PROVE the guardian now passes:
+   python3 scripts/pr-gate-plan.py (or validate-pr-gate-coverage.py) pointed at the /tmp patched catalog, simulating the changed-path sets for #1810 (168d40950) and #1809 (034c0c7d). Record the rc and the selected-gate output before vs after. Goal: rc=0 and a non-empty selected set for each PR.
+3. Also run scripts/validate-pr-gate-coverage.py against the patched catalog to confirm it passes lint/self-check (no unresolved source).
+4. Emit the FINAL DELIVERABLE: the exact unified diff (git diff of the patched catalog) for the 5 added rows, plus the before/after planner rc + selected-gate counts proving it clears the guardian for both PRs. If a catch-all would fix both PRs with fewer rows than 5 per-path rows, state that alternative and prove it too.
+
+OUTPUT (baseharbor-plan ONLY, real repo): evidence/recovery-2026-11-23/hunt-hv38-catalog-patch/round-1.md — ## PLAN list (no checkboxes), the exact apply-ready diff for scripts/pr-gate-coverage.json (5 rows or the catch-all alternative), the before/after planner rc + selected-gate counts for #1810 and #1809, the validate lint result, and the proposed new-card contract (CI-owner card to land this) in one paragraph. cleanliness: read-only, edits confined to /tmp/opencode/hv38, no stack/worktree/branch, ambient images untouched.
+
+END LAST ACTION: codeman agent post <coordinator> "END_DONE hunt-hv38: <one line: proven-yes/no + the diff file:line + does it clear both PRs rc=0>". Read-only; no subagents.

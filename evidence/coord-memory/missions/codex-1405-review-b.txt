@@ -1,0 +1,19 @@
+ROLLE: CODEX-REVIEW (Abnahme-Sitz, kein Worker). Coord 594fd2f5. KARTE: t-20261018-r27-management-host (0427-036).
+PRUEFE den Kandidaten PR #1405 (mcpdev80/baseharbor, head 0f08b877f4152c156b219ff6d13ab05ee6b082de, base develop)
+gegen den task-vertrag. PFLICHT-VORGEHEN:
+(1) Realitaet nur via `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1405/head`
+    + SHA-genauer `git diff develop...0f08b877` (name-only + inhalt). Kein selbst-ausfuehren von produktaenderung.
+(2) der letzte CODEX-Befund act-1405a REJECT forderte den verhaltens-rotnachweis auf dem kranken stand 64d93e94
+    ueber die produktions-bruecke (NICHT compile, NICHT mutant-only). Dieser nachweis liegt jetzt auf plan-main:
+    evidence/r27-welle5-folge-2026-11-06/management-host/round-6-redfirst.md. PRUEFE ihn gegen den vertrag:
+    sick=64d93e94 BEHAVIORAL-RED (exit!=0 an einem verhaltensassert, nicht undefined-symbol), cand=0f08b877
+    GRUEN, mutation L0==L2, sick ist ancestor von cand (single-candidate). Lies die datei, verifiziere die
+    ls-remote- und exit-zeugen darin, pruefe den test-pfad internal/coreinstallation/management_host_behavioral_red_test.go
+    ist test-only (kein produkt-API-wechsel).
+(3) Pflicht-CI am genauen kopf: gh run/checks fuer 0f08b877; ein skipped der AUCH-GEFORDERTEN zelle = REJECT-Grund,
+    nicht-anwendbare skipped sind ok. Melde run-id + ergebnis.
+LIEFERE am ENDE: Verdict ACCEPT|REJECT + (bei REJECT) umsetzbares loesungsrezept (datei, aenderung,
+testanforderung, stop-kriterium). KEIN merge (das ist CODEX-MERGE, eigene aktion). Poste das Urteil als
+END an 594fd2f5: "CODEX-REVIEW 0427-036/#1405: verdict=<..> head=<..> rotnachweis=<ok/reject> ci=<run TERMINAL>
+rezept=<datei/aenderung oder -/>". Akte: evidence/.../management-host/act-1405b-review.md in der ECHTEN plan-repo
+(remote -v vor erstem commit; KEINE worktrees in baseharbor-plan/ oder workers/baseharbor-plan phantom-zone).

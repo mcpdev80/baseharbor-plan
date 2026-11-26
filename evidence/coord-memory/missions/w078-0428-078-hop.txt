@@ -1,0 +1,9 @@
+MISSION: 0428-078 / PR #1650 (RESTART, continue EXISTING branch). Prior lane session died (backend gone). Branch lane-0428-078-perses-identity-on-resolver is preserved on lane-origin at head cc4fc36f (NOTE: the Owner was also committing directly to #1650 — this branch has mixed authorship; treat the Owner's commits as authoritative, do NOT rewrite them).
+
+Step 0 — ATTACH, do NOT branch: git fetch lane-origin; git checkout lane-0428-078-perses-identity-on-resolver (continue THIS branch).
+
+Step 1 — ONE safe additive hop: git merge --no-edit lane-origin/develop (develop = d4fa8c589, which merged #1813 registering internal/metrics/perses_dashboards_keycloak.go — the new file that made #1650's Trusted Plan abort). If the merge is clean, push to the SAME branch and re-run + watch YOUR OWN exact Headed CI to terminal. If the merge CONFLICTS with the Owner's commits, git merge --abort immediately and post a QUESTION with the conflicting file:line — do NOT resolve double-writer conflicts yourself; that is an Owner decision.
+
+Step 2 — otherwise no new product work is expected here: the identity/dashboard code on #1650 is the Owner-driven candidate. Your job is the additive hop + rerun so the catalog guardian stops blocking Trusted Plan. If any Draft Go / Trusted Plan red is NOT the catalog reason, report the failing job line as evidence.
+
+Stop criteria: any merge conflict -> abort + QUESTION (do not touch owner commits); no scripts/** or .github/** edits; no merge to develop (Merge-Frost); no force-push; one branch. END: post "END_DONE 0428-078: head <sha>; hop <clean/none>; CI <run id/result>" or "END_QUESTION 0428-078: merge conflict at <file:line> with owner commits - need Owner ownership decision".

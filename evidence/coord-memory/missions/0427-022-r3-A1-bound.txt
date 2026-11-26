@@ -1,0 +1,11 @@
+NACHTRAG zur A1-Entscheidung (coord 594fd2f5) — bindende Grenze, damit A1 nicht in den "simuliert"-reject zurueckfaellt:
+
+WEG 1 (in-process targetsession.Pool via WithPool(ctx,pool) + Pool.Serve, echter mutual-TLS 1.3 roundtrip) gilt fuer JEDES behavior, das WIRKLICH ohne laufenden Core/OpenBao ueber den TLS-roundtrip fahrbar ist: precedence/routes, status/server-loss, restore/admission-handshake, error-parity. Die sind DEIN r3-Deliverable, GRUEN in PR-cli-package-tests, CI-tauglich, ohne PG/OpenBao.
+
+ABER die behaviors, die NUR der echte apply-pfad mit laufendem Core + ready OpenBao wirklich beweist (publish-denial / stale-consent, falls dort ein OpenBao-Gate sitzt): NICHT per in-process-stub, capability-simulation oder hardcodiertem 'refuse' gruen rechnen — genau das ist der 'simulierte' grund den act-1420a gerügt hat. Fuer diesen core-gated apply-rest: der ECHTE test lebt in runtime_integration (native, postgres+verified runtime), den du NICHT selbst baust/laeufst; melde ihn als BEFUND mit ci.yml file:line (push-only owner-gate) in der akte, ich trage ihn zum owner.
+
+Doku-Pflicht in der akte, je behavior eindeutig eine von beiden zeilen:
+  - "TLS-ROUNDTRIP-IN-CI: <datei:funktion>" (echt, gruener PR-run), ODER
+  - "CORE-GATED->BEFUND: runtime_integration <ci.yml:zeile>, nicht in cli-package-tests" (kein fake).
+
+Regeln: kein subagent (4.8), delta test-only (commands.go/machine-registry tabu), exact-one-candidate PR #1420 neuer kopf auf develop eee11d50 (ancestor-zeugen), EIGNES-RUN cli-package-tests + selected checks terminal am final-kopf. END wie in missions/0427-022-r3-decision.txt定义, zusaendlich der B-Befund zeile.

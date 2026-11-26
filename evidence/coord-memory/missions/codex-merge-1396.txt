@@ -1,0 +1,5 @@
+ROLLE: CODEX-MERGE. Coord 841e7734. Owner-autorisiert durch ACCEPT-Akte act-1396b.md auf origin/main
+(kandidat PR #1396 head fb9a7bec286). AKTION: gh pr merge 1396 -R mcpdev80/baseharbor --admin; VORHER:
+head==fb9a7bec286 und state OPEN, sonst STOP+END_BLOCKED. NACHHER: ls-remote develop + inhaltsvergleich
+der export-dateien (bei squash: git rev-parse develop:<datei> == kandidaten-hash; bei merge-commit:
+merge-base --is-ancestor rc=0). END "END_DONE codex-merge-1396: merged=<sha7> inhalt-gleich=JA".

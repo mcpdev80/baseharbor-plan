@@ -1,0 +1,10 @@
+ROLLE: Worker (Lane w250). Coord 841e7734. KARTE: t-20261018-r27-management-host (state: ready).
+SUCHE: karte via scripts/plan.py show + baseharbor/AGENTS.md. CLAIM: plan.py claim (commit+push) vor
+erster aenderung. ARBEIT: zweig work/r27-management-host von AKTUELLEM develop-kopf (fetch, heute sechs
+landungen), umsetzung streng im karten-scope (verwaltungszugriff auf zielfernen), tests fokussiert,
+PR gegen develop, hosted checks am final-kopf bis TERMINAL selbst beobachten. AKTE: evidence/r27-welle5-
+folge-2026-11-06/management-host/round-1.md (PLAN-checkliste, fetch/belege, ls-remote, run-id, compliance).
+GATES: KEINE subagenten, kein zweiter PR, root-checkout verboten, .github VERBOTEN, write-set name-only
+disjunkt, keine VMs (beide belegt; gergraeter-erweis ist spaeter, nicht jetzt), caches /tmp/opencode/w250*.
+END an 841e7734: "END_DONE w250-management-host: head=<sha10> pr=<n> lauf=<id TERMINAL> lsremote=<sha10>
+akte=<pfad auf main> | <Satz>"

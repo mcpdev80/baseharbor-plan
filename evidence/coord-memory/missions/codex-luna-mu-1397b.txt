@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW. Coord 841e7734. ABNAHME managed-users RUNDE 3, kandidaten-genau.
+KANDIDAT: PR #1397 head 759bffcd5d3 vs develop (kur-ancestor, stand 7c393b0d-base zum zeitpunkt des
+runs); karte t-20261018-r27-managed-users; akten round-1..3.md (runde 1-2 ursachen in r3 behoben laut
+w230-handoff: rebase auf develop statt drift). PRUEFPUNKTE: (1) vertrag der karte punktuell erfuellt
+(verwaltete benutzer: anlage/rechte/lifecycle wie kartentext), (2) lauf 42206976432 terminal success am
+exakten kopf NACHMISSEN (PR Selected Checks inklusive), (3) write-set disjunkt keine .github,
+(4) diff gegen develop zeigt keine fremden ketten (git log origin/develop..head --oneline), (5) die
+findings der runden 1-2 sind abschliessend beantwortet. URTEIL als evidence/r27-welle5-2026-11-06/
+managed-users/act-1397b.md auf origin/main (ACCEPT|REJECT+rezept), END an 841e7734:
+"END_DONE codex-luna-mu-1397b: verdict=<..> aktedatei=<pfad>".

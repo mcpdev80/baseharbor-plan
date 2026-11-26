@@ -1,0 +1,13 @@
+BUG-HUNT (read-only, Befundung NUR, KEINE Produkt-/Planungs-/CI-Aenderungen, KEINE Commits/Pushes/PRs) — Slice H-V27, develop-Anker 3ebfb90d (v0.4.28, nur CLOSED/merged).
+
+Ziel: der Env-/Org-/Registry-Lifecycle-Desk der gemergten #1809/0428-058- und Registry-Flaeche. Read-only. Kein Fix. Nicht dieselben Stellen wie H-V25 (status/observability) oder H-V26 (candidate/consent/runtime-gate) — dort nur ANDERE stellen mit Zusatz 'wie 0428-1xx'.
+
+Pruefe auf develop (git show/grep, echte CLI-/Anwendungs-Pfade):
+A. env reveal-success-after-read + secret runtime-actor/allow (#1809 A/B): liest ein Reveal zu spaet/zu frueh? Fail-closed bei fehlender Verifikation? Actor-Erkennung konsistent?
+B. env_destroy trusted-local/allow + --confirm-delete-data Consent (#1809 C): Abbruch hinterlaesst loeschbaren/nicht-korrupten Zustand? Sibling/shared-Ressourcen bleiben? Failures behalten Environment-Identity fuer Retry?
+C. app/target/node association in environment.json (uid-env Pfad, gemergt): Kollisionsbehandlung fail-closed? Migration idempotent? Pfad-Traversal abgewiesen (TestDeregisterEnvironmentAssociationRejectsEnvironmentPathTraversal real wirksam)?
+D. registry-access / local-registry round trip auf develop: falsche Positives/Negatives, stale references, cleanup von orphaned owned runtime resources.
+
+Methodik: keine gehosteten runs ausloesen (kein PR); VM nur kurzer Smoke zur Beobachtung. Je Fund: Datei:Zeile, reproduzierbarer Pfad, erwartet vs. tatsaechlich, Schweregrad, Ref-Karte/PR. Duplikate zu 0428-189..194 / H-V25 F1-F9 / H-V26 F1-F5 NICHT erneut melden.
+Abgabe: baseharbor-plan evidence/r28-welle6-2026-11-24/bughunt-hv27-env-org-registry/round-1.md (read-only Fundliste). Vorher/nachher container/netzwerk/volume-liste + 'cleanliness:'-Zeile (besenrein; ambient baseharbor-*/bh-* fremder Karren unangetastet). No git add/commit/push. No subagents (AGENTS 4.8). No Codex. No merge.
+Ende: END_DONE mit Fundzaehler + Aktenpfad; Coordinator verkartet (§3.3.5).
