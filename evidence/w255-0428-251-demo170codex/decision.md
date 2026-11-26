@@ -112,3 +112,9 @@ Latest observed remote branch witness before the next evidence commit:
 ```text
 d48f339e212d2c4dd055dbcb80c5bb8cb4ead8ec refs/heads/w255-0428-251-demo170codex
 ```
+
+Remote witness for the preceding evidence update:
+
+```text
+d1529d87b713aaf134df65320f17821bb0a95bc9 refs/heads/w255-0428-251-demo170codex
+```
