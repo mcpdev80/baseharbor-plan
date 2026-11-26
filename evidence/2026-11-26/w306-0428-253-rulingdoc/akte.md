@@ -138,4 +138,13 @@ Appended (forward-only, 10 lines, diff shows zero deletions) to `evidence/r29-we
 - (3) Plan validate run on THIS exact head — id, startedAt and conclusion pasted in the coordinator report and watched to terminal by this lane.
 - Writing stops here: no further commits, pushes, file moves or copies. The date-integrity finding stands; the ruling file stays at `evidence/r29-welle6-2026-11-28/0428-253/`. Any further change is a reviewer-requested correction round.
 
-END_DONE w306-0428-253-rulingdoc: #108 frozen single head 25a4758e (contains main c30b1143b, ancestor TRUE), own Plan validate run on that head watched to terminal SUCCESS; akte complete; lane stops.
+[superseded by the erratum END_DONE line at the end of this file — the true frozen head is 45c2570f762ca030663ff2ae082046b0a0b121e6]
+
+## Erratum (factual correction, no process change — candidate remains frozen)
+
+- The freeze block above was written before the commit existed, so its predicted SHA is wrong; the true frozen head is `45c2570f762ca030663ff2ae082046b0a0b121e6`, identity `45c2570f76 an=w306-0428-253-rulingdoc cn=w306-0428-253-rulingdoc`, delivered: `refs/pull/108/head = 45c2570f76…`.
+- Ancestry on this exact head: `git merge-base --is-ancestor c30b1143b4a6c6b8046bd9f909674d3bf846783f HEAD` → exit 0 TRUE.
+- Plan validate run on this exact head: `45771273664` (workflow `Validate planning`, event pull_request, startedAt 2026-11-26T06:52:52Z), observed by this lane to terminal `completed / SUCCESS`.
+- This erratum commit is the single finishing edit permitted by freeze-order item (1); after it the lane writes nothing further.
+
+END_DONE w306-0428-253-rulingdoc: #108 FROZEN at single head 45c2570f762ca030663ff2ae082046b0a0b121e6 (main c30b1143b is an ancestor, exit 0), Plan validate run 45771273664 SUCCESS on that exact head; lane stops here — later edits would only be a reviewer-requested correction round.
