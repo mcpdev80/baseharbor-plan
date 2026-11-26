@@ -901,3 +901,19 @@ non-authoritative and NOT repaired by re-cutting (C4); the prohibited force-push
 process deviation with branch and both refs named (C5). Validator: fresh `Plan · validate` run recorded
 below on this exact head. Cleanliness: /var/tmp throwaways removed, no containers (planning-only lane),
 zero product writes.
+
+```
+Hosted validation of this correction round (self-run, observed to terminal by this lane):
+  run id 45766937424  "Validate planning"  event pull_request  run_attempt 1
+  head_sha 94da6a568727d764b6fec86c4f65c5e0ede2fc4a  status completed  conclusion success
+  job 139729975935   https://github.com/mcpdev80/baseharbor-plan/actions/runs/45766937424
+  refs/heads/lane-w295-0428-251-recover6paths == refs/pull/100/head == 94da6a5687
+  git merge-base --is-ancestor origin/main HEAD -> rc=0 (live plan main 1b9b2bc702 unchanged since the
+    review, so no absorb merge was needed and none was created)
+  git diff --name-only 44fafa98b5 HEAD -> evidence/2026-11-26/w295-0428-251-recover6paths/akte.md only
+    (payload byte-identical to the head Codex froze; PR file list stays 12 paths)
+  PR #100: state OPEN, isDraft false, changedFiles 12, head 94da6a5687
+  baseharbor develop b7855f78a0253b9423e07da6ae92009b8f0fd1ae, main cddc81b34fe13d8befdde4c487b365a0309ba428
+    — moved by other lanes only; this lane holds no product write (the lane's own earlier reads were
+    ac7c970fe9 and e176a276b2); shared plan checkout HEAD 08b1f66bb with 51/51 stashes intact.
+```
