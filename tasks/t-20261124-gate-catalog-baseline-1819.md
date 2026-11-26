@@ -15,7 +15,7 @@ kanban_title: "0428-273 · add #1819 catalog rows"
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1857]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,6 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45320885286"]
 - [ ] t-20261124-gate-catalog-baseline-1819 · CI/catalog: add #1819 source rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** w65-0428-269-batchbaseline  
+    **PR:** [baseharbor#1857](https://github.com/mcpdev80/baseharbor/pull/1857)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45320885286)  
     <!-- /generated:card -->
 
@@ -35,7 +36,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45320885286"]
 **Depends on:** none  
 **Owner:** w65-0428-269-batchbaseline  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1857](https://github.com/mcpdev80/baseharbor/pull/1857)  
 **Source:** 
 <!-- /generated:links -->
 
