@@ -20,12 +20,13 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-26/w335-0428-318-lowpair/hunt43-low-severity-pair.md"]
 ---
 
 - [ ] t-20261125-hunt43-low-severity-pair · 0428 hunt H-V43: hunt43-low-severity-pair #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** w335-0428-318-lowpair  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-26/w335-0428-318-lowpair/hunt43-low-severity-pair.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -75,3 +76,12 @@ One or two sentences: the observable outcome.
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+
+## HOLD — base-catalog owner-coverage (2026-11-26, w335)
+
+Coordinator HOLD received after the first Hosted CI run (run 45842143780, `PR · Trusted Plan` failed). Candidate head `c04d92df18345c1c9ffec0150df49f8851a2cea1`, PR #1862.
+
+Root cause (confirmed, not a candidate defect): the Trusted Plan trusted-base gate rejects any changed path that has no owner row in `scripts/pr-gate-plan.py`. The two changed files, `internal/runtimeexecutor/compose.go` and `internal/runtimeexecutor/compose_test.go`, are in a package (`internal/runtimeexecutor`) with no catalog entry. The RUNTIME_PROVIDER_CHECKS catalog row covers only `internal/runtime/...` (not `runtimeexecutor`), so the Go `go test ./internal/...` release-source job that would auto-discover these tests is itself downstream of the trusted-plan block. This is the same base-catalog pattern as #1860 precedent (three-reader verified): adding candidate-side catalog rows changes nothing and is explicitly forbidden.
+
+Resolution routed to Codex baseline disposition on 0428-359 (scope question). Branch held, NOT rebased, NO further catalog rows pushed. Card stays open until green via permitted sequencing.
+
