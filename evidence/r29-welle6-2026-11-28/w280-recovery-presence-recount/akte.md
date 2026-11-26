@@ -291,8 +291,6 @@ in either. The canonical shared plan checkout keeps its original HEAD (`08b1f66b
 - No VM/SSH work in scope for this mission.
 
 
-## Publish and closing witnesses
-
 ## Findings
 
 1. The mission premise was briefly false and became true mid-run: PR #75 was `OPEN` at the first witness and
