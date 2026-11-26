@@ -75,7 +75,7 @@ If a refreshed PR run shows a missing Podman selection despite current catalog r
 
 ## Cleanliness and handoff
 
-No local tests, containers, compose projects, or workflow runs were started. No product files or workflow files were edited. No PR was merged by this review.
+No local tests, containers, compose projects, or workflow runs were started. No product files or workflow files were edited. No product PR was merged by this review.
 
 END_DONE w252-1833-1835-disposition: #1835 is redundant at the current tree and remains unaccepted pending behavior evidence; #1833 waits for #1842 then current-base hop and two distinct same-head PR successes.
 
@@ -93,3 +93,8 @@ git show -s --format=%an HEAD -> w252-1833-1835-disposition
 ```
 
 No foreign commits are carried on the corrected evidence branch.
+
+
+## Plan publication
+
+This akte is carried by plan PR #56 from branch `codex/w252-1833-1835-disposition-20261126`. The first `Plan · validate` run was `45728090670` and passed at head `0aeba0a037dbd181efa581519a11e94d68c1a36a`; a new validation is required for this final evidence-only amendment. The product PRs #1833 and #1835 remain unmerged.
