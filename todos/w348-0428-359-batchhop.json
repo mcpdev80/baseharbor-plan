@@ -1,0 +1,18 @@
+{
+  "id": "w348-0428-359-batchhop",
+  "title": "w348 plan batch-hop PR133 + PR136 onto current main",
+  "steps": [
+    { "done": true, "text": "Read mission, verify planning repo origin URL (github.com/mcpdev80/baseharbor-plan) and confirm PR133/PR136 heads + current main tip" },
+    { "done": true, "text": "Create isolated plan worktree for PR133 branch, set per-worktree identity w348-0428-359-batchhop" },
+    { "done": false, "text": "Forward-merge origin/main into w348-hop-133 (forward-only, NO force/NO rebase of others, resolve NOTHING in foreign files)" },
+    { "done": false, "text": "Verify ancestry: merge-base origin/main w348-hop-133 is ancestor of main; git log origin/main..HEAD lists ONLY w348 commits" },
+    { "done": false, "text": "Pre-checks only (no tests): git status / diff sanity in w348-hop-133" },
+    { "done": false, "text": "Push w348-hop-133 to origin, verify delivery with git ls-remote, watch #Plan validate push/pull_request runs to terminal, comment PR #133 with new head FULL40 + run id" },
+    { "done": false, "text": "Create isolated plan worktree for PR136 branch, set per-worktree identity w348-0428-359-batchhop" },
+    { "done": false, "text": "Forward-merge origin/main into w348-hop-136 (forward-only, NO force/NO rebase of others, resolve NOTHING in foreign files)" },
+    { "done": false, "text": "Verify ancestry: merge-base origin/main w348-hop-136 is ancestor of main; git log origin/main..HEAD lists ONLY w348 commits" },
+    { "done": false, "text": "Pre-checks only (no tests): git status / diff sanity in w348-hop-136" },
+    { "done": false, "text": "Push w348-hop-136 to origin, verify delivery with git ls-remote, watch #Plan validate push/pull_request runs to terminal, comment PR #136 with new head FULL40 + run id (stays merge-ready-HELD per family baseline)" },
+    { "done": false, "text": "Cleanliness: list worktrees removed; write evidence akte with both heads FULL40 + run ids; post END_DONE" }
+  ]
+}
