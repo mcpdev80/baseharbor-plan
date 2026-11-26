@@ -267,3 +267,38 @@ commits are forward-only on the named branch under the canonical lane identity; 
 history is unchanged otherwise (no force, no rebase, no cherry-pick, no base merges).
 
 ## Commits / runs / handoff
+
+## Final publication witnesses
+
+Evidence delivery (this section is part of the akte's own publication chain): plan PR #148
+merged to main at 6a6232abad90215456759ccfdd6e84a056b5e151 after ancestry proof to current
+origin/main and green hosted 'Plan · validate' (run 45868914812).
+Before this follow-up: `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep
+w338-0428-078-1855fix2` -> evidence/2026-11-29/w338-0428-078-1855fix2/akte.md (main @ 6a6232aba).
+
+Candidate final head: fe940dc311192e81ea6fd3580d02f313dfe4e849 (branch
+w279-0428-078-pr1650-reissue, ls-remote-verified above).
+Own exact-head runs watched to terminal: 45867807943 (d5545573) and 45868143276 (fe940dc3);
+both failed ONLY the base-catalog Trusted Plan admission (finding section); PR · Native gate
+plan, unit shards and every executed product gate that ran were green; no .github/** or ci.yml
+change exists in the PR's file set (measured via gh pr view --json files).
+
+## Item -> fix -> test table (mission END)
+
+| Review item (w267 CHANGES 7196719214) | Fix | Test |
+| --- | --- | --- |
+| 1. Producer wrote literal "keycloak:9000"; witness-required runtime:// parse fails closed on ALL real production records | keycloak_realization.go registers RuntimeTarget(files.Project, "keycloak@<state-root name>:9000") via keycloakSignalTargetRoot/keycloakSignalAttributedService; witness expects the production ID grammars (runtime.TargetInstallationProject / ApplicationProjectName) and reads the registry directly on the shared placement (List() env filter would drop shared records for non-prod consumers) | TestKeycloakSignalRegistrationTargetProductionAttribution (producer seam); TestIdentityDashboardWitnessPositiveMatchesConcreteTarget through the production RegisterProviderSignals seam |
+| 2. Dotted collision test used a synthetic raw-name project production never emits | Attribution moved OUT of the lossy project position into the injective state-root token; synthetic helpers deleted; every seed registers through the production seam | TestIdentityDashboardWitnessTwoValidDottedTargetsIsolation (real shape); TestKeycloakSignalRegistrationDottedCollisionProductionShape (one project+network, distinct attribution); TestIdentityDashboardWitnessRootAttributionResolvers (grammar matrix incl. cross-grammar fail-closed) |
+| Required: collision-free validated Target identity in the actual record; state-root pin/network check/consent-auth unchanged | Canonical runtime:// grammar + ValidateTargetName on both sides; pins kept verbatim; no consent/auth surface touched | TestIdentityDashboardWitnessTwoValidTargetsIsolation; TestIdentityDashboardWitnessForeignTargetFailsClosed; TestIdentityDashboardWitnessRequiresTargetStateRoot; TestIdentityDashboardWitnessExternalPlacementFailsClosed |
+| New source internal/runtime/project_names.go uncataloged (Trusted Plan base-policy admission) | Candidate catalog row added in fe940dc3; BASE rows are STOP territory per mission -> coordinator finding (file:line: scripts/pr-gate-coverage.json components; base 5a37ddbd lacks the row) | Advisory/plan routes report it; qualification needs the base row (coordinator action), then one clean exact-head run |
+
+## cleanliness
+
+`docker ps -a` (this session's host, pid 626183 zone): before = 0 containers, after = 0
+containers. No compose project started; no VM smoke named in this mission; worktrees under
+workers/ only; no /var/tmp usage; no .github/** touched.
+
+END_BLOCKED w338-0428-078-1855fix2: corrections pushed (candidate fe940dc3), review items
+1+2 fixed through the production attribution grammar with tests; exact-head qualification is
+BLOCKED by the trusted-BASE catalog missing the internal/runtime/project_names.go row
+(Trusted Plan admission; coordinator action per mission STOPS) — evidence on plan main.
