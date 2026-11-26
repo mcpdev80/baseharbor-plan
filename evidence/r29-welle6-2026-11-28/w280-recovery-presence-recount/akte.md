@@ -259,7 +259,15 @@ ten Hunt47 rows is a review instruction for the next recovery PR, not a finding 
   `workers/todos/`.
 - Worktree placement follows the mission: `workers/<lane>-wt`, no clone under `/tmp` for the publication path.
   The read-only census clone lives in `/tmp/opencode/w280/plan-main`.
-- No local product tests were executed. No `go test`, no `pytest`, no `unittest`, no `scripts/ci-fast-check.sh`.
+- Worktree placement note (corrected during this run): the first attempt created the plan worktree at
+  `workers/w280-plan-wt`, which is INSIDE the shared `workers` checkout of the plan repository. Two real defects
+  followed and were both undone with zero published effect: (a) `workers/.git/info/exclude` line 7 (`evidence/`)
+  leaked into the nested worktree and made the akte un-addable, and (b) `git worktree add` from a cwd inside that
+  checkout registered a branch/worktree in the shared repository's metadata. That stray worktree was removed and
+  its branch deleted before any commit existed on it, and the akte was recreated in this lane's own zone.
+  Final state: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan worktree list` contains exactly one
+  w280 entry, `/tmp/opencode/w280-0428-284-recount-wt/plan`. No other lane's worktree was listed, touched or
+  removed by this mission.
   Nothing here needs a test route: this card adds no test and changes no product code, so the gate-catalog rule
   has nothing to register; the plan repository's ordinary validator is the only relevant check and it belongs to
   the plan PR, not to this lane's trigger rights.
@@ -285,7 +293,7 @@ in either. The canonical shared plan checkout keeps its original HEAD (`08b1f66b
 
 END_DONE w280-0428-284-recount: PR #75 merged at 02:37:44Z; 12/12 census paths restored (10 identical, 2 newer
 variants); missing count 88 -> 76 paths / 492119 bytes; restoring publication `7ae6d04bf` (author Marcel
-Pfingstgräf, committer GitHub, squash of `2340f07` by `w255-0428-251-demo170codex`); plan PR <PRNUM> open, not
+Pfingstgräf, committer GitHub, squash of `2340f07` by `w255-0428-251-demo170codex`); plan PR #82 open, not
 merged; live main tip identical before and after this lane's work.
 
 ## Findings
@@ -322,3 +330,38 @@ merged; live main tip identical before and after this lane's work.
 7. The shared planning checkout's HEAD sits at `08b1f66bb733d4c1422135429e5bc29fbd67cd57` (`%an=w256-0428-253-prhopverify`,
    `%cn=w198-0428-284-demo-parser`), several publications behind live main, and it is shallow. Observed read-only;
    nothing was changed. Coordinator may want a freshen pass, but that is outside this mission's write-set.
+
+## Publish and closing witnesses
+
+- Plan PR: **#82** — https://github.com/mcpdev80/baseharbor-plan/pull/82 (open, NOT merged by this lane).
+- Branch: `w280-recovery-presence-recount-own`, single commit `e88c7beef67ccdd583b5cdd87d2eea067532fc7e`,
+  `git show -s --format=%an HEAD` gate printed `w280-0428-284-recount`.
+- Delivery proof (`git ls-remote ... refs/heads/main refs/heads/w280-recovery-presence-recount-own`):
+
+```text
+1f3e0673fa9f2265805c1291f794531c3876a9de   refs/heads/main
+e88c7beef67ccdd583b5cdd87d2eea067532fc7e   refs/heads/w280-recovery-presence-recount-own
+```
+
+- `git log --oneline refs/remotes/origin/main..HEAD` listed exactly one commit, this lane's own:
+  `e88c7beef docs(evidence): w280 read-only recovery presence re-count akte`. No foreign commit is carried.
+- `git diff refs/remotes/origin/main...HEAD --name-only` lists only the five files of this akte directory.
+- Zero-mutation proof: `refs/heads/main` never moved as a result of this lane. The lane's own first and last
+  `refs/heads/main` observations are `3a9bfea66` (before-witness, step 1) and `6480495f5` / `1f3e0673f`
+  (advanced only by other lanes and by the GitHub merge of #75 during the run). The final value
+  `1f3e0673f` is the parent of this lane's single commit; this lane pushed no commit to `main`.
+
+### cleanliness witnesses
+
+```text
+$ docker ps -a --format '{{.Names}}' | sort | wc -l
+0
+$ docker ps -a --format '{{.Names}}' | grep -ci w280
+0
+```
+
+- before/after `docker ps -a` on this host: zero containers of any state; nothing created or left by this lane.
+- this lane's shell pid during the witnesses: 2167543 / 2175793 (no lingering children; no test process was ever
+  started here, per the CI policy stop).
+- no compose project, no network, no volume, no VM/SSH session in this mission.
+cleanliness: PASS - the lane leaves the host and both plan checkouts exactly as found.
