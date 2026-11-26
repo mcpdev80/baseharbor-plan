@@ -7,7 +7,7 @@ areas: [security]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w333-0428-291-capperms
+owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: RabbitMQ is listed as replaceable Compose infrastructure yet Messaging Queue was not preselected; baha app init proposed…
@@ -15,7 +15,7 @@ kanban_title: 0428-291 · Scope inferred provider grants
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1865", "mcpdev80/baseharbor#1864"]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -25,7 +25,8 @@ evidence: []
 
 - [ ] t-20261116-r28-bug-capability-permissions · Scope inferred provider grants #task #release/v0-4-28 #status/planned #view/ready #area/security #kind/bug
     <!-- generated:card -->
-    **Owner:** w333-0428-291-capperms · **Priority:** high  
+    **Owner:** unassigned · **Priority:** high  
+    **PR:** [baseharbor#1865](https://github.com/mcpdev80/baseharbor/pull/1865), [baseharbor#1864](https://github.com/mcpdev80/baseharbor/pull/1864)  
     **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
@@ -33,9 +34,9 @@ evidence: []
 **State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w333-0428-291-capperms  
+**Owner:** unassigned  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1865](https://github.com/mcpdev80/baseharbor/pull/1865), [baseharbor#1864](https://github.com/mcpdev80/baseharbor/pull/1864)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -74,3 +75,4 @@ Init J-Commerce and inspect queue default, Runtime API operation discovery and l
 ## Handoff
 
 - Planned only. No implementation, PR, merge or acceptance claimed. Source: 2026-11-16 J-Commerce guided-init/apply/destroy/reset transcript supplied by Owner.
+status_note: "owner-verified order 06:5xZ: #1865 ACCEPT c651db3/run 45868149534 (merge HELD under freeze, comment 7199319282); consumer chain #1864 <- #1865: requalify #1864 only after actual baseline landing + fresh consumer exact-head CI"
