@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (Luna). Coord 841e7734. ABNAHME Version View, kandidaten-genau.
+KANDIDAT: PR #1403 head 57cf82a0cfc vs develop; Karte t-20261018-r27-version-view;
+akte evidence/r27-welle5-2026-11-06/version-view/round-1.md auf origin/main.
+PRUEFPUNKTE: (1) die drei视图zellen (getrennt/unklar/fehlerhaft) entsprechen dem Vertrag (Anzeige-Faelle
+getrennt von Mutation, keine Rate-Ableitung), (2) die veroeffentlichte Rotgegenprobe ist echt (Mutation
+failt die Zelle, dokumentiert), (3) hosted lauf 42194394030 TERMINAL SUCCESS am exakten kopf,
+(4) write-set ohne fremde dateien, (5) AGENTS-konform.
+URTEIL als datei evidence/r27-welle5-2026-11-06/version-view/act-1403b.md (ACCEPT|REJECT + begruendung
++ rezept bei REJECT), commit+push auf origin/main, dann END an 841e7734:
+"END_DONE codex-luna-vv-1403b: verdict=<ACCEPT|REJECT> aktedatei=<pfad> | <Satz>". Bei REJECT: loesungsrezept.

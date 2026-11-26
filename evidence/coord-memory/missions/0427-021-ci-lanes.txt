@@ -1,0 +1,25 @@
+ROLLE: Worker (Lane 0427-021-ci-lanes). Coord 594fd2f5. KARTE: t-20261018-r27-ci-lanes (0427-021 · Deferred cross-domain CI integration, single coordinator seam). Priority CRITICAL. Repo mcpdev80/baseharbor (+ planning files in baseharbor-plan). Parent core-777.
+OWNER-DIREKTIVE 2026-11-07 (bindend, in dieser lane umgesetzt):
+  (1) CORE-INTEGRATIONSTEST freigegeben — dauerhaft in der CI verankern, inkl. ECHTER DB/OpenBao-TLS-Verbindungen und Start-/Zustimmungsfaellen (deployment consent/destroy #1375/#1382, real DB/Node-Connector cases).
+  (2) CI-RUNTIME-TESTS freigegeben — Docker-/Podman-Tests in ci.yml KORREKT ausfuehren: betroffene Tests bei PRs, vollstaendige Integration zur Release-Qualifikation. KEINE kunstlichen PASS- oder SKIP-Ergebnisse.
+GRUNDREGEL: alle tests laufen in der CI; lokale VMs nur fuer ausdruecklich angeordnete smoke-tests. Kein zweites CI-Platform, keine gate-manifests, keine evidence-verifier, keine receipt-approval-kette (Owner retired). Einziger CI-Record = merge SHA + PR number.
+
+KARTE-VERTRAG (lies vollstaendig via `python3 scripts/plan.py show t-20261018-r27-ci-lanes` + [CI routing audit] evidence/v0.4.27-ci-test-routing-audit-2026-11-07.md + CODEMAN-START.md):
+ - Repair/complete the v0.4.27 candidate gate catalog: scripts/release-requirements.json (listet nur bis v0.4.26) und scripts/pr-gate-map-v1.json (nennt v0.4.26) auf den aktuellen unreleased v0.4.27 Kandidaten — MIT Migrations-/Regression-Proof, PR-focused Verhalten erhalten, NICHT blind aufs unreleased tag switchen.
+ - Inventarisiere gemergte regression/live tests ALLER vier repos; je scenario: exakter test, noetiger runtime/fixture, bestehender executor, change-to-check mapping, develop-acceptance trigger, release gate. present-but-skipped vs genuine ausgefuehrt UNSCHEIDBAR machen.
+ - Priorisiere laut audit: single-instance default + explicit HA (#1404), OCI image transport (#1402), device enrollment + restart/renew/revoke (#1371/#1394), remote journal/recovery (#1392/#1393), deployment consent/destroy (#1375/#1382), real DB/Node Connector cases. Bestehende deckung retaining wo belegt; NUR fehlende executable wiring adden.
+ - Fokussierte mapping/trigger regressions: geaenderte runtime source waehlt BEIDE Docker UND Podman wenn relevant; unchanged docs starten KEINE runtime suite; unavailable/renamed tests, missing fixtures, skipped required tests oder fehlender native runner FAIL CLOSED (kein silent skip). Eine selected-gate-ID ist KEIN Beweis dass ein spezifischer neuer test lief.
+ - Self-contained Go/contract tests bleiben in ordinary PR checks; teure native + cross-repo acceptance in bestehender develop/release qualification, NICHT als Pflicht-PR-job.
+
+ARBEIT:
+ (1) CLAIM publizieren: `python3 scripts/plan.py claim t-20261018-r27-ci-lanes` (baseharbor-plan), commit, push.
+ (2) Realitaet: ls-remote develop, aktueller kandidat >= eee11d50. Branch VON develop, ancestor-zeugnis.
+ (3) Implementiere die fehlende executable CI-wiring GEGEN echte produkt-schnittstellen. Du darfst .github/workflows + scripts/{release-requirements.json,pr-gate-map-v1.json} + test-registrierung aendern (CI-seam ist deine zugewiesene flaeche laut owner + plan-agents). TABU: cmd/baha/* produktlogik (gehoert #117/#022 — KEINE datei dort anfassen, kein parallel-pusher).
+ (4) ECHTE CI-Ausfuehrung mit exakten Core/Demo/Console/Connector source SHAs + job results fuer den runnable scope. Melde wo etwas NICHT laeuft als echten FAIL/skip-befund, nicht als gruen.
+ (5) PR gegen develop; native selected checks terminal am final-kopf, EIGNES-RUN (run-id im END).
+
+WICHTIG — koordinationspflicht: Wenn du eine datei brauchst die eine ANDERE laufende lane reserviert hat (cmd/baha), NICHT schreiben — poste QUESTION an mich. Du bist die EINE CI-seam-lane; andere lanes fuehren keine .github aenderungen aus.
+
+GATES: KEINE subagenten (AGENTS 4.8); dev-host/coordinator-host tabu fuer stacks (nur test-VMs via vm-lock wenn ausdruecklich angeordnet); exact-one-candidate; KEIN self-merge; KEIN release/tag/publish (v0.4.27 unreleased, owner: vor release stoppen).
+AKTE: evidence/r27-welle5-folge-2026-11-07/ci-lanes/round-1.md (punkte statt checkboxen; ls-remote vor/nach, run-ids, gate-catalog vor/nach diff, je scenario test->check->trigger->result tabelle, ## repo-rule compliance, echte plan remote -v).
+END an 594fd2f5: "END_DONE 0427-021-ci-lanes: head=<sha> pr=<n> core_integration_ci=<anker OK: db/openbao/tls + consent/start cases, run-id> runtime_cells=<docker+podman real auf PR-auswahl, kein fake skip> gate_catalog=<v0.4.27 fixed + migration-proof> fail_closed=<skipped/missing=fail belegt> run=<id TERMINAL> akte=<pfad origin/main>" / QUESTION / END_BLOCKED + zeile.

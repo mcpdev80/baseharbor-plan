@@ -1,0 +1,21 @@
+ROLLE: CODEX-REVIEW (Abnahme-Sitz, kein Worker). Coord 594fd2f5. KARTE: t-20261018-r27-remote-material (0427-051). RE-REVIEW nach deiner act-1418a.
+Kandidat PR #1418 head a91debbb047d6ea7a0f258194c0a3474978687bd, base develop 934be499b (is-ancestor belegt), draft=false.
+Dein act-1418a REJECT forderte: (F1) exposure-only workload bekommt gateway, (F2) gateway hat serving/proxy-config,
+(F3) rotation+node-consumption verhaltensabdeckung — und kritisierte die SKIPPED runtime cells.
+PRUEFE gegen diesen kopf (nur-lesend; ls-remote refs/heads/develop refs/pull/1418/head zuerst; diff 934be499b...a91debbb0):
+ (1) F1/F2: der round-4 duplikat-gateway (efb6c2d2c) ist ENTFERNT; exposure-only workload bekommt jetzt ein serving
+     route DURCH den einzelnen owner internal/exposure/caddy.go (dieselbe baseharbor-exposure network, echtes
+     reverse-proxy). Bestaetige dass KEINE zweite caddy-logik dupliziert wird (single-owner = karten-contract).
+ (2) F3: node verbraucht das ROTIERTE serving-cert ueber ReconcileWorkloadTransport/ensureFiles ohne re-bootstrap —
+     verhaltens-regression am kopf present + gruen (nicht nur projection/key-mode wie round-4). Akte
+     evidence/.../remote-material/round-5.md auf main pruefen (ls-remote+run-zeugen).
+ (3) CI am genauen kopf a91debbb0: run 4984 terminal, go-unit/release_source decken internal/exposure. Die
+     docker/podman TARGETED runtime cells sind SKIPPED weil .github/workflows/ci.yml:171-176,213-218 sie auf push-refs
+     beschraenkt — OWNER-Scope (lane darf .github nicht editten, AGENTS 3.8/5.3). URTEILE NICHT 'lane muss korrigieren'
+     wegen dieser skipped cells. Wenn F1/F2/F3 + pull_request-go-unit den KARTEN-vertrag erfuellen -> ACCEPT. Wenn ein
+     echter runtime-end-to-end-beweis laut karte ZWINGEND ist und nur ueber die push-ref-cells gefahren werden kann ->
+     verdict REJECT_BLOCKED_ON_OWNER_CI <exakte ci.yml zeilen>, NICHT REJECT_LANE_FIX.
+LIEFERE verdict=ACCEPT | REJECT_LANE_FIX <datei:line> | REJECT_BLOCKED_ON_OWNER_CI <ci.yml>. KEIN merge.
+END an 594fd2f5: "CODEX-REVIEW 0427-051/#1418-rereview-b: verdict=<..> head=<..> single_owner=<ok> rotation=<belegt>
+ci=<4984 TERMINAL> runtime_cells=<skipped-owner-gate|proven> rezept=<..>". Akte evidence/.../remote-material/
+act-1418b-review.md ECHTE plan (remote -v; keine phantom/worktree-in-repo).

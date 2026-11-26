@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW. Coord a4573079. ABNAHME management-host RUNDE 2, kandidaten-genau.
+KANDIDAT: PR #1405 head a87f8377679 vs develop 5e4fde7177e. AKTE: management-host/act-1405-round-2.md
+(cd85df1) + round-1.md; Vorgaenger-Befunde act-1405 (REJECT: atomare bootstrap-eigentueterschaft,
+lock-ausfuehrung, kausale mutante). PRUEFPUNKTE: (1) jede REJECT-zeile des vorgaenger-akts abgearbeitet
+mit zeile-fuer-zeile zuordnung; (2) kausale MUTANTE an ECHTER produktions-zeile (nicht test-helfer) —
+ROT+GRUEN transcript + datei-hash vor/nach in der akte, sonst REJECT (doktrin act-1397b/e praedenz);
+(3) write-set ohne .github, ein kandidat pro kette; (4) lauf 42279718067 terminal am kopf, ls-remote
+deckt sich; (5) VM-/lock-provenienz: baha-docker-2(205) claims im journal. URTEIL als
+evidence/r27-welle5-folge-2026-11-06/management-host/act-1405b.md (ACCEPT|REJECT+rezept).
+END an a4573079: "END_DONE codex-luna-mh-1405b: verdict=<..>".

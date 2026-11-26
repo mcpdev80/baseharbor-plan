@@ -1,0 +1,12 @@
+Card 0428-281 / bug / repo mcpdev80/baseharbor. OWNER-AUTHORIZED SEPARATE CONSENT PR (not #1812). develop = current origin/develop 46d3dccc1f6fc65c027f5c2a28e9d17b29c5fed2 (report to confirm).
+
+Purpose: baha UP does not propagate --confirm-candidate into its internal apply, so a repository-owned candidate apply FAILS CLOSED during the v0.4.28 runtime Light gates (atomic/docker policy+connectivity+reconciliation+full-destroy, evidence run 45398943139). Operator-auth admission is fine; this is the consent-propagation bug only.
+
+REFERENCE ONLY (do NOT reopen, do NOT reuse their branches/PRs): the narrow minimal fix is commit 5f9c671 (parent fae335a, closed PR #1647) — 2 files: cmd/baha/app_input_resolver.go (~+11, thread CandidateConsent through the root-up resolve path) and cmd/baha/runtime_repository_up_test.go (~+13, TestRootUpCandidateConsentIsAvailableToRepositoryApply). #1807/#1808 are a BROADER implementation of the same thing — DO NOT use them (choose the minimal 2-file lane). Re-derive the change onto CURRENT develop 46d3dccc1 (read `git show 5f9c671` for the shape, but apply freshly so it compiles against today's app_input_resolver.go; the up path is app_up.go Name "up" -> app_input_resolver.go resolveApplication(..., "up")).
+
+Do:
+1. claim card 0428-281 via scripts/plan.py claim + push BEFORE editing; open ONE branch off develop; ## PLAN in evidence + native todos.
+2. Implement the MINIMAL change: root `up` preserves/threads the granted --confirm-candidate digest into its internal repository apply, and still FAILS CLOSED when consent was not granted. Write-set ONLY cmd/baha/app_input_resolver.go + cmd/baha/runtime_repository_up_test.go. If the fix genuinely needs a third file, STOP + post a QUESTION with file:line.
+3. Hosted GitHub CI ONLY (never local go test / docker / podman). Push, open ONE PR against develop, monitor the PR CI + the selected runtime/consent checks to TERMINAL (Eigenes-Run-Pflicht §4.6). The gates cannot be proven green until THIS consent PR is merged — your deliverable is the green consent-PR candidate; do NOT run the Light gates yourself.
+
+Rules: base current develop; NO reopen of #1647/#1807/#1808; do NOT touch #1812 or any chain branch (frozen, serial); no .github/** or scripts/** edits; no merge (CODEX/owner, and merge is a separate owner step). Do not contact other worker sessions. No subagents (§4.8). Reply: PR number, head SHA, the exact diff line(s) threading the digest, run id + outcome.

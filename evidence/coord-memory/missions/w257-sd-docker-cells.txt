@@ -1,0 +1,16 @@
+ROLLE: Worker (Lane w257). Coord 841e7734. KARTE: t-20261106-r27-control-plane-single-default — DOCKER-
+MATRIX am exakten kopf ed98ed1dde7 (podman-seite fertig: round-3.md; die merge-pforte will BEIDE pfade).
+AUFGABE: (1) vm-lock claim — BEVORZUGT baha-docker-2 (jungfernschal, container=0 gemessen; rc=3 falls
+w241 sie nutzt => dann baha-docker(166) versuchen, dessen bh-local-shared stack TABU ist, eigene projekte
+name-only daneben), (2) checkout exakt ed98ed1dde7 (read-only, KEIN push), baha bauen, (3) zellen wie in
+der podman-akte round-3 spiegelbildlich: default up => exakt 1 openbao+1 postgres, doctor gesund,
+installation.json ha=false; up --ha => ensemble gesund; idempotenz/restart; teardown 0, (4) lock release.
+AKTE: APPEND section 'docker (205|166)' zu evidence/r27-welle5-2026-11-06/control-plane-single-default/
+round-3.md auf origin/main (pro zelle protokoll-zeile + status-flag + zeit + lsremote-beleg ed98ed1 VOR bau).
+GATES: KEINE subagenten, root-checkout/.github verboten, container NIE coordinator-host (R1), EIN host
+gleichzeitig (rc=5-regel), fabrikrein fuer EIGENE projekte, caches /tmp/opencode/w257*.
+END an 841e7734: "END_DONE w257-sd-docker-cells: zellen=<n/n> green host=<205|166> fabrikrein=JA lsremote=ed98ed1dde7 akte=<pfad> lock=<released> | <Satz>"
+WIEDERANSATZ-HINWEIS (coord, 2026-11-06 nach tmux-unfall): deine vorgaenger-lane wurde im lauf
+ABRISSEN (kein verschulden der arbeit — laufende fenster-getoetet, gepushtes ist auf remote).
+Realitaetsabgleich VOR allem: ls-remote den zweig-kopf nennen (REMOTE-zeug in der akte), dann
+GENAU dort weiter, wo der remote steht — nichts dublieren, nichts zuruecksetzen.

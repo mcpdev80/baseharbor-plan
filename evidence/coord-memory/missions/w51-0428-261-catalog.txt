@@ -1,0 +1,15 @@
+TASK 0428-261 (CI/catalog-owner). Goal: unblock PR #1816 by landing the Trusted Plan baseline catalog rows on develop.
+
+Branch: lane-0428-261-catalog-baseline, base develop (current develop = d4fa8c589).
+Single-file change ONLY: scripts/pr-gate-coverage.json. Add exactly these 3 rows (mirror existing object shape; id+path+surfaces), do not touch any other file:
+  {"id": "source.cmd_baha_app_status_collect_go", "path": "cmd/baha/app_status_collect.go", "surfaces": ["source.gate.atomic.docker.data.capabilities", "source.gate.atomic.podman.data.capabilities"]}
+  {"id": "source.cmd_baha_app_status_perses_alert_evaluator_0428_152_test_go", "path": "cmd/baha/app_status_perses_alert_evaluator_0428_152_test.go", "surfaces": ["source.gate.atomic.docker.data.capabilities", "source.gate.atomic.podman.data.capabilities"]}
+  {"id": "source.cmd_baha_perses_lifecycle_go", "path": "cmd/baha/perses_lifecycle.go", "surfaces": ["source.gate.atomic.docker.data.capabilities", "source.gate.atomic.podman.data.capabilities"]}
+
+Rules:
+- scripts/** catalog rows only; NO .github/** edits, NO product code, NO broad package rows (per 0428-260 lesson).
+- One claim via scripts/plan.py claim before editing. Keep it minimal.
+- Open a PR against develop. Verify ONLY via Hosted CI (no local tests; run go/json checks through the hosted workflow). The PR's own Trusted Plan must go green proving the catalog is valid; then #1816 (which already contains product code only) will rebase onto develop+these rows and go green.
+- MERGE-FROST active: do NOT merge; do NOT write develop directly. When your PR is exact-head Hosted GREEN, post END with the PR number + head sha + ls-remote + hosted run id. Owner will merge this catalog PR when green, then #1816 rebases.
+- No subagents (AGENTS 4.8). No Codex contact.
+PLAN step 0 + evidence file under baseharbor-plan evidence/, then reply.

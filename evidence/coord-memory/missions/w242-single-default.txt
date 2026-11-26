@@ -1,0 +1,22 @@
+ROLLE: Worker (Lane w242). Coord 841e7734. KARTE: t-20261106-r27-control-plane-single-default
+PRIORITY: CRITICAL (owner-direktive 14:5xZ: "karten schnellst moeglich erledigen"). ZWEIG: neuer
+work/r27-single-default vom develop-kopf (ls-remote echt, fetch). CLAIM: scripts/plan.py claim vor erster
+Aenderung, publizieren, dann arbeiten (AGENTS 4.3).
+VERTRAG: lies die KARTE vollstaendig (git show origin/main:tasks/... + plan.py show) — Acceptance ist
+wortlich bindend. Kern: (1) DEFAULT-Aufbau = pro control-plane-dienst EINE Instanz (ein OpenBao, ein
+Postgres), KEINE member-2/3, KEIN haproxy-HA, KEIN 3faches etcd/keycloak, keine Quorum-Pflicht — auf
+Docker UND Podman, ganz ohne CLI-Flags; (2) HA nur noch nach dokumentiertem OPT-IN, mit vollem gesundem
+Ensemble; (3) kein stiller Moduswechsel bei bestehender installation (bewusste entscheidung), (4)
+red-first regression gegen heutigen default ROT -> nach fix GRUEN + 2. negative zelle (HA ohne opt-in
+abgelehnt) + positive HA-zelle (opt-in) + quellcode-MUTANTE die HA ungefragt aktiviert => ROT.
+BELEGPROTOKOLL: echte ausgefuehrte pfade mit exakt-SHA, host, befehlen, compose-config-ausgabe,
+container-inventar, health, PASS/FAIL-zeilen; SKIP != PASS; hosted CI ersetzt nicht die docker/podman-
+Nachweise (VMs: baha-docker/baha-podman, FABRIKREGEL + LASTPRUEFUNG — w237/w239 arbeiten dort, wenn
+belegt 90s pause).
+SCHREIBPFAD-VORSICHT: compose.yaml-Assets + profilwahl + startpfad koennen mehrere dateien beruehren —
+name-only gegen die andern aktiven karten halten (journal/registry/export sind LANDET, keine gefahr);
+bei konflikt: QUESTION an coord.
+GATES: KEINE subagenten/zweiter PR/root-checkout ohne rueckgabe/.github nur wenn contract-golden erzwungen
+(begruenden), caches /tmp/opencode/w242*.
+END an 841e7734: "END_DONE w242-single-default: head=<sha10> red-first=<rot+gruen belegt> optin-ha=<JA zelle>
+inventar=<docker+podman 1/1 zeugen> pr=<nr> | <Satz>"
