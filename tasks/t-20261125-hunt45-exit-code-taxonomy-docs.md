@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w342-0428-331-damagedstate (handoff from w334-0428-321-exitcodedocs per coordinator, owner order 23:2xZ)
-kanban_status: active
-kanban_lane: active
+owner: w334-0428-321-exitcodedocs (released; correction candidate owed - re-lane via coordinator)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Document the baha process exit-code taxonomy at the user-facing surface: 0 success, 1 runtime failure, 2 usage error, 130…"
 kanban_title: 0428-321 · document baha exit-code
 priority: ""
