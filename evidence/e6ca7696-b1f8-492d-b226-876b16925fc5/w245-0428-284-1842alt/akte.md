@@ -114,18 +114,23 @@ Two independent facts then decide whether that selection EXECUTES the suite:
    (`pr-check-runner.py:96-106`, `:294-302`), which reduces a check id to a
    `case "$VALIDATION"` label, and by the advisory job (below).
 2. Hosted proof. Job log `PR · Validation · pr-planner-tests` of run `45717078703`
-   (job id `139562948542`) prints only `Ran 53 tests` + `Ran 221 tests`; the 53-test
-   figure equals `test_pr_gate_plan.py` + `test_pre_release_runtime_reuse.py` alone.
+   (job id `139565887122`) prints only `Ran 53 tests` + `Ran 221 tests`. `Ran` appears
+   twice because `python3 -m unittest <file1> <file2>` emits one result block per file;
+   file-level counts on develop `ae70964d7` are `test_pr_gate_plan.py` 185,
+   `test_pre_release_runtime_reuse.py` 27, `test_pr_gate_coverage.py` 45,
+   `test_pr_ci_fallback.py` 14 (counted as `def test_` occurrences), so 53 + 221 covers
+   the two routed files only.
    The same run's `PR · Validation · ci-executor-tests` log (job `139562948406`)
    prints `matched_tests` and `test_pr_gate_coverage.py` is absent from that registered
    suite list (`pr-check-runner.py:109-118`). Grepping all nine executed develop-PR
    job logs of that run for `test_pr_gate_coverage` returns zero hits.
-3. Control case, same repo, different route: on PR #1853 (planner route EDITED in
-   `.github/workflows/ci.yml`, `+test_pr_gate_coverage.py` in the case line), job
+3. Control case, same repo, different route: on PR #1853 the route line itself is EDITED
+   (`.github/workflows/ci.yml`, the `pr-planner-tests` case now also names
+   `scripts/test_pr_gate_coverage.py` and `scripts/test_pr_ci_fallback.py`), and job
    `PR · Validation · pr-planner-tests` of run `45717496553` (job `139567483027`) logs
-   `Ran 49 tests` + `Ran 287 tests`, i.e. the suite really executes. #1853 is therefore
-   the fix for (a) — and it is an `.github/**` edit, which #1842 cannot borrow without
-   the Owner or a merge of #1853 first.
+   `Ran 49 tests` + `Ran 287 tests` — the suite really executes there and nowhere else on
+   develop. #1853 is therefore the fix for (a), and it is an `.github/**` edit which #1842
+   cannot borrow without the Owner or a merge of #1853.
 
 Candidate suites for (a):
 
@@ -191,7 +196,11 @@ Demo-pin validator for a #1842-shaped diff: the only selector that emits
 (`scripts/pr-gate-plan.py:1182`), so the v0.4.28 pin falls to the unresolved/broad Go
 fallback (`pr-gate-plan.py:1714-1716`, `:1885-1910`), and the only route line that runs
 `test_pr_gate_coverage.py` is the ci.yml `pr-planner-tests` case
-(`ci.yml:1362-1363`), which omits it. The two no-`.github`-edit alternatives that remain
+(`ci.yml:1362-1363`), which omits it — proof: the executed `pr-planner-tests` job logs of
+the exact-head runs `45717078703` (job `139565887122`) and `45716226824` (job
+`139562948542`) echo the routed command and print only two `Ran` blocks, and
+`test_pr_gate_coverage` has zero mentions in all nine executed job logs of those runs.
+The two no-`.github`-edit alternatives that remain
 inside this candidate's own write-set are: (i) add `test_pr_gate_coverage` to
 `CI_EXECUTION_SUITES` in `scripts/pr-check-runner.py:109-118` so the already-selected
 `ci-executor-tests` executes it, and (ii) land the release-scoped selector
@@ -216,6 +225,13 @@ w200 prescribed.
   "just add another workflow" is not an available alternative either.
 - No PR-triggered `ci.yml` push run exists for `main`: the last 100 `push` events show
   only Docker/Podman runtime, pages and pre-release validation workflows.
+- Cross-lane note (PR #1842 moved during this read-only mission): head is now
+  `8b8f0eb2d77c778e77b72d241152df7db31c1b6a`, state OPEN, re-read with
+  `gh pr view 1842 --json headRefOid,state`. Every claim above binds to the exact heads it
+  names (`5d9965944`, `996fe5ffa`, `48bac372f`, `1eac9ff3e`, `50c6d84e6`, `3e80fb901`). A
+  hop onto a newer develop tip only changes the answer if the route line (`ci.yml:1362-1363`)
+  or the planner selector (`pr-gate-plan.py:1182`) moved in the meantime; re-read those two
+  lines before repeating this conclusion on a new head.
 
 ## Local-execution policy note (owner stop, 2026-11-26)
 
@@ -295,6 +311,8 @@ https://github.com/mcpdev80/baseharbor-plan/pull/54 (candidate commit
   `evidence/e6ca7696-b1f8-492d-b226-876b16925fc5/w245-0428-284-1842alt/akte.md`
   and
   `evidence/r29-welle6-2026-11-26/0428-284-1842alt/routing-alternatives.md`
+- closure commit (this one): final receipt list; candidate `2a53a4a3b`-chain continues as
+  a NEW commit on branch `w245-1842alt-final` cut from current `origin/main`.
 - full transport chain (each step a NEW commit on the same branch, no amend, no force):
   plan PR #53 merged `88f5f79519574c7b8c31316214f6001d4a492cc4` (r29 primary akte path),
   #54 merged `12bff4d805c0ffbaddf4cd037a45b60460c05864` (session-path placement),
