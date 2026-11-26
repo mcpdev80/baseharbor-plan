@@ -15,7 +15,7 @@ kanban_title: 0428-078 · Perses identity dashboard
 priority: normal
 depends_on: [t-20261114-r28-perses-dashboard-selection]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1650, mcpdev80/baseharbor#1818]
+prs: [mcpdev80/baseharbor#1650, mcpdev80/baseharbor#1855]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,7 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 - [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w165-0428-078-pr1650-basehop · **Priority:** normal  
-    **PR:** [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650), [baseharbor#1818](https://github.com/mcpdev80/baseharbor/pull/1818)  
+    **PR:** [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650), [baseharbor#1855](https://github.com/mcpdev80/baseharbor/pull/1855)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md)  
     <!-- /generated:card -->
 
@@ -37,7 +37,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md), [t-20261120-r28-prune-key-too-coarse](t-20261120-r28-prune-key-too-coarse.md), [t-20261120-r28-registerprovider-signal-failclosed](t-20261120-r28-registerprovider-signal-failclosed.md), [t-20261120-r28-restart-persist-signal-dump](t-20261120-r28-restart-persist-signal-dump.md), [t-20261120-r28-runtimetarget-failclosed](t-20261120-r28-runtimetarget-failclosed.md), [t-20261120-r28-signal-one-active-write-path](t-20261120-r28-signal-one-active-write-path.md), [t-20261120-r28-signalregistry-race](t-20261120-r28-signalregistry-race.md)  
 **Owner:** w165-0428-078-pr1650-basehop  
 **Priority:** normal  
-**PRs:** [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650), [baseharbor#1818](https://github.com/mcpdev80/baseharbor/pull/1818)  
+**PRs:** [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650), [baseharbor#1855](https://github.com/mcpdev80/baseharbor/pull/1855)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -263,3 +263,7 @@ VERIFIED GREEN final head 20fc1cb7d496 (develop 3ebfb90d) run 45316544436 comple
 REOPENED review->active: #1818 green CI (run 45316544436) is achieved by a SCOPE VIOLATION — diff adds keycloak-identity to persesDashboardCatalog() (perses_dashboards.go), forbidden by owner ruling (identity excluded from observability catalog). Not a valid candidate. Correction required: remove the catalog addition + retarget TestPersesKeycloakDashboardQueriesSelectRealProviderLabels to the real identity producer. Fork A (local metrics assembler) vs C (consume #1819/0428-181 producer seam, no dup) routed to OWNER; coordinator recommends C (single producer; aligns with #1818->#1819 dependency). w55 holds; do not touch observability catalog. Depends on #1819 merge for C.
 
 BRANCH CONTAMINATION confirmed by file evidence: #1818 PR head on lane-0428-078-cf-fix = 20fc1cb7 which has 2 keycloak-identity catalog hits (FORBIDDEN edit) — re-introduced when w53-0428-152 (a DIFFERENT card's session) FORCE-PUSHED 0f20a3b9->20fc1cb7. Clean head is 0f20a3b9 (0 catalog hits, real-probe consumption, no violation). 20fc1cb7 is INVALID for #1818; correct from 0f20a3b9. Blockers: (1) owner A-vs-C (owner leans C: test -> #1819 seam) + #1819 merge (0428-273), (2) Docker consent --confirm-candidate exit-41 (owner authz). w55 holds on clean 0f20a3b9, will NOT build on 20fc1cb7. §4.3: cross-lane force-push on this branch must stop — w55 owns lane-0428-078-cf-fix.
+
+## PR lineage disposition — W16
+
+PR #1650 remains listed as the contaminated-lineage audit. Clean successor PR #1855 is the current candidate for this card. PR #1818 remains an old, stale head and is not qualifying evidence for this card.

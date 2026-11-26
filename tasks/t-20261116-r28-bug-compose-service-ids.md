@@ -13,12 +13,12 @@ kanban_lane: wait
 kanban_summary: "docker compose config --services yields vectordb, but baha app init persisted vector-db in workload.components and Runtime API…"
 kanban_title: 0428-288 · Preserve Compose service IDs
 priority: high
-depends_on: []
+depends_on: [t-20261125-0428-284-1812-postretry-gate-failure]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1833]
 sources: []
 blocker: ""
-wait_reason: "sequencing gate: #1833 head a7b0a4804 BEHIND + failed runs void; requal after Demo pin advance + #1842 merge; lane w147 released"
+wait_reason: "W15 required next proof: hop PR #1833 onto current develop, then obtain two distinct fresh pull_request runs on the exact same head (attempt 1 each); run 45513816046 on a7b0a48048c11d20234160eede941532ddc33156 is attempt 2 and void as pair evidence. Wait for successor card 0428-284 / PR #1856, not closed #1842."
 resolution: ""
 evidence: []
 ---
@@ -27,13 +27,14 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w147-0428-288-pr1833-fix · **Priority:** high  
     **PR:** [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
-    **Waiting:** sequencing gate: \#1833 head a7b0a4804 BEHIND + failed runs void; requal after Demo pin advance + \#1842 merge; lane w147 released  
+    **Waiting:** W15 required next proof: hop PR \#1833 onto current develop, then obtain two distinct fresh pull\_request runs on the exact same head (attempt 1 each); run 45513816046 on a7b0a48048c11d20234160eede941532ddc33156 is attempt 2 and void as pair…  
+    **Needs:** [t-20261125-0428-284-1812-postretry-gate-failure](t-20261125-0428-284-1812-postretry-gate-failure.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** none  
+**Depends on:** [t-20261125-0428-284-1812-postretry-gate-failure](t-20261125-0428-284-1812-postretry-gate-failure.md)  
 **Owner:** w147-0428-288-pr1833-fix  
 **Priority:** high  
 **PRs:** [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
@@ -82,3 +83,7 @@ Use J-Commerce docker-compose.yaml including `vector_db`, and run `baha app init
 
 - Planned only. No implementation, PR, merge or acceptance claimed. Source: 2026-11-16 J-Commerce guided-init/apply/destroy/reset transcript supplied by Owner.
 - DECISION: YES — PR #1833 may add exactly the three source-classification rows under `scripts/pr-gate-coverage.json` `components`, using only the existing row keys `{id, path, surfaces}`. This is an existing-mechanism data correction: the component array begins at `scripts/pr-gate-coverage.json:138`, source paths resolve through component surfaces in `scripts/validate-pr-gate-coverage.py:21-55`, and the validator checks component `id`/`path`/`surfaces` at `scripts/validate-pr-gate-coverage.py:145-170`. The three rows may classify only `internal/application/manifest_validation.go`, `internal/application/workload.go`, and `internal/application/workload_test.go` to the existing `source.gate.atomic.{docker,podman}.data.capabilities` surfaces. No scripts code, gate-behavior, or `.github` change is authorized by this decision. Expires when PR #1833 is merged or closed; it grants no reusable authorization.
+
+## W15 qualification requirement
+
+Before 0428-288 can qualify, hop PR #1833 onto current develop and obtain two distinct fresh `pull_request` runs on that exact same head, both attempt 1. Run 45513816046 is attempt 2 and is void as pair evidence. The sequencing dependency now points to successor card 0428-284 / PR #1856 rather than closed #1842.
