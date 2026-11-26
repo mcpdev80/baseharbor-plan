@@ -302,3 +302,131 @@ END_BLOCKED w338-0428-078-1855fix2: corrections pushed (candidate fe940dc3), rev
 1+2 fixed through the production attribution grammar with tests; exact-head qualification is
 BLOCKED by the trusted-BASE catalog missing the internal/runtime/project_names.go row
 (Trusted Plan admission; coordinator action per mission STOPS) — evidence on plan main.
+
+
+# Correction round 3 (mission w338-0428-078-1855fix3, 2026-11-26)
+
+w267 delivered a pattern ruling as comment 7199844002 on PR #1855 after my round-2 END_BLOCKED.
+Key quote (mission): 'The project_names.go row must be delivered through a separate catalog-only
+PR under the 0428-359/#136 baseline family, not embedded in #1855.' Review body adds: the row
+must carry `runtime_specific: true` (Docker+Podman data.capabilities) and the round-2 embedded
+row is not admissible in the product PR; the forward merge of the develop-owned row into #1855
+happens AFTER the family row lands (mission fix3 restricts me to: remove embedded row forward-
+only + create the family catalog PR + watch runs; NO merges, freeze holds).
+
+## PLAN (round 3)
+
+1. Plan in all three places (board file, this list; coordinator todowrite leg skipped: no native tool);
+   verify identity pin sources via git var + config --show-origin (config.worktree pin; bare git config untouched).
+2. Fetch w267 ruling comment 7199844002 verbatim; verify PR head fe940dc3 + develop tip via gh/ls-remote.
+3. Round-3 akte section with visible Ansatz block written in the plan worktree (this section).
+4. Forward-only commit on the #1855 branch removing ONLY the embedded project_names.go catalog row.
+5. Pre-push gates; push (no force); ls-remote delivery proof.
+6. Family catalog PR off origin/develop tip carrying ONLY the row (runtime_specific: true per ruling);
+   Ready, not draft; NO merge.
+7. Watch Hosted runs to terminal on BOTH exact heads; record full-40 SHAs + run IDs.
+8. Publish akte via branch + plan PR + hosted validate + admin squash (own evidence PR, clarifier).
+9. Cleanliness + END line + codeman post.
+
+## Visible Ansatz block (round 3)
+
+Card frontmatter owner VERBATIM (fetched at runtime from origin/main @ 9986e8146,
+tasks/t-20261114-r28-perses-dashboard-identity.md):
+
+    owner: w338-0428-078-1855fix2 (e1f6c79e-8ce1-4d2d-b55f-7e3a2658c23d) — re-laned from w327 per NO-RESPONSE rotation
+
+No '(lane X)' wrapper present -> canonical identity string = w338-0428-078-1855fix2 (exact
+session registration; codeman agent list witness from round 1: id
+e1f6c79e-8ce1-4d2d-b55f-7e3a2658c23d).
+
+Identity pin state (mission: config.worktree pin, bare git config FORBIDDEN):
+- product clone workers/w338-0428-078-1855fix2-wt: repo-local .git/config carries the lane pin
+  (set in round 1 before the first commit); git var author+committer verified before EVERY commit.
+- plan worktree workers/w338-0428-078-1855fix2-plan: config source verified this round as
+  file:.../baseharbor-plan/.git/worktrees/w338-0428-078-1855fix2-plan/config.worktree (coordinator
+  15:2xZ pin), git var -> w338-0428-078-1855fix2 <w338-0428-078-1855fix2@baseharbor.local>.
+
+Literal commit invocation (both repos):
+    git -c user.name=w338-0428-078-1855fix2 -c user.email=w338-0428-078-1855fix2@baseharbor.local commit ...
+
+Pre-push gate lines (before EVERY push):
+    git show -s --format=%an HEAD   (must print exactly: w338-0428-078-1855fix2)
+    git log --format='%h an=%an cn=%cn' -1
+
+## Reality witnesses (round 3)
+
+- gh pr view 1855 --json headRefOid,state,isDraft -> head fe940dc311192e81ea6fd3580d02f313dfe4e849,
+  state OPEN, draft false.
+- git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop
+  refs/heads/w279-0428-078-pr1650-reissue -> develop 5a37ddbd9a06dd44f6068d3266ff2ed853a84a74,
+  branch fe940dc311192e81ea6fd3580d02f313dfe4e849.
+- git remote -v (product clone, FIRST git action): origin =
+  https://github.com/mcpdev80/baseharbor.git (fetch+push) only; no local-path remote.
+- Planning repo (git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v):
+  origin = https://github.com/mcpdev80/baseharbor-plan.git (verified round 1, re-verified now).
+- w267 ruling: comment 7199844002 (2026-11-26T17:55:07Z), fetched full-text via gh api.
+- Family reference PR #1865 pattern: catalog-only single-row PR against develop (review body
+  confirms it does NOT include project_names.go; the #1864/#1855 rows extend the 0428-359 family).
+
+## Round-3 delivery (rounds executed inside this session; product repo = fresh clone under workers/, plan edits only in the isolated worktree per the shared-checkout rule)
+
+Step 1 — embedded row removed forward-only from the #1855 candidate:
+  commit 70c005e8bc48b6186da1095a183905a42ee6c493 ("ci: drop the embedded project_names.go
+  catalog row from the candidate"), parent fe940dc311192e81ea6fd3580d02f313dfe4e849 (NOT
+  rewritten); git diff --name-only fe940dc3..HEAD = scripts/pr-gate-coverage.json only; the
+  scripts catalog at HEAD equals the 879655f0 state byte-for-byte (diff rc 0, empty); the
+  0428-078 product/test payload untouched.
+  Identity gate before commit: git var GIT_AUTHOR_IDENT / GIT_COMMITTER_IDENT -> both
+  w338-0428-078-1855fix2 <w338-0428-078-1855fix2@baseharbor.local> (file:.git/config pin);
+  after commit: git show -s --format='%h an=%an cn=%cn' -> 70c005e8 an=w338-0428-078-1855fix2
+  cn=w338-0428-078-1855fix2.
+  Ancestry: git merge-base --is-ancestor origin/develop(5a37ddbd9a06dd44f6068d3266ff2ed853a84a74)
+  HEAD -> OK. git log --oneline origin/develop..HEAD -> the chain's own commits only
+  (43326cf5..70c005e8, this card's carriers from prior rounds + my two corrections + this
+  removal); no foreign candidate added this round.
+  Delivery witness: git ls-remote https://github.com/mcpdev80/baseharbor.git
+  refs/pull/1855/head refs/heads/w279-0428-078-pr1650-reissue ->
+  70c005e8bc48b6186da1095a183905a42ee6c493 refs/heads/w279-0428-078-pr1650-reissue
+  (refs/pull/1855/head lags ref-sync at fe940dc3 momentarily; gh pr view headRefOid = 70c005e8
+  after sync — recorded below).
+
+Step 2 — family catalog PR (the #1865 pattern):
+  branch w338-0428-078-projnames-row cut from origin/develop tip
+  5a37ddbd9a06dd44f6068d3266ff2ed853a84a74 (base attestation above; ls-remote before branch:
+  no w338* refs existed). ONE commit 8b0eb51a12320acb8987aee1729c9a820d4d573e, identity gate
+  same pattern (git show -s -> 8b0eb51a an=w338-0428-078-1855fix2 cn=w338-0428-078-1855fix2).
+  Contents: scripts/pr-gate-coverage.json ONLY, +9 lines, the single row per ruling item 3:
+    {"id": "source.internal_runtime_project_names_go",
+     "path": "internal/runtime/project_names.go",
+     "surfaces": ["source.gate.atomic.docker.data.capabilities",
+                  "source.gate.atomic.podman.data.capabilities"],
+     "runtime_specific": true}
+  PR https://github.com/mcpdev80/baseharbor/pull/1867 against develop, title
+  'chore(0428-078 family): catalog project_names.go source row (0428-359/#136 lineage)'.
+  State: OPEN, draft=false (Ready-not-merged; NO merge performed by this lane, freeze holds).
+
+Step 3 — Hosted runs watched to terminal on BOTH exact heads:
+  #1867 head 8b0eb51a12320acb8987aee1729c9a820d4d573e: run 45872485574 (pull_request) —
+  terminal SUCCESS: PR · Trusted Plan success, PR Selected Checks success,
+  PR · Candidate-added checks (advisory) success (the candidate-side route the round-2 finding
+  anticipated — the row passes the planner contract when read from the candidate), Focused
+  Python + all four Validation jobs green; runtime/product jobs skipped (catalog-only diff
+  selects none — same selection shape as the #1865 precedent run 45868149534, measured).
+  #1855 head 70c005e8bc48b6186da1095a183905a42ee6c493: run 45872372065 (pull_request) —
+  terminal FAILURE confined to the known base admission: 'PR · Trusted Plan' ValueError
+  "uncataloged source change, no declared runtime gate owner: internal/runtime/project_names.go
+  (id source.internal_runtime_project_names_go): add this source with its surfaces to
+  scripts/pr-gate-coverage.json, e.g. {...docker.data.capabilities, podman.data.capabilities}"
+  and downstream 'PR Selected Checks' ("REJECT: Go test selection missing or invalid", unset
+  UNIT_SCOPE); PR · Native gate plan, Workflow policy, Source format green; Selected Runtime
+  skipped (planner abort). NOT a green qualification of #1855; per ruling item 2 it qualifies
+  only after #1867 lands on develop and develop is merged forward into #1855 (coordinator/Codex
+  action; this lane does not merge).
+
+## cleanliness (round 3)
+
+`docker ps -a` on this session's host: before round 3 = 0 lines; after = 0 lines (no container/
+compose work; Hosted CI only; pid zone 626183 chain, worktrees workers/w338-0428-078-1855fix2-wt
+(product) + workers/w338-0428-078-1855fix2-plan (plan) only; no /var/tmp usage; no .github/**
+touched — catalog file is scripts/pr-gate-coverage.json (Owner-scope exclusion applies to
+.github/** only; the family route IS the ruling's prescribed mechanism for this row).
