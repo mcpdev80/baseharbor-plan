@@ -165,3 +165,11 @@ Add exactly these seven rows to the develop-side catalog. The #1860 row matches 
 ## Handoff
 
 - Product-side baseline implementation remains deferred until the freeze lifts or an owner exception authorizes transport. The worker must publish one separate catalog-only PR containing exactly these seven rows, record its exact head and Hosted validation result, then provide the merged develop SHA for each of the #1860/#1861/#1862/#1863 lanes to absorb.
+
+## Routing disposition — 2026-11-26
+
+The seven-row 0428-359 baseline remains limited to source admission in `scripts/pr-gate-coverage.json`; it does not absorb runtime gate definitions in `scripts/release-requirements.json`. The current develop catalog already has source rows for `internal/operatorauth/authorization.go` and `internal/operatorauth/config.go` (`scripts/pr-gate-coverage.json:1653-1668`). The newly reported `UNRESOLVED` result is a different layer: runtime gate IDs lack the corresponding `gates[]` declarations needed by the single-path planner. That is a routing/registration gap, not a missing trusted source row.
+
+Do not repoint 0428-275: its original `pr-gate-coverage.json` source-row request is already represented on develop, and changing it to own release gate definitions would change its contract. Do not expand 0428-359 beyond its seven named paths. Track the `release-requirements.json`/planner routing correction under existing card 0428-272, which owns the operatorauth runtime-gate routing decision and its self-consistency registration. The planner change remains owner-scope; w327 records the exact failing plan and proposed row mapping there, and does not implement or merge it.
+
+Ordering: the 0428-359 catalog-only baseline must land on develop before #1860 can be requalified. Keep #1860 held while its candidate-side duplicate source row remains; after the baseline lands, its owning lane absorbs the current develop tip, removes only the now-duplicate candidate-side catalog row, preserves the product/test payload, and obtains a new exact-head Trusted Plan result. The separate 0428-272 routing work must not be mixed into #1860's candidate diff or #136's seven-row baseline. Neither baseline alone is evidence that a runtime gate executed or qualifies a candidate.
