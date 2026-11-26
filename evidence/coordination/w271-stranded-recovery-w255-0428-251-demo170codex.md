@@ -488,3 +488,101 @@ e52220e17 Restore stranded evidence and scope card scanner
 Every listed commit is authored and committed by w255-0428-251-demo170codex, verified using git log --format=%h %an | %cn | %s origin/main..HEAD. The provenance-close commit appended after this snapshot is separately identity-checked. No workers/ or .github/ path, and neither excluded checkbox evidence destination, appears in the final tree diff.
 
 Hosted Plan validation run 45751651127 completed success on pull_request head cd10e57e6041dc5ccf3a4120ba1e06f079e67ee3; Unit tests and Validate vault and generated files succeeded. Before merge, live main advanced to 34b88798d6660af582d35fd725d643b459d10769, so that successful result was superseded for merge admission by the required fresh-base ancestry check. The candidate now absorbs that exact main tip and requires a new exact-head validation.
+
+## Recovery PR #83 post-merge witness table
+
+Recovery PR #83 squash merge: 27aff0b938df76bd4a7d0116a9b320e5d84123e3 (merged 2026-11-26 03:55:41Z). Its exact validated head was 5c0eec1a3ead14d245b78915736cdd70f4a85c7e; Hosted Plan validation run 45751900147 attempt 1 completed SUCCESS at 03:55:13Z, with Unit tests and Validate vault and generated files executed. The 65 retained source rows match their original carrier blob SHA; Hunt47 is present with card_number 0428-351 at blob b52ca74e4eebf872a92332bb4c712ce2bf75e524.
+
+Post-merge readback refreshed at origin/main tip 0e189252c722b864e2f62203cb9846733fabe1a9. Each path below passed git cat-file -e origin/main:<path>; witness is exactly the first line from git show origin/main:<path> | head -1.
+
+| Restored path | Post-merge head -1 witness |
+| --- | --- |
+| evidence/r28-welle4-2026-11-21/cli-shard-runtime-tests/round-1.md | # w232 / card 0428-215 (t-20261121-cli-shard-runtime-tests) — read round 1 |
+| evidence/r29-welle6-2026-11-25/w205-0428-253-planner-deleted-source/akte.md | # Evidence — t-20261123-planner-deleted-source-advisory (0428-253, lane w205-0428-253) |
+| evidence/w228-0428-216-huntv59/akte.md | # w228-0428-216-huntv59 — Bug-Hunt Slice H-V59 CONSENT/CONFIRM RAIL |
+| evidence/2026-11/w242-0428-285-1820census/akte.md | # w242 — Read-only Job-Level Census, Card #1820 (0428-285) |
+| evidence/r28-welle6-2026-11-27/bughunt-hv47-upgrade-migration/intake-1.md | # H-V47 intake — bug hunt findings to cards (w193-0428-224-hunt-v47-intake) |
+| evidence/r28-welle6-2026-11-26/1842-review/review.md | # #1842 exact-head CODEX review — CHANGES |
+| evidence/r28-welle6-2026-11-25/0428-284-1842-hop/round-1.md | # w232-0428-284-1842hop — PR-HOP #1842 onto develop fcd449117 (card 0428-284) |
+| evidence/r28-welle6-2026-11-27/bughunt-hv54-config-defaults/w209-0428-224-hunt-v54.md | # Bug Hunt H-V54 - config/defaults correctness |
+| evidence/r28-welle6-2026-11-25/w237-0428-283-1818reset2/round-1.md | # w237-0428-283-1818reset2 — PR-PREP #1818: authorization quote-relay verdict + STOP+STATE witnesses (zero writes) |
+| evidence/r28-welle5-2026-11-23/hunt39-v55/catalog-lifecycle-hunt.md | # Bug-hunt slice H-V55 — catalog/lifecycle trace (Befundung, no fixes) |
+| evidence/r28-welle6-2026-11-25/w222-0428-307-1852-secondrun/secondrun-gate-akte.md | # w222-0428-307-1852run2 — SECONDRUN GATE #1852 + #1819 (content-neutral close/reopen) |
+| evidence/r29-welle6-2026-11-28/0428-287/w136-1835-redundancy.md | # PR #1835 redundancy ruling — current develop addendum |
+| evidence/r28-welle6-2026-11-25/w218-0428-181-0428-285-1819hop/1819-pr-hop-akte.md | # w218 — PR-HOP #1819 (card t-20261120-r28-identity-dashboard-catalog-consumer, 0428-181) |
+| evidence/2026-11-shift/0428-263/w200-1846-review.md | # w200-1846-review — exact-head review for PR #1846 |
+| evidence/r28-welle4-20261114/0428-065/round-rebase-1615.md | # 0428-065 export - rebase PR #1625 onto current develop |
+| evidence/r28-welle5-2026-11-22/sourcepull-0428-223/review-1750-head17f471cd3fe9a41fbe5b4e2d3d2748f1e1bf9c99.md | # PR #1750 exact-head independent review — 17f471cd3fe9a41fbe5b4e2d3d2748f1e1bf9c99 |
+| evidence/r28-welle6-2026-11-25/w226-0428-307-0428-283-1818reset.md | # w226 PR-PREP #1818 reset-hop — END_BLOCKED |
+| evidence/r28-welle6-2026-11-27/w198-0428-284-demo-parser/w198-dispatch-wave-48bac372.md | # w198-0428-284-demo-parser — dispatch wave: 14 Light gates + Demo Pin on #1842 head 48bac372f |
+| evidence/r28-welle6-2026-11-25/w213-0428-287-1835-refresh/evidence.md | # w213-0428-287-1835-refresh evidence |
+| evidence/r29-welle6-2026-11-28/0428-253/w243-1853-rundown.md | # Akte: w243-0428-253-1853run2 — ZERO-WRITE CI TRIGGER (STAND-DOWN → READ-ONLY EVIDENCE) |
+| evidence/r29-welle6-2026-11-28/plan-akte-collision/akte-recovery.md | # Planning evidence path collision recovery |
+| evidence/r28-welle6-2026-11-25/w198-0428-284-demo-parser/round-0.md | # w198-0428-284-demo-parser — recovery: real-stream fixture-consent digest parser + nested-refusal regression |
+| evidence/2026-11-shift/0428-284/w241-0428-284-1812prehop.md | # w241-0428-284-1812prestage — Read-only merge PRE-STAGE for #1812 hop |
+| evidence/r28-welle5-2026-11-22/oras-0428-229/review-1750-head4bd779b1.md | # PR #1750 independent read-only review — 4bd779b1501d |
+| evidence/r28-welle4-2026-11-24/w55-0428-078-probehop-hold.md | # w55-0428-078-probehop: #1818 HOLD for owner — identity catalog producer is #1819 (unmerged dependency) |
+| evidence/r28-welle6-2026-11-27/0428-284/w136-pin-disposition.md | # #1842 Demo pin target disposition |
+| evidence/r29-welle6-2026-11-28/0428-253/w136-pr1853-admission-ruling.md | # w136 admission ruling: PR #1853 / card 0428-253 |
+| evidence/w221-0428-253-1853fix/akte.md | # w221-0428-253-1853fix — correction #1853 diagnostic akte |
+| evidence/2026-11-shift/0428-284/w200-1812-review.md | # Codex review of Core PR #1812 |
+| evidence/2026-11-shift/huntV55/w200-huntV55-disposition.md | # H-V55 card disposition |
+| evidence/2026-11-25/w234-0428-307-1842run2.md | # Evidence: w234-0428-307 — Secondruns #1850 + #1842 |
+| evidence/2026-11-25/w200-outstanding-two/decisions.md | # Two outstanding disposition blocks |
+| tasks/t-20261119-coord-tooling-defects.md | --- |
+| evidence/shifts/2026-11/0428-288/w203-0428-288-diag-165-impl-170/akte.md | # w203-0428-288-diag-165-impl-170 — Akte |
+| evidence/2026-11-25/w200-1650-review-merge/review.md | # Core PR #1650 exact-head review |
+| evidence/2026-11-25/w200-1851-carrier/disposition.md | # #1851 carrier disposition for #1650 provenance |
+| evidence/r28-welle5-2026-11-22/0428-227/review-1753-head71deb610.md | # PR #1753 independent review — 71deb610a03b |
+| evidence/2026-11-shift/0428-263/w210-0428-263-pr1846-hop.md | # w210-0428-263-pr1846-hop — BASE-HOP |
+| evidence/2026-11-shift/1812-runtime-routing/w200-1812-runtime-routing.md | # #1812 runtime-gate routing disposition |
+| evidence/2026-11-25/w214-0428-284-1812-hop.md | # w214 — PR-Hop #1812 (0428-284 admission rail) |
+| evidence/2026-11-shift/cancelgroup/w200-cancelgroup-befund.md | # w200-cancelgroup-befund |
+| tasks/t-20261125-hunt47-write-stamp-json-version.md | --- |
+| tasks/t-20261125-hunt47-deleted-deployment-dangling-binding.md | --- |
+| evidence/2026-11-25/w213-0428-287-1835-refresh.md | # w213-0428-287-1835-refresh akte |
+| tasks/t-20261125-hunt47-core-plan-version-message.md | --- |
+| tasks/t-20261125-hunt47-config-mutation-migration-parity.md | --- |
+| tasks/t-20261120-coord-publish-integrity-gaps.md | --- |
+| evidence/r28-welle6-2026-11-25/w211-0428-307-fallback.md | # w211-0428-307-fallback — lane status (paused 2026-11-25 ~19:24) |
+| evidence/recovery-2026-11-23/0428-058/round-1.md | # 0428-058 — Audit secret and env actions (round 1) |
+| evidence/w216-1852-hop/EVIDENCE.md | # w216-1852-hop — PR-Hop #1852 |
+| tasks/t-20261102-rcptlink-task.md | --- |
+| evidence/r28-welle4-2026-11-24/w55-0428-078-probehop-stop.md | # w55-0428-078-probehop: 0428-078 rebase + integrate #1810 perses probe |
+| evidence/r28-welle4-2026-11-18/codex-welle3-review/1686.md | # CODEX-REVIEW — PR #1686 / 0428-116 |
+| evidence/2026-11-25/w234-0428-307-1850run2.md | # Evidence: w234-0428-307 — Secondrun #1850 |
+| evidence/r29-welle6-2026-11-28/0428-307/w136-1852-owner-admission-pr.md | # 0428-307 owner-admission plan PR |
+| evidence/r28-welle4-2026-11-18/codex-welle3-review/1592-r2.md | # CODEX-REVIEW recheck — PR #1592 / 0428-088 |
+| evidence/r28-welle6-2026-11-25/0428-078/pr1847-review-merge.md | # Independent review and merge receipt — BaseHarbor PR #1847 |
+| evidence/board-2026-11-24/w68-0428-277-revealallow.md | # w68-0428-277-revealallow |
+| evidence/r29-welle6-2026-11-28/0428-1819/w136-1819-review.md |  |
+| evidence/r29-welle6-2026-11-28/0428-307/w136-1852-requal-review.md |  |
+| evidence/r28-welle5-2026-11-22/rev1756f/review.md | # PR #1756 exact-head review |
+| evidence/r28-welle6-2026-11-24/broker-build-identity-w69/evidence.md | # 0428-271 · broker-build-identity-commit (w69) |
+| evidence/r28-welle5-2026-11-22/redir1756/review.md | # Redirect instructions for PR #1756 review |
+| evidence/r28-welle5-2026-11-22/publishB/review.md | # publishB instruction |
+| evidence/2026-11-25/w219-0428-271-0428-286-1820hop.md | fatal: invalid object name 'origin/w219-0428-271-0428-286-1820hop-evidence'. |
+| evidence/2026-11-28/w247-0428-285-1820hop.md | # w247 — PR-HOP #1820 (card 0428-285) — STOP + STATE, ancestry-gap documentation |
+| evidence/r28-welle6-2026-11-26/1851-carrier/disposition.md | # #1851 carrier disposition |
+| evidence/r29-welle6-2026-11-28/0428-253/w136-1853-owner-ruling.md | # Owner ruling record — card 0428-253 / PR #1853 |
+| evidence/r29-welle6-2026-11-28/0428-284/w136-demo-prgate-availability.md | # Demo PR gate availability disposition — #179 and #170 |
+| evidence/2026-11-26/w249-0428-284-gateids/akte.md | # w249-0428-284-gateids — Read-only 14-gate id pre-flight audit |
+| evidence/e6ca7696-b1f8-492d-b226-876b16925fc5/w245-0428-284-1842alt/akte.md | # w245-0428-284-1842alt · READ-ONLY routing alternatives for PR #1842 |
+| evidence/r29-welle6-2026-11-26/0428-284-1842alt/routing-alternatives.md | # w245-0428-284-1842alt · READ-ONLY routing alternatives for PR #1842 |
+| evidence/w248-0428-284-boardscan/akte.md | # w248-0428-284-boardscan — board intake scan akte |
+| evidence/verify/w253-demo170179-census.md | # w253 — Demo PR Census (#170 + #179), read-only |
+| evidence/r28-welle6-2026-11-26/w252-1833-1835-disposition/disposition.md | # Disposition: #1835 and #1833 |
+| evidence/w246-1812diag/w246-1812gatefaildiag.md | # w246 — 1812 post-retry gate fail diagnosis |
+| evidence/w255-0428-251-demo170codex/decision.md | # w255-0428-251-demo170codex — demo PR-event route decision |
+| evidence/w258-1819-preflight/akte.md | # w258-0428-273-1819preflight — read-only preflight of PR #1819 |
+| tasks/t-20261125-hunt47-version-gate-error-surface.md | --- |
+
+The two checkbox exceptions remain absent: evidence/w186/0428-186-hop.md and evidence/w266-0428-285-1820pre/PLAN.md. Their carrier blobs were not altered.
+
+Late GitHub review record: https://github.com/mcpdev80/baseharbor-plan/pull/83#issuecomment-7182236549 states the lane review/merge verdict and acknowledges it was posted after the merge ordering gap.
+
+Exact output of git ls-tree -r --name-only origin/main | grep evidence/coordination/w271-stranded-recovery-w255-0428-251-demo170codex.md:
+
+evidence/coordination/w271-stranded-recovery-w255-0428-251-demo170codex.md
+
+END_DONE w255-0428-251-demo170codex: recovery PR #83 merged at 27aff0b938df76bd4a7d0116a9b320e5d84123e3; 79 path witnesses verified on main 0e189252c722b864e2f62203cb9846733fabe1a9; Hosted Plan validation 45751900147 succeeded on exact head 5c0eec1a3ead14d245b78915736cdd70f4a85c7e. The 65 retained source blobs match carriers; Hunt47 remains 0428-351; both checkbox exceptions remain parked and unaltered.
