@@ -347,3 +347,18 @@ evidence/2026-11-26/w289-0428-251-demochecks/ready179.log
 END_DONE w289-0428-251-demochecks: 3 fresh pull_request events bound zero runs — root cause is the heads'
 DRAFT-only/zero-jobs `pr-config-matrix.yml` (develop blob `7108cf69e4f5…`), transport alone cannot qualify
 #170/#179/#181; akte + witnesses in this file, plan PR: #93
+
+## Post-publication correction (plan-main drift, recorded 2026-11-26T04:36Z)
+
+The "pending merge gate" note above was wrong when written and is corrected here with current witnesses.
+`baseharbor-plan` `origin/main` advanced to `72f2c83aa` (w255 card-field fix) and my branch already contains it
+(`git merge origin/main` → "Already up to date"; `git log --oneline HEAD..origin/main | wc -l` → 0).
+
+```text
+$ gh pr view 93 --repo mcpdev80/baseharbor-plan --json headRefOid,statusCheckRollup
+{"head":"e9019cbc4","rollup":["Plan · validate COMPLETED SUCCESS"]}
+```
+
+So Plan PR #93 (head `e9019cbc4ecb558e22fd9e88977d8def9782d623`, verified by `git ls-remote` above) is green and
+ready for the Owner/Codex admin squash merge. The evidence path is on the remote branch; it enters `origin/main`
+with that merge. This lane does not merge it (mission scope limit).
