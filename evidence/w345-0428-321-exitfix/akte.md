@@ -1,8 +1,25 @@
 # w345-0428-321-exitfix: 0428-321 correction round
 
+## visible ansatz block (recorded at correction-round start; candidate committed after)
+
+- card frontmatter owner (fetched from origin/main at runtime): `w345-0428-321-exitfix` (card t-20261125-hunt45-exit-code-taxonomy-docs; card_number 0428-321; kanban_status active). Coordinator correction block: "321 sits in REVIEW; correction round; do not commit as-is; steer 2/3 pending disposition."
+- git user.name I use: w345-0428-321-exitfix
+- git user.email I use: w345-0428-321-exitfix@baseharbor.local
+- commit invocation (literal, per-command, on the pinned worktree):
+  `git -C /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/w345-0428-321-exitfix -c user.name=w345-0428-321-exitfix -c user.email=w345-0428-321-exitfix@baseharbor.local commit -m "..."`
+- pre-push admission gate (literal): `git -C /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/w345-0428-321-exitfix show -s --format=%an HEAD` must equal `w345-0428-321-exitfix` exactly; on mismatch STOP + report (no silent amend).
+- worktree identity gate (pinned): `git var GIT_AUTHOR_IDENT` / `GIT_COMMITTER_IDENT` show w345-0428-321-exitfix; bare git config FORBIDDEN.
+
+## base attestation
+
+- baseharbor product remote (worktree, github.com/mcpdev80 confirmed): origin https://github.com/mcpdev80/baseharbor.git
+- base ref cut from: cdb6e4d977d903ebbb6198b9b001403aba07868d (PR #1866 head, verified via `git ls-remote origin refs/pull/1866/head` and `gh pr view 1866`).
+- `git merge-base --is-ancestor origin/develop HEAD`: develop is ancestor of cdb6e4d97.
+- `git log --oneline origin/develop..HEAD` lists only w334/w345 commits (cdb6e4d97 + my 33754a9a0); no foreign candidate carried on top.
+- PR #1866 head after my FF push: 33754a9a0b3462892d837574dfc09ab7da11a486 (ls-remote + gh api witness).
+
 ## END_DONE
 
-## committed: w345-0428-321-exitfix evidence akte (plan main a62e9ce68)
 
 ## visible ansatz block
 
@@ -35,14 +52,14 @@
 
 ## PLAN
 
-- (plan) Read mission w345-0428-321-exitfix + card; verify worktree identity + github remote
-- (plan) Paste git var gate + visible ansatz block before first commit
-- (plan) Convert tautology TestExitCodeTaxonomyLocked (cli_test.go:79-92) into a real passthrough test (assert ExitCode==child status across documented codes) plus a real SIGINT/SIGTERM->130/143 mapping test via main-level contract, not local map-key checks; zero behavior change
-- (plan) Harden exit_code_taxonomy_audit.py: reject undocumented codes including 256; distinguish child-status passthrough range (1-255) from named top-level taxonomy values
-- (plan) Precheck format/vet/build only (NO local test execution); prove 0428-322 untouched
-- (plan) Push to PR branch under w345 identity; ancestry + commit-identity gate
-- (plan) Trigger Hosted CI on exact head (draft toggle per doctrine); watch terminal run; capture FULL40+ run ids
-- (plan) PR head comment, evidence, END_DONE, cleanliness (docker ps witness), publish
+- [ ] Read mission w345-0428-321-exitfix + card; verify worktree identity + github remote
+- [ ] Paste git var gate + visible ansatz block before first commit
+- [ ] Convert tautology TestExitCodeTaxonomyLocked (cli_test.go:79-92) into a real passthrough test (assert ExitCode==child status across documented codes) plus a real SIGINT/SIGTERM->130/143 mapping test via main-level contract, not local map-key checks; zero behavior change
+- [ ] Harden exit_code_taxonomy_audit.py: reject undocumented codes including 256; distinguish child-status passthrough range (1-255) from named top-level taxonomy values
+- [ ] Precheck format/vet/build only (NO local test execution); prove 0428-322 untouched
+- [ ] Push to PR branch under w345 identity; ancestry + commit-identity gate
+- [ ] Trigger Hosted CI on exact head (draft toggle per doctrine); watch terminal run; capture FULL40+ run ids
+- [ ] PR head comment, evidence, END_DONE, cleanliness (docker ps witness), publish
 
 ## repo-rule compliance
 
