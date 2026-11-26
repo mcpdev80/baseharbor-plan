@@ -25,7 +25,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261125-hunt43-env-leak-disk](../tasks/t-20261125-hunt43-env-leak-disk.md) | 0428 hunt H-V43: hunt43-env-leak-disk | active | not set | w331-0428-316-hunt43envleak | — | — |
-| [t-20261125-hunt45-exit-code-taxonomy-docs](../tasks/t-20261125-hunt45-exit-code-taxonomy-docs.md) | CLI: document baha exit-code taxonomy and machine coverage check | active | not set | w345-0428-321-exitfix (LIVE busy; steer-5 route-a per w267: helper into catalogued cli.go, new exact head pending) | — | [baseharbor#1866](https://github.com/mcpdev80/baseharbor/pull/1866) |
+| [t-20261125-hunt45-exit-code-taxonomy-docs](../tasks/t-20261125-hunt45-exit-code-taxonomy-docs.md) | CLI: document baha exit-code taxonomy and machine coverage check | active | not set | w345-0428-321-exitfix (LIVE; exact-head CI 45895504172 GREEN on 03354deb876b, END/handoff outstanding; independent review next) | — | [baseharbor#1866](https://github.com/mcpdev80/baseharbor/pull/1866) |
 | [t-20261126-hunt46-collectable-orphans-reserved-namespace](../tasks/t-20261126-hunt46-collectable-orphans-reserved-namespace.md) | 0428 hunt H-V46: CollectableOrphans lists the reserved never-delivered dir as a collectable orphan UUID (medium) | active | not set | w322-0428-249-pr1812gate | — | — |
 
 ## Ready for review

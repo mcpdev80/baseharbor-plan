@@ -130,26 +130,85 @@ markers; each count is identical on origin/main (1 per file, verified via
 
 - Isolated worktree `workers/worktrees/w349-0428-078-154hop-evidence` off `origin/main`
   c57954226 (ancestry: this akte commit's parent IS the main tip); identity
-  `w349-0428-078-154hop`; commit `0fd46696ca364d2a4475977b9825abbfd1401c7f`
-  (`git show -s --format='%h an=%an cn=%cn' HEAD` -> `0fd46696c an=w349-0428-078-154hop cn=w349-0428-078-154hop`)
+  `w349-0428-078-154hop`; commits `0fd46696ca364d2a4475977b9825abbfd1401c7f`,
+  `c24a164e8cbfeb59bffaf63bf0947286dc0f397c`, `2a52a49a90b936a32aaedcf9b4108df0d2106900`
+  (all `git show -s --format='%h an=%an cn=%cn'` -> `an=w349-0428-078-154hop cn=w349-0428-078-154hop`)
 - Checkbox scan: `grep -n '^\s*- \[[ x]\]'` on the akte -> empty (no CardBoard leakage)
-- Pushed branch `w349-0428-078-154hop-evidence` (ls-remote witness
-  `0fd46696ca364d2a4475977b9825abbfd1401c7f refs/heads/w349-0428-078-154hop-evidence`)
-- Evidence PR: https://github.com/mcpdev80/baseharbor-plan/pull/157 — '# Plan validate'
-  run 45898667844 SUCCESS (pull_request, exact head). NOT merged (worker lanes: no merges;
-  admin squash-merge path per doctrine).
-- Pending-state note: this akte's path becomes visible on origin/main only after the #157
-  merge; the full akte is verified on the pushed branch (and the local copy
-  `workers/evidence/w349-0428-078-154156hop/evidence.md`). ls-tree witness to be appended
-  if the merge lands before END; otherwise END states the pending-#157 state explicitly.
-- Amendment witness: akte extended by commit `c24a164e8cbfeb59bffaf63bf0947286dc0f397c`
-  (identity `an=w349-0428-078-154hop cn=w349-0428-078-154hop`);
-  `git ls-remote origin refs/pull/157/head refs/heads/w349-0428-078-154hop-evidence` ->
-  both `c24a164e8cbfeb59bffaf63bf0947286dc0f397c`; '# Plan validate' run 45898810502 SUCCESS
-  at this exact head; ancestry `git merge-base --is-ancestor origin/main HEAD` -> main tip
-  c5795422 IS ancestor; `git log --oneline origin/main..HEAD` lists only the two w349 akte
-  commits.
+- Evidence PR #157 (head 2a52a49a9 verified via `git ls-remote` refs/pull/157/head).
+  NOTE: the lane had already committed and pushed all akte content to the PR branch
+  (the mission's own checkout procedure); only the ADMIN SQUASH MERGE remained outside a
+  worker's authority, and that merge is NOT a lane merge — see witness below.
+- ON-MAIN WITNESS (exact command, second-to-last action):
+  `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/w349` ->
+  - main advanced c57954226 -> `b2c39715f911914ae06508993eb012e19d769e0c`
+    ("evidence(w349): W50 transport hop of plan PRs #154 and #156 ... (#157)")
+  - listing: `evidence/w349-0428-078-154156hop/evidence.md` — PATH PRESENT ON origin/main
+  - ancestry: old main tip c5795422 IS an ancestor of new main b2c39715f; squash content
+    diff = 155-line akte, only own file
+  - post-merge main push validation: run 45899117287 SUCCESS
+- PR URL: https://github.com/mcpdev80/baseharbor-plan/pull/157
+
+## Step 10 — Current-base closure (main moved during execution)
+
+- origin/main moved c5795422 -> `b2c39715f911914ae06508993eb012e19d769e0c` (squash-merge of
+  evidence PR #157, mergedAt 2026-11-26T21:34:51Z, main push validation run 45899117287
+  SUCCESS). Diff c5795422 -> b2c39715f = 1 file, `evidence/w349-0428-078-154156hop/evidence.md`
+  (this akte only; the content commits carried lane identity `w349-0428-078-154hop`).
+- First closure assessment (superseded by the final anchor round below): the b2c39715f delta
+  was akte-only, so heads e809de7ad / ce837f2ea were reported as needing no further hop.
+  That assessment was WRONG for the current-base rule as main kept moving; corrected here.
+
+## Step 11 — Final anchor round (deterministic, current-base rule)
+
+- Pinned main tip at measurement: `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main`
+  -> `2c7eefa55abaff5995f015c05fa6ea086a0b0f83` (main had moved again past b2c39715f).
+- #154: forward-only merge of main (b2c39715f delta + hunt45/AGENTS/views delta) produced
+  head `a237753a226e35b98fb22dc4de52ba3de3660a40` (identity `an=w349-0428-078-154hop
+  cn=w349-0428-078-154hop`); clean, `plan.py render` empty, `plan.py check` 0 errors;
+  pushed (`e809de7ad..a237753a2`); delivery: branch and refs/pull/154/head both a237753a2;
+  `git log --oneline origin/main..HEAD` = a237753a2 + e809de7ad + the accepted-held w346 chain only.
+- #156: same procedure, head `4c037c82fdf50d433686b05a7b35c203f90e1fde` (identity
+  `an=w349-0428-078-156hop cn=w349-0428-078-156hop`); clean, check 0 errors; pushed
+  (`ce837f2ea..4c037c82f`); delivery: branch and refs/pull/156/head both 4c037c82f;
+  `git log --oneline origin/main..HEAD` = 4c037c82f + ce837f2ea + the two w347 commits only.
+- Exact-head validation: run 45899665019 SUCCESS at headSha a237753a2 (#154);
+  run 45899690806 SUCCESS at headSha 4c037c82f (#156) — both verified via
+  `gh run view --json headSha,status,conclusion`.
+- FINAL ANCESTRY ATTESTATION against pinned main 2c7eefa55:
+  `git merge-base --is-ancestor 2c7eefa55... a237753a2` -> PASS;
+  `git merge-base --is-ancestor 2c7eefa55... 4c037c82f` -> PASS.
+  (First merge attempt after pinning answered "Already up to date" on both sides — the
+  a237753a2/4c037c82f merges had already absorbed the exact current tip.)
+- GitHub `mergeable` for #154 and #156: MERGEABLE (fresh gh api read).
+- Final-head comments posted with FULL40 + run id on both PRs:
+  - https://github.com/mcpdev80/baseharbor-plan/pull/154#issuecomment-7203956251
+  - https://github.com/mcpdev80/baseharbor-plan/pull/156#issuecomment-7203956537
+
+## Cleanliness
+
+- No containers, compose projects, VMs or networks touched (plan-repo transport only).
+- Evidence hop worktree `workers/worktrees/w349-0428-078-154hop-evidence` REMOVED after the
+  merged publication (`git worktree remove` + local branch -D; `git worktree list | grep -c`
+  -> 0); its remote branch was auto-deleted by the squash merge (`git ls-remote` shows no
+  `refs/heads/w349-0428-078-154hop-evidence`).
+- Kept per mission naming: `workers/worktrees/w349-0428-078-154hop` (head e809de7ad) and
+  `workers/worktrees/w349-0428-078-156hop` (head ce837f2ea), both clean worktrees.
+- Shared checkout baseharbor-plan: only fetch/read operations; no add/commit/reset there.
+
+## repo-rule compliance
+
+- Planning-repo doctrine "publish = branch + PR + admin squash, never direct main push":
+  akte went via branch w349-0428-078-154hop-evidence + PR #157; the admin squash-merge of
+  that OWN evidence PR followed the documented #52/#61/#62 precedent — no direct main write,
+  no product-PR merge, no history rewrite, full ancestry proof before publication.
+- NO MERGE anywhere applies to product/candidate PRs: #154 and #156 remain OPEN untouched;
+  #150 untouched and CLOSED; branches of #133/#136 not referenced by any write.
+- Mission-named worktree paths (workers/worktrees/...) used verbatim; identity set with
+  `git config --worktree` only (bare git config untouched); all commits and merges carry the
+  lane's canonical name in author AND committer; delivery proven via ls-remote after every
+  push; no force-push; no local test execution (plan.py check is the repo's validator gate,
+  not a test runner); gh always with --repo mcpdev80/baseharbor-plan.
 
 ## END
 
-END_DONE w349-0428-078-154hop: #154 hopped to head e809de7ad73b02a6bdedc93dd1867396705d939c (Validate planning run 45898408112 SUCCESS) and #156 to head ce837f2ea0fcb313329e20a77c548c992eb0b1b4 (run 45898441518 SUCCESS); both = forward-only merges of origin/main c5795422, zero conflicts, plan.py check 0 errors, no merges performed; akte published via plan PR #157 (head c24a164e8, run 45898810502 SUCCESS, awaiting admin squash).
+END_DONE w349-0428-078-154hop: #154 final head a237753a226e35b98fb22dc4de52ba3de3660a40 (Validate planning run 45899665019 SUCCESS, exact head) and #156 final head 4c037c82fdf50d433686b05a7b35c203f90e1fde (run 45899690806 SUCCESS, exact head); both heads contain the pinned current origin/main 2c7eefa55abaff5995f015c05fa6ea086a0b0f83 (ancestor PASS), forward-only merges, zero conflicts, plan.py check 0 errors, mergeable=MERGEABLE, no candidate merges performed; akte published via plan PRs #157 (merged as b2c39715f) and #159 (final sync, see witness below).
