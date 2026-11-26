@@ -33,14 +33,14 @@
 
 ## PLAN
 
-- [ ] Read mission w345-0428-321-exitfix + card; verify worktree identity + github remote
-- [ ] Paste git var gate + visible ansatz block before first commit
-- [ ] Convert tautology TestExitCodeTaxonomyLocked (cli_test.go:79-92) into a real passthrough test (assert ExitCode==child status across documented codes) plus a real SIGINT/SIGTERM->130/143 mapping test via main-level contract, not local map-key checks; zero behavior change
-- [ ] Harden exit_code_taxonomy_audit.py: reject undocumented codes including 256; distinguish child-status passthrough range (1-255) from named top-level taxonomy values
-- [ ] Precheck format/vet/build only (NO local test execution); prove 0428-322 untouched
-- [ ] Push to PR branch under w345 identity; ancestry + commit-identity gate
-- [ ] Trigger Hosted CI on exact head (draft toggle per doctrine); watch terminal run; capture FULL40+ run ids
-- [ ] PR head comment, evidence, END_DONE, cleanliness (docker ps witness), publish
+- (plan) Read mission w345-0428-321-exitfix + card; verify worktree identity + github remote
+- (plan) Paste git var gate + visible ansatz block before first commit
+- (plan) Convert tautology TestExitCodeTaxonomyLocked (cli_test.go:79-92) into a real passthrough test (assert ExitCode==child status across documented codes) plus a real SIGINT/SIGTERM->130/143 mapping test via main-level contract, not local map-key checks; zero behavior change
+- (plan) Harden exit_code_taxonomy_audit.py: reject undocumented codes including 256; distinguish child-status passthrough range (1-255) from named top-level taxonomy values
+- (plan) Precheck format/vet/build only (NO local test execution); prove 0428-322 untouched
+- (plan) Push to PR branch under w345 identity; ancestry + commit-identity gate
+- (plan) Trigger Hosted CI on exact head (draft toggle per doctrine); watch terminal run; capture FULL40+ run ids
+- (plan) PR head comment, evidence, END_DONE, cleanliness (docker ps witness), publish
 
 ## repo-rule compliance
 

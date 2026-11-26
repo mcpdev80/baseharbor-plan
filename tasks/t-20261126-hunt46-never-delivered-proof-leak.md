@@ -7,8 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
+owner: w341-0428-326-proofleak (live lane; status per its akte commits ffa9a00d5/7592cdc00 carried by coordinator)
+kanban_status: blocked
+blocker: "v0.4.28 release begin marker missing + catalog/pr-gate-map release label still v0.4.27 (w341 akte 20:11Z); rerun trigger: owner map decision (same class as 0428-328)"
 kanban_lane: ready
 kanban_summary: "The never-delivered proof at never-delivered/<applicationID>/<environment>.json is created by guided adoption…"
 kanban_title: 0428-326 · consume never-delivered proof
