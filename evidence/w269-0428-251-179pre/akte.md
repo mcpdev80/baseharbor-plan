@@ -340,19 +340,36 @@ w269-0428-251-179pre
 
 ```text
 $ echo "lane pid = $$"
-lane pid = <recorded in the transcript; this shell's PID, not a container>
+pid=1897121            (this lane's shell PID; no container PID)
 $ docker ps -a --format '{{.ID}} {{.Names}} {{.Image}}' | sort   # before, this lane
 (empty — `docker ps -a -q | wc -l` == 0)
-$ podman ps -a --format '{{.ID}} {{.Names}} {{.Image}}' | sort   # before, this lane
-a14be1e261a4 baseharbor-pre-release-registry <image>
+$ podman ps -a --format '{{.ID}} {{.Names}}' | sort   # before, this lane
+a14be1e261a4 baseharbor-pre-release-registry
 ```
 
 ```text
 $ docker ps -a --format '{{.ID}} {{.Names}} {{.Image}}' | sort   # after, this lane
 (empty — `docker ps -a -q | wc -l` == 0, byte-identical to the before list)
-$ podman ps -a --format '{{.ID}} {{.Names}} {{.Image}}' | sort   # after, this lane
-a14be1e261a4 baseharbor-pre-release-registry <image>   (unchanged — ambient pre-existing, not started by this lane)
+$ podman ps -a --format '{{.ID}} {{.Names}}' | sort   # after, this lane
+a14be1e261a4 baseharbor-pre-release-registry   (unchanged — pre-existing ambient, not started by this lane)
 ```
+
+## Plan PR and delivery witnesses
+
+Plan PR: **baseharbor-plan #72** — `https://github.com/mcpdev80/baseharbor-plan/pull/72`
+(base `main`, non-draft, head `645f00feed1aeb5c608f24ee3f7e4a2462bb6576`). This lane does not merge it; Codex publishes.
+
+```text
+$ git -C /tmp/opencode/w269-0428-251-179pre-plan ls-remote \
+    https://github.com/mcpdev80/baseharbor-plan.git refs/heads/lane/w269-0428-251-179pre refs/pull/72/head
+645f00feed1aeb5c608f24ee3f7e4a2462bb6576  refs/heads/lane/w269-0428-251-179pre
+645f00feed1aeb5c608f24ee3f7e4a2462bb6576  refs/pull/72/head
+```
+
+Before/after commit witnesses: `git log --oneline origin/main..HEAD` → single line
+`645f00fee evidence(w269): demo 179 hosted-route pre-flight akte`; `git diff origin/main...HEAD --name-only` →
+single line `evidence/w269-0428-251-179pre/akte.md`. `git merge-base --is-ancestor 264e26323 HEAD` exited 0.
+Author/committer gate printed `w269-0428-251-179pre` on both `%an` and `%cn`.
 
 The before/after listings are byte-identical. No Docker or Podman container, compose project, volume, network or
 state directory was created by this lane on this host; the single `podman ps -a` entry is a pre-existing ambient
@@ -366,4 +383,5 @@ is removed at END, after the Plan PR exists.
 ## END
 
 END_DONE w269-0428-251-179pre: demo #179 needs a ROUTE FIX (Owner-scope `.github/**` landing on the evaluated
-base + explicit `ready_for_review`), not a mark-ready and not a code hop; zero mutations; Plan PR: pending number.
+base + explicit `ready_for_review`), not a mark-ready and not a code hop; candidate SHA `645f00feed1aeb5c608f24ee3f7e4a2462bb6576`,
+Plan PR #72; zero mutations on product repos, zero CI triggers, zero PR edits.
