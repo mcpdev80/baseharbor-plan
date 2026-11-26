@@ -176,3 +176,12 @@ baseharbor-demo #182 merged as 58ac70679e per coordinator 12:31Z. Old-head run 4
 - `docker ps -a` before: empty (12:01:35Z, PID 3841076). `docker ps -a` after (12:34Z, PID of this session's check): empty. No container, network, volume, compose project or state directory was created by this lane; no VM/ssh used. No scratch in the ecosystem root: worktrees under workers/ only.
 
 END w323-0428-078-pr1855gate DONE — candidate 8635ba07fb15f824e0f33fbd4bb3bb24218e7366, run 45815420751 SUCCESS, akte and plan transport delivered.
+
+## Closure (same day, final pass)
+
+- Plan PR #124 squash-merged to main as 949d5a818f403985939bef1e88f8b550fcab04a9 (only file: this akte).
+- Sole PR-path run on PR #124 head 624cdb8998270de4770845a2d3620f1f24fd3b3f: 45820583395	pull_request	completed	success — terminal SUCCESS (first dispatch of that head had no run in the head_sha listing; recorded as observed).
+- Evidence path on origin/main verified: evidence/2026-11-26/w323-0428-078-pr1855gate/akte.md present in git ls-tree -r --name-only origin/main.
+- Final candidate witness: 8635ba07fb15f824e0f33fbd4bb3bb24218e7366	refs/heads/w279-0428-078-pr1650-reissue 8635ba07fb15f824e0f33fbd4bb3bb24218e7366	refs/pull/1855/head 
+- Final cleanliness witness (PID 3925715, 12:33:57Z): docker ps -a empty — nothing started by this lane on this host.
+- Secondary akte branch w323-0428-078-pr1855gate-akte on the plan remote is superseded by #124 and is deleted below with ls-remote before/after witnesses.
