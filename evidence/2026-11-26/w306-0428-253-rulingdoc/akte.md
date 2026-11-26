@@ -119,4 +119,13 @@ Appended (forward-only, 10 lines, diff shows zero deletions) to `evidence/r29-we
 - Coordinator correction turn (06:50Z): #108 comment posted with the future-dated-path finding, no-move rationale, akte pointer, admitted-set {90c8017b, 3c1ebc6f} confirmation and the verbatim rejection-boundary sentence: https://github.com/mcpdev80/baseharbor-plan/pull/108#issuecomment-7184778295
 - The akte path is introduced by this PR and is therefore on the PR head branch until merge; it cannot appear on origin/main before an authorized merge (precedent recorded in w136-1853-owner-ruling.md). Post-merge, re-verify with: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/2026-11-26/w306-0428-253-rulingdoc/akte.md`.
 
-END_DONE w306-0428-253-rulingdoc: plan PR #108 final head 4074bfb12 (5 self-watched Plan-validate runs SUCCESS incl. 45770819061), finding+confirmation comment posted, merge is w267/owner action; no product repo touched, no new cards.
+## Ancestry confirmation for the coordinator (06:59Z order)
+
+- (a1) `git ls-remote origin refs/pull/108/head` → `db736bfb0501abfbe1f1909f77146bbe76d34ef7 refs/pull/108/head`
+- (a2) `gh pr view 108 --json headRefOid,mergeable` → head `db736bfb0501abfbe1f1909f77146bbe76d34ef7`, `MERGEABLE`
+- (b) `git merge-base --is-ancestor c30b1143b4a6c6b8046bd9f909674d3bf846783f HEAD` → exit 0, ANCESTOR_OK (the absorb merge `4074bfb129` in this file's previous section is exactly that event; behind=0 on the compare is therefore genuine).
+- (c) Plan validate run on the exact live head `db736bfb0`: run `45770951699`, startedAt `2026-11-26T06:50:09Z`, completed SUCCESS, observed to terminal by this lane.
+- Explanation of the coordinator's two reports: the behind=1 observation keyed to `8a87f5d` predates the `git merge origin/main` absorb commit `4074bfb129`; the akte commit `db736bfb05` sits on top of that merge, so the current head contains `c30b1143b` and reports behind=0 ahead=5. No merge commit was needed for this confirmation turn.
+- Date-integrity finding stands exactly as written: ruling file stays at `evidence/r29-welle6-2026-11-28/0428-253/` (no move, no copy); w267 rules whether the card also needs a dated forward note.
+
+END_DONE w306-0428-253-rulingdoc: #108 live head db736bfb0 contains main c30b1143b (ancestor test exit 0), run 45770951699 SUCCESS on that exact head, MERGEABLE; nothing further for this lane.
