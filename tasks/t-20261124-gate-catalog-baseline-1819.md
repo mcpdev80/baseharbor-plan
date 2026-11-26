@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "disjoint prework complete (w328 akte PR #129, CI 45827274740 GREEN, census=0 rows owed after #1859); w328 released - no live worker, claim reconciled to wait; rebase/qualification deferred until #1812 merges (chain #1812 -> #1819 -> #1820)"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45320885286"]
 ---
@@ -26,6 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45320885286"]
 - [ ] t-20261124-gate-catalog-baseline-1819 · CI/catalog: add #1819 source rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** w328-0428-273-pr1819pre  
+    **Waiting:** disjoint prework complete (w328 akte PR \#129, CI 45827274740 GREEN, census=0 rows owed after \#1859); w328 released - no live worker, claim reconciled to wait; rebase/qualification deferred until \#1812 merges (chain \#1812 -\> \#1819 -\> \#1820)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45320885286)  
     <!-- /generated:card -->
 
