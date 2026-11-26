@@ -699,3 +699,41 @@ This lane holds no product write of any kind; the akte ships inside plan PR #100
 is intentionally absent from plan main until that PR merges, and the mission places the akte "in the
 same PR"), verified by `gh api repos/mcpdev80/baseharbor-plan/pulls/100/files` with no
 `baseharbor-plan/`-prefixed path and no tasks/ evidence file.
+
+## True terminal state (this commit is the last on PR #100)
+
+```
+PR #100 head / branch head  fa902c0ec7cf3632afa5d4240f54df4697ea3b34
+  refs/heads/main (plan) -> 1b9b2bc70201d9da6615a9ec16942103c20e96a1
+  git merge-base --is-ancestor origin/main HEAD -> rc=0 (main IS an ancestor of the published head)
+  git diff --name-only $(git merge-base origin/main HEAD)...HEAD -> 12 files: this akte, five Hunt47
+    cards under tasks/, plus generated roadmap/cards.md, releases/v0.4.28.md and four views/*.md
+    (the earlier "11 commits above main" count included main-side commits through a two-dot diff; the
+    three-dot PR file list above is the correct view)
+  Plan · validate SUCCESS on fa902c0ec7 (check-runs conclusion success; run 45763786004 validated the
+    previous exact head b0d7aa9cff; no rerun, no workflow_dispatch, no close/reopen, no .github/** change)
+  python3 scripts/plan.py render -> no-op; python3 scripts/plan.py check -> 790 tasks, 0 errors, 10 warnings
+```
+
+Product zero-mmutation witnesses at END: baseharbor develop `e176a276b2f545e6a555e58997817d8c08570da8`,
+main `cddc81b34fe13d8befdde4c487b365a0309ba428`; shared plan checkout HEAD `08b1f66bb` with 51/51 stashes
+(`stash@{21}` carrier intact); all /var/tmp throwaway worktrees and scratch files removed; the only w295
+worktree left is `workers/w295-0428-251-planwt`, clean, to be removed after the PR merges.
+
+## END (published)
+
+END_DONE w295-0428-251-recover6paths: plan PR #100 (https://github.com/mcpdev80/baseharbor-plan/pull/100),
+published head `fa902c0ec7cf3632afa5d4240f54df4697ea3b34`; plan main 1b9b2bc702 is an ancestor of it;
+`Plan · validate` SUCCESS on that exact head. Restored **5 of 6** residual paths byte-exactly from
+verified carrier blobs (carrier commit a47da84b8, blobs 5b04465f50 / 0095f9f0f7 / 788a600020 /
+34969233cf / 7c079d905b; 27,396 B) with the single permitted `card_number` re-allocation to numbers
+proven free by a `uniq -d` + repo-wide mention scan on live main (0428-353..357). **Path 6**
+(`tasks/t-20261124-r28-alert-applied-face-stale-runtime.md`, 3,608 B, carrier `stash@{21}^3` blob
+36ba702478, read-only) is **WITHDRAWN**: audit PR #95, the mission's stated source of truth, classifies
+that same path as non-loss at line 66 and as class-(c) residual at line 91; the ls-tree/log/grep
+evidence and the full byte proof are recorded in "Path 6", so w298's corrected census can settle it with
+one mechanical landing. Residual after this work: **1 path / 3,608 B**, so the recovery line is **NOT
+CLOSED** by this PR alone (if the corrected census says non-loss, PR #100 is the full close). Zero
+product mutation; shared plan checkout and its 51 stashes untouched; cleanliness confirmed. Disclosure:
+one prohibited `git push --force` occurred mid-lane (documented above) and the branch continued
+forward-only from the restored head.
