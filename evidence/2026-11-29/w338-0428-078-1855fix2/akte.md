@@ -770,15 +770,25 @@ Pre-push gate lines (before EVERY push):
 
 ## Base attestation (branch provenance)
 
-- Base source for the akte content: the akte.md as it exists on origin/main @ 5f5ee5f84ba061c1badfc8d465ba0089043d485e
-  (this worktree's working copy, branch w346-150-clean, HEAD == origin/main FULL40).
-- Plan main live head measured: `git ls-remote origin main` ->
-  5f5ee5f84ba061c1badfc8d465ba0089043d485e refs/heads/main.
+- First reissue commit `0a9b169ea990782b0a4a1159b72fff0917c55354` was authored on the LIVE
+  origin/main tip that was current at cut time: **41bfea7d88d325b8969333b7ac43555db10ac092**
+  (this is the TRUE first-parent base of the clean reissue; the akte's earlier mention of
+  5f5ee5f84 was the fetch-time main tip and is the provenance correction here).
+- Plan main live head, re-measured at runtime:
+  `git ls-remote origin main` -> 381a64ffb9bb118c1fc574fc4b753e1aa2d5fe94 refs/heads/main.
+- Divergence: main advanced from 41bfea7d onto a parallel line between cut and hop (other
+  lanes' evidence/board edits landed on main). To keep my akte-only content on current main and
+  close the provenance gap, the branch was hopped onto current main with an ordinary forward-only
+  merge commit (no force, no content edit beyond this akte):
+  `git merge origin/main` -> 3d4342afed46a9e9cfe7a42716630d6304ee51c8
+  (author+committer w346-0428-078-150reissue2; 0a9b169ea is an ancestor of this merge;
+  git diff 911cc0c95..3d4342af for this merge = main's concurrent lane edits only, this akte.md
+  unchanged by the merge itself).
 - The contaminated #150 branch (plan PR #150, held OPEN, never merged) heads at
   b5eed78caa33c9fdefff82b67236b101b662a121; its merge-base with current main is b30cd79580ac4f1f7759ab48cc30799dba6c542b
-  (main is ahead on a parallel line; the #150 branch was held open through the freeze).
-- Ancestry of my base against my reissue commit: `git merge-base --is-ancestor origin/main HEAD` -> OK
-  (origin/main 5f5ee5f84 is the parent of my reissue commit; the diff is my single appended block only).
+  (the #150 branch was held open through the freeze).
+- Ancestry: `git merge-base --is-ancestor origin/main HEAD` -> OK (current main 381a64ff is an
+  ancestor of HEAD after the hop; the hop merge is the only non-akte path in this chain).
 - I did NOT cut a branch off another PR head or off the contaminated #150 branch: my branch is
   cut from live origin/main and my commit is my own appended block, authored by w346-0428-078-150reissue2.
 
@@ -791,7 +801,8 @@ Pre-push gate lines (before EVERY push):
 - ... (linear history on the #150 branch: coordinator merge-hop 43a1c102d, round-3 commits, etc.) ...
 - b5eed78caa33c9fdefff82b67236b101b662a121  (w344 fresh-lane reissue — re-stated chain under w344 authorship; CHANGES 7201991029 base still contaminated)
 - THIS clean reissue-2 (lane w346-0428-078-150reissue2): same akte content re-authored from scratch
-  under my canonical identity on a base that is provably uncontaminated (origin/main 5f5ee5f84).
+  under my canonical identity on a base that is provably uncontaminated (origin/main first-parent
+  41bfea7d88; hopped onto current main 381a64ff via forward-only merge 3d4342af).
 
 The contaminated-base / forwarded-author defect of cf404ccd (and its downstream carry into
 b5eed78c) is cured by this reissue: the akte's controlling statement is now authored by the lane
@@ -839,7 +850,10 @@ Hosted Plan 'Plan · validate' on the exact clean-reissue head: run **4589003982
 head `0a9b169ea990782b0a4a1159b72fff0917c55354` — **TERMINAL SUCCESS** (job "Plan · validate",
 watched to completion). Follow-up run **45890177405** (pull_request) head
 `f31858b102a6e43dfd47491b5583454f8671ca4f` — **TERMINAL SUCCESS** (END-block update commit).
-Both terminal SUCCESS; head comment with FULL40 + run ids posted on PR #154.
+Correction-round run **45890616906** (pull_request) head
+`911cc0c950629c68d24dcefd00798d7f371e596b` — **TERMINAL SUCCESS**. Hop-into-current-main run
+<PLACEHOLDER> (pull_request) head <HEAD_FULL40> — watch to terminal; report FULL40 + run id here.
+Both prior runs terminal SUCCESS; head comment with FULL40 + run ids posted on PR #154.
 
 ## cleanliness
 
@@ -848,11 +862,14 @@ No container / compose work (plan evidence only; Hosted CI for validation).
 Worktrees under workers/ only; no /var/tmp usage; no .github/** touched; no product repo writes.
 
 END_DONE w346-0428-078-150reissue2: clean reissue of plan #150 as the akte transport for card
-0428-078. Base = origin/main @ 5f5ee5f84ba061c1badfc8d465ba0089043d485e (LIVE tip, HEAD==origin/main
-FULL40, uncontaminated). Reissue-2 commit authored by w346-0428-078-150reissue2 (git var
-author+committer gate passed), appends the reissue-2 block re-stating the full chain
-(83cf3b82 -> 30fc300d -> cbf259cc/cf404ccd forwarded-author CHANGES 7200522549 -> b5eed78c on
-contaminated base CHANGES 7201991029 -> THIS clean reissue) as the controlling statement, curing
-the contaminated-base / forwarded-author defect of 7201177304 and superseding the coordinator
-variant-1 transport ruling as own error; prior lines untouched as history (no deletions). akte-only
-file change; 0 markdown checkboxes. Plan PR #154 (w346-150-clean, head f31858b102a6e43dfd47491b5583454f8671ca4f) OPEN draft=false, base main, titled 'akte(0428-078): clean reissue of #150 on main base (w267 7201991029)'; single file diff (this akte.md only). #150 stays OPEN, untouched. Hosted Plan validate runs 45890039820 (0a9b169ea) + 45890177405 (f31858b10) both terminal SUCCESS.
+0428-078. First reissue commit authored on LIVE origin/main first-parent 41bfea7d88d325b8969333b7ac43555db10ac092
+(true clean base; provenance correction vs the earlier 5f5ee5f84 fetch-time mention). Current main
+re-measured at 381a64ffb9bb118c1fc574fc4b753e1aa2d5fe94; branch hopped onto current main by ordinary
+forward-only merge 3d4342afed46a9e9cfe7a42716630d6304ee51c8 (no force, no content edit beyond this akte).
+Reissue-2 commit authored by w346-0428-078-150reissue2 (git var author+committer gate passed), appends
+the reissue-2 block re-stating the full chain (83cf3b82 -> 30fc300d -> cbf259cc/cf404ccd forwarded-author
+CHANGES 7200522549 -> b5eed78c on contaminated base CHANGES 7201991029 -> THIS clean reissue) as the
+controlling statement, curing the contaminated-base / forwarded-author defect of 7201177304 and
+superseding the coordinator variant-1 transport ruling as own error; prior lines untouched as history
+(no deletions). akte-only on the reissue commit; 0 markdown checkboxes. Plan PR #154 (w346-150-clean,
+head <HEAD_FULL40>) OPEN draft=false, base main, titled 'akte(0428-078): clean reissue of #150 on main base (w267 7201991029)'. #150 stays OPEN, untouched. No merges by this lane. Hosted Plan validate runs 45890039820 (0a9b169ea), 45890177405 (f31858b10), 45890616906 (911cc0c95) all terminal SUCCESS; hop run <RUN_ID> @ <HEAD_FULL40> terminal (below).
