@@ -585,3 +585,15 @@ stays a coordinator action (no merges by this lane)."
 -> SUPERSEDED by the corrected block above. Head 83cf3b823973480f75d6857f8fe68bb9781ef4c0 was
 an earlier self-delivery commit on the same PR #150 branch; the final authoritative head is
 30fc300d26b75273a25499e421c37330d3cf91ea with the attempt-1 SUCCESS run 45875783387.
+
+## W40 coordinator transport (ended 2026-11-26, lane w332-0428-288-composeids)
+
+- Isolated plan worktree workers/worktrees/w332-150corr off origin/w338-0428-078-1855fix3-akte;
+  identity pinned w332-0428-288-composeids via `git config --worktree`; git var gate passed.
+- Committed cbf259ccbfedd158e5344964424940df979f85bc (author+committer w332-0428-288-composeids):
+  akte-only, +26 insertions, 0 markdown checkboxes. Linear forward hop on the #150 branch,
+  8 commits ahead of current main (5b90921c), only new commit — no foreign candidate, no force.
+- Pushed ordinary; new Headed Plan validate run 45879643638 "Plan · validate" COMPLETED/SUCCESS
+  on head cbf259cc (single job, success). Prior exact-head runs 45875144959 @ 43a1c102d and
+  45875424540 @ 00d56a9be remain green and unmodified.
+- No .github/** / product / merge touched. PR #150 Ready (draft=false); merge stays coordinator.
