@@ -98,13 +98,19 @@ the exact-head run watched to terminal (run id + 4 Selected Runtime job results 
 ## CI (hosted, exact head)
 
 - Pushed to `w279-0428-078-pr1650-reissue`; `git ls-remote` witnesses: refs/heads and
-  refs/pull/1855/head = 18ccd8ea80d462a71964fd95a1d0dab31e6a713f.
+  refs/pull/1855/head = 879655f07f5fb28aba4e37ce33fdb2a8e0cce046.
 - Own pull_request run on exact head 879655f07f5fb28aba4e37ce33fdb2a8e0cce046:
-  45845829221 — the qualification run; result + 4 Selected Runtime jobs + PR Selected
-  Checks recorded here when the watch reaches terminal, and in the PR comment.
-  Superseded intermediate-head runs (NOT qualification): 45843285141 (f13d37d4,
-  cancelled once its two data-capabilities runtime jobs had passed), 45843907729
-  (18ccd8ea, auto-cancelled by the branch concurrency group when 879655f0 was pushed).
+  **45845829221 — completed, conclusion SUCCESS** (watched to terminal). The 4 Selected
+  Runtime jobs all SUCCESS: docker·observability, podman·observability,
+  podman·data-capabilities, docker·data-capabilities. PR Selected Checks posted
+  (.github#5). Superseded intermediate-head runs (NOT qualification): 45843285141
+  (f13d37d4 — every completed job green, cancelled after the two data-capabilities
+  runtime jobs had passed, to free runners for the final head), 45843907729 (18ccd8ea,
+  auto-cancelled by the branch concurrency group when 879655f0 was pushed).
+- `BASEHARBOR_PR_DEMO_SOURCE_SHA` untouched: no file in the delta (8635ba07..HEAD touches
+  only internal/metrics/identity_dashboard_witness*.go) can set it; the PR · Demo Pin job
+  consumed the trusted repository variable pin (demo_sha 98e4d549…, workflow-internal
+  default, not an override) and completed SUCCESS.
 
 ## cleanliness
 
@@ -115,4 +121,4 @@ host (unit tests use `t.TempDir()`/isolated BASEHARBOR_STATE_DIR only).
 ## END
 
 END_DONE w327-0428-078-dashwitness: #1855 round-2 Target-attribution fix on final head
-18ccd8ea80d462a71964fd95a1d0dab31e6a713f, exact-head run 45843907729 watched to terminal.
+879655f07f5fb28aba4e37ce33fdb2a8e0cce046, exact-head run 45845829221 SUCCESS.
