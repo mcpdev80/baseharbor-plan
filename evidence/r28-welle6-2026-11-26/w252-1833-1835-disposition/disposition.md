@@ -78,3 +78,18 @@ If a refreshed PR run shows a missing Podman selection despite current catalog r
 No local tests, containers, compose projects, or workflow runs were started. No product files or workflow files were edited. No PR was merged by this review.
 
 END_DONE w252-1833-1835-disposition: #1835 is redundant at the current tree and remains unaccepted pending behavior evidence; #1833 waits for #1842 then current-base hop and two distinct same-head PR successes.
+
+## Branch provenance and superseded local attempt
+
+The first isolated worktree was created detached at the then-fetched `origin/main` SHA `7e4a414f30ae82e8f0cb1e407a68e95c690e0532`; first local evidence commit was `57df17405dc9fc9e164d4c02a9338b31e2f333c1`. Before any push, a fresh ls-remote showed live `main` had moved to `12bff4d805c0ffbaddf4cd037a45b60460c05864`, and `7e4a414` was not an ancestor of it. The local branch was not pushed. To correct provenance without carrying other commits, only the single lane-authored evidence commit was rebased in the isolated worktree with `git rebase --onto origin/main 7e4a414f30ae82e8f0cb1e407a68e95c690e0532 codex/w252-1833-1835-disposition-20261126`. New local HEAD is `4b74526b23eb4e979fbc1f24166a932cddf65474`, author `w252-1833-1835-disposition`, committer `w248-coordinator`. The author admission field is the exact canonical lane name. Superseded local-only commit `57df17405dc9fc9e164d4c02a9338b31e2f333c1` is recorded here and was never pushed.
+
+Post-rebase provenance commands:
+
+```text
+git merge-base --is-ancestor origin/main HEAD -> success
+git diff origin/main...HEAD --name-only -> evidence/r28-welle6-2026-11-26/w252-1833-1835-disposition/disposition.md
+git log --oneline origin/main..HEAD -> 4b74526b2 evidence: disposition PRs 1833 and 1835
+git show -s --format=%an HEAD -> w252-1833-1835-disposition
+```
+
+No foreign commits are carried on the corrected evidence branch.
