@@ -559,3 +559,29 @@ plan workflow — 45875424540 SUCCESS @ 00d56a9be, 45875594902 SUCCESS @
 83cf3b823973480f75d6857f8fe68bb9781ef4c0 (no further edit after this line). PR #150 final
 head 83cf3b823973480f75d6857f8fe68bb9781ef4c0, Ready (draft=false), ls-remote-verified; merge
 stays a coordinator action (no merges by this lane).
+
+CORRECTED Terminal state (W40 coordinator transport, appended 2026-11-26 by lane
+w332-0428-288-composeids "forwarded for w338 per coordinator W40 (akte-only correction)"):
+the above block is the authoritative terminal record. Plan #150 final head
+30fc300d26b75273a25499e421c37330d3cf91ea (branch
+w338-0428-078-1855fix3-akte, gh pr view #150 --repo mcpdev80/baseharbor-plan -> OPEN,
+base main); Hosted Plan "Validate planning" on THAT exact head: run 45875783387
+(pull_request, attempt 1) — TERMINAL SUCCESS, watched to terminal
+(conclusion success, event pull_request, run_attempt 1, head_sha 30fc300d26b75273a25499e421c37330d3cf91ea,
+2026-11-26T18:25:20Z). HEAD provenance: 30fc300d is 8 commits ahead of current main
+5b90921c114596d9915abb9be6d92faffcd45bfb (main 70d7d066b was an intermediate coordinator fix
+commit inside the ordered forward hop merge 43a1c102d, not the current main tip), 6 behind;
+git merge-base --is-ancestor origin/main 30fc300d -> OK (current main is an ancestor of the
+final head). Both prior exact-head runs remain green and unmodified: 45875144959 @ 43a1c102d
+and 45875424540 @ 00d56a9be. PR #150 Ready (draft=false), ls-remote-verified; merge stays a
+coordinator action (no merges by this lane).
+
+SUPERSEDED (quoted, not deleted — history preserved):
+"Terminal state (last appendices): the two self-delivery commits each re-triggered the single
+plan workflow — 45875424540 SUCCESS @ 00d56a9be, 45875594902 SUCCESS @
+83cf3b823973480f75d6857f8fe68bb9781ef4c0 (no further edit after this line). PR #150 final
+head 83cf3b823973480f75d6857f8fe68bb9781ef4c0, Ready (draft=false), ls-remote-verified; merge
+stays a coordinator action (no merges by this lane)."
+-> SUPERSEDED by the corrected block above. Head 83cf3b823973480f75d6857f8fe68bb9781ef4c0 was
+an earlier self-delivery commit on the same PR #150 branch; the final authoritative head is
+30fc300d26b75273a25499e421c37330d3cf91ea with the attempt-1 SUCCESS run 45875783387.
