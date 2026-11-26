@@ -63,9 +63,9 @@ Byte-for-byte guard: after the restore commit, `git diff origin/pr93-head -- <ea
 ## Hosted CI / validate (Eigenes-Run-Pflicht)
 
 - Absorb merge parentage: `git log -1 fdcd6981c4` → parents `76029c5507` + `ce6b40accd` (origin/main).
-- Final head `8bf8632eea7c20a4560fbe9c9be76446b8688d30`; delivery witness `git ls-remote origin refs/pull/104/head refs/heads/w298-aktefixes-pr` → both `8bf8632eea...`.
-- GitHub Actions run id `45772381466` ("Validate planning"), created 2026-11-26T07:02:26Z, on head_sha `8bf8632eea...` → status completed, conclusion **success** (terminal state observed directly via API, no rerun/toggle).
-- Check-run `Plan · validate` id 139747837555: started_at 2026-11-26T07:02:28Z, completed_at 2026-11-26T07:02:38Z, conclusion success.
+- Delivery witnesses (`git ls-remote origin refs/pull/104/head refs/heads/w298-aktefixes-pr`): after the restore/akte push both refs = `8bf8632eea...`; after the final witness commit push both refs = `3ae7ab0695b62c07c7cd50f557d9f79e926b920d` (branch ref and PR head ref agree each time).
+- Intermediate head `8bf8632eea...`: run id `45772381466` ("Validate planning"), created 2026-11-26T07:02:26Z → conclusion **success** (observed terminal via API).
+- FINAL head `3ae7ab0695...`: check-run `Plan · validate` id 139748350977, actions run **45772539975**, started_at 2026-11-26T07:03:47Z, completed_at 2026-11-26T07:03:58Z, conclusion **success** (terminal state observed directly via API; no rerun, no toggle, no workflow_dispatch).
 - The authoritative head/run pair is posted as a PR comment on #104 (an akte cannot contain its own sha).
 
 ## Cleanliness
