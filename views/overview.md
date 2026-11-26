@@ -14,9 +14,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | review | 2 |
 | wait | 31 |
 | blocked | 10 |
-| ready | 42 |
+| ready | 48 |
 | queued | 25 |
-| waiting | 180 |
+| waiting | 181 |
 | backlog | 7 |
 | closed | 485 |
 
@@ -114,7 +114,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261125-hunt40-realversion-migration-quali](../tasks/t-20261125-hunt40-realversion-migration-quali.md) | 0428 hunt H-V40: real-version runtime qualification of Core Keycloak/PostgreSQL 0.4.27->0.4.28 migration path | ready | not set | — | — | — |
 | [t-20261125-hunt42-timeout-constant-matrix](../tasks/t-20261125-hunt42-timeout-constant-matrix.md) | 0428 hunt H-V42: unify/align timeout constant matrix (tempo 10s vs verify; reconcile/readiness values) | ready | not set | — | — | — |
 | [t-20261125-hunt43-docker-path-config](../tasks/t-20261125-hunt43-docker-path-config.md) | 0428 hunt H-V43: hunt43-docker-path-config | ready | not set | — | — | — |
-| [t-20261125-hunt43-env-leak-disk](../tasks/t-20261125-hunt43-env-leak-disk.md) | 0428 hunt H-V43: hunt43-env-leak-disk | ready | not set | — | — | — |
+| [t-20261125-hunt43-env-leak-disk](../tasks/t-20261125-hunt43-env-leak-disk.md) | 0428-316 · Ambient runtime env boundary | ready | high | — | — | — |
 | [t-20261125-hunt45-app-exec-exit-collision](../tasks/t-20261125-hunt45-app-exec-exit-collision.md) | CLI: decide app exec exit-status passthrough collision with reserved codes | ready | not set | — | — | — |
 | [t-20261125-hunt45-cli-unknown-command-hardening](../tasks/t-20261125-hunt45-cli-unknown-command-hardening.md) | CLI: unknown-command exit-2 guarantee and suggestion construction under runnable parents | ready | not set | — | — | — |
 | [t-20261125-hunt45-error-surface-consistency](../tasks/t-20261125-hunt45-error-surface-consistency.md) | CLI: centralize error classification, canonical auth hints and Next/Remediation discipline | ready | not set | — | — | — |
@@ -122,9 +122,15 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261125-hunt47-config-mutation-migration-parity](../tasks/t-20261125-hunt47-config-mutation-migration-parity.md) | 0428 hunt H-V47: config read path migrates TargetUIDs, mutation path does not (asymmetric UID handling) | ready | low | w193-0428-224-hunt-v47-intake | — | — |
 | [t-20261125-hunt47-core-plan-version-message](../tasks/t-20261125-hunt47-core-plan-version-message.md) | 0428 hunt H-V47: uncomparable prerelease suffix + downgrade-mislabeling in coreupdate version classification | ready | low | w193-0428-224-hunt-v47-intake | — | — |
 | [t-20261125-hunt47-deleted-deployment-dangling-binding](../tasks/t-20261125-hunt47-deleted-deployment-dangling-binding.md) | 0428 hunt H-V47: provider-registry bindings of deleted deployments are never collected (Validate-perpetuating garbage) | ready | low | w193-0428-224-hunt-v47-intake | — | — |
+| [t-20261125-hunt47-deployment-record-v1-wall](../tasks/t-20261125-hunt47-deployment-record-v1-wall.md) | 0428 hunt H-V47: deployment-record v1 records dead-end — unloadable, unlistable for removal, remedy binary refused by downgrade gate | ready | normal | w193-0428-224-hunt-v47-intake | — | — |
+| [t-20261125-hunt47-keycloak-migration-docs](../tasks/t-20261125-hunt47-keycloak-migration-docs.md) | 0428 hunt H-V47: managed Keycloak pin upgrades beyond the single reviewed 26.7.5→26.8.0 path are unsupported but undocumented (docs-accuracy bug) | ready | low | w193-0428-224-hunt-v47-intake | — | — |
+| [t-20261125-hunt47-provider-registry-v1-migration](../tasks/t-20261125-hunt47-provider-registry-v1-migration.md) | 0428 hunt H-V47: provider-registry v1 files hit a hard load wall; the documented v1→v2 migration does not exist | ready | normal | w193-0428-224-hunt-v47-intake | — | — |
+| [t-20261125-hunt47-recover-preflight-and-flag-route](../tasks/t-20261125-hunt47-recover-preflight-and-flag-route.md) | 0428 hunt H-V47: the documented HA recovery verb is unreachable through the dispatcher and unguarded by catalog/journal preflight | ready | normal | w193-0428-224-hunt-v47-intake | — | — |
 | [t-20261125-hunt47-version-gate-error-surface](../tasks/t-20261125-hunt47-version-gate-error-surface.md) | 0428 hunt H-V47: all state version gates emit directionless 'unsupported version' errors with no next-action; too-new config breaks unrelated surfaces | ready | low | w193-0428-224-hunt-v47-intake | — | — |
 | [t-20261126-hunt46-collectable-orphans-reserved-namespace](../tasks/t-20261126-hunt46-collectable-orphans-reserved-namespace.md) | 0428 hunt H-V46: CollectableOrphans lists the reserved never-delivered dir as a collectable orphan UUID (medium) | ready | not set | — | — | — |
 | [t-20261126-hunt46-destroy-data-loss-vocabulary](../tasks/t-20261126-hunt46-destroy-data-loss-vocabulary.md) | 0428 hunt H-V46: destroy --all and control-plane destroy --delete-data use split data-loss consequence vocabulary (low) | ready | not set | — | — | — |
+| [t-20261126-runner-openssl-podman-generator](../tasks/t-20261126-runner-openssl-podman-generator.md) | Runtime CI cells guarantee OpenSSL and Podman Quadlet generator | ready | not set | — | — | — |
+| [t-20261126-trusted-catalog-baseline-identity-tests](../tasks/t-20261126-trusted-catalog-baseline-identity-tests.md) | Trusted catalog baseline for identity dashboard tests | ready | not set | — | — | [baseharbor#1857](https://github.com/mcpdev80/baseharbor/pull/1857), [baseharbor#1859](https://github.com/mcpdev80/baseharbor/pull/1859) |
 | [t-20261128-hunt48-metrics-endpoint-docs](../tasks/t-20261128-hunt48-metrics-endpoint-docs.md) | 0428 hunt H-V48: metrics endpoint registered but undocumented in any spec | ready | not set | — | — | — |
 | [t-20261128-hunt48-refresh-public-api-ownership-map](../tasks/t-20261128-hunt48-refresh-public-api-ownership-map.md) | 0428 hunt H-V48: internal/api/api-old precedent gone, surface-ownership map stale | ready | not set | — | — | — |
 | [t-20261128-hunt48-source-transfers-contract](../tasks/t-20261128-hunt48-source-transfers-contract.md) | 0428 hunt H-V48: machine source-transfers routes registered but absent from machine-http-v1 contract | ready | not set | — | — | — |
@@ -136,7 +142,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 5 open, 165 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 104 open, 252 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 111 open, 252 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 16 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
