@@ -111,3 +111,16 @@ PR comments posted with full 40-char sha + run id on all twelve.
 - No writes to HEAD:main, no product repos, no `.github/**` files, no second branches.
 
 END_DONE w325-0428-251-planhops4: twelve plan branches forward-merged to main 89f51acddf, all twelve new-head pull_request runs SUCCESS, comments posted.
+
+## Final witnesses (appended, published via akte follow-up PR)
+
+- `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v`
+  resolved to github.com/mcpdev80/baseharbor-plan (only remote `origin`, https URL).
+- Evidence-on-origin/main check before this follow-up (exact output):
+  `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/v0.4.28/w325-0428-251-planhops4`
+  → `evidence/v0.4.28/w325-0428-251-planhops4/akte.md` (main was dc389fb66c1b8af4dcc00ec08052fbd3024afa5d).
+- Plan PR #126 squash-merged; akte commit d9f120a30047b10eb2e29c492fed810ccd936c18 is an
+  ancestor of origin/main and `git log --oneline origin/main..d9f120a3` listed only my
+  own commit. My own akte PR run 45823539578: pull_request, completed, success.
+- Cleanup: worktree and /var/tmp clone removed; no VM/containers were used (cleanliness
+  section above unchanged).
