@@ -48,9 +48,29 @@ The never-delivered destroy/retire path (`verifyOwnershipWhenNoDeploymentRecord`
 - Fix in `cmd/baha/app_runtime_retirement.go` consumes the one-shot proof (`ConsumeNeverDeliveredProof`) on the never-delivered retire branch and removes the now-empty `never-delivered/<applicationID>` dir; `NeverDeliveredProofDir` added to `internal/deployment/never_delivered_proof.go`.
 - Two regression tests via the runWithIO harness (positive consumes; negative fail-closed on mismatched proof); gofmt-clean, go vet passes, go build ok.
 - Test reaches the exact production branch: direct `retireRuntimePreservingData` fixture on an init-but-never-delivered app (stop-mode/fullReset=false), the production path the card scopes to.
-- PR #1868, base develop, head d654b0651, currently open (not draft).
+- PR #1868, base develop, head 57320af69 (3 commits: d654b06 feat consume-proof, eea7761 doc, 57320af fixture proof-seed), currently open (not draft).
 - source format + workflow policy + native gate plan all PASS on a clean run; the Go-unit group never executes because the trusted-plan abort blocks `pr_plan.unit_scope`.
+
+## Fixture fix (57320af69)
+
+The regression fixture `neverDeliveredRetireFixture` called `resolveApplication` on a
+fresh init, which writes the application store entry but NOT the one-shot proof (the
+adoption choke in `application_adoption.go:113` writes it separately). The fixture could
+never observe the never-delivered proof, so both tests failed at the seed. Fix: seed the
+proof with `deployment.CreateNeverDeliveredProof(target, applicationID, application,
+environment)` after `resolveApplication`, mirroring the production adoption choke. Both
+tests PASS locally after the fix:
+
+```
+TestW341NeverDeliveredRetireConsumesProof ........... PASS
+TestW341NeverDeliveredRetireFailsClosedOnMismatchedProof PASS
+go vet ./cmd/baha/ ./internal/deployment/ .......... clean
+go build ./........................................ clean
+```
+
+Candidate chain on develop 5a37ddbd9, 3 commits, linear, canonical lane identity
+w341-0428-326-proofleak, pushed.
 
 ## END
 
-END_BLOCKED w341-0428-326-proofleak: PR #1868 head eea776188eaca7b9acc96c874ca73a3a3a008f45 (base develop 5a37ddbd9), state OPEN/not-draft + blocker: release-window begin marker for v0.4.28 not set (catalog/pr-gate-map release label still v0.4.27 on develop 5a37ddbd9 and main cddc81b34); trusted-planner aborts on my two uncataloged sources (cmd/baha/app_runtime_retirement.go, cmd/baha/w341_never_delivered_retire_proof_test.go); Owner must bump release label to v0.4.28 before CI can execute the Go unit group. Fix + tests complete, gofmt/vet/build clean, go vet passes. Plan main e1669a1cf (card -> blocked, akte committed). Worktree clean.
+END_BLOCKED w341-0428-326-proofleak: PR #1868 head 57320af6949eaf8fc450205da87a4f6ba7166324 (base develop 5a37ddbd9), state OPEN/not-draft + blocker: release-window begin marker for v0.4.28 not set (catalog/pr-gate-map release label still v0.4.27 on develop 5a37ddbd9 and main cddc81b34); trusted-planner aborts on my two uncataloged sources (cmd/baha/app_runtime_retirement.go, cmd/baha/w341_never_delivered_retire_proof_test.go); Owner must bump release label to v0.4.28 before CI can execute the Go unit group. Fix + tests complete and fixture-fixed; gofmt/vet/build clean, both regression tests PASS locally. Plan main a7e0a2e5a (card -> blocked, akte committed). Worktree clean.
