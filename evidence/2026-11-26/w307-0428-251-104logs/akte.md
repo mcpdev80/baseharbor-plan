@@ -64,12 +64,15 @@ Byte-for-byte guard: after the restore commit, `git diff origin/pr93-head -- <ea
 
 `git log --oneline origin/main..HEAD` after the absorb lists only: the w298 branch commit `b8595e0fe` (the PR's own candidate) and the seven w307 commits above — no foreign third-party commits on top.
 
-## Hosted CI / validate (Eigenes-Run-Pflicht)
+## Hosted CI / validate (Eigenes-Run-Pflicht) — includes STOP CONDITION on foreign main defect
 
 - Absorb merge parentage: `git log -1 fdcd6981c4` → parents `76029c5507` + `ce6b40accd` (origin/main).
 - Delivery witnesses (`git ls-remote origin refs/pull/104/head refs/heads/w298-aktefixes-pr`): after the restore/akte push both refs = `8bf8632eea...`; after the final witness commit push both refs = `3ae7ab0695b62c07c7cd50f557d9f79e926b920d` (branch ref and PR head ref agree each time).
 - Intermediate head `8bf8632eea...`: run id `45772381466` ("Validate planning"), created 2026-11-26T07:02:26Z → conclusion **success** (observed terminal via API).
 - FINAL head `fec139ad45ed3f8ec2416562e504ecd1fb46d778`: check-run `Plan · validate`, actions run **45773130661**, started_at 2026-11-26T07:08:38Z, completed_at 2026-11-26T07:08:46Z, conclusion **success** (terminal, observed via API; no rerun/toggle/dispatch). Predecessor heads `6234ea9c52` (run 45772905486), `ba33fceb0c` (run 45772679898), `3ae7ab0695` (run 45772539975) and `8bf8632eea` (run 45772381466) all validated success as well. The authoritative head/run pair is the FINAL PR comment: https://github.com/mcpdev80/baseharbor-plan/pull/104#issuecomment-7185168297 (an akte cannot contain its own sha).
+- Second absorb (main advanced during the session): merge `4defda6f7f` took main `4f2e018763` ("coordinator: sync operational memory") cleanly, no conflict in any evidence file. Run **45773669196** on head `4defda6f7f`, started_at 2026-11-26T07:13:06Z, completed_at 2026-11-26T07:13:17Z, conclusion **FAILURE**.
+- Failure line verbatim (Plan · validate / Unit tests job): `error: evidence/coord-memory/QUEUE.md: broken wiki link [[ $- == *i* ]]` → `1 errors, 10 warnings`.
+- **STOP CONDITION — foreign main defect, not mine:** the offending file `evidence/coord-memory/QUEUE.md` (line 891) comes from coordinator commit `4f2e018763` ON MAIN; my write-set is only the twelve evidence files in `git diff --name-only origin/main...HEAD` (nine restored logs, w307 akte, three w298-correction files, all byte-verified). Mission item 1 says "never invent or reformat log content" and item 5 forbids further writes after END; editing a coordinator operational-memory file is outside this card's scope. The restore itself is complete and green on the pre-absorb heads. This akte + the PR comment are the STATE report of the failing check for the coordinator/Owner to fix on main.
 
 ## Scope preservation checks (no other lane's content touched)
 
@@ -83,4 +86,4 @@ Byte-for-byte guard: after the restore commit, `git diff origin/pr93-head -- <ea
 
 ## END line
 
-END_DONE w307-0428-251-104logs: nine #93 log blobs restored byte-for-byte into PR #104 branch, main absorbed, validate watched to terminal (final head in PR comment witness).
+END_DONE w307-0428-251-104logs: nine #93 log blobs restored byte-for-byte into PR #104 branch (head `4defda6f7f`, main absorbed twice, behind=0). STATE to report: my validate runs are green on all branch-authored heads (`fec139ad45` run 45773130661 success); the run on the final merged head `4defda6f7f` (run 45773669196) FAILS on a FOREIGN main defect — `evidence/coord-memory/QUEUE.md: broken wiki link [[ $- == *i* ]]` introduced by coordinator commit `4f2e018763` on main, outside this card's write-set. Fix must land on main; a later absorb would then revalidate green.
