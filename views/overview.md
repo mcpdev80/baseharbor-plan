@@ -13,8 +13,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | active | 20 |
 | review | 2 |
 | wait | 14 |
-| blocked | 4 |
-| ready | 52 |
+| blocked | 5 |
+| ready | 51 |
 | queued | 25 |
 | waiting | 181 |
 | backlog | 7 |
@@ -79,6 +79,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261124-0428-279-mcp-contract-app-pull-unexpected](../tasks/t-20261124-0428-279-mcp-contract-app-pull-unexpected.md) | MCP contract drift: app.pull | blocked | normal | w80-0428-279-mcpcontract | — | [baseharbor#1826](https://github.com/mcpdev80/baseharbor/pull/1826) |
 | [t-20261124-r28-perses-witness-producer-cli](../tasks/t-20261124-r28-perses-witness-producer-cli.md) | PersesBackendSignalWitness is passed as a zero-value literal at every CLI call site, so the configured verdict is unreachable on every status surface. | blocked | not set | Codex (w118-0428-265) | [t-20261119-r28-perses-status-backend-witness](../tasks/t-20261119-r28-perses-status-backend-witness.md) | — |
 | [t-20261124-r28-runtime-authority-gate-routing](../tasks/t-20261124-r28-runtime-authority-gate-routing.md) | PR-Gate-Plan routes the runtime-authority seam to package checks only, so a fail-open regression there is never qualified by a native runtime gate. | blocked | normal | w327-0428-272-gaterouting | — | — |
+| [t-20261126-hunt46-recovery-backup-volume-heuristic](../tasks/t-20261126-hunt46-recovery-backup-volume-heuristic.md) | 0428 hunt H-V46: recovery/backup volume preservation uses a case-insensitive substring search (medium) | blocked | not set | w334-0428-329-recoveryheuristic | — | — |
 
 ## Ready to assign
 
@@ -126,7 +127,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261126-hunt46-damaged-state-reserved-namespace](../tasks/t-20261126-hunt46-damaged-state-reserved-namespace.md) | 0428 hunt H-V46: DamagedDeploymentNamespace flags the reserved never-delivered namespace as damaged (low) | ready | not set | — | — | — |
 | [t-20261126-hunt46-destroy-data-loss-vocabulary](../tasks/t-20261126-hunt46-destroy-data-loss-vocabulary.md) | 0428 hunt H-V46: destroy --all and control-plane destroy --delete-data use split data-loss consequence vocabulary (low) | ready | not set | — | — | — |
 | [t-20261126-hunt46-never-delivered-proof-leak](../tasks/t-20261126-hunt46-never-delivered-proof-leak.md) | 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) | ready | not set | — | — | — |
-| [t-20261126-hunt46-recovery-backup-volume-heuristic](../tasks/t-20261126-hunt46-recovery-backup-volume-heuristic.md) | 0428 hunt H-V46: recovery/backup volume preservation uses a case-insensitive substring search (medium) | ready | not set | — | — | — |
 | [t-20261126-runner-openssl-podman-generator](../tasks/t-20261126-runner-openssl-podman-generator.md) | Runtime CI cells guarantee OpenSSL and Podman Quadlet generator | ready | not set | — | — | — |
 | [t-20261126-trusted-catalog-baseline-identity-tests](../tasks/t-20261126-trusted-catalog-baseline-identity-tests.md) | Trusted catalog baseline for identity dashboard tests | ready | not set | — | — | [baseharbor#1857](https://github.com/mcpdev80/baseharbor/pull/1857), [baseharbor#1859](https://github.com/mcpdev80/baseharbor/pull/1859) |
 | [t-20261128-hunt48-metrics-endpoint-docs](../tasks/t-20261128-hunt48-metrics-endpoint-docs.md) | 0428 hunt H-V48: metrics endpoint registered but undocumented in any spec | ready | not set | — | — | — |
