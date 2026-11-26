@@ -284,6 +284,10 @@ This disposition was added forward-only on a branch cut from live Plan main `6c2
 
 The two w254 SHAs are separate commits for the same source path and finding. None of these commits is reverted or rewritten. The w282 source path is present on fetched main at 09e5e1b57.
 
+## Current follow-up status
+
+END_BLOCKED w255-0428-251-demo170codex: the cfb2b6c8a disposition is recorded in open Plan PR #97 for independent review; this author will not merge this correction.
+
 ### Policy-source conflict recorded
 
 The prior stop cited /home/marcel/.config/baseharbor-coordinator/COST_CONTROL.md, headed “Current owner clarification — 2026-11-22”, with the text “All coordinator implementation is stopped pending clarification of cost allocation” and “Codex may coordinate and perform necessary independent reviews only.” This file is outside the BaseHarbor ecosystem tree. The Coordinator has explicitly directed continuation of this bounded Plan-evidence recovery and identified the Plan-repository owner-delegated Maintainer authority in its AGENTS.md as governing this scope. This work follows that latest explicit scoped commission and does not authorize product implementation or release work.
