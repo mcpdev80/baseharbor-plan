@@ -40,6 +40,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261124-gate-catalog-baseline-0428-270](../tasks/t-20261124-gate-catalog-baseline-0428-270.md) | CI/catalog: add operatorauth rows to develop pr-gate-coverage.json | active | not set | w65-0428-269-batchbaseline | — | — |
 | [t-20261124-gate-catalog-baseline-1819](../tasks/t-20261124-gate-catalog-baseline-1819.md) | CI/catalog: add #1819 source rows to develop pr-gate-coverage.json | active | not set | w65-0428-269-batchbaseline | — | — |
 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) | CI/catalog: add #1820 source row to develop pr-gate-coverage.json | active | not set | w65-0428-269-batchbaseline | — | — |
+| [t-20261125-hunt33-go-runtime-prereq](../tasks/t-20261125-hunt33-go-runtime-prereq.md) | 0428 hunt H-V33: hunt33-go-runtime-prereq | active | not set | w336-0428-299-goprereq | — | — |
 | [t-20261125-hunt39-restore-identity-regression](../tasks/t-20261125-hunt39-restore-identity-regression.md) | 0428 hunt H-V39: restore-identity regression test (identity preserved across restore) | active | not set | w208-0428-313-reident | — | — |
 | [t-20261125-hunt43-low-severity-pair](../tasks/t-20261125-hunt43-low-severity-pair.md) | 0428 hunt H-V43: hunt43-low-severity-pair | active | not set | w335-0428-318-lowpair | — | — |
 
@@ -93,7 +94,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261125-hunt-v51-ambient-test-env-leak](../tasks/t-20261125-hunt-v51-ambient-test-env-leak.md) | 0428-192 · Ambient os.Setenv leaks BASEHARBOR_* across tests (#1650 class) | ready | normal | lane-0428-192-hunt-v51-testenv | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261125-hunt33-action-pins-audit](../tasks/t-20261125-hunt33-action-pins-audit.md) | 0428 hunt H-V33: hunt33-action-pins-audit | ready | not set | — | — | — |
 | [t-20261125-hunt33-cell-prereq-docs](../tasks/t-20261125-hunt33-cell-prereq-docs.md) | 0428 hunt H-V33: hunt33-cell-prereq-docs | ready | not set | — | — | — |
-| [t-20261125-hunt33-go-runtime-prereq](../tasks/t-20261125-hunt33-go-runtime-prereq.md) | 0428 hunt H-V33: hunt33-go-runtime-prereq | ready | not set | — | — | — |
 | [t-20261125-hunt33-jq-gh-guards](../tasks/t-20261125-hunt33-jq-gh-guards.md) | 0428 hunt H-V33: hunt33-jq-gh-guards | ready | not set | — | — | — |
 | [t-20261125-hunt33-runtime-pin-guards](../tasks/t-20261125-hunt33-runtime-pin-guards.md) | 0428 hunt H-V33: hunt33-runtime-pin-guards | ready | not set | — | — | — |
 | [t-20261125-hunt33-setup-node-sha-pin](../tasks/t-20261125-hunt33-setup-node-sha-pin.md) | 0428 hunt H-V33: hunt33-setup-node-sha-pin | ready | not set | — | — | — |
