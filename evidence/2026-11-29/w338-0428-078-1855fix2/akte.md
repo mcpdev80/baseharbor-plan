@@ -835,8 +835,7 @@ Identity gate before commit: git var GIT_AUTHOR_IDENT / GIT_COMMITTER_IDENT ->
   w346-0428-078-150reissue2 <w346-0428-078-150reissue2@baseharbor.local>
 Pre-push gate: git show -s --format=%an HEAD -> w346-0428-078-150reissue2 (exactly)
 
-Ancestry: git merge-base --is-ancestor origin/main(5f5ee5f84) HEAD -> OK.
-git log --oneline origin/main..HEAD -> my single reissue-2 commit only.
+Ancestry: git merge-base --is-ancestor origin/main(5f5ee5f84) HEAD -> OK.  [SUPERSEDED / INCORRECT by w267 CHANGES 7202966206 (correction round #2 #154): this ancestry line asserted base 5f5ee5f84, which contradicts the true first-parent base of the clean reissue, 41bfea7d88d325b8969333b7ac43555db10ac092, as now stated in 'Base attestation (branch provenance)'. The 5f5ee5f84 value was the earlier fetch-time main tip, not the commit's real parent. Corrected in the Base attestation section; the old line is preserved here as history with the SUPERSEDED/incorrect label above it, not deleted. Branch subsequently re-hopped onto current main e7cbbd0c (see below).]
 git diff origin/main...HEAD --name-only -> evidence/2026-11-29/w338-0428-078-1855fix2/akte.md only.
 
 State after transport:
