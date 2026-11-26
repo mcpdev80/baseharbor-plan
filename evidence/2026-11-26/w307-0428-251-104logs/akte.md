@@ -86,9 +86,9 @@ Byte-for-byte guard: after the restore commit, `git diff origin/pr93-head -- <ea
 
 ## Final head and terminal run (authoritative PR comment)
 
-- FINAL head `e81b6c1933d011d3933c09a119bd46a013245501` (`refs/pull/104/head` = `refs/heads/w298-aktefixes-pr` per ls-remote). Terminal run **45774394996** ("Plan · validate"), started_at 2026-11-26T07:19:01Z, completed_at 2026-11-26T07:19:12Z, conclusion **failure**, sole error line verbatim: `error: evidence/coord-memory/QUEUE.md: broken wiki link [[ $- == *i* ]]` (from main commit `4f2e018763`; foreign to this card's write-set — the PR's file list is exactly the 13 evidence files, verified via `gh pr view --json files`).
+- END head `773cc602e479db2423d6f271dd3c7d26f0dd2bc6` (= both remote refs, ls-remote-verified). Terminal validate run **45774863768**, started_at 2026-11-26T07:22:47Z, completed_at 07:23:00Z, conclusion **failure**, sole error line verbatim: `error: evidence/coord-memory/QUEUE.md: broken wiki link [[ $- == *i* ]]` — the foreign main defect (coordinator commit `4f2e018763`), unchanged; prior merged heads `4defda6f7f` (run 45773669196), `a059e41a0d` (07:17:19→07:17:30Z), `e81b6c1933` (run 45774394996) show the same single error. Zero errors originate from this PR.
 - Byte-for-byte proof re-run on the final head: all nine diffs vs `refs/pull/93/head` empty (`ALL-NINE-EMPTY-ON-FINAL-HEAD`); `merge-base --is-ancestor origin/main HEAD` TRUE; behind=0.
-- Authoritative head/run pair PR comment: https://github.com/mcpdev80/baseharbor-plan/pull/104#issuecomment-7185381250
+- Authoritative head/run pair PR comment (END): https://github.com/mcpdev80/baseharbor-plan/pull/104#issuecomment-7185424456
 
 ## Cleanliness
 
