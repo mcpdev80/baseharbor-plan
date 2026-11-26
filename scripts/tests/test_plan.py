@@ -341,6 +341,17 @@ class PlanTests(unittest.TestCase):
         (f.dir / "HOME.md").write_text("# Home\n\n- [ ] stray card\n")
         self.assertCheckFails(f, "would become a CardBoard card")
 
+    def test_checkbox_in_evidence_and_workers_is_not_a_board_card(self):
+        f = self.fixture()
+        f.add_task("core-1", task_note("core-1", "A: a"))
+        f.finish()
+        for root in ("evidence", "workers"):
+            folder = f.dir / root
+            folder.mkdir()
+            (folder / "PLAN.md").write_text("# Lane plan\n\n- [ ] recorded work\n")
+        code, out = f.checked()
+        self.assertEqual(code, 0, out)
+
     def test_release_tag_must_match_release(self):
         f = self.fixture()
         f.add_task("core-1", task_note("core-1", "A: a").replace("#release/v1-0", "#release/v2-0"))
