@@ -60,9 +60,13 @@ Byte-for-byte guard: after the restore commit, `git diff origin/pr93-head -- <ea
 
 `git log --oneline origin/main..HEAD` after the absorb lists only: the w298 branch commit `b8595e0fe` (the PR's own candidate), `76029c5507`, and the `fdcd6981c4` merge — no foreign third-party commits on top.
 
-## Hosted CI / validate
+## Hosted CI / validate (Eigenes-Run-Pflicht)
 
-- Plan validate run on final head: (appended by the PR comment witness per mission item 4 — the authoritative head/run pair lives in the PR comment, since an akte cannot contain its own sha).
+- Absorb merge parentage: `git log -1 fdcd6981c4` → parents `76029c5507` + `ce6b40accd` (origin/main).
+- Final head `8bf8632eea7c20a4560fbe9c9be76446b8688d30`; delivery witness `git ls-remote origin refs/pull/104/head refs/heads/w298-aktefixes-pr` → both `8bf8632eea...`.
+- GitHub Actions run id `45772381466` ("Validate planning"), created 2026-11-26T07:02:26Z, on head_sha `8bf8632eea...` → status completed, conclusion **success** (terminal state observed directly via API, no rerun/toggle).
+- Check-run `Plan · validate` id 139747837555: started_at 2026-11-26T07:02:28Z, completed_at 2026-11-26T07:02:38Z, conclusion success.
+- The authoritative head/run pair is posted as a PR comment on #104 (an akte cannot contain its own sha).
 
 ## Cleanliness
 
