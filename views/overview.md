@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 18 |
+| active | 19 |
 | review | 2 |
 | wait | 15 |
 | blocked | 2 |
-| ready | 51 |
+| ready | 50 |
 | queued | 25 |
 | waiting | 180 |
 | backlog | 7 |
@@ -42,6 +42,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) | CI/catalog: add #1820 source row to develop pr-gate-coverage.json | active | not set | w65-0428-269-batchbaseline | — | — |
 | [t-20261125-0428-284-1812-postretry-gate-failure](../tasks/t-20261125-0428-284-1812-postretry-gate-failure.md) | #1812 post-retry gate failure | active | high | w198-0428-284-demo-parser | — | [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1856](https://github.com/mcpdev80/baseharbor/pull/1856) |
 | [t-20261125-hunt39-restore-identity-regression](../tasks/t-20261125-hunt39-restore-identity-regression.md) | 0428 hunt H-V39: restore-identity regression test (identity preserved across restore) | active | not set | w208-0428-313-reident | — | — |
+| [t-20261126-hunt46-recovery-backup-volume-heuristic](../tasks/t-20261126-hunt46-recovery-backup-volume-heuristic.md) | 0428 hunt H-V46: recovery/backup volume preservation uses a case-insensitive substring search (medium) | active | not set | w334-0428-329-recoveryheuristic | — | — |
 
 ## Ready for review
 
@@ -123,7 +124,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261126-hunt46-damaged-state-reserved-namespace](../tasks/t-20261126-hunt46-damaged-state-reserved-namespace.md) | 0428 hunt H-V46: DamagedDeploymentNamespace flags the reserved never-delivered namespace as damaged (low) | ready | not set | — | — | — |
 | [t-20261126-hunt46-destroy-data-loss-vocabulary](../tasks/t-20261126-hunt46-destroy-data-loss-vocabulary.md) | 0428 hunt H-V46: destroy --all and control-plane destroy --delete-data use split data-loss consequence vocabulary (low) | ready | not set | — | — | — |
 | [t-20261126-hunt46-never-delivered-proof-leak](../tasks/t-20261126-hunt46-never-delivered-proof-leak.md) | 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) | ready | not set | — | — | — |
-| [t-20261126-hunt46-recovery-backup-volume-heuristic](../tasks/t-20261126-hunt46-recovery-backup-volume-heuristic.md) | 0428 hunt H-V46: recovery/backup volume preservation uses a case-insensitive substring search (medium) | ready | not set | — | — | — |
 | [t-20261126-trusted-catalog-baseline-identity-tests](../tasks/t-20261126-trusted-catalog-baseline-identity-tests.md) | Trusted catalog baseline for identity dashboard tests | ready | not set | — | — | [baseharbor#1857](https://github.com/mcpdev80/baseharbor/pull/1857) |
 | [t-20261128-hunt48-metrics-endpoint-docs](../tasks/t-20261128-hunt48-metrics-endpoint-docs.md) | 0428 hunt H-V48: metrics endpoint registered but undocumented in any spec | ready | not set | — | — | — |
 | [t-20261128-hunt48-refresh-public-api-ownership-map](../tasks/t-20261128-hunt48-refresh-public-api-ownership-map.md) | 0428 hunt H-V48: internal/api/api-old precedent gone, surface-ownership map stale | ready | not set | — | — | — |
