@@ -28,3 +28,9 @@ Seats 5/5 after reconciliation: ornith 2/2 (w345, w346), laptop 2/2 (w341/w342 i
 
 ### 1872 HOLD round (05:5xZ)
 - w255 REVIEW-HOLD comment 7203179302: 9 rows vs claim 10; >=5 further uncataloged #1871 sources (applicationruntimeapi/handler.go, applicationsecretapi/handler.go, machine/navigation.go, machinereadmodels/artifacts.go, sourcetransfer/transfer.go). w347 correction round dispatched (mechanical diff-list method). Family trail note: plan #147 comment 7203181689. #1871 stays blocked.
+
+## Idle-claim disposition + rule-gap register (owner consistency finding 20:57Z GitHub-time)
+- w341/w342: cards 326/328 already blocked (map gate); owner fields blanked with RESUME triggers - idle parked sessions no longer masquerade as live claims. Sessions stay alive for fast resume.
+- 0428-324: NOT dispatched - shares docs/reference/cli.md + errors.md write-set with active #1866 (conflicting). Register only.
+- RULE GAP (to Codex disposition AFTER #1872 review, do NOT reinterpret silently): (i) TICK-DUTIES mandates claim-reconcile.py per tick but nothing calls it (basics-check/coord-tick-once lack it); script matches owner-name presence, not isWorking, and counts Codex sessions as workers; pool-reconcile counts all OpenCode sessions regardless of isWorking -> idle claims invisible, parked sessions = phantom capacity. (ii) doc conflicts: AGENTS 3.3 BUG-HUNT filler vs TICK-DUTIES hunt hold (owner); baseharbor-plan/AGENTS.md:45 maintainer-reserved assignment vs coordinator dispatch; lane naming AGENTS 3.6 (wNNN-prNNN) vs RUNBOOK 2.1 (wNNN-kartennr) unresolved; owner-rule dated 2026-11-28 while host date 26.11 (host clock ahead of GitHub time - known skew, label only).
+- Plan shared checkout: untouched, nothing published from it (detached 4542ba252).

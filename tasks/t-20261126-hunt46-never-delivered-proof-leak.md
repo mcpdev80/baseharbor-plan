@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w341-0428-326-proofleak (live lane; status per its akte commits ffa9a00d5/7592cdc00 carried by coordinator)
+owner: "" (lane w341 idle-PARKED on external map gate; claim released for board truth, RESUME trigger = pr-gate-map landing)
 kanban_status: blocked
 blocker: "STATE: Trusted Plan + PR Selected Checks FAILURE on 57320af6949e (coordinator api-verify 01:3xZ) - pr-gate-map release-label lag persists (same class as 0428-328/#1869); lane w341 parked; pair re-run at owner map landing; #1868 stays OPEN unmerged"
 kanban_lane: blocked
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261126-hunt46-never-delivered-proof-leak · 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
-    **Owner:** w341-0428-326-proofleak (live lane; status per its akte commits ffa9a00d5/7592cdc00 carried by coordinator)  
+    **Owner:** "" (lane w341 idle-PARKED on external map gate; claim released for board truth, RESUME trigger = pr-gate-map landing)  
     **PR:** [baseharbor#1868](https://github.com/mcpdev80/baseharbor/pull/1868)  
     **Blocker:** STATE: Trusted Plan + PR Selected Checks FAILURE on 57320af6949e (coordinator api-verify 01:3xZ) - pr-gate-map release-label lag persists (same class as 0428-328/\#1869); lane w341 parked; pair re-run at owner map landing; \#1868 stays OPEN…  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: []
 **State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w341-0428-326-proofleak (live lane; status per its akte commits ffa9a00d5/7592cdc00 carried by coordinator)  
+**Owner:** "" (lane w341 idle-PARKED on external map gate; claim released for board truth, RESUME trigger = pr-gate-map landing)  
 **Priority:** not set  
 **PRs:** [baseharbor#1868](https://github.com/mcpdev80/baseharbor/pull/1868)  
 **Source:** 
