@@ -277,13 +277,16 @@ run 45726589547 (same workflow, event=push, head=2618b3962 = main)
 Before the push (printed from the plan worktree; see also the pre-push gate command in ANSATZ):
 
 ```text
-PLACEHOLDER_IDENTITY
+82ede92d3 an=w289-0428-251-demochecks cn=w289-0428-251-demochecks
+(gate: git show -s --format=%an%n%cn HEAD)
+
 ```
 
 Log line scope: `git log --oneline origin/main..HEAD` in the plan worktree lists ONLY my own commits, i.e.
 
 ```text
-PLACEHOLDER_LOG
+82ede92d3 merge(origin/main): bring plan main into w289 evidence branch
+54c875c86 evidence(w289): demo 170/179/181 exact-head check binding akte
 ```
 
 Base provenance for the plan branch: cut from `origin/main` at
