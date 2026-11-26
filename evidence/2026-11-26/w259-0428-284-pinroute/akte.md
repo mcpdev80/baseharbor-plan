@@ -24,7 +24,7 @@ Pre-push author gate line: `git show -s --format=%an HEAD`; required output exac
 - Candidate-added advisory job says `No candidate-added validation checks.` Finding A remains covered by existing planner and CI-executor test routes; do not duplicate them. This is a live selection regression and a separate execution-route gap.
 - The planning remote was verified before evidence commit: `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)`.
 - Plan `origin/main` branch tip at initial isolated branch cut: `76ab859144661e7fdabdc10e36b9cee5f3ce99ad`.
-- Fresh plan remote advanced through `9e9e53cf775699b4ea80bd8e72e776e3bce61ad` (w254 PR #1822) to `08b1f66bb733d4c1422135429e5bc29fbd67cd57` (w256 evidence), where the original evidence commit was based. While PR #67 was open, live `origin/main` advanced to `053b2b6d1af11ad0f926949ef39c7fdbf0e400bf` (w258 preflight), a descendant of 08b. Integrate this current tip by normal merge before updating the PR and re-prove ancestry.
+- Fresh plan remote advanced through `9e9e53cf775699b4ea80bd8e72e776e3bce61ad` (w254 PR #1822) and `08b1f66bb733d4c1422135429e5bc29fbd67cd57` (w256 evidence) to `053b2b6d1af11ad0f926949ef39c7fdbf0e400bf` (w258 preflight). The evidence branch includes current main via ordinary merge commit `ddc4186e87a639e24da9b64ded83a97760995570`; `git merge-base --is-ancestor origin/main HEAD` succeeded before the latest push.
 
 ## Correction prescription: selection contract
 
