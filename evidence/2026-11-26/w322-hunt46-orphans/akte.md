@@ -41,6 +41,35 @@ Lane: w322-0428-249-pr1812gate. Mission: w322-hunt46-orphans.txt (H-V46, evidenc
 
 Every collectable-orphan / garbage routine in the targeted surface either (a) fires its reserved-marker/namespace guard, or (b) collects only manifest-scoped / UUID-keyed / owner-verified objects with fail-closed exclusion of foreign, blank, or mismatched records. The single unguarded collect-all (clearPersesDatasourceProvisioningFolder) is cosmetic. Scope-card / disposition proposals beyond census belong in akte prose for CODEX disposition, not in a product edit.
 
+## DATED CORRECTION — 2026-11-26 (w335-0428-318-lowpair, acting for released lane w322-0428-249-pr1812gate, per CODEX-REVIEW HOLD comment 7197353979)
+
+The census conclusion above was corrected to match live card 0428-327
+(`tasks/t-20261126-hunt46-collectable-orphans-reserved-namespace.md`, frontmatter owner
+verbatim: medium, ready, dependency-free). This is an evidence-content correction only: no
+product file, no card content, no new card, no .github.
+
+- What was wrong: the akte classified `CollectableOrphans`
+  (`internal/deployment/deployment_list.go`) as safely guarded and listed "no leak -
+  fail-closed; foreign/blank/mismatched records excluded." That is contradicted by the card
+  and by the source at the census develop (5a37ddbd9a06dd44f6068d3266ff2ed853a84a74).
+- The contradiction, verified against develop source: `CollectableOrphans` enumerates each
+  `entry.IsDir()` child of `deployments/` as a `deploymentID` and calls
+  `deploymentOwnerMissingForDetach` on it (deployment_list.go ~185-189) — there is **no**
+  explicit `never-delivered` reservation skip. The only exclusion is blank / mismatched
+  DeploymentID or blank / mismatched Target, which filters foreign records but NOT a crafted
+  record whose `DeploymentID=="never-delivered"` and `Target==target`. The "missing record
+  bails early" protection the akte relied on is therefore accidental, exactly as card 0428-327
+  states (lines 44, 50, 56-58, 73).
+- Corrected finding: `CollectableOrphans` does not skip the reserved `never-delivered`
+  subdirectory; a crafted `never-delivered/deployment.json` with matching DeploymentID/Target
+  is advertised as a collectable orphan. That is a real (low-medium) finding, not a guarded
+  "no leak" outcome. It is the same root cause card 0428-327 fixes by adding an explicit
+  reservation skip, so the census finding is now consistent with — and dispositioned by — the
+  live card rather than the earlier misclassification.
+- Scope-card / disposition proposals beyond census still belong in akte prose for CODEX
+  disposition, not in a product edit: this correction makes the census finding point at card
+  0428-327 as the owning card.
+
 ## CI RUN WITNESS (product candidate run 45827064336, unrelated to hunt but recorded)
 
 - head 210d5d1056152019389da603831ecd2f450edcac (absorb of develop, w322-0428-249-pr1812gate)
