@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w267-0428-284-pridentity
+owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: Register the two identity dashboard test source paths in the trusted source catalog on develop so the base-ref Trusted Plan can…
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261126-trusted-catalog-baseline-identity-tests · Trusted catalog baseline for identity dashboard tests #task #release/v0-4-28 #status/planned #view/ready #kind/task
     <!-- generated:card -->
-    **Owner:** w267-0428-284-pridentity  
+    **Owner:** unassigned  
     **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w267-0428-284-pridentity  
+**Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
