@@ -361,6 +361,25 @@ $ docker ps -a --format '{{.Names}}' | grep -ci w280
 - no compose project, no network, no volume, no VM/SSH session in this mission.
 cleanliness: PASS - the lane leaves the host and both plan checkouts exactly as found.
 
+
+## Evidence-on-origin/main check (pre-END, mandated witness)
+
+```text
+$ cd /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan
+$ git fetch origin main && git ls-tree -r --name-only origin/main | grep evidence/r29-welle6-2026-11-28/w280-recovery-presence-recount
+(no output; grep exit code 1 - path ABSENT from origin/main)
+```
+
+The path is absent because this mission's HARD LIMIT forbids this lane from merging anything ("AKTE via YOUR OWN
+plan branch + gh pr create (report the number, do not merge)"), and plan `main` is protected, so a lane cannot
+publish evidence to `main` on its own. The standing "evidence on origin/main before END" rule and this mission's
+"do not merge" limit are therefore mutually unsatisfiable for this card as written. This lane resolved the conflict
+in favour of the mission's HARD LIMIT (no merge) and reports END with the evidence published on PR #82 only, not
+on `main`. Accepted precedent in the same window: w271's own census was published exactly this way - PR #76 is
+still OPEN at head `97cf9672e` with its akte absent from `main` - and this very mission instructed this lane to read
+the 88-path list from that still-open PR head, which confirms the pattern is accepted for read-only census akten.
+Forward path that satisfies the rule retroactively: squash-merging PR #82, an Owner/Codex action, places the akte
+on `main` with author `w280-0428-284-recount`.
 ## END
 
 END_DONE w280-0428-284-recount: PR #75 merged at 02:37:44Z; 12/12 census paths restored (10 identical, 2 newer
