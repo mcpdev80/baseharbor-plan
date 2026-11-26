@@ -26,6 +26,8 @@ This is evidence recovery on branch `w298-aktefixes-pr` (plan PR #104), not a re
   `git log --format='%h an=%an cn=%cn' -1`
 - Plan repo remote verification (`git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v`, origin line):
   `origin  https://github.com/mcpdev80/baseharbor-plan.git (fetch)`
+- Validator-note: the link checker (scripts/plan.py check_links) flags raw `[[ ... ]]` sequences in any .md; where this akte quotes the failing shell guard it MUST keep it inside backticks, or this file itself would add the same error.
+- Plan main ls-remote at END (`git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main`): `ccd89bf2f83d7dc0c61d2c3bc96f02ddd7da80cc` — ancestor of this branch, behind=0. My evidence file lives on the PR branch (plan main is protected; it reaches main only via this PR's accepted merge, precedent path).
 
 ## Base attestation and branch provenance
 
@@ -97,4 +99,4 @@ Byte-for-byte guard: after the restore commit, `git diff origin/pr93-head -- <ea
 
 ## END line
 
-END_DONE w307-0428-251-104logs: nine #93 log blobs restored byte-for-byte into PR #104 branch (final head `cc98ad268b` after absorbing main `ccd89bf2f8`, behind=0). STATE to report: my validate runs are green on all branch-authored heads (`fec139ad45` run 45773130661 success); the runs on merged heads `4defda6f7f` (run 45773669196) and `a059e41a0d` FAIL on a FOREIGN main defect — `evidence/coord-memory/QUEUE.md: broken wiki link [[ $- == *i* ]]` introduced by coordinator commit `4f2e018763` on main, outside this card's write-set. Fix must land on main; a later absorb would then revalidate green.
+END_DONE w307-0428-251-104logs: nine #93 log blobs restored byte-for-byte into PR #104 branch. STATE: my branch-authored head `fec139ad45` (run 45773130661) validated SUCCESS; every merged head additionally fails with the SOLE error `broken wiki link` on `evidence/coord-memory/QUEUE.md` line 891 (an unbackticked shell guard inside a quoted mutation note) — a foreign defect introduced on main by coordinator commit `4f2e018763`, outside this card's write-set (mission STOP rule: report, do not fix foreign coordinator memory). Fix owner: coordinator on main; then one absorb+push here revalidates green. Latest terminal witness: see the FINAL PR comment (self-stale rule).
