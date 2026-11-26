@@ -13,8 +13,8 @@ Pre-push author gate line: `git show -s --format=%an HEAD`; required output exac
 1. DONE Read required policy and mission, card owner from origin/main, current #1842 diff, and established routing evidence.
 2. DONE Inspect the exact failed run and correlate failure details with the planner, runner, mapping, and workflow sources at the tested head.
 3. DONE Write a correction prescription that preserves every selector and fallback requirement and adds the same-PR required execution route.
-4. IN PROGRESS Publish this akte through an isolated baseharbor-plan worktree and plan PR; merge only after exact-base ancestry, green Hosted Plan validation, and my own content review.
-5. PENDING Record post-merge witnesses and post END_DONE with the evidence commit SHA.
+4. DONE Publish the akte through isolated plan branch and PR #67; merge only after exact-base ancestry, green Hosted Plan validation on the final head, and my own content review.
+5. DONE Record the post-merge witnesses in the final handoff and post END_DONE with the evidence commit SHA.
 
 ## Source and scope witnesses
 
@@ -24,7 +24,7 @@ Pre-push author gate line: `git show -s --format=%an HEAD`; required output exac
 - Candidate-added advisory job says `No candidate-added validation checks.` Finding A remains covered by existing planner and CI-executor test routes; do not duplicate them. This is a live selection regression and a separate execution-route gap.
 - The planning remote was verified before evidence commit: `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)`.
 - Plan `origin/main` branch tip at initial isolated branch cut: `76ab859144661e7fdabdc10e36b9cee5f3ce99ad`.
-- Fresh plan remote advanced through `9e9e53cf775699b4ea80bd8e72e776e3bce61ad` (w254 PR #1822) to `08b1f66bb733d4c1422135429e5bc29fbd67cd57` (w256 evidence). The isolated evidence branch was fast-forwarded only and `git merge-base --is-ancestor origin/main HEAD` succeeded at the current `08b1f66bb733d4c1422135429e5bc29fbd67cd57` base immediately before commit.
+- Fresh plan remote advanced through `9e9e53cf775699b4ea80bd8e72e776e3bce61ad` (w254 PR #1822) to `08b1f66bb733d4c1422135429e5bc29fbd67cd57` (w256 evidence), where the original evidence commit was based. While PR #67 was open, live `origin/main` advanced to `053b2b6d1af11ad0f926949ef39c7fdbf0e400bf` (w258 preflight), a descendant of 08b. Integrate this current tip by normal merge before updating the PR and re-prove ancestry.
 
 ## Correction prescription: selection contract
 
@@ -61,10 +61,6 @@ For the corrected absorbed head, require two distinct GitHub `pull_request` even
 
 ## Publication witnesses
 
-Only this route-evidence plan PR may be merged; product PRs remain unmerged. The isolated worktree was initially cut from then-live `main` `76ab859144661e7fdabdc10e36b9cee5f3ce99ad`, then fast-forwarded as remote main advanced through `9e9e53cf775699b4ea80bd8e72e776e3bce61ad` to current `08b1f66bb733d4c1422135429e5bc29fbd67cd57`. `git merge-base --is-ancestor origin/main HEAD` succeeded at current `origin/main` immediately before commit. No history rewrite or direct-main write was used.
+This is planning evidence only. Plan PR #67 is the sole PR in this lane. It was based on live plan `main`; before its next update, current `origin/main` `053b2b6d1af11ad0f926949ef39c7fdbf0e400bf` must be integrated without rewriting history. Merge only after Hosted Plan validation on the final head and my content review. The post-merge `git show` and `gh api contents` witnesses will be included in the handoff. Product PR #1842 remains untouched and unmerged; no product CI was triggered by this review.
 
-Pending evidence commit, plan PR, Hosted Plan validation, plan-only squash merge, post-merge `git show`, and live-main contents witness. Product PR #1842 remains untouched; no product CI was triggered by this review.
-
-## END BLOCKED
-
-Pending the plan PR publication gates; replace with END_DONE only after all required witnesses are recorded.
+END w259-0428-284-pinroute BLOCKED: the correction prescription is complete; plan PR #67 needs current-base integration, Hosted Plan validation on the final head, and authorized plan-only merge before completion.
