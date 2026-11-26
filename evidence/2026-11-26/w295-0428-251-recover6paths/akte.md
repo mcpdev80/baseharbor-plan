@@ -973,3 +973,15 @@ publishes; the published head is the last commit of branch
 `lane-w295-0428-251-recover6paths` before the END post, verified by
 `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/lane-w295-0428-251-recover6paths refs/pull/100/head`
 in the END post itself. The lane stops adding akte commits from here.)
+### Terminal head after the akte stop (no further akte commits)
+
+```
+published head 5d6513ecd9fae5132cd09dd408229f2840a5ba43  (child of b6d489e184, forward fast-forward push)
+refs/heads/lane-w295-0428-251-recover6paths == refs/pull/100/head == 5d6513ecd9  (ls-remote witness)
+Plan · validate run 45767844036  event pull_request  completed  conclusion success  on head 5d6513ecd9
+git diff --name-only 44fafa98b5 HEAD -> evidence/.../akte.md only (payload identical to the frozen head)
+card_number proof on the head: 0428-353 354 355 356 357 (unchanged this round, no renumbering)
+live plan main 1b9b2bc702, an ancestor of the head; baseharbor untouched; 51/51 stashes intact
+END line above names b6d489e184 / run 45767551322; this section carries it forward to 5d6513ecd9 / run
+45767844036, the head w267 should re-review and merge. No akte commit follows this one.
+```
