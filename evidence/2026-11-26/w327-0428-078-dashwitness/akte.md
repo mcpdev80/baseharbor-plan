@@ -90,16 +90,21 @@ the exact-head run watched to terminal (run id + 4 Selected Runtime job results 
 - f13d37d4ca54a58a7c179b56dfe92ab6b407b397 — witness attribution via the Target's root
   directory (fix + regressions).
 - 18ccd8ea80d462a71964fd95a1d0dab31e6a713f — dead-code cleanup of superseded helpers
-  (same write-set, no behavior change). FINAL CANDIDATE HEAD.
-- `git show -s --format=%an` on both: `w327-0428-078-dashwitness`.
+  (same write-set, no behavior change).
+- 879655f07f5fb28aba4e37ce33fdb2a8e0cce046 — attribution comments aligned with the final
+  grammar (comments only, no behavior change). FINAL CANDIDATE HEAD.
+- `git show -s --format=%an` on all three: `w327-0428-078-dashwitness`.
 
 ## CI (hosted, exact head)
 
 - Pushed to `w279-0428-078-pr1650-reissue`; `git ls-remote` witnesses: refs/heads and
   refs/pull/1855/head = 18ccd8ea80d462a71964fd95a1d0dab31e6a713f.
-- Own pull_request run on exact head: 45843907729 (superseded intermediate-head run
-  45843285141 on f13d37d4 is not the qualification run). Result + 4 Selected Runtime
-  jobs + PR Selected Checks: recorded when the watch reaches terminal (see PR comment).
+- Own pull_request run on exact head 879655f07f5fb28aba4e37ce33fdb2a8e0cce046:
+  45845829221 — the qualification run; result + 4 Selected Runtime jobs + PR Selected
+  Checks recorded here when the watch reaches terminal, and in the PR comment.
+  Superseded intermediate-head runs (NOT qualification): 45843285141 (f13d37d4,
+  cancelled once its two data-capabilities runtime jobs had passed), 45843907729
+  (18ccd8ea, auto-cancelled by the branch concurrency group when 879655f0 was pushed).
 
 ## cleanliness
 
