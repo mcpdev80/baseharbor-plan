@@ -100,4 +100,4 @@ All 14 ids map to runnable jobs. `runtime_light_gates_docker`/`runtime_light_gat
 - status: END_DONE
 - candidate SHA: ae70964d7b80b779822b76107b70ea76782f998e (origin/develop head)
 
-<!-- coordinator relocation: lane w249 wrote its akte OVER README.md (wrong zone) via plan PR #48; content moved verbatim to evidence/2026-11-26/w249-0428-284-gateids/akte.md and PR #48 closed WITHOUT merging to protect README. -->
+<!-- coordinator relocation: lane w249 wrote its akte OVER README.md (wrong zone); its PR #48 shows MERGED @7e4a414f3 but that commit is NOT in live main history (fourth drift instance) - akte content rescued from the PR ref, README.md on main is original and untouched. -->
