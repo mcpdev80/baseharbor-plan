@@ -37,10 +37,14 @@ and from already-finished runs.
    name the minimal change per candidate suite.
 6. DONE Write this akte in an isolated baseharbor-plan worktree and open the plan-PR
    branch (plan PR https://github.com/mcpdev80/baseharbor-plan/pull/53, draft).
-7. IN PROGRESS After the plan-PR merge, place the akte under
+7. DONE After the plan-PR merge: the akte is placed under the lane session path
+   `e6ca7696-b1f8-492d-b226-876b16925fc5/` by plan PR #54, merged as
+   `12bff4d805c0ffbaddf4cd037a45b60460c05864`; the post-merge `git show` and
+   `ls-tree` witnesses are in the Post-merge placement section below., place the akte under
    `e6ca7696-b1f8-492d-b226-876b16925fc5/` and record `git show <merged-sha>:<path>`
    plus the `origin/main` `ls-tree` witness (merged state alone is not presence proof).
-8. PENDING Publish the table plus the one-line answer and post the END line.
+8. DONE Publish the table plus the one-line answer in baseharbor-plan and post the END
+   line to the coordinator.
 
 ## Reality witnesses (measured, not remembered)
 
@@ -256,3 +260,25 @@ END_DONE w245-0428-284-1842alt: no no-`.github` route exists for #1842 (selector
 `pr-gate-plan.py:1182` is v0.4.27-only and the `pr-planner-tests` route `ci.yml:1362-1363`
 omits `test_pr_gate_coverage.py`); read-only, product candidate SHA = n/a, PR #1842 head
 unchanged at `5d9965944ff6cd265cbd5d042d59cf522b38b76d`.
+
+## Post-merge placement (session path) and presence proof
+
+The akte content above was merged verbatim into baseharbor-plan `main` by plan PR #53
+(commit `88f5f79519574c7b8c31316214f6001d4a492cc4`) at
+`evidence/r29-welle6-2026-11-26/0428-284-1842alt/routing-alternatives.md`. This copy lives
+under the lane session path required by the mission, delivered by plan PR
+https://github.com/mcpdev80/baseharbor-plan/pull/54 (candidate commit
+`75c310b4f`, author gate `w245-0428-284-1842alt`, one commit, `Plan · validate` run
+`45727742995` completed/success), merged as `12bff4d805c0ffbaddf4cd037a45b60460c05864`.
+
+- `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main`
+  -> `12bff4d805c0ffbaddf4cd037a45b60460c05864	refs/heads/main`
+- post-merge presence proof (MERGED state alone is not presence proof — drift rule):
+  `git show 12bff4d805c0ffbaddf4cd037a45b60460c05864:evidence/e6ca7696-b1f8-492d-b226-876b16925fc5/w245-0428-284-1842alt/akte.md`
+  -> 258 lines, first line
+  `# w245-0428-284-1842alt · READ-ONLY routing alternatives for PR #1842`
+- second-to-last action, `origin/main` presence witness
+  (`git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep <path>`):
+  `evidence/e6ca7696-b1f8-492d-b226-876b16925fc5/w245-0428-284-1842alt/akte.md`
+  and
+  `evidence/r29-welle6-2026-11-26/0428-284-1842alt/routing-alternatives.md`
