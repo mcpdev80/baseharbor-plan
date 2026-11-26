@@ -53,4 +53,4 @@ The never-delivered destroy/retire path (`verifyOwnershipWhenNoDeploymentRecord`
 
 ## END
 
-END_BLOCKED w341-0428-326-proofleak: head d654b065179bb1f70a17a2d8983103fe7b8740af + PR #1868 + blocker: release-window begin marker for v0.4.28 not set (catalog/pr-gate-map release label still v0.4.27 on develop 5a37ddbd9 and main cddc81b34); trusted-planner aborts on my two uncataloged sources; Owner must set the v0.4.28 begin marker. Worktree clean.
+END_BLOCKED w341-0428-326-proofleak: PR #1868 head eea776188eaca7b9acc96c874ca73a3a3a008f45 (base develop 5a37ddbd9), state OPEN/not-draft + blocker: release-window begin marker for v0.4.28 not set (catalog/pr-gate-map release label still v0.4.27 on develop 5a37ddbd9 and main cddc81b34); trusted-planner aborts on my two uncataloged sources (cmd/baha/app_runtime_retirement.go, cmd/baha/w341_never_delivered_retire_proof_test.go); Owner must bump release label to v0.4.28 before CI can execute the Go unit group. Fix + tests complete, gofmt/vet/build clean, go vet passes. Plan main e1669a1cf (card -> blocked, akte committed). Worktree clean.
