@@ -53,6 +53,15 @@ Init J-Commerce and inspect queue default, Runtime API operation discovery and l
 - Preserve existing BaseHarbor safety, immutable candidate consent, source ownership and shared-provider isolation. Never bypass preflight or delete foreign resources.
 - Include positive/negative regressions and classify baseline-red vs candidate-green.
 
+### Acceptance addendum — RabbitMQ queue preselection (2026-11-26)
+
+Disposition: extend existing card 0428-291; do not create a new card. The RabbitMQ/“Messaging Queue” behavior is already named in this card's Goal and Reproduction, so it is part of the same provider-discovery and default-selection contract. The w333 akte `evidence/w333/0428-291-capperms/akte.md` says this half has not yet been investigated; it remains unaddressed and must not be treated as complete.
+
+- With a positively identified, replaceable RabbitMQ Compose service, `baha app init` preselects the Messaging Queue provider and explains the detection that justified the default.
+- With absent or ambiguous RabbitMQ evidence, the provider remains optional and unselected, with the reason shown; it must not be inferred from an unrelated service.
+- Queue preselection must not widen `runtime.create` grants. Runtime permissions remain tied to observed consumers or affirmative explicit selection, with unrelated services denied.
+- Add positive and negative baseline-red/candidate-green regressions for these queue-selection outcomes in the same existing app-init test/gate route. This acceptance is distinct from, and must not weaken, the least-privilege runtime-permission acceptance above.
+
 ## Required checks and CI mapping
 
 - Discover all affected existing tests; implement smallest causal regression and register it in existing package tests / PR-gate selection. Prove touched paths select the test and unrelated paths do not trigger unnecessary full native gates.
