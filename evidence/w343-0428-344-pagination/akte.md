@@ -135,7 +135,8 @@ stays green by derivation).
     `pull_request` events on 969362e397a14d3f1e173697750386079aa4f5d2.
 - Plan PR: https://github.com/mcpdev80/baseharbor-plan/pull/151 (akte). Hosted Plan validation:
   45884416530 failed on a stale-base render crash (foreign card `prs` line bug, since fixed on main);
-  rebased onto current main and re-triggered: run 45887227902 SUCCESS on this branch's head.
+  rebased onto current main (ancestry proven): runs 45887227902 and 45887420277 SUCCESS on this
+  branch heads 53615a711 / 28990d16d. Awaiting admin squash merge (never a direct main write).
 
 ## Cleanliness
 
