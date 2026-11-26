@@ -113,9 +113,13 @@ plus — CRITICALLY — R2 alone does NOT dispatch gates (measured: selected_gat
 
 ## cleanliness
 
-- docker ps -a before: (checked) no containers started or stopped by this lane; ambient stacks left untouched (foreign bh-*/karren stacks not modified per owner directive)
-- no containers, networks, volumes or compose projects were created by this lane at any point
-- no product-repo files remain modified (git diff origin/develop --name-only → empty; verified 2026-11-26)
+- docker ps -a before/after: 0 containers at every check; this lane started, stopped or removed NO container, network, volume or compose project (all ambient stacks untouched).
+- no product-repo files remain modified beyond the two candidate commits on branch w309-0428-352-14gatecatalog (git status clean in workers/w309-0428-352-14gatecatalog-wt).
+- worktrees kept (lane-owned, beside my working dir as directed): workers/w309-0428-352-14gatecatalog-wt (product candidate), workers/w309-0428-352-14gatecatalog-plan (plan PR #112 branch), workers/w309-0428-352-14gatecatalog-scratch (read-only develop fetches + planner probes). Nothing created in the ecosystem root.
+
+## END DONE w309-0428-352-14gatecatalog (final)
+
+w309-0428-352-14gatecatalog DONE: product PR https://github.com/mcpdev80/baseharbor/pull/1859 non-draft; candidate commits 7549a503c + f6fc8a71f (+ same-lane identity-symmetry fix 0716d20be) on branch w309-0428-352-14gatecatalog, base b7855f78a; own pull_request runs 45782087038 (f6fc8a71f) and 45783262677 (0716d20be) both SUCCESS, each census 32 jobs = 11 executed / 21 skipped / 0 failed; catalog-only mechanism binds pre-release-runtime-suite.yml to the fourteen PR Light gates and is proven on the planner with NO pr-gate-plan.py edit (w308's reviewed-head-binding requirement does not apply); plan akte published via plan PR #112 (validate 45783807422 SUCCESS). #1812 stays unqualified until this catalog is in develop, then absorbs develop once. Codex reviews and merges; this lane merged nothing.
 
 ## plan-pub delivery evidence (second-to-last action)
 
@@ -152,6 +156,7 @@ STOP-AND-REPORT per mission + coordinator 08:09Z: no candidate, no PR, no CI run
 - run 45782087038 (attempt 1) CI · PR #1859, head f6fc8a71f: completed/success. Census per_page=100: 32 jobs = 11 executed / 21 skipped / 0 failed. `PR · Selected Runtime` = skipped — CORRECT for this candidate because the trusted plan reads scripts/pr-gate-coverage.json from the BASE/controller checkout (ci.yml:867-869), which is still pre-catalog at base b7855f78a. The earlier run 45780763671 (head 7549a503c) was the first variant.
 - head 0716d20be (identity-symmetry fix): author AND committer = w309-0428-352-14gatecatalog <w309-0428-352-14gatecatalog@baseharbor.local> (`git cat-file -p 0716d20be`, `git log --format='%h an=%an cn=%cn' -1` → `0716d20be an=w309-0428-352-14gatecatalog cn=w309-0428-352-14gatecatalog`). Own pull_request run 45783262677 attempt 1 SUCCESS, census 32 jobs = 11 executed / 21 skipped / 0 failed, `PR · Validation · pr-planner-tests` executed the new test at this head (Ran 296 tests OK). Head/run pair posted in the PR comment; review reference pair = f6fc8a71f + 45782087038.
 - new test executed by hosted CI: `test_runtime_suite_workflow_selects_docker_and_podman_light_gates` in scripts/test_pr_gate_coverage.py, run by validation `pr-planner-tests` (`python3 -m unittest scripts/test_pr_gate_plan.py scripts/test_pr_gate_coverage.py ...`, ci.yml:1418), selected via the ci-executor/contract route whenever scripts/ change — trigger: pull_request on any scripts/ diff. No local test execution (AGENTS 4.5/CI policy); read-only function evaluation used only for the planner probes below.
+- correction of the first variant's record (head 7549a503c, run 45780763671): that round carried only a six-surface row and its test asserted six gates (the run's pr-planner-tests was OK); this round replaced it — the akte's "measured six" notes elsewhere refer to that variant and stand corrected to fourteen by the current round.
 
 ## The decisive question, answered empirically
 
