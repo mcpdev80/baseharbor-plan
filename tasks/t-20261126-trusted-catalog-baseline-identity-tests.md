@@ -79,3 +79,7 @@ Register the two identity dashboard test source paths in the trusted source cata
 ## Handoff
 
 - Worker: implement exactly the two catalog rows on a baseline branch/PR, with no product/test code or workflow edits. Record the exact merged develop SHA. Then the 0428-078 owner prepares/qualifies a clean canonical candidate against that updated develop and runs the required two-run sequence.
+
+## Evidence-only clarification (2026-11-26)
+
+The read-only investigation in [w315's akte](https://github.com/mcpdev80/baseharbor-plan/blob/95683d4ad049f0b768981bfc171bede25d989c0e/evidence/2026-11-26/w315-0428-352-gateexec/akte.md), with its [catalog comparison diff](https://github.com/mcpdev80/baseharbor-plan/blob/95683d4ad049f0b768981bfc171bede25d989c0e/evidence/2026-11-26/w315-0428-352-gateexec/pr-gate-coverage-1859-vs-base.diff), found that a pull-request candidate modifying `.github/workflows/pre-release-runtime-suite.yml` can select and execute the 14 PR-path Docker/Podman Light gates once develop carries #1859's trusted catalog mapping. This describes routing behavior only; it does not mean the gates were qualified on #1859 or any other candidate. On #1859, its own run executed none of those gates. The observed #1855 static run `45815420751` had 26 of 42 jobs executed, both observability gates successful, and both data-capabilities jobs still running at observation time; this is not terminal qualification evidence. #1812 run `45814943294` failed. The two-row identity-dashboard catalog scope and all other card requirements remain unchanged.
