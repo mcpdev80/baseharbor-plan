@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1872", "mcpdev80/baseharbor#1871"]
 sources: []
-blocker: "BASELINE ACT ACCEPTED: #1872 merge-ready-HELD (w255 7203347331, head 3ed6882e/run 45894876938 SUCCESS, 15/15 rows; PR body forbids merge). #1871 (969362e3) stays blocked: continue ONLY after actual #1872 landing on develop + fresh consumer exact-head CI; then lane absorbs develop and close+reopen per W46 recipe"
+blocker: "chain state 13:1xZ: #1865 MERGED fe64a510, #1867 MERGED f36d2930, #1870 MERGED dff8c9e3 (ACCEPT+email-variance classified per w267). #1872 re-hop LIVE on w355 (15-row set preserved); merge after green + w255/w267 exact-head review. #1871 stays BLOCKED until #1872 lands + fresh consumer exact-head CI + owner requalification"
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** "" (lane w343 released after END BLOCKED-BASE-CATALOG; re-dispatch after base act lands)  
     **PR:** [baseharbor#1872](https://github.com/mcpdev80/baseharbor/pull/1872), [baseharbor#1871](https://github.com/mcpdev80/baseharbor/pull/1871)  
-    **Blocker:** BASELINE ACT ACCEPTED: \#1872 merge-ready-HELD (w255 7203347331, head 3ed6882e/run 45894876938 SUCCESS, 15/15 rows; PR body forbids merge). \#1871 (969362e3) stays blocked: continue ONLY after actual \#1872 landing on develop + fresh consumer…  
+    **Blocker:** chain state 13:1xZ: \#1865 MERGED fe64a510, \#1867 MERGED f36d2930, \#1870 MERGED dff8c9e3 (ACCEPT+email-variance classified per w267). \#1872 re-hop LIVE on w355 (15-row set preserved); merge after green + w255/w267 exact-head review. \#1871 s…  
     <!-- /generated:card -->
 
 <!-- generated:links -->

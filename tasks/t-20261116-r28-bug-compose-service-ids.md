@@ -87,4 +87,4 @@ Use J-Commerce docker-compose.yaml including `vector_db`, and run `baha app init
 ## W15 qualification requirement
 
 Before 0428-288 can qualify, hop PR #1833 onto current develop and obtain two distinct fresh `pull_request` runs on that exact same head, both attempt 1. Run 45513816046 is attempt 2 and is void as pair evidence. The sequencing dependency now points to successor card 0428-284 / PR #1856 rather than closed #1842.
-status_note: "#1870 ACCEPT d4e6b99/run 45876467179 merge-ready HELD (w267 7202318240); consumer chain #1833 <- #1870: runtime qualification NOT covered (runtime jobs skipped), continue only after landing + fresh consumer exact-head CI"
+status_note: "#1870 MERGED into develop dff8c9e3 (w267 REVIEW+MERGE ACCEPT 7204947747, witness 7204956795). #1833 consumer: runtime_specific rows now on develop; runtime execution qualification still owed (fresh consumer exact-head CI dispatch when a seat frees)"
