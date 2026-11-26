@@ -570,3 +570,76 @@ git merge-base --is-ancestor origin/main HEAD -> rc=0 (live main tip 28297faff i
 python3 scripts/plan.py check on head -> 0 errors, 10 warnings (V1 duplicate errors gone)
 python3 scripts/plan.py render on head -> no-op (fixed point; git status empty)
 ```
+
+## Final END witnesses (published head `747feb52a69cfaea5df4c7c425a0dddaad82c6b1`)
+
+Six-path absence on CURRENT live main (the figure that matters for closure, measured before the END
+post; `git fetch -q origin main` first):
+
+```
+git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main -> 1b9b2bc70201d9da6615a9ec16942103c20e96a1
+ABSENT tasks/t-20261125-hunt47-destroystep-v1-warning-kind.md
+ABSENT tasks/t-20261125-hunt47-provider-registry-v1-migration.md
+ABSENT tasks/t-20261125-hunt47-recover-preflight-and-flag-route.md
+ABSENT tasks/t-20261125-hunt47-deployment-record-v1-wall.md
+ABSENT tasks/t-20261125-hunt47-keycloak-migration-docs.md
+ABSENT tasks/t-20261124-r28-alert-applied-face-stale-runtime.md
+```
+
+Free-number proof re-run against that exact live main (rule 1's scan plus a repo-wide mention check):
+
+```
+git grep -h '^card_number:' 1b9b2bc702 -- 'tasks/*.md' | sort | uniq -d
+card_number: "0428-249"        # the only collision on main, pre-existing and unrelated to this recovery
+0428-353 FREE repo-wide   0428-354 FREE repo-wide   0428-355 FREE repo-wide   0428-356 FREE repo-wide   0428-357 FREE repo-wide
+(grep -l over the whole tree per number returned nothing for each; 0428-358 is likewise free but unused, see Path 6)
+```
+
+Restore table as landed by PR #100 (five of six; carrier bytes verified before each write):
+
+| # | path | bytes | carrier | carrier blob | card_number | diff vs carrier | verdict |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | tasks/t-20261125-hunt47-destroystep-v1-warning-kind.md | 5,745 | a47da84b8 | 5b04465f50 | 0428-343 → 0428-353 | lines 3 + 14 only | RESTORED |
+| 2 | tasks/t-20261125-hunt47-provider-registry-v1-migration.md | 5,659 | a47da84b8 | 0095f9f0f7 | 0428-341 → 0428-354 | lines 3 + 14 only | RESTORED |
+| 3 | tasks/t-20261125-hunt47-recover-preflight-and-flag-route.md | 5,395 | a47da84b8 | 788a600020 | 0428-344 → 0428-355 | lines 3 + 14 only | RESTORED |
+| 4 | tasks/t-20261125-hunt47-deployment-record-v1-wall.md | 5,376 | a47da84b8 | 34969233cf | 0428-342 → 0428-356 | lines 3 + 14 only | RESTORED |
+| 5 | tasks/t-20261125-hunt47-keycloak-migration-docs.md | 5,221 | a47da84b8 | 7c079d905b | 0428-346 → 0428-357 | lines 3 + 14 only | RESTORED |
+| 6 | tasks/t-20261124-r28-alert-applied-face-stale-runtime.md | 3,608 | stash@{21} (a52298200^3) | 36ba702478 | 0428-268 → (unused) | verified, not landed | WITHDRAWN per PR #95 contradiction |
+
+Validator on the published head: `Plan · validate` SUCCESS, run 45763097058 / job 139717476354,
+`head_sha 747feb52a69cfaea5df4c7c425a0dddaad82c6b1`, event `pull_request`, run_attempt 1 (a fresh run on
+the newest exact head, not a rerun). Local `plan.py check` in /var/tmp: 790 tasks, 0 errors, 10
+pre-existing warnings; `plan.py render` a no-op on the head.
+
+Zero product mutation, final: this lane never cloned, fetched-for-write, or pushed any product
+repository. `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop` read
+`ac7c970fe91ad5fc3d8cb76336ddbbb7ecce04ee` at lane start and later `e176a276b2f545e6a555e58997817d8c08570da8`;
+that movement comes from other lanes' merges, and this lane holds no product write, no PR and no push
+there — the `main` head also stayed `cddc81b34fe13d8befdde4c487b365a0309ba428` in every read. Stated
+plainly rather than as an identical-before/after claim, because develop genuinely moved under the lane.
+
+Shared plan checkout hygiene: HEAD `08b1f66bb` unchanged, `git stash list | wc -l` = 51 before and
+after, stash@{21} intact (read via `git cat-file` only). No add/reset/rebase/stash/clean/checkout was
+run in it.
+
+## END (final)
+
+END_DONE w295-0428-251-recover6paths: plan PR #100 (https://github.com/mcpdev80/baseharbor-plan/pull/100),
+published head `747feb52a69cfaea5df4c7c425a0dddaad82c6b1`, live plan main 1b9b2bc702 is an ancestor of it.
+Restored **5 of 6** residual paths byte-exactly from the verified carrier blobs (27,396 B) with the single
+permitted `card_number` re-allocation to proven-free 0428-353..357; **path 6**
+(`tasks/t-20261124-r28-alert-applied-face-stale-runtime.md`, 3,608 B, carrier stash@{21}^3 blob
+36ba702478) is **WITHDRAWN** because the source audit PR #95 classifies that same path both as non-loss
+(line 66) and as class-(c) residual (line 91) — evidence and decision recorded in the "Path 6" section,
+bytes preserved there so a corrected census by w298 makes the follow-up one mechanical line.
+Validator: `Plan · validate` SUCCESS run 45763097058 on the exact head (earlier heads green at runs
+45761088079 / 45761294534 / 45762926032, all fresh PR runs, no reruns, no workflow_dispatch, no
+`.github/**` edit); local `plan.py check` 790 tasks / 0 errors / 10 pre-existing warnings in the /var/tmp
+throwaway. Recovery line: NOT CLOSED by this PR (residual 1 path / 3,608 B pending w298's corrected
+census; if that audit calls it non-loss, this PR is the full close). Ancestry proof
+`git merge-base --is-ancestor origin/main HEAD` rc=0; `git log --oneline origin/main..HEAD` lists only
+w295 commits. Product mutation zero (no product fetch-for-write, branch or push; baseharbor develop/main
+read-only witnesses above). Cleanliness: no containers or compose projects (planning-only lane), all
+/var/tmp throwaway worktrees removed, shared plan checkout untouched with 51/51 stashes intact, nothing
+created in the ecosystem root. Disclosure: one prohibited `git push --force` happened mid-lane (see the
+process-disclosure paragraph); the branch was continued forward-only and the remote history is intact.
