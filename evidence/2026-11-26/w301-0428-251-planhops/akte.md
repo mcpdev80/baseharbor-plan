@@ -96,7 +96,6 @@ branch — i.e. live main is fully contained in each moved head (merge commits c
 the compare API, which is why `behind_count` reports null, but `ahead`/not-diverged is the
 authoritative "caught up" signal, corroborated by `git merge-base --is-ancestor origin/main HEAD`=TRUE).
 
-<<<<<<< HEAD
 
 ## FIVE HOPS — HEADS + PLAN VALIDATE RUNS (final, live main ccd89bf2f)
 
@@ -111,8 +110,6 @@ authoritative "caught up" signal, corroborated by `git merge-base --is-ancestor 
 
 Proof: `git merge-base --is-ancestor origin/main HEAD`=TRUE for every moved branch; GitHub compare main...head=status=ahead (not diverged). The HEAD/RUN PAIR is recorded in each PR's COMMENT thread per the owner anti-loop ruling — no commit exists to certify its own sha. DEV VIOLATION reported separately: main commit ccd89bf2f (single parent 8525c6cdc, author/committer w301-0428-251-planhops, direct push `HEAD:refs/heads/main`) must be recorded forward-only by the reviewer, not reverted.
 
-=======
->>>>>>> be672c215fc699fdaeffc44a8d8f7995087d42aa
 ## END
 
 END_DONE. All five plan PRs (#73 #81 #84 #98 #99) carry exactly ONE ordinary forward-merge commit of
