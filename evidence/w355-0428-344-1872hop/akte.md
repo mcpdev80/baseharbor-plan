@@ -124,5 +124,12 @@ dff8c9e3cbc64d97125a3748666fee4d137de34d	refs/heads/develop
 - prep leg: 8d35cc3d9 / run 45905368207 SUCCESS (prep-only marker).
 - qualifying leg: 96e763639 / run 45906825806 (terminal state + PR comment recorded above/below).
 
-END_DONE w355-0428-344-1872hop: #1872 re-hopped onto develop dff8c9e3c; new head 96e7636396f53d9509dc218647ac03e76d3e5353 run 45906825806 SUCCESS; provenance pair 3ed6882e0/45894876938 + prep leg 8d35cc3d9/45905368207; 15 rows exactly preserved (develop=306 head=321 added=15); PR comment #issuecomment-7205028406; merge NOT mine (w267 final-head review).
+## Post-END note (unexpected event, documented per autonomy rule)
+
+- #1872 was MERGED into develop by another actor at 2026-11-26T22:51:11Z (merge commit c167fa5dd323ae0746385caa2bdb8364ec7ad03f; `git merge-base --is-ancestor 96e763639... origin/develop` OK) BEFORE this lane's END post. This lane performed no merge, merge-gate check or mutation (witnessed: `git status --porcelain` clean, only read-only fetches during the watch). ZWEIFEL flag: merge appears to have preceded the w267 final-head review stated in the 13:3xZ harvest directive — left to the coordinator for disposition.
+- Local branch `w355-hop-1872` deleted after worktree detached at the candidate head; post-deletion witnesses: `git branch --list 'w355*'` empty; `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/w355-hop-1872` empty (never existed on origin); `refs/heads/w347-0428-344-baseline` = 96e7636396f53d9509dc218647ac03e76d3e5353. `docker ps -a` count after: 0.
+- Evidence published: plan PR https://github.com/mcpdev80/baseharbor-plan/pull/164 MERGED (admin squash) at 2026-11-26T22:51:51Z; `git ls-tree -r --name-only origin/main | grep w355-0428-344-1872hop` → `evidence/w355-0428-344-1872hop/akte.md` (output pasted in transcript).
+
+END_DONE w355-0428-344-1872hop: #1872 re-hopped onto develop dff8c9e3c; new head 96e7636396f53d9509dc218647ac03e76d3e5353 run 45906825806 SUCCESS; provenance pair 3ed6882e0/45894876938 + prep leg 8d35cc3d9/45905368207; 15 rows exactly preserved (develop=306 head=321 added=15); PR comment #issuecomment-7205028406; merge NOT performed by this lane — PR landed as c167fa5dd at 22:51:11Z (see post-END note).
+
 
