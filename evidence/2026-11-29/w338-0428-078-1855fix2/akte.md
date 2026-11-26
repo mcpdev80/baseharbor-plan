@@ -856,7 +856,9 @@ Both prior runs terminal SUCCESS; head comment with FULL40 + run ids posted on P
 45891896289 (pull_request) head `b8eff95de4ceaaef4a92f2fb4d2b679b805c81f0` — TERMINAL SUCCESS
 (job "Plan · validate", watched to completion); head comment posted on PR #154. Correction round #2
 hop run 45893085794 (pull_request) head `8a988d81aa145cd46ed2e0774aea7e9c70351123` — TERMINAL
-SUCCESS (job "Plan · validate", watched to completion); head comment posted on PR #154.
+SUCCESS (job "Plan · validate", watched to completion); head comment posted on PR #154. Final-head
+run 45893365865 (pull_request) head `600346682bbbf7503a073bb562dca30152c5c1c0` — TERMINAL SUCCESS
+(job "Plan · validate", watched to completion); head comment posted on PR #154.
 
 ## cleanliness
 
@@ -875,4 +877,4 @@ CHANGES 7200522549 -> b5eed78c on contaminated base CHANGES 7201991029 -> THIS c
 controlling statement, curing the contaminated-base / forwarded-author defect of 7201177304 and
 superseding the coordinator variant-1 transport ruling as own error; prior lines untouched as history
 (no deletions). akte-only on the reissue commit; 0 markdown checkboxes. Plan PR #154 (w346-150-clean,
-head b8eff95de4ceaaef4a92f2fb4d2b679b805c81f0) OPEN draft=false, base main, titled 'akte(0428-078): clean reissue of #150 on main base (w267 7201991029)'. #150 stays OPEN, untouched. No merges by this lane. Hosted Plan validate runs 45890039820 (0a9b169ea), 45890177405 (f31858b10), 45890616906 (911cc0c95), 45891896289 (b8eff95de, hop #1), 45893085794 (8a988d81a, hop #2) all terminal SUCCESS.
+head b8eff95de4ceaaef4a92f2fb4d2b679b805c81f0) OPEN draft=false, base main, titled 'akte(0428-078): clean reissue of #150 on main base (w267 7201991029)'. #150 stays OPEN, untouched. No merges by this lane. Hosted Plan validate runs 45890039820 (0a9b169ea), 45890177405 (f31858b10), 45890616906 (911cc0c95), 45891896289 (b8eff95de, hop #1), 45893085794 (8a988d81a, hop #2), 45893365865 (600346682, final head) all terminal SUCCESS.
