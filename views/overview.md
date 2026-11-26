@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 18 |
+| active | 19 |
 | review | 2 |
 | wait | 15 |
 | blocked | 2 |
-| ready | 55 |
+| ready | 54 |
 | queued | 25 |
 | waiting | 181 |
 | backlog | 7 |
