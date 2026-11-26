@@ -61,6 +61,10 @@ Base sha `f54f6ad5aebbf3daa61a05b74f028c2c69c9338f` (LIVE origin/main at branch 
 
 Dated 2026-11-26: the read-only audit branch `w340-0428-327-aktefix-r2` (HEAD `6f00698b32f45e8ec70bb24e9cc73e3f4dd3646e`) was closed on the fail-path without merge (PR #146, merged:false, state:closed). The closure is witnessed by coordinator evidence comment 7198437785: the branch carried author+committer `w340`, which conflicts with the later binding Codex amendment comment 7197979554 mandating executing identity `w339-0428-327-reissue132` for the #132 reissue; it was left read-only on refs/heads, and the compliant reissue runs as branch `w339-0428-327-aktefix` (PR #147). This paragraph is the missing #146 witness line flagged by review 7199028051; no content was rewritten.
 
+## Correction witness — #146 closure superseded reissue-lane assignment (correction round 2 per Codex comment 7199370560)
+
+Dated 2026-11-26: the #146 closed-witness line above (comment 7198437785) remains present and accurate. It is further corroborated by later owner-routing comment 7198434097, which reassigns the reissue lane to `w340-0428-327-reissue132` (author AND committer). That reassignment is itself SUPERSEDED by the forward-only identity order established in mission w339-147corr2 (ordering 7197979554 → 7198434097 → 7198437785 → 7199028051 → 7199370560): the current owner routing is that **w339-0428-327-reissue132** is the controlling reissue lane for card 0428-327, with both author and committer set to `w339-0428-327-reissue132` / `w339-0428-327-reissue132@baseharbor.local`. This addendum is written in this lane's voice; no prior content was rewritten.
+
 ## Stops honored
 
 No close of #132, no merges, no other repos, no local tests, no subagents, never push to w340/w322 branches.
