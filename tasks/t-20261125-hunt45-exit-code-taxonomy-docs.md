@@ -15,7 +15,7 @@ kanban_title: 0428-321 · document baha exit-code
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#1866", ]
+prs: ["mcpdev80/baseharbor#1866"]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,6 +26,7 @@ evidence: []
 - [ ] t-20261125-hunt45-exit-code-taxonomy-docs · CLI: document baha exit-code taxonomy and machine coverage check #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
     **Owner:** w345-0428-321-exitfix (LIVE busy; akte a7e0a2e5a END\_DONE was PREMATURE - correction round in progress, no push/run yet)  
+    **PR:** [baseharbor#1866](https://github.com/mcpdev80/baseharbor/pull/1866)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -34,7 +35,7 @@ evidence: []
 **Depends on:** none  
 **Owner:** w345-0428-321-exitfix (LIVE busy; akte a7e0a2e5a END_DONE was PREMATURE - correction round in progress, no push/run yet)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1866](https://github.com/mcpdev80/baseharbor/pull/1866)  
 **Source:** 
 <!-- /generated:links -->
 

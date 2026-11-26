@@ -15,7 +15,7 @@ kanban_title: 0428-318 · hunt43-low-severity-pair
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#1862", ]
+prs: ["mcpdev80/baseharbor#1862"]
 sources: []
 blocker: "blocked-BASELINE as STATE: family catalog PR #1862 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded"
 wait_reason: ""
@@ -23,19 +23,20 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt43-low-severity-pair · 0428 hunt H-V43: hunt43-low-severity-pair #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261125-hunt43-low-severity-pair · 0428 hunt H-V43: hunt43-low-severity-pair #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **PR:** [baseharbor#1862](https://github.com/mcpdev80/baseharbor/pull/1862)  
+    **Blocker:** blocked-BASELINE as STATE: family catalog PR \#1862 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** unassigned  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1862](https://github.com/mcpdev80/baseharbor/pull/1862)  
 **Source:** 
 <!-- /generated:links -->
 

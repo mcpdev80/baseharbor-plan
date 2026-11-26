@@ -16,26 +16,27 @@ kanban_title: 0428-326 · consume never-delivered proof
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#1868", ]
+prs: ["mcpdev80/baseharbor#1868"]
 sources: []
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261126-hunt46-never-delivered-proof-leak · 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261126-hunt46-never-delivered-proof-leak · 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** w341-0428-326-proofleak (live lane; status per its akte commits ffa9a00d5/7592cdc00 carried by coordinator)  
+    **PR:** [baseharbor#1868](https://github.com/mcpdev80/baseharbor/pull/1868)  
     **Blocker:** v0.4.28 release begin marker missing + catalog/pr-gate-map release label still v0.4.27 (w341 akte 20:11Z); rerun trigger: owner map decision (same class as 0428-328)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w341-0428-326-proofleak (live lane; status per its akte commits ffa9a00d5/7592cdc00 carried by coordinator)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1868](https://github.com/mcpdev80/baseharbor/pull/1868)  
 **Source:** 
 <!-- /generated:links -->
 
