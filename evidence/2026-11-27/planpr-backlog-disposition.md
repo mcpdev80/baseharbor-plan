@@ -169,3 +169,4 @@ END DONE — every open PR in the requested range was individually measured; non
 
 Exact `git ls-tree -r --name-only origin/main | grep evidence/2026-11-27/planpr-backlog-disposition.md` output follows.
 evidence/2026-11-27/planpr-backlog-disposition.md
+evidence/2026-11-27/planpr-backlog-disposition.md
