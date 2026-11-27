@@ -8,7 +8,7 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w374-0428-284-demo183fix
-kanban_status: review
+kanban_status: active
 kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-284 · 1812 post-retry gate fail
