@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w376-0428-273-1819pre
-kanban_status: active
-kanban_lane: active
+owner: ""
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "Unblock #1819 / card 0428-181 (identity dashboard catalog consumer). Exact head 69f76b94 fails Trusted Plan because three…"
 kanban_title: "0428-273 · add #1819 catalog rows"
 priority: ""
@@ -17,23 +17,24 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: ""
+blocker: "queued, not started: lane admission refused (POOL-UNKNOWN - live sessions w369/w374 hold no pool reservation after the stuck release path). Owner resolution 2026-11-25 allows disjunct prework; rebase/qualification/merge still strictly after #1812. Mission ready at coordinator/missions/w376-0428-273-1819pre.txt"
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45320885286"]
 ---
 
-- [ ] t-20261124-gate-catalog-baseline-1819 · CI/catalog: add #1819 source rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261124-gate-catalog-baseline-1819 · CI/catalog: add #1819 source rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
-    **Owner:** w376-0428-273-1819pre  
+    **Owner:** unassigned  
+    **Blocker:** queued, not started: lane admission refused (POOL-UNKNOWN - live sessions w369/w374 hold no pool reservation after the stuck release path). Owner resolution 2026-11-25 allows disjunct prework; rebase/qualification/merge still strictly afte…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45320885286)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w376-0428-273-1819pre  
+**Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
