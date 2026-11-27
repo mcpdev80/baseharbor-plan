@@ -97,3 +97,9 @@ For the eight A victims, the current owner-queue sequence is #1874, #1875, #1877
 No containers, compose projects, or test VMs were started. Product review remained read-only; Plan work is isolated from shared Plan and product worktrees.
 
 END_BLOCKED w267-0428-284-pridentity: #1884 CHANGES; exact-head Trusted Plan 46032316692 fails on base catalog and the interactive input/remote-route review findings remain open.
+
+## Current-base reconciliation
+
+- Plan main advanced after the initial evidence commit from `41972b641f9b97f29dbf1aec320309d21568645b` to `cb8bf89521e891650ee8712395514b1836253f30`. The evidence branch merged that exact current `origin/main` with merge commit `b863facd7573db8a036599a70c05e8f20bc86781`, authored and committed as `w267-0428-284-pridentity`.
+- Current-base proof: `git merge-base --is-ancestor origin/main HEAD` succeeded. Exact `git diff origin/main...HEAD --name-only` output: `evidence/2026-11-27/0428-codex-staticreview-pr1881-1882.md`. `git log --oneline origin/main..HEAD` lists only my evidence commit `187c239d5` and current-main merge commit `b863facd7`.
+- Re-rendered and checked in the isolated clone after this merge: 784 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 warnings.
