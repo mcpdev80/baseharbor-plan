@@ -133,10 +133,14 @@ Nach dem Landing von plan #136 (und der daraus folgenden catalog-only develop-PR
 
 ## Handoff / STATE
 
-- STATE: BASELINE-GATED (Katalog-Voraussetzung, kein Produktdefekt). PR #1860 head `057ce8c55` enthaelt develop `ea5218d72` bereits; ein frueherer zweiter Hopp ist bis zum develop-Katalog-Landing unnötig.
+- STATE: BASELINE-GATED (Katalog-Voraussetzung, kein Produktdefekt). PR #1860 head `057ce8c55` enthaelt develop `ea5218d72` bereits; ein frueherer zweiter Hopp ist bis zum develop-Katalog-Landing unnoetig.
 - Kandidat: `057ce8c55416f8970a40e88af3dbaf7115ec26ec` (unveraendert, kein Push durch diese Lane).
 - Run-Zeuge: `45934371723` failure (Trusted Plan) auf exakt diesem Head.
-- Diese Akte: evidence-only plan PR ab `origin/main 396e44388`; Produkt-Worktree bleibt lokal (detached HEAD, unveraendert), kein Branch-Push.
+- Akten-Publishing (evidence-only, niemals direct-main): plan PR #183 ab origin/main `396e44388` mit Kommit `e9ca4e0e9` (`git show -s --format=%an HEAD` => `w380-0428-312-1860pre`); Ancestry `git merge-base --is-ancestor origin/main origin/pr-183` => YES; Hosted `Plan · validate` run `45948424399` completed SUCCESS auf exakt `e9ca4e0e9`; admin-squash-merge => main-Kommit `851f94fef95e91abadb79078b34d749fec96c8e5`. Der Squash-Kommit traegt GitHub-Standard-Autorschaft (`Marcel Pfingstgraef / GitHub`) als Content-Aufloesung — Lane-Identitaet traegt der geprüfte PR-Head-Kommit `e9ca4e0e9`; keine Umschreibung der Historie.
+- Akten-Publishing-Kette (evidence-only, niemals direct-main):
+  1. plan PR #183 ab origin/main `396e44388`, Kommit `e9ca4e0e9` (`git show -s --format=%an HEAD` => `w380-0428-312-1860pre`); Ancestry `git merge-base --is-ancestor origin/main origin/pr-183` => YES; Hosted `Plan · validate` run `45948424399` completed SUCCESS auf exakt `e9ca4e0e9`; admin-squash-merge => main `851f94fef95e91abadb79078b34d749fec96c8e5`. Der Squash-Kommit traegt GitHub-Standard-Autorschaft (`Marcel Pfingstgraef / GitHub`) als Content-Aufloesung — Lane-Identitaet traegt der geprüfte PR-Head-Kommit `e9ca4e0e9`; keine Historien-Umschreibung.
+  2. Follow-up-PR ab der jeweils aktuellen main-Spitze (`cacb823ba` + Identitaet-Korrektur-Kommit); seine von GitHub zugewiesene Nummer wird nicht nachgetragen, Aktenstand ist der gelaendete Pfadinhalt auf origin/main.
+- Produkt-Worktree `workers/worktrees/w380-0428-312-1860pre` bleibt lokal bei `057ce8c55` (mission (c): Ergebnis lokal behalten); kein Produkt-Branch angelegt oder gepusht. Plan-Worktrees bleiben registriert (Cleanup obliegt dem Coordinator).
 
 ## 4-Feld
 
