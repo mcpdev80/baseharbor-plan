@@ -143,6 +143,7 @@ Nach dem Landing von plan #136 (und der daraus folgenden catalog-only develop-PR
   4. Finaler Korrektur-Kommit `9f4403b5b` (author/committer `w380-0428-312-1860pre`) auf main-Spitze `0cf016005`, Delta nur diese Akten-Datei; erhaelt mit diesem Publishing-Schritt seine PR-Nummer (PR-Titel: 'evidence: w380-0428-312-1860pre akte final — publishing chain complete').
 - Evidence auf origin/main (Pflicht-Witness, second-to-last action): `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep w380-0428-312-1860pre` =>
   `evidence/w380-0428-312-1860pre/akte.md`
+  Nach diesem letzten Publishing-Schritt erneut ausgefuehrt: main-Spitze `380991d1a`, Pfad vorhanden (die Ausgabe dieses Blocks ist genau dieser auf main gelandete Text).
 - Produkt-Worktree `workers/worktrees/w380-0428-312-1860pre` bleibt lokal bei `057ce8c55` (mission (c): Ergebnis lokal behalten); kein Produkt-Branch angelegt oder gepusht. Remote-seitig existieren keine Lane-Plan-Branches mehr (`git ls-remote ... refs/heads/w380*` leer, s. Cleaning-Log unten); lokale Lane-Worktrees bleiben registriert (Coordinator-Cleanup).
 - Publishing-Hygiene-Log: die drei Plan-Branchen `w380-0428-312-1860pre-plan{,2,3}` waren nach den Squash-Merges bereits von GitHub auto-geloescht (ls-remote-Zeuge: keine `refs/heads/w380*`-Ref vor dem manuellen Delete-Versuch; die Delete-Antworten 'Reference does not exist' bestaetigen denselben Stand).
 
