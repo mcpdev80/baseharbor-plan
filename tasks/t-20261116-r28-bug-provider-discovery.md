@@ -7,9 +7,9 @@ areas: [wizard]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w399-0428-289-providers
+kanban_status: active
+kanban_lane: active
 kanban_summary: "J-Commerce has productdb (MongoDB), vectordb (pgvector Postgres), floci (local S3-compatible emulator); Wizard proposed six…"
 kanban_title: 0428-289 · Detect mixed Compose providers
 priority: high
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261116-r28-bug-provider-discovery · Detect mixed Compose providers #task #release/v0-4-28 #status/planned #view/ready #area/wizard #kind/bug
+- [ ] t-20261116-r28-bug-provider-discovery · Detect mixed Compose providers #task #release/v0-4-28 #status/active #view/active #area/wizard #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w399-0428-289-providers · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w399-0428-289-providers  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
