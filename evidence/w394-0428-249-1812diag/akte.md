@@ -16,8 +16,16 @@ Mission: DIAGNOSE only. No push, no merge, no rerun, no workflow_dispatch, no ga
 
 ## Remote and reality witnesses
 
-- `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v` (first action before any evidence commit):
-  `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)/(push)` — real planning repo confirmed (per WRONG-ZONE rule; workers/baseharbor-plan not used).
+- `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v` (first git action):
+  ```
+  baseharbor  https://github.com/mcpdev80/baseharbor.git (fetch) [blob:none]
+  baseharbor  https://github.com/mcpdev80/baseharbor.git (push)
+  origin      https://github.com/mcpdev80/baseharbor-plan.git (fetch)
+  origin      https://github.com/mcpdev80/baseharbor-plan.git (push)
+  upstream2   https://github.com/mcpdev80/baseharbor-plan.git (fetch)
+  upstream2   https://github.com/mcpdev80/baseharbor-plan.git (push)
+  ```
+  Real GitHub URL confirmed for every remote used (REMOTE GUARD); planning repo = /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan; evidence writes happened ONLY in the isolated worktree workers/w394-0428-249-plan per PLAN REPO SHARED-CHECKOUT rule.
 - `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1812/head refs/pull/1812/merge`:
   - develop = ea5218d72e263f21e79853b679af50074dab8c25
   - refs/pull/1812/head = c2dd3ff04e30c73046b4eeecb56f3cab20e56c92 (mission head confirmed)
@@ -128,4 +136,4 @@ END_BLOCKED w394-0428-249-1812diag: diagnosis complete — run 45944501306 on ex
 
 ## END line (w394-0428-249-1812diag)
 
-END_DONE w394-0428-249-1812diag: diagnosis complete and published; evidence candidate SHA = d1b209063 on baseharbor-plan main (this final content commit supersedes it only by witness lines); product head examined = c2dd3ff04e30c73046b4eeecb56f3cab20e56c92, no changes made to any product repo.
+END_DONE w394-0428-249-1812diag: diagnosis complete and published; evidence candidate SHA = 803a39f3b (akte on origin/main) on baseharbor-plan main (this final content commit supersedes it only by witness lines); product head examined = c2dd3ff04e30c73046b4eeecb56f3cab20e56c92, no changes made to any product repo.
