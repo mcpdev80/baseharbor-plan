@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w396-0428-306-goldenhelp
-kanban_status: review
-kanban_lane: review
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-316 · hunt43-env-leak-disk
 priority: ""
@@ -18,19 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1883"]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "post-lift: #1884 muss landen (native consent-recording fix), dann rebase auf develop + pair-rerun auf neuem head"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt43-env-leak-disk · 0428 hunt H-V43: hunt43-env-leak-disk #task #release/v0-4-28 #status/review #view/review #kind/task
+- [ ] t-20261125-hunt43-env-leak-disk · 0428 hunt H-V43: hunt43-env-leak-disk #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** w396-0428-306-goldenhelp  
     **PR:** [baseharbor#1883](https://github.com/mcpdev80/baseharbor/pull/1883)  
+    **Waiting:** post-lift: \#1884 muss landen (native consent-recording fix), dann rebase auf develop + pair-rerun auf neuem head  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w396-0428-306-goldenhelp  
@@ -81,3 +82,5 @@ One or two sentences: the observable outcome.
 - Evidence: evidence/2026-11-27/0428-316/akte.md (full run witnesses, failure triage, runtime-semantics probes, path-hygiene note).
 
 - Current state, branch, PR and evidence links. Newest first.
+
+run-zeugen: 46027591218 + 46029743268 (same-head pair) scheitern identisch am native atomic/podman/lifecycle gate (consent-recording, #1884); alle unit/validation gates gruen auf exact head 66ed368034; Preedenz: rotes Pflicht-Gate = wait mit run-zeugen
