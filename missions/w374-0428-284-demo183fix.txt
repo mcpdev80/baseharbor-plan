@@ -1,0 +1,38 @@
+LANE: w374-0428-284-demo183fix   KARTE: 0428-284   REPO: baseharbor-demo   PR: #183 (Branch pr183)
+VORGESCHICHTE: w373 hat die Korrektur begonnen und 1dfead199 (Eltern = 83c80c917, 4-Feld w373) auf den
+Zweig w373-0428-284-demo183fix gepusht + versehentlich PR #184 eroeffnet. w373 ist beendet. PR #183 zeigt
+weiter auf 83c80c917 und ist NICHT qualifiziert.
+
+GENAU DIESE zwei Befunde des Reviews beheben (Datei tests/guided/drive.py, run_tty final-drain):
+(1) Jeder im final drain gelesene Chunk wird an capture_buffer UND an die Log-Dateigegeben, aber bytes_read
+    wird vor reconcile_capture_from_log() NICHT erhoeht; der Helper haengt die bereits erfassten Bytes
+    erneut an -> Doppelzaehlung. bytes_read muss pro Chunk vor dem reconcile-Aufruf steigen.
+(2) Nach den final-drain Writes fehlt log.flush() (und os-level sync) vor dem oeffnen/lesen des Helpers,
+    obwohl der Kommentar einen Flush behauptet -> realer File-Inhalt kann beim Reopen noch fehlen.
+
+ZUSAETZliche Pflicht: ein deterministischer Regressionstest ueber den ECHTEN run_tty-Pfad, der exactly-once
+Nachweis (kein Doppel-Append) fuer den final-drain, inklusive leerem capture_tail. Fail-closed Consent-Tests
+22/23 bleiben unveraendert; kein Produkt-Auth-/Consent-Delta.
+
+SCHRITTE:
+(a) Eigener Worktree workers/worktrees/w374-0428-284-demo183fix, Basis = remote Zweig
+    w373-0428-284-demo183fix bei 1dfead199 (git fetch origin w373-0428-284-demo183fix). Vorhandene
+    Worktrees (w267 detached, w371-0428-284, w373-0428-284) NICHT anfangen, NICHT recycled, NICHT loeschen.
+(b) Korrektur als EIN forward-Commit mit kanonischer Identitaet w374-0428-284-demo183fix (env GIT_* unset,
+    alle vier Felder an/ae/cn/ce = Sessionsname).
+(c) Transport auf den WIRKLICHEN PR-Branch von #183, Name = w366-0428-284-democonsent (verifiziert:
+    gh pr view 183 --repo mcpdev80/baseharbor-demo --json headRefName). git fetch origin
+    w366-0428-284-democonsent; dort aus 83c80c917 -> git merge --ff-only 1dfead199 -> eigenen Fix-Commit
+    darauf -> EIN normaler Push auf w366-0428-284-democonsent. NUR so bewegt sich der PR-HEAD und die
+    pull_request-Checks laufen auf dem neuen Exakt-Head. KEIN Force-Push, KEIN Cherry-Pick, KEINE
+    merge-commits fremder Lanes, KEIN gh pr create (#183 existiert; #184 ist ein Fremd-PR, den der
+    Coordinator nach Ahnenschaftsnachweis schliesst). Workflow-Trigger NICHT aendern.
+(d) Beweis: git ls-remote https://github.com/mcpdev80/baseharbor-demo.git refs/heads/w366-0428-284-democonsent
+    im Transcript, plus gh pr view 183 --json headRefOid (muss der neue SHA sein).
+(e) KEIN lokaler Testlauf, KEIN workflow_dispatch, KEIN Hosted-Run durch dich - der Owner loest den Run auf
+    dem neuen Exakt-Head aus. Lokale Vorchecks nur statisch (syntax/import).
+(f) Akte evidence/w374-0428-284-demo183fix/akte.md auf plan main: Befund->Aenderung->Zeile, 4-Feld,
+    new head + Elternkette, ls-remote-Ausgabe, Hinweis dass test_consent_capture.py ein zweckgebundener
+    neuer Testpfad ist.
+STOPS: wenn der Fix den Write-Set tests/guided/* verlaesst; wenn Force noetig waere; wenn Consent-Assertions
+aniigriffen wuerden. Regeln: keine Subagenten; Hosted CI nur.

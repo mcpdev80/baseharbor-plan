@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
+owner: "w372-0428-312-1860hop"
 kanban_status: blocked
 kanban_lane: blocked
 kanban_summary: "One or two sentences: the observable outcome."
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261125-hunt39-volume-recovery-manifest · 0428 hunt H-V39: assert recovery-manifest coverage for workload volumes #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
+    **Owner:** w372-0428-312-1860hop  
     **PR:** [baseharbor#1860](https://github.com/mcpdev80/baseharbor/pull/1860)  
     **Blocker:** blocked-BASELINE as STATE: family catalog PR \#1860 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: []
 **State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w372-0428-312-1860hop  
 **Priority:** not set  
 **PRs:** [baseharbor#1860](https://github.com/mcpdev80/baseharbor/pull/1860)  
 **Source:** 
