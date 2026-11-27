@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: "w396-0428-306-goldenhelp"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-306 · add golden --help snapshot CI
 priority: ""
@@ -20,20 +20,20 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/pull/220"]
 ---
 
-- [ ] t-20261125-hunt36-golden-help-guard · 0428 hunt H-V36: add golden --help snapshot CI guard for config/flag surface #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261125-hunt36-golden-help-guard · 0428 hunt H-V36: add golden --help snapshot CI guard for config/flag surface #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w396-0428-306-goldenhelp  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/pull/220)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w396-0428-306-goldenhelp  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -76,3 +76,9 @@ One or two sentences: the observable outcome.
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+
+## Claim reconciliation (2026-11-27)
+
+The live session `w396-0428-306-goldenhelp` (Codeman session `7c12281f-8210-4a2f-b612-11227fc271a3`) is busy and working in `/home/marcel/dev/baseharbor-ecosystem/workers/.models/flash`. Its product worktree is on branch `lane-0428-306-golden-help-guard`, one commit ahead of `lane-origin/develop` at `07999fa201`; the modified paths are `cmd/baha/help_golden_guard_test.go`, `cmd/baha/help_golden_invocation_test.go`, `internal/cli/cli.go`, and `internal/cli/help_surface_test.go`, matching this card's golden help surface and invocation scope. The task/branch match is confirmed.
+
+Plan PR #220 published the same card claim and is now redundant with this active owner assignment. It remains open; this reconciliation does not close it. Only an authorized PR owner/coordinator may close it.

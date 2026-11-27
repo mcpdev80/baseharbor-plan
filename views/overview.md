@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 2 |
+| active | 3 |
 | review | 3 |
 | wait | 26 |
 | blocked | 11 |
-| ready | 41 |
+| ready | 40 |
 | queued | 25 |
 | waiting | 181 |
 | backlog | 7 |
@@ -26,6 +26,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261102-rcptlink-task](../tasks/t-20261102-rcptlink-task.md) | Receipt post-run writer: add single `Resolves #<issue>` link to merged PRs so tasklink auto-resolves green | active | not set | ornith (rcptlink) | — | [baseharbor#1267](https://github.com/mcpdev80/baseharbor/pull/1267), [baseharbor#1268](https://github.com/mcpdev80/baseharbor/pull/1268), [baseharbor#1269](https://github.com/mcpdev80/baseharbor/pull/1269), [baseharbor#1270](https://github.com/mcpdev80/baseharbor/pull/1270), [baseharbor#1271](https://github.com/mcpdev80/baseharbor/pull/1271), [baseharbor#1274](https://github.com/mcpdev80/baseharbor/pull/1274), [baseharbor#1275](https://github.com/mcpdev80/baseharbor/pull/1275) |
 | [t-20261125-0428-284-1812-postretry-gate-failure](../tasks/t-20261125-0428-284-1812-postretry-gate-failure.md) | #1812 post-retry gate failure | active | high | w392-0428-284-demo183fix5 | — | [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1856](https://github.com/mcpdev80/baseharbor/pull/1856), [baseharbor-demo#183](https://github.com/mcpdev80/baseharbor-demo/pull/183) |
+| [t-20261125-hunt36-golden-help-guard](../tasks/t-20261125-hunt36-golden-help-guard.md) | 0428 hunt H-V36: add golden --help snapshot CI guard for config/flag surface | active | not set | w396-0428-306-goldenhelp | — | — |
 
 ## Ready for review
 
@@ -102,7 +103,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261125-hunt33-setup-node-sha-pin](../tasks/t-20261125-hunt33-setup-node-sha-pin.md) | 0428 hunt H-V33: hunt33-setup-node-sha-pin | ready | not set | — | — | — |
 | [t-20261125-hunt33-shell-failfast](../tasks/t-20261125-hunt33-shell-failfast.md) | 0428 hunt H-V33: hunt33-shell-failfast | ready | not set | — | — | — |
 | [t-20261125-hunt33-unguarded-git-sudo](../tasks/t-20261125-hunt33-unguarded-git-sudo.md) | 0428 hunt H-V33: hunt33-unguarded-git-sudo | ready | not set | — | — | — |
-| [t-20261125-hunt36-golden-help-guard](../tasks/t-20261125-hunt36-golden-help-guard.md) | 0428 hunt H-V36: add golden --help snapshot CI guard for config/flag surface | ready | not set | — | — | — |
 | [t-20261125-hunt37-cross-perm-dup](../tasks/t-20261125-hunt37-cross-perm-dup.md) | 0428 hunt H-V37: reject cross-permission service duplication | ready | not set | — | — | — |
 | [t-20261125-hunt37-runtime-identity-fallback](../tasks/t-20261125-hunt37-runtime-identity-fallback.md) | 0428 hunt H-V37: runtime-identity fallback silently downgrades to shared legacy app token (medium) | ready | not set | — | — | — |
 | [t-20261125-hunt38-go-base-pin-build-stage](../tasks/t-20261125-hunt38-go-base-pin-build-stage.md) | 0428 hunt H-V38: pin unpinned Go base image in build-stage Dockerfile | ready | not set | — | — | — |
