@@ -19,7 +19,7 @@ prs:
   - mcpdev80/baseharbor#1884
 sources: []
 blocker: ""
-wait_reason: "corrected at 4e499b3cf6 (CODEX-comparative findings 1-2, pair 46046111688/46046309439, format-gate green); gate green pending develop-catalog owner freeze-lift (#136 + fan-in #1861-#1863, Trusted Plan class-A known-blocker); akten evidence/2026-11-27/0428-292/ (akte.md + korrektur-1884-fix.md)"
+wait_reason: "corrected+R3 PASS verdict at b25c192159 (w401 fix; pair 46051642251/46051804829 pull_request, only Trusted Plan class-A red; verdict akte evidence/2026-11-27/0428-292/verdict-r3-w267.md); lift-ready pending develop-catalog owner freeze-lift (#136 + fan-in #1861-#1863)"
 resolution: ""
 evidence: []
 ---
@@ -28,7 +28,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w399-0428-289-providers · **Priority:** normal  
     **PR:** [baseharbor#1884](https://github.com/mcpdev80/baseharbor/pull/1884)  
-    **Waiting:** corrected at 4e499b3cf6 (CODEX-comparative findings 1-2, pair 46046111688/46046309439, format-gate green); gate green pending develop-catalog owner freeze-lift (\#136 + fan-in \#1861-\#1863, Trusted Plan class-A known-blocker); akten evidence…  
+    **Waiting:** corrected+R3 PASS verdict at b25c192159 (w401 fix; pair 46051642251/46051804829 pull_request, only Trusted Plan class-A red; verdict akte evidence/2026-11-27/0428-292/verdict-r3-w267.md); lift-ready pending develop-catalog owner freeze-lift (\#136 + fan-in \#1861-#1863); akten evidence…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
