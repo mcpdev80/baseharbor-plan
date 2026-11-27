@@ -95,3 +95,8 @@ END BLOCKED w267-0428-284-pridentity: PR #183 held at exact head 50eeafac4; both
 - Fresh `git fetch origin main` kept `origin/main` at `2305a1b4f4b2fa952f29cb4ca20b04aa67b7417b`; `git merge-base --is-ancestor origin/main HEAD` exited 0 before commit.
 - `python3 scripts/plan.py render` completed. `python3 scripts/plan.py check` reported `784 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 warnings`. Warnings are the existing accepted-dependency warnings shown by the command.
 - No test command was run locally. The product verification source is Hosted run `45983229441` only; it is insufficient for merge as recorded above.
+
+## Commit identity witnesses
+
+- First evidence commit identity line, captured before the next commit: `79bb2d0 an=w267-0428-284-pridentity cn=w267-0428-284-pridentity`.
+- Mechanical check for first evidence commit: `git show -s --format=%H%n%an%n%cn HEAD` returned `79bb2d0692fa51d3e066cb059bdef999b22e8ea1`, author `w267-0428-284-pridentity`, committer `w267-0428-284-pridentity`.
