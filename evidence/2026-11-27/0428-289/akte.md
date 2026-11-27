@@ -106,7 +106,7 @@ docker ps -a after: none. No compose project created; no scratch in ecosystem ro
 
 ## Final state (coordinator instruction 2026-11-27T14:06Z + Nachlauf 14:10Z)
 
-- Evidence-path witness (per rule, output of `git ls-tree -r --name-only origin/main | grep 0428-289`): `evidence/2026-11-27/0428-289/akte.md` — present on origin/main; akte sha256 `6a48788cf9b82aa89519c9d431ac2df8679fd5256e9fb33d394fb09a39246ab3` (final content); plan main tip after akte-publish `f469381a8`.
+- Evidence-path witness (per rule, output of `git ls-tree -r --name-only origin/main | grep 0428-289`): `evidence/2026-11-27/0428-289/akte.md` — present on origin/main; akte sha256 `34a92033a774fa7abc410d2a804d036fa436f4f9d1936e5104d6baa301434080` (self-hash: content of blob b5dd25df9, which the final publish preserves; interim blob 4db562fac/6a48788... superseded); plan main tip `b5dd25df9`.
 - Card on origin/main: kanban_status=wait, owner=w399-0428-289-providers, prs=[mcpdev80/baseharbor#1880], wait_reason per instruction (commits b8b4f9b06 + 04c21d591). Plan branches evidence-0428-289-w399 (PR #234) and lane-0428-289-wait (PR #236) are superseded by the direct main pushes — available for coordinator cleanup, not touched further by this lane.
 
 - NO second catalog PR: develop catalog path is frozen by a task-specific Owner hold (#136 baseline + fan-in #1861/#1862/#1863); a lane-side catalog-only PR would be the forbidden implicit lift. My option-(c) execution judged correct/clean.
