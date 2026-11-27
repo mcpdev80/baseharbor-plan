@@ -19,7 +19,7 @@ prs:
   - mcpdev80/baseharbor#1884
 sources: []
 blocker: ""
-wait_reason: "Base-catalog freeze (#136 + fan-in #1861/#1862/#1863): PR · Trusted Plan resolves scripts/pr-gate-coverage.json from the trusted base checkout, so in-PR rows cannot satisfy it; run witness 46032316692 (pull_request FAILURE at Trusted Plan, head e6425f9bf7, class-A victim #8). Resume after freeze-lift with catalog-row touch-up + fresh exact-head run on PR #1884. Coordinator directive 2026-11-27T16:21:05Z."
+wait_reason: "corrected at 4e499b3cf6 (CODEX-comparative findings 1-2, pair 46046111688/46046309439, format-gate green); gate green pending develop-catalog owner freeze-lift (#136 + fan-in #1861-#1863, Trusted Plan class-A known-blocker); akten evidence/2026-11-27/0428-292/ (akte.md + korrektur-1884-fix.md)"
 resolution: ""
 evidence: []
 ---
@@ -28,7 +28,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w399-0428-289-providers · **Priority:** normal  
     **PR:** [baseharbor#1884](https://github.com/mcpdev80/baseharbor/pull/1884)  
-    **Waiting:** Base-catalog freeze (\#136 + fan-in \#1861/\#1862/\#1863): PR · Trusted Plan resolves scripts/pr-gate-coverage.json from the trusted base checkout, so in-PR rows cannot satisfy it; run witness 46032316692 (pull\_request FAILURE at Trusted Plan,…  
+    **Waiting:** corrected at 4e499b3cf6 (CODEX-comparative findings 1-2, pair 46046111688/46046309439, format-gate green); gate green pending develop-catalog owner freeze-lift (\#136 + fan-in \#1861-\#1863, Trusted Plan class-A known-blocker); akten evidence…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
