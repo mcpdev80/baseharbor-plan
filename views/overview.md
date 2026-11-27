@@ -10,9 +10,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 4 |
+| active | 3 |
 | review | 3 |
-| wait | 31 |
+| wait | 32 |
 | blocked | 13 |
 | ready | 33 |
 | queued | 25 |
@@ -25,7 +25,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261102-rcptlink-task](../tasks/t-20261102-rcptlink-task.md) | Receipt post-run writer: add single `Resolves #<issue>` link to merged PRs so tasklink auto-resolves green | active | not set | ornith (rcptlink) | — | [baseharbor#1267](https://github.com/mcpdev80/baseharbor/pull/1267), [baseharbor#1268](https://github.com/mcpdev80/baseharbor/pull/1268), [baseharbor#1269](https://github.com/mcpdev80/baseharbor/pull/1269), [baseharbor#1270](https://github.com/mcpdev80/baseharbor/pull/1270), [baseharbor#1271](https://github.com/mcpdev80/baseharbor/pull/1271), [baseharbor#1274](https://github.com/mcpdev80/baseharbor/pull/1274), [baseharbor#1275](https://github.com/mcpdev80/baseharbor/pull/1275) |
-| [t-20261125-hunt40-migration-marker-last](../tasks/t-20261125-hunt40-migration-marker-last.md) | 0428 hunt H-V40: orgconfig migrateToCanonical writes marker LAST (crash-window) | active | not set | w399-0428-289-providers | — | — |
 | [t-20261125-hunt42-timeout-constant-matrix](../tasks/t-20261125-hunt42-timeout-constant-matrix.md) | 0428 hunt H-V42: unify/align timeout constant matrix (tempo 10s vs verify; reconcile/readiness values) | active | not set | w397-0428-307-idfallback | — | — |
 | [t-20261125-hunt43-env-leak-disk](../tasks/t-20261125-hunt43-env-leak-disk.md) | 0428 hunt H-V43: hunt43-env-leak-disk | active | not set | w396-0428-306-goldenhelp | — | — |
 
@@ -71,6 +70,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261124-r28-broker-build-identity-commit](../tasks/t-20261124-r28-broker-build-identity-commit.md) | verifyRuntimeBrokerBuildIdentity discards both commit SHAs, so a runtime broker at the wrong commit passes readiness whenever the semver matches. | wait | normal | Coordinator (sequence wait) | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) (open) | [baseharbor#1820](https://github.com/mcpdev80/baseharbor/pull/1820) |
 | [t-20261125-hunt36-golden-help-guard](../tasks/t-20261125-hunt36-golden-help-guard.md) | 0428 hunt H-V36: add golden --help snapshot CI guard for config/flag surface | wait | not set | w396-0428-306-goldenhelp | — | [baseharbor#1874](https://github.com/mcpdev80/baseharbor/pull/1874) |
 | [t-20261125-hunt39-restore-identity-regression](../tasks/t-20261125-hunt39-restore-identity-regression.md) | 0428 hunt H-V39: restore-identity regression test (identity preserved across restore) | wait | not set | "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) | — | — |
+| [t-20261125-hunt40-migration-marker-last](../tasks/t-20261125-hunt40-migration-marker-last.md) | 0428 hunt H-V40: orgconfig migrateToCanonical writes marker LAST (crash-window) | wait | not set | w399-0428-289-providers | — | [baseharbor#1881](https://github.com/mcpdev80/baseharbor/pull/1881) |
 | [t-20261128-hunt48-source-transfers-contract](../tasks/t-20261128-hunt48-source-transfers-contract.md) | 0428 hunt H-V48: machine source-transfers routes registered but absent from machine-http-v1 contract | wait | not set | w392-0428-284-demo183fix5 | — | [baseharbor#1879](https://github.com/mcpdev80/baseharbor/pull/1879) |
 
 ## Blocked
