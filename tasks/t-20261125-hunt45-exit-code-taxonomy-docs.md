@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w357-0428-321-exitfix5 (migration from stalled w352; d73fdef9 credited to w352 - HOLD recipe already delivered; w357 completes develop-absorption + exact-head CI, sole lane for 321)
+owner: "w384-0428-321-1866pre (prework: hop/classification only - qualification stays after plan 136 / 183 merge per card blocker)"
 kanban_status: active
 kanban_lane: active
 kanban_summary: "Document the baha process exit-code taxonomy at the user-facing surface: 0 success, 1 runtime failure, 2 usage error, 130…"
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261125-hunt45-exit-code-taxonomy-docs · CLI: document baha exit-code taxonomy and machine coverage check #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
-    **Owner:** w357-0428-321-exitfix5 (migration from stalled w352; d73fdef9 credited to w352 - HOLD recipe already delivered; w357 completes develop-absorption + exact-head CI, sole lane for 321)  
+    **Owner:** w384-0428-321-1866pre (prework: hop/classification only - qualification stays after plan 136 / 183 merge per card blocker)  
     **PR:** [baseharbor#1866](https://github.com/mcpdev80/baseharbor/pull/1866)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w357-0428-321-exitfix5 (migration from stalled w352; d73fdef9 credited to w352 - HOLD recipe already delivered; w357 completes develop-absorption + exact-head CI, sole lane for 321)  
+**Owner:** w384-0428-321-1866pre (prework: hop/classification only - qualification stays after plan 136 / 183 merge per card blocker)  
 **Priority:** not set  
 **PRs:** [baseharbor#1866](https://github.com/mcpdev80/baseharbor/pull/1866)  
 **Source:** 
