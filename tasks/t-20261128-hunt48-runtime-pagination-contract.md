@@ -20,13 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: accepted
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1871#issuecomment-7207040431","https://github.com/mcpdev80/baseharbor/pull/1871#issuecomment-7207047121"]
 ---
 
 - [x] t-20261128-hunt48-runtime-pagination-contract · 0428 hunt H-V48: runtime API list endpoints have no pagination contract #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** w356-0428-288-1870hop  
     **PR:** [baseharbor#1871](https://github.com/mcpdev80/baseharbor/pull/1871)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1871#issuecomment-7207040431), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1871#issuecomment-7207047121)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
