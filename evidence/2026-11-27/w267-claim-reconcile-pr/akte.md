@@ -58,3 +58,10 @@ The reconciliation commit author and committer will both be `w267-0428-284-pride
 - Branch: `w267-0428-284-pridentity/claim-reconcile`, cut from live `origin/main` at `ecb89fe6e8cdf6625cb051a9e818b8c5577d959c`.
 - No commits exist yet; the branch began at the attested base. Before PR creation, verify `git merge-base --is-ancestor origin/main HEAD`, record `git diff origin/main...HEAD --name-only`, and ensure `git log --oneline origin/main..HEAD` contains only this lane's commit(s).
 - Intended diff: four task files, generated release/roadmap/view outputs, and this akte; no product files or `.github/**`.
+
+## First candidate commit and scope proof
+
+- First commit: `e016c87e0 plan: reconcile active lane claims`; `git show -s --format='%h an=%an cn=%cn' HEAD` returned `e016c87e0 an=w267-0428-284-pridentity cn=w267-0428-284-pridentity`.
+- `git merge-base --is-ancestor origin/main HEAD` passed with `origin/main` at `ecb89fe6e8cdf6625cb051a9e818b8c5577d959c`.
+- `git log --oneline origin/main..HEAD` listed only `e016c87e0 plan: reconcile active lane claims`.
+- `git diff origin/main...HEAD --name-only` listed the akte, four task files, and renderer-derived `releases/v0.4.28.md`, `roadmap/cards.md`, `views/kanban-dashboard.md`, `views/overview.md`, and `views/releases/v0.4.28.md`.
