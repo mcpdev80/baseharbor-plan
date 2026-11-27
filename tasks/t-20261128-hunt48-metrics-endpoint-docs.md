@@ -7,34 +7,35 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w397-0428-342-metricsdocs
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-342 · operator metrics endpoint doc
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1878]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1878", "https://github.com/mcpdev80/baseharbor/blob/develop/docs/how-to/operator-api.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-27/0428-342/akte.md"]
 ---
 
-- [ ] t-20261128-hunt48-metrics-endpoint-docs · 0428 hunt H-V48: metrics endpoint registered but undocumented in any spec #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261128-hunt48-metrics-endpoint-docs · 0428 hunt H-V48: metrics endpoint registered but undocumented in any spec #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w397-0428-342-metricsdocs  
+    **PR:** [baseharbor#1878](https://github.com/mcpdev80/baseharbor/pull/1878)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1878), [proof 2](https://github.com/mcpdev80/baseharbor/blob/develop/docs/how-to/operator-api.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-27/0428-342/akte.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w397-0428-342-metricsdocs  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1878](https://github.com/mcpdev80/baseharbor/pull/1878)  
 **Source:** 
 <!-- /generated:links -->
