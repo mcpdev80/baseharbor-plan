@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: "w368-0428-312-1860hop-v2"
-kanban_status: blocked
-kanban_lane: blocked
+owner: w372-0428-312-1860hop
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-312 · assert recovery-manifest
 priority: ""
@@ -17,23 +17,22 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1860"]
 sources: []
-blocker: "Trusted Plan reads catalog at stale resolved base 5a37ddbd (uncataloged recovery_manifest_workload_test.go) and merge-hop trips pr-diff-base.py:186 integration_sha_mismatch (w365 END_BLOCKED; evidence branch w365-plan c06ced8aa). GATE: plan PR #136 (0428-359 baseline rows for #1860-#1863) still OPEN - landing #136 is the prerequisite; w368 attempts one qualification run then reports class"
+blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt39-volume-recovery-manifest · 0428 hunt H-V39: assert recovery-manifest coverage for workload volumes #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261125-hunt39-volume-recovery-manifest · 0428 hunt H-V39: assert recovery-manifest coverage for workload volumes #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w368-0428-312-1860hop-v2  
+    **Owner:** w372-0428-312-1860hop  
     **PR:** [baseharbor#1860](https://github.com/mcpdev80/baseharbor/pull/1860)  
-    **Blocker:** Trusted Plan reads catalog at stale resolved base 5a37ddbd (uncataloged recovery\_manifest\_workload\_test.go) and merge-hop trips pr-diff-base.py:186 integration\_sha\_mismatch (w365 END\_BLOCKED; evidence branch w365-plan c06ced8aa). GATE: pla…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w368-0428-312-1860hop-v2  
+**Owner:** w372-0428-312-1860hop  
 **Priority:** not set  
 **PRs:** [baseharbor#1860](https://github.com/mcpdev80/baseharbor/pull/1860)  
 **Source:** 
