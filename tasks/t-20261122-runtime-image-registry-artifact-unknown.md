@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w362-0428-249-1812rebase
-kanban_status: review
-kanban_lane: review
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: ""
 kanban_title: 0428-249 · light-runtime blob unknown
 priority: high
@@ -17,21 +17,22 @@ depends_on: [t-20261124-r28-release-candidate-testonly-binary]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812, mcpdev80/baseharbor#1837]
 sources: []
-blocker: ""
+blocker: "STATE: PR #1812 remains OPEN at c2dd3ff04e30c73046b4eeecb56f3cab20e56c92; exact-head pull_request run 45944501306 completed FAILURE. Requalification is blocked pending correction and a new exact-head Hosted run."
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-demo/pull/175"]
+evidence: ["https://github.com/mcpdev80/baseharbor-demo/pull/175", "https://github.com/mcpdev80/baseharbor/actions/runs/45944501306"]
 ---
 
-- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/review #view/review #area/ci #area/testing #kind/bug
+- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/testing #kind/bug
     <!-- generated:card -->
     **Owner:** w362-0428-249-1812rebase · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812), [baseharbor#1837](https://github.com/mcpdev80/baseharbor/pull/1837)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-demo/pull/175)  
+    **Blocker:** STATE: PR \#1812 remains OPEN at c2dd3ff04e30c73046b4eeecb56f3cab20e56c92; exact-head pull\_request run 45944501306 completed FAILURE. Requalification is blocked pending correction and a new exact-head Hosted run.  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-demo/pull/175), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45944501306)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261124-r28-release-candidate-testonly-binary](t-20261124-r28-release-candidate-testonly-binary.md)  
 **Owner:** w362-0428-249-1812rebase  

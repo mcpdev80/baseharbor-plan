@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: ""
-kanban_status: planned
-kanban_lane: planned
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "Document the baha process exit-code taxonomy at the user-facing surface: 0 success, 1 runtime failure, 2 usage error, 130…"
 kanban_title: 0428-321 · document baha exit-code
 priority: ""
@@ -17,22 +17,23 @@ depends_on: [t-20261125-0428-284-1812-postretry-gate-failure]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1866"]
 sources: []
-blocker: ""
+blocker: "STATE: PR #1866 remains OPEN at 3702c09502203e82633d664690eac9484a370df9; exact-head pull_request run 45916731635 completed FAILURE. Requalification is blocked pending correction and a new exact-head Hosted run."
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45916731635"]
 ---
 
-- [ ] t-20261125-hunt45-exit-code-taxonomy-docs · CLI: document baha exit-code taxonomy and machine coverage check #task #release/v0-4-28 #status/planned #view/waiting #board/planned #kind/bug
+- [ ] t-20261125-hunt45-exit-code-taxonomy-docs · CLI: document baha exit-code taxonomy and machine coverage check #task #release/v0-4-28 #status/blocked #view/blocked #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned  
     **PR:** [baseharbor#1866](https://github.com/mcpdev80/baseharbor/pull/1866)  
-    **Waiting for prerequisites**  
+    **Blocker:** STATE: PR \#1866 remains OPEN at 3702c09502203e82633d664690eac9484a370df9; exact-head pull\_request run 45916731635 completed FAILURE. Requalification is blocked pending correction and a new exact-head Hosted run.  
     **Needs:** [t-20261125-0428-284-1812-postretry-gate-failure](t-20261125-0428-284-1812-postretry-gate-failure.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45916731635)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261125-0428-284-1812-postretry-gate-failure](t-20261125-0428-284-1812-postretry-gate-failure.md)  
 **Owner:** unassigned  
