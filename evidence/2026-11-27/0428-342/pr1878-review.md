@@ -116,3 +116,24 @@ The initial candidate `b63bea30aaba0899bf045a7bd0ec98ffcc819bfd` was held for an
 ## END BLOCKED
 
 END BLOCKED w267-0428-284-pridentity: PR #1878 held at exact head 698db93ad5b3657894bb90f268e5ac6cb2aa9fe6; only run 46007839655 succeeded, run 46007801545 was cancelled, and German wording remains unresolved. Plan evidence publication and validation remain pending.
+
+## Final exact-head verdict and merge
+
+- Before creating this evidence branch, the verified Plan GitHub remote `https://github.com/mcpdev80/baseharbor-plan.git` reported `2b712ffb2274c446f1837afeebe4b3ba1e0bd6d0 refs/heads/main`. This SHA is the evidence branch base.
+- Final PR #1878 head remained `666470e12f64bdee338603f9843e15d1d80fae41`, base `develop` at `ea5218d72e263f21e79853b679af50074dab8c25`; fresh remote output was `ea5218d72e263f21e79853b679af50074dab8c25 refs/heads/develop` and `666470e12f64bdee338603f9843e15d1d80fae41 refs/pull/1878/head`.
+- RunA `46011434426` and RunC `46019281170` are distinct terminal `pull_request` runs on that exact head. Both completed successfully; each `PR Selected Checks` job completed successfully. RunC also completed the selected Docker and Podman onboarding native gates, focused Python checks, documentation audit, strict EN/DE builds, pages candidate build, source format, trusted plan, and workflow policy.
+- Dispatch runB `46012999025` and sequential dispatch runB2 `46016374374` both completed with FAILURE on the same head, event `workflow_dispatch`. Their `cmd/baha` tests require pull-request context for the company-dev fixture; dispatch lacks the needed PR environment. These are context failures and are not qualification receipts. They remain recorded here as findings, not green runs.
+- Final source diff remains limited to `docs/de/how-to/operator-api.md` and `docs/how-to/operator-api.md`; the verified endpoint name, bind/port, Core listener separation, TLS minimum, and client-certificate requirement are documented. The German sentence at `docs/de/how-to/operator-api.md:132` has a non-blocking adjective-ending typo: “ein verifizierten Executor-Clientzertifikat” should be “ein verifiziertes Executor-Clientzertifikat”. It does not alter the endpoint facts or qualification.
+- Final verdict: check 1 YES (stable exact head, both required exact-head pull_request runs and aggregates successful); check 2 YES (docs-only, disjoint, no workflow/product/auth changes); check 3 YES (endpoint, bind/port and operator/security facts are source-backed); check 4 YES (required docs gates passed, release matrix not run for docs-only scope).
+- Normal expected-head-guarded squash merge completed at `2026-11-27T14:57:28Z`; merge commit `6944e8761af6f07b801f55e39bb9a5409226c10b`. Fresh remote `refs/heads/develop` points to that merge commit. PR #1878 is MERGED.
+- The earlier interim END BLOCKED entries above describe prior heads and are superseded by this final exact-head verdict and merge receipt.
+
+## END w267-0428-284-pridentity DONE
+
+## Visible commit identity block for final evidence publication
+
+- Exact task frontmatter owner verbatim, fetched from Plan origin/main `2b712ffb2274c446f1837afeebe4b3ba1e0bd6d0`: `owner: w397-0428-307-idfallback`.
+- Git user.name: `w267-0428-284-pridentity`.
+- Git user.email: `w267-0428-284-pridentity@baseharbor.local`.
+- Literal commit invocation: `git -c user.name=w267-0428-284-pridentity -c user.email=w267-0428-284-pridentity@baseharbor.local commit ...`.
+- Pre-push author gate: `git show -s --format=%an HEAD` must equal `w267-0428-284-pridentity`.
