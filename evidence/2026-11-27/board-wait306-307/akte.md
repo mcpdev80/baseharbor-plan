@@ -48,3 +48,11 @@ Only card 0428-306 lifecycle/wait fields are changed through `coordinator/script
 ## First candidate commit receipt
 
 - Commit `cb7ed62dc746f488522facb79e5337f5e6a1699c`: author `w255-0428-251-demo170codex`; committer `w255-0428-251-demo170codex`. Pre-push identity line: `cb7ed62dc an=w255-0428-251-demo170codex cn=w255-0428-251-demo170codex`.
+
+## Merge receipt and END
+
+- Board status PR #228 (`w255-0428-251-demo170codex-board-wait306-307`) merged normally after exact-head `Plan · validate` run `46002748602` completed SUCCESS on `02a053ebc8c2ad713b3b64c194ad3dcf0de9c839`.
+- Resulting main SHA `abf1cb66effa7fb00de0f2c6b515ff3fa63c4a22`, verified on `refs/heads/main`.
+- Post-merge source check: 0428-306 is wait with owner/PR refs retained; 0428-307 remains blocked with owner w397, blocker and PR refs #1875/#1876/#1877 unchanged.
+
+END w255-0428-251-demo170codex DONE
