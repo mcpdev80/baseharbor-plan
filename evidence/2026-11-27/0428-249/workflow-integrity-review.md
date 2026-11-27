@@ -83,3 +83,18 @@ The `podman-acceptance.yml:106-175` four-way split is accepted. Before, one job 
 CHANGES remains the worker handoff verdict until remaining changes A, B, and C are carried into the edit set. No workflow or product files were changed by this review. Workflow implementation remains assigned only to worker w362 under the named-card exception.
 
 Delivery correction: the first local review commit was based on `2f388b6bf6cce52da3e7308ec77c405c361e72b3`. Before publishing this updated verdict, the review branch incorporated current Plan main `175fac3cd3de7a6ee9ba7463fb6898bda30dd100` by an ordinary merge commit under this lane identity; no rebase or force-push was used. The final verdict is this forward addendum, which supersedes the initial CHANGES scope above while preserving its audit trail.
+
+## Final re-review — correction round 2, Plan main `f25e06380`, 2026-11-27
+
+Verdict: ACCEPT. The current edit set at `f25e06380b1be1e55d6ad6223ec7a635694facbd` resolves the remaining CHANGES items A, B, and C above. BaseHarbor develop source reviewed: `6d237ccdf3a5db19c5814ad5b76d01be6c38c35c`.
+
+- Resolver outputs are now applied to all remaining mutable-ref evidence inputs. `mcp-lifecycle-acceptance.yml`, `nextjs-greenfield-e2e.yml`, and `observability-acceptance.yml` use run-unique non-cancelling workflow groups, resolve inputs to a 40-hex output, and key the actual evidence jobs by that SHA plus runtime/gate identity and `github.run_id` (`qualification-workflow-integrity.md:226-232`). The strict-SHA rows for Docker, Podman, runtime broker, and runtime S3 now also resolve in a prerequisite job, with consumers checking out/asserting the output SHA (`:233-236`).
+- The `targeted-integration.yml` and `pre-release-runtime-suite.yml` resolver job patterns and output consumers remain explicit (`:40-160,237-238`). Raw branch/ref values no longer appear in evidence concurrency keys; workflow-level groups remain unique per run, non-cancelling, and gate-level groups carry the resolved SHA.
+- `ci.yml` group instructions now correctly pair the PR head SHA fallback with separate Docker/Podman gate identities and run ID (`:19,34,162-176`). The workflow-level key covers the selected-check graph in the same run; the relevant graph spans `ci.yml:1479-1605`, including runtime selection, selected integration, owner-native jobs, and `PR Selected Checks` aggregation. The akte preserves the aggregator and adds no candidate-added required jobs.
+- The exclusion inventory now supplies source anchors and explains why each check is outside candidate qualification; it explicitly records that Pages and Renovate do have concurrency behavior and that the artifact-GC workflow runs PR-scoped mocked tests (`:242-253`). The exclusions do not imply absent jobs or tests.
+- The Podman four-way split and per-job exact-SHA/check/cleanup requirements remain tied to the current bundled source segments; `keycloak_single_native` remains separate. The 65-minute timeout is a configured bound, not evidence for an observed 24-minute duration.
+- The `.github/**` conflict remains resolved narrowly by `2f388b6bf`: worker w362 on named card 0428-249 implements exactly this Owner-approved edit set; no broader lane authority is inferred.
+
+This ACCEPT authorizes the assigned worker implementation only. It does not itself change workflows or qualify #1812. All workflow changes still require fresh exact-head Hosted validation before their results can be used.
+
+Final review base: Plan main `d1daa981fc32de048327819ed5f55290be33d90f` was the live remote tip when this re-review was appended; the original edit-set correction tip `f25e06380b1be1e55d6ad6223ec7a635694facbd` is its ancestor. No task, product, or workflow files were changed by this review.
