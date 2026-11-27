@@ -18,15 +18,16 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "w390 END_DONE: corrected census is 17 open PRs; 11 are not descendants of develop (9 BaseHarbor, 2 Demo), all merge-clean. #1819 is superseded by #1820; #1650 remains owner-held. Required hop actions are outstanding and the hop-plan evidence is not yet published/reviewed under the Plan write-freeze. Coordinator must sequence the authorized hops."
+wait_reason: "w390's census and hop-plan are now published via Plan PRs #197 and #198. At the census point, 17 open PRs were counted and 11 were not develop descendants (9 BaseHarbor, 2 Demo); #1819 is superseded by #1820 and #1650 remains owner-held. The remaining hop actions still require coordinator sequencing."
 resolution: ""
-evidence: []
+evidence: ['https://github.com/mcpdev80/baseharbor-plan/pull/197', 'https://github.com/mcpdev80/baseharbor-plan/pull/198']
 ---
 
 - [ ] t-20261121-stale-pr-hop-and-baserefs · 0428-216 hop the stale PRs of our cards and fix their base refs #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/coordination #kind/task
     <!-- generated:card -->
     **Owner:** Coordinator (Codeman) · **Priority:** normal  
-    **Waiting:** w390 END\_DONE: corrected census is 17 open PRs; 11 are not descendants of develop (9 BaseHarbor, 2 Demo), all merge-clean. \#1819 is superseded by \#1820; \#1650 remains owner-held. Required hop actions are outstanding and the hop-plan eviden…  
+    **Waiting:** w390's census and hop-plan are now published via Plan PRs \#197 and \#198. At the census point, 17 open PRs were counted and 11 were not develop descendants (9 BaseHarbor, 2 Demo); \#1819 is superseded by \#1820 and \#1650 remains owner-held. T…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/pull/197), [proof 2](https://github.com/mcpdev80/baseharbor-plan/pull/198)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -92,3 +93,7 @@ Evidence: `evidence/r28-welle4-2026-11-21/stale-pr-hop-and-baserefs/round-1.md`.
 expected; if one appears, the card was exceeded.
 
 COMMISSIONED from hunt H-V25: metadata + hop sweep over our own PRs, hard-bounded to PRs whose card has no live session (no force-push under a working lane).
+
+## Status reconciliation history (2026-11-27)
+
+Prior wait reason retained verbatim: `w390 END_DONE: corrected census is 17 open PRs; 11 are not descendants of develop (9 BaseHarbor, 2 Demo), all merge-clean. #1819 is superseded by #1820; #1650 remains owner-held. Required hop actions are outstanding and the hop-plan evidence is not yet published/reviewed under the Plan write-freeze. Coordinator must sequence the authorized hops.`

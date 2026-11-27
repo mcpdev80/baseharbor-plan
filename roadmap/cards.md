@@ -16,10 +16,10 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 209/356 · **Blocked:** 12 · **Waiting:** 24  
+    **Accepted tasks:** 209/356 · **Blocked:** 13 · **Waiting:** 24  
     **Blocker:** [t-20261116-r28-bug-capability-permissions](../tasks/t-20261116-r28-bug-capability-permissions.md) — single-writer STOP (worker w372b, 2026-11-27): PR \#1864 head branch w333-0428-291-capperms-fix@b9675cc0b carries foreign w358 merge commits over card fix c945b…  
     **Blocker:** [t-20261124-0428-279-mcp-contract-app-pull-unexpected](../tasks/t-20261124-0428-279-mcp-contract-app-pull-unexpected.md) — static/mcp gate qualification blocked on owner-scope card 0428-283 (the gate builds a plain baha without the baseharbor\_ci\_operator\_testonly operator tag + doe…  
-    Plus 10 further blockers in the task list.  
+    Plus 11 further blockers in the task list.  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next

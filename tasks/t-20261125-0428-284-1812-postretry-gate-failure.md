@@ -7,9 +7,9 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: "Coordinator (Codeman)"
-kanban_status: wait
-kanban_lane: wait
+owner: "w392-0428-284-demo183fix5"
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: ""
 kanban_title: 0428-284 · 1812 post-retry gate fail
 priority: high
@@ -17,8 +17,8 @@ depends_on: []
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: [mcpdev80/baseharbor-demo#173, mcpdev80/baseharbor-demo#174, mcpdev80/baseharbor#1856, mcpdev80/baseharbor-demo#183]
 sources: []
-blocker: ""
-wait_reason: "w392 END_DONE pushed #183 head 335ef5e54. Exact Hosted run 45961168355 failed only test_25 because FINAL_DRAIN_CHUNKS stayed 0; Codex review and a local-worker follow-up are pending. Consent checks remain intact."
+blocker: "Owner-dispatched Hosted run required for PR #183 current head ba14b0eed4ebd747a2eb6bd14af470b910dd541c. Push run 45963172402 completed failure and its API jobs endpoint returned zero jobs; it is not the qualifying owner-dispatched run. Workflow dispatch remains Owner-only."
+wait_reason: ""
 resolution: ""
 evidence:
   - https://github.com/mcpdev80/baseharbor/actions/runs/45398943139
@@ -30,20 +30,20 @@ evidence:
   - https://github.com/mcpdev80/baseharbor-demo/actions/runs/45456155783
 ---
 
-- [ ] t-20261125-0428-284-1812-postretry-gate-failure · #1812 post-retry gate failure #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/cli #kind/bug
+- [ ] t-20261125-0428-284-1812-postretry-gate-failure · #1812 post-retry gate failure #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** Coordinator (Codeman) · **Priority:** high  
+    **Owner:** w392-0428-284-demo183fix5 · **Priority:** high  
     **PR:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1856](https://github.com/mcpdev80/baseharbor/pull/1856), [baseharbor-demo#183](https://github.com/mcpdev80/baseharbor-demo/pull/183)  
-    **Waiting:** w392 END\_DONE pushed \#183 head 335ef5e54. Exact Hosted run 45961168355 failed only test\_25 because FINAL\_DRAIN\_CHUNKS stayed 0; Codex review and a local-worker follow-up are pending. Consent checks remain intact.  
+    **Blocker:** Owner-dispatched Hosted run required for PR \#183 current head ba14b0eed4ebd747a2eb6bd14af470b910dd541c. Push run 45963172402 completed failure and its API jobs endpoint returned zero jobs; it is not the qualifying owner-dispatched run. Wor…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139), [proof 2](https://github.com/mcpdev80/baseharbor-demo/pull/173), [proof 3](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448531969), [proof 4](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448729972), [proof 5](https://github.com/mcpdev80/baseharbor-demo/pull/174), [proof 6](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45455975242), [proof 7](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45456155783)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261116-r28-bug-compose-service-ids](t-20261116-r28-bug-compose-service-ids.md), [t-20261125-hunt45-exit-code-taxonomy-docs](t-20261125-hunt45-exit-code-taxonomy-docs.md)  
-**Owner:** Coordinator (Codeman)  
+**Owner:** w392-0428-284-demo183fix5  
 **Priority:** high  
 **PRs:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1856](https://github.com/mcpdev80/baseharbor/pull/1856), [baseharbor-demo#183](https://github.com/mcpdev80/baseharbor-demo/pull/183)  
 **Source:** 
@@ -91,3 +91,7 @@ evidence:
 ## PR lineage disposition — W16
 
 PR #1856 replaces closed, unmerged PR #1842 as the current candidate. PR #1812 is omitted from this card's `prs` field because the w286 inventory assigns it to card 0428-249. The existing demo PR #173 and #174 references remain.
+
+## Status reconciliation history (2026-11-27)
+
+Prior wait reason retained verbatim: `w392 END_DONE pushed #183 head 335ef5e54. Exact Hosted run 45961168355 failed only test_25 because FINAL_DRAIN_CHUNKS stayed 0; Codex review and a local-worker follow-up are pending. Consent checks remain intact.`

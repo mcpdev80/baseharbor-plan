@@ -7,7 +7,7 @@ areas: [security]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
+owner: "w390-0428-216-prhopcensus"
 kanban_status: blocked
 kanban_lane: blocked
 kanban_summary: RabbitMQ is listed as replaceable Compose infrastructure yet Messaging Queue was not preselected; baha app init proposed…
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261116-r28-bug-capability-permissions · Scope inferred provider grants #task #release/v0-4-28 #status/blocked #view/blocked #area/security #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
+    **Owner:** w390-0428-216-prhopcensus · **Priority:** high  
     **PR:** [baseharbor#1865](https://github.com/mcpdev80/baseharbor/pull/1865), [baseharbor#1864](https://github.com/mcpdev80/baseharbor/pull/1864)  
     **Blocker:** single-writer STOP (worker w372b, 2026-11-27): PR \#1864 head branch w333-0428-291-capperms-fix@b9675cc0b carries foreign w358 merge commits over card fix c945b2fcb, and c945b2fcb ancestry is disjoint from develop ea5218d72 - a clean cut re…  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: []
 **State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w390-0428-216-prhopcensus  
 **Priority:** high  
 **PRs:** [baseharbor#1865](https://github.com/mcpdev80/baseharbor/pull/1865), [baseharbor#1864](https://github.com/mcpdev80/baseharbor/pull/1864)  
 **Source:** 
