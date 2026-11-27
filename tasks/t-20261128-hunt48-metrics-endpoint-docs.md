@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-
 
 - [ ] t-20261128-hunt48-metrics-endpoint-docs · 0428 hunt H-V48: metrics endpoint registered but undocumented in any spec #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** w397-0428-342-metricsdocs  
+    **Owner:** w397-0428-307-idfallback  
     **PR:** [baseharbor#1878](https://github.com/mcpdev80/baseharbor/pull/1878)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-27/0428-342/akte.md)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-
 **State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w397-0428-342-metricsdocs  
+**Owner:** w397-0428-307-idfallback  
 **Priority:** not set  
 **PRs:** [baseharbor#1878](https://github.com/mcpdev80/baseharbor/pull/1878)  
 **Source:** 

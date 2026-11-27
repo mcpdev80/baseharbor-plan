@@ -7,9 +7,9 @@ areas: [cli]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: Lead Worker W03 (Codex subagent)
-kanban_status: active
-kanban_lane: active
+owner: ""
+kanban_status: planned
+kanban_lane: ready
 kanban_summary: "Interactive baha app apply accepted [y/N] y but then required re-execution with --confirm-candidate; baha app apply j-commerce…"
 kanban_title: 0428-292 · Clarify apply candidate consen
 priority: normal
@@ -23,16 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261116-r28-bug-apply-consent-ux · Clarify apply candidate consent #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
+- [ ] t-20261116-r28-bug-apply-consent-ux · Clarify apply candidate consent #task #release/v0-4-28 #status/planned #view/ready #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** Lead Worker W03 (Codex subagent) · **Priority:** normal  
+    **Owner:** unassigned · **Priority:** normal  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** Lead Worker W03 (Codex subagent)  
+**Owner:** unassigned  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
