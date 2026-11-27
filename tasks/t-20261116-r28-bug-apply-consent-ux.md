@@ -8,33 +8,36 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w399-0428-289-providers
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Interactive baha app apply accepted [y/N] y but then required re-execution with --confirm-candidate; baha app apply j-commerce…"
 kanban_title: 0428-292 · Clarify apply candidate consen
 priority: normal
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs:
+  - mcpdev80/baseharbor#1884
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "Base-catalog freeze (#136 + fan-in #1861/#1862/#1863): PR · Trusted Plan resolves scripts/pr-gate-coverage.json from the trusted base checkout, so in-PR rows cannot satisfy it; run witness 46032316692 (pull_request FAILURE at Trusted Plan, head e6425f9bf7, class-A victim #8). Resume after freeze-lift with catalog-row touch-up + fresh exact-head run on PR #1884. Coordinator directive 2026-11-27T16:21:05Z."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261116-r28-bug-apply-consent-ux · Clarify apply candidate consent #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
+- [ ] t-20261116-r28-bug-apply-consent-ux · Clarify apply candidate consent #task #release/v0-4-28 #status/wait #view/wait #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** w399-0428-289-providers · **Priority:** normal  
+    **PR:** [baseharbor#1884](https://github.com/mcpdev80/baseharbor/pull/1884)  
+    **Waiting:** Base-catalog freeze (\#136 + fan-in \#1861/\#1862/\#1863): PR · Trusted Plan resolves scripts/pr-gate-coverage.json from the trusted base checkout, so in-PR rows cannot satisfy it; run witness 46032316692 (pull\_request FAILURE at Trusted Plan,…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w399-0428-289-providers  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1884](https://github.com/mcpdev80/baseharbor/pull/1884)  
 **Source:** 
 <!-- /generated:links -->
 
