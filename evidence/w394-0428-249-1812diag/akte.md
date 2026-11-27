@@ -163,3 +163,16 @@ END_DONE w394-0428-249-1812diag: diagnosis complete (akte: run 45944501306 fails
 - New branch head requested for review stability: d3b605115 (my last push to the #213 branch after the maintainer had already squash-merged e1de610cd at 09:30:52Z — the PR head could not advance because it was already MERGED; ls-remote witnesses above: refs/heads/main jumped d56af14c7 → 9da6740a9 → 437277fc1 around my push).
 - Stable-head duty on current main: `git merge-base --is-ancestor origin/main HEAD` OK on the merge chain; `python3 scripts/plan.py render` (no new diff) + `check` = 784 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 warnings.
 - Delivery: this commit on branch w394-0428-249-1812diag-closeout via PR to main; no product-repo writes; product head examined remains c2dd3ff04e30c73046b4eeecb56f3cab20e56c92 (unchanged on ls-remote).
+- Validation of the stable head: `Plan · validate` SUCCESS on candidate 51a205fc5 = run 45975400784 (job 140425753929); merged by admin squash into plan main = c3e2a106b (main moved during this window: 9da6740a9 (#213 squash) → 437277fc1 (#217) → c3e2a106b (#218), all witnessed via ls-remote, no force anywhere).
+- Correction note: an earlier sentence named "9da6704a9" for the #213 squash; the accurate SHA is 9da6740a9.
+
+## Final origin/main presence witness (last actions before END, 2026-11-27)
+
+```
+$ git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main
+c3e2a106b341b32d64fb5dc2e675c336806f6077  refs/heads/main
+$ git -C <plan-worktree> ls-tree -r --name-only origin/main | grep w394-0428-249-1812diag
+evidence/w394-0428-249-1812diag/akte.md
+```
+
+END_DONE w394-0428-249-1812diag: diagnosis complete and published; evidence candidate SHA = c3e2a106b on baseharbor-plan main (this commit, squash of 51a205fc5, validate run 45975400784); product head examined = c2dd3ff04e30c73046b4eeecb56f3cab20e56c92; follow-up (coordinator 09:30Z) satisfied: PR #213 stabilized (head e1de610cd, validate 45974189062) and merged as 9da6740a9, closeout via #218 on current main.
