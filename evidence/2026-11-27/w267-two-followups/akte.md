@@ -54,7 +54,15 @@ Branch creation is next; no commit or push yet.
 
 ## Final verification
 
-Pending hosted validation and normal merge.
+The status mission completed and its witnesses are recorded here and in each PR body.
+
+- PR #201 merged normally at `2026-11-27T08:53:11Z` as `1e67a5dfb41ee2fe369700baf338dc614fe7d8af`; exact-head Hosted Plan validate run `45967369044` SUCCESS on `5edbda07587399fe247c05ed7c86037f2d0e766b`. The requested #183 akte was present on main (GitHub blob `3696925ed9a28153c1cf3df0ee97d06cd644d7b3`, 9611 bytes).
+- PR #203 published the corrected akte; exact-head Hosted Plan validate run `45969579468` SUCCESS on `da95e9199627dc23ca19e479adea317cf4151a3b`; merge commit `b99381a204f7fedd4a70c90ebe171eda84610014`. Source and published SHA-256: `8c5df43ff5f90b6e8ea2f88dbd0c9c61ee3fa76de9066cc2dc59f9cfe3ecc1b0`.
+- PR #204 transitioned 0428-078 from `active` to `wait`; exact-head Hosted Plan validate run `45970556591` SUCCESS on `6a4d26f5d1950eae4d74bc8f9691f4fc45d8ae99`; normal merge commit `2974167d3a3912f5f52378004f38d7214bc6ef80`. Main confirms owner `w385-0428-078-pr1650pre`, status `wait`, empty blocker, and the requested wait reason.
+- Local Plan render/check reported 0 errors and 10 pre-existing warnings.
+- The mission supplied checkpoint facts. A read-only mirror clone of `/var/tmp/w385-0428-078-checkpoint.bundle` could not traverse missing object `228ecc5bab28e5e6158ccc63160f442a6afc9ed3`; this limitation was preserved in the status PR evidence.
+
+END_DONE w267-0428-284-pridentity: PR #201 verification, corrected 0428-235 akte publication, and 0428-078 active-to-wait reconciliation are complete; status landing main SHA `2974167d3a3912f5f52378004f38d7214bc6ef80`.
 
 
 ## PLAN — 0428-078 status reconciliation mission
@@ -72,3 +80,18 @@ This mission requires the wait reason to name checkpoint commit `a6ae9031c` (dev
 The required wait reason is: `Checkpoint commit a6ae9031c (develop ea5218d7 proven ancestor); hop unpushed; bundle /var/tmp/w385-0428-078-checkpoint.bundle; resume trigger = Owner-reconnect after laptop outage through 2026-11-28 18:00 Europe/Berlin, then (a) push hop, (b) work through OQ-3 form decision (Keycloak attribution token: directory-name vs. full path), and (c) investigate witness MetricPresent:false + keycloakRecordTargetRoot colliding-project.`
 
 The mission supplies the checkpoint and ancestry facts. A read-only `git clone --mirror /var/tmp/w385-0428-078-checkpoint.bundle` attempt failed because the bundle traversal reported missing object `228ecc5bab28e5e6158ccc63160f442a6afc9ed3`; no checkpoint objects were changed. The coordinator queue independently confirms OQ-3 is still open, and the runtime config still says laptop capacity 0.
+
+
+## Evidence closeout PR base attestation before branch creation
+
+- Plan remote: `origin https://github.com/mcpdev80/baseharbor-plan.git`.
+- Exact `origin/main` base: `2974167d3a3912f5f52378004f38d7214bc6ef80`.
+- Card owner verbatim from main: `w385-0428-078-pr1650pre`.
+- Commit author and committer: `w267-0428-284-pridentity`, email `w267-0428-284-pridentity@baseharbor.local`; invocation `git -c user.name=w267-0428-284-pridentity -c user.email=w267-0428-284-pridentity@baseharbor.local commit ...`; pre-push gate `git show -s --format=%an HEAD` must print `w267-0428-284-pridentity`.
+- Branch: w267-0428-284-pridentity/followups-closeout, cut from the attested base above.
+
+## Pre-push evidence-path witness
+
+Exact output from the origin/main ls-tree grep before pushing this update:
+
+evidence/2026-11-27/w267-two-followups/akte.md
