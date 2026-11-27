@@ -69,6 +69,10 @@ evidence/2026-11-27/t-20261116-r28-bug-apply-consent-ux/akte.md
 
 After merge, `docker ps -a` (PID 1670943) returned the header only; no containers were running. No compose project was started.
 
+## Forward base integration for evidence closeout
+
+Before publishing the evidence closeout, fetched `origin/main` advanced to `b8b4f9b06c5baec42ddad1097b552e62b3151701`. Integrated it into the same candidate branch with merge commit `0298537b464ba9a0c4a4101b5271a71ae73b37bf`; author and committer are both `w255-0428-251-demo170codex`. `git merge-base --is-ancestor origin/main HEAD` succeeded. `git diff origin/main...HEAD --name-only` lists only this evidence file. `git log --oneline origin/main..HEAD` lists only commits authored in this lane (9fa0a4940, e38369c14, 53846b836, e37a01e9f, 0298537b4).
+
 ## END
 
 END w255-0428-251-demo170codex DONE: card 0428-292 reconciliation merged in Plan PR #235 at `a84725ddcb260fba018c4aa123ecd1ef79e0a507`; verified in main `7a1420d8e1336b09dbd60226cdfdb7f1544808c0`.
