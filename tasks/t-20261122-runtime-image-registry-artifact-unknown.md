@@ -191,9 +191,9 @@ Rebased onto develop 46d3dccc, exact head 47590207518, one-file diff pre-release
 
 Core fixture handoff (2026-11-24): BaseHarbor PR [#1827](https://github.com/mcpdev80/baseharbor/pull/1827) merged at `adf43709b8b37cd2b18a6bf4710019d7343d54b4` (source `83d7c7afc84740b565ff654562a178361c3522c8`) with two exact-head green Hosted CI runs: [45455276409](https://github.com/mcpdev80/baseharbor/actions/runs/45455276409) and [45460654225](https://github.com/mcpdev80/baseharbor/actions/runs/45460654225). This closes only the Core test-only fixture half; #1812 still needs its own requalification after merge, assigned to w112. Existing #1812 scope and blocker are unchanged.
 
-## W16 status correction
+## W16 status correction (historical state)
 
-This card is reopened in `wait`: PR #1812 remains OPEN and unmerged, so the prior `accepted` closure is not supported by the current exact-head state. Existing evidence bytes and the task ID are unchanged.
+At the time of the W16 correction, this card was reopened in `wait` because PR #1812 remained OPEN and unmerged; the prior `accepted` closure was unsupported. The 2026-11-27 claim-gap receipt below later clears the stale lane owner and sets the unassigned card to `planned`; #1812 and its exact-head failure remain recorded. Existing historical evidence bytes and the task ID are unchanged.
 
 ## Claim-gap receipt (2026-11-27)
 
