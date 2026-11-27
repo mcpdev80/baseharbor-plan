@@ -7,9 +7,9 @@ areas: [runtime, lifecycle, cli]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: blocked
-kanban_lane: blocked
+owner: w69-0428-271-brokerid2
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: The apply/verify readiness probe either proves the runtime broker is the exact candidate commit or surfaces the commit…
 kanban_title: 0428-271 · broker identity version-only
 priority: normal
@@ -17,27 +17,27 @@ depends_on: [t-20261124-gate-catalog-baseline-1820]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1820]
 sources: []
-blocker: "prework delivered (evidence/w386-0428-271-1820pre/akte.md on main 1d5bfc409): local hop no-conflict, chain shows #1820 already carries #1819 core (17381017b cmd/baha/app_broker.go) and #1812 core (394559ec6 app_init_wizard.go), run 45710380590 SUCCESS on 8f6b2444b; qualification stays after #1812"
-wait_reason: ""
+blocker: ""
+wait_reason: "chain gate: #1820 clean fresh cut only after #1819 merge; head 28803d110 BEHIND/cancelled; lane w69 released"
 resolution: ""
 evidence:
   - https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-24/broker-build-identity-w60/evidence.md
 ---
 
-- [ ] t-20261124-r28-broker-build-identity-commit · verifyRuntimeBrokerBuildIdentity discards both commit SHAs, so a runtime broker at the wrong commit passes readiness whenever the semver matches. #task #release/v0-4-28 #status/blocked #view/blocked #area/cli #area/lifecycle #area/runtime #kind/bug
+- [ ] t-20261124-r28-broker-build-identity-commit · verifyRuntimeBrokerBuildIdentity discards both commit SHAs, so a runtime broker at the wrong commit passes readiness whenever the semver matches. #task #release/v0-4-28 #status/wait #view/wait #area/cli #area/lifecycle #area/runtime #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
+    **Owner:** w69-0428-271-brokerid2 · **Priority:** normal  
     **PR:** [baseharbor#1820](https://github.com/mcpdev80/baseharbor/pull/1820)  
-    **Blocker:** prework delivered (evidence/w386-0428-271-1820pre/akte.md on main 1d5bfc409): local hop no-conflict, chain shows \#1820 already carries \#1819 core (17381017b cmd/baha/app\_broker.go) and \#1812 core (394559ec6 app\_init\_wizard.go), run 4571038…  
+    **Waiting:** chain gate: \#1820 clean fresh cut only after \#1819 merge; head 28803d110 BEHIND/cancelled; lane w69 released  
     **Needs:** [t-20261124-gate-catalog-baseline-1820](t-20261124-gate-catalog-baseline-1820.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-24/broker-build-identity-w60/evidence.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261124-gate-catalog-baseline-1820](t-20261124-gate-catalog-baseline-1820.md)  
-**Owner:** unassigned  
+**Owner:** w69-0428-271-brokerid2  
 **Priority:** normal  
 **PRs:** [baseharbor#1820](https://github.com/mcpdev80/baseharbor/pull/1820)  
 **Source:** 
@@ -71,7 +71,3 @@ Dispatched w60 (ornith, dep-free). Fix verifyRuntimeBrokerBuildIdentity to prove
 head 514084f3c up-to-date on develop 05ef48536, 19 PASS/0 FAIL, MERGEABLE; routed to CODEX-REVIEW+MERGE.
 
 CODEX-REVIEW CHANGES: acceptance-criterion-2 regression (dev/edge + EMPTY commit together) missing; corrected write-set gate passes. w60->w69 handoff (same branch fix/broker-build-identity): add the combined case + rebase onto develop 05ef48536 + rerun. Fills freed ornith seat with real work.
-
-## Prework gate
-
-- chain gate: #1820 clean fresh cut only after #1819 merge; head 28803d110 BEHIND/cancelled; lane w69 released

@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: blocked
-kanban_lane: blocked
+owner: "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Unblock 0428-270 (PR head 88f5c7f05, w61). Exact-head CI run 45326369749 aborts in 'PR Trusted Plan' with fail-loud 'uncataloged…"
 kanban_title: "0428-275 · add #1820-sib catalog rows"
 priority: ""
@@ -17,24 +17,24 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: "row gap analysis delivered (evidence/w383-0428-275-136rows/akte.md): plan #136 is plan-only with ZERO catalog rows, 8 required develop sources missing, 2 candidate-side (#1860 pr-gate-coverage.json:2720, #1863 :2536-2545), permission_scope on develop lacks runtime_specific"
-wait_reason: ""
+blocker: ""
+wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45326369749"]
 ---
 
-- [ ] t-20261124-gate-catalog-baseline-0428-270 · CI/catalog: add operatorauth rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261124-gate-catalog-baseline-0428-270 · CI/catalog: add operatorauth rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Blocker:** row gap analysis delivered (evidence/w383-0428-275-136rows/akte.md): plan \#136 is plan-only with ZERO catalog rows, 8 required develop sources missing, 2 candidate-side (\#1860 pr-gate-coverage.json:2720, \#1863 :2536-2545), permission\_scope…  
+    **Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
+    **Waiting:** lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45326369749)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -52,7 +52,3 @@ Add to scripts/pr-gate-coverage.json on develop, surfaces docker + podman data.c
 OWNER/CI scope (scripts/** + gate catalog), separate baseline on develop (#1817; cf. 0428-261/262/273/274). After it lands, w61 rebases 0428-270 + reruns exact-head, then Owner accept+merge.
 
 Realized by owner-authorized batch baseline PR (w65): 6 catalog rows + pre-release.yml baha-ci-operator-testonly production. Lands on develop -> unblocks #1819/#1820/#1821/#1812 rebase+rerun.
-
-## Prework gate
-
-- lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)
