@@ -81,6 +81,10 @@ Before publishing the evidence closeout, fetched `origin/main` advanced to `b8b4
 
 `origin/main` advanced to `78b2afb6e91ed9f780b8c8d1b7739601e2f67e2a` before the closeout PR was merged. It was integrated into the same branch as merge commit `5dab7eeb658df5817290a86dd4d7227f2785fc90`, with author and committer `w255-0428-251-demo170codex`. The current-base ancestry check succeeded; `git diff origin/main...HEAD --name-only` remains only this evidence path. Local `plan.py render && plan.py check` returned 0 errors, 10 warnings.
 
+## Latest origin/main before PR #237 refresh
+
+Fetched `origin/main` at `f454a30b3ead2ce62d345cbb945722c7ef37ab20` and integrated it into this same branch with merge commit `e06f85701594c3c9bfcd32230d25409ffef086ea` (author/committer both `w255-0428-251-demo170codex`). Ancestry check passed; the current diff from `origin/main` is only this evidence path. `plan.py render && plan.py check` returned 0 errors, 10 warnings.
+
 ## END
 
 END w255-0428-251-demo170codex DONE: card 0428-292 reconciliation merged in Plan PR #235 at `a84725ddcb260fba018c4aa123ecd1ef79e0a507`; verified in main `7a1420d8e1336b09dbd60226cdfdb7f1544808c0`.
