@@ -67,6 +67,12 @@ The evidence-only Plan PR is #201, branch `w255-0428-251-demo170codex-183exactre
 
 This mission also explicitly says `KEIN gh pr merge`; the standing evidence-publication rule forbids direct writes to Plan main and requires the branch/PR route. Therefore this lane will not merge PR #201. The review is on #183 and the Akte is prepared on the scoped Plan PR, but the requested Plan-main publication and main commit SHA remain blocked pending an authorized reviewer/merge.
 
+## Final branch and main readback
+
+After updating the Akte to record this publication boundary, the evidence candidate is carried by Plan PR #201 on branch `w255-0428-251-demo170codex-183exactreview`; its prior head `0443fb452c64bc8f7dd442f528d7d49002580ed5` had exact-head Validate run `45967144116` SUCCESS. The update itself requires validation on the new final head before it can be treated as an accepted Plan evidence candidate.
+
+The required live-main query was run after `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main`: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/2026-11-27/0428-284/exact-head-183-ba14b0eed.md`. Exact result: empty stdout; `grep` exit status 1. `origin/main` was `d6d917c7b6f5378f5c355081afff0f5f0fc059c7`; the Akte path is not on main. The mission forbids `gh pr merge`, so this lane cannot publish it to main or truthfully supply a main commit SHA.
+
 ## No local execution
 
 No local tests were run. This verdict is based on the exact GitHub diff, source readback, and Actions API evidence only.
