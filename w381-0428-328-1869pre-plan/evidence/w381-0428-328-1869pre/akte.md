@@ -120,6 +120,21 @@ Two distinct causes, both in `scripts/`, both Owner/shared scope — **NOT to be
 - Worktrees created (to be removed after END by this lane): `workers/worktrees/w381-0428-328-1869pre` (product, detached HEAD 467913b) and `workers/w381-0428-328-1869pre-plan` (planning, detached 6ad9bfaea). Docker/Podman: none started this shift — no `docker ps` orphans.
 
 ## 8. Scope compliance
+
+## 8a. Publishing incident (recorded, for the record)
+- The shared plan worktree inherited a foreign `user.name=w373-0428-284-demo183fix` / user.email from a previous lane's local git config. The first push created commit `e5a87f25e` whose **committer** field was `w373-...` (author was correct). Caught by the pre-push `git show -s --format=%an/%cn` gate.
+- Remediation: set canonical identity, `git commit --amend --no-edit` to fix committer, then `git push --force-with-lease origin main`. Published commit `e4b0735bd` carried canonical author AND committer.
+- Foreign worktrees (`workers/worktrees/w267-0428-359-136review-plan`, `w267-0428-284-demo183fix-plan`, `w267-0428-299-resolver-disposition`, `w267-0428-299-main-publish`, `w267-0428-284-078-dispositions`, `w267-0428-249-qualification-workflows`) leave `python3 scripts/plan.py check` red (15199 errors) even on clean origin/main. Not my lane's work; not touched. My akte introduces zero new check errors.
+
+## 8b. Cleanups
+- Removed foreign untracked files this worktree had accumulated (e1e854dd4-era hop junk) that were blocking rebase/push.
+- Removed foreign `../todos/w348-0428-359-batchhop.json` (untracked, not mine) that blocked branch checkout.
+- Removed two foreign `w267` stash entries (hop:merge origin/main) that were stale -- not mine.
+- Removed the rebase-abort conflict artifact from `views/releases/v0.4.28.md` by rebasing via cherry-pick onto clean origin/main (no conflict markers remain).
+- Product worktree `workers/worktrees/w381-0428-328-1869pre` and plan worktree removed.
+- Docker/Podman: none started this shift -- no `docker ps` orphans.
+
+## 8. Scope compliance
 - No subagents (executed every step in this session).
 - No `.github/**` edit, no workflow_dispatch, no rerun.
 - No product/config/auth/consent change.
