@@ -157,3 +157,12 @@ Evidence candidate SHA (final, on origin/main): 71812e2b7 (squash of b495ab8c6 c
 ## FINAL END line (w394-0428-249-1812diag)
 
 END_DONE w394-0428-249-1812diag: diagnosis complete (akte: run 45944501306 fails only on the demo consent-capture class, carrier 0-behind develop, no qualification asserted); follow-up 09:30Z delivered stable PR #213 head 8db2a1556, Plan · validate run 45973752023 success; product head examined = c2dd3ff04e30c73046b4eeecb56f3cab20e56c92, zero product-repo writes.
+
+## Final stable-head witnesses (after END posts, so the akte itself carries the ordered evidence)
+
+- Second absorb of a moved origin/main (d56af14c7, foreign squash #215 in between) as merge e1de610cd under the lane identity (an=cn=w394-0428-249-1812diag; merge-parent identity per Codex ruling: committer set via GIT_COMMITTER_* on the same merge).
+- `git merge-base --is-ancestor origin/main HEAD` → OK; `git log --oneline origin/main..HEAD` lists ONLY w394 commits (fbe41a1ce, 93815ab79(+merge), 8db2a1556, 114fddd2d, e1de610cd).
+- render + check on the branch: 784 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 warnings (pre-existing v0.4.27).
+- Hosted `Plan · validate` on e1de610cd = run 45974189062 success; PR #213 head= e1de610cd, mergeable=MERGEABLE.
+- Delivery ls-remote: refs/heads/w394-0428-249-1812diag-final = e1de610cdcd7123a8ab2d3ef826cd97e106f3db1.
+- No further pushes planned from this lane; PR #213 awaits maintainer squash. Product candidate untouched: c2dd3ff04e30c73046b4eeecb56f3cab20e56c92.
