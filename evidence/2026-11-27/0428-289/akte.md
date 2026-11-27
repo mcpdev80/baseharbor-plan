@@ -19,6 +19,7 @@ Hosted run 46011069186 (event pull_request, head 8fe1b3a5ad, conclusion failure)
 
 ## PLAN
 
+0. Native todowrite leg: SKIPPED — this session exposes no native todowrite tool (per dispatch rule: skip leg (0) entirely; board file (a) maintained live instead).
 1. Create numbered work plan in all three places (board file, evidence PLAN, todos) — DONE
 2. Verify environment: remote -v, real plan repo path, pull current state — DONE
 3. Read card contract + baseharbor/AGENTS.md + DEVELOPMENT_GUIDELINES — DONE
@@ -106,7 +107,8 @@ docker ps -a after: none. No compose project created; no scratch in ecosystem ro
 
 ## Final state (coordinator instruction 2026-11-27T14:06Z + Nachlauf 14:10Z)
 
-- Evidence-path witness (per rule, output of `git ls-tree -r --name-only origin/main | grep 0428-289`): `evidence/2026-11-27/0428-289/akte.md` — present on origin/main; akte sha256 `bc723323fb7a89d20061a90076f88a8e868410ab5973f9973535b751b8cc360b` (self-hash of final blob; interim 4db562fac/6a48788/b5dd25df-era superseded); plan main tip `b5dd25df9`.
+- Evidence-path witness (per rule, output of `git ls-tree -r --name-only origin/main | grep 0428-289`): `evidence/2026-11-27/0428-289/akte.md` — present on origin/main; sha256 witness: akte@78b2afb6e = `0761b45db6373700091b10d06782f04fb08443b9ab9eb2dbf5d5ee8150799173`; the akte cannot contain its own post-edit hash, the path-and-tip witnesses above are authoritative; plan main tip after this note `78b2afb6e`.
+- Cleanup finding (coordinator action): my command sequence self-conflicted once and pushed remote plan branch `evidence-0428-289-w399-final` pointing at the current main (78b2afb6e, zero-diff, no PR). It is my own artifact from this minute; I left it untouched (delete-on-foreign rule) — ready for coordinator cleanup together with superseded branches evidence-0428-289-w399 (#234) and lane-0428-289-wait (#236).
 - Card on origin/main: kanban_status=wait, owner=w399-0428-289-providers, prs=[mcpdev80/baseharbor#1880], wait_reason per instruction (commits b8b4f9b06 + 04c21d591). Plan branches evidence-0428-289-w399 (PR #234) and lane-0428-289-wait (PR #236) are superseded by the direct main pushes — available for coordinator cleanup, not touched further by this lane.
 
 - NO second catalog PR: develop catalog path is frozen by a task-specific Owner hold (#136 baseline + fan-in #1861/#1862/#1863); a lane-side catalog-only PR would be the forbidden implicit lift. My option-(c) execution judged correct/clean.
