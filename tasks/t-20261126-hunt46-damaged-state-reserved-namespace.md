@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1869"]
 sources: []
-blocker: "blocked-BASELINE as STATE: family catalog PR #1869 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded"
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -27,7 +27,6 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w381-0428-328-1869pre (prework: hop/classification only - qualification stays after plan 136 / 183 merge per card blocker)  
     **PR:** [baseharbor#1869](https://github.com/mcpdev80/baseharbor/pull/1869)  
-    **Blocker:** blocked-BASELINE as STATE: family catalog PR \#1869 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -72,3 +71,7 @@ evidence: []
 ## Task
 
 Cast from hunt H-V46 (akte evidence/r28-welle6-2026-11-27/bughunt-hv46-state-lifecycle/ on origin/main 62de9bb74, anchor develop 2a141387d; re-verified against develop 384d857b5 at intake). BF-46-4 LIVE (proven by repro at intake). `DamagedDeploymentNamespace` iterates `deployments/` entries and calls `DamagedDirectoryState` on each child dir (line 270). `DamagedDirectoryState` (177-204) returns true when a child dir has no `deployment.json` but retains protected state files. The `never-delivered/` directory is a child of `deployments/` and the current proof-exclusion guard (lines 277-287) only skips a damaged directory when a proof for THIS repository app exists, not when the namespace itself is reserved. Reproduced at intake: placing `runtime.env` directly under `never-delivered/` flags the Target as having damaged deployment state. Fix: explicitly skip the reserved `never-delivered` subdirectory (matching the reservation the adoption writer creates).
+
+## Prework gate
+
+- blocked-BASELINE as STATE: family catalog PR #1869 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded

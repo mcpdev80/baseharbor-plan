@@ -9,7 +9,7 @@ version: ""
 parent: ""
 owner: "w382-0428-326-1868pre (prework: hop/classification only - qualification stays after plan 136 / 183 merge per card blocker)"
 kanban_status: active
-blocker: "STATE: Trusted Plan + PR Selected Checks FAILURE on 57320af6949e (coordinator api-verify 01:3xZ) - pr-gate-map release-label lag persists (same class as 0428-328/#1869); lane w341 parked; pair re-run at owner map landing; #1868 stays OPEN unmerged"
+blocker: ""
 kanban_lane: active
 kanban_summary: "The never-delivered proof at never-delivered/<applicationID>/<environment>.json is created by guided adoption…"
 kanban_title: 0428-326 · consume never-delivered proof
@@ -27,7 +27,6 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w382-0428-326-1868pre (prework: hop/classification only - qualification stays after plan 136 / 183 merge per card blocker)  
     **PR:** [baseharbor#1868](https://github.com/mcpdev80/baseharbor/pull/1868)  
-    **Blocker:** STATE: Trusted Plan + PR Selected Checks FAILURE on 57320af6949e (coordinator api-verify 01:3xZ) - pr-gate-map release-label lag persists (same class as 0428-328/\#1869); lane w341 parked; pair re-run at owner map landing; \#1868 stays OPEN…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -74,3 +73,7 @@ The never-delivered proof at `never-delivered/<applicationID>/<environment>.json
 ## Task
 
 Cast from hunt H-V46 (akte evidence/r28-welle6-2026-11-27/bughunt-hv46-state-lifecycle/ on origin/main 62de9bb74, anchor develop 2a141387d; re-verified against develop 384d857b5 at intake). BF-46-2 LIVE. `VerifyNeverDeliveredProof` (internal/deployment/never_delivered_proof.go:72) confirms the never-delivered state before clean retire; on the never-delivered branch of `verifyOwnershipWhenNoDeploymentRecord` (cmd/baha/app_runtime_retirement.go:57-86) the code releases provider registry state and records audit but never calls `deployment.ConsumeNeverDeliveredProof`. `ConsumeNeverDeliveredProof` is only called from `internal/deployment/deployment_store.go:562` (SaveDeploymentRecord) and the test. The proof path (`never_deliveredProofPath`, never_delivered_proof.go:21) is `never-delivered/<applicationID>/<environment>.json`. Consequence: an app initialized but destroyed/downed before delivery leaves a stale one-shot proof; the next adoption with the same identity uses O_EXCL and fails "already exists" — a concrete state-dir race between guided adoption and lifecycle destroy. Fix once in `app_runtime_retirement.go`; the `destroy --all` gate (BF-46-5, 0428-329) is clean by reuse.
+
+## Prework gate
+
+- STATE: Trusted Plan + PR Selected Checks FAILURE on 57320af6949e (coordinator api-verify 01:3xZ) - pr-gate-map release-label lag persists (same class as 0428-328/#1869); lane w341 parked; pair re-run at owner map landing; #1868 stays OPEN unmerged

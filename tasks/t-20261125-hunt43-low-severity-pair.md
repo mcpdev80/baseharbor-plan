@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1862"]
 sources: []
-blocker: "blocked-BASELINE as STATE: family catalog PR #1862 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded"
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -27,7 +27,6 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w379-0428-318-1862pre (prework: hop/classification only - qualification stays after plan 136 / 183 merge per card blocker)  
     **PR:** [baseharbor#1862](https://github.com/mcpdev80/baseharbor/pull/1862)  
-    **Blocker:** blocked-BASELINE as STATE: family catalog PR \#1862 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -77,3 +76,7 @@ One or two sentences: the observable outcome.
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+
+## Prework gate
+
+- blocked-BASELINE as STATE: family catalog PR #1862 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded
