@@ -40,7 +40,9 @@ The fetched main card is already `kanban_status: closed`, `resolution: accepted`
 
 Plan PR #240 validation run [46022606388](https://github.com/mcpdev80/baseharbor-plan/actions/runs/46022606388) completed successfully on initial candidate `4467b8031dad71ab44e796a39dee13ca8ab14ff8`. Before review, origin/main advanced to `d5685660587bf053641b466d924934cecb8f2bc1`; that exact main was merged forward into the candidate with the canonical lane identity. A new exact-head validation is required for the resulting merge head.
 
-Final merge gate recheck found origin/main advanced again to `4decc742b703005898d40b22a42fd091b496b420` (remote reported a forced ref update from `d56856605`). PR #240 remains open at `3b45669b2d1a6274e0d0ffebbb4542e1ff435749`; its `Plan · validate` run [46022771434](https://github.com/mcpdev80/baseharbor-plan/actions/runs/46022771434) completed successfully on that exact head. However, current `origin/main` is not an ancestor of the PR head: `git merge-base` is `2ddf9aa9ac34597e7fa9181463f078144c69d17b`, and `git rev-list --left-right --count origin/main...HEAD` is `1 4`. The PR branch contains the old `d56856605` main lineage alongside this candidate. I am holding the merge because the required current-main ancestry proof and own-commits-only range are no longer satisfied; no history rewrite or force update was performed.
+Final merge gate recheck found origin/main advanced to `4decc742b703005898d40b22a42fd091b496b420`, then to `e4c6aabee02b3ddbfda033239d3ad70d6893fbb0`. Following the owner authorization, I merged the current main forward without rewriting history. Merge commit `4587ed9f8824b6be84912d523c5440629a5ad80b` has canonical lane author and committer; current `origin/main` is now an ancestor of the candidate. The merge had no task-card conflict: it retained the 0428-292/310 main edits, and the 0428-342 fields remain closed/accepted with its owner and PR mapping unchanged. The resulting diff against current main contains only the 0428-342 task and this akte. The prior ancestry hold is resolved; the new merged head still needs its own hosted validation.
+
+`git diff --check origin/main...HEAD` reports the generated Evidence line's trailing Markdown hard-break spaces at task line 30. `plan.py render` emits this line-break convention; the required `plan.py check` remains at 0 errors.
 
 Changed paths: `tasks/t-20261128-hunt48-metrics-endpoint-docs.md` and this evidence file. Render regenerated no other views. `card-status.py` was not run because the fetched main card was already closed/accepted; no status transition was necessary. `docker ps -a` before/after: PID 2605312; only the header was returned, with no containers. No compose project was started.
 
@@ -48,4 +50,4 @@ The card status, owner, PR mapping, and accepted resolution are unchanged. Only 
 
 ## END
 
-END BLOCKED — current origin/main advanced outside this candidate and is not its ancestor; PR #240 is held open at `3b45669b2d1a6274e0d0ffebbb4542e1ff435749` pending an authorized clean-forward resolution.
+END DONE — the authorized clean-forward merge is applied; exact-head validation and normal PR merge remain the final gates.
