@@ -15,7 +15,7 @@ kanban_title: 0428-316 · hunt43-env-leak-disk
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1883"]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,6 +26,7 @@ evidence: []
 - [ ] t-20261125-hunt43-env-leak-disk · 0428 hunt H-V43: hunt43-env-leak-disk #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** w396-0428-306-goldenhelp  
+    **PR:** [baseharbor#1883](https://github.com/mcpdev80/baseharbor/pull/1883)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -34,7 +35,7 @@ evidence: []
 **Depends on:** none  
 **Owner:** w396-0428-306-goldenhelp  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1883](https://github.com/mcpdev80/baseharbor/pull/1883)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -73,5 +74,10 @@ One or two sentences: the observable outcome.
 - Shared files: coordinate through the owning task.
 
 ## Handoff
+
+- 2026-11-27 w396-0428-306-goldenhelp: candidate published. Branch lane-0428-316-envleak-disk, head 66ed3680343b36d6dfff855892867d3c99f349c8 (single commit on develop 6944e8761a, ancestry-proven), PR https://github.com/mcpdev80/baseharbor/pull/1883 (ready, non-draft). Fix: ambient-resolved service-environment entries no longer persist in the on-disk Quadlet {service}.env file; they project as valueless Environment=KEY unit lines (podman resolves from the systemd unit environment; verified via quadlet generator dryrun + `podman run --env`). Guard tests: TestRenderComposeProjectQuadletsKeepsAmbientSecretOutOfEnvFile, TestComposeEnvSequenceFormKeepsAmbientReference (package auto-discovery; sources map to atomic/podman/lifecycle BASE rows, no catalog change).
+- Test -> check -> trigger: podman package unit tests -> PR · Validation · runtime-provider-package-tests + Go unit shards -> draft/ready PR + pushes -> run 46026622055 SUCCESS (draft-routing witness), 46027591218 + 46029743268 (full selected, same exact head, second via authorized close+reopen) green on ALL unit/contract/validation gates; both fail ONLY the native podman lifecycle gate.
+- Known external blocker for the native gate: identical failure signature in the demo-fixture candidate-consent recording step (Error: record deployment before mutation: ... --confirm-candidate); this lane's diff is confined to internal/providers/runtime/podman (zero overlap with cmd/baha consent code). Open PR #1884 (card 0428-292, head 734707abf4) is the consent-path fix. Plan: after #1884 merges, merge origin/develop into the lane branch and rerun the pair on the new exact head.
+- Evidence: evidence/2026-11-27/0428-316/akte.md (full run witnesses, failure triage, runtime-semantics probes, path-hygiene note).
 
 - Current state, branch, PR and evidence links. Newest first.
