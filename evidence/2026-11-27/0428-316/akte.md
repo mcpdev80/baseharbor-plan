@@ -97,7 +97,7 @@ internal/providers/runtime/podman/quadlet_render.go
 
 ## END
 
-(to be appended: END_DONE / END_BLOCKED w396-0428-306-goldenhelp: <one line + candidate SHA>)
+END_DONE w396-0428-306-goldenhelp: 0428-316 candidate 66ed3680343b36d6dfff855892867d3c99f349c8 delivered in PR #1883 (ready, base develop 6944e8761a); unit/contract/validation gates green on the exact head (runs 46026622055 SUCCESS draft-witness, 46027591218 + 46029743268 full-selected same-head pair via authorized close+reopen); the atomic/podman/lifecycle native gate fails identically on both same-head runs solely in the candidate-consent recording step owned by open PR #1884 (card 0428-292) — zero overlap with this podman-only diff; on #1884 landing the lane rebases and reruns the pair. Card 0428-316 is in review.
 
 ## Runtime semantics witnesses (local probes, non-qualifying)
 
