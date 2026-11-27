@@ -20,7 +20,7 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/pull/220", "https://github.com/mcpdev80/baseharbor/actions/runs/45987934493"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/pull/220", "https://github.com/mcpdev80/baseharbor/actions/runs/45987934493", "https://github.com/mcpdev80/baseharbor/actions/runs/45993109149"]
 ---
 
 - [ ] t-20261125-hunt36-golden-help-guard · 0428 hunt H-V36: add golden --help snapshot CI guard for config/flag surface #task #release/v0-4-28 #status/active #view/active #kind/task
