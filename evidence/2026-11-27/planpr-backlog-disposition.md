@@ -190,3 +190,15 @@ Immediately before pushing, the same identity gate is run again on the final HEA
 ```text
 782a0c49f an=w255-0428-251-demo170codex cn=w255-0428-251-demo170codex
 ```
+
+
+## Initial Plan PR delivery witness
+
+Plan PR [#252](https://github.com/mcpdev80/baseharbor-plan/pull/252) was OPEN, non-draft, and CLEAN at initial pushed head `fac484cb963ee4d3af19f903119bcf5ca341f8f2`. The exact `git ls-remote` output after creating the PR was:
+
+```text
+fac484cb963ee4d3af19f903119bcf5ca341f8f2 refs/pull/252/head
+fac484cb963ee4d3af19f903119bcf5ca341f8f2 refs/heads/w255-0428-251-demo170codex-claimgap-cleanup
+```
+
+Initial run [46046581605](https://github.com/mcpdev80/baseharbor-plan/actions/runs/46046581605) was still in progress on that prior head and is not used to qualify any later head.
