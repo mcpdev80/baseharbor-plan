@@ -10,9 +10,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 1 |
+| active | 2 |
 | review | 4 |
-| wait | 28 |
+| wait | 27 |
 | blocked | 13 |
 | ready | 41 |
 | queued | 25 |
@@ -25,6 +25,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261102-rcptlink-task](../tasks/t-20261102-rcptlink-task.md) | Receipt post-run writer: add single `Resolves #<issue>` link to merged PRs so tasklink auto-resolves green | active | not set | ornith (rcptlink) | — | [baseharbor#1267](https://github.com/mcpdev80/baseharbor/pull/1267), [baseharbor#1268](https://github.com/mcpdev80/baseharbor/pull/1268), [baseharbor#1269](https://github.com/mcpdev80/baseharbor/pull/1269), [baseharbor#1270](https://github.com/mcpdev80/baseharbor/pull/1270), [baseharbor#1271](https://github.com/mcpdev80/baseharbor/pull/1271), [baseharbor#1274](https://github.com/mcpdev80/baseharbor/pull/1274), [baseharbor#1275](https://github.com/mcpdev80/baseharbor/pull/1275) |
+| [t-20261124-r28-broker-build-identity-commit](../tasks/t-20261124-r28-broker-build-identity-commit.md) | verifyRuntimeBrokerBuildIdentity discards both commit SHAs, so a runtime broker at the wrong commit passes readiness whenever the semver matches. | active | normal | w386-0428-271-1820pre (prework: local hop + chain check only - qualification stays after #1812) | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) (open) | [baseharbor#1820](https://github.com/mcpdev80/baseharbor/pull/1820) |
 
 ## Ready for review
 
@@ -65,7 +66,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261123-planner-deleted-source-advisory](../tasks/t-20261123-planner-deleted-source-advisory.md) | CI: candidate planner mishandles deleted source rows (advisory job red) | wait | not set | "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) | — | — |
 | [t-20261124-gate-catalog-baseline-0428-270](../tasks/t-20261124-gate-catalog-baseline-0428-270.md) | CI/catalog: add operatorauth rows to develop pr-gate-coverage.json | wait | not set | "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) | — | — |
 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) | CI/catalog: add #1820 source row to develop pr-gate-coverage.json | wait | not set | "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) | — | — |
-| [t-20261124-r28-broker-build-identity-commit](../tasks/t-20261124-r28-broker-build-identity-commit.md) | verifyRuntimeBrokerBuildIdentity discards both commit SHAs, so a runtime broker at the wrong commit passes readiness whenever the semver matches. | wait | normal | w386-0428-271-1820pre (prework: local hop + chain check only - qualification stays after #1812) | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) (open) | [baseharbor#1820](https://github.com/mcpdev80/baseharbor/pull/1820) |
 | [t-20261125-hunt39-restore-identity-regression](../tasks/t-20261125-hunt39-restore-identity-regression.md) | 0428 hunt H-V39: restore-identity regression test (identity preserved across restore) | wait | not set | "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) | — | — |
 
 ## Blocked

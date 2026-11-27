@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: "w386-0428-271-1820pre (prework: local hop + chain check only - qualification stays after #1812)"
-kanban_status: wait
-kanban_lane: wait
+kanban_status: active
+kanban_lane: active
 kanban_summary: The apply/verify readiness probe either proves the runtime broker is the exact candidate commit or surfaces the commit…
 kanban_title: 0428-271 · broker identity version-only
 priority: normal
@@ -24,7 +24,7 @@ evidence:
   - https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle6-2026-11-24/broker-build-identity-w60/evidence.md
 ---
 
-- [ ] t-20261124-r28-broker-build-identity-commit · verifyRuntimeBrokerBuildIdentity discards both commit SHAs, so a runtime broker at the wrong commit passes readiness whenever the semver matches. #task #release/v0-4-28 #status/wait #view/wait #area/cli #area/lifecycle #area/runtime #kind/bug
+- [ ] t-20261124-r28-broker-build-identity-commit · verifyRuntimeBrokerBuildIdentity discards both commit SHAs, so a runtime broker at the wrong commit passes readiness whenever the semver matches. #task #release/v0-4-28 #status/active #view/active #area/cli #area/lifecycle #area/runtime #kind/bug
     <!-- generated:card -->
     **Owner:** w386-0428-271-1820pre (prework: local hop + chain check only - qualification stays after \#1812) · **Priority:** normal  
     **PR:** [baseharbor#1820](https://github.com/mcpdev80/baseharbor/pull/1820)  
@@ -33,7 +33,7 @@ evidence:
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261124-gate-catalog-baseline-1820](t-20261124-gate-catalog-baseline-1820.md)  
 **Owner:** w386-0428-271-1820pre (prework: local hop + chain check only - qualification stays after #1812)  
