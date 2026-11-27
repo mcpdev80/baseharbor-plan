@@ -71,3 +71,7 @@ END BLOCKED w267-0428-284-pridentity: #1878 held at b63bea30; unsupported listen
 
 - Fresh `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1878/head` returned `ea5218d72e263f21e79853b679af50074dab8c25 refs/heads/develop` and `b63bea30aaba0899bf045a7bd0ec98ffcc819bfd refs/pull/1878/head`.
 - Fresh PR API state remained OPEN/non-draft/mergeable with clean merge state and the same head/base. Run census remains only `46002973690` completed/success on that exact head.
+
+- Plan `origin/main` advanced to `5725634c07129110bc3d4e8850e4fdc4c02e806e` before evidence publication. I rebased only this unpublished evidence commit in its isolated worktree; the original branch-cut SHA `cb3b1b0d326225441f4927f6f81a7d1398dbe98a` remains its ancestor. Current `git merge-base --is-ancestor origin/main HEAD` succeeded and the branch diff remains this evidence file only.
+- Repeated `python3 scripts/plan.py render && python3 scripts/plan.py check` on current Plan main still reports the same four errors and 10 warnings above. No generated or task files were changed.
+- An earlier rebase invocation from the shared Plan checkout was rejected immediately because that checkout has unstaged changes; it made no working-tree change. The successful one-commit rebase was then run only in this isolated worktree.
