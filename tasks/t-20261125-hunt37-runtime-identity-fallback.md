@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w397-0428-307-idfallback
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: Remove the shared legacy app-token fallback for broker-consuming services that lack an explicit runtime permission. Each service…
 kanban_title: 0428-307 · runtime-identity fallback
 priority: ""
@@ -17,21 +17,21 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1875, mcpdev80/baseharbor#1876, mcpdev80/baseharbor#1877]
 sources: []
-blocker: "develop-catalog ordering pending owner freeze-lift + pr-gate-map-v1.json release label (runs 45998693008, 45993109149/45994654068 als zeugen); fan-in #1861/#1862/#1863 sind w392-rezept-pflichtig (trusted-base registration)"
-wait_reason: ""
+blocker: ""
+wait_reason: "Owner catalog freeze-lift and trusted develop registration remain pending. Exact-head receipts: #1875 head 254621f5655051d087d79fb7668b683dcfda5b93 run 45993507477 completed/failure; #1876 head 98cb8a725ac78e56959ead4dd6b7757ebabde856 runs 45993371732 and 45996668742 completed/success, catalog-only and not merged to develop; #1877 head 013fdfb82cf9dcab862aa430459bd880c0a806fd run 45998693008 completed/failure (PR · Trusted Plan and PR Selected Checks failed). Runs 45993109149 and 45994654068 are #1874 receipts on head b143395545bd2c5c4bd637ad476a5c4cc78630a4 and do not witness 0428-307."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt37-runtime-identity-fallback · 0428 hunt H-V37: runtime-identity fallback silently downgrades to shared legacy app token (medium) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261125-hunt37-runtime-identity-fallback · 0428 hunt H-V37: runtime-identity fallback silently downgrades to shared legacy app token (medium) #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** w397-0428-307-idfallback  
     **PR:** [baseharbor#1875](https://github.com/mcpdev80/baseharbor/pull/1875), [baseharbor#1876](https://github.com/mcpdev80/baseharbor/pull/1876), [baseharbor#1877](https://github.com/mcpdev80/baseharbor/pull/1877)  
-    **Blocker:** develop-catalog ordering pending owner freeze-lift + pr-gate-map-v1.json release label (runs 45998693008, 45993109149/45994654068 als zeugen); fan-in \#1861/\#1862/\#1863 sind w392-rezept-pflichtig (trusted-base registration)  
+    **Waiting:** Owner catalog freeze-lift and trusted develop registration remain pending. Exact-head receipts: \#1875 head 254621f5655051d087d79fb7668b683dcfda5b93 run 45993507477 completed/failure; \#1876 head 98cb8a725ac78e56959ead4dd6b7757ebabde856 runs…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w397-0428-307-idfallback  

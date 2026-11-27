@@ -1,7 +1,8 @@
 ---
 id: t-20261128-hunt48-source-transfers-contract
 card_number: "0428-346"
-card_short_title: "source-transfers routes doc"
+card_short_title: "source-transfer contract"
+aliases: []
 type: task
 areas: []
 release: v0.4.28
@@ -11,14 +12,14 @@ owner: w392-0428-284-demo183fix5
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: ""
-kanban_title: 0428-346 · source-transfers routes doc
+kanban_title: 0428-346 · source-transfer contract
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1879]
 sources: []
 blocker: ""
-wait_reason: "develop catalog row scripts/pr-gate-coverage.json:2840 pending owner freeze-lift decision (Owner-Queue 2026-11-27); head 7d3ca40a otherwise green"
+wait_reason: "PR #1879 head 7d3ca40a (run 46010924212) is not otherwise green: PR · Trusted Plan and PR Selected Checks both failed. Develop catalog row scripts/pr-gate-coverage.json:2840 still awaits owner freeze-lift decision (Owner-Queue 2026-11-27). Canonical card number is 0428-346; 0428-343 belongs to the separate runtime-error-envelope card and is not an alias."
 resolution: ""
 evidence: []
 ---
@@ -27,7 +28,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w392-0428-284-demo183fix5  
     **PR:** [baseharbor#1879](https://github.com/mcpdev80/baseharbor/pull/1879)  
-    **Waiting:** develop catalog row scripts/pr-gate-coverage.json:2840 pending owner freeze-lift decision (Owner-Queue 2026-11-27); head 7d3ca40a otherwise green  
+    **Waiting:** PR \#1879 head 7d3ca40a (run 46010924212) is not otherwise green: PR · Trusted Plan and PR Selected Checks both failed. Develop catalog row scripts/pr-gate-coverage.json:2840 still awaits owner freeze-lift decision (Owner-Queue 2026-11-27).…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
