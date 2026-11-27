@@ -129,3 +129,13 @@ END_BLOCKED w394-0428-249-1812diag: diagnosis complete — run 45944501306 on ex
 ## END line (w394-0428-249-1812diag)
 
 END_DONE w394-0428-249-1812diag: diagnosis complete and published; evidence candidate SHA = d1b209063 on baseharbor-plan main (this final content commit supersedes it only by witness lines); product head examined = c2dd3ff04e30c73046b4eeecb56f3cab20e56c92, no changes made to any product repo.
+
+## origin/main presence witness (second-to-last action, 2026-11-27)
+
+```
+$ git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep w394-0428-249-1812diag
+evidence/w394-0428-249-1812diag/akte.md
+$ git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main
+71812e2b7aad1f2a0cbff85d5f6f8657eaa1ca46  refs/heads/main
+```
+Evidence candidate SHA (final, on origin/main): 71812e2b7 (squash of b495ab8c6 chain; content commits 965bf10c7 → 72d2bcbb6 → b495ab8c6).
