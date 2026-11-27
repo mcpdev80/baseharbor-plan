@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w397-0428-307-idfallback
+owner: w400-0428-315-timeoutsfix
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: "One or two sentences: the observable outcome."
@@ -18,22 +18,22 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "CI freeze #136 (owner) + active fan-in across lanes 307/310/312/315/316: shared base-catalog coverage gate blocks all. PR #1882 head be410aea1 run 46024898195 (pull_request) FAILED at 'PR · Trusted Plan': uncataloged source change internal/application/timeouts.go + timeouts_test.go — same base-catalog coverage blocker as 310. No content push during freeze; catalog-touch-up + rerun after lift. PR body be410aea1 left untouched."
+wait_reason: "content consolidated at d51763d0 (tempo trace-query probe + shared-provider reconcile read central StatusTimeoutMatrix; readiness 90s / existing-provider probe 3s budgets distinct; values unchanged, no tuning) — pushed to PR #1882 head d51763d0 (branch lane-0428-315-timeouts). Two executed pull_request runs on exact head: #7991 + #7992 both FAILED at shared base-catalog coverage gate (uncataloged internal/metrics/perses_tempo_datasource.go + internal/objectstorage/seaweedfs.go). Same Owner-scope shared scripts/pr-gate-coverage.json gate as lanes 307/310/312/316; the two missing catalog rows (surface source.gate.integration.static.public.contracts) are Owner scope, out of lane write-set. After lift: rerun on exact head d51763d0. PR body untouched."
 resolution: ""
 evidence: []
 ---
 
 - [ ] t-20261125-hunt42-timeout-constant-matrix · 0428 hunt H-V42: unify/align timeout constant matrix (tempo 10s vs verify; reconcile/readiness values) #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
-    **Owner:** w397-0428-307-idfallback  
-    **Waiting:** CI freeze \#136 (owner) + active fan-in across lanes 307/310/312/315/316: shared base-catalog coverage gate blocks all. PR \#1882 head be410aea1 run 46024898195 (pull\_request) FAILED at 'PR · Trusted Plan': uncataloged source change internal…  
+    **Owner:** w400-0428-315-timeoutsfix  
+    **Waiting:** content consolidated at d51763d0 (tempo trace-query probe + shared-provider reconcile read central StatusTimeoutMatrix; readiness 90s / existing-provider probe 3s budgets distinct; values unchanged, no tuning) — pushed to PR \#1882 head d51…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w397-0428-307-idfallback  
+**Owner:** w400-0428-315-timeoutsfix  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
