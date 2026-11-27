@@ -11,10 +11,10 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 2 |
-| review | 3 |
+| review | 4 |
 | wait | 29 |
 | blocked | 13 |
-| ready | 38 |
+| ready | 37 |
 | queued | 25 |
 | waiting | 180 |
 | backlog | 7 |
@@ -34,6 +34,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261122-footprint-human-surface-doc-gaps](../tasks/t-20261122-footprint-human-surface-doc-gaps.md) | Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract | review | normal | 0847d100 (finalhop 7880a8f6 laeuft) / Coordinator | — | [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783) |
 | [t-20261124-gate-catalog-baseline-1816](../tasks/t-20261124-gate-catalog-baseline-1816.md) | CI/catalog: add 3 Trusted Plan rows to develop pr-gate-coverage.json | review | not set | w51-0428-261-catalog | — | [baseharbor#1817](https://github.com/mcpdev80/baseharbor/pull/1817) |
 | [t-20261125-0428-284-1812-postretry-gate-failure](../tasks/t-20261125-0428-284-1812-postretry-gate-failure.md) | #1812 post-retry gate failure | review | high | w267-0428-284-pridentity | — | [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1856](https://github.com/mcpdev80/baseharbor/pull/1856), [baseharbor-demo#183](https://github.com/mcpdev80/baseharbor-demo/pull/183) |
+| [t-20261128-hunt48-metrics-endpoint-docs](../tasks/t-20261128-hunt48-metrics-endpoint-docs.md) | 0428 hunt H-V48: metrics endpoint registered but undocumented in any spec | review | not set | w397-0428-342-metricsdocs | — | [baseharbor#1878](https://github.com/mcpdev80/baseharbor/pull/1878) |
 
 ## Waiting for resources
 
@@ -123,7 +124,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261125-hunt47-version-gate-error-surface](../tasks/t-20261125-hunt47-version-gate-error-surface.md) | 0428 hunt H-V47: all state version gates emit directionless 'unsupported version' errors with no next-action; too-new config breaks unrelated surfaces | ready | low | w193-0428-224-hunt-v47-intake | — | — |
 | [t-20261126-hunt46-collectable-orphans-reserved-namespace](../tasks/t-20261126-hunt46-collectable-orphans-reserved-namespace.md) | 0428 hunt H-V46: CollectableOrphans lists the reserved never-delivered dir as a collectable orphan UUID (medium) | ready | not set | — | — | — |
 | [t-20261126-hunt46-destroy-data-loss-vocabulary](../tasks/t-20261126-hunt46-destroy-data-loss-vocabulary.md) | 0428 hunt H-V46: destroy --all and control-plane destroy --delete-data use split data-loss consequence vocabulary (low) | ready | not set | — | — | — |
-| [t-20261128-hunt48-metrics-endpoint-docs](../tasks/t-20261128-hunt48-metrics-endpoint-docs.md) | 0428 hunt H-V48: metrics endpoint registered but undocumented in any spec | ready | not set | — | — | — |
 | [t-20261128-hunt48-refresh-public-api-ownership-map](../tasks/t-20261128-hunt48-refresh-public-api-ownership-map.md) | 0428 hunt H-V48: internal/api/api-old precedent gone, surface-ownership map stale | ready | not set | — | — | — |
 | [t-20261128-hunt48-source-transfers-contract](../tasks/t-20261128-hunt48-source-transfers-contract.md) | 0428 hunt H-V48: machine source-transfers routes registered but absent from machine-http-v1 contract | ready | not set | — | — | — |
 | [t-20261128-hunt48-unify-runtime-error-envelope](../tasks/t-20261128-hunt48-unify-runtime-error-envelope.md) | 0428 hunt H-V48: unify runtime HTTP error envelope (runtimeresourceapi writeProblem vs apierror.Error) | ready | not set | — | — | — |
