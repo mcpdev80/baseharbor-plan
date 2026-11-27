@@ -65,3 +65,8 @@ The reconciliation commit author and committer will both be `w267-0428-284-pride
 - `git merge-base --is-ancestor origin/main HEAD` passed with `origin/main` at `ecb89fe6e8cdf6625cb051a9e818b8c5577d959c`.
 - `git log --oneline origin/main..HEAD` listed only `e016c87e0 plan: reconcile active lane claims`.
 - `git diff origin/main...HEAD --name-only` listed the akte, four task files, and renderer-derived `releases/v0.4.28.md`, `roadmap/cards.md`, `views/kanban-dashboard.md`, `views/overview.md`, and `views/releases/v0.4.28.md`.
+
+## Hosted validation and handoff
+
+- Hosted `Validate planning` run `45965162341` succeeded on first PR head `8b29e80abb016b8f210791aa189cba277cb0ecd6` (pull_request, attempt 1). This run is recorded as an earlier witness only because this evidence follow-up will move the PR head; the final exact-head run must be verified separately and its ID recorded in PR #200's body.
+- END_DONE w267-0428-284-pridentity: status reconciliation content commit e016c87e0; final qualifying head/run witness is recorded on PR #200.
