@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w357-0428-321-exitfix5 (migration from stalled w352; d73fdef9 credited to w352 - HOLD recipe already delivered; w357 completes develop-absorption + exact-head CI, sole lane for 321)
-kanban_status: blocked
-kanban_lane: blocked
+owner: "w364-0428-321-1866rerun"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Document the baha process exit-code taxonomy at the user-facing surface: 0 success, 1 runtime failure, 2 usage error, 130…"
 kanban_title: 0428-321 · document baha exit-code
 priority: ""
@@ -17,24 +17,23 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1866"]
 sources: []
-blocker: "Selected-Runtime fixture bootstrap broken on runners; runs 45906926997+45909111789 FAILURE not attributable to diff (job 140213421376 logs; Native data-capabilities SUCCESS same run). Head 3702c095 frozen, no merge; re-run after env recovery. Evidence: evidence/w357-0428-321-exitfix5/akte.md"
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt45-exit-code-taxonomy-docs · CLI: document baha exit-code taxonomy and machine coverage check #task #release/v0-4-28 #status/blocked #view/blocked #kind/bug
+- [ ] t-20261125-hunt45-exit-code-taxonomy-docs · CLI: document baha exit-code taxonomy and machine coverage check #task #release/v0-4-28 #status/active #view/active #kind/bug
     <!-- generated:card -->
-    **Owner:** w357-0428-321-exitfix5 (migration from stalled w352; d73fdef9 credited to w352 - HOLD recipe already delivered; w357 completes develop-absorption + exact-head CI, sole lane for 321)  
+    **Owner:** w364-0428-321-1866rerun  
     **PR:** [baseharbor#1866](https://github.com/mcpdev80/baseharbor/pull/1866)  
-    **Blocker:** Selected-Runtime fixture bootstrap broken on runners; runs 45906926997+45909111789 FAILURE not attributable to diff (job 140213421376 logs; Native data-capabilities SUCCESS same run). Head 3702c095 frozen, no merge; re-run after env recove…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w357-0428-321-exitfix5 (migration from stalled w352; d73fdef9 credited to w352 - HOLD recipe already delivered; w357 completes develop-absorption + exact-head CI, sole lane for 321)  
+**Owner:** w364-0428-321-1866rerun  
 **Priority:** not set  
 **PRs:** [baseharbor#1866](https://github.com/mcpdev80/baseharbor/pull/1866)  
 **Source:** 

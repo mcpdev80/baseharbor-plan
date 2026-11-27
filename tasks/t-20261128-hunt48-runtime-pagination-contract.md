@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1871"]
 sources: []
-blocker: ""
+blocker: "parked pending w255 scope decision (a in-card route fix / b own tracking / c refute) for TestCapabilitiesPaginationContract 404; head c21b4fde pushed, Go packages red only via that pre-existing gap; w356 holds worktree, no autonomous continuation"
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -27,6 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w356-0428-288-1870hop  
     **PR:** [baseharbor#1871](https://github.com/mcpdev80/baseharbor/pull/1871)  
+    **Blocker:** parked pending w255 scope decision (a in-card route fix / b own tracking / c refute) for TestCapabilitiesPaginationContract 404; head c21b4fde pushed, Go packages red only via that pre-existing gap; w356 holds worktree, no autonomous conti…  
     <!-- /generated:card -->
 
 <!-- generated:links -->

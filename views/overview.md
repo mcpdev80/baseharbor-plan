@@ -10,10 +10,10 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 5 |
+| active | 6 |
 | review | 2 |
 | wait | 29 |
-| blocked | 10 |
+| blocked | 9 |
 | ready | 41 |
 | queued | 25 |
 | waiting | 180 |
@@ -28,6 +28,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261116-r28-bug-compose-service-ids](../tasks/t-20261116-r28-bug-compose-service-ids.md) | Preserve Compose service IDs | active | high | w360-0428-288-1833fix | [t-20261125-0428-284-1812-postretry-gate-failure](../tasks/t-20261125-0428-284-1812-postretry-gate-failure.md) (open) | [baseharbor#1870](https://github.com/mcpdev80/baseharbor/pull/1870), [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833) |
 | [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) | Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) | active | high | w362-0428-249-1812rebase | [t-20261124-r28-release-candidate-testonly-binary](../tasks/t-20261124-r28-release-candidate-testonly-binary.md) | [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812), [baseharbor#1837](https://github.com/mcpdev80/baseharbor/pull/1837) |
 | [t-20261125-hunt39-volume-recovery-manifest](../tasks/t-20261125-hunt39-volume-recovery-manifest.md) | 0428 hunt H-V39: assert recovery-manifest coverage for workload volumes | active | not set | w365-0428-312-1860hop | — | [baseharbor#1860](https://github.com/mcpdev80/baseharbor/pull/1860) |
+| [t-20261125-hunt45-exit-code-taxonomy-docs](../tasks/t-20261125-hunt45-exit-code-taxonomy-docs.md) | CLI: document baha exit-code taxonomy and machine coverage check | active | not set | w364-0428-321-1866rerun | — | [baseharbor#1866](https://github.com/mcpdev80/baseharbor/pull/1866) |
 | [t-20261128-hunt48-runtime-pagination-contract](../tasks/t-20261128-hunt48-runtime-pagination-contract.md) | 0428 hunt H-V48: runtime API list endpoints have no pagination contract | active | not set | w356-0428-288-1870hop | — | [baseharbor#1871](https://github.com/mcpdev80/baseharbor/pull/1871) |
 
 ## Ready for review
@@ -81,7 +82,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261124-r28-perses-witness-producer-cli](../tasks/t-20261124-r28-perses-witness-producer-cli.md) | PersesBackendSignalWitness is passed as a zero-value literal at every CLI call site, so the configured verdict is unreachable on every status surface. | blocked | not set | Codex (w118-0428-265) | [t-20261119-r28-perses-status-backend-witness](../tasks/t-20261119-r28-perses-status-backend-witness.md) | — |
 | [t-20261125-hunt33-go-runtime-prereq](../tasks/t-20261125-hunt33-go-runtime-prereq.md) | 0428 hunt H-V33: hunt33-go-runtime-prereq | blocked | not set | — | — | [baseharbor#1863](https://github.com/mcpdev80/baseharbor/pull/1863) |
 | [t-20261125-hunt43-low-severity-pair](../tasks/t-20261125-hunt43-low-severity-pair.md) | 0428 hunt H-V43: hunt43-low-severity-pair | blocked | not set | — | — | [baseharbor#1862](https://github.com/mcpdev80/baseharbor/pull/1862) |
-| [t-20261125-hunt45-exit-code-taxonomy-docs](../tasks/t-20261125-hunt45-exit-code-taxonomy-docs.md) | CLI: document baha exit-code taxonomy and machine coverage check | blocked | not set | w357-0428-321-exitfix5 (migration from stalled w352; d73fdef9 credited to w352 - HOLD recipe already delivered; w357 completes develop-absorption + exact-head CI, sole lane for 321) | — | [baseharbor#1866](https://github.com/mcpdev80/baseharbor/pull/1866) |
 | [t-20261126-hunt46-damaged-state-reserved-namespace](../tasks/t-20261126-hunt46-damaged-state-reserved-namespace.md) | 0428 hunt H-V46: DamagedDeploymentNamespace flags the reserved never-delivered namespace as damaged (low) | blocked | not set | "" (lane w342 idle-PARKED on external map gate; claim released for board truth, RESUME trigger = pr-gate-map landing) | — | [baseharbor#1869](https://github.com/mcpdev80/baseharbor/pull/1869) |
 | [t-20261126-hunt46-never-delivered-proof-leak](../tasks/t-20261126-hunt46-never-delivered-proof-leak.md) | 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) | blocked | not set | "" (lane w341 idle-PARKED on external map gate; claim released for board truth, RESUME trigger = pr-gate-map landing) | — | [baseharbor#1868](https://github.com/mcpdev80/baseharbor/pull/1868) |
 | [t-20261126-hunt46-recovery-backup-volume-heuristic](../tasks/t-20261126-hunt46-recovery-backup-volume-heuristic.md) | 0428 hunt H-V46: recovery/backup volume preservation uses a case-insensitive substring search (medium) | blocked | not set | — | — | [baseharbor#1861](https://github.com/mcpdev80/baseharbor/pull/1861) |
