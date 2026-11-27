@@ -100,3 +100,6 @@ END BLOCKED w267-0428-284-pridentity: PR #183 held at exact head 50eeafac4; both
 
 - First evidence commit identity line, captured before the next commit: `79bb2d0 an=w267-0428-284-pridentity cn=w267-0428-284-pridentity`.
 - Mechanical check for first evidence commit: `git show -s --format=%H%n%an%n%cn HEAD` returned `79bb2d0692fa51d3e066cb059bdef999b22e8ea1`, author `w267-0428-284-pridentity`, committer `w267-0428-284-pridentity`.
+
+- Before publication, Plan `origin/main` advanced from the branch-cut SHA to `f77e9c5ab6bd1e196ba246f92d0c4b20b7f76c70`. This is a normal fast-forward update of Plan main, not a product candidate; I rebased only my two unpublished evidence commits onto that fetched current Plan main. Current-base ancestry and the one-path diff are recorded after rebase below.
+- Current Plan base verification: `git merge-base --is-ancestor origin/main HEAD` exited 0; `git diff origin/main...HEAD --name-only` returned only `evidence/2026-11-27/0428-284/demo183-reviewleads.md`; `git log --oneline origin/main..HEAD` returned only `fd4beaf79 docs: add Plan commit identity witness` and `58424ab57 docs: record independent review of demo PR 183` before this final evidence amendment.
