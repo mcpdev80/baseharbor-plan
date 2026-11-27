@@ -75,3 +75,8 @@ END BLOCKED w267-0428-284-pridentity: #1878 held at b63bea30; unsupported listen
 - Plan `origin/main` advanced to `5725634c07129110bc3d4e8850e4fdc4c02e806e` before evidence publication. I rebased only this unpublished evidence commit in its isolated worktree; the original branch-cut SHA `cb3b1b0d326225441f4927f6f81a7d1398dbe98a` remains its ancestor. Current `git merge-base --is-ancestor origin/main HEAD` succeeded and the branch diff remains this evidence file only.
 - Repeated `python3 scripts/plan.py render && python3 scripts/plan.py check` on current Plan main still reports the same four errors and 10 warnings above. No generated or task files were changed.
 - An earlier rebase invocation from the shared Plan checkout was rejected immediately because that checkout has unstaged changes; it made no working-tree change. The successful one-commit rebase was then run only in this isolated worktree.
+
+## Plan commit identity witnesses
+
+- `git log --format='%h an=%an cn=%cn' origin/main..HEAD` after the first evidence commit returned `5f8edf89a an=w267-0428-284-pridentity cn=w267-0428-284-pridentity`.
+- The current evidence amendment commit was mechanically checked with `git show -s --format=%H%n%an%n%cn HEAD`: `4b51694b252108d2a2fa3c22caa05cb3558a7ebd`, author `w267-0428-284-pridentity`, committer `w267-0428-284-pridentity`.
