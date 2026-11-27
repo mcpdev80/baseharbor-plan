@@ -123,6 +123,15 @@ PRs #172/#174/#175/#176. This file is the card's canonical akte closure.
   candidate does (booked as coordinator's own error, owner 04:24:55Z). The fresh exact-head run is
   the develop-green witness for this merge base.
 
+## Main publication route (owner correction 05:18:05Z)
+- Direct main delivery done: plan main e007c0a4e → `1255f812e` (4-Feld w362, exactly two files:
+  evidence/2026-11-27/0428-249/akte.md + editset-working-record.md; no other file, no views, no card fields).
+- Gegenbeweis: gh api contents on main → akte.md sha 632834de8b…, editset-working-record.md sha
+  9a75f9d77e… (sizes 14535 / 33376).
+- Plan PR #182 left OPEN unchanged with a 'superseded by direct main publication' comment (its diff
+  carried the foreign w219 hop directory from the shared base → w267 HOLD, not evidence-only). No
+  force, no delete. Prior 299 akte route remains plan PR #178.
+
 ## PR #1812 handoff comment
 Posted at https://github.com/mcpdev80/baseharbor/pull/1812#issuecomment-7210342591 with the full
 run ledger and ls-remote witnesses (branch + refs/pull/1812/head = d95e46de9df009055399938bcd8a2f472c1fa32e;
