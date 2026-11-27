@@ -7,6 +7,7 @@ Mission: coordinator/missions/w362-0428-249-1812rebase.txt
 ## PLAN
 1. DONE: Create the numbered plan in all three places (board file todos/w362-0428-249-1812rebase.json;
    todowrite leg (0) skipped — no native todowrite tool is exposed in this session; this ## PLAN list).
+
 2. Fetch card 0428-249 from baseharbor-plan origin/main; record verbatim frontmatter owner, canonical lane
    identity, git -c invocation, pre-push %an gate line (visible ANSATZ block).
 3. Reality check: git ls-remote baseharbor develop + pull/1812/head; BASE ATTESTATION SHAs.
@@ -23,8 +24,14 @@ Mission: coordinator/missions/w362-0428-249-1812rebase.txt
 11. On SUCCESS: PR comment (head SHA + run ID + gate timeline), END. On FAILURE: gh run view --log-failed,
     classify environment vs product-attributable with file:line, STOP+REPORT (no blind retry, no waiver,
     no consent/auth change).
+## AKTE-KORREKTUR (owner 01:5xZ): pull_request run 45915629291 attempt 2 was CANCELLED at 01:12:22Z — BOTH
+## attempts are OUT of the qualification record. Lane parks until the coordinator's landing confirmation of
+## the runner-health hardening (w267/w255); then a fresh full pull_request run AND a separate 14-gate
+## "Release · Pre-Release Validation" run on the then-exact head are required, nothing in between.
+## END_BLOCKED w362-0428-249-1812rebase: parked-until-landing (candidate 05cb3fd95; attempts VOID).
 12. Publish evidence to baseharbor-plan via isolated plan worktree + PR; verify path on origin/main before
     END; docker ps before/after cleanliness witness; END post to coordinator.
+
 
 ## ANSATZ (visible block)
 Card fetched at runtime from baseharbor-plan origin/main: `tasks/t-20261122-runtime-image-registry-artifact-unknown.md`
@@ -238,7 +245,15 @@ effect, NOT b4112772/98e4d549. Gate jobs' "Checkout exact demo revision" step = 
   demo-ref file in-scope by its owner).
 
 ## repo-rule compliance
-(pending)
+- No local test execution (gofmt/vet/build only); tests only via Hosted CI (AGENTS 4.5, CI policy stop 2026-11-26).
+- No `.github/**` edits by this lane; no workflow_dispatch/rerun beyond the coordinator-ordered rerun;
+  no merge; no force-push; single candidate branch (AGENTS 3.8, mission "KEIN Merge").
+- Reality witnesses only via `git ls-remote https://github.com/mcpdev80/baseharbor.git` / gh api; the
+  quarantined workers/baseharbor checkout was used only as the worktree host, never cited as remote truth.
+- No subagents used; evidence only in baseharbor-plan (isolated worktree + PRs #172/#174, no direct main push).
+- Commit/merge identity: canonical `w362-0428-249-1812rebase` on every commit, verified by 4-field log lines
+  before each push (one amend was needed after a rebase committer-id inheritance; corrected before merge).
+
 
 ## HALT-VOR-QUALIFIKATION (owner ruling 01:4xZ) — parked until landing
 - Candidate: head `05cb3fd95bdb390175482f1c08eadb28d9c9863a` on `lane-0428-249-runtime-image-fix` (PR #1812),
@@ -256,8 +271,18 @@ effect, NOT b4112772/98e4d549. Gate jobs' "Checkout exact demo revision" step = 
   The census tables above remain as historical observation only. After the landing confirmation the required
   proof is: a fresh FULL pull_request run + a separate 14-gate Validation run on the then-exact head, nothing
   in between. Lane remains parked until then.
+- END line (this lane): `END_BLOCKED w362-0428-249-1812rebase: parked-until-landing; candidate 05cb3fd95;
+  both 45915629291 attempts VOID (owner 01:5xZ); await landing confirmation, then fresh full pull_request run
+  + separate 14-gate validation run`
 ## cleanliness
 - No VM, no compose project, no container started by this lane on this host.
 - `docker ps -a` (before push, pid 2373084): empty (no rows).
-- `docker ps -a` at END:
-(pending)
+- `docker ps -a` at END (pid see below): empty (no rows).
+
+## Evidence published on origin/main (pre-END proof)
+- akte on main via plan PR #172 (squash merge, "Plan · validate" green), correction via plan PR #174
+  (squash merge, validate green run 45922456806). Current main contains
+  `evidence/r28-welle7-2026-11-27/w362-0428-249-1812rebase/akte.md`:
+  `git -C baseharbor-plan ls-tree -r --name-only origin/main | grep w362-0428-249-1812rebase` →
+  `evidence/r28-welle7-2026-11-27/w362-0428-249-1812rebase/akte.md` (main = a0e233bad at verification).
+
