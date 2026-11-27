@@ -250,8 +250,12 @@ effect, NOT b4112772/98e4d549. Gate jobs' "Checkout exact demo revision" step = 
   pin-mismatch REJECT — "Requested demo revision does not match docs/releases/v0.4.28.demo-ref").
 - Per owner ruling I DO NOT re-push, do NOT hop, and start NO new 14-gate run until the landing confirmation
   (Runner-health hardening via w267/w255). Worktree `workers/baseharbor/worktrees/w362-0428-249-1812hop` is
-  held untouched. Attempt-2 observation duty is complete (run terminal, no kill by me after the ruling).
-- Hosts touched: none (no VM, no compose project started by this lane; `docker ps -a` empty witness below).
+  held untouched.
+- AKTE-KORREKTUR (owner 01:5xZ, applied): attempt 2 of 45915629291 was CANCELLED at 01:12:22Z (pre runner-health
+  rule update) and does NOT count as evidence; BOTH attempts (1 and 2) are OUT of the qualification record.
+  The census tables above remain as historical observation only. After the landing confirmation the required
+  proof is: a fresh FULL pull_request run + a separate 14-gate Validation run on the then-exact head, nothing
+  in between. Lane remains parked until then.
 ## cleanliness
 - No VM, no compose project, no container started by this lane on this host.
 - `docker ps -a` (before push, pid 2373084): empty (no rows).
