@@ -59,6 +59,32 @@ Both `git merge-base --is-ancestor b586c707eae93b2e1fa20d25bb48c4a5ff9c9c11 HEAD
 - views/ready.md
 - views/releases/v0.4.28.md
 
+## Post-merge witness
+
+Primary board reconciliation PR: [#235](https://github.com/mcpdev80/baseharbor-plan/pull/235), merged at `a84725ddcb260fba018c4aa123ecd1ef79e0a507`. The fetched repository `origin/main` at verification was `7a1420d8e1336b09dbd60226cdfdb7f1544808c0`. Exact `git ls-tree -r --name-only origin/main | grep '^evidence/2026-11-27/t-20261116-r28-bug-apply-consent-ux/akte.md$'` output:
+
+```text
+evidence/2026-11-27/t-20261116-r28-bug-apply-consent-ux/akte.md
+```
+
+After merge, `docker ps -a` (PID 1670943) returned the header only; no containers were running. No compose project was started.
+
+## Forward base integration for evidence closeout
+
+Before publishing the evidence closeout, fetched `origin/main` advanced to `b8b4f9b06c5baec42ddad1097b552e62b3151701`. Integrated it into the same candidate branch with merge commit `0298537b464ba9a0c4a4101b5271a71ae73b37bf`; author and committer are both `w255-0428-251-demo170codex`. `git merge-base --is-ancestor origin/main HEAD` succeeded. `git diff origin/main...HEAD --name-only` lists only this evidence file. `git log --oneline origin/main..HEAD` lists only commits authored in this lane (9fa0a4940, e38369c14, 53846b836, e37a01e9f, 0298537b4).
+
+## Current-base integration before final validation
+
+`origin/main` advanced again to `b5dd25df9cefc9b706d47b0fbe6fb71c98b59ad4` while PR #237 remained open. Merged that main into the existing branch under the canonical lane identity as `422165156bee483ef30392c6c6eed6dd5e626bdf` (author and committer verified as `w255-0428-251-demo170codex`). `git merge-base --is-ancestor origin/main HEAD` succeeded, and `git diff origin/main...HEAD --name-only` remains only this evidence path. `plan.py render && plan.py check` returned 0 errors, 10 warnings.
+
+## Final base refresh before PR #237 validation
+
+`origin/main` advanced to `78b2afb6e91ed9f780b8c8d1b7739601e2f67e2a` before the closeout PR was merged. It was integrated into the same branch as merge commit `5dab7eeb658df5817290a86dd4d7227f2785fc90`, with author and committer `w255-0428-251-demo170codex`. The current-base ancestry check succeeded; `git diff origin/main...HEAD --name-only` remains only this evidence path. Local `plan.py render && plan.py check` returned 0 errors, 10 warnings.
+
+## Latest origin/main before PR #237 refresh
+
+Fetched `origin/main` at `f454a30b3ead2ce62d345cbb945722c7ef37ab20` and integrated it into this same branch with merge commit `e06f85701594c3c9bfcd32230d25409ffef086ea` (author/committer both `w255-0428-251-demo170codex`). Ancestry check passed; the current diff from `origin/main` is only this evidence path. `plan.py render && plan.py check` returned 0 errors, 10 warnings.
+
 ## END
 
-Pending PR review, exact-head validation, merge, and final main SHA.
+END w255-0428-251-demo170codex DONE: card 0428-292 reconciliation merged in Plan PR #235 at `a84725ddcb260fba018c4aa123ecd1ef79e0a507`; verified in main `7a1420d8e1336b09dbd60226cdfdb7f1544808c0`.
