@@ -23,15 +23,157 @@ For evidence jobs, the required group shape is `bh-evidence-${{ <verified-head-s
 | `.github/workflows/mcp-lifecycle-acceptance.yml:28-30` | group includes `github.ref` and `inputs.ref || github.ref_name`; cancel `true`; checkout at `:48` and `:91`. | `group: mcp-lifecycle-${{ inputs.ref || github.event.pull_request.head.sha || github.sha }}-${{ github.run_id }}`; `cancel-in-progress: false`; resolve/validate `inputs.ref` to full SHA and assert checkout equality before the gate. |
 | `.github/workflows/nextjs-greenfield-e2e.yml:13-15` | group uses PR number or ref; cancel `true`; candidate checkout input at `:77`. | `group: greenfield-native-${{ inputs.candidate_ref || github.event.pull_request.head.sha || github.sha }}-${{ github.run_id }}`; `cancel-in-progress: false`; assert candidate checkout equality. |
 | `.github/workflows/observability-acceptance.yml:33-35` | group contains `github.ref` and input ref; cancel `true`; Docker and Podman are separate jobs. | Use per-job `group: observability-${{ inputs.ref || github.event.pull_request.head.sha || github.sha }}-${{ matrix.runtime }}-${{ github.run_id }}`; `cancel-in-progress: false`; resolve input to SHA and assert checkout equality. |
-| `.github/workflows/targeted-integration.yml:60-64` | group includes branch ref and `inputs.ref`; cancellation is conditional but true on most refs. Dispatch `ref` is documented as “Git ref or commit SHA” at `:51-55`; `workflow_call` ref is supplied by callers. The workflow-level group runs before job outputs exist, so current resolution cannot make that key trustworthy. | Require `inputs.ref` to be a full commit SHA in evidence mode and fail the resolver before any gate if it is not; assert checked-out `HEAD` equals it. Set `cancel-in-progress: false`; set `group: targeted-integration-${{ inputs.ref || github.sha }}-${{ inputs.gate || 'default' }}-${{ inputs.runtime || 'default' }}-${{ github.run_id }}`; remove `github.ref`. It is non-compliant until the full-SHA guard and checkout assertion land. |
+| `.github/workflows/targeted-integration.yml:51-64` | workflow-level key uses `github.ref` and raw `inputs.ref`; dispatch allows branch/ref input. The resolver output does not exist at workflow-concurrency evaluation time. | Exact resolver/job-level before/after pattern below: use a run-unique non-cancelling workflow group, resolve `inputs.ref || github.sha` to `needs.resolve_candidate.outputs.head_sha`, then key every evidence job by that SHA + gate/runtime + run ID. No raw `inputs.ref` in any concurrency key. |
 | `.github/workflows/pre-release.yml:6-8` | cancel already `false`; group is either a run ID in develop mode or one global static `baseharbor-release-qualification` lock. Candidate SHA is resolved in `source_prepare` (checkout `:50`, checks around `:75-91`). | `group: pre-release-orchestrator-${{ github.run_id }}`; keep `cancel-in-progress: false`. Orchestrator is unique per run; each evidence-producing reusable gate call after resolution must key by `${{ needs.source_prepare.outputs.candidate_sha }}-${{ matrix.runtime }}-${{ matrix.gate }}-${{ github.run_id }}`. Never use branch/tag input as the evidence key. |
-| `.github/workflows/pre-release-runtime-suite.yml:1-8, 661-705` | Reusable Atomic Acceptance Gate; no concurrency block. `inputs.ref`/gate/runtime are available; checkout at `:113`; gate execution at `:303-306`. | Add job-level `concurrency` to `gate`: `group: atomic-${{ inputs.ref }}-${{ inputs.runtime }}-${{ inputs.gate }}-${{ github.run_id }}`; `cancel-in-progress: false`. Require full 40-hex `inputs.ref` and assert checked-out HEAD equality before gate execution. |
+| `.github/workflows/pre-release-runtime-suite.yml:81-126, 661-705` | The existing step validates and checks out raw `inputs.ref` (`:81-115`) and then records `git rev-parse HEAD` (`:122-126`); the gate job has no resolver-job output or SHA-based concurrency. | Exact resolver-job before/after pattern below: add `resolve_candidate` that emits a full 40-hex `head_sha`; make `gate` depend on it, checkout that output, assert `HEAD == head_sha`, and key by output SHA + runtime + gate + run ID. Never use raw `inputs.ref` in the key. |
 | `.github/workflows/targeted-demo-acceptance.yml:48-50` | cancel `false` already; static `baseharbor-release-qualification` lock. Its `resolve` job produces the tested SHA at `:55-62`, so workflow-level concurrency cannot use that output. | `group: targeted-demo-orchestrator-${{ github.run_id }}`; keep cancel `false`. Each downstream evidence job must use `needs.resolve.outputs.ref` + gate/runtime + run ID in its job-level group, after the resolver validates the exact commit. |
 | `.github/workflows/runtime-broker.yml:26-30, 321-325` | Acceptance and performance are separate evidence jobs; no concurrency block; dispatch accepts `inputs.ref` as a Git ref at `:6-20`. | Add job-level groups `broker-${{ inputs.ref }}-acceptance-${{ github.run_id }}` and `broker-${{ inputs.ref }}-performance-${{ github.run_id }}` with `cancel-in-progress: false`; make the evidence input a full SHA and assert checked-out HEAD equals it. |
 | `.github/workflows/runtime-s3-acceptance.yml:4-14` | Workflow-dispatch acceptance; no concurrency block; checkout uses `inputs.ref` at `:17-20`. | Add job-level `group: runtime-s3-${{ inputs.ref || github.sha }}-${{ github.run_id }}` and `cancel-in-progress: false`; require/verify full SHA before executing the acceptance steps. |
 | `.github/workflows/supplemental-release-validation.yml:1-8, 36-39` | Push/dispatch evidence workflow; no concurrency block; checkout uses the event commit. | Add job-level `group: supplemental-validation-${{ github.sha }}-${{ github.run_id }}` and `cancel-in-progress: false`; assert checkout HEAD equals `github.sha`. |
 
-Also retain the already-safe job-level HA groups in `ci.yml:180-182` and `:222-224` (`cancel-in-progress: false`); change their constant group to `ha-${{ github.sha }}-${{ matrix.group }}-${{ matrix.runtime }}-${{ github.run_id }}` so independent evidence does not share one lock. `pre-release.yml:882` and `:934` already use per-gate HA groups but must carry the resolved candidate SHA and unique run ID. `runtime-image.yml` produces release images rather than qualification evidence; `release.yml` publishes; `pages.yml` deploys; `receipt-post-run.yml` writes a receipt; `artifact-gc.yml` and `renovate.yml` are maintenance/automation. Those are excluded from this evidence workflow edit set.
+Also retain the already-safe job-level HA groups in `ci.yml:180-182` and `:222-224` (`cancel-in-progress: false`); change their constant group to `targeted-ha-docker-${{ github.event.pull_request.head.sha || github.sha }}-${{ github.run_id }}` and `targeted-ha-podman-${{ github.event.pull_request.head.sha || github.sha }}-${{ github.run_id }}` respectively. The workflows are currently push-triggered, so `github.sha` is the pushed candidate; the PR-head expression preserves correct identity if PR events are enabled later. `pre-release.yml:882` and `:934` already use per-gate HA groups but must carry the resolved candidate SHA and unique run ID. `runtime-image.yml` produces release images rather than qualification evidence; `release.yml` publishes; `pages.yml` deploys; `receipt-post-run.yml` writes a receipt; `artifact-gc.yml` and `renovate.yml` are maintenance/automation. Those are excluded from this evidence workflow edit set.
+
+### Resolver-job correction requested by independent review (w255, 2026-11-27)
+
+The earlier raw-input group examples are withdrawn for `targeted-integration.yml` and `pre-release-runtime-suite.yml`. Workflow-level concurrency cannot reference `needs` outputs. The orchestration group must therefore be unique per run and non-cancelling; the **gate jobs** use the resolver output. This avoids grouping by a mutable branch name and avoids using an unverified raw input.
+
+#### `targeted-integration.yml:51-64`
+
+Before (current shape):
+
+```yaml
+  ref:
+    description: Git ref or commit SHA to test
+    required: true
+    default: develop
+    type: string
+
+concurrency:
+  group: targeted-integration-${{ github.ref }}-${{ inputs.ref || github.sha }}-${{ inputs.gate || 'default' }}-${{ inputs.runtime || 'default' }}
+  cancel-in-progress: ${{ github.ref_name != 'work/v0.4.24-core-ha-updates' && github.ref_name != 'work/v0.4.25-contract-minimal-core' }}
+```
+
+After (resolver output plus per-evidence-job concurrency):
+
+```yaml
+concurrency:
+  group: targeted-integration-orchestrator-${{ github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  resolve_candidate:
+    runs-on: ubuntu-latest
+    outputs:
+      head_sha: ${{ steps.resolve.outputs.head_sha }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - id: resolve
+        shell: bash
+        env:
+          CANDIDATE_REF: ${{ inputs.ref || github.sha }}
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin "$CANDIDATE_REF"
+          head_sha="$(git rev-parse --verify 'FETCH_HEAD^{commit}')"
+          [[ "$head_sha" =~ ^[0-9a-f]{40}$ ]]
+          echo "head_sha=$head_sha" >> "$GITHUB_OUTPUT"
+
+  <each evidence job>:
+    needs: [resolve_candidate, <existing needs>]
+    concurrency:
+      group: targeted-${{ needs.resolve_candidate.outputs.head_sha }}-<literal gate/runtime identity>-${{ github.run_id }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ needs.resolve_candidate.outputs.head_sha }}
+      - name: Assert exact candidate
+        env:
+          EXPECTED_HEAD_SHA: ${{ needs.resolve_candidate.outputs.head_sha }}
+        run: test "$(git rev-parse HEAD)" = "$EXPECTED_HEAD_SHA"
+```
+
+Apply the resolver dependency, resolved checkout, and job-level group to every evidence-producing job in this workflow, including the `workflow_dispatch`, `workflow_call`, and push gate paths. Retain each job's existing gate/runtime literals or matrix identity in its group. The resolver is the sole place where a branch/ref becomes a commit SHA; a gate cannot start if fetch, resolution, 40-hex validation, or checkout equality fails.
+
+#### `pre-release-runtime-suite.yml:81-126`
+
+Before (current shape):
+
+```yaml
+    - name: Validate candidate ref before checkout
+      env:
+        CANDIDATE_REF: ${{ inputs.ref }}
+      run: <validate branch/tag/ref>
+    - name: Checkout BaseHarbor candidate
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      with:
+        ref: ${{ inputs.ref }}
+    - name: Resolve candidate SHA
+      id: candidate
+      run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+```
+
+After:
+
+```yaml
+jobs:
+  resolve_candidate:
+    runs-on: ubuntu-latest
+    outputs:
+      head_sha: ${{ steps.resolve.outputs.head_sha }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - id: resolve
+        shell: bash
+        env:
+          CANDIDATE_REF: ${{ inputs.ref }}
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin "$CANDIDATE_REF"
+          head_sha="$(git rev-parse --verify 'FETCH_HEAD^{commit}')"
+          [[ "$head_sha" =~ ^[0-9a-f]{40}$ ]]
+          echo "head_sha=$head_sha" >> "$GITHUB_OUTPUT"
+
+  gate:
+    needs: resolve_candidate
+    concurrency:
+      group: atomic-${{ needs.resolve_candidate.outputs.head_sha }}-${{ inputs.runtime }}-${{ inputs.gate }}-${{ github.run_id }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ needs.resolve_candidate.outputs.head_sha }}
+      - name: Assert exact candidate
+        env:
+          EXPECTED_HEAD_SHA: ${{ needs.resolve_candidate.outputs.head_sha }}
+        run: test "$(git rev-parse HEAD)" = "$EXPECTED_HEAD_SHA"
+```
+
+Carry existing `gate` job steps after this checkout/assert sequence, preserving the existing pinned action SHAs and behavior. Change every subsequent candidate reference/manifest field to the resolver output, not raw `inputs.ref`; ensure the resolver job's SHA is the `candidate_sha` written into evidence. For `targeted-integration.yml`, add `resolve_candidate` to every evidence job's existing `needs` (append, do not replace): `compose_isolation_exact`, `registered_otlp_handoff`, `up_dispatch_source`, `application_full_reset`, `core_stop`, `standalone_retirement`, `observability_consumers`, `installation_destroy`, `shared_network`, `coreless_runtime`, `shared_provider_contracts`, `focused`, `app_backup_restore_podman`, `core_bootstrap`, `core_ha_recovery`, `provider_topology`, `application_provider_topology`, `core_provider_versions`, `core_ha_openbao_versions`, `v0421_ha`, `adoption`, `bug_hunt_templates`, `rootless_engine_isolation`, `identity_trust`, `final_bug_acceptance`, `provider_observation`, `external_provider_handoff`, `pr_selected_coreless_lifecycle_shards`, and `pr_selected_coreless_lifecycle`. Each gets its own group literal or current `matrix.gate`/`matrix.runtime` so no gate identity is lost.
+
+#### `ci.yml:180-182` and `:222-224`
+
+Before: both `group: baseharbor-release-qualification`; `cancel-in-progress: false`.
+
+After for Docker and Podman respectively (retain `cancel-in-progress: false`):
+
+```yaml
+group: targeted-ha-docker-${{ github.event.pull_request.head.sha || github.sha }}-${{ github.run_id }}
+```
+
+```yaml
+group: targeted-ha-podman-${{ github.event.pull_request.head.sha || github.sha }}-${{ github.run_id }}
+```
+
+This prevents the two runtime jobs and separate candidate heads from sharing the constant release lock while keeping the candidate identity tied to the PR head SHA when the event has one.
 
 ### Card mapping and #1812 order
 
