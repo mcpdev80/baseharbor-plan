@@ -7,36 +7,37 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: "" (lane w341 idle-PARKED on external map gate; claim released for board truth, RESUME trigger = pr-gate-map landing)
-kanban_status: blocked
-blocker: "STATE: Trusted Plan + PR Selected Checks FAILURE on 57320af6949e (coordinator api-verify 01:3xZ) - pr-gate-map release-label lag persists (same class as 0428-328/#1869); lane w341 parked; pair re-run at owner map landing; #1868 stays OPEN unmerged"
-kanban_lane: blocked
+owner: ""
+kanban_status: planned
+blocker: ""
+kanban_lane: ready
 kanban_summary: "The never-delivered proof at never-delivered/<applicationID>/<environment>.json is created by guided adoption…"
 kanban_title: 0428-326 · consume never-delivered proof
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#1868"]
+prs: ["mcpdev80/baseharbor#1868", "mcpdev80/baseharbor-plan#189"]
 sources: []
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-27/planpr-backlog-disposition.md", "https://github.com/mcpdev80/baseharbor/actions/runs/45884782982"]
 ---
 
-- [ ] t-20261126-hunt46-never-delivered-proof-leak · 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261126-hunt46-never-delivered-proof-leak · 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) #task #release/v0-4-28 #status/planned #view/ready #kind/task
     <!-- generated:card -->
-    **Owner:** "" (lane w341 idle-PARKED on external map gate; claim released for board truth, RESUME trigger = pr-gate-map landing)  
-    **PR:** [baseharbor#1868](https://github.com/mcpdev80/baseharbor/pull/1868)  
-    **Blocker:** STATE: Trusted Plan + PR Selected Checks FAILURE on 57320af6949e (coordinator api-verify 01:3xZ) - pr-gate-map release-label lag persists (same class as 0428-328/\#1869); lane w341 parked; pair re-run at owner map landing; \#1868 stays OPEN…  
+    **Owner:** unassigned  
+    **PR:** [baseharbor#1868](https://github.com/mcpdev80/baseharbor/pull/1868), [baseharbor-plan#189](https://github.com/mcpdev80/baseharbor-plan/pull/189)  
+    **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-27/planpr-backlog-disposition.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45884782982)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** "" (lane w341 idle-PARKED on external map gate; claim released for board truth, RESUME trigger = pr-gate-map landing)  
+**Owner:** unassigned  
 **Priority:** not set  
-**PRs:** [baseharbor#1868](https://github.com/mcpdev80/baseharbor/pull/1868)  
+**PRs:** [baseharbor#1868](https://github.com/mcpdev80/baseharbor/pull/1868), [baseharbor-plan#189](https://github.com/mcpdev80/baseharbor-plan/pull/189)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -74,3 +75,7 @@ The never-delivered proof at `never-delivered/<applicationID>/<environment>.json
 ## Task
 
 Cast from hunt H-V46 (akte evidence/r28-welle6-2026-11-27/bughunt-hv46-state-lifecycle/ on origin/main 62de9bb74, anchor develop 2a141387d; re-verified against develop 384d857b5 at intake). BF-46-2 LIVE. `VerifyNeverDeliveredProof` (internal/deployment/never_delivered_proof.go:72) confirms the never-delivered state before clean retire; on the never-delivered branch of `verifyOwnershipWhenNoDeploymentRecord` (cmd/baha/app_runtime_retirement.go:57-86) the code releases provider registry state and records audit but never calls `deployment.ConsumeNeverDeliveredProof`. `ConsumeNeverDeliveredProof` is only called from `internal/deployment/deployment_store.go:562` (SaveDeploymentRecord) and the test. The proof path (`never_deliveredProofPath`, never_delivered_proof.go:21) is `never-delivered/<applicationID>/<environment>.json`. Consequence: an app initialized but destroyed/downed before delivery leaves a stale one-shot proof; the next adoption with the same identity uses O_EXCL and fails "already exists" — a concrete state-dir race between guided adoption and lifecycle destroy. Fix once in `app_runtime_retirement.go`; the `destroy --all` gate (BF-46-5, 0428-329) is clean by reuse.
+
+## Claim-gap receipt (2026-11-27)
+
+- Plan PR #189 remains OPEN at head a20abbcf29fc486cb12a93afa413d5aec4d3808a. Its Akte records a local prework hop only, with no hosted product run, push, or merge; it reports two uncatalogued cmd/baha sources. This receipt carries that finding and leaves #189 open; it does not claim #1868 is qualified.

@@ -15,18 +15,20 @@ kanban_title: 0428-327 · collectable orphan skip dir
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor-plan#147"]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-27/planpr-backlog-disposition.md"]
 ---
 
 - [ ] t-20261126-hunt46-collectable-orphans-reserved-namespace · 0428 hunt H-V46: CollectableOrphans lists the reserved never-delivered dir as a collectable orphan UUID (medium) #task #release/v0-4-28 #status/planned #view/ready #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
+    **PR:** [baseharbor-plan#147](https://github.com/mcpdev80/baseharbor-plan/pull/147)  
     **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-27/planpr-backlog-disposition.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +37,7 @@ evidence: []
 **Depends on:** none  
 **Owner:** unassigned  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor-plan#147](https://github.com/mcpdev80/baseharbor-plan/pull/147)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -71,3 +73,7 @@ evidence: []
 ## Task
 
 Cast from hunt H-V46 (akte evidence/r28-welle6-2026-11-27/bughunt-hv46-state-lifecycle/ on origin/main 62de9bb74, anchor develop 2a141387d; re-verified against develop 384d857b5 at intake). BF-46-3 LIVE (proven by repro at intake). `CollectableOrphans` iterates `os.ReadDir(root/deployments)` and treats each `IsDir()` child name as a `deploymentID`. The `never-delivered/` directory is a direct child of `deployments/`, so it is enumerated at line 189 (`deploymentID := entry.Name()` => "never-delivered"); current code only avoids listing it by relying on the read of a nonexistent `never-delivered/deployment.json` to bail. If the subtree ever contains a `deployment.json` whose embedded `DeploymentID=="never-delivered"` and `Target==target` (which the current code now admits), the guard attributes the reserved dir as a collectable orphan UUID. Reproduced at intake with a crafted record: `CollectableOrphans` returned the reserved dir. Fix: make `CollectableOrphans` explicitly skip the reserved `never-delivered` subdirectory (matching the reservation the adoption writer creates at `never-delivered/<applicationID>/<environment>.json`, never_deliveredProofPath:21).
+
+## Claim-gap receipt (2026-11-27)
+
+- Plan PR #147 remains OPEN at head 3a560adde4cef48bc8ce3c5a577e65e7dd58905e. Its corrected Akte identifies the reproduced never-delivered record as a collectable orphan and rejects the old “NO PRODUCT LEAK” conclusion. This receipt carries that card-relevant finding; it does not absorb #147’s broad file tree or close the PR. No product PR is linked; the card remains unassigned and planned.

@@ -7,37 +7,37 @@ areas: [ci, testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w362-0428-249-1812rebase
-kanban_status: blocked
-kanban_lane: blocked
+owner: ""
+kanban_status: planned
+kanban_lane: ready
 kanban_summary: ""
 kanban_title: 0428-249 · light-runtime blob unknown
 priority: high
 depends_on: [t-20261124-r28-release-candidate-testonly-binary]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1812, mcpdev80/baseharbor#1837]
+prs: ["mcpdev80/baseharbor#1812", "mcpdev80/baseharbor#1837", "mcpdev80/baseharbor-plan#182"]
 sources: []
-blocker: "STATE: PR #1812 remains OPEN at c2dd3ff04e30c73046b4eeecb56f3cab20e56c92; exact-head pull_request run 45944501306 completed FAILURE. Requalification is blocked pending correction and a new exact-head Hosted run."
+blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-demo/pull/175", "https://github.com/mcpdev80/baseharbor/actions/runs/45944501306"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-27/planpr-backlog-disposition.md", "https://github.com/mcpdev80/baseharbor-demo/pull/175", "https://github.com/mcpdev80/baseharbor/actions/runs/45944501306"]
 ---
 
-- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/testing #kind/bug
+- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/planned #view/ready #area/ci #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** w362-0428-249-1812rebase · **Priority:** high  
-    **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812), [baseharbor#1837](https://github.com/mcpdev80/baseharbor/pull/1837)  
-    **Blocker:** STATE: PR \#1812 remains OPEN at c2dd3ff04e30c73046b4eeecb56f3cab20e56c92; exact-head pull\_request run 45944501306 completed FAILURE. Requalification is blocked pending correction and a new exact-head Hosted run.  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-demo/pull/175), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45944501306)  
+    **Owner:** unassigned · **Priority:** high  
+    **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812), [baseharbor#1837](https://github.com/mcpdev80/baseharbor/pull/1837), [baseharbor-plan#182](https://github.com/mcpdev80/baseharbor-plan/pull/182)  
+    **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-27/planpr-backlog-disposition.md), [proof 2](https://github.com/mcpdev80/baseharbor-demo/pull/175), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45944501306)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261124-r28-release-candidate-testonly-binary](t-20261124-r28-release-candidate-testonly-binary.md)  
-**Owner:** w362-0428-249-1812rebase  
+**Owner:** unassigned  
 **Priority:** high  
-**PRs:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812), [baseharbor#1837](https://github.com/mcpdev80/baseharbor/pull/1837)  
+**PRs:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812), [baseharbor#1837](https://github.com/mcpdev80/baseharbor/pull/1837), [baseharbor-plan#182](https://github.com/mcpdev80/baseharbor-plan/pull/182)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -191,6 +191,10 @@ Rebased onto develop 46d3dccc, exact head 47590207518, one-file diff pre-release
 
 Core fixture handoff (2026-11-24): BaseHarbor PR [#1827](https://github.com/mcpdev80/baseharbor/pull/1827) merged at `adf43709b8b37cd2b18a6bf4710019d7343d54b4` (source `83d7c7afc84740b565ff654562a178361c3522c8`) with two exact-head green Hosted CI runs: [45455276409](https://github.com/mcpdev80/baseharbor/actions/runs/45455276409) and [45460654225](https://github.com/mcpdev80/baseharbor/actions/runs/45460654225). This closes only the Core test-only fixture half; #1812 still needs its own requalification after merge, assigned to w112. Existing #1812 scope and blocker are unchanged.
 
-## W16 status correction
+## W16 status correction (historical state)
 
-This card is reopened in `wait`: PR #1812 remains OPEN and unmerged, so the prior `accepted` closure is not supported by the current exact-head state. Existing evidence bytes and the task ID are unchanged.
+At the time of the W16 correction, this card was reopened in `wait` because PR #1812 remained OPEN and unmerged; the prior `accepted` closure was unsupported. The 2026-11-27 claim-gap receipt below later clears the stale lane owner and sets the unassigned card to `planned`; #1812 and its exact-head failure remain recorded. Existing historical evidence bytes and the task ID are unchanged.
+
+## Claim-gap receipt (2026-11-27)
+
+- Plan PR #182 remains OPEN at head 51bcb2fe8b69cbc64b498eec55b09b5055b09eef. Its 0428-249 Akte blob (632834de8bb76bd64b7da20b468b04146d6c1b70) differs from the same-path current-main blob (28dc747a0e34a89b0bdf5eb2f7628bcd1e8affb7); the PR also contains other unlanded evidence. This receipt records only the current 0428-249 claim and does not assert that #182 is absorbed or close it.
