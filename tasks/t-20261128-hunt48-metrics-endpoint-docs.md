@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w397-0428-342-metricsdocs
+owner: w397-0428-307-idfallback
 kanban_status: review
 kanban_lane: review
 kanban_summary: ""
