@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: "w367-0428-329-1861hop"
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "destroy --all removes every volume in the selected installation's destruction scope, including volumes labeled for recovery or…"
 kanban_title: 0428-329 · tighten recovery/backup match
 priority: ""
@@ -22,14 +22,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261126-hunt46-recovery-backup-volume-heuristic · 0428 hunt H-V46: recovery/backup volume preservation uses a case-insensitive substring search (medium) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261126-hunt46-recovery-backup-volume-heuristic · 0428 hunt H-V46: recovery/backup volume preservation uses a case-insensitive substring search (medium) #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** w367-0428-329-1861hop  
     **PR:** [baseharbor#1861](https://github.com/mcpdev80/baseharbor/pull/1861)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w367-0428-329-1861hop  
