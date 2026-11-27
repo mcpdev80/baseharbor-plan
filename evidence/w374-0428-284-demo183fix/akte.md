@@ -78,6 +78,27 @@
 - worktree `workers/worktrees/w374-0428-284-demo183fix` kept (demo remote added for this push).
 - plan evidence worktree `workers/worktrees/w374-0428-284-demo183fix-plan` will be removed after push.
 
+## Correction round 2 (exact-head review 2026-11-27 04:51Z, verdict CHANGES)
+
+- Finding (file tests/guided/test_consent_capture.py ~line 749): the previous pad
+  `4096 - len(digest_line) + 1` produced only 3963 bytes of prefix for the 134-byte
+  digest line, so the digest sat at offset 3963-4097 - wholly BEFORE the 4096 boundary.
+  The digest was consumed by the normal select() main loop and the exactly-once
+  assertion could pass without exercising the double-append. Byte witness:
+  pad_len=3963, digest_start_offset=3963 (< 4096).
+- Fix (commit 2628f5abe):
+  1. pad_len = 4096 + len(digest_line); digest appended AFTER the prefix (>= 4096 bytes).
+  2. digest_start_offset = pad_len = 4230, asserted >= 4096 (computed, not inferred).
+  3. Digest tail lands in the final-drain branch after process exit.
+  4. Static negative proof documented in-test: removing bytes_read += len(chunk) from
+     the final-drain loop (drive.py line 411) makes bytes_read lag by the digest tail,
+     so reconcile re-appends it -> count(digest) == 2 -> test fails deterministically
+     without that line; passes with it.
+- Byte witness (fixed): pad_len=4230, digest_start_offset=4230 (>= 4096), final_blob_len=4364.
+- Fail-closed consent tests 22/23 unchanged; no product/auth/consent delta.
+- Ancestry: 83c80c917 -> 1dfead199 -> 442d8bb1c -> 00b87bfc3 -> 2628f5abe.
+- New PR #183 head: 2628f5abe7aab1d0c77c946b94b9f12583d352cd (ls-remote + gh agree; OPEN, non-draft).
+
 ## Cleanliness (append 2026-11-27 04:39Z)
 
 - `rm -rf tests/guided/__pycache__` removed the only untracked dir (stasis-import side effect); `git status --short` == empty. No other paths touched; no demo push, no local test run.
