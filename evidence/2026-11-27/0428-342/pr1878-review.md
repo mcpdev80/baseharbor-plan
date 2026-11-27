@@ -111,6 +111,7 @@ The initial candidate `b63bea30aaba0899bf045a7bd0ec98ffcc819bfd` was held for an
 - `git diff --name-only origin/main...HEAD` lists only `evidence/2026-11-27/0428-342/pr1878-review.md`; `git log --format='%h an=%an cn=%cn %s' origin/main..HEAD` lists only this lane's evidence commits and canonical-identity merge commits.
 - Current isolated-worktree `python3 scripts/plan.py render && python3 scripts/plan.py check` reports `784 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 warnings`. `git status --short` showed no generated-file changes; evidence has no markdown checkbox lines.
 - Plan PR #232 is open at old remote head `e200846b49e5b9cda6e8d26fc9d8c8b3efa2efc2`; its only validation, `46008182506`, failed on that old head. This refreshed candidate must be pushed to the existing PR branch and receive its own terminal `Plan · validate` run before any evidence merge.
+- Pre-push identity witness recorded for this refresh: `a1e7dc0cd an=w267-0428-284-pridentity cn=w267-0428-284-pridentity`; mechanically verified by `git show -s --format='%H%n%an%n%cn' HEAD` before publication.
 
 ## END BLOCKED
 
