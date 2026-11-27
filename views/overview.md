@@ -12,13 +12,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | ---: |
 | active | 4 |
 | review | 3 |
-| wait | 27 |
+| wait | 26 |
 | blocked | 11 |
 | ready | 41 |
 | queued | 25 |
 | waiting | 181 |
 | backlog | 7 |
-| closed | 485 |
+| closed | 486 |
 
 ## Active
 
@@ -64,7 +64,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261121-trust-uninstall-false-green](../tasks/t-20261121-trust-uninstall-false-green.md) | trust-uninstall EOF tests are green on the auth gate error | wait | high | coordinator (karte) / erster freier worker-sitz (ausfuehrung) | [t-20261120-cli-operator-entrypoints](../tasks/t-20261120-cli-operator-entrypoints.md) | [baseharbor#1737](https://github.com/mcpdev80/baseharbor/pull/1737) |
 | [t-20261122-impact-consent-after-preview-contract](../tasks/t-20261122-impact-consent-after-preview-contract.md) | Env destroy: impact consent validated after preview is structurally stale (five fixture rounds) | wait | not set | w21-pr1702-0428-142-compat | — | [baseharbor#1627](https://github.com/mcpdev80/baseharbor/pull/1627) |
 | [t-20261122-target-create-operator-auth-decision](../tasks/t-20261122-target-create-operator-auth-decision.md) | target create reaches the managed-operator auth boundary with no local-workload hook; owner decides the consent/auth path | wait | high | Owner / Core | — | — |
-| [t-20261123-planner-deleted-source-advisory](../tasks/t-20261123-planner-deleted-source-advisory.md) | CI: candidate planner mishandles deleted source rows (advisory job red) | wait | not set | "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) | — | — |
 | [t-20261124-0428-279-mcp-contract-app-pull-unexpected](../tasks/t-20261124-0428-279-mcp-contract-app-pull-unexpected.md) | MCP contract drift: app.pull | wait | normal | w80-0428-279-mcpcontract | — | [baseharbor#1826](https://github.com/mcpdev80/baseharbor/pull/1826) |
 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) | CI/catalog: add #1820 source row to develop pr-gate-coverage.json | wait | not set | "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) | — | — |
 | [t-20261125-hunt39-restore-identity-regression](../tasks/t-20261125-hunt39-restore-identity-regression.md) | 0428 hunt H-V39: restore-identity regression test (identity preserved across restore) | wait | not set | "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) | — | — |
@@ -135,7 +134,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 5 open, 165 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 104 open, 252 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 103 open, 253 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 16 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))

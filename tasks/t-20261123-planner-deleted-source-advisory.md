@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)
-kanban_status: wait
-kanban_lane: wait
+owner: ""
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "The candidate-added validation lane treats a DELETED product source with a removed catalog row as resolved-by-deletion, not as…"
 kanban_title: 0428-253 · candidate planner mishandles
 priority: ""
@@ -18,22 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"
-resolution: ""
-evidence: []
+wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply); ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds"
+resolution: superseded
+superseded_by: t-20261123-promql-ci-capture-followup
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1789"]
 ---
 
-- [ ] t-20261123-planner-deleted-source-advisory · CI: candidate planner mishandles deleted source rows (advisory job red) #task #release/v0-4-28 #status/wait #view/wait #kind/task
+- [x] t-20261123-planner-deleted-source-advisory · CI: candidate planner mishandles deleted source rows (advisory job red) #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
-    **Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
-    **Waiting:** lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)  
+    **Owner:** unassigned  
+    **Waiting:** lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply); ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence;…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1789)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** superseded  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
+**Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
