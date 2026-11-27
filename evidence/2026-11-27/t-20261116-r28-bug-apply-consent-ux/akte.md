@@ -59,6 +59,16 @@ Both `git merge-base --is-ancestor b586c707eae93b2e1fa20d25bb48c4a5ff9c9c11 HEAD
 - views/ready.md
 - views/releases/v0.4.28.md
 
+## Post-merge witness
+
+Primary board reconciliation PR: [#235](https://github.com/mcpdev80/baseharbor-plan/pull/235), merged at `a84725ddcb260fba018c4aa123ecd1ef79e0a507`. The fetched repository `origin/main` at verification was `7a1420d8e1336b09dbd60226cdfdb7f1544808c0`. Exact `git ls-tree -r --name-only origin/main | grep '^evidence/2026-11-27/t-20261116-r28-bug-apply-consent-ux/akte.md$'` output:
+
+```text
+evidence/2026-11-27/t-20261116-r28-bug-apply-consent-ux/akte.md
+```
+
+After merge, `docker ps -a` (PID 1670943) returned the header only; no containers were running. No compose project was started.
+
 ## END
 
-Pending PR review, exact-head validation, merge, and final main SHA.
+END w255-0428-251-demo170codex DONE: card 0428-292 reconciliation merged in Plan PR #235 at `a84725ddcb260fba018c4aa123ecd1ef79e0a507`; verified in main `7a1420d8e1336b09dbd60226cdfdb7f1544808c0`.
