@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: [mcpdev80/baseharbor-demo#173, mcpdev80/baseharbor-demo#174, mcpdev80/baseharbor#1856, mcpdev80/baseharbor-demo#183]
 sources: []
-blocker: "Owner-dispatched Hosted run required for PR #183 current head ba14b0eed4ebd747a2eb6bd14af470b910dd541c. Push run 45963172402 completed failure and its API jobs endpoint returned zero jobs; it is not the qualifying owner-dispatched run. Workflow dispatch remains Owner-only."
+blocker: "#183 head dc041ca122d60dfafd09baa882a4872ea4542df0; workflow_dispatch run 45973828049 terminal FAILURE (sole defect test_25 final-drain probe); w392 active round-8."
 wait_reason: ""
 resolution: ""
 evidence:
@@ -34,7 +34,7 @@ evidence:
     <!-- generated:card -->
     **Owner:** w392-0428-284-demo183fix5 · **Priority:** high  
     **PR:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1856](https://github.com/mcpdev80/baseharbor/pull/1856), [baseharbor-demo#183](https://github.com/mcpdev80/baseharbor-demo/pull/183)  
-    **Blocker:** Owner-dispatched Hosted run required for PR \#183 current head ba14b0eed4ebd747a2eb6bd14af470b910dd541c. Push run 45963172402 completed failure and its API jobs endpoint returned zero jobs; it is not the qualifying owner-dispatched run. Wor…  
+    **Blocker:** \#183 head dc041ca122d60dfafd09baa882a4872ea4542df0; workflow\_dispatch run 45973828049 terminal FAILURE (sole defect test\_25 final-drain probe); w392 active round-8.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139), [proof 2](https://github.com/mcpdev80/baseharbor-demo/pull/173), [proof 3](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448531969), [proof 4](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448729972), [proof 5](https://github.com/mcpdev80/baseharbor-demo/pull/174), [proof 6](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45455975242), [proof 7](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45456155783)  
     <!-- /generated:card -->
 
