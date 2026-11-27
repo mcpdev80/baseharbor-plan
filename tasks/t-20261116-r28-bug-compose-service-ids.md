@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: "w360-0428-288-1833fix"
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "docker compose config --services yields vectordb, but baha app init persisted vector-db in workload.components and Runtime API…"
 kanban_title: 0428-288 · Preserve Compose service IDs
 priority: high
@@ -19,18 +19,19 @@ prs: ["mcpdev80/baseharbor#1870", mcpdev80/baseharbor#1833]
 sources: []
 blocker: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1833", "https://github.com/mcpdev80/baseharbor/commit/ea5218d72e263f21e79853b679af50074dab8c25"]
 ---
 
-- [ ] t-20261116-r28-bug-compose-service-ids · Preserve Compose service IDs #task #release/v0-4-28 #status/active #view/active #area/wizard #kind/bug
+- [x] t-20261116-r28-bug-compose-service-ids · Preserve Compose service IDs #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/wizard #kind/bug
     <!-- generated:card -->
     **Owner:** w360-0428-288-1833fix · **Priority:** high  
     **PR:** [baseharbor#1870](https://github.com/mcpdev80/baseharbor/pull/1870), [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
     **Needs:** [t-20261125-0428-284-1812-postretry-gate-failure](t-20261125-0428-284-1812-postretry-gate-failure.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1833), [proof 2](https://github.com/mcpdev80/baseharbor/commit/ea5218d72e263f21e79853b679af50074dab8c25)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** checked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261125-0428-284-1812-postretry-gate-failure](t-20261125-0428-284-1812-postretry-gate-failure.md)  
 **Owner:** w360-0428-288-1833fix  
