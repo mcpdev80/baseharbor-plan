@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: "w356-0428-344-1871requal"
+owner: "w356-0428-288-1870hop"
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261128-hunt48-runtime-pagination-contract · 0428 hunt H-V48: runtime API list endpoints have no pagination contract #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w356-0428-344-1871requal  
+    **Owner:** w356-0428-288-1870hop  
     **PR:** [baseharbor#1871](https://github.com/mcpdev80/baseharbor/pull/1871)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w356-0428-344-1871requal  
+**Owner:** w356-0428-288-1870hop  
 **Priority:** not set  
 **PRs:** [baseharbor#1871](https://github.com/mcpdev80/baseharbor/pull/1871)  
 **Source:** 
