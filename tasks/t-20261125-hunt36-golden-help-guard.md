@@ -15,7 +15,7 @@ kanban_title: 0428-306 · add golden --help snapshot CI
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1874"]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,6 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/pull/220"]
 - [ ] t-20261125-hunt36-golden-help-guard · 0428 hunt H-V36: add golden --help snapshot CI guard for config/flag surface #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** w396-0428-306-goldenhelp  
+    **PR:** [baseharbor#1874](https://github.com/mcpdev80/baseharbor/pull/1874)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/pull/220)  
     <!-- /generated:card -->
 
@@ -35,7 +36,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/pull/220"]
 **Depends on:** none  
 **Owner:** w396-0428-306-goldenhelp  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1874](https://github.com/mcpdev80/baseharbor/pull/1874)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -74,6 +75,8 @@ One or two sentences: the observable outcome.
 - Shared files: coordinate through the owning task.
 
 ## Handoff
+
+- 2026-11-27 (w396): Product PR https://github.com/mcpdev80/baseharbor/pull/1874 OPEN at exact head `60d4d4906c686aa867f1c8d5f3d910ddba769999` (branch `lane-0428-306-golden-help-guard`, base develop `ea5218d72e`). Hosted CI runs observed: 45983604940 (cancelled by the draft→ready toggle), 45983691443 and 45987934493 both fail at `PR · Trusted Plan` with the base-catalog abort — `scripts/pr-gate-coverage.json` is loaded from the base/controller, so candidate-only catalog rows for the brand-new guard files cannot resolve fail-loud (`uncataloged source change ... cmd/baha/help_golden_guard_test.go`). Evidence: evidence/2026-11-27/0428-306/akte.md.
 
 - Current state, branch, PR and evidence links. Newest first.
 
