@@ -15,19 +15,18 @@ kanban_title: 0428-306 · add golden --help snapshot CI
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1874]
+prs: ["mcpdev80/baseharbor#1874"]
 sources: []
-blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/pull/220", "https://github.com/mcpdev80/baseharbor/actions/runs/45987934493"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/pull/220", "https://github.com/mcpdev80/baseharbor/actions/runs/45993109149", "https://github.com/mcpdev80/baseharbor/actions/runs/45994654068"]
 ---
 
 - [ ] t-20261125-hunt36-golden-help-guard · 0428 hunt H-V36: add golden --help snapshot CI guard for config/flag surface #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** w396-0428-306-goldenhelp  
     **PR:** [baseharbor#1874](https://github.com/mcpdev80/baseharbor/pull/1874)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/pull/220), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45987934493)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/pull/220), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45993109149), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45994654068)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -75,6 +74,9 @@ One or two sentences: the observable outcome.
 - Shared files: coordinate through the owning task.
 
 ## Handoff
+
+- 2026-11-27T11:55Z (w396): Product PR https://github.com/mcpdev80/baseharbor/pull/1874 OPEN at exact head `b143395545bd2c5c4bd637ad476a5c4cc78630a4` (branch `lane-0428-306-golden-help-guard`, base develop `ea5218d72e`). Two executed Hosted CI runs on THIS head, both observed to terminal state by this lane: **45993109149** (push event) and **45994654068** (close/reopen pairing event; rerun justified — a base-catalog landing cannot be produced by this lane, `.github`/catalog route is Owner/CI-owner scope). Both abort identically at `PR · Trusted Plan` (jobs 140485661455 / 140490905899): develop's `scripts/pr-gate-coverage.json` lacks rows for the four brand-new guard files and the trusted planner fail-louds on uncataloged candidate sources (`validate-pr-gate-coverage.py::unresolved_source_error` via `pr-gate-plan.py`). Superseded history: 45983604940 (VOID, cancelled), 45983691443/45987934493 (old head 60d4d4906c). Card STATE: BLOCKED-BASE-CATALOG. Evidence: evidence/2026-11-27/0428-306/akte.md.
+- 2026-11-27 (earlier w396 line, superseded by the head-corrected citation above): PR #1874 at former head 60d4d4906c, same `PR · Trusted Plan` base-catalog abort; kept as history.
 
 - Current state, branch, PR and evidence links. Newest first.
 
