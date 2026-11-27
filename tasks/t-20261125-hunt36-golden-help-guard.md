@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: "w396-0428-306-goldenhelp"
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-306 · add golden --help snapshot CI
 priority: ""
@@ -17,20 +17,23 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1874"]
 sources: []
-wait_reason: ""
+wait_reason: "isolated per owner-check 2026-11-27: exact-head runs fail only on develop-catalog ordering (owner freeze-lift + scripts/pr-gate-map-v1.json release label). carriers: 306=#1874 at b14339554 (runs 45993109149/45994654068), 307=#1877 at 013fdfb82c (run 45998693008). resume trigger: fan-in #1861/#1862/#1863 merged to develop."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/pull/220", "https://github.com/mcpdev80/baseharbor/actions/runs/45993109149", "https://github.com/mcpdev80/baseharbor/actions/runs/45994654068"]
+blocker: ""
+
 ---
 
-- [ ] t-20261125-hunt36-golden-help-guard · 0428 hunt H-V36: add golden --help snapshot CI guard for config/flag surface #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261125-hunt36-golden-help-guard · 0428 hunt H-V36: add golden --help snapshot CI guard for config/flag surface #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** w396-0428-306-goldenhelp  
     **PR:** [baseharbor#1874](https://github.com/mcpdev80/baseharbor/pull/1874)  
+    **Waiting:** isolated per owner-check 2026-11-27: exact-head runs fail only on develop-catalog ordering (owner freeze-lift + scripts/pr-gate-map-v1.json release label). carriers: 306=\#1874 at b14339554 (runs 45993109149/45994654068), 307=\#1877 at 013fd…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/pull/220), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45993109149), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45994654068)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w396-0428-306-goldenhelp  
