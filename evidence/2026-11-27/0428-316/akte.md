@@ -61,3 +61,19 @@ H-V43 akte (w331) recorded three findings. FUND-A is the disk leak the card name
 ## END
 
 (to be appended: END_DONE / END_BLOCKED w396-0428-306-goldenhelp: <one line + candidate SHA>)
+
+## Runtime semantics witnesses (local probes, non-qualifying)
+
+- `podman create --env-file` with `KEY=${VAR}`: the container receives the raw reference text, with or without the ambient variable set in the process environment (probes 2026-11-27, containers removed immediately).
+- systemd `EnvironmentFile=` (systemd 259, user instance via `systemd-run --user`): `VAR_REF=${W396_SYSTEMD_AMBIENT}` with `Environment=W396_SYSTEMD_AMBIENT=resolved-by-systemd` yielded `VAR_REF=[${W396_SYSTEMD_AMBIENT}]` → systemd does NOT substitute `${VAR}` inside env files.
+- Consequence: a reference must never reach the container THROUGH the env file. The fix therefore keeps ambient-sourced entries entirely OUT of the on-disk file and projects them on the unit instead (valueless `Environment=KEY`, which podman resolves from the unit process environment — the same host-environment semantics compose uses).
+- Scratch cleanup: all probe containers/networks/dirs removed; `podman ps -a`/`network ls` show no w396 leftovers; `~/.config/containers/systemd` and `~/.config/systemd/user` hold no w396 files.
+
+## Final design (replaces the interim notes above)
+
+1. `quadletLoadComposeModel` expands against the full compose map, runs the two-stage **environment restore walk** (`quadletRestoreEnvironmentEntries` + `matchingChildValue`) so every service-environment scalar the AMBIENT stage alone resolved returns to its `${NAME}` reference (or `:-` fallback text) in the rendered document; `project` = envFile + managed names so declared names stay resolved.
+2. A quadlet-only `quadletComposeEnv` decoder (consumer boundary) resolves ambient references for one-off consumers (`quadletExpandAmbientOnlyReferences`); the shared `composeEnv` (JSON surface) stays original.
+3. `quadletRenderServiceEnvironment` keeps whole-value ambient entries out of the `.env` file and records them in `QuadletProject.AmbientEnvironment`; the unit emits valueless `Environment="KEY"` lines.
+4. Mixed text (`prefix-${SECRET}`) keeps the established file projection (accepted limitation; the H-V43 FUND-A shape is the bare reference form).
+5. `cloneQuadletYAMLNode` deep-copies `Content` (fixes latent aliasing).
+
