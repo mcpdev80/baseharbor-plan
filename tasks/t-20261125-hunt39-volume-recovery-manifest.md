@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: blocked
-kanban_lane: blocked
+owner: "w365-0428-312-1860hop"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-312 · assert recovery-manifest
 priority: ""
@@ -17,24 +17,22 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1860"]
 sources: []
-blocker: "blocked-BASELINE as STATE: family catalog PR #1860 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded"
-wait_reason: ""
+blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt39-volume-recovery-manifest · 0428 hunt H-V39: assert recovery-manifest coverage for workload volumes #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261125-hunt39-volume-recovery-manifest · 0428 hunt H-V39: assert recovery-manifest coverage for workload volumes #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
+    **Owner:** w365-0428-312-1860hop  
     **PR:** [baseharbor#1860](https://github.com/mcpdev80/baseharbor/pull/1860)  
-    **Blocker:** blocked-BASELINE as STATE: family catalog PR \#1860 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w365-0428-312-1860hop  
 **Priority:** not set  
 **PRs:** [baseharbor#1860](https://github.com/mcpdev80/baseharbor/pull/1860)  
 **Source:** 
