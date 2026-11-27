@@ -8,7 +8,7 @@
 ## PLAN
 
 1. Mission und AGENTS lesen; Plan-Repo-Identitaet via `git remote -v` attestieren; isoliertes plan-worktree `workers/w383-0428-275-136rows-plan` aus `origin/main` anlegen; diese Akte mit ## PLAN erstellen.
-2. (a) Vorarbeits-Akten der Familie auf plan main lesen (w376/w377/w378/w379/w380/w381); fehlende Akten MELDEN, nicht erfinden.
+2. (a) Vorarbeits-Akten der Familie auf plan main (w376/w377/w378/w379/w380/w381); fehlende Akten gemeldet (Abschnitt (a)).
 3. (b) Geforderte Quellen zusammenstellen (namentlich + datei:zeile) aus den Akten und den PR-Diffs gegen develop.
 4. (c) Vergleich mit dem, was #136 auf seinem head liefert (gh api + `git diff origin/main...origin/pr-136`); develop-`scripts/pr-gate-coverage.json` vs Kandidaten-heads; Klassifikation (i)/(ii)/(iii).
 5. (d) Schluessel pruefen, den das Gate erwartet: baseharbor `scripts/pr-gate-plan.py:1952` ValueError + `scripts/validate-pr-gate-coverage.py` (nur festhalten).
@@ -37,8 +37,8 @@
 - PRESENT: `evidence/w376-0428-273-1819pre/akte.md`, `evidence/w377-0428-329-1861pre/akte.md` (Kommit 87a574948), `evidence/w380-0428-312-1860pre/akte.md`.
 - GEMELDET (nicht erfunden), Mission nannte falsche Pfade:
   - w378-0428-299-1863pre: die Akte existiert, aber auf einem ANDEREN Pfad und UNCOMMITTED im geteilten Plan-Checkout: `baseharbor-plan/evidence/2026-11-27/0428-299/w378-0428-299-1863pre.md` (`git status --porcelain` => `?? evidence/2026-11-27/`). NICHT auf origin/main. Inhalt gelesen (siehe (b)); Publishing steht aus.
-  - w379-0428-318-1862pre: ebenso uncommitted: `baseharbor-plan/evidence/w379-0428-318-1862pre/akte.md` (`??`), NICHT auf origin/main. Inhalt gelesen.
-  - w381-0428-328-1869pre: Akte FEHLT vollständig — kein Pfad auf main, kein uncommitted Fund im geteilten Checkout. Deren todos-Board (`workers/todos/w381-0428-328-1869pre.json`) zeigt Schritte (d) und (e) als noch nicht done: die Lane ist unvollendet. Die Mission selbst fuehrt #1869 auch nicht in der Familien-Quelleliste (b); sie ist eine ANDERE Fehlerklasse (`pr-gate-map-v1.json` release-label laut ihrer mission (d)), nicht Teil der #136-Zeilen.
+  - w379-0428-318-1862pre: die Akte war bei Schichtbeginn uncommitted im geteilten Checkout (`?? evidence/w379-0428-318-1862pre/`); INZWISCHEN von Lane w379 selbst auf main publischt (main-Kommit `9757bb969`). Inhalt identisch zur hier gelesenen Fassung; Fundstellen (b)(5) gelten. Damit sind beide Familien-Akten (w378 und w379) analysierbar; die w378-Akte bleibt uncommitted im geteilten Checkout und ist dort NICHT angefasst worden.
+  - w381-0428-328-1869pre: bei meinem Scan FEHLTE die Akte vollständig (kein Pfad auf main, kein uncommitted Fund). INZWISCHEN publiziert (main `e5a87f25e`, author `w381-0428-328-1869pre`) — aber in der WRONG ZONE: Pfad `w381-0428-328-1869pre-plan/evidence/w381-0428-328-1869pre/akte.md` statt `evidence/w381-0428-328-1869pre/akte.md`. Befund an den Coordinator: umziehen (content-identisch, nur Pfad). Inhalt fuer (c) ausgewertet; #1869 ist eine ANDERE Fehlerklasse (release-label `pr-gate-map-v1.json`, Owner-Freigabe laut ihrer Akte :13,:101,:111), kein Zeilenbedarfler fuer #136.
 
 ## (b) Geforderte Quellen (namentlich + Fundstelle)
 
@@ -91,7 +91,17 @@ Die Mission nennt "Karte 0428-359 existiert nicht als Karte": korrekt auf origin
 
 - Keine Container/compose gestartet (pure Analyse; `docker ps -a` nicht einschlägig — keine docker-Kommandos dieser Lane).
 - Kein Push an baseharbor; kein hosted run; kein Merge; keine `.github/**`-, keine Kartenfeld- oder View-Editen; nur read-only fetches in den geteilten baseharbor-Checkout (lokale bookkeeping-refs `refs/lane/1860` und `refs/cand/*`; kein Remote wurde dadurch veraendert) und dieses isolierte plan-worktree.
-- Fremd-Worktrees unangetastet; zwei unkommentierte Familienakten (w378/w379) wurden NUR gelesen, nicht veraendert.
+- Fremd-Worktrees unangetastet; die Fremd-Akten (w378 uncommitted im geteilten Checkout, w379/w381 auf main) wurden NUR gelesen, nicht veraendert.
+- Fremder Content auf meinem Kandidaten: mein Transport-Merge von main `e4b0735bd` brachte den (auf main ja vorhandenen) Pfad `w381-0428-328-1869pre-plan/evidence/w381-0428-328-1869pre/akte.md` in meinen Branch; Kommit `ef74806` loescht ihn in meinem Branch, sodass sein einziger Diff gegen main (i) die w381-Zone-Bereinigung und (ii) diese Akten-Zeilen sind. Die korrigierte Position `evidence/w381-0428-328-1869pre/akte.md` wird von main unveraendert uebernommen.
+- MAIN-REWIND-BEFUND an den Coordinator (wichtige Wahrheit, nicht von dieser Lane verursacht): main wurde zweimal zurueckgesetzt. (i) Mein Squash-Merge von PR #190 landete zuerst auf `e5a87f25e` (parent 9757bb969, enthielt die w381-Akte); eine fremde force-push (`forced-update`, reflog origin/main@{0..1}) ersetzte es durch `b43d5b83b` (parent ef0bcfbcf) und LOESCHTE damit die w381- und w379-Akten von main; danach kehrte 9757bb969 (w379) zurueck und w381 wurde erneut als `e4b0735bd` gepusht — diesmal in die WRONG ZONE (Pfad Praefix `w381-0428-328-1869pre-plan/`). Beide Akten sind jetzt wieder auf main; der w381-Pfad muss bereinigt werden. Zeugen: `git -C baseharbor-plan reflog origin/main` (fetch entries: e4b0735bd forced-update, e5a87f25e fast-forward, 9757bb969 storing head) und `git ls-remote ... refs/heads/main` = e4b0735bd. Diese Lane hat KEINEN force-push und KEIN rewind durchgefuehrt.
+
+## Publishing-Kette (evidence-only, niemals direct-main)
+
+- Plan worktree-Branch `lane-w383-0428-275-136rows` ab origin/main `9b05cb986`; own commit `6af97e2dce1cd84ea1f198f02fc8d517a83360e7` (author=committer `w383-0428-275-136rows`, gate `git show -s --format=%an HEAD` => exakt dieser Name, vor Push geprueft); `git log --oneline origin/main..HEAD` listet NUR diesen einen Commit (der zweite, `12b1fed40`, ist der witness-Block unten, nach dem Merge); Ancestry `git merge-base --is-ancestor origin/main HEAD` => OK.
+- Delta gegen main: genau eine Datei `evidence/w383-0428-275-136rows/akte.md` (`git diff origin/main...HEAD --name-only`-Witness im Terminal-Block unten).
+- Plan PR #190 (base main, head `6af97e2dc`): `Plan · validate` run `45950915899` SUCCESS auf exakt diesem head (https://github.com/mcpdev80/baseharbor-plan/actions/runs/45950915899/job/140346309513); admin-squash-merge => main `b43d5b83bb7ccbd3b9f5a299d381f6209274a53c`, mergedAt 2026-11-27T06:18:28Z.
+- Terminal origin/main witness (`git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep w383-0428-275-136rows`) => `evidence/w383-0428-275-136rows/akte.md` (Ausgabe nach dem Merge, main-Spitze `b43d5b83b`).
+- follow-up: Commit `ea767ec20` (author=committer `w383-0428-275-136rows`) auf main-Spitze `9757bb969` (deren eigener Inhalt: die w379-Akte, parallel von Lane w379 auf main publischt) ergaenzt nur diesen witness-Block in dieser Akten-Datei; Delta gegen main = exakt diese eine Datei (`git diff origin/main...HEAD --name-only`: evidence/w383-0428-275-136rows/akte.md). PR #190 selbst ist MERGED (head dort `6af97e2dc`, `Plan · validate` run `45950915899` SUCCESS auf genau diesem head; squash-main-Kommit `b43d5b83b` traegt die GitHub-Login-Autorschaft des Admins, wie bei allen plan-Squash-Merges). Dieser follow-up erhaelt seine eigene PR-Nummer im naechsten Publishing-Schritt.
 
 ## 4-Feld
 
@@ -100,4 +110,10 @@ Die Mission nennt "Karte 0428-359 existiert nicht als Karte": korrekt auf origin
 - Repo/PR: baseharbor-plan #136 @ head `c4e4400174dc3fe5c04082c7c85483db9b82543f`; Produktzaehlen gegen develop `ea5218d72`
 - Status: END_DONE (Gap-Liste fertig, alle Fundstellen belegt, fehlende Akten gemeldet)
 
-END_DONE w383-0428-275-136rows: #136 liefert nul Zeilen (plan-only), 8 geforderte Quellen fehlen auf develop, 2 davon falsch kandidatenseitig gefuehrt (#1860 :2720, #1863 :2536), 1 Mission-Anforderung (permission_scope) ist develop-seitig schon present ohne runtime_specific; w381-Akte fehlt, w378/w379-Akten uncommitted.
+END_DONE w383-0428-275-136rows: #136 liefert nul Zeilen (plan-only), 8 geforderte Quellen fehlen auf develop, 2 falsch kandidatenseitig gefuehrt (#1860 :2720, #1863 :2536), permission_scope bereits auf develop ohne runtime_specific; w378-Akte uncommitted, w379- und w381-Akten inzwischen auf main (w381 in wrong zone unter `w381-...-plan/`).
+
+## Terminal witness (final publishing step, appended after PR #191 creation)
+
+- Follow-up plan PR #191 ab main `c3f4f33ac`, chain-Kommits `67c5ace72`..`58d5aa72b` (alle author=committer `w383-0428-275-136rows`; `git log --format='%an' origin/main..HEAD | sort -u` => genau dieser Name; Ancestry `git merge-base --is-ancestor origin/main HEAD` => OK; Delta gegen main = nur diese Akte + die w381-Zone-Bereinigung `0/127`).
+- `Plan · validate` run `45952221045` (event pull_request, headSha `58d5aa72b1ebf47730fa9af5ab27f0af36f3e7da`, completed, conclusion SUCCESS) — https://github.com/mcpdev80/baseharbor-plan/actions/runs/45952221045.
+- Admin-squash-merge in diesem selben Schritt; die zweite Zeile dieses Blocks nach dem Merge:
