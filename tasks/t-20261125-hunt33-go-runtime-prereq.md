@@ -15,7 +15,7 @@ kanban_title: 0428-299 · hunt33-go-runtime-prereq
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1863"]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,6 +26,7 @@ evidence: []
 - [ ] t-20261125-hunt33-go-runtime-prereq · 0428 hunt H-V33: hunt33-go-runtime-prereq #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** w336-0428-299-goprereq  
+    **PR:** [baseharbor#1863](https://github.com/mcpdev80/baseharbor/pull/1863)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -34,7 +35,7 @@ evidence: []
 **Depends on:** none  
 **Owner:** w336-0428-299-goprereq  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1863](https://github.com/mcpdev80/baseharbor/pull/1863)  
 **Source:** 
 <!-- /generated:links -->
 

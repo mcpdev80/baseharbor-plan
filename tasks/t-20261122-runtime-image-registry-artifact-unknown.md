@@ -7,9 +7,9 @@ areas: [ci, testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w170-0428-249-demo-pr175-fixup
-kanban_status: wait
-kanban_lane: wait
+owner: "w362-0428-249-1812rebase"
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: ""
 kanban_title: 0428-249 · light-runtime blob unknown
 priority: high
@@ -17,25 +17,24 @@ depends_on: [t-20261124-r28-release-candidate-testonly-binary]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812, mcpdev80/baseharbor#1837]
 sources: []
-blocker: ""
-wait_reason: "Reopened per W16: #1812 is still OPEN at 0922888af8fd70be4049cec529c69aebc057a356; re-evaluate this card after its exact-head work is complete."
+blocker: "parked-until-landing: workflow hardening edit-set (owner runner-health decisions 1-3) awaits w267 publication + w255 independent ACCEPT; lane w362 reserved for the exact edit-set implementation (existing card, no new card). Both 45915629291 attempts excluded as non-evidence (attempt2 cancelled 01:12:22Z pre-ruling). Qualification runs (fresh PR run + 14-gate validation on refreshed head) only after fix lands"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-demo/pull/175"]
 ---
 
-- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/testing #kind/bug
+- [ ] t-20261122-runtime-image-registry-artifact-unknown · Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** w170-0428-249-demo-pr175-fixup · **Priority:** high  
+    **Owner:** w362-0428-249-1812rebase · **Priority:** high  
     **PR:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812), [baseharbor#1837](https://github.com/mcpdev80/baseharbor/pull/1837)  
-    **Waiting:** Reopened per W16: \#1812 is still OPEN at 0922888af8fd70be4049cec529c69aebc057a356; re-evaluate this card after its exact-head work is complete.  
+    **Blocker:** parked-until-landing: workflow hardening edit-set (owner runner-health decisions 1-3) awaits w267 publication + w255 independent ACCEPT; lane w362 reserved for the exact edit-set implementation (existing card, no new card). Both 4591562929…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-demo/pull/175)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261124-r28-release-candidate-testonly-binary](t-20261124-r28-release-candidate-testonly-binary.md)  
-**Owner:** w170-0428-249-demo-pr175-fixup  
+**Owner:** w362-0428-249-1812rebase  
 **Priority:** high  
 **PRs:** [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812), [baseharbor#1837](https://github.com/mcpdev80/baseharbor/pull/1837)  
 **Source:** 
@@ -119,7 +118,6 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1812]
 sources: []
 blocker: "ROOT CAUSE NOT YET DETERMINED (run 45432650561 head 9140b2cb still active: 7 fail / 5 pass / 2 running). >=3 distinct failure signatures, NOT one consent cause: (1) Docker policy job 138587494655 = consent refusal (--confirm-candidate) AND operator-auth 'not a terminal'; (2) Podman connectivity job 138587494809 = digest retry issued + guided-up-consented reached READY + repo workload ready, then EMPTY Acceptance group header + demo-connectivity FAIL with NO concrete assertion (possibly a distinct harness/acceptance bug, not consent); that job also logs ci-operator-testonly managed-local-gate decisions for up with and without --confirm-candidate. Classification HELD until all 14 Light jobs reach terminal + artifacts/logs inspected. Merge held; #1819/#1820 parked. develop f14fb87c8."
-wait_reason: ""
 resolution: ""
 evidence: []
 ---
@@ -194,3 +192,42 @@ Core fixture handoff (2026-11-24): BaseHarbor PR [#1827](https://github.com/mcpd
 ## W16 status correction
 
 This card is reopened in `wait`: PR #1812 remains OPEN and unmerged, so the prior `accepted` closure is not supported by the current exact-head state. Existing evidence bytes and the task ID are unchanged.
+
+## Owner disposition — qualification evidence workflow integrity (2026-11-27)
+
+This is an existing-card disposition for 0428-249, because the decisions below are prerequisites for a trustworthy #1812 qualification. Implementation is by the worker lane on 0428-249, Owner-authorized; `.github` changes are limited exactly to this edit set. This is the named-card exception in coordinator/RUNBOOK.md §4.0, line 251. The Owner's global scope covers every evidence-producing qualification, gate, and acceptance workflow, including the `PR Selected Checks` graph in `ci.yml`.
+
+### Decisions
+
+1. Evidence-producing runs must not be cancelled by a newer event. Set `cancel-in-progress: false` for all qualifying workflows below. A cancelled run cannot be cited as completed qualification evidence.
+2. Concurrency identity must include the immutable, verified candidate commit SHA, never the branch/ref name. Include gate/runtime identity and `github.run_id` so independent jobs and distinct evidence events do not evict each other. For an input such as `inputs.ref`, resolve it to a full 40-hex commit before a gate is admitted, assert the checkout's `git rev-parse HEAD` equals that SHA, and use that verified SHA in the gate-level group. Workflow-level expressions cannot read a later job's output: an orchestrator whose input may be a branch/tag must use a unique non-cancelling run group, while each evidence job uses the resolved SHA. A branch-shaped input must not be treated as a verified SHA.
+3. A single long Podman job is not independent evidence when it bundles unrelated acceptance assertions. Split the Podman `single_default_native` job into independently named/checkable jobs for (a) single-default SQL/Secrets, (b) Node HTTPS enrollment/remote CLI, (c) install destroy/interrupted retry, and (d) pinned-workload lifecycle/backup. Each job must check out and attest the same immutable candidate SHA, run its own required setup/cleanup, and fail independently. `podman-acceptance.yml:106-175` currently bundles all four; the separate `keycloak_single_native` job at `:62-104` is already distinct and must remain distinct. The configured timeout of `keycloak_single_native` is 22 minutes and `single_default_native` is 65 minutes; the source does not establish an observed 24-minute duration. The required structural correction is the four-way split of the bundled evidence regardless of wall time.
+
+### Exact workflow edit set (current `origin/develop` witnesses)
+
+For evidence jobs, the required group shape is `bh-evidence-${{ <verified-head-sha> }}-${{ <gate/runtime-id> }}-${{ github.run_id }}`; use the actual gate/runtime expression available at that workflow/job. Keep independent matrix jobs separate by gate/runtime. Where a workflow has no current concurrency block, add a **job-level** block after immutable SHA resolution; do not create a static workflow-wide lock.
+
+| Workflow and current lines | Current state | Required edit |
+| --- | --- | --- |
+| `.github/workflows/ci.yml:24-26` | `ci-${{ github.ref }}`; cancel `true`. The same run contains `PR Selected Checks` (`:1552-1577`) and selected jobs. | `group: ci-${{ github.event.pull_request.head.sha || github.sha }}-${{ github.run_id }}`; `cancel-in-progress: false`. Keep the aggregator and selected evidence jobs in the same non-cancelling candidate run. |
+| `.github/workflows/docker-runtime-acceptance.yml:24-26` | workflow/ref group; cancel `true`; `inputs.ref` is checked out at `:189`. | `group: docker-${{ inputs.ref || github.event.pull_request.head.sha || github.sha }}-${{ github.run_id }}`; `cancel-in-progress: false`; reject non-SHA evidence inputs and assert checkout SHA. |
+| `.github/workflows/podman-acceptance.yml:23-25` | workflow/ref group; cancel `true`; `inputs.ref` checked out at `:191`. | `group: podman-${{ inputs.ref || github.event.pull_request.head.sha || github.sha }}-${{ github.run_id }}`; `cancel-in-progress: false`; require and verify exact SHA. Split `single_default_native` as Decision 3. |
+| `.github/workflows/host-trust-owned-e2e.yml:23-25` | group uses PR number or `github.ref`; cancel `true`. | `group: host-trust-owned-${{ github.event.pull_request.head.sha || github.sha }}-${{ github.run_id }}`; `cancel-in-progress: false`. |
+| `.github/workflows/mcp-lifecycle-acceptance.yml:28-30` | group includes `github.ref` and `inputs.ref || github.ref_name`; cancel `true`; checkout at `:48` and `:91`. | `group: mcp-lifecycle-${{ inputs.ref || github.event.pull_request.head.sha || github.sha }}-${{ github.run_id }}`; `cancel-in-progress: false`; resolve/validate `inputs.ref` to full SHA and assert checkout equality before the gate. |
+| `.github/workflows/nextjs-greenfield-e2e.yml:13-15` | group uses PR number or ref; cancel `true`; candidate checkout input at `:77`. | `group: greenfield-native-${{ inputs.candidate_ref || github.event.pull_request.head.sha || github.sha }}-${{ github.run_id }}`; `cancel-in-progress: false`; assert candidate checkout equality. |
+| `.github/workflows/observability-acceptance.yml:33-35` | group contains `github.ref` and input ref; cancel `true`; Docker and Podman are separate jobs. | Use per-job `group: observability-${{ inputs.ref || github.event.pull_request.head.sha || github.sha }}-${{ matrix.runtime }}-${{ github.run_id }}`; `cancel-in-progress: false`; resolve input to SHA and assert checkout equality. |
+| `.github/workflows/targeted-integration.yml:60-64` | group includes branch ref and `inputs.ref`; cancellation is conditional but true on most refs. Dispatch `ref` is documented as “Git ref or commit SHA” at `:51-55`; `workflow_call` ref is supplied by callers. The workflow-level group runs before job outputs exist, so current resolution cannot make that key trustworthy. | Require `inputs.ref` to be a full commit SHA in evidence mode and fail the resolver before any gate if it is not; assert checked-out `HEAD` equals it. Set `cancel-in-progress: false`; set `group: targeted-integration-${{ inputs.ref || github.sha }}-${{ inputs.gate || 'default' }}-${{ inputs.runtime || 'default' }}-${{ github.run_id }}`; remove `github.ref`. It is non-compliant until the full-SHA guard and checkout assertion land. |
+| `.github/workflows/pre-release.yml:6-8` | cancel already `false`; group is either a run ID in develop mode or one global static `baseharbor-release-qualification` lock. Candidate SHA is resolved in `source_prepare` (checkout `:50`, checks around `:75-91`). | `group: pre-release-orchestrator-${{ github.run_id }}`; keep `cancel-in-progress: false`. Orchestrator is unique per run; each evidence-producing reusable gate call after resolution must key by `${{ needs.source_prepare.outputs.candidate_sha }}-${{ matrix.runtime }}-${{ matrix.gate }}-${{ github.run_id }}`. Never use branch/tag input as the evidence key. |
+| `.github/workflows/pre-release-runtime-suite.yml:1-8, 661-705` | Reusable Atomic Acceptance Gate; no concurrency block. `inputs.ref`/gate/runtime are available; checkout at `:113`; gate execution at `:303-306`. | Add job-level `concurrency` to `gate`: `group: atomic-${{ inputs.ref }}-${{ inputs.runtime }}-${{ inputs.gate }}-${{ github.run_id }}`; `cancel-in-progress: false`. Require full 40-hex `inputs.ref` and assert checked-out HEAD equality before gate execution. |
+| `.github/workflows/targeted-demo-acceptance.yml:48-50` | cancel `false` already; static `baseharbor-release-qualification` lock. Its `resolve` job produces the tested SHA at `:55-62`, so workflow-level concurrency cannot use that output. | `group: targeted-demo-orchestrator-${{ github.run_id }}`; keep cancel `false`. Each downstream evidence job must use `needs.resolve.outputs.ref` + gate/runtime + run ID in its job-level group, after the resolver validates the exact commit. |
+| `.github/workflows/runtime-broker.yml:26-30, 321-325` | Acceptance and performance are separate evidence jobs; no concurrency block; dispatch accepts `inputs.ref` as a Git ref at `:6-20`. | Add job-level groups `broker-${{ inputs.ref }}-acceptance-${{ github.run_id }}` and `broker-${{ inputs.ref }}-performance-${{ github.run_id }}` with `cancel-in-progress: false`; make the evidence input a full SHA and assert checked-out HEAD equals it. |
+| `.github/workflows/runtime-s3-acceptance.yml:4-14` | Workflow-dispatch acceptance; no concurrency block; checkout uses `inputs.ref` at `:17-20`. | Add job-level `group: runtime-s3-${{ inputs.ref || github.sha }}-${{ github.run_id }}` and `cancel-in-progress: false`; require/verify full SHA before executing the acceptance steps. |
+| `.github/workflows/supplemental-release-validation.yml:1-8, 36-39` | Push/dispatch evidence workflow; no concurrency block; checkout uses the event commit. | Add job-level `group: supplemental-validation-${{ github.sha }}-${{ github.run_id }}` and `cancel-in-progress: false`; assert checkout HEAD equals `github.sha`. |
+
+Also retain the already-safe job-level HA groups in `ci.yml:180-182` and `:222-224` (`cancel-in-progress: false`); change their constant group to `ha-${{ github.sha }}-${{ matrix.group }}-${{ matrix.runtime }}-${{ github.run_id }}` so independent evidence does not share one lock. `pre-release.yml:882` and `:934` already use per-gate HA groups but must carry the resolved candidate SHA and unique run ID. `runtime-image.yml` produces release images rather than qualification evidence; `release.yml` publishes; `pages.yml` deploys; `receipt-post-run.yml` writes a receipt; `artifact-gc.yml` and `renovate.yml` are maintenance/automation. Those are excluded from this evidence workflow edit set.
+
+### Card mapping and #1812 order
+
+All three decisions are recorded under existing card 0428-249: (1) non-cancellation and (2) checked-SHA identity are shared qualification prerequisites directly consumed by #1812; (3) the Podman split makes each required runtime assertion independently visible to the same qualification chain. 0428-209 is closed and its native-cell contract does not own global workflow scheduling; 0428-321 is an H-V45 CLI documentation/coverage contract, not workflow ownership. No new card is proposed.
+
+Before #1812 can qualify: the Owner must land the approved workflow changes on `develop`; then #1812's owning lane must absorb that `develop` tip by an ordinary forward merge, publish a new exact head, and obtain fresh Hosted evidence on that head. The final census must show every required Docker and Podman gate executed and successful, with no required gate cancelled or skipped; old-head runs do not transfer. `PR Selected Checks` must complete successfully on that same head. This disposition does not qualify #1812 or authorize any workflow edit by this lane.

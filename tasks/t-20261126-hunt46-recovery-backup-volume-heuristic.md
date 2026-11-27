@@ -7,35 +7,34 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: "w367-0428-329-1861hop"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "destroy --all removes every volume in the selected installation's destruction scope, including volumes labeled for recovery or…"
 kanban_title: 0428-329 · tighten recovery/backup match
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1861"]
 sources: []
 blocker: ""
-wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261126-hunt46-recovery-backup-volume-heuristic · 0428 hunt H-V46: recovery/backup volume preservation uses a case-insensitive substring search (medium) #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261126-hunt46-recovery-backup-volume-heuristic · 0428 hunt H-V46: recovery/backup volume preservation uses a case-insensitive substring search (medium) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w367-0428-329-1861hop  
+    **PR:** [baseharbor#1861](https://github.com/mcpdev80/baseharbor/pull/1861)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w367-0428-329-1861hop  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1861](https://github.com/mcpdev80/baseharbor/pull/1861)  
 **Source:** 
 <!-- /generated:links -->
 

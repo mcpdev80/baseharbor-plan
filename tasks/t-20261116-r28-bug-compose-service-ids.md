@@ -15,7 +15,7 @@ kanban_title: 0428-288 · Preserve Compose service IDs
 priority: high
 depends_on: [t-20261125-0428-284-1812-postretry-gate-failure]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1833]
+prs: ["mcpdev80/baseharbor#1870", mcpdev80/baseharbor#1833]
 sources: []
 blocker: "Catalog/gate scope decision pending (w267 comment 7196853372): trusted-base pr-gate-coverage row for internal/application lacks runtime_specific:true so six runtime families are never selected; NOT green - reruns frozen until baseline-family field change lands via Codex disposition"
 resolution: ""
@@ -25,7 +25,7 @@ evidence: []
 - [ ] t-20261116-r28-bug-compose-service-ids · Preserve Compose service IDs #task #release/v0-4-28 #status/blocked #view/blocked #area/wizard #kind/bug
     <!-- generated:card -->
     **Owner:** w332-0428-288-composeids · **Priority:** high  
-    **PR:** [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
+    **PR:** [baseharbor#1870](https://github.com/mcpdev80/baseharbor/pull/1870), [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
     **Blocker:** Catalog/gate scope decision pending (w267 comment 7196853372): trusted-base pr-gate-coverage row for internal/application lacks runtime\_specific:true so six runtime families are never selected; NOT green - reruns frozen until baseline-fami…  
     <!-- /generated:card -->
 
@@ -35,7 +35,7 @@ evidence: []
 **Depends on:** [t-20261125-0428-284-1812-postretry-gate-failure](t-20261125-0428-284-1812-postretry-gate-failure.md)  
 **Owner:** w332-0428-288-composeids  
 **Priority:** high  
-**PRs:** [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
+**PRs:** [baseharbor#1870](https://github.com/mcpdev80/baseharbor/pull/1870), [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -85,3 +85,4 @@ Use J-Commerce docker-compose.yaml including `vector_db`, and run `baha app init
 ## W15 qualification requirement
 
 Before 0428-288 can qualify, hop PR #1833 onto current develop and obtain two distinct fresh `pull_request` runs on that exact same head, both attempt 1. Run 45513816046 is attempt 2 and is void as pair evidence. The sequencing dependency now points to successor card 0428-284 / PR #1856 rather than closed #1842.
+status_note: "#1870 MERGED into develop dff8c9e3 (w267 REVIEW+MERGE ACCEPT 7204947747, witness 7204956795). #1833 consumer: runtime_specific rows now on develop; runtime execution qualification still owed (fresh consumer exact-head CI dispatch when a seat frees)"

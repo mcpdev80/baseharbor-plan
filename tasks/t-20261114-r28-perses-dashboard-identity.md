@@ -15,7 +15,7 @@ kanban_title: 0428-078 · Perses identity dashboard
 priority: normal
 depends_on: [t-20261114-r28-perses-dashboard-selection]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1650, mcpdev80/baseharbor#1855]
+prs: ["mcpdev80/baseharbor#1818", "mcpdev80/baseharbor#1650", "mcpdev80/baseharbor#1855", "mcpdev80/baseharbor#1867"]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,7 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 - [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w327-0428-078-dashwitness · **Priority:** normal  
-    **PR:** [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650), [baseharbor#1855](https://github.com/mcpdev80/baseharbor/pull/1855)  
+    **PR:** [baseharbor#1818](https://github.com/mcpdev80/baseharbor/pull/1818), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650), [baseharbor#1855](https://github.com/mcpdev80/baseharbor/pull/1855), [baseharbor#1867](https://github.com/mcpdev80/baseharbor/pull/1867)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md)  
     <!-- /generated:card -->
 
@@ -37,7 +37,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md), [t-20261120-r28-prune-key-too-coarse](t-20261120-r28-prune-key-too-coarse.md), [t-20261120-r28-registerprovider-signal-failclosed](t-20261120-r28-registerprovider-signal-failclosed.md), [t-20261120-r28-restart-persist-signal-dump](t-20261120-r28-restart-persist-signal-dump.md), [t-20261120-r28-runtimetarget-failclosed](t-20261120-r28-runtimetarget-failclosed.md), [t-20261120-r28-signal-one-active-write-path](t-20261120-r28-signal-one-active-write-path.md), [t-20261120-r28-signalregistry-race](t-20261120-r28-signalregistry-race.md)  
 **Owner:** w327-0428-078-dashwitness  
 **Priority:** normal  
-**PRs:** [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650), [baseharbor#1855](https://github.com/mcpdev80/baseharbor/pull/1855)  
+**PRs:** [baseharbor#1818](https://github.com/mcpdev80/baseharbor/pull/1818), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650), [baseharbor#1855](https://github.com/mcpdev80/baseharbor/pull/1855), [baseharbor#1867](https://github.com/mcpdev80/baseharbor/pull/1867)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -267,3 +267,4 @@ BRANCH CONTAMINATION confirmed by file evidence: #1818 PR head on lane-0428-078-
 ## PR lineage disposition — W16
 
 PR #1650 remains listed as the contaminated-lineage audit. Clean successor PR #1855 is the current candidate for this card. PR #1818 remains an old, stale head and is not qualifying evidence for this card.
+status_note: "#1818 OPEN + OWNER HOLD (#1819 producer dep, #1812 chain); #1867 ACCEPT 8b0eb51/run 45872485574 merge-ready HELD; consumer chain #1855 <- #1867 (requalify after landing + fresh exact-head CI); plan-side: #150 CLOSED superseded by #154 (ACCEPT 7203129123, hop owed at freeze-lift)"

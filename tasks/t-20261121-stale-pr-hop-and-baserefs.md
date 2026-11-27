@@ -7,9 +7,9 @@ areas: [ci, coordination]
 release: v0.4.28
 version: ""
 parent: ""
-owner: w233-0428-216-prsweep
-kanban_status: active
-kanban_lane: active
+owner: "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Every open PR that belongs to a Codeman card is either a descendant of current develop, or carries the base ref its card…"
 kanban_title: 0428-216 · 0428-216 stale PR hops
 priority: normal
@@ -18,21 +18,22 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-stale-pr-hop-and-baserefs · 0428-216 hop the stale PRs of our cards and fix their base refs #task #release/v0-4-28 #status/active #view/active #area/ci #area/coordination #kind/task
+- [ ] t-20261121-stale-pr-hop-and-baserefs · 0428-216 hop the stale PRs of our cards and fix their base refs #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/coordination #kind/task
     <!-- generated:card -->
-    **Owner:** w233-0428-216-prsweep · **Priority:** normal  
+    **Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) · **Priority:** normal  
+    **Waiting:** lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w233-0428-216-prsweep  
+**Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
