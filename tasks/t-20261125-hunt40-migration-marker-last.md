@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1881]
 sources: []
 blocker: ""
-wait_reason: "corrected at 640f53a6e8 (CODEX-static findings 1-3 + format-gate green, pair 46042082459/46042210279); gate green pending develop-catalog owner freeze-lift (#136 baseline + fan-in #1861-#1863, Trusted Plan class-A known-blocker); akte evidence/2026-11-27/0428-310/akte.md"
+wait_reason: "R6 content PASS at 1cd5029f71 (w403 seam-fix + develop merge; pair 46057404217/46058741643 pull_request terminal, class-A duo red; verdict akte evidence/2026-11-27/0428-310/verdict-r6-w267.md; force-with-lease transport incident logged, no content consequence) — content lift-ready, CI qualification post-lift (#136 + fan-in #1861-#1863)"
 resolution: ""
 evidence: []
 ---
