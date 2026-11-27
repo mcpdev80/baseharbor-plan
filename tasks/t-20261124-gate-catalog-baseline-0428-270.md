@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)
+owner: "Coordinator (Codeman)"
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: "Unblock 0428-270 (PR head 88f5c7f05, w61). Exact-head CI run 45326369749 aborts in 'PR Trusted Plan' with fail-loud 'uncataloged…"
@@ -18,23 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"
+wait_reason: "Codex disposition is published in Plan PR #196; hold until the existing 0428-359 card in Plan PR #136 carries the corrected family scope and the develop-side catalog baseline can proceed."
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45326369749"]
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45326369749", "https://github.com/mcpdev80/baseharbor-plan/pull/196"]
 ---
 
 - [ ] t-20261124-gate-catalog-baseline-0428-270 · CI/catalog: add operatorauth rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
-    **Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
-    **Waiting:** lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45326369749)  
+    **Owner:** Coordinator (Codeman)  
+    **Waiting:** Codex disposition is published in Plan PR \#196; hold until the existing 0428-359 card in Plan PR \#136 carries the corrected family scope and the develop-side catalog baseline can proceed.  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45326369749), [proof 2](https://github.com/mcpdev80/baseharbor-plan/pull/196)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
+**Owner:** Coordinator (Codeman)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

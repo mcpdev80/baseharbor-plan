@@ -8,32 +8,33 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: ""
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: planned
+kanban_lane: planned
 kanban_summary: "Document the baha process exit-code taxonomy at the user-facing surface: 0 success, 1 runtime failure, 2 usage error, 130…"
 kanban_title: 0428-321 · document baha exit-code
 priority: ""
-depends_on: []
+depends_on: [t-20261125-0428-284-1812-postretry-gate-failure]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1866"]
 sources: []
-blocker: "prework delivered (evidence/w384-0428-321-1866pre/akte.md, main 4751caa7f): #1866 local develop merge clean, exit-code doc absent from develop (0 matches vs cdb6e4d97); PR Selected Checks fail on Selected Runtime data-capabilities = native Docker+Podman gates, qualifying only on two distinct close+reopen run IDs after the #183 merge and the BASEHARBOR_PR_DEMO_SOURCE_SHA advance"
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt45-exit-code-taxonomy-docs · CLI: document baha exit-code taxonomy and machine coverage check #task #release/v0-4-28 #status/blocked #view/blocked #kind/bug
+- [ ] t-20261125-hunt45-exit-code-taxonomy-docs · CLI: document baha exit-code taxonomy and machine coverage check #task #release/v0-4-28 #status/planned #view/waiting #board/planned #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned  
     **PR:** [baseharbor#1866](https://github.com/mcpdev80/baseharbor/pull/1866)  
-    **Blocker:** prework delivered (evidence/w384-0428-321-1866pre/akte.md, main 4751caa7f): \#1866 local develop merge clean, exit-code doc absent from develop (0 matches vs cdb6e4d97); PR Selected Checks fail on Selected Runtime data-capabilities = native…  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261125-0428-284-1812-postretry-gate-failure](t-20261125-0428-284-1812-postretry-gate-failure.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** none  
+**Depends on:** [t-20261125-0428-284-1812-postretry-gate-failure](t-20261125-0428-284-1812-postretry-gate-failure.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** [baseharbor#1866](https://github.com/mcpdev80/baseharbor/pull/1866)  
