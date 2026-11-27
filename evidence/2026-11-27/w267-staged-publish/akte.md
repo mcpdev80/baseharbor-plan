@@ -68,3 +68,12 @@ My earlier blocked report called plan main technically protected. That was inacc
 ## Scope review
 
 The intended six-file diff is limited to five byte-identical staged Akten and this publication record under `evidence/`; no other files are included. It contains no task/card fields, generated views, product files, or `.github/**` workflow files. No product repository was modified and no local test or workflow trigger was run by this lane. Owner workflow_dispatch run `45961168355` on exact head `335ef5e54c59d109837cb6ba9cd00a382b3e611f` was observed to terminal failure; it is recorded as evidence, not triggered by this lane.
+
+## Final publication witness for PR #197
+
+- PR #197 head: `693b4776652dfa423df7f87ea19a0d9ae52bf5d7`; exact-head Plan Validate run `45961984187`, attempt 1, `pull_request`, SUCCESS; review record `6085078369` (COMMENTED, ROLLE: REVIEW+MERGE).
+- PR #197 merged at `2026-11-27T07:59:11Z`; squash merge commit and resulting Plan main tip: `4a855876fc188d90c2d39cc5b972fd7b9374d5ed`.
+- GitHub Contents blob witnesses on main: `evidence/w385-0428-078-pr1650pre/akte.md` = `bbd1b4d02e7743032f8b143cb926e42a713acb5f`; `evidence/w388-0428-329-1861recipe/akte.md` = `519e52c8f4934e6f9b9854c768e849b9d16c4937`; `evidence/w390-0428-216-prhopcensus/akte.md` = `abc289598ac87cc86b1329cf7de5327ca33a6dd7`; `evidence/2026-11-27/0428-284/exact-head-183-335ef5e54.md` = `c39bf1a74ad15d7f908548d4a8b105f9395651b5`; `evidence/w390-0428-216-hopplan/akte.md` = `fb0923404071d999121ae85082ec63b8511f6cb0`.
+- SHA-256 of all five blobs matches their staged source files; no card fields were changed.
+
+END_DONE w267-0428-284-pridentity: staged Akten are published by PR #197; main `4a855876fc188d90c2d39cc5b972fd7b9374d5ed`; five staged blob witnesses verified; card fields unchanged.
