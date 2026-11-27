@@ -61,7 +61,7 @@ Only the two named task cards, generated Plan views, and this evidence are in sc
 - `git diff origin/main...HEAD --name-only`:
 
 ```text
-evidence-staging/2026-11-27/board-reconcile-w255.md
+evidence/2026-11-27/board-reconcile-w255/akte.md
 releases/v0.4.28.md
 roadmap/cards.md
 tasks/t-20261116-r28-bug-apply-consent-ux.md
@@ -73,7 +73,9 @@ views/overview.md
 views/releases/v0.4.28.md
 ```
 
-- `git log --oneline origin/main..HEAD`: `8f0b7c9 reconcile source-transfer identity and runtime receipts`.
+- `git log --oneline origin/main..HEAD` lists only this lane's commits: `df47132 place board reconciliation akte in canonical evidence tree`; `b76ded5 record pre-push identity receipt`; `6ebe1fd record board reconciliation provenance`; `8f0b7c9 reconcile source-transfer identity and runtime receipts`.
 - Commit `8f0b7c92c1ad23137afb150bf733b250f615c74c` author and committer are both `w255-0428-251-demo170codex`; pre-push author gate is `git show -s --format=%an HEAD` → `w255-0428-251-demo170codex`.
 - Before the evidence-provenance commit push, `git log --format='%h an=%an cn=%cn' -1` printed `6ebe1fd an=w255-0428-251-demo170codex cn=w255-0428-251-demo170codex`; `git show -s --format=%an HEAD` printed `w255-0428-251-demo170codex`.
+- Before the evidence-path push, `git log --format='%h an=%an cn=%cn' -1` printed `b76ded5 an=w255-0428-251-demo170codex cn=w255-0428-251-demo170codex`; `git show -s --format=%an HEAD` printed `w255-0428-251-demo170codex`.
+- After that push, `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/w255-0428-251-demo170codex-board-reconcile` returned `df471323b7b9ebdfca1da52280007858ca50237b refs/heads/w255-0428-251-demo170codex-board-reconcile`.
 - END w255-0428-251-demo170codex DONE — reconciliation and review handoff completed; final Plan main SHA is reported in the coordinator END.
