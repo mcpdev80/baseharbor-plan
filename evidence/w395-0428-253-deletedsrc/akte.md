@@ -61,4 +61,10 @@ Welcher test (CI-ausgefuehrt, package-discovered, karte-akzeptanz 2): `scripts/t
 
 Kein commit, kein push, kein run, kein merge, keine katalog-zeile von dieser lane geschrieben. Akte als datei abgelegt: `workers/evidence/w395-0428-253-deletedsrc/akte.md`.
 
-sha256: <sha256>
+sha256: 473562f274b5d911488092b8fc86c88ceee52b65660b239c629a001150d4f0db
+
+## Process deviation (honest record)
+
+- PR #215 (baseharbor-plan): merged by `mcpdev80` at main `d56af14c7`, exact head `7bb063d3f`, Hosted `Plan · validate` green — but `reviews=[]` (no review attached to the candidate) and no review-comment. Review-Acceptance was not on the candidate for #215; merged straight in without Codex review.
+- For #213 this does NOT hold: #213 carries explicit Codex-role review/merge comments on the exact heads `114fddd2` and `e1de610c`, including hosted runs `45973982816` / `45974189062` and a post-merge Plan check. #213 was properly reviewed.
+- The earlier wrong review-comment on #213 ('missing `evidence/w395...akte.md') referred to the #215 mix-up, not to #213.
