@@ -114,6 +114,7 @@ END_DONE w383-0428-275-136rows: #136 liefert nul Zeilen (plan-only), 8 gefordert
 
 ## Terminal witness (final publishing step, appended after PR #191 creation)
 
-- Follow-up plan PR #191 ab main `c3f4f33ac`, chain-Kommits `67c5ace72`..`58d5aa72b` (alle author=committer `w383-0428-275-136rows`; `git log --format='%an' origin/main..HEAD | sort -u` => genau dieser Name; Ancestry `git merge-base --is-ancestor origin/main HEAD` => OK; Delta gegen main = nur diese Akte + die w381-Zone-Bereinigung `0/127`).
-- `Plan · validate` run `45952221045` (event pull_request, headSha `58d5aa72b1ebf47730fa9af5ab27f0af36f3e7da`, completed, conclusion SUCCESS) — https://github.com/mcpdev80/baseharbor-plan/actions/runs/45952221045.
-- Admin-squash-merge in diesem selben Schritt; die zweite Zeile dieses Blocks nach dem Merge:
+- Follow-up plan PR #191 ab main `c3f4f33ac`, chain-Kommits `67c5ace72`..`d2095ab52` (alle author=committer `w383-0428-275-136rows`; `git log --format='%an' origin/main..HEAD | sort -u` => genau dieser Name; Ancestry `git merge-base --is-ancestor origin/main HEAD` => OK; Delta gegen main = nur diese Akte + die w381-Zone-Bereinigung `0/127`).
+- `Plan · validate` runs: `45952221045` SUCCESS auf head `58d5aa72b`; finaler run `45952378343` (event pull_request, headSha `d2095ab52e3878aae4d2acb9bec613f1d2855ca3`, completed, conclusion SUCCESS) — https://github.com/mcpdev80/baseharbor-plan/actions/runs/45952378343.
+- Admin-squash-merge: main `2b440915e` (mergedAt 2026-11-27T06:31:48Z).
+- Zweite Zeile nach dem Merge: `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep w383-0428-275-136rows` => `evidence/w383-0428-275-136rows/akte.md`; und `ls-tree | grep -c "w381-0428-328-1869pre-plan"` => `0` (die wrong-zone-Position ist mit meinem Merge von main verschwunden; die korrigerte Position `evidence/w381-0428-328-1869pre/akte.md` blieb auf main unveraendert bestehen — ls-tree-Zeuge).
