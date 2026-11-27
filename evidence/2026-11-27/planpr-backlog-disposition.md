@@ -53,6 +53,33 @@ On refreshed `origin/main` `af4633deb3dad3138535245e4f936d039f346d2e`, `git grep
 - 0428-249 becomes `planned`, owner empty; preserve #1812/#1837 and attach open Plan #182. Keep the exact #1812 failure and differing Akte blob facts; assert no absorption or close.
 - 0428-326 becomes `planned`, owner empty; preserve #1868 and attach open Plan #189. Keep the exact Trusted Plan failure and prework-only status; assert no product qualification.
 
+## Candidate provenance and first-commit witnesses
+
+Current base before candidate commit: `0e28eec6c2d33baacf54d7eae22ac43988683b72`.
+`git merge-base --is-ancestor origin/main HEAD` returned exit status 0 before the first candidate commit. First candidate commit: `d0665a32062541f4a5b63753b500297be9f97b17`; `git show -s --format='%H%n%an%n%cn' HEAD` reported that SHA and both author and committer `w255-0428-251-demo170codex`.
+
+`git log --oneline origin/main..HEAD` at first-commit review:
+
+```text
+d0665a320 reconcile claim gaps and validate Plan PR links
+```
+
+`git diff origin/main...HEAD --name-only` at first-commit review:
+
+```text
+evidence/2026-11-27/planpr-backlog-disposition.md
+releases/v0.4.28.md
+roadmap/cards.md
+tasks/t-20261122-runtime-image-registry-artifact-unknown.md
+tasks/t-20261126-hunt46-collectable-orphans-reserved-namespace.md
+tasks/t-20261126-hunt46-never-delivered-proof-leak.md
+tasks/t-20261128-hunt48-runtime-pagination-contract.md
+views/kanban-dashboard.md
+views/overview.md
+views/ready.md
+views/releases/v0.4.28.md
+```
+
 ## Full repository validation
 
 Local `python3 scripts/plan.py render && python3 scripts/plan.py check` completed: 784 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 existing dependency warnings. The refreshed generated views include only the four card dispositions and current derived counts. Pending exact diff review, commit identity, branch delivery witness, receipt PR number, exact-head `Plan · validate`, normal merge, final main SHA, and evidence-path witness.
