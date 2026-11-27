@@ -157,3 +157,9 @@ Evidence candidate SHA (final, on origin/main): 71812e2b7 (squash of b495ab8c6 c
 ## FINAL END line (w394-0428-249-1812diag)
 
 END_DONE w394-0428-249-1812diag: diagnosis complete (akte: run 45944501306 fails only on the demo consent-capture class, carrier 0-behind develop, no qualification asserted); follow-up 09:30Z delivered stable PR #213 head 8db2a1556, Plan · validate run 45973752023 success; product head examined = c2dd3ff04e30c73046b4eeecb56f3cab20e56c92, zero product-repo writes.
+
+## Follow-up closeout witnesses (coordinator order 09:30Z, executed after #213 merged as 9da6740a9)
+
+- New branch head requested for review stability: d3b605115 (my last push to the #213 branch after the maintainer had already squash-merged e1de610cd at 09:30:52Z — the PR head could not advance because it was already MERGED; ls-remote witnesses above: refs/heads/main jumped d56af14c7 → 9da6740a9 → 437277fc1 around my push).
+- Stable-head duty on current main: `git merge-base --is-ancestor origin/main HEAD` OK on the merge chain; `python3 scripts/plan.py render` (no new diff) + `check` = 784 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 warnings.
+- Delivery: this commit on branch w394-0428-249-1812diag-closeout via PR to main; no product-repo writes; product head examined remains c2dd3ff04e30c73046b4eeecb56f3cab20e56c92 (unchanged on ls-remote).
