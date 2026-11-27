@@ -104,11 +104,14 @@ Route: scripts/pr-gate-plan.py:456 'inspect-package-tests' runs `go test ./inter
 docker ps -a before: (no containers started by this lane; no VM/compose work — tests run in hosted CI)
 docker ps -a after: none. No compose project created; no scratch in ecosystem root (worktree in /tmp/opencode/w399-0428-289-providers-wt, baseline in /tmp/opencode/w399-baseline, fixture in /tmp/opencode/w399-jcommerce).
 
-## Final state (coordinator instruction 2026-11-27T14:06Z)
+## Final state (coordinator instruction 2026-11-27T14:06Z + Nachlauf 14:10Z)
+
+- Evidence-path witness (per rule, output of `git ls-tree -r --name-only origin/main | grep 0428-289`): `evidence/2026-11-27/0428-289/akte.md` — present on origin/main; akte blob sha256 `eb3420af9efb58c9204adc7e4d74a0d943f7f4ab2b5c4f14aac98d62a3c9eaab`; plan main tip `04c21d59162eaf90eaea0a3c1277c5f7050639a0`.
+- Card on origin/main: kanban_status=wait, owner=w399-0428-289-providers, prs=[mcpdev80/baseharbor#1880], wait_reason per instruction (commits b8b4f9b06 + 04c21d591). Plan branches evidence-0428-289-w399 (PR #234) and lane-0428-289-wait (PR #236) are superseded by the direct main pushes — available for coordinator cleanup, not touched further by this lane.
 
 - NO second catalog PR: develop catalog path is frozen by a task-specific Owner hold (#136 baseline + fan-in #1861/#1862/#1863); a lane-side catalog-only PR would be the forbidden implicit lift. My option-(c) execution judged correct/clean.
 - Candidate 8c7f54b679 rests on PR #1880 — no further pushes, no new branches (Eigenes-Run-Pflicht fulfilled: both run IDs observed terminal by this session).
-- Card 0428-289 moved to wait via card-status.py (coordinator Nachlauf 2026-11-27T14:10Z ordered normal push to plan main): published as plan commit, verified on origin/main (owner=w399-0428-289-providers, kanban_status=wait, prs=[mcpdev80/baseharbor#1880], wait_reason per instruction with run witnesses 46011069186/46011641329). The earlier branch+PR attempt (#236) is superseded by the direct push and can be closed by the coordinator.
+- Card 0428-289 moved to wait via card-status.py in my claim-push path (plan worktree, pull-before-push): owner=w399-0428-289-providers kept, prs=[mcpdev80/baseharbor#1880], wait_reason exactly per coordinator text.
 - Orphan-ref findings remain as documented (no cleanup by this lane).
 - Resume: coordinator-driven when the owner freeze-lift decision lands.
 
