@@ -55,3 +55,20 @@ Branch creation is next; no commit or push yet.
 ## Final verification
 
 Pending hosted validation and normal merge.
+
+
+## PLAN — 0428-078 status reconciliation mission
+
+1. Verify current main/card state, PR #204 head, checkpoint commit `a6ae9031c`, checkpoint bundle, laptop capacity 0, and unresolved OQ-3.
+2. Update only `kanban_status` and `wait_reason` on the existing #204 candidate; keep owner and all card body fields unchanged, using the coordinator card-status helper against this isolated worktree.
+3. Render/check Plan, validate the exact updated PR head with Hosted `Plan - validate`, put the exact run ID in the PR body, and merge normally.
+4. Verify the merged main commit and card fields; report PR, merge SHA, run ID, and `0428-078: active -> wait`.
+
+This mission requires the wait reason to name checkpoint commit `a6ae9031c` (develop `ea5218d7` proven ancestor), unpushed hop, bundle path, laptop outage deadline, Owner reconnect, OQ-3 token form, and the `MetricPresent:false` / colliding-project investigation.
+
+
+## Checkpoint details from the status mission
+
+The required wait reason is: `Checkpoint commit a6ae9031c (develop ea5218d7 proven ancestor); hop unpushed; bundle /var/tmp/w385-0428-078-checkpoint.bundle; resume trigger = Owner-reconnect after laptop outage through 2026-11-28 18:00 Europe/Berlin, then (a) push hop, (b) work through OQ-3 form decision (Keycloak attribution token: directory-name vs. full path), and (c) investigate witness MetricPresent:false + keycloakRecordTargetRoot colliding-project.`
+
+The mission supplies the checkpoint and ancestry facts. A read-only `git clone --mirror /var/tmp/w385-0428-078-checkpoint.bundle` attempt failed because the bundle traversal reported missing object `228ecc5bab28e5e6158ccc63160f442a6afc9ed3`; no checkpoint objects were changed. The coordinator queue independently confirms OQ-3 is still open, and the runtime config still says laptop capacity 0.

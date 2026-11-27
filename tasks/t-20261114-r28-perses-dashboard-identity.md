@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1818", "mcpdev80/baseharbor#1650", "mcpdev80/baseharbor#1855", "mcpdev80/baseharbor#1867"]
 sources: []
 blocker: ""
-wait_reason: "Resume when the attribution-form decision OQ-3 in coordinator/QUEUE.md is recorded and laptop capacity is restored; the laptop channel has capacity=0 through 2026-11-28 18:00 Europe/Berlin."
+wait_reason: "Checkpoint commit a6ae9031c (develop ea5218d7 proven ancestor); hop unpushed; bundle /var/tmp/w385-0428-078-checkpoint.bundle; resume trigger = Owner-reconnect after laptop outage through 2026-11-28 18:00 Europe/Berlin, then (a) push hop, (b) work through OQ-3 form decision (Keycloak attribution token: directory-name vs. full path), and (c) investigate witness MetricPresent:false + keycloakRecordTargetRoot colliding-project."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md"]
 ---
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
     <!-- generated:card -->
     **Owner:** w385-0428-078-pr1650pre · **Priority:** normal  
     **PR:** [baseharbor#1818](https://github.com/mcpdev80/baseharbor/pull/1818), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650), [baseharbor#1855](https://github.com/mcpdev80/baseharbor/pull/1855), [baseharbor#1867](https://github.com/mcpdev80/baseharbor/pull/1867)  
-    **Waiting:** Resume when the attribution-form decision OQ-3 in coordinator/QUEUE.md is recorded and laptop capacity is restored; the laptop channel has capacity=0 through 2026-11-28 18:00 Europe/Berlin.  
+    **Waiting:** Checkpoint commit a6ae9031c (develop ea5218d7 proven ancestor); hop unpushed; bundle /var/tmp/w385-0428-078-checkpoint.bundle; resume trigger = Owner-reconnect after laptop outage through 2026-11-28 18:00 Europe/Berlin, then (a) push hop,…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md)  
     <!-- /generated:card -->
 
