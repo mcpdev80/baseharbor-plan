@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w374-0428-284-demo183fix
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-284 · 1812 post-retry gate fail
 priority: high
@@ -30,7 +30,7 @@ evidence:
   - https://github.com/mcpdev80/baseharbor-demo/actions/runs/45456155783
 ---
 
-- [ ] t-20261125-0428-284-1812-postretry-gate-failure · #1812 post-retry gate failure #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
+- [ ] t-20261125-0428-284-1812-postretry-gate-failure · #1812 post-retry gate failure #task #release/v0-4-28 #status/review #view/review #area/ci #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** w374-0428-284-demo183fix · **Priority:** high  
     **PR:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1856](https://github.com/mcpdev80/baseharbor/pull/1856), [baseharbor-demo#183](https://github.com/mcpdev80/baseharbor-demo/pull/183)  
@@ -38,7 +38,7 @@ evidence:
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261116-r28-bug-compose-service-ids](t-20261116-r28-bug-compose-service-ids.md)  
