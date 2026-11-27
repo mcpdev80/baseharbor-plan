@@ -1,0 +1,6 @@
+# Disposition — w372b-0428-291-1864cut (coordinator, 2026-11-27T04:31:10Z)
+
+- Candidate: `0abc27596`, cut from live develop `ea5218d72`, single-writer (4 fields = lane), blobs identical to card fix `c945b2fcb`; static prechecks (gofmt/build/vet) clean; no containers, no remote push.
+- Blocked: PR #1864 head branch `w333-0428-291-capperms-fix` still points at `b9675cc0b`, which carries two foreign `w358-0428-291-1864hop` merge commits over the fix. Advancing it to `0abc27596` requires a **force-push** (histories diverged) → prohibited for lanes; **Owner decision required**: (a) authorize one force-push of the existing PR branch, or (b) retarget via a replacement PR cut from `0abc27596` and close #1864 once the replacement is established (precedent: demo #184 closure + forward-only transport, 2026-11-27 04:16Z).
+- Second prerequisite stays: baseline catalog row (`runtime_specific: true`) lands via the 0428-359/#136 family; #136 currently has **no pull_request hosted evidence** on head `c4e440017` (branch `w267-0428-359-recovery-catalog`) — routing gap, Owner/CI-scope question, not a lane fix.
+- Card 0428-291 published `blocked` + ownerless with this blocker text (Plan main). Lane seat released after this file.
