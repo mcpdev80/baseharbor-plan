@@ -123,6 +123,33 @@ PRs #172/#174/#175/#176. This file is the card's canonical akte closure.
   candidate does (booked as coordinator's own error, owner 04:24:55Z). The fresh exact-head run is
   the develop-green witness for this merge base.
 
+## Final akte statement (owner 05:44:20Z)
+Run ledger on this candidate chain (all watched to terminal by this lane, none VOID by rerun):
+- **45939271268** head 0b343af5e = completed/failure (classes: static A third-file test_ci_single_
+  default_route.py:98; known B consent class; native pair GREEN by name).
+- **45940327574** head d95e46de9 = completed/failure (class A moved to fourth-file test_pr_runtime_
+  workflow_shape.py:18 — MELD; known B; native pair GREEN: native/docker/data-capabilities 140312972801,
+  native/podman/data-capabilities 140312972722).
+- **45944501306** head c2dd3ff04 (CURRENT PR head, ls-remote branch + refs/pull/1812/head +
+  headRefOid = c2dd3ff04e30c73046b4eeecb56f3cab20e56c92) = completed/failure; qualifying census above:
+  the ONLY failures are the eight `PR · Selected Runtime` gates + `PR Selected Checks` — class B only.
+- **45940151127**: not in this lane's chain — `gh run view` = HTTP 404 (API witness 05:45Z); no relevance recorded.
+- Earlier ledger (superseded heads, prior sections): 860d41572/6ab5310d1 proof runs 45930995254 +
+  45931118156, 45915629291 VOID attempts, 45918769472 REJECT (demo pin).
+
+### Which classes disappear with the demo #183 merge (+ pin advance)
+- Class B (all ten failing jobs at c2dd3ff04): root cause is the Demo candidate-consent capture gap
+  — Core exits with the `--confirm-candidate` digest + documented prompt while the demo guided flow
+  loses those final PTY bytes, so `run_consented` fails with `record deployment before mutation:
+  candidate submission requires an explicit operator/automation consent`. Demo #183 (head e.g.
+  d9c7b6136/83c80c917 line) is the authorized fix carrier; after #183 merges AND the PR demo pin
+  (repo variable BASEHARBOR_PR_DEMO_SOURCE_SHA) advances, the expected re-qualification state of
+  #1812 is GREEN except any residual environment class (registry blob/manifest-unknown retries were
+  transient per-job in earlier logs). Classes A1-A4 (actionlint matrix-refs, check_routes/
+  executor-tests/single_default_route/runtime_workflow_shape stale-shape fixtures) are already CLOSED
+  by the pushed carriers and do NOT depend on #183.
+- No stale-shape or matrix-ref class remains failing at c2dd3ff04 (Focused Python green).
+
 ## Main publication route (owner correction 05:18:05Z)
 - Direct main delivery done: plan main e007c0a4e → `1255f812e` (4-Feld w362, exactly two files:
   evidence/2026-11-27/0428-249/akte.md + editset-working-record.md; no other file, no views, no card fields).
@@ -136,6 +163,27 @@ PRs #172/#174/#175/#176. This file is the card's canonical akte closure.
 Posted at https://github.com/mcpdev80/baseharbor/pull/1812#issuecomment-7210342591 with the full
 run ledger and ls-remote witnesses (branch + refs/pull/1812/head = d95e46de9df009055399938bcd8a2f472c1fa32e;
 develop ea5218d72).
+
+## Terminal census — run 45944501306 (head c2dd3ff04) = completed/failure (~05:23Z) — QUALIFYING RUN
+- 138 jobs (per_page=100): 61 success, 9 failure, 68 skipped.
+- **Both native gates GREEN (namentlich):** `PR · Native · native/docker/data-capabilities` and
+  `PR · Native · native/podman/data-capabilities` = success.
+- **All static/unit/python gates GREEN incl. both authorized fixture fixes:** `PR · Focused Python`
+  now success (neither test_ci_single_default_route.py:98 nor test_pr_runtime_workflow_shape.py:18
+  fails — classes A of runs 1+2 CLOSED), plus `Workflow policy`, `Trusted Plan`, `Native gate plan`,
+  `Source format`, `Exact Candidate`, `Demo Pin`, `Runner Interface`, `Validation · ci-actionlint`,
+  `ci-executor-tests`, `ci-policy`, all six `Go unit` shards.
+- Remaining failures (9): exactly the eight `PR · Selected Runtime` gates (docker/podman ×
+  connectivity/policy/reconciliation/full-destroy; 140326484294/140326484459/140326489447/
+  140326525870/140326533408/140326537573/140326573644/140326577053) + downstream
+  `PR Selected Checks` (140335189160). Per-job log line (all eight, e.g. connectivity
+  140326489447 @ 05:22:17Z): `Error: record deployment before mutation: candidate submission
+  requires an explicit operator/automation consent (--confirm-candidate); refusing to record
+  deployment state` (demo run path). CLASS B ONLY — known #283/#284 capture/consent prerequisite;
+  not repaired on #1812 per disposition; MELD-with-witness route, no waiver.
+- Carrier chain at this head: ea5218d72 → … → 6ab5310d1 (ruling) → 8c83c7091 → 0b343af5e →
+  d95e46de9 (3rd file) → c2dd3ff04 (4th file). ls-remote branch + refs/pull/1812/head + headRefOid
+  all = c2dd3ff04e30c73046b4eeecb56f3cab20e56c92.
 
 ## Fourth-file authorization executed (coordinator disposition 05:11:56Z)
 - `scripts/test_pr_runtime_workflow_shape.py` (job-name assertion region ONLY, +10/−2):
