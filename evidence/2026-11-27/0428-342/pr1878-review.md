@@ -51,9 +51,9 @@
 - No rerun or workflow_dispatch was initiated. Review recipe was sent to the active implementation lane.
 - Evidence remains in the Plan repository only.
 
-## END BLOCKED
+## Initial-head disposition
 
-END BLOCKED w267-0428-284-pridentity: #1878 held at b63bea30; unsupported listen-address variable, malformed German copy, and only one successful exact-head run ID.
+The initial candidate `b63bea30aaba0899bf045a7bd0ec98ffcc819bfd` was held for an unsupported listen-address variable and malformed German copy. The lane corrected the variable on the next exact head; the remaining DE-copy finding is recorded below.
 
 ## Plan repository provenance before branch creation
 
@@ -80,3 +80,31 @@ END BLOCKED w267-0428-284-pridentity: #1878 held at b63bea30; unsupported listen
 
 - `git log --format='%h an=%an cn=%cn' origin/main..HEAD` after the first evidence commit returned `5f8edf89a an=w267-0428-284-pridentity cn=w267-0428-284-pridentity`.
 - The current evidence amendment commit was mechanically checked with `git show -s --format=%H%n%an%n%cn HEAD`: `4b51694b252108d2a2fa3c22caa05cb3558a7ebd`, author `w267-0428-284-pridentity`, committer `w267-0428-284-pridentity`.
+
+## Review refresh after implementation-lane update
+
+- The lane updated the same PR branch. Fresh remote now reports head `698db93ad5b3657894bb90f268e5ac6cb2aa9fe6` on `w397-0428-342-metricsdocs`, base `develop` `ea5218d72e263f21e79853b679af50074dab8c25`, PR OPEN/non-draft/mergeable. `git ls-remote` confirmed both refs at that head/base.
+- The environment variable discrepancy is fixed in both languages: docs now say `BASEHARBOR_EXECUTOR_LISTEN_ADDR`, matching `internal/runtimeexecutor/compose.go:266`. `GET /metrics`, `0.0.0.0:9443`, Core listener separation, and TLS/client-certificate requirements remain as before.
+- One documentation issue remains in `docs/de/how-to/operator-api.md:129-135`: “Bediene-API-Oberfläche”, “Bediene-Endpunkt”, and “Executor-Blatt-Ausweis” remain unnatural or malformed technical terms. This is still a blocking DE-copy issue for the bilingual handoff; use established “Operator-HTTP-Oberfläche” terminology and “verifiziertes Executor-Clientzertifikat”, without changing the verified behavior.
+- Current-head run census: `46007839655` is the sole successful executed run (event `pull_request`, completed/success on `698db93ad5b3657894bb90f268e5ac6cb2aa9fe6`); `PR Selected Checks` job `140538768878` completed/success. Run `46007801545` is a distinct `pull_request` run on the same head but was cancelled. Thus two successful distinct exact-head runs: NO. No rerun, workflow_dispatch, or second trigger was initiated by this reviewer.
+- The current exact head passed docs audit, strict English and German MkDocs, pages candidate build, source format, and selected native Docker/Podman onboarding jobs in run `46007839655`. Release matrix jobs were skipped. All required observed selected checks completed successfully, but they do not resolve the copy finding or supply a second successful run ID.
+- The active implementation lane received the narrowed correction recipe for the remaining German terminology and exact-head run pair.
+- Current verdict: check 1 NO (only one success; second run cancelled), check 2 YES (docs-only and disjoint), check 3 NO (German terms remain malformed), check 4 YES (docs gates green, no release matrix).
+- The current Plan base is `c407807e5dd1c61300c8e19e19fac7a3aa8ebe4b`. Its changes were integrated into this published evidence branch with a normal canonical-lane merge commit `b0ff679bb0198ce9ae86918dd4ee36604769c58c` (author and committer `w267-0428-284-pridentity`); no history rewrite was used.
+
+## Latest Plan-main and validation refresh
+
+- Plan `origin/main` advanced to `5a6ccd11a1b1847ba34dd386ed263a462f767bed`. It now carries the authorized correction to task 0428-342: owner `w397-0428-342-metricsdocs`, blocker empty, and HTTPS evidence link. I integrated current main in isolated worktree merge commit `d71b8234ddcfc97de2acc77a75c66026bbc6b313` under the canonical reviewer identity; this is an ordinary merge, not a history rewrite.
+- After that correction and merge, `python3 scripts/plan.py render && python3 scripts/plan.py check` reports `784 tasks, 7 epics, 24 decisions; 0 errors, 10 warnings`. The previously failed Plan validation run `46008182506` was on prior evidence head `e200846b49e5b9cda6e8d26fc9d8c8b3efa2efc2`; it must not be treated as validation of the updated branch. A fresh Plan validation is required for the updated evidence head.
+- Latest product refs remain `ea5218d72e263f21e79853b679af50074dab8c25 refs/heads/develop` and `698db93ad5b3657894bb90f268e5ac6cb2aa9fe6 refs/pull/1878/head`. Exact-head successful run: `46007839655`; second distinct ID `46007801545` is cancelled.
+
+## Final exact-head and Plan-PR recheck
+
+- Fresh product `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1878/head` returned `ea5218d72e263f21e79853b679af50074dab8c25 refs/heads/develop` and `698db93ad5b3657894bb90f268e5ac6cb2aa9fe6 refs/pull/1878/head`.
+- Fresh `gh pr view 1878 -R mcpdev80/baseharbor` reports OPEN, non-draft, `MERGEABLE`, `CLEAN`, base `develop`, exact head `698db93ad5b3657894bb90f268e5ac6cb2aa9fe6`. Run census still has only `46007839655` (pull_request, completed/success) and `46007801545` (pull_request, completed/cancelled) on that exact head. One green run is not a two-success pair; no product merge is authorized.
+- Plan PR #232 remains OPEN at old head `e200846b49e5b9cda6e8d26fc9d8c8b3efa2efc2`; its only `Plan · validate` result is run `46008182506`, completed/failure on that old head. It does not validate this updated evidence branch. The local evidence branch is ahead with the latest review and Plan-main refresh; a new exact-head Plan validation is required after publishing the update.
+- Product review decision remains blocked: check 1 NO (only one successful exact-head run), check 2 YES (docs-only/disjoint), check 3 NO (malformed German terminology remains at `docs/de/how-to/operator-api.md:129-135`), check 4 YES (docs audit and strict EN/DE builds passed; release matrix skipped for docs-only scope).
+
+## END BLOCKED
+
+END BLOCKED w267-0428-284-pridentity: PR #1878 held at exact head 698db93ad5b3657894bb90f268e5ac6cb2aa9fe6; only run 46007839655 succeeded, run 46007801545 was cancelled, and German wording remains unresolved. Evidence branch is not yet validated on its updated exact head.
