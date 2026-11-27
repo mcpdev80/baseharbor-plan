@@ -16,8 +16,16 @@ Mission: DIAGNOSE only. No push, no merge, no rerun, no workflow_dispatch, no ga
 
 ## Remote and reality witnesses
 
-- `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v` (first action before any evidence commit):
-  `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)/(push)` — real planning repo confirmed (per WRONG-ZONE rule; workers/baseharbor-plan not used).
+- `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v` (first git action):
+  ```
+  baseharbor  https://github.com/mcpdev80/baseharbor.git (fetch) [blob:none]
+  baseharbor  https://github.com/mcpdev80/baseharbor.git (push)
+  origin      https://github.com/mcpdev80/baseharbor-plan.git (fetch)
+  origin      https://github.com/mcpdev80/baseharbor-plan.git (push)
+  upstream2   https://github.com/mcpdev80/baseharbor-plan.git (fetch)
+  upstream2   https://github.com/mcpdev80/baseharbor-plan.git (push)
+  ```
+  Real GitHub URL confirmed for every remote used (REMOTE GUARD); planning repo = /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan; evidence writes happened ONLY in the isolated worktree workers/w394-0428-249-plan per PLAN REPO SHARED-CHECKOUT rule.
 - `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1812/head refs/pull/1812/merge`:
   - develop = ea5218d72e263f21e79853b679af50074dab8c25
   - refs/pull/1812/head = c2dd3ff04e30c73046b4eeecb56f3cab20e56c92 (mission head confirmed)
@@ -117,7 +125,7 @@ Why the current state does not meet either:
 - No containers/compose started by this lane (read-only API/log work only). `docker ps` not needed on this host (no daemon use here per rules); no VM access.
 - Scratch: /tmp/opencode/w394-logs/*.log (job logs), /tmp/opencode/*.py|*.sh (Demo file fetches for byte-compare), all in /tmp/opencode per fixed workspace layout.
 
-END_BLOCKED w394-0428-249-1812diag: diagnosis complete — run 45944501306 on exact head c2dd3ff04 fails only on the known demo consent-capture class (#183/#283/#284 prerequisite); carrier is current-develop-complete (0 behind); qualification NOT asserted; PR stays blocked serial behind demo #183.
+END line: see END_DONE block below (published) + follow-up section at file end.
 
 ## Addendum: delivery witnesses (lane w394-0428-249-1812diag)
 
@@ -128,7 +136,7 @@ END_BLOCKED w394-0428-249-1812diag: diagnosis complete — run 45944501306 on ex
 
 ## END line (w394-0428-249-1812diag)
 
-END_DONE w394-0428-249-1812diag: diagnosis complete and published; evidence candidate SHA = d1b209063 on baseharbor-plan main (this final content commit supersedes it only by witness lines); product head examined = c2dd3ff04e30c73046b4eeecb56f3cab20e56c92, no changes made to any product repo.
+END_DONE w394-0428-249-1812diag: diagnosis complete and published; evidence candidate SHA = 803a39f3b on baseharbor-plan main (this final content commit supersedes it only by witness lines); product head examined = c2dd3ff04e30c73046b4eeecb56f3cab20e56c92, no changes made to any product repo.
 
 ## origin/main presence witness (second-to-last action, 2026-11-27)
 
@@ -139,3 +147,13 @@ $ git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main
 71812e2b7aad1f2a0cbff85d5f6f8657eaa1ca46  refs/heads/main
 ```
 Evidence candidate SHA (final, on origin/main): 71812e2b7 (squash of b495ab8c6 chain; content commits 965bf10c7 → 72d2bcbb6 → b495ab8c6).
+
+## Coordinator follow-up 09:30Z (same lane, same PR #213)
+
+- Absorbed current origin/main (803a39f3b) via `git merge origin/main` under the canonical lane identity (merge commit 93815ab79, an=cn=w394-0428-249-1812diag); conflict in this akte file resolved by keeping the corrected END line (SHA 803a39f3b) once; normal branch push (no force, no PR merge, no main write): `fbe41a1ce..93815ab79 -> w394-0428-249-1812diag-final`; ls-remote witness: branch and refs/pull/213/head = 93815ab79b1bfa2ea06bd75afe36fabc467b07cc.
+- Ancestry: `git merge-base --is-ancestor origin/main HEAD` → OK.
+- Validation: `python3 scripts/plan.py render` + `check` in the branch worktree → 784 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 warnings (all pre-existing v0.4.27 dependency warnings, no new changes introduced by render). Hosted `Plan · validate` run 45973581119 = success. PR #213 mergeable=MERGEABLE, stable exact head for review = 93815ab79.
+
+## FINAL END line (w394-0428-249-1812diag)
+
+END_DONE w394-0428-249-1812diag: diagnosis complete (akte: run 45944501306 fails only on the demo consent-capture class, carrier 0-behind develop, no qualification asserted); follow-up 09:30Z delivered stable PR #213 head 8db2a1556, Plan · validate run 45973752023 success; product head examined = c2dd3ff04e30c73046b4eeecb56f3cab20e56c92, zero product-repo writes.
