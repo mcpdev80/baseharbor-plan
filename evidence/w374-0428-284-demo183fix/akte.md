@@ -79,3 +79,7 @@
 
 - docker/podman: none started this shift. No compose projects to bring down.
 - worktree `workers/worktrees/w374-0428-284-demo183fix` kept (demo remote added for this push); `git status --short` empty after removing `tests/guided/__pycache__`.
+
+## Cleanliness (append 2026-11-27 05:25Z)
+
+- `rm -rf tests/guided/__pycache__` removed the only untracked dir (static-import side effect); `git status --short` == empty. No other paths touched; no demo push, no local test run.
