@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w396-0428-306-goldenhelp
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-316 · hunt43-env-leak-disk
 priority: ""
@@ -23,14 +23,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt43-env-leak-disk · 0428 hunt H-V43: hunt43-env-leak-disk #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261125-hunt43-env-leak-disk · 0428 hunt H-V43: hunt43-env-leak-disk #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** w396-0428-306-goldenhelp  
     **PR:** [baseharbor#1883](https://github.com/mcpdev80/baseharbor/pull/1883)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w396-0428-306-goldenhelp  
