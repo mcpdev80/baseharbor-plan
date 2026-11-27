@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: "w356-0428-288-1870hop"
+owner: "w356-0428-344-1871requal"
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1871"]
 sources: []
-blocker: "parked pending w255 scope decision (a in-card route fix / b own tracking / c refute) for TestCapabilitiesPaginationContract 404; head c21b4fde pushed, Go packages red only via that pre-existing gap; w356 holds worktree, no autonomous continuation"
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -25,16 +25,15 @@ evidence: []
 
 - [ ] t-20261128-hunt48-runtime-pagination-contract · 0428 hunt H-V48: runtime API list endpoints have no pagination contract #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w356-0428-288-1870hop  
+    **Owner:** w356-0428-344-1871requal  
     **PR:** [baseharbor#1871](https://github.com/mcpdev80/baseharbor/pull/1871)  
-    **Blocker:** parked pending w255 scope decision (a in-card route fix / b own tracking / c refute) for TestCapabilitiesPaginationContract 404; head c21b4fde pushed, Go packages red only via that pre-existing gap; w356 holds worktree, no autonomous conti…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w356-0428-288-1870hop  
+**Owner:** w356-0428-344-1871requal  
 **Priority:** not set  
 **PRs:** [baseharbor#1871](https://github.com/mcpdev80/baseharbor/pull/1871)  
 **Source:** 
