@@ -2,7 +2,7 @@
 
 ## Owner disposition — qualification evidence workflow integrity (2026-11-27)
 
-This is an existing-card disposition for 0428-249, because the decisions below are prerequisites for a trustworthy #1812 qualification. It does not authorize a lane to edit `.github/**`; those workflow changes remain Owner-owned under coordinator/RUNBOOK.md §4.0. The Owner's global scope covers every evidence-producing qualification, gate, and acceptance workflow, including the `PR Selected Checks` graph in `ci.yml`.
+This is an existing-card disposition for 0428-249, because the decisions below are prerequisites for a trustworthy #1812 qualification. Implementation is by the worker lane on 0428-249, Owner-authorized; `.github` changes are limited exactly to this edit set. This is the named-card exception in coordinator/RUNBOOK.md §4.0, line 251. The Owner's global scope covers every evidence-producing qualification, gate, and acceptance workflow, including the `PR Selected Checks` graph in `ci.yml`.
 
 ### Decisions
 
