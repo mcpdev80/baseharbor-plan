@@ -128,6 +128,20 @@ Posted at https://github.com/mcpdev80/baseharbor/pull/1812#issuecomment-72103425
 run ledger and ls-remote witnesses (branch + refs/pull/1812/head = d95e46de9df009055399938bcd8a2f472c1fa32e;
 develop ea5218d72).
 
+## Fourth-file authorization executed (coordinator disposition 05:11:56Z)
+- `scripts/test_pr_runtime_workflow_shape.py` (job-name assertion region ONLY, +10/−2):
+  positive exact list `["resolve_candidate", "gate"]` (correct order), PLUS retained coverage:
+  negative anchor `assertNotIn("not_a_real_gate", names)` against the same names list (any added
+  job fails the exact-equality and the negative), resolver header must keep its reuse-gate
+  (`if: inputs.reuse_from == ''`) and the gate job header must stay unconditional — strictly more
+  pinned than before, no shrink. No fourth+ file; ci.yml/product paths untouched; no consent/auth
+  change; class (B) untouched per condition (3).
+- develop check: ls-remote develop = ea5218d72 (no advance) → no merge, per transport rule.
+- ONE forward commit `c2dd3ff04` (4-Feld w362 verified an=ae=cn=ce), ONE normal push
+  `d95e46de9..c2dd3ff04`. Witnesses: ls-remote branch + refs/pull/1812/head =
+  `c2dd3ff04e30c73046b4eeecb56f3cab20e56c92` = `gh pr view 1812 --json headRefOid`.
+- Fresh exact-head run **45944501306** — Watcher sh_21b6c7c73001… active; terminal census with both
+  native gates recorded below.
 ## Final per-job evidence harvest (run 45940327574, head d95e46de9) — owner request 05:05:43Z
 10 failed jobs, each with log line + carrier and class attribution:
 1. `PR · Focused Python` (140313019507) — log: `FAIL: test_exactly_one_unconditional_reusable_gate_job
