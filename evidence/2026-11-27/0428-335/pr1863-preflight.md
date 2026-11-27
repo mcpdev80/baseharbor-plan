@@ -50,3 +50,5 @@ Verdict: IN-SCOPE, limited to the purpose-bound test-only path already recorded 
 ## Provenance
 
 Planning repository remote: `origin https://github.com/mcpdev80/baseharbor-plan.git`. Evidence-file base: `6b51228455913a30024f73ec347da8caf4dfea83` from `origin/main`, confirmed against the GitHub remote before writing. Executing lane: `w255-0428-251-demo170codex`. Commit identity: `w255-0428-251-demo170codex <w255-0428-251-demo170codex@baseharbor.local>`. Commit invocation: `git -c user.name="w255-0428-251-demo170codex" -c user.email="w255-0428-251-demo170codex@baseharbor.local" commit -m "evidence: preflight #1863 and consolidate dispositions"`. Pre-push identity gate: `git show -s --format=%an HEAD` must print exactly `w255-0428-251-demo170codex`.
+
+Publication refresh: live `origin/main` advanced to `cd32518cbe5ea9784c444880863db8ad61102de8` before publication. I integrated it with ordinary merge commit `27180ab93eaf427cf3a6b5c66613403723c55769`, authored and committed as `w255-0428-251-demo170codex`; the evidence-path delta against that updated main remains exactly this file.
