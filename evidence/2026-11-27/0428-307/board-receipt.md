@@ -61,3 +61,17 @@
 - The final candidate diff is limited to the target task card, its generated release/roadmap/views, and this evidence file. No other task card or product repository is in scope.
 - Docker before/after witness: shell PID `1382114`; both `docker ps -a` outputs contained only the header and no containers. No compose project was started.
 - Evidence contains no Markdown checkbox lines.
+
+## Final publication witnesses
+
+- Primary board receipt PR #226 merged normally at `b9080de178bd75a2fcd51bf41bc5d55b47d237e9` after Plan validation run `46001062529` succeeded on exact PR head `26d19a20f31367a4a84effcee1728c6e3e6425ba`.
+- The primary branch push witness was `26d19a20f31367a4a84effcee1728c6e3e6425ba refs/heads/w267-0428-284-board307-receipt`; pre-push identity output was `26d19a20f an=w267-0428-284-pridentity cn=w267-0428-284-pridentity`.
+- As required, after fetching Plan main `b9080de178bd75a2fcd51bf41bc5d55b47d237e9`, `git ls-tree -r --name-only origin/main | grep 'evidence/2026-11-27/0428-307/board-receipt.md'` returned exactly:
+
+  evidence/2026-11-27/0428-307/board-receipt.md
+
+- `git ls-remote origin refs/heads/main` returned `b9080de178bd75a2fcd51bf41bc5d55b47d237e9 refs/heads/main`.
+
+## END DONE
+
+w267-0428-284-pridentity: board receipt published by Plan PR #226 at main `b9080de178bd75a2fcd51bf41bc5d55b47d237e9`; current source remains blocked, not active, because live w397 is idle and the exact trusted-catalog gate fails. Requested PR and blocker facts are recorded.
