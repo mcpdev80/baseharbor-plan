@@ -26,3 +26,16 @@ At the inspected snapshot, product develop is `c167fa5dd323ae0746385caa2bdb8364e
 5. Only after that acceptance, close #1650 and then #1818 as superseded records, preserving their cross-links. No closure is authorized by #1867, the failed #1855 run, or the #154/#156 transport artifacts.
 
 This disposition adds no acceptance criterion beyond the live 0428-078 contract and does not perform any implementation, PR closure, or merge.
+
+## Existing-card ownership and NO-RETRY disposition (2026-11-27)
+
+The NO-RETRY park is confirmed for the failed exact candidate recorded above: preserve run `45911769054` as failure evidence and do not repeat it or treat the successful runtime jobs as acceptance. Qualification resumes only after the existing prerequisites below are resolved in order, followed by a refreshed #1855 head and its required exact-head evidence and Codex acceptance. This is a sequencing rule, not new tracking.
+
+| Step | Existing card(s) | Responsibility already covered |
+| --- | --- | --- |
+| #1812 qualification prerequisites and workflow evidence | 0428-249 (`t-20261122-runtime-image-registry-artifact-unknown`) and 0428-284 (`t-20261125-0428-284-1812-postretry-gate-failure`) | 0428-249 carries the owner-authorized workflow-integrity edit set and requires fresh Docker/Podman evidence on the final #1812 head; 0428-284 carries the post-retry Demo harness diagnosis and the remaining #1812 qualification handoff. Neither card's evidence substitutes for the other. |
+| #1819 producer/catalog consumer | 0428-181 (`t-20261120-r28-identity-dashboard-catalog-consumer`) and its existing baseline 0428-273 (`t-20261124-gate-catalog-baseline-1819`) | 0428-181 owns the product consumer seam and #1819 sequence step; 0428-273 owns the separate develop-side catalog-admission rows, not product implementation. |
+| #1820 broker build identity | 0428-271 (`t-20261124-r28-broker-build-identity-commit`) and its existing baseline 0428-274 (`t-20261124-gate-catalog-baseline-1820`) | 0428-271 owns the product broker-identity step; 0428-274 owns its separate develop-side catalog row. |
+| Refreshed #1855 and eventual #1818/#1650 disposition | 0428-078 (`t-20261114-r28-perses-dashboard-identity`) | This card owns the dashboard acceptance, exact-head #1855 review, and the downstream supersession/closure order for #1650 and #1818. |
+
+No new card or parallel tracking is warranted: each step is already covered by the named contract(s). Execution remains serial: #1812 qualification and landing; then #1819 refresh, qualification and landing; then #1820 refresh, qualification and landing; then refresh and independently accept #1855; only after that acceptance may #1650 and then #1818 be closed as superseded records. The catalog baselines 0428-273 and 0428-274 are admission prerequisites for their corresponding product steps, not permission to reorder the chain.
