@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: "" (lane w342 idle-PARKED on external map gate; claim released for board truth, RESUME trigger = pr-gate-map landing)
-kanban_status: blocked
-kanban_lane: blocked
+owner: "w381-0428-328-1869pre (prework: hop/classification only - qualification stays after plan 136 / 183 merge per card blocker)"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "DamagedDeploymentNamespace (internal/deployment/damagedstate.go:266) iterates deployments/ children and calls…"
 kanban_title: 0428-328 · skip reserved damaged scan
 priority: ""
@@ -17,24 +17,23 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1869"]
 sources: []
-blocker: "blocked-BASELINE as STATE: family catalog PR #1869 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded"
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261126-hunt46-damaged-state-reserved-namespace · 0428 hunt H-V46: DamagedDeploymentNamespace flags the reserved never-delivered namespace as damaged (low) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261126-hunt46-damaged-state-reserved-namespace · 0428 hunt H-V46: DamagedDeploymentNamespace flags the reserved never-delivered namespace as damaged (low) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** "" (lane w342 idle-PARKED on external map gate; claim released for board truth, RESUME trigger = pr-gate-map landing)  
+    **Owner:** w381-0428-328-1869pre (prework: hop/classification only - qualification stays after plan 136 / 183 merge per card blocker)  
     **PR:** [baseharbor#1869](https://github.com/mcpdev80/baseharbor/pull/1869)  
-    **Blocker:** blocked-BASELINE as STATE: family catalog PR \#1869 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** "" (lane w342 idle-PARKED on external map gate; claim released for board truth, RESUME trigger = pr-gate-map landing)  
+**Owner:** w381-0428-328-1869pre (prework: hop/classification only - qualification stays after plan 136 / 183 merge per card blocker)  
 **Priority:** not set  
 **PRs:** [baseharbor#1869](https://github.com/mcpdev80/baseharbor/pull/1869)  
 **Source:** 
@@ -72,3 +71,7 @@ evidence: []
 ## Task
 
 Cast from hunt H-V46 (akte evidence/r28-welle6-2026-11-27/bughunt-hv46-state-lifecycle/ on origin/main 62de9bb74, anchor develop 2a141387d; re-verified against develop 384d857b5 at intake). BF-46-4 LIVE (proven by repro at intake). `DamagedDeploymentNamespace` iterates `deployments/` entries and calls `DamagedDirectoryState` on each child dir (line 270). `DamagedDirectoryState` (177-204) returns true when a child dir has no `deployment.json` but retains protected state files. The `never-delivered/` directory is a child of `deployments/` and the current proof-exclusion guard (lines 277-287) only skips a damaged directory when a proof for THIS repository app exists, not when the namespace itself is reserved. Reproduced at intake: placing `runtime.env` directly under `never-delivered/` flags the Target as having damaged deployment state. Fix: explicitly skip the reserved `never-delivered` subdirectory (matching the reservation the adoption writer creates).
+
+## Prework gate
+
+- blocked-BASELINE as STATE: family catalog PR #1869 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded
