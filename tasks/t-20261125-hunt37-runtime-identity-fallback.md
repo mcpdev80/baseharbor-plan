@@ -85,6 +85,37 @@ Remove the shared legacy app-token fallback. Require an explicit, narrowly scope
 
 - Current state, branch, PR and evidence links. Newest first.
 
+- **w397 (2026-11-27):** implemented the fix + focused regressions and registered
+  them in the trusted CI coverage catalog. Product branch `w397-0428-307-idfallback`
+  head `254621f5655051d087d79fb7668b683dcfda5b93` (PR #1875, base develop):
+  `cmd/baha/app_workload.go` admits a service to `RuntimeIdentityServices` only on
+  an explicit runtime permission (legacy `BASEHARBOR_RUNTIME_TOKEN_FILE` binding no
+  longer admits; unauthorized services fail closed with
+  `ErrRuntimeIdentityRequiresExplicitPermission`); new
+  `cmd/baha/app_workload_runtime_identity_fallback_test.go` pins the prior fallback
+  case (negative) and the explicit-permission case (positive). Local prechecks
+  (`go build`, `go vet`, `gofmt`) clean; both tests pass under the exact CI
+  `cli-package-tests` auto-discovery shard and `atomic/{docker,podman}/data-capabilities`
+  native gate (trusted planner `coverage_status=resolved`, narrow matrix).
+  Blocker: two Hosted CI runs (#1875) FAIL in `PR · Trusted Plan` — the trusted
+  planner reads `scripts/pr-gate-coverage.json` from the develop tip
+  (`effective_base`), and the registration is not an ancestor of that tip.
+  Resolution (owner/coordinator scope): merge catalog PR #1876
+  (`lane-0428-307-ci-catalog` → develop, head `98cb8a725`) to develop, then re-run
+  CI on `254621f565`. Evidence:
+  `evidence/2026-11-27/w397-0428-307-idfallback.md`.
+
+- **w397 resolved the blocker root (2026-11-27):** verified the trusted CI reads
+  the catalog from `effective_base`, which for a develop-targeted PR push where
+  `INTEGRATION_SHA == HEAD_SHA` equals the develop tip (ci.yml line 832). #1876 is
+  still unmerged, so the develop tip is `ea5218d7` (catalog absent). Simulating
+  `effective_base` = develop **with the registration** (diff `ea5218d7..254621f565`
+  against the registered catalog), the trusted planner becomes `coverage_status=resolved`,
+  selects the `atomic/{docker,podman}/data-capabilities` focused native gate plus
+  `cli-package-tests` (auto-discovery runs both new tests); no release matrix. The
+  fix, tests and registration are complete and minimal; the only missing link is
+  #1876 merging to develop.
+
 ## Task
 
 Cast from hunt H-V37 (akte plan main 687af1678, evidence/r28-welle6-2026-11-26/bughunt-hv37-compose-identity/): H-V37-D (MEDIUM) - broker-consuming services WITHOUT explicit runtime permission silently fall back to the SHARED legacy app token instead of a per-service runtime identity. Fail-closed or explicit consented fallback per secure-by-design; product-adjacent to consent surfaces - implementation must NOT weaken consent checks; add regression proving per-service scoping.
