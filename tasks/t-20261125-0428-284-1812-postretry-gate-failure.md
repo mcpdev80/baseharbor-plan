@@ -8,14 +8,14 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w366-0428-284-democonsent
-kanban_status: active
+kanban_status: review
 kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-284 · 1812 post-retry gate fail
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
-prs: [mcpdev80/baseharbor-demo#173, mcpdev80/baseharbor-demo#174, mcpdev80/baseharbor#1856]
+prs: ["https://github.com/mcpdev80/baseharbor-demo/pull/183"]
 sources: []
 blocker: ""
 resolution: ""
