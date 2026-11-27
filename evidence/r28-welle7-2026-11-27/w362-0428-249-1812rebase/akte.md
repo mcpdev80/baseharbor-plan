@@ -257,3 +257,10 @@ effect, NOT b4112772/98e4d549. Gate jobs' "Checkout exact demo revision" step = 
 - `docker ps -a` (before push, pid 2373084): empty (no rows).
 - `docker ps -a` at END:
 (pending)
+
+## Evidence published on origin/main (pre-END proof)
+- Plan PR mcpdev80/baseharbor-plan#172 (squash-merged, admin merge after green "Plan · validate"), main now 8925d8a7c.
+- `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep …`:
+  `evidence/r28-welle7-2026-11-27/w362-0428-249-1812rebase/akte.md` — present (witness above).
+- docker ps -a at END: empty (no rows).
+- END line: `END_BLOCKED w362-0428-249-1812rebase: parked-until-landing`
