@@ -27,6 +27,7 @@ Plan recorded before batch-3 repository checks.
 - Literal commit invocation: `git -c user.name='w267-0428-284-pridentity' -c user.email='w267-0428-284-pridentity@baseharbor.local' commit -m 'Publish remaining staged lane evidence batch 3'`.
 - Pre-push author gate: `git show -s --format=%an HEAD` must print exactly `w267-0428-284-pridentity`; also record `git log --format='%h an=%an cn=%cn' -1`.
 - Base ancestry will be checked with `git merge-base --is-ancestor 71812e2b7aad1f2a0cbff85d5f6f8657eaa1ca46 HEAD`; the branch is `w267-0428-284-pridentity/publish-batch3`.
+- Before publication, Plan main advanced to `aa02b2562b4786fca4bf6cdc25c1bd2683277056`. It was integrated with a normal merge commit `17fe9a16d`; author and committer are both `w267-0428-284-pridentity`. The current main SHA is an ancestor of the candidate.
 
 ## Additional source findings
 
@@ -42,6 +43,6 @@ Plan recorded before batch-3 repository checks.
 - Plan render/check is required before the Plan PR; Hosted Plan validation must pass on the exact PR head. Merge is a normal Plan PR merge only after the current-base/head/run checks.
 - `python3 scripts/plan.py render && python3 scripts/plan.py check`: completed; 784 tasks, 7 epics, 13 releases, 24 decisions; 0 errors and 10 pre-existing v0.4.27 dependency warnings. `git diff --check` passed. The two copied files have the source-matching hashes listed above, and none of the three new evidence files contains a markdown task checkbox.
 
-## END BLOCKED
+## END PENDING
 
-Batch-3 Plan PR is in progress; final PR number, exact-head validate run, merge SHA, main blob IDs, and END_DONE will be recorded after hosted validation and merge.
+Batch-3 publication is in progress. The final PR, exact-head Hosted Plan validation, normal merge, main SHA and blob witnesses will be reported after those remote events are verified.
