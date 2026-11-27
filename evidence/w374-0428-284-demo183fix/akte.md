@@ -77,3 +77,7 @@
 - docker/podman: none started this shift. No compose projects to bring down.
 - worktree `workers/worktrees/w374-0428-284-demo183fix` kept (demo remote added for this push).
 - plan evidence worktree `workers/worktrees/w374-0428-284-demo183fix-plan` will be removed after push.
+
+## Cleanliness (append 2026-11-27 04:39Z)
+
+- `rm -rf tests/guided/__pycache__` removed the only untracked dir (stasis-import side effect); `git status --short` == empty. No other paths touched; no demo push, no local test run.
