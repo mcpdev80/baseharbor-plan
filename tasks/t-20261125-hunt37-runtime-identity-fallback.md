@@ -105,15 +105,16 @@ Remove the shared legacy app-token fallback. Require an explicit, narrowly scope
   CI on `254621f565`. Evidence:
   `evidence/2026-11-27/w397-0428-307-idfallback.md`.
 
-- **w397 resolved the blocker root (2026-11-27):** verified the trusted CI reads the
-  catalog from  = develop tip (line 832, );
-  #1876 is still unmerged so develop tip is  (catalog absent). Simulated
-   = develop **with the registration** (diff 
-  against the registered catalog): trusted planner becomes ,
-  selects  focused native gate +
-   (auto-discovery runs both new tests); no release matrix. The
-  fix, tests and registration are complete and minimal; the only missing link is #1876
-  merging to develop.
+- **w397 resolved the blocker root (2026-11-27):** verified the trusted CI reads
+  the catalog from `effective_base`, which for a develop-targeted PR push where
+  `INTEGRATION_SHA == HEAD_SHA` equals the develop tip (ci.yml line 832). #1876 is
+  still unmerged, so the develop tip is `ea5218d7` (catalog absent). Simulating
+  `effective_base` = develop **with the registration** (diff `ea5218d7..254621f565`
+  against the registered catalog), the trusted planner becomes `coverage_status=resolved`,
+  selects the `atomic/{docker,podman}/data-capabilities` focused native gate plus
+  `cli-package-tests` (auto-discovery runs both new tests); no release matrix. The
+  fix, tests and registration are complete and minimal; the only missing link is
+  #1876 merging to develop.
 
 ## Task
 
