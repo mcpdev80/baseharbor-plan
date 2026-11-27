@@ -94,3 +94,9 @@ END_DONE w255-0428-251-demo170codex: disposition recorded; eight-row develop bas
 * `git diff origin/main...HEAD --name-only` returned `evidence/2026-11-27/0428-275/codex-disposition-136.md`.
 * `git log --oneline origin/main..HEAD` returned only the lane's own commit: `d2e1b7741 review(0428-275): decide trusted catalog row disposition`.
 * Pre-push identity witness for that commit: `d2e1b7741 an=w255-0428-251-demo170codex cn=w255-0428-251-demo170codex review(0428-275): decide trusted catalog row disposition`.
+
+## Live-main refresh before PR
+
+Plan main advanced from the branch-cut SHA `4751caa7fd76a48ef64111bfcad001e239ee47ef` to `8bd8c7d04e6da7ad4e4200753a570bb3e19aabda` before the first push. I absorbed that live main with an ordinary merge commit, without rebase or reset. The transport merge is `fbe155dec78a30c7ba1150a18293489737b31e8e`, parents `0913cfed17c0b5bc03c67ba76ba22dc6ff03447c` and `8bd8c7d04e6da7ad4e4200753a570bb3e19aabda`, author and committer `w255-0428-251-demo170codex`.
+
+On the refreshed candidate, `git merge-base --is-ancestor origin/main HEAD` must return zero. `git diff origin/main...HEAD --name-only` must return only `evidence/2026-11-27/0428-275/codex-disposition-136.md`; `git log --oneline origin/main..HEAD` must contain only this lane's two evidence commits and its identity-correct transport merge. The absorbed unrelated task-file adjustment is inherited from main and is outside this PR's diff.
