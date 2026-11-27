@@ -105,6 +105,16 @@ Remove the shared legacy app-token fallback. Require an explicit, narrowly scope
   CI on `254621f565`. Evidence:
   `evidence/2026-11-27/w397-0428-307-idfallback.md`.
 
+- **w397 resolved the blocker root (2026-11-27):** verified the trusted CI reads the
+  catalog from  = develop tip (line 832, );
+  #1876 is still unmerged so develop tip is  (catalog absent). Simulated
+   = develop **with the registration** (diff 
+  against the registered catalog): trusted planner becomes ,
+  selects  focused native gate +
+   (auto-discovery runs both new tests); no release matrix. The
+  fix, tests and registration are complete and minimal; the only missing link is #1876
+  merging to develop.
+
 ## Task
 
 Cast from hunt H-V37 (akte plan main 687af1678, evidence/r28-welle6-2026-11-26/bughunt-hv37-compose-identity/): H-V37-D (MEDIUM) - broker-consuming services WITHOUT explicit runtime permission silently fall back to the SHARED legacy app token instead of a per-service runtime identity. Fail-closed or explicit consented fallback per secure-by-design; product-adjacent to consent surfaces - implementation must NOT weaken consent checks; add regression proving per-service scoping.
