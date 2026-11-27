@@ -52,7 +52,11 @@ H-V43 akte (w331) recorded three findings. FUND-A is the disk leak the card name
 
 ## Hosted CI (self-run duty)
 
-- Draft PR open run 46026169400 (head 66ed368034, CI · Source & Quality, draft routing lanes; observed to terminal below)
+- Run 46026169400 (draft PR open, head 66ed368034, CI · Source & Quality draft-routing): observed, then CANCELLED by the authorized close+reopen second-run trigger (converted_to_draft runs are NONQUALIFYING per pair doctrine).
+- Run 46026622055 (draft-routing after reopen, head 66ed368034): SUCCESS, observed to terminal via gh run watch (RC=0). NONQUALIFYING (draft routing), witness only.
+- Run 46027591218 (ready-for-review, full selected checks incl. PR · Validation · runtime-provider-package-tests + atomic/podman/lifecycle native gate, head 66ed368034): observed to terminal FAILURE. Job failure triage below.
+
+## Candidate delivery (PR #1883, ready)
 ## Candidate delivery (PR #1883, draft)
 
 - Candidate branch: lane-0428-316-envleak-disk, single commit 66ed3680343b36d6dfff855892867d3c99f349c8 (author/committer w396-0428-306-goldenhelp, gate `git log --format='%h an=%an cn=%cn' -1` verified).
@@ -110,3 +114,12 @@ internal/providers/runtime/podman/quadlet_render.go
 4. Mixed text (`prefix-${SECRET}`) keeps the established file projection (accepted limitation; the H-V43 FUND-A shape is the bare reference form).
 5. `cloneQuadletYAMLNode` deep-copies `Content` (fixes latent aliasing).
 
+
+## Failure triage on run 46027591218 (native podman lifecycle gate)
+
+- Failing jobs: "PR · Selected Runtime (atomic/podman/lifecycle, podman, lifecycle) / Executed podman · lifecycle" (job 140603666255) and the "PR Selected Checks" aggregator. Every unit/validation job on the exact head passed, including runtime-provider-package-tests, which hosts the package where the 0428-316 guard tests live.
+- The gate log shows the demo journey itself reached `state:"running", ready:true` with ALL checks ok; the terminal error is from the candidate-consent recording step: `Error: record deployment before mutation: candidate submission requires an explicit operator/automation consent (--confirm-candidate)`, with the preceding `[ci-operator-testonly] decision=managed-local-gate-rejected: core-installation-not-loadable: lstat .../runtime/installation.json: no such file or directory command="up --yes --json"`.
+- Provenance: develop advanced to 2f9e1233d7 (card 0428-337, candidate-consent area) DURING the run window (PR · Native gate plan log). My candidate changes ONLY internal/providers/runtime/podman; it does not touch cmd/baha/app_candidate_consent.go, app_apply.go or any consent path. A worktree at GitHub's own PR integration commit d891878139 (base 6944e8761a + head 66ed368034) passed the full podman package locally.
+- Disposition: same exact head re-qualified via the authorized close+reopen trigger (rerun of unchanged inputs; NOT a fix push):
+
+## Same-head rerun witnesses (authorized close+reopen)
