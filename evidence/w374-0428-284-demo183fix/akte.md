@@ -5,7 +5,7 @@
 - repo: mcpdev80/baseharbor-demo
 - PR: #183 (base develop), branch w366-0428-284-democonsent
 - parent candidate (superseded, w373): PR #183 @ 83c80c917858e719118bd21e0183b4516959ac53
-- candidate head: 00b87bfc36cb3070bb7046f40d0df798f59ff4b1
+- candidate head: d5b44c46c694c3099408939ec962cd723505003c
 - date: 2026-11-27
 
 ## Visible Ansatz block (required before first commit)
@@ -21,18 +21,15 @@
 - demo remote (worktree `git remote -v`): demo -> https://github.com/mcpdev80/baseharbor-demo.git (the github.com/mcpdev80 remote; used for all demo push/fetch).
 - PR #183 head BEFORE this lane: 83c80c917858e719118bd21e0183b4516959ac53 (w366-0428-284-democonsent, unqualified, buggy reconcile).
 - w373 half-fix head: 1dfead1998254e124ff54a7678ab8ed388e3bee0 (parent carries the two runtime fixes: drive.py line 349 `bytes_read += len(chunk)` in the main read loop, line 411 in the final-drain loop, line 435 `os.fsync(log.fileno())` before reconcile).
-- ancestry chain (linear, intended by owner): 83c80c917 -> 1dfead199 -> 442d8bb1c -> 00b87bfc3.
-  - `git merge-base --is-ancestor 83c80c917 HEAD`: YES
-  - `git merge-base --is-ancestor 1dfead199 HEAD`: YES
-  - `git merge-base --is-ancestor 442d8bb1c HEAD`: YES
-- `git log --oneline 83c80c917..HEAD`: 442d8bb1c (w374 runtime complete) + 00b87bfc3 (w374 test determinism) on top of the carried 1dfead199. My single authored commit in this shift that completes the review finding is 00b87bfc3.
+- ancestry chain (linear, intended by owner): 83c80c917 -> 1dfead199 -> 442d8bb1c -> 00b87bfc3 -> 2628f5abe -> d9c7b6136 -> d5b44c46c.
+- `git log --oneline 83c80c917..HEAD`: carried w373 half-fix 1dfead199 (runtime bytes_read + flush/fsync), w374 runtime completion 442d8bb1c, w374 test determinism 00b87bfc3, w374 digest-offset 2628f5abe, w374 branch-attribution d9c7b6136, w374 scoping-fix d5b44c46c.
 
 ## Repo-rule compliance
 
-- Write-set: tests/guided/drive.py (w374 commit 442d8bb1c, the runtime completion) and tests/guided/test_consent_capture.py (w374 commit 00b87bfc3, this finding). No product-code delta, no product-auth/consent/authorization delta, no `.github/**` change, no CI change.
-- Fail-closed consent tests 22/23: unchanged (verified: my diff touches only test_25).
-- No subagents: every step executed inside session e6ca7696-b1f8-492d-b226-876b16925fc5 (lane w374). No local test execution (policy stop 2026-11-26): only `python3 -m py_compile`, `python3` byte-math simulation, `git diff --check`, `git ls-remote`.
-- One integration candidate per chain: PR #183 only. The w373 branch w373-0428-284-demo183fix and its accidental PR #184 (now CLOSED) were not touched; PR #184 closure is the coordinator's task.
+- Write-set: tests/guided/drive.py and tests/guided/test_consent_capture.py. No product-code delta, no product-auth/consent/authorization delta, no `.github/**` change, no CI change.
+- Fail-closed consent tests 22/23: unchanged.
+- No subagents: every step executed inside session e6ca7696-b1f8-492d-b226-876b16925fc5 (lane w374). No local test execution (policy stop 2026-11-26): only `python3 -m py_compile`, `python3` byte-math simulation, static bytecode scope check, `git diff --check`, `git ls-remote`.
+- One integration candidate per chain: PR #183 only. The w373 branch w373-0428-284-demo183fix and its accidental PR #184 (now CLOSED) were not touched.
 - Transport: `git fetch demo w366-0428-284-democonsent` -> `git merge --ff-only 1dfead199` (lineage 83c80c917->1dfead199 preserved, no rewrite, no cherry-pick) -> w374 commits on top -> `git push demo HEAD:w366-0428-284-democonsent`. No force, no amend, no new PR.
 - No workflow_dispatch, no Hosted Run triggered by this lane (Owner launches on the new exact head).
 
@@ -42,86 +39,43 @@
 - Source: `tests/guided/drive.py` run_tty final-drain block.
 - Resolution: carried by w373's 1dfead199 (main-loop + final-drain `bytes_read += len(chunk)`, and `log.flush()` + `os.fsync(log.fileno())` before `reconcile_capture_from_log`). w374 commit 442d8bb1c completes the final-drain loop's `bytes_read` advance so the running total is correct across the drain.
 
-### Finding B (exact-head review 2026-11-27) — test_25 not deterministic
+### Finding B (exact-head review 2026-11-27 04:39Z) — test_25 not deterministic
 - Source: `tests/guided/test_consent_capture.py` test_25_run_tty_final_drain_appends_missing_log_bytes_once.
-- Problem: the fake core emitted only a < 4 KiB digest line with a 20ms idle gap. `run_tty` reads up to 4096 bytes per normal `select()` event, so the digest was consumed entirely by the main loop and the final-drain reconcile path was never exercised — the regression passed even against the buggy code.
-- Correction: emit a single final core line LARGER than one 4096-byte read. The core now writes a padding prefix (`P` * (4096 - len(digest_line) + 1)) followed by the digest line, so `final_blob` is 4097 bytes. With `delay=0` the digest tail (bytes past the first 4096) is read by the final-drain loop after process exit. The test asserts `transcript.count(digest) == 1` (exactly-once, via `str.count`, not `in`), which fails against the buggy helper (double-append => count 2) and passes with the fix. Empty capture_tail path is covered by the same helper path (test_24 white-box guard).
-- Byte math witness (static, not a test run): digest_line_len=134, final_blob_len=4097, bytes in final drain = 1 (>0 => digest tail lands in the drain).
+- Problem (round-1): the fake core emitted only a < 4 KiB digest line with a 20ms idle gap; run_tty reads up to 4096 bytes per normal select() event, so the digest was consumed entirely by the main loop and the final-drain reconcile path was never exercised.
+- Problem (round-2, 2628f5abe): pad = 4096 - len(digest_line) + 1 produced only 3963 bytes of prefix for the 134-byte digest line, placing the digest at offset 3963-4097, wholly BEFORE the 4096 boundary.
+- Correction (round-2): pad_len = 4096 + len(digest_line); digest appended AFTER the prefix so digest_start_offset = 4230 >= 4096 (asserted, computed).
+- Correction (round-3, d9c7b6136): added drive.FINAL_DRAIN_CHUNKS module counter (incremented once per chunk in the final-drain loop); test_25 asserts >= 1, proving the digest tail was read by the final-drain branch.
+- Correction (round-4, d5b44c46c): Python scoping bug - the counter increment inside run_tty had no 'global' declaration, so the module counter never advanced. Fixed with 'global FINAL_DRAIN_CHUNKS' in run_tty; static bytecode check proves the name is global (in co_names, not in co_varnames[:nlocals]).
+- Static negative proof: removing bytes_read += len(chunk) from the final-drain loop makes reconcile re-append the digest tail -> count(digest) == 2, so the test fails deterministically without that line.
 
 ## Test matrix 21-25
 
-- test_21 first transcript captures documented digest + hint on immediate drain — present (unchanged)
-- test_22 capture boundary still aborts on foreign error — present (unchanged, fail-closed)
-- test_23 capture boundary aborts when digest absent — present (unchanged, fail-closed)
-- test_24 reconcile appends unread log bytes (white-box helper guard) — present (unchanged)
-- test_25 run_tty final-drain appends missing log bytes exactly once — MODIFIED this lane to be deterministic (> 4096 byte final tail, count()==1)
+- test_21 first transcript captures documented digest + hint on immediate drain - present (unchanged)
+- test_22 capture boundary still aborts on foreign error - present (unchanged, fail-closed)
+- test_23 capture boundary aborts when digest absent - present (unchanged, fail-closed)
+- test_24 reconcile appends unread log bytes (white-box helper guard) - present (unchanged)
+- test_25 run_tty final-drain appends missing log bytes exactly once - MODIFIED this lane (deterministic > 4096 byte final tail, digest_start_offset >= 4096 asserted, FINAL_DRAIN_CHUNKS >= 1, count == 1)
 
 ## Run witnesses
 
 - Parent candidate PR #183 @ 83c80c917: unqualified (buggy reconcile). No qualifying run.
 - w373 half-fix PR #184 @ 1dfead199: CLOSED (accidental; coordinator closes by ancestry proof).
-- PR #183 @ 00b87bfc36cb3070bb7046f40d0df798f59ff4b1 (this lane):
-  - base develop => `pull_request` event fires under CI workflow. Hosted run to be launched by the Owner on this exact head.
-  - Delivery witness (two independent sources agree on the exact SHA):
-    - `git ls-remote https://github.com/mcpdev80/baseharbor-demo.git refs/heads/w366-0428-284-democonsent` => `00b87bfc36cb3070bb7046f40d0df798f59ff4b1`
-    - `gh pr view 183 --repo mcpdev80/baseharbor-demo --json headRefOid` => `{"headRefName":"w366-0428-284-democonsent","headRefOid":"00b87bfc36cb3070bb7046f40d0df798f59ff4b1","state":"OPEN","isDraft":false}`
-- Pre-push `%an` gate: `git show -s --format='%an' HEAD` == `w374-0428-284-demo183fix` exactly (both 442d8bb1c and 00b87bfc3).
+- PR #183 heads this lane moved through:
+  - 00b87bfc36cb3070bb7046f40d0df798f59ff4b1 (w374 test determinism)
+  - 2628f5abe7aab1d0c77c946b94b9f12583d352cd (w374 digest offset fix)
+  - d9c7b61361d158f7e62d04abda04811d138baf8d (w374 branch attribution)
+  - d5b44c46c694c3099408939ec962cd723505003c (w374 scoping fix - current)
+- Delivery witness (two independent sources agree on the exact SHA):
+  - `git ls-remote https://github.com/mcpdev80/baseharbor-demo.git refs/heads/w366-0428-284-democonsent` => `d5b44c46c694c3099408939ec962cd723505003c`
+  - `gh pr view 183 --repo mcpdev80/baseharbor-demo --json headRefOid` => `{"headRefName":"w366-0428-284-democonsent","headRefOid":"d5b44c46c694c3099408939ec962cd723505003c","state":"OPEN","isDraft":false}`
+- Pre-push `%an` gate: `git show -s --format='%an' HEAD` == `w374-0428-284-demo183fix` exactly (all w374 commits).
 
 ## END
 
-- status: END_DONE. PR #183 OPEN, non-draft, base develop, head 00b87bfc36cb3070bb7046f40d0df798f59ff4b1 (exact match via ls-remote + gh). Implementation + ancestry correct; test_25 now deterministic (exactly-once, > 4096 byte final tail, count()==1). No product/auth/consent delta; fail-closed consent tests 22/23 unchanged. Hosted Run pending: Owner launches on the new exact head (this lane triggered no workflow_dispatch / no rerun). Merge held pending green exact-head hosted evidence + exact-head review.
+- status: END_DONE. PR #183 OPEN, non-draft, base develop, head d5b44c46c694c3099408939ec962cd723505003c (exact match via ls-remote + gh). All four review rounds addressed: runtime final-drain fix (carried from w373), deterministic test_25 (>4096 byte digest tail, digest_start_offset >= 4096 asserted), branch-attribution proof via FINAL_DRAIN_CHUNKS, and the Python scoping fix that makes the counter actually advance. No product/auth/consent delta; fail-closed consent tests 22/23 unchanged. Hosted Run pending: Owner launches on the new exact head (this lane triggered no workflow_dispatch / no rerun). Merge held pending green exact-head hosted evidence + exact-head review.
 - NOTE for coordinator: PR #184 (w373 accidental) is still present as a CLOSED PR; close by ancestry proof per mission.
 
 ## Cleanliness
 
 - docker/podman: none started this shift. No compose projects to bring down.
-- worktree `workers/worktrees/w374-0428-284-demo183fix` kept (demo remote added for this push).
-- plan evidence worktree `workers/worktrees/w374-0428-284-demo183fix-plan` will be removed after push.
-
-## Correction round 3 (exact-head review 2026-11-27 05:02Z, verdict CHANGES)
-
-- Finding (2628f5abe): the digest-offset (>=4096) and exactly-once (count==1)
-  assertions were correct, but the test did not PROVE that the digest-bearing
-  bytes were read by run_tty's final-drain branch - the branch membership was
-  unproven. A pass could in principle hold even if the digest came from elsewhere.
-- Fix (commit d9c7b6136, tests/guided/* only, NO run_tty return-signature change):
-  - drive.FINAL_DRAIN_CHUNKS: module-level counter incremented once per chunk in
-    the final-drain loop (the `while True` loop after proc.poll() != None), right
-    next to `bytes_read += len(chunk)`. Kept a module attribute (not a return
-    value) so run_tty's (rc, buffer) signature and all callers (run_guided_consent_flow
-    lines ~615/~694, run_capture, init call) stay unchanged.
-  - test_25: resets drive.FINAL_DRAIN_CHUNKS = 0 before the run and asserts
-    >= 1 afterwards. A pass now proves the >4096-byte digest tail was read by the
-    final-drain branch (after process exit), not the main select() loop.
-  - Offset (>=4096, asserted, computed) and exactly-once (count==1) assertions RETAINED.
-  - No sleep/timing/rate or extended deadline as evidence substitute.
-- Negative proof (documented in-test, static): without `bytes_read += len(chunk)`
-  in the final-drain loop, reconcile_capture_from_log re-appends the digest tail ->
-  count(digest) == 2, so the test fails deterministically without that line.
-- Ancestry: 83c80c917 -> 1dfead199 -> 442d8bb1c -> 00b87bfc3 -> 2628f5abe -> d9c7b6136.
-- New PR #183 head: d9c7b61361d158f7e62d04abda04811d138baf8d (ls-remote + gh agree; OPEN, non-draft).
-
-## Correction round 2 (exact-head review 2026-11-27 04:51Z, verdict CHANGES)
-
-- Finding (file tests/guided/test_consent_capture.py ~line 749): the previous pad
-  `4096 - len(digest_line) + 1` produced only 3963 bytes of prefix for the 134-byte
-  digest line, so the digest sat at offset 3963-4097 - wholly BEFORE the 4096 boundary.
-  The digest was consumed by the normal select() main loop and the exactly-once
-  assertion could pass without exercising the double-append. Byte witness:
-  pad_len=3963, digest_start_offset=3963 (< 4096).
-- Fix (commit 2628f5abe):
-  1. pad_len = 4096 + len(digest_line); digest appended AFTER the prefix (>= 4096 bytes).
-  2. digest_start_offset = pad_len = 4230, asserted >= 4096 (computed, not inferred).
-  3. Digest tail lands in the final-drain branch after process exit.
-  4. Static negative proof documented in-test: removing bytes_read += len(chunk) from
-     the final-drain loop (drive.py line 411) makes bytes_read lag by the digest tail,
-     so reconcile re-appends it -> count(digest) == 2 -> test fails deterministically
-     without that line; passes with it.
-- Byte witness (fixed): pad_len=4230, digest_start_offset=4230 (>= 4096), final_blob_len=4364.
-- Fail-closed consent tests 22/23 unchanged; no product/auth/consent delta.
-- Ancestry: 83c80c917 -> 1dfead199 -> 442d8bb1c -> 00b87bfc3 -> 2628f5abe.
-- New PR #183 head: 2628f5abe7aab1d0c77c946b94b9f12583d352cd (ls-remote + gh agree; OPEN, non-draft).
-
-## Cleanliness (append 2026-11-27 04:39Z)
-
-- `rm -rf tests/guided/__pycache__` removed the only untracked dir (stasis-import side effect); `git status --short` == empty. No other paths touched; no demo push, no local test run.
+- worktree `workers/worktrees/w374-0428-284-demo183fix` kept (demo remote added for this push); `git status --short` empty after removing `tests/guided/__pycache__`.
