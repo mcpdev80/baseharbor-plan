@@ -16,10 +16,10 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 209/356 · **Blocked:** 10 · **Waiting:** 23  
+    **Accepted tasks:** 209/356 · **Blocked:** 9 · **Waiting:** 23  
     **Blocker:** [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) — NO-RETRY disposition (owner 18:0xZ): run 45911769054 FAILURE at exact head d18e4b36; ALL selected Docker+Podman runtime gates SUCCESS (~20-22m, no runner outag…  
     **Blocker:** [t-20261116-r28-bug-capability-permissions](../tasks/t-20261116-r28-bug-capability-permissions.md) — w267 exact-head HOLD 7206173319 on b9675cc0: develop catalog row source.cmd\_baha\_app\_init\_runtime\_permission\_scope\_test\_go lacks runtime\_specific:true -\> only…  
-    Plus 8 further blockers in the task list.  
+    Plus 7 further blockers in the task list.  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next

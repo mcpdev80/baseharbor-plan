@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: "w365-0428-312-1860hop"
+owner: "w368-0428-312-1860hop-v2"
 kanban_status: active
 kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
@@ -24,7 +24,7 @@ evidence: []
 
 - [ ] t-20261125-hunt39-volume-recovery-manifest · 0428 hunt H-V39: assert recovery-manifest coverage for workload volumes #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** w365-0428-312-1860hop  
+    **Owner:** w368-0428-312-1860hop-v2  
     **PR:** [baseharbor#1860](https://github.com/mcpdev80/baseharbor/pull/1860)  
     <!-- /generated:card -->
 
@@ -32,7 +32,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w365-0428-312-1860hop  
+**Owner:** w368-0428-312-1860hop-v2  
 **Priority:** not set  
 **PRs:** [baseharbor#1860](https://github.com/mcpdev80/baseharbor/pull/1860)  
 **Source:** 
