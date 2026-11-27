@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: w391-0428-224-commitidentity
-kanban_status: active
-kanban_lane: active
+owner: ""
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Sweeps show that most open candidates carry commits whose user.name belongs to a different lane, because lanes share…"
 kanban_title: 0428-224 · candidate commits carry
 priority: ""
@@ -19,22 +19,23 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: "accepted"
 evidence:
   - "https://github.com/mcpdev80/baseharbor-plan/commit/3b85964a0"
+  - "https://github.com/mcpdev80/baseharbor-plan/blob/fd04aff2d15d4638fe168d1929d7f3f95c253b9b/evidence/w391-0428-224-commitidentity/akte.md"
 ---
 
-- [ ] t-20261121-candidate-commit-identity · Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261121-candidate-commit-identity · Coordination: candidate commits carry another lane's git identity (14 of 22 open PRs) #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
-    **Owner:** w391-0428-224-commitidentity  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/commit/3b85964a0)  
+    **Owner:** unassigned  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/commit/3b85964a0), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/fd04aff2d15d4638fe168d1929d7f3f95c253b9b/evidence/w391-0428-224-commitidentity/akte.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w391-0428-224-commitidentity  
+**Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -92,3 +93,8 @@ One documented exception exists so far: PR #1596 candidate
 success). Witness and scope: `evidence/r28-welle4-2026-11-21/org-env-reconciliation/owner-exception-identity-1596.md`.
 The rule itself is unchanged: any other candidate with more than one author, or any candidate with a content finding,
 still needs history normalization plus a fresh exact-head run.
+
+
+## Status reconciliation (2026-11-27)
+
+Codeman session witness: `codeman agent list --json` at 2026-11-27T10:21:58Z, filtered for `w391-0428-224-commitidentity`, returned `absent from live session list`; the stale active owner was cleared. The Plan-main akte linked above records the completed inventory. This resolution closes the inventory scope only; historical PR commit attribution remains with each owning PR review.

@@ -7,35 +7,36 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: "w388-0428-329-1861recipe"
-kanban_status: active
-kanban_lane: active
+owner: ""
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Unblock 0428-270 (PR head 88f5c7f05, w61). Exact-head CI run 45326369749 aborts in 'PR Trusted Plan' with fail-loud 'uncataloged…"
 kanban_title: "0428-275 · add #1820-sib catalog rows"
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1817"]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45326369749", "https://github.com/mcpdev80/baseharbor-plan/pull/196"]
+resolution: "accepted"
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1817", "https://github.com/mcpdev80/baseharbor/commit/6df6807e7651b38fc142559ea9780238264b6d8f", "https://github.com/mcpdev80/baseharbor/blob/ea5218d72e263f21e79853b679af50074dab8c25/scripts/pr-gate-coverage.json#L1663", "https://github.com/mcpdev80/baseharbor/blob/ea5218d72e263f21e79853b679af50074dab8c25/scripts/pr-gate-coverage.json#L1671", "https://github.com/mcpdev80/baseharbor-plan/blob/1990688d09dc552ea45614ff7d66a46c390fccd9/evidence/2026-11-27/0428-275/codex-disposition-136.md", "https://github.com/mcpdev80/baseharbor-plan/blob/7601d0b5cfaf516e03dddc074aaf72cefec654a1/evidence/w388-0428-275-rowdiff/akte.md", "https://github.com/mcpdev80/baseharbor-plan/blob/7601d0b5cfaf516e03dddc074aaf72cefec654a1/evidence/w388-0428-329-1861recipe/akte.md", "https://github.com/mcpdev80/baseharbor-plan/blob/7601d0b5cfaf516e03dddc074aaf72cefec654a1/tasks/t-20261126-hunt46-recovery-backup-volume-heuristic.md", "https://github.com/mcpdev80/baseharbor/pull/1861", "https://github.com/mcpdev80/baseharbor/actions/runs/45326369749", "https://github.com/mcpdev80/baseharbor-plan/pull/196"]
 ---
 
-- [ ] t-20261124-gate-catalog-baseline-0428-270 · CI/catalog: add operatorauth rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261124-gate-catalog-baseline-0428-270 · CI/catalog: add operatorauth rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
-    **Owner:** w388-0428-329-1861recipe  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45326369749), [proof 2](https://github.com/mcpdev80/baseharbor-plan/pull/196)  
+    **Owner:** unassigned  
+    **PR:** [baseharbor#1817](https://github.com/mcpdev80/baseharbor/pull/1817)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1817), [proof 2](https://github.com/mcpdev80/baseharbor/commit/6df6807e7651b38fc142559ea9780238264b6d8f), [proof 3](https://github.com/mcpdev80/baseharbor/blob/ea5218d72e263f21e79853b679af50074dab8c25/scripts/pr-gate-coverage.json#L1663), [proof 4](https://github.com/mcpdev80/baseharbor/blob/ea5218d72e263f21e79853b679af50074dab8c25/scripts/pr-gate-coverage.json#L1671), [proof 5](https://github.com/mcpdev80/baseharbor-plan/blob/1990688d09dc552ea45614ff7d66a46c390fccd9/evidence/2026-11-27/0428-275/codex-disposition-136.md), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/7601d0b5cfaf516e03dddc074aaf72cefec654a1/evidence/w388-0428-275-rowdiff/akte.md), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/7601d0b5cfaf516e03dddc074aaf72cefec654a1/evidence/w388-0428-329-1861recipe/akte.md), [proof 8](https://github.com/mcpdev80/baseharbor-plan/blob/7601d0b5cfaf516e03dddc074aaf72cefec654a1/tasks/t-20261126-hunt46-recovery-backup-volume-heuristic.md), [proof 9](https://github.com/mcpdev80/baseharbor/pull/1861), [proof 10](https://github.com/mcpdev80/baseharbor/actions/runs/45326369749), [proof 11](https://github.com/mcpdev80/baseharbor-plan/pull/196)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w388-0428-329-1861recipe  
+**Owner:** unassigned  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1817](https://github.com/mcpdev80/baseharbor/pull/1817)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -55,3 +56,11 @@ Realized by owner-authorized batch baseline PR (w65): 6 catalog rows + pre-relea
 ## Status reconciliation history (2026-11-27)
 
 Prior wait reason retained verbatim: `Codex disposition is published in Plan PR #196; hold until the existing 0428-359 card in Plan PR #136 carries the corrected family scope and the develop-side catalog baseline can proceed.`
+
+## Status reconciliation (2026-11-27)
+
+The required catalog baseline landed in product PR #1817, merged at `6df6807e7651b38fc142559ea9780238264b6d8f`. The PR diff is limited to `scripts/pr-gate-coverage.json`. On `develop` `ea5218d72e263f21e79853b679af50074dab8c25`, `source.internal_operatorauth_authorization_go` is present at line 1663 and `source.internal_operatorauth_config_go` at line 1671. The required rows are therefore delivered; this card is closed as accepted and its prior owner assignment is cleared.
+
+Claim reconciliation: the current `codeman agent list --json` returned no live session named `w388-0428-329-1861recipe`; the card owner is blank and there is no active claim for 0428-275. The published row-delta akte identifies its own worker as `w388-0428-216-blobcensus` (session registered as `w388-0428-329-1861recipe`). It says #1861 has no candidate-side catalog delta and that three #1861 source rows remain missing from `develop`; PR #1861 is still open. That separate baseline gap remains tracked on card 0428-329, which is blocked on #1861. It does not reopen this task: this file's 0428-275 contract is the two operatorauth rows, both delivered by #1817 and present at the pinned `develop` lines above. Therefore 0428-275 remains closed/accepted, with no owner assignment and no active-claim flag.
+
+Evidence-scope note: `evidence/w388-0428-275-rowdiff/akte.md` is used for its #1861 row-delta and card-scope finding, not as proof of the operatorauth rows. The separate #1861 recipe akte and blocked 0428-329 card are linked to keep that outstanding work distinct. Operatorauth completion is proved by PR #1817, its merge commit, and the pinned `develop` catalog entries above.

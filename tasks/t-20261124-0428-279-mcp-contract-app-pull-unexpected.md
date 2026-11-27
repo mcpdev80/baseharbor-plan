@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w80-0428-279-mcpcontract
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: ""
 kanban_title: 0428-279 · MCP contract drift: app.pull
 priority: normal
@@ -17,23 +17,24 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1826]
 sources: []
-blocker: "static/mcp gate qualification blocked on owner-scope card 0428-283 (the gate builds a plain baha without the baseharbor_ci_operator_testonly operator tag + does not meet the operator env/target contract). #1826 code itself is COMPLETE and correct: contract app.pull set fix + demo PR #171 destructiveHint=false annotation fix (025ce84); PR CI 45412208234 green on head 6589a37b; annotation assertion now passes (run 45413604588 demo run.sh:198). Only the new-edit-static.py:83 target-create auth step fails, preexisting/independent of #1826. w95 delivering the minimal A/B fix proposal for owner decision."
-wait_reason: ""
+blocker: ""
+wait_reason: "parked for v0.5.x per owner disposition 2026-11-27, resolution-akte #1826 merged"
 resolution: ""
 evidence:
   - https://github.com/mcpdev80/baseharbor/actions/runs/45394505629
+  - https://github.com/mcpdev80/baseharbor/pull/1826
 ---
 
-- [ ] t-20261124-0428-279-mcp-contract-app-pull-unexpected · MCP contract drift: app.pull #task #release/v0-4-28 #status/blocked #view/blocked #area/cli #kind/bug
+- [ ] t-20261124-0428-279-mcp-contract-app-pull-unexpected · MCP contract drift: app.pull #task #release/v0-4-28 #status/wait #view/wait #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** w80-0428-279-mcpcontract · **Priority:** normal  
     **PR:** [baseharbor#1826](https://github.com/mcpdev80/baseharbor/pull/1826)  
-    **Blocker:** static/mcp gate qualification blocked on owner-scope card 0428-283 (the gate builds a plain baha without the baseharbor\_ci\_operator\_testonly operator tag + does not meet the operator env/target contract). \#1826 code itself is COMPLETE and…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45394505629)  
+    **Waiting:** parked for v0.5.x per owner disposition 2026-11-27, resolution-akte \#1826 merged  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45394505629), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1826)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w80-0428-279-mcpcontract  
