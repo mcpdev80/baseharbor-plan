@@ -7,35 +7,36 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: Marcel (Owner) 2026-11-27; w365 executing
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-312 · assert recovery-manifest
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["1860"]
 sources: []
-blocker: ""
+blocker: "PR Trusted Plan fails ValueError uncataloged source change internal/applicationbackup/recovery_manifest_workload_test.go read at resolved effective base 5a37ddbd (predates this PR catalog fix). Merge-commit re-hop shape (f3dc7b6) trips pr-diff-base.py:186 integration_sha_mismatch 'integration merge must include PR head as one of exactly two parents'. No commit shape passes; same base/lineage + catalog-read-at-base class as w361 (0428-299/#1863). Outside worker write-set; requires Codex/Owner resolver fix. Candidate 6deab9ff68d15060525cc3078e828027e65e9955."
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["evidence/board-2026-11-27/0428-312/w365-0428-312-1860hop/akte.md"]
 ---
 
-- [ ] t-20261125-hunt39-volume-recovery-manifest · 0428 hunt H-V39: assert recovery-manifest coverage for workload volumes #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261125-hunt39-volume-recovery-manifest · 0428 hunt H-V39: assert recovery-manifest coverage for workload volumes #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** Marcel (Owner) 2026-11-27; w365 executing  
+    **PR:** [baseharbor#1860](https://github.com/mcpdev80/baseharbor/pull/1860)  
+    **Blocker:** PR Trusted Plan fails uncataloged source change internal/applicationbackup/recovery\_manifest\_workload\_test.go (ValueError) read at resolved base 5a37ddbd which predates this PR catalog fix; merge-commit shape fails pr-diff-base.py 186 inte…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** Marcel (Owner) 2026-11-27; w365 executing  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1860](https://github.com/mcpdev80/baseharbor/pull/1860)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -80,3 +81,5 @@ One or two sentences: the observable outcome.
 ## Task
 
 Cast from hunt H-V39 (akte origin/main ac6b10bfa, evidence/r28-welle6-2026-11-2[67]/bughunt-hv39* - exact path in commit): F4 - workload-volume recovery-manifest assertion missing; add test asserting every workload volume appears in the recovery manifest (fail-closed on omission).
+
+w365 Re-Hop + Qualifikation on existing card 0428-312 PR 1860 branch w333-0428-312-volrecovery. Candidate 6deab9ff. Verified resolver reads coverage catalog at effective base 5a37ddbd where introducing source is not cataloged; re-hop forward-merge produces merge commit f3dc7b6 that trips line 186. END_BLOCKED no blind retry. Evidence evidence/board-2026-11-27/0428-312/w365-0428-312-1860hop/akte.md
