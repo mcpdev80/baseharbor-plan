@@ -202,3 +202,30 @@ fac484cb963ee4d3af19f903119bcf5ca341f8f2 refs/heads/w255-0428-251-demo170codex-c
 ```
 
 Initial run [46046581605](https://github.com/mcpdev80/baseharbor-plan/actions/runs/46046581605) was still in progress on that prior head and is not used to qualify any later head.
+
+
+## Current-main integration and superseded validation
+
+The base advanced from `0e28eec6c2d33baacf54d7eae22ac43988683b72` to `976344b14c4b8df50c2d9fdb273307452eb55cd7` while PR #252 was open. Remote `refs/heads/main` confirmed `976344b14c4b8df50c2d9fdb273307452eb55cd7`. I integrated it with a normal no-rewrite merge, commit `242b939ba9b5b16f3c5710328817fe7561b5d3b1`, parents `dff2cc0dffca886276c644d89d6a5d2d8c46dab4` and `976344b14c4b8df50c2d9fdb273307452eb55cd7`; author and committer are both `w255-0428-251-demo170codex`. The merge preserves this PR's four card/evidence corrections and the main-side 0428-292 evidence addition. `git merge-base --is-ancestor origin/main HEAD` returns 0 after integration.
+
+Run [46046907324](https://github.com/mcpdev80/baseharbor-plan/actions/runs/46046907324) succeeded as `Plan · validate` on prior head `dff2cc0dffca886276c644d89d6a5d2d8c46dab4`; it is superseded by the main integration and is not final-head evidence. A new exact-head run is required.
+
+Latest pre-push `git ls-tree -r --name-only origin/main | grep evidence/2026-11-27/planpr-backlog-disposition.md` output:
+
+```text
+evidence/2026-11-27/planpr-backlog-disposition.md
+```
+
+Candidate log relative to the merged base at this review point:
+
+```text
+242b939ba merge current Plan main before claim-gap receipt
+dff2cc0df clarify historical claim wait disposition
+0c4c91e36 record initial PR delivery witness
+fac484cb9 update claim-gap receipt handoff status
+782a0c49f record pre-push lane identity gate
+c467967c6 record pre-push evidence path witness
+ad9a1e3d2 record canonical claim-gap provenance
+39773260d record claim-gap candidate provenance
+d0665a320 reconcile claim gaps and validate Plan PR links
+```
