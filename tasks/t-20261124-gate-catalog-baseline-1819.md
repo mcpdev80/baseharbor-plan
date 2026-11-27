@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)
-kanban_status: wait
-kanban_lane: wait
+owner: w376-0428-273-1819pre
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Unblock #1819 / card 0428-181 (identity dashboard catalog consumer). Exact head 69f76b94 fails Trusted Plan because three…"
 kanban_title: "0428-273 · add #1819 catalog rows"
 priority: ""
@@ -18,23 +18,22 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/45320885286"]
 ---
 
-- [ ] t-20261124-gate-catalog-baseline-1819 · CI/catalog: add #1819 source rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/wait #view/wait #kind/task
+- [ ] t-20261124-gate-catalog-baseline-1819 · CI/catalog: add #1819 source rows to develop pr-gate-coverage.json #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
-    **Waiting:** lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)  
+    **Owner:** w376-0428-273-1819pre  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45320885286)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
+**Owner:** w376-0428-273-1819pre  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

@@ -10,9 +10,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 1 |
-| review | 4 |
-| wait | 29 |
+| active | 3 |
+| review | 3 |
+| wait | 28 |
 | blocked | 12 |
 | ready | 41 |
 | queued | 25 |
@@ -25,6 +25,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261102-rcptlink-task](../tasks/t-20261102-rcptlink-task.md) | Receipt post-run writer: add single `Resolves #<issue>` link to merged PRs so tasklink auto-resolves green | active | not set | ornith (rcptlink) | — | [baseharbor#1267](https://github.com/mcpdev80/baseharbor/pull/1267), [baseharbor#1268](https://github.com/mcpdev80/baseharbor/pull/1268), [baseharbor#1269](https://github.com/mcpdev80/baseharbor/pull/1269), [baseharbor#1270](https://github.com/mcpdev80/baseharbor/pull/1270), [baseharbor#1271](https://github.com/mcpdev80/baseharbor/pull/1271), [baseharbor#1274](https://github.com/mcpdev80/baseharbor/pull/1274), [baseharbor#1275](https://github.com/mcpdev80/baseharbor/pull/1275) |
+| [t-20261124-gate-catalog-baseline-1819](../tasks/t-20261124-gate-catalog-baseline-1819.md) | CI/catalog: add #1819 source rows to develop pr-gate-coverage.json | active | not set | w376-0428-273-1819pre | — | — |
+| [t-20261125-0428-284-1812-postretry-gate-failure](../tasks/t-20261125-0428-284-1812-postretry-gate-failure.md) | #1812 post-retry gate failure | active | high | w374-0428-284-demo183fix | — | [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1856](https://github.com/mcpdev80/baseharbor/pull/1856), [baseharbor-demo#183](https://github.com/mcpdev80/baseharbor-demo/pull/183) |
 
 ## Ready for review
 
@@ -33,7 +35,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261122-footprint-human-surface-doc-gaps](../tasks/t-20261122-footprint-human-surface-doc-gaps.md) | Document that the human footprint surface is a curated subset and explain the two divergences vs the JSON/MCP contract | review | normal | 0847d100 (finalhop 7880a8f6 laeuft) / Coordinator | — | [baseharbor#1773](https://github.com/mcpdev80/baseharbor/pull/1773), [baseharbor#1783](https://github.com/mcpdev80/baseharbor/pull/1783) |
 | [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) | Light-runtime blob/manifest unknown root cause is not a scripts publish gap, it is .github workflow ordering plus a dangling acceptance.sh reference (owner decision) | review | high | w362-0428-249-1812rebase | [t-20261124-r28-release-candidate-testonly-binary](../tasks/t-20261124-r28-release-candidate-testonly-binary.md) | [baseharbor#1812](https://github.com/mcpdev80/baseharbor/pull/1812), [baseharbor#1837](https://github.com/mcpdev80/baseharbor/pull/1837) |
 | [t-20261124-gate-catalog-baseline-1816](../tasks/t-20261124-gate-catalog-baseline-1816.md) | CI/catalog: add 3 Trusted Plan rows to develop pr-gate-coverage.json | review | not set | w51-0428-261-catalog | — | [baseharbor#1817](https://github.com/mcpdev80/baseharbor/pull/1817) |
-| [t-20261125-0428-284-1812-postretry-gate-failure](../tasks/t-20261125-0428-284-1812-postretry-gate-failure.md) | #1812 post-retry gate failure | review | high | w374-0428-284-demo183fix | — | [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1856](https://github.com/mcpdev80/baseharbor/pull/1856), [baseharbor-demo#183](https://github.com/mcpdev80/baseharbor-demo/pull/183) |
 
 ## Waiting for resources
 
@@ -64,7 +65,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261122-target-create-operator-auth-decision](../tasks/t-20261122-target-create-operator-auth-decision.md) | target create reaches the managed-operator auth boundary with no local-workload hook; owner decides the consent/auth path | wait | high | Owner / Core | — | — |
 | [t-20261123-planner-deleted-source-advisory](../tasks/t-20261123-planner-deleted-source-advisory.md) | CI: candidate planner mishandles deleted source rows (advisory job red) | wait | not set | "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) | — | — |
 | [t-20261124-gate-catalog-baseline-0428-270](../tasks/t-20261124-gate-catalog-baseline-0428-270.md) | CI/catalog: add operatorauth rows to develop pr-gate-coverage.json | wait | not set | "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) | — | — |
-| [t-20261124-gate-catalog-baseline-1819](../tasks/t-20261124-gate-catalog-baseline-1819.md) | CI/catalog: add #1819 source rows to develop pr-gate-coverage.json | wait | not set | "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) | — | — |
 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) | CI/catalog: add #1820 source row to develop pr-gate-coverage.json | wait | not set | "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) | — | — |
 | [t-20261124-r28-broker-build-identity-commit](../tasks/t-20261124-r28-broker-build-identity-commit.md) | verifyRuntimeBrokerBuildIdentity discards both commit SHAs, so a runtime broker at the wrong commit passes readiness whenever the semver matches. | wait | normal | w69-0428-271-brokerid2 | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) (open) | [baseharbor#1820](https://github.com/mcpdev80/baseharbor/pull/1820) |
 | [t-20261125-hunt39-restore-identity-regression](../tasks/t-20261125-hunt39-restore-identity-regression.md) | 0428 hunt H-V39: restore-identity regression test (identity preserved across restore) | wait | not set | "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) | — | — |
