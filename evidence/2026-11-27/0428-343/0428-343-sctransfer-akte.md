@@ -58,6 +58,37 @@ Exact change required on develop (base) scripts/pr-gate-coverage.json, insert af
 
 After this shared-file row is on develop, re-run CI on head 7d3ca40a; the Trusted Plan gate should pass (all other checks already green) and PR Selected Checks goes SUCCESS. Implementation + test + doc + catalog-on-branch are complete; only the base registration blocks the gate.
 
-## Status
-- karte NOT yet on review (Trusted Plan gate red on shared-file catalog). Held pending coordinator/owner shared-file edit to develop.
-- PR #1879 remains open, base develop, head 7d3ca40a.
+## prepared develop-row (verbatim, owner freeze-lift ready)
+Exact change on develop (base) scripts/pr-gate-coverage.json. Verified context at origin/develop (sha ea5218d72e) lines 2839-2847:
+
+```
+    {                                          <- 2839 (open brace, before the go entry)
+      "id": "source.internal_machinehttp_source_transfer_go",   <- 2840
+      "path": "internal/machinehttp/source_transfer.go",        <- 2841
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },                                         <- 2846 (close of go entry)
+    {                                          <- 2847 (start of next entry: machinereadmodels_artifacts_go)
+```
+
+Insert the new entry between line 2846 and line 2847 (i.e. after the closing `},` of the `source.internal_machinehttp_source_transfer_go` block, before the opening `{` of `source.internal_machinereadmodels_artifacts_go`):
+
+```
+    {
+      "id": "source.internal_machinehttp_source_transfer_test_go",
+      "path": "internal/machinehttp/source_transfer_test.go",
+      "surfaces": [
+        "source.gate.atomic.docker.data.capabilities",
+        "source.gate.atomic.podman.data.capabilities"
+      ]
+    },
+```
+
+JSON stays valid: 323 components entries after insert (322 before). Validated locally with `scripts/validate-pr-gate-coverage.py` against a catalog containing the entry.
+
+## Status (2026-11-27, wait)
+- karte on WAIT (card-status.py): owner=w392-0428-284-demo183fix5, prs=[mcpdev80/baseharbor#1879], wait_reason='develop catalog row scripts/pr-gate-coverage.json:2840 pending owner freeze-lift decision (Owner-Queue 2026-11-27); head 7d3ca40a otherwise green'.
+- PR #1879 remains OPEN, base develop, head 7d3ca40a. No CI re-run until the develop freeze-lift decision lands (coordinator may not edit develop; Owner-Queue owns it).
+- Implementation + test + doc + catalog-on-branch all complete and green; only the base-resolved Trusted Plan gate row blocks acceptance.
