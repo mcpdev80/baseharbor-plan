@@ -8,16 +8,16 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w397-0428-307-idfallback
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: Remove the shared legacy app-token fallback for broker-consuming services that lack an explicit runtime permission. Each service…
 kanban_title: 0428-307 · runtime-identity fallback
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [#1877]
 sources: []
-blocker: ""
+blocker: develop-catalog ordering (owner freeze-lift + pr-gate-map release label); reissue #1877 head 013fdfb82c fails hosted CI (run 45998693008) because trusted CI reads pr-gate-coverage.json from develop tip; catalog must land on develop (owner scope)
 wait_reason: ""
 resolution: ""
 evidence: []
