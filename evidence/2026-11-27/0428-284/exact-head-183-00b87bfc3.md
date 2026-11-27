@@ -14,7 +14,7 @@ PR base: `58ac70679efe5f7e95bd47d602841704fb9ffa67`
 
 ## Identity admission
 
-Card frontmatter owner, read from planning `origin/main` at base `6d4e82c82`: `owner: w374-0428-284-demo183fix`.
+Card frontmatter owner, read from planning `origin/main` at base `6d4e82c82ea1c69953c05cc6496910d9537dc6f8`: `owner: w374-0428-284-demo183fix`.
 
 This review-evidence commit uses the executing reviewer lane identity, `w255-0428-251-demo170codex`, rather than another lane's identity. Git user name: `w255-0428-251-demo170codex`. Git user email: `w255-0428-251-demo170codex@baseharbor.local`. Literal invocation: `git -c user.name='w255-0428-251-demo170codex' -c user.email='w255-0428-251-demo170codex@baseharbor.local' commit -m 'review(0428-284): demo PR 183 exact-head findings'`. Pre-push author gate: `git show -s --format=%an HEAD` must print exactly `w255-0428-251-demo170codex`.
 
