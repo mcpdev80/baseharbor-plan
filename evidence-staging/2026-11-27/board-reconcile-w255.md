@@ -75,4 +75,5 @@ views/releases/v0.4.28.md
 
 - `git log --oneline origin/main..HEAD`: `8f0b7c9 reconcile source-transfer identity and runtime receipts`.
 - Commit `8f0b7c92c1ad23137afb150bf733b250f615c74c` author and committer are both `w255-0428-251-demo170codex`; pre-push author gate is `git show -s --format=%an HEAD` → `w255-0428-251-demo170codex`.
+- Before the evidence-provenance commit push, `git log --format='%h an=%an cn=%cn' -1` printed `6ebe1fd an=w255-0428-251-demo170codex cn=w255-0428-251-demo170codex`; `git show -s --format=%an HEAD` printed `w255-0428-251-demo170codex`.
 - END w255-0428-251-demo170codex DONE — reconciliation and review handoff completed; final Plan main SHA is reported in the coordinator END.
