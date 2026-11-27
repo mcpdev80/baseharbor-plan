@@ -111,3 +111,7 @@
 ## END
 
 END_LINE_PLACEHOLDER
+
+## Cross-card note (2026-11-27T12:4xZ)
+
+- cloneQuadletYAMLNode (internal/providers/runtime/podman/quadlet_project.go) aliases child Content slices; card 0428-316 (lane w396-0428-306-goldenhelp, same session) fixes it in the #1874 branch chain. If this card's guard ever snapshots quadlet documents, use the deep copy.

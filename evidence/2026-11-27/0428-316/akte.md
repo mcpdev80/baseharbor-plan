@@ -37,7 +37,18 @@ H-V43 akte (w331) recorded three findings. FUND-A is the disk leak the card name
 
 ## Implementation log
 
-(to be appended as work proceeds)
+- Branch lane-0428-316-envleak-disk cut from the exact develop head ea5218d72e263f21e79853b679af50074dab8c25 (ls-remote witness above; merge-base --is-ancestor ANCESTOR_OK; git log --oneline origin/develop..HEAD lists only lane commits).
+- Fix (FUND-A disk sink), internal/providers/runtime/podman:
+  - quadlet_render.go: quadletLoadComposeModel now keeps an unaliased source clone of every Compose document, and after the ambient ${VAR} expansion pass runs quadletRestoreAmbientEnvironmentRefs dematerialises, in every service `environment` block (mapping and sequence form), each entry whose SOURCE was exactly one ${NAME} reference that only the ambient process environment defines. The expanded plaintext is replaced by the original reference, so the on-disk {project}-{service}.env contains the reference, never the operator secret; podman/systemd resolves it from the unit process environment at service start.
+  - Declared-scope protection: names provided by the project envFile or the explicit managed environment layer stay resolved exactly as before (byte-for-byte), so managed runtime contracts (e.g. DB_PASSWORD via runtime.env in TestRenderComposeProjectQuadletsMapsManagedRuntimeSemantics) are unchanged.
+  - quadlet_project.go: cloneQuadletYAMLNode previously aliased child Content slices; every "clone" silently mutated together with the original (yaml.Node.Content is a shared slice). Now it deep-copies Content. This aliasing is the reason the H-V43 materialisation existed and also why an earlier restore attempt no-op'd.
+  - No .github/** edits; no new CI check entries.
+- Tests (same package internal/providers/runtime/podman, existing CI group PR · Go unit shards + package discovery; catalog already resolves all four changed paths to atomic/podman/lifecycle via BASE rows — verified against the base controller planner, zero unresolved sources):
+  - TestRenderComposeProjectQuadletsKeepsAmbientSecretOutOfEnvFile (mapping form: bare reference not materialised; WriteQuadletProject disk witness; literals and ${MISSING:-fallback} defaults unchanged).
+  - TestComposeEnvSequenceFormKeepsAmbientReference (sequence KEY=${VAR} form).
+  - TestQuadletSingleAmbientReferencePinsTheRestoreFilter (reference detection: literal, embedded-mix, undefined-name all pass through).
+- Local pre-checks: gofmt clean, go vet ./internal/providers/runtime/podman OK, go build ./... OK. Named-form focused runs of the package's quadlet render tests only (no RunsRealLifecycle cases) to validate before push; qualification comes from Hosted CI.
+
 
 ## Hosted CI (self-run duty)
 
