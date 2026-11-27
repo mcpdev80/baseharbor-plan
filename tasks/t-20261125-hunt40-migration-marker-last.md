@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w399-0428-289-providers
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-310 · orgconfig migrateToCanonical
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt40-migration-marker-last · 0428 hunt H-V40: orgconfig migrateToCanonical writes marker LAST (crash-window) #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261125-hunt40-migration-marker-last · 0428 hunt H-V40: orgconfig migrateToCanonical writes marker LAST (crash-window) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w399-0428-289-providers  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w399-0428-289-providers  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
