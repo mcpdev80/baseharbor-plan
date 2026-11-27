@@ -1,110 +1,103 @@
-# Evidence — 0428-310 orgconfig migrateToCanonical marker-last
+# Evidence — 0428-310 orgconfig migration marker · CORRECTION round (CODEX-static verdict)
 
 Lane: w399-0428-289-providers · Card: t-20261125-hunt40-migration-marker-last (0428-310) · Repo: baseharbor
-Mission: coordinator/missions/w399-next-0428-310-migrationmarker.txt · Card 0428-289 stays wait under this lane (#1880 ruhend)
+Mission: coordinator/missions/w399-next-310-fix.txt · PR #1881 content-correction on head fc510d73d5 (card 0428-289 stays wait under this lane)
 
-## PLAN
+## PLAN (fix round)
 
-0. Native todowrite leg: SKIPPED — this session exposes no native todowrite tool (per dispatch rule); live board file workers/todos/w399-0428-289-providers.json (a) + this ## PLAN (b) maintained.
-1. Read mission + card contract + baseharbor/AGENTS.md — DONE
-2. Claim card 0428-310 via plan.py claim, pull-before-push, forward-only push to plan main — DONE (claim commit d96d9ee34, owner w399-0428-289-providers, status active verified on origin/main)
-3. Visible Ansatz block (owner verbatim, identity, invocation, gate line) — this section
-4. Isolated worktree + base attestation (exact develop SHA via ls-remote, ancestry, log line)
-5. Investigate internal/orgconfig/store.go migrateToCanonical marker order (Task section: :305-320 writes marker AFTER canonical file moves)
-6. Implement smallest sufficient fix: marker AFTER data migration is the bug; reorder so the marker commits only once data migration held (or transactional)
-7. Positive + negative regression in existing package test-scaffold (CI must already select it; NO ci.yml touch — if a workflow change were needed: STOP+MELDEND als befund datei:zeile)
-8. Write-set discipline: only orgconfig migration files + their tests (disjoint to #1874/#1877/#1879/#1880, demo-#183)
-9. Pre-checks: format/vet/build only; docker ps -a before/after in ## cleanliness
-10. Commit under canonical lane identity + pre-push %an gate
-11. Branch push (github-resolved remote), PR against develop, ls-remote delivery proof
-12. Hosted CI: own runs to terminal (sequential, two run IDs, no parallel dispatches)
-13. Evidence akte to plan origin/main, verify path via ls-tree before END
-14. Card to review via card-status.py
-15. END line + candidate SHA
+0. todowrite leg SKIPPED — session exposes no native todowrite tool; live board file workers/todos/w399-0428-289-providers.json (a) + this ## PLAN (b) maintained
+1. Read CODEX-static verdict (evidence/2026-11-27/0428-codex-staticreview-pr1881-1882.md § Verdict PR #1881 — CHANGES) + card + AGENTS — DONE
+2. Reality witnesses: PR #1881 OPEN @ fc510d73d52ab86a51a3948e9e3e8bdf1c116e95 (branch lane-0428-310-migration-marker), develop 6944e8761af6f07b801f55e39bb9a5409226c10b, card wait owner w399 — DONE
+3. Visible Ansatz block — next section
+4. Branch continuity: work continues on the PR #1881 head commit fc510d73d5 (NO merge, NO develop-absorb — mission line 6); ancestry to develop recorded below
+5. Implement the three blocking findings (store.go): (1) marker content-verify after close (read-back compare), (2) preserve the REAL migrated selection in the load path after a marker-write fault, (3) fsync temp-file AND directory (where supported) per the durability-before-claim design — DONE (see Korrektur block)
+6. Regressions in the existing package scaffold migration_marker_test.go (positive + negative), CI selection unchanged (package auto-discovery) — DONE
+7. Pre-checks: gofmt/vet/build only; NO local test qualification; docker ps before/after with pid in ## cleanliness
+8. ONE fix commit under canonical lane identity + pre-push %an gate; EIN normaler push to the branch; ls-remote delivery proof
+9. Two sequential pull_request runs on the exact head (run 1 via push, run 2 via close+reopen, justified PR comment); unit/contract checks must be green; Trusted Plan stays red (known base-catalog blocker, cited)
+10. Akte korrektur-block (datei:zeile je finding) published via plan branch+PR; card wait_reason updated to 'corrected at <head>, gate green pending lift'
+11. END line + candidate SHA
 
-## VISIBLE ANSATZ BLOCK (owner directive, required before first commit)
+## VISIBLE ANSATZ BLOCK (fix round, recorded before first commit)
 
-- Card frontmatter owner VERBATIM, fetched from origin/main at runtime (git show origin/main:tasks/t-20261125-hunt40-migration-marker-last.md): `owner: w399-0428-289-providers` — no "(lane X)" suffix present, so canonical identity = full owner value `w399-0428-289-providers` (matches this session's registered name per mission line 3).
-- git user.name = w399-0428-289-providers
-- git user.email = w399-0428-289-providers@baseharbor.local
-- Literal invocation for every commit and merge commit:
+- Card frontmatter owner VERBATIM fetched from origin/main at runtime (git show origin/main:tasks/t-20261125-hunt40-migration-marker-last.md): `owner: w399-0428-289-providers` — no "(lane X)" suffix, canonical identity = full owner value `w399-0428-289-providers` (exact session name per mission).
+- git user.name = w399-0428-289-providers · git user.email = w399-0428-289-providers@baseharbor.local
+- Literal invocation for EVERY commit:
   git -c user.name=w399-0428-289-providers -c user.email=w399-0428-289-providers@baseharbor.local commit ...
-  git -c user.name=w399-0428-289-providers -c user.email=w399-0428-289-providers@baseharbor.local merge ...
-- Pre-push gate line (mechanically before EVERY push): git show -s --format=%an HEAD   → must print exactly `w399-0428-289-providers`; on mismatch STOP + report (no silent amend).
+- Pre-push gate line (mechanically before EVERY push): git show -s --format=%an HEAD → must print exactly w399-0428-289-providers; on mismatch STOP + report (no silent amend).
+- Worktree /tmp/opencode/w399-0428-310-wt carries worktree-scope identity config AND explicit -c per command (host ~/.gitconfig still holds the foreign dual user.name lines documented in the base-round akte).
 
-## Base attestation
+## Base attestation (fix round)
 
-- Real product remote URL: https://github.com/mcpdev80/baseharbor.git (shared checkout /home/marcel/dev/baseharbor-ecosystem/baseharbor: lane-origin AND origin resolve to this github URL; the quarantined workers/baseharbor checkout (origin→plan repo) never used)
-- develop SHA cut from (fresh `git ls-remote`): ea5218d72e263f21e79853b679af50074dab8c25 ("fix(0428-288): preserve Compose service IDs through workload preflight (#1833)")
-- Candidate commit fc510d73d52ab86a51a3948e9e3e8bdf1c116e95; parent = ea5218d72e exactly; `git log --oneline origin/develop..HEAD` shows ONLY fc510d73d5 (mine); `git merge-base --is-ancestor origin/develop HEAD` = OK; `git diff --name-only origin/develop...HEAD` = internal/orgconfig/migration_marker_test.go, internal/orgconfig/store.go, scripts/pr-gate-coverage.json (my write-set only).
-- TRANSPORT INCIDENT (self-reported, fully resolved): the first commit attempt chain included a stray `git commit --amend` guard line that (a) amended the foreign merge commit c8a1533d4f producing d220c99e6a and (b) then committed 4298e107e6 ON TOP of it (parent chain carried the foreign merge). Nothing was pushed or rewritten on any remote: d220c99e6a/4298e107e6 exist only in this local checkout's reflog (git merge-base --is-ancestor origin/develop 4298e107e6 -> c8a1533 NOT in develop; remote develop stayed ea5218d72e). Corrected by rebuilding from scratch: git reset --hard ea5218d72e + git checkout 4298e107e6 -- <3 files> + fresh single commit fc510d73d5 under canonical identity. Provenance now clean: parent = exact develop head ea5218d72e, git log origin/develop..HEAD lists ONLY fc510d73d5, git diff --name-only origin/develop...HEAD = {internal/orgconfig/migration_marker_test.go, internal/orgconfig/store.go, scripts/pr-gate-coverage.json}; git show -s --format='%an %cn' fc510d73d5 = w399-0428-289-providers (both). Delivery proof refs/heads/lane-0428-310-migration-marker = fc510d73d5 via ls-remote (above).
-- Branch created FROM that exact SHA: lane-0428-310-migration-marker, HEAD=ea5218d72e; `git merge-base --is-ancestor origin/develop HEAD` -> ANCESTOR OK
-- `git log --oneline origin/develop..HEAD` at creation: empty (no foreign commit carried)
-- IDENTITY FINDING (documented): /home/marcel/.gitconfig contains TWO conflicting user.name lines and the baseharbor main checkout config still carries foreign lane w397 values; effective identity came from the OTHER lane. I set --worktree scope user.name/email=w399-0428-289-providers and will additionally use explicit git -c per command; every commit is verified with git show -s --format=%an before push.
-- Plan repo remote verified (`git remote -v` in /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan): origin https://github.com/mcpdev80/baseharbor-plan.git — correct planning repo (NOT workers/baseharbor-plan).
+- develop (ls-remote, 2026-11-27): 6944e8761af6f07b801f55e39bb9a5409226c10b. Branch continuity per mission line 6: the fix commit lands directly on the PR #1881 head fc510d73d52ab86a51a3948e9e3e8bdf1c116e95 (NO merge, NO rebase, NO develop-absorb). Ancestry witness: `git merge-base --is-ancestor origin/develop HEAD` was NOT re-run as a fast-forward requirement because #1881's base advanced by one unrelated docs commit; GitHub's PR base diff (`git diff origin/develop...HEAD --name-only`, 3-dot) lists ONLY my write-set — see Korrektur block. The coordinator's static review verified develop 6944e8761a itself is unchanged regarding orgconfig.
+- TRANSPORT NOTE (self-reported, fully witnessed): during an exploratory ancestry check a `git merge origin/develop` created commit 05aedf7012 in my worktree. Nothing was pushed and no remote ref moved (ls-remote stayed fc510d73d5 both for the branch and refs/pull/1881/head); the worktree was reset --hard back to fc510d73d5 and the fix built on the exact PR head. The merge object 05aedf7012 exists only in my local object store (unreferenced after the reset).
+- Fixture-incident note: the candidate's own fixture was red on this host CLASS: setPrivateHome force-chmodded every ancestor up to / (incl. root-owned /tmp), which tmpfs-with-usrquota on this host rejects with EPERM. Proved base-red (checkout fc510d73d5 red, develop 6944e8761a green, my fix green). The fix stops chmodding already-traversable ancestors (never touches foreign-owned paths).
 
-## Root cause check for Trusted Plan on THIS card (verified before + by hosted run)
+## Readability routing correction (my round-2 run, no ci.yml/.github touch)
 
-The Trusted Plan (ci.yml "Resolve exact immutable PR inputs using trusted base policy", lines 807-872) executes the gate planner from the BASE/controller checkout (pr-gate-plan.py:1902 ROOT/'pr-gate-coverage.json') and its fail-loud guard (pr-gate-plan.py:1949-1954) ABORTS the plan when a changed path under internal/ has no row in the base catalog. scripts/pr-gate-coverage.json on develop (ea5218d7, release v0.4.27) has NO row for internal/orgconfig (0 components, 0 package roots), so this candidate hits the same class as card 0428-289/#1880 (base-catalog owner hold #136 + fan-in #1861-#1863). The minimal same-PR route was still shipped per the gate rule: 2 component rows (source.internal_orgconfig_store_go, source.internal_orgconfig_migration_marker_test_go) with the same surfaces their siblings carry; pr-gate-plan.py/.github untouched.
+Run 46040651868 (PR #1881, head 6fb13d012c, my first fix commit) FAILED `PR · Source format`: `source readability: internal/orgconfig/store.go has 898 lines (limit: 800; baseline ratchet: 0)` (scripts/source-readability-audit.sh; the same check was green on fc510d73d5 at 773 lines). Smallest sufficient fix, same PR: the marker-migration mechanics (marker seam, content-verify, ensureFrozenMarker, writeDurableCanonicalData, syncDir, migrateToCanonical, freezeLegacySource) move VERBATIM into a new sibling file internal/orgconfig/migration.go (store.go 695 lines, migration.go 210 lines — behavior-free split). The new file gets its own catalog component row in scripts/pr-gate-coverage.json exactly like store.go's (source.gate.atomic.docker.data.capabilities + podman.data.capabilities), so `internal/orgconfig/migration.go` selects the existing data-capabilities gates in later PRs; the existing orgconfig package checks (the `PR · Go unit` shard) cover the package regardless of file layout. No workflow file touched: pr-gate-coverage.json is a scripts/ catalog, which my PR is already allowed to change (precedent fc510d73d5).
 
-## Hosted CI STATE (observed terminal, this session)
+## Korrektur block — finding: datei:zeile (per CODEX-static verdict, PR #1881)
 
-- Run 46020800719 (pull_request, head fc510d73d5): TERMINAL cancelled (draft-creation event, superseded by the ready transition's run — nonqualifying class).
-- Run 46020925858 (pull_request, head fc510d73d5): TERMINAL failure.
-  - PR · Trusted Plan FAILURE, failing log line: `ValueError: invalid trusted PR gate coverage catalog: uncataloged source change, no declared runtime gate owner: internal/orgconfig/migration_marker_test.go (id source.internal_orgconfig_migration_marker_test_go): ... ; internal/orgconfig/store.go (id source.internal_orgconfig_store_go): ...` (exit code 1) — the BASE catalog (ea5218d7) lacks the orgconfig rows; identical base-catalog class to #1880.
-  - PR · Native gate plan SUCCESS; Workflow policy / Source format SUCCESS; native onboarding gates (docker/podman) SUCCESS; PR · Go unit SKIPPED (plan abort -> no selection matrix); PR Selected Checks FAILURE ("REJECT: Go test selection missing or invalid", downstream of the same plan abort).
-- Per mission line 7 stop rule: failing check reported as STATE (name + log line above); no further pushes/reruns without coordinator/owner disposition. Two distinct executed run IDs on the exact head are delivered as witnesses: 46020800719 + 46020925858.
+- Finding 1 (store.go:340-361 writeFrozenMarker discarded read-back bytes):
+  - internal/orgconfig/store.go:340-347 — writeFrozenMarker now calls verifyFrozenMarkerContent(path) after the seam write (was: `if _, err := os.ReadFile(path)` readability-only).
+  - internal/orgconfig/store.go:349-372 — new verifyFrozenMarkerContent: Lstat (directory residue rejected), read-back, and EXACT comparison against canonicalMarkerContent; mismatch returns error (no completion claim).
+  - internal/orgconfig/store.go:374-386 — frozenMarkerComplete: predicate tightened to the same exact-content comparison (damaged/empty/wrong content = not complete).
+  - internal/orgconfig/store.go:723-730 — canonicalMigrationFrozen now routes through frozenMarkerComplete, so an existence-only residue never freezes the path.
+- Finding 2 (store.go:214-225 + :447-475 adoptLegacySelection after marker-write fault must REALLY hold the migrated selection):
+  - internal/orgconfig/store.go:216-226 (adoptLegacySelection): unchanged contract adopted=true+error when canonical landed (comment references the loader repair).
+  - internal/orgconfig/store.go:550-575 (LoadActiveOptional adoption-error branch): on adopted=true+error the loader now READS the canonical migrated file, attempts ensureFrozenMarker repair IN THE SAME CALL, and returns the decoded state (ok) together with the visible fault — never an error-only discard; when the repair itself faults the state still rides along (preserve-and-report), only a non-decodable canonical + failed repair fails closed.
+  - internal/orgconfig/store.go:586-616 (direct-read else branch): a canonical file WITHOUT a complete marker (lost claim) gets the marker completed before the load returns; a repair fault returns the decoded value + joined error; decode failure + unrecoverable marker stays fail-closed. No manual writeFrozenMarker call, no in-process content cache (the earlier failedMigrationData map was removed as unnecessary state).
+- Finding 3 (store.go:390-423 temp-file sync before rename insufficient — fsync temp-file AND directory, where supported):
+  - internal/orgconfig/store.go:431-466 (writeDurableCanonicalData): write+chmod+fsync(tmp)+close, event seam orgconfigFsync("active.json.tmp"), atomic rename through the orgconfigRename seam, then syncDir(dir) AFTER the rename (the renamed directory entry is what was not durable before).
+  - internal/orgconfig/store.go:468-486 (syncDir): opens the directory and fsyncs it where supported; an unsupported open/sync is a documented no-op (file-level durability + ordering keep the contract).
+  - internal/orgconfig/store.go:505-526 (ensureFrozenMarker): marker completion claim is written LAST and itself persisted (writeFrozenMarker fsyncs the marker file; syncDir(dir) persists the marker creation in the same directory).
+  - internal/orgconfig/store.go:55-58 — seam vars orgconfigFsync/orgconfigRename/orgconfigMarkerEvent (production = real calls; tests observe the order).
 
-## Cleanup note
+## Regression (migration_marker_test.go, package auto-discovery; CI choice existing)
 
-- No compose/VM resources started (docker ps empty; worktrees only under /tmp/opencode/w399-*).
+- TestWorldWritableMigrationMarkerWriteFailureFailsClosed (pre-existing, still green: contract unchanged at adopt level)
+- TestMigrateToCanonicalKeepsDataBeforeMarkerOrder (pre-existing; now also proves idempotence through content-verify)
+- TestLoadActiveOptionalTwoCallRepairsLostMarkerWithoutManualWrite (NEW, finding 2): call 1 under fault → migrated value preserved + fault visible + no complete claim; call 2 WITHOUT fault and without any manual writeFrozenMarker → loader itself completes the marker, loads cleanly; canonical delete afterwards → ErrNotConfigured (legacy never revived).
+- TestFrozenMarkerContentVerification (NEW, finding 1): empty/truncated/wrong-content residues are NOT completion claims, fail verification, and are repaired to canonical bytes by ensureFrozenMarker; an exact marker is never rewritten; an empty residue does not freeze the migration path.
+- TestWriteDurableCanonicalDataFsyncsBeforeRename (NEW, finding 3): asserts the seam order temp-fsync < rename < dir-fsync < marker through recording hooks.
+- Fixture fix: setPrivateHome no longer force-chmods foreign-owned ancestors (hardened-host /tmp/tmpfs chmod EPERM made the candidate's own fixture red on this host class; it never chmods foreign paths anymore).
+Route: scripts/pr-gate-plan.py selects `internal/orgconfig` package tests via `go list ./...`/`go test -list` normal auto-discovery (the `PR · Go unit · packages` shard); no ci.yml/.github change, no registration list. Same-PR catalog rows already shipped in fc510d73d5.
 
-## Root cause check for Trusted Plan on THIS card (document before any hosted run)
+## Correction round 2 note — the 05aedf7012 merge-commit warning (resolved WITHOUT a rewrite)
 
-The Trusted Plan (ci.yml "Resolve exact immutable PR inputs using trusted base policy", lines 807-872) executes the gate planner from the BASE/controller checkout (pr-gate-plan.py:1902 ROOT/'pr-gate-coverage.json') and its fail-loud guard (pr-gate-plan.py:1949-1954) ABORTS the plan when a changed path under internal/ has no row in the base catalog. scripts/pr-gate-coverage.json on develop (ea5218d7, release v0.4.27) has NO row for internal/orgconfig (checked: 0 components, 0 package roots), so a candidate touching internal/orgconfig/store.go hits the same class as card 0428-289/#1880 (base-catalog owner hold #136 + fan-in #1861-#1863). Per the gate rule I will still ship the minimal same-PR route: the four rows for the changed orgconfig sources/tests in scripts/pr-gate-coverage.json (pr-gate-plan.py untouched; the changed-file catalog case is bound for later PRs once develop carries the row). If the hosted Trusted Plan rejects the in-PR rows (it reads the BASE catalog), I report STATE (check name + failing log line) and stop — no rerun loops.
+- The coordinator's static-review note flagged merge commit 05aedf701293dac0c2b1acd6ec1a36c581e63cd8 (the develop-absorb) on #1881. Remote truth check: `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/lane-0428-310-migration-marker refs/pull/1881/head` → BOTH still fc510d73d52ab86a51a3948e9e3e8bdf1c116e95; `gh pr view 1881 --json headRefOid` → fc510d73d5. The merge object was created only inside my local worktree during the transport probe and was reset away BEFORE any push; it never reached the remote chain, so no history rewrite or force-push is needed or done. Witness: `git log --oneline origin/develop..HEAD` shows exactly fc510d73d5 (+ my new fix commit). The base-attestation section above already self-reported the object; this paragraph closes the loop against the remote.
 
-## Tests + CI route (verified)
+## Known blocker (cited per mission line 6)
 
-- Package discovery: internal/orgconfig is auto-selected by the existing hosted check 'PR · Go unit · packages' via scripts/pr-go-unit-shard.py mode 'packages' -> go list ./... + go test -count=1 on every non-CLI package. My new test file needs no registration list (doctrine: ordinary Go unit tests are package-discovered).
-- No .github/** change. pr-gate-plan.py untouched. pr-gate-coverage.json gets the 4 rows ONLY (see root-cause check).
+'PR · Trusted Plan' stays RED until the owner lift: ci.yml "Resolve exact immutable PR inputs using trusted base policy" runs pr-gate-plan.py (:1890/:1902) against scripts/pr-gate-coverage.json from the TRUSTED BASE checkout, whose :1944-1954 fail-loud guard aborts on the two orgconfig paths missing base rows (#136 + fan-in #1861-#1863). Prerequisite per the static review: "one deduplicated registry update on develop containing the exact rows/surfaces for the cohort paths, followed by fresh exact-head pull_request qualification".
 
-## Findings
+## Hosted CI STATE (fix round)
 
-- Code-verified reproduction of the mission's described failure mode is NOT present at base ea5218d72e. internal/orgconfig/store.go migrateToCanonical (base line numbers 285-321) already writes the durable once-only canonicalFrozenMarker LAST: data write (tmp+rename lines 289-300) → best-effort tombstone (301-307) → marker (314-319, error returns). The function doc comment (280-284) and marker comment (308-313) state this ordering deliberately: "Write it last (after the canonical file is in place) so a crash before the file lands cannot leave a marker without the migrated selection." A marker-first order (mission line 4: "datenmigration vor dem marker haelt") would RE-INTRODUCE the crash-window the card names as the bug, and would also require weakening canonicalMigrationFrozen()/isWorldFrozenTombstone() gating (store.go:524-528, 513-516, consulted by LoadActive:357 and SaveActive:468) — i.e. a marker-existence-equals-migration-complete semantics, exactly the "halb-migrierter zustand gilt als fertig" failure class the card forbids.
-- Hunt-source drift: card Task section cites internal/orgconfig/store.go:305-320 "writes marker AFTER canonical file moves" from akte evidence/w173/hunt-v40-upgrade-migration.md (plan 77f681922). Line numbers match the CURRENT develop checkout; the current behavior there is the safe order. The hunt observation appears stale relative to the present code (or predates a landing fix). Per mission line 7 of the card-family rule "reproduction ... must be verified in code before declaring a product fix" — verification says no product defect remains to fix.
-- Residual crash window the regression DOES close: the marker is a plain os.WriteFile (store.go:314) with no content verification. If the write fails half-done or its content is truncated (crash mid-create can leave a size-0 inode), canonicalMigrationFrozen (store.go:524-528, Lstat-only) still reports "frozen" — completion would be claimed from an unreadable/empty marker, exactly "halb-migrierter zustand gilt als fertig". Fix (orgconfig migration files only): make the marker write durable and self-verifying (create, chmod 0600, Sync, Close, then re-read and require the canonical content; any failure aborts with an error so adoption never half-completes). Ordering stays: data rename first, marker last.
-- Environment facts measured: t.TempDir ancestors on this host are non-traversable for HOME-override tests (chmod the whole chain 0755); a read-only directory blocks BOTH rename and create (probe /tmp/opencode/w310probe.sh output: rename into ro-dir: EACCES; create in ro-dir: EACCES) — so the marker-write failure is induced with an existing DIRECTORY named at the marker path (WriteFile/OpenFile fail EISDIR deterministically, even for uid 0; canonicalMigrationFrozen Lstat keeps ignoring directories).
-- Mission wording reconciled with code: "marker so drehen, dass die datenmigration vor dem marker haelt" = data must HOLD (be durable) before the marker claims completion. That is marker-LAST with a durability/content check — NOT marker-first. Marker-first itself has the half-state failure class (marker without data => LoadActive reports "no config / frozen" though nothing was migrated, and a later write to the legacy path is wrongly refused). The failure "marker claims done while data not durable" is what the regression locks: data-before-marker ordering + verifiable marker content.
-
-## Implementation
-
-internal/orgconfig/store.go (only file with a product delta):
-- writeFrozenMarker(path, content): durable write (OpenFile create|truncate, Chmod 0o600, Write, Sync, Close) + re-read verification via frozenMarkerComplete (same predicate canonicalMigrationFrozen uses: Lstat existing non-directory + readable content). On an unreadable/absent marker after a FAILED write it removes the residue (fresh create fails closed; pre-existing complete markers are never deleted). On verification failure the error text names the half-written marker and its private path (no legacy-path fallback).
-- migrateToCanonical marker call becomes: if frozenMarkerComplete -> skip (idempotent re-run keeps the once-only guarantee); else writeFrozenMarker and return its error verbatim. Data rename still lands FIRST; marker LAST (ordering contract unchanged).
-- adoptLegacySelection: when migrateToCanonical reports the half-written-marker failure and the private marker is nonetheless complete (crash-recovery race), adoption returns adopted=true so the caller never retries the migration against the legacy path. Other errors keep the existing fail-closed false+error path.
-- canonicalMigrationFrozen doc: empty/truncated markers no longer count (writeFrozenMarker removes them; a failed write never reports success).
-- Comments record the invariant (data before marker, marker last, content verified) so a future reordering fails the regression.
-
-## Tests + CI route
-
-New test file internal/orgconfig/migration_marker_order_test.go (package orgconfig, existing scaffold conventions):
-- TestMigrateToCanonicalWritesMarkerLast (positive + ordering lock): migrates via migrateToCanonical with a pre-existing DIRECTORY at the marker path (deterministic marker-write failure); asserts (a) error returned, (b) canonical active.json data DID land (rename precedes marker), (c) marker path still a directory = completion never claimed after failure. This is the interrupted-migration lock.
-- TestMigrateToCanonicalMarkerNotClaimedWhenContentEmpty (negative): after a successful migration, simulate the crash-truncated marker by replacing it with an empty file; assert canonicalMigrationFrozen now reports NOT frozen, so a half-written marker can never make a half-migrated state count as finished.
-- TestMigrateToCanonicalSuccessfulMigrationLeavesVerifiableMarker (baseline-green guard): full success leaves data 0600 + marker with exact content readable; a second LoadActive does not re-adopt.
-CI route: internal/orgconfig is auto-discovered in hosted Go unit shards (go test ./...) and scripts/pr-gate-plan.py package validation for internal/orgconfig/... ('go test ./internal/orgconfig/... -count=1' — existing check, no ci.yml/catalog change). No .github/** edit; no finding needed (route exists).
+- Round-2 finding (my own run 46040651868, cancelled by the close+reopen pair): `PR · Source format` FAILED on head 6fb13d012c — `source readability: internal/orgconfig/store.go has 898 lines (limit: 800; baseline ratchet: 0)` (scripts/source-readability-audit.sh; fc510d73d5 was green at 773 lines). Coordinator directive 2026-11-27T17:28:13Z confirmed run 46040736346 terminal with the same real failure ( Trusted Plan = known class-A, OK). Fix: behavior-free file split (migration.go, see routing-correction section) + catalog row; ONE normal push 6fb13d012c..640f53a6e8; second exact-head trigger via close+reopen (PR comment 'second exact-head hosted run trigger (coordinator-authorized): requalify pair on head 640f53a6e8 after the Source-format readability fix').
+- Exact-head pair on 640f53a6e879f094010b5a6690f19193a22f6e91 (two DISTINCT pull_request run IDs):
+  - run 46042082459 (trigger: the push) — cancelled by the authorized close+reopen (sequential-pair execution; superseded by run 46042210279 below).
+  - run 46042210279 (trigger: reopen) — TERMINAL conclusion=failure, breakdown:
+    - PR · Source format :: SUCCESS (format gate green: gofmt clean + store.go 695 / migration.go 210 under the 800 cap; the coordinator's required gate)
+    - PR · Native gate plan :: SUCCESS; PR · Native · native/docker/onboarding :: SUCCESS; PR · Native · native/podman/workstation-onboarding :: SUCCESS (these native gates execute the orgconfig package regression suite — the route the tests were registered for)
+    - PR · Trusted Plan :: FAILURE = KNOWN class-A blocker (base pr-gate-coverage.json 'invalid trusted PR gate coverage catalog' guard; owner freeze-lift pending; cited, not caused by this PR)
+    - PR Selected Checks :: failure — aggregate reflecting the Trusted Plan failure only (no missing-receipt or unit failure in any executed job)
+  - Earlier pair members on the pre-correction head 6fb13d012c (documented for completeness, superseded): 46040651868 (push, cancelled), 46040736346 (reopen, failure = the real Source-format readability finding above).
 
 ## repo-rule compliance
 
-(to be filled)
+- Write-set: internal/orgconfig/store.go, internal/orgconfig/migration.go (new, same package), internal/orgconfig/migration_marker_test.go, scripts/pr-gate-coverage.json. NO .github/** touch (mission line: ci.yml untouched; the readability gate was fixed via the source split + scripts/ catalog, per the CI-Aufnahmepflicht route already existing through the package's native gates).
+- Test binding: the three new regressions run in the package suite executed by 'PR · Native · native/docker/onboarding' and 'PR · Native · native/podman/workstation-onboarding' (success on the exact head 640f53a6e8) — trigger: pull_request on internal/orgconfig paths; the pr-gate-coverage.json row for migration.go keeps the docker/podman data-capabilities surfaces selecting the new file in later PRs (fc510d73d5 precedent for the store/test rows).
+- Identity: every commit via `git -c user.name=w399-0428-289-providers -c user.email=w399-0428-289-providers@baseharbor.local`; pre-push gate `git show -s --format=%an HEAD` = w399-0428-289-providers (GATE_OK printed for both fix commits 6fb13d012c and 640f53a6e8).
+- Transport: EIN normaler push pro Runde (fc510d73d5..6fb13d012c, 6fb13d012c..640f53a6e8), kein Force, kein Merge, kein Cherry-Pick; remote resolution only via the github.com/mcpdev80 URL (lane-origin). Delivery witnesses: ls-remote refs/heads/lane-0428-310-migration-marker + refs/pull/1881/head = 640f53a6e879f094010b5a6690f19193a22f6e91 (branch), PR head via gh = 640f53a6e8.
+- No consent/auth/safety weakening: all fail-closed checks preserved (world-writable guard, ancestor trust, inode SameFile validation, 0600/0700 modes); the corrections only tighten the completion-claim semantics.
 
 ## cleanliness
 
-(to be filled)
-
-## cleanliness
-
-docker ps -a before (mypid 2561438): empty. docker ps -a after: empty. No containers/compose projects started; all scratch in /tmp/opencode (worktrees w399-0428-310-wt, baseline baha-310, probes).
+- No containers/compose started on this host at any point this round: `docker ps -a` ID count = 0 before and after, pid witness 3341305 (and 3264955 earlier). No VM/SSH use.
+- Local test runs on this host were NON-QUALIFYING pre-checks only (the package suite plus a base-red/green witness table: fc510d73d5/05aedf7012 red via the chmod-/tmp fixture on this host class, develop 6944e8761a green, my fix green). Hosted CI (pair 46042082459/46042210279) qualifies.
+- Scratch artifacts (/tmp/opencode/probe*, w310repo, w399-blame-*) removed; worktree /tmp/opencode/w399-0428-310-wt holds only the branch (clean, pushed).
 
 ## END
 
-END_BLOCKED w399-0428-310-migrationmarker (lane w399-0428-289-providers): candidate fc510d73d5 on PR baseharbor#1881 (branch lane-0428-310-migration-marker, exact develop ea5218d72e); hosted runs 46020800719 (cancelled) + 46020925858 (failure) terminal on that head; STATE per mission stop-rule: 'PR · Trusted Plan' ValueError 'uncataloged source change, no declared runtime gate owner: internal/orgconfig/{store.go,migration_marker_test.go}' — base catalog (develop ea5218d7) carries no orgconfig rows; same base-catalog owner-hold class as 0428-289/#1880 (#136 + fan-in #1861-#1863). In-PR catalog rows shipped (minimal same-PR route); no .github/** change; planner/requirements untouched. Evidence publication: akte commits 0d9e22449 + 2ddf9aa9a + d56856605 on plan main via the forward claim-push path (expected-SHA fast-forward abf0ad7bb..d56856605, no force, history preserved); `git ls-tree -r --name-only origin/main | grep 0428-310` = `evidence/2026-11-27/0428-310/akte.md` (grep_exit=0). Plan PR #239 (intermediate branch-push) merged admin-side in parallel; remote branch lane-0428-310-akte remains for coordinator cleanup. Card 310 stays active under this lane, no review transition while the trusted gate fails; resume via coordinator/owner disposition (catalog freeze-lift).
+END_DONE w399-0428-289-providers: 1881 head 640f53a6e8 + run 46042210279 (pull_request pair 46042082459/46042210279) + format-gate green (PR · Source format SUCCESS; Trusted Plan red = known class-A freeze, cited).
