@@ -8,7 +8,7 @@
 ## PLAN
 
 1. Mission und AGENTS lesen; Plan-Repo-Identitaet via `git remote -v` attestieren; isoliertes plan-worktree `workers/w383-0428-275-136rows-plan` aus `origin/main` anlegen; diese Akte mit ## PLAN erstellen.
-2. (a) Vorarbeits-Akten der Familie auf plan main lesen (w376/w377/w378/w379/w380/w381); fehlende Akten MELDEN, nicht erfinden.
+2. (a) Vorarbeits-Akten der Familie auf plan main (w376/w377/w378/w379/w380/w381); fehlende Akten gemeldet (Abschnitt (a)).
 3. (b) Geforderte Quellen zusammenstellen (namentlich + datei:zeile) aus den Akten und den PR-Diffs gegen develop.
 4. (c) Vergleich mit dem, was #136 auf seinem head liefert (gh api + `git diff origin/main...origin/pr-136`); develop-`scripts/pr-gate-coverage.json` vs Kandidaten-heads; Klassifikation (i)/(ii)/(iii).
 5. (d) Schluessel pruefen, den das Gate erwartet: baseharbor `scripts/pr-gate-plan.py:1952` ValueError + `scripts/validate-pr-gate-coverage.py` (nur festhalten).
@@ -37,7 +37,7 @@
 - PRESENT: `evidence/w376-0428-273-1819pre/akte.md`, `evidence/w377-0428-329-1861pre/akte.md` (Kommit 87a574948), `evidence/w380-0428-312-1860pre/akte.md`.
 - GEMELDET (nicht erfunden), Mission nannte falsche Pfade:
   - w378-0428-299-1863pre: die Akte existiert, aber auf einem ANDEREN Pfad und UNCOMMITTED im geteilten Plan-Checkout: `baseharbor-plan/evidence/2026-11-27/0428-299/w378-0428-299-1863pre.md` (`git status --porcelain` => `?? evidence/2026-11-27/`). NICHT auf origin/main. Inhalt gelesen (siehe (b)); Publishing steht aus.
-  - w379-0428-318-1862pre: ebenso uncommitted: `baseharbor-plan/evidence/w379-0428-318-1862pre/akte.md` (`??`), NICHT auf origin/main. Inhalt gelesen.
+  - w379-0428-318-1862pre: die Akte war bei Schichtbeginn uncommitted im geteilten Checkout (`?? evidence/w379-0428-318-1862pre/`); INZWISCHEN von Lane w379 selbst auf main publischt (main-Kommit `9757bb969`). Inhalt identisch zur hier gelesenen Fassung; Fundstellen (b)(5) gelten. Damit sind beide Familien-Akten (w378 und w379) analysierbar; die w378-Akte bleibt uncommitted im geteilten Checkout und ist dort NICHT angefasst worden.
   - w381-0428-328-1869pre: Akte FEHLT vollständig — kein Pfad auf main, kein uncommitted Fund im geteilten Checkout. Deren todos-Board (`workers/todos/w381-0428-328-1869pre.json`) zeigt Schritte (d) und (e) als noch nicht done: die Lane ist unvollendet. Die Mission selbst fuehrt #1869 auch nicht in der Familien-Quelleliste (b); sie ist eine ANDERE Fehlerklasse (`pr-gate-map-v1.json` release-label laut ihrer mission (d)), nicht Teil der #136-Zeilen.
 
 ## (b) Geforderte Quellen (namentlich + Fundstelle)
@@ -100,4 +100,4 @@ Die Mission nennt "Karte 0428-359 existiert nicht als Karte": korrekt auf origin
 - Repo/PR: baseharbor-plan #136 @ head `c4e4400174dc3fe5c04082c7c85483db9b82543f`; Produktzaehlen gegen develop `ea5218d72`
 - Status: END_DONE (Gap-Liste fertig, alle Fundstellen belegt, fehlende Akten gemeldet)
 
-END_DONE w383-0428-275-136rows: #136 liefert nul Zeilen (plan-only), 8 geforderte Quellen fehlen auf develop, 2 davon falsch kandidatenseitig gefuehrt (#1860 :2720, #1863 :2536), 1 Mission-Anforderung (permission_scope) ist develop-seitig schon present ohne runtime_specific; w381-Akte fehlt, w378/w379-Akten uncommitted.
+END_DONE w383-0428-275-136rows: #136 liefert nul Zeilen (plan-only), 8 geforderte Quellen fehlen auf develop, 2 davon falsch kandidatenseitig gefuehrt (#1860 :2720, #1863 :2536), 1 Mission-Anforderung (permission_scope) ist develop-seitig schon present ohne runtime_specific; w381-Akte fehlt, w378-Akte uncommitted (w379-akte inzwischen auf main 9757bb969).
