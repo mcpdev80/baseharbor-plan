@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: "w366-0428-284-democonsent"
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: ""
 kanban_title: 0428-284 · 1812 post-retry gate fail
 priority: high
@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: [mcpdev80/baseharbor-demo#173, mcpdev80/baseharbor-demo#174, mcpdev80/baseharbor#1856]
 sources: []
-blocker: ""
+blocker: "claimable staging per w267 disposition b5b88bb04: scope approved (drive.py capture-only, fail-closed); w366 claims now; owner w198 entry was stale - main shows owner w366"
 resolution: ""
 evidence:
   - https://github.com/mcpdev80/baseharbor/actions/runs/45398943139
@@ -29,15 +29,16 @@ evidence:
   - https://github.com/mcpdev80/baseharbor-demo/actions/runs/45456155783
 ---
 
-- [ ] t-20261125-0428-284-1812-postretry-gate-failure · #1812 post-retry gate failure #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
+- [ ] t-20261125-0428-284-1812-postretry-gate-failure · #1812 post-retry gate failure #task #release/v0-4-28 #status/blocked #view/blocked #area/ci #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** w366-0428-284-democonsent · **Priority:** high  
     **PR:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1856](https://github.com/mcpdev80/baseharbor/pull/1856)  
+    **Blocker:** claimable staging per w267 disposition b5b88bb04: scope approved (drive.py capture-only, fail-closed); w366 claims now; owner w198 entry was stale - main shows owner w366  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139), [proof 2](https://github.com/mcpdev80/baseharbor-demo/pull/173), [proof 3](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448531969), [proof 4](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448729972), [proof 5](https://github.com/mcpdev80/baseharbor-demo/pull/174), [proof 6](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45455975242), [proof 7](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45456155783)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261116-r28-bug-compose-service-ids](t-20261116-r28-bug-compose-service-ids.md)  
