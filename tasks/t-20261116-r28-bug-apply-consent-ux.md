@@ -72,4 +72,4 @@ Run `baha app apply` from repo on first candidate and accept initial prompt; ins
 
 ## Handoff
 
-- Planned only. No implementation, PR, merge or acceptance claimed. Source: 2026-11-16 J-Commerce guided-init/apply/destroy/reset transcript supplied by Owner.
+- Lead Worker W03 (Codex subagent) is actively implementing this task. No product PR, merge or acceptance is claimed yet. Source: 2026-11-16 J-Commerce guided-init/apply/destroy/reset transcript supplied by Owner.
