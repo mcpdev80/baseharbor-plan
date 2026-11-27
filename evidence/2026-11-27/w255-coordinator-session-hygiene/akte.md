@@ -42,3 +42,24 @@ The card uses next free number 0428-352, path `tasks/t-20261127-coord-session-re
 - `python3 scripts/plan.py render && python3 scripts/plan.py check`: 785 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 existing accepted-dependency warnings.
 - The renderer refreshed one older generated card preview in `tasks/t-20261125-hunt40-migration-marker-last.md`; its frontmatter and status are unchanged. The global render also regenerated release counts and views for the new planned card.
 - This akte contains no Markdown checkbox lines.
+
+## Branch provenance and commit receipt
+
+- The branch was cut from Plan main `12eda9e029e9055aea70208842eae66ba133e2b0`; `git merge-base --is-ancestor 12eda9e029e9055aea70208842eae66ba133e2b0 HEAD` passed after the first commit.
+- `git diff origin/main...HEAD --name-only`:
+
+```text
+evidence/2026-11-27/w255-coordinator-session-hygiene/akte.md
+releases/v0.4.28.md
+roadmap/cards.md
+tasks/t-20261125-hunt40-migration-marker-last.md
+tasks/t-20261127-coord-session-retention.md
+views/kanban-dashboard.md
+views/overview.md
+views/ready.md
+views/releases/v0.4.28.md
+```
+
+- `git log --oneline origin/main..HEAD`: `ad1e1db add coordinator session-retention hygiene card`.
+- Commit `ad1e1db9669e7a7f953a5944dc2b86019833d369` author and committer are both `w255-0428-251-demo170codex`; pre-push author gate `git show -s --format=%an HEAD` printed `w255-0428-251-demo170codex`.
+- END w255-0428-251-demo170codex DONE — card and evidence merged through the normal Plan PR path; exact resulting main SHA is reported in the coordinator END.
