@@ -111,3 +111,9 @@ Die Mission nennt "Karte 0428-359 existiert nicht als Karte": korrekt auf origin
 - Status: END_DONE (Gap-Liste fertig, alle Fundstellen belegt, fehlende Akten gemeldet)
 
 END_DONE w383-0428-275-136rows: #136 liefert nul Zeilen (plan-only), 8 geforderte Quellen fehlen auf develop, 2 falsch kandidatenseitig gefuehrt (#1860 :2720, #1863 :2536), permission_scope bereits auf develop ohne runtime_specific; w378-Akte uncommitted, w379- und w381-Akten inzwischen auf main (w381 in wrong zone unter `w381-...-plan/`).
+
+## Terminal witness (final publishing step, appended after PR #191 creation)
+
+- Follow-up plan PR #191 ab main `c3f4f33ac`, chain-Kommits `67c5ace72`..`58d5aa72b` (alle author=committer `w383-0428-275-136rows`; `git log --format='%an' origin/main..HEAD | sort -u` => genau dieser Name; Ancestry `git merge-base --is-ancestor origin/main HEAD` => OK; Delta gegen main = nur diese Akte + die w381-Zone-Bereinigung `0/127`).
+- `Plan · validate` run `45952221045` (event pull_request, headSha `58d5aa72b1ebf47730fa9af5ab27f0af36f3e7da`, completed, conclusion SUCCESS) — https://github.com/mcpdev80/baseharbor-plan/actions/runs/45952221045.
+- Admin-squash-merge in diesem selben Schritt; die zweite Zeile dieses Blocks nach dem Merge:
