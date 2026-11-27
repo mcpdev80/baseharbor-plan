@@ -81,12 +81,15 @@ Conclusion: the new test source is cataloged only by HEAD, but the resolver read
 
 ## RE-HOP ACTIONS TAKEN (before the diagnosis)
 
-- (to be recorded once executed)
+- Forward-merged `origin/develop` (`c167fa5dd`) onto PR #1860 head `6deab9ff` with canonical lane identity `w365-0428-312-1860hop`.
+- Resulting local merge commit `f3dc7b6` (parents `6deab9ff` + `c167fa5d`); 4-field verify `an=w365-0428-312-1860hop ae=...@users.noreply.github.com cn=w365-0428-312-1860hop ce=...@users.noreply.github.com`; `git merge-base --is-ancestor c167fa5d HEAD` = OK. NOT pushed to PR #1860 (END_BLOCKED, no push).
+- Pre-checks: resolver run on both shapes reproduced locally; catalog-at-base verified. No gofmt/vet/build needed (no product change; only re-hop, which is a no-op content-wise — develop merge touched only the catalog file cleanly).
 
 ## CLEANLINESS
 
-- docker/podman: none started this shift
-- worktree: (to be recorded)
+- docker/podman: none started this shift; `docker ps -a` on local daemon = empty (pid witness: coordinator-host rootless daemon pre-existing, no containers I started).
+- worktree: `/home/marcel/dev/baseharbor-ecosystem/workers/worktrees/w365-0428-312-1860hop` (detached, remote github); removed + pruned after recording.
+- plan evidence: committed to baseharbor-plan branch `w365-plan` (SHA `c06ced8aa`, canonical identity `w365-0428-312-1860hop`); card 0428-312 -> blocked via card-status/frontmatter.
 
 ## HANDOFF / STATUS
 
