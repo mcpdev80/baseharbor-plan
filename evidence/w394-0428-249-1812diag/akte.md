@@ -118,3 +118,10 @@ Why the current state does not meet either:
 - Scratch: /tmp/opencode/w394-logs/*.log (job logs), /tmp/opencode/*.py|*.sh (Demo file fetches for byte-compare), all in /tmp/opencode per fixed workspace layout.
 
 END_BLOCKED w394-0428-249-1812diag: diagnosis complete — run 45944501306 on exact head c2dd3ff04 fails only on the known demo consent-capture class (#183/#283/#284 prerequisite); carrier is current-develop-complete (0 behind); qualification NOT asserted; PR stays blocked serial behind demo #183.
+
+## Addendum: delivery witnesses (lane w394-0428-249-1812diag)
+
+- Evidence content commit on branch: 965bf10c7 (author/committer w394-0428-249-1812diag), squashed to plan main as c32d4c72d (plan PR #206, check Plan · validate SUCCESS, run 45971091864).
+- Delivery-chain commit: ed6ddbef3 (own identity, parent = main@c32d4c72d, `git merge-base --is-ancestor c32d4c72d HEAD` proven before push), squashed to plan main as 9cd5124b8 (plan PR #208, Plan · validate SUCCESS, run 45971099373 job 140412772616).
+- Carrier consent-delta witness (corrected form): `gh pr diff 1812 --name-only | grep -i consent` → no match (rc=1).
+- Product candidate examined: baseharbor PR #1812 head c2dd3ff04e30c73046b4eeecb56f3cab20e56c92 (ls-remote witness above; this lane pushed nothing to any product repo).
