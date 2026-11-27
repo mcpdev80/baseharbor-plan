@@ -37,7 +37,7 @@
 - PRESENT: `evidence/w376-0428-273-1819pre/akte.md`, `evidence/w377-0428-329-1861pre/akte.md` (Kommit 87a574948), `evidence/w380-0428-312-1860pre/akte.md`.
 - GEMELDET (nicht erfunden), Mission nannte falsche Pfade:
   - w378-0428-299-1863pre: die Akte existiert, aber auf einem ANDEREN Pfad und UNCOMMITTED im geteilten Plan-Checkout: `baseharbor-plan/evidence/2026-11-27/0428-299/w378-0428-299-1863pre.md` (`git status --porcelain` => `?? evidence/2026-11-27/`). NICHT auf origin/main. Inhalt gelesen (siehe (b)); Publishing steht aus.
-  - w379-0428-318-1862pre: ebenso uncommitted: `baseharbor-plan/evidence/w379-0428-318-1862pre/akte.md` (`??`), NICHT auf origin/main. Inhalt gelesen.
+- w379-0428-318-1862pre: die Akte war bei Schichtbeginn uncommitted im geteilten Checkout (`?? evidence/w379-0428-318-1862pre/`); INZWISCHEN von Lane w379 selbst auf main publischt (main-Kommit `9757bb969`). Damit sind beide Familien-Akten (w378 und w379) analysierbar; die w378-Akte bleibt uncommitted im geteilten Checkout und ist dort NICHT angefasst worden.
   - w381-0428-328-1869pre: Akte FEHLT vollständig — kein Pfad auf main, kein uncommitted Fund im geteilten Checkout. Deren todos-Board (`workers/todos/w381-0428-328-1869pre.json`) zeigt Schritte (d) und (e) als noch nicht done: die Lane ist unvollendet. Die Mission selbst fuehrt #1869 auch nicht in der Familien-Quelleliste (b); sie ist eine ANDERE Fehlerklasse (`pr-gate-map-v1.json` release-label laut ihrer mission (d)), nicht Teil der #136-Zeilen.
 
 ## (b) Geforderte Quellen (namentlich + Fundstelle)
@@ -92,6 +92,14 @@ Die Mission nennt "Karte 0428-359 existiert nicht als Karte": korrekt auf origin
 - Keine Container/compose gestartet (pure Analyse; `docker ps -a` nicht einschlägig — keine docker-Kommandos dieser Lane).
 - Kein Push an baseharbor; kein hosted run; kein Merge; keine `.github/**`-, keine Kartenfeld- oder View-Editen; nur read-only fetches in den geteilten baseharbor-Checkout (lokale bookkeeping-refs `refs/lane/1860` und `refs/cand/*`; kein Remote wurde dadurch veraendert) und dieses isolierte plan-worktree.
 - Fremd-Worktrees unangetastet; zwei unkommentierte Familienakten (w378/w379) wurden NUR gelesen, nicht veraendert.
+
+## Publishing-Kette (evidence-only, niemals direct-main)
+
+- Plan worktree-Branch `lane-w383-0428-275-136rows` ab origin/main `9b05cb986`; own commit `6af97e2dce1cd84ea1f198f02fc8d517a83360e7` (author=committer `w383-0428-275-136rows`, gate `git show -s --format=%an HEAD` => exakt dieser Name, vor Push geprueft); `git log --oneline origin/main..HEAD` listet NUR diesen einen Commit (der zweite, `12b1fed40`, ist der witness-Block unten, nach dem Merge); Ancestry `git merge-base --is-ancestor origin/main HEAD` => OK.
+- Delta gegen main: genau eine Datei `evidence/w383-0428-275-136rows/akte.md` (`git diff origin/main...HEAD --name-only`-Witness im Terminal-Block unten).
+- Plan PR #190 (base main, head `6af97e2dc`): `Plan · validate` run `45950915899` SUCCESS auf exakt diesem head (https://github.com/mcpdev80/baseharbor-plan/actions/runs/45950915899/job/140346309513); admin-squash-merge => main `b43d5b83bb7ccbd3b9f5a299d381f6209274a53c`, mergedAt 2026-11-27T06:18:28Z.
+- Terminal origin/main witness (`git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep w383-0428-275-136rows`) => `evidence/w383-0428-275-136rows/akte.md` (Ausgabe nach dem Merge, main-Spitze `b43d5b83b`).
+- follow-up: Commit `ea767ec20` (author=committer `w383-0428-275-136rows`) auf main-Spitze `9757bb969` (deren eigener Inhalt: die w379-Akte, parallel von Lane w379 auf main publischt) ergaenzt nur diesen witness-Block in dieser Akten-Datei; Delta gegen main = exakt diese eine Datei (`git diff origin/main...HEAD --name-only`: evidence/w383-0428-275-136rows/akte.md). PR #190 selbst ist MERGED (head dort `6af97e2dc`, `Plan · validate` run `45950915899` SUCCESS auf genau diesem head; squash-main-Kommit `b43d5b83b` traegt die GitHub-Login-Autorschaft des Admins, wie bei allen plan-Squash-Merges). Dieser follow-up erhaelt seine eigene PR-Nummer im naechsten Publishing-Schritt.
 
 ## 4-Feld
 
