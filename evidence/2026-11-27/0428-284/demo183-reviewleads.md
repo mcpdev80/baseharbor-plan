@@ -103,3 +103,9 @@ END BLOCKED w267-0428-284-pridentity: PR #183 held at exact head 50eeafac4; both
 
 - Before publication, Plan `origin/main` advanced from the branch-cut SHA to `f77e9c5ab6bd1e196ba246f92d0c4b20b7f76c70`. This is a normal fast-forward update of Plan main, not a product candidate; I rebased only my two unpublished evidence commits onto that fetched current Plan main. Current-base ancestry and the one-path diff are recorded after rebase below.
 - Current Plan base verification: `git merge-base --is-ancestor origin/main HEAD` exited 0; `git diff origin/main...HEAD --name-only` returned only `evidence/2026-11-27/0428-284/demo183-reviewleads.md`; `git log --oneline origin/main..HEAD` returned only `fd4beaf79 docs: add Plan commit identity witness` and `58424ab57 docs: record independent review of demo PR 183` before this final evidence amendment.
+
+## Plan PR publication
+
+- Evidence PR: https://github.com/mcpdev80/baseharbor-plan/pull/230
+- Initial Plan validation run `46005287338` completed successfully on evidence PR head `cb4da0cded903abec7d3ca23788e64a0ac25cf35`; the evidence update below will trigger a fresh validation for the updated exact head before the Plan PR is merged.
+- Remote branch delivery witness after push: `cb4da0cded903abec7d3ca23788e64a0ac25cf35 refs/heads/w267-0428-284-demo183-reviewleads`.
