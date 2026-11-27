@@ -105,6 +105,13 @@ The initial candidate `b63bea30aaba0899bf045a7bd0ec98ffcc819bfd` was held for an
 - Plan PR #232 remains OPEN at old head `e200846b49e5b9cda6e8d26fc9d8c8b3efa2efc2`; its only `Plan · validate` result is run `46008182506`, completed/failure on that old head. It does not validate this updated evidence branch. The local evidence branch is ahead with the latest review and Plan-main refresh; a new exact-head Plan validation is required after publishing the update.
 - Product review decision remains blocked: check 1 NO (only one successful exact-head run), check 2 YES (docs-only/disjoint), check 3 NO (malformed German terminology remains at `docs/de/how-to/operator-api.md:129-135`), check 4 YES (docs audit and strict EN/DE builds passed; release matrix skipped for docs-only scope).
 
+## Final Plan-base refresh before publication
+
+- Fresh `origin/main` fetched from the verified Plan GitHub remote advanced to `2eb74b281a3686e00dbf49c2f2542f01b1dba669`. `git merge-base --is-ancestor origin/main HEAD` succeeded after normal merge commit `8dbe96be06c56655683001495fdc22d64a6293e7`; that merge commit has author and committer `w267-0428-284-pridentity`.
+- `git diff --name-only origin/main...HEAD` lists only `evidence/2026-11-27/0428-342/pr1878-review.md`; `git log --format='%h an=%an cn=%cn %s' origin/main..HEAD` lists only this lane's evidence commits and canonical-identity merge commits.
+- Current isolated-worktree `python3 scripts/plan.py render && python3 scripts/plan.py check` reports `784 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 warnings`. `git status --short` showed no generated-file changes; evidence has no markdown checkbox lines.
+- Plan PR #232 is open at old remote head `e200846b49e5b9cda6e8d26fc9d8c8b3efa2efc2`; its only validation, `46008182506`, failed on that old head. This refreshed candidate must be pushed to the existing PR branch and receive its own terminal `Plan · validate` run before any evidence merge.
+
 ## END BLOCKED
 
-END BLOCKED w267-0428-284-pridentity: PR #1878 held at exact head 698db93ad5b3657894bb90f268e5ac6cb2aa9fe6; only run 46007839655 succeeded, run 46007801545 was cancelled, and German wording remains unresolved. Evidence branch is not yet validated on its updated exact head.
+END BLOCKED w267-0428-284-pridentity: PR #1878 held at exact head 698db93ad5b3657894bb90f268e5ac6cb2aa9fe6; only run 46007839655 succeeded, run 46007801545 was cancelled, and German wording remains unresolved. Plan evidence publication and validation remain pending.
