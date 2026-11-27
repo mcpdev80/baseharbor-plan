@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w397-0428-307-idfallback
+kanban_status: active
+kanban_lane: active
 kanban_summary: Remove the shared legacy app-token fallback for broker-consuming services that lack an explicit runtime permission. Each service…
 kanban_title: 0428-307 · runtime-identity fallback
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt37-runtime-identity-fallback · 0428 hunt H-V37: runtime-identity fallback silently downgrades to shared legacy app token (medium) #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261125-hunt37-runtime-identity-fallback · 0428 hunt H-V37: runtime-identity fallback silently downgrades to shared legacy app token (medium) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w397-0428-307-idfallback  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w397-0428-307-idfallback  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

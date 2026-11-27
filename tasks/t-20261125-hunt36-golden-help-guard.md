@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/pull/220"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/pull/220", "https://github.com/mcpdev80/baseharbor/actions/runs/45987934493"]
 ---
 
 - [ ] t-20261125-hunt36-golden-help-guard · 0428 hunt H-V36: add golden --help snapshot CI guard for config/flag surface #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** w396-0428-306-goldenhelp  
     **PR:** [baseharbor#1874](https://github.com/mcpdev80/baseharbor/pull/1874)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/pull/220)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/pull/220), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/45987934493), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/45993109149)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -85,3 +85,5 @@ One or two sentences: the observable outcome.
 The live session `w396-0428-306-goldenhelp` (Codeman session `7c12281f-8210-4a2f-b612-11227fc271a3`) is busy and working in `/home/marcel/dev/baseharbor-ecosystem/workers/.models/flash`. Its product worktree is on branch `lane-0428-306-golden-help-guard`, one commit ahead of `lane-origin/develop` at `07999fa201`; the modified paths are `cmd/baha/help_golden_guard_test.go`, `cmd/baha/help_golden_invocation_test.go`, `internal/cli/cli.go`, and `internal/cli/help_surface_test.go`, matching this card's golden help surface and invocation scope. The task/branch match is confirmed.
 
 Plan PR #220 published the same card claim and is now redundant with this active owner assignment. It remains open; this reconciliation does not close it. Only an authorized PR owner/coordinator may close it.
+
+Hosted qualification update for active lane w396-0428-306-goldenhelp: product PR #1874 is open at exact head 60d4d4906c686aa867f1c8d5f3d910ddba769999. Exact-head run 45987934493 completed FAILURE (pull_request). PR Trusted Plan failed because cmd/baha/help_golden_guard_test.go, cmd/baha/help_golden_invocation_test.go, cmd/baha/testdata/cli-help-golden.txt, and internal/cli/help_surface_test.go are uncatalogued sources; PR Selected Checks reports REJECT: Go test selection missing or invalid (UNIT_SCOPE blank, UNIT_RESULT skipped). Existing Plan PR #220 stays recorded as redundant; this update does not close it.

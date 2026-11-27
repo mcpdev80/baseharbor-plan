@@ -7,9 +7,9 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: "w392-0428-284-demo183fix5"
-kanban_status: active
-kanban_lane: active
+owner: w267-0428-284-pridentity
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0428-284 · 1812 post-retry gate fail
 priority: high
@@ -28,21 +28,24 @@ evidence:
   - https://github.com/mcpdev80/baseharbor-demo/pull/174
   - https://github.com/mcpdev80/baseharbor-demo/actions/runs/45455975242
   - https://github.com/mcpdev80/baseharbor-demo/actions/runs/45456155783
+  - https://github.com/mcpdev80/baseharbor-demo/actions/runs/45983229441
+  - https://github.com/mcpdev80/baseharbor-demo/pull/183
+  - https://github.com/mcpdev80/baseharbor-plan/blob/88b4b63a8241db855e49ec722dcb54485c89b41a/evidence/2026-11-27/0428-284/round-8-50eeafac4.md
 ---
 
-- [ ] t-20261125-0428-284-1812-postretry-gate-failure · #1812 post-retry gate failure #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
+- [ ] t-20261125-0428-284-1812-postretry-gate-failure · #1812 post-retry gate failure #task #release/v0-4-28 #status/review #view/review #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** w392-0428-284-demo183fix5 · **Priority:** high  
+    **Owner:** w267-0428-284-pridentity · **Priority:** high  
     **PR:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1856](https://github.com/mcpdev80/baseharbor/pull/1856), [baseharbor-demo#183](https://github.com/mcpdev80/baseharbor-demo/pull/183)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139), [proof 2](https://github.com/mcpdev80/baseharbor-demo/pull/173), [proof 3](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448531969), [proof 4](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448729972), [proof 5](https://github.com/mcpdev80/baseharbor-demo/pull/174), [proof 6](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45455975242), [proof 7](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45456155783)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139), [proof 2](https://github.com/mcpdev80/baseharbor-demo/pull/173), [proof 3](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448531969), [proof 4](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448729972), [proof 5](https://github.com/mcpdev80/baseharbor-demo/pull/174), [proof 6](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45455975242), [proof 7](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45456155783), [proof 8](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45983229441), [proof 9](https://github.com/mcpdev80/baseharbor-demo/pull/183), [proof 10](https://github.com/mcpdev80/baseharbor-plan/blob/88b4b63a8241db855e49ec722dcb54485c89b41a/evidence/2026-11-27/0428-284/round-8-50eeafac4.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261116-r28-bug-compose-service-ids](t-20261116-r28-bug-compose-service-ids.md), [t-20261125-hunt45-exit-code-taxonomy-docs](t-20261125-hunt45-exit-code-taxonomy-docs.md)  
-**Owner:** w392-0428-284-demo183fix5  
+**Owner:** w267-0428-284-pridentity  
 **Priority:** high  
 **PRs:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1856](https://github.com/mcpdev80/baseharbor/pull/1856), [baseharbor-demo#183](https://github.com/mcpdev80/baseharbor-demo/pull/183)  
 **Source:** 
@@ -97,4 +100,10 @@ Prior wait reason retained verbatim: `w392 END_DONE pushed #183 head 335ef5e54. 
 
 ## Current diagnosis
 
-Last qualification failure: PR #183 exact head `dc041ca122d60dfafd09baa882a4872ea4542df0`; hosted `workflow_dispatch` run [45973828049](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45973828049) ended terminal FAILURE. The sole defect was `test_25_run_tty_final_drain_appends_missing_log_bytes_once` at `tests/guided/test_consent_capture.py:929`: `AssertionError: [] is not true` because the final-drain probe did not fire. Owner reports w392-0428-284-demo183fix5 active on round 8 on the same branch. The task is active while that lane is busy; reclassify to blocked only if the lane parks or ends and this cause remains.
+The prior round-7 qualification failure was PR #183 head `dc041ca122d60dfafd09baa882a4872ea4542df0`, workflow_dispatch run [45973828049](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45973828049), terminal FAILURE in `test_25_run_tty_final_drain_appends_missing_log_bytes_once` (`tests/guided/test_consent_capture.py:929`).
+
+The correction is now on PR #183 head `50eeafac4c31d8cf3a2d0533a54ee67637b3327c`, branch `w366-0428-284-democonsent`. Hosted workflow_dispatch run [45983229441](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45983229441) completed SUCCESS on that exact head; the `Demo · PR guided consent regressions` job completed successfully. The round-8 akte is published at [evidence/2026-11-27/0428-284/round-8-50eeafac4.md](https://github.com/mcpdev80/baseharbor-plan/blob/88b4b63a8241db855e49ec722dcb54485c89b41a/evidence/2026-11-27/0428-284/round-8-50eeafac4.md).
+
+The round-8 implementation is historical work by `w392-0428-284-demo183fix5`; current independent review ownership is `w267-0428-284-pridentity`. PR #183 remains OPEN. The exact-head proof is PR head `50eeafac4c31d8cf3a2d0533a54ee67637b3327c` with hosted `workflow_dispatch` run [45983229441](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45983229441) completed SUCCESS, backed by the round-8 akte at main `88b4b63a8241db855e49ec722dcb54485c89b41a` (SHA-256 `9286d6a913882b61e766b876efaa0939602d452f3ce81618b9d22782fd5c829c`).
+
+implementer history: w392-0428-284-demo183fix5; candidate 50eeafac4; runs 45965565557/45973828049/45983229441

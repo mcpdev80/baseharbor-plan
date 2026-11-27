@@ -7,9 +7,9 @@ areas: [ci, testing]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w50-0428-250-corefixture
-kanban_status: closed
-kanban_lane: closed
+owner: Owner (Codex disposition)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: ""
 kanban_title: 0428-250 · ci operator fixture allow-list
 priority: high
@@ -18,23 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor-demo#170, mcpdev80/baseharbor#1815, mcpdev80/baseharbor-demo#181]
 sources: []
 blocker: ""
-wait_reason: ""
-resolution: accepted
-evidence: ["https://github.com/mcpdev80/baseharbor/commit/3ebfb90daaf472a1f98a7fe648589bd3e15fb1cd"]
+wait_reason: "#170 open, payload not superseded (blob diff), failed run 45663390190; disposition pending owner/Codex assignment"
+resolution: ""
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/3ebfb90daaf472a1f98a7fe648589bd3e15fb1cd", "https://github.com/mcpdev80/baseharbor-demo/pull/170", "https://github.com/mcpdev80/baseharbor-demo/blob/b086cf58bb2f7aafee30edf52ac4b8199daf7d0d/tests/config-matrix/run.sh", "https://github.com/mcpdev80/baseharbor-demo/blob/develop/tests/config-matrix/run.sh", "https://github.com/mcpdev80/baseharbor-demo/actions/runs/45663390190"]
 ---
 
-- [x] t-20261122-ci-operator-fixture-allowlist-gap · Add the missing command forms to the test-only CI-operator fixture allow-list so static/core gates stamp the synthetic operator instead of failing closed #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #area/testing #kind/bug
+- [ ] t-20261122-ci-operator-fixture-allowlist-gap · Add the missing command forms to the test-only CI-operator fixture allow-list so static/core gates stamp the synthetic operator instead of failing closed #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/testing #kind/bug
     <!-- generated:card -->
-    **Owner:** w50-0428-250-corefixture · **Priority:** high  
+    **Owner:** Owner (Codex disposition) · **Priority:** high  
     **PR:** [baseharbor-demo#170](https://github.com/mcpdev80/baseharbor-demo/pull/170), [baseharbor#1815](https://github.com/mcpdev80/baseharbor/pull/1815), [baseharbor-demo#181](https://github.com/mcpdev80/baseharbor-demo/pull/181)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/3ebfb90daaf472a1f98a7fe648589bd3e15fb1cd)  
+    **Waiting:** \#170 open, payload not superseded (blob diff), failed run 45663390190; disposition pending owner/Codex assignment  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/3ebfb90daaf472a1f98a7fe648589bd3e15fb1cd), [proof 2](https://github.com/mcpdev80/baseharbor-demo/pull/170), [proof 3](https://github.com/mcpdev80/baseharbor-demo/blob/b086cf58bb2f7aafee30edf52ac4b8199daf7d0d/tests/config-matrix/run.sh), [proof 4](https://github.com/mcpdev80/baseharbor-demo/blob/develop/tests/config-matrix/run.sh), [proof 5](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45663390190)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w50-0428-250-corefixture  
+**Owner:** Owner (Codex disposition)  
 **Priority:** high  
 **PRs:** [baseharbor-demo#170](https://github.com/mcpdev80/baseharbor-demo/pull/170), [baseharbor#1815](https://github.com/mcpdev80/baseharbor/pull/1815), [baseharbor-demo#181](https://github.com/mcpdev80/baseharbor-demo/pull/181)  
 **Source:** 
@@ -88,4 +89,6 @@ Owner merged #1815 (squash 3ebfb90d) after exact-head run 45309374778+4530939276
 
 ## Related demo route note — W16
 
-This card remains closed on its accepted Core PR #1815 evidence. Related demo PR #170 remains OPEN behind the closed card. Demo PR #181 is also OPEN, targets `main`, and is `CONFLICTING`; this is a base-branch conflict recorded for routing. This Plan update did not change either PR.
+Core PR #1815 remains accepted; this card now waits because related Demo PR #170 remains OPEN with a distinct payload not superseded by #1815. Demo PR #181 is also OPEN, targets `main`, and is `CONFLICTING`; that base-branch conflict remains recorded for routing.
+
+Disposition update: Core #1815 acceptance is complete, but Demo #170 remains open with an independent tests/config-matrix/run.sh payload. The exact PR blob a14357f35b77917163a00f845852b821150e8e29 differs from develop blob 620b09b57703f8c9ed7d60018cad7d26869ee45b; exact-head run 45663390190 failed on #170 head b086cf58bb2f7aafee30edf52ac4b8199daf7d0d. Follow-up is tracked by #170; resolution awaits Owner/Codex disposition.
