@@ -73,12 +73,23 @@ Card: 0428-299 · Repo: baseharbor · PR: #1863 · Branch: w336-0428-299-goprere
   (`git reset --hard 83c80c917`, worktree removed); no push, no branch, no commit was ever made
   to baseharbor-demo by this lane.
 
+## 1863 akte-publish route (plan PR #178) — base-red blocker
+- Plan PR #178 (branched at ef0bcfbcf) is OPEN but `Plan · validate` FAILS on the MAIN tip:
+  `evidence/w350-0428-359-batchhop2/akte.md` lines 21-25 contain checkbox syntax outside tasks/
+  (would become CardBoard cards). Zero errors from my file. Pre-existing main breakage (w350 lane),
+  NOT introduced by me; any plan PR is red until main is fixed. Plan PR #136 (w267) proposes the
+  row; #178 cannot merge green while main is red.
+- Akte is committed and pushed verbatim on plan branch `w362-0428-299-akte` (5b5e6d821); it will be
+  on origin/main as soon as the base validator defect is fixed and the queue merges.
+
 ## END line
-STATE (not END_DONE): #1863 hopped forward-only to `0eafa9f5a`, ONE push, fresh run `45935170048`
+END (STATE handoff): #1863 hopped forward-only to `0eafa9f5a`, ONE push, fresh run `45935170048`
 observed to terminal = completed/failure with deterministic root cause (base-checkout catalog
 fail-loud, diagnosis section). No further push or rerun by this lane pending Coordinator/Codex
-disposition (waiver / route via develop / different carrier). 249 remains in the push-gate hold
-(demo #183 merge + pin advance pending; carriers 8c83c7091+0b343af5e local, remote stays 6ab5310d1).
+disposition (waiver / route via develop / different carrier). Akte published via plan PR #178,
+merge blocked only by the pre-existing main validator defect above. 249 remains in the push-gate
+hold (demo #183 merge + pin advance pending; carriers 8c83c7091+0b343af5e local, remote stays
+6ab5310d1).
 
 ## cleanliness
 - No containers/compose started by this mission on this host (docker was not invoked at all).
