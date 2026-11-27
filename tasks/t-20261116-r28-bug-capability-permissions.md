@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: ""
-kanban_status: planned
-kanban_lane: ready
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: RabbitMQ is listed as replaceable Compose infrastructure yet Messaging Queue was not preselected; baha app init proposed…
 kanban_title: 0428-291 · Scope inferred provider grants
 priority: high
@@ -17,21 +17,21 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1865", "mcpdev80/baseharbor#1864"]
 sources: []
-blocker: ""
+blocker: "single-writer STOP (worker w372b, 2026-11-27): PR #1864 head branch w333-0428-291-capperms-fix@b9675cc0b carries foreign w358 merge commits over card fix c945b2fcb, and c945b2fcb ancestry is disjoint from develop ea5218d72 - a clean cut requires either an owner-authorized force-push or a replacement PR branch cut from live develop; force is prohibited for lanes. Plus baseline catalog row (runtime_specific) via #136 family."
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261116-r28-bug-capability-permissions · Scope inferred provider grants #task #release/v0-4-28 #status/planned #view/ready #area/security #kind/bug
+- [ ] t-20261116-r28-bug-capability-permissions · Scope inferred provider grants #task #release/v0-4-28 #status/blocked #view/blocked #area/security #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **PR:** [baseharbor#1865](https://github.com/mcpdev80/baseharbor/pull/1865), [baseharbor#1864](https://github.com/mcpdev80/baseharbor/pull/1864)  
-    **Ready to assign** · prerequisites accepted  
+    **Blocker:** single-writer STOP (worker w372b, 2026-11-27): PR \#1864 head branch w333-0428-291-capperms-fix@b9675cc0b carries foreign w358 merge commits over card fix c945b2fcb, and c945b2fcb ancestry is disjoint from develop ea5218d72 - a clean cut re…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** unassigned  
