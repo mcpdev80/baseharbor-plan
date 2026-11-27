@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: w397-0428-307-idfallback
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-315 · unify/align timeout constant
 priority: ""
@@ -18,18 +18,19 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "CI freeze #136 (owner) + active fan-in across lanes 307/310/312/315/316: shared base-catalog coverage gate blocks all. PR #1882 head be410aea1 run 46024898195 (pull_request) FAILED at 'PR · Trusted Plan': uncataloged source change internal/application/timeouts.go + timeouts_test.go — same base-catalog coverage blocker as 310. No content push during freeze; catalog-touch-up + rerun after lift. PR body be410aea1 left untouched."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt42-timeout-constant-matrix · 0428 hunt H-V42: unify/align timeout constant matrix (tempo 10s vs verify; reconcile/readiness values) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261125-hunt42-timeout-constant-matrix · 0428 hunt H-V42: unify/align timeout constant matrix (tempo 10s vs verify; reconcile/readiness values) #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** w397-0428-307-idfallback  
+    **Waiting:** CI freeze \#136 (owner) + active fan-in across lanes 307/310/312/315/316: shared base-catalog coverage gate blocks all. PR \#1882 head be410aea1 run 46024898195 (pull\_request) FAILED at 'PR · Trusted Plan': uncataloged source change internal…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w397-0428-307-idfallback  
