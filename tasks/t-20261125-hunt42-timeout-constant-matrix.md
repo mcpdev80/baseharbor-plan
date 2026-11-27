@@ -26,7 +26,7 @@ evidence: []
 - [ ] t-20261125-hunt42-timeout-constant-matrix · 0428 hunt H-V42: unify/align timeout constant matrix (tempo 10s vs verify; reconcile/readiness values) #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** w400-0428-315-timeoutsfix  
-    **Waiting:** R5 content PASS at final head 78ab390579 (w402; catalog-only delta over R4-reviewed b61e3ab7e1 reviewed regularly; pair 46055456117/46055569861 terminal, red = class-A Trusted Plan + Selected Checks aggregate; verdict akte evidence/2026-11-27/0428-315/verdict-r5-w267.md); content lift-ready, lift-ready pending owner freeze-lift (\#136 + fan-in \#1861-#1863)
+    **Waiting:** R5 content PASS at final head 78ab390579 (w402; catalog-only delta over R4-reviewed b61e3ab7e1 reviewed regularly; pair 46055456117/46055569861 terminal, red = class-A Trusted Plan + Selected Checks aggregate; verdict akte evidence/2026-11…  
     <!-- /generated:card -->
 
 <!-- generated:links -->

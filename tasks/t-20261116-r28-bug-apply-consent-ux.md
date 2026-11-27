@@ -28,7 +28,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w399-0428-289-providers · **Priority:** normal  
     **PR:** [baseharbor#1884](https://github.com/mcpdev80/baseharbor/pull/1884)  
-    **Waiting:** corrected+R3 PASS verdict at b25c192159 (w401 fix; pair 46051642251/46051804829 pull_request, only Trusted Plan class-A red; verdict akte evidence/2026-11-27/0428-292/verdict-r3-w267.md); lift-ready pending develop-catalog owner freeze-lift (\#136 + fan-in \#1861-#1863); akten evidence…  
+    **Waiting:** corrected+R3 PASS verdict at b25c192159 (w401 fix; pair 46051642251/46051804829 pull\_request, only Trusted Plan class-A red; verdict akte evidence/2026-11-27/0428-292/verdict-r3-w267.md); lift-ready pending develop-catalog owner freeze-lif…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
