@@ -85,7 +85,7 @@ No local tests were run. This is a source and policy disposition. No product fil
 
 ## END
 
-END_DONE w255-0428-251-demo170codex: disposition recorded; eight-row develop baseline plus one field repair specified, candidate self-authorization rejected, #1868 and #1869 routed separately; Plan PR and Hosted validation pending.
+END_DONE w255-0428-251-demo170codex: disposition recorded; eight-row develop baseline plus one field repair specified, candidate self-authorization rejected, #1868 and #1869 routed separately; publication and validation evidence are linked from Plan PR #196.
 
 ## Branch provenance witnesses
 
