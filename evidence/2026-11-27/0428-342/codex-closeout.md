@@ -38,10 +38,12 @@ The fetched main card is already `kanban_status: closed`, `resolution: accepted`
 
 `python3 scripts/plan.py render && python3 scripts/plan.py check`: `784 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 warnings`. The warnings are existing accepted-dependency notices.
 
+Plan PR #240 validation run [46022606388](https://github.com/mcpdev80/baseharbor-plan/actions/runs/46022606388) completed successfully on initial candidate `4467b8031dad71ab44e796a39dee13ca8ab14ff8`. Before review, origin/main advanced to `d5685660587bf053641b466d924934cecb8f2bc1`; that exact main was merged forward into the candidate with the canonical lane identity. A new exact-head validation is required for the resulting merge head.
+
 Changed paths: `tasks/t-20261128-hunt48-metrics-endpoint-docs.md` and this evidence file. Render regenerated no other views. `card-status.py` was not run because the fetched main card was already closed/accepted; no status transition was necessary. `docker ps -a` before/after: PID 2605312; only the header was returned, with no containers. No compose project was started.
 
 The card status, owner, PR mapping, and accepted resolution are unchanged. Only direct HTTPS PR/run evidence links and the required merged-at/verdict receipt were added.
 
 ## END
 
-END DONE — exact-head evidence and Plan validation recorded; awaiting publication and main-path verification.
+END DONE — task closeout is complete; publication remains gated on successful validation of the current rebased head and normal PR merge.
