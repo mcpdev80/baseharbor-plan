@@ -101,6 +101,10 @@ CI route: internal/orgconfig is auto-discovered in hosted Go unit shards (go tes
 
 (to be filled)
 
+## cleanliness
+
+docker ps -a before (mypid 2561438): empty. docker ps -a after: empty. No containers/compose projects started; all scratch in /tmp/opencode (worktrees w399-0428-310-wt, baseline baha-310, probes).
+
 ## END
 
-(to be filled)
+END_BLOCKED w399-0428-310-migrationmarker (lane w399-0428-289-providers): candidate fc510d73d5 on PR baseharbor#1881 (branch lane-0428-310-migration-marker, exact develop ea5218d72e); hosted runs 46020800719 (cancelled) + 46020925858 (failure) terminal on that head; STATE per mission stop-rule: 'PR · Trusted Plan' ValueError 'uncataloged source change, no declared runtime gate owner: internal/orgconfig/{store.go,migration_marker_test.go}' — base catalog (develop ea5218d7) carries no orgconfig rows; same base-catalog owner-hold class as 0428-289/#1880 (#136 + fan-in #1861-#1863). In-PR catalog rows shipped (minimal same-PR route); no .github/** change; planner/requirements untouched. Evidence akte: plan PR baseharbor-plan#239 (branch lane-0428-310-akte @ 0d9e22449); main is protected so ls-tree on origin/main does not yet show the path — awaiting admin merge. Card 310 stays active under this lane, no review transition while the trusted gate fails; resume via coordinator/owner disposition (catalog freeze-lift).
