@@ -15,26 +15,28 @@ kanban_title: 0428-307 · runtime-identity fallback
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [#1877]
+prs: [mcpdev80/baseharbor#1875, mcpdev80/baseharbor#1876, mcpdev80/baseharbor#1877]
 sources: []
-blocker: develop-catalog ordering (owner freeze-lift + pr-gate-map release label); reissue #1877 head 013fdfb82c fails hosted CI (run 45998693008) because trusted CI reads pr-gate-coverage.json from develop tip; catalog must land on develop (owner scope)
+blocker: "develop-catalog ordering pending owner freeze-lift + pr-gate-map-v1.json release label (runs 45998693008, 45993109149/45994654068 als zeugen); fan-in #1861/#1862/#1863 sind w392-rezept-pflichtig (trusted-base registration)"
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt37-runtime-identity-fallback · 0428 hunt H-V37: runtime-identity fallback silently downgrades to shared legacy app token (medium) #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261125-hunt37-runtime-identity-fallback · 0428 hunt H-V37: runtime-identity fallback silently downgrades to shared legacy app token (medium) #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
     **Owner:** w397-0428-307-idfallback  
+    **PR:** [baseharbor#1875](https://github.com/mcpdev80/baseharbor/pull/1875), [baseharbor#1876](https://github.com/mcpdev80/baseharbor/pull/1876), [baseharbor#1877](https://github.com/mcpdev80/baseharbor/pull/1877)  
+    **Blocker:** develop-catalog ordering pending owner freeze-lift + pr-gate-map-v1.json release label (runs 45998693008, 45993109149/45994654068 als zeugen); fan-in \#1861/\#1862/\#1863 sind w392-rezept-pflichtig (trusted-base registration)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w397-0428-307-idfallback  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1875](https://github.com/mcpdev80/baseharbor/pull/1875), [baseharbor#1876](https://github.com/mcpdev80/baseharbor/pull/1876), [baseharbor#1877](https://github.com/mcpdev80/baseharbor/pull/1877)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -120,3 +122,10 @@ Remove the shared legacy app-token fallback. Require an explicit, narrowly scope
 
 Cast from hunt H-V37 (akte plan main 687af1678, evidence/r28-welle6-2026-11-26/bughunt-hv37-compose-identity/): H-V37-D (MEDIUM) - broker-consuming services WITHOUT explicit runtime permission silently fall back to the SHARED legacy app token instead of a per-service runtime identity. Fail-closed or explicit consented fallback per secure-by-design; product-adjacent to consent surfaces - implementation must NOT weaken consent checks; add regression proving per-service scoping.
 
+
+
+## Current PR receipt (2026-11-27)
+
+- #1875 is the open implementation + focused-regressions PR at head 254621f5655051d087d79fb7668b683dcfda5b93; run 45993507477 failed the trusted develop-catalog gate.
+- #1876 is held after Codex review at head 98cb8a725ac78e56959ead4dd6b7757ebabde856; review evidence: https://github.com/mcpdev80/baseharbor-plan/blob/ff473fde6a6bdf8f17b28caacf186c8fe1d65b14/evidence/2026-11-27/0428-307/pr1876-exacthead-review.md.
+- #1877 is the canonical-identity reissue carrier at head 013fdfb82cf9dcab862aa430459bd880c0a806fd; run 45998693008 failed because the trusted develop catalog does not yet declare runtime-gate ownership for the changed source files.
