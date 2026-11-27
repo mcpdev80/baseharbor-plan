@@ -43,6 +43,8 @@ Verdict: CHANGES; do not merge. Head `d2f043e2ef328d2e4cbc6e751b178134be627c1d` 
 
 Verdict: ACCEPT for the proposed edit set recorded in `evidence/2026-11-27/0428-249/qualification-workflow-integrity.md` (live blob `b17bd0f2412f0981d8aa88ea038b0b417b3f8719`; correction source commit `f25e06380b1be1e55d6ad6223ec7a635694facbd`). The corrected proposal resolves inputs to a full commit SHA, checks the checkout against that SHA, keys evidence jobs by SHA plus gate/runtime identity and run ID, keeps evidence runs non-cancelling, and specifies the four-way Podman `single_default_native` split. It includes the `ci.yml` / `PR Selected Checks` graph, file-and-line anchors for the listed evidence workflows, and reasoned exclusions. The worker authorization is explicitly tied to the named-card exception. This accepts the disposition/edit set only; it does not implement or qualify workflow changes.
 
+Workflow-specific prefixes in the job groups are within the accepted `bh-evidence-...` form: they retain the resolved full SHA, gate/runtime identity, and run ID while preventing cross-workflow collisions; no single literal prefix is required.
+
 ### Demo PR #183 CI inclusion
 
 Verdict: IN-SCOPE, limited to the purpose-bound test-only path already recorded in `evidence/2026-11-27/0428-284/pr183-ci-inclusion-disposition.md` (live blob `8ea878f2ac40b87a9a3c0cfff4551300331bd7a1`). That record ties the narrow test selection to existing card 0428-284 and the Owner's W34 authorization, while prohibiting product consent/auth changes and Core `ci.yml` changes. This is a scope classification, not qualification of PR #183 and not authorization for this lane to edit a workflow.
