@@ -7,7 +7,7 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: w373-0428-284-demo183fix
+owner: w374-0428-284-demo183fix
 kanban_status: active
 kanban_lane: active
 kanban_summary: ""
@@ -32,7 +32,7 @@ evidence:
 
 - [ ] t-20261125-0428-284-1812-postretry-gate-failure · #1812 post-retry gate failure #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** w373-0428-284-demo183fix · **Priority:** high  
+    **Owner:** w374-0428-284-demo183fix · **Priority:** high  
     **PR:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1856](https://github.com/mcpdev80/baseharbor/pull/1856), [baseharbor-demo#183](https://github.com/mcpdev80/baseharbor-demo/pull/183)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139), [proof 2](https://github.com/mcpdev80/baseharbor-demo/pull/173), [proof 3](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448531969), [proof 4](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448729972), [proof 5](https://github.com/mcpdev80/baseharbor-demo/pull/174), [proof 6](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45455975242), [proof 7](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45456155783)  
     <!-- /generated:card -->
@@ -42,7 +42,7 @@ evidence:
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261116-r28-bug-compose-service-ids](t-20261116-r28-bug-compose-service-ids.md)  
-**Owner:** w373-0428-284-demo183fix  
+**Owner:** w374-0428-284-demo183fix  
 **Priority:** high  
 **PRs:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1856](https://github.com/mcpdev80/baseharbor/pull/1856), [baseharbor-demo#183](https://github.com/mcpdev80/baseharbor-demo/pull/183)  
 **Source:** 
