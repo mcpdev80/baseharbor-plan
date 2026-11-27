@@ -75,3 +75,12 @@ This PR contains only the three authorized task-state updates and the 53c5fe974 
 - `w267 = 0428-284 exact-head review CURRENTLY IN FLIGHT (plan-side duty)`
 
 Deviation: `main 53c5fe974 (board: reconcile 0428-284 to review) landed without Plan PR (commit->PR lookup empty) — useful work retained, PR path continuous from now on`
+
+## Candidate provenance
+
+- Candidate branch: `w267-0428-284-pridentity-followup-board`, cut from exact `origin/main` `7b1f6cd7b6d63f2d9e6aaf2689fd38ad5b162626`.
+- `git merge-base --is-ancestor origin/main HEAD`: success.
+- `git diff origin/main...HEAD --name-only` lists only the three authorized task files, generated Plan views/release files, and this evidence file.
+- First candidate commit identity line: `3dcb51d1b an=w267-0428-284-pridentity cn=w267-0428-284-pridentity`.
+- `git show -s --format=%an HEAD` returned `w267-0428-284-pridentity`.
+- `git log --oneline origin/main..HEAD` listed only `3dcb51d1b Reconcile #170, #1874, and #1820 board states` at this checkpoint.
