@@ -19,6 +19,7 @@ Hosted run 46011069186 (event pull_request, head 8fe1b3a5ad, conclusion failure)
 
 ## PLAN
 
+0. Native todowrite leg: SKIPPED — this session exposes no native todowrite tool (per dispatch rule: skip leg (0) entirely; board file (a) maintained live instead).
 1. Create numbered work plan in all three places (board file, evidence PLAN, todos) — DONE
 2. Verify environment: remote -v, real plan repo path, pull current state — DONE
 3. Read card contract + baseharbor/AGENTS.md + DEVELOPMENT_GUIDELINES — DONE
