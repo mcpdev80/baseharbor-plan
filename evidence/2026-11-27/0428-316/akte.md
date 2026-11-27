@@ -93,7 +93,7 @@ internal/providers/runtime/podman/quadlet_render.go
 
 ## cleanliness
 
-(to be appended; no containers/compose projects are started by this lane — unit-scope work only; docker/podman native gates run in Hosted CI)
+(verified: no containers/compose projects left started by this lane — unit-scope work only; docker/podman native gates run in Hosted CI)
 
 ## END
 
@@ -123,3 +123,12 @@ internal/providers/runtime/podman/quadlet_render.go
 - Disposition: same exact head re-qualified via the authorized close+reopen trigger (rerun of unchanged inputs; NOT a fix push):
 
 ## Same-head rerun witnesses (authorized close+reopen)
+
+- Run 46029743268 (second full-selected run, head 66ed368034 unchanged): observed to terminal FAILURE — IDENTICAL failure signature: job 140610993019 "Executed podman · lifecycle" + the "PR Selected Checks" aggregator. Every unit/validation job passed again (runtime-provider-package-tests OK). All other selected checks green on the exact head.
+- Root-cause attribution (evidence, not memory): the native demo journey reaches `state:"running", ready:true` with all checks ok, then fails in the candidate-consent recording step (`Re-run with --confirm-candidate e13ae117...` hint + `Error: record deployment before mutation: candidate submission requires an explicit operator/automation consent`). develop 6944e8761a is the merge of #1878, whose added `runtime executor /metrics` operator endpoint is a NEW repo-owned candidate submission in this fixture; the gate's demo fixture invocation predates that requirement. PR #1884 (card 0428-292, "carry interactive candidate consent into the same apply run", head 734707abf4) is open and targets exactly this gap — its own hosted runs are in progress at the time of writing.
+- My candidate diff (git diff --name-only lane-origin/develop...HEAD) is confined to internal/providers/runtime/podman; zero overlap with cmd/baha consent/deployment-record paths. A local worktree at the GitHub PR integration commit d891878139/4cd4691705 (develop 6944e8761a + my head) passes the full podman package and cmd/baha quadlet-focused tests.
+- Disposition: this lane does NOT push any further candidate to the consent path (out of scope, would be a scope violation). The blocker clears when #1884 merges into develop; I then merge origin/develop into lane-0428-316-envleak-disk (no code change expected) and rerun the qualification pair on the new exact head.
+
+## Path hygiene correction (coordinator warning 2026-11-27T15:45Z)
+
+- Coordinator confirms: my earlier akte commits landed stranded in /var/tmp/qa-plan/plan (coordinator read-only clone) under the w358 identity; content was forensically restored to main as dd9561905. From now on ALL plan writes use ONLY workers/w396-0428-316-plan (own origin = baseharbor-plan); the stale workers/baseharbor-plan worktree pointer was removed after verification. This akte commit is authored with the lane identity.
