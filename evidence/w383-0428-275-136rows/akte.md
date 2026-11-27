@@ -38,7 +38,7 @@
 - GEMELDET (nicht erfunden), Mission nannte falsche Pfade:
   - w378-0428-299-1863pre: die Akte existiert, aber auf einem ANDEREN Pfad und UNCOMMITTED im geteilten Plan-Checkout: `baseharbor-plan/evidence/2026-11-27/0428-299/w378-0428-299-1863pre.md` (`git status --porcelain` => `?? evidence/2026-11-27/`). NICHT auf origin/main. Inhalt gelesen (siehe (b)); Publishing steht aus.
   - w379-0428-318-1862pre: die Akte war bei Schichtbeginn uncommitted im geteilten Checkout (`?? evidence/w379-0428-318-1862pre/`); INZWISCHEN von Lane w379 selbst auf main publischt (main-Kommit `9757bb969`). Inhalt identisch zur hier gelesenen Fassung; Fundstellen (b)(5) gelten. Damit sind beide Familien-Akten (w378 und w379) analysierbar; die w378-Akte bleibt uncommitted im geteilten Checkout und ist dort NICHT angefasst worden.
-  - w381-0428-328-1869pre: Akte FEHLT vollständig — kein Pfad auf main, kein uncommitted Fund im geteilten Checkout. Deren todos-Board (`workers/todos/w381-0428-328-1869pre.json`) zeigt Schritte (d) und (e) als noch nicht done: die Lane ist unvollendet. Die Mission selbst fuehrt #1869 auch nicht in der Familien-Quelleliste (b); sie ist eine ANDERE Fehlerklasse (`pr-gate-map-v1.json` release-label laut ihrer mission (d)), nicht Teil der #136-Zeilen.
+  - w381-0428-328-1869pre: bei meinem Scan FEHLTE die Akte vollständig (kein Pfad auf main, kein uncommitted Fund). INZWISCHEN publiziert (main `e5a87f25e`, author `w381-0428-328-1869pre`) — aber in der WRONG ZONE: Pfad `w381-0428-328-1869pre-plan/evidence/w381-0428-328-1869pre/akte.md` statt `evidence/w381-0428-328-1869pre/akte.md`. Befund an den Coordinator: umziehen (content-identisch, nur Pfad). Inhalt fuer (c) ausgewertet; #1869 ist eine ANDERE Fehlerklasse (release-label `pr-gate-map-v1.json`, Owner-Freigabe laut ihrer Akte :13,:101,:111), kein Zeilenbedarfler fuer #136.
 
 ## (b) Geforderte Quellen (namentlich + Fundstelle)
 
@@ -91,7 +91,8 @@ Die Mission nennt "Karte 0428-359 existiert nicht als Karte": korrekt auf origin
 
 - Keine Container/compose gestartet (pure Analyse; `docker ps -a` nicht einschlägig — keine docker-Kommandos dieser Lane).
 - Kein Push an baseharbor; kein hosted run; kein Merge; keine `.github/**`-, keine Kartenfeld- oder View-Editen; nur read-only fetches in den geteilten baseharbor-Checkout (lokale bookkeeping-refs `refs/lane/1860` und `refs/cand/*`; kein Remote wurde dadurch veraendert) und dieses isolierte plan-worktree.
-- Fremd-Worktrees unangetastet; zwei unkommentierte Familienakten (w378/w379) wurden NUR gelesen, nicht veraendert.
+- Fremd-Worktrees unangetastet; die Fremd-Akten (w378 uncommitted im geteilten Checkout, w379/w381 auf main) wurden NUR gelesen, nicht veraendert.
+- MAIN-REWIND-BEFUND an den Coordinator (wichtige Wahrheit, nicht von dieser Lane verursacht): main wurde zweimal zurueckgesetzt. (i) Mein Squash-Merge von PR #190 landete zuerst auf `e5a87f25e` (parent 9757bb969, enthielt die w381-Akte); eine fremde force-push (`forced-update`, reflog origin/main@{0..1}) ersetzte es durch `b43d5b83b` (parent ef0bcfbcf) und LOESCHTE damit die w381- und w379-Akten von main; danach kehrte 9757bb969 (w379) zurueck und w381 wurde erneut als `e4b0735bd` gepusht — diesmal in die WRONG ZONE (Pfad Praefix `w381-0428-328-1869pre-plan/`). Beide Akten sind jetzt wieder auf main; der w381-Pfad muss bereinigt werden. Zeugen: `git -C baseharbor-plan reflog origin/main` (fetch entries: e4b0735bd forced-update, e5a87f25e fast-forward, 9757bb969 storing head) und `git ls-remote ... refs/heads/main` = e4b0735bd. Diese Lane hat KEINEN force-push und KEIN rewind durchgefuehrt.
 
 ## 4-Feld
 
@@ -100,4 +101,4 @@ Die Mission nennt "Karte 0428-359 existiert nicht als Karte": korrekt auf origin
 - Repo/PR: baseharbor-plan #136 @ head `c4e4400174dc3fe5c04082c7c85483db9b82543f`; Produktzaehlen gegen develop `ea5218d72`
 - Status: END_DONE (Gap-Liste fertig, alle Fundstellen belegt, fehlende Akten gemeldet)
 
-END_DONE w383-0428-275-136rows: #136 liefert nul Zeilen (plan-only), 8 geforderte Quellen fehlen auf develop, 2 davon falsch kandidatenseitig gefuehrt (#1860 :2720, #1863 :2536), 1 Mission-Anforderung (permission_scope) ist develop-seitig schon present ohne runtime_specific; w381-Akte fehlt, w378-Akte uncommitted (w379-akte inzwischen auf main 9757bb969).
+END_DONE w383-0428-275-136rows: #136 liefert nul Zeilen (plan-only), 8 geforderte Quellen fehlen auf develop, 2 falsch kandidatenseitig gefuehrt (#1860 :2720, #1863 :2536), permission_scope bereits auf develop ohne runtime_specific; w378-Akte uncommitted, w379- und w381-Akten inzwischen auf main (w381 in wrong zone unter `w381-...-plan/`).
