@@ -43,6 +43,22 @@ The full renderer also refreshed the generated owner preview for `t-20261128-hun
 
 Before worktree changes: `docker ps -a` (PID 1647402) returned the header only; no containers were running.
 
+## Candidate provenance
+
+Candidate branch: `w255-0428-251-demo170codex-board-owner-reconcile`.
+First candidate commit: `9fa0a49403306fb4b54387d4eafadfb7c922a312`; `git show` verified author and committer are both `w255-0428-251-demo170codex`.
+Both `git merge-base --is-ancestor b586c707eae93b2e1fa20d25bb48c4a5ff9c9c11 HEAD` and `git merge-base --is-ancestor origin/main HEAD` succeeded. Current `origin/main` remains `b586c707eae93b2e1fa20d25bb48c4a5ff9c9c11`.
+`git log --oneline origin/main..HEAD` before this evidence update: `9fa0a4940 chore(plan): unassign unstarted consent UX card`.
+`git diff origin/main...HEAD --name-only` at that point:
+
+- evidence/2026-11-27/t-20261116-r28-bug-apply-consent-ux/akte.md
+- tasks/t-20261116-r28-bug-apply-consent-ux.md
+- tasks/t-20261128-hunt48-metrics-endpoint-docs.md (generated preview refreshed by render)
+- views/kanban-dashboard.md
+- views/overview.md
+- views/ready.md
+- views/releases/v0.4.28.md
+
 ## END
 
-Pending PR review, validation, and merge.
+Pending PR review, exact-head validation, merge, and final main SHA.
