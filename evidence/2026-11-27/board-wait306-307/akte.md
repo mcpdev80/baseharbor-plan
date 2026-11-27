@@ -44,3 +44,7 @@ Only card 0428-306 lifecycle/wait fields are changed through `coordinator/script
 - Final local `python3 scripts/plan.py render && python3 scripts/plan.py check`: 784 tasks, 0 errors, 10 existing dependency warnings.
 - Generated Markdown contains renderer-required trailing spaces for line breaks in the wait rows; `plan.py check` passes. Intended tracked files are only `tasks/t-20261125-hunt36-golden-help-guard.md`, `views/kanban-dashboard.md`, `views/overview.md`, and `views/releases/v0.4.28.md`; plus this receipt.
 - Candidate branch `w255-0428-251-demo170codex-board-wait306-307` is cut from exact main `ed7b8a601a16e3a17a1e0b77136d7ad4db68ea0c`. Precommit ancestry check `git merge-base --is-ancestor origin/main HEAD` succeeded; no foreign commits are on this branch.
+
+## First candidate commit receipt
+
+- Commit `cb7ed62dc746f488522facb79e5337f5e6a1699c`: author `w255-0428-251-demo170codex`; committer `w255-0428-251-demo170codex`. Pre-push identity line: `cb7ed62dc an=w255-0428-251-demo170codex cn=w255-0428-251-demo170codex`.
