@@ -52,7 +52,40 @@ H-V43 akte (w331) recorded three findings. FUND-A is the disk leak the card name
 
 ## Hosted CI (self-run duty)
 
-(to be appended: two distinct run IDs on exact head + terminal status)
+- Draft PR open run 46026169400 (head 66ed368034, CI · Source & Quality, draft routing lanes; observed to terminal below)
+## Candidate delivery (PR #1883, draft)
+
+- Candidate branch: lane-0428-316-envleak-disk, single commit 66ed3680343b36d6dfff855892867d3c99f349c8 (author/committer w396-0428-306-goldenhelp, gate `git log --format='%h an=%an cn=%cn' -1` verified).
+- Base: develop 6944e8761af6f07b801f55e39bb9a5409226c10b (current at cut; merged into the branch before commit; ancestry proven for both 6944e8761a and the original cut ea5218d72e: `git merge-base --is-ancestor` OK).
+- Delivery witness: `git ls-remote lane-origin refs/heads/lane-0428-316-envleak-disk` -> 66ed3680343b36d6dfff855892867d3c99f349c8; `git log --oneline lane-origin/develop..HEAD` shows exactly the one commit; `git diff --name-only lane-origin/develop...HEAD`:
+
+```
+internal/providers/runtime/podman/quadlet_project.go
+internal/providers/runtime/podman/quadlet_project_test.go
+internal/providers/runtime/podman/quadlet_render.go
+```
+
+## Diffstat
+
+```
+ .../providers/runtime/podman/quadlet_project.go    | 17 +++--
+ .../runtime/podman/quadlet_project_test.go         | 84 ++++++++++++++++++++++
+ .../providers/runtime/podman/quadlet_render.go     | 84 +++++++++++++++++++---
+ 3 files changed, 171 insertions(+), 14 deletions(-)
+```
+
+## Final design (supersedes everything above — single clean implementation)
+
+1. `quadletRenderServiceEnvironment` (disk boundary): `ambientResolvedEnvironment()` maps each ambient process-environment value to its unique variable name. An entry whose WHOLE model value equals one unambiguous ambient value is dropped from the {service}.env file and recorded in `QuadletProject.AmbientEnvironment[unitBase]`.
+2. `quadletRenderServiceUnitHeader` emits a valueless `Environment=KEY` line per such entry on the .container unit; the podman quadlet generator turns it into `podman run --env KEY`, which picks the value up from the systemd unit process environment at container start (verified locally via generator dryrun + `podman run --env`).
+3. Project envFile and managed entries never enter this branch (where both define a name, the project value wins the expansion, so the text does not match the ambient value). Mixed text and shared values keep the established projection (accepted limitation; the H-V43 FUND-A shape is the bare `${NAME}` ambient reference).
+4. The earlier interim experiments (two-stage node walk, quadletComposeEnv decoder, matchingChildValue/quadletScalarNode helpers, value-restoration) are fully removed from the candidate; only the cloneQuadletYAMLNode deep-copy fix remains (shadowed-builtin rename, behavior identical — Content slice is now actually copied).
+
+## Test binding
+
+- New tests (package-discovered via `go list ./...`/`go test -list`, no catalog row needed): TestRenderComposeProjectQuadletsKeepsAmbientSecretOutOfEnvFile, TestComposeEnvSequenceFormKeepsAmbientReference in internal/providers/runtime/podman.
+- Changed sources resolve to check `atomic/podman/lifecycle` via BASE rows (unres=[]) — confirmed against the base catalog at develop; the podman lifecycle gates and unit lanes select this package.
+
 
 ## cleanliness
 
