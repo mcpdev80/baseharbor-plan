@@ -7,9 +7,9 @@ areas: [ci, coordination]
 release: v0.4.28
 version: ""
 parent: ""
-owner: w390-0428-216-prhopcensus
-kanban_status: active
-kanban_lane: active
+owner: "Coordinator (Codeman)"
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Every open PR that belongs to a Codeman card is either a descendant of current develop, or carries the base ref its card…"
 kanban_title: 0428-216 · 0428-216 stale PR hops
 priority: normal
@@ -18,21 +18,22 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "w390 END_DONE: corrected census is 17 open PRs; 11 are not descendants of develop (9 BaseHarbor, 2 Demo), all merge-clean. #1819 is superseded by #1820; #1650 remains owner-held. Required hop actions are outstanding and the hop-plan evidence is not yet published/reviewed under the Plan write-freeze. Coordinator must sequence the authorized hops."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261121-stale-pr-hop-and-baserefs · 0428-216 hop the stale PRs of our cards and fix their base refs #task #release/v0-4-28 #status/active #view/active #area/ci #area/coordination #kind/task
+- [ ] t-20261121-stale-pr-hop-and-baserefs · 0428-216 hop the stale PRs of our cards and fix their base refs #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/coordination #kind/task
     <!-- generated:card -->
-    **Owner:** w390-0428-216-prhopcensus · **Priority:** normal  
+    **Owner:** Coordinator (Codeman) · **Priority:** normal  
+    **Waiting:** w390 END\_DONE: corrected census is 17 open PRs; 11 are not descendants of develop (9 BaseHarbor, 2 Demo), all merge-clean. \#1819 is superseded by \#1820; \#1650 remains owner-held. Required hop actions are outstanding and the hop-plan eviden…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** w390-0428-216-prhopcensus  
+**Owner:** Coordinator (Codeman)  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
