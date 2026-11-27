@@ -10,21 +10,23 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 2 |
+| active | 4 |
 | review | 3 |
-| wait | 29 |
+| wait | 32 |
 | blocked | 13 |
-| ready | 38 |
+| ready | 32 |
 | queued | 25 |
 | waiting | 180 |
 | backlog | 7 |
-| closed | 487 |
+| closed | 488 |
 
 ## Active
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261102-rcptlink-task](../tasks/t-20261102-rcptlink-task.md) | Receipt post-run writer: add single `Resolves #<issue>` link to merged PRs so tasklink auto-resolves green | active | not set | ornith (rcptlink) | — | [baseharbor#1267](https://github.com/mcpdev80/baseharbor/pull/1267), [baseharbor#1268](https://github.com/mcpdev80/baseharbor/pull/1268), [baseharbor#1269](https://github.com/mcpdev80/baseharbor/pull/1269), [baseharbor#1270](https://github.com/mcpdev80/baseharbor/pull/1270), [baseharbor#1271](https://github.com/mcpdev80/baseharbor/pull/1271), [baseharbor#1274](https://github.com/mcpdev80/baseharbor/pull/1274), [baseharbor#1275](https://github.com/mcpdev80/baseharbor/pull/1275) |
+| [t-20261116-r28-bug-apply-consent-ux](../tasks/t-20261116-r28-bug-apply-consent-ux.md) | Clarify apply candidate consent | active | normal | w399-0428-289-providers | — | — |
+| [t-20261125-hunt42-timeout-constant-matrix](../tasks/t-20261125-hunt42-timeout-constant-matrix.md) | 0428 hunt H-V42: unify/align timeout constant matrix (tempo 10s vs verify; reconcile/readiness values) | active | not set | w397-0428-307-idfallback | — | — |
 | [t-20261125-hunt43-env-leak-disk](../tasks/t-20261125-hunt43-env-leak-disk.md) | 0428 hunt H-V43: hunt43-env-leak-disk | active | not set | w396-0428-306-goldenhelp | — | — |
 
 ## Ready for review
@@ -53,6 +55,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261116-r28-bug-destroy-diagnostics](../tasks/t-20261116-r28-bug-destroy-diagnostics.md) | Explain destroy owner failures | wait | normal | "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) | — | — |
 | [t-20261116-r28-bug-failed-apply-destroy](../tasks/t-20261116-r28-bug-failed-apply-destroy.md) | Recover failed apply destroy | wait | critical | "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) | — | [baseharbor#1834](https://github.com/mcpdev80/baseharbor/pull/1834) |
 | [t-20261116-r28-bug-installation-reset-recovery](../tasks/t-20261116-r28-bug-installation-reset-recovery.md) | Unblock full installation reset | wait | critical | w185-0428-287-pr1835-podman | — | [baseharbor#1835](https://github.com/mcpdev80/baseharbor/pull/1835) |
+| [t-20261116-r28-bug-provider-discovery](../tasks/t-20261116-r28-bug-provider-discovery.md) | Detect mixed Compose providers | wait | high | w399-0428-289-providers | — | [baseharbor#1880](https://github.com/mcpdev80/baseharbor/pull/1880) |
 | [t-20261120-coord-publish-integrity-gaps](../tasks/t-20261120-coord-publish-integrity-gaps.md) | Coordinator tooling: card-status.py bypasses the payload integrity gates; watch.py rm signature unusable | wait | not set | "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) | — | — |
 | [t-20261120-r28-identity-dashboard-catalog-consumer](../tasks/t-20261120-r28-identity-dashboard-catalog-consumer.md) | Identity dashboard catalog has zero production consumers (P4 of review 1650) | wait | not set | w54-0428-181-export | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | [baseharbor#1819](https://github.com/mcpdev80/baseharbor/pull/1819) |
 | [t-20261120-r28-valkey-dashboard-unavailable-only](../tasks/t-20261120-r28-valkey-dashboard-unavailable-only.md) | Perses: new DB/Valkey dashboards reachable only as DashboardUnavailable | wait | not set | "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) | [t-20261121-loki-verify-probe](../tasks/t-20261121-loki-verify-probe.md), [t-20261120-r28-cli-shard-operator-env](../tasks/t-20261120-r28-cli-shard-operator-env.md) | [baseharbor#1714](https://github.com/mcpdev80/baseharbor/pull/1714) |
@@ -68,6 +71,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261124-r28-broker-build-identity-commit](../tasks/t-20261124-r28-broker-build-identity-commit.md) | verifyRuntimeBrokerBuildIdentity discards both commit SHAs, so a runtime broker at the wrong commit passes readiness whenever the semver matches. | wait | normal | Coordinator (sequence wait) | [t-20261124-gate-catalog-baseline-1820](../tasks/t-20261124-gate-catalog-baseline-1820.md) (open) | [baseharbor#1820](https://github.com/mcpdev80/baseharbor/pull/1820) |
 | [t-20261125-hunt36-golden-help-guard](../tasks/t-20261125-hunt36-golden-help-guard.md) | 0428 hunt H-V36: add golden --help snapshot CI guard for config/flag surface | wait | not set | w396-0428-306-goldenhelp | — | [baseharbor#1874](https://github.com/mcpdev80/baseharbor/pull/1874) |
 | [t-20261125-hunt39-restore-identity-regression](../tasks/t-20261125-hunt39-restore-identity-regression.md) | 0428 hunt H-V39: restore-identity regression test (identity preserved across restore) | wait | not set | "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) | — | — |
+| [t-20261125-hunt40-migration-marker-last](../tasks/t-20261125-hunt40-migration-marker-last.md) | 0428 hunt H-V40: orgconfig migrateToCanonical writes marker LAST (crash-window) | wait | not set | w399-0428-289-providers | — | [baseharbor#1881](https://github.com/mcpdev80/baseharbor/pull/1881) |
+| [t-20261128-hunt48-source-transfers-contract](../tasks/t-20261128-hunt48-source-transfers-contract.md) | 0428 hunt H-V48: machine source-transfers routes registered but absent from machine-http-v1 contract | wait | not set | w392-0428-284-demo183fix5 | — | [baseharbor#1879](https://github.com/mcpdev80/baseharbor/pull/1879) |
 
 ## Blocked
 
@@ -92,8 +97,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261114-r28-cli2-coordination](../tasks/t-20261114-r28-cli2-coordination.md) | CLI redesign: coordinate five workers | ready | high | coord | — | — |
-| [t-20261116-r28-bug-apply-consent-ux](../tasks/t-20261116-r28-bug-apply-consent-ux.md) | Clarify apply candidate consent | ready | normal | — | — | — |
-| [t-20261116-r28-bug-provider-discovery](../tasks/t-20261116-r28-bug-provider-discovery.md) | Detect mixed Compose providers | ready | high | — | — | — |
 | [t-20261120-gate-catalog-ci-fast-check](../tasks/t-20261120-gate-catalog-ci-fast-check.md) | 0428-205 · Wire ci-fast-check into the release gate catalog | ready | normal | Codex (root-cause diagnose, NICHT worker) / Coordinator | — | [baseharbor#1746](https://github.com/mcpdev80/baseharbor/pull/1746), [baseharbor#1761](https://github.com/mcpdev80/baseharbor/pull/1761), [baseharbor#1771](https://github.com/mcpdev80/baseharbor/pull/1771), [baseharbor#1774](https://github.com/mcpdev80/baseharbor/pull/1774) |
 | [t-20261122-native-plan-self-selection](../tasks/t-20261122-native-plan-self-selection.md) | CI: catalog and planner self-change selects zero gates | ready | not set | — | — | — |
 | [t-20261124-0428-278-perses-provision-ghost-coverage-rows](../tasks/t-20261124-0428-278-perses-provision-ghost-coverage-rows.md) | gate-plan ghost source rows | ready | low | — | — | — |
@@ -109,9 +112,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261125-hunt33-unguarded-git-sudo](../tasks/t-20261125-hunt33-unguarded-git-sudo.md) | 0428 hunt H-V33: hunt33-unguarded-git-sudo | ready | not set | — | — | — |
 | [t-20261125-hunt37-cross-perm-dup](../tasks/t-20261125-hunt37-cross-perm-dup.md) | 0428 hunt H-V37: reject cross-permission service duplication | ready | not set | — | — | — |
 | [t-20261125-hunt38-go-base-pin-build-stage](../tasks/t-20261125-hunt38-go-base-pin-build-stage.md) | 0428 hunt H-V38: pin unpinned Go base image in build-stage Dockerfile | ready | not set | — | — | — |
-| [t-20261125-hunt40-migration-marker-last](../tasks/t-20261125-hunt40-migration-marker-last.md) | 0428 hunt H-V40: orgconfig migrateToCanonical writes marker LAST (crash-window) | ready | not set | — | — | — |
 | [t-20261125-hunt40-realversion-migration-quali](../tasks/t-20261125-hunt40-realversion-migration-quali.md) | 0428 hunt H-V40: real-version runtime qualification of Core Keycloak/PostgreSQL 0.4.27->0.4.28 migration path | ready | not set | — | — | — |
-| [t-20261125-hunt42-timeout-constant-matrix](../tasks/t-20261125-hunt42-timeout-constant-matrix.md) | 0428 hunt H-V42: unify/align timeout constant matrix (tempo 10s vs verify; reconcile/readiness values) | ready | not set | — | — | — |
 | [t-20261125-hunt43-docker-path-config](../tasks/t-20261125-hunt43-docker-path-config.md) | 0428 hunt H-V43: hunt43-docker-path-config | ready | not set | — | — | — |
 | [t-20261125-hunt45-app-exec-exit-collision](../tasks/t-20261125-hunt45-app-exec-exit-collision.md) | CLI: decide app exec exit-status passthrough collision with reserved codes | ready | not set | — | — | — |
 | [t-20261125-hunt45-cli-unknown-command-hardening](../tasks/t-20261125-hunt45-cli-unknown-command-hardening.md) | CLI: unknown-command exit-2 guarantee and suggestion construction under runnable parents | ready | not set | — | — | — |
@@ -123,9 +124,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261125-hunt47-version-gate-error-surface](../tasks/t-20261125-hunt47-version-gate-error-surface.md) | 0428 hunt H-V47: all state version gates emit directionless 'unsupported version' errors with no next-action; too-new config breaks unrelated surfaces | ready | low | w193-0428-224-hunt-v47-intake | — | — |
 | [t-20261126-hunt46-collectable-orphans-reserved-namespace](../tasks/t-20261126-hunt46-collectable-orphans-reserved-namespace.md) | 0428 hunt H-V46: CollectableOrphans lists the reserved never-delivered dir as a collectable orphan UUID (medium) | ready | not set | — | — | — |
 | [t-20261126-hunt46-destroy-data-loss-vocabulary](../tasks/t-20261126-hunt46-destroy-data-loss-vocabulary.md) | 0428 hunt H-V46: destroy --all and control-plane destroy --delete-data use split data-loss consequence vocabulary (low) | ready | not set | — | — | — |
-| [t-20261128-hunt48-metrics-endpoint-docs](../tasks/t-20261128-hunt48-metrics-endpoint-docs.md) | 0428 hunt H-V48: metrics endpoint registered but undocumented in any spec | ready | not set | — | — | — |
 | [t-20261128-hunt48-refresh-public-api-ownership-map](../tasks/t-20261128-hunt48-refresh-public-api-ownership-map.md) | 0428 hunt H-V48: internal/api/api-old precedent gone, surface-ownership map stale | ready | not set | — | — | — |
-| [t-20261128-hunt48-source-transfers-contract](../tasks/t-20261128-hunt48-source-transfers-contract.md) | 0428 hunt H-V48: machine source-transfers routes registered but absent from machine-http-v1 contract | ready | not set | — | — | — |
 | [t-20261128-hunt48-unify-runtime-error-envelope](../tasks/t-20261128-hunt48-unify-runtime-error-envelope.md) | 0428 hunt H-V48: unify runtime HTTP error envelope (runtimeresourceapi writeProblem vs apierror.Error) | ready | not set | — | — | — |
 | [t-20261128-hunt48-workstation-bootstrap-contract](../tasks/t-20261128-hunt48-workstation-bootstrap-contract.md) | 0428 hunt H-V48: workstation bootstrap endpoint registered but undocumented as a discrete contract | ready | not set | — | — | — |
 | [t-20261128-hunt49-archived-gates-validator-blindspot](../tasks/t-20261128-hunt49-archived-gates-validator-blindspot.md) | 0428 hunt H-V49: archived gates in release-requirements.json invisible to validator (dead-name drift undetectable) | ready | not set | — | — | — |
@@ -134,7 +133,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 5 open, 165 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 102 open, 254 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 101 open, 255 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 16 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))

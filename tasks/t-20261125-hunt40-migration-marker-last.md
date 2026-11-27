@@ -7,35 +7,36 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w399-0428-289-providers
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-310 · orgconfig migrateToCanonical
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1881]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "blocked-on develop-catalog owner freeze-lift (#136 baseline + fan-in #1861-#1863); PR · Trusted Plan fails as class A on base head ea5218d72e; run witnesses 46020800719 (cancelled) + 46020925858 (failure) on exact head fc510d73d5; akte evidence/2026-11-27/0428-310/akte.md"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt40-migration-marker-last · 0428 hunt H-V40: orgconfig migrateToCanonical writes marker LAST (crash-window) #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261125-hunt40-migration-marker-last · 0428 hunt H-V40: orgconfig migrateToCanonical writes marker LAST (crash-window) #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w399-0428-289-providers  
+    **PR:** [baseharbor#1881](https://github.com/mcpdev80/baseharbor/pull/1881)  
+    **Waiting:** blocked-on develop-catalog owner freeze-lift (\#136 baseline + fan-in \#1861-\#1863); PR · Trusted Plan fails as class A on base head ea5218d72e; run witnesses 46020800719 (cancelled) + 46020925858 (failure) on exact head fc510d73d5; akte evi…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w399-0428-289-providers  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1881](https://github.com/mcpdev80/baseharbor/pull/1881)  
 **Source:** 
 <!-- /generated:links -->
 

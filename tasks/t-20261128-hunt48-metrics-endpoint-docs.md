@@ -7,34 +7,37 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w397-0428-307-idfallback
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0428-342 · operator metrics endpoint doc
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1878]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-27/0428-342/akte.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-27/0428-342/pr1878-review.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-27/0428-342/codex-closeout.md", "https://github.com/mcpdev80/baseharbor/pull/1878", "https://github.com/mcpdev80/baseharbor/actions/runs/46011434426", "https://github.com/mcpdev80/baseharbor/actions/runs/46019281170"]
 ---
 
-- [ ] t-20261128-hunt48-metrics-endpoint-docs · 0428 hunt H-V48: metrics endpoint registered but undocumented in any spec #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [x] t-20261128-hunt48-metrics-endpoint-docs · 0428 hunt H-V48: metrics endpoint registered but undocumented in any spec #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w397-0428-307-idfallback  
+    **PR:** [baseharbor#1878](https://github.com/mcpdev80/baseharbor/pull/1878)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-27/0428-342/akte.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-27/0428-342/pr1878-review.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-27/0428-342/codex-closeout.md), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1878), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/46011434426), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/46019281170)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w397-0428-307-idfallback  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1878](https://github.com/mcpdev80/baseharbor/pull/1878)  
 **Source:** 
 <!-- /generated:links -->
+
+PR #1878 merged at 6944e8761af6f07b801f55e39bb9a5409226c10b via Codex exact-head verdict (w267). Exact-head pull_request runs 46011434426 and 46019281170 both passed; workflow_dispatch failures 46012999025 and 46016374374 remain nonqualifying context findings in the akte.

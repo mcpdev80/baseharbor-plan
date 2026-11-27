@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w397-0428-307-idfallback
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-315 · unify/align timeout constant
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt42-timeout-constant-matrix · 0428 hunt H-V42: unify/align timeout constant matrix (tempo 10s vs verify; reconcile/readiness values) #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261125-hunt42-timeout-constant-matrix · 0428 hunt H-V42: unify/align timeout constant matrix (tempo 10s vs verify; reconcile/readiness values) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w397-0428-307-idfallback  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w397-0428-307-idfallback  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

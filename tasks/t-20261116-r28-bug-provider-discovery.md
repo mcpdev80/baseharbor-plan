@@ -7,35 +7,36 @@ areas: [wizard]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w399-0428-289-providers
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "J-Commerce has productdb (MongoDB), vectordb (pgvector Postgres), floci (local S3-compatible emulator); Wizard proposed six…"
 kanban_title: 0428-289 · Detect mixed Compose providers
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1880]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "blocked-on develop-catalog owner freeze-lift (same gate as 0428-306 wait / 0428-307 blocked); Trusted Plan runs 46011069186/46011641329 as witnesses; local repro of base-checkout catalog read in akte"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261116-r28-bug-provider-discovery · Detect mixed Compose providers #task #release/v0-4-28 #status/planned #view/ready #area/wizard #kind/bug
+- [ ] t-20261116-r28-bug-provider-discovery · Detect mixed Compose providers #task #release/v0-4-28 #status/wait #view/wait #area/wizard #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w399-0428-289-providers · **Priority:** high  
+    **PR:** [baseharbor#1880](https://github.com/mcpdev80/baseharbor/pull/1880)  
+    **Waiting:** blocked-on develop-catalog owner freeze-lift (same gate as 0428-306 wait / 0428-307 blocked); Trusted Plan runs 46011069186/46011641329 as witnesses; local repro of base-checkout catalog read in akte  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w399-0428-289-providers  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1880](https://github.com/mcpdev80/baseharbor/pull/1880)  
 **Source:** 
 <!-- /generated:links -->
 
