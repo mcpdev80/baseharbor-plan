@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1866"]
 sources: []
-blocker: ""
+blocker: "prerequisite chain: demo #183 correction + merge -> pin advance -> rerun on frozen head 3702c095; docs payload already merged unchanged; w357/w352 lanes released"
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -27,6 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned  
     **PR:** [baseharbor#1866](https://github.com/mcpdev80/baseharbor/pull/1866)  
+    **Blocker:** prerequisite chain: demo \#183 correction + merge -\> pin advance -\> rerun on frozen head 3702c095; docs payload already merged unchanged; w357/w352 lanes released  
     <!-- /generated:card -->
 
 <!-- generated:links -->
