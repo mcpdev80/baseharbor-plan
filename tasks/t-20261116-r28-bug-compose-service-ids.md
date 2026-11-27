@@ -7,9 +7,10 @@ areas: [wizard]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w332-0428-288-composeids
-kanban_status: blocked
-kanban_lane: blocked
+owner: "w360-0428-288-1833fix"
+kanban_status: closed
+resolution: accepted
+kanban_lane: closed
 kanban_summary: "docker compose config --services yields vectordb, but baha app init persisted vector-db in workload.components and Runtime API…"
 kanban_title: 0428-288 · Preserve Compose service IDs
 priority: high
@@ -17,23 +18,23 @@ depends_on: [t-20261125-0428-284-1812-postretry-gate-failure]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1870", mcpdev80/baseharbor#1833]
 sources: []
-blocker: "Catalog/gate scope decision pending (w267 comment 7196853372): trusted-base pr-gate-coverage row for internal/application lacks runtime_specific:true so six runtime families are never selected; NOT green - reruns frozen until baseline-family field change lands via Codex disposition"
-resolution: ""
-evidence: []
+blocker: ""
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1833", "https://github.com/mcpdev80/baseharbor/commit/ea5218d72e263f21e79853b679af50074dab8c25"]
 ---
 
-- [ ] t-20261116-r28-bug-compose-service-ids · Preserve Compose service IDs #task #release/v0-4-28 #status/blocked #view/blocked #area/wizard #kind/bug
+- [x] t-20261116-r28-bug-compose-service-ids · Preserve Compose service IDs #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/wizard #kind/bug
     <!-- generated:card -->
-    **Owner:** w332-0428-288-composeids · **Priority:** high  
+    **Owner:** w360-0428-288-1833fix · **Priority:** high  
     **PR:** [baseharbor#1870](https://github.com/mcpdev80/baseharbor/pull/1870), [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
-    **Blocker:** Catalog/gate scope decision pending (w267 comment 7196853372): trusted-base pr-gate-coverage row for internal/application lacks runtime\_specific:true so six runtime families are never selected; NOT green - reruns frozen until baseline-fami…  
+    **Needs:** [t-20261125-0428-284-1812-postretry-gate-failure](t-20261125-0428-284-1812-postretry-gate-failure.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1833), [proof 2](https://github.com/mcpdev80/baseharbor/commit/ea5218d72e263f21e79853b679af50074dab8c25)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261125-0428-284-1812-postretry-gate-failure](t-20261125-0428-284-1812-postretry-gate-failure.md)  
-**Owner:** w332-0428-288-composeids  
+**Owner:** w360-0428-288-1833fix  
 **Priority:** high  
 **PRs:** [baseharbor#1870](https://github.com/mcpdev80/baseharbor/pull/1870), [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
 **Source:** 
