@@ -86,3 +86,11 @@ No local tests were run. This is a source and policy disposition. No product fil
 ## END
 
 END_DONE w255-0428-251-demo170codex: disposition recorded; eight-row develop baseline plus one field repair specified, candidate self-authorization rejected, #1868 and #1869 routed separately; Plan PR and Hosted validation pending.
+
+## Branch provenance witnesses
+
+* `git merge-base --is-ancestor 4751caa7fd76a48ef64111bfcad001e239ee47ef HEAD^` returned exit status 0: the exact Plan main SHA at branch cut is the parent of the first candidate commit.
+* `git merge-base --is-ancestor origin/main HEAD` returned exit status 0 before the candidate was opened as a PR.
+* `git diff origin/main...HEAD --name-only` returned `evidence/2026-11-27/0428-275/codex-disposition-136.md`.
+* `git log --oneline origin/main..HEAD` returned only the lane's own commit: `d2e1b7741 review(0428-275): decide trusted catalog row disposition`.
+* Pre-push identity witness for that commit: `d2e1b7741 an=w255-0428-251-demo170codex cn=w255-0428-251-demo170codex review(0428-275): decide trusted catalog row disposition`.
