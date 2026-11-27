@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 3 |
+| active | 4 |
 | review | 4 |
 | wait | 31 |
 | blocked | 13 |
-| ready | 34 |
+| ready | 33 |
 | queued | 25 |
 | waiting | 180 |
 | backlog | 7 |
@@ -26,6 +26,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261102-rcptlink-task](../tasks/t-20261102-rcptlink-task.md) | Receipt post-run writer: add single `Resolves #<issue>` link to merged PRs so tasklink auto-resolves green | active | not set | ornith (rcptlink) | — | [baseharbor#1267](https://github.com/mcpdev80/baseharbor/pull/1267), [baseharbor#1268](https://github.com/mcpdev80/baseharbor/pull/1268), [baseharbor#1269](https://github.com/mcpdev80/baseharbor/pull/1269), [baseharbor#1270](https://github.com/mcpdev80/baseharbor/pull/1270), [baseharbor#1271](https://github.com/mcpdev80/baseharbor/pull/1271), [baseharbor#1274](https://github.com/mcpdev80/baseharbor/pull/1274), [baseharbor#1275](https://github.com/mcpdev80/baseharbor/pull/1275) |
 | [t-20261125-hunt40-migration-marker-last](../tasks/t-20261125-hunt40-migration-marker-last.md) | 0428 hunt H-V40: orgconfig migrateToCanonical writes marker LAST (crash-window) | active | not set | w399-0428-289-providers | — | — |
+| [t-20261125-hunt42-timeout-constant-matrix](../tasks/t-20261125-hunt42-timeout-constant-matrix.md) | 0428 hunt H-V42: unify/align timeout constant matrix (tempo 10s vs verify; reconcile/readiness values) | active | not set | w397-0428-307-idfallback | — | — |
 | [t-20261125-hunt43-env-leak-disk](../tasks/t-20261125-hunt43-env-leak-disk.md) | 0428 hunt H-V43: hunt43-env-leak-disk | active | not set | w396-0428-306-goldenhelp | — | — |
 
 ## Ready for review
@@ -113,7 +114,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261125-hunt37-cross-perm-dup](../tasks/t-20261125-hunt37-cross-perm-dup.md) | 0428 hunt H-V37: reject cross-permission service duplication | ready | not set | — | — | — |
 | [t-20261125-hunt38-go-base-pin-build-stage](../tasks/t-20261125-hunt38-go-base-pin-build-stage.md) | 0428 hunt H-V38: pin unpinned Go base image in build-stage Dockerfile | ready | not set | — | — | — |
 | [t-20261125-hunt40-realversion-migration-quali](../tasks/t-20261125-hunt40-realversion-migration-quali.md) | 0428 hunt H-V40: real-version runtime qualification of Core Keycloak/PostgreSQL 0.4.27->0.4.28 migration path | ready | not set | — | — | — |
-| [t-20261125-hunt42-timeout-constant-matrix](../tasks/t-20261125-hunt42-timeout-constant-matrix.md) | 0428 hunt H-V42: unify/align timeout constant matrix (tempo 10s vs verify; reconcile/readiness values) | ready | not set | — | — | — |
 | [t-20261125-hunt43-docker-path-config](../tasks/t-20261125-hunt43-docker-path-config.md) | 0428 hunt H-V43: hunt43-docker-path-config | ready | not set | — | — | — |
 | [t-20261125-hunt45-app-exec-exit-collision](../tasks/t-20261125-hunt45-app-exec-exit-collision.md) | CLI: decide app exec exit-status passthrough collision with reserved codes | ready | not set | — | — | — |
 | [t-20261125-hunt45-cli-unknown-command-hardening](../tasks/t-20261125-hunt45-cli-unknown-command-hardening.md) | CLI: unknown-command exit-2 guarantee and suggestion construction under runnable parents | ready | not set | — | — | — |
