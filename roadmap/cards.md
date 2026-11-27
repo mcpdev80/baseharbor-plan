@@ -16,10 +16,10 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 212/356 · **Blocked:** 11 · **Waiting:** 24  
+    **Accepted tasks:** 212/356 · **Blocked:** 13 · **Waiting:** 23  
     **Blocker:** [t-20261116-r28-bug-capability-permissions](../tasks/t-20261116-r28-bug-capability-permissions.md) — single-writer STOP (worker w372b, 2026-11-27): PR \#1864 head branch w333-0428-291-capperms-fix@b9675cc0b carries foreign w358 merge commits over card fix c945b…  
-    **Blocker:** [t-20261124-gate-catalog-baseline-1819](../tasks/t-20261124-gate-catalog-baseline-1819.md) — prework complete (evidence/w376-0428-273-1819pre/akte.md): clean merge onto develop ea5218d72, 36 paths carried, MERGEABLE; qualification+merge stay strictly a…  
-    Plus 9 further blockers in the task list.  
+    **Blocker:** [t-20261122-runtime-image-registry-artifact-unknown](../tasks/t-20261122-runtime-image-registry-artifact-unknown.md) — STATE: PR \#1812 remains OPEN at c2dd3ff04e30c73046b4eeecb56f3cab20e56c92; exact-head pull\_request run 45944501306 completed FAILURE. Requalification is blocked…  
+    Plus 11 further blockers in the task list.  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next
