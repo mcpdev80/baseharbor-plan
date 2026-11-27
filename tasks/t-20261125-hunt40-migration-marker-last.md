@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w399-0428-289-providers  
     **PR:** [baseharbor#1881](https://github.com/mcpdev80/baseharbor/pull/1881)  
-    **Waiting:** corrected at 640f53a6e8 (CODEX-static findings 1-3 + format-gate green, pair 46042082459/46042210279); gate green pending develop-catalog owner freeze-lift (\#136 baseline + fan-in \#1861-\#1863, Trusted Plan class-A known-blocker); akte evid…  
+    **Waiting:** R6 content PASS at 1cd5029f71 (w403 seam-fix + develop merge; pair 46057404217/46058741643 pull\_request terminal, class-A duo red; verdict akte evidence/2026-11-27/0428-310/verdict-r6-w267.md; force-with-lease transport incident logged, no…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
