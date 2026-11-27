@@ -109,3 +109,4 @@ END BLOCKED w267-0428-284-pridentity: PR #183 held at exact head 50eeafac4; both
 - Evidence PR: https://github.com/mcpdev80/baseharbor-plan/pull/230
 - Initial Plan validation run `46005287338` completed successfully on evidence PR head `cb4da0cded903abec7d3ca23788e64a0ac25cf35`; the evidence update below will trigger a fresh validation for the updated exact head before the Plan PR is merged.
 - Remote branch delivery witness after push: `cb4da0cded903abec7d3ca23788e64a0ac25cf35 refs/heads/w267-0428-284-demo183-reviewleads`.
+- Updated-head receipt: `Plan · validate` run `46005445196` completed successfully on `63a9bd8dddcb5427cdfffad1f7d273aca254f25f`; executed Unit tests and Validate vault/generated files, with setup/checkout/post-checkout/completion successful. This receipt validates the current recorded evidence head; the following receipt will validate this receipt-record amendment.
