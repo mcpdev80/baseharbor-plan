@@ -76,7 +76,7 @@ One or two sentences: the observable outcome.
 
 ## Handoff
 
-- 2026-11-27 (w396): Product PR https://github.com/mcpdev80/baseharbor/pull/1874 OPEN at exact head `60d4d4906c686aa867f1c8d5f3d910ddba769999` (branch `lane-0428-306-golden-help-guard`, base develop `ea5218d72e`). Hosted CI runs observed: 45983604940 (cancelled by the draft→ready toggle), 45983691443 and 45987934493 both fail at `PR · Trusted Plan` with the base-catalog abort — `scripts/pr-gate-coverage.json` is loaded from the base/controller, so candidate-only catalog rows for the brand-new guard files cannot resolve fail-loud (`uncataloged source change ... cmd/baha/help_golden_guard_test.go`). Evidence: evidence/2026-11-27/0428-306/akte.md.
+- 2026-11-27 (w396): Product PR https://github.com/mcpdev80/baseharbor/pull/1874 OPEN at exact head `b143395545bd2c5c4bd637ad476a5c4cc78630a4` (branch `lane-0428-306-golden-help-guard`, base develop `ea5218d72e`). All guard tests pass locally (focused names) and the golden artifact is final. Hosted CI: runs 45983604940 (VOID, cancelled), 45983691443 / 45987934493 (superseded heads) and 45993109149 (current head) all abort at `PR · Trusted Plan` — the base revision's `scripts/pr-gate-coverage.json` lacks rows for the four brand-new guard files, and the trusted planner fail-louds on uncataloged candidate sources (`validate-pr-gate-coverage.py::unresolved_source_error` via `pr-gate-plan.py`). The rows exist in the PR; unblocking needs a base-catalog landing on develop (`.github`/catalog route is Owner/CI-owner scope — this lane may not touch it). BLOCKED-BASE-CATALOG; evidence: evidence/2026-11-27/0428-306/akte.md.
 
 - Current state, branch, PR and evidence links. Newest first.
 
