@@ -7,9 +7,9 @@ areas: [ci, cli]
 release: v0.4.28
 version: ""
 parent: ""
-owner: w392-0428-284-demo183fix5
-kanban_status: active
-kanban_lane: active
+owner: "Coordinator (Codeman)"
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: ""
 kanban_title: 0428-284 · 1812 post-retry gate fail
 priority: high
@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: [mcpdev80/baseharbor-demo#173, mcpdev80/baseharbor-demo#174, mcpdev80/baseharbor#1856, mcpdev80/baseharbor-demo#183]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "w392 END_DONE pushed #183 head 335ef5e54. Exact Hosted run 45961168355 failed only test_25 because FINAL_DRAIN_CHUNKS stayed 0; Codex review and a local-worker follow-up are pending. Consent checks remain intact."
 resolution: ""
 evidence:
   - https://github.com/mcpdev80/baseharbor/actions/runs/45398943139
@@ -30,19 +30,20 @@ evidence:
   - https://github.com/mcpdev80/baseharbor-demo/actions/runs/45456155783
 ---
 
-- [ ] t-20261125-0428-284-1812-postretry-gate-failure · #1812 post-retry gate failure #task #release/v0-4-28 #status/active #view/active #area/ci #area/cli #kind/bug
+- [ ] t-20261125-0428-284-1812-postretry-gate-failure · #1812 post-retry gate failure #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/cli #kind/bug
     <!-- generated:card -->
-    **Owner:** w392-0428-284-demo183fix5 · **Priority:** high  
+    **Owner:** Coordinator (Codeman) · **Priority:** high  
     **PR:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1856](https://github.com/mcpdev80/baseharbor/pull/1856), [baseharbor-demo#183](https://github.com/mcpdev80/baseharbor-demo/pull/183)  
+    **Waiting:** w392 END\_DONE pushed \#183 head 335ef5e54. Exact Hosted run 45961168355 failed only test\_25 because FINAL\_DRAIN\_CHUNKS stayed 0; Codex review and a local-worker follow-up are pending. Consent checks remain intact.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/45398943139), [proof 2](https://github.com/mcpdev80/baseharbor-demo/pull/173), [proof 3](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448531969), [proof 4](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45448729972), [proof 5](https://github.com/mcpdev80/baseharbor-demo/pull/174), [proof 6](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45455975242), [proof 7](https://github.com/mcpdev80/baseharbor-demo/actions/runs/45456155783)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261116-r28-bug-compose-service-ids](t-20261116-r28-bug-compose-service-ids.md), [t-20261125-hunt45-exit-code-taxonomy-docs](t-20261125-hunt45-exit-code-taxonomy-docs.md)  
-**Owner:** w392-0428-284-demo183fix5  
+**Owner:** Coordinator (Codeman)  
 **Priority:** high  
 **PRs:** [baseharbor-demo#173](https://github.com/mcpdev80/baseharbor-demo/pull/173), [baseharbor-demo#174](https://github.com/mcpdev80/baseharbor-demo/pull/174), [baseharbor#1856](https://github.com/mcpdev80/baseharbor/pull/1856), [baseharbor-demo#183](https://github.com/mcpdev80/baseharbor-demo/pull/183)  
 **Source:** 
