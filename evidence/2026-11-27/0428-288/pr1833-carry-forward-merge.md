@@ -38,3 +38,13 @@ Card owner verbatim from 0428-288 frontmatter: `w147-0428-288-pr1833-fix`. Execu
 Plan remote: `origin https://github.com/mcpdev80/baseharbor-plan.git`. Plan main base at akte creation: `f25e06380b1be1e55d6ad6223ec7a635694facbd`; confirm this exact SHA is an ancestor of the review commit before publication.
 
 Publication-base update: Plan main advanced from the akte-creation tip `f25e06380b1be1e55d6ad6223ec7a635694facbd` to `6d4cd06caa85d48086c442142a659e1046f3f9d7` before commit. The publication branch fast-forwarded to that exact live tip; the akte-creation tip remains an ancestor. No unrelated working-tree changes are staged.
+
+## Post-merge receipt
+
+- Merge method: squash, no bypass. PR #1833 merged at `2026-11-27T02:11:57Z`.
+- Develop before: `6d237ccdf3a5db19c5814ad5b76d01be6c38c35c`.
+- Squash merge commit / develop after: `ea5218d72e263f21e79853b679af50074dab8c25`.
+- Post-merge push validation on that exact develop SHA: Docker run `45926911719` SUCCESS, completed `2026-11-27T02:12:11Z`; Podman run `45926911755` SUCCESS, completed `2026-11-27T02:12:16Z`. Both are `push` events with `head_sha=ea5218d72e263f21e79853b679af50074dab8c25`.
+- Pre-merge `ROLLE: MERGE` evidence comment: `7207911788`, posted before the squash merge.
+
+Publication of this post-merge receipt remains in this same akte file and is forward-only.
