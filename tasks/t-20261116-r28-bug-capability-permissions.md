@@ -7,7 +7,7 @@ areas: [security]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
+owner: w333-0428-291-capperms
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: RabbitMQ is listed as replaceable Compose infrastructure yet Messaging Queue was not preselected; baha app init proposed…
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261116-r28-bug-capability-permissions · Scope inferred provider grants #task #release/v0-4-28 #status/planned #view/ready #area/security #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
+    **Owner:** w333-0428-291-capperms · **Priority:** high  
     **PR:** [baseharbor#1865](https://github.com/mcpdev80/baseharbor/pull/1865), [baseharbor#1864](https://github.com/mcpdev80/baseharbor/pull/1864)  
     **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: []
 **State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w333-0428-291-capperms  
 **Priority:** high  
 **PRs:** [baseharbor#1865](https://github.com/mcpdev80/baseharbor/pull/1865), [baseharbor#1864](https://github.com/mcpdev80/baseharbor/pull/1864)  
 **Source:** 

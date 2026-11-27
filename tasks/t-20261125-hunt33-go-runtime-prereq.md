@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: blocked
-kanban_lane: blocked
+owner: w336-0428-299-goprereq
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-299 · hunt33-go-runtime-prereq
 priority: ""
@@ -17,24 +17,23 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1863"]
 sources: []
-blocker: "blocked-BASELINE as STATE: family catalog PR #1863 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded"
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt33-go-runtime-prereq · 0428 hunt H-V33: hunt33-go-runtime-prereq #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261125-hunt33-go-runtime-prereq · 0428 hunt H-V33: hunt33-go-runtime-prereq #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
+    **Owner:** w336-0428-299-goprereq  
     **PR:** [baseharbor#1863](https://github.com/mcpdev80/baseharbor/pull/1863)  
-    **Blocker:** blocked-BASELINE as STATE: family catalog PR \#1863 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w336-0428-299-goprereq  
 **Priority:** not set  
 **PRs:** [baseharbor#1863](https://github.com/mcpdev80/baseharbor/pull/1863)  
 **Source:** 

@@ -51,3 +51,11 @@ Rule: consumers requalify ONLY after actual baseline landing (owner merge at fre
 - Chain: #1865 merged (fe64a510). #1867 MERGED by w255 (develop tip see PR comment). #1872 DIRTY -> w355 hop live (flash). #1870 -> w356 hop live (laptop:2). Both green => serial merges 1870 then 1872 (or order of landings), then consumer refresh dispatches (#1864/#1855/#1833/#1871).
 - #1867 merged at develop f36d29301e16845b5034a9c7103c053a6a869585 (w255, 11:3xZ). Card 0428-291 note refresh pending consumer #1864 requalification.
 - Chain: #1870 MERGED develop dff8c9e3cb (w267 ACCEPT/REVIEW+MERGE 7204947747 + witness 7204956795; old d4e6b99c ACCEPT superseded). Open product PRs now 17. w355 re-hop of #1872 dispatched from 8d35cc3 onto dff8c9e3. w356 lane closes out on its END.
+
+## Lane/Claim-Zuordnung 0428-344 (coordinator record, 2026-11-27 22:1xZ)
+
+- Pool/session lane: `w356-0428-288-1870hop` (name inherited from its completed #1870 transport assignment; session `402ece53`).
+- Current work: card `0428-344` / PR #1871 (pagination snapshot-envelope + docs fixes).
+- Canonical git identity used on this card's commits: `w356-0428-344-1871requal` (author = committer, 4-field verified per commit) - same session, card-scoped identity name.
+- Card `owner:` field carries the SESSION lane name (reconciler match); the git identity name differs by design of the per-card identity rule. No history was rewritten; heads ca954c81 -> c21b4fde -> b1df8dc are forward-only.
+- Codex review of #1871 must explicitly classify this name variance (same-session, both fields consistent per commit) before merge - precedent rule: variance classification by Codex, not waiver.

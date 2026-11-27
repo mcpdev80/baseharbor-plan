@@ -7,9 +7,10 @@ areas: [wizard]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w147-0428-288-pr1833-fix
-kanban_status: wait
-kanban_lane: wait
+owner: "w360-0428-288-1833fix"
+kanban_status: closed
+resolution: accepted
+kanban_lane: closed
 kanban_summary: "docker compose config --services yields vectordb, but baha app init persisted vector-db in workload.components and Runtime API…"
 kanban_title: 0428-288 · Preserve Compose service IDs
 priority: high
@@ -18,24 +19,22 @@ repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1870", mcpdev80/baseharbor#1833]
 sources: []
 blocker: ""
-wait_reason: "W15 required next proof: hop PR #1833 onto current develop, then obtain two distinct fresh pull_request runs on the exact same head (attempt 1 each); run 45513816046 on a7b0a48048c11d20234160eede941532ddc33156 is attempt 2 and void as pair evidence. Wait for successor card 0428-284 / PR #1856, not closed #1842."
-resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1833", "https://github.com/mcpdev80/baseharbor/commit/ea5218d72e263f21e79853b679af50074dab8c25"]
 ---
 
-- [ ] t-20261116-r28-bug-compose-service-ids · Preserve Compose service IDs #task #release/v0-4-28 #status/wait #view/wait #area/wizard #kind/bug
+- [x] t-20261116-r28-bug-compose-service-ids · Preserve Compose service IDs #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/wizard #kind/bug
     <!-- generated:card -->
-    **Owner:** w147-0428-288-pr1833-fix · **Priority:** high  
+    **Owner:** w360-0428-288-1833fix · **Priority:** high  
     **PR:** [baseharbor#1870](https://github.com/mcpdev80/baseharbor/pull/1870), [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
-    **Waiting:** W15 required next proof: hop PR \#1833 onto current develop, then obtain two distinct fresh pull\_request runs on the exact same head (attempt 1 each); run 45513816046 on a7b0a48048c11d20234160eede941532ddc33156 is attempt 2 and void as pair…  
     **Needs:** [t-20261125-0428-284-1812-postretry-gate-failure](t-20261125-0428-284-1812-postretry-gate-failure.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1833), [proof 2](https://github.com/mcpdev80/baseharbor/commit/ea5218d72e263f21e79853b679af50074dab8c25)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261125-0428-284-1812-postretry-gate-failure](t-20261125-0428-284-1812-postretry-gate-failure.md)  
-**Owner:** w147-0428-288-pr1833-fix  
+**Owner:** w360-0428-288-1833fix  
 **Priority:** high  
 **PRs:** [baseharbor#1870](https://github.com/mcpdev80/baseharbor/pull/1870), [baseharbor#1833](https://github.com/mcpdev80/baseharbor/pull/1833)  
 **Source:** 

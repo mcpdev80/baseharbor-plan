@@ -1,0 +1,17 @@
+MISSION: 0428-250 — Core test-only CI-operator fixture allowlist (NEW Core change; this is the real blocker for #1812's 14 Hosted gates). Card 0428-250 is mis-scoped on baseharbor-demo#170 (demo only changes tests/config/run.sh). The actual fix is in the CORE repo product file cmd/baha/ci_integration_operator_enabled.go.
+
+Step 0 — branch: git fetch lane-origin develop; git checkout -b lane-0428-250-core-fixture-allowlist origin/develop (develop d4fa8c589). ONE branch; never touch #1812's branch or demo#170.
+
+Step 1 — the fix: the shared test-only CI-operator fixture (built with build tag baseharbor_ci_operator_testonly) decides which baha commands the synthetic operator may run via ciIntegrationManagedLocalGateReason(args, target, err) (cmd/baha/ci_integration_operator_enabled.go ~:96, predicate helpers grouped ~:230-317). Today 5 exact command forms are NOT allowlisted, so the gates fall through to noninteractive OIDC and fail. ADD predicate branches that stamp these read-only/managed forms (mirror the existing ciIntegrationReadOnlyDoctor / ciIntegrationGuidedFootprintShow style, exact arg match):
+  1. config organization set
+  2. policy explain
+  3. app inspect .
+  4. target -o json   (and --output json form)
+  5. app list --all-targets
+Do NOT weaken any fail-closed default: anything not matched must still go through the existing OIDC/auth path unchanged. Keep secure-by-design: only these exact, non-mutating forms are added.
+
+Step 2 — tests: extend cmd/baha/ci_integration_operator_enabled_test.go with cases asserting each of the 5 forms is recognized as a managed local gate (returns empty reason / true), and that a non-listed mutating form still returns non-empty (fail-closed preserved). New tests must be executed by the PR · Go unit / Draft Go shard (CI-aufnahmepflicht §5.3); if the shard does not pick them up, report the job line as a finding — do NOT edit .github/** or scripts/**.
+
+Step 3 — go build ./... + go vet; push the branch; open a PR against baseharbor develop; watch YOUR OWN exact Headed CI to terminal. The goal is that the 14 Docker+Podman light gates (which #1812 enables via its workflow) now stamp the operator instead of hitting OIDC.
+
+Stop criteria: no scripts/** or .github/** edits; no force-push; no merge (Merge-Frost); one branch; do not modify #1812/demo branches. END: post "END_DONE 0428-250: PR <num> head <sha>; 5 forms allowlisted + fail-closed preserved; CI <run/result>" or "END_BLOCKED 0428-250: <precise blocker>".

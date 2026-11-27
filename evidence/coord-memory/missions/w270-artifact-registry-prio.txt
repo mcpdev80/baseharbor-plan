@@ -1,0 +1,19 @@
+ROLLE: Worker (Lane w270). Coord a4573079. KARTE: t-20261018-r27-artifact-resolution RUNDE 2
+(PR #1406 head 746afe6d89d, urteil act-1406a REJECT). BLOCKER WORTLICH: "registry_success plus
+declared build selects native-build" — wenn das REGISTRY-ARTEFAKT erfolgreich eroeffnet werden kann,
+aber das manifest ausserdem einen build deklariert, waehlt der resolver native-build statt registry.
+Karten-text verlangt REIHENFOLGE registry zuerst, dann lokaler store, checkout-build NUR explizit.
+ARBEIT: (1) develop ist weiter (8bda98c1cd3, #1397 gelandet) — merge develop in deinen zweig
+work/r27-artifact-resolution (kein zweiter PR, ein kandidat pro kette). (2) resolution-reihenfolge
+korrigieren: bei erfolgreich aufloesbarem registry-artefakt hat es PRIORITAET; build-deklaration allein
+macht daraus keinen native-build; echte mehrdeutigkeit (registry vs store vs build alle moeglich OHNE
+eindeutige regel) bleibt fail-closed. (3) red-first-zelle fuer genau diesen fall (registry-ok + build
+deklariert => artefakt=registry). (4) KAUSALE MUTANTE an der ECHTEN produktions-resolver-zeile in
+isolierter kopie: ROT+GRUEN transcript + datei-hash (doktrin; mutante im helfer = automatisch REJECT).
+(5) alle bisher gruenen zellen der runde 1 am NEUEN kopf erneut (SHA-wechsel => pflicht-checks neu).
+akte act-1406a.md folgt auf main (codex nachlieferung) — lies sie, bevor du END test.
+AKTE: artifact-resolution/round-2.md (PUNKTE statt checkboxen; lsremote alt+neu, run-id TERMINAL,
+mutanten-transcript, ## repo-rule compliance). Caches /tmp/opencode/w270*, zone workers/w270-wt.
+GATES: KEINE subagenten, .github tabu, root-checkout tabu.
+END an a4573079: "END_DONE w270-artifact-registry-prio: head=<sha10> prio_zelle=<ROT->GRUEN>
+mutante=<hashpaar> lauf=<id TERMINAL> lsremote=<sha10> akte=<pfad main> | <Satz>"

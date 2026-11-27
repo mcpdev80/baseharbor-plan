@@ -1,0 +1,26 @@
+PLAN-PR HOPS: #73, #81, #84 ONTO CURRENT main (coordinator commission 2026-11-26, per Codex w267's ruling: these three evidence PRs have green exact-head Plan validations but live main (72f2c83aa and later) is NOT an ancestor of their heads, so they must be absorbed forward by a lane, not merged stale. No cards, no product writes.)
+
+CANDIDATES (verify each yourself before touching anything):
+  plan #73  head 251cac9ed  'w265-0428-078-1818pre: read-only #1818 seam-B pre-stage'
+  plan #81  head d84d660e2  'w281: read-only #1819 clean-rebuild write-set recipe'
+  plan #84  head 978acb6f0  'evidence(w284): clean-rebuild write-set recipe for #1820'
+Their owning lanes (w265/w281/w284) no longer exist, so you are the transport for all three.
+
+TRANSPORT RULES, NON-NEGOTIABLE: for each PR, check out its BRANCH (not a detached head), run `git fetch origin main`, then ONE ordinary merge commit `git -c user.name=<lane> -c user.email=<lane>@baseharbor.local merge origin/main`, and a NORMAL push. NO rebase, NO force-push, NO cherry-pick, NO branch re-cut - a re-cut that drops previously reviewed heads is exactly the defect that made plan #91 need an owner ruling today. If a merge conflicts, resolve by KEEPING BOTH sides' evidence files (these are additive evidence paths); if a genuine content conflict appears in a generated view (roadmap/cards.md, views/overview.md), do NOT hand-merge it - run scripts/plan.py render and commit the rendered result, and say so in your akte.
+
+IDENTITY: every merge commit carries YOUR full canonical lane name via git -c (w294-0428-078-planhops), never 'coordinator', never the original lane's name (w265/w281/w284), never a shortened 'w294'. Print `git log -1 --format='%h an=%an cn=%cn'` for each merge and put it in your akte.
+
+PER PR, in the order #73, #81, #84:
+1. Prove the pre-state: `gh pr view <n> --repo mcpdev80/baseharbor-plan --json headRefOid,state,mergeable` and the exact-head validation run id; record it.
+2. Confirm `git merge-base --is-ancestor origin/main <old-head>` is FALSE (that is the reason for the hop) and paste the output.
+3. Merge origin/main forward, push, and report the NEW head SHA.
+4. Watch the NEW head's Hosted Plan validation to terminal (Eigenes-Run-Pflicht) and report the run id + conclusion. If it fails, STOP that PR, leave the hop in place (it is forward-only and reversible by a further forward commit), and report the validator error line verbatim - do not push a second blind variant.
+5. Leave the PR OPEN for Codex: the 'ROLLE: REVIEW+MERGE' comment and the merge belong to a Codex lane, never to you.
+
+GUARDS: never write to plan main directly (nine lanes had to be re-landed forward-only for that); never edit evidence CONTENT (this mission is transport only - if you find a content defect, report it as a finding with path and line); do not run any tests on this host (no python3 -m unittest, no pytest, no go test, no scripts/ci-fast-check.sh); `python3 scripts/plan.py render` and `scripts/plan.py check` are allowed but run them in a THROWAWAY worktree under /var/tmp (never in the shared detached plan checkout at /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan, which holds 51 stashes and other lanes' refs; /tmp/opencode is tmpfs and has hit quota).
+
+WORKSPACE: use your OWN clone under /var/tmp for the three branches; the primary checkouts are occupied.
+
+AKTE: your own plan branch + `gh pr create` against live main at evidence/2026-11-26/w294-0428-078-planhops/akte.md (verify with `gh api repos/mcpdev80/baseharbor-plan/pulls/<n>/files` that NO path starts with 'baseharbor-plan/' and none lands under tasks/ - a tasks/ path is a new CARD and only the owner/Codex create cards). Report the PR number, do not merge it.
+
+END_DONE: a table of the three PRs (old head -> new head, run id, conclusion), the per-merge identity lines, the ancestry proofs, your akte PR number, zero-mutation proof for the product repos (`git ls-remote` before == after for baseharbor) and a cleanliness line (no leftover worktrees under /var/tmp).

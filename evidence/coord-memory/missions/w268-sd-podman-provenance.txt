@@ -1,0 +1,13 @@
+ROLLE: Worker (Lane w268). Coord a4573079. KARTE: t-20261106-r27-control-plane-single-default RUNDE 5.
+EINZIGER REJECT-PUNKT (act-1404f punkt 5): fuer die podman-seite von round-4 fehlt die CLAIM-zeile im
+vm-lock-journal (nur release gesehen) — provenanz-luecke, inhalt war PASS. ARBEIT: NUR podman-2 (107):
+vm-lock.sh claim baha-podman-2 w268 VOR dem ersten container-start (journal-zeile als zeuge), dann am
+UNVERAENDERTEN kopf ed98ed1dde7 die zwei strittigen zellen erneut: (1) repeat-up auf bestehender SINGLE
+(idempotent, already READY, member-2/3=0, installation.json ha=false vor+nach), (2) `baha up --control-plane-only --ha`
+auf BESTEHENDER SINGLE ohne teardown => FAIL-CLOSED ablehnung, zaehlungen+modus unveraendert. Rueckbau
+container/volume/network=0, vm-lock release (journal-zeile). KEIN code, KEIN branch-touch.
+AKTE: control-plane-single-default/round-5.md — PUNKTE statt checkboxen, JOURNAL-AEZUGE (claim/release
+mit zeitstempel) explizit als eigene sektion, ## repo-rule compliance.
+GATES: KEINE subagenten, /tmp-opencode caches unter w268*-namen, persistent zone workers/w268-wt.
+END an a4573079: "END_DONE w268-sd-podman-provenance: zellen=<idempotenz|switch je GRUEN> journal=<claim+release zeilen>
+host-clean=0 lsremote=<ed98ed1dde7> akte=round-5.md-main | <Satz>"

@@ -1,0 +1,32 @@
+NACHTRAG w289-0427-036-redfirst (coord a4573079) — dein BLOCKER ist richtig, so geht es weiter.
+
+Dein Befund: Der Regressionstest TestManagementHostAttachContendedByBootstrapServer existiert AUF dem
+kranken Commit 64d93e945aed892d2457bf94ab360cc11cc1567a noch gar nicht — er kam erst mit r4 3a80ed04
+(einem Nachfahren). Ein rot-auf-dem-kranken-Commit mit DIESEM test ist damit unmöglich (abwesend,
+nicht fehlgeschlagen). Genau diese Archäologie verlangt RUNBOOK 5.6; sie ist ein Grund, keine Ausrede.
+
+AUFGAB (test-erst-weg, ohne Produktänderung):
+1) Eigenen, WERFENDEN arbeitsbaum auf den kranken stand:
+   git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor worktree add \
+     /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/w289-sick \
+     64d93e945aed892d2457bf94ab360cc11cc1567a
+2) Dort NUR die testdatei aus r4 holen, den fix NICHT:
+   git checkout 3a80ed04 -- internal/coreinstallation/management_host_test.go
+   (pruefe mit git diff --stat, dass KEINE produktdatei geändert ist — sonst ist der beweis wertlos)
+3) Genau den test fahren und die rote ausgabe WÖRTLICH in die akte (kommando, exit-code, fehlernamen).
+4) Derselbe test am kandidat 0f08b877f4152c156b219ff6d13ab05ee6b082de => GRUEN (deinen exit-0-beleg
+   behältst du bei).
+5) Mutantenskript: wenn management-host/scripts/mutation_mgmt_host.sh auf keinem zweig liegt, belege
+   das mit git ls-tree -r origin/main -- evidence (pfad-suche) und verweise auf die sha-stufen aus
+   round-4/round-5 als bisherigen stand. Forderung dann als gegenstandslos dokumentieren, nicht still.
+6) Rueckbau: git worktree remove + git -C baseharbor worktree prune (keine leiche, §6.2c/6.4).
+
+AKTE: dieselbe datei erweitern — baseharbor-plan/evidence/r27-welle5-folge-2026-11-06/management-host/
+round-6-redfirst.md (commit e53eedd0 existiert schon, runde 6 wird fortgeschrieben). Check=0 vor push,
+gezieltes git add <datei>.
+
+END an a4573079: "END_DONE w289-0427-036-redfirst: sick=64d93e94 ROT(exit=<n>) cand=0f08b877 GRUEN(exit=0)
+ ls-tree-skript=<zeugnis> akte=<pfad>".
+
+Keine Rueckfrage an den owner nötig: der kartenwortlaut verlangt rot auf dem gemeldeten fehlverhalten,
+und der test-erst-weg erfuellt das ohne produktaenderung und ohne kunstlich stillgelegte schranke.

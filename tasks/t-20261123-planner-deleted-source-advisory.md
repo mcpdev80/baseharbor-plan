@@ -20,13 +20,14 @@ sources: []
 blocker: ""
 wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r29-welle6-2026-11-28/0428-253/w136-pr1853-admission-ruling.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r29-welle6-2026-11-25/w205-0428-253-planner-deleted-source/akte.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-26/w306-0428-253-rulingdoc/akte.md"]
 ---
 
 - [ ] t-20261123-planner-deleted-source-advisory · CI: candidate planner mishandles deleted source rows (advisory job red) #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
     **Waiting:** lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r29-welle6-2026-11-28/0428-253/w136-pr1853-admission-ruling.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r29-welle6-2026-11-25/w205-0428-253-planner-deleted-source/akte.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-26/w306-0428-253-rulingdoc/akte.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

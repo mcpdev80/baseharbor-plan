@@ -1,0 +1,15 @@
+ROLLE: Worker (Lane w265). Coord a4573079. KARTE: t-20261018-r27-managed-users RUNDE 8 (act-1397f,
+PR #1397 head b880f91e24a). EINZIGER FEHLER (wortlich aus dem akt): die ZUSATZ-regression
+TestInviteManagedUserActivationEmptyBodyIsRefused ist FAELSCHLICH GRUEN — ihr server liefert [] bei
+beiden lookups, die routine steigt VOR der aktivierungs-zeile aus (fruher fehler, nicht der behauptete).
+REZEPT: fixture so umbauen, dass der post-create lookup den NEU angelegten, eigentums-erfuellten
+benutzer zurueckgibt und die ECHTE aktivierungs-anfrage erreicht wird; aktivierungs-handler muss
+leeren request-body VOR decode ablehnen; dann beweisen: payload=>nil macht GENAU DIESE zelle ROT,
+restore GRUEN. STOP: bleibt sie unter nil-mutation gruen => END_BLOCKED (doktrin-pflicht).
+ALLES ANDERE (haupt-fixture, route, version-guard) UNVERAENDERT lassen. Claim via plan.py vor
+aenderung; zweig work/r27-managed-users, develop-merge falls noetig, push, selected checks terminal
+am final-kopf selbst beobachten. AKTE: evidence/r27-welle5-2026-11-06/managed-users/round-8.md
+(PUNKTE statt checkboxen; nil-mutation ROT+GRUEN transcript mit datei-hash; lsremote; run-id).
+GATES: KEINE subagenten/zweiter PR/root-checkout/.github, caches /tmp/opencode/w265*.
+END an a4573079: "END_DONE w265-mu-emptybody-fix: head=<sha10> regression=<kausal ROT+GRUEN> lauf=<id
+TERMINAL> lsremote=<sha10> akte=<pfad main> | <Satz>"

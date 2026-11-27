@@ -1,0 +1,12 @@
+READ-ONLY BUG-HUNT FILL DESK H-V26 (AGENTS §3.3.5; Befund only; NO product/PR/merge/subagents §4.8; do NOT touch the frozen chain #1812/#1819/#1820/#1818; do NOT touch #1650). develop = current origin/develop (report SHA).
+
+Mission: NUMBERS FORENSICS on this window's own evidence/dossiers. For every COUNT claimed in baseharbor-plan evidence/r28-welle6-2026-11-24/ and r28-welle6-2026-11-25/ files and the r28 release note (e.g. catalog rows, gate counts 7+7, PR numbers, task tallies, '6 catalog rows', '14 gates', lane counts), verify each against a concrete counting-rule + evidence carrier:
+1. Grep the numeric claims (file:line + the quoted number).
+2. Re-derive each number from an authoritative witness (git show --stat of the merge, gh, ls-remote, the catalog file) — NOT from memory or another dossier repeating it.
+3. Befund = a claimed number whose method/witness does not reproduce it (over/under-count, or repeating a prior dossier without an independent source). Quote claim vs actual + file:line. Pure befundung — change nothing.
+
+Do NOT repeat desks already run (H-V24 actionability, H-V27 PR sweep, H-V29 seam, H-V32 gate-admission, H-V26 is THIS numbers desk).
+
+Deliver baseharbor-plan evidence/r28-welle6-2026-11-25/bughunt-hv26-numbers/round-1.md (## PLAN + native todos): the claim table (number | claim file:line | re-derivation witness | MATCH/MISMATCH), and for every MISMATCH a one-line card draft (do not implement). If genuine mismatches exist, file ONE Fund→Karte card (schema-correct: single anchor checkbox, https evidence, no stray blocker, priority normal/low) in a separate atomic commit; if all match, report 'befundlos' and do NOT invent a card.
+
+Commit+push atomically (git add the new evidence file; pull --rebase origin main before push). Report inline: develop SHA, claims checked, MATCH/MISMATCH counts (+card or 'befundlos'), evidence SHA. Cleanliness line: read-only, created nothing (confirm). No subagents.
