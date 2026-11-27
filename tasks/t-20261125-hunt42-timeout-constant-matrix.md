@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "content consolidated at d51763d0 (tempo trace-query probe + shared-provider reconcile read central StatusTimeoutMatrix; readiness 90s / existing-provider probe 3s budgets distinct; values unchanged, no tuning) — pushed to PR #1882 head d51763d0 (branch lane-0428-315-timeouts). Two executed pull_request runs on exact head: #7991 + #7992 both FAILED at shared base-catalog coverage gate (uncataloged internal/metrics/perses_tempo_datasource.go + internal/objectstorage/seaweedfs.go). Same Owner-scope shared scripts/pr-gate-coverage.json gate as lanes 307/310/312/316; the two missing catalog rows (surface source.gate.integration.static.public.contracts) are Owner scope, out of lane write-set. After lift: rerun on exact head d51763d0. PR body untouched."
+wait_reason: "corrected+R4 PASS verdict at b61e3ab7e1 (w402 const+drift-lock fix; run 46054987885 terminal, only class-A Trusted Plan red; verdict akte evidence/2026-11-27/0428-315/verdict-r4-w267.md; prior head d51763d0 superseded) — second pull_request witness via close/reopen in flight; lift-ready pending owner freeze-lift (#136 + fan-in #1861-#1863)"
 resolution: ""
 evidence: []
 ---
@@ -26,7 +26,7 @@ evidence: []
 - [ ] t-20261125-hunt42-timeout-constant-matrix · 0428 hunt H-V42: unify/align timeout constant matrix (tempo 10s vs verify; reconcile/readiness values) #task #release/v0-4-28 #status/wait #view/wait #kind/task
     <!-- generated:card -->
     **Owner:** w400-0428-315-timeoutsfix  
-    **Waiting:** content consolidated at d51763d0 (tempo trace-query probe + shared-provider reconcile read central StatusTimeoutMatrix; readiness 90s / existing-provider probe 3s budgets distinct; values unchanged, no tuning) — pushed to PR \#1882 head d51…  
+    **Waiting:** corrected+R4 PASS verdict at b61e3ab7e1 (w402 const+drift-lock fix; run 46054987885 terminal, only class-A Trusted Plan red; verdict akte evidence/2026-11-27/0428-315/verdict-r4-w267.md; prior head d51763d0 superseded) — second pull_request witness via close/reopen in flight; lift-ready pending owner freeze-lift (\#136 + fan-in \#1861-#1863)
     <!-- /generated:card -->
 
 <!-- generated:links -->
