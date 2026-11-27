@@ -45,6 +45,28 @@ Root cause (verified, not guessed):
 - Same class as w361 (0428-299, PR #1863): base/lineage + catalog-read-at-base contract failing `PR · Trusted Plan` for every commit shape against the current develop tip. Cross-reference: `evidence/w361-0428-299-1863hop/akte.md` / `evidence/board-2026-11-27/0428-299/w361-0428-299-1863hop.md`.
 - Distinguish from a real test problem: the test file itself is well-formed (gofmt/vet/build pass; the only CI failure is the catalog-resolution contract, not a test compile/semantic error). The catalog fix is already present on head; re-hopping forward-merge develop does not move the base the resolver reads the catalog from.
 
+## LOCAL PROOF (reproduced, no push)
+
+Worktree `/home/marcel/dev/baseharbor-ecosystem/workers/worktrees/w365-0428-312-1860hop` (detached, remote `github` = github.com/mcpdev80/baseharbor.git), removed afterward; no containers started; worktree pruned.
+
+Two commit shapes both fail the resolver against current develop tip `c167fa5dd`:
+
+- **Linear head** `6deab9ff68d15060525cc3078e828027e65e9955`
+  `python3 scripts/pr-diff-base.py --target-base 5a37ddbd9a06dd44f6068d3266ff2ed853a84a74 --head 6deab9ff... --integration 6deab9ff... --base-tip c167fa5dd...`
+  → `target_base_sha: 5a37ddbd`, `reasons: [{code: integration_sha_mismatch, message: "linear head must descend from the fetched target tip"}]` (pr-diff-base.py:146-148). Confirms head `6deab9ff` is NOT an ancestor of develop tip `c167fa5dd`.
+
+- **Merge commit** `f3dc7b6` (local forward-merge of develop onto `6deab9ff`, canonical identity `w365-0428-312-1860hop`, 4-field verified: `an=w365-0428-312-1860hop ae=...@users.noreply.github.com cn=w365-0428-312-1860hop ce=...@users.noreply.github.com`)
+  Same resolver call on `f3dc7b6`:
+  → `reasons: [{code: integration_sha_mismatch, message: "integration merge must include PR head as one of exactly two parents"}]` (pr-diff-base.py:186-189). Parents are `[6deab9ff, c167fa5d]`; CI passes `head==integration==f3dc7b6`, so head is not among its own parents — impossible to satisfy.
+
+- **Catalog-at-base proof**: `resolve_covered_gates` (pr-gate-plan.py:1688-1690) reads `scripts/pr-gate-coverage.json` at the resolved checkout base.
+  - Catalog at base `5a37ddbd`: 0 `recovery_manifest_workload_test_go` entries.
+  - Catalog at develop tip `c167fa5dd`: 0 entries.
+  - The only recovery-manifest catalog entry is introduced by this PR's head `6deab9ff` (id `source.internal_applicationbackup_recovery_manifest_workload_test_go`, path `internal/applicationbackup/recovery_manifest_workload_test.go`, surfaces `source.gate.atomic.docker.data.capabilities` + `source.gate.atomic.podman.data.capabilities`, runtime_specific=true).
+  - Therefore the Trusted Plan job raises `ValueError: invalid trusted PR gate coverage catalog: uncataloged source change ... internal/applicationbackup/recovery_manifest_workload_test.go` for this PR by construction (the new source is not cataloged at either possible resolved base), and `PR Selected Checks` cascades to `REJECT: Go test selection missing or invalid` (UNIT_SCOPE empty, UNIT_RESULT skipped).
+
+Conclusion: the new test source is cataloged only by HEAD, but the resolver reads the catalog at the effective base, which predates HEAD. No commit shape (linear or merge) satisfies both pr-diff-base.py:146/186. This is the w361 base/lineage + catalog-read-at-base class, outside this worker's write-set. No push was made to PR #1860.
+
 ## PLAN
 
 - Read mission + establish reality (gh pr view 1860, ls-remote heads)
