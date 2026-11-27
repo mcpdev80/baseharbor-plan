@@ -7,7 +7,7 @@ areas: [ci, coordination]
 release: v0.4.28
 version: ""
 parent: ""
-owner: "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)
+owner: "Coordinator (Codeman)"
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: "Every open PR that belongs to a Codeman card is either a descendant of current develop, or carries the base ref its card…"
@@ -18,22 +18,22 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)"
+wait_reason: "w390 END_DONE; its census is staged but not published, and the summary conflicts with its tables (14 product + 3 demo = 17 open; GitHub compare confirms 6 ahead and 11 diverged). Correct and publish the evidence, then continue the card-authorized hop sequence; no PR changes were made."
 resolution: ""
 evidence: []
 ---
 
 - [ ] t-20261121-stale-pr-hop-and-baserefs · 0428-216 hop the stale PRs of our cards and fix their base refs #task #release/v0-4-28 #status/wait #view/wait #area/ci #area/coordination #kind/task
     <!-- generated:card -->
-    **Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds) · **Priority:** normal  
-    **Waiting:** lane released; awaiting Codex/Owner content disposition under the 2026-11-27 sweep resume (per-card holds apply)  
+    **Owner:** Coordinator (Codeman) · **Priority:** normal  
+    **Waiting:** w390 END\_DONE; its census is staged but not published, and the summary conflicts with its tables (14 product + 3 demo = 17 open; GitHub compare confirms 6 ahead and 11 diverged). Correct and publish the evidence, then continue the card-aut…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** "" (ghost-claim demoted 09:0xZ batch reconcile: implementing lane long released; content disposition stands on the card evidence; re-activation needs Codex/Owner per existing chain holds)  
+**Owner:** Coordinator (Codeman)  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
