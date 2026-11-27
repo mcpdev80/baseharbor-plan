@@ -59,3 +59,8 @@ No product merge was performed because the verdict is CHANGES. Card 0428-284 rem
 ## END
 
 END_DONE w267-0428-284-pridentity: exact-head review complete; CHANGES on PR #183, no product merge; correction recipes recorded above.
+
+## Commit identity witness
+
+- First review-evidence commit: `04fe029 an=w267-0428-284-pridentity cn=w267-0428-284-pridentity`.
+- The canonical author and committer fields are set per-command for this branch; the pre-push gate is `git show -s --format=%an HEAD` and must print `w267-0428-284-pridentity`.
