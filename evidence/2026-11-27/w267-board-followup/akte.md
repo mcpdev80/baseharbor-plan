@@ -51,11 +51,20 @@
 
 ## Cleanliness
 
-- This task created no containers or compose project.
+- No container or compose project was created. Before/after witness: shell PID 1154144; `docker ps -a` returned only its header and no containers.
 
-## END BLOCKED
+## Final PR receipt
 
-Pending branch validation, hosted Plan validation, and normal merge.
+- Board PR #222: https://github.com/mcpdev80/baseharbor-plan/pull/222
+- Exact PR head: `ccd2499cb17c268fd97cf0de75b0e2cd68ccc17e` on `w267-0428-284-pridentity-followup-board`.
+- Hosted `Plan · validate` run `45991971069` completed SUCCESS on the exact PR head (check-run ID `140481763634`).
+- Normal squash merge commit: `2969b2ec71378ca31f97f417302c589dc314f9ea`; remote `refs/heads/main` confirmed this SHA.
+- Required evidence-path witness on origin/main: `evidence/2026-11-27/w267-board-followup/akte.md`.
+- Evidence-only closeout branch base: `2969b2ec71378ca31f97f417302c589dc314f9ea`.
+
+## END w267-0428-284-pridentity DONE
+
+Board PR #222 merged with terminal exact-head validation; follow-up evidence closeout is separately recorded by its evidence-only Plan PR.
 
 ## Precommit verification
 
