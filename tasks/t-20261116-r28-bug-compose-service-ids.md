@@ -19,6 +19,7 @@ prs: ["mcpdev80/baseharbor#1870", mcpdev80/baseharbor#1833]
 sources: []
 blocker: ""
 resolution: ""
+resolution_note: "merged as ea5218d72e263f21e79853b679af50074dab8c25 (squash, source head 12c3531c9, exact-head green 45920639113+45924207053, w255 ACCEPT carry-forward)"
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1833", "https://github.com/mcpdev80/baseharbor/commit/ea5218d72e263f21e79853b679af50074dab8c25"]
 ---
 
