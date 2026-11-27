@@ -44,7 +44,7 @@ The four source Plan PRs remain OPEN. Their historical validations apply only to
 
 ## Renderer URL finding
 
-On refreshed `origin/main` `af4633deb3dad3138535245e4f936d039f346d2e`, `git grep -n -E '^prs:.*https?://' origin/main -- tasks/` returned no matches. The mission-specific search across `tasks/t-20261125-*` found no bare HTTPS `prs:` value either. The reported malformed renderer input is absent from this current base, so no guessed task row was changed. Full repository `render` and `check` remain the gate.
+On refreshed `origin/main` `3dcd373ecb49a4bfa244c930010c4fdc4cbbfee7`, `git grep -n -E '^prs:.*https?://' origin/main -- tasks/` returned no matches. The mission-specific search across `tasks/t-20261125-*` found no bare HTTPS `prs:` value either. The reported malformed renderer input is absent from this current base, so no guessed task row was changed. Full repository `render` and `check` remain the gate.
 
 ## Card dispositions
 
@@ -223,6 +223,29 @@ Candidate log relative to the merged base at this review point:
 dff2cc0df clarify historical claim wait disposition
 0c4c91e36 record initial PR delivery witness
 fac484cb9 update claim-gap receipt handoff status
+782a0c49f record pre-push lane identity gate
+c467967c6 record pre-push evidence path witness
+ad9a1e3d2 record canonical claim-gap provenance
+39773260d record claim-gap candidate provenance
+d0665a320 reconcile claim gaps and validate Plan PR links
+```
+
+
+## Latest-main integration for PR #252
+
+Main advanced again from `976344b14c4b8df50c2d9fdb273307452eb55cd7` to `3dcd373ecb49a4bfa244c930010c4fdc4cbbfee7` while the receipt PR was open. Remote `refs/heads/main` confirmed that SHA. The delta from the preceding main commit changes the unrelated 0428-292 consent-UX task only. I merged latest main without rewriting history in commit `fe011109ec0199aef8b2f698e25f5d53d074c632`; parents are candidate `386301e04f2ef9d35fa4f7d7e0442fd59331adc5` and base `3dcd373ecb49a4bfa244c930010c4fdc4cbbfee7`; both author and committer are `w255-0428-251-demo170codex`. The repo check after this integration is 784 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 warnings. The current-base ancestry test succeeds.
+
+The prior `Plan · validate` success on `dff2cc0dffca886276c644d89d6a5d2d8c46dab4` is superseded. The new merged candidate requires fresh exact-head validation.
+
+Candidate log relative to current main at this point:
+
+```text
+fe011109e merge current Plan main before receipt validation
+386301e04 record current-base integration and Plan receipt state
+242b939ba merge current Plan main before claim-gap receipt
+dff2cc0df clarify historical claim wait disposition
+0c4c91e36 record initial PR delivery witness
+fac484cb9 update claim-gap handoff status
 782a0c49f record pre-push lane identity gate
 c467967c6 record pre-push evidence path witness
 ad9a1e3d2 record canonical claim-gap provenance
