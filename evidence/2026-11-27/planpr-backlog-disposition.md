@@ -97,7 +97,7 @@ d0665a320 reconcile claim gaps and validate Plan PR links
 
 ## Full repository validation
 
-Local `python3 scripts/plan.py render && python3 scripts/plan.py check` completed: 784 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 existing dependency warnings. The refreshed generated views include only the four card dispositions and current derived counts. Pending exact diff review, commit identity, branch delivery witness, receipt PR number, exact-head `Plan · validate`, normal merge, final main SHA, and evidence-path witness.
+Local `python3 scripts/plan.py render && python3 scripts/plan.py check` completed: 784 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 existing dependency warnings. The refreshed generated views include only the four card dispositions and current derived counts. Exact diff review is complete. All candidate commits so far use the canonical author and committer; the current pre-push identity gate, branch delivery, receipt PR number, exact-head `Plan · validate`, normal merge, and final main SHA remain pending.
 
 ---
 
@@ -181,3 +181,12 @@ c467967c6 an=w255-0428-251-demo170codex cn=w255-0428-251-demo170codex
 ```
 
 Immediately before pushing, the same identity gate is run again on the final HEAD.
+
+
+## Last committed identity before initial push
+
+`git show -s --format='%h an=%an cn=%cn' -1` for the last committed state before the initial push reported:
+
+```text
+782a0c49f an=w255-0428-251-demo170codex cn=w255-0428-251-demo170codex
+```
