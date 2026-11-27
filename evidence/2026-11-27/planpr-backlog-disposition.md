@@ -252,3 +252,8 @@ ad9a1e3d2 record canonical claim-gap provenance
 39773260d record claim-gap candidate provenance
 d0665a320 reconcile claim gaps and validate Plan PR links
 ```
+
+## Evidence-path witness on latest origin/main before final candidate push
+
+Exact command output follows.
+evidence/2026-11-27/planpr-backlog-disposition.md
