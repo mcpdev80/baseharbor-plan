@@ -80,6 +80,21 @@ views/ready.md
 views/releases/v0.4.28.md
 ```
 
+## Second-commit identity witness
+
+`git show -s --format='%h an=%an cn=%cn' -1` after the provenance update commit:
+
+```text
+39773260d an=w255-0428-251-demo170codex cn=w255-0428-251-demo170codex
+```
+
+`git log --oneline origin/main..HEAD` at that point listed only this lane's commits:
+
+```text
+39773260d record claim-gap candidate provenance
+d0665a320 reconcile claim gaps and validate Plan PR links
+```
+
 ## Full repository validation
 
 Local `python3 scripts/plan.py render && python3 scripts/plan.py check` completed: 784 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 existing dependency warnings. The refreshed generated views include only the four card dispositions and current derived counts. Pending exact diff review, commit identity, branch delivery witness, receipt PR number, exact-head `Plan · validate`, normal merge, final main SHA, and evidence-path witness.
