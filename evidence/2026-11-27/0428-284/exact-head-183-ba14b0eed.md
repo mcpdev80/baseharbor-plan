@@ -61,6 +61,12 @@ These corrections preserve the approved test-only boundary. No consent/auth beha
 
 The ROLLE: REVIEW — CORRECTIONS comment was posted on BaseHarbor Demo PR #183 before any candidate action: https://github.com/mcpdev80/baseharbor-demo/pull/183#issuecomment-7213692529 (comment id `7213692529`).
 
+## Plan evidence PR and publication constraint
+
+The evidence-only Plan PR is #201, branch `w255-0428-251-demo170codex-183exactreview`. Its first candidate head `5b0cf15656958e51417c4fcc29a3f6b223ceedc2` had exact-head Hosted Plan Validate run `45966977620`, pull_request, completed SUCCESS. The first push was witnessed by `5b0cf15656958e51417c4fcc29a3f6b223ceedc2 refs/heads/w255-0428-251-demo170codex-183exactreview` from `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/w255-0428-251-demo170codex-183exactreview`.
+
+This mission also explicitly says `KEIN gh pr merge`; the standing evidence-publication rule forbids direct writes to Plan main and requires the branch/PR route. Therefore this lane will not merge PR #201. The review is on #183 and the Akte is prepared on the scoped Plan PR, but the requested Plan-main publication and main commit SHA remain blocked pending an authorized reviewer/merge.
+
 ## No local execution
 
 No local tests were run. This verdict is based on the exact GitHub diff, source readback, and Actions API evidence only.
@@ -72,4 +78,4 @@ No local tests were run. This verdict is based on the exact GitHub diff, source 
 - Repository and candidate: baseharbor-demo PR #183, head `ba14b0eed4ebd747a2eb6bd14af470b910dd541c`
 - Evidence target: `evidence/2026-11-27/0428-284/exact-head-183-ba14b0eed.md`
 
-END_PENDING w255-0428-251-demo170codex: CORRECTIONS recorded for exact head ba14b0eed4ebd747a2eb6bd14af470b910dd541c; Plan evidence publication pending.
+END_BLOCKED w255-0428-251-demo170codex: CORRECTIONS posted on #183; Plan Akte is PR #201, and mission forbids gh pr merge so no Plan-main commit SHA is available.
