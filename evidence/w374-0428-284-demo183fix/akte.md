@@ -78,6 +78,29 @@
 - worktree `workers/worktrees/w374-0428-284-demo183fix` kept (demo remote added for this push).
 - plan evidence worktree `workers/worktrees/w374-0428-284-demo183fix-plan` will be removed after push.
 
+## Correction round 3 (exact-head review 2026-11-27 05:02Z, verdict CHANGES)
+
+- Finding (2628f5abe): the digest-offset (>=4096) and exactly-once (count==1)
+  assertions were correct, but the test did not PROVE that the digest-bearing
+  bytes were read by run_tty's final-drain branch - the branch membership was
+  unproven. A pass could in principle hold even if the digest came from elsewhere.
+- Fix (commit d9c7b6136, tests/guided/* only, NO run_tty return-signature change):
+  - drive.FINAL_DRAIN_CHUNKS: module-level counter incremented once per chunk in
+    the final-drain loop (the `while True` loop after proc.poll() != None), right
+    next to `bytes_read += len(chunk)`. Kept a module attribute (not a return
+    value) so run_tty's (rc, buffer) signature and all callers (run_guided_consent_flow
+    lines ~615/~694, run_capture, init call) stay unchanged.
+  - test_25: resets drive.FINAL_DRAIN_CHUNKS = 0 before the run and asserts
+    >= 1 afterwards. A pass now proves the >4096-byte digest tail was read by the
+    final-drain branch (after process exit), not the main select() loop.
+  - Offset (>=4096, asserted, computed) and exactly-once (count==1) assertions RETAINED.
+  - No sleep/timing/rate or extended deadline as evidence substitute.
+- Negative proof (documented in-test, static): without `bytes_read += len(chunk)`
+  in the final-drain loop, reconcile_capture_from_log re-appends the digest tail ->
+  count(digest) == 2, so the test fails deterministically without that line.
+- Ancestry: 83c80c917 -> 1dfead199 -> 442d8bb1c -> 00b87bfc3 -> 2628f5abe -> d9c7b6136.
+- New PR #183 head: d9c7b61361d158f7e62d04abda04811d138baf8d (ls-remote + gh agree; OPEN, non-draft).
+
 ## Correction round 2 (exact-head review 2026-11-27 04:51Z, verdict CHANGES)
 
 - Finding (file tests/guided/test_consent_capture.py ~line 749): the previous pad
