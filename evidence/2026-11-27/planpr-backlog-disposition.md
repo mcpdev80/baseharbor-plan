@@ -170,3 +170,14 @@ END DONE — every open PR in the requested range was individually measured; non
 Exact `git ls-tree -r --name-only origin/main | grep evidence/2026-11-27/planpr-backlog-disposition.md` output follows.
 evidence/2026-11-27/planpr-backlog-disposition.md
 evidence/2026-11-27/planpr-backlog-disposition.md
+
+
+## Pre-push identity gate snapshot
+
+The last candidate commit before the final evidence-only commit was verified with `git log --format='%h an=%an cn=%cn' -1`:
+
+```text
+c467967c6 an=w255-0428-251-demo170codex cn=w255-0428-251-demo170codex
+```
+
+Immediately before pushing, the same identity gate is run again on the final HEAD.
