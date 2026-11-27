@@ -97,7 +97,7 @@ d0665a320 reconcile claim gaps and validate Plan PR links
 
 ## Full repository validation
 
-Local `python3 scripts/plan.py render && python3 scripts/plan.py check` completed: 784 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 existing dependency warnings. The refreshed generated views include only the four card dispositions and current derived counts. Exact diff review is complete. All candidate commits so far use the canonical author and committer; the current pre-push identity gate, branch delivery, receipt PR number, exact-head `Plan · validate`, normal merge, and final main SHA remain pending.
+Local `python3 scripts/plan.py render && python3 scripts/plan.py check` completed: 784 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 existing dependency warnings. The refreshed generated views include only the four card dispositions and current derived counts. Exact diff review is complete. Plan PR #252 is OPEN and non-draft. All candidate commits so far use the canonical author and committer. At this evidence snapshot, the post-main-sync head awaits its fresh exact-head `Plan · validate`; normal merge and the final main SHA are pending.
 
 ---
 
@@ -257,3 +257,10 @@ d0665a320 reconcile claim gaps and validate Plan PR links
 
 Exact command output follows.
 evidence/2026-11-27/planpr-backlog-disposition.md
+
+
+## Current exact-head validation handoff
+
+The previous Plan validation [46047534887](https://github.com/mcpdev80/baseharbor-plan/actions/runs/46047534887) completed SUCCESS on head `de891dbb25bc66bcec2e5d0aea80ac7d27bc31e8`; this head was later advanced only to add this END receipt line. It is historical evidence and does not qualify the final candidate. The final head must have its own completed `Plan · validate` SUCCESS before merge.
+
+END w255-0428-251-demo170codex DONE
