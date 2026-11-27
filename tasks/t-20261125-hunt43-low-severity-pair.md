@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: blocked
-kanban_lane: blocked
+owner: w371-0428-318-1862hop
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0428-318 · hunt43-low-severity-pair
 priority: ""
@@ -17,24 +17,23 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1862"]
 sources: []
-blocker: "blocked-BASELINE as STATE: family catalog PR #1862 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded"
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261125-hunt43-low-severity-pair · 0428 hunt H-V43: hunt43-low-severity-pair #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261125-hunt43-low-severity-pair · 0428 hunt H-V43: hunt43-low-severity-pair #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
+    **Owner:** w371-0428-318-1862hop  
     **PR:** [baseharbor#1862](https://github.com/mcpdev80/baseharbor/pull/1862)  
-    **Blocker:** blocked-BASELINE as STATE: family catalog PR \#1862 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w371-0428-318-1862hop  
 **Priority:** not set  
 **PRs:** [baseharbor#1862](https://github.com/mcpdev80/baseharbor/pull/1862)  
 **Source:** 
