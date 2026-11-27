@@ -103,6 +103,8 @@ Die Mission nennt "Karte 0428-359 existiert nicht als Karte": korrekt auf origin
 - Terminal origin/main witness (`git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep w383-0428-275-136rows`) => `evidence/w383-0428-275-136rows/akte.md` (Ausgabe nach dem Merge, main-Spitze `b43d5b83b`).
 - follow-up: Commit `ea767ec20` (author=committer `w383-0428-275-136rows`) auf main-Spitze `9757bb969` (deren eigener Inhalt: die w379-Akte, parallel von Lane w379 auf main publischt) ergaenzt nur diesen witness-Block in dieser Akten-Datei; Delta gegen main = exakt diese eine Datei (`git diff origin/main...HEAD --name-only`: evidence/w383-0428-275-136rows/akte.md). PR #190 selbst ist MERGED (head dort `6af97e2dc`, `Plan · validate` run `45950915899` SUCCESS auf genau diesem head; squash-main-Kommit `b43d5b83b` traegt die GitHub-Login-Autorschaft des Admins, wie bei allen plan-Squash-Merges). Dieser follow-up erhaelt seine eigene PR-Nummer im naechsten Publishing-Schritt.
 
+- Letzter Publishing-Schritt: PR #193 (witness-commit `53aa54435`, `Plan · validate` run `45953078403` SUCCESS auf exakt diesem head), admin-squash-merge => main `8cc2a3dab`. Terminal-Witness (`ls-tree -r --name-only origin/main | grep`) zeigt danach: `evidence/w383-0428-275-136rows/akte.md` UND `evidence/w381-0428-328-1869pre/akte.md` auf main; wrong-zone-Pfad 0 Treffer. Lane-Branch `lane-w383-0428-275-136rows` bleibt bis Coordinator-Cleanup (PRs #190-#193 alle MERGED).
+
 ## 4-Feld
 
 - Lane: w383-0428-275-136rows
