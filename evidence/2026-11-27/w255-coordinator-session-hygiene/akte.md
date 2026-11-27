@@ -60,6 +60,7 @@ views/ready.md
 views/releases/v0.4.28.md
 ```
 
-- `git log --oneline origin/main..HEAD`: `ad1e1db add coordinator session-retention hygiene card`.
+- `git log --oneline origin/main..HEAD` lists only this lane's commits: `36d158e record session hygiene card evidence and provenance`; `ad1e1db add coordinator session-retention hygiene card`.
 - Commit `ad1e1db9669e7a7f953a5944dc2b86019833d369` author and committer are both `w255-0428-251-demo170codex`; pre-push author gate `git show -s --format=%an HEAD` printed `w255-0428-251-demo170codex`.
+- Before the evidence-provenance push, `git log --format='%h an=%an cn=%cn' -1` printed `ad1e1db an=w255-0428-251-demo170codex cn=w255-0428-251-demo170codex`; `git show -s --format=%an HEAD` printed `w255-0428-251-demo170codex`.
 - END w255-0428-251-demo170codex DONE — card and evidence merged through the normal Plan PR path; exact resulting main SHA is reported in the coordinator END.
