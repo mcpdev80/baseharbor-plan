@@ -32,3 +32,26 @@ Source: `workers/worktrees/w392-0428-235-selfselect-baseharbor/evidence/w392-042
 ## Validation and publication
 
 Plan render/check, PR head, Hosted validation run, merge commit and origin/main blob verification are pending.
+
+
+## 0428-078 status PR base attestation before branch creation
+
+- Current Plan remote: `origin https://github.com/mcpdev80/baseharbor-plan.git`.
+- Exact `origin/main` base: `b99381a204f7fedd4a70c90ebe171eda84610014`.
+- Card frontmatter owner verbatim: `w385-0428-078-pr1650pre`; prior status `active`; prior `blocker: ""` and `wait_reason: ""`; `kanban_summary` will remain unchanged.
+- Current coordinator evidence: laptop capacity is `0`; `coordinator/QUEUE.md` still contains unresolved OQ-3 (Keycloak attribution token form); `/var/tmp/w385-0428-078-checkpoint.bundle` exists, and the mission states hop and diagnostics are checkpointed while the attribution-form decision remains open.
+- Planned transition: `active -> wait`; keep `blocker` empty; set `wait_reason` to the OQ-3 plus laptop recovery trigger through `2026-11-28 18:00 Europe/Berlin`.
+- Commit identity: author and committer `w267-0428-284-pridentity`, email `w267-0428-284-pridentity@baseharbor.local`; invocation `git -c user.name=w267-0428-284-pridentity -c user.email=w267-0428-284-pridentity@baseharbor.local commit ...`; pre-push gate `git show -s --format=%an HEAD` must print `w267-0428-284-pridentity`.
+
+Branch creation is next; no commit or push yet.
+
+## 0428-078 status update
+
+- The coordinator `card-status.py` helper ran against the isolated worktree through a `COORDINATOR_RUNTIME_CONFIG` override and `--no-push`; it reported `ok (ohne push)`, which includes render and check.
+- Card `t-20261114-r28-perses-dashboard-identity.md` now has `kanban_status: wait` and rendered wait views. `owner: w385-0428-078-pr1650pre`, `blocker: ""`, `kanban_summary`, PR list, and existing evidence links remain unchanged.
+- New `wait_reason`: `Resume when the attribution-form decision OQ-3 in coordinator/QUEUE.md is recorded and laptop capacity is restored; the laptop channel has capacity=0 through 2026-11-28 18:00 Europe/Berlin.`
+- This is a separate write-set from the one-file 0428-235 akte correction PR. Current PR diff is restricted to the card, rendered views, and this status evidence record.
+
+## Final verification
+
+Pending hosted validation and normal merge.
