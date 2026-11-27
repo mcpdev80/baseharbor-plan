@@ -54,3 +54,25 @@ Only the two named task cards, generated Plan views, and this evidence are in sc
 - `card-status.py t-20261125-hunt37-runtime-identity-fallback wait --wait-reason ... --no-push` completed successfully against the isolated clone using a temporary runtime config pointed at this clone; it preserved owner and PR list, cleared the now-inapplicable blocker field, and rendered/checked the full Plan tree.
 - Final `python3 scripts/plan.py render && python3 scripts/plan.py check`: 784 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 existing accepted-dependency warnings.
 - The full renderer refreshed generated previews in `tasks/t-20261116-r28-bug-apply-consent-ux.md` and `tasks/t-20261125-hunt42-timeout-constant-matrix.md`; `plan.py check` reported both stale generated previews as errors when reverted, so those generated-only preview changes are retained. Their frontmatter/status is untouched.
+
+## Branch provenance and commit receipt
+
+- `git merge-base --is-ancestor origin/main HEAD` passed; the branch was cut from Plan main `395b663807fcb141b41a712f68074e71d1a09b71` and contains only this lane's work.
+- `git diff origin/main...HEAD --name-only`:
+
+```text
+evidence-staging/2026-11-27/board-reconcile-w255.md
+releases/v0.4.28.md
+roadmap/cards.md
+tasks/t-20261116-r28-bug-apply-consent-ux.md
+tasks/t-20261125-hunt37-runtime-identity-fallback.md
+tasks/t-20261125-hunt42-timeout-constant-matrix.md
+tasks/t-20261128-hunt48-source-transfers-contract.md
+views/kanban-dashboard.md
+views/overview.md
+views/releases/v0.4.28.md
+```
+
+- `git log --oneline origin/main..HEAD`: `8f0b7c9 reconcile source-transfer identity and runtime receipts`.
+- Commit `8f0b7c92c1ad23137afb150bf733b250f615c74c` author and committer are both `w255-0428-251-demo170codex`; pre-push author gate is `git show -s --format=%an HEAD` → `w255-0428-251-demo170codex`.
+- END w255-0428-251-demo170codex DONE — reconciliation and review handoff completed; final Plan main SHA is reported in the coordinator END.
