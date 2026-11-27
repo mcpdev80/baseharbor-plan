@@ -7,7 +7,7 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w165-0428-078-pr1650-basehop
+owner: "w359-0428-288-1833requal"
 kanban_status: blocked
 kanban_lane: blocked
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
@@ -17,7 +17,7 @@ depends_on: [t-20261114-r28-perses-dashboard-selection]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1818", "mcpdev80/baseharbor#1650", "mcpdev80/baseharbor#1855", "mcpdev80/baseharbor#1867"]
 sources: []
-blocker: "blocked-BASELINE as STATE: family catalog PR #1855 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded"
+blocker: "NO-RETRY disposition (owner 18:0xZ): run 45911769054 FAILURE at exact head d18e4b36; ALL selected Docker+Podman runtime gates SUCCESS (~20-22m, no runner outage) - real failures = Go unit packages + identity-provider-package-tests (KeycloakSignalRegistrationTargetProductionAttribution: target unavailable) = missing #1819 producer seam. Serial prerequisite chain #1812 -> #1819 -> #1820, then refresh #1855 + exact-head Codex ACCEPT; only then close #1650/#1818. NOTE: that run started BEFORE owner pin update BASEHARBOR_PR_DEMO_SOURCE_SHA 98e4d549->b411277."
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md"]
@@ -25,9 +25,9 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 - [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/blocked #view/blocked #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** w165-0428-078-pr1650-basehop · **Priority:** normal  
+    **Owner:** w359-0428-288-1833requal · **Priority:** normal  
     **PR:** [baseharbor#1818](https://github.com/mcpdev80/baseharbor/pull/1818), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650), [baseharbor#1855](https://github.com/mcpdev80/baseharbor/pull/1855), [baseharbor#1867](https://github.com/mcpdev80/baseharbor/pull/1867)  
-    **Blocker:** blocked-BASELINE as STATE: family catalog PR \#1855 open, develop row pending freeze-lift per w267 7199390854; candidate heads recorded  
+    **Blocker:** NO-RETRY disposition (owner 18:0xZ): run 45911769054 FAILURE at exact head d18e4b36; ALL selected Docker+Podman runtime gates SUCCESS (~20-22m, no runner outage) - real failures = Go unit packages + identity-provider-package-tests (Keycloa…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/appstatus-integration/round-4.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle4-2026-11-20/codex-review-wave/1650-0428-078-r3.md)  
     <!-- /generated:card -->
 
@@ -36,7 +36,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md), [t-20261120-r28-prune-key-too-coarse](t-20261120-r28-prune-key-too-coarse.md), [t-20261120-r28-registerprovider-signal-failclosed](t-20261120-r28-registerprovider-signal-failclosed.md), [t-20261120-r28-restart-persist-signal-dump](t-20261120-r28-restart-persist-signal-dump.md), [t-20261120-r28-runtimetarget-failclosed](t-20261120-r28-runtimetarget-failclosed.md), [t-20261120-r28-signal-one-active-write-path](t-20261120-r28-signal-one-active-write-path.md), [t-20261120-r28-signalregistry-race](t-20261120-r28-signalregistry-race.md)  
-**Owner:** w165-0428-078-pr1650-basehop  
+**Owner:** w359-0428-288-1833requal  
 **Priority:** normal  
 **PRs:** [baseharbor#1818](https://github.com/mcpdev80/baseharbor/pull/1818), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650), [baseharbor#1855](https://github.com/mcpdev80/baseharbor/pull/1855), [baseharbor#1867](https://github.com/mcpdev80/baseharbor/pull/1867)  
 **Source:** 
