@@ -73,6 +73,21 @@ Card: 0428-299 · Repo: baseharbor · PR: #1863 · Branch: w336-0428-299-goprere
   (`git reset --hard 83c80c917`, worktree removed); no push, no branch, no commit was ever made
   to baseharbor-demo by this lane.
 
+## Endgame decision (run 45935170048 vs stale fail 45913103879) — HELD per w334 precedent
+- The planner's catalog always comes from the checkout it RUNS from (`ROOT / 'pr-gate-coverage.json'`,
+  scripts/pr-gate-plan.py:1902) = the trusted target-base checkout in the Trusted Plan job. The two
+  stableid catalog rows are candidate-branch content and cannot be visible to the base-side plan
+  before merge. Before the push, 4160d53f was BEHIND develop, so every base-side plan view aborted
+  deterministically (stale fail 45913103879 = same abort). The forward-only merge hop removed the
+  behind-ness; the exact-head run 45935170048 then failed with the SAME catalog abort on
+  0eafa9f5a — so this is NOT stale-ness, it is the structural base-catalog gap.
+- Precedent (owner routing): plan PRs #138 (w335-0428-318-lowpair) and #139 (w334-0428-329,
+  "BLOCKED-BASE-CATALOG third instance", head 6edbcb23c5, run 45842320834) established this exact
+  class = HELD for owner/Codex routing; no CI-trailer waiver, no merge-commit trickery, no rerun of
+  checks on other SHAs by a worker lane. My earlier GH-trailer note in this section is WITHDRAWN.
+- Merge-ref fact kept as witness only: `refs/pull/1863/merge` = `81ee25072…` (GitHub auto-merge view);
+  no worker action taken against it.
+
 ## 1863 akte-publish route (plan PR #178) — base-red blocker
 - Plan PR #178 (branched at ef0bcfbcf) is OPEN but `Plan · validate` FAILS on the MAIN tip:
   `evidence/w350-0428-359-batchhop2/akte.md` lines 21-25 contain checkbox syntax outside tasks/
@@ -83,13 +98,15 @@ Card: 0428-299 · Repo: baseharbor · PR: #1863 · Branch: w336-0428-299-goprere
   on origin/main as soon as the base validator defect is fixed and the queue merges.
 
 ## END line
-END (STATE handoff): #1863 hopped forward-only to `0eafa9f5a`, ONE push, fresh run `45935170048`
-observed to terminal = completed/failure with deterministic root cause (base-checkout catalog
-fail-loud, diagnosis section). No further push or rerun by this lane pending Coordinator/Codex
-disposition (waiver / route via develop / different carrier). Akte published via plan PR #178,
-merge blocked only by the pre-existing main validator defect above. 249 remains in the push-gate
-hold (demo #183 merge + pin advance pending; carriers 8c83c7091+0b343af5e local, remote stays
-6ab5310d1).
+END (HELD-BASE-CATALOG): #1863 hopped forward-only to `0eafa9f5a` (remote branch + PR head delivered),
+fresh exact-head run `45935170048` observed to terminal = completed/failure; root cause is the
+structural base-catalog gap (trusted planner resolves changed paths against the target-base
+pr-gate-coverage.json; the two stableid rows are candidate content and land only at merge) — same
+class as plan PR #139 "BLOCKED-BASE-CATALOG" precedent. No further push/rerun by this lane; routing
+disposition (base-side catalog landing order or merge waiver) is a Coordinator/Codex decision.
+Akte published via plan PR #178; the only validate failures are the pre-existing w350-file errors on
+main (my file contributes zero errors). 249 remains in the push-gate hold (demo #183 merge + pin
+advance pending; carriers 8c83c7091+0b343af5e local, remote stays 6ab5310d1).
 
 ## cleanliness
 - No containers/compose started by this mission on this host (docker was not invoked at all).
