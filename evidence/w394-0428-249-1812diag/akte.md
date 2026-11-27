@@ -122,6 +122,10 @@ END_BLOCKED w394-0428-249-1812diag: diagnosis complete — run 45944501306 on ex
 ## Addendum: delivery witnesses (lane w394-0428-249-1812diag)
 
 - Evidence content commit on branch: 965bf10c7 (author/committer w394-0428-249-1812diag), squashed to plan main as c32d4c72d (plan PR #206, check Plan · validate SUCCESS, run 45971091864).
-- Delivery-chain commit: ed6ddbef3 (own identity, parent = main@c32d4c72d, `git merge-base --is-ancestor c32d4c72d HEAD` proven before push), squashed to plan main as 9cd5124b8 (plan PR #208, Plan · validate SUCCESS, run 45971099373 job 140412772616).
+- Delivery-chain commit: ed6ddbef3 (own identity, parent = main@c32d4c72d, `git merge-base --is-ancestor c32d4c72d HEAD` proven before push), squashed to plan main as 9cd5124b8 (plan PR #208, Plan · validate SUCCESS, run 45971099373 job 140412772616). NOTE (correction): #208 squashed only the empty witness commit; the full akte content reached plan main via #210 (candidate 72d2bcbb6, validate run 45971770573 SUCCESS, main d1b209063).
 - Carrier consent-delta witness (corrected form): `gh pr diff 1812 --name-only | grep -i consent` → no match (rc=1).
 - Product candidate examined: baseharbor PR #1812 head c2dd3ff04e30c73046b4eeecb56f3cab20e56c92 (ls-remote witness above; this lane pushed nothing to any product repo).
+
+## END line (w394-0428-249-1812diag)
+
+END_DONE w394-0428-249-1812diag: diagnosis complete and published; evidence candidate SHA = d1b209063 on baseharbor-plan main (this final content commit supersedes it only by witness lines); product head examined = c2dd3ff04e30c73046b4eeecb56f3cab20e56c92, no changes made to any product repo.
