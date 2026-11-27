@@ -17,7 +17,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1866"]
 sources: []
-blocker: "prerequisite chain: demo #183 correction + merge -> pin advance -> rerun on frozen head 3702c095; docs payload already merged unchanged; w357/w352 lanes released"
+blocker: "prework delivered (evidence/w384-0428-321-1866pre/akte.md, main 4751caa7f): #1866 local develop merge clean, exit-code doc absent from develop (0 matches vs cdb6e4d97); PR Selected Checks fail on Selected Runtime data-capabilities = native Docker+Podman gates, qualifying only on two distinct close+reopen run IDs after the #183 merge and the BASEHARBOR_PR_DEMO_SOURCE_SHA advance"
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned  
     **PR:** [baseharbor#1866](https://github.com/mcpdev80/baseharbor/pull/1866)  
-    **Blocker:** prerequisite chain: demo \#183 correction + merge -\> pin advance -\> rerun on frozen head 3702c095; docs payload already merged unchanged; w357/w352 lanes released  
+    **Blocker:** prework delivered (evidence/w384-0428-321-1866pre/akte.md, main 4751caa7f): \#1866 local develop merge clean, exit-code doc absent from develop (0 matches vs cdb6e4d97); PR Selected Checks fail on Selected Runtime data-capabilities = native…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
