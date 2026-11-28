@@ -160,3 +160,37 @@ Role: read-only content cross-validation; no product edits or product merges.
 4. Merge only the Plan evidence PR after current-main ancestry and green exact-head validation; do not merge product PRs.
 
 END_DONE w267-0428-284-pridentity: #1881 current head content PASS; #1884 finding 1 superseded, finding 2 CHANGES for missing remote success-path regression; no product merge.
+
+## PLAN extension for final PR #1884 review
+
+13. Refresh Plan main and verify PR #1884 exact head `f6ebba6ecf610cccca884c2896ee69ed70b77ca6`, exact base `6944e8761af6f07b801f55e39bb9a5409226c10`, changed-path scope, and both terminal Hosted run records.
+14. Review the 100-line test-only delta against the published Option-3 disposition; inspect consent validation and admission source; record a content verdict separately from CI qualification.
+15. Publish this addendum through an isolated Plan PR with render/check and terminal exact-head Plan validation; do not merge product PR #1884 while the class-A lift is held.
+
+## Final exact-head review: PR #1884 at f6ebba6ecf610cccca884c2896ee69ed70b77ca6
+
+### Visible commit identity block and provenance
+
+- Reviewed card owner verbatim from task frontmatter at Plan `origin/main` `7c5f2f7e508574a2b3471c250cc83415d8af3972`: `owner: w267-0428-284-pridentity` for card 0428-284.
+- Git user.name: `w267-0428-284-pridentity`.
+- Git user.email: `w267-0428-284-pridentity@baseharbor.local`.
+- Commit invocation for this Plan evidence change: `git -c user.name='w267-0428-284-pridentity' -c user.email='w267-0428-284-pridentity@baseharbor.local' commit -m 'review #1884 final head f6ebba6ec'`.
+- Pre-push author gate: `git show -s --format=%an HEAD` must print exactly `w267-0428-284-pridentity`.
+- Planning remote verified before evidence change: `origin https://github.com/mcpdev80/baseharbor-plan.git (fetch)` and `origin https://github.com/mcpdev80/baseharbor-plan.git (push)`.
+- Exact Plan base attestation before branch creation: `7c5f2f7e508574a2b3471c250cc83415d8af3972` (`refs/heads/main`). This base is the fetched `origin/main` tip used for this evidence PR.
+
+### Candidate, exact diff, and contract
+
+- Fresh GitHub witnesses: base repository `refs/heads/develop` is `6944e8761af6f07b801f55e39bb9a5409226c10b`; `refs/pull/1884/head` is `f6ebba6ecf610cccca884c2896ee69ed70b77ca6`. PR #1884 is OPEN, non-draft, base `develop`.
+- Diff `b25c192159f78b2e3ed4d49f0ea587e216f04ace..f6ebba6ecf610cccca884c2896ee69ed70b77ca6`: exactly one changed path, `cmd/baha/app_candidate_consent_test.go`, 100 insertions and no deletions. No production source or coverage-catalog path changed in this delta.
+- The new subtests in `TestRemoteApplyRouteInlineBindContractIsTruthful` at `cmd/baha/app_candidate_consent_test.go:747-845` exercise both terminal `n` and `y` through the prompt followed by `recordDeploymentBeforeMutation` on the same route context. The refusal asserts the consent-required error and no remaining binding. The affirmative asserts persisted operator consent, digest equality with the current candidate submission and displayed confirm-hash, no obsolete re-run instruction, and one-shot binding consumption.
+- This implements the accepted Option-3 test-shape decision already published in Plan main: `executeRemoteApplicationApply` success requires a live enrolled Connector responding to NodeMemory, Publish, and ApplyApplication (`app_remote_up_success_discriminator_test.go:21-30`); no production or test-only seam was added. Full remote `app up` success remains a stated E2E evidence limitation, not a claimed unit test.
+- Consent protections remain intact at unchanged source: `cmd/baha/app_candidate_consent.go:163-185` rejects empty digest without consent, derives the canonical candidate digest, and uses `delivery.ConstantTimeDigestMatch` before constructing consent. `cmd/baha/deployment_record.go:404-407` retains `EvaluateDeploymentAdmission` before write; `:532-545` finalizes and rejects missing/mismatched consent at the persistence boundary. This delta does not weaken admission or digest validation.
+
+### Hosted qualification and verdict
+
+- Run [46102641931](https://github.com/mcpdev80/baseharbor/actions/runs/46102641931): terminal FAILURE, event `pull_request`, exact head `f6ebba6ecf610cccca884c2896ee69ed70b77ca6`. `PR · Trusted Plan` fails because its trusted base catalog has no owners for four source paths already in the full PR diff: `cmd/baha/app_candidate_consent_interactive.go`, `cmd/baha/app_candidate_consent_test.go`, `cmd/baha/app_remote_lifecycle.go`, and `cmd/baha/core_installation.go`. `PR Selected Checks` fails with `UNIT_SCOPE:` empty, `UNIT_RESULT: skipped`, and `REJECT: Go test selection missing or invalid`. The package test job is skipped; this run provides no executed unit-test receipt.
+- Run [46102724251](https://github.com/mcpdev80/baseharbor/actions/runs/46102724251): terminal FAILURE, event `pull_request`, same exact head. It has the same Trusted Plan catalog failure and downstream selected-check failure; Go unit tests and other runtime gates are skipped.
+- Content verdict: PASS for the exact f6ebba6ec test delta against the accepted Option-3 disposition and the scoped consent-integrity review. Qualification verdict: NOT QUALIFIED; the required test execution and `PR Selected Checks` are not green because the Trusted Plan catalog failure leaves `UNIT_SCOPE` empty. Keep #1884 unmerged and on review until the class-A base catalog is lifted and a fresh exact-head pull_request pair executes the required tests and passes.
+
+END_DONE w267-0428-284-pridentity: PR #1884 content PASS at f6ebba6ecf610cccca884c2896ee69ed70b77ca6; hosted qualification held on class-A Trusted Plan catalog failure; product PR not merged; Plan evidence publication pending.
