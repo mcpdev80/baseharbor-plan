@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: w405-0428-292-consentreader
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Interactive baha app apply accepted [y/N] y but then required re-execution with --confirm-candidate; baha app apply j-commerce…"
 kanban_title: 0428-292 · Clarify apply candidate consen
 priority: normal
@@ -24,14 +24,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261116-r28-bug-apply-consent-ux · Clarify apply candidate consent #task #release/v0-4-28 #status/active #view/active #area/cli #kind/bug
+- [ ] t-20261116-r28-bug-apply-consent-ux · Clarify apply candidate consent #task #release/v0-4-28 #status/review #view/review #area/cli #kind/bug
     <!-- generated:card -->
     **Owner:** w405-0428-292-consentreader · **Priority:** normal  
     **PR:** [baseharbor#1884](https://github.com/mcpdev80/baseharbor/pull/1884)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w405-0428-292-consentreader  
