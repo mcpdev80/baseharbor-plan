@@ -76,3 +76,4 @@ END_DONE w402-0428-310-1881heal: #1881 heal round 1 — candidate head 2e81d55fd
 
 - `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle9-2026-11-28/0428-310-1881/heal-round-1.md`
 - (output appended after merge)
+- Exact output: `evidence/r28-welle9-2026-11-28/0428-310-1881/heal-round-1.md` (present on origin/main; plan main advanced efe488381..a98a853d0 via squash merge of plan PR #270, Plan · validate SUCCESS on exact head 1c7e39f86).
