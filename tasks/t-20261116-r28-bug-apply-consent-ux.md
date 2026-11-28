@@ -74,4 +74,4 @@ Run `baha app apply` from repo on first candidate and accept initial prompt; ins
 
 ## Handoff
 
-- Lead Worker W03 (Codex subagent) is actively implementing this task. No product PR, merge or acceptance is claimed yet. Source: 2026-11-16 J-Commerce guided-init/apply/destroy/reset transcript supplied by Owner.
+- Historical 2026-11-27 subagent handoff (“Lead Worker W03 … actively implementing”) is superseded and must not be treated as a current Codeman lane. Lead Coordinator annotation (2026-11-28): this coordinator chat owns cross-PR sequencing and independent review. “BaseHarbor Worker 01”, “BaseHarbor Worker 02” and “BaseHarbor Worker 03” are three separate Lead-owned, read-only audit/review chats; they do not claim this implementation branch or duplicate Codeman ownership. Keep product implementation ownership with the current card owner and follow the live status/holds. Current observed state: owner w405-0428-292-consentreader, status review, PR #1884 open. No merge or acceptance is claimed. Original source: 2026-11-16 J-Commerce guided-init/apply/destroy/reset transcript supplied by Owner.
