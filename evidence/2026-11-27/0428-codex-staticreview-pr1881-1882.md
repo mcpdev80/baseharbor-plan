@@ -194,3 +194,4 @@ END_DONE w267-0428-284-pridentity: #1881 current head content PASS; #1884 findin
 - Content verdict: PASS for the exact f6ebba6ec test delta against the accepted Option-3 disposition and the scoped consent-integrity review. Qualification verdict: NOT QUALIFIED; the required test execution and `PR Selected Checks` are not green because the Trusted Plan catalog failure leaves `UNIT_SCOPE` empty. Keep #1884 unmerged and on review until the class-A base catalog is lifted and a fresh exact-head pull_request pair executes the required tests and passes.
 
 END_DONE w267-0428-284-pridentity: PR #1884 content PASS at f6ebba6ecf610cccca884c2896ee69ed70b77ca6; hosted qualification held on class-A Trusted Plan catalog failure; product PR not merged; Plan evidence publication pending.
+- Recorded pre-push identity witness for the initial evidence commit: `906b7ac an=w267-0428-284-pridentity cn=w267-0428-284-pridentity`.
