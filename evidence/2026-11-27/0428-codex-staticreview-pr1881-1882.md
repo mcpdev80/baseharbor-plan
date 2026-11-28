@@ -195,3 +195,4 @@ END_DONE w267-0428-284-pridentity: #1881 current head content PASS; #1884 findin
 
 END_DONE w267-0428-284-pridentity: PR #1884 content PASS at f6ebba6ecf610cccca884c2896ee69ed70b77ca6; hosted qualification held on class-A Trusted Plan catalog failure; product PR not merged; Plan evidence publication pending.
 - Recorded pre-push identity witness for the initial evidence commit: `906b7ac an=w267-0428-284-pridentity cn=w267-0428-284-pridentity`.
+- Recorded pre-push identity witness for the identity-witness commit: `b2a7a34 an=w267-0428-284-pridentity cn=w267-0428-284-pridentity`.
