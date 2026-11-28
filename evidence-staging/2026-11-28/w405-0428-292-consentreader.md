@@ -250,7 +250,80 @@ current code, because the route's success side requires a live enrolled Connecto
   non-test pre-checks). Planning side already published: claim commit `30ba2aad2` + this akte `82288a36b` on
   `lane-w405-0428-292-claim` (plan PR #263 head `82288a36b`, main still `d50051072` pending your admin squash).
 
-## Handoff / state at stop
+## Option-3 GO round (RESUME after the w267 verdict, plan main d1f9c7be2 via Plan-PR #264)
+
+Verdict consumed: route-adjacent consent tests accepted; full remote app-up success recorded as an E2E evidence
+limitation; NO seam (product or test-only). Delivered exactly that:
+
+- Branch point: the exact `refs/pull/1884/head` `b25c192159f78b2e3ed4d49f0ea587e216f04ace` (fresh ls-remote); no new
+  branch — push to the same candidate branch `lane-0428-292-consent-ux` (one candidate per chain).
+- Change: ONE file, `cmd/baha/app_candidate_consent_test.go`, +100 lines: `TestRemoteApplyRouteInlineBindContract-
+  IsTruthful` keeps its non-terminal fail-closed case (a) and gains case (b) "terminal bind consumed by the route
+  write": the route's exact prompt→write sequence (`app_remote_lifecycle.go:176-177`) —
+  `promptConfirmCandidateSubmissionInput` over the threaded terminal stdin, then `recordDeploymentBeforeMutation` on
+  the same context/resolved application — executed for BOTH answers: `y` binds the exact candidate and the write
+  CONSUMES the one-shot binding, persisting a consent whose digest equals the shown confirm-hash (`by=operator`);
+  `n` binds nothing and fails closed with `errConsentRequiredForCandidateSubmission`. No product file changed; the
+  fail-closed gates (non-empty consent, constant-time digest equality `app_candidate_consent.go:232-248`, admission
+  `deployment_record.go:411-416`) are untouched, and `scripts/pr-gate-coverage.json` was NOT touched (scope guardrail
+  respected; catalog rows belong to the develop-side lift PR).
+- The unit-inaccessibility of the route's success side is recorded in the test comment and here:
+  `app_remote_up_success_discriminator_test.go:22-27` (live enrolled Connector answers NodeMemory + Publish +
+  ApplyApplication; unit runner has none), route call sites `app_remote_lifecycle.go:44`/`:148`→
+  `app_remote_capacity.go:29`/`:208`/`:224`. Full remote app-up success = E2E limitation for the native gates, per the
+  verdict; no seam added.
+- Commit identity: `f6ebba6ecf an=w405-0428-292-consentreader cn=w405-0428-292-consentreader` (gate line printed
+  before the push; `git show -s --format=%an HEAD` = `w405-0428-292-consentreader`).
+- Transport: `git merge lane-origin/develop` → "Already up to date" (develop `6944e8761af` unchanged and already an
+  ancestor); ancestry `b25c192159 IS ancestor of HEAD` (fast-forward); `git log --oneline origin/develop..HEAD` shows
+  only the card's own chain plus my single new commit — no foreign commit; one normal push (no force, no cherry-pick).
+- Delivery witness (after push): `git ls-remote https://github.com/mcpdev80/baseharbor.git
+  refs/heads/lane-0428-292-consent-ux refs/pull/1884/head` → both `f6ebba6ecf610cccca884c2896ee69ed70b77ca6`;
+  `gh pr view 1884` → OPEN, draft=false, head `f6ebba6ecf`.
+- Pre-checks (non-test only): gofmt clean, `go vet ./cmd/baha/` clean, `go build ./cmd/baha/` OK; no test executed
+  locally; no `scripts/ci-fast-check.sh`.
+- Test → check/gate → trigger route: my new sub-cases are ordinary Go tests in package `cmd/baha`, auto-discovered via
+  `go list ./...`/`go test -list` and executed by the existing selected Go unit shard (`pr_unit_shards` →
+  `scripts/pr-unit-database.sh`), trigger `pull_request` on the exact head; the PR-local catalog rows for all four
+  new paths are already on the branch (rows for the test file since `e6425f9bf7`). No `.github/**` change, no new
+  check, no catalog edit by this lane.
+
+## Hosted CI STATE (Option-3 round; two distinct pull_request run IDs on exact head f6ebba6ecf)
+
+- Run 46102641931 — trigger: the push. Run 46102724251 — trigger: close+reopen with PR comment 'second exact-head
+  hosted run trigger (coordinator-authorized)'. No rerun (no run_attempt inflation), no workflow_dispatch. Both
+  observed by this lane to terminal: completed FAILURE, event pull_request, head `f6ebba6ecf610cccca884c2896ee69ed70b77ca6`.
+- Identical job outcomes on both: `Workflow policy` SUCCESS; `PR · Source format` SUCCESS; `PR · Native gate plan`
+  SUCCESS; `PR · Trusted Plan` FAILURE = the known class-A freeze; `PR Selected Checks` FAILURE downstream; all
+  test/native jobs SKIPPED.
+- Trusted Plan, verbatim (run 46102724251, step "Resolve exact immutable PR inputs using trusted base policy"):
+  `ValueError: invalid trusted PR gate coverage catalog: uncataloged source change, no declared runtime gate owner:
+  cmd/baha/app_candidate_consent_interactive.go (id source.cmd_baha_app_candidate_consent_interactive_go): add this
+  source with its surfaces to scripts/pr-gate-coverage.json ...` — the base/controller checkout carries no rows for
+  the cohort paths; the branch rows exist since `e6425f9bf7`; base rows = develop-catalog owner freeze-lift (#136 +
+  fan-in #1861-#1863). NOT fixed by this lane (mission + scope guardrail).
+- PR Selected Checks, verbatim: `UNIT_SCOPE:` (empty), `UNIT_RESULT: skipped`, `REJECT: Go test selection missing or
+  invalid` — downstream of the plan abort, not a test failure. Therefore the new sub-cases have NOT yet executed on
+  hosted CI; after the lift, one fresh exact-head pull_request pair qualifies them.
+
+## repo-rule compliance (updated for the Option-3 round)
+
+- Write-set held exactly: product diff = `cmd/baha/app_candidate_consent_test.go` only (additive, +100);
+  `scripts/pr-gate-coverage.json` untouched (the earlier `git checkout` of my local draft had no remote effect);
+  no `.github/**`; no product code; no fail-closed-gate change. Planning: claim commit `30ba2aad2` + akte commits on
+  `lane-w405-0428-292-claim` via Plan-PR #263 (branch+PR + admin squash, never direct main). One candidate branch,
+  normal fast-forward push, no force, no cherry-pick, PR not merged by this lane. Second trigger = close+reopen only.
+  No subagents; no local test execution; no containers/VMs.
+
+## Handoff (Option-3 round final)
+
+- Candidate: baseharbor `lane-0428-292-consent-ux` @ `f6ebba6ecf610cccca884c2896ee69ed70b77ca6` (PR #1884, OPEN,
+  draft=false, base develop `6944e8761af`, ancestor-proven). Pair witnesses: `46102641931` / `46102724251`, both
+  terminal FAILURE solely from the class-A Trusted Plan freeze (verbatim above); no test receipt yet.
+- Residual (unchanged, Owner/Catalog scope): develop-catalog freeze-lift #136 + fan-in #1861-#1863, then one fresh
+  exact-head pull_request pair executes and qualifies the consent tests, before Codex review/merge.
+
+END_DONE w405-0428-292-consentreader: Option-3 terminal-bind pair delivered at f6ebba6ecf610cccca884c2896ee69ed70b77ca6 (PR #1884; test file only, +100, no seam, gates untouched); pair witnesses 46102641931/46102724251 terminal FAILURE = class-A Trusted Plan freeze only; claim published via plan branch lane-w405-0428-292-claim (Plan-PR #263); akte evidence-staging/2026-11-28/w405-0428-292-consentreader.md.
 
 - Candidate: PR #1884 head `b25c192159f78b2e3ed4d49f0ea587e216f04ace` (unchanged by this lane, not merged, OPEN,
   draft=false), base `develop` `6944e8761af` (ancestor). Existing pair on that head: `46051642251` / `46051804829`,
