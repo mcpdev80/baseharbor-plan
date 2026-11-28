@@ -103,3 +103,58 @@ END_BLOCKED w267-0428-284-pridentity: #1884 CHANGES; exact-head Trusted Plan 460
 - Plan main advanced after the initial evidence commit from `41972b641f9b97f29dbf1aec320309d21568645b` to `cb8bf89521e891650ee8712395514b1836253f30`. The evidence branch merged that exact current `origin/main` with merge commit `b863facd7573db8a036599a70c05e8f20bc86781`, authored and committed as `w267-0428-284-pridentity`.
 - Current-base proof: `git merge-base --is-ancestor origin/main HEAD` succeeded. Exact `git diff origin/main...HEAD --name-only` output: `evidence/2026-11-27/0428-codex-staticreview-pr1881-1882.md`. `git log --oneline origin/main..HEAD` lists only my evidence commit `187c239d5` and current-main merge commit `b863facd7`.
 - Re-rendered and checked in the isolated clone after this merge: 784 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 warnings.
+
+## Follow-up disposition: 0428-315 / PR #1882
+
+Role: REVIEW/DISPOSITION only. No product edit and no merge.
+
+- Clarification: the live `refs/pull/1882/head` and GitHub PR API both identify `78ab390579afeb483fb1c181ad9eb11e0e317ea3` as the current head; `be410aea1ceee44163a26f7ad7eecc94b808e275` is its merge-base/earlier head, with nine descendant commits (including w400's implementation and later catalog-only updates) between them.
+- Refreshed Plan `origin/main` is `66eb5f0b52958349b3e6b1667cd02026470b1d31`. The current product PR #1882 is OPEN at exact head `78ab390579afeb483fb1c181ad9eb11e0e317ea3`, based on develop `6944e8761af6f07b801f55e39bb9a5409226c10b`.
+- Disposition: route (b), implementation of the cited Tempo/ObjectStorage sites, is the correct route for this card; do not narrow or retarget the Task contract. The alleged Tempo timeout divergence is not present on the reviewed base: `internal/metrics/perses_tempo_datasource.go:65-66` defines the 10s trace-query timeout and `internal/metrics/perses_tempo_verify.go:98-100` uses the same constant. Keep that value and make the shared matrix the single source of truth; do not change timeout behavior.
+- ObjectStorage values have separate operation semantics and must remain distinct: `internal/objectstorage/seaweedfs.go:32-34` defines 120s reconcile, 90s readiness, and 3s existing-provider probe budgets. Only consolidate the matching reconcile budget with the matrix `OverallTimeout`; preserve readiness and probe budgets as independent values. No timeout tuning or consent/auth-gate change is authorized by this disposition.
+- This route is already implemented in #1882's final content. The published `evidence/2026-11-27/0428-315/akte.md` records w400's changes at `internal/metrics/perses_tempo_datasource.go` and `internal/objectstorage/seaweedfs.go`, with the behavior-preserving matrix tests and unchanged values. The R5 exact-head review `evidence/2026-11-27/0428-315/verdict-r5-w267.md` reviewed final head `78ab390579afeb483fb1c181ad9eb11e0e317ea3` and found the content PASS after reviewing its catalog-only delta from `b61e3ab7e17f5e780d4ad37de92de4c4ece53d49`.
+- Handoff to the dispatched worker: do not duplicate or extend the implementation on #1882. Preserve the current content and wait for the base-side trusted-catalog/Freeze #136 lift and required exact-head hosted qualification. The observed pair `46055456117` and `46055569861` is terminal FAILURE, with Trusted Plan/catalog and empty `UNIT_SCOPE` failures; neither run supplies test receipts. Content PASS is not CI qualification or merge approval.
+- If the Owner instead elects route (a), the exact proposed Task edit is: replace the final Task sentence with “Centralize the existing CLI application-status probe timeout values in a documented matrix, and have each probe consume its matching matrix value; preserve all current durations and operation-specific budgets.” That would remove the Tempo/ObjectStorage acceptance target and is a scope change requiring the Owner's explicit approval. This review does not apply that edit.
+
+## Follow-up publication plan
+
+1. Fetch current Plan `main` at `66eb5f0b52958349b3e6b1667cd02026470b1d31` in a fresh isolated clone.
+2. Append only this 0428-315 disposition to this existing akte; do not edit product files or task metadata.
+3. Run Plan render and check; require zero errors.
+4. Commit under `w267-0428-284-pridentity`, push a fresh evidence branch, open one Plan PR, and wait for terminal green Plan validation on its exact head.
+5. Do not merge; report the unchanged Plan-main SHA and the PR/head/validation witness for the Coordinator.
+
+## Follow-up commit identity and base attestation
+
+- Plan `origin/main` before branch creation: `66eb5f0b52958349b3e6b1667cd02026470b1d31`.
+- Git remote verified in the isolated clone: `origin https://github.com/mcpdev80/baseharbor-plan.git`.
+- Commit author and committer identity: `w267-0428-284-pridentity` / `w267-0428-284-pridentity@baseharbor.local`.
+- Commit invocation: `git -c user.name=w267-0428-284-pridentity -c user.email=w267-0428-284-pridentity@baseharbor.local commit ...`.
+- Pre-push author gate: `git show -s --format=%an HEAD` must print exactly `w267-0428-284-pridentity`.
+- First branch push delivery witness (`git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/w267-staticreview-followup`):
+
+```text
+4863dbd814199cf644b09437a2a60bc325a0c8df	refs/heads/w267-staticreview-followup
+```
+
+## Follow-up END
+
+END_DONE w267-0428-284-pridentity: 0428-315 disposition is route (b), already implemented in #1882; content PASS, hosted qualification still blocked by class-A trusted-plan gate; no merge.
+
+## Follow-up cross-validation: #1884 and #1881
+
+Role: read-only content cross-validation; no product edits or product merges.
+
+- #1884 live `refs/pull/1884/head` and PR API agree on `b25c192159f78b2e3ed4d49f0ea587e216f04ace`, base `6944e8761af6f07b801f55e39bb9a5409226c10b`; compare shows the prior reviewed `e6425f9bf79d57dceddaedee1a07117da3d8a3b1` is its ancestor and there are three correction commits. The consent-reader finding is superseded for the reported queued foreign-reader case: `interactiveCandidatePromptAllowed` rejects generic readers (`app_candidate_consent.go:279-305`), while the CLI wrapper is created from the terminal file (`core_installation.go:313-325`); the negative queued-reader and wrapper-preservation regressions are at `app_candidate_consent_test.go:636-710`.
+- #1884 finding 2 is only partially resolved. The contradictory “display-only” assertion is removed and the remote lifecycle now explicitly calls the consent prompt before recording the deployment (`app_remote_lifecycle.go:166-176`). However, `TestRemoteApplyRouteInlineBindContractIsTruthful` at `app_candidate_consent_test.go:724-749` exercises only the non-terminal refusal path and never calls `executeRemoteApplicationApply`; its comment claims both directions, but no remote-route affirmative/success case exists. Correction recipe for w405: extend this test (or add a focused sibling) to execute the remote lifecycle with a terminal affirmative response and assert the exact candidate consent reaches the persisted deployment, while retaining the non-terminal fail-closed case and the existing admission/digest checks; do not test only the prompt/write leaves. The pair `46051642251` / `46051804829` is terminal FAILURE on exact head `b25c192159f78b2e3ed4d49f0ea587e216f04ace`; Trusted Plan fails and the unit/runtime jobs are skipped, so this remains content-test coverage CHANGES and is not CI qualification.
+- #1881 live `refs/pull/1881/head` is now `2e81d55fd019c54fecc79875f21b1ba5c6fdfc33`, not the supplied board SHA `1cd5029f7149f3bc72bfce7f7ff28e662f6bddf5` or the earlier akte witness `fc510d73d…`. The current head has `1cd5029f…` as its parent and adds one commit whose only changed path is `internal/orgconfig/migration.go`; the delta routes the existing parent-directory sync through `orgconfigSyncDir` (`migration.go:148-151`), whose default remains the production `syncDir` (`:54-65`). The injected error still traverses `syncDir` and becomes `*syncDurabilityError` (`:244-260`), and the regression asserts `errors.As`, no completion marker, and retained data (`migration_marker_test.go:439-490, 494-558`). R6's content PASS therefore carries to current head `2e81d55f…`; no new content finding. The current Hosted run `46098935150` is on `2e81d55f…`, with Trusted Plan failed and downstream unit checks skipped/pending at observation; the prior successful-content verdict is not a passing hosted qualification for this new head.
+- Cross-validation disposition: #1881 content PASS on current head, Hosted qualification pending; #1884 original reader finding superseded, but the remote-lifecycle regression gap remains CHANGES pending the exact test recipe above.
+
+## Cross-validation publication plan
+
+1. Add only this read-only cross-validation record to the existing static-review akte.
+2. Run Plan render/check; require zero errors.
+3. Commit and push to the existing isolated branch `w267-staticreview-followup`, then verify PR #261's new exact head and terminal Plan validation.
+4. Merge only the Plan evidence PR after current-main ancestry and green exact-head validation; do not merge product PRs.
+
+END_DONE w267-0428-284-pridentity: #1881 current head content PASS; #1884 finding 1 superseded, finding 2 CHANGES for missing remote success-path regression; no product merge.
