@@ -8,9 +8,9 @@ areas: [coordination, tooling]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w255-0428-251-demo170codex (session eb8c3da9-6fcb-43a7-949e-dc1833cd7beb)
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Make coordinator cleanup safely resumable after a partial release: resolve one Codeman lane to exactly one OpenCode session,…"
 kanban_title: 0428-352 · cleanup session retry safety
 priority: ""
@@ -20,22 +20,22 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-28/0428-352-closeout/akte.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-28/0428-352-closeout/verdict13-w255.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-28/0428-352-closeout/praxis-w255.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-28/0428-352-closeout/implementation-w392.md"]
 created: 2026-11-27
 ---
 
-- [ ] t-20261127-coord-session-retention · 0428-352 Coordinator cleanup preserves session identity through PARTIAL retries #task #release/v0-4-28 #status/planned #view/ready #area/coordination #area/tooling #kind/maintenance
+- [x] t-20261127-coord-session-retention · 0428-352 Coordinator cleanup preserves session identity through PARTIAL retries #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/coordination #area/tooling #kind/maintenance
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w255-0428-251-demo170codex (session eb8c3da9-6fcb-43a7-949e-dc1833cd7beb)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-28/0428-352-closeout/akte.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-28/0428-352-closeout/verdict13-w255.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-28/0428-352-closeout/praxis-w255.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/2026-11-28/0428-352-closeout/implementation-w392.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w255-0428-251-demo170codex (session eb8c3da9-6fcb-43a7-949e-dc1833cd7beb)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -79,3 +79,16 @@ In either strategy, the reference must survive the first PARTIAL result; do not 
 
 - Owned area: `coordinator/scripts/release-lane.py`, `coordinator/scripts/worker-cleanup.sh`, focused coordinator regression tests, and the relevant durable coordinator gate.
 - No product PR or workflow change is part of this card creation.
+
+
+## Closeout and resolution
+
+Accepted after independent review of the exact coordinator candidate `2d357c3dfb99e18149c6b37825f0e9ffab7ea5ee` and the Coordinator-confirmed W401/W402 RELEASED receipts. The full R1–R13 review series, W392 implementation akte, and W255 practice retest are archived in the linked Plan evidence directory.
+
+The original transport/inventory defect was the shared `workers/.models/<channel>` working directory being treated as a unique lane identity, compounded by retry-reference loss on PARTIAL and replayed pending events. The accepted repair resolves exact lane identity before fallback, persists honest retry state, retains reservations until gone verification, and suppresses replay after removal.
+
+Coordinator cleanup receipts in `coordinator/scripts/.release-receipts.json`: W401 `opencode=2cd2e2d6-9a4d-4e87-ad3a-63559e9ac48c`, `pool=none`, timestamp `2026-11-28T01:14:55Z`; W402 `opencode=e0ed81d0-fac2-4f3d-aae3-0009e872f466`, `pool=none`, timestamp `2026-11-28T01:15:01Z`. The Coordinator reported both commands as `worker-cleanup.sh <lane> --run` and `RELEASED`. Current bounded `codeman agent list --json` lookup finds neither W401 nor W402; it finds W255, W267, and W392. `pool-reconcile.py status` reports one remaining worker (W392, ornith), with no expired holds.
+
+Replay-storm counts recorded for the closure: W392 ×45, W255 ×90, W267 ×69, W401 ×36, W402 ×34.
+
+Verification record: W255 R13 ran `python3 -m unittest discover -s tests`, 40 tests passed; R13's exact-head review of coordinator candidate `2d357c3dfb99e18149c6b37825f0e9ffab7ea5ee` passed. This card closeout records the Coordinator's accepted release receipt; it does not claim a product PR or workflow change.
