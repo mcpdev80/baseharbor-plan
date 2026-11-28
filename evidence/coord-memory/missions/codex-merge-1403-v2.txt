@@ -1,0 +1,6 @@
+ROLLE: CODEX-MERGE. Coord 841e7734. Owner-autorisiert durch AKZEPTIERT(delta)-Akte act-1403d.md
+(Punkt 1-3 alle PASS, kopf f89cf7a5e6e, PR #1403 MERGEABLE/CLEAN gemessen). AKTION: gh pr merge 1403
+-R mcpdev80/baseharbor --admin; VORHER: head==f89cf7a5e6e + state OPEN + mergeable!=CONFLICTING
+(sonst STOP+END_BLOCKED — GHOST-WACHE: dieser zweig wurde schon einmal fremd verschoben). NACHHER:
+ls-remote develop; squash: blob-vergleich vv-13-kerndateien; END "END_DONE codex-merge-1403-v2:
+merged=<sha7> weise=<squash|merge> inhalt-gleich=JA".

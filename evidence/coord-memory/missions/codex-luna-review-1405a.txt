@@ -1,0 +1,38 @@
+ROLLE: CODEX-REVIEW. Coord a4573079. ABNAHME management-host — PR #1405.
+KANDIDAT: PR #1405 (mcpdev80/baseharbor), branch work/r27-management-host, head
+0f08b877f4152c156b219ff6d13ab05ee6b082de, base develop dddf0d7823f6eec161ad518bbced626fa9efe52e.
+BASIS ist diesmal bestätigt: merge-base --is-ancestor develop→head = JA (von mir gemessen, 01:1xZ);
+Prüfe es selbst neu — der Kopf hat sich nach meinem previousen RUN 31a532f5 von 5b8c542222 auf
+0f08b877f41 bewegt (Auffrischungs-Runde, Akte round-5.md).
+GEHOSTET: 15 success / 10 skipped (nach Pfadregel) / 0 fail / 0 pending am exakten Kopf gemessen.
+AKTEN: baseharbor-plan/evidence/r27-welle5-folge-2026-11-06/management-host/round-4.md UND round-5.md
+(origin/main), Mutantenskript management-host/scripts/mutation_mgmt_host.sh.
+LIEFERER: Lane w280-mgmt-host-r4 (worker-ornith1.5). Kartenwortlaut: tasks/t-20261018-r27-management-host.md
+("one durable state root and active-writer ownership", Write-Set cmd/baha/serve.go,
+internal/controlplaneruntime/server.go + server_run.go, bounded management-host/service bootstrap files).
+
+PRUEFPUNKTE:
+(1) SHA-genauer Diff develop...HEAD — Write-Set eng gemäß Karte, KEINE .github/**, keine Pflege-/
+    Regeldateien (AGENTS 3.11), kein Eingriff in internal/deployment/** (das gehört w286/Karte
+    t-20261106-r27-remote-up-podman-owner-missing — Scope-Verletzung wäre ein REJECT).
+(2) Kernforderung der Karte: GENAU EIN dauerhafter State-Root + Active-Writer-Eigentum. Der Kandidat
+    meldet "eigentum = ein primitiv (bootstrap lock bridgegt attach path, ErrManagementHostBootstrapContended)".
+    Belege, dass der Schutzmechanismus in PRODUKTIONS-code sitzt (datei:zeile), nicht nur im test-helfer.
+(3) Regressionstest wie gemeldet: zwei prozesse, A bindet + served, B mit gültigem root an zweiter
+    adresse => already-owned-Ablehnung, A bleibt bedienbar. Prüfe den test gegen die produktions-zeile,
+    nicht gegen einen helfer; dokumentierte mutante stufen L0/L1/L2 mit L0==L2 und sha256 sind beigelegt
+    (lauf 42317538394 gemeldet) — verifiziere die hashes gegen den kandidaten.
+(4) red-first (RUNBOOK 5.6): der kranke Commit muss mit SHA benannt und die rote Ausgabe AUF IHM
+    belegt sein; ein test, der auf der basis grün bleibt, ist keine regression.
+(5) CI-Aufnahmepflicht (AGENTS 5.3, Owner-Direktive 2026-11-07): der neue test muss von einem
+    GitHub-CI-job erfasst werden — job-name + triggerregel (file:line) belegen. VM-lauf ist smoke,
+    nicht evidence.
+(6) Erhalt-Pflicht (RUNBOOK 0.4): git diff <basis>..HEAD -- <beruehrte testdatei> | grep '^-func Test'
+    leer; wörtlichen nachweis in der akte fordern.
+(7) Eigenes-Run-Pflicht (AGENTS 4.6): END ohne beobachteten terminalen eigenen Lauf ist unvollständig.
+
+URTEIL: baseharbor-plan/evidence/r27-welle5-folge-2026-11-06/management-host/act-1405a.md,
+ACCEPT oder REJECT, IMMER mit REZEPT-BLOCK (datei, änderung, testanforderung, stop-kriterium).
+Vor/nach dem Review ls-remote-Zeugen für develop und PR-Head in die Akte (lesendes Review, keine
+Kandidatenänderung). GRENZE: kein Merge, keine Produktänderung in dieser Mission.
+END an a4573079: "END_DONE codex-luna-review-1405a: verdict=<ACCEPT|REJECT> head=<sha> akte=<pfad>".

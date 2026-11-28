@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW. Coord a4573079. ABNAHME managed-users RUNDE 8, kandidaten-genau.
+KANDIDAT: PR #1397 head 47a10ab056a vs develop; AKTE managed-users/round-8.md; rezept act-1397f war
+NUR die eine falsch-gruen-regression (fixture umbauen => echte aktivierung; nil-mutation ROT an
+PRODUKTIONSZEILE in isolierter kopie; haupt-fixture/route/version-guard unveraendert).
+PRUEFPUNKTE: (1) regression erreicht jetzt den /execute-actions-email-pfad (right-reason-zeugnis
+REACHED_ACTIVATION + body-array); (2) nil-mutation transcript mit hash 73513d89/restore 8812f40b
+gegen die ECHTE produktions-zeile (doktrin, praedenz act-1397b/e); (3) diff-pruefung: was aendert sich
+gegenueber b880f91 ueber die fixture hinaus? falls produktions-code bewegt wurde = separate bewertung;
+(4) lauf 42288242265 terminal am kopf; (5) write-set ohne .github. URTEIL als evidence/r27-welle5-
+2026-11-06/managed-users/act-1397g.md (ACCEPT|REJECT+rezept). END an a4573079: "END_DONE codex-luna-mu-1397g: verdict=<..>".

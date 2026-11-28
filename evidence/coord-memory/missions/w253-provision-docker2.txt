@@ -1,0 +1,37 @@
+ROLLE: Worker (Lane w253). Coord 841e7734. AUFGABE: zweite DOCKER-PRUEFVM provisionieren, damit sie
+fuer echte Docker-Tests bereit ist (keine Produktkarte, reine Infrastruktur — Owner-Direktive 2026-11-06).
+ZIELHOST: SSH-alias baha-docker-2 = 192.168.6.205 (hostname baha-runner-docker-2, user marcel, sudo
+nopasswd, Ubuntu 26.04 resolute amd64, git 2.53 vorhanden). ZIELBILD = bestehende baha-docker (166):
+docker-ce 29.x aus download.docker.com-Repo, containerd, buildx, docker-compose-plugin, daemon active,
+marcel in gruppe docker, rootless NICHT noetig.
+
+AUSGANGSLAGE (coord-Versuch war fehlerhaft, bitte bereinigen): /etc/apt/keyrings/docker.asc ist vorhanden
+(gut). ABER /etc/apt/sources.list.d/docker.sources hat LEERE Suite ( Zeile 'Suites: ') => malformed, apt
+update schlaegt fehl. Diese datei KORRIGIEREN (Suite=resolute setzen) oder neu schreiben.
+
+WEG (mein Heredoc-fehler vermeiden — skript-DATEI scp-en, nicht verschachtelte heredocs):
+ (1) lokal ein provisionier-skript schreiben (set -euo pipefail; korrekte docker.sources mit Suites:
+     $( . /etc/os-release; echo $UBUNTU_CODENAME ); apt-get update; apt-get install -y docker-ce
+     docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin; systemctl enable --now docker;
+     usermod -aG docker marcel), (2) scp nach baha-docker-2:/tmp/, (3) ssh 'sudo bash /tmp/<file>',
+     (4) skript auf der VM loeschen.
+ (5) NACHPRUEFUNG am ENDE (wörtlich in akte): als marcel OHNE sudo:
+     `docker run --rm hello-world` => "Hello from Docker!" und
+     `docker compose version` => Version, und `systemctl is-active docker` => active,
+     `getent group docker` => marcel gelistet. Ein NEUER ssh-login muss docker ohne sudo koennen
+     (sonst ist die gruppe nicht aktiv — dann login-shell-regel dokumentieren).
+
+AKTE: baseharbor-plan evidence/r27-welle5-folge-2026-11-06/infra/provision-docker-vm-2.md mit_plan
+checkliste + den nachweis-zeilen (befehl, ausgabe, zeitstempel) + ls-remote-zeug der plane-aenderung.
+Nur diese EINE datei, zielgerichtetes git add, commit, push origin main.
+
+VM-REGEL: diese VM ist (noch) NICHT im vm-lock-pool der laufenden tests — du provisionierst NUR sie,
+finger NICHT an baha-docker/baha-podman/baha-podman-2 (andere lanes). Nach erfolg: coord meldet, aufnahme
+in vm-lock/vm-audit uebernimmt der COORDINATOR, nicht du.
+
+GATES: KEINE subagenten, KEIN produkt-repo-push, root-checkout verboten, .github verboten, nichts auf den
+anderen VMs, secrets/token-dateien nur als METADATUM melden (nicht lesen/kopieren), caches /tmp/opencode/w253*.
+
+END an 841e7734: "END_DONE w253-provision-docker2: docker=<version> daemon=active compose=<version>
+hello-world=<OK> marcel-in-dockergruppe=<JA> akte=<pfad auf main> | <Satz>"
+Bei Scheitern: END_BLOCKED mit exakter fehlerzeile + naechstem ausloeser.

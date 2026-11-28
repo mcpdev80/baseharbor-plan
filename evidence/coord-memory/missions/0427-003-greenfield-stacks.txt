@@ -1,0 +1,19 @@
+ROLLE: Worker (Lane 0427-003-greenfield-stacks). Coord 594fd2f5. KARTE: core-815-tests-greenfield-stacks-native-runtimes (0427-003 · start all greenfield stacks on native runtimes). OWNER-DIREKTIVE 2026-11-07 #5: "Greenfield-Tests vollstaendig in CI integrieren" = zuweisung. Karte sagt "No open task dependencies" + "Build part delivered; startup acceptance outstanding" -> dein rest ist STARTUP-READY acceptance + single-control-plane default proof.
+Repo mcpdev80/baseharbor. base develop >= eee11d50 (ls-remote + ancestor-zeugnis).
+
+ZIEL (kartentext goal/acceptance): jedes eingebaute greenfield stack (Go, Next.js, Quarkus, Python) erreicht `baha app new -> generated repo -> baha up -> READY` auf Docker UND Podman, ohne manuelle quell-reparatur; portable contract aquivalent ausser app identity. PLUS governing contract t-20261106-r27-control-plane-single-default: jeder frische ungeaenderte `baha up` default pfad zeigt ECHTE SINGLE control-plane topologie (genau 1 instanz je required service, KEINE HA members / kein load balancer); READY allein reicht NICHT.
+
+WICHTIG — konfliktfreie write-set-grenze (andere wellen-lanes laufen parallel):
+ - DU: greenfield stack TEMPLATES + generated-source build/startup fix + DEINE akzeptanz-/starttests (zB scaffold acceptance tests). Go/Next/Quarkus/Python scaffolds, NICHT die baseharbor runtime-image.
+ - TABU (reserviert bei anderen lanes): internal/orgconfig/source_oci.go + cmd/baha/application_registry_source.go (#118 runtime-broker), cmd/baha/deployment_record.go/deployment_owner_loan* (#117), cmd/baha/main.go + client_commands_behaviors_test.go (#022), .github/* + scripts/{release-requirements,pr-gate-map} (#021 ci-seam). Du fasst KEINE dieser dateien an. Wenn dein stack-startup eine davon braucht (zB runtime-image resolution = #118 oder eine ci.yml runtime cell = #021), STOP+QUESTION bzw. BEFUND file:line, NICHT selbst editieren.
+
+ARBEIT:
+ (1) karte + governing contract t-...control-plane-single-default + native-delivery decision lesen.
+ (2) CLAIM `python3 scripts/plan.py claim core-815-tests-greenfield-stacks-native-runtimes`, commit, push.
+ (3) Fuehre die 4 scaffolds auf DOCKER (baha-docker/baha-docker-2 via vm-lock, host ist jetzt sauber) bis READY + belege single-control-plane default (rendered compose, containerzahl/namen, health, exakte commands). PODMAN-Seite: wenn podman-2 network-defekt (#107,DNS) blockt, dokumentiere als external-blocked mitklaerlich, erfinde kein gruen.
+ (4) REGRESSION/acceptance test in DEINEN write-set dateien; muss die CI fahren — benenne job/gate (plan-agents test-to-CI). native startup goert in develop/release qualification runtime cell (NICHT PR-full-matrix); wenn verdrahtung fehlt -> BEFUND file:line an 021-seam, NICHT .github selbst.
+ (5) PR gegen develop (exact-one-candidate), selected checks terminal + EIGNES-RUN.
+
+GATES: KEINE subagenten (AGENTS 4.8); test-VMs NUR via vm-lock claim/release, nach jedem schritt rueckbau (fabrikregel), dev-host tabu fuer stacks; exact-one-candidate; KEIN self-merge; KEIN release/tag/publish (v0.4.27 unreleased, owner: vor release stoppen).
+AKTE: evidence/r27-welle5-folge-2026-11-07/greenfield-stacks/round-1.md (ls-remote vor/nach, run-id(s), je stack: exakte command + generated compose + containerzahl (==single default, keine HA) + health, docker ok/podman status, ## repo-rule compliance, echte plan remote -v, test->check->trigger tabelle, ci-wiring befund falls native-cell noetig).
+END an 594fd2f5: "END_DONE 0427-003-greenfield-stacks: head=<sha> pr=<n> stacks=<Go/Next/Quarkus/Python READY je docker:ja/nein podman:ja/nein/blocked#107> single_control_plane=<belegt: containerzahl je stack==default, keine HA> regression=<datei:func, CI job genannt> run=<id TERMINAL> podman_gate=<ok|blocked#107> akte=<pfad origin/main>" / QUESTION / END_BLOCKED + zeile.

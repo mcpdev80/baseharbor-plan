@@ -1,0 +1,15 @@
+ROLLE: Worker (Lane w285). Coord a4573079. KARTE: t-20261106-r27-remote-up-cli-path (PR #1407, urteil
+1407b REJECT: base drei commits rueckstaendig + docker-runtime-zelle offen). OWNER-TABELLE P1.
+ARBEIT: (1) develop f3db942859c in work/r27-remote-up-cli mergen (ancestry+diff-zechen in akte; lsremote
+alt/neu; ein kandidat pro kette), push. (2) DOCKER-VM-ZELLE am neuen kopf: vm-lock claim des freien
+docker-hosts (pruefe journal+agent-list in EINEM zug; 148/107 sind podman — fuer dich 166 oder 205 je
+nach freiheit), pure-client up einer connector-gebundenen app, doctor health OK, transkript + dreipunkt-
+rueckbau (eigene=0, dauer-tabu), release journal-zeile. (3) PODMAN-ZELLE PARKT (befund-karte nr 2 der
+owner-tabelle, eigene korrektur) — vermerke das in der akte statt sie zu schummeln. (4) hosted checks
+TERMINAL am neuen kopf selbst beobachten. AKTE: remote-up-cli/round-3-docker.md (PUNKTE statt
+checkboxen; lsremote, run-id, transkripte, ## repo-rule compliance). Zone workers/w285-wt, caches
+/tmp/opencode/w285*. GATES: KEINE subagenten, coordinator-host container tabu, workers/baseharbor tabu,
+.github tabu, KEIN product-code (evidenz+base-only; wenn der docker-pfad selbst fehlschlaegt:
+END_BLOCKED mit repro-zeile — dann ist es ein neuer befund, kein fix in dieser lane).
+END an a4573079-e3f2-4200-9c68-1a46294edcb9: "END_DONE w285-pr1407-docker-cell: head=<sha10> base=aktuell
+docker_zelle=<GRUEN host|BLOCKED:zeile> checks=<id TERMINAL> host-clean=0 journal=<zeilen> akte=<pfad main> | <Satz>"

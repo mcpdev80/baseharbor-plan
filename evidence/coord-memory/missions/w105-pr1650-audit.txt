@@ -1,0 +1,13 @@
+READ-ONLY #1650 CONFLICT / DEPENDENCY / NEXT-ACTION AUDIT (owner directive 2026-11-25: independent read-only audit of #1650 or #1826; NO scope change, NO write absent owner approval). baseharbor. No subagents (§4.8); contact no other session; no VM run.
+
+Context: PR #1650 (card t-20261024-1277-mac-mini-distribution) is OWNER-PARKED ("park #1650" 2026-11-22). It had 4 exact-head failures (3x macOS VM + docker-smoke), an OPEN macOS-Signed-Workflow-Trust root-cause card, and a blocked mac-seawfs runner. Your job is to give the owner a current, decision-ready picture of what un-parking #1650 would require — inventory only, NO action.
+
+Do READ-ONLY, cite file:line / run ids:
+1. Current state: gh pr view 1650 (head SHA, base, isDraft, mergeable, reviewDecision, latest exact-head run id + status). git ls-remote origin the headRefName to verify the live head. Report develop SHA.
+2. Diff vs develop: git diff --stat origin/develop...<head> — which files, does the write-set conflict with the frozen chain (#1812 workflow / #1819 export / #1820 broker) or with #1826/#1823? Flag any overlap.
+3. Dependencies / blockers: the macOS-Signed-Workflow-Trust root-cause card status (find it in baseharbor-plan tasks/), the mac-seawfs runner state, whether the docker-smoke failure is the same operator-auth class as #1812/#1826 or independent. State plainly what is external-gated vs fixable by a lane.
+4. NEXT-ACTION options for the owner: (a) keep parked, (b) rebase+rerun if a dependency cleared, (c) needs the signed-workflow-trust fix first — with the evidence for each. Recommend the smallest next step but do NOT execute it.
+
+Also briefly: #1826 status cross-check (head 6589a37b, PR CI green, blocked on operator-auth change-2 per w95/w100) — one paragraph on whether #1826 has any INDEPENDENT, conflict-free sub-action left that is NOT the owner's change-2 decision.
+
+Deliver baseharbor-plan evidence/r28-welle6-11-25/... use evidence/r28-welle6-2026-11-25/1650-audit/round-1.md (## PLAN as PLAIN bullets, NO '- [ ]' checkboxes; native todo tool if present), commit+push atomically with TARGETED git add of ONLY your new file (never git add -A; pull --rebase origin main first). Report inline: develop SHA, #1650 head/state, diff write-set + conflict flags, external-gated vs lane-fixable, next-action recommendation, #1826 independent-sub-action note. READ-ONLY; changed nothing.

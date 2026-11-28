@@ -1,0 +1,24 @@
+ROLLE: CODEX-REVIEW (Abnahme-Sitz). Coord 594fd2f5. KARTE: t-20261106-r27-remote-up-podman-owner-missing (0427-117).
+RE-REVIEW r5 nach deinen two REJECTs (act-1419a marker-only; act-1419b owner-loan war testing.Testing()-GATED, loest NICHT den produktiv-podman apply; regression rief SaveDeploymentRecord direkt statt echtem CLI apply).
+Kandidat PR #1419 head 438895466eed1838bd50f3f9838184e4b7d7ebc1, base develop eee11d50 (is-ancestor rc0 belegt), MERGEABLE, draft=false, run 4989 TERMINAL-SUCCESS incl cli-package-tests + PR Selected Checks. Single integration commit (c0ac3bef..438895466 nur dieser, 6 files, KEIN .github).
+
+PRUEFE (nur-lesend; ls-remote refs/heads/develop refs/pull/1419/head zuerst; diff eee11d50...438895466):
+ (1) KERN: ist der EIGENTUEMER jetzt im PRODUKTIONSPFAD real aufgeloest, NICHT testing.Testing()-gated? Lies
+     cmd/baha/deployment_record.go recordDeploymentBeforeMutation (~394) — ruft sie productionLoanAuthorityForTarget /
+     deploymentTargetLoanVerifier gegen den ECHTEN command-context (BASEHARBOR_TARGET-first)? Die Authorisierung muss
+     geltend sein, wenn ein NICHT-Test-Prozess (echtes baha CLI) den apply faehrt. internal/deployment/deployment_owner_loan.go:
+     ist der 'reject non-test process'-Zweig ENTFERNT/umgeschrieben auf die echte target-Authority (local boot CORE, READY)?
+ (2) FAIL-CLOSED bleibt: connector/remote/managed scope und ownerloses target -> weiterhin ErrDeploymentOwnerMissing
+     (Genau das war Option-1-Design, das ich der lane autorisiert habe — KEINE neue public API, kein flag/env).
+ (3) REGRESSION: TestProductionOwnerLoanLocalIsolatedApplyPasses ist UN-GATED (laeuft im echten CI, nicht nur unter
+     testing.Testing()), faehrt einen ECHTEN lokalen CLI apply, ist GRUEN am kandidat und RED auf gestashtem base MIT
+     woertlicher sentinel-ausgabe (ErrDeploymentOwnerMissing). connector/unmarked RED both sides. Akte
+     evidence/r27-welle5-folge-2026-11-06/remote-up-cli/owner-missing-round-5.md auf origin/main (commit 20e80c39) pruefen.
+ (4) docker/podman TARGETED runtime cells (128313901403/128313924845) SKIPPED am PR = OWNER-scope push-ref-gate
+     (ci.yml:171-176/213-218). Das ist KEIN REJECT_LANE-Fix Grund. Wenn die un-gated unit+selected-check regression den
+     Kartenvertrag erfuellt und der produktiv-pfad real aufloest -> ACCEPT. Ein etwaiger End-to-End-Lauf auf echter VM
+     ist Owner-gate, nicht Bahn-verschulden.
+LIEFERE: ACCEPT | REJECT_LANE_FIX <datei:line rezept> | REJECT_BLOCKED_ON_OWNER_CI <ci.yml>. KEIN merge, KEIN code-aendern.
+END an 594fd2f5: "CODEX-REVIEW 0427-117/#1419-rereview-c: verdict=<..> head=<..> prod_path=<real-un-gated|gated>
+fail_closed=<ok|gebrochen> regression=<un-gated GREEN + RED-base verbatim> ci=<4989 TERMINAL> runtime_cells=<owner-gate>
+rezept=<..>". Akte evidence/r27-welle5-folge-2026-11-06/remote-up-cli/act-1419c-review.md ECHTE plan (remote -v; keine phantom).

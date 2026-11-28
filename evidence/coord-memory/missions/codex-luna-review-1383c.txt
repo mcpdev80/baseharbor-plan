@@ -1,0 +1,36 @@
+ROLLE: CODEX-REVIEW. Coord a4573079. DELTA-ABNAHME compose-host-isolation — PR #1383, NEUER KOPF.
+KANDIDAT: PR #1383 (mcpdev80/baseharbor), branch work/r27-compose-isolation, exact head
+61566c6805d (gemessen 05:3xZ), PR-base 3fa6f7b0d0, gehostete Läufe am Kopf: SUCCESS (run 42326862499),
+kein nicht-erfolgreicher Check ausser pfadbedingt skipped. Lane: w282-compose-cells-now (ornith-laptop).
+
+WAS SICH SEIT DEM LETZTEN URTEIL GEÄNDERT HAT (das ist der delta-gegenstand):
+  Letztes ACCEPT (act-1383b) galt dem KOPF 1b02e8866dd — dieser Kopf ist nicht mehr die PR-spitze.
+  Danach: runden 4–7 (akte evidence/r27-welle5-2026-11-06/compose-host-isolation/round-4..7.md),
+  zwei basis-auffrischungen (42973c75, dann 61566c68 gegen develop 3fa6f7b0) und vor allem: das
+  ISOLATION-BOOTSTRAP-GATE IST WEG. Die vier InCI-tests scheitern jetzt spaeter und EINHEITLICH an
+  ErrDeploymentOwnerMissing (deployment_store.go:107) — docker UND podman familie. Runde 7 meldet das
+  als ROT mit grund und routet den defekt auf karte t-20261106-r27-remote-up-podman-owner-missing (w286).
+
+PRUEFPUNKTE:
+(1) SHA-genauer Diff develop...61566c6805d: Write-Set ohne .github/**, ohne Pflege-/Regeldateien
+    (AGENTS 3.11), kein verschwinden lassen von tests (erhalt-pflicht: diff -- <testdatei> | grep '^-func Test' leer,
+    wörtlicher nachweis in der akte, RUNBOOK 0.4).
+(2) Das weggefallene bootstrap-gate: belege, dass der rueckbau Absicht + begruendet ist (kartenwortlaut
+    t-20261105-r27-compose-host-isolation) und dass die tests daduch NICHT scheingruen werden — sie
+    müssen jetzt an der naechsten echten schranke rot werden, und genau das muss die akte zeigen (5.6:
+    rot auf dem kranken commit, mit SHA).
+(3) Die vier InCI-tests: CI-aufnahmepflicht (AGENTS 5.3) — belege job + triggerregel (file:line), die
+    sie am PR ausfuehrt. Ein nachweis, der nur in einer VM-zelle laeuft, zaehlt nicht als evidence.
+(4) Scope-grenze: der owner-fehler selbst wird HIER NICHT repariert (das ist w286/karte 0427-117).
+    Bewerte, ob #1383 ohne diese Behebung annehmbar ist oder ob die karte bis dahin zurueck auf active
+    muss. Begruendung mit zitatem aus dem kartenwortlaut (file:line), keine Vermutung.
+(5) BASIS: develop laeuft schnell (dddf0d78 -> 3fa6f7b0 -> baab2363 innerhalb 2h). REJECT wegen bloesser
+    drift ist falsch; pruefe, ob der kopf einen jungen develop-stand enthaelt (hier 3fa6f7b0) und
+    vermerke die lage. Ein ACCEPT darf nur aussprechen, was am gemessenen kopf gilt.
+(6) Keine doppelte prueme bereits gueltiger, unveraenderter pruefpunkte aus act-1383b — nur das delta.
+
+URTEIL: baseharbor-plan/evidence/r27-welle5-2026-11-06/compose-host-isolation/act-1383c.md,
+ACCEPT oder REJECT, IMMER mit REZEPT-BLOCK (datei, aenderung, testanforderung, stop-kriterium).
+Vor/nach dem Review ls-remote-zeugen (develop + refs/pull/1383/head) in die akte; lesendes review, kein
+aendern am kandidaten. GRENZE: KEIN merge in dieser mission (merge erst als CODEX-MERGE nach ACCEPT).
+END an a4573079: "END_DONE codex-luna-review-1383c: verdict=<ACCEPT|REJECT> head=61566c6805d akte=<pfad>".

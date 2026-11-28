@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW. Coord a4573079. DELTA-ABNAHME control-plane-single-default RUNDE 5, kopf UNVERAENDERT.
+KANDIDAT: PR #1404 head ed98ed1dde7. Vorgaenger: act-1404f REJECT mit EINEM einzigen offenen punkt (5):
+podman-2 lock-provenanz — keine claim-zeile im journal. NEUE AKTE: control-plane-single-default/round-5.md:
+zellen 1-3 am selben kopf erneut, claim 21:06:43Z + release 21:22:27Z fuer baha-podman-2 w268 — verifiziere
+gegen coordinator/.vm-locks/journal.log (disk, nicht behauptung) und gegen round-5 text. PRUEFPUNKTE:
+(1) provenanz-punkt 5 jetzt erfuellbar? (2) inhaltliche zellen wie bisher PASS (keine neue forderung —
+delta-review, 5.4: kein doppeltes review des unveraenderten kandidaten ohne neuen befund), (3) sha-pin +
+lsremote. URTEIL als evidence/r27-welle5-2026-11-06/control-plane-single-default/act-1404g.md
+(ACCEPT|REJECT+rezept). Bei ACCEPT: CODEX-MERGE kann im anschluss folgen (merge selbst NICHT hier).
+END an a4573079: "END_DONE codex-luna-sd-1404g: verdict=<..>".

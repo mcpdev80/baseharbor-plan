@@ -1,0 +1,12 @@
+READ-ONLY 0428-BACKLOG ELIGIBILITY TRIAGE (owner directive 2026-11-25: fill idle seats with real conflict-free work, not holds — so produce the DECISION-READY queue of which remaining 0428-* cards are actually dispatchable NOW). Planning repo baseharbor-plan + baseharbor. NO code changes, NO PR/CI, NO claim/release, NO subagents (§4.8); contact no other session.
+
+Purpose: the coordinator keeps being told to staff seats but must not invent duplicate desks. Give a truthful eligibility map of the remaining v0.4.28 backlog so genuine independent work can be dispatched and only real blockers are held.
+
+Do READ-ONLY:
+1. Enumerate every card in baseharbor-plan tasks/ whose kanban_status is planned/ready/backlog and is v0.4.28 (release tag v0.4-28) OR whose title/body references an OPEN PR. For each: card_number, kanban_status, depends_on, owner, prs.
+2. Classify each as: (a) DISPATCHABLE-NOW = no open depends_on, write-set does not overlap the frozen chain (#1812/0428-249 workflow, #1819/0428-181 export, #1820/0428-271 broker, #1818/0428-078 dashboard) nor #1826/0428-279 nor consent (#1812/#169/#1807); (b) GATED = depends_on an unfinished card or the chain; (c) OWNER-SCOPE = write-set is scripts/** or .github/** only; (d) SUPERSEDED/STALE.
+3. For each DISPATCHABLE-NOW candidate, state in one line the concrete first action (which files/commits) and the CI it would need — so the coordinator can turn it into a real lane.
+4. Explicitly check these to settle them: 0428-224 (candidate commits carry), 0428-220 (candidate plan-only + CI integration), 0428-264 (reconcile old PRs/tasks v0.4.29), 0428-265 (v0.4.31), 0428-251 (v0.5.4), 0428-221 (v0.5.6), 0428-182 — are any real lane work now, and what is their write-set?
+5. Report counts: how many DISPATCHABLE-NOW exist (candidate-count for the coordinator's hold decision).
+
+Deliver baseharbor-plan evidence/r28-welle6-2026-11-25/0428-backlog-triage/round-1.md (## PLAN as PLAIN bullets, NO '- [ ]' checkbox syntax — it becomes a phantom CardBoard card; use your native todo tool if present). Table: card | status | depends_on | class | write-set-conflict? | first-action-or-blocker. Commit+push atomically with TARGETED git add of ONLY your new file (NEVER git add -A in the shared plan checkout; pull --rebase origin main first). Report inline: board_sha (git rev-parse --short origin/main after push), the class counts, and the list of truly DISPATCHABLE-NOW cards with one-line first actions. READ-ONLY; created/changed nothing product-side.
