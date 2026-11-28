@@ -130,6 +130,11 @@ Role: REVIEW/DISPOSITION only. No product edit and no merge.
 - Commit author and committer identity: `w267-0428-284-pridentity` / `w267-0428-284-pridentity@baseharbor.local`.
 - Commit invocation: `git -c user.name=w267-0428-284-pridentity -c user.email=w267-0428-284-pridentity@baseharbor.local commit ...`.
 - Pre-push author gate: `git show -s --format=%an HEAD` must print exactly `w267-0428-284-pridentity`.
+- First branch push delivery witness (`git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/w267-staticreview-followup`):
+
+```text
+4863dbd814199cf644b09437a2a60bc325a0c8df	refs/heads/w267-staticreview-followup
+```
 
 ## Follow-up END
 
