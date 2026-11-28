@@ -8,9 +8,9 @@ areas: [coordination, tooling]
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w255-0428-251-demo170codex (session eb8c3da9-6fcb-43a7-949e-dc1833cd7beb)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Make coordinator cleanup safely resumable after a partial release: resolve one Codeman lane to exactly one OpenCode session,…"
 kanban_title: 0428-352 · cleanup session retry safety
 priority: ""
@@ -25,17 +25,16 @@ evidence: []
 created: 2026-11-27
 ---
 
-- [ ] t-20261127-coord-session-retention · 0428-352 Coordinator cleanup preserves session identity through PARTIAL retries #task #release/v0-4-28 #status/planned #view/ready #area/coordination #area/tooling #kind/maintenance
+- [ ] t-20261127-coord-session-retention · 0428-352 Coordinator cleanup preserves session identity through PARTIAL retries #task #release/v0-4-28 #status/active #view/active #area/coordination #area/tooling #kind/maintenance
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w255-0428-251-demo170codex (session eb8c3da9-6fcb-43a7-949e-dc1833cd7beb)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** w255-0428-251-demo170codex (session eb8c3da9-6fcb-43a7-949e-dc1833cd7beb)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

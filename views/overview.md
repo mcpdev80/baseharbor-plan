@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 1 |
+| active | 2 |
 | review | 3 |
 | wait | 36 |
 | blocked | 9 |
-| ready | 36 |
+| ready | 35 |
 | queued | 25 |
 | waiting | 180 |
 | backlog | 7 |
@@ -25,6 +25,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261102-rcptlink-task](../tasks/t-20261102-rcptlink-task.md) | Receipt post-run writer: add single `Resolves #<issue>` link to merged PRs so tasklink auto-resolves green | active | not set | ornith (rcptlink) | — | [baseharbor#1267](https://github.com/mcpdev80/baseharbor/pull/1267), [baseharbor#1268](https://github.com/mcpdev80/baseharbor/pull/1268), [baseharbor#1269](https://github.com/mcpdev80/baseharbor/pull/1269), [baseharbor#1270](https://github.com/mcpdev80/baseharbor/pull/1270), [baseharbor#1271](https://github.com/mcpdev80/baseharbor/pull/1271), [baseharbor#1274](https://github.com/mcpdev80/baseharbor/pull/1274), [baseharbor#1275](https://github.com/mcpdev80/baseharbor/pull/1275) |
+| [t-20261127-coord-session-retention](../tasks/t-20261127-coord-session-retention.md) | 0428-352 Coordinator cleanup preserves session identity through PARTIAL retries | active | not set | w255-0428-251-demo170codex (session eb8c3da9-6fcb-43a7-949e-dc1833cd7beb) | — | — |
 
 ## Ready for review
 
@@ -123,7 +124,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261126-hunt46-collectable-orphans-reserved-namespace](../tasks/t-20261126-hunt46-collectable-orphans-reserved-namespace.md) | 0428 hunt H-V46: CollectableOrphans lists the reserved never-delivered dir as a collectable orphan UUID (medium) | ready | not set | — | — | [baseharbor-plan#147](https://github.com/mcpdev80/baseharbor-plan/pull/147) |
 | [t-20261126-hunt46-destroy-data-loss-vocabulary](../tasks/t-20261126-hunt46-destroy-data-loss-vocabulary.md) | 0428 hunt H-V46: destroy --all and control-plane destroy --delete-data use split data-loss consequence vocabulary (low) | ready | not set | — | — | — |
 | [t-20261126-hunt46-never-delivered-proof-leak](../tasks/t-20261126-hunt46-never-delivered-proof-leak.md) | 0428 hunt H-V46: the never-delivered destroy/retire path verifies but never consumes the one-shot proof (medium) | ready | not set | — | — | [baseharbor#1868](https://github.com/mcpdev80/baseharbor/pull/1868), [baseharbor-plan#189](https://github.com/mcpdev80/baseharbor-plan/pull/189) |
-| [t-20261127-coord-session-retention](../tasks/t-20261127-coord-session-retention.md) | 0428-352 Coordinator cleanup preserves session identity through PARTIAL retries | ready | not set | — | — | — |
 | [t-20261128-hunt48-refresh-public-api-ownership-map](../tasks/t-20261128-hunt48-refresh-public-api-ownership-map.md) | 0428 hunt H-V48: internal/api/api-old precedent gone, surface-ownership map stale | ready | not set | — | — | — |
 | [t-20261128-hunt48-runtime-pagination-contract](../tasks/t-20261128-hunt48-runtime-pagination-contract.md) | 0428 hunt H-V48: runtime API list endpoints have no pagination contract | ready | not set | — | — | [baseharbor#1872](https://github.com/mcpdev80/baseharbor/pull/1872), [baseharbor#1871](https://github.com/mcpdev80/baseharbor/pull/1871), [baseharbor-plan#156](https://github.com/mcpdev80/baseharbor-plan/pull/156) |
 | [t-20261128-hunt48-unify-runtime-error-envelope](../tasks/t-20261128-hunt48-unify-runtime-error-envelope.md) | 0428 hunt H-V48: unify runtime HTTP error envelope (runtimeresourceapi writeProblem vs apierror.Error) | ready | not set | — | — | — |
