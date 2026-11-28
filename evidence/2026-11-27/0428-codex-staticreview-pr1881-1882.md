@@ -196,3 +196,10 @@ END_DONE w267-0428-284-pridentity: #1881 current head content PASS; #1884 findin
 END_DONE w267-0428-284-pridentity: PR #1884 content PASS at f6ebba6ecf610cccca884c2896ee69ed70b77ca6; hosted qualification held on class-A Trusted Plan catalog failure; product PR not merged; Plan evidence publication pending.
 - Recorded pre-push identity witness for the initial evidence commit: `906b7ac an=w267-0428-284-pridentity cn=w267-0428-284-pridentity`.
 - Recorded pre-push identity witness for the identity-witness commit: `b2a7a34 an=w267-0428-284-pridentity cn=w267-0428-284-pridentity`.
+
+## Publication receipt for final #1884 review
+
+- The preceding `END_DONE ... Plan evidence publication pending` line records the pre-publication review state and is superseded by this receipt.
+- Plan evidence PR #266 merged normally at `706d66a7cf3985ff73b07d2fc0ca0ffb4a0c9f5c`; `Plan · validate` run `46104993930` completed SUCCESS on exact head `03ff403ce2133a442de2195ba7bf1c8cf8c4b698`.
+- Verified `origin/main` tree path after publication: `evidence/2026-11-27/0428-codex-staticreview-pr1881-1882.md`.
+- END_DONE w267-0428-284-pridentity: PR #1884 content PASS at f6ebba6ecf610cccca884c2896ee69ed70b77ca6; Hosted qualification remains held by class-A Trusted Plan failure; no product merge; Plan main `706d66a7cf3985ff73b07d2fc0ca0ffb4a0c9f5c`.
