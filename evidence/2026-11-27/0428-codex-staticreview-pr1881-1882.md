@@ -140,3 +140,21 @@ Role: REVIEW/DISPOSITION only. No product edit and no merge.
 ## Follow-up END
 
 END_DONE w267-0428-284-pridentity: 0428-315 disposition is route (b), already implemented in #1882; content PASS, hosted qualification still blocked by class-A trusted-plan gate; no merge.
+
+## Follow-up cross-validation: #1884 and #1881
+
+Role: read-only content cross-validation; no product edits or product merges.
+
+- #1884 live `refs/pull/1884/head` and PR API agree on `b25c192159f78b2e3ed4d49f0ea587e216f04ace`, base `6944e8761af6f07b801f55e39bb9a5409226c10b`; compare shows the prior reviewed `e6425f9bf79d57dceddaedee1a07117da3d8a3b1` is its ancestor and there are three correction commits. The consent-reader finding is superseded for the reported queued foreign-reader case: `interactiveCandidatePromptAllowed` rejects generic readers (`app_candidate_consent.go:279-305`), while the CLI wrapper is created from the terminal file (`core_installation.go:313-325`); the negative queued-reader and wrapper-preservation regressions are at `app_candidate_consent_test.go:636-710`.
+- #1884 finding 2 is only partially resolved. The contradictory “display-only” assertion is removed and the remote lifecycle now explicitly calls the consent prompt before recording the deployment (`app_remote_lifecycle.go:166-176`). However, `TestRemoteApplyRouteInlineBindContractIsTruthful` at `app_candidate_consent_test.go:724-749` exercises only the non-terminal refusal path and never calls `executeRemoteApplicationApply`; its comment claims both directions, but no remote-route affirmative/success case exists. Correction recipe for w405: extend this test (or add a focused sibling) to execute the remote lifecycle with a terminal affirmative response and assert the exact candidate consent reaches the persisted deployment, while retaining the non-terminal fail-closed case and the existing admission/digest checks; do not test only the prompt/write leaves. The pair `46051642251` / `46051804829` is terminal FAILURE on exact head `b25c192159f78b2e3ed4d49f0ea587e216f04ace`; Trusted Plan fails and the unit/runtime jobs are skipped, so this remains content-test coverage CHANGES and is not CI qualification.
+- #1881 live `refs/pull/1881/head` is now `2e81d55fd019c54fecc79875f21b1ba5c6fdfc33`, not the supplied board SHA `1cd5029f7149f3bc72bfce7f7ff28e662f6bddf5` or the earlier akte witness `fc510d73d…`. The current head has `1cd5029f…` as its parent and adds one commit whose only changed path is `internal/orgconfig/migration.go`; the delta routes the existing parent-directory sync through `orgconfigSyncDir` (`migration.go:148-151`), whose default remains the production `syncDir` (`:54-65`). The injected error still traverses `syncDir` and becomes `*syncDurabilityError` (`:244-260`), and the regression asserts `errors.As`, no completion marker, and retained data (`migration_marker_test.go:439-490, 494-558`). R6's content PASS therefore carries to current head `2e81d55f…`; no new content finding. The current Hosted run `46098935150` is on `2e81d55f…`, with Trusted Plan failed and downstream unit checks skipped/pending at observation; the prior successful-content verdict is not a passing hosted qualification for this new head.
+- Cross-validation disposition: #1881 content PASS on current head, Hosted qualification pending; #1884 original reader finding superseded, but the remote-lifecycle regression gap remains CHANGES pending the exact test recipe above.
+
+## Cross-validation publication plan
+
+1. Add only this read-only cross-validation record to the existing static-review akte.
+2. Run Plan render/check; require zero errors.
+3. Commit and push to the existing isolated branch `w267-staticreview-followup`, then verify PR #261's new exact head and terminal Plan validation.
+4. Merge only the Plan evidence PR after current-main ancestry and green exact-head validation; do not merge product PRs.
+
+END_DONE w267-0428-284-pridentity: #1881 current head content PASS; #1884 finding 1 superseded, finding 2 CHANGES for missing remote success-path regression; no product merge.
