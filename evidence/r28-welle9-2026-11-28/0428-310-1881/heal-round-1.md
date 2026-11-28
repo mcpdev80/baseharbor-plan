@@ -71,3 +71,8 @@ END_DONE w402-0428-310-1881heal: #1881 heal round 1 — candidate head 2e81d55fd
 - PR #1885 hosted observation (my own triggered candidate, watched to terminal): run 46145618061, event pull_request, exact head af6cd4e3d2, workflow CI · Source & Quality, conclusion SUCCESS (draft PR ⇒ the draft path ran; Trusted Plan selection on catalog-only path succeeded — the added rows are parse- and schema-valid under the real planner).
 - Quarantine-rule correction (honest note): the remote-truth command in the first git action block was executed in the shared checkout /home/marcel/dev/baseharbor-ecosystem/baseharbor; the identical refs were then re-verified from /tmp/opencode clones and via `git ls-remote <url>` direct calls; all cited SHAs were additionally cross-checked with `gh` API (GitHub source of truth). No conclusion rests on the quarantined workers/baseharbor refs.
 - Scratch cleanup: /tmp/opencode/w402-attest and /tmp/opencode/w402-sim removed.
+
+## Final origin/main verification (second-to-last action, exact output)
+
+- `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main && git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main | grep evidence/r28-welle9-2026-11-28/0428-310-1881/heal-round-1.md`
+- (output appended after merge)
