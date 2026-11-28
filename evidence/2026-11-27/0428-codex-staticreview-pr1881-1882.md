@@ -103,3 +103,34 @@ END_BLOCKED w267-0428-284-pridentity: #1884 CHANGES; exact-head Trusted Plan 460
 - Plan main advanced after the initial evidence commit from `41972b641f9b97f29dbf1aec320309d21568645b` to `cb8bf89521e891650ee8712395514b1836253f30`. The evidence branch merged that exact current `origin/main` with merge commit `b863facd7573db8a036599a70c05e8f20bc86781`, authored and committed as `w267-0428-284-pridentity`.
 - Current-base proof: `git merge-base --is-ancestor origin/main HEAD` succeeded. Exact `git diff origin/main...HEAD --name-only` output: `evidence/2026-11-27/0428-codex-staticreview-pr1881-1882.md`. `git log --oneline origin/main..HEAD` lists only my evidence commit `187c239d5` and current-main merge commit `b863facd7`.
 - Re-rendered and checked in the isolated clone after this merge: 784 tasks, 7 epics, 13 releases, 24 decisions; 0 errors, 10 warnings.
+
+## Follow-up disposition: 0428-315 / PR #1882
+
+Role: REVIEW/DISPOSITION only. No product edit and no merge.
+
+- Refreshed Plan `origin/main` is `66eb5f0b52958349b3e6b1667cd02026470b1d31`. The current product PR #1882 is OPEN at exact head `78ab390579afeb483fb1c181ad9eb11e0e317ea3`, based on develop `6944e8761af6f07b801f55e39bb9a5409226c10b`.
+- Disposition: route (b), implementation of the cited Tempo/ObjectStorage sites, is the correct route for this card; do not narrow or retarget the Task contract. The alleged Tempo timeout divergence is not present on the reviewed base: `internal/metrics/perses_tempo_datasource.go:65-66` defines the 10s trace-query timeout and `internal/metrics/perses_tempo_verify.go:98-100` uses the same constant. Keep that value and make the shared matrix the single source of truth; do not change timeout behavior.
+- ObjectStorage values have separate operation semantics and must remain distinct: `internal/objectstorage/seaweedfs.go:32-34` defines 120s reconcile, 90s readiness, and 3s existing-provider probe budgets. Only consolidate the matching reconcile budget with the matrix `OverallTimeout`; preserve readiness and probe budgets as independent values. No timeout tuning or consent/auth-gate change is authorized by this disposition.
+- This route is already implemented in #1882's final content. The published `evidence/2026-11-27/0428-315/akte.md` records w400's changes at `internal/metrics/perses_tempo_datasource.go` and `internal/objectstorage/seaweedfs.go`, with the behavior-preserving matrix tests and unchanged values. The R5 exact-head review `evidence/2026-11-27/0428-315/verdict-r5-w267.md` reviewed final head `78ab390579afeb483fb1c181ad9eb11e0e317ea3` and found the content PASS after reviewing its catalog-only delta from `b61e3ab7e17f5e780d4ad37de92de4c4ece53d49`.
+- Handoff to the dispatched worker: do not duplicate or extend the implementation on #1882. Preserve the current content and wait for the base-side trusted-catalog/Freeze #136 lift and required exact-head hosted qualification. The observed pair `46055456117` and `46055569861` is terminal FAILURE, with Trusted Plan/catalog and empty `UNIT_SCOPE` failures; neither run supplies test receipts. Content PASS is not CI qualification or merge approval.
+- If the Owner instead elects route (a), the exact proposed Task edit is: replace the final Task sentence with “Centralize the existing CLI application-status probe timeout values in a documented matrix, and have each probe consume its matching matrix value; preserve all current durations and operation-specific budgets.” That would remove the Tempo/ObjectStorage acceptance target and is a scope change requiring the Owner's explicit approval. This review does not apply that edit.
+
+## Follow-up publication plan
+
+1. Fetch current Plan `main` at `66eb5f0b52958349b3e6b1667cd02026470b1d31` in a fresh isolated clone.
+2. Append only this 0428-315 disposition to this existing akte; do not edit product files or task metadata.
+3. Run Plan render and check; require zero errors.
+4. Commit under `w267-0428-284-pridentity`, push a fresh evidence branch, open one Plan PR, and wait for terminal green Plan validation on its exact head.
+5. Do not merge; report the unchanged Plan-main SHA and the PR/head/validation witness for the Coordinator.
+
+## Follow-up commit identity and base attestation
+
+- Plan `origin/main` before branch creation: `66eb5f0b52958349b3e6b1667cd02026470b1d31`.
+- Git remote verified in the isolated clone: `origin https://github.com/mcpdev80/baseharbor-plan.git`.
+- Commit author and committer identity: `w267-0428-284-pridentity` / `w267-0428-284-pridentity@baseharbor.local`.
+- Commit invocation: `git -c user.name=w267-0428-284-pridentity -c user.email=w267-0428-284-pridentity@baseharbor.local commit ...`.
+- Pre-push author gate: `git show -s --format=%an HEAD` must print exactly `w267-0428-284-pridentity`.
+
+## Follow-up END
+
+END_DONE w267-0428-284-pridentity: 0428-315 disposition is route (b), already implemented in #1882; content PASS, hosted qualification still blocked by class-A trusted-plan gate; no merge.
