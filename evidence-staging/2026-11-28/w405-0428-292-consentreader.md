@@ -217,6 +217,39 @@ Core-side fail-closed gates intact at this head (STOP check — nothing of the C
   staging is not lost; if you prefer, `git worktree remove --force` discards it with zero remote effect — say the word
   and I will run it on your instruction rather than unilaterally.
 
+## AKTENLINE — unit-unreachable witness for the executeRemoteApplicationApply success path (forwarded to w267)
+
+Befund (Lane-Meldung, Entscheidung durch w267 offen; meine drei QUESTION-Optionen: (1) product seam in
+`app_remote_lifecycle.go`, (2) test-only seam in the one consent test file, (3) land the route-near write pair and
+report full-route enforcement as a finding): the mission's requested regression "terminal `y` THROUGH
+`executeRemoteApplicationApply` converging the remote deployment" cannot be executed as a pure unit test on the
+current code, because the route's success side requires a live enrolled Connector node. Witnesses:
+
+- `cmd/baha/app_remote_up_success_discriminator_test.go:22-27` (pre-existing on develop and on the candidate head):
+  "The genuine success seam (a live enrolled Connector node that answers NodeMemory + Publish + ApplyApplication with
+  err == nil) is unit-unreachable: a unit runner has no enrolled node, so the up-path fails closed at the connector
+  seam with `targetsession.ErrUnavailable`" — the card 0428-292 route shares that exact seam.
+- Route call sites needing the live node: `cmd/baha/app_remote_lifecycle.go:44` `targetsession.NewProjectRuntime`
+  (direct call, no injectable `var` seam), `:148` memory preflight → `cmd/baha/app_remote_capacity.go:29`
+  `runtime.NodeMemory`, `:208` `runtime.Publish`, `:224` `runtime.ApplyApplication`; all through
+  `internal/targetsession/project.go:57` (no seam indirection).
+- Corroboration: every pre-existing `executeRemoteApplicationApply` unit call asserts a FAILING outcome —
+  `client_commands_behaviors_test.go:245` (`ErrorApprovalRequired`), `:310` (stale consent),
+  `application_remote_authorization_test.go:40` (`ErrorApprovalRequired`), `app_remote_admission_test.go:60`
+  (typed denial), `app_remote_up_success_discriminator_test.go:110` (connector-route fail-closed). No test anywhere
+  converges the remote route in a unit cell.
+- Consequence for my draft: even the reactivation branch reaches
+  `application.RestoreRemoteManagedSnapshot(transport, scope, ...)` (`app_remote_lifecycle.go:73`), so the `y` round
+  fails at the connector seam BEFORE the bind prompt at `:176`; only the `n`/refusal-side reasoning holds without a
+  seam. The refusal round of my draft can fail at transport rather than at the consent write, i.e. it would not prove
+  consent semantics either — which is exactly why option (3) pins prompt→write pairing on the route's own call
+  sequence instead.
+- State while w267 decides: NO commit, NO push of the product draft (candidate head stays
+  `b25c192159f78b2e3ed4d49f0ea587e216f04ace`, re-witnessed); the draft remains local uncommitted in
+  `/tmp/opencode/w405-0428-292-wt` (`cmd/baha/app_candidate_consent_test.go`, +129/−30, gofmt/vet/build green as
+  non-test pre-checks). Planning side already published: claim commit `30ba2aad2` + this akte `82288a36b` on
+  `lane-w405-0428-292-claim` (plan PR #263 head `82288a36b`, main still `d50051072` pending your admin squash).
+
 ## Handoff / state at stop
 
 - Candidate: PR #1884 head `b25c192159f78b2e3ed4d49f0ea587e216f04ace` (unchanged by this lane, not merged, OPEN,
