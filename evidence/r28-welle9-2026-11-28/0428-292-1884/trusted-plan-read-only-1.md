@@ -116,3 +116,11 @@ PR Selected Checks downstream failure (verbatim, job 140848679154):
 ## End-state marker
 
 END_DONE w402-0428-310-1881heal: #1884 read-only trusted-plan report; head=f6ebba6ec trustedplan=fail runs=46102641931/46102724251 blocker=class-A base catalog (4 uncataloged paths, core_installation.go missing in PR too); no writes to any product repo.
+
+## Final publication witnesses (appended after merge)
+
+- Pre-push identity line: `git log --format='%h an=%an cn=%cn' -1` = `404bb8f4b an=w402-0428-310-1881heal cn=w402-0428-310-1881heal`.
+- Delivery proof: `git ls-remote origin refs/heads/w402-0428-310-1881heal/1884-report` = `404bb8f4bf47f580502c3d3e46f6ebff80bc15dc`.
+- Plan PR https://github.com/mcpdev80/baseharbor-plan/pull/268: state MERGED, squash commit `efe4883813924e4f1502653d3954ad97c3fb6a4c` on main; gate `Plan · validate` run `46144782693` SUCCESS on exact head 404bb8f4 before merge (no history rewrite, ancestry proven above).
+- origin/main verification (second-to-last action): `git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep <path>` output:
+  `evidence/r28-welle9-2026-11-28/0428-292-1884/trusted-plan-read-only-1.md`
